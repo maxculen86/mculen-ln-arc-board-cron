@@ -13,6 +13,8 @@ import LoginProvider from '../../private/LN/common/context/loginContext';
 import LoadBanners from '../../private/common/banners/LoadBanners';
 import getScrollPercent from '../../private/LN/common/utils/getScrollPercent';
 import AnexoFeature from '../../features/LN-acumulado/anexoIframe';
+import SubHeader from '../../features/LN-common/subHeader';
+import TePuedeInteresar from '../../features/LN-nota/tePuedeInteresar/default';
 
 const pageBuilderSections = [
     'Anticipo',
@@ -46,6 +48,7 @@ const reducer = (state, action) => {
             return newState;
         }
         case 'updateNextBlock': {
+            if (!checkIfOneBlockIsFalse(state)) return state;
             const newState2 = updateNextBlock(state);
             return newState2;
         }
@@ -73,6 +76,10 @@ const updateNextBlock = blocks => {
         }
     });
     return b;
+};
+
+const checkIfOneBlockIsFalse = blocksToLoad => {
+    return Object.keys(blocksToLoad).some(key => !blocksToLoad[key]);
 };
 
 const sectionsWithBlocks = {
@@ -244,6 +251,7 @@ const LNMainHome = props => {
                 {/* {megatop} */}
                 <div id="wrapper" className="home">
                     <Header />
+                    <SubHeader />
                     {anticipo}
                     {anexo1}
                     {bomba}
@@ -293,17 +301,19 @@ const LNMainHome = props => {
                                     <div data-section="breaking6">
                                         {blocksToLoad.bloque3 && breaking6}
                                     </div>
-                                    <div
-                                        data-section="ranking"
-                                        className="lay ranking-ln9"
-                                    >
-                                        <AnexoFeature
-                                            customFields={{
-                                                url:
-                                                    'https://dp-ln9.lanacion.com.ar/masleidas/home'
-                                            }}
-                                        />
-                                    </div>
+                                    {blocksToLoad.bloque3 && (
+                                        <div
+                                            data-section="ranking"
+                                            className="lay ranking-ln9"
+                                        >
+                                            <AnexoFeature
+                                                customFields={{
+                                                    url:
+                                                        'https://dp-ln9.lanacion.com.ar/masleidas/home'
+                                                }}
+                                            />
+                                        </div>
+                                    )}
                                     <div data-section="comercial1">
                                         {blocksToLoad.bloque3 && comercial1}
                                     </div>
@@ -333,6 +343,11 @@ const LNMainHome = props => {
                                     <div data-section="bloque8">
                                         {blocksToLoad.bloque5 && bloque8}
                                     </div>
+                                    {blocksToLoad.bloque5 && (
+                                        <TePuedeInteresar
+                                            customFields={{ cantidadNotas: 6 }}
+                                        />
+                                    )}
                                 </div>
                                 <div className="sidebar__aside hlp-tabletlm-none">
                                     {/* BANNERS, RANKING DE NOTAS */}
