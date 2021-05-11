@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { IS_DEV, IS_SANDBOX } from 'fusion:environment';
+// import { IS_DEV, IS_SANDBOX } from 'fusion:environment';
 
 export default class PostBid extends Component {
     constructor(props) {
@@ -12,7 +12,8 @@ export default class PostBid extends Component {
     }
 
     render() {
-        const isTest =
+        return <></>;
+        /* const isTest =
             IS_DEV === 'true' && IS_SANDBOX === 'true' ? '_test' : '';
 
         return (
@@ -20,6 +21,6 @@ export default class PostBid extends Component {
                 async
                 src={`https://ads.rubiconproject.com/prebid/20148_LaNacion_Desktop${isTest}.js`}
             />
-        );
+        ); */
     }
 }
