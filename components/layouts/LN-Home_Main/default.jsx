@@ -11,7 +11,10 @@ import LoginProvider from '../../private/LN/common/context/loginContext';
 // import getBannerMegatop from '../../private/common/utils/getBannerMegatop';
 // import BannerRefactor from '../../features/LN-common/bannerRefactor';
 import LoadBanners from '../../private/common/banners/LoadBanners';
+import getScrollPercent from '../../private/LN/common/utils/getScrollPercent';
 import AnexoFeature from '../../features/LN-acumulado/anexoIframe';
+import SubHeader from '../../features/LN-common/subHeader';
+import TePuedeInteresar from '../../features/LN-nota/tePuedeInteresar/default';
 
 const pageBuilderSections = [
     'Anticipo',
@@ -26,6 +29,7 @@ const pageBuilderSections = [
     'Opinion',
     'Breaking-4',
     'Breaking-5',
+    'Breaking-6',
     'Comercial-1',
     'Bloque-2',
     'Comercial-2',
@@ -37,110 +41,71 @@ const pageBuilderSections = [
     'Bloque-8'
 ];
 
-const BannerWrapper = React.memo(
-    ({ children }) => children,
-    (prevProps, nextProps) => prevProps.load === nextProps.load
-);
-BannerWrapper.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.node).isRequired
-};
-
 const reducer = (state, action) => {
     switch (action.type) {
-        case 'updateAll': {
+        case 'update': {
             const newState = updateBlocks(state, action.payload);
             return newState;
         }
-        case 'update':
-            if (state[action.payload]) return state;
-            return {
-                ...state,
-                [action.payload]: true
-            };
+        case 'updateNextBlock': {
+            if (!checkIfOneBlockIsFalse(state)) return state;
+            const newState2 = updateNextBlock(state);
+            return newState2;
+        }
         default:
             throw new Error();
     }
 };
 
 const updateBlocks = (blocks, lastBlock) => {
-    const b = blocks;
+    const newState = { ...blocks };
     if (!lastBlock) return blocks;
-    const number = lastBlock.slice(-1);
+    const number = Number(lastBlock.slice(-1)) + 1;
     Object.keys(blocks).forEach(key => {
-        if (key.slice(-1) <= number) b[key] = true;
+        if (key.slice(-1) <= number) newState[key] = true;
     });
-    return blocks;
+    return newState;
 };
 
-/**
- * TODO: Hacer dinamica la siguiente configuracion para distintos tamaños de viewport
- */
+const updateNextBlock = blocks => {
+    const b = { ...blocks };
+    Object.keys(blocks).some(key => {
+        if (b[key] === false) {
+            b[key] = true;
+            return true;
+        }
+    });
+    return b;
+};
+
+const checkIfOneBlockIsFalse = blocksToLoad => {
+    return Object.keys(blocksToLoad).some(key => !blocksToLoad[key]);
+};
+
 const sectionsWithBlocks = {
-    apertura: 'bloque2',
+    anticipo: 'bloque1',
+    anexo1: 'bloque1',
+    bomba: 'bloque1',
+    apertura: 'bloque1',
     anexo2: 'bloque2',
     breaking1: 'bloque2',
-    breaking2: 'bloque3',
-    breaking3: 'bloque3',
+    breaking2: 'bloque2',
+    breaking3: 'bloque2',
     anexo3: 'bloque3',
     opinion: 'bloque3',
     breaking4: 'bloque3',
     breaking5: 'bloque3',
-    comercial1: 'bloque4',
+    breaking6: 'bloque3',
+    comercial1: 'bloque3',
     bloque2: 'bloque4',
     comercial2: 'bloque4',
     bloque3: 'bloque4',
-    bloque4: 'bloque5',
+    bloque4: 'bloque4',
     bloque5: 'bloque5',
     bloque6: 'bloque5',
     bloque7: 'bloque5',
     bloque8: 'bloque5'
 };
-
-/* const blocksBanners = {
-    bloque1: [
-        {
-            slotGroup: 'acumuladoHome',
-            desktop: 'caja1_dsk',
-            tablet: 'caja1_tab'
-        },
-        {
-            slotGroup: 'acumuladoHome',
-            desktop: 'caja2_dsk'
-        },
-        {
-            slotGroup: 'acumuladoHome',
-            desktop: 'caja3_dsk'
-        }
-    ],
-    bloque2: []
-};
-
-{blocksToLoad.bloque2 && (
-    <div className="row-gap-tablet-3 --ads">
-        <BannerWrapper
-            load={blocksToLoad.bloque2}
-        >
-            <BannerRefactor
-                customFields={{
-                    group: 'acumulado',
-                    desktop: 'caja1_dsk'
-                }}
-            />
-            <BannerRefactor
-                customFields={{
-                    group: 'acumulado',
-                    desktop: 'caja2_dsk'
-                }}
-            />
-            <BannerRefactor
-                customFields={{
-                    group: 'acumulado',
-                    desktop: 'caja3_dsk'
-                }}
-            />
-        </BannerWrapper>
-    </div>
-)} */
 
 const LNMainHome = props => {
     const {
@@ -157,6 +122,7 @@ const LNMainHome = props => {
             opinion,
             breaking4,
             breaking5,
+            breaking6,
             comercial1,
             bloque2,
             comercial2,
@@ -180,6 +146,13 @@ const LNMainHome = props => {
         bloque4: isAdmin,
         bloque5: isAdmin
     });
+
+    const isScrollbarVisible = () => {
+        return (
+            get(document, 'documentElement.scrollHeight', 0) >
+            get(document, 'documentElement.clientHeight', 0)
+        );
+    };
 
     const getSectionVisible = (scrollParent, targetElements) => {
         let bestMatch = {};
@@ -213,18 +186,31 @@ const LNMainHome = props => {
         return true;
     };
 
-    // First load
     useEffect(() => {
         const handleScroll = throttle((e, dataSections) => {
-            // const scrollPercentRounded = getScrollPercent();
-            sessionStorage.setItem('homePosition', window.pageYOffset);
-            const scrollTop = get(e, 'target.scrollingElement.scrollTop', 0);
-            const sectionVisible = getSectionVisible(scrollTop, dataSections);
-            if (!sectionVisible) return;
-
-            sessionStorage.setItem('lastBlock', sectionVisible);
-            const blockToLoad = sectionsWithBlocks[sectionVisible];
-            dispatch({ type: 'update', payload: blockToLoad });
+            try {
+                sessionStorage.setItem('hp', window.pageYOffset);
+                const scrollTop = get(
+                    e,
+                    'target.scrollingElement.scrollTop',
+                    0
+                );
+                const sectionVisible = getSectionVisible(
+                    scrollTop,
+                    dataSections
+                );
+                if (!sectionVisible) return;
+                sessionStorage.setItem('lb', sectionVisible);
+                const scrollPercentRounded = getScrollPercent();
+                if (scrollPercentRounded > 70) {
+                    // const blockToLoad = sectionsWithBlocks[sectionVisible];
+                    dispatch({ type: 'updateNextBlock' });
+                }
+            } catch (error) {
+                console.log('Error en useEffect =>', error);
+                // Si tiene corrupto sessionStorage muestro todo el sitio
+                dispatch({ type: 'update', payload: 'bloque5' });
+            }
         }, 25);
 
         const dataSections = document.querySelectorAll('[data-section]');
@@ -234,12 +220,19 @@ const LNMainHome = props => {
 
     // First Load
     useEffect(() => {
-        const lastSectionSaw = sessionStorage.getItem('lastBlock');
-        const lastScrollPosition = sessionStorage.getItem('homePosition');
+        const lastSectionSaw = sessionStorage.getItem('lb');
+        const lastScrollPosition = sessionStorage.getItem('hp');
+
+        const isScrollVisible = isScrollbarVisible();
+        if (!isScrollVisible) {
+            // Si resolution no tiene scroll bar, se fuerza cargar bloque 2
+            dispatch({ type: 'update', payload: 'bloque1' });
+        }
+
         if (!lastSectionSaw || !lastScrollPosition) return;
         const lastBlockSaw = sectionsWithBlocks[lastSectionSaw];
         // const newStatusBlocks = updateBlocks(blocksToLoad, lastBlockSaw);
-        dispatch({ type: 'updateAll', payload: lastBlockSaw });
+        dispatch({ type: 'update', payload: lastBlockSaw });
         // setBlocksToLoad(newStatusBlocks);
 
         const readyToMove = scrollToSection(lastSectionSaw);
@@ -258,6 +251,7 @@ const LNMainHome = props => {
                 {/* {megatop} */}
                 <div id="wrapper" className="home">
                     <Header />
+                    <SubHeader />
                     {anticipo}
                     {anexo1}
                     {bomba}
@@ -265,17 +259,6 @@ const LNMainHome = props => {
                         {/* {stickyMobile} */}
                         <div className="row">
                             {/* <div className="lay">{preApertura}</div> */}
-                            <div
-                                data-section="ranking"
-                                className="lay ranking-ln9"
-                            >
-                                <AnexoFeature
-                                    customFields={{
-                                        url:
-                                            'https://dp-ln9.lanacion.com.ar/masleidas/home'
-                                    }}
-                                />
-                            </div>
                             <div id="content-main" className="lay-sidebar">
                                 {/* Cuerpo */}
                                 <div className="sidebar__main">
@@ -284,7 +267,9 @@ const LNMainHome = props => {
                                         {apertura}
                                     </div>
 
-                                    {blocksToLoad.bloque2 && anexo2}
+                                    <div data-section="anexo2">
+                                        {blocksToLoad.bloque2 && anexo2}
+                                    </div>
                                     <div data-section="breaking1">
                                         {blocksToLoad.bloque2 && breaking1}
                                     </div>
@@ -294,36 +279,15 @@ const LNMainHome = props => {
                                     </div>
                                     {/* BANNER */}
                                     {blocksToLoad.bloque2 && (
-                                        <div className="row-gap-tablet-3 --ads">
-                                            {/* <BannerWrapper
-                                            load={blocksToLoad.bloque2}
-                                        >
-                                            <BannerRefactor
-                                                customFields={{
-                                                    group: 'acumulado',
-                                                    desktop: 'caja1_dsk'
-                                                }}
-                                            />
-                                            <BannerRefactor
-                                                customFields={{
-                                                    group: 'acumulado',
-                                                    desktop: 'caja2_dsk'
-                                                }}
-                                            />
-                                            <BannerRefactor
-                                                customFields={{
-                                                    group: 'acumulado',
-                                                    desktop: 'caja3_dsk'
-                                                }}
-                                            />
-                                        </BannerWrapper> */}
-                                        </div>
+                                        <div className="row-gap-tablet-3 --ads"></div>
                                     )}
                                     <div data-section="breaking3">
                                         {blocksToLoad.bloque2 && breaking3}
                                     </div>
                                     {/* 2do Bloque */}
-                                    {blocksToLoad.bloque3 && anexo3}
+                                    <div data-section="anexo3">
+                                        {blocksToLoad.bloque3 && anexo3}
+                                    </div>
                                     <div data-section="opinion">
                                         {blocksToLoad.bloque3 && opinion}
                                     </div>
@@ -334,6 +298,22 @@ const LNMainHome = props => {
                                     <div data-section="breaking5">
                                         {blocksToLoad.bloque3 && breaking5}
                                     </div>
+                                    <div data-section="breaking6">
+                                        {blocksToLoad.bloque3 && breaking6}
+                                    </div>
+                                    {blocksToLoad.bloque3 && (
+                                        <div
+                                            data-section="ranking"
+                                            className="lay ranking-ln9"
+                                        >
+                                            <AnexoFeature
+                                                customFields={{
+                                                    url:
+                                                        'https://dp-ln9.lanacion.com.ar/masleidas/home'
+                                                }}
+                                            />
+                                        </div>
+                                    )}
                                     <div data-section="comercial1">
                                         {blocksToLoad.bloque3 && comercial1}
                                     </div>
@@ -363,6 +343,11 @@ const LNMainHome = props => {
                                     <div data-section="bloque8">
                                         {blocksToLoad.bloque5 && bloque8}
                                     </div>
+                                    {blocksToLoad.bloque5 && (
+                                        <TePuedeInteresar
+                                            customFields={{ cantidadNotas: 6 }}
+                                        />
+                                    )}
                                 </div>
                                 <div className="sidebar__aside hlp-tabletlm-none">
                                     {/* BANNERS, RANKING DE NOTAS */}

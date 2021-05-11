@@ -53,6 +53,7 @@ LNMainHome.sections = [
     'Opinion',
     'Breaking-4',
     'Breaking-5',
+    'Breaking-6',
     'Comercial-1',
     'Bloque-2',
     'Comercial-2',
