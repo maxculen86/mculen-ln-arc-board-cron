@@ -15,6 +15,7 @@ import getScrollPercent from '../../private/LN/common/utils/getScrollPercent';
 import AnexoFeature from '../../features/LN-acumulado/anexoIframe';
 import SubHeader from '../../features/LN-common/subHeader';
 import TePuedeInteresar from '../../features/LN-nota/tePuedeInteresar/default';
+import validateSectionHome from '../../private/common/utils/validateSectionHome';
 
 const pageBuilderSections = [
     'Anticipo',
@@ -135,10 +136,12 @@ const LNMainHome = props => {
         ],
         outputType,
         tree,
-        isAdmin
+        isAdmin,
+        renderables
     } = props;
+        console.log("🚀 ~ file: default.jsx ~ line 142 ~ tree", tree)
     // const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
-
+    const anticipoValidated = validateSectionHome(anticipo, 0, renderables, isAdmin);
     const [blocksToLoad, dispatch] = useReducer(reducer, {
         bloque1: true,
         bloque2: isAdmin,
