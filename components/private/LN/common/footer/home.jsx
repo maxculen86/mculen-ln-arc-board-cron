@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-// import Consumer from 'fusion:consumer';
+import Consumer from 'fusion:consumer';
 // import Header from './header';
-// import FooterAMP from './footerAMP';
+import FooterAMP from './footerAMP';
 import Logo from '../../../common/com-logo';
 import Icon from '../../../common/icon';
 import Text from '../../../common/text';
@@ -14,17 +14,15 @@ import '../../../../../resources/dist/css/ln/modules/mod-footer.css';
 // import SvgFiscal from '../../../common/svgDataFiscal';
 // import SvgGda from '../../../common/svgGda';
 
-const Footer = ({ children }) => {
-    // if (outputType === 'amp')
-    //     return <FooterAMP copyrightText={copyrightText} />;
-
+//const Footer = ({ children }) => {
+const Index = ({ outputType, siteProperties: { host } }) => {
     const listText = [
         {
             text: 'Últimas noticias',
             href: 'https://www.lanacion.com.ar/ultimas-noticias'
         },
         { text: 'Política', href: 'https://www.lanacion.com.ar/politica' },
-        { text: 'Economía', href: 'https://www.lanacion.com.ar/economía' },
+        { text: 'Economía', href: 'https://www.lanacion.com.ar/economia' },
         { text: 'El mundo', href: 'https://www.lanacion.com.ar/el-mundo' },
         { text: 'Sociedad', href: 'https://www.lanacion.com.ar/sociedad' },
         { text: 'Opinión', href: 'https://www.lanacion.com.ar/opinion' },
@@ -90,7 +88,7 @@ const Footer = ({ children }) => {
     const listText3 = [
         {
             text: 'Mapa del sitio',
-            href: 'http://www.lanacion.com.ar/mapa-del-sitio'
+            href: 'https://www.lanacion.com.ar/mapa-del-sitio/'
         },
         { text: 'Ayuda', href: 'https://micuenta.lanacion.com.ar/ayuda' },
         {
@@ -122,6 +120,11 @@ const Footer = ({ children }) => {
         }
     ];
 
+    const year = new Date().getFullYear();
+    const copyrightText = `Copyright ${year} SA LA NACION | Todos los derechos reservados`;
+
+    if (outputType === 'amp')
+        return <FooterAMP copyrightText={copyrightText} />;
     return (
         <footer className="footer-site --threexs">
             <div className="lay">
@@ -161,7 +164,7 @@ const Footer = ({ children }) => {
                         <div className="col-desksm-4 --right">
                             <Image
                                 src="http://especialess3.lanacion.com.ar/LN/svg/google-play.svg"
-                                alt="Disponible en Google Paly"
+                                alt="Disponible en Google Play"
                                 width="120"
                                 height="35"
                                 href="https://play.google.com/store/apps/details?id=app.lanacion.activity&hl=es_419"
@@ -247,10 +250,10 @@ const Footer = ({ children }) => {
     );
 };
 
-// Footer.propTypes = {
-//     outputType: PropTypes.string.isRequired,
-//     siteProperties: PropTypes.shape({
-//         host: PropTypes.string
-//     }).isRequired
-// };
-export default Footer;
+Index.propTypes = {
+    outputType: PropTypes.string.isRequired,
+    siteProperties: PropTypes.shape({
+        host: PropTypes.string
+    }).isRequired
+};
+export default Consumer(Index);
