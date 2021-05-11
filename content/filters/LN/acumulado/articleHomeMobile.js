@@ -1,5 +1,8 @@
 import { imageResizedUrl } from '../common';
 
+const label = `
+    text
+`;
 const section = `
 {
     _id
@@ -44,6 +47,9 @@ export default `
         promo_items {
             basic {
                 ${image}
+                owner {
+                    sponsored
+                }
             }
         }
         taxonomy {
@@ -89,6 +95,9 @@ export default `
             basic
             mobile
         }
+        owner {
+            sponsored
+        }
         subheadlines {
             basic
         }
@@ -113,6 +122,9 @@ export default `
             chapita {
                 text
                 display
+            }
+            marca_anunciante {
+                ${label}
             }
         }
         related_content {

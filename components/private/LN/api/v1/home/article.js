@@ -30,19 +30,20 @@ const articleItem = (article, diagramacion) => {
     const resp = {
         id,
         templateId,
-        sitioId: null,
-        tipo: null,
-        //externo: null, // no va
+        sitioId: null, // va segun el sitio
+        tipo: null, // hay que verificar si va
+        //externo: null, // no va hay que verificar
         url,
-        exclusivo: null,
+        exclusivo: null, // no va hay que verificar
         titulo: titulo || tituloMobile,
-        //tituloMobile,
         volanta,
-        bajada,
-        marquesina: null,
-        imagen: null,
-        autor: null,
-        tagProducto: null
+        bajada
+
+        //marquesina: null,
+        //imagen: null,
+        //autor: null,
+        //tagProducto: null,
+        //tagDestacado: null
     };
 
     if (image && image.type === 'image') {
@@ -58,6 +59,11 @@ const articleItem = (article, diagramacion) => {
                 return Author(v);
             }); */
         }
+    }
+
+    const tagDestacado = getFeaturedTag(article);
+    if (tagDestacado) {
+        resp.tagDestacado = tagDestacado;
     }
 
     /*     if (primarySection) {
