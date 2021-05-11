@@ -312,6 +312,7 @@ const LNMainHome = props => {
                                     className="lay ranking-ln9"
                                 >
                                     <AnexoFeature
+                                        id="ranking"
                                         customFields={{
                                             url:
                                                 'https://dp-ln9.lanacion.com.ar/masleidas/home'
