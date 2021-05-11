@@ -97,7 +97,7 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:url',
-                content: `https://recetas.lanacion.com.ar/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/`
+                content: `https://www.lanacion.com.ar/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/`
             },
             {
                 property: 'article:published_time',
@@ -212,7 +212,7 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:url',
-                content: `https://recetas.lanacion.com.ar/autor/javier-blanco-170/`
+                content: `https://www.lanacion.com.ar/autor/javier-blanco-170/`
             }
         ];
         expect(getMetasOG(props)).toStrictEqual(metas);
