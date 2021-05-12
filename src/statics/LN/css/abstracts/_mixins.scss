@@ -275,3 +275,79 @@
 //         background: $primario;
 //     }
 // }
+
+//=======================================
+// MIXIN GRID REPEDITOS o ÚNICOS
+//=======================================
+
+$guion: '-';
+@mixin grid-repeat($col, $screen: false) {
+    @if $screen {
+        .grid-#{$screen}#{$guion}#{$col} {
+            grid-template-columns: repeat($col, 1fr);
+            grid-template-rows: auto;
+        }
+    } @else {
+        .grid-#{$col} {
+            grid-template-columns: repeat($col, 1fr);
+            grid-template-rows: auto;
+        }
+    }
+}
+@mixin grid-repeat-gap($col, $screen: false) {
+    @if $screen {
+        .grid-#{$screen}#{$guion}#{$col} {
+            grid-template-columns: repeat($col, 1fr);
+            grid-template-rows: auto;
+        }
+    } @else {
+        .grid-#{$col} {
+            grid-template-columns: repeat($col, 1fr);
+            grid-template-rows: auto;
+        }
+    }
+}
+@mixin grid-norepeat(
+    $col,
+    $fr1: null,
+    $fr2: null,
+    $fr3: null,
+    $fr4: null,
+    $screen: false
+) {
+    @if $screen {
+        .grid-#{$screen}#{$guion}#{$col} {
+            grid-template-columns: $fr1 $fr2 $fr3 $fr4;
+            grid-template-rows: auto;
+        }
+    } @else {
+        .grid-#{$col} {
+            grid-template-columns: $fr1 $fr2 $fr3 $fr4;
+            grid-template-rows: auto;
+        }
+    }
+}
+@mixin grid-norepeat-gap(
+    $col,
+    $fr1: null,
+    $fr2: null,
+    $fr3: null,
+    $fr4: null,
+    $screen: false
+) {
+    @if $screen {
+        .grid-#{$screen}#{$guion}#{$col}-gap {
+            grid-template-columns: $fr1 $fr2 $fr3 $fr4;
+            grid-template-rows: auto;
+        }
+    } @else {
+        .grid-#{$col}-gap {
+            grid-template-columns: $fr1 $fr2 $fr3 $fr4;
+            grid-template-rows: auto;
+        }
+    }
+}
+@mixin column-grid($start, $end) {
+    grid-column-start: $start;
+    grid-column-end: $end;
+}

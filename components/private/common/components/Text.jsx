@@ -44,7 +44,7 @@ const Text = ({
     }${highlight ? ` --font-highlight` : ''}${capital ? ` --capital` : ''}`;
     const content = children || text;
 
-    if (!children) return null;
+    if (!children && !text) return null;
 
     return (
         <CustomTag style={_style} className={className}>
