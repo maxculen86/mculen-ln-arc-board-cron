@@ -32,9 +32,10 @@ const getDescription = (
                 ? `de ${metaValueTitle}`
                 : false;
 
-        description = customTitle
-            ? `Últimas Noticias ${customTitle}`
-            : descriptionDefault;
+        description =
+            customTitle && !customTitle.includes('Últimas Noticas')
+                ? `Últimas Noticias ${customTitle}`
+                : descriptionDefault;
     }
     return description;
 };
