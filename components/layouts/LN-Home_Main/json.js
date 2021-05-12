@@ -12,29 +12,32 @@ const versions = {
     }
 };
 
-// const pageBuilderSections = [
-//     'Pre-Apertura',
-//     'Apertura',
-//     'Anexo-2',
-//     'Breaking-1',
-//     'Breaking-2',
-//     'Breaking-3',
-//     'Anexo-3',
-//     'Opinion',
-//     'Breaking-4',
-//     'Breaking-5',
-//     'Comercial-1',
-//     'Bloque-2',
-//     'Comercial-2',
-//     'Bloque-3',
-//     'Bloque-4',
-//     'Bloque-5',
-//     'Bloque-6',
-//     'Bloque-7',
-//     'Bloque-8'
-// ];
+const pageBuilderSections = [
+    'Anticipo',
+    'Apertura',
+    'Anexo-2',
+    'Breaking-1',
+    'Breaking-2',
+    'Breaking-3',
+    'Anexo-3',
+    'Opinion',
+    'Breaking-4',
+    'Breaking-5',
+    'Comercial-1',
+    'Bloque-2',
+    'Comercial-2',
+    'Bloque-3',
+    'Bloque-4',
+    'Bloque-5',
+    'Bloque-6',
+    'Bloque-7',
+    'Bloque-8'
+];
 
 const getHomeElements = items => {
+    const culito = items.map((e, i) => {
+        return e;
+    });
     return Array.prototype.concat.apply([], items).filter(e => {
         if (
             e &&

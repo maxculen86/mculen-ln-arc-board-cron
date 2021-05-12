@@ -58,7 +58,6 @@ class CajaCollection {
             if (!articleList) {
                 return null;
             }
-
             const elements = get(articleList, 'content_elements', []);
             return {
                 information: customFields,
