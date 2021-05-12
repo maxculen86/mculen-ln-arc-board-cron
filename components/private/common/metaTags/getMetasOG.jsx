@@ -23,8 +23,6 @@ const getDescription = (
         description = subheadlinesBasic || descriptionDefault;
     }
     if (!isArticle) {
-        const metaValueTitle = metaValue('title');
-
         const customTitle =
             metaValueTitle === 'Últimas noticias - LA NACION'
                 ? 'del día de hoy en Argentina'
@@ -41,8 +39,6 @@ const getDescription = (
 
 const getUrl = (isArticle, url, domain) => {
     const slash = url && url.slice(-1) !== '/' ? '/' : '';
-    if (isArticle) return (url && `${domain}${url}${slash}`) || domain;
-
     return (url && `${domain}${url}${slash}`) || domain;
 };
 

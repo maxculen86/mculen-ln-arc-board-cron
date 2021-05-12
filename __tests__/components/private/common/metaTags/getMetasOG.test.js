@@ -213,7 +213,7 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:url',
-                content: `https://www.lanacion.com.ar/recetas/autor/javier-blanco-170/`
+                content: `https://www.lanacion.com.ar/autor/javier-blanco-170/`
             }
         ];
         expect(getMetasOG(props)).toStrictEqual(metas);

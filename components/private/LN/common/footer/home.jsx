@@ -88,7 +88,7 @@ const Index = ({ outputType, siteProperties: { host } }) => {
     const listText3 = [
         {
             text: 'Mapa del sitio',
-            href: 'http://www.lanacion.com.ar/mapa-del-sitio'
+            href: 'https://www.lanacion.com.ar/mapa-del-sitio/'
         },
         { text: 'Ayuda', href: 'https://micuenta.lanacion.com.ar/ayuda' },
         {
