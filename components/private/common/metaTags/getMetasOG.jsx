@@ -1,6 +1,7 @@
 import { SITE_LANACION, ARC_STATIC } from 'fusion:environment';
 import getDomain from '../utils/getDomain';
 import addRelatedImage from '../../LN/common/utils/addRelatedImage';
+import addForwardSlash from '../../LN/common/utils/addForwardSlash';
 
 const getAppId = siteProperties =>
     siteProperties &&
@@ -22,11 +23,18 @@ const getDescription = (
         description = subheadlinesBasic || descriptionDefault;
     }
     if (!isArticle) {
+        const metaValueTitle = metaValue('title');
+
         const customTitle =
-            metaValue('title') === 'Últimas noticias - LA NACION'
+            metaValueTitle === 'Últimas noticias - LA NACION'
                 ? 'del día de hoy en Argentina'
-                : `de ${metaValue('title')}`;
-        description = `Últimas Noticias ${customTitle}` || descriptionDefault;
+                : metaValueTitle
+                ? `de ${metaValueTitle}`
+                : false;
+
+        description = customTitle
+            ? `Últimas Noticias ${customTitle}`
+            : descriptionDefault;
     }
     return description;
 };
@@ -68,8 +76,9 @@ const getData = ({
     const { type: typeBasicPI, url: urlBasicPI } = promoItemsBasic;
 
     const DEFAULT = {
-        TITLE: 'LA NACION',
-        DESCRIPTION: '',
+        TITLE: 'Últimas noticias de Argentina y el mundo - LA NACION',
+        DESCRIPTION:
+            'LA NACION - Información confiable en Internet. Noticias de Argentina y del mundo - ¡Informate ya!',
         IMAGE: PLACEHOLDER,
         URL: SITE_LANACION,
         FB_APP_ID: ''
@@ -126,7 +135,7 @@ const getMetasOG = props => {
         },
         {
             property: 'og:url',
-            content: data.url
+            content: addForwardSlash(data.url)
         }
     ];
     if (data.isArticle) {

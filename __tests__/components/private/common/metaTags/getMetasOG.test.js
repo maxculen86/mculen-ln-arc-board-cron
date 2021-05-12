@@ -89,7 +89,8 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:description',
-                content: ''
+                content:
+                    'LA NACION - Información confiable en Internet. Noticias de Argentina y del mundo - ¡Informate ya!'
             },
             {
                 property: 'og:image',
@@ -153,7 +154,7 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:url',
-                content: 'https://www.lanacion.com.ar'
+                content: 'https://www.lanacion.com.ar/'
             }
         ];
 

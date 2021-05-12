@@ -235,6 +235,7 @@ const Default = props => {
                         getFirstParagraph(contentElements) || ''
                     }
                     arcSite={arcSite}
+                    section={_nodeType}
                 />
                 <Syndication
                     type={type}

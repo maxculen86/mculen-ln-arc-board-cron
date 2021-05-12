@@ -10,10 +10,14 @@ const getPrefix = _id => {
 const MetaTitle = ({ metaTitleBasic, arcSite, title, nodeType, _id = '' }) => {
     if (arcSite !== 'la-nacion-ar') return <></>;
 
+    const DEFAULT_TITLE =
+        'Últimas noticias de Argentina y el mundo - LA NACION';
+
     const metaTitleForStory = metaTitleBasic && `${metaTitleBasic} - LA NACION`;
     let metaTitleForAcum = '';
 
     const acusWithMeta = ['section', 'author', 'distributor', 'tags'];
+
     if (acusWithMeta.includes(nodeType)) {
         const prefix = getPrefix(_id);
         const customTitle =
@@ -24,7 +28,9 @@ const MetaTitle = ({ metaTitleBasic, arcSite, title, nodeType, _id = '' }) => {
     return (
         <meta
             name="title"
-            content={`${metaTitleForStory || metaTitleForAcum}`}
+            content={`${metaTitleForStory ||
+                metaTitleForAcum ||
+                DEFAULT_TITLE}`}
         />
     );
 };

@@ -1,5 +1,5 @@
 export default {
-    title: 'LA NACION',
+    title: 'Últimas noticias de Argentina y el mundo - LA NACION',
     className: {
         body: 'ln'
     },
