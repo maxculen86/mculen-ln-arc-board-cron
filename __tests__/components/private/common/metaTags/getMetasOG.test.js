@@ -165,7 +165,7 @@ describe('Common - getMetasOG function', () => {
         const props = {
             globalContent: {
                 _id: 'EZYG5OEVH5HSJJCUMJO5XAHTTA',
-                canonical_url: '/recetas/autor/javier-blanco-170/',
+                canonical_url: '/autor/javier-blanco-170/',
                 node_type: 'author',
                 name: 'Javier Blanco',
                 website_url:

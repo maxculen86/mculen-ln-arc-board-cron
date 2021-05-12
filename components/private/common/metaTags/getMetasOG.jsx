@@ -23,6 +23,8 @@ const getDescription = (
         description = subheadlinesBasic || descriptionDefault;
     }
     if (!isArticle) {
+        const metaValueTitle = metaValue('title');
+
         const customTitle =
             metaValueTitle === 'Últimas noticias - LA NACION'
                 ? 'del día de hoy en Argentina'

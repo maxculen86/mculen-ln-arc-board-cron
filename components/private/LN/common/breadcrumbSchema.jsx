@@ -23,9 +23,7 @@ function BreadcrumbSchema({ sections, host }) {
                     "@type": "ListItem",
                     "position": ${i + 2},
                     "name": "${el.name}",
-                    "item": "${host +
-                        (host.includes('/recetas') ? '' : el.path) +
-                        slash}"
+                    "item": "${host + el.path + slash}"
                 }
             `;
     });
