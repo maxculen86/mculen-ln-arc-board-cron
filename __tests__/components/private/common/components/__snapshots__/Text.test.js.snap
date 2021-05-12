@@ -2,7 +2,7 @@
 
 exports[`Component snapShot Crear componente 1`] = `
 <h1
-  class="text  --font-sueca --3xs"
+  class="text --sueca --threexs --font-bold"
 >
   Este es un texto
 </h1>

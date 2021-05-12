@@ -31,11 +31,11 @@ export const getFontSize = size => {
             return '--twoxs';
         case 'xs':
             return '--xs';
-        case 'small':
+        case 's':
             return '--s';
-        case 'medium':
+        case 'm':
             return '--m';
-        case 'large':
+        case 'l':
             return '--l';
         case 'xl':
             return '--xl';
