@@ -41,9 +41,9 @@ const LNMainHome = ({ children }) => {
 };
 
 LNMainHome.sections = [
-    'Banner-Megatop',
-    'Sticky-Mobile',
-    'Pre-Apertura',
+    'Anticipo',
+    'Anexo-1',
+    'Bomba',
     'Apertura',
     'Anexo-2',
     'Breaking-1',
@@ -53,6 +53,7 @@ LNMainHome.sections = [
     'Opinion',
     'Breaking-4',
     'Breaking-5',
+    'Breaking-6',
     'Comercial-1',
     'Bloque-2',
     'Comercial-2',
@@ -61,8 +62,7 @@ LNMainHome.sections = [
     'Bloque-5',
     'Bloque-6',
     'Bloque-7',
-    'Bloque-8',
-    'Aside'
+    'Bloque-8'
 ];
 
 export default LNMainHome;

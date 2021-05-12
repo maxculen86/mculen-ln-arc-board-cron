@@ -15,10 +15,9 @@ const featuredRules = {
             focalLeft3: 'Focal Izquierdo',
             focalRight2: 'Focal Derecho',
             author3: 'Opinión',
-            notaColorAzul3: 'Vertical 3 color Azul',
-            notaColorRojo3: 'Vertical 3 color Rojo',
             notaColorRosa3: 'Vertical 3 color Rosa',
             notaColorVerde3: 'Vertical 3 color Verde',
+            grilla1: 'Grilla 1',
             grilla2: 'Grilla 2',
             grilla3: 'Grilla 3',
             grilla6: 'Grilla 6',
@@ -33,7 +32,15 @@ const featuredRules = {
         groupName: 'Ajuste Manual',
         layouts: {
             focalLeft3: 'Focal Izquierdo',
-            focalRight2: 'Focal Derecho'
+            focalRight2: 'Focal Derecho',
+            author3: 'Opinión',
+            notaColorRosa3: 'Vertical 3 color Rosa',
+            notaColorVerde3: 'Vertical 3 color Verde',
+            grilla1: 'Grilla 1',
+            grilla2: 'Grilla 2',
+            grilla3: 'Grilla 3',
+            grilla6: 'Grilla 6',
+            grilla9: 'Grilla 9'
         },
         defaultLayout: 'focalLeft3'
     }
@@ -100,7 +107,7 @@ export const getCommonProps = props => {
         customFields: { layout = 'grilla3', backgroundColor },
         renderables = [],
         id: idFeature,
-        globalContent: { name, acumuladoGeneral }
+        globalContent: { name, acumuladoGeneral } = {}
     } = props;
 
     const { cajaTemaConfig = {} } = config || {};
@@ -246,27 +253,28 @@ export const cajaTemasCustomsFields = featuredName => {
             group: featuredRules[featuredName].groupName,
             labels: featuredRules[featuredName].layouts
         }).isRequired,
-        backgroundColor: PropTypes.oneOf([
-            'default',
-            '--bgpink',
-            '--bgblue',
-            '--bgred',
-            '--bgteal',
-            '--bggrey'
-        ]).tag({
-            label: 'Color de Fondo',
-            defaultValue: 'default',
-            description: 'Cambiar el color de fondo de la caja',
-            group: featuredRules[featuredName].groupName,
-            labels: {
-                default: 'Sin Fondo',
-                '--bgpink': 'Rosa',
-                '--bgblue': 'Celeste LN',
-                '--bgred': 'Rojo',
-                '--bgteal': 'Verde',
-                '--bggrey': 'Gris'
-            }
-        }),
+        // Se Pidió ocultarlo de momento. User Story[73305]
+        // backgroundColor: PropTypes.oneOf([
+        //     'default',
+        //     '--bgpink',
+        //     '--bgblue',
+        //     '--bgred',
+        //     '--bgteal',
+        //     '--bggrey'
+        // ]).tag({
+        //     label: 'Color de Fondo',
+        //     defaultValue: 'default',
+        //     description: 'Cambiar el color de fondo de la caja',
+        //     group: featuredRules[featuredName].groupName,
+        //     labels: {
+        //         default: 'Sin Fondo',
+        //         '--bgpink': 'Rosa',
+        //         '--bgblue': 'Celeste LN',
+        //         '--bgred': 'Rojo',
+        //         '--bgteal': 'Verde',
+        //         '--bggrey': 'Gris'
+        //     }
+        // }),
         initialPosition: PropTypes.number.tag({
             label: 'N° de nota inicial',
             description: 'Indicar a partir de que nota desea mostrar',

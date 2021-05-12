@@ -12,10 +12,11 @@ import GlobalProvider from '../private/common/context/globalContext';
 import ModPromo from '../private/common/mod-promo';
 import ComButton from '../private/common/com-button';
 import NewFooter from '../private/LN/common/footer/home';
-
+import Anticipo from '../private/common/com-advance';
 import Escudos from '../../components/features/LN-acumulado/cajaEscudo';
+import SubHeader from '../private/LN/common/header/subHeader';
 
-import '../../resources/dist/css/ln/components/banners.css';
+import '../../resources/dist/css/ln/pages/home.css';
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
 
 // import withCollections from '../private/LN/acumulado/hocs/withCollections';
@@ -54,18 +55,27 @@ const LNHome = props => {
                             </div>
                         </div>
                     </div> */}
-                    <div
-                        id="wrapper"
-                        className={`home demofront ${amp} --transparent`}
-                    >
+                    <div id="wrapper" className={`home demofront ${amp}`}>
                         <Header />
+                        <SubHeader />
+                        {/* <Anticipo title="El Gobierno anticipó al mercado y dio indicios de su nueva estrategia" /> */}
+                        <div className="com-anexo --anexo-1">
+                            <iframe
+                                src="https://especialess3.lanacion.com.ar/21/03/anexo-home-vacunas/?initialWidth=1905&amp;childId=bloque1-pymnro0&amp;parentTitle=%C3%9Altimas%20noticias%20de%20Argentina%20y%20el%20mundo%20-%20LA%20NACION&amp;parentUrl=https%3A%2F%2Fwww.lanacion.com.ar%2F"
+                                width="100%"
+                                scrolling="no"
+                                marginheight="0"
+                                frameborder="0"
+                                height="198px"
+                            ></iframe>
+                        </div>
                         <div
                             data-module="tema_00"
                             data-is-loading="false"
                             data-is-loaded="true"
                         >
                             <section
-                                className="mod-opening --bomba"
+                                className="mod-opening --bomba --no-image"
                                 id="tema_00"
                                 data-is-block="true"
                                 data-block-name="h_tema-00"

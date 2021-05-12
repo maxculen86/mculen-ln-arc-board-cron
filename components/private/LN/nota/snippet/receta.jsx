@@ -8,6 +8,7 @@ import getAssetsPath from '../../../common/utils/getAssetsPath';
 import getDomain from '../../../common/utils/getDomain';
 import { getFirstParentSection } from '../../../common/utils/sectionUtils';
 import get from '../../../common/utils/get';
+import addForwardSlash from '../../common/utils/addForwardSlash';
 
 const extractDataFromContentElements = contentElements => {
     let ingredientes = [];
@@ -159,7 +160,7 @@ const snippet = props => {
         publisher: {
             '@type': 'Organization',
             name: 'Recetas La Nación',
-            url: `${getDomain({ website_url })}${section || '/recetas/'}`,
+            url: addForwardSlash(`${getDomain({ website_url })}${section}`),
             logo: {
                 '@context': 'http://schema.org',
                 '@type': 'ImageObject',

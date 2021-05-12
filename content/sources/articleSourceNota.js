@@ -36,7 +36,7 @@ const resolve = (key, a) => {
 };
 
 const fetch = query => {
-    const { url = '' } = query;
+    const { url = '', imageConfig } = query;
     const arcSite = query['arc-site'];
     const properties = getProperties(arcSite);
     const opt = {
@@ -71,7 +71,7 @@ const fetch = query => {
                 responseData: response
             });
 
-            return transform(response, arcSite, properties);
+            return transform(response, arcSite, properties, imageConfig);
         })
         .catch(error => {
             logger.push(error, { source: 'content/source', url }, arcSite);
@@ -81,7 +81,7 @@ const fetch = query => {
 
 // Al no poder exportar esta fn para que la utilice Fusion directamente, ya que devuelve una promise y no lo soporta, la llamamos
 // directamente nosotros desde el fetch
-const transform = (data, arcSite, properties) => {
+const transform = (data, arcSite, properties, imageConfig) => {
     // Data
     const subtype = get(data, `subtype`, null);
 
@@ -92,6 +92,13 @@ const transform = (data, arcSite, properties) => {
         'imageConfig.resize.zoom.promo_items.sizes',
         presetsDefault
     );
+
+    const {
+        promo_items: presetsPromoItemsCustom,
+        content_elements: presetsContentElementsCustom,
+        credits: presetsCreditsCustom
+    } = get(properties, `imageConfig.resize.${imageConfig}`, {});
+
     const presetsPromoItemsFotoAl100 =
         (data.subtype === FOTOAL100 || data.subtype === STORYTELLING) &&
         get(properties, 'imageConfig.resize.fotoAl100.promo_items', null);
@@ -122,14 +129,16 @@ const transform = (data, arcSite, properties) => {
             resizerUrl: RESIZER_URL,
             presets: {
                 promoItems:
+                    presetsPromoItemsCustom ||
                     presetsPromoItemsFotoAl100 ||
                     presetsPromoItems ||
                     presetsDefault,
                 contentElements:
+                    presetsContentElementsCustom ||
                     presetsContentElementsFotoAl100 ||
                     presetsContentElements ||
                     presetsDefault,
-                credits: presetsCredits,
+                credits: presetsCreditsCustom || presetsCredits,
                 presetsDefault,
                 zoomSizes: presetsZoom
             },
