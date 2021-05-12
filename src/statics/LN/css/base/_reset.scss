@@ -153,6 +153,9 @@ body {
     position: relative;
     margin-bottom: 80px;
     margin-top: 50px; //alto header mobile
+    @media (min-width: 768px) {
+        margin-top: 0;
+    }
     @media (min-width: 1024px) {
         margin-bottom: 0;
         margin-top: 73px; //alto header desktop para header fijo

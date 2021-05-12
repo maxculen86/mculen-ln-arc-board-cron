@@ -94,9 +94,9 @@
         z-index: 100;
         left: calc((100% - 320px) / 2);
 
-        &.--adhesion_mob {
-            display: flex;
-        }
+        // &.--adhesion_mob {
+        //     display: flex;
+        // }
 
         // .--scrollDown & {
         //     bottom: px(0);
@@ -147,7 +147,7 @@
             display: none;
         }
         &.--fixed {
-            bottom: 0;
+            bottom: px(56);
             left: calc((100% - 728px) / 2);
         }
         // &.--sticky1_mob {
