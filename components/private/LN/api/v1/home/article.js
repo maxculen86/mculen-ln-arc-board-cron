@@ -5,6 +5,7 @@ import { getTag, getFeaturedTag } from '../common/tag';
 import { getPrincipalCategory } from '../common/category';
 import { removeEmptyItems } from '../common/utils/responseCleaner';
 import { getTagId } from '../../../../common/utils/getElementId';
+import Relacionados from '../../../api/v1/nota/relacionados';
 
 const articleItem = (article, diagramacion) => {
     const {
@@ -26,24 +27,28 @@ const articleItem = (article, diagramacion) => {
     const tags = get(article, 'taxonomy.tags', null);
     const bajada = get(article, 'subheadlines.basic', null);
     const volanta = get(label, 'volanta.text', null);
-    //bajada
+    const chapita = get(label, 'chapita.text', null);
+
     const resp = {
         id,
         templateId,
-        sitioId: null, // va segun el sitio
-        tipo: null, // hay que verificar si va
-        //externo: null, // no va hay que verificar
+        sitioId: null, // pendiente Enumeracion
+        //tipo: null, // no va
+        //externo: null, // no va
         url,
-        exclusivo: null, // no va hay que verificar
+        //mostrarEtiqueta  //Se reemplaza por el campo chapita
+        //exclusivo: null, // no va
         titulo: titulo || tituloMobile,
         volanta,
-        bajada
-
+        bajada,
+        chapita
         //marquesina: null,
         //imagen: null,
         //autor: null,
-        //tagProducto: null,
-        //tagDestacado: null
+        //encuentro: //Pendiente
+        //tagProducto: // se reemplaza por campos categorias y chapita // Representa notas donde la seccion o tag son LN+ o Revistas,
+        //tagDestacado: // se reemplaza por campos categorias y chapita // Representa notas contenLab y Patrocinado
+        //tableroDolar: //Pendiente
     };
 
     if (image && image.type === 'image') {
@@ -55,48 +60,22 @@ const articleItem = (article, diagramacion) => {
         if (authorsFixed.length > 0) {
             resp.autor = authorHomeMobile(authorsFixed[0]);
             resp.marquesina = `Por ${resp.autor.valor}`;
-            /*             resp.autor = authorsFixed.map(v => {
-                return Author(v);
-            }); */
         }
     }
 
-    const tagDestacado = getFeaturedTag(article);
-    if (tagDestacado) {
-        resp.tagDestacado = tagDestacado;
+    const relacionados = Relacionados(article);
+    if (relacionados.categorias && relacionados.categorias.length > 0) {
+        // return relacionados.categorias.map(v => {
+        //     return type(v);
+        // });
+        resp.categorias = [
+            getPrincipalCategory(primarySection),
+            ...relacionados.categorias
+        ];
     }
 
-    /*     if (primarySection) {
-        resp.tagProducto = getPrincipalCategory(primarySection);
-    } */
-    if (sections && sections.length > 0) {
-        sections.map(v => {
-            if (v._id.includes('ln') || v._id.includes('revista')) {
-                const tagProducto = {
-                    id: getTagId(v._id),
-                    valor: v.name,
-                    tipoId: 7,
-                    formatoId: 1,
-                    tipoDescripcion: 'Producto'
-                };
-                resp.tagProducto = tagProducto;
-                return tagProducto;
-            }
-        });
-    }
-    /*    if (tags && tags.length > 0) {
-        // Teporal hasta verificar el tag tipo producto
-        const tagProducto = {
-            id: getTagId(tags[0].slug),
-            valor: tags[0].text,
-            tipoId: 7,
-            formatoId: 1,
-            tipoDescripcion: 'Producto'
-        };
-        resp.tagProducto = tagProducto; //getTag(tags[0]);
-    } */
-    return resp;
-    //return removeEmptyItems(resp);
+    //return resp;
+    return removeEmptyItems(resp);
 };
 
 export default articleItem;
