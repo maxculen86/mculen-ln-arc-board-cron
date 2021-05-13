@@ -1,4 +1,5 @@
 @import '../abstracts/variables';
+@import '../abstracts/mixins';
 
 //=======================================
 // lay CON ASIDE
@@ -22,6 +23,7 @@
         //overflow: hidden;
     }
     .sidebar__aside {
+        @include BgDiagonal;
         flex-basis: px(300);
         flex-shrink: 0;
     }

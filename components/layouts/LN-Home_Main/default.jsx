@@ -418,11 +418,11 @@ const LNMainHome = props => {
                                 </div>
                                 <div className="sidebar__aside hlp-tabletlm-none">
                                     {/* BANNERS */}
-                                     <DivBanner
-                                            id="megalateral_dsk"
-                                            classes="--megalateral"
-                                            shouldRender={isDesktop}
-                                        />
+                                    <DivBanner
+                                        id="megalateral_dsk"
+                                        classes="--megalateral --sticky"
+                                        shouldRender={isDesktop}
+                                    />
                                 </div>
                             </div>
                             {/* RANKING */}
@@ -483,14 +483,14 @@ const LNMainHome = props => {
                                     {blocksToLoad.bloque4 && (
                                         <DivBanner
                                             id="megalateral2_dsk"
-                                            classes="--megalateral"
+                                            classes="--megalateral --sticky"
                                             shouldRender={isDesktop}
                                         />
                                     )}
                                     {blocksToLoad.bloque5 && (
                                         <DivBanner
                                             id="megalateral3_dsk"
-                                            classes="--megalateral"
+                                            classes="--megalateral --sticky"
                                             shouldRender={isDesktop}
                                         />
                                     )}
@@ -501,7 +501,7 @@ const LNMainHome = props => {
                                     {/* ADHESION */}
                                     <DivBanner
                                         id="adhesion_dsk"
-                                        classes="--adhesiondsk"
+                                        classes="--adhesion_dsk --fixed"
                                         shouldRender={isDesktop}
                                         closeButton
                                         validateSuscription
@@ -509,12 +509,14 @@ const LNMainHome = props => {
 
                                     <DivBanner
                                         id="adhesion_mob"
+                                        classes="--adhesion_mob --fixed"
                                         shouldRender={isMobile}
                                         closeButton
                                         validateSuscription
                                     />
                                     <DivBanner
                                         id="adhesion_tab"
+                                        classes="--adhesion_tab --fixed"
                                         shouldRender={isTablet}
                                         closeButton
                                         validateSuscription

@@ -1,6 +1,9 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
+
 .mod-banner {
+    @include BgDiagonal;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,12 +11,29 @@
     max-width: 100%;
     overflow: hidden;
     z-index: 1;
+
+    &:before {
+        content: 'PUBLICIDAD';
+        font-size: px(11);
+        line-height: px(16);
+        background: white;
+        display: inline-block;
+        padding: px(4) px(8);
+        margin: 0 auto;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+    }
+
     &.--megatop {
         position: relative;
         z-index: 110;
         background: $neutral-white;
     }
     &.--comercial {
+        &:before {
+            display: none;
+        }
         position: fixed;
         top: 0;
         z-index: 1100000;
@@ -35,9 +55,6 @@
     &.--sticky1_mob {
         margin-bottom: px(24);
         height: px(100);
-    }
-    &.--desktop {
-        margin-bottom: px(24);
     }
     &.--sticky {
         position: sticky;
@@ -95,12 +112,12 @@
             background: $neutral-white;
         }
     }
-    &.--cabezal_tab,
-    &.--cabezal_dsk {
-        display: none;
-    }
+    // &.--cabezal_tab,
+    // &.--cabezal_dsk {
+    //     display: none;
+    // }
     &.--top {
-        height: px(124);
+        //height: px(124);
         @media ($media-m) {
             height: px(114);
         }
@@ -130,6 +147,9 @@
 }
 @media ($media-l) {
     .mod-banner {
+        &.--desktop {
+            margin-bottom: px(24);
+        }
         .sidebar__aside & {
             display: flex;
             width: 100%;
@@ -137,10 +157,10 @@
         }
         &.--sticky {
             top: $header-desktop;
-            top: 0;
+            //top: 0;
             .sidebar__aside & {
                 //top: $header-desktop; descomentar si es diferente al cabezal_dsk
-                padding-top: px(10);
+                padding-top: px(24);
                 background: $neutral-white;
                 .--scrollUp & {
                     top: $header-desktop;
@@ -174,6 +194,17 @@
             display: flex;
             margin-bottom: $spacing-lg;
             height: px(170);
+        }
+        &.--middle1_dsk,
+        &.--billboard_dsk,
+        &.--caja1_dsk,
+        &.--caja3_dsk,
+        &.--caja1_dsk,
+        &.--caja4_dsk,
+        &.--caja_producto1_dsk,
+        &.--caja_producto2_dsk,
+        &.--cinturon1_dsk {
+            height: px(250);
         }
     }
 }
