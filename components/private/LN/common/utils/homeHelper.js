@@ -1,28 +1,37 @@
 /* eslint-disable no-undef */
-/* eslint-disable camelcase */
 import React, { useContext, forwardRef } from 'react';
 import Ln_Caja_Collection from '../../../../chains/Ln_Caja_Collection/default';
 import Ln_Caja_Manual from '../../../../chains/Ln_Caja_Manual/default';
+import ArticleFeature from '../../../../features/LN-common/articulo/default';
 import useViewportSize from '../../../common/hooks/useViewportSize';
 import findTermica from '../../../common/utils/findTermica';
 import get from '../../../common/utils/get';
 import { slotsConfig } from '../bannerRefactor/config';
-import DefaultFactory from '../bannerRefactor/factory/default';
 import Comercial from '../bannerRefactor/factory/default/types/comercial';
 import WithSkeletonBannerWithoutHide from '../bannerRefactor/withSkeletonBannerWithoutHide';
 import { LoginStore } from '../context/loginContext';
-import withLoginData from '../hocs/withLoginData';
 
 const Components = {
     Ln_Caja_Collection,
     Ln_Caja_Manual
 };
 
+const withChilds = (childrens = []) => {
+    return childrens.map(child => {
+        return (
+            <ArticleFeature {...child.props} />
+        )
+    })
+};
+
 const createComponent = element => {
     if (typeof Components[element.type] !== 'undefined') {
         return React.createElement(Components[element.type], {
-            ...element.props
-        });
+            ...element.props,
+            children: withChilds(element.children),
+            childProps: element.children
+        } 
+        )
     }
     return null;
 };
@@ -120,7 +129,7 @@ export const BannerComercial = ({ id, device, siteProperties }) => {
 };
 
 export const sectionsWithBlocks = {
-    apertura: 'bloque2',
+    apertura: 'bloque1',
     anexo2: 'bloque2',
     breaking1: 'bloque2',
     breaking2: 'bloque3',

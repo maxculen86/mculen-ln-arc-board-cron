@@ -70,7 +70,7 @@ const reducer = (state, action) => {
 const updateBlocks = (blocks, lastBlock) => {
     const newState = { ...blocks };
     if (!lastBlock) return blocks;
-    const number = Number(lastBlock.slice(-1)) + 1;
+    const number = Number(lastBlock.slice(-1));
     Object.keys(blocks).forEach(key => {
         if (key.slice(-1) <= number) newState[key] = true;
     });
@@ -260,7 +260,6 @@ const LNMainHome = props => {
                                             id="caja1_mob"
                                             shouldRender={isMobile}
                                         />
-
                                         {chainApertura2}
                                     </div>
 
