@@ -9,11 +9,11 @@
     z-index: 15000;
     border-top: 1px solid $light-neutral-300;
     width: 100%;
-    max-height: px(60);
-    height: px(60);
-    transition: all 0.25s ease-in-out;
+    //max-height: px(56);
+    height: px(56);
+    //transition: all 0.25s ease-in-out;
     .row {
-        max-width: 390px;
+        max-width: px(400);
         margin: 0 auto;
         justify-content: space-between;
     }
@@ -26,21 +26,21 @@
         //OCULTO HAMBURGUESA
         // TODO: Recordar dejar oculto
         p {
-            font-family: $font-arial;
+            //font-family: $font-arial;
             font-size: px(9);
-            color: $light-neutral-700;
+            //color: $light-neutral-700;
         }
         i {
             margin-bottom: px(4);
         }
-        &:hover {
-            p {
-                color: $ln;
-            }
-            i {
-                color: $ln;
-            }
-        }
+        // &:hover {
+        //     p {
+        //         color: $ln;
+        //     }
+        //     i {
+        //         color: $ln;
+        //     }
+        // }
         &.--active {
             p {
                 color: $ln;
@@ -67,7 +67,7 @@
 }
 @media ($media-s) {
     .com-nav-mobile {
-        height: inherit;
+        //height: inherit;
         .item-foo {
             p {
                 font-size: px(11);
