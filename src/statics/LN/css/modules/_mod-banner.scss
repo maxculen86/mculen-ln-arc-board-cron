@@ -55,7 +55,8 @@
         }
 
         &.--sticky2_mob {
-            background: $neutral-white;
+            height: px(50);
+            //background: $neutral-white;
             position: fixed;
             display: flex;
             width: 100%;
