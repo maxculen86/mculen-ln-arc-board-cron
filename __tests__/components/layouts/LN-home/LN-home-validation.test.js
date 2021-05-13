@@ -17,11 +17,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
    
     it('Validar Seccion Anticipo en Home', () => {        
         expect(validateSectionHome(null, 'Anticipo', 0, renderables1, 'default', true)).toEqual(
-            <PageBuilderMessage
-                id="LN-Home-error"
-                type="warning"
-                message={`La sección Anticipo solo permite 1 componente`}
-            />
+            null
         );
 
         expect(validateSectionHome(null, 'Anticipo', 0, renderables2, 'default', true)).toEqual(
@@ -39,11 +35,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
 
     it('Validar Seccion Anexo1 en Home', () => {        
         expect(validateSectionHome(null, 'Anexo_1', 1, renderables1, 'default', true)).toEqual(
-            <PageBuilderMessage
-                id="LN-Home-error"
-                type="warning"
-                message={`La sección Anexo_1 solo permite 1 componente`}
-            />
+           null
         );
 
         expect(validateSectionHome(null, 'Anexo_1', 1, renderables2, 'default', true)).toEqual(
@@ -61,11 +53,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
 
     it('Validar Seccion Bomba en Home', () => {        
         expect(validateSectionHome(null, 'Bomba', 2, renderables1, 'default', true)).toEqual(
-            <PageBuilderMessage
-                id="LN-Home-error"
-                type="warning"
-                message={`La sección Bomba solo permite 1 componente`}
-            />
+           null
         );
 
         expect(validateSectionHome(null, 'Bomba', 2, renderables2, 'default', true)).toEqual(
@@ -83,11 +71,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
 
     it('Validar Seccion Apertura en Home', () => {        
         expect(validateSectionHome(null, 'Apertura', 3, renderables1, 'default', true)).toEqual(
-            <PageBuilderMessage
-                id="LN-Home-error"
-                type="warning"
-                message={`La sección Apertura solo permite 2 componente`}
-            />
+            null
         );
 
         expect(validateSectionHome(null, 'Apertura', 3, renderables2, 'default', true)).toEqual(
@@ -105,11 +89,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
 
     it('Validar Seccion Anexo_2 en Home', () => {        
         expect(validateSectionHome(null, 'Anexo_2', 4, renderables1, 'default', true)).toEqual(
-            <PageBuilderMessage
-                id="LN-Home-error"
-                type="warning"
-                message={`La sección Anexo_2 solo permite 1 componente`}
-            />
+            null
         );
 
         expect(validateSectionHome(null, 'Anexo_2', 4, renderables2, 'default', true)).toEqual(
@@ -127,11 +107,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
 
     it('Validar Seccion Breaking_1 en Home', () => {        
         expect(validateSectionHome(null, 'Breaking_1', 5, renderables1, 'default', true)).toEqual(
-            <PageBuilderMessage
-                id="LN-Home-error"
-                type="warning"
-                message={`La sección Breaking_1 solo permite 1 componente`}
-            />
+            null
         );
 
         expect(validateSectionHome(null, 'Breaking_1', 5, renderables2, 'default', true)).toEqual(
@@ -149,11 +125,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
 
     it('Validar Seccion Opinion en Home', () => {        
         expect(validateSectionHome(null, 'Opinion', 9, renderables1, 'default', true)).toEqual(
-            <PageBuilderMessage
-                id="LN-Home-error"
-                type="warning"
-                message={`La sección Opinion solo permite 2 componente`}
-            />
+            null
         );
 
         expect(validateSectionHome(null, 'Opinion', 9, renderables2, 'default', true)).toEqual(
@@ -171,11 +143,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
 
     it('Validar Seccion Comercial_1 en Home', () => {        
         expect(validateSectionHome(null, 'Comercial_1', 13, renderables1, 'default', true)).toEqual(
-            <PageBuilderMessage
-                id="LN-Home-error"
-                type="warning"
-                message={`La sección Comercial_1 solo permite 1 componente`}
-            />
+            null
         );
 
         expect(validateSectionHome(null, 'Comercial_1', 13, renderables2, 'default', true)).toEqual(
@@ -193,11 +161,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
 
     it('Validar Seccion Bloque_2 en Home', () => {        
         expect(validateSectionHome(null, 'Bloque_2', 14, renderables1, 'default', true)).toEqual(
-            <PageBuilderMessage
-                id="LN-Home-error"
-                type="warning"
-                message={`La sección Bloque_2 solo permite 2 componente`}
-            />
+            null
         );
 
         expect(validateSectionHome(null, 'Bloque_2', 14, renderables2, 'default', true)).toEqual(

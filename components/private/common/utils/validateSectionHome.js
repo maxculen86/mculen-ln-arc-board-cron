@@ -15,8 +15,7 @@ const checkIfValid = (name, children) => {
         child => get(child, 'props.customFields.hideCaja', false) !== true
     );
     const sectionRule = sectionsValidation[name] || {};
-    if (sectionRule.quantity !== childrenWithoutHide.length)
-        return `solo permite ${sectionRule.quantity} componente`;
+    if (sectionRule.quantity !== childrenWithoutHide.length) return false;
 
     if (
         !childrenWithoutHide.every(component =>
@@ -52,7 +51,7 @@ const validateSectionHome = (
                 message={`La sección ${name} ${message}`}
             />
         );
-    if (isAdmin) return component;
+    if (isAdmin && message !== false) return component;
     return message === true ? component : null;
 };
 
