@@ -19,9 +19,11 @@ const getDescription = (
     url = ''
 ) => {
     let description = '';
+
     if (isArticle) {
         description = subheadlinesBasic || descriptionDefault;
     }
+
     if (!isArticle) {
         const metaValueTitle = metaValue('title');
 
@@ -32,10 +34,9 @@ const getDescription = (
                 ? `de ${metaValueTitle}`
                 : false;
 
-        description =
-            customTitle && !customTitle.includes('Últimas Noticas')
-                ? `Últimas Noticias ${customTitle}`
-                : descriptionDefault;
+        description = customTitle
+            ? `Últimas Noticias ${customTitle}`
+            : descriptionDefault;
     }
     return description;
 };
