@@ -174,7 +174,7 @@
         &.--sticky {
             top: $header-desktop;
             .sidebar__aside & {
-                top: $header-desktop; //descomentar si es diferente al cabezal_dsk
+                //top: $header-desktop; //descomentar si es diferente al cabezal_dsk
                 padding-top: px(24);
                 background: $neutral-white;
                 // .--scrollUp & {
