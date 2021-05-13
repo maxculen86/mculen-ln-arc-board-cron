@@ -1,0 +1,154 @@
+{
+    "Anticipo": {
+        "quantity": 1,
+        "types": ["LN-common/cajaAnticipo"]
+    },
+    "Anexo_1": {
+        "quantity": 1,
+        "types": ["LN-acumulado/anexoIframe"]
+    },
+    "Bomba": {
+        "quantity": 1,
+        "types": ["LN-common/bomba"]
+    },
+    "Apertura": {
+        "quantity": 2,
+        "types": [
+            "LN-acumulado/anexoIframe",
+            "Ln_Caja_Collection",
+            "Ln_Caja_Manual"
+        ]
+    },
+    "Breaking_1": {
+        "quantity": 1,
+        "types": [
+            "LN-acumulado/anexoIframe",
+            "Ln_Caja_Collection",
+            "Ln_Caja_Manual"
+        ]
+    },
+    "Breaking_2": {
+        "quantity": 1,
+        "types": [
+            "LN-acumulado/anexoIframe",
+            "Ln_Caja_Collection",
+            "Ln_Caja_Manual"
+        ]
+    },
+    "Breaking_3": {
+        "quantity": 1,
+        "types": [
+            "LN-acumulado/anexoIframe",
+            "Ln_Caja_Collection",
+            "Ln_Caja_Manual"
+        ]
+    },
+    "Breaking_4": {
+        "quantity": 1,
+        "types": [
+            "LN-acumulado/anexoIframe",
+            "Ln_Caja_Collection",
+            "Ln_Caja_Manual"
+        ]
+    },
+    "Breaking_5": {
+        "quantity": 1,
+        "types": [
+            "LN-acumulado/anexoIframe",
+            "Ln_Caja_Collection",
+            "Ln_Caja_Manual"
+        ]
+    },
+    "Breaking_6": {
+        "quantity": 1,
+        "types": [
+            "LN-acumulado/anexoIframe",
+            "Ln_Caja_Collection",
+            "Ln_Caja_Manual"
+        ]
+    },
+    "Comercial_1": {
+        "quantity": 1,
+        "types": [
+            "LN-acumulado/anexoIframe",
+            "Ln_Caja_Collection",
+            "Ln_Caja_Manual"
+        ]
+    },
+    "Comercial_2": {
+        "quantity": 1,
+        "types": [
+            "LN-acumulado/anexoIframe",
+            "Ln_Caja_Collection",
+            "Ln_Caja_Manual"
+        ]
+    },
+    "Bloque_2": {
+        "quantity": 2,
+        "types": [
+            "LN-acumulado/anexoIframe",
+            "Ln_Caja_Collection",
+            "Ln_Caja_Manual"
+        ]
+    },
+    "Bloque_3": {
+        "quantity": 2,
+        "types": [
+            "LN-acumulado/anexoIframe",
+            "Ln_Caja_Collection",
+            "Ln_Caja_Manual"
+        ]
+    },
+    "Bloque_4": {
+        "quantity": 2,
+        "types": [
+            "LN-acumulado/anexoIframe",
+            "Ln_Caja_Collection",
+            "Ln_Caja_Manual"
+        ]
+    },
+    "Bloque_5": {
+        "quantity": 2,
+        "types": [
+            "LN-acumulado/anexoIframe",
+            "Ln_Caja_Collection",
+            "Ln_Caja_Manual"
+        ]
+    },
+    "Bloque_6": {
+        "quantity": 2,
+        "types": [
+            "LN-acumulado/anexoIframe",
+            "Ln_Caja_Collection",
+            "Ln_Caja_Manual"
+        ]
+    },
+    "Bloque_7": {
+        "quantity": 2,
+        "types": [
+            "LN-acumulado/anexoIframe",
+            "Ln_Caja_Collection",
+            "Ln_Caja_Manual"
+        ]
+    },
+    "Bloque_8": {
+        "quantity": 2,
+        "types": [
+            "LN-acumulado/anexoIframe",
+            "Ln_Caja_Collection",
+            "Ln_Caja_Manual"
+        ]
+    },
+    "Anexo_2": {
+        "quantity": 1,
+        "types": ["LN-acumulado/anexoIframe"]
+    },
+    "Anexo_3": {
+        "quantity": 1,
+        "types": ["LN-acumulado/anexoIframe"]
+    },
+    "Opinion": {
+        "quantity": 2,
+        "types": ["LN-common/opinion", "LN-common/editorial"]
+    }
+}
