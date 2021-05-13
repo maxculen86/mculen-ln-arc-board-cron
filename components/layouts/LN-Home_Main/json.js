@@ -1,4 +1,5 @@
 import Consumer from 'fusion:consumer';
+import { get } from 'lodash';
 import bitacora from '../../private/LN/api/v1/bitacora';
 import home from '../../private/LN/api/v1/home';
 import browser from '../../private/common/utils/browser';
@@ -12,80 +13,53 @@ const versions = {
     }
 };
 
-const pageBuilderSections = [
+const homeMobileSections = [
     'Anticipo',
-    'Anexo-1',
+    'Anexo',
     'Bomba',
     'Apertura',
-    'Anexo-2',
-    'Breaking-1',
-    'Breaking-2',
-    'Breaking-3',
-    'Anexo-3',
+    'Anexo',
+    'Tema',
+    'Tema',
+    'Tema',
+    'Anexo',
     'Opinion',
-    'Breaking-4',
-    'Breaking-5',
-    'Breaking-6',
-    'Comercial-1',
-    'Bloque-2',
-    'Comercial-2',
-    'Bloque-3',
-    'Bloque-4',
-    'Bloque-5',
-    'Bloque-6',
-    'Bloque-7',
-    'Bloque-8'
+    'Tema',
+    'Tema',
+    'Tema',
+    'Comercial',
+    'Tema',
+    'Comercial',
+    'Tema',
+    'Tema',
+    'Tema',
+    'Tema',
+    'Tema',
+    'Tema',
+    'Tema'
 ];
 
 const getHomeElements = items => {
-    const [
-        anticipo,
-        anexo1,
-        bomba,
-        apertura,
-        anexo2,
-        breaking1,
-        breaking2,
-        breaking3,
-        anexo3,
-        opinion,
-        breaking4,
-        breaking5,
-        breaking6,
-        comercial1,
-        bloque2,
-        comercial2,
-        bloque3,
-        bloque4,
-        bloque5,
-        bloque6,
-        bloque7,
-        bloque8
-    ] = items;
-
-    const culito2 = pageBuilderSections.map((e, i) => {
-        const alpha = items[e];
-        return alpha;
-    });
-
-    const culito = items.map((e, i) => {
-        return e;
-    });
-
-    return Array.prototype.concat.apply([], items).filter(e => {
-        if (
-            e &&
-            e.hasOwnProperty('information') &&
-            e.information &&
-            e.hasOwnProperty('articles') &&
-            e.articles &&
-            e.articles.length &&
-            !e.information.hasOwnProperty('hideCaja') &&
-            !e.information.hideCaja
-        ) {
-            return e;
+    const features = items.reduce((res, elem, index) => {
+        if (elem && Array.isArray(elem) && elem.length > 0) {
+            const filtered = elem.filter(
+                e => e && e.information && !e.information.hideCaja
+            );
+            if (filtered && Array.isArray(filtered) && filtered.length > 0) {
+                res.push({
+                    feature: homeMobileSections[index],
+                    elements: filtered
+                });
+            }
         }
-    });
+        return res;
+    }, []);
+    return features;
+};
+
+// TODO: INTEGRAR CON LOS CAMBIOS DE FER
+export const getChainsFromSections = (renderable = [], sectionPosition) => {
+    return get(renderable, `[${sectionPosition}].children`, []);
 };
 
 const LNMainHome = props => {

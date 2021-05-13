@@ -1,10 +1,20 @@
 import Consumer from 'fusion:consumer';
 
 const CajaAnticipo = ({ customFields: { hide, title, link } }) => {
-    return {
-        hide,
+    if (!title) return null;
+
+    const information = {
+        hideCaja: hide || false,
         title,
-        link
+        url: link
+    };
+
+    return {
+        information: {
+            hideCaja: hide || false,
+            title,
+            url: link
+        }
     };
 };
 

@@ -38,7 +38,8 @@ const pageBuilderSections = [
     'Bloque-5',
     'Bloque-6',
     'Bloque-7',
-    'Bloque-8'
+    'Bloque-8',
+    'Bloque-9'
 ];
 
 const reducer = (state, action) => {
@@ -104,7 +105,8 @@ const sectionsWithBlocks = {
     bloque5: 'bloque5',
     bloque6: 'bloque5',
     bloque7: 'bloque5',
-    bloque8: 'bloque5'
+    bloque8: 'bloque5',
+    bloque9: 'Bloque5'
 };
 
 const LNMainHome = props => {
@@ -279,7 +281,7 @@ const LNMainHome = props => {
                                     </div>
                                     {/* BANNER */}
                                     {blocksToLoad.bloque2 && (
-                                        <div className="row-gap-tablet-3 --ads"></div>
+                                        <div className="row-gap-tablet-3 --ads" />
                                     )}
                                     <div data-section="breaking3">
                                         {blocksToLoad.bloque2 && breaking3}

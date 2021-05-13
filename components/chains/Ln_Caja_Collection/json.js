@@ -55,7 +55,6 @@ class CajaCollection {
         try {
             const { articleList } = this.state || {};
             const { customFields } = this.props;
-            debugger;
             if (!articleList) {
                 return null;
             }
