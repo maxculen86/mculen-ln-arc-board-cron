@@ -160,7 +160,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             <PageBuilderMessage
                 id="LN-Home-error"
                 type="warning"
-                message={`La sección Opinion solo permite componentes del tipo LN-common/opinion,LN-common/editorial`}
+                message={`La sección Opinion solo permite componentes del tipo LN-common/opinion,LN-common/editoriales`}
             />
         );
 

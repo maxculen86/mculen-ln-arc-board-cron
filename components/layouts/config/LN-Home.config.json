@@ -149,6 +149,6 @@
     },
     "Opinion": {
         "quantity": 2,
-        "types": ["LN-common/opinion", "LN-common/editorial"]
+        "types": ["LN-common/opinion", "LN-common/editoriales"]
     }
 }

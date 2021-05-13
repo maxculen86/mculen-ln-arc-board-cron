@@ -321,7 +321,7 @@ const LNMainHome = props => {
                                         id="ranking"
                                         customFields={{
                                             url:
-                                                'https://dp-ln9.lanacion.com.ar/masleidas/home'
+                                                'https://www.lanacion.com.ar/masleidas/home'
                                         }}
                                     />
                                 </div>

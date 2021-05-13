@@ -301,10 +301,10 @@
           },
           {
             "collection":"chains",
-            "type":"LN-common/editorial",
+            "type":"LN-common/editoriales",
             "props":{
                "collection":"chains",
-               "type":"LN-common/editorial",
+               "type":"LN-common/editoriales",
                "id":"c0f7vvIV7ebsTr",
                "name":null,
                "customFields":{
