@@ -141,7 +141,7 @@ amp-sidebar {
     .header__middle {
         display: flex;
         align-items: center;
-        justify-content: center;
+        //justify-content: center;
         .header__middle__logo {
             .logo-la-nacion {
                 //Logo LN
@@ -150,6 +150,9 @@ amp-sidebar {
                     font-size: px(17);
                 }
             }
+        }
+        @media (min-width: 768px) {
+            justify-content: center;
         }
     }
 

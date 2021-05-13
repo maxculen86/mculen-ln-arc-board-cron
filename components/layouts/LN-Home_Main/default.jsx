@@ -237,7 +237,11 @@ const LNMainHome = props => {
                     {bomba}
                     <main>
                         {/* STICKY MOB */}
-                        <DivBanner id="sticky2_mob" shouldRender={isMobile} />
+                        <DivBanner
+                            id="sticky2_mob"
+                            classes="--sticky2_mob --sticky"
+                            shouldRender={isMobile}
+                        />
                         <div className="row">
                             <div id="content-main" className="lay-sidebar">
                                 {/* Cuerpo */}

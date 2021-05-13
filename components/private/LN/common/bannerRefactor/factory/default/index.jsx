@@ -69,7 +69,10 @@ function getBannerForStoryTemplate(config) {
             return createElement(Default, { ...config });
         case CABEZAL_DSK:
             return createElement(
-                withStickyFromPointToPoint(Default)('lay-sidebar'),
+                withStickyFromPointToPoint(Default)([
+                    '#header',
+                    '.lay-sidebar'
+                ]),
                 {
                     ...config
                 }
