@@ -132,7 +132,7 @@
         display: none;
     }
     &.--top {
-        height: px(124);
+        //height: px(124);
         @media ($media-m) {
             height: px(114);
         }
@@ -171,6 +171,7 @@
             top: $header-desktop;
         }
         &.--fixed {
+            bottom: 0;
             left: calc((100% - 920px) / 2);
             &.--small {
                 left: calc((100% - 728px) / 2);
