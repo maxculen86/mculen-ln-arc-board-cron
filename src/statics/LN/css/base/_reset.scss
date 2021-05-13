@@ -156,10 +156,11 @@ body {
     @media (min-width: 1024px) {
         margin-bottom: 0;
         margin-top: 73px; //alto header desktop para header fijo
-        // &.--scrollUp,
-        // &.--scrollDown {
-        //     margin-top: 73px; //alto header desktop
-        // }
+        margin-top: 0;
+        //&.--scrollDown,
+        &.--scrollUp {
+            margin-top: 73px; //alto header desktop
+        }
     }
 }
 

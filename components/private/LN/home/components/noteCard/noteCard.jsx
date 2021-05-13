@@ -22,7 +22,8 @@ const NoteCard = ({
     outputType,
     promoItems,
     index,
-    boxPosition
+    boxPosition,
+    layout
 }) => {
     const [article, setArticle] = useState(
         transform(content, customFields, promoItems)
@@ -37,7 +38,7 @@ const NoteCard = ({
         getLabel(content, customFields, withMedia)
     );
     const [isRenderAutor, setIsRenderAutor] = useState(
-        getIsRenderAutor(customFields)
+        getIsRenderAutor(customFields, layout)
     );
 
     useEffect(() => {
@@ -48,8 +49,8 @@ const NoteCard = ({
         setArticle(transform(content, customFields, promoItems));
         setLabel(getLabel(content, customFields, withMedia));
         setWithSubhead(getWithSubhead(articleProps, withMedia, customFields));
-        setIsRenderAutor(getIsRenderAutor(customFields));
-    }, [articleProps, content, customFields, promoItems, withMedia]);
+        setIsRenderAutor(getIsRenderAutor(customFields, layout));
+    }, [articleProps, content, customFields, promoItems, withMedia, layout]);
 
     return (
         (article && (
@@ -59,6 +60,7 @@ const NoteCard = ({
                 link={get(article, 'website_url')}
                 titleSize={get(articleProps, 'titleSize')}
                 titleText={get(article, 'headlines.basic')}
+                titleTag={get(articleProps, 'titleTag', 'h2')}
                 authors={get(article, 'marquesina')}
                 subheadText={
                     get(articleProps, 'skipSubhead', false)

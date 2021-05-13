@@ -4,6 +4,7 @@ import ArticleMain from '../../common/articleTypes/articleMain';
 import withAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 import HeaderSection from '../../../common/mod-headerSection';
 import filter from '../../../../../content/filters/LN/acumulado/articleMasNotas';
+import addRelatedImage from '../../common/utils/addRelatedImage';
 
 const ArticleList = props => {
     const { articles, border, outputType, title, dataBlockName } = props;

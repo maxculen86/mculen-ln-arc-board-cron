@@ -256,27 +256,28 @@ export const cajaTemasCustomsFields = featuredName => {
             group: featuredRules[featuredName].groupName,
             labels: featuredRules[featuredName].layouts
         }).isRequired,
-        backgroundColor: PropTypes.oneOf([
-            'default',
-            '--bgpink',
-            '--bgblue',
-            '--bgred',
-            '--bgteal',
-            '--bggrey'
-        ]).tag({
-            label: 'Color de Fondo',
-            defaultValue: 'default',
-            description: 'Cambiar el color de fondo de la caja',
-            group: featuredRules[featuredName].groupName,
-            labels: {
-                default: 'Sin Fondo',
-                '--bgpink': 'Rosa',
-                '--bgblue': 'Celeste LN',
-                '--bgred': 'Rojo',
-                '--bgteal': 'Verde',
-                '--bggrey': 'Gris'
-            }
-        }),
+        // Se Pidió ocultarlo de momento. User Story[73305]
+        // backgroundColor: PropTypes.oneOf([
+        //     'default',
+        //     '--bgpink',
+        //     '--bgblue',
+        //     '--bgred',
+        //     '--bgteal',
+        //     '--bggrey'
+        // ]).tag({
+        //     label: 'Color de Fondo',
+        //     defaultValue: 'default',
+        //     description: 'Cambiar el color de fondo de la caja',
+        //     group: featuredRules[featuredName].groupName,
+        //     labels: {
+        //         default: 'Sin Fondo',
+        //         '--bgpink': 'Rosa',
+        //         '--bgblue': 'Celeste LN',
+        //         '--bgred': 'Rojo',
+        //         '--bgteal': 'Verde',
+        //         '--bggrey': 'Gris'
+        //     }
+        // }),
         initialPosition: PropTypes.number.tag({
             label: 'N° de nota inicial',
             description: 'Indicar a partir de que nota desea mostrar',

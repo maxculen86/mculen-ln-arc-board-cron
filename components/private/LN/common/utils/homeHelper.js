@@ -160,6 +160,13 @@ export const getSectionVisible = (scrollParent, targetElements) => {
     return bestMatch.sectionName;
 };
 
+export const isScrollbarVisible = () => {
+    return (
+        get(document, 'documentElement.scrollHeight', 0) >
+        get(document, 'documentElement.clientHeight', 0)
+    );
+};
+
 export const scrollToSection = lastSectionSaw => {
     if (lastSectionSaw === Object.keys(sectionsWithBlocks)[0]) return false;
     const element = document.querySelectorAll(
