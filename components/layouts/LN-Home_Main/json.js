@@ -14,6 +14,8 @@ const versions = {
 
 const pageBuilderSections = [
     'Anticipo',
+    'Anexo-1',
+    'Bomba',
     'Apertura',
     'Anexo-2',
     'Breaking-1',
@@ -23,6 +25,7 @@ const pageBuilderSections = [
     'Opinion',
     'Breaking-4',
     'Breaking-5',
+    'Breaking-6',
     'Comercial-1',
     'Bloque-2',
     'Comercial-2',
@@ -35,9 +38,40 @@ const pageBuilderSections = [
 ];
 
 const getHomeElements = items => {
+    const [
+        anticipo,
+        anexo1,
+        bomba,
+        apertura,
+        anexo2,
+        breaking1,
+        breaking2,
+        breaking3,
+        anexo3,
+        opinion,
+        breaking4,
+        breaking5,
+        breaking6,
+        comercial1,
+        bloque2,
+        comercial2,
+        bloque3,
+        bloque4,
+        bloque5,
+        bloque6,
+        bloque7,
+        bloque8
+    ] = items;
+
+    const culito2 = pageBuilderSections.map((e, i) => {
+        const alpha = items[e];
+        return alpha;
+    });
+
     const culito = items.map((e, i) => {
         return e;
     });
+
     return Array.prototype.concat.apply([], items).filter(e => {
         if (
             e &&

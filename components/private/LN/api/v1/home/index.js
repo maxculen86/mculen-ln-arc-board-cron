@@ -10,16 +10,13 @@ const index = (children, diagramacion) => {
             return Article(item, diagramacion);
         });
 
-        const tagDestacado = {
+        return {
+            idSeccion: 305,
             tipoSeccion: 'tema',
             tagDestacado: {
                 valor: information.title,
                 url: information.url
-            }
-        };
-
-        return {
-            tagDestacado,
+            },
             notas: subChild
         };
     });
