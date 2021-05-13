@@ -145,6 +145,7 @@
 
         .--scrollDown & {
             top: (px(16) + $header-desktop);
+            top: px(16);
         }
 
         // &.--block.--block {

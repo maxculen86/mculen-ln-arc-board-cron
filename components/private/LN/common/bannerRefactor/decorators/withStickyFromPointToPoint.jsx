@@ -58,7 +58,7 @@ const componentIsVisible = component =>
 
 const componentDidReachTarget = (component, target) => {
     if (!component || !target) return false;
-    const gap = 15;
+    const gap = 16;
     const { top } = target.getBoundingClientRect();
     return component.clientHeight > top - gap;
 };
