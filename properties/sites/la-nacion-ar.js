@@ -568,6 +568,42 @@ export default {
             articles: {
                 0: { titleSize: '--threexl', titleTag: 'h1' }
             }
+        },
+        opinion4: {
+            className: '--opinion',
+            articles: {
+                0: {
+                    titleSize: '--l',
+                    withChapita: true
+                },
+                1: {
+                    titleSize: '--xs',
+                    authorSize: '--twoxs',
+                    isRenderAuthorOpinion: true
+                },
+                2: {
+                    titleSize: '--xs',
+                    authorSize: '--twoxs',
+                    isRenderAuthorOpinion: true
+                },
+                3: {
+                    titleSize: '--l',
+                    authorSize: '--twoxs',
+                    isRenderAuthorOpinion: true
+                }
+            }
+        },
+        editoriales2: {
+            className: '--opinion',
+            headerSize: '--twoxs',
+            articles: {
+                0: {
+                    titleSize: '--twoxs'
+                },
+                1: {
+                    titleSize: '--twoxs'
+                }
+            }
         }
     }
 };
