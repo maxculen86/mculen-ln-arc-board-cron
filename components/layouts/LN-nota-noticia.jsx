@@ -58,7 +58,6 @@ import { CommentsProvider } from '../private/common/context/commentsContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import LoadBanners from '../private/common/banners/LoadBanners';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
-import KeepReading from '../private/common/keepReading';
 
 const lnNotaNoticia = ({
     children,
@@ -127,9 +126,6 @@ const lnNotaNoticia = ({
                                         </div>
                                     </div>
                                     <section className="cuerpo__nota">
-                                        Holaaa
-                                        <KeepReading />
-                                        Chauu
                                         <div className="row">
                                             <div className="col-12 col-desksm-1">
                                                 {/* hlp-mobile-show */}
