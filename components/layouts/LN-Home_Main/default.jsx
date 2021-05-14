@@ -15,31 +15,31 @@ import getScrollPercent from '../../private/LN/common/utils/getScrollPercent';
 import AnexoFeature from '../../features/LN-acumulado/anexoIframe';
 import SubHeader from '../../features/LN-common/subHeader';
 import TePuedeInteresar from '../../features/LN-nota/tePuedeInteresar/default';
+import validateSectionHome from '../../private/common/utils/validateSectionHome';
 
 const pageBuilderSections = [
     'Anticipo',
-    'Anexo-1',
+    'Anexo_1',
     'Bomba',
     'Apertura',
-    'Anexo-2',
-    'Breaking-1',
-    'Breaking-2',
-    'Breaking-3',
-    'Anexo-3',
+    'Anexo_2',
+    'Breaking_1',
+    'Breaking_2',
+    'Breaking_3',
+    'Anexo_3',
     'Opinion',
-    'Breaking-4',
-    'Breaking-5',
-    'Breaking-6',
-    'Comercial-1',
-    'Bloque-2',
-    'Comercial-2',
-    'Bloque-3',
-    'Bloque-4',
-    'Bloque-5',
-    'Bloque-6',
-    'Bloque-7',
-    'Bloque-8',
-    'Bloque-9'
+    'Breaking_4',
+    'Breaking_5',
+    'Breaking_6',
+    'Comercial_1',
+    'Bloque_2',
+    'Comercial_2',
+    'Bloque_3',
+    'Bloque_4',
+    'Bloque_5',
+    'Bloque_6',
+    'Bloque_7',
+    'Bloque_8'
 ];
 
 const reducer = (state, action) => {
@@ -110,36 +110,41 @@ const sectionsWithBlocks = {
 };
 
 const LNMainHome = props => {
-    const {
-        children: [
-            anticipo,
-            anexo1,
-            bomba,
-            apertura,
-            anexo2,
-            breaking1,
-            breaking2,
-            breaking3,
-            anexo3,
-            opinion,
-            breaking4,
-            breaking5,
-            breaking6,
-            comercial1,
-            bloque2,
-            comercial2,
-            bloque3,
-            bloque4,
-            bloque5,
-            bloque6,
-            bloque7,
-            bloque8
-        ],
-        outputType,
-        tree,
-        isAdmin
-    } = props;
-    // const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
+    const { children, outputType, isAdmin, renderables } = props;
+
+    const [
+        anticipo,
+        anexo1,
+        bomba,
+        apertura,
+        anexo2,
+        breaking1,
+        breaking2,
+        breaking3,
+        anexo3,
+        opinion,
+        breaking4,
+        breaking5,
+        breaking6,
+        comercial1,
+        bloque2,
+        comercial2,
+        bloque3,
+        bloque4,
+        bloque5,
+        bloque6,
+        bloque7,
+        bloque8
+    ] = pageBuilderSections.map((section, index) => {
+        return validateSectionHome(
+            children[index],
+            section,
+            index,
+            renderables,
+            outputType,
+            isAdmin
+        );
+    });
 
     const [blocksToLoad, dispatch] = useReducer(reducer, {
         bloque1: true,
@@ -317,7 +322,7 @@ const LNMainHome = props => {
                                         id="ranking"
                                         customFields={{
                                             url:
-                                                'https://dp-ln9.lanacion.com.ar/masleidas/home'
+                                                'https://www.lanacion.com.ar/masleidas/home'
                                         }}
                                     />
                                 </div>
@@ -376,8 +381,8 @@ const LNMainHome = props => {
 
 LNMainHome.propTypes = {
     children: PropTypes.node.isRequired,
+    renderables: PropTypes.node.isRequired,
     outputType: PropTypes.string.isRequired,
-    tree: PropTypes.shape(PropTypes.arrayOf(PropTypes.node)).isRequired,
     isAdmin: PropTypes.bool.isRequired,
     globalContent: PropTypes.shape({
         style: PropTypes.shape({
