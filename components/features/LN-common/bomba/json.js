@@ -8,10 +8,18 @@ class BombaFeature {
     }
 
     render() {
+        //return new FeatureArticulo(this.props);
         try {
+            const articulo = new FeatureArticulo(this.props);
+            const { articleSourceNota } = articulo.state || {};
+            const articles = [];
+            if (!articleSourceNota) {
+                return null;
+            }
+            articles.push(articleSourceNota);
             return {
                 information: this.props.customFields,
-                articles: new FeatureArticulo(this.props)
+                articles
             };
         } catch (err) {
             return { Success: false, Message: err.message };
