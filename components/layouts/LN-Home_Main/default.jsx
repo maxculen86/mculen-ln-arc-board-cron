@@ -12,43 +12,46 @@ import LoadBanners from '../../private/common/banners/LoadBanners';
 import blocksBanners from '../../private/common/banners/blocksBannerHome';
 import Metarefresh from '../../features/LN-common/metarefresh';
 import {
-    DivBanner,
-    BannerComercial,
     getChainsFromApertura,
     sectionsWithBlocks,
     getSectionVisible,
     scrollToSection,
     getViewport,
-    isScrollbarVisible
+    isScrollbarVisible,
+    isBombaVisible,
+    BannerCabezal
 } from '../../private/LN/common/utils/homeHelper';
 import getScrollPercent from '../../private/LN/common/utils/getScrollPercent';
 import AnexoFeature from '../../features/LN-acumulado/anexoIframe';
 import SubHeader from '../../features/LN-common/subHeader';
 import TePuedeInteresar from '../../features/LN-nota/tePuedeInteresar/default';
+import validateSectionHome from '../../private/common/utils/validateSectionHome';
+import DivBanner from '../../private/common/banners/DivBanner';
+import BannerComercial from '../../private/common/banners/BannerComercial';
 
 const pageBuilderSections = [
     'Anticipo',
-    'Anexo-1',
+    'Anexo_1',
     'Bomba',
     'Apertura',
-    'Anexo-2',
-    'Breaking-1',
-    'Breaking-2',
-    'Breaking-3',
-    'Anexo-3',
+    'Anexo_2',
+    'Breaking_1',
+    'Breaking_2',
+    'Breaking_3',
+    'Anexo_3',
     'Opinion',
-    'Breaking-4',
-    'Breaking-5',
-    'Breaking-6',
-    'Comercial-1',
-    'Bloque-2',
-    'Comercial-2',
-    'Bloque-3',
-    'Bloque-4',
-    'Bloque-5',
-    'Bloque-6',
-    'Bloque-7',
-    'Bloque-8'
+    'Breaking_4',
+    'Breaking_5',
+    'Breaking_6',
+    'Comercial_1',
+    'Bloque_2',
+    'Comercial_2',
+    'Bloque_3',
+    'Bloque_4',
+    'Bloque_5',
+    'Bloque_6',
+    'Bloque_7',
+    'Bloque_8'
 ];
 
 const reducer = (state, action) => {
@@ -93,41 +96,50 @@ const checkIfOneBlockIsFalse = blocksToLoad => {
 };
 
 const LNMainHome = props => {
-    const {
-        children: [
-            anticipo,
-            anexo1,
-            bomba,
-            apertura,
-            anexo2,
-            breaking1,
-            breaking2,
-            breaking3,
-            anexo3,
-            opinion,
-            breaking4,
-            breaking5,
-            breaking6,
-            comercial1,
-            bloque2,
-            comercial2,
-            bloque3,
-            bloque4,
-            bloque5,
-            bloque6,
-            bloque7,
-            bloque8
-        ],
-        outputType,
-        tree,
-        renderables,
-        isAdmin,
-        siteProperties
-    } = props;
+    const { children, outputType, isAdmin, renderables } = props;
+
+    const [
+        anticipo,
+        anexo1,
+        bomba,
+        apertura,
+        anexo2,
+        breaking1,
+        breaking2,
+        breaking3,
+        anexo3,
+        opinion,
+        breaking4,
+        breaking5,
+        breaking6,
+        comercial1,
+        bloque2,
+        comercial2,
+        bloque3,
+        bloque4,
+        bloque5,
+        bloque6,
+        bloque7,
+        bloque8
+    ] = pageBuilderSections.map((section, index) => {
+        return validateSectionHome(
+            children[index],
+            section,
+            index,
+            renderables,
+            outputType,
+            isAdmin
+        );
+    });
 
     const { chainApertura1, chainApertura2 } = getChainsFromApertura(
         renderables
     );
+
+    const showSectionApertura =
+        !apertura || get(apertura, 'props.id', null) === 'LN-Home-error';
+
+    const showBomba = isBombaVisible(renderables);
 
     const { isMobile, isTablet, isDesktop, device } = getViewport();
 
@@ -139,7 +151,6 @@ const LNMainHome = props => {
         bloque5: isAdmin
     });
 
-    // First load
     useEffect(() => {
         const handleScroll = throttle((e, dataSections) => {
             try {
@@ -179,8 +190,8 @@ const LNMainHome = props => {
 
         const isScrollVisible = isScrollbarVisible();
         if (!isScrollVisible) {
-            // Si resolution no tiene scroll bar, se fuerza cargar bloque 2
-            dispatch({ type: 'update', payload: 'bloque1' });
+            // Si resolution no tiene scroll bar, se fuerza cargar hasta bloque 3
+            dispatch({ type: 'update', payload: 'bloque3' });
         }
 
         if (!lastSectionSaw || !lastScrollPosition) return;
@@ -218,14 +229,14 @@ const LNMainHome = props => {
                     <BannerComercial
                         id="comercial_dsk"
                         device={device}
-                        siteProperties={siteProperties}
+                        slotGroup="home"
                     />
                 )}
                 {isMobile && (
                     <BannerComercial
                         id="comercial_mob"
                         device={device}
-                        siteProperties={siteProperties}
+                        slotGroup="home"
                     />
                 )}
 
@@ -234,6 +245,12 @@ const LNMainHome = props => {
                     <SubHeader />
                     {anticipo}
                     {anexo1}
+                    {showBomba && (
+                        <BannerCabezal
+                            isTablet={isTablet}
+                            isDesktop={isDesktop}
+                        />
+                    )}
                     {bomba}
                     <main>
                         {/* STICKY MOB */}
@@ -247,25 +264,27 @@ const LNMainHome = props => {
                                 {/* Cuerpo */}
                                 <div className="sidebar__main">
                                     {/* BANNER CABEZAL */}
-                                    <DivBanner
-                                        id="cabezal_dsk"
-                                        shouldRender={isDesktop}
-                                    />
-                                    <DivBanner
-                                        id="cabezal_tab"
-                                        shouldRender={isTablet}
-                                    />
+                                    {!showBomba && (
+                                        <BannerCabezal
+                                            isTablet={isTablet}
+                                            isDesktop={isDesktop}
+                                        />
+                                    )}
 
                                     {/* 1er Bloque */}
-                                    <div data-section="apertura">
-                                        {chainApertura1}
-                                        {/* BANNER CAJA 1 MOB */}
-                                        <DivBanner
-                                            id="caja1_mob"
-                                            shouldRender={isMobile}
-                                        />
-                                        {chainApertura2}
-                                    </div>
+                                    {!showSectionApertura ? (
+                                        <div data-section="apertura">
+                                            {chainApertura1}
+                                            {/* BANNER CAJA 1 MOB */}
+                                            <DivBanner
+                                                id="caja1_mob"
+                                                shouldRender={isMobile}
+                                            />
+                                            {chainApertura2}
+                                        </div>
+                                    ) : (
+                                        apertura
+                                    )}
 
                                     {/* BANNER BILLBOARD */}
                                     <DivBanner
@@ -438,7 +457,7 @@ const LNMainHome = props => {
                                         id="ranking"
                                         customFields={{
                                             url:
-                                                'https://dp-ln9.lanacion.com.ar/masleidas/home'
+                                                'https://www.lanacion.com.ar/masleidas/home'
                                         }}
                                     />
                                 </div>
@@ -550,11 +569,9 @@ const LNMainHome = props => {
 };
 
 LNMainHome.propTypes = {
-    siteProperties: PropTypes.node,
     children: PropTypes.node.isRequired,
+    renderables: PropTypes.node.isRequired,
     outputType: PropTypes.string,
-    tree: PropTypes.shape(PropTypes.arrayOf(PropTypes.node)).isRequired,
-    renderables: PropTypes.arrayOf(PropTypes.node).isRequired,
     isAdmin: PropTypes.bool.isRequired,
     globalContent: PropTypes.shape({
         style: PropTypes.shape({

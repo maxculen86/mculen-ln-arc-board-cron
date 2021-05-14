@@ -120,8 +120,8 @@ CajaTema.defaultProps = {
     url: null,
     imageId: null,
     titleSize: null,
-    _children: null,
-    withSubhead: false
+    withSubhead: false,
+    _children: []
 };
 
 const areEqual = (prevProps, nextProps) =>
