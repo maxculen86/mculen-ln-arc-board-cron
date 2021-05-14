@@ -94,6 +94,7 @@
         bottom: px(56);
         z-index: 100;
         left: calc((100% - 320px) / 2);
+        background: white;
 
         // &.--adhesion_mob {
         //     display: flex;
@@ -102,10 +103,10 @@
         // .--scrollDown & {
         //     bottom: px(0);
         // }
-        &.--bg-banner {
-            background: $light-neutral-200;
-            width: 100%;
-        }
+        // &.--bg-banner {
+        //     background: $light-neutral-200;
+        //     width: 100%;
+        // }
     }
     &.--close {
         .icon-close {
@@ -114,7 +115,7 @@
             background: $neutral-black;
             position: absolute;
             top: 0;
-            right: px(1);
+            right: 0;
             color: $neutral-white;
             font-size: px(16);
         }
@@ -132,6 +133,24 @@
     // &.--cabezal_dsk {
     //     display: none;
     // }
+
+    //ALTURAS FIJAS
+
+    &.--sticky2_mob,
+    &.--adhesion_mob {
+        height: px(50);
+    }
+    &.--caja1_mob,
+    &.--caja2_mob,
+    &.--caja3_mob,
+    &.--caja4_mob {
+        height: px(450);
+        margin-bottom: px(32);
+    }
+    &.--comercial_mob {
+        height: px(480);
+    }
+
     &.--top {
         //height: px(124);
         @media ($media-m) {
@@ -157,7 +176,24 @@
         &.--cabezal_tab {
             display: flex;
             margin-bottom: $spacing-lg;
+        }
+
+        //ALTURAS FIJAS
+
+        &.--adhesion_tab,
+        &.--cabezal_tab,
+        &.--middle1_tab,
+        &.--middle2_tab {
             height: px(90);
+        }
+        &.--caja1_tab,
+        &.--caja2_tab,
+        &.--caja3_tab,
+        &.--caja4_tab {
+            height: px(250);
+        }
+        &.--logo_tag_tab {
+            height: px(280);
         }
     }
 }
@@ -175,8 +211,8 @@
             top: $header-desktop;
             .sidebar__aside & {
                 //top: $header-desktop; //descomentar si es diferente al cabezal_dsk
-                padding-top: px(24);
-                background: $neutral-white;
+                // padding-top: px(24);
+                // background: $neutral-white;
                 // .--scrollUp & {
                 //     top: $header-desktop;
                 // }
@@ -207,16 +243,30 @@
             margin-bottom: $spacing-lg;
             height: px(170);
         }
+
+        //ALTURAS FIJAS
+
+        &.--adhesion_dsk {
+            height: px(100);
+        }
+
         &.--middle1_dsk,
-        &.--billboard_dsk,
         &.--caja1_dsk,
+        &.--caja2_dsk,
         &.--caja3_dsk,
-        &.--caja1_dsk,
         &.--caja4_dsk,
+        &.--billboard_dsk,
         &.--caja_producto1_dsk,
         &.--caja_producto2_dsk,
-        &.--cinturon1_dsk {
+        &.--cinturon1_dsk,
+        &.--cinturon2_dsk {
             height: px(250);
+        }
+
+        &.--megalateral_dsk,
+        &.--megalateral2_dsk,
+        &.--megalateral3_dsk {
+            height: px(600);
         }
     }
 }
@@ -231,5 +281,12 @@
                 left: calc((100% - 1068px) / 2);
             }
         }
+    }
+}
+
+.--ads {
+    margin-bottom: px(32);
+    &:empty {
+        display: none;
     }
 }
