@@ -9,8 +9,13 @@ import HeaderSection from '../../private/common/mod-headerSection';
 
 // TODO: Reoptimizar este componente
 const seguirLeyendo = ({ globalContent }) => {
-    const relatedContent = get(globalContent, 'related_content.basic', []);
+    const removeVideo = content => content.filter(x => x && x.type !== 'video');
+    const relatedContent = removeVideo(
+        get(globalContent, 'related_content.basic', [])
+    );
+
     if (relatedContent.every(con => con && con.type !== 'story')) return null;
+
     return (
         <Static id="LN-Nota-SeguirLeyendo">
             <div className="row">
