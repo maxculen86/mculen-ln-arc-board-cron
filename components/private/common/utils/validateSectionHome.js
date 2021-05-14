@@ -12,7 +12,9 @@ const findSectionChildren = (renderables, position) => {
 
 const checkIfValid = (name, children) => {
     const childrenWithoutHide = children.filter(
-        child => get(child, 'props.customFields.hideCaja', false) !== true
+        child =>
+            get(child, 'props.customFields.hideCaja', false) !== true &&
+            get(child, 'props.customFields.hideFeature', false) !== true
     );
     const sectionRule = sectionsValidation[name] || {};
     if (sectionRule.quantity !== childrenWithoutHide.length) return false;
