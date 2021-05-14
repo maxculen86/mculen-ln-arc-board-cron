@@ -594,7 +594,7 @@ export default {
             }
         },
         editoriales2: {
-            className: '--opinion',
+            className: '--editoriales',
             headerSize: '--twoxs',
             articles: {
                 0: {
