@@ -176,6 +176,9 @@
         &.--cabezal_tab {
             display: flex;
             margin-bottom: $spacing-lg;
+            &.--dark {
+                margin-bottom: 0;
+            }
         }
 
         //ALTURAS FIJAS
@@ -209,14 +212,14 @@
         }
         &.--sticky {
             top: $header-desktop;
-            .sidebar__aside & {
-                //top: $header-desktop; //descomentar si es diferente al cabezal_dsk
-                // padding-top: px(24);
-                // background: $neutral-white;
-                // .--scrollUp & {
-                //     top: $header-desktop;
-                // }
-            }
+            //.sidebar__aside & {
+            //top: $header-desktop; //descomentar si es diferente al cabezal_dsk
+            // padding-top: px(24);
+            // background: $neutral-white;
+            // .--scrollUp & {
+            //     top: $header-desktop;
+            // }
+            //}
             // .sidebar__aside & {
             //     .--scrollUp & {
             //         padding-top: px(10);
@@ -242,6 +245,9 @@
             display: flex;
             margin-bottom: $spacing-lg;
             height: px(170);
+            &.--dark {
+                margin-bottom: 0;
+            }
         }
 
         //ALTURAS FIJAS

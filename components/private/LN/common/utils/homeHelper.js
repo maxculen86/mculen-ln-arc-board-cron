@@ -85,8 +85,16 @@ export const getSubscription = () => {
 export const BannerCabezal = ({ isDesktop, isTablet }) => {
     return (
         <>
-            <DivBanner id="cabezal_dsk" shouldRender={isDesktop} />
-            <DivBanner id="cabezal_tab" shouldRender={isTablet} />
+            <DivBanner
+                id="cabezal_dsk"
+                shouldRender={isDesktop}
+                classes="--dark"
+            />
+            <DivBanner
+                id="cabezal_tab"
+                shouldRender={isTablet}
+                classes="--dark"
+            />
         </>
     );
 };
