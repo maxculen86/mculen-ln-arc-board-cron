@@ -1,6 +1,6 @@
 /* eslint-disable consistent-return */
 import React, { useEffect, useReducer } from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
 import throttle from '../../private/common/utils/throttle';
@@ -8,14 +8,26 @@ import Header from '../../private/LN/common/header';
 import Footer from '../../private/LN/common/footer/home';
 import GlobalProvider from '../../private/common/context/globalContext';
 import LoginProvider from '../../private/LN/common/context/loginContext';
-// import getBannerMegatop from '../../private/common/utils/getBannerMegatop';
-// import BannerRefactor from '../../features/LN-common/bannerRefactor';
 import LoadBanners from '../../private/common/banners/LoadBanners';
+import blocksBanners from '../../private/common/banners/blocksBannerHome';
+import Metarefresh from '../../features/LN-common/metarefresh';
+import {
+    getChainsFromApertura,
+    sectionsWithBlocks,
+    getSectionVisible,
+    scrollToSection,
+    getViewport,
+    isScrollbarVisible,
+    isBombaVisible,
+    BannerCabezal
+} from '../../private/LN/common/utils/homeHelper';
 import getScrollPercent from '../../private/LN/common/utils/getScrollPercent';
 import AnexoFeature from '../../features/LN-acumulado/anexoIframe';
 import SubHeader from '../../features/LN-common/subHeader';
 import TePuedeInteresar from '../../features/LN-nota/tePuedeInteresar/default';
 import validateSectionHome from '../../private/common/utils/validateSectionHome';
+import DivBanner from '../../private/common/banners/DivBanner';
+import BannerComercial from '../../private/common/banners/BannerComercial';
 
 const pageBuilderSections = [
     'Anticipo',
@@ -61,7 +73,7 @@ const reducer = (state, action) => {
 const updateBlocks = (blocks, lastBlock) => {
     const newState = { ...blocks };
     if (!lastBlock) return blocks;
-    const number = Number(lastBlock.slice(-1)) + 1;
+    const number = Number(lastBlock.slice(-1));
     Object.keys(blocks).forEach(key => {
         if (key.slice(-1) <= number) newState[key] = true;
     });
@@ -81,31 +93,6 @@ const updateNextBlock = blocks => {
 
 const checkIfOneBlockIsFalse = blocksToLoad => {
     return Object.keys(blocksToLoad).some(key => !blocksToLoad[key]);
-};
-
-const sectionsWithBlocks = {
-    anticipo: 'bloque1',
-    anexo1: 'bloque1',
-    bomba: 'bloque1',
-    apertura: 'bloque1',
-    anexo2: 'bloque2',
-    breaking1: 'bloque2',
-    breaking2: 'bloque2',
-    breaking3: 'bloque2',
-    anexo3: 'bloque3',
-    opinion: 'bloque3',
-    breaking4: 'bloque3',
-    breaking5: 'bloque3',
-    breaking6: 'bloque3',
-    comercial1: 'bloque3',
-    bloque2: 'bloque4',
-    comercial2: 'bloque4',
-    bloque3: 'bloque4',
-    bloque4: 'bloque4',
-    bloque5: 'bloque5',
-    bloque6: 'bloque5',
-    bloque7: 'bloque5',
-    bloque8: 'bloque5'
 };
 
 const LNMainHome = props => {
@@ -145,6 +132,17 @@ const LNMainHome = props => {
         );
     });
 
+    const { chainApertura1, chainApertura2 } = getChainsFromApertura(
+        renderables
+    );
+
+    const showSectionApertura =
+        !apertura || get(apertura, 'props.id', null) === 'LN-Home-error';
+
+    const showBomba = isBombaVisible(renderables);
+
+    const { isMobile, isTablet, isDesktop, device } = getViewport();
+
     const [blocksToLoad, dispatch] = useReducer(reducer, {
         bloque1: true,
         bloque2: isAdmin,
@@ -152,45 +150,6 @@ const LNMainHome = props => {
         bloque4: isAdmin,
         bloque5: isAdmin
     });
-
-    const isScrollbarVisible = () => {
-        return (
-            get(document, 'documentElement.scrollHeight', 0) >
-            get(document, 'documentElement.clientHeight', 0)
-        );
-    };
-
-    const getSectionVisible = (scrollParent, targetElements) => {
-        let bestMatch = {};
-        targetElements.forEach(domElm => {
-            // check distance from top, takig scroll into account
-            const delta = Math.abs(scrollParent - domElm.offsetTop);
-
-            if (!bestMatch.sectionName)
-                bestMatch = { sectionName: domElm.dataset.section, delta };
-
-            // check which delet is closest to "0"
-            if (delta < bestMatch.delta) {
-                bestMatch = { sectionName: domElm.dataset.section, delta };
-            }
-        });
-
-        // update state with best-fit section
-        return bestMatch.sectionName;
-    };
-
-    const scrollToSection = lastSectionSaw => {
-        if (lastSectionSaw === Object.keys(sectionsWithBlocks)[0]) return false;
-        const element = document.querySelectorAll(
-            `[data-section=${lastSectionSaw}]`
-        );
-        if (element && element.length === 0) return;
-        const elementRect = element[0].getBoundingClientRect();
-        const absoluteElementTop = elementRect.top + window.pageYOffset;
-        const middle = absoluteElementTop - window.innerHeight / 2;
-        window.scrollTo(0, middle);
-        return true;
-    };
 
     useEffect(() => {
         const handleScroll = throttle((e, dataSections) => {
@@ -231,8 +190,8 @@ const LNMainHome = props => {
 
         const isScrollVisible = isScrollbarVisible();
         if (!isScrollVisible) {
-            // Si resolution no tiene scroll bar, se fuerza cargar bloque 2
-            dispatch({ type: 'update', payload: 'bloque1' });
+            // Si resolution no tiene scroll bar, se fuerza cargar hasta bloque 3
+            dispatch({ type: 'update', payload: 'bloque3' });
         }
 
         if (!lastSectionSaw || !lastScrollPosition) return;
@@ -254,53 +213,224 @@ const LNMainHome = props => {
     return (
         <GlobalProvider>
             <LoginProvider>
-                {/* {megatop} */}
+                {/* 1x1 */}
+                <DivBanner
+                    id="unoxuno_dsk"
+                    shouldRender={isDesktop}
+                    validateSuscription
+                />
+                <DivBanner
+                    id="unoxuno_mob"
+                    shouldRender={isMobile}
+                    validateSuscription
+                />
+                {/* COMERCIAL */}
+                {isDesktop && (
+                    <BannerComercial
+                        id="comercial_dsk"
+                        device={device}
+                        slotGroup="home"
+                    />
+                )}
+                {isMobile && (
+                    <BannerComercial
+                        id="comercial_mob"
+                        device={device}
+                        slotGroup="home"
+                    />
+                )}
+
                 <div id="wrapper" className="home">
                     <Header />
                     <SubHeader />
                     {anticipo}
                     {anexo1}
+                    {showBomba && (
+                        <BannerCabezal
+                            isTablet={isTablet}
+                            isDesktop={isDesktop}
+                        />
+                    )}
                     {bomba}
                     <main>
-                        {/* {stickyMobile} */}
+                        {/* STICKY MOB */}
+                        <DivBanner
+                            id="sticky2_mob"
+                            classes="--sticky2_mob --sticky"
+                            shouldRender={isMobile}
+                        />
                         <div className="row">
-                            {/* <div className="lay">{preApertura}</div> */}
                             <div id="content-main" className="lay-sidebar">
                                 {/* Cuerpo */}
                                 <div className="sidebar__main">
-                                    {/* 1er Bloque */}
-                                    <div data-section="apertura">
-                                        {apertura}
-                                    </div>
+                                    {/* BANNER CABEZAL */}
+                                    {!showBomba && (
+                                        <BannerCabezal
+                                            isTablet={isTablet}
+                                            isDesktop={isDesktop}
+                                        />
+                                    )}
 
+                                    {/* 1er Bloque */}
+                                    {!showSectionApertura ? (
+                                        <div data-section="apertura">
+                                            {chainApertura1}
+                                            {/* BANNER CAJA 1 MOB */}
+                                            <DivBanner
+                                                id="caja1_mob"
+                                                shouldRender={isMobile}
+                                            />
+                                            {chainApertura2}
+                                        </div>
+                                    ) : (
+                                        apertura
+                                    )}
+
+                                    {/* BANNER BILLBOARD */}
+                                    <DivBanner
+                                        id="billboard_dsk"
+                                        shouldRender={isDesktop}
+                                    />
+
+                                    {/* BANNER CAJA 2 MOB */}
+                                    {blocksToLoad.bloque2 && (
+                                        <DivBanner
+                                            id="caja2_mob"
+                                            shouldRender={isMobile}
+                                        />
+                                    )}
                                     <div data-section="anexo2">
                                         {blocksToLoad.bloque2 && anexo2}
                                     </div>
                                     <div data-section="breaking1">
                                         {blocksToLoad.bloque2 && breaking1}
                                     </div>
-                                    {/* BANNER  */}
+                                    {/* BANNER CAJA 3 MOB */}
+                                    {blocksToLoad.bloque2 && (
+                                        <>
+                                            <DivBanner
+                                                id="caja3_mob"
+                                                shouldRender={isMobile}
+                                            />
+                                            <div className="row-gap-tablet-2 --ads">
+                                                <DivBanner
+                                                    id="caja1_tab"
+                                                    shouldRender={isTablet}
+                                                />
+                                                <DivBanner
+                                                    id="caja2_tab"
+                                                    shouldRender={isTablet}
+                                                />
+                                            </div>
+                                        </>
+                                    )}
+                                    {/* BANNER CAJA DSK  */}
+                                    {blocksToLoad.bloque2 && (
+                                        <div className="row-gap-tablet-3 --ads">
+                                            <DivBanner
+                                                id="caja1_dsk"
+                                                shouldRender={isDesktop}
+                                            />
+                                            <DivBanner
+                                                id="caja_producto1_dsk"
+                                                shouldRender={isDesktop}
+                                            />
+                                            <DivBanner
+                                                id="caja2_dsk"
+                                                shouldRender={isDesktop}
+                                            />
+                                        </div>
+                                    )}
                                     <div data-section="breaking2">
                                         {blocksToLoad.bloque2 && breaking2}
                                     </div>
-                                    {/* BANNER */}
+                                    {/* BANNER CAJA 4 MOB */}
                                     {blocksToLoad.bloque2 && (
-                                        <div className="row-gap-tablet-3 --ads"></div>
+                                        <>
+                                            <DivBanner
+                                                id="caja4_mob"
+                                                shouldRender={isMobile}
+                                            />
+                                            <DivBanner
+                                                id="middle1_tab"
+                                                shouldRender={isTablet}
+                                            />
+                                        </>
                                     )}
+                                    {/* BANNER CINTURON 1 */}
+                                    {blocksToLoad.bloque2 && (
+                                        <DivBanner
+                                            id="cinturon1_dsk"
+                                            shouldRender={isDesktop}
+                                        />
+                                    )}
+
                                     <div data-section="breaking3">
                                         {blocksToLoad.bloque2 && breaking3}
                                     </div>
                                     {/* 2do Bloque */}
-                                    <div data-section="anexo3">
-                                        {blocksToLoad.bloque3 && anexo3}
-                                    </div>
+                                    {blocksToLoad.bloque3 && anexo3}
+                                    {/* BANNER CAJA 5 MOB - BANNER CINTURON 2 - BANNER MIDDLE 2 */}
+                                    {blocksToLoad.bloque3 && (
+                                        <>
+                                            <DivBanner
+                                                id="caja5_mob"
+                                                shouldRender={isMobile}
+                                            />
+                                            <DivBanner
+                                                id="cinturon2_dsk"
+                                                shouldRender={isDesktop}
+                                            />
+                                            <DivBanner
+                                                id="middle2_tab"
+                                                shouldRender={isTablet}
+                                            />
+                                        </>
+                                    )}
+
                                     <div data-section="opinion">
                                         {blocksToLoad.bloque3 && opinion}
                                     </div>
+                                    {/* BANNER  */}
+                                    {blocksToLoad.bloque3 && (
+                                        <div className="row-gap-tablet-3 --ads">
+                                            <DivBanner
+                                                id="caja3_dsk"
+                                                shouldRender={isDesktop}
+                                            />
+                                            <DivBanner
+                                                id="caja_producto2_dsk"
+                                                shouldRender={isDesktop}
+                                            />
+                                            <DivBanner
+                                                id="caja4_dsk"
+                                                shouldRender={isDesktop}
+                                            />
+                                        </div>
+                                    )}
+                                    {/* BANNER CAJAS TAB */}
+                                    {blocksToLoad.bloque3 && (
+                                        <div className="row-gap-tablet-2 --ads">
+                                            <DivBanner
+                                                id="caja3_tab"
+                                                shouldRender={isTablet}
+                                            />
+                                            <DivBanner
+                                                id="caja4_tab"
+                                                shouldRender={isTablet}
+                                            />
+                                        </div>
+                                    )}
                                     <div data-section="breaking4">
                                         {blocksToLoad.bloque3 && breaking4}
                                     </div>
-                                    {/* BANNER */}
+                                    {/* BANNER MIDDLE 1 */}
+                                    {blocksToLoad.bloque3 && (
+                                        <DivBanner
+                                            id="middle1_dsk"
+                                            shouldRender={isDesktop}
+                                        />
+                                    )}
                                     <div data-section="breaking5">
                                         {blocksToLoad.bloque3 && breaking5}
                                     </div>
@@ -309,9 +439,15 @@ const LNMainHome = props => {
                                     </div>
                                 </div>
                                 <div className="sidebar__aside hlp-tabletlm-none">
-                                    {/* BANNERS, RANKING DE NOTAS */}
+                                    {/* BANNERS */}
+                                    <DivBanner
+                                        id="megalateral_dsk"
+                                        classes="--megalateral --sticky"
+                                        shouldRender={isDesktop}
+                                    />
                                 </div>
                             </div>
+                            {/* RANKING */}
                             {blocksToLoad.bloque3 && (
                                 <div
                                     data-section="ranking"
@@ -332,7 +468,7 @@ const LNMainHome = props => {
                                     <div data-section="comercial1">
                                         {blocksToLoad.bloque3 && comercial1}
                                     </div>
-                                    {/* 3er Bloque */}
+                                    {/* 4to Bloque */}
                                     <div data-section="bloque2">
                                         {blocksToLoad.bloque4 && bloque2}
                                     </div>
@@ -345,7 +481,7 @@ const LNMainHome = props => {
                                     <div data-section="bloque4">
                                         {blocksToLoad.bloque4 && bloque4}
                                     </div>
-                                    {/* 4to Bloque */}
+                                    {/* 5to Bloque */}
                                     <div data-section="bloque5">
                                         {blocksToLoad.bloque5 && bloque5}
                                     </div>
@@ -365,14 +501,68 @@ const LNMainHome = props => {
                                     )}
                                 </div>
                                 <div className="sidebar__aside hlp-tabletlm-none">
-                                    {/* BANNERS, RANKING DE NOTAS */}
+                                    {/* BANNER ASIDE */}
+                                    {blocksToLoad.bloque4 && (
+                                        <DivBanner
+                                            id="megalateral2_dsk"
+                                            classes="--megalateral --sticky"
+                                            shouldRender={isDesktop}
+                                        />
+                                    )}
+                                    {blocksToLoad.bloque5 && (
+                                        <DivBanner
+                                            id="megalateral3_dsk"
+                                            classes="--megalateral --sticky"
+                                            shouldRender={isDesktop}
+                                        />
+                                    )}
+                                </div>
+                            </div>
+                            <div className="lay-sidebar">
+                                <div className="sidebar__main">
+                                    {/* ADHESION */}
+                                    <DivBanner
+                                        id="adhesion_dsk"
+                                        classes="--adhesion_dsk --fixed"
+                                        shouldRender={isDesktop}
+                                        closeButton
+                                        validateSuscription
+                                    />
+
+                                    <DivBanner
+                                        id="adhesion_mob"
+                                        classes="--adhesion_mob --fixed"
+                                        shouldRender={isMobile}
+                                        closeButton
+                                        validateSuscription
+                                    />
+                                    <DivBanner
+                                        id="adhesion_tab"
+                                        classes="--adhesion_tab --fixed"
+                                        shouldRender={isTablet}
+                                        closeButton
+                                        validateSuscription
+                                    />
                                 </div>
                             </div>
                         </div>
                     </main>
                     <Footer />
                 </div>
-                <LoadBanners />
+                <LoadBanners blocksBanners={blocksBanners.bloque1} />
+                {blocksToLoad.bloque2 && (
+                    <LoadBanners blocksBanners={blocksBanners.bloque2} />
+                )}
+                {blocksToLoad.bloque3 && (
+                    <LoadBanners blocksBanners={blocksBanners.bloque3} />
+                )}
+                {blocksToLoad.bloque4 && (
+                    <LoadBanners blocksBanners={blocksBanners.bloque4} />
+                )}
+                {blocksToLoad.bloque5 && (
+                    <LoadBanners blocksBanners={blocksBanners.bloque5} />
+                )}
+                <Metarefresh />
             </LoginProvider>
         </GlobalProvider>
     );
@@ -381,7 +571,7 @@ const LNMainHome = props => {
 LNMainHome.propTypes = {
     children: PropTypes.node.isRequired,
     renderables: PropTypes.node.isRequired,
-    outputType: PropTypes.string.isRequired,
+    outputType: PropTypes.string,
     isAdmin: PropTypes.bool.isRequired,
     globalContent: PropTypes.shape({
         style: PropTypes.shape({
@@ -407,8 +597,13 @@ LNMainHome.propTypes = {
             PropTypes.shape({
                 _id: PropTypes.string
             })
-        ).isRequired
+        )
     }).isRequired
+};
+
+LNMainHome.defaultProps = {
+    outputType: 'default',
+    siteProperties: undefined
 };
 
 LNMainHome.sections = pageBuilderSections;

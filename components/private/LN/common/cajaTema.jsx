@@ -140,12 +140,13 @@ CajaTema.propTypes = {
     classCondition: PropTypes.string.isRequired,
     notesQuantity: PropTypes.number.isRequired,
     hideTitle: PropTypes.boolean.isRequired,
-    withSubhead: PropTypes.boolean.isRequired,
+    withSubhead: PropTypes.boolean,
     title: PropTypes.string,
-    titleSize: PropTypes.string,
+    titleSize: PropTypes.oneOfType([PropTypes.boolean, PropTypes.string]),
     url: PropTypes.string,
     imageId: PropTypes.string,
-    position: PropTypes.string.isRequired,
+    position: PropTypes.oneOfType([PropTypes.boolean, PropTypes.string])
+        .isRequired,
     sectionName: PropTypes.string.isRequired,
     _children: PropTypes.arrayOf(PropTypes.obj)
 };
@@ -155,6 +156,7 @@ CajaTema.defaultProps = {
     url: null,
     imageId: null,
     titleSize: null,
+    withSubhead: false,
     _children: []
 };
 

@@ -129,7 +129,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: calc(100vh - 60px);
+            height: calc(100vh - 98px); //resto banner y header mobile
             border: 0;
 
             @media (min-width: 769px) {
@@ -350,4 +350,24 @@ $guion: '-';
 @mixin column-grid($start, $end) {
     grid-column-start: $start;
     grid-column-end: $end;
+}
+
+//BACKGROUND RAYAS DIAGONALES
+@mixin BgDiagonal {
+    background: -webkit-repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1) 4px,
+        rgba(0, 0, 0, 0.15) 6px
+    );
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1) 4px,
+        rgba(0, 0, 0, 0.15) 6px
+    );
 }
