@@ -32,7 +32,7 @@ const index = (children, diagramacion) => {
                     return Article(item, diagramacion);
                 });
 
-                if (information.hideTecho && f.feature !== 'Apertura') {
+                if (!information.hideTecho && f.feature !== 'Apertura') {
                     res.tagDestacado = {
                         valor: information.title,
                         url: information.url

@@ -4,7 +4,7 @@ jest.mock(
 );
 
 import React from 'react';
-import CajaAnticipo from '../../../../components/features/LN-common/cajaAnticipo';
+import CajaAnticipo from '../../../../components/features/LN-common/cajaAnticipo/default';
 import { shallow } from 'enzyme';
 
 describe('Private - Feature - CajaAnticipo =>', () => {
