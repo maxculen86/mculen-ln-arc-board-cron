@@ -33,8 +33,9 @@
     }
     &.--mobile,
     &.--sticky1_mob {
-        margin-bottom: px(24);
-        height: px(100);
+        display: none;
+        //margin-bottom: px(24);
+        //height: px(100);
     }
     &.--desktop {
         margin-bottom: px(24);
@@ -53,22 +54,54 @@
             }
         }
 
-        &.sticky2_mob {
-            .--scrollUp & {
-                top: px(80);
-                display: none;
-            }
+        &.--sticky2_mob {
+            height: px(50);
+            //background: $neutral-white;
+            position: fixed;
+            display: flex;
+            width: 100%;
+            z-index: 1000;
         }
+
+        // &.sticky2_mob {
+        //     .--scrollUp & {
+        //         top: px(80);
+        //         display: none;
+        //     }
+        // }
+
+        .sidebar__aside & {
+            //top: $header-desktop; descomentar si es diferente al cabezal_dsk
+            padding-top: px(10);
+            background: $neutral-white;
+
+            // .--scrollDown & {
+            //     padding-top: px(10);
+            //     background: $neutral-white;
+            // }
+        }
+        // .sidebar__aside & {
+        //     .--scrollUp & {
+        //         padding-top: px(10);
+        //         top: px(72);
+        //         background: $neutral-white;
+        //     }
+        // }
     }
+
     &.--fixed {
         position: fixed;
-        bottom: px(60);
+        bottom: px(56);
         z-index: 100;
         left: calc((100% - 320px) / 2);
 
-        .--scrollDown & {
-            bottom: px(0);
-        }
+        // &.--adhesion_mob {
+        //     display: flex;
+        // }
+
+        // .--scrollDown & {
+        //     bottom: px(0);
+        // }
         &.--bg-banner {
             background: $light-neutral-200;
             width: 100%;
@@ -100,7 +133,7 @@
         display: none;
     }
     &.--top {
-        height: px(124);
+        //height: px(124);
         @media ($media-m) {
             height: px(114);
         }
@@ -115,12 +148,12 @@
             display: none;
         }
         &.--fixed {
-            bottom: px(0);
+            bottom: px(56);
             left: calc((100% - 728px) / 2);
         }
-        &.--sticky1_mob {
-            display: none;
-        }
+        // &.--sticky1_mob {
+        //     display: none;
+        // }
         &.--cabezal_tab {
             display: flex;
             margin-bottom: $spacing-lg;
@@ -137,28 +170,9 @@
         }
         &.--sticky {
             top: $header-desktop;
-            top: 0;
-            .sidebar__aside & {
-                //top: $header-desktop; descomentar si es diferente al cabezal_dsk
-                padding-top: px(10);
-                background: $neutral-white;
-                .--scrollUp & {
-                    top: $header-desktop;
-                }
-                // .--scrollDown & {
-                //     padding-top: px(10);
-                //     background: $neutral-white;
-                // }
-            }
-            // .sidebar__aside & {
-            //     .--scrollUp & {
-            //         padding-top: px(10);
-            //         top: px(72);
-            //         background: $neutral-white;
-            //     }
-            // }
         }
         &.--fixed {
+            bottom: 0;
             left: calc((100% - 920px) / 2);
             &.--small {
                 left: calc((100% - 728px) / 2);
