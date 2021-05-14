@@ -170,26 +170,6 @@
         }
         &.--sticky {
             top: $header-desktop;
-            top: 0;
-            .sidebar__aside & {
-                //top: $header-desktop; descomentar si es diferente al cabezal_dsk
-                padding-top: px(10);
-                background: $neutral-white;
-                .--scrollUp & {
-                    top: $header-desktop;
-                }
-                // .--scrollDown & {
-                //     padding-top: px(10);
-                //     background: $neutral-white;
-                // }
-            }
-            // .sidebar__aside & {
-            //     .--scrollUp & {
-            //         padding-top: px(10);
-            //         top: px(72);
-            //         background: $neutral-white;
-            //     }
-            // }
         }
         &.--fixed {
             bottom: 0;
