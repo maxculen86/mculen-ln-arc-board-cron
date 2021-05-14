@@ -20,18 +20,36 @@ const MetaTitle = ({
     nodeType,
     _id = '',
     section,
-    defaultTitle
+    siteProperties
 }) => {
     if (arcSite !== 'la-nacion-ar') return <></>;
+
+    const {
+        longTitle: DEFAULT_TITLE,
+        deportesTitle: DEFAULT_DEPORTES,
+        ultimasNoticiasTitle: DEFAULT_ULTIMAS_NOTICIAS
+    } = siteProperties;
 
     const metaTitleForStory = metaTitleBasic && `${metaTitleBasic} - LA NACION`;
     let metaTitleForAcum = '';
 
-    if (acusWithMeta.includes(nodeType)) {
+    const validateTitle = title => {
         const prefix = getPrefix(_id);
-        const customTitle =
-            title === 'Últimas noticias - LA NACION' ? 'LA NACION' : title;
-        metaTitleForAcum = `Últimas${prefix}${customTitle}`;
+
+        switch (title) {
+            case DEFAULT_ULTIMAS_NOTICIAS:
+                return DEFAULT_ULTIMAS_NOTICIAS;
+
+            case DEFAULT_DEPORTES:
+                return DEFAULT_DEPORTES;
+
+            default:
+                return `Últimas${prefix}${title}`;
+        }
+    };
+
+    if (acusWithMeta.includes(nodeType)) {
+        metaTitleForAcum = validateTitle(title);
     }
 
     return (
@@ -39,7 +57,7 @@ const MetaTitle = ({
             name="title"
             content={`${
                 section === 'home'
-                    ? defaultTitle
+                    ? DEFAULT_TITLE
                     : metaTitleForStory || metaTitleForAcum
             }`}
         />

@@ -15,23 +15,33 @@ const getDescription = ({
     isArticle,
     metaValue,
     subheadlinesBasic,
-    descriptionDefault,
     section,
-    shortTitle
+    DEFAULT_DEPORTES,
+    DEFAULT_DESCRIPTION,
+    DEFAULT_ULTIMAS_NOTICIAS,
+    title
 }) => {
     let description = '';
 
     if (isArticle) {
-        description = subheadlinesBasic || descriptionDefault;
+        description = subheadlinesBasic || DEFAULT_DESCRIPTION;
     } else {
-        const customTitle =
-            metaValue('title') === 'Últimas noticias - LA NACION'
-                ? 'del día de hoy en Argentina'
-                : `de ${metaValue('title') || shortTitle}`;
-        description = `Últimas Noticias ${customTitle}` || descriptionDefault;
+        const setDescription = (title, metaTitle) => {
+            if (metaTitle) return `de ${metaTitle}`;
+            else {
+                return title === DEFAULT_DEPORTES
+                    ? DEFAULT_DEPORTES
+                    : DEFAULT_DESCRIPTION;
+            }
+        };
+
+        const description =
+            title === DEFAULT_ULTIMAS_NOTICIAS
+                ? 'Últimas Noticias del día de hoy en Argentina'
+                : setDescription(title, metaValue('title'));
+
+        return description;
     }
-    console.log('🚀 ~ file: getMetasOG.jsx ~ line 33 ~ section', section);
-    return section === 'home' ? descriptionDefault : description;
 };
 
 const getUrl = (isArticle, url, domain) => {
@@ -46,16 +56,19 @@ const getData = ({
     contextPath,
     deployment,
     section,
-    shortTitle
+    title
 }) => {
     const domain = getDomain(globalContent);
     const isArticle = !!(globalContent && globalContent.type === 'story');
     const PLACEHOLDER = `${ARC_STATIC}${deployment(
         `${contextPath}/resources/images/placeholderLN.jpg`
     )}`;
+
     const {
         longTitle: DEFAULT_TITLE,
-        description: DEFAULT_DESCRIPTION
+        deportesTitle: DEFAULT_DEPORTES,
+        description: DEFAULT_DESCRIPTION,
+        ultimasNoticiasTitle: DEFAULT_ULTIMAS_NOTICIAS
     } = siteProperties;
 
     const {
@@ -78,17 +91,18 @@ const getData = ({
         isArticle,
         metaValue,
         subheadlinesBasic,
+        section,
+        DEFAULT_DEPORTES,
         DEFAULT_DESCRIPTION,
-        url,
-        shortTitle,
-        section
+        DEFAULT_ULTIMAS_NOTICIAS,
+        title
     });
 
     return {
         type: isArticle ? 'article' : 'website',
         title: isArticle
             ? headlinesBasic || DEFAULT_TITLE
-            : metaValue('title') || DEFAULT_TITLE,
+            : metaValue('title') || title,
         description,
         image: typeBasicPI === 'image' && urlBasicPI ? pathImagen : PLACEHOLDER,
         url: getUrl(isArticle, url, domain),

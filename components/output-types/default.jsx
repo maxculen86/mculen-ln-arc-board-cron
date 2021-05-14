@@ -131,7 +131,8 @@ const Default = props => {
         name,
         Payload,
         _id,
-        taxonomy
+        taxonomy,
+        name: globalContentName
     } = globalContent || {};
 
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
@@ -173,9 +174,23 @@ const Default = props => {
         siteProperties.scripts
     );
 
-    const title = metaValue('title') || siteProperties.longTitle || 'LA NACION';
+    const validateSection = (name, siteProperties) => {
+        switch (name) {
+            case 'Deportes':
+                return siteProperties.deportesTitle;
+
+            case 'Últimas noticias':
+                return siteProperties.ultimasNoticiasTitle;
+
+            default:
+                return siteProperties.longTitle;
+        }
+    };
 
     const _nodeType = getSectionName({ nodeType, type });
+    const title =
+        metaValue('title') ||
+        validateSection(globalContentName, siteProperties);
 
     return (
         <html lang="es">
@@ -200,8 +215,8 @@ const Default = props => {
                 <MetasOG
                     {...props}
                     defaultTitle={siteProperties.longTitle}
-                    shortTitle={siteProperties.title}
                     section={_nodeType}
+                    title={title}
                 />
                 {canonicalUrl && (
                     <link
@@ -226,7 +241,7 @@ const Default = props => {
                     nodeType={nodeType}
                     _id={_id}
                     section={_nodeType}
-                    defaultTitle={siteProperties.longTitle}
+                    siteProperties={siteProperties}
                 />
                 <MetaDescription
                     subtype={subtype}
@@ -242,6 +257,7 @@ const Default = props => {
                     }
                     arcSite={arcSite}
                     section={_nodeType}
+                    defaultDescription={siteProperties.description}
                 />
                 <Syndication
                     type={type}

@@ -31,7 +31,8 @@ const MetaDescription = ({
     subheadlines,
     _id,
     payload,
-    section
+    section,
+    defaultDescription
 }) => {
     if (arcSite !== 'la-nacion-ar') return <></>;
 
@@ -64,7 +65,7 @@ const MetaDescription = ({
                         metaTitleBasic,
                         subheadlines
                     )} - LA NACION`) ||
-                'LA NACION - Información confiable en Internet. Noticias de Argentina y del mundo - ¡Informate ya!'
+                defaultDescription
             }
         />
     );
