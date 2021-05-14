@@ -422,6 +422,14 @@ const LNHome = props => {
                                                         />
                                                     </div>
                                                 </section>
+                                            </section>
+                                            <section
+                                                className="box-articles --editoriales"
+                                                id="tema_06"
+                                                data-is-block="true"
+                                                data-block-name="h_tema-06"
+                                                data-diagramacion-id="h_caja-opinion"
+                                            >
                                                 <section className="mod-footersection">
                                                     <ComTitle
                                                         content="EDITORIALES"
@@ -431,7 +439,7 @@ const LNHome = props => {
                                                         <li>
                                                             <a
                                                                 href="/editoriales/mafia-politica-narcotrafico-peor-pandemia-nid2547665"
-                                                                className="--twoxs"
+                                                                className="com-link --twoxs"
                                                                 title="Mafia política y narcotráfico, la peor pandemia"
                                                             >
                                                                 Mafia política y
@@ -442,7 +450,7 @@ const LNHome = props => {
                                                         <li>
                                                             <a
                                                                 href="/editoriales/la-remocion-jueces-fiscales-nid2547655"
-                                                                className="--twoxs"
+                                                                className="com-link --twoxs"
                                                                 title="La remoción de jueces y fiscales"
                                                             >
                                                                 La remoción de
