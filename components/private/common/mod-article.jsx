@@ -25,6 +25,7 @@ const ModArticle = props => {
         authors,
         authorSize,
         isRenderAuthor,
+        isRenderAuthorOpinion,
         withMedia,
         subheadText,
         subheadSize,
@@ -52,9 +53,10 @@ const ModArticle = props => {
         extraOpts['data-notaid'] = _id;
         extraOpts['data-source'] = 'editor';
     }
-    const imagenDestacada = isRenderAuthor
-        ? getAuthorsPhoto(articleData)
-        : get(articleData, 'promo_items.basic', null);
+    const imagenDestacada =
+        isRenderAuthor || isRenderAuthorOpinion
+            ? getAuthorsPhoto(articleData)
+            : get(articleData, 'promo_items.basic', null);
     const marquesina = get(articleData, 'marquesina', null);
 
     const type = get(imagenDestacada, 'type', null);
@@ -64,7 +66,7 @@ const ModArticle = props => {
             className={`mod-article ${classCondition || ''} ${
                 boxPosition ? `toi${boxPosition}${artPosition} nid${_id}` : ''
             } ${noMedia ? '--no-media' : ''} ${
-                isRenderAuthor ? '--author' : ''
+                isRenderAuthor || isRenderAuthorOpinion ? '--author' : ''
             }`}
             {...extraOpts}
         >
@@ -137,7 +139,9 @@ ModArticle.propTypes = {
         })
     }).isRequired,
     category: PropTypes.string,
-    tags: PropTypes.string
+    tags: PropTypes.string,
+    isRenderAuthor: PropTypes.bool,
+    isRenderAuthorOpinion: PropTypes.bool
 };
 
 ModArticle.defaultProps = {
@@ -155,7 +159,9 @@ ModArticle.defaultProps = {
     hour: undefined,
     outputType: 'default',
     category: undefined,
-    tags: undefined
+    tags: undefined,
+    isRenderAuthor: false,
+    isRenderAuthorOpinion: false
 };
 
 export default ModArticle;

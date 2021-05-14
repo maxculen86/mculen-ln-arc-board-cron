@@ -22,7 +22,7 @@ const CajaCollection = props => {
             url,
             title,
             layout = '',
-            backgroundColor,
+            backgroundColor = 'default',
             initialPosition,
             imageId,
             hideTitle,
@@ -76,7 +76,7 @@ const CajaCollection = props => {
     const error = validateFeature(
         idCollection,
         isInSiteService ? articlesFromCollectionSiteService : articlesToShow,
-        `La colección ${idCollection} no encontró notas`
+        layout
     );
 
     if (isAdmin && !!error) {
