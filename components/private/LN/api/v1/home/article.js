@@ -33,22 +33,11 @@ const articleItem = (article, diagramacion) => {
         id,
         templateId,
         sitioId: null, // pendiente Enumeracion
-        //tipo: null, // no va
-        //externo: null, // no va
         url,
-        //mostrarEtiqueta  //Se reemplaza por el campo chapita
-        //exclusivo: null, // no va
         titulo: titulo || tituloMobile,
         volanta,
         bajada,
         chapita
-        //marquesina: null,
-        //imagen: null,
-        //autor: null,
-        //encuentro: //Pendiente
-        //tagProducto: // se reemplaza por campos categorias y chapita // Representa notas donde la seccion o tag son LN+ o Revistas,
-        //tagDestacado: // se reemplaza por campos categorias y chapita // Representa notas contenLab y Patrocinado
-        //tableroDolar: //Pendiente
     };
 
     if (image && image.type === 'image') {
@@ -65,16 +54,9 @@ const articleItem = (article, diagramacion) => {
 
     const relacionados = Relacionados(article);
     if (relacionados.categorias && relacionados.categorias.length > 0) {
-        // return relacionados.categorias.map(v => {
-        //     return type(v);
-        // });
-        resp.categorias = [
-            getPrincipalCategory(primarySection),
-            ...relacionados.categorias
-        ];
+        resp.categorias = relacionados.categorias;
     }
 
-    //return resp;
     return removeEmptyItems(resp);
 };
 
