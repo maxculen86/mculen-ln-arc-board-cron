@@ -7,16 +7,25 @@ const getPrefix = _id => {
     return ' noticias de ';
 };
 
-const MetaTitle = ({ metaTitleBasic, arcSite, title, nodeType, _id = '' }) => {
-    if (arcSite !== 'la-nacion-ar') return <></>;
+const acusWithMeta = ['section', 'author', 'distributor', 'tags'];
 
-    const DEFAULT_TITLE =
-        'Últimas noticias de Argentina y el mundo - LA NACION';
+/**
+ * TODO: Refactor para gestionar para multiSites
+ */
+
+const MetaTitle = ({
+    metaTitleBasic,
+    arcSite,
+    title,
+    nodeType,
+    _id = '',
+    section,
+    defaultTitle
+}) => {
+    if (arcSite !== 'la-nacion-ar') return <></>;
 
     const metaTitleForStory = metaTitleBasic && `${metaTitleBasic} - LA NACION`;
     let metaTitleForAcum = '';
-
-    const acusWithMeta = ['section', 'author', 'distributor', 'tags'];
 
     if (acusWithMeta.includes(nodeType)) {
         const prefix = getPrefix(_id);
@@ -28,9 +37,11 @@ const MetaTitle = ({ metaTitleBasic, arcSite, title, nodeType, _id = '' }) => {
     return (
         <meta
             name="title"
-            content={`${metaTitleForStory ||
-                metaTitleForAcum ||
-                DEFAULT_TITLE}`}
+            content={`${
+                section === 'home'
+                    ? defaultTitle
+                    : metaTitleForStory || metaTitleForAcum
+            }`}
         />
     );
 };
@@ -40,7 +51,9 @@ MetaTitle.propTypes = {
     arcSite: PropTypes.string.isRequired,
     nodeType: PropTypes.string.isRequired,
     _id: PropTypes.string,
-    title: PropTypes.string
+    title: PropTypes.string,
+    section: PropTypes.string.isRequired,
+    defaultTitle: PropTypes.string.isRequired
 };
 
 MetaTitle.defaultProps = {

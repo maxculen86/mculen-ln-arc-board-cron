@@ -1,3 +1,6 @@
+/**
+ * TODO: Llevar a constante las secciones
+ */
 export default function({ nodeType, type }) {
     if (type === 'story') return 'nota';
     if (['section', 'tags', 'author', 'distributor'].includes(nodeType || type))
