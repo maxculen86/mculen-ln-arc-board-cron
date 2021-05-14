@@ -138,8 +138,7 @@ const Default = props => {
     const { basic: descriptionBasic } = description || {};
     const { name: distributorName } = distributor || {};
 
-    const metaTitleBasic =
-        metaTitle && metaTitle !== '' ? metaTitle : basicTitle;
+    const metaTitleBasic = metaTitle || basicTitle;
 
     const getPageBuilderFeatures = _renderables =>
         _renderables.filter(renderable => renderable.collection === 'features');
@@ -174,7 +173,7 @@ const Default = props => {
         siteProperties.scripts
     );
 
-    const title = metaValue('title') || siteProperties.title || 'LA NACION';
+    const title = metaValue('title') || siteProperties.longTitle || 'LA NACION';
 
     const _nodeType = getSectionName({ nodeType, type });
 
@@ -198,7 +197,12 @@ const Default = props => {
                 />
                 {/* TODO: Revisar la forma de traer metatags desde PB, y omitir o customizar los metas de 'title' y 'description' */}
                 {/* {subtype === '7' && <MetaTags />} */}
-                <MetasOG {...props} />
+                <MetasOG
+                    {...props}
+                    defaultTitle={siteProperties.longTitle}
+                    shortTitle={siteProperties.title}
+                    section={_nodeType}
+                />
                 {canonicalUrl && (
                     <link
                         rel="canonical"
@@ -221,6 +225,8 @@ const Default = props => {
                     arcSite={arcSite}
                     nodeType={nodeType}
                     _id={_id}
+                    section={_nodeType}
+                    defaultTitle={siteProperties.longTitle}
                 />
                 <MetaDescription
                     subtype={subtype}

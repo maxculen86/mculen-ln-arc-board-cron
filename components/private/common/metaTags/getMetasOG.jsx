@@ -11,34 +11,27 @@ const getAppId = siteProperties =>
         ? siteProperties.shareConfig.facebook.appID
         : undefined;
 
-const getDescription = (
+const getDescription = ({
     isArticle,
     metaValue,
     subheadlinesBasic,
     descriptionDefault,
-    url = ''
-) => {
+    section,
+    shortTitle
+}) => {
     let description = '';
 
     if (isArticle) {
         description = subheadlinesBasic || descriptionDefault;
-    }
-
-    if (!isArticle) {
-        const metaValueTitle = metaValue('title');
-
+    } else {
         const customTitle =
-            metaValueTitle === 'Últimas noticias - LA NACION'
+            metaValue('title') === 'Últimas noticias - LA NACION'
                 ? 'del día de hoy en Argentina'
-                : metaValueTitle
-                ? `de ${metaValueTitle}`
-                : false;
-
-        description = customTitle
-            ? `Últimas Noticias ${customTitle}`
-            : descriptionDefault;
+                : `de ${metaValue('title') || shortTitle}`;
+        description = `Últimas Noticias ${customTitle}` || descriptionDefault;
     }
-    return description;
+    console.log('🚀 ~ file: getMetasOG.jsx ~ line 33 ~ section', section);
+    return section === 'home' ? descriptionDefault : description;
 };
 
 const getUrl = (isArticle, url, domain) => {
@@ -52,14 +45,18 @@ const getData = ({
     globalContent,
     contextPath,
     deployment,
-    arcSite
+    section,
+    shortTitle
 }) => {
     const domain = getDomain(globalContent);
     const isArticle = !!(globalContent && globalContent.type === 'story');
     const PLACEHOLDER = `${ARC_STATIC}${deployment(
         `${contextPath}/resources/images/placeholderLN.jpg`
     )}`;
-    const { title } = siteProperties;
+    const {
+        longTitle: DEFAULT_TITLE,
+        description: DEFAULT_DESCRIPTION
+    } = siteProperties;
 
     const {
         headlines = {},
@@ -75,35 +72,27 @@ const getData = ({
     const { basic: promoItemsBasic = {} } = promoItems;
     const { type: typeBasicPI, url: urlBasicPI } = promoItemsBasic;
 
-    const DEFAULT = {
-        TITLE: 'Últimas noticias de Argentina y el mundo - LA NACION',
-        DESCRIPTION:
-            'LA NACION - Información confiable en Internet. Noticias de Argentina y del mundo - ¡Informate ya!',
-        IMAGE: PLACEHOLDER,
-        URL: SITE_LANACION,
-        FB_APP_ID: ''
-    };
-
     const pathImagen = urlBasicPI;
     const url = canonicalUrl || _id;
-    const description = getDescription(
+    const description = getDescription({
         isArticle,
         metaValue,
         subheadlinesBasic,
-        DEFAULT.DESCRIPTION,
-        url
-    );
+        DEFAULT_DESCRIPTION,
+        url,
+        shortTitle,
+        section
+    });
 
     return {
         type: isArticle ? 'article' : 'website',
         title: isArticle
-            ? headlinesBasic || DEFAULT.TITLE
-            : metaValue('title') || title || DEFAULT.TITLE,
+            ? headlinesBasic || DEFAULT_TITLE
+            : metaValue('title') || DEFAULT_TITLE,
         description,
-        image:
-            typeBasicPI === 'image' && urlBasicPI ? pathImagen : DEFAULT.IMAGE,
+        image: typeBasicPI === 'image' && urlBasicPI ? pathImagen : PLACEHOLDER,
         url: getUrl(isArticle, url, domain),
-        fbAppId: getAppId(siteProperties) || DEFAULT.FB_APP_ID,
+        fbAppId: getAppId(siteProperties),
         isArticle,
         ...(isArticle && { publishDate }),
         ...(isArticle && { tier: 'metered' })
