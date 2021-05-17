@@ -22,9 +22,6 @@ const articleItem = (article, diagramacion) => {
 
     const authors = get(article, 'credits.by', null);
     const image = get(article, 'promo_items.basic', null);
-    const primarySection = get(article, 'taxonomy.primary_section', null);
-    const sections = get(article, 'taxonomy.sections', null);
-    const tags = get(article, 'taxonomy.tags', null);
     const bajada = get(article, 'subheadlines.basic', null);
     const volanta = get(label, 'volanta.text', null);
     const chapita = get(label, 'chapita.text', null);
