@@ -2,13 +2,10 @@ import Consumer from 'fusion:consumer';
 import {
     getCommonPropsJson,
     getArticlesFromMyCurrentCollection,
-    getIdsArticlesFromOtherCollections,
-    validateoutItem
+    getIdsArticlesFromOtherCollections
 } from '../../private/LN/common/utils/cajaTemasHelperApi';
 import get from '../../private/common/utils/get';
-import filter from '../../../content/filters/LN/acumulado/articleAcu';
-// URL de ejemplo: http://localhost/api/v1/notas/byAuthor/Ignacio%20Madrid/params=size:12;page:1/?_website=la-nacion-ar&outputType=json
-// Resolver: ^\/api\/v([1]+)\/notas\/byAuthor\/(.+)\/(params.+)\/(.*)$ , donde "params" dependera del customField "paramUrlId" configurado
+import filter from '../../../content/filters/LN/acumulado/articleHomeMobile';
 
 class CajaCollection {
     constructor(props) {
@@ -57,31 +54,14 @@ class CajaCollection {
     render() {
         try {
             const { articleList } = this.state || {};
-            const {
-                customFields: { hideCaja, layout }
-            } = this.props;
-
-            if (!articleList || hideCaja) {
+            const { customFields } = this.props;
+            if (!articleList) {
                 return null;
             }
-
             const elements = get(articleList, 'content_elements', []);
-            const articuloData = elements.map(item => {
-                const itemNota = {
-                    id_nota: item._id,
-                    url_nota: item.website_url
-                };
-
-                if (validateoutItem(itemNota) === true) {
-                    return itemNota;
-                }
-            });
-
             return {
-                id_caja: null,
-                visible: !hideCaja || false,
-                diagramacion_caja: layout,
-                notas: articuloData
+                information: customFields,
+                articles: elements
             };
         } catch (err) {
             return { Success: false, Message: err.message };

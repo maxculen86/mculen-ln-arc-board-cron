@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import ComAdvance from '../../private/common/com-advance';
+import ComAdvance from '../../../private/common/com-advance';
 
 const CajaAnticipo = ({ customFields: { hide, title, link } }) => {
     return !hide && title ? (
