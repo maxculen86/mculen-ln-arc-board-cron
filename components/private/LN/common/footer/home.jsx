@@ -9,13 +9,19 @@ import Text from '../../../common/text';
 import Image from '../../../common/com-image';
 import List from '../../../common/mod-list';
 import Copyright from './copyright';
+import getAssetsPath from '../../../common/utils/getAssetsPath';
 
 import '../../../../../resources/dist/css/ln/modules/mod-footer.css';
 // import SvgFiscal from '../../../common/svgDataFiscal';
 // import SvgGda from '../../../common/svgGda';
 
 //const Footer = ({ children }) => {
-const Index = ({ outputType, siteProperties: { host } }) => {
+const Index = ({
+    outputType,
+    siteProperties: { host },
+    contextPath,
+    deployment
+}) => {
     const listText = [
         {
             text: 'Últimas noticias',
@@ -163,7 +169,9 @@ const Index = ({ outputType, siteProperties: { host } }) => {
                         </div>
                         <div className="col-desksm-4 --right">
                             <Image
-                                src="http://especialess3.lanacion.com.ar/LN/svg/google-play.svg"
+                                src={getAssetsPath(contextPath)(deployment)(
+                                    'google-play.svg'
+                                )}
                                 alt="Disponible en Google Play"
                                 width="120"
                                 height="35"
@@ -171,7 +179,9 @@ const Index = ({ outputType, siteProperties: { host } }) => {
                                 target="_blank"
                             />
                             <Image
-                                src="http://especialess3.lanacion.com.ar/LN/svg/app-store.svg"
+                                src={getAssetsPath(contextPath)(deployment)(
+                                    'app-store.svg'
+                                )}
                                 alt="Consíguelo en el App Store"
                                 width="120"
                                 height="35"
@@ -220,8 +230,9 @@ const Index = ({ outputType, siteProperties: { host } }) => {
                     <div className="row">
                         <div className="col-desksm-6 --right">
                             <Image
-                                //src="https://static.glanacion.com/v2/ln/img/gda.jpg"
-                                src="http://especialess3.lanacion.com.ar/LN/svg/gda.svg"
+                                src={getAssetsPath(contextPath)(deployment)(
+                                    'gda.svg'
+                                )}
                                 alt="gda"
                                 mod="img_gda"
                                 width="36"
@@ -233,8 +244,9 @@ const Index = ({ outputType, siteProperties: { host } }) => {
                             <Image
                                 href="https://serviciosweb.afip.gob.ar/clavefiscal/qr/publicInfoD.aspx"
                                 target="_blank"
-                                //src="https://static.glanacion.com/v2/ln/img/data.jpg"
-                                src="http://especialess3.lanacion.com.ar/LN/svg/data-fiscal.svg"
+                                src={getAssetsPath(contextPath)(deployment)(
+                                    'data-fiscal.svg'
+                                )}
                                 alt="Data fiscal"
                                 width="28"
                                 height="38"

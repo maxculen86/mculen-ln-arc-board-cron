@@ -1,6 +1,4 @@
 import Consumer from 'fusion:consumer';
-import { addHoursAndFormat } from '../../../private/common/utils/dateAndTimeUtil';
-// URL de pagina: http://localhost/pf/deportes/?_website=la-nacion-ar&outputType=json
 
 class ArticleFeature {
     constructor(props) {
@@ -27,13 +25,7 @@ class ArticleFeature {
             if (!articleSourceNota) {
                 return null;
             }
-
-            const { _id: notaId, canonical_url: url } = articleSourceNota;
-            const articuloData = {
-                id_nota: notaId,
-                url_nota: url
-            };
-            return articuloData;
+            return articleSourceNota;
         } catch (err) {
             return { Success: false, Message: err.message };
         }
