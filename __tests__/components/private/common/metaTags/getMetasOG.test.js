@@ -57,24 +57,24 @@ describe('Common - getMetasOG function', () => {
                 website_url:
                     '/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/'
             },
+
             siteProperties: {
                 title: 'LA NACION',
                 longTitle:
                     'Últimas noticias de Argentina y el mundo - LA NACION',
-                title: 'LA NACION',
-                deportesTitle: 'Últimas noticias de Deportes - LA NACION',
-                ultimasNoticiasTitle: 'Últimas noticias - LA NACION',
                 description:
-                    'LA NACION - Información confiable en Internet. Noticias de Argentina y del mundo - ¡Informate ya!',
+                    'Información confiable en Internet. Noticias de Argentina y del mundo - ¡Informate ya!',
                 shareConfig: {
                     facebook: {
                         appID: '205326199490321'
                     }
                 }
             },
+
             metaValue: function metaValue(name) {
                 return name === 'title' ? 'Arroz chaufa de mariscos' : '';
             },
+
             contextPath: '/pf',
             deployment: function deployment() {
                 return '$LATEST';
@@ -96,8 +96,7 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:description',
-                content:
-                    'LA NACION - Información confiable en Internet. Noticias de Argentina y del mundo - ¡Informate ya!'
+                content: ''
             },
             {
                 property: 'og:image',
@@ -151,7 +150,7 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:description',
-                content: 'Últimas Noticias del día de hoy en Argentina'
+                content: 'Últimas Noticias de LA NACION'
             },
             {
                 property: 'og:image',
@@ -172,25 +171,19 @@ describe('Common - getMetasOG function', () => {
         const props = {
             globalContent: {
                 _id: 'EZYG5OEVH5HSJJCUMJO5XAHTTA',
-                canonical_url: '/autor/javier-blanco-170/',
+                canonical_url: '/recetas/autor/javier-blanco-170/',
                 node_type: 'author',
                 name: 'Javier Blanco',
                 website_url:
                     '/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/'
             },
             siteProperties: {
+                title: 'LA NACION',
                 shareConfig: {
                     facebook: {
                         appID: '205326199490321'
                     }
-                },
-                longTitle:
-                    'Últimas noticias de Argentina y el mundo - LA NACION',
-                title: 'LA NACION',
-                deportesTitle: 'Últimas noticias de Deportes - LA NACION',
-                ultimasNoticiasTitle: 'Últimas noticias - LA NACION',
-                description:
-                    'LA NACION - Información confiable en Internet. Noticias de Argentina y del mundo - ¡Informate ya!'
+                }
             },
             metaValue: function metaValue(name) {
                 return name === 'title' ? 'Javier Blanco' : '';
@@ -198,8 +191,7 @@ describe('Common - getMetasOG function', () => {
             contextPath: '/pf',
             deployment: function deployment() {
                 return '$LATEST';
-            },
-            title: 'Javier Blanco'
+            }
         };
 
         const metas = [
@@ -227,10 +219,9 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:url',
-                content: `https://www.lanacion.com.ar/autor/javier-blanco-170/`
+                content: `https://www.lanacion.com.ar/recetas/autor/javier-blanco-170/`
             }
         ];
-
         expect(getMetasOG(props)).toStrictEqual(metas);
     });
 });

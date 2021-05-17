@@ -188,9 +188,11 @@ const Default = props => {
     };
 
     const _nodeType = getSectionName({ nodeType, type });
+
     const title =
-        metaValue('title') ||
-        validateSection(globalContentName, siteProperties);
+        _nodeType === 'home'
+            ? siteProperties.longTitle
+            : metaValue('title') || siteProperties.title;
 
     return (
         <html lang="es">
@@ -212,12 +214,7 @@ const Default = props => {
                 />
                 {/* TODO: Revisar la forma de traer metatags desde PB, y omitir o customizar los metas de 'title' y 'description' */}
                 {/* {subtype === '7' && <MetaTags />} */}
-                <MetasOG
-                    {...props}
-                    defaultTitle={siteProperties.longTitle}
-                    section={_nodeType}
-                    title={title}
-                />
+                <MetasOG {...props} section={_nodeType} title={title} />
                 {canonicalUrl && (
                     <link
                         rel="canonical"
@@ -241,7 +238,7 @@ const Default = props => {
                     nodeType={nodeType}
                     _id={_id}
                     section={_nodeType}
-                    siteProperties={siteProperties}
+                    defaultTitle={siteProperties.longTitle}
                 />
                 <MetaDescription
                     subtype={subtype}

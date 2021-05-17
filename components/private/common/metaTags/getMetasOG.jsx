@@ -16,29 +16,21 @@ const getDescription = ({
     metaValue,
     subheadlinesBasic,
     section,
-    DEFAULT_DEPORTES,
-    DEFAULT_DESCRIPTION,
-    DEFAULT_ULTIMAS_NOTICIAS,
-    title
+    descriptionDefault
 }) => {
     let description = '';
 
-    if (isArticle) {
-        description = subheadlinesBasic || DEFAULT_DESCRIPTION;
-    } else {
-        const setDescription = (title, metaTitle) => {
-            if (metaTitle) return `Últimas Noticias de ${metaTitle}`;
-            else {
-                return title === DEFAULT_DEPORTES
-                    ? DEFAULT_DEPORTES
-                    : DEFAULT_DESCRIPTION;
-            }
-        };
+    if (section === 'home') return descriptionDefault;
 
-        description =
-            title === DEFAULT_ULTIMAS_NOTICIAS
-                ? 'Últimas Noticias del día de hoy en Argentina'
-                : setDescription(title, metaValue('title'));
+    if (isArticle) {
+        description = subheadlinesBasic || descriptionDefault || '';
+    }
+    if (!isArticle) {
+        const customTitle =
+            metaValue('title') === 'Últimas noticias - LA NACION'
+                ? 'del día de hoy en Argentina'
+                : `de ${metaValue('title')}`;
+        description = `Últimas Noticias ${customTitle}` || descriptionDefault;
     }
 
     return description;
@@ -55,20 +47,18 @@ const getData = ({
     globalContent,
     contextPath,
     deployment,
-    section,
-    title
+    arcSite,
+    section
 }) => {
     const domain = getDomain(globalContent);
     const isArticle = !!(globalContent && globalContent.type === 'story');
     const PLACEHOLDER = `${ARC_STATIC}${deployment(
         `${contextPath}/resources/images/placeholderLN.jpg`
     )}`;
-
     const {
-        longTitle: DEFAULT_TITLE,
-        deportesTitle: DEFAULT_DEPORTES,
-        description: DEFAULT_DESCRIPTION,
-        ultimasNoticiasTitle: DEFAULT_ULTIMAS_NOTICIAS
+        title: titleDefault,
+        shortDescription: descriptionDefault,
+        longTitle
     } = siteProperties;
 
     const {
@@ -92,21 +82,20 @@ const getData = ({
         metaValue,
         subheadlinesBasic,
         section,
-        DEFAULT_DEPORTES,
-        DEFAULT_DESCRIPTION,
-        DEFAULT_ULTIMAS_NOTICIAS,
-        title
+        descriptionDefault
     });
+
+    const validateTitle = () => (section === 'home' ? longTitle : titleDefault);
 
     return {
         type: isArticle ? 'article' : 'website',
         title: isArticle
-            ? headlinesBasic || DEFAULT_TITLE
-            : metaValue('title') || title,
+            ? headlinesBasic || titleDefault
+            : metaValue('title') || validateTitle(),
         description,
         image: typeBasicPI === 'image' && urlBasicPI ? pathImagen : PLACEHOLDER,
         url: getUrl(isArticle, url, domain),
-        fbAppId: getAppId(siteProperties),
+        fbAppId: getAppId(siteProperties) || '',
         isArticle,
         ...(isArticle && { publishDate }),
         ...(isArticle && { tier: 'metered' })

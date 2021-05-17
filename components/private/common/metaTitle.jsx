@@ -7,12 +7,6 @@ const getPrefix = _id => {
     return ' noticias de ';
 };
 
-const acusWithMeta = ['section', 'author', 'distributor', 'tags'];
-
-/**
- * TODO: Refactor para gestionar para multiSites
- */
-
 const MetaTitle = ({
     metaTitleBasic,
     arcSite,
@@ -20,36 +14,20 @@ const MetaTitle = ({
     nodeType,
     _id = '',
     section,
-    siteProperties
+    defaultTitle
 }) => {
     if (arcSite !== 'la-nacion-ar') return <></>;
-
-    const {
-        longTitle: DEFAULT_TITLE,
-        deportesTitle: DEFAULT_DEPORTES,
-        ultimasNoticiasTitle: DEFAULT_ULTIMAS_NOTICIAS
-    } = siteProperties;
 
     const metaTitleForStory = metaTitleBasic && `${metaTitleBasic} - LA NACION`;
     let metaTitleForAcum = '';
 
-    const validateTitle = title => {
-        const prefix = getPrefix(_id);
-
-        switch (title) {
-            case DEFAULT_ULTIMAS_NOTICIAS:
-                return DEFAULT_ULTIMAS_NOTICIAS;
-
-            case DEFAULT_DEPORTES:
-                return DEFAULT_DEPORTES;
-
-            default:
-                return `Últimas${prefix}${title}`;
-        }
-    };
+    const acusWithMeta = ['section', 'author', 'distributor', 'tags'];
 
     if (acusWithMeta.includes(nodeType)) {
-        metaTitleForAcum = validateTitle(title);
+        const prefix = getPrefix(_id);
+        const customTitle =
+            title === 'Últimas noticias - LA NACION' ? 'LA NACION' : title;
+        metaTitleForAcum = `Últimas${prefix}${customTitle}`;
     }
 
     return (
@@ -57,7 +35,7 @@ const MetaTitle = ({
             name="title"
             content={`${
                 section === 'home'
-                    ? DEFAULT_TITLE
+                    ? defaultTitle
                     : metaTitleForStory || metaTitleForAcum
             }`}
         />
@@ -69,9 +47,7 @@ MetaTitle.propTypes = {
     arcSite: PropTypes.string.isRequired,
     nodeType: PropTypes.string.isRequired,
     _id: PropTypes.string,
-    title: PropTypes.string,
-    section: PropTypes.string.isRequired,
-    defaultTitle: PropTypes.string.isRequired
+    title: PropTypes.string
 };
 
 MetaTitle.defaultProps = {

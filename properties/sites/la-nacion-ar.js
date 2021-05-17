@@ -1,10 +1,10 @@
 export default {
     longTitle: 'Últimas noticias de Argentina y el mundo - LA NACION',
     title: 'LA NACION',
-    deportesTitle: 'Últimas noticias de Deportes - LA NACION',
-    ultimasNoticiasTitle: 'Últimas noticias - LA NACION',
     description:
         'LA NACION - Información confiable en Internet. Noticias de Argentina y del mundo - ¡Informate ya!',
+    shortDescription:
+        'Información confiable en Internet. Noticias de Argentina y del mundo - ¡Informate ya!',
     className: {
         body: 'ln'
     },
