@@ -1,8 +1,9 @@
 import Consumer from 'fusion:consumer';
-import { get } from 'lodash';
 import bitacora from '../../private/LN/api/v1/bitacora';
 import home from '../../private/LN/api/v1/home';
 import browser from '../../private/common/utils/browser';
+import validateSectionHome from '../../private/common/utils/validateSectionHome';
+
 // Url regex TODO: Mejorar la regular expression.
 // ^\/api\/v([1]+)\/home\/(.*\/)$
 
@@ -39,6 +40,23 @@ const homeMobileSections = [
     'Tema'
 ];
 
+const getHomeElements2 = props => {
+    const { children, outputType, isAdmin, renderables } = props;
+
+    homeMobileSections.reduce((res, elem, index) => {
+        debugger;
+        const test = validateSectionHome(
+            children[index],
+            elem,
+            index,
+            renderables,
+            outputType,
+            isAdmin
+        );
+        return res;
+    }, []);
+};
+
 const getHomeElements = items => {
     const features = items.reduce((res, elem, index) => {
         if (elem && Array.isArray(elem) && elem.length > 0) {
@@ -64,6 +82,7 @@ export const getChainsFromSections = (renderable = [], sectionPosition) => {
 
 const LNMainHome = props => {
     const { children, requestUri } = props;
+    getHomeElements2(props);
     const homeSections = getHomeElements(children);
     const homeType = browser.getParamFrom('params', 'tipo', requestUri);
     const diagramation =
