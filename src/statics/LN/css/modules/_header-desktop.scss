@@ -199,8 +199,8 @@
         padding: px(16) 0;
         border-bottom: 1px solid $light-neutral-300;
 
-        // top: 0;
-        // position: fixed;
+        top: 0;
+        position: fixed;
 
         &__left {
             display: block;
@@ -253,22 +253,19 @@
         //=================================
         //scrollUp
         //&.--scrollDown,
-        &:not(.--active) {
-            .--scrollDown & {
-                /*transform: translateY(-100%);
-            position: absolute;*/
-                position: fixed;
-                top: -80px;
-            }
-        }
+        // .--scrollDown & {
+        // /*transform: translateY(-100%);
+        //     position: absolute;*/
+        //     position: fixed;
+        //     top: -80px;
+        // }
         //scrollDown
         //&.--scrollUp,
-        .--scrollUp & {
-            /*transform: translateY(0);*/
-            top: 0;
-            position: fixed;
-        }
-
+        // .--scrollUp & {
+        //     /*transform: translateY(0);*/
+        //     top: 0;
+        //     position: fixed;
+        // }
         .dropdown.--scrollUp & {
             padding-right: $scroll-width;
         }

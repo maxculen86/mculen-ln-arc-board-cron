@@ -14,6 +14,20 @@
     .more-articles & {
         display: block;
     }
+    ////////////////Cambiar por props////////////////
+    &.--m,
+    &.--xs {
+        .home & {
+            font-weight: 500;
+        }
+    }
+    &.--l,
+    &.--xl {
+        .home & {
+            font-weight: 700;
+        }
+    }
+    ////////////////Cambiar por props///////////////////
 }
 .com-title.com-title {
     .com-link.com-link {
@@ -22,6 +36,7 @@
         }
     }
 }
+
 @media ($media-l) {
     .com-title {
         //margin-bottom: $spacing-sm;

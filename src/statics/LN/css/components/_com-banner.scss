@@ -1,102 +1,102 @@
-@import '../abstracts/variables';
-@import '../abstracts/mixins';
+// @import '../abstracts/variables';
+// @import '../abstracts/mixins';
 
-.com-banner {
-    display: inherit;
-    overflow: hidden;
-    &#unoxuno_mob,
-    &#unoxuno_tab,
-    &#unoxuno_dsk {
-        display: block;
-        overflow: visible;
-    }
-    &#adhesion_dsk {
-        max-width: px(920);
-        max-height: px(100);
-        // height: 100px;
-        // width: 920px;
-        display: flex;
-        justify-content: center;
-    }
+// .com-banner {
+//     // display: inherit;
+//     // overflow: hidden;
+//     &#unoxuno_mob,
+//     &#unoxuno_tab,
+//     &#unoxuno_dsk {
+//         display: block;
+//         overflow: visible;
+//     }
+//     // &#adhesion_dsk {
+//     //     max-width: px(920);
+//     //     //max-height: px(100);
+//     //     // height: 100px;
+//     //     // width: 920px;
+//     //     display: flex;
+//     //     justify-content: center;
+//     // }
 
-    &#caja1_dsk {
-        max-width: px(300);
-        max-height: px(600);
-    }
-    &#caja2_dsk {
-        max-width: px(300);
-        max-height: px(600);
-    }
-    &#caja3_dsk,
-    #caja4_dsk,
-    #caja5_dsk,
-    #caja6_dsk {
-        max-width: px(300);
-        max-height: px(250);
-    }
+//     // &#caja1_dsk {
+//     //     max-width: px(300);
+//     //     ////max-height: px(600);
+//     // }
+//     // &#caja2_dsk {
+//     //     max-width: px(300);
+//     //     //max-height: px(600);
+//     // }
+//     // &#caja3_dsk,
+//     // #caja4_dsk,
+//     // #caja5_dsk,
+//     // #caja6_dsk {
+//     //     max-width: px(300);
+//     //     //max-height: px(250);
+//     // }
 
-    &#cabezal_dsk,
-    #cinturon1_dsk,
-    #cinturon2_dsk,
-    #middle_1_dsk {
-        max-width: px(1260);
-        max-height: px(170);
-    }
-    &#megalateral_dsk,
-    #megalateral2_dsk,
-    #megalateral3_dsk {
-        max-width: px(300);
-    }
-    &#megatop_dsk {
-        max-width: 100%;
-        max-height: 100%;
-    }
-    &#billboard_dsk {
-        max-width: 100%;
-        max-height: 100%;
-    }
-    &#caja_producto1_dsk {
-        max-width: 100%;
-        max-height: 100%;
-    }
-    // &#caja1_tab,
-    // &#caja2_tab,
-    // #ad {
-    //     max-width: px(300);
-    //     max-height: px(600);
-    // }
-    &#middle_1_dsk,
-    &#middle_2_dsk,
-    &#middle_3_dsk {
-        max-width: px(728);
-        max-height: px(480);
-    }
-    &#middle_1_tab,
-    &#middle_2_tab {
-        max-width: px(728);
-        max-height: px(480);
-    }
-    &#caja1_mob,
-    &#caja2_mob {
-        max-width: px(320);
-        max-height: px(450);
-    }
-    &#caja3_mob,
-    &#caja4_mob,
-    &#caja5_mob {
-        max-width: px(320);
-        max-height: px(250);
-    }
-    &#sticky1_mob {
-        max-width: px(320);
-        max-height: px(100);
-    }
-    &#adhesion_mob,
-    &#sticky2_mob {
-        max-width: px(320);
-        max-height: px(50);
+//     &#cabezal_dsk,
+//     #cinturon1_dsk,
+//     #cinturon2_dsk,
+//     #middle_1_dsk {
+//         max-width: px(1260);
+//         //max-height: px(170);
+//     }
+//     &#megalateral_dsk,
+//     #megalateral2_dsk,
+//     #megalateral3_dsk {
+//         max-width: px(300);
+//     }
+//     &#megatop_dsk {
+//         max-width: 100%;
+//         //max-height: 100%;
+//     }
+//     &#billboard_dsk {
+//         max-width: 100%;
+//         //max-height: 100%;
+//     }
+//     &#caja_producto1_dsk {
+//         max-width: 100%;
+//         //max-height: 100%;
+//     }
+//     // &#caja1_tab,
+//     // &#caja2_tab,
+//     // #ad {
+//     //     max-width: px(300);
+//     //     max-height: px(600);
+//     // }
+//     &#middle_1_dsk,
+//     &#middle_2_dsk,
+//     &#middle_3_dsk {
+//         max-width: px(728);
+//         //max-height: px(480);
+//     }
+//     &#middle_1_tab,
+//     &#middle_2_tab {
+//         max-width: px(728);
+//         //max-height: px(480);
+//     }
+//     &#caja1_mob,
+//     &#caja2_mob {
+//         max-width: px(320);
+//         //max-height: px(450);
+//     }
+//     &#caja3_mob,
+//     &#caja4_mob,
+//     &#caja5_mob {
+//         max-width: px(320);
+//         //max-height: px(250);
+//     }
+//     // &#sticky1_mob {
+//     //     max-width: px(320);
+//     //     max-height: px(100);
+//     // }
+//     &#adhesion_mob,
+//     &#sticky2_mob {
+//         max-width: px(320);
+//         //max-height: px(50);
 
-        height: 50px;
-        width: 320px;
-    }
-}
+//         height: 50px;
+//         width: 320px;
+//     }
+// }

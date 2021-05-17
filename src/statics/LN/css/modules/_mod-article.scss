@@ -552,7 +552,7 @@
     &.--opinion {
         @media ($media-m) {
             //768
-            margin-bottom: px(32);
+            //margin-bottom: px(32); lo lleva EDITORIALES
 
             .mod-article {
                 margin-bottom: 0;
@@ -614,27 +614,29 @@
                 }
             }
         }
+    }
+
+    &.--editoriales {
+        border: 1px solid #ccc;
+        border-width: 1px 0;
+        //padding: px(16) 0;
+        //display: block;
+        width: calc(100% + #{$spacing-lg});
+        margin-left: -$spacing-sm;
+        margin-bottom: px(32);
 
         .mod-footersection {
-            border: 1px solid #ccc;
-            border-width: 1px 0;
-            padding: px(16) 0;
-            //display: block;
             grid-template-columns: 122px 1fr;
             //align-items: center;
-
-            width: calc(100% + #{$spacing-lg});
-            margin-left: -$spacing-sm;
             padding: $spacing-sm;
 
             .com-title {
-                margin-bottom: 16px;
+                text-transform: uppercase;
+                margin-bottom: px(16);
             }
             .com-unordered {
-                font-size: 1.0625rem;
-                line-height: 1.5rem;
                 font-family: $font-SuecaSlab;
-                font-weight: 700;
+                font-weight: 500;
                 display: block;
                 margin: 0;
                 li {
@@ -644,9 +646,9 @@
                     &:last-child {
                         margin-bottom: 0;
                     }
-                    a {
+                    .com-link {
                         display: inline-flex;
-
+                        color: #333;
                         // &:hover {
                         //     color: $light-blue-500;
                         // }
@@ -660,13 +662,12 @@
                     }
                 }
             }
-
-            @media ($media-m) {
+        }
+        @media ($media-m) {
+            margin: px(32) 0 px(32);
+            width: auto;
+            .mod-footersection {
                 display: grid;
-                margin: px(32) 0 0;
-
-                width: auto;
-                margin-left: 0;
                 padding: $spacing-sm 0;
 
                 .com-title {
@@ -855,26 +856,6 @@
     }
 }
 
-/* FONDO TERCERA */
-.sidebar__aside {
-    background: -webkit-repeating-linear-gradient(
-        45deg,
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0.1) 4px,
-        rgba(0, 0, 0, 0.15) 6px
-    );
-    background: repeating-linear-gradient(
-        45deg,
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0.1) 4px,
-        rgba(0, 0, 0, 0.15) 6px
-    );
-}
-
 .demofront {
     .mod-banner {
         margin-bottom: px(32);
@@ -910,6 +891,9 @@
         iframe {
             height: px(360);
         }
+    }
+    @media ($media-l) {
+        margin-bottom: px(32);
     }
     @media ($media-xl) {
         padding-right: $spacing-xl;

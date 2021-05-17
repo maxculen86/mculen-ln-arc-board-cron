@@ -144,7 +144,11 @@ const ListMenuComponent = props => {
 };
 
 ListMenuComponent.propTypes = {
-    arcSite: PropTypes.string.isRequired
+    arcSite: PropTypes.string
+};
+
+ListMenuComponent.defaultProps = {
+    arcSite: 'la-nacion-ar'
 };
 
 export default Consumer(ListMenuComponent);

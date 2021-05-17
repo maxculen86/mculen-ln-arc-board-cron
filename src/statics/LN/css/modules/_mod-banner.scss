@@ -1,6 +1,9 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
+
 .mod-banner {
+    @include BgDiagonal;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,12 +11,29 @@
     max-width: 100%;
     overflow: hidden;
     z-index: 1;
+
+    &:before {
+        content: 'PUBLICIDAD';
+        font-size: px(11);
+        line-height: px(16);
+        background: white;
+        display: inline-block;
+        padding: px(4) px(8);
+        margin: 0 auto;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+    }
+
     &.--megatop {
         position: relative;
         z-index: 110;
         background: $neutral-white;
     }
     &.--comercial {
+        &:before {
+            display: none;
+        }
         position: fixed;
         top: 0;
         z-index: 1100000;
@@ -27,17 +47,15 @@
             right: px(16);
         }
     }
-    &.--bg-banner {
-        background: $light-neutral-200;
-        width: 100%;
-    }
+    // &.--bg-banner {
+    //     background: $light-neutral-200;
+    //     width: 100%;
+    // }
     &.--mobile,
     &.--sticky1_mob {
-        margin-bottom: px(24);
-        height: px(100);
-    }
-    &.--desktop {
-        margin-bottom: px(24);
+        display: none;
+        //margin-bottom: px(24);
+        //height: px(100);
     }
     &.--sticky {
         position: sticky;
@@ -53,26 +71,42 @@
             }
         }
 
-        &.sticky2_mob {
-            .--scrollUp & {
-                top: px(80);
-                display: none;
-            }
+        &.--sticky2_mob {
+            height: px(50);
+            //background: $neutral-white;
+            position: fixed;
+            display: flex;
+            width: 100%;
+            z-index: 1000;
+            background: white;
         }
+
+        // &.sticky2_mob {
+        //     .--scrollUp & {
+        //         top: px(80);
+        //         display: none;
+        //     }
+        // }
     }
+
     &.--fixed {
         position: fixed;
-        bottom: px(60);
+        bottom: px(56);
         z-index: 100;
         left: calc((100% - 320px) / 2);
+        background: white;
 
-        .--scrollDown & {
-            bottom: px(0);
-        }
-        &.--bg-banner {
-            background: $light-neutral-200;
-            width: 100%;
-        }
+        // &.--adhesion_mob {
+        //     display: flex;
+        // }
+
+        // .--scrollDown & {
+        //     bottom: px(0);
+        // }
+        // &.--bg-banner {
+        //     background: $light-neutral-200;
+        //     width: 100%;
+        // }
     }
     &.--close {
         .icon-close {
@@ -81,7 +115,7 @@
             background: $neutral-black;
             position: absolute;
             top: 0;
-            right: px(1);
+            right: 0;
             color: $neutral-white;
             font-size: px(16);
         }
@@ -95,12 +129,30 @@
             background: $neutral-white;
         }
     }
-    &.--cabezal_tab,
-    &.--cabezal_dsk {
-        display: none;
+    // &.--cabezal_tab,
+    // &.--cabezal_dsk {
+    //     display: none;
+    // }
+
+    //ALTURAS FIJAS
+
+    &.--sticky2_mob,
+    &.--adhesion_mob {
+        height: px(50);
     }
+    &.--caja1_mob,
+    &.--caja2_mob,
+    &.--caja3_mob,
+    &.--caja4_mob {
+        height: px(450);
+        margin-bottom: px(32);
+    }
+    &.--comercial_mob {
+        height: px(480);
+    }
+
     &.--top {
-        height: px(124);
+        //height: px(124);
         @media ($media-m) {
             height: px(114);
         }
@@ -115,21 +167,44 @@
             display: none;
         }
         &.--fixed {
-            bottom: px(0);
+            bottom: px(56);
             left: calc((100% - 728px) / 2);
         }
-        &.--sticky1_mob {
-            display: none;
-        }
+        // &.--sticky1_mob {
+        //     display: none;
+        // }
         &.--cabezal_tab {
             display: flex;
             margin-bottom: $spacing-lg;
+            &.--dark {
+                margin-bottom: 0;
+            }
+        }
+
+        //ALTURAS FIJAS
+
+        &.--adhesion_tab,
+        &.--cabezal_tab,
+        &.--middle1_tab,
+        &.--middle2_tab {
             height: px(90);
+        }
+        &.--caja1_tab,
+        &.--caja2_tab,
+        &.--caja3_tab,
+        &.--caja4_tab {
+            height: px(250);
+        }
+        &.--logo_tag_tab {
+            height: px(280);
         }
     }
 }
 @media ($media-l) {
     .mod-banner {
+        &.--desktop {
+            margin-bottom: px(24);
+        }
         .sidebar__aside & {
             display: flex;
             width: 100%;
@@ -137,19 +212,14 @@
         }
         &.--sticky {
             top: $header-desktop;
-            top: 0;
-            .sidebar__aside & {
-                //top: $header-desktop; descomentar si es diferente al cabezal_dsk
-                padding-top: px(10);
-                background: $neutral-white;
-                .--scrollUp & {
-                    top: $header-desktop;
-                }
-                // .--scrollDown & {
-                //     padding-top: px(10);
-                //     background: $neutral-white;
-                // }
-            }
+            //.sidebar__aside & {
+            //top: $header-desktop; //descomentar si es diferente al cabezal_dsk
+            // padding-top: px(24);
+            // background: $neutral-white;
+            // .--scrollUp & {
+            //     top: $header-desktop;
+            // }
+            //}
             // .sidebar__aside & {
             //     .--scrollUp & {
             //         padding-top: px(10);
@@ -159,6 +229,7 @@
             // }
         }
         &.--fixed {
+            bottom: 0;
             left: calc((100% - 920px) / 2);
             &.--small {
                 left: calc((100% - 728px) / 2);
@@ -174,6 +245,34 @@
             display: flex;
             margin-bottom: $spacing-lg;
             height: px(170);
+            &.--dark {
+                margin-bottom: 0;
+            }
+        }
+
+        //ALTURAS FIJAS
+
+        &.--adhesion_dsk {
+            height: px(100);
+        }
+
+        &.--middle1_dsk,
+        &.--caja1_dsk,
+        &.--caja2_dsk,
+        &.--caja3_dsk,
+        &.--caja4_dsk,
+        &.--billboard_dsk,
+        &.--caja_producto1_dsk,
+        &.--caja_producto2_dsk,
+        &.--cinturon1_dsk,
+        &.--cinturon2_dsk {
+            height: px(250);
+        }
+
+        &.--megalateral_dsk,
+        &.--megalateral2_dsk,
+        &.--megalateral3_dsk {
+            height: px(600);
         }
     }
 }
@@ -188,5 +287,12 @@
                 left: calc((100% - 1068px) / 2);
             }
         }
+    }
+}
+
+.--ads {
+    margin-bottom: px(32);
+    &:empty {
+        display: none;
     }
 }

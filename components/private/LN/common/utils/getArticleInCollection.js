@@ -26,7 +26,7 @@ const getArticleInCollection = (
                   filterRepetead,
                   notesQuantity,
                   imageConfig: 'm',
-                  isFocal: layout.includes('focal')
+                  isFocal: layout && layout.includes('focal')
               },
               filter
           })
