@@ -82,7 +82,7 @@ export const getChainsFromSections = (renderable = [], sectionPosition) => {
 
 const LNMainHome = props => {
     const { children, requestUri } = props;
-    getHomeElements2(props);
+    // getHomeElements2(props);
     const homeSections = getHomeElements(children);
     const homeType = browser.getParamFrom('params', 'tipo', requestUri);
     const diagramation =
