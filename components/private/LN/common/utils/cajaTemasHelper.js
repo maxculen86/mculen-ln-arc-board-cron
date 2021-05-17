@@ -43,23 +43,39 @@ const featuredRules = {
             grilla9: 'Grilla 9'
         },
         defaultLayout: 'focalLeft3'
+    },
+    cajaOpinion: {
+        hideInitialPosition: true,
+        hideIdCollection: false,
+        hideHideCaja: false,
+        groupName: 'Ajuste Collection',
+        layouts: {
+            opinion4: 'Home Opinion'
+        },
+        defaultLayout: 'opinion4'
+    },
+    cajaEditoriales: {
+        hideInitialPosition: true,
+        hideIdCollection: false,
+        hideHideCaja: false,
+        groupName: 'Ajuste Collection',
+        layouts: {
+            editoriales2: 'Home Editoriales'
+        },
+        defaultLayout: 'editoriales2'
     }
 };
 
-export const validateFeature = (idCollection, articles, message) => {
-    let error;
-    if (!idCollection)
-        error = {
-            type: 'warning',
-            message: 'Se requiere el id de la colección de la caja de temas'
-        };
+export const validateFeature = (idCollection, articles, layout) => {
+    const message =
+        (!layout && 'Se requiere que seleccione una diagramación') ||
+        (!idCollection &&
+            'Se requiere el id de la colección de la caja de temas') ||
+        (idCollection &&
+            articles.length === 0 &&
+            `La colección ${idCollection} no encontró notas`);
 
-    if (idCollection && articles.length === 0)
-        error = {
-            type: 'warning',
-            message
-        };
-    return error;
+    return message && { type: 'warning', message };
 };
 
 export const validateChainManual = (childrenProps, layout) => {
@@ -129,7 +145,10 @@ export const getCommonProps = props => {
             .findIndex(chain => chain.props.id === idFeature) || 0;
 
     const sectionName = `${formatText(name === 'LA NACION' ? '' : `${name}_`)}`;
-    const showDatalayerMark = get(acumuladoGeneral, 'usa_datalayer', 'false');
+    const showDatalayerMark =
+        name === 'LA NACION'
+            ? 'true'
+            : get(acumuladoGeneral, 'usa_datalayer', 'false');
 
     return {
         collectionsInPage,

@@ -1,10 +1,22 @@
 import React from 'react';
-import getProperties from 'fusion:properties';
 import validateSectionHome from '../../../../components/private/common/utils/validateSectionHome.js';
 import PageBuilderMessage from '../../../../components/private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage.jsx';
 import renderables1 from '../../../../__mocks__/data/renderables/data1';
 import renderables2 from '../../../../__mocks__/data/renderables/data2';
 import renderablesOk from '../../../../__mocks__/data/renderables/data3';
+
+jest.mock('fusion:context', () => () => ({
+    default: props => {
+        const mockAvailableProps = {
+            outputType: 'default',
+            arcSite: 'la-nacion-ar'
+        };
+
+        return props.children(mockAvailableProps);
+    }
+}));
+
+import Context from 'fusion:context';
 
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
@@ -13,7 +25,15 @@ jest.mock('fusion:consumer', Component => {
 });
 
 import Consumer from 'fusion:consumer';
+import {
+    getChainsFromApertura,
+    isBombaVisible
+} from '../../../../components/private/LN/common/utils/homeHelper.js';
 describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />', () => {
+    it('Validar si Bomba es visible o no', () => {
+        expect(isBombaVisible(renderablesOk)).toBe(true);
+    });
+
     it('Validar Seccion Anticipo en Home', () => {
         expect(
             validateSectionHome(
@@ -367,5 +387,19 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
                 true
             )
         ).toEqual(true);
+    });
+
+    it('Deberia capturar 2 chains de la seccion apertura a partir del renderable', () => {
+        const { chainApertura1, chainApertura2 } = getChainsFromApertura(
+            renderablesOk
+        );
+        expect(chainApertura1).toBeTruthy();
+        expect(chainApertura2).toBeTruthy();
+    });
+
+    it('Deberia devolver nulo las chain de seccion apertura a partir del renderable', () => {
+        const { chainApertura1, chainApertura2 } = getChainsFromApertura([]);
+        expect(chainApertura1).toBeFalsy();
+        expect(chainApertura2).toBeFalsy();
     });
 });

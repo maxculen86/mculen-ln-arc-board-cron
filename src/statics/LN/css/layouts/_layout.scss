@@ -1,4 +1,5 @@
 @import '../abstracts/variables';
+@import '../abstracts/mixins';
 
 //=======================================
 // lay CON ASIDE
@@ -22,6 +23,7 @@
         //overflow: hidden;
     }
     .sidebar__aside {
+        @include BgDiagonal;
         flex-basis: px(300);
         flex-shrink: 0;
     }
@@ -72,12 +74,6 @@
         padding-left: $spacing-xl;
     }
 }
-//=======================================
-// Se suma Padding para sacar todos los estacios TOP
-//=======================================
-main {
-    padding-top: $spacing-md;
-}
 
 //=======================================
 // lay al 100% sin paddings ni margins
@@ -86,4 +82,43 @@ main {
     padding-left: 0;
     padding-right: 0;
     max-width: 100%;
+}
+
+#fusion-app > #wrapper {
+    //fusion-app es por pagebuilder
+    position: relative;
+    margin-bottom: 80px;
+    //margin-top: 50px; //alto header mobile
+
+    &:before {
+        @include BgDiagonal;
+        display: block;
+        content: '';
+        height: 50px;
+        width: 100%;
+    }
+    &.--transparent {
+        &:before {
+            background: black;
+        }
+    }
+    @media (min-width: 768px) {
+        //margin-top: 0;
+        &:before {
+            display: none;
+        }
+    }
+    @media (min-width: 1024px) {
+        margin-bottom: 0;
+        margin-top: 73px; //alto header desktop para header fijo
+        // &.--scrollUp,
+        // &.--scrollDown {
+        //     margin-top: 73px; //alto header desktop
+        // }
+    }
+}
+
+main {
+    position: relative;
+    padding-top: $spacing-md;
 }
