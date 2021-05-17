@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ModRowGap from '../../common/mod-rowgap';
 import ModHeaderSection from '../../common/mod-headerSection';
+import Opinion from '../../common/opinion';
+import Editoriales from '../../common/editoriales';
 import ArticleAcum from '../acumulado/articleAcum';
 import FocalFactory from '../home/templatesContainers/focalFactory';
 
@@ -23,9 +25,9 @@ const CajaTema = props => {
         sectionName = '',
         _children = []
     } = props;
-
     const isFocal = layout.includes('focal');
-    const isRenderAuthor = layout.includes('author');
+    const isEditoriales = layout.includes('editoriales2');
+
     const extraOptsDiv = {};
     const extraOpts = {};
     if (position) {
@@ -37,8 +39,73 @@ const CajaTema = props => {
         extraOpts['data-is-block'] = true;
         extraOpts.id = `tema_${position}`;
     }
-    const artWithoutDate =
-        (articles && articles.map(art => ({ ...art, display_date: '' }))) || [];
+
+    const typeArticle =
+        (layout.includes('opinion4') && 'Opinion') ||
+        (isEditoriales && 'Editoriales') ||
+        (isFocal && 'Focal') ||
+        'Grilla';
+
+    const getChildrenComponent = () => {
+        const artWithoutDate =
+            (articles && articles.map(art => ({ ...art, display_date: '' }))) ||
+            [];
+
+        const articlesType =
+            (layout.includes('focal') && 'focal') ||
+            (layout.includes('opinion4') && 'homeOpinion') ||
+            (isEditoriales && 'homeEditoriales') ||
+            (artWithoutDate && artWithoutDate.length && 'grid') ||
+            (_children && _children.length && 'feature');
+
+        switch (articlesType) {
+            case 'focal':
+                return (
+                    <FocalFactory
+                        directionFocal={layout}
+                        articles={artWithoutDate}
+                        outputType={outputType}
+                        boxPosition={position}
+                        _children={_children}
+                    />
+                );
+            case 'homeOpinion':
+                return <Opinion articles={artWithoutDate} layout={layout} />;
+            case 'homeEditoriales':
+                return (
+                    <Editoriales
+                        articles={artWithoutDate}
+                        layout={layout}
+                        title={title}
+                        link={url}
+                    />
+                );
+            case 'grid':
+                return artWithoutDate.map((art, i) => {
+                    const artPosition = `0${Number(i) + 1}`.slice(-2);
+                    const isRenderAuthor = layout.includes('author');
+
+                    return (
+                        <ArticleAcum
+                            key={art._id}
+                            article={art}
+                            outputType={outputType}
+                            frontdemo
+                            titleSize={titleSize}
+                            isRenderAuthor={isRenderAuthor}
+                            withSubhead={withSubhead}
+                            boxPosition={position}
+                            artPosition={artPosition}
+                        />
+                    );
+                });
+            case 'feature':
+                return _children.slice(0, notesQuantity);
+            default:
+                return <></>;
+        }
+    };
+    const childrenComponent = getChildrenComponent();
 
     return (
         <div {...extraOptsDiv}>
@@ -46,46 +113,15 @@ const CajaTema = props => {
                 {...extraOpts}
                 className={`box-articles ${backgroundColor} ${classCondition}`}
             >
-                {!hideTitle && (
+                {!hideTitle && !isEditoriales && (
                     <ModHeaderSection
                         imageId={imageId}
                         title={title}
                         link={url}
                     />
                 )}
-                <ModRowGap
-                    typeArticle={isFocal ? 'Focal' : 'Grilla'}
-                    column={notesQuantity}
-                >
-                    {(isFocal && (
-                        <FocalFactory
-                            directionFocal={layout}
-                            articles={artWithoutDate}
-                            outputType={outputType}
-                            boxPosition={position}
-                            _children={_children}
-                        />
-                    )) ||
-                        (artWithoutDate.length &&
-                            artWithoutDate.map((art, i) => {
-                                const artPosition = `0${Number(i) + 1}`.slice(
-                                    -2
-                                );
-                                return (
-                                    <ArticleAcum
-                                        key={art._id}
-                                        article={art}
-                                        outputType={outputType}
-                                        frontdemo
-                                        titleSize={titleSize}
-                                        isRenderAuthor={isRenderAuthor}
-                                        withSubhead={withSubhead}
-                                        boxPosition={position}
-                                        artPosition={artPosition}
-                                    />
-                                );
-                            })) ||
-                        _children.slice(0, notesQuantity)}
+                <ModRowGap typeArticle={typeArticle} column={notesQuantity}>
+                    {childrenComponent}
                 </ModRowGap>
             </section>
         </div>
@@ -104,12 +140,13 @@ CajaTema.propTypes = {
     classCondition: PropTypes.string.isRequired,
     notesQuantity: PropTypes.number.isRequired,
     hideTitle: PropTypes.boolean.isRequired,
-    withSubhead: PropTypes.boolean.isRequired,
+    withSubhead: PropTypes.boolean,
     title: PropTypes.string,
-    titleSize: PropTypes.string,
+    titleSize: PropTypes.oneOfType([PropTypes.boolean, PropTypes.string]),
     url: PropTypes.string,
     imageId: PropTypes.string,
-    position: PropTypes.string.isRequired,
+    position: PropTypes.oneOfType([PropTypes.boolean, PropTypes.string])
+        .isRequired,
     sectionName: PropTypes.string.isRequired,
     _children: PropTypes.arrayOf(PropTypes.obj)
 };
@@ -119,6 +156,7 @@ CajaTema.defaultProps = {
     url: null,
     imageId: null,
     titleSize: null,
+    withSubhead: false,
     _children: []
 };
 

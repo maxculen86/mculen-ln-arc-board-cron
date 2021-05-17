@@ -69,7 +69,10 @@ const ComButton = props => {
 };
 
 ComButton.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.node),
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.string
+    ]),
     classCondition: PropTypes.string,
     classesNames: PropTypes.string,
     textname: PropTypes.string,
@@ -79,7 +82,7 @@ ComButton.propTypes = {
     iconPosition: PropTypes.string,
     size: PropTypes.string,
     title: PropTypes.string,
-    style: PropTypes.obj
+    style: PropTypes.node
 };
 
 export default ComButton;

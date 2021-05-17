@@ -35,7 +35,12 @@ describe('Private - Common - ModArticle', () => {
         subheadText: 'Este es el subtitulo',
         subheadSize: '',
         outputType: 'default',
-        label: 'chapita'
+        label: 'chapita',
+        category: '',
+        tags: [],
+        hour: '',
+        isRenderAuthor: false,
+        isRenderAuthorOpinion: false
     };
 
     it('Render OK', () => {

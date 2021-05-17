@@ -17,7 +17,8 @@ const Comercial = props => {
         bidding,
         slotGroup,
         show,
-        sizemap
+        sizemap,
+        isHome = false
     } = props;
 
     if (device === 'tablet') return null;
@@ -71,18 +72,22 @@ const Comercial = props => {
                 textname="CERRAR"
                 onClick={handleClick}
             />
-            <Ads
-                ref={adsRef}
-                slotId={id}
-                slotName={slotName}
-                dimensions={dimensions}
-                dfpId={dfpId}
-                targeting={targeting}
-                show={show}
-                bidding={bidding || {}}
-                sizemap={sizemap}
-                slotGroup={slotGroup}
-            />
+            {isHome ? (
+                <div id={id} className={`com-banner`} />
+            ) : (
+                <Ads
+                    ref={adsRef}
+                    slotId={id}
+                    slotName={slotName}
+                    dimensions={dimensions}
+                    dfpId={dfpId}
+                    targeting={targeting}
+                    show={show}
+                    bidding={bidding || {}}
+                    sizemap={sizemap}
+                    slotGroup={slotGroup}
+                />
+            )}
         </div>
     );
 };

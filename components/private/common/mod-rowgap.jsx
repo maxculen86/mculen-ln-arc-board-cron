@@ -13,7 +13,9 @@ const layout = {
     },
     Listado: 'row',
     Timeline: 'breaking-news',
-    Focal: 'row'
+    Focal: 'row',
+    Opinion: 'row',
+    Editoriales: 'row'
 };
 
 const ModRowGap = props => {

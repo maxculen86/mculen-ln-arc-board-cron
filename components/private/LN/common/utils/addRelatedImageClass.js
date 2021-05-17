@@ -6,7 +6,6 @@ import get from '../../../common/utils/get';
 
 class addRelatedImage {
     constructor(props) {
-        debugger;
         this.state = {};
 
         const { article } = props;

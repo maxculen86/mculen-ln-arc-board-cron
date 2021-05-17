@@ -6,6 +6,19 @@ import renderables1 from '../../../../__mocks__/data/renderables/data1';
 import renderables2 from '../../../../__mocks__/data/renderables/data2';
 import renderablesOk from '../../../../__mocks__/data/renderables/data3';
 
+jest.mock('fusion:context', () => () => ({
+    default: props => {
+        const mockAvailableProps = {
+            outputType: 'default',
+            arcSite: 'la-nacion-ar'
+        };
+
+        return props.children(mockAvailableProps);
+    }
+}));
+
+import Context from 'fusion:context';
+
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
         return props => <Component {...props} />;
