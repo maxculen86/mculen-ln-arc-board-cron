@@ -59,6 +59,13 @@ describe('Common - getMetasOG function', () => {
             },
             siteProperties: {
                 title: 'LA NACION',
+                longTitle:
+                    'Últimas noticias de Argentina y el mundo - LA NACION',
+                title: 'LA NACION',
+                deportesTitle: 'Últimas noticias de Deportes - LA NACION',
+                ultimasNoticiasTitle: 'Últimas noticias - LA NACION',
+                description:
+                    'LA NACION - Información confiable en Internet. Noticias de Argentina y del mundo - ¡Informate ya!',
                 shareConfig: {
                     facebook: {
                         appID: '205326199490321'
@@ -144,7 +151,7 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:description',
-                content: 'Últimas Noticias de LA NACION'
+                content: 'Últimas Noticias del día de hoy en Argentina'
             },
             {
                 property: 'og:image',
@@ -172,12 +179,18 @@ describe('Common - getMetasOG function', () => {
                     '/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/'
             },
             siteProperties: {
-                title: 'LA NACION',
                 shareConfig: {
                     facebook: {
                         appID: '205326199490321'
                     }
-                }
+                },
+                longTitle:
+                    'Últimas noticias de Argentina y el mundo - LA NACION',
+                title: 'LA NACION',
+                deportesTitle: 'Últimas noticias de Deportes - LA NACION',
+                ultimasNoticiasTitle: 'Últimas noticias - LA NACION',
+                description:
+                    'LA NACION - Información confiable en Internet. Noticias de Argentina y del mundo - ¡Informate ya!'
             },
             metaValue: function metaValue(name) {
                 return name === 'title' ? 'Javier Blanco' : '';
@@ -185,7 +198,8 @@ describe('Common - getMetasOG function', () => {
             contextPath: '/pf',
             deployment: function deployment() {
                 return '$LATEST';
-            }
+            },
+            title: 'Javier Blanco'
         };
 
         const metas = [
@@ -216,6 +230,7 @@ describe('Common - getMetasOG function', () => {
                 content: `https://www.lanacion.com.ar/autor/javier-blanco-170/`
             }
         ];
+
         expect(getMetasOG(props)).toStrictEqual(metas);
     });
 });

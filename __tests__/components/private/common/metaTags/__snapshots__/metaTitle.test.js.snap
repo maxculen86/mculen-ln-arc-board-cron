@@ -5,6 +5,14 @@ exports[`LN - Common - MetaTitle MetaTitle nota snapshot 1`] = `
   _id=""
   arcSite="la-nacion-ar"
   metaTitleBasic="El Gobierno evalúa postular a una diplomática de carrera para la embajada en el Vaticano"
+  siteProperties={
+    Object {
+      "deportesTitle": "Últimas noticias de Deportes - LA NACION",
+      "longTitle": "Últimas noticias de Argentina y el mundo - LA NACION",
+      "title": "LA NACION",
+      "ultimasNoticiasTitle": "Últimas noticias - LA NACION",
+    }
+  }
   subtype="1"
   title=""
 >

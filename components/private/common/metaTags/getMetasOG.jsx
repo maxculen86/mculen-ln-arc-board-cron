@@ -27,7 +27,7 @@ const getDescription = ({
         description = subheadlinesBasic || DEFAULT_DESCRIPTION;
     } else {
         const setDescription = (title, metaTitle) => {
-            if (metaTitle) return `de ${metaTitle}`;
+            if (metaTitle) return `Últimas Noticias de ${metaTitle}`;
             else {
                 return title === DEFAULT_DEPORTES
                     ? DEFAULT_DEPORTES
@@ -35,13 +35,13 @@ const getDescription = ({
             }
         };
 
-        const description =
+        description =
             title === DEFAULT_ULTIMAS_NOTICIAS
                 ? 'Últimas Noticias del día de hoy en Argentina'
                 : setDescription(title, metaValue('title'));
-
-        return description;
     }
+
+    return description;
 };
 
 const getUrl = (isArticle, url, domain) => {
