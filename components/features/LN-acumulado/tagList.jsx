@@ -20,8 +20,7 @@ const TagsListFeature = () => {
     const { state = {} } = useContext(GlobalContext);
     const { tagsHome = [] } = state;
 
-    // const _nodeType = getSectionName({ nodeType, type });
-    const _nodeType = 'home';
+    const _nodeType = getSectionName({ nodeType, type });
 
     const {
         acumuladoGeneral: { hidetagslist = false } = {},

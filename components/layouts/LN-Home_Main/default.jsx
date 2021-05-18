@@ -29,6 +29,7 @@ import TePuedeInteresar from '../../features/LN-nota/tePuedeInteresar/default';
 import DivBanner from '../../private/common/banners/DivBanner';
 import BannerComercial from '../../private/common/banners/BannerComercial';
 import pageBuilderSections from '../config/LN-PageBuilder.config.json';
+import TagsListFeature from '../../features/LN-acumulado/tagList';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -475,6 +476,9 @@ const LNMainHome = props => {
                                             customFields={{ cantidadNotas: 6 }}
                                         />
                                     )}
+                                    <div>
+                                        <TagsListFeature />
+                                    </div>
                                 </div>
                                 <div className="sidebar__aside hlp-tabletlm-none">
                                     {/* BANNER ASIDE */}
