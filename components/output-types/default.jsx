@@ -131,15 +131,15 @@ const Default = props => {
         name,
         Payload,
         _id,
-        taxonomy
+        taxonomy,
+        name: globalContentName
     } = globalContent || {};
 
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
     const { basic: descriptionBasic } = description || {};
     const { name: distributorName } = distributor || {};
 
-    const metaTitleBasic =
-        metaTitle && metaTitle !== '' ? metaTitle : basicTitle;
+    const metaTitleBasic = metaTitle || basicTitle;
 
     const getPageBuilderFeatures = _renderables =>
         _renderables.filter(renderable => renderable.collection === 'features');
@@ -174,9 +174,25 @@ const Default = props => {
         siteProperties.scripts
     );
 
-    const title = metaValue('title') || siteProperties.title || 'LA NACION';
+    const validateSection = (name, siteProperties) => {
+        switch (name) {
+            case 'Deportes':
+                return siteProperties.deportesTitle;
+
+            case 'Últimas noticias':
+                return siteProperties.ultimasNoticiasTitle;
+
+            default:
+                return siteProperties.longTitle;
+        }
+    };
 
     const _nodeType = getSectionName({ nodeType, type });
+
+    const title =
+        _nodeType === 'home'
+            ? siteProperties.longTitle
+            : metaValue('title') || siteProperties.title;
 
     return (
         <html lang="es">
@@ -198,7 +214,7 @@ const Default = props => {
                 />
                 {/* TODO: Revisar la forma de traer metatags desde PB, y omitir o customizar los metas de 'title' y 'description' */}
                 {/* {subtype === '7' && <MetaTags />} */}
-                <MetasOG {...props} />
+                <MetasOG {...props} section={_nodeType} title={title} />
                 {canonicalUrl && (
                     <link
                         rel="canonical"
@@ -221,6 +237,8 @@ const Default = props => {
                     arcSite={arcSite}
                     nodeType={nodeType}
                     _id={_id}
+                    section={_nodeType}
+                    defaultTitle={siteProperties.longTitle}
                 />
                 <MetaDescription
                     subtype={subtype}
@@ -235,6 +253,8 @@ const Default = props => {
                         getFirstParagraph(contentElements) || ''
                     }
                     arcSite={arcSite}
+                    section={_nodeType}
+                    defaultDescription={siteProperties.description}
                 />
                 <Syndication
                     type={type}
