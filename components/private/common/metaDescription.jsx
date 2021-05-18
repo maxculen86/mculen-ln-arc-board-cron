@@ -30,10 +30,14 @@ const MetaDescription = ({
     name,
     subheadlines,
     _id,
-    payload
+    payload,
+    section,
+    defaultDescription
 }) => {
     if (arcSite !== 'la-nacion-ar') return <></>;
+
     const acusWithMeta = ['section', 'author', 'distributor', 'tags'];
+
     if (acusWithMeta.includes(nodeType) && _id !== '/recetas') {
         const { tagId } = extractDataFromTags(payload);
         return (
@@ -48,20 +52,22 @@ const MetaDescription = ({
         );
     }
 
-    if (!subtype) return <></>;
+    if (!subtype && section !== 'home') return <></>;
 
     return (
-        subtype && (
-            <meta
-                name="description"
-                content={`${getMetaDescription(
-                    description,
-                    firstParagraphContentElements,
-                    metaTitleBasic,
-                    subheadlines
-                )} - LA NACION`}
-            />
-        )
+        <meta
+            name="description"
+            content={
+                (subtype &&
+                    `${getMetaDescription(
+                        description,
+                        firstParagraphContentElements,
+                        metaTitleBasic,
+                        subheadlines
+                    )} - LA NACION`) ||
+                defaultDescription
+            }
+        />
     );
 };
 

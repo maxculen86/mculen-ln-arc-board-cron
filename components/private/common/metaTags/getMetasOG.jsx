@@ -1,6 +1,7 @@
 import { SITE_LANACION, ARC_STATIC } from 'fusion:environment';
 import getDomain from '../utils/getDomain';
 import addRelatedImage from '../../LN/common/utils/addRelatedImage';
+import addForwardSlash from '../../LN/common/utils/addForwardSlash';
 
 const getAppId = siteProperties =>
     siteProperties &&
@@ -10,16 +11,19 @@ const getAppId = siteProperties =>
         ? siteProperties.shareConfig.facebook.appID
         : undefined;
 
-const getDescription = (
+const getDescription = ({
     isArticle,
     metaValue,
     subheadlinesBasic,
-    descriptionDefault,
-    url = ''
-) => {
+    section,
+    descriptionDefault
+}) => {
     let description = '';
+
+    if (section === 'home') return descriptionDefault;
+
     if (isArticle) {
-        description = subheadlinesBasic || descriptionDefault;
+        description = subheadlinesBasic || descriptionDefault || '';
     }
     if (!isArticle) {
         const customTitle =
@@ -28,12 +32,12 @@ const getDescription = (
                 : `de ${metaValue('title')}`;
         description = `Últimas Noticias ${customTitle}` || descriptionDefault;
     }
+
     return description;
 };
 
 const getUrl = (isArticle, url, domain) => {
     const slash = url && url.slice(-1) !== '/' ? '/' : '';
-    if (isArticle) return (url && `${domain}${url}${slash}`) || domain;
     return (url && `${domain}${url}${slash}`) || domain;
 };
 
@@ -43,14 +47,19 @@ const getData = ({
     globalContent,
     contextPath,
     deployment,
-    arcSite
+    arcSite,
+    section
 }) => {
     const domain = getDomain(globalContent);
     const isArticle = !!(globalContent && globalContent.type === 'story');
     const PLACEHOLDER = `${ARC_STATIC}${deployment(
         `${contextPath}/resources/images/placeholderLN.jpg`
     )}`;
-    const { title } = siteProperties;
+    const {
+        title: titleDefault,
+        shortDescription: descriptionDefault,
+        longTitle
+    } = siteProperties;
 
     const {
         headlines = {},
@@ -66,34 +75,27 @@ const getData = ({
     const { basic: promoItemsBasic = {} } = promoItems;
     const { type: typeBasicPI, url: urlBasicPI } = promoItemsBasic;
 
-    const DEFAULT = {
-        TITLE: 'LA NACION',
-        DESCRIPTION: '',
-        IMAGE: PLACEHOLDER,
-        URL: SITE_LANACION,
-        FB_APP_ID: ''
-    };
-
     const pathImagen = urlBasicPI;
     const url = canonicalUrl || _id;
-    const description = getDescription(
+    const description = getDescription({
         isArticle,
         metaValue,
         subheadlinesBasic,
-        DEFAULT.DESCRIPTION,
-        url
-    );
+        section,
+        descriptionDefault
+    });
+
+    const validateTitle = () => (section === 'home' ? longTitle : titleDefault);
 
     return {
         type: isArticle ? 'article' : 'website',
         title: isArticle
-            ? headlinesBasic || DEFAULT.TITLE
-            : metaValue('title') || title || DEFAULT.TITLE,
+            ? headlinesBasic || titleDefault
+            : metaValue('title') || validateTitle(),
         description,
-        image:
-            typeBasicPI === 'image' && urlBasicPI ? pathImagen : DEFAULT.IMAGE,
+        image: typeBasicPI === 'image' && urlBasicPI ? pathImagen : PLACEHOLDER,
         url: getUrl(isArticle, url, domain),
-        fbAppId: getAppId(siteProperties) || DEFAULT.FB_APP_ID,
+        fbAppId: getAppId(siteProperties) || '',
         isArticle,
         ...(isArticle && { publishDate }),
         ...(isArticle && { tier: 'metered' })
@@ -125,7 +127,7 @@ const getMetasOG = props => {
         },
         {
             property: 'og:url',
-            content: data.url
+            content: addForwardSlash(data.url)
         }
     ];
     if (data.isArticle) {
