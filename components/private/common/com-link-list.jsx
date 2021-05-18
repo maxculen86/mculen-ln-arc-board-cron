@@ -12,9 +12,9 @@ const ComLinkList = ({ list, extraClass, _ref, isEditoriales = false }) => {
             <ul className={`com-unordered ${extraClass}`} ref={_ref}>
                 {list.map((element, i) => {
                     if (isEditoriales) {
-                        extraOpts['data-pos'] = `toi0${i + 1}`;
-                        extraOpts['data-id'] = `99${element.id}`;
-                        extraOpts['data-notaid'] = `99${element.id}`;
+                        extraOpts['data-pos'] = `toi990${i + 1}`;
+                        extraOpts['data-id'] = element.id;
+                        extraOpts['data-notaid'] = element.id;
                     }
                     return (
                         <li className="item" {...extraOpts}>

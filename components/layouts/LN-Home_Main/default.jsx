@@ -239,6 +239,7 @@ const LNMainHome = props => {
                     <section
                         data-block-name="h_anexo-1"
                         data-diagramacion-id="9999"
+                        data-is-block="true"
                     >
                         {anexo1}
                     </section>
@@ -301,6 +302,7 @@ const LNMainHome = props => {
                                         data-section="anexo2"
                                         data-block-name="h_anexo-2"
                                         data-diagramacion-id="9999"
+                                        data-is-block="true"
                                     >
                                         {blocksToLoad.bloque2 && anexo2}
                                     </section>
@@ -375,6 +377,7 @@ const LNMainHome = props => {
                                         data-section="anexo3"
                                         data-block-name="h_anexo-3"
                                         data-diagramacion-id="9999"
+                                        data-is-block="true"
                                     >
                                         {blocksToLoad.bloque3 && anexo3}
                                     </section>

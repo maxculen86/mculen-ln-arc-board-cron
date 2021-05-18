@@ -86,13 +86,15 @@ export const getMarkupForDatalayer = (
         Opinion: {
             extraOpts: {
                 'data-block-name': 'h_opinion',
-                'data-diagramacion-id': '0'
+                'data-diagramacion-id': '0',
+                'data-is-block': true
             }
         },
         Editoriales: {
             extraOpts: {
                 'data-block-name': 'h_editoriales',
-                'data-diagramacion-id': '0'
+                'data-diagramacion-id': '0',
+                'data-is-block': true
             }
         },
         Default: (pos, section, lay) => {
