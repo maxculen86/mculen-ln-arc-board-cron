@@ -1,4 +1,5 @@
 import { get } from 'lodash';
+import getIndexArray from '../../../common/utils/getIndexArray';
 import Article from './article';
 
 // TODO: Recorrer las notas en un archivo nuevo.
@@ -7,42 +8,50 @@ import Article from './article';
 const typeSection = {
     Anticipo: { tipoSeccion: 'anticipo', idSeccion: 501 },
     Bomba: { tipoSeccion: 'bomba', idSeccion: 101 },
-    Apertura: { tipoSeccion: 'tema', idSeccion: 305 },
+    Apertura: { tipoSeccion: 'apertura', idSeccion: 200 },
     Anexo: { tipoSeccion: 'anexo', idSeccion: 0 },
-    Opinion: { tipoSeccion: 'opinion', idSeccion: 501 },
+    Opinion: { tipoSeccion: 'opinion', idSeccion: 1001 },
     Comercial: { tipoSeccion: 'comercial', idSeccion: 1101 },
     Tema: { tipoSeccion: 'tema', idSeccion: 305 }
 };
 
-//TODO: Refactor para evitar nested arrays, Abstraer logica de notas.
 const index = (children, diagramacion) => {
     const ArticlesbyBox = children.reduce((result, f) => {
-        return f.elements.reduce((result, c) => {
-            const { information } = c;
-            const res = {
-                ...typeSection[f.feature],
-                diagramacion: information.layout
-            };
-            if (f.feature === 'Anticipo') {
-                res.texto = information.title;
-            } else {
-                const articles = get(c, 'articles', []);
+        const { information, feature } = f;
+        let seccionPadre = 0;
+        //  const filteredArray = this.state.list.filter((_, i) => i !== index);
 
-                const subChild = articles.map(item => {
-                    return Article(item, diagramacion);
-                });
+        const res = {
+            ...typeSection[feature],
+            diagramacion: information.layout
+        };
+        if (feature === 'Opinion') {
+            const filteredArray = children.filter(x => x.feature === 'Opinion');
+            seccionPadre = getIndexArray(
+                f.information.idCollection,
+                filteredArray,
+                'information.idCollection'
+            );
+            seccionPadre += 1;
+        }
+        if (feature === 'Anticipo') {
+            res.texto = information.title;
+        } else {
+            const articles = get(f, 'articles', []);
 
-                if (!information.hideTecho && f.feature !== 'Apertura') {
-                    res.tagDestacado = {
-                        valor: information.title,
-                        url: information.url
-                    };
-                }
-                res.notas = subChild;
+            const subChild = articles.map(item => {
+                const itemArticle = { ...item, seccionPadre };
+                return Article(itemArticle, diagramacion);
+            });
+
+            if (!information.hideTecho && feature !== 'Apertura') {
+                res.tituloCaja = information.title;
+                res.url = information.url;
             }
-            result.push(res);
-            return result;
-        }, result);
+            res.notas = subChild;
+        }
+        result.push(res);
+        return result;
     }, []);
     return [ArticlesbyBox];
 };
