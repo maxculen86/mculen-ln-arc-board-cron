@@ -2,7 +2,8 @@ import Consumer from 'fusion:consumer';
 import bitacora from '../../private/LN/api/v1/bitacora';
 import home from '../../private/LN/api/v1/home';
 import browser from '../../private/common/utils/browser';
-import validateSectionHome from '../../private/common/utils/validateSectionHome';
+import pageBuilderSections from '../config/LN-PageBuilder.config.json';
+import validateSectionHome from '../../private/common/utils/validateSectionHomeMobile';
 
 // Url regex TODO: Mejorar la regular expression.
 // ^\/api\/v([1]+)\/home\/(.*\/)$
@@ -41,49 +42,34 @@ const homeMobileSections = [
 ];
 
 const getHomeElements2 = props => {
-    const { children, outputType, isAdmin, renderables } = props;
+    const { children, renderables } = props;
 
-    homeMobileSections.reduce((res, elem, index) => {
-        debugger;
-        const test = validateSectionHome(
-            children[index],
-            elem,
-            index,
-            renderables,
-            outputType,
-            isAdmin
-        );
-        return res;
-    }, []);
-};
-
-const getHomeElements = items => {
-    const features = items.reduce((res, elem, index) => {
-        if (elem && Array.isArray(elem) && elem.length > 0) {
-            const filtered = elem.filter(
-                e => e && e.information && !e.information.hideCaja
+    return pageBuilderSections.reduce((r, e, i) => {
+        const child = validateSectionHome(children[i], e, i, renderables);
+        if (child && Array.isArray(child) && child.length > 0) {
+            return r.concat(
+                [].concat(
+                    child
+                        .filter(
+                            b => b && b.information && !b.information.hideCaja
+                        )
+                        .map(b => {
+                            return {
+                                feature: homeMobileSections[i],
+                                ...b
+                            };
+                        })
+                ) || []
             );
-            if (filtered && Array.isArray(filtered) && filtered.length > 0) {
-                res.push({
-                    feature: homeMobileSections[index],
-                    elements: filtered
-                });
-            }
         }
-        return res;
+        return r;
     }, []);
-    return features;
-};
-
-// TODO: INTEGRAR CON LOS CAMBIOS DE FER
-export const getChainsFromSections = (renderable = [], sectionPosition) => {
-    return get(renderable, `[${sectionPosition}].children`, []);
 };
 
 const LNMainHome = props => {
-    const { children, requestUri } = props;
-    // getHomeElements2(props);
-    const homeSections = getHomeElements(children);
+    const { requestUri } = props;
+    const homeSections = getHomeElements2(props);
+    return [homeSections];
     const homeType = browser.getParamFrom('params', 'tipo', requestUri);
     const diagramation =
         browser.getParamFrom('params', 'diagramacion', requestUri) ||
@@ -93,7 +79,7 @@ const LNMainHome = props => {
 
     if (homeModels[homeType]) {
         if (!homeSections || !homeSections.length) return [];
-
+        return 'ola';
         return homeModels[homeType](homeSections, diagramation) || null;
     }
 
