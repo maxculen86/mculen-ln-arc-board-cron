@@ -179,7 +179,7 @@ export const getCommonProps = props => {
         layout: pageBuilderLayout
     } = props;
 
-    const { cajaTemaConfig = {} } = config || {};
+    const { cajaTemaConfig = {}, layoutsName = {} } = config || {};
     const { collectionsInPage = [] } = useGlobalProviderAcu() || {};
     const notesQuantity = (layout && Number(layout.slice(-1))) || 3;
     const bgColor =
@@ -198,10 +198,10 @@ export const getCommonProps = props => {
             .findIndex(chain => chain.props.id === idFeature) || 0;
 
     const sectionName = `${formatText(
-        pageBuilderLayout === 'LN-Home_Main' ? '' : `${name}_`
+        pageBuilderLayout === layoutsName.Home ? '' : `${name}_`
     )}`;
     const showDatalayerMark =
-        pageBuilderLayout === 'LN-Home_Main'
+        pageBuilderLayout === layoutsName.Home
             ? 'true'
             : get(acumuladoGeneral, 'usa_datalayer', 'false');
 
