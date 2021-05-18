@@ -8,7 +8,6 @@ import useViewportSize from '../../../common/hooks/useViewportSize';
 import get from '../../../common/utils/get';
 import { LoginStore } from '../context/loginContext';
 import sectionsValidation from '../../../../layouts/config/LN-Home.config';
-import DivBanner from '../../../common/banners/DivBanner';
 import PageBuilderMessage from '../../home/common/components/pageBuilderMessage/pageBuilderMessage';
 import {
     findSectionChildren,
@@ -110,24 +109,6 @@ export const getSubscription = () => {
     const { loginData } = state || {};
     const { subscription = false } = loginData || {};
     return subscription;
-};
-
-// eslint-disable-next-line react/prop-types
-export const BannerCabezal = ({ isDesktop, isTablet }) => {
-    return (
-        <>
-            <DivBanner
-                id="cabezal_dsk"
-                shouldRender={isDesktop}
-                classes="--dark"
-            />
-            <DivBanner
-                id="cabezal_tab"
-                shouldRender={isTablet}
-                classes="--dark"
-            />
-        </>
-    );
 };
 
 export const sectionsWithBlocks = {

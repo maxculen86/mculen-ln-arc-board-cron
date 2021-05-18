@@ -35,6 +35,9 @@ const shouldBeExcluded = (contentElements, promoItem) =>
 const Component = props => {
     const contentElements = get(props, 'globalContent.content_elements', null);
     const promoItem = get(props, 'globalContent.promo_items.basic', null);
+    const type = get(props, 'globalContent.type', null);
+    const _id = get(props, 'globalContent._id', null);
+    const subscription = get(props, 'loginData.subscription', null);
     const website = get(props, 'arcSite', null);
     const resolution = get(props, 'screenUtils.device', null);
     const isAdmin = get(props, 'isAdmin');
@@ -48,11 +51,6 @@ const Component = props => {
             return get(resp, 'Metarefresh', undefined);
         }
     });
-
-    const {
-        globalContent: { type, _id },
-        loginData: { subscription }
-    } = props;
 
     // const metarefresh = content && content.Metarefresh;
     const interval = getInterval(type || _id, resolution, metarefresh);

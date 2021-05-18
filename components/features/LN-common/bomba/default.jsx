@@ -31,6 +31,7 @@ const BombaFeature = props => {
                     {...props}
                     imageConfig="fotoAl100"
                     customConfig={config}
+                    isBomba
                 />
             </section>
         )) || <></>

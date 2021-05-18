@@ -5,6 +5,7 @@ import Static from 'fusion:static';
 import { useAppContext } from 'fusion:context';
 import TePuedeInteresar from '../../../private/LN/nota/tePuedeInteresar';
 import findTermica from '../../../private/common/utils/findTermica';
+import config from '../../../../properties/sites/la-nacion-ar';
 
 const tePuedeInteresar = props => {
     const showLiftigniter = findTermica('liftigniter');
@@ -17,8 +18,9 @@ const tePuedeInteresar = props => {
         id
     } = props;
 
-    const { requestUri, globalContent } = useAppContext();
+    const { requestUri, globalContent, layout } = useAppContext();
     const { host = 'https://www.lanacion.com.ar' } = siteProperties || {};
+    const { layoutsName = {} } = config || {};
     const url = `${host}${requestUri}`;
     const { _id } = globalContent || {};
 
@@ -30,6 +32,11 @@ const tePuedeInteresar = props => {
                 outputType={outputType}
                 url={url}
                 idArticle={_id}
+                dataLayerSection={
+                    layout === layoutsName.Home
+                        ? 'h_sugerencias'
+                        : 'n_te_puede_interesar'
+                }
             />
         </Static>
     );
