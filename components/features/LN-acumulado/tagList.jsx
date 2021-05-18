@@ -13,12 +13,17 @@ import {
 import getSectionName from '../../private/LN/common/utils/getSectionName';
 
 const TagsListFeature = () => {
+    debugger;
     const {
         globalContent: { _id: sectionId, node_type: nodeType, type } = {},
         arcSite = 'la-nacion-ar'
     } = useAppContext() || {};
     const { state = {} } = useContext(GlobalContext);
     const { tagsHome = [] } = state;
+    console.log(
+        '🚀 ~ file: tagList.jsx ~ line 22 ~ }=useAppContext ~ tagsHome',
+        tagsHome
+    );
 
     const _nodeType = getSectionName({ nodeType, type });
 
@@ -54,6 +59,11 @@ const TagsListFeature = () => {
                       );
                   }
               });
+
+    console.log(
+        '🚀 ~ file: tagList.jsx ~ line 32 ~ }=useGlobalProviderAcu ~ orderAndCountTags',
+        orderAndCountTags
+    );
 
     const [tagList] = useState(
         transformTagsForAcu(orderAndCountTags, colorTags)
