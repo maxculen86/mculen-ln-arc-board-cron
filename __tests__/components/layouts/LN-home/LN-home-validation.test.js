@@ -1,4 +1,5 @@
 import React from 'react';
+import getProperties from 'fusion:properties';
 import validateSectionHome from '../../../../components/private/common/utils/validateSectionHome.js';
 import PageBuilderMessage from '../../../../components/private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage.jsx';
 import renderables1 from '../../../../__mocks__/data/renderables/data1';
@@ -25,19 +26,29 @@ jest.mock('fusion:consumer', Component => {
 });
 
 import Consumer from 'fusion:consumer';
-import { getChainsFromApertura, isBombaVisible } from '../../../../components/private/LN/common/utils/homeHelper.js';
 describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />', () => {
+    it('Validar Seccion Anticipo en Home', () => {
+        expect(
+            validateSectionHome(
+                null,
+                'Anticipo',
+                0,
+                renderables1,
+                'default',
+                true
+            )
+        ).toEqual(null);
 
-    it('Validar si Bomba es visible o no', () => {        
-        expect(isBombaVisible(renderablesOk)).toBe(true);
-    });
-   
-    it('Validar Seccion Anticipo en Home', () => {        
-        expect(validateSectionHome(null, 'Anticipo', 0, renderables1, 'default', true)).toEqual(
-            null
-        );
-
-        expect(validateSectionHome(null, 'Anticipo', 0, renderables2, 'default', true)).toEqual(
+        expect(
+            validateSectionHome(
+                null,
+                'Anticipo',
+                0,
+                renderables2,
+                'default',
+                true
+            )
+        ).toEqual(
             <PageBuilderMessage
                 id="LN-Home-error"
                 type="warning"
@@ -45,17 +56,40 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             />
         );
 
-        expect(validateSectionHome(true, 'Anticipo', 0, renderablesOk, 'default', true)).toEqual(
-            true
-        );
+        expect(
+            validateSectionHome(
+                true,
+                'Anticipo',
+                0,
+                renderablesOk,
+                'default',
+                true
+            )
+        ).toEqual(true);
     });
 
-    it('Validar Seccion Anexo1 en Home', () => {        
-        expect(validateSectionHome(null, 'Anexo_1', 1, renderables1, 'default', true)).toEqual(
-           null
-        );
+    it('Validar Seccion Anexo1 en Home', () => {
+        expect(
+            validateSectionHome(
+                null,
+                'Anexo_1',
+                1,
+                renderables1,
+                'default',
+                true
+            )
+        ).toEqual(null);
 
-        expect(validateSectionHome(null, 'Anexo_1', 1, renderables2, 'default', true)).toEqual(
+        expect(
+            validateSectionHome(
+                null,
+                'Anexo_1',
+                1,
+                renderables2,
+                'default',
+                true
+            )
+        ).toEqual(
             <PageBuilderMessage
                 id="LN-Home-error"
                 type="warning"
@@ -63,17 +97,26 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             />
         );
 
-        expect(validateSectionHome(true, 'Anexo_1', 1, renderablesOk, 'default', true)).toEqual(
-            true
-        );
+        expect(
+            validateSectionHome(
+                true,
+                'Anexo_1',
+                1,
+                renderablesOk,
+                'default',
+                true
+            )
+        ).toEqual(true);
     });
 
-    it('Validar Seccion Bomba en Home', () => {        
-        expect(validateSectionHome(null, 'Bomba', 2, renderables1, 'default', true)).toEqual(
-           null
-        );
+    it('Validar Seccion Bomba en Home', () => {
+        expect(
+            validateSectionHome(null, 'Bomba', 2, renderables1, 'default', true)
+        ).toEqual(null);
 
-        expect(validateSectionHome(null, 'Bomba', 2, renderables2, 'default', true)).toEqual(
+        expect(
+            validateSectionHome(null, 'Bomba', 2, renderables2, 'default', true)
+        ).toEqual(
             <PageBuilderMessage
                 id="LN-Home-error"
                 type="warning"
@@ -81,17 +124,40 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             />
         );
 
-        expect(validateSectionHome(true, 'Bomba', 2, renderablesOk, 'default', true)).toEqual(
-            true
-        );
+        expect(
+            validateSectionHome(
+                true,
+                'Bomba',
+                2,
+                renderablesOk,
+                'default',
+                true
+            )
+        ).toEqual(true);
     });
 
-    it('Validar Seccion Apertura en Home', () => {        
-        expect(validateSectionHome(null, 'Apertura', 3, renderables1, 'default', true)).toEqual(
-            null
-        );
+    it('Validar Seccion Apertura en Home', () => {
+        expect(
+            validateSectionHome(
+                null,
+                'Apertura',
+                3,
+                renderables1,
+                'default',
+                true
+            )
+        ).toEqual(null);
 
-        expect(validateSectionHome(null, 'Apertura', 3, renderables2, 'default', true)).toEqual(
+        expect(
+            validateSectionHome(
+                null,
+                'Apertura',
+                3,
+                renderables2,
+                'default',
+                true
+            )
+        ).toEqual(
             <PageBuilderMessage
                 id="LN-Home-error"
                 type="warning"
@@ -99,17 +165,40 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             />
         );
 
-        expect(validateSectionHome(true, 'Apertura', 3, renderablesOk, 'default', true)).toEqual(
-            true
-        );
+        expect(
+            validateSectionHome(
+                true,
+                'Apertura',
+                3,
+                renderablesOk,
+                'default',
+                true
+            )
+        ).toEqual(true);
     });
 
-    it('Validar Seccion Anexo_2 en Home', () => {        
-        expect(validateSectionHome(null, 'Anexo_2', 4, renderables1, 'default', true)).toEqual(
-            null
-        );
+    it('Validar Seccion Anexo_2 en Home', () => {
+        expect(
+            validateSectionHome(
+                null,
+                'Anexo_2',
+                4,
+                renderables1,
+                'default',
+                true
+            )
+        ).toEqual(null);
 
-        expect(validateSectionHome(null, 'Anexo_2', 4, renderables2, 'default', true)).toEqual(
+        expect(
+            validateSectionHome(
+                null,
+                'Anexo_2',
+                4,
+                renderables2,
+                'default',
+                true
+            )
+        ).toEqual(
             <PageBuilderMessage
                 id="LN-Home-error"
                 type="warning"
@@ -117,17 +206,40 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             />
         );
 
-        expect(validateSectionHome(true, 'Anexo_2', 4, renderablesOk, 'default', true)).toEqual(
-            true
-        );
+        expect(
+            validateSectionHome(
+                true,
+                'Anexo_2',
+                4,
+                renderablesOk,
+                'default',
+                true
+            )
+        ).toEqual(true);
     });
 
-    it('Validar Seccion Breaking_1 en Home', () => {        
-        expect(validateSectionHome(null, 'Breaking_1', 5, renderables1, 'default', true)).toEqual(
-            null
-        );
+    it('Validar Seccion Breaking_1 en Home', () => {
+        expect(
+            validateSectionHome(
+                null,
+                'Breaking_1',
+                5,
+                renderables1,
+                'default',
+                true
+            )
+        ).toEqual(null);
 
-        expect(validateSectionHome(null, 'Breaking_1', 5, renderables2, 'default', true)).toEqual(
+        expect(
+            validateSectionHome(
+                null,
+                'Breaking_1',
+                5,
+                renderables2,
+                'default',
+                true
+            )
+        ).toEqual(
             <PageBuilderMessage
                 id="LN-Home-error"
                 type="warning"
@@ -135,17 +247,40 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             />
         );
 
-        expect(validateSectionHome(true, 'Breaking_1', 5, renderablesOk, 'default', true)).toEqual(
-            true
-        );
+        expect(
+            validateSectionHome(
+                true,
+                'Breaking_1',
+                5,
+                renderablesOk,
+                'default',
+                true
+            )
+        ).toEqual(true);
     });
 
-    it('Validar Seccion Opinion en Home', () => {        
-        expect(validateSectionHome(null, 'Opinion', 9, renderables1, 'default', true)).toEqual(
-            null
-        );
+    it('Validar Seccion Opinion en Home', () => {
+        expect(
+            validateSectionHome(
+                null,
+                'Opinion',
+                9,
+                renderables1,
+                'default',
+                true
+            )
+        ).toEqual(null);
 
-        expect(validateSectionHome(null, 'Opinion', 9, renderables2, 'default', true)).toEqual(
+        expect(
+            validateSectionHome(
+                null,
+                'Opinion',
+                9,
+                renderables2,
+                'default',
+                true
+            )
+        ).toEqual(
             <PageBuilderMessage
                 id="LN-Home-error"
                 type="warning"
@@ -153,17 +288,40 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             />
         );
 
-        expect(validateSectionHome(true, 'Opinion', 9, renderablesOk, 'default', true)).toEqual(
-            true
-        );
+        expect(
+            validateSectionHome(
+                true,
+                'Opinion',
+                9,
+                renderablesOk,
+                'default',
+                true
+            )
+        ).toEqual(true);
     });
 
-    it('Validar Seccion Comercial_1 en Home', () => {        
-        expect(validateSectionHome(null, 'Comercial_1', 13, renderables1, 'default', true)).toEqual(
-            null
-        );
+    it('Validar Seccion Comercial_1 en Home', () => {
+        expect(
+            validateSectionHome(
+                null,
+                'Comercial_1',
+                13,
+                renderables1,
+                'default',
+                true
+            )
+        ).toEqual(null);
 
-        expect(validateSectionHome(null, 'Comercial_1', 13, renderables2, 'default', true)).toEqual(
+        expect(
+            validateSectionHome(
+                null,
+                'Comercial_1',
+                13,
+                renderables2,
+                'default',
+                true
+            )
+        ).toEqual(
             <PageBuilderMessage
                 id="LN-Home-error"
                 type="warning"
@@ -171,17 +329,40 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             />
         );
 
-        expect(validateSectionHome(true, 'Comercial_1', 13, renderablesOk, 'default', true)).toEqual(
-            true
-        );
+        expect(
+            validateSectionHome(
+                true,
+                'Comercial_1',
+                13,
+                renderablesOk,
+                'default',
+                true
+            )
+        ).toEqual(true);
     });
 
-    it('Validar Seccion Bloque_2 en Home', () => {        
-        expect(validateSectionHome(null, 'Bloque_2', 14, renderables1, 'default', true)).toEqual(
-            null
-        );
+    it('Validar Seccion Bloque_2 en Home', () => {
+        expect(
+            validateSectionHome(
+                null,
+                'Bloque_2',
+                14,
+                renderables1,
+                'default',
+                true
+            )
+        ).toEqual(null);
 
-        expect(validateSectionHome(null, 'Bloque_2', 14, renderables2, 'default', true)).toEqual(
+        expect(
+            validateSectionHome(
+                null,
+                'Bloque_2',
+                14,
+                renderables2,
+                'default',
+                true
+            )
+        ).toEqual(
             <PageBuilderMessage
                 id="LN-Home-error"
                 type="warning"
@@ -189,21 +370,15 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             />
         );
 
-        expect(validateSectionHome(true, 'Bloque_2', 14, renderablesOk, 'default', true)).toEqual(
-            true
-        );
+        expect(
+            validateSectionHome(
+                true,
+                'Bloque_2',
+                14,
+                renderablesOk,
+                'default',
+                true
+            )
+        ).toEqual(true);
     });
-
-    it('Deberia capturar 2 chains de la seccion apertura a partir del renderable', () => {
-        const { chainApertura1, chainApertura2 } = getChainsFromApertura(renderablesOk);        
-        expect(chainApertura1).toBeTruthy();
-        expect(chainApertura2).toBeTruthy();
-    });
-
-    it('Deberia devolver nulo las chain de seccion apertura a partir del renderable', () => {
-        const { chainApertura1, chainApertura2 } = getChainsFromApertura([]);
-        expect(chainApertura1).toBeFalsy();
-        expect(chainApertura2).toBeFalsy();
-    });
-    
 });

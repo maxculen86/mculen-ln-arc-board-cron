@@ -1,68 +1,84 @@
-const LNMainHome = ({ children }) => {
-    const listItems = [];
-    const ArticlesbyBox = [];
-    let posnum = 0;
-    let cajanum = 0;
+import Consumer from 'fusion:consumer';
+import { get } from 'lodash';
+import bitacora from '../../private/LN/api/v1/bitacora';
+import home from '../../private/LN/api/v1/home';
+import browser from '../../private/common/utils/browser';
+// Url regex TODO: Mejorar la regular expression.
+// ^\/api\/v([1]+)\/home\/(.*\/)$
 
-    children.map(element => {
-        const itemBoxes = element.map(elem => {
-            if (elem && elem.diagramacion_caja) {
-                cajanum += 1;
-                posnum = 0;
-
-                const subChild = elem.notas.map(item => {
-                    posnum += 1;
-                    return {
-                        ...item,
-                        posicion: `${String(posnum).padStart(2, '0')}`
-                    };
-                });
-                const result = {
-                    ...elem,
-                    id_caja: `${String(cajanum).padStart(2, '0')}`,
-                    notas: subChild
-                };
-                ArticlesbyBox.push(result);
-                return result;
-            }
-            return elem;
-        });
-
-        return itemBoxes;
-    });
-
-    listItems.push({
-        // fecha_foto: dateToday, //Data pendiente de añadir
-        // usuario_publica: 'XX', //Data pendiente de añadir
-        cajas: ArticlesbyBox
-    });
-
-    return Array.isArray(listItems) ? listItems : null;
+const versions = {
+    1: {
+        bitacora,
+        LN: home
+    }
 };
 
-LNMainHome.sections = [
+const homeMobileSections = [
     'Anticipo',
-    'Anexo_1',
+    'Anexo',
     'Bomba',
     'Apertura',
-    'Anexo_2',
-    'Breaking_1',
-    'Breaking_2',
-    'Breaking_3',
-    'Anexo_3',
+    'Anexo',
+    'Tema',
+    'Tema',
+    'Tema',
+    'Anexo',
     'Opinion',
-    'Breaking_4',
-    'Breaking_5',
-    'Breaking_6',
-    'Comercial_1',
-    'Bloque_2',
-    'Comercial_2',
-    'Bloque_3',
-    'Bloque_4',
-    'Bloque_5',
-    'Bloque_6',
-    'Bloque_7',
-    'Bloque_8'
+    'Tema',
+    'Tema',
+    'Tema',
+    'Comercial',
+    'Tema',
+    'Comercial',
+    'Tema',
+    'Tema',
+    'Tema',
+    'Tema',
+    'Tema',
+    'Tema',
+    'Tema'
 ];
 
-export default LNMainHome;
+const getHomeElements = items => {
+    const features = items.reduce((res, elem, index) => {
+        if (elem && Array.isArray(elem) && elem.length > 0) {
+            const filtered = elem.filter(
+                e => e && e.information && !e.information.hideCaja
+            );
+            if (filtered && Array.isArray(filtered) && filtered.length > 0) {
+                res.push({
+                    feature: homeMobileSections[index],
+                    elements: filtered
+                });
+            }
+        }
+        return res;
+    }, []);
+    return features;
+};
+
+// TODO: INTEGRAR CON LOS CAMBIOS DE FER
+export const getChainsFromSections = (renderable = [], sectionPosition) => {
+    return get(renderable, `[${sectionPosition}].children`, []);
+};
+
+const LNMainHome = props => {
+    const { children, requestUri } = props;
+    const homeSections = getHomeElements(children);
+    const homeType = browser.getParamFrom('params', 'tipo', requestUri);
+    const diagramation =
+        browser.getParamFrom('params', 'diagramacion', requestUri) ||
+        'completa';
+
+    const homeModels = versions[browser.getApiVersion(requestUri)];
+
+    if (homeModels[homeType]) {
+        if (!homeSections || !homeSections.length) return [];
+
+        return homeModels[homeType](homeSections, diagramation) || null;
+    }
+
+    throw new Error(`Se solicito una diagramacion inexistente`);
+};
+
+export default Consumer(LNMainHome);
