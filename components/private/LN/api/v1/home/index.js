@@ -8,9 +8,9 @@ import Article from './article';
 const typeSection = {
     Anticipo: { tipoSeccion: 'anticipo', idSeccion: 501 },
     Bomba: { tipoSeccion: 'bomba', idSeccion: 101 },
-    Apertura: { tipoSeccion: 'tema', idSeccion: 305 },
+    Apertura: { tipoSeccion: 'apertura', idSeccion: 200 },
     Anexo: { tipoSeccion: 'anexo', idSeccion: 0 },
-    Opinion: { tipoSeccion: 'opinion', idSeccion: 501 },
+    Opinion: { tipoSeccion: 'opinion', idSeccion: 1001 },
     Comercial: { tipoSeccion: 'comercial', idSeccion: 1101 },
     Tema: { tipoSeccion: 'tema', idSeccion: 305 }
 };
@@ -45,10 +45,8 @@ const index = (children, diagramacion) => {
             });
 
             if (!information.hideTecho && feature !== 'Apertura') {
-                res.tagDestacado = {
-                    valor: information.title,
-                    url: information.url
-                };
+                res.tituloCaja = information.title;
+                res.url = information.url;
             }
             res.notas = subChild;
         }
