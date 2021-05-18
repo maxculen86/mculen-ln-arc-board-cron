@@ -25,6 +25,7 @@ const articleItem = (article, diagramacion) => {
     const bajada = get(article, 'subheadlines.basic', null);
     const volanta = get(label, 'volanta.text', null);
     const chapita = get(label, 'chapita.text', null);
+    const seccionPadre = get(article, 'seccionPadre', null);
 
     const resp = {
         id,
@@ -53,7 +54,9 @@ const articleItem = (article, diagramacion) => {
     if (relacionados.categorias && relacionados.categorias.length > 0) {
         resp.categorias = relacionados.categorias;
     }
-
+    if (seccionPadre && seccionPadre > 0) {
+        resp.seccionPadre = seccionPadre;
+    }
     return removeEmptyItems(resp);
 };
 
