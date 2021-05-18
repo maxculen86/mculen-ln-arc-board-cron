@@ -21,10 +21,15 @@
             font-weight: 500;
         }
     }
-    &.--l,
-    &.--xl {
-        .home & {
+    &.--l &.--xl {
+        font-weight: 500;
+        .mod-headersection & {
             font-weight: 700;
+        }
+        .home & {
+            @media ($media-l) {
+                font-weight: 700;
+            }
         }
     }
     ////////////////Cambiar por props///////////////////
