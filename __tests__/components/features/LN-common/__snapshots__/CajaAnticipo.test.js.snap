@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Private - Feature - CajaAnticipo => with a valid response Snapshot Caja Anticipo 1`] = `
+<ComAdvance
+  link="https://www.lanacion.com.ar/"
+  size="--md"
+  title="Prueba Anticipo"
+/>
+`;
+
+exports[`Private - Feature - CajaAnticipo => with a valid response Snapshots con tags h1, h2, h3, h4 1`] = `
+<ComAdvance
+  link="https://www.lanacion.com.ar/"
+  size="--md"
+  title="Prueba Anticipo"
+/>
+`;

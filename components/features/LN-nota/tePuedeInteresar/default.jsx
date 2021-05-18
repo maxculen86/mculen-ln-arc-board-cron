@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 /* eslint-disable no-mixed-operators */
 /* eslint-disable no-bitwise */
 /* eslint-disable react-hooks/rules-of-hooks */
@@ -62,7 +61,7 @@ const tePuedeInteresar = props => {
         siteProperties
     } = props;
 
-    const { requestUri, globalContent, arcSite } = useAppContext();
+    const { requestUri, globalContent, arcSite, layout } = useAppContext();
     const { host = 'https://www.lanacion.com.ar' } = siteProperties || {};
     const url = `${host}${requestUri}`;
     const { _id } = globalContent || {};
@@ -95,6 +94,11 @@ const tePuedeInteresar = props => {
             url={url}
             idArticle={_id}
             arcSite={arcSite}
+            dataLayerSection={
+                layout === 'LN-Home_Main'
+                    ? 'h_sugerencias'
+                    : 'n_te_puede_interesar'
+            }
         />
     );
 };

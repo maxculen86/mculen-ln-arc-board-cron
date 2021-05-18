@@ -7,7 +7,7 @@ const findSectionChildren = (renderables, position) => {
     const sectionFinded = renderables.find(
         ren => ren.collection === 'sections' && ren.props.id === position
     );
-    return sectionFinded.children || [];
+    return (sectionFinded && sectionFinded.children) || [];
 };
 
 const checkIfValid = (name, children) => {

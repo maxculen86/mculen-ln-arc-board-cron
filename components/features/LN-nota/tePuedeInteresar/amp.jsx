@@ -17,7 +17,7 @@ const tePuedeInteresar = props => {
         id
     } = props;
 
-    const { requestUri, globalContent } = useAppContext();
+    const { requestUri, globalContent, layout } = useAppContext();
     const { host = 'https://www.lanacion.com.ar' } = siteProperties || {};
     const url = `${host}${requestUri}`;
     const { _id } = globalContent || {};
@@ -30,6 +30,11 @@ const tePuedeInteresar = props => {
                 outputType={outputType}
                 url={url}
                 idArticle={_id}
+                dataLayerSection={
+                    layout === 'LN-Home_Main'
+                        ? 'h_sugerencias'
+                        : 'n_te_puede_interesar'
+                }
             />
         </Static>
     );
