@@ -19,7 +19,8 @@ const ArticleFeature = ({
     searchableField,
     imageConfig,
     customConfig,
-    customFields: { noteId: id, imageId }
+    customFields: { noteId: id, imageId },
+    isBomba = false
 }) => {
     const { isAdmin, arcSite, renderables, outputType } = useAppContext();
     const { cajaTemaConfig } = getProperties(arcSite);
@@ -75,7 +76,7 @@ const ArticleFeature = ({
                 customFields={customFields}
                 outputType={outputType}
                 index={index}
-                boxPosition={boxPosition}
+                boxPosition={isBomba ? '00' : boxPosition}
                 layout={layout}
             />
         )) || <></>

@@ -134,22 +134,19 @@ CajaCollection.propTypes = {
                 })
             })
         })
-    ),
+    ).isRequired,
     customFields: PropTypes.shape({
         ...cajaTemasCustomsFields('cajaCollection')
     }).isRequired,
-    tree: PropTypes.shape(PropTypes.node),
+    tree: PropTypes.shape(PropTypes.node).isRequired,
     globalContent: PropTypes.shape({
         name: PropTypes.string
-    })
+    }).isRequired
 };
 
 CajaCollection.defaultProps = {
     outputType: 'default',
-    renderables: [],
-    isAdmin: false,
-    tree: undefined,
-    globalContent: { name: '' }
+    isAdmin: false
 };
 
 export default Consumer(CajaCollection);
