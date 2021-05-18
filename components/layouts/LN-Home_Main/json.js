@@ -1,6 +1,7 @@
 import Consumer from 'fusion:consumer';
 import home from '../../private/LN/api/v1/home';
 import pageBuilderSections from '../config/LN-PageBuilder.config.json';
+import getProperties from 'fusion:properties';
 import {
     checkIfValid,
     findSectionChildren
@@ -38,8 +39,9 @@ const validateSections = (section, name, position, renderables) => {
 };
 
 const getHomeElements = props => {
-    const { children, renderables } = props;
+    const { children, renderables, arcSite } = props;
 
+    //const site = getProperties(arcSite);
     return pageBuilderSections.reduce((r, e, i) => {
         const child = validateSections(children[i], e, i, renderables);
         if (child && Array.isArray(child) && child.length > 0) {
