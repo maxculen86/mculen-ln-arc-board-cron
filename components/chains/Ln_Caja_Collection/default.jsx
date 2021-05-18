@@ -22,7 +22,6 @@ const CajaCollection = props => {
             url,
             title,
             layout = '',
-            backgroundColor = 'default',
             initialPosition,
             imageId,
             hideTitle,
@@ -38,7 +37,6 @@ const CajaCollection = props => {
     const {
         collectionsInPage,
         notesQuantity,
-        bgColor,
         classCondition,
         position,
         sectionName
@@ -115,11 +113,6 @@ const CajaCollection = props => {
                     : articlesToShow
             }
             titleSize={isInsideApertura && '--l'}
-            backgroundColor={
-                backgroundColor !== 'default'
-                    ? `${bgColor}${backgroundColor}`
-                    : ''
-            }
         />
     );
 };
