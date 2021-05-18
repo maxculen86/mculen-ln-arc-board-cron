@@ -19,40 +19,15 @@ import {
     getViewport,
     isScrollbarVisible,
     isBombaVisible,
-    BannerCabezal
+    validateSectionHome
 } from '../../private/LN/common/utils/homeHelper';
 import getScrollPercent from '../../private/LN/common/utils/getScrollPercent';
 import AnexoFeature from '../../features/LN-acumulado/anexoIframe';
 import SubHeader from '../../features/LN-common/subHeader';
 import TePuedeInteresar from '../../features/LN-nota/tePuedeInteresar/default';
-import validateSectionHome from '../../private/common/utils/validateSectionHome';
 import DivBanner from '../../private/common/banners/DivBanner';
 import BannerComercial from '../../private/common/banners/BannerComercial';
-
-const pageBuilderSections = [
-    'Anticipo',
-    'Anexo_1',
-    'Bomba',
-    'Apertura',
-    'Anexo_2',
-    'Breaking_1',
-    'Breaking_2',
-    'Breaking_3',
-    'Anexo_3',
-    'Opinion',
-    'Breaking_4',
-    'Breaking_5',
-    'Breaking_6',
-    'Comercial_1',
-    'Bloque_2',
-    'Comercial_2',
-    'Bloque_3',
-    'Bloque_4',
-    'Bloque_5',
-    'Bloque_6',
-    'Bloque_7',
-    'Bloque_8'
-];
+import pageBuilderSections from '../config/LN-PageBuilder.config.json';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -93,6 +68,23 @@ const updateNextBlock = blocks => {
 
 const checkIfOneBlockIsFalse = blocksToLoad => {
     return Object.keys(blocksToLoad).some(key => !blocksToLoad[key]);
+};
+
+const BannerCabezal = ({ isDesktop, isTablet }) => {
+    return (
+        <>
+            <DivBanner
+                id="cabezal_dsk"
+                shouldRender={isDesktop}
+                classes="--dark"
+            />
+            <DivBanner
+                id="cabezal_tab"
+                shouldRender={isTablet}
+                classes="--dark"
+            />
+        </>
+    );
 };
 
 const LNMainHome = props => {
@@ -244,7 +236,14 @@ const LNMainHome = props => {
                     <Header />
                     <SubHeader />
                     {anticipo}
-                    {anexo1}
+                    <section
+                        data-block-name="h_anexo-1"
+                        data-diagramacion-id="9999"
+                        data-is-block="true"
+                    >
+                        {anexo1}
+                    </section>
+
                     {showBomba && (
                         <BannerCabezal
                             isTablet={isTablet}
@@ -299,9 +298,14 @@ const LNMainHome = props => {
                                             shouldRender={isMobile}
                                         />
                                     )}
-                                    <div data-section="anexo2">
+                                    <section
+                                        data-section="anexo2"
+                                        data-block-name="h_anexo-2"
+                                        data-diagramacion-id="9999"
+                                        data-is-block="true"
+                                    >
                                         {blocksToLoad.bloque2 && anexo2}
-                                    </div>
+                                    </section>
                                     <div data-section="breaking1">
                                         {blocksToLoad.bloque2 && breaking1}
                                     </div>
@@ -369,7 +373,14 @@ const LNMainHome = props => {
                                         {blocksToLoad.bloque2 && breaking3}
                                     </div>
                                     {/* 2do Bloque */}
-                                    {blocksToLoad.bloque3 && anexo3}
+                                    <section
+                                        data-section="anexo3"
+                                        data-block-name="h_anexo-3"
+                                        data-diagramacion-id="9999"
+                                        data-is-block="true"
+                                    >
+                                        {blocksToLoad.bloque3 && anexo3}
+                                    </section>
                                     {/* BANNER CAJA 5 MOB - BANNER CINTURON 2 - BANNER MIDDLE 2 */}
                                     {blocksToLoad.bloque3 && (
                                         <>
@@ -602,8 +613,7 @@ LNMainHome.propTypes = {
 };
 
 LNMainHome.defaultProps = {
-    outputType: 'default',
-    siteProperties: undefined
+    outputType: 'default'
 };
 
 LNMainHome.sections = pageBuilderSections;

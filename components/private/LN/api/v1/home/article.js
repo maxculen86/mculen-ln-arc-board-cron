@@ -9,7 +9,6 @@ import Relacionados from '../../../api/v1/nota/relacionados';
 
 const articleItem = (article, diagramacion) => {
     const {
-        _id: id,
         subtype: templateId,
         headlines: { basic: titulo, mobile: tituloMobile },
         website_url: url,
@@ -20,11 +19,13 @@ const articleItem = (article, diagramacion) => {
         throw new Error('Titulo de la nota es null o undefined');
     }
 
+    const id = get(article, '_id', null);
     const authors = get(article, 'credits.by', null);
     const image = get(article, 'promo_items.basic', null);
     const bajada = get(article, 'subheadlines.basic', null);
     const volanta = get(label, 'volanta.text', null);
     const chapita = get(label, 'chapita.text', null);
+    const seccionPadre = get(article, 'seccionPadre', null);
 
     const resp = {
         id,
@@ -53,7 +54,9 @@ const articleItem = (article, diagramacion) => {
     if (relacionados.categorias && relacionados.categorias.length > 0) {
         resp.categorias = relacionados.categorias;
     }
-
+    if (seccionPadre && seccionPadre > 0) {
+        resp.seccionPadre = seccionPadre;
+    }
     return removeEmptyItems(resp);
 };
 

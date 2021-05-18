@@ -1,28 +1,37 @@
-const index = children => {
+import { get } from 'lodash';
+
+const getArticles = articles => {
     let posnum = 0;
-    let cajanum = 0;
-
-    const ArticlesbyBox = children.map(e => {
-        const { articles, information } = e;
-        cajanum += 1;
-        posnum = 0;
-
-        const subChild = articles.map(item => {
+    return (
+        articles.map(item => {
             posnum += 1;
+            const arcStoryId = get(item, '_id', null);
             return {
-                id_nota: item._id,
+                id_nota: arcStoryId,
                 url_nota: item.website_url,
                 posicion: `${String(posnum).padStart(2, '0')}`
             };
-        });
+        }) || []
+    );
+};
 
-        return {
+const index = children => {
+    let cajanum = 0;
+    const ArticlesbyBox = children.reduce((result, elem) => {
+        const { information, feature } = elem;
+        cajanum += 1;
+        const articles = get(elem, 'articles', []);
+
+        result.push({
             id_caja: `${String(cajanum).padStart(2, '0')}`,
             visible: !information.hideCaja || false,
+            feature,
             diagramacion_caja: information.layout,
-            notas: subChild
-        };
-    });
+            notas: getArticles(articles)
+        });
+
+        return result;
+    }, []);
 
     return { cajas: ArticlesbyBox };
 };

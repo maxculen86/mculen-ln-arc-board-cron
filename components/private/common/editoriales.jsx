@@ -21,7 +21,8 @@ const Editoriales = props => {
             link: websiteUrl,
             textname: titleText,
             title: titleText,
-            size: titleSize
+            size: titleSize,
+            id: article._id
         };
     });
 
@@ -35,7 +36,7 @@ const Editoriales = props => {
                 />
             }
             {(_articles && articles.length && (
-                <ComLinkList list={_articles} />
+                <ComLinkList isEditoriales list={_articles} />
             )) || <></>}
         </section>
     );

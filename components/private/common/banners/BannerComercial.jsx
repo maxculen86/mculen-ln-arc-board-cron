@@ -7,6 +7,7 @@ import Comercial from '../../LN/common/bannerRefactor/factory/default/types/come
 import { slotsConfig } from '../../LN/common/bannerRefactor/config';
 
 const BannerComercial = ({ id, device, slotGroup }) => {
+    if (typeof window === 'undefined') return <></>;
     const termicas = findTermica('banners');
     const config = slotsConfig.home[id] || {};
     const { siteProperties } = useAppContext();

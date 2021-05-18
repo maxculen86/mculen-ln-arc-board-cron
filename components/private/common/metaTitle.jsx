@@ -7,13 +7,22 @@ const getPrefix = _id => {
     return ' noticias de ';
 };
 
-const MetaTitle = ({ metaTitleBasic, arcSite, title, nodeType, _id = '' }) => {
+const MetaTitle = ({
+    metaTitleBasic,
+    arcSite,
+    title,
+    nodeType,
+    _id = '',
+    section,
+    defaultTitle
+}) => {
     if (arcSite !== 'la-nacion-ar') return <></>;
 
     const metaTitleForStory = metaTitleBasic && `${metaTitleBasic} - LA NACION`;
     let metaTitleForAcum = '';
 
     const acusWithMeta = ['section', 'author', 'distributor', 'tags'];
+
     if (acusWithMeta.includes(nodeType)) {
         const prefix = getPrefix(_id);
         const customTitle =
@@ -24,7 +33,11 @@ const MetaTitle = ({ metaTitleBasic, arcSite, title, nodeType, _id = '' }) => {
     return (
         <meta
             name="title"
-            content={`${metaTitleForStory || metaTitleForAcum}`}
+            content={`${
+                section === 'home'
+                    ? defaultTitle
+                    : metaTitleForStory || metaTitleForAcum
+            }`}
         />
     );
 };

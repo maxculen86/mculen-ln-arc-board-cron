@@ -49,7 +49,6 @@ const Comercial = props => {
         id,
         observerConfig
     );
-
     useLayoutEffect(() => {
         let idTimeout;
         if (showElement) {
@@ -73,7 +72,7 @@ const Comercial = props => {
                 onClick={handleClick}
             />
             {isHome ? (
-                <div id={id} className={`com-banner`} />
+                <div id={id} className="com-banner" />
             ) : (
                 <Ads
                     ref={adsRef}
@@ -112,7 +111,8 @@ Comercial.propTypes = {
     sizemap: PropTypes.shape({
         breakpoints: PropTypes.array,
         refresh: PropTypes.bool
-    })
+    }),
+    isHome: PropTypes.bool
 };
 
 Comercial.defaultProps = {
@@ -122,7 +122,8 @@ Comercial.defaultProps = {
         collections: false
     },
     slotGroup: 'desktop',
-    sizemap: []
+    sizemap: [],
+    isHome: false
 };
 
 export default Comercial;

@@ -136,6 +136,7 @@ class Index extends Component {
 
     render = () => {
         const { articles, outputType } = this.state;
+        const { dataLayerSection } = this.props;
 
         articles &&
             articles.length > 0 &&
@@ -148,7 +149,7 @@ class Index extends Component {
                 <section
                     className="row-gap-tablet-3 row-gap-desksm-3"
                     data-is-block="true"
-                    data-block-name="n_te_puede_interesar"
+                    data-block-name={dataLayerSection}
                     data-diagramacion-id="0"
                 >
                     {articles.map((article, index) => {
@@ -178,7 +179,8 @@ Index.propTypes = {
     idArticle: PropTypes.string,
     url: PropTypes.string.isRequired,
     excludeItems: PropTypes.arrayOf(PropTypes.string),
-    arcSite: PropTypes.string
+    arcSite: PropTypes.string,
+    dataLayerSection: PropTypes.string.isRequired
 };
 
 Index.defaultProps = {

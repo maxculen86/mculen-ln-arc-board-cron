@@ -8,7 +8,11 @@ import useViewportSize from '../../../common/hooks/useViewportSize';
 import get from '../../../common/utils/get';
 import { LoginStore } from '../context/loginContext';
 import sectionsValidation from '../../../../layouts/config/LN-Home.config';
-import DivBanner from '../../../common/banners/DivBanner';
+import PageBuilderMessage from '../../home/common/components/pageBuilderMessage/pageBuilderMessage';
+import {
+    findSectionChildren,
+    checkIfValid
+} from '../../../common/utils/validateSectionHome';
 
 const Components = {
     Ln_Caja_Collection,
@@ -33,6 +37,32 @@ const createComponent = element => {
         );
     }
     return null;
+};
+
+export const validateSectionHome = (
+    section,
+    name,
+    position,
+    renderables,
+    outputType,
+    isAdmin
+) => {
+    const sectionChildren = findSectionChildren(renderables, position);
+    const message = checkIfValid(name, sectionChildren);
+
+    if (outputType === 'json') return 'TODO';
+    const component =
+        message === true ? (
+            section
+        ) : (
+            <PageBuilderMessage
+                id="LN-Home-error"
+                type="warning"
+                message={`La sección ${name} ${message}`}
+            />
+        );
+    if (isAdmin && message !== false) return component;
+    return message === true ? component : null;
 };
 
 export const getChildsFromSections = (renderable = [], sectionPosition) => {
@@ -79,24 +109,6 @@ export const getSubscription = () => {
     const { loginData } = state || {};
     const { subscription = false } = loginData || {};
     return subscription;
-};
-
-// eslint-disable-next-line react/prop-types
-export const BannerCabezal = ({ isDesktop, isTablet }) => {
-    return (
-        <>
-            <DivBanner
-                id="cabezal_dsk"
-                shouldRender={isDesktop}
-                classes="--dark"
-            />
-            <DivBanner
-                id="cabezal_tab"
-                shouldRender={isTablet}
-                classes="--dark"
-            />
-        </>
-    );
 };
 
 export const sectionsWithBlocks = {
