@@ -1,6 +1,6 @@
 import React from 'react';
 import getProperties from 'fusion:properties';
-import validateSectionHome from '../../../../components/private/common/utils/validateSectionHome.js';
+import { validateSectionHome } from '../../../../components/private/LN/common/utils/homeHelper';
 import PageBuilderMessage from '../../../../components/private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage.jsx';
 import renderables1 from '../../../../__mocks__/data/renderables/data1';
 import renderables2 from '../../../../__mocks__/data/renderables/data2';

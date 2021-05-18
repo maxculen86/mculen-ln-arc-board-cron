@@ -19,40 +19,16 @@ import {
     getViewport,
     isScrollbarVisible,
     isBombaVisible,
-    BannerCabezal
+    BannerCabezal,
+    validateSectionHome
 } from '../../private/LN/common/utils/homeHelper';
 import getScrollPercent from '../../private/LN/common/utils/getScrollPercent';
 import AnexoFeature from '../../features/LN-acumulado/anexoIframe';
 import SubHeader from '../../features/LN-common/subHeader';
 import TePuedeInteresar from '../../features/LN-nota/tePuedeInteresar/default';
-import validateSectionHome from '../../private/common/utils/validateSectionHome';
 import DivBanner from '../../private/common/banners/DivBanner';
 import BannerComercial from '../../private/common/banners/BannerComercial';
-
-const pageBuilderSections = [
-    'Anticipo',
-    'Anexo_1',
-    'Bomba',
-    'Apertura',
-    'Anexo_2',
-    'Breaking_1',
-    'Breaking_2',
-    'Breaking_3',
-    'Anexo_3',
-    'Opinion',
-    'Breaking_4',
-    'Breaking_5',
-    'Breaking_6',
-    'Comercial_1',
-    'Bloque_2',
-    'Comercial_2',
-    'Bloque_3',
-    'Bloque_4',
-    'Bloque_5',
-    'Bloque_6',
-    'Bloque_7',
-    'Bloque_8'
-];
+import pageBuilderSections from '../config/LN-PageBuilder.config.json';
 
 const reducer = (state, action) => {
     switch (action.type) {

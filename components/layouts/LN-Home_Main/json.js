@@ -3,7 +3,10 @@ import bitacora from '../../private/LN/api/v1/bitacora';
 import home from '../../private/LN/api/v1/home';
 import browser from '../../private/common/utils/browser';
 import pageBuilderSections from '../config/LN-PageBuilder.config.json';
-import validateSectionHome from '../../private/common/utils/validateSectionHomeMobile';
+import {
+    checkIfValid,
+    findSectionChildren
+} from '../../private/common/utils/validateSectionHome';
 
 // Url regex TODO: Mejorar la regular expression.
 // ^\/api\/v([1]+)\/home\/(.*\/)$
@@ -40,6 +43,13 @@ const homeMobileSections = [
     'Tema',
     'Tema'
 ];
+
+const validateSectionHome = (section, name, position, renderables) => {
+    const sectionChildren = findSectionChildren(renderables, position);
+    const message = checkIfValid(name, sectionChildren);
+
+    return message === true ? section : null;
+};
 
 const getHomeElements = props => {
     const { children, renderables } = props;
