@@ -41,7 +41,7 @@ const homeMobileSections = [
     'Tema'
 ];
 
-const getHomeElements2 = props => {
+const getHomeElements = props => {
     const { children, renderables } = props;
 
     return pageBuilderSections.reduce((r, e, i) => {
@@ -68,8 +68,7 @@ const getHomeElements2 = props => {
 
 const LNMainHome = props => {
     const { requestUri } = props;
-    const homeSections = getHomeElements2(props);
-    return [homeSections];
+    const homeSections = getHomeElements(props);
     const homeType = browser.getParamFrom('params', 'tipo', requestUri);
     const diagramation =
         browser.getParamFrom('params', 'diagramacion', requestUri) ||
@@ -79,7 +78,6 @@ const LNMainHome = props => {
 
     if (homeModels[homeType]) {
         if (!homeSections || !homeSections.length) return [];
-        return 'ola';
         return homeModels[homeType](homeSections, diagramation) || null;
     }
 
