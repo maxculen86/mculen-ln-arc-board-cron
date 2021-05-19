@@ -47,23 +47,15 @@
             right: px(16);
         }
     }
-    // &.--bg-banner {
-    //     background: $light-neutral-200;
-    //     width: 100%;
-    // }
+
     &.--mobile,
     &.--sticky1_mob {
         display: none;
-        //margin-bottom: px(24);
-        //height: px(100);
     }
     &.--sticky {
         position: sticky;
         margin-bottom: $spacing-md;
-        top: 0; //para mobile
-        //.--scrollDown & {
-        //top: $header-desktop;
-        //}
+        top: 0;
 
         &.--active {
             .--scrollDown & {
@@ -73,7 +65,6 @@
 
         &.--sticky2_mob {
             height: px(50);
-            //background: $neutral-white;
             position: fixed;
             display: flex;
             width: 100%;
