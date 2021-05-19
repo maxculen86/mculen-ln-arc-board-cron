@@ -29,5 +29,5 @@ export default {
         service: 'lanacion-arc',
         env: 'dev'
     },
-    ARC_STATIC: 'https://arc-static.glanacion.com'
+    ARC_STATIC: 'https://dev.lanacionar.arcpublishing.com/'
 };

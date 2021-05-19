@@ -28,6 +28,7 @@ import TePuedeInteresar from '../../features/LN-nota/tePuedeInteresar/default';
 import DivBanner from '../../private/common/banners/DivBanner';
 import BannerComercial from '../../private/common/banners/BannerComercial';
 import pageBuilderSections from '../config/LN-PageBuilder.config.json';
+import CajaPromo from '../../features/LN-common/cajaPromo/default';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -304,14 +305,17 @@ const LNMainHome = props => {
                                             shouldRender={isMobile}
                                         />
                                     )}
-                                    <section
-                                        data-section="anexo2"
-                                        data-block-name="h_anexo-2"
-                                        data-diagramacion-id="9999"
-                                        data-is-block="true"
-                                    >
-                                        {blocksToLoad.bloque2 && anexo2}
-                                    </section>
+                                    {blocksToLoad.bloque2 && (
+                                        <section
+                                            data-section="anexo2"
+                                            data-block-name="h_anexo-2"
+                                            data-diagramacion-id="9999"
+                                            data-is-block="true"
+                                        >
+                                            {anexo2}
+                                        </section>
+                                    )}
+
                                     <div data-section="breaking1">
                                         {blocksToLoad.bloque2 && breaking1}
                                     </div>
@@ -378,15 +382,40 @@ const LNMainHome = props => {
                                     <div data-section="breaking3">
                                         {blocksToLoad.bloque2 && breaking3}
                                     </div>
-                                    {/* 2do Bloque */}
-                                    <section
-                                        data-section="anexo3"
-                                        data-block-name="h_anexo-3"
-                                        data-diagramacion-id="9999"
-                                        data-is-block="true"
-                                    >
-                                        {blocksToLoad.bloque3 && anexo3}
-                                    </section>
+                                    {blocksToLoad.bloque3 && (
+                                        <div className="row-gap-tablet-2">
+                                            <CajaPromo
+                                                customFields={{
+                                                    text:
+                                                        'La información más completa del mercado inmobiliario minuto a minuto.',
+                                                    link:
+                                                        'https://www.lanacion.com.ar/propiedades/',
+                                                    logoName: 'propiedades'
+                                                }}
+                                            />
+                                            <CajaPromo
+                                                customFields={{
+                                                    text:
+                                                        'La información más completa del mercado inmobiliario minuto a minuto.',
+                                                    link:
+                                                        'https://www.lanacion.com.ar/economia/campo/',
+                                                    logoName: 'campo'
+                                                }}
+                                            />
+                                        </div>
+                                    )}
+                                    {/* 3er Bloque */}
+                                    {blocksToLoad.bloque3 && (
+                                        <section
+                                            data-section="anexo3"
+                                            data-block-name="h_anexo-3"
+                                            data-diagramacion-id="9999"
+                                            data-is-block="true"
+                                        >
+                                            {anexo3}
+                                        </section>
+                                    )}
+
                                     {/* BANNER CAJA 5 MOB - BANNER CINTURON 2 - BANNER MIDDLE 2 */}
                                     {blocksToLoad.bloque3 && (
                                         <>
