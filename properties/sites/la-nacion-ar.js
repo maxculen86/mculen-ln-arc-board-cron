@@ -1,5 +1,10 @@
 export default {
+    longTitle: 'Últimas noticias de Argentina y el mundo - LA NACION',
     title: 'LA NACION',
+    description:
+        'LA NACION - Información confiable en Internet. Noticias de Argentina y del mundo - ¡Informate ya!',
+    shortDescription:
+        'Información confiable en Internet. Noticias de Argentina y del mundo - ¡Informate ya!',
     className: {
         body: 'ln'
     },
@@ -605,5 +610,8 @@ export default {
                 }
             }
         }
+    },
+    layoutsName: {
+        Home: 'LN-Home_Main'
     }
 };

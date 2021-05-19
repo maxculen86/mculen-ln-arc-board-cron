@@ -66,6 +66,58 @@ const featuredRules = {
     }
 };
 
+export const getLayoutType = (layout, artWithoutDate, _children) => {
+    return (
+        (layout.includes('opinion4') && 'Opinion') ||
+        (layout.includes('editoriales2') && 'Editoriales') ||
+        (layout.includes('focal') && 'Focal') ||
+        (artWithoutDate && artWithoutDate.length && 'Grilla') ||
+        (_children && _children.length && 'ArticleFeature')
+    );
+};
+
+export const getMarkupForDatalayer = (
+    layoutType,
+    layout,
+    position,
+    sectionName
+) => {
+    const types = {
+        Opinion: {
+            extraOpts: {
+                'data-block-name': 'h_opinion',
+                'data-diagramacion-id': '0',
+                'data-is-block': true
+            }
+        },
+        Editoriales: {
+            extraOpts: {
+                'data-block-name': 'h_editoriales',
+                'data-diagramacion-id': '0',
+                'data-is-block': true
+            }
+        },
+        Default: (pos, section, lay) => {
+            return {
+                extraOptsDiv: {
+                    'data-module': `tema_${pos}`
+                },
+                extraOpts: {
+                    'data-block-name': `h_${section}tema-${pos}`,
+                    'data-diagramacion-id': lay,
+                    'data-is-block': true,
+                    id: `tema_${pos}`
+                }
+            };
+        }
+    };
+
+    const { extraOptsDiv = {}, extraOpts = {} } =
+        types[layoutType] || types.Default(position, sectionName, layout);
+
+    return { extraOptsDiv, extraOpts };
+};
+
 export const validateFeature = (idCollection, articles, layout) => {
     const message =
         (!layout && 'Se requiere que seleccione una diagramación') ||
@@ -123,10 +175,11 @@ export const getCommonProps = props => {
         customFields: { layout = 'grilla3', backgroundColor },
         renderables = [],
         id: idFeature,
-        globalContent: { name, acumuladoGeneral } = {}
+        globalContent: { name, acumuladoGeneral } = {},
+        layout: pageBuilderLayout
     } = props;
 
-    const { cajaTemaConfig = {} } = config || {};
+    const { cajaTemaConfig = {}, layoutsName = {} } = config || {};
     const { collectionsInPage = [] } = useGlobalProviderAcu() || {};
     const notesQuantity = (layout && Number(layout.slice(-1))) || 3;
     const bgColor =
@@ -144,9 +197,11 @@ export const getCommonProps = props => {
             )
             .findIndex(chain => chain.props.id === idFeature) || 0;
 
-    const sectionName = `${formatText(name === 'LA NACION' ? '' : `${name}_`)}`;
+    const sectionName = `${formatText(
+        pageBuilderLayout === layoutsName.Home ? '' : `${name}_`
+    )}`;
     const showDatalayerMark =
-        name === 'LA NACION'
+        pageBuilderLayout === layoutsName.Home
             ? 'true'
             : get(acumuladoGeneral, 'usa_datalayer', 'false');
 
@@ -335,39 +390,3 @@ export const cajaTemasCustomsFields = featuredName => {
         })
     };
 };
-
-/*
-const isInAnotherCollection = (idArticle, collections) => {
-    const rto = collections.find(collect =>
-        collect.articles.some(artCol => artCol._id === idArticle)
-    );
-    return rto || false;
-};
-
-const isNotRecommend = article => {
-    const { label = {} } = article;
-    const { recomendar = {} } = label;
-    return recomendar.text === 'No';
-};
-
-export const getArticlesToShow = (
-    articles = [],
-    collections = [],
-    initialPosition,
-    notesQuantity
-) => {
-    const articlesRecomended = articles.filter(art => !isNotRecommend(art));
-
-    const articlesFiltered = articlesRecomended.filter(
-        art => isInAnotherCollection(art._id, collections) === false
-    );
-
-    const articlesToShow = articlesFiltered
-        ? articlesFiltered.slice(
-              initialPosition - 1,
-              initialPosition - 1 + notesQuantity
-          )
-        : [];
-    return articlesToShow;
-};
-*/

@@ -8,7 +8,6 @@ class BombaFeature {
     }
 
     render() {
-        //return new FeatureArticulo(this.props);
         try {
             const articulo = new FeatureArticulo(this.props);
             const { articleSourceNota } = articulo.state || {};
