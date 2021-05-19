@@ -236,7 +236,10 @@ const LNMainHome = props => {
                 <div id="wrapper" className="home">
                     <Header />
                     <SubHeader />
+                    {/* ANTICIPO */}
                     {anticipo}
+
+                    {/* ANEXO_1 */}
                     <section
                         data-block-name="h_anexo-1"
                         data-diagramacion-id="9999"
@@ -245,12 +248,15 @@ const LNMainHome = props => {
                         {anexo1}
                     </section>
 
+                    {/* BANNER_CABEZAL (BOMBA) */}
                     {showBomba && (
                         <BannerCabezal
                             isTablet={isTablet}
                             isDesktop={isDesktop}
                         />
                     )}
+
+                    {/* BOMBA */}
                     {bomba}
                     <main>
                         {/* STICKY MOB */}

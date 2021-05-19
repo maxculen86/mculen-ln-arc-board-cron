@@ -6,7 +6,7 @@
     },
     "Anexo_1": {
         "quantity": 1,
-        "types": ["LN-acumulado/anexoIframe"],
+        "types": ["LN-common/anexo"],
         "position": 1
     },
     "Bomba": {
@@ -16,48 +16,32 @@
     },
     "Apertura": {
         "quantity": 2,
-        "types": [
-            "LN-acumulado/anexoIframe",
-            "Ln_Caja_Collection",
-            "Ln_Caja_Manual"
-        ],
+        "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 3
     },
     "Anexo_2": {
         "quantity": 1,
-        "types": ["LN-acumulado/anexoIframe"],
+        "types": ["LN-common/anexo"],
         "position": 4
     },
     "Breaking_1": {
         "quantity": 1,
-        "types": [
-            "LN-acumulado/anexoIframe",
-            "Ln_Caja_Collection",
-            "Ln_Caja_Manual"
-        ],
+        "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 5
     },
     "Breaking_2": {
         "quantity": 1,
-        "types": [
-            "LN-acumulado/anexoIframe",
-            "Ln_Caja_Collection",
-            "Ln_Caja_Manual"
-        ],
+        "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 6
     },
     "Breaking_3": {
         "quantity": 1,
-        "types": [
-            "LN-acumulado/anexoIframe",
-            "Ln_Caja_Collection",
-            "Ln_Caja_Manual"
-        ],
+        "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 7
     },
     "Anexo_3": {
         "quantity": 1,
-        "types": ["LN-acumulado/anexoIframe"],
+        "types": ["LN-common/anexo"],
         "position": 8
     },
     "Opinion": {
@@ -67,110 +51,62 @@
     },
     "Breaking_4": {
         "quantity": 1,
-        "types": [
-            "LN-acumulado/anexoIframe",
-            "Ln_Caja_Collection",
-            "Ln_Caja_Manual"
-        ],
+        "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 10
     },
     "Breaking_5": {
         "quantity": 1,
-        "types": [
-            "LN-acumulado/anexoIframe",
-            "Ln_Caja_Collection",
-            "Ln_Caja_Manual"
-        ],
+        "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 11
     },
     "Breaking_6": {
         "quantity": 1,
-        "types": [
-            "LN-acumulado/anexoIframe",
-            "Ln_Caja_Collection",
-            "Ln_Caja_Manual"
-        ],
+        "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 12
     },
     "Comercial_1": {
         "quantity": 1,
-        "types": [
-            "LN-acumulado/anexoIframe",
-            "Ln_Caja_Collection",
-            "Ln_Caja_Manual"
-        ],
+        "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 13
     },
     "Bloque_2": {
         "quantity": 2,
-        "types": [
-            "LN-acumulado/anexoIframe",
-            "Ln_Caja_Collection",
-            "Ln_Caja_Manual"
-        ],
+        "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 14
     },
     "Comercial_2": {
         "quantity": 1,
-        "types": [
-            "LN-acumulado/anexoIframe",
-            "Ln_Caja_Collection",
-            "Ln_Caja_Manual"
-        ],
+        "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 15
     },
     "Bloque_3": {
         "quantity": 2,
-        "types": [
-            "LN-acumulado/anexoIframe",
-            "Ln_Caja_Collection",
-            "Ln_Caja_Manual"
-        ],
+        "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 16
     },
     "Bloque_4": {
         "quantity": 2,
-        "types": [
-            "LN-acumulado/anexoIframe",
-            "Ln_Caja_Collection",
-            "Ln_Caja_Manual"
-        ],
+        "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 17
     },
     "Bloque_5": {
         "quantity": 2,
-        "types": [
-            "LN-acumulado/anexoIframe",
-            "Ln_Caja_Collection",
-            "Ln_Caja_Manual"
-        ],
+        "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 18
     },
     "Bloque_6": {
         "quantity": 2,
-        "types": [
-            "LN-acumulado/anexoIframe",
-            "Ln_Caja_Collection",
-            "Ln_Caja_Manual"
-        ],
+        "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 19
     },
     "Bloque_7": {
         "quantity": 2,
-        "types": [
-            "LN-acumulado/anexoIframe",
-            "Ln_Caja_Collection",
-            "Ln_Caja_Manual"
-        ],
+        "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 20
     },
     "Bloque_8": {
         "quantity": 2,
-        "types": [
-            "LN-acumulado/anexoIframe",
-            "Ln_Caja_Collection",
-            "Ln_Caja_Manual"
-        ],
+        "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 21
     }
 }

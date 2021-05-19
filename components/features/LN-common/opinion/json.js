@@ -11,13 +11,17 @@ class Opinion {
         try {
             const articulos = new ChainCajaCollection(this.props);
             const { articleList } = articulos.state || {};
+            const { type } = this.props;
 
             if (!articleList) {
                 return null;
             }
             const articles = get(articleList, 'content_elements', []);
             return {
-                information: this.props.customFields,
+                information: {
+                    ...this.props.customFields,
+                    type
+                },
                 articles
             };
         } catch (err) {
