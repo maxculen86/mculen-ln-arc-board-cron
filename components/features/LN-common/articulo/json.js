@@ -5,15 +5,14 @@ class ArticleFeature {
         this.props = props;
 
         const {
-            id: featureId,
-            customFields: { noteId: id, imageId }
+            customFields: { noteId }
         } = props;
-        this.state = { id, imageId, featureId };
+        this.state = {};
 
         this.fetchContent({
             articleSourceNota: {
                 source: 'articleSourceNota',
-                query: { id, published: true }
+                query: { noteId, published: true }
             }
         });
     }

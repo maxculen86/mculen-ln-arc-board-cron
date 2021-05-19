@@ -19,6 +19,7 @@ const articleItem = (article, diagramacion) => {
         throw new Error('Titulo de la nota es null o undefined');
     }
 
+    const sitioId = get(article, 'configurations.arcSite', null);
     const id = get(article, '_id', null);
     const authors = get(article, 'credits.by', null);
     const image = get(article, 'promo_items.basic', null);
@@ -30,7 +31,7 @@ const articleItem = (article, diagramacion) => {
     const resp = {
         id,
         templateId,
-        sitioId: null, // pendiente Enumeracion
+        sitioId,
         url,
         titulo: titulo || tituloMobile,
         volanta,

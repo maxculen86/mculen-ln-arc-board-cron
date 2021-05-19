@@ -1,11 +1,11 @@
 jest.mock(
-    '../../../components/chains/cajaManual/cajaManual',
+    '../../../components/chains/Ln_Caja_Manual/Ln_Caja_Manual_json',
     () => 'mock-component'
 );
 
 import React from 'react';
 import { mount } from 'enzyme';
-import CajaManual from '../../../components/chains/cajaManual/cajaManual';
+import CajaManual from '../../../components/chains/Ln_Caja_Manual/Ln_Caja_Manual_json';
 import { getLabel } from '../../../../components/private/LN/home/components/noteCard/noteCardHelper';
 
 describe('Test del Chain - <CajaManual />', () => {
@@ -73,14 +73,18 @@ describe('Test del Chain - <CajaManual />', () => {
                     text: 'Chapa K&L'
                 }
             }
-        }
-        
-        expect(getLabel(article, customFields, true)).toBe('Chapa Custom Field');
+        };
+
+        expect(getLabel(article, customFields, true)).toBe(
+            'Chapa Custom Field'
+        );
         const customFieldsWithoutChapa = {
             ...customFields,
             chapita: undefined
-        }
-        expect(getLabel(article, customFieldsWithoutChapa, true)).toBe('Chapa K&L');
+        };
+        expect(getLabel(article, customFieldsWithoutChapa, true)).toBe(
+            'Chapa K&L'
+        );
 
         expect(getLabel({}, customFieldsWithoutChapa, true)).toBe(undefined);
         expect(getLabel(article, customFields, false)).toBe(undefined);

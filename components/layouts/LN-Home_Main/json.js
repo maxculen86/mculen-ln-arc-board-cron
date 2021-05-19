@@ -40,8 +40,9 @@ const validateSections = (section, name, position, renderables) => {
 
 const getHomeElements = props => {
     const { children, renderables, arcSite } = props;
-
-    //const site = getProperties(arcSite);
+    const configurations = {
+        arcSite
+    };
     return pageBuilderSections.reduce((r, e, i) => {
         const child = validateSections(children[i], e, i, renderables);
         if (child && Array.isArray(child) && child.length > 0) {
@@ -52,9 +53,10 @@ const getHomeElements = props => {
                             b => b && b.information && !b.information.hideCaja
                         )
                         .map(b => {
+                            const addedInfo = { ...b, configurations };
                             return {
                                 feature: homeMobileSections[i],
-                                ...b
+                                ...addedInfo
                             };
                         })
                 ) || []
