@@ -511,7 +511,8 @@ const LNMainHome = props => {
                                             customFields={{ cantidadNotas: 6 }}
                                         />
                                     )}
-                                    <div>
+                                    <div className="acumulado">
+                                        xxxxxxxxxxxx
                                         <TagsListFeature />
                                     </div>
                                 </div>

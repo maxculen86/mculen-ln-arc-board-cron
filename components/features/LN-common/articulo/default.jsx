@@ -10,6 +10,7 @@ import NoteCard from '../../../private/LN/home/components/noteCard/noteCard';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
 import { GlobalContext } from '../../../private/common/context/globalContext';
+import get from '../../../private/common/utils/get';
 
 const notesLoaded = [];
 
@@ -22,6 +23,9 @@ const ArticleFeature = ({
     customFields: { noteId: id, imageId },
     isBomba = false
 }) => {
+    // Este componente tiene uso en home
+    // por regla de negocio se va a evaluar los articulo de apertura
+    const INDEX_SECTION_APERTURA = 4;
     const { isAdmin, arcSite, renderables, outputType } = useAppContext();
     const { cajaTemaConfig } = getProperties(arcSite);
     const { config, index, boxPosition, layout } =
@@ -43,9 +47,25 @@ const ArticleFeature = ({
     });
 
     const error = validateArticleFeature(id, article);
-    // console.log(renderables);
 
-    if (article && !toInstance && !notesLoaded.includes(article._id)) {
+    // debugger;
+    const isInApertura = get(
+        renderables,
+        `[${INDEX_SECTION_APERTURA}].children`,
+        []
+    ).some(el => {
+        return (
+            !get(el, 'props.customFields.hideCaja', false) &&
+            get(el, 'children', []).some(child => child.props.id === featureId)
+        );
+    });
+
+    if (
+        article &&
+        isInApertura &&
+        !toInstance &&
+        !notesLoaded.includes(article._id)
+    ) {
         notesLoaded.push(article._id);
         setToInstance(() => true);
         dispatch({ type: 'ADD_TAGS_ARTICLES', article });

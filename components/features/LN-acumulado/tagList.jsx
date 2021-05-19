@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useAppContext } from 'fusion:context';
 import { useContent as getContent } from 'fusion:content';
 import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
@@ -13,28 +13,20 @@ import {
 import getSectionName from '../../private/LN/common/utils/getSectionName';
 
 const TagsListFeature = () => {
-    debugger;
+    console.log('****************************************');
     const {
         globalContent: { _id: sectionId, node_type: nodeType, type } = {},
         arcSite = 'la-nacion-ar'
     } = useAppContext() || {};
-    const { state = {} } = useContext(GlobalContext);
-    const { tagsHome = [] } = state;
-    console.log(
-        '🚀 ~ file: tagList.jsx ~ line 22 ~ }=useAppContext ~ tagsHome',
-        tagsHome
-    );
-
-    const _nodeType = getSectionName({ nodeType, type });
-
+    const { state } = useContext(GlobalContext);
     const {
         acumuladoGeneral: { hidetagslist = false } = {},
         acumuladoColor: { navigation_color_tags: colorTags } = {}
     } = useGlobalProviderAcu() || {};
 
     const orderAndCountTags =
-        _nodeType === 'home'
-            ? getOrderAndCountTags(tagsHome)
+        getSectionName({ nodeType, type }) === 'home'
+            ? getOrderAndCountTags(get(state, 'tagsHome', []))
             : getContent({
                   sourceName: 'acuArticlesSource',
                   query: {
@@ -44,15 +36,15 @@ const TagsListFeature = () => {
                       promoItemsOnly: false
                   },
                   filter: `{
-            content_elements {
-                taxonomy {
-                    tags {
-                        text
-                        slug
-                    }
-                }
-            }
-        }`,
+                        content_elements {
+                            taxonomy {
+                                tags {
+                                    text
+                                    slug
+                                }
+                            }
+                        }
+                    }`,
                   transform: data => {
                       return getOrderAndCountTags(
                           get(data, 'content_elements', [])
@@ -60,14 +52,21 @@ const TagsListFeature = () => {
                   }
               });
 
-    console.log(
-        '🚀 ~ file: tagList.jsx ~ line 32 ~ }=useGlobalProviderAcu ~ orderAndCountTags',
-        orderAndCountTags
-    );
-
-    const [tagList] = useState(
+    const [tagList, setTagList] = useState(
         transformTagsForAcu(orderAndCountTags, colorTags)
     );
+
+    useEffect(() => {
+        const tagsHome = get(state, 'tagsHome', []);
+        console.log(
+            '🚀 ~ file: tagList.jsx ~ line 60 ~ useEffect ~ tagsHome',
+            tagsHome
+        );
+        console.log(
+            '🚀 ~ file: tagList.jsx ~ line 65 ~ TagsListFeature ~ state',
+            state
+        );
+    }, [state]);
 
     return (
         (hidetagslist !== 'true' && tagList && (
