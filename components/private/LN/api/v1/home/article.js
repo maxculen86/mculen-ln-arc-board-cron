@@ -8,6 +8,7 @@ import { getTagId } from '../../../../common/utils/getElementId';
 import Relacionados from '../../../api/v1/nota/relacionados';
 
 const articleItem = (article, diagramacion) => {
+    const id = get(article, '_id', null);
     const {
         subtype: templateId,
         headlines: { basic: titulo, mobile: tituloMobile },
@@ -20,7 +21,6 @@ const articleItem = (article, diagramacion) => {
     }
 
     const sitioId = get(article, 'configurations.arcSite', null);
-    const id = get(article, '_id', null);
     const authors = get(article, 'credits.by', null);
     const image = get(article, 'promo_items.basic', null);
     const bajada = get(article, 'subheadlines.basic', null);
