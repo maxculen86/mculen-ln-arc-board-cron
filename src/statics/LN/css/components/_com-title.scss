@@ -21,7 +21,8 @@
             font-weight: 500;
         }
     }
-    &.--l &.--xl {
+    &.--l,
+    &.--xl {
         font-weight: 500;
         .mod-headersection & {
             font-weight: 700;
