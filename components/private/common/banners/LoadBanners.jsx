@@ -49,12 +49,12 @@ const queueGoogletagCommand = bannersToLoad => {
                 .defineSlot(adUnitPath, size, optDiv)
                 .addService(googletag.pubads());
 
-        /* const headerBiddingSlots = bannersToLoad
+        const headerBiddingSlots = bannersToLoad
             .filter(e => e.prebidEnabled)
             .map(defineSlot);
         const nonHeaderBiddingSlots = bannersToLoad
             .filter(e => !e.prebidEnabled)
-            .map(defineSlot); */
+            .map(defineSlot);
 
         // initialize
         googletag.pubads().enableSingleRequest();
@@ -62,8 +62,7 @@ const queueGoogletagCommand = bannersToLoad => {
         googletag.pubads().disableInitialLoad();
         googletag.enableServices();
 
-        // googletag.pubads().refresh(nonHeaderBiddingSlots);
-        googletag.pubads().refresh(bannersToLoad.map(defineSlot));
+        googletag.pubads().refresh(nonHeaderBiddingSlots);
 
         naveggSetTargeting();
 
@@ -72,7 +71,7 @@ const queueGoogletagCommand = bannersToLoad => {
         //	once by Prebid when the auction's done
         //	once by the failsafe timeout
         // so a boolean is used to make sure ads are refreshed only once
-        /* pbjs.adserverRequestSent = false;
+        pbjs.adserverRequestSent = false;
         const sendAdServerRequest = _headerBiddingSlots => {
             if (_headerBiddingSlots.length === 0) return;
             googletag.cmd.push(() => {
@@ -93,7 +92,7 @@ const queueGoogletagCommand = bannersToLoad => {
         // but the web-dev team can define the worst case here
         setTimeout(() => {
             sendAdServerRequest(headerBiddingSlots);
-        }, 3500); */
+        }, 3500);
 
         bannersWithoutHide = bannersToLoad
             .filter(e => e.withoutHide)
