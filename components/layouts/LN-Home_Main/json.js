@@ -1,7 +1,7 @@
 import Consumer from 'fusion:consumer';
 import home from '../../private/LN/api/v1/home';
 import pageBuilderSections from '../config/LN-PageBuilder.config.json';
-import getProperties from 'fusion:properties';
+
 import {
     checkIfValid,
     findSectionChildren
