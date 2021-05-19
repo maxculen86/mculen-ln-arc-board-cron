@@ -16,7 +16,7 @@ const typeSection = {
 
 const index = (children, diagramacion) => {
     const ArticlesbyBox = children.reduce((result, f) => {
-        const { information, feature } = f;
+        const { information, feature, configurations } = f;
         let seccionPadre = 0;
 
         const res = {
@@ -37,7 +37,7 @@ const index = (children, diagramacion) => {
             const articles = get(f, 'articles', []);
 
             const subChild = articles.map(item => {
-                const itemArticle = { ...item, seccionPadre };
+                const itemArticle = { ...item, configurations, seccionPadre };
                 return Article(itemArticle, diagramacion);
             });
 
