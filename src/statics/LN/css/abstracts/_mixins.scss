@@ -354,20 +354,20 @@ $guion: '-';
 
 //BACKGROUND RAYAS DIAGONALES
 @mixin BgDiagonal {
-    background: -webkit-repeating-linear-gradient(
-        45deg,
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0.1) 4px,
-        rgba(0, 0, 0, 0.15) 6px
-    );
-    background: repeating-linear-gradient(
-        45deg,
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0.1) 4px,
-        rgba(0, 0, 0, 0.15) 6px
-    );
+    background: #fff -webkit-repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1), rgba(
+                    255,
+                    255,
+                    255,
+                    0.1
+                )
+                4px, rgba(0, 0, 0, 0.15) 6px);
+    background: #fff
+        repeating-linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 0.1) 4px,
+            rgba(0, 0, 0, 0.15) 6px
+        );
 }

@@ -9,7 +9,8 @@ import { shallow, mount } from 'enzyme';
 
 describe('Private - Feature - CajaAnticipo =>', () => {
     const mock = {
-        text: 'La información más completa del mercado inmobiliario minuto a minuto.',
+        text:
+            'La información más completa del mercado inmobiliario minuto a minuto.',
         link: 'https://www.lanacion.com.ar/',
         logoName: 'propiedades'
     };
@@ -29,7 +30,7 @@ describe('Private - Feature - CajaAnticipo =>', () => {
         });
 
         it('Snapshot Caja Promo', () => {
-            const component =  mount(<CajaPromo customFields={{ ...mock }} />);
+            const component = mount(<CajaPromo customFields={{ ...mock }} />);
             expect(component).toMatchSnapshot();
         });
     });

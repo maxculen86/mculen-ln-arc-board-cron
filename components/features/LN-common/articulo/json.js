@@ -8,11 +8,10 @@ class ArticleFeature {
             customFields: { noteId }
         } = props;
         this.state = {};
-
         this.fetchContent({
             articleSourceNota: {
                 source: 'articleSourceNota',
-                query: { noteId, published: true }
+                query: { id: noteId, published: true }
             }
         });
     }
