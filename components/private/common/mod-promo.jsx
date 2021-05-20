@@ -1,10 +1,6 @@
-/* eslint-disable react/no-danger */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
-
-import ComText from './com-text';
+import PropTypes from 'prop-types';
 import ComLogo from './com-logo';
-import ComLink from './com-link';
 
 import '../../../resources/dist/css/ln/modules/mod-promo.css';
 
@@ -50,6 +46,15 @@ ModPromo.propTypes = {
     text: PropTypes.string,
     textButton: PropTypes.string,
     classCondition: PropTypes.string
+};
+
+ModPromo.defaultProps = {
+    tag: null,
+    logoName: null,
+    logoSize: null,
+    text: null,
+    textButton: null,
+    classCondition: null
 };
 
 export default ModPromo;

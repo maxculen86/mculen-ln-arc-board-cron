@@ -1,0 +1,709 @@
+{
+    "_id": "OCTOV4V54FCFLJHOVB5IAJKHHM",
+    "type": "collection",
+    "version": "0.7.0",
+    "canonical_website": "la-nacion-ar",
+    "content_elements": [
+        {
+            "_id": "HLOPIMO7PBDXPAB5ACWRGZKTPM",
+            "type": "story",
+            "version": "0.10.4",
+            "revision": {
+                "revision_id": "HC2SUJBCFNDZ3NM3W6TIWAJVWE",
+                "published": true
+            },
+            "canonical_url": "/recetas/dulces/budin-de-bananas-nid11062014-3/",
+            "headlines": {
+                "basic": "Budín de banana 2",
+                "mobile": "",
+                "native": "",
+                "print": "",
+                "tablet": "",
+                "web": "",
+                "meta_title": ""
+            },
+            "subheadlines": {
+                "basic": ""
+            },
+            "description": {
+                "basic": ""
+            },
+            "language": "",
+            "taxonomy": {
+                "sections": [
+                    {
+                        "_id": "/recetas",
+                        "_website": "la-nacion-ar",
+                        "type": "section",
+                        "version": "0.6.0",
+                        "name": "Recetas",
+                        "path": "/recetas",
+                        "parent_id": "/",
+                        "parent": {
+                            "default": "/"
+                        },
+                        "additional_properties": {
+                            "original": {
+                                "site": {
+                                    "site_title": "Cocina y Recetas - LA NACION",
+                                    "site_url": "https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/recetas/"
+                                },
+                                "acumuladoGeneral": {
+                                    "hidesectionslist": "false",
+                                    "hidetagslist": "false",
+                                    "tipo_acumulado": "Grilla",
+                                    "hierarchy_navigation": "CustomHeader",
+                                    "cantidad_notas": "15",
+                                    "id_collection_promo_items": "XXXXXXXX",
+                                    "hide_banner": "false"
+                                },
+                                "style": {
+                                    "headerdark": "false"
+                                },
+                                "acumuladoColor": {
+                                    "header_class_name": "--dark",
+                                    "background_color": "",
+                                    "navigation_color": "",
+                                    "navigation_color_tags": "",
+                                    "id_logo_image": ""
+                                },
+                                "migration": {
+                                    "migrated_mob": "true",
+                                    "id_section_ln9": "0"
+                                },
+                                "_id": "/recetas",
+                                "_website": "la-nacion-ar",
+                                "name": "Recetas",
+                                "order": {
+                                    "default": 1023
+                                },
+                                "parent": {
+                                    "default": "/",
+                                    "Header-FirstNav": null
+                                },
+                                "ancestors": {
+                                    "Header-FirstNav": []
+                                },
+                                "inactive": false
+                            }
+                        }
+                    },
+                    {
+                        "_id": "/recetas/dulces",
+                        "_website": "la-nacion-ar",
+                        "type": "section",
+                        "version": "0.6.0",
+                        "name": "Dulces",
+                        "description": "Recetas Dulces",
+                        "path": "/recetas/dulces",
+                        "parent_id": "/recetas",
+                        "parent": {
+                            "default": "/recetas"
+                        },
+                        "additional_properties": {
+                            "original": {
+                                "navigation": {
+                                    "nav_title": "Recetas Dulces"
+                                },
+                                "site": {
+                                    "site_tagline": "Recetas Dulces",
+                                    "site_description": "Recetas Dulces",
+                                    "site_title": "Recetas Dulces",
+                                    "site_about": "Recetas Dulces",
+                                    "site_keywords": "Recetas Dulces"
+                                },
+                                "migration": {
+                                    "migrated_mob": "true",
+                                    "id_section_ln9": null
+                                },
+                                "_id": "/recetas/dulces",
+                                "_website": "la-nacion-ar",
+                                "name": "Dulces",
+                                "parent": {
+                                    "default": "/recetas"
+                                },
+                                "inactive": false
+                            }
+                        }
+                    }
+                ],
+                "primary_section": {
+                    "_id": "/recetas/dulces",
+                    "_website": "la-nacion-ar",
+                    "type": "section",
+                    "version": "0.6.0",
+                    "name": "Dulces",
+                    "description": "Recetas Dulces",
+                    "path": "/recetas/dulces",
+                    "parent_id": "/recetas",
+                    "parent": {
+                        "default": "/recetas"
+                    },
+                    "additional_properties": {
+                        "original": {
+                            "navigation": {
+                                "nav_title": "Recetas Dulces"
+                            },
+                            "site": {
+                                "site_tagline": "Recetas Dulces",
+                                "site_description": "Recetas Dulces",
+                                "site_title": "Recetas Dulces",
+                                "site_about": "Recetas Dulces",
+                                "site_keywords": "Recetas Dulces"
+                            },
+                            "migration": {
+                                "migrated_mob": "true",
+                                "id_section_ln9": null
+                            },
+                            "_id": "/recetas/dulces",
+                            "_website": "la-nacion-ar",
+                            "name": "Dulces",
+                            "parent": {
+                                "default": "/recetas"
+                            },
+                            "inactive": false
+                        }
+                    }
+                },
+                "tags": [
+                    {
+                        "text": "Frutas",
+                        "description": "Frutas",
+                        "slug": "frutas-tid67217"
+                    },
+                    {
+                        "text": "Huevo",
+                        "description": "Huevo",
+                        "slug": "huevo-tid47236"
+                    },
+                    {
+                        "text": "Harina",
+                        "description": "Harina",
+                        "slug": "harina-tid47230"
+                    },
+                    {
+                        "text": "Banana",
+                        "description": "Banana",
+                        "slug": "banana-tid47145"
+                    },
+                    {
+                        "text": "Manteca",
+                        "description": "Manteca",
+                        "slug": "manteca-tid47257"
+                    },
+                    {
+                        "text": "Nueces",
+                        "description": "Nueces",
+                        "slug": "nueces-tid47275"
+                    },
+                    {
+                        "text": "Polvo de hornear",
+                        "description": "Polvo de hornear",
+                        "slug": "polvo-de-hornear-tid47308"
+                    }
+                ],
+                "sites": [
+                    {
+                        "_id": "/recetas",
+                        "type": "site",
+                        "version": "0.5.8",
+                        "name": "Recetas",
+                        "path": "/recetas",
+                        "parent_id": "/",
+                        "additional_properties": {
+                            "original": {
+                                "site": {
+                                    "site_title": "Cocina y Recetas - LA NACION",
+                                    "site_url": "https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/recetas/"
+                                },
+                                "acumuladoGeneral": {
+                                    "hidesectionslist": "false",
+                                    "hidetagslist": "false",
+                                    "tipo_acumulado": "Grilla",
+                                    "hierarchy_navigation": "CustomHeader",
+                                    "cantidad_notas": "15",
+                                    "id_collection_promo_items": "",
+                                    "hide_banner": "false"
+                                },
+                                "style": {
+                                    "headerdark": "false"
+                                },
+                                "acumuladoColor": {
+                                    "header_class_name": "--dark",
+                                    "background_color": "",
+                                    "navigation_color": "",
+                                    "navigation_color_tags": "",
+                                    "id_logo_image": ""
+                                },
+                                "migration": {
+                                    "migrated_mob": "true",
+                                    "id_section_ln9": "0"
+                                },
+                                "_id": "/recetas",
+                                "name": "Recetas",
+                                "order": 1023,
+                                "parent": "/",
+                                "inactive": false
+                            }
+                        }
+                    },
+                    {
+                        "_id": "/recetas/dulces",
+                        "type": "site",
+                        "version": "0.5.8",
+                        "name": "Dulces",
+                        "description": "Recetas Dulces",
+                        "path": "/recetas/dulces",
+                        "parent_id": "/recetas",
+                        "additional_properties": {
+                            "original": {
+                                "_id": "/recetas/dulces",
+                                "navigation": {
+                                    "nav_title": "Recetas Dulces"
+                                },
+                                "site": {
+                                    "site_tagline": "Recetas Dulces",
+                                    "site_description": "Recetas Dulces",
+                                    "site_title": "Recetas Dulces",
+                                    "site_about": "Recetas Dulces",
+                                    "site_keywords": "Recetas Dulces"
+                                },
+                                "name": "Dulces",
+                                "parent": "/recetas",
+                                "inactive": false
+                            }
+                        }
+                    }
+                ],
+                "primary_site": {
+                    "_id": "/recetas/dulces",
+                    "type": "site",
+                    "version": "0.5.8",
+                    "name": "Dulces",
+                    "description": "Recetas Dulces",
+                    "path": "/recetas/dulces",
+                    "parent_id": "/recetas",
+                    "additional_properties": {
+                        "original": {
+                            "_id": "/recetas/dulces",
+                            "navigation": {
+                                "nav_title": "Recetas Dulces"
+                            },
+                            "site": {
+                                "site_tagline": "Recetas Dulces",
+                                "site_description": "Recetas Dulces",
+                                "site_title": "Recetas Dulces",
+                                "site_about": "Recetas Dulces",
+                                "site_keywords": "Recetas Dulces"
+                            },
+                            "name": "Dulces",
+                            "parent": "/recetas",
+                            "inactive": false
+                        }
+                    }
+                }
+            },
+            "label": {
+                "volanta": {
+                    "text": "",
+                    "display": true
+                },
+                "livefyre_entrada_id": {
+                    "text": "848061",
+                    "display": true
+                }
+            },
+            "promo_items": {
+                "basic": {
+                    "_id": "QDHLHH47HBAUDD34SIK474MUPI",
+                    "additional_properties": {
+                        "fullSizeResizeUrl": "/photo/resize/-b48_ZMME_S19uGeaVNcdNfJSZg=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/QDHLHH47HBAUDD34SIK474MUPI.jpg",
+                        "galleries": [],
+                        "mime_type": "image/jpeg",
+                        "originalName": "588135.JPG",
+                        "originalUrl": "https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/QDHLHH47HBAUDD34SIK474MUPI.jpg",
+                        "proxyUrl": "/photo/resize/-b48_ZMME_S19uGeaVNcdNfJSZg=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/QDHLHH47HBAUDD34SIK474MUPI.jpg",
+                        "published": true,
+                        "resizeUrl": "http://thumbor-prod-us-east-1.photo.aws.arc.pub/-b48_ZMME_S19uGeaVNcdNfJSZg=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/QDHLHH47HBAUDD34SIK474MUPI.jpg",
+                        "restricted": false,
+                        "thumbnailResizeUrl": "http://thumbor-prod-us-east-1.photo.aws.arc.pub/tH0WkhOr4mXPkhm0bRFLeWvH3NU=/300x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/QDHLHH47HBAUDD34SIK474MUPI.jpg",
+                        "version": 0
+                    },
+                    "alt_text": "",
+                    "caption": "",
+                    "copyright": "Alfredo Willimburgh",
+                    "created_date": "2019-12-04T03:27:11Z",
+                    "distributor": {
+                        "mode": "custom",
+                        "name": ""
+                    },
+                    "height": 410,
+                    "last_updated_date": "2019-12-04T03:27:11Z",
+                    "licensable": false,
+                    "owner": {
+                        "id": "sandbox.lanacionar"
+                    },
+                    "source": {
+                        "source_id": "588135.JPG",
+                        "source_type": "other",
+                        "edit_url": "https://sandbox.lanacionar.arcpublishing.com/photo/QDHLHH47HBAUDD34SIK474MUPI",
+                        "system": "photo center"
+                    },
+                    "status": "published",
+                    "subtitle": "",
+                    "type": "image",
+                    "url": "https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/QDHLHH47HBAUDD34SIK474MUPI.jpg",
+                    "version": "0.10.3",
+                    "width": 617,
+                    "display_date": "2006-11-05T03:00:00Z",
+                    "first_publish_date": "2006-11-05T03:00:00Z",
+                    "description": {
+                        "basic": ""
+                    },
+                    "language": "es-419",
+                    "publish_date": "2006-11-05T03:00:00Z",
+                    "vanity_credits": {
+                        "by": [
+                            {
+                                "name": "Alfredo Willimburgh",
+                                "type": "author"
+                            }
+                        ]
+                    }
+                }
+            },
+            "distributor": {
+                "name": "lanacionar",
+                "category": "staff",
+                "subcategory": ""
+            },
+            "canonical_website": "la-nacion-ar",
+            "display_date": "2014-06-11T10:40:21Z",
+            "subtype": "7",
+            "credits": {
+                "by": []
+            },
+            "websites": {
+                "la-nacion-ar": {
+                    "website_section": {
+                        "_id": "/recetas/dulces",
+                        "_website": "la-nacion-ar",
+                        "type": "section",
+                        "version": "0.6.0",
+                        "name": "Dulces",
+                        "description": "Recetas Dulces",
+                        "path": "/recetas/dulces",
+                        "parent_id": "/recetas",
+                        "parent": {
+                            "default": "/recetas"
+                        },
+                        "additional_properties": {
+                            "original": {
+                                "navigation": {
+                                    "nav_title": "Recetas Dulces"
+                                },
+                                "site": {
+                                    "site_tagline": "Recetas Dulces",
+                                    "site_description": "Recetas Dulces",
+                                    "site_title": "Recetas Dulces",
+                                    "site_about": "Recetas Dulces",
+                                    "site_keywords": "Recetas Dulces"
+                                },
+                                "migration": {
+                                    "migrated_mob": "true",
+                                    "id_section_ln9": null
+                                },
+                                "_id": "/recetas/dulces",
+                                "_website": "la-nacion-ar",
+                                "name": "Dulces",
+                                "parent": {
+                                    "default": "/recetas"
+                                },
+                                "inactive": false
+                            }
+                        }
+                    },
+                    "website_url": "/recetas/dulces/budin-de-bananas-nid11062014-3/"
+                }
+            },
+            "additional_properties": {},
+            "publish_date": "2020-01-17T19:42:26.708Z"
+        },
+        {
+            "_id": "5OUY7OCFZNFLLBM6XM4CTSIUWQ",
+            "type": "story",
+            "version": "0.10.5",
+            "revision": {
+                "revision_id": "UBCGGSWMCVA5BG4VUXSOZPSIOI",
+                "published": true
+            },
+            "canonical_url": "/2253455-sauce-hollandaise-o-salsa-holandesa-7/",
+            "headlines": {
+                "basic": "“Sauce hollandaise” o salsa holandesa",
+                "mobile": "\"Sauce hollandaise\" o salsa holandesa",
+                "native": "",
+                "print": "",
+                "tablet": "",
+                "web": "",
+                "meta_title": ""
+            },
+            "subheadlines": {
+                "basic": "Es una salsa que fue creada en el S17… para terminar con las salsas grasosas. Se creó (y de ahí su nombre) durante la que se conoce como la “guerra de Holanda”, enfrentando a la Francia de Luis XIV y sus aliados contra las Provincias Unidas (eran los Países Bajos españoles constituidos por los países que hoy son Países Bajos, Bélgica y Luxemburgo)"
+            },
+            "description": {
+                "basic": ""
+            },
+            "language": "",
+            "taxonomy": {
+                "sections": [
+                    {
+                        "_id": "/cocina",
+                        "_website": "la-nacion-ar",
+                        "type": "section",
+                        "version": "0.6.0",
+                        "name": "Cocina",
+                        "path": "/cocina",
+                        "parent_id": "/",
+                        "parent": {
+                            "default": "/"
+                        },
+                        "additional_properties": {
+                            "original": {
+                                "migration": {
+                                    "migrated_mob": "true",
+                                    "id_section_ln9": "1"
+                                },
+                                "_id": "/cocina",
+                                "_website": "la-nacion-ar",
+                                "name": "Cocina",
+                                "order": {
+                                    "default": 1020
+                                },
+                                "parent": {
+                                    "default": "/"
+                                },
+                                "inactive": false
+                            }
+                        }
+                    },
+                    {
+                        "_id": "/cocina/recetas",
+                        "_website": "la-nacion-ar",
+                        "type": "section",
+                        "version": "0.6.0",
+                        "name": "Recetas",
+                        "path": "/cocina/recetas",
+                        "parent_id": "/cocina",
+                        "parent": {
+                            "default": "/cocina"
+                        },
+                        "additional_properties": {
+                            "original": {
+                                "_id": "/cocina/recetas",
+                                "name": "Recetas",
+                                "_website": "la-nacion-ar",
+                                "parent": {
+                                    "default": "/cocina"
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "order": {
+                                    "default": 2001
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "referent": {
+                            "website": "la-nacion-ar",
+                            "id": "/cocina/recetas/guarniciones",
+                            "type": "section"
+                        },
+                        "type": "reference"
+                    },
+                    {
+                        "referent": {
+                            "website": "la-nacion-ar",
+                            "id": "/darte-un-gustito",
+                            "type": "section"
+                        },
+                        "type": "reference"
+                    }
+                ],
+                "primary_section": {
+                    "referent": {
+                        "website": "la-nacion-ar",
+                        "id": "/cocina/recetas/guarniciones",
+                        "type": "section"
+                    },
+                    "type": "reference"
+                },
+                "tags": [
+                    {
+                        "text": "Yema",
+                        "description": "Yema",
+                        "slug": "yema-tid47350"
+                    },
+                    {
+                        "text": "Manteca",
+                        "description": "Manteca",
+                        "slug": "manteca-tid47257"
+                    },
+                    {
+                        "text": "Jugo de limón",
+                        "description": "Jugo de limón",
+                        "slug": "jugo-de-limon-tid49241"
+                    }
+                ],
+                "sites": [
+                    {
+                        "_id": "/cocina",
+                        "type": "site",
+                        "version": "0.5.8",
+                        "name": "Cocina",
+                        "path": "/cocina",
+                        "parent_id": "/",
+                        "additional_properties": {
+                            "original": {
+                                "_id": "/cocina",
+                                "name": "Cocina",
+                                "parent": "/",
+                                "inactive": false
+                            }
+                        }
+                    },
+                    {
+                        "_id": "/cocina/recetas",
+                        "type": "site",
+                        "version": "0.5.8",
+                        "name": "Recetas",
+                        "path": "/cocina/recetas",
+                        "parent_id": "/cocina",
+                        "additional_properties": {
+                            "original": {
+                                "_id": "/cocina/recetas",
+                                "name": "Recetas",
+                                "parent": "/cocina",
+                                "inactive": false
+                            }
+                        }
+                    }
+                ],
+                "primary_site": {
+                    "type": "reference",
+                    "referent": {
+                        "id": "/cocina/recetas/guarniciones",
+                        "type": "site"
+                    }
+                }
+            },
+            "label": {},
+            "distributor": {
+                "name": "lanacionar",
+                "category": "staff",
+                "subcategory": ""
+            },
+            "canonical_website": "la-nacion-ar",
+            "display_date": "2020-04-27T21:01:46.742Z",
+            "subtype": "7",
+            "credits": {
+                "by": [
+                    {
+                        "_id": "vinciane-smeets-9110",
+                        "type": "author",
+                        "version": "0.5.8",
+                        "name": "Vinciane Smeets",
+                        "image": {
+                            "url": "https://bucket.glanacion.com/anexos/fotos/33/3121633.png",
+                            "version": "0.5.8"
+                        },
+                        "url": "/autor/vinciane-smeets-9110/",
+                        "slug": "vinciane-smeets-9110",
+                        "social_links": [
+                            {
+                                "site": "email",
+                                "url": ""
+                            },
+                            {
+                                "site": "twitter",
+                                "url": ""
+                            }
+                        ],
+                        "socialLinks": [
+                            {
+                                "site": "email",
+                                "url": "",
+                                "deprecated": true,
+                                "deprecation_msg": "Please use social_links."
+                            },
+                            {
+                                "site": "twitter",
+                                "url": "",
+                                "deprecated": true,
+                                "deprecation_msg": "Please use social_links."
+                            }
+                        ],
+                        "additional_properties": {
+                            "original": {
+                                "_id": "vinciane-smeets-9110",
+                                "byline": "Vinciane Smeets",
+                                "firstName": "Vinciane",
+                                "lastName": "Smeets",
+                                "author_type": "Estándar",
+                                "email": "",
+                                "image": "https://bucket.glanacion.com/anexos/fotos/33/3121633.png",
+                                "twitter": "",
+                                "status": true,
+                                "role": "PARA LA NACION",
+                                "longBio": "",
+                                "slug": "vinciane-smeets-9110",
+                                "bio_page": "/autor/vinciane-smeets-9110/",
+                                "last_updated_date": "2019-11-13T17:01:45.953Z",
+                                "books": [],
+                                "podcasts": [],
+                                "education": [],
+                                "awards": []
+                            }
+                        }
+                    },
+                    {
+                        "name": "Ignacio Madrid",
+                        "org": "",
+                        "type": "author",
+                        "additional_properties": {
+                            "original": {
+                                "author_type": ""
+                            }
+                        }
+                    }
+                ]
+            },
+            "websites": {
+                "la-nacion-ar": {
+                    "website_url": "/2253455-sauce-hollandaise-o-salsa-holandesa-7/",
+                    "website_section": {
+                        "referent": {
+                            "website": "la-nacion-ar",
+                            "id": "/cocina/recetas/guarniciones",
+                            "type": "section"
+                        },
+                        "type": "reference"
+                    }
+                }
+            },
+            "additional_properties": {},
+            "publish_date": "2020-04-27T21:01:46.742Z"
+        }
+    ],
+    "content_aliases": ["home-deportes", "newsletter-recetas"],
+    "owner": {
+        "id": "sandbox.lanacionar"
+    },
+    "revision": {
+        "branch": "default",
+        "published": true
+    },
+    "last_updated_date": "1970-01-01T00:00:00.000Z",
+    "created_date": "1970-01-01T00:00:00.000Z",
+    "website": "la-nacion-ar"
+}

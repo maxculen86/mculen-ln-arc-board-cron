@@ -28,5 +28,5 @@ export default {
         service: 'lanacion-arc',
         env: 'sandbox'
     },
-    ARC_STATIC: 'https://arc-static.glanacion.com'
+    ARC_STATIC: 'https://sandbox.lanacion.com.ar'
 };

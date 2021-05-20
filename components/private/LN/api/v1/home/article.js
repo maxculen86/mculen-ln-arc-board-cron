@@ -6,6 +6,9 @@ import Relacionados from '../nota/relacionados';
 
 const articleItem = article => {
     const id = get(article, '_id', null);
+    if (!id) {
+        throw new Error('Revisar Parametros de Articulo en null o undefined');
+    }
     const {
         subtype: templateId,
         headlines: { basic: titulo, mobile: tituloMobile },

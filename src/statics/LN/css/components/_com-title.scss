@@ -23,11 +23,11 @@
     }
     &.--l,
     &.--xl {
-        font-weight: 500;
         .mod-headersection & {
             font-weight: 700;
         }
         .home & {
+            font-weight: 500;
             @media ($media-l) {
                 font-weight: 700;
             }
