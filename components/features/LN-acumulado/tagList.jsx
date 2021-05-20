@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { useAppContext } from 'fusion:context';
 import { useContent as getContent } from 'fusion:content';
 import Static from 'fusion:static';
@@ -52,10 +52,6 @@ const TagsListFeature = ({ id }) => {
           });
 
     const tagList = transformTagsForAcu(orderAndCountTags, colorTags);
-
-    useEffect(() => {
-        const tagsHome = get(state, 'tagsHome', []);
-    }, [state]);
 
     const Component =
         (hidetagslist !== 'true' && tagList && (

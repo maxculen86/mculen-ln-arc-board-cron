@@ -48,7 +48,6 @@ const ArticleFeature = ({
 
     const error = validateArticleFeature(id, article);
 
-    // debugger;
     const isInApertura = get(
         renderables,
         `[${INDEX_SECTION_APERTURA}].children`,
