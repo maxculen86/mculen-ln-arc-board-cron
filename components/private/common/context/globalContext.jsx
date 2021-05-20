@@ -7,7 +7,7 @@ export const GlobalContext = React.createContext();
 
 const actionType = {
     ADD_TAGS_ARTICLES: (state = {}, action = {}) => {
-        const tags = state.tagsHome || [];
+        const tags = state.tagsHome;
         tags.push(action.article);
         return {
             ...state,

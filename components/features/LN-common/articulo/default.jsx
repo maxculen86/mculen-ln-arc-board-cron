@@ -62,6 +62,7 @@ const ArticleFeature = ({
 
     if (
         article &&
+        Object.keys(article).length &&
         isInApertura &&
         !toInstance &&
         !notesLoaded.includes(article._id)

@@ -512,8 +512,7 @@ const LNMainHome = props => {
                                         />
                                     )}
                                     <div className="acumulado">
-                                        xxxxxxxxxxxx
-                                        <TagsListFeature />
+                                        <TagsListFeature id="TagsListFeatureHome" />
                                     </div>
                                 </div>
                                 <div className="sidebar__aside hlp-tabletlm-none">

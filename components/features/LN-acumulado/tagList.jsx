@@ -1,10 +1,10 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useAppContext } from 'fusion:context';
 import { useContent as getContent } from 'fusion:content';
+import Static from 'fusion:static';
 import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
 import { GlobalContext } from '../../private/common/context/globalContext';
 import ComLinkList from '../../private/common/com-link-list';
-import withStatic from '../../private/common/hocs/withStatic';
 import get from '../../private/common/utils/get';
 import {
     getOrderAndCountTags,
@@ -12,30 +12,29 @@ import {
 } from '../../private/common/utils/tags';
 import getSectionName from '../../private/LN/common/utils/getSectionName';
 
-const TagsListFeature = () => {
-    console.log('****************************************');
+const TagsListFeature = ({ id }) => {
     const {
         globalContent: { _id: sectionId, node_type: nodeType, type } = {},
         arcSite = 'la-nacion-ar'
     } = useAppContext() || {};
+    const sectionIsHome = getSectionName({ nodeType, type }) === 'home';
     const { state } = useContext(GlobalContext);
     const {
         acumuladoGeneral: { hidetagslist = false } = {},
         acumuladoColor: { navigation_color_tags: colorTags } = {}
     } = useGlobalProviderAcu() || {};
 
-    const orderAndCountTags =
-        getSectionName({ nodeType, type }) === 'home'
-            ? getOrderAndCountTags(get(state, 'tagsHome', []))
-            : getContent({
-                  sourceName: 'acuArticlesSource',
-                  query: {
-                      website: arcSite,
-                      sectionId,
-                      page: 0,
-                      promoItemsOnly: false
-                  },
-                  filter: `{
+    const orderAndCountTags = sectionIsHome
+        ? getOrderAndCountTags(get(state, 'tagsHome', []))
+        : getContent({
+              sourceName: 'acuArticlesSource',
+              query: {
+                  website: arcSite,
+                  sectionId,
+                  page: 0,
+                  promoItemsOnly: false
+              },
+              filter: `{
                         content_elements {
                             taxonomy {
                                 tags {
@@ -45,37 +44,28 @@ const TagsListFeature = () => {
                             }
                         }
                     }`,
-                  transform: data => {
-                      return getOrderAndCountTags(
-                          get(data, 'content_elements', [])
-                      );
-                  }
-              });
+              transform: data => {
+                  return getOrderAndCountTags(
+                      get(data, 'content_elements', [])
+                  );
+              }
+          });
 
-    const [tagList, setTagList] = useState(
-        transformTagsForAcu(orderAndCountTags, colorTags)
-    );
+    const tagList = transformTagsForAcu(orderAndCountTags, colorTags);
 
     useEffect(() => {
         const tagsHome = get(state, 'tagsHome', []);
-        console.log(
-            '🚀 ~ file: tagList.jsx ~ line 60 ~ useEffect ~ tagsHome',
-            tagsHome
-        );
-        console.log(
-            '🚀 ~ file: tagList.jsx ~ line 65 ~ TagsListFeature ~ state',
-            state
-        );
     }, [state]);
 
-    return (
+    const Component =
         (hidetagslist !== 'true' && tagList && (
             <ComLinkList list={tagList} extraClass="--tags" />
         )) ||
-        null
-    );
+        null;
+
+    return sectionIsHome ? Component : <Static id={id}>{Component}</Static>;
 };
 
 TagsListFeature.label = 'LN-Acumulado-Tag-List';
 
-export default withStatic(TagsListFeature);
+export default TagsListFeature;
