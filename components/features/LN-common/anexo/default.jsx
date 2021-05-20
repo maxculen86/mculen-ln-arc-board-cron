@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:context';
@@ -7,14 +8,11 @@ import getSectionName from '../../../private/LN/common/utils/getSectionName';
 // Components
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import AnexoIframe from '../../../private/LN/acumulado/anexoIframe';
+import sectionsValidation from '../../../layouts/config/LN-Home.config.json';
 
 // Este componente es de uso exclusivo de HOME
 // Se agrega este index como constante por regla de negocio
-// Actualmente el index '2' es la sección Anexo_1 del layout de LN-Home_Main.
 // Al estar en la sección 'Anexo_1' del layout necesita tener la clase '--anexo-1'.
-const INDEX_SECTION_ANEXO_1 = 2;
-const CLASS_ANEXO_1 = '--anexo-1';
-const NODE_TYPE_HOME = 'home';
 
 const AnexoFeature = ({
     id,
@@ -23,14 +21,14 @@ const AnexoFeature = ({
     globalContent: { node_type: nodeType, type } = {},
     customFields: { url, hideByUrl, html, height, hideByHtml }
 }) => {
-    if (getSectionName({ nodeType, type }) !== NODE_TYPE_HOME) return <></>;
+    if (getSectionName({ nodeType, type }) !== 'home') return <></>;
 
     const isInAnexo1 = getChildsFromSections(
         renderables,
-        INDEX_SECTION_ANEXO_1
+        sectionsValidation.Anexo_1.position + 1
     ).some(el => el.props.id === id);
 
-    const EXTRA_CLASS = (isInAnexo1 && CLASS_ANEXO_1) || '';
+    const EXTRA_CLASS = (isInAnexo1 && '--anexo-1') || '';
 
     const errorMessage =
         (!url &&
@@ -38,10 +36,11 @@ const AnexoFeature = ({
             !html &&
             !hideByHtml &&
             'Se requiere agregue la URL o HTML del anexo') ||
-        (html &&
-            !hideByHtml &&
+        (!html &&
+            url &&
+            !hideByUrl &&
             !height &&
-            'El alto fijo del anexo es un campo requerido para los anexos con HTML') ||
+            'El alto fijo del anexo es un campo requerido para los anexos con URL') ||
         '';
 
     return (
@@ -55,16 +54,19 @@ const AnexoFeature = ({
         (!errorMessage && !hideByHtml && html && (
             <div
                 className={`com-anexo ${EXTRA_CLASS}`}
-                style={{ height, overflow: 'hidden' }}
-                // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={{
                     __html: html
                 }}
             />
         )) ||
         (!errorMessage && !hideByUrl && url && (
-            <div className={`com-anexo ${EXTRA_CLASS}`}>
-                <AnexoIframe url={url} id={id} />
+            <div style={{ height, overflow: 'hidden' }}>
+                <AnexoIframe
+                    url={url}
+                    id={id}
+                    extraClass={EXTRA_CLASS}
+                    _props={{ height }}
+                />
             </div>
         )) || <></>
     );
@@ -97,7 +99,7 @@ AnexoFeature.propTypes = {
         }),
         height: PropTypes.number.tag({
             label: 'Alto',
-            group: 'Ajuste por HTML',
+            group: 'Ajuste por URL',
             description: 'Ingrese aquí el alto fijo del anexo',
             defaultValue: 0
         }),
