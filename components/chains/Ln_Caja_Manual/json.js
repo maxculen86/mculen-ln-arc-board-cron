@@ -6,7 +6,7 @@ const CajaManual = props => {
     const { customFields, children } = props;
 
     try {
-        const sources = children.reduce(function(result, article) {
+        const sources = children.reduce((result, article) => {
             if (!article) {
                 result.push(article);
             }
