@@ -397,7 +397,7 @@ const LNMainHome = props => {
                                             <CajaPromo
                                                 customFields={{
                                                     text:
-                                                        'La información más completa del mercado inmobiliario minuto a minuto.',
+                                                        'La mejor información para un sector clave que evoluciona día a día.',
                                                     link:
                                                         'https://www.lanacion.com.ar/economia/campo/',
                                                     logoName: 'campo'
