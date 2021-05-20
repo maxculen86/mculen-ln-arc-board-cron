@@ -24,7 +24,8 @@ const featureInformation = (information, feature) => {
     if (feature === 'Anticipo') {
         res.texto = information.title;
     }
-    if (!information.hideTecho && feature !== 'Apertura') {
+
+    if (!information.hideTitle && feature !== 'Apertura') {
         return {
             ...res,
             tituloCaja: information.title,
