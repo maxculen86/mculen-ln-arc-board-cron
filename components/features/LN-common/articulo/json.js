@@ -19,11 +19,11 @@ class ArticleFeature {
     render() {
         try {
             const { articleSourceNota } = this.state || {};
-
+            const { customFields } = this.props;
             if (!articleSourceNota) {
                 return null;
             }
-            return articleSourceNota;
+            return { ...articleSourceNota, additionalProperties: customFields };
         } catch (err) {
             return { Success: false, Message: err.message };
         }

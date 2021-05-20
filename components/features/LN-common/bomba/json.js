@@ -11,14 +11,35 @@ class BombaFeature {
         try {
             const articulo = new FeatureArticulo(this.props);
             const { articleSourceNota } = articulo.state || {};
-            const articles = [];
+            const {
+                noteId,
+                title,
+                imageId,
+                hideFeature,
+                chapita,
+                lead,
+                authors
+            } = this.props.customFields;
+
             if (!articleSourceNota) {
                 return null;
             }
-            articles.push(articleSourceNota);
+
+            const article = {
+                ...articleSourceNota,
+                additionalProperties: {
+                    noteId,
+                    title,
+                    imageId,
+                    chapita,
+                    lead,
+                    authors
+                }
+            };
+
             return {
-                information: this.props.customFields,
-                articles
+                information: { hideCaja: hideFeature },
+                articles: [article]
             };
         } catch (err) {
             return { Success: false, Message: err.message };

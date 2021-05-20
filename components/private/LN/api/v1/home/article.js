@@ -1,13 +1,10 @@
 import get from 'lodash.get';
 import Image from '../common/image';
 import { authorHomeMobile } from '../common/author';
-import { getTag, getFeaturedTag } from '../common/tag';
-import { getPrincipalCategory } from '../common/category';
 import { removeEmptyItems } from '../common/utils/responseCleaner';
-import { getTagId } from '../../../../common/utils/getElementId';
-import Relacionados from '../../../api/v1/nota/relacionados';
+import Relacionados from '../nota/relacionados';
 
-const articleItem = (article, diagramacion) => {
+const articleItem = article => {
     const id = get(article, '_id', null);
     const {
         subtype: templateId,
