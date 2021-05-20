@@ -7,6 +7,8 @@ import '../../../resources/dist/css/ln/components/com-text.css';
 const ComLink = props => {
     const {
         children,
+        dataEvent,
+        dataSection,
         link,
         textname,
         target,
@@ -23,6 +25,8 @@ const ComLink = props => {
     // TODO: Definir si el link debe ser una propiedad obligatoria
     const _props = {
         ...(link && { href: link }),
+        ...(dataEvent && { 'data-event': dataEvent }),
+        ...(dataSection && { 'data-section': dataSection }),
         ...(link && { rel: target === '_blank' && 'nonoopener noreferrer' }),
         ...(link && { target }),
         ...(link && { title }),
@@ -49,6 +53,11 @@ ComLink.propTypes = {
     classCondition: PropTypes.string,
     size: PropTypes.string,
     style: PropTypes.string
+};
+
+ComLink.defaultProps = {
+    dataEvent: '',
+    dataSection: ''
 };
 
 export default ComLink;

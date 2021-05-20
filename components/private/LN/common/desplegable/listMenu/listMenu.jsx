@@ -75,7 +75,12 @@ const ListMenu = ({
     ) : (
         <li key={_id || ts} ref={elRef} className={`${classes}${itemActive}`}>
             {name && (
-                <a href={siteUrl || url} className="link__item">
+                <a
+                    href={siteUrl || url}
+                    className="link__item"
+                    data-event="LinkClick"
+                    data-section="MenuLN"
+                >
                     {name}
                 </a>
             )}

@@ -7,8 +7,10 @@ const ComWeather = props => {
     const { iconName, sizeIcon, size, weatherPlace, temperature } = props;
     return (
         <ComLink
-            link="https://servicios.lanacion.com.ar/pronostico-del-tiempo"
             classCondition="--weather"
+            dataEvent="LinkClick"
+            dataSection="MenuLN"
+            link="https://servicios.lanacion.com.ar/pronostico-del-tiempo"
         >
             <div className="com-weather">
                 {iconName ? (
