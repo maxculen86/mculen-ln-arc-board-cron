@@ -1,14 +1,14 @@
 import get from 'lodash.get';
 import Image from '../common/image';
 import { authorHomeMobile } from '../common/author';
-import { getTag, getFeaturedTag } from '../common/tag';
-import { getPrincipalCategory } from '../common/category';
 import { removeEmptyItems } from '../common/utils/responseCleaner';
-import { getTagId } from '../../../../common/utils/getElementId';
-import Relacionados from '../../../api/v1/nota/relacionados';
+import Relacionados from '../nota/relacionados';
 
 const articleItem = (article, diagramacion) => {
     const id = get(article, '_id', null);
+    if (!id) {
+        throw new Error('Revisar Parametros de Articulo en null o undefined');
+    }
     const {
         subtype: templateId,
         headlines: { basic: titulo, mobile: tituloMobile },
