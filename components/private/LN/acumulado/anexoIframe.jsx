@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import pym from 'pym.js';
 import '../../../../resources/dist/css/ln/pages/acu-revista.css';
 
-const AnexoIframe = ({ url, id, styles, _props = {} }) => {
+const AnexoIframe = ({ url, id, styles, extraClass, _props = {} }) => {
+    const EXTRA_CLASS = (extraClass && ` ${extraClass}`) || '';
     useEffect(() => {
         if (window && url) {
             window.pym = pym;
@@ -21,7 +22,7 @@ const AnexoIframe = ({ url, id, styles, _props = {} }) => {
     return url ? (
         <>
             {styles !== '' && <style>{styles}</style>}
-            <div id={`anexo-${id}`} className="com-anexo pym" />
+            <div id={`anexo-${id}`} className={`com-anexo pym${EXTRA_CLASS}`} />
         </>
     ) : (
         <></>
@@ -32,12 +33,14 @@ AnexoIframe.propTypes = {
     id: PropTypes.string.isRequired,
     url: PropTypes.string,
     styles: PropTypes.string,
+    extraClass: PropTypes.string,
     _props: PropTypes.arrayOf(PropTypes.objects)
 };
 
 AnexoIframe.defaultProps = {
     url: undefined,
     styles: '',
+    extraClass: '',
     _props: { scrolling: 'no' }
 };
 

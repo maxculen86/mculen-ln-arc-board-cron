@@ -11,6 +11,7 @@ import PageBuilderMessage from '../../../private/LN/home/common/components/pageB
 import filter from '../../../../content/filters/LN/nota/articleAcu';
 import { GlobalContext } from '../../../private/common/context/globalContext';
 import get from '../../../private/common/utils/get';
+import sectionsValidation from '../../../layouts/config/LN-Home.config.json';
 
 const notesLoaded = [];
 
@@ -25,7 +26,7 @@ const ArticleFeature = ({
 }) => {
     // Este componente tiene uso en home
     // por regla de negocio se va a evaluar los articulo de apertura
-    const INDEX_SECTION_APERTURA = 4;
+    const INDEX_SECTION_APERTURA = sectionsValidation.Apertura.position + 1;
     const { isAdmin, arcSite, renderables, outputType } = useAppContext();
     const { cajaTemaConfig } = getProperties(arcSite);
     const { config, index, boxPosition, layout } =

@@ -11,16 +11,24 @@ class Opinion {
         try {
             const articulos = new ChainCajaCollection(this.props);
             const { articleList } = articulos.state || {};
-            const { type } = this.props;
 
             if (!articleList) {
                 return null;
             }
-            const articles = get(articleList, 'content_elements', []);
+            const elem = get(articleList, 'content_elements', []);
+
+            const articles = elem.map(e => {
+                return {
+                    ...e,
+                    additionalProperties: {
+                        subtype: 1
+                    }
+                };
+            });
+
             return {
                 information: {
-                    ...this.props.customFields,
-                    type
+                    ...this.props.customFields
                 },
                 articles
             };
