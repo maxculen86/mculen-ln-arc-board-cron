@@ -10,6 +10,9 @@ exports[`Share Matches snapshot 1`] = `
   >
     <button
       class="com-button   --icon "
+      data-event=""
+      data-section=""
+      id=""
       title="Facebook"
       type="button"
     >
@@ -19,6 +22,9 @@ exports[`Share Matches snapshot 1`] = `
     </button>
     <button
       class="com-button   --icon "
+      data-event=""
+      data-section=""
+      id=""
       title="Twitter"
       type="button"
     >
@@ -28,6 +34,9 @@ exports[`Share Matches snapshot 1`] = `
     </button>
     <button
       class="com-button   --icon "
+      data-event=""
+      data-section=""
+      id="whatsAppShareDesktop"
       title="WhatsApp"
       type="button"
     >
@@ -44,6 +53,9 @@ exports[`Share Matches snapshot 1`] = `
   >
     <button
       class="com-button   --icon "
+      data-event=""
+      data-section=""
+      id=""
       title="E-mail"
       type="button"
     >
@@ -53,6 +65,8 @@ exports[`Share Matches snapshot 1`] = `
     </button>
     <button
       class="com-button   --icon comment "
+      data-event=""
+      data-section=""
       title="Comentar"
       type="button"
     >
@@ -85,6 +99,9 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
   >
     <button
       class="com-button   --icon "
+      data-event=""
+      data-section=""
+      id=""
       title="Facebook"
       type="button"
     >
@@ -94,6 +111,9 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
     </button>
     <button
       class="com-button   --icon "
+      data-event=""
+      data-section=""
+      id=""
       title="Twitter"
       type="button"
     >
@@ -103,6 +123,9 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
     </button>
     <button
       class="com-button   --icon "
+      data-event=""
+      data-section=""
+      id="whatsAppShareDesktop"
       title="WhatsApp"
       type="button"
     >
@@ -119,6 +142,9 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
   >
     <button
       class="com-button   --icon "
+      data-event=""
+      data-section=""
+      id=""
       title="E-mail"
       type="button"
     >

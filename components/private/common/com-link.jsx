@@ -55,9 +55,4 @@ ComLink.propTypes = {
     style: PropTypes.string
 };
 
-ComLink.defaultProps = {
-    dataEvent: '',
-    dataSection: ''
-};
-
 export default ComLink;
