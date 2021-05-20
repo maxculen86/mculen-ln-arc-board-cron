@@ -1,4 +1,5 @@
 import { get } from 'lodash';
+import { removeEmptyItems } from '../common/utils/responseCleaner';
 import Article from './article';
 
 // TODO: Recorrer las notas en un archivo nuevo.
@@ -15,38 +16,38 @@ const typeSection = {
 };
 
 const featureInformation = (information, feature) => {
+    const res = {
+        ...typeSection[feature],
+        diagramacion: information.layout
+    };
+
     if (feature === 'Anticipo') {
-        return { texto: information.title };
+        res.texto = information.title;
     }
     if (!information.hideTecho && feature !== 'Apertura') {
         return {
+            ...res,
             tituloCaja: information.title,
             url: information.url
         };
     }
-    return '';
+    return res;
 };
 
 const index = children => {
     const ArticlesbyBox = children.reduce((result, f) => {
         const { information, feature, configurations } = f;
-
         const articles = get(f, 'articles', []);
-        const subChild = articles.map(item => {
-            return Article({ ...item, configurations });
-        });
 
         const res = {
-            ...typeSection[feature],
-            diagramacion: information.layout,
             ...featureInformation(information, feature),
-            notas: subChild
+            notas: Article(articles, configurations)
         };
 
         result.push(res);
         return result;
     }, []);
-    return [ArticlesbyBox];
+    return [removeEmptyItems(ArticlesbyBox)];
 };
 
 export default index;
