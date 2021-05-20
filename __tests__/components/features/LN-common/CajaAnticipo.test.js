@@ -54,7 +54,9 @@ describe('Private - Feature - CajaAnticipo =>', () => {
         });
 
         it('Snapshot Caja Anticipo', () => {
-            const component =  shallow(<CajaAnticipo customFields={{ ...mock }} />);
+            const component = shallow(
+                <CajaAnticipo customFields={{ ...mock }} />
+            );
             expect(component).toMatchSnapshot();
         });
     });

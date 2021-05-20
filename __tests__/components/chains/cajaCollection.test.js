@@ -348,7 +348,12 @@ describe('Test del Chain - <Ln_Caja_Collection />', () => {
     });
 
     it('Deberia traer los datos de dataLyer para Layout Opinion', () => {
-        const { extraOptsDiv, extraOpts } = getMarkupForDatalayer('Opinion', '', 0, '');
+        const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
+            'Opinion',
+            '',
+            0,
+            ''
+        );
         expect(Object.keys(extraOptsDiv).length).toEqual(0);
         expect(extraOpts['data-block-name']).toEqual('h_opinion');
     });
@@ -367,13 +372,23 @@ describe('Test del Chain - <Ln_Caja_Collection />', () => {
     });
 
     it('Deberia traer los datos de dataLyer para Layout Editoriales', () => {
-        const { extraOptsDiv, extraOpts } = getMarkupForDatalayer('Editoriales', '', 0, '');
+        const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
+            'Editoriales',
+            '',
+            0,
+            ''
+        );
         expect(Object.keys(extraOptsDiv).length).toEqual(0);
         expect(extraOpts['data-block-name']).toEqual('h_editoriales');
     });
 
     it('Deberia traer los datos de dataLyer para Layout generico', () => {
-        const { extraOptsDiv, extraOpts } = getMarkupForDatalayer('', 'grilla3', '00', 'deportes_');
+        const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
+            '',
+            'grilla3',
+            '00',
+            'deportes_'
+        );
         expect(extraOptsDiv['data-module']).toEqual('tema_00');
         expect(extraOpts['data-block-name']).toEqual('h_deportes_tema-00');
         expect(extraOpts['data-diagramacion-id']).toEqual('grilla3');

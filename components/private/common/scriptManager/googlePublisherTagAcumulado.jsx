@@ -58,6 +58,9 @@ const googlePublisherTagAcumulado = props => {
     const author = getAuthor(globalContent);
 
     const script = `
+            var pbjs = pbjs || {};
+            pbjs.que = pbjs.que || [];
+            
             (window.googletag = window.googletag || { cmd: [] });
                 googletag.cmd.push(function() {
                     googletag.pubads().setTargeting('tags_nuevos', ${JSON.stringify(

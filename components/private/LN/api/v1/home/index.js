@@ -1,5 +1,4 @@
 import { get } from 'lodash';
-import getIndexArray from '../../../common/utils/getIndexArray';
 import Article from './article';
 
 // TODO: Recorrer las notas en un archivo nuevo.
@@ -17,22 +16,20 @@ const typeSection = {
 
 const index = (children, diagramacion) => {
     const ArticlesbyBox = children.reduce((result, f) => {
-        const { information, feature } = f;
+        const { information, feature, configurations } = f;
         let seccionPadre = 0;
-        //  const filteredArray = this.state.list.filter((_, i) => i !== index);
 
         const res = {
             ...typeSection[feature],
             diagramacion: information.layout
         };
         if (feature === 'Opinion') {
-            const filteredArray = children.filter(x => x.feature === 'Opinion');
-            seccionPadre = getIndexArray(
-                f.information.idCollection,
-                filteredArray,
-                'information.idCollection'
-            );
-            seccionPadre += 1;
+            if (information.type === 'LN-common/opinion') {
+                seccionPadre = 1;
+            }
+            if (information.type === 'LN-common/editoriales') {
+                seccionPadre = 2;
+            }
         }
         if (feature === 'Anticipo') {
             res.texto = information.title;
@@ -40,7 +37,7 @@ const index = (children, diagramacion) => {
             const articles = get(f, 'articles', []);
 
             const subChild = articles.map(item => {
-                const itemArticle = { ...item, seccionPadre };
+                const itemArticle = { ...item, configurations, seccionPadre };
                 return Article(itemArticle, diagramacion);
             });
 
