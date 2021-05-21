@@ -28,6 +28,7 @@ import TePuedeInteresar from '../../features/LN-nota/tePuedeInteresar/default';
 import DivBanner from '../../private/common/banners/DivBanner';
 import BannerComercial from '../../private/common/banners/BannerComercial';
 import pageBuilderSections from '../config/LN-PageBuilder.config.json';
+import TagsListFeature from '../../features/LN-acumulado/tagList';
 import CajaPromo from '../../features/LN-common/cajaPromo/default';
 
 const reducer = (state, action) => {
@@ -396,7 +397,7 @@ const LNMainHome = props => {
                                             <CajaPromo
                                                 customFields={{
                                                     text:
-                                                        'La información más completa del mercado inmobiliario minuto a minuto.',
+                                                        'La mejor información para un sector clave que evoluciona día a día.',
                                                     link:
                                                         'https://www.lanacion.com.ar/economia/campo/',
                                                     logoName: 'campo'
@@ -545,6 +546,9 @@ const LNMainHome = props => {
                                             customFields={{ cantidadNotas: 6 }}
                                         />
                                     )}
+                                    <div className="acumulado">
+                                        <TagsListFeature id="TagsListFeatureHome" />
+                                    </div>
                                 </div>
                                 <div className="sidebar__aside hlp-tabletlm-none">
                                     {/* BANNER ASIDE */}
