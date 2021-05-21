@@ -41,7 +41,7 @@ ItemAnchor.propTypes = {
 
 const enlaces = [
     {
-        url: 'https://micuenta.lanacion.com.ar/mis-datos',
+        url: 'https://myaccount.lanacion.com.ar/mi-usuario',
         text: 'Mi cuenta'
     },
     {
