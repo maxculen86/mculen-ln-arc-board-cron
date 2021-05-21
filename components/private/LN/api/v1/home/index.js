@@ -4,7 +4,6 @@ import Article from './article';
 
 // TODO: Recorrer las notas en un archivo nuevo.
 // Recibir el array y validar que tenga notas
-
 const typeSection = {
     Anticipo: { tipoSeccion: 'anticipo', idSeccion: 501 },
     Bomba: { tipoSeccion: 'bomba', idSeccion: 101 },
@@ -12,13 +11,15 @@ const typeSection = {
     Anexo: { tipoSeccion: 'anexo', idSeccion: 0 },
     Opinion: { tipoSeccion: 'opinion', idSeccion: 1001 },
     Comercial: { tipoSeccion: 'comercial', idSeccion: 1101 },
-    Tema: { tipoSeccion: 'tema', idSeccion: 305 }
+    Banner: { tipoSeccion: 'banner' },
+    default: { tipoSeccion: 'tema', idSeccion: 305 }
 };
 
 const featureInformation = (information, feature) => {
+    const type = typeSection[feature] || typeSection.default;
     const res = {
-        ...typeSection[feature],
-        diagramacion: information.layout
+        ...type,
+        diagramacion: information.layout || null
     };
 
     if (feature === 'Anticipo') {
@@ -35,17 +36,32 @@ const featureInformation = (information, feature) => {
     return res;
 };
 
+const storyBox = element => {
+    const { information, feature, configurations } = element;
+    const articles = get(element, 'articles', []);
+
+    return {
+        ...featureInformation(information, feature),
+        notas: Article(articles, configurations)
+    };
+};
+
+const bannerBox = element => {
+    const type = typeSection[element.feature];
+    return {
+        ...type,
+        Id: element.id
+    };
+};
+
+const typeBox = {
+    0: storyBox,
+    1: bannerBox
+};
+
 const index = children => {
-    const ArticlesbyBox = children.reduce((result, f) => {
-        const { information, feature, configurations } = f;
-        const articles = get(f, 'articles', []);
-
-        const res = {
-            ...featureInformation(information, feature),
-            notas: Article(articles, configurations)
-        };
-
-        result.push(res);
+    const ArticlesbyBox = children.reduce((result, f, i) => {
+        result.push(typeBox[f.type](f));
         return result;
     }, []);
     return [removeEmptyItems(ArticlesbyBox)];

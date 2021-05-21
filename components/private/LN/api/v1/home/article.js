@@ -13,7 +13,15 @@ const sectionsProduct = [
     '/revista-hola'
 ];
 
-const getArticleImage = article => {};
+const getArticleImage = article => {
+    const image =
+        get(article, 'additionalProperties.image.promo_items.basic', null) ||
+        get(article, 'promo_items.basic', null);
+
+    if (image && image.type === 'image') return Image(image);
+
+    return null;
+};
 
 const getArticleTitle = article => {
     const title = get(article, 'additionalProperties.title', null);
@@ -66,11 +74,6 @@ const articleItem = (articles, configuration) => {
         .filter(e => e)
         .map(article => {
             const { subtype: templateId, website_url: url, label } = article;
-            const titulo = getArticleTitle(article);
-
-            if (!titulo) {
-                throw new Error('Titulo de la nota es null o undefined');
-            }
 
             const id = get(article, '_id', null);
             if (!id) {
@@ -79,7 +82,11 @@ const articleItem = (articles, configuration) => {
                 );
             }
 
-            const image = get(article, 'promo_items.basic', null);
+            const titulo = getArticleTitle(article);
+            if (!titulo) {
+                throw new Error('Titulo de la nota es null o undefined');
+            }
+
             const autor = getArticleAuthor(article);
             const resp = {
                 id,
@@ -92,13 +99,10 @@ const articleItem = (articles, configuration) => {
                 chapita: getArticleTag(article),
                 autor,
                 marquesina: getArticleSignature(article, autor),
-                SeccionProducto: getArticleProduct(article),
-                SeccionPadre: getArticleOpinionSubtype(article)
+                seccionProducto: getArticleProduct(article),
+                seccionPadre: getArticleOpinionSubtype(article),
+                image: getArticleImage(article)
             };
-
-            if (image && image.type === 'image') {
-                resp.imagen = Image(image);
-            }
 
             return resp;
         });

@@ -10,11 +10,10 @@ class BombaFeature {
     render() {
         try {
             const articulo = new FeatureArticulo(this.props);
-            const { articleSourceNota } = articulo.state || {};
+            const { articleSourceNota, articleImage } = articulo.state || {};
             const {
                 noteId,
                 title,
-                imageId,
                 hideFeature,
                 chapita,
                 lead,
@@ -30,7 +29,7 @@ class BombaFeature {
                 additionalProperties: {
                     noteId,
                     title,
-                    imageId,
+                    image: articleImage || null,
                     chapita,
                     lead,
                     authors
