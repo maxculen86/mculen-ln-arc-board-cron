@@ -537,7 +537,7 @@ const headerAMP = props => {
                         <p>Club LA NACION</p>
                     </a>
                     <a
-                        href="https://micuenta.lanacion.com.ar/mis-datos"
+                        href="https://myaccount.lanacion.com.ar/mi-usuario"
                         className="col-3 item-foo"
                     >
                         <i className="icon-user" />
