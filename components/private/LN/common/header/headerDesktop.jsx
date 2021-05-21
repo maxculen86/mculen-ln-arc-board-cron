@@ -22,7 +22,12 @@ const ItemAnchor = ({ url, text }) => {
 
     return (
         <li key={text}>
-            <a onMouseDown={() => callURL(url)} href="javascript:void(0)">
+            <a
+                onMouseDown={() => callURL(url)}
+                href="javascript:void(0)"
+                data-event="LinkClick"
+                data-section="MenuLN"
+            >
                 {text}
             </a>
         </li>
@@ -116,6 +121,7 @@ const HeaderDesktop = ({
                     {!loginData.subscription && (
                         <button
                             className="com-button --special"
+                            id="btnsuscribite"
                             type="button"
                             onClick={() => {
                                 location.href =
@@ -171,9 +177,10 @@ const HeaderDesktop = ({
                     )}
                     {!logueado && (
                         <button
-                            type="button"
                             className="com-button --secondary"
+                            id="btningresar"
                             onClick={() => goToLoginUrl()}
+                            type="button"
                         >
                             INGRESAR
                         </button>
