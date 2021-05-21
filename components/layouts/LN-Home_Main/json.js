@@ -8,11 +8,11 @@ import {
 } from '../../private/common/utils/validateSectionHome';
 
 const bannersPosition = {
-    4: { id: 403, type: 1, feature: 'Banner' },
-    5: { id: 404, type: 1, feature: 'Banner' },
-    6: { id: 405, type: 1, feature: 'Banner' },
-    7: { id: 406, type: 1, feature: 'Banner' },
-    9: { id: 407, type: 1, feature: 'Banner' }
+    Apertura: { id: 402, type: 1, feature: 'Banner', position: 'middle' },
+    Breaking_1: { id: 403, type: 1, feature: 'Banner', position: 'start' },
+    Breaking_2: { id: 404, type: 1, feature: 'Banner', position: 'start' },
+    Breaking_3: { id: 405, type: 1, feature: 'Banner', position: 'start' },
+    Opinion: { id: 406, type: 1, feature: 'Banner', position: 'start' }
 };
 
 const homeMobileSections = [
@@ -43,7 +43,23 @@ const homeMobileSections = [
 
 const validateSections = (section, name, position, renderables) => {
     const sectionChildren = findSectionChildren(renderables, position);
-    return checkIfValid(name, sectionChildren) === true ? section : null;
+    const elements =
+        checkIfValid(name, sectionChildren) === true ? section : null;
+    const banner = bannersPosition[name];
+    if (elements && elements.length > 0 && banner) {
+        switch (banner.position) {
+            case 'middle':
+                elements.splice(Math.floor(elements.length / 2), 0, banner);
+                break;
+            case 'start':
+                elements.unshift(banner);
+                break;
+            default:
+                elements.push(banner);
+                break;
+        }
+    }
+    return elements;
 };
 
 const getHomeElements = props => {
@@ -53,7 +69,7 @@ const getHomeElements = props => {
     };
     return pageBuilderSections.reduce((r, e, i) => {
         const child = validateSections(children[i], e, i, renderables);
-        const banner = bannersPosition[i];
+        const banner = bannersPosition[e];
         if (child && Array.isArray(child) && child.length > 0) {
             return r.concat(
                 [].concat(
@@ -66,10 +82,12 @@ const getHomeElements = props => {
                                 ...addedInfo
                             });
                         }
+                        if (b && b.feature) {
+                            return res.concat(b);
+                        }
                         return res;
                     }, [])
-                ) || [],
-                banner || []
+                ) || []
             );
         }
         if (banner) {
@@ -82,7 +100,7 @@ const getHomeElements = props => {
 
 const LNMainHome = props => {
     const homeSections = getHomeElements(props);
-    return home(homeSections) || null;
+    return home(homeSections) || [];
 };
 
 export default Consumer(LNMainHome);
