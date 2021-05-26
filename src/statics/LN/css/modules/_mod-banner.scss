@@ -11,6 +11,8 @@
     max-width: 100%;
     overflow: hidden;
     z-index: 1;
+    margin-top: px(32); //cambiar a variable
+    margin-bottom: px(32); //cambiar a variable
 
     &:before {
         content: 'PUBLICIDAD';
@@ -30,6 +32,10 @@
         z-index: 110;
         background: $neutral-white;
     }
+    &.--unoxuno_mob,
+    &.--unoxuno_dsk {
+        margin: 0;
+    }
     &.--comercial {
         &:before {
             display: none;
@@ -42,6 +48,9 @@
         height: 100vh;
         width: 100%;
         top: 0;
+
+        margin: 0;
+
         .com-button {
             position: absolute;
             top: px(16);
@@ -55,8 +64,10 @@
     }
     &.--sticky {
         position: sticky;
-        margin-bottom: $spacing-md;
+        //margin-bottom: $spacing-md;
         top: 0;
+
+        margin: 0;
 
         &.--active {
             .--scrollDown & {
@@ -88,6 +99,8 @@
         left: calc((100% - 320px) / 2);
         background: white;
 
+        margin: 0;
+
         // &.--adhesion_mob {
         //     display: flex;
         // }
@@ -112,9 +125,9 @@
             font-size: px(16);
         }
     }
-    .cuerpo__nota & {
-        margin-bottom: $spacing-lg;
-    }
+    // .cuerpo__nota & {
+    //     margin-bottom: $spacing-lg;
+    // }
     &:not(:last-child) {
         .sidebar__aside & {
             padding-bottom: px(32);
@@ -137,7 +150,7 @@
     &.--caja3_mob,
     &.--caja4_mob {
         height: px(450);
-        margin-bottom: px(32);
+        //margin-bottom: px(32);
     }
     &.--comercial_mob {
         height: px(480);
@@ -167,9 +180,10 @@
         // }
         &.--cabezal_tab {
             display: flex;
-            margin-bottom: $spacing-lg;
+            //margin-bottom: $spacing-lg;
+            margin-top: 0;
             &.--dark {
-                margin-bottom: 0;
+                margin: 0;
             }
         }
 
@@ -235,15 +249,17 @@
         }
         &.--cabezal_dsk {
             display: flex;
-            margin-bottom: $spacing-lg;
+            //margin-bottom: $spacing-lg;
+            margin-top: 0;
             height: px(170);
             &.--dark {
-                margin-bottom: 0;
+                margin: 0;
             }
         }
 
         //ALTURAS FIJAS
         .home & {
+            &.--cabezal_dsk,
             &.--adhesion_dsk {
                 height: px(100);
             }
