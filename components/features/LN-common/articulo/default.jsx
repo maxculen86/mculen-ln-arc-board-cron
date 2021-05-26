@@ -42,10 +42,12 @@ const ArticleFeature = ({
         filter
     });
 
-    const image = useContent({
-        source: 'relatedImageSource',
-        query: { id: imageId, published: true, imageConfig }
-    });
+    const image =
+        imageId &&
+        useContent({
+            source: 'relatedImageSource',
+            query: { id: imageId, published: true, imageConfig }
+        });
 
     const error = validateArticleFeature(id, article);
 
