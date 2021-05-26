@@ -633,6 +633,9 @@
             .com-title {
                 text-transform: uppercase;
                 margin-bottom: px(16);
+                .com-link {
+                    color: $light-neutral-700;
+                }
             }
             .com-unordered {
                 font-family: $font-SuecaSlab;
@@ -648,7 +651,7 @@
                     }
                     .com-link {
                         display: inline-flex;
-                        color: #333;
+                        color: $light-neutral-700;
                         // &:hover {
                         //     color: $light-blue-500;
                         // }
@@ -665,7 +668,7 @@
         }
         @media ($media-m) {
             margin: px(32) 0 px(32);
-            width: auto;
+            width: 100%;
             .mod-footersection {
                 display: grid;
                 padding: $spacing-sm 0;
@@ -677,7 +680,7 @@
                     display: inline-flex;
                     li {
                         margin: 0;
-                        flex: 1;
+                        //flex: 1;
                     }
                 }
             }

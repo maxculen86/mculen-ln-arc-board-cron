@@ -74,7 +74,7 @@ const checkIfOneBlockIsFalse = blocksToLoad => {
 
 const BannerCabezal = ({ isDesktop, isTablet }) => {
     return (
-        <>
+        <div className="container --ads">
             <DivBanner
                 id="cabezal_dsk"
                 shouldRender={isDesktop}
@@ -85,7 +85,7 @@ const BannerCabezal = ({ isDesktop, isTablet }) => {
                 shouldRender={isTablet}
                 classes="--dark"
             />
-        </>
+        </div>
     );
 };
 

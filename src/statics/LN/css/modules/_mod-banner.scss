@@ -32,6 +32,7 @@
         z-index: 110;
         background: $neutral-white;
     }
+    .--ads &,
     &.--unoxuno_mob,
     &.--unoxuno_dsk {
         margin: 0;
@@ -182,9 +183,9 @@
             display: flex;
             //margin-bottom: $spacing-lg;
             margin-top: 0;
-            &.--dark {
-                margin: 0;
-            }
+            // &.--dark {
+            //     margin: 0;
+            // }
         }
         //ALTURAS FIJAS
         &.--adhesion_tab,
@@ -256,9 +257,9 @@
         .home & {
             &.--cabezal_dsk {
                 height: px(100);
-                &.--dark {
-                    margin: 0;
-                }
+                // &.--dark {
+                //     margin: 0;
+                // }
             }
             &.--adhesion_dsk {
                 height: px(100);
@@ -299,9 +300,28 @@
     }
 }
 
-.--ads {
-    margin-bottom: px(32);
-    &:empty {
-        display: none;
+[class*='row-gap'] {
+    &.--ads {
+        margin-bottom: px(32);
+        &:empty {
+            display: none;
+        }
+    }
+}
+// .--ads {
+//     margin-bottom: px(32);
+//     &:empty {
+//         display: none;
+//     }
+// }
+
+.container {
+    &.--ads {
+        background: $neutral-white;
+        padding: px(24) 0;
+        .mod-banner {
+            width: fit-content;
+            margin: 0 auto;
+        }
     }
 }
