@@ -186,9 +186,7 @@
                 margin: 0;
             }
         }
-
         //ALTURAS FIJAS
-
         &.--adhesion_tab,
         &.--cabezal_tab,
         &.--middle1_tab,
@@ -252,14 +250,16 @@
             //margin-bottom: $spacing-lg;
             margin-top: 0;
             height: px(170);
-            &.--dark {
-                margin: 0;
-            }
         }
 
         //ALTURAS FIJAS
         .home & {
-            &.--cabezal_dsk,
+            &.--cabezal_dsk {
+                height: px(100);
+                &.--dark {
+                    margin: 0;
+                }
+            }
             &.--adhesion_dsk {
                 height: px(100);
             }
