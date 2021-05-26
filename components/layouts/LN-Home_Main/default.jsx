@@ -498,12 +498,12 @@ const LNMainHome = props => {
                                     />
                                 </div>
                             )}
+                            <div className="lay" data-section="comercial1">
+                                {blocksToLoad.bloque3 && comercial1}
+                            </div>
                             <div id="content-main-2" className="lay-sidebar">
                                 {/* Cuerpo */}
                                 <div className="sidebar__main">
-                                    <div data-section="comercial1">
-                                        {blocksToLoad.bloque3 && comercial1}
-                                    </div>
                                     {/* 4to Bloque */}
                                     <div data-section="bloque2">
                                         {blocksToLoad.bloque4 && bloque2}
@@ -517,6 +517,21 @@ const LNMainHome = props => {
                                     <div data-section="bloque4">
                                         {blocksToLoad.bloque4 && bloque4}
                                     </div>
+                                </div>
+                                <div className="sidebar__aside hlp-tabletlm-none">
+                                    {/* BANNER ASIDE */}
+                                    {blocksToLoad.bloque4 && (
+                                        <DivBanner
+                                            id="megalateral2_dsk"
+                                            classes="--megalateral --sticky"
+                                            shouldRender={isDesktop}
+                                        />
+                                    )}
+                                </div>
+                            </div>
+                            <div id="content-main-3" className="lay-sidebar">
+                                {/* Cuerpo */}
+                                <div className="sidebar__main">
                                     {/* 5to Bloque */}
                                     <div data-section="bloque5">
                                         {blocksToLoad.bloque5 && bloque5}
@@ -541,13 +556,6 @@ const LNMainHome = props => {
                                 </div>
                                 <div className="sidebar__aside hlp-tabletlm-none">
                                     {/* BANNER ASIDE */}
-                                    {blocksToLoad.bloque4 && (
-                                        <DivBanner
-                                            id="megalateral2_dsk"
-                                            classes="--megalateral --sticky"
-                                            shouldRender={isDesktop}
-                                        />
-                                    )}
                                     {blocksToLoad.bloque5 && (
                                         <DivBanner
                                             id="megalateral3_dsk"
