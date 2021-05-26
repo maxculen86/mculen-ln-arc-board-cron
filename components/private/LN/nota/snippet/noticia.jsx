@@ -189,7 +189,7 @@ const SnippetNoticia = props => {
         keywords,
         publisher: {
             '@type': 'Organization',
-            name: `${siteProperties.shortTitle || ''}`,
+            name: `${siteProperties.title || ''}`,
             url: `${siteProperties.host || ''}`,
             logo: {
                 '@context': 'https://schema.org',

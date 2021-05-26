@@ -34,6 +34,7 @@
         &:before {
             display: none;
         }
+        align-items: center;
         position: fixed;
         top: 0;
         z-index: 1100000;
@@ -242,28 +243,29 @@
         }
 
         //ALTURAS FIJAS
+        .home & {
+            &.--adhesion_dsk {
+                height: px(100);
+            }
 
-        &.--adhesion_dsk {
-            height: px(100);
-        }
+            &.--middle1_dsk,
+            &.--caja1_dsk,
+            &.--caja2_dsk,
+            &.--caja3_dsk,
+            &.--caja4_dsk,
+            &.--billboard_dsk,
+            &.--caja_producto1_dsk,
+            &.--caja_producto2_dsk,
+            &.--cinturon1_dsk,
+            &.--cinturon2_dsk {
+                height: px(250);
+            }
 
-        &.--middle1_dsk,
-        &.--caja1_dsk,
-        &.--caja2_dsk,
-        &.--caja3_dsk,
-        &.--caja4_dsk,
-        &.--billboard_dsk,
-        &.--caja_producto1_dsk,
-        &.--caja_producto2_dsk,
-        &.--cinturon1_dsk,
-        &.--cinturon2_dsk {
-            height: px(250);
-        }
-
-        &.--megalateral_dsk,
-        &.--megalateral2_dsk,
-        &.--megalateral3_dsk {
-            height: px(600);
+            &.--megalateral_dsk,
+            &.--megalateral2_dsk,
+            &.--megalateral3_dsk {
+                height: px(600);
+            }
         }
     }
 }
