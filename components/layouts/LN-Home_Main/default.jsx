@@ -12,7 +12,6 @@ import LoadBanners from '../../private/common/banners/LoadBanners';
 import blocksBanners from '../../private/common/banners/blocksBannerHome';
 import Metarefresh from '../../features/LN-common/metarefresh';
 import {
-    getChainsFromApertura,
     sectionsWithBlocks,
     getSectionVisible,
     scrollToSection,
@@ -96,7 +95,8 @@ const LNMainHome = props => {
         anticipo,
         anexo1,
         bomba,
-        apertura,
+        apertura1,
+        apertura2,
         anexo2,
         breaking1,
         breaking2,
@@ -125,13 +125,6 @@ const LNMainHome = props => {
             isAdmin
         );
     });
-
-    const { chainApertura1, chainApertura2 } = getChainsFromApertura(
-        renderables
-    );
-
-    const showSectionApertura =
-        !apertura || get(apertura, 'props.id', null) === 'LN-Home-error';
 
     const showBomba = isBombaVisible(renderables);
 
@@ -279,19 +272,15 @@ const LNMainHome = props => {
                                     )}
 
                                     {/* 1er Bloque */}
-                                    {!showSectionApertura ? (
-                                        <div data-section="apertura">
-                                            {chainApertura1}
-                                            {/* BANNER CAJA 1 MOB */}
-                                            <DivBanner
-                                                id="caja1_mob"
-                                                shouldRender={isMobile}
-                                            />
-                                            {chainApertura2}
-                                        </div>
-                                    ) : (
-                                        apertura
-                                    )}
+                                    <div data-section="apertura">
+                                        {apertura1}
+                                        {/* BANNER CAJA 1 MOB */}
+                                        <DivBanner
+                                            id="caja1_mob"
+                                            shouldRender={isMobile}
+                                        />
+                                        {apertura2}
+                                    </div>
 
                                     {/* BANNER BILLBOARD */}
                                     <DivBanner
