@@ -87,13 +87,13 @@
 #fusion-app > #wrapper {
     //fusion-app es por pagebuilder
     position: relative;
-    margin-bottom: 80px;
+    //margin-bottom: 80px;
     //margin-top: 50px; //alto header mobile
 
     &:before {
         @include BgDiagonal;
         content: '';
-        height: 50px;
+        height: px(50);
         width: 100%;
         display: block;
 
@@ -103,13 +103,13 @@
     }
     &.--transparent {
         &:before {
-            background: black;
+            background: $neutral-black;
         }
     }
 
     @media (min-width: 1024px) {
-        margin-bottom: 0;
-        margin-top: 73px; //alto header desktop para header fijo
+        //margin-bottom: 0;
+        margin-top: $header-desktop; //alto header desktop para header fijo
         // &.--scrollUp,
         // &.--scrollDown {
         //     margin-top: 73px; //alto header desktop
