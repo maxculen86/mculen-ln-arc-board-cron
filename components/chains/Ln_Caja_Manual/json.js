@@ -7,17 +7,19 @@ const CajaManual = props => {
 
     try {
         const sources = children.reduce((result, article) => {
-            if (!article) {
-                result.push(article);
+            if (article) {
+                return result.concat(article);
             }
             return result;
         }, []);
-        if (sources.length > 0) {
+
+        if (!sources.length) {
             return null;
         }
+
         return {
             information: customFields,
-            articles: children
+            articles: sources
         };
     } catch (err) {
         return { Success: false, Message: err.message };

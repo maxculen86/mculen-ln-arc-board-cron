@@ -74,16 +74,18 @@ const getHomeElements = props => {
             return r.concat(
                 [].concat(
                     child.reduce((res, b) => {
-                        if (b && b.information && !b.information.hideCaja) {
-                            const addedInfo = { ...b, configurations };
-                            return res.concat({
-                                type: 0,
-                                feature: homeMobileSections[i],
-                                ...addedInfo
-                            });
-                        }
-                        if (b && b.feature) {
-                            return res.concat(b);
+                        if (b) {
+                            if (b.information && !b.information.hideCaja) {
+                                const addedInfo = { ...b, configurations };
+                                return res.concat({
+                                    type: 0,
+                                    feature: homeMobileSections[i],
+                                    ...addedInfo
+                                });
+                            }
+                            if (b.feature) {
+                                return res.concat(b);
+                            }
                         }
                         return res;
                     }, [])
