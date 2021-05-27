@@ -33,7 +33,7 @@ const featuredRules = {
         layouts: {
             focalLeft3: 'Focal Izquierdo',
             focalRight2: 'Focal Derecho',
-            author3: 'Opinión',
+            // author3: 'Opinión',
             notaColorRosa3: 'Vertical 3 color Rosa',
             notaColorVerde3: 'Vertical 3 color Verde',
             grilla1: 'Grilla 1',

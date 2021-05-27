@@ -2,7 +2,7 @@
 @import '../abstracts/mixins';
 
 .footer-site {
-    margin: px(32) 0 px(16);
+    margin: px(32) 0 px(80);
 
     .--right {
         @media ($media-l) {
@@ -138,5 +138,9 @@
     }
     .com-icon {
         display: inline-flex;
+    }
+
+    @media ($media-l) {
+        margin-bottom: px(16);
     }
 }

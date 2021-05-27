@@ -2,19 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { getFontFamily, getFontSize, getFontWeight } from './getFontData';
 
-const propTypes = {
-    children: PropTypes.element.isRequired,
-    tag: PropTypes.string,
-    extraClass: PropTypes.string,
-    font: PropTypes.string,
-    size: PropTypes.string,
-    weight: PropTypes.string,
-    color: PropTypes.string,
-    bold: PropTypes.bool,
-    highlight: PropTypes.bool,
-    capital: PropTypes.bool
-};
-
 const Text = ({
     tag,
     extraClass,
@@ -51,6 +38,32 @@ const Text = ({
     );
 };
 
-Text.propTypes = PropTypes;
+Text.propTypes = {
+    children: PropTypes.node,
+    tag: PropTypes.string,
+    text: PropTypes.string,
+    extraClass: PropTypes.string,
+    font: PropTypes.string,
+    size: PropTypes.string,
+    weight: PropTypes.string,
+    color: PropTypes.string,
+    bold: PropTypes.bool,
+    highlight: PropTypes.bool,
+    capital: PropTypes.bool
+};
+
+Text.defaultProps = {
+    children: undefined,
+    tag: undefined,
+    text: undefined,
+    extraClass: undefined,
+    font: undefined,
+    size: undefined,
+    weight: undefined,
+    color: undefined,
+    bold: undefined,
+    highlight: undefined,
+    capital: undefined
+};
 
 export default Text;
