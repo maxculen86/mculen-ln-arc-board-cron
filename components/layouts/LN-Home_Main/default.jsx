@@ -373,26 +373,28 @@ const LNMainHome = props => {
                                         {blocksToLoad.bloque2 && breaking3}
                                     </div>
                                     {blocksToLoad.bloque3 && (
-                                        <div className="row-gap-tablet-2">
-                                            <CajaPromo
-                                                customFields={{
-                                                    text:
-                                                        'La información más completa del mercado inmobiliario minuto a minuto.',
-                                                    link:
-                                                        'https://www.lanacion.com.ar/propiedades/',
-                                                    logoName: 'propiedades'
-                                                }}
-                                            />
-                                            <CajaPromo
-                                                customFields={{
-                                                    text:
-                                                        'La mejor información para un sector clave que evoluciona día a día.',
-                                                    link:
-                                                        'https://www.lanacion.com.ar/economia/campo/',
-                                                    logoName: 'campo'
-                                                }}
-                                            />
-                                        </div>
+                                        <section className="container --promos">
+                                            <div className="row-gap-tablet-2">
+                                                <CajaPromo
+                                                    customFields={{
+                                                        text:
+                                                            'La información más completa del mercado inmobiliario minuto a minuto.',
+                                                        link:
+                                                            'https://www.lanacion.com.ar/propiedades/',
+                                                        logoName: 'propiedades'
+                                                    }}
+                                                />
+                                                <CajaPromo
+                                                    customFields={{
+                                                        text:
+                                                            'La mejor información para un sector clave que evoluciona día a día.',
+                                                        link:
+                                                            'https://www.lanacion.com.ar/economia/campo/',
+                                                        logoName: 'campo'
+                                                    }}
+                                                />
+                                            </div>
+                                        </section>
                                     )}
                                     {/* 3er Bloque */}
                                     {blocksToLoad.bloque3 && (
