@@ -37,10 +37,10 @@
         "children": [
             {
                 "collection": "features",
-                "type": "LN-acumulado/anexoIframe",
+                "type": "LN-common/anexo",
                 "props": {
                     "collection": "features",
-                    "type": "LN-acumulado/anexoIframe",
+                    "type": "LN-common/anexo",
                     "id": "f0f3er6S47oo8O9",
                     "name": null,
                     "customFields": {
@@ -158,10 +158,10 @@
         "children": [
             {
                 "collection": "features",
-                "type": "LN-acumulado/anexoIframe",
+                "type": "LN-common/anexo",
                 "props": {
                     "collection": "features",
-                    "type": "LN-acumulado/anexoIframe",
+                    "type": "LN-common/anexo",
                     "id": "f0fClWak7ebsKa",
                     "name": null
                 }
@@ -264,10 +264,10 @@
         "children": [
             {
                 "collection": "features",
-                "type": "LN-acumulado/anexoIframe",
+                "type": "LN-common/anexo",
                 "props": {
                     "collection": "features",
-                    "type": "LN-acumulado/anexoIframe",
+                    "type": "LN-common/anexo",
                     "id": "f0fClWak7ebsKa",
                     "name": null
                 }
@@ -457,26 +457,6 @@
                         "hideTitle": false,
                         "idCollection": "QJ3BOEZVQNEYZEVBXHF4C7KAWY",
                         "title": "Bloque 2 (tema 9)"
-                    },
-                    "displayProperties": {}
-                },
-                "children": []
-            },
-            {
-                "collection": "chains",
-                "type": "Ln_Caja_Collection",
-                "props": {
-                    "collection": "chains",
-                    "type": "Ln_Caja_Collection",
-                    "id": "c0fPSKyN8ebsEp",
-                    "name": null,
-                    "customFields": {
-                        "layout": "grilla3",
-                        "backgroundColor": "default",
-                        "initialPosition": 4,
-                        "hideTitle": false,
-                        "idCollection": "QJ3BOEZVQNEYZEVBXHF4C7KAWY",
-                        "title": "Bloque 2 (tema 10)"
                     },
                     "displayProperties": {}
                 },

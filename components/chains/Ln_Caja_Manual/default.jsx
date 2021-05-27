@@ -14,15 +14,7 @@ const CajaManual = props => {
     const {
         id: featureId,
         isAdmin,
-        customFields: {
-            url,
-            title,
-            layout = '',
-            backgroundColor,
-            imageId,
-            hideTitle,
-            hideCaja
-        },
+        customFields: { url, title, layout = '', imageId, hideTitle, hideCaja },
         outputType,
         childProps,
         children
@@ -32,7 +24,6 @@ const CajaManual = props => {
 
     const {
         notesQuantity,
-        bgColor,
         classCondition,
         position,
         sectionName
@@ -67,11 +58,6 @@ const CajaManual = props => {
                 notesQuantity={notesQuantity}
                 position={position}
                 sectionName={sectionName}
-                backgroundColor={
-                    backgroundColor !== 'default'
-                        ? `${bgColor}${backgroundColor}`
-                        : ''
-                }
                 _children={children}
             />
         )) || <></>

@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 /* eslint-disable no-mixed-operators */
 /* eslint-disable no-bitwise */
 /* eslint-disable react-hooks/rules-of-hooks */
@@ -7,6 +6,7 @@ import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import TePuedeInteresar from '../../../private/LN/nota/tePuedeInteresar';
 import findTermica from '../../../private/common/utils/findTermica';
+import config from '../../../../properties/sites/la-nacion-ar';
 
 const getVariablesFromLocalStorage = () => {
     const urls = JSON.parse(localStorage.getItem('excludeItems')) || [];
@@ -62,8 +62,9 @@ const tePuedeInteresar = props => {
         siteProperties
     } = props;
 
-    const { requestUri, globalContent, arcSite } = useAppContext();
+    const { requestUri, globalContent, arcSite, layout } = useAppContext();
     const { host = 'https://www.lanacion.com.ar' } = siteProperties || {};
+    const { layoutsName = {} } = config || {};
     const url = `${host}${requestUri}`;
     const { _id } = globalContent || {};
     const [userId, setUserId] = useState();
@@ -95,6 +96,11 @@ const tePuedeInteresar = props => {
             url={url}
             idArticle={_id}
             arcSite={arcSite}
+            dataLayerSection={
+                layout === layoutsName.Home
+                    ? 'h_sugerencias'
+                    : 'n_te_puede_interesar'
+            }
         />
     );
 };

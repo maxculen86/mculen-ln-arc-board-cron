@@ -52,5 +52,12 @@ describe('Private - Feature - CajaAnticipo =>', () => {
             expect(title).toStrictEqual(titleMock);
             expect(link).toStrictEqual(linkMock);
         });
+
+        it('Snapshot Caja Anticipo', () => {
+            const component = shallow(
+                <CajaAnticipo customFields={{ ...mock }} />
+            );
+            expect(component).toMatchSnapshot();
+        });
     });
 });

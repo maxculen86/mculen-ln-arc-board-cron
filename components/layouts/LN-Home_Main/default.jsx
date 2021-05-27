@@ -19,40 +19,17 @@ import {
     getViewport,
     isScrollbarVisible,
     isBombaVisible,
-    BannerCabezal
+    validateSectionHome
 } from '../../private/LN/common/utils/homeHelper';
 import getScrollPercent from '../../private/LN/common/utils/getScrollPercent';
 import AnexoFeature from '../../features/LN-acumulado/anexoIframe';
 import SubHeader from '../../features/LN-common/subHeader';
 import TePuedeInteresar from '../../features/LN-nota/tePuedeInteresar/default';
-import validateSectionHome from '../../private/common/utils/validateSectionHome';
 import DivBanner from '../../private/common/banners/DivBanner';
 import BannerComercial from '../../private/common/banners/BannerComercial';
-
-const pageBuilderSections = [
-    'Anticipo',
-    'Anexo_1',
-    'Bomba',
-    'Apertura',
-    'Anexo_2',
-    'Breaking_1',
-    'Breaking_2',
-    'Breaking_3',
-    'Anexo_3',
-    'Opinion',
-    'Breaking_4',
-    'Breaking_5',
-    'Breaking_6',
-    'Comercial_1',
-    'Bloque_2',
-    'Comercial_2',
-    'Bloque_3',
-    'Bloque_4',
-    'Bloque_5',
-    'Bloque_6',
-    'Bloque_7',
-    'Bloque_8'
-];
+import pageBuilderSections from '../config/LN-PageBuilder.config.json';
+import TagsListFeature from '../../features/LN-acumulado/tagList';
+import CajaPromo from '../../features/LN-common/cajaPromo/default';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -93,6 +70,23 @@ const updateNextBlock = blocks => {
 
 const checkIfOneBlockIsFalse = blocksToLoad => {
     return Object.keys(blocksToLoad).some(key => !blocksToLoad[key]);
+};
+
+const BannerCabezal = ({ isDesktop, isTablet }) => {
+    return (
+        <>
+            <DivBanner
+                id="cabezal_dsk"
+                shouldRender={isDesktop}
+                classes="--dark"
+            />
+            <DivBanner
+                id="cabezal_tab"
+                shouldRender={isTablet}
+                classes="--dark"
+            />
+        </>
+    );
 };
 
 const LNMainHome = props => {
@@ -243,14 +237,27 @@ const LNMainHome = props => {
                 <div id="wrapper" className="home">
                     <Header />
                     <SubHeader />
+                    {/* ANTICIPO */}
                     {anticipo}
-                    {anexo1}
+
+                    {/* ANEXO_1 */}
+                    <section
+                        data-block-name="h_anexo-1"
+                        data-diagramacion-id="9999"
+                        data-is-block="true"
+                    >
+                        {anexo1}
+                    </section>
+
+                    {/* BANNER_CABEZAL (BOMBA) */}
                     {showBomba && (
                         <BannerCabezal
                             isTablet={isTablet}
                             isDesktop={isDesktop}
                         />
                     )}
+
+                    {/* BOMBA */}
                     {bomba}
                     <main>
                         {/* STICKY MOB */}
@@ -299,9 +306,17 @@ const LNMainHome = props => {
                                             shouldRender={isMobile}
                                         />
                                     )}
-                                    <div data-section="anexo2">
-                                        {blocksToLoad.bloque2 && anexo2}
-                                    </div>
+                                    {blocksToLoad.bloque2 && (
+                                        <section
+                                            data-section="anexo2"
+                                            data-block-name="h_anexo-2"
+                                            data-diagramacion-id="9999"
+                                            data-is-block="true"
+                                        >
+                                            {anexo2}
+                                        </section>
+                                    )}
+
                                     <div data-section="breaking1">
                                         {blocksToLoad.bloque2 && breaking1}
                                     </div>
@@ -368,8 +383,40 @@ const LNMainHome = props => {
                                     <div data-section="breaking3">
                                         {blocksToLoad.bloque2 && breaking3}
                                     </div>
-                                    {/* 2do Bloque */}
-                                    {blocksToLoad.bloque3 && anexo3}
+                                    {blocksToLoad.bloque3 && (
+                                        <div className="row-gap-tablet-2">
+                                            <CajaPromo
+                                                customFields={{
+                                                    text:
+                                                        'La información más completa del mercado inmobiliario minuto a minuto.',
+                                                    link:
+                                                        'https://www.lanacion.com.ar/propiedades/',
+                                                    logoName: 'propiedades'
+                                                }}
+                                            />
+                                            <CajaPromo
+                                                customFields={{
+                                                    text:
+                                                        'La mejor información para un sector clave que evoluciona día a día.',
+                                                    link:
+                                                        'https://www.lanacion.com.ar/economia/campo/',
+                                                    logoName: 'campo'
+                                                }}
+                                            />
+                                        </div>
+                                    )}
+                                    {/* 3er Bloque */}
+                                    {blocksToLoad.bloque3 && (
+                                        <section
+                                            data-section="anexo3"
+                                            data-block-name="h_anexo-3"
+                                            data-diagramacion-id="9999"
+                                            data-is-block="true"
+                                        >
+                                            {anexo3}
+                                        </section>
+                                    )}
+
                                     {/* BANNER CAJA 5 MOB - BANNER CINTURON 2 - BANNER MIDDLE 2 */}
                                     {blocksToLoad.bloque3 && (
                                         <>
@@ -462,12 +509,12 @@ const LNMainHome = props => {
                                     />
                                 </div>
                             )}
+                            <div className="lay" data-section="comercial1">
+                                {blocksToLoad.bloque3 && comercial1}
+                            </div>
                             <div id="content-main-2" className="lay-sidebar">
                                 {/* Cuerpo */}
                                 <div className="sidebar__main">
-                                    <div data-section="comercial1">
-                                        {blocksToLoad.bloque3 && comercial1}
-                                    </div>
                                     {/* 4to Bloque */}
                                     <div data-section="bloque2">
                                         {blocksToLoad.bloque4 && bloque2}
@@ -481,6 +528,21 @@ const LNMainHome = props => {
                                     <div data-section="bloque4">
                                         {blocksToLoad.bloque4 && bloque4}
                                     </div>
+                                </div>
+                                <div className="sidebar__aside hlp-tabletlm-none">
+                                    {/* BANNER ASIDE */}
+                                    {blocksToLoad.bloque4 && (
+                                        <DivBanner
+                                            id="megalateral2_dsk"
+                                            classes="--megalateral --sticky"
+                                            shouldRender={isDesktop}
+                                        />
+                                    )}
+                                </div>
+                            </div>
+                            <div id="content-main-3" className="lay-sidebar">
+                                {/* Cuerpo */}
+                                <div className="sidebar__main">
                                     {/* 5to Bloque */}
                                     <div data-section="bloque5">
                                         {blocksToLoad.bloque5 && bloque5}
@@ -499,16 +561,12 @@ const LNMainHome = props => {
                                             customFields={{ cantidadNotas: 6 }}
                                         />
                                     )}
+                                    <div className="acumulado">
+                                        <TagsListFeature id="TagsListFeatureHome" />
+                                    </div>
                                 </div>
                                 <div className="sidebar__aside hlp-tabletlm-none">
                                     {/* BANNER ASIDE */}
-                                    {blocksToLoad.bloque4 && (
-                                        <DivBanner
-                                            id="megalateral2_dsk"
-                                            classes="--megalateral --sticky"
-                                            shouldRender={isDesktop}
-                                        />
-                                    )}
                                     {blocksToLoad.bloque5 && (
                                         <DivBanner
                                             id="megalateral3_dsk"
@@ -602,8 +660,7 @@ LNMainHome.propTypes = {
 };
 
 LNMainHome.defaultProps = {
-    outputType: 'default',
-    siteProperties: undefined
+    outputType: 'default'
 };
 
 LNMainHome.sections = pageBuilderSections;

@@ -677,6 +677,7 @@
                     display: inline-flex;
                     li {
                         margin: 0;
+                        flex: 1;
                     }
                 }
             }
@@ -864,7 +865,7 @@
             width: 100%;
             min-height: px(100);
             color: white;
-            align-items: center;
+            align-items: flex-start; //align-items: center;ALE
             justify-content: center;
         }
     }

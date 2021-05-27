@@ -36,6 +36,8 @@ const ModSubheader = props => {
 
                     <ComLink
                         classCondition="--newsletter"
+                        dataEvent="LinkClick"
+                        dataSection="MenuLN"
                         link="https://newsletter.lanacion.com.ar/#/"
                         size="--fourxs"
                         textname="Recibí Newsletters"
@@ -44,6 +46,8 @@ const ModSubheader = props => {
 
                     <ComLink
                         classCondition="com-club"
+                        dataEvent="LinkClick"
+                        dataSection="MenuLN"
                         link="https://club.lanacion.com.ar/"
                         size="--fourxs"
                         title="Club LA NACION"

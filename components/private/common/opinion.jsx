@@ -51,6 +51,8 @@ const Opinion = props => {
                                 get(art1, 'label.chapita.text', '')) ||
                             ''
                         }
+                        boxPosition="98"
+                        artPosition="01"
                     />
                 </div>
                 <div className="col-tablet-4">
@@ -71,6 +73,8 @@ const Opinion = props => {
                             'isRenderAuthorOpinion',
                             false
                         )}
+                        boxPosition="98"
+                        artPosition="02"
                     />
                     <Article
                         articleData={art3}
@@ -89,6 +93,8 @@ const Opinion = props => {
                             'isRenderAuthorOpinion',
                             false
                         )}
+                        boxPosition="98"
+                        artPosition="03"
                     />
                 </div>
                 <div className="col-tablet-3">
@@ -109,6 +115,8 @@ const Opinion = props => {
                             'isRenderAuthorOpinion',
                             false
                         )}
+                        boxPosition="98"
+                        artPosition="04"
                     />
                 </div>
             </>

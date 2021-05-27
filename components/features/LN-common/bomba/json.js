@@ -8,18 +8,37 @@ class BombaFeature {
     }
 
     render() {
-        //return new FeatureArticulo(this.props);
         try {
             const articulo = new FeatureArticulo(this.props);
-            const { articleSourceNota } = articulo.state || {};
-            const articles = [];
+            const { articleSourceNota, articleImage } = articulo.state || {};
+            const {
+                noteId,
+                title,
+                hideFeature,
+                chapita,
+                lead,
+                authors
+            } = this.props.customFields;
+
             if (!articleSourceNota) {
                 return null;
             }
-            articles.push(articleSourceNota);
+
+            const article = {
+                ...articleSourceNota,
+                additionalProperties: {
+                    noteId,
+                    title,
+                    image: articleImage || null,
+                    chapita,
+                    lead,
+                    authors
+                }
+            };
+
             return {
-                information: this.props.customFields,
-                articles
+                information: { hideCaja: hideFeature, layout: 'grilla1' },
+                articles: [article]
             };
         } catch (err) {
             return { Success: false, Message: err.message };

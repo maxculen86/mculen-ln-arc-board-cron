@@ -6,7 +6,7 @@
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     width: inherit;
     max-width: 100%;
     overflow: hidden;
@@ -34,6 +34,7 @@
         &:before {
             display: none;
         }
+        align-items: center;
         position: fixed;
         top: 0;
         z-index: 1100000;
@@ -47,23 +48,15 @@
             right: px(16);
         }
     }
-    // &.--bg-banner {
-    //     background: $light-neutral-200;
-    //     width: 100%;
-    // }
+
     &.--mobile,
     &.--sticky1_mob {
         display: none;
-        //margin-bottom: px(24);
-        //height: px(100);
     }
     &.--sticky {
         position: sticky;
         margin-bottom: $spacing-md;
-        top: 0; //para mobile
-        //.--scrollDown & {
-        //top: $header-desktop;
-        //}
+        top: 0;
 
         &.--active {
             .--scrollDown & {
@@ -73,7 +66,6 @@
 
         &.--sticky2_mob {
             height: px(50);
-            //background: $neutral-white;
             position: fixed;
             display: flex;
             width: 100%;
@@ -126,7 +118,7 @@
     &:not(:last-child) {
         .sidebar__aside & {
             padding-bottom: px(32);
-            background: $neutral-white;
+            //background: $neutral-white;
         }
     }
     // &.--cabezal_tab,
@@ -251,28 +243,29 @@
         }
 
         //ALTURAS FIJAS
+        .home & {
+            &.--adhesion_dsk {
+                height: px(100);
+            }
 
-        &.--adhesion_dsk {
-            height: px(100);
-        }
+            &.--middle1_dsk,
+            &.--caja1_dsk,
+            &.--caja2_dsk,
+            &.--caja3_dsk,
+            &.--caja4_dsk,
+            &.--billboard_dsk,
+            &.--caja_producto1_dsk,
+            &.--caja_producto2_dsk,
+            &.--cinturon1_dsk,
+            &.--cinturon2_dsk {
+                height: px(250);
+            }
 
-        &.--middle1_dsk,
-        &.--caja1_dsk,
-        &.--caja2_dsk,
-        &.--caja3_dsk,
-        &.--caja4_dsk,
-        &.--billboard_dsk,
-        &.--caja_producto1_dsk,
-        &.--caja_producto2_dsk,
-        &.--cinturon1_dsk,
-        &.--cinturon2_dsk {
-            height: px(250);
-        }
-
-        &.--megalateral_dsk,
-        &.--megalateral2_dsk,
-        &.--megalateral3_dsk {
-            height: px(600);
+            &.--megalateral_dsk,
+            &.--megalateral2_dsk,
+            &.--megalateral3_dsk {
+                height: px(600);
+            }
         }
     }
 }

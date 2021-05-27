@@ -3,29 +3,52 @@ import Consumer from 'fusion:consumer';
 class ArticleFeature {
     constructor(props) {
         this.props = props;
-
         const {
-            id: featureId,
-            customFields: { noteId: id, imageId }
+            customFields: { noteId, imageId }
         } = props;
-        this.state = { id, imageId, featureId };
+        this.state = {};
 
         this.fetchContent({
             articleSourceNota: {
                 source: 'articleSourceNota',
-                query: { id, published: true }
+                query: { id: noteId, published: true }
+            }
+        });
+
+        this.fetchContent({
+            articleImage: {
+                source: 'relatedImageSource',
+                query: {
+                    id: imageId,
+                    published: true
+                }
             }
         });
     }
 
     render() {
         try {
-            const { articleSourceNota } = this.state || {};
+            const { articleSourceNota, articleImage } = this.state || {};
+            const {
+                noteId,
+                title,
+                authors,
+                lead,
+                chapita
+            } = this.props.customFields;
 
             if (!articleSourceNota) {
                 return null;
             }
-            return articleSourceNota;
+            const additionalProperties = {
+                noteId,
+                title,
+                authors,
+                lead,
+                chapita,
+                Image: articleImage || null
+            };
+            return { ...articleSourceNota, additionalProperties };
         } catch (err) {
             return { Success: false, Message: err.message };
         }

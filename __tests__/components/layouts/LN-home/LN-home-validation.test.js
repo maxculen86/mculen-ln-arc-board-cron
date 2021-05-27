@@ -1,6 +1,6 @@
 import React from 'react';
 import getProperties from 'fusion:properties';
-import validateSectionHome from '../../../../components/private/common/utils/validateSectionHome.js';
+import { validateSectionHome } from '../../../../components/private/LN/common/utils/homeHelper';
 import PageBuilderMessage from '../../../../components/private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage.jsx';
 import renderables1 from '../../../../__mocks__/data/renderables/data1';
 import renderables2 from '../../../../__mocks__/data/renderables/data2';
@@ -93,7 +93,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             <PageBuilderMessage
                 id="LN-Home-error"
                 type="warning"
-                message={`La sección Anexo_1 solo permite componentes del tipo LN-acumulado/anexoIframe`}
+                message={`La sección Anexo_1 solo permite componentes del tipo LN-common/anexo`}
             />
         );
 
@@ -161,7 +161,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             <PageBuilderMessage
                 id="LN-Home-error"
                 type="warning"
-                message={`La sección Apertura solo permite componentes del tipo LN-acumulado/anexoIframe,Ln_Caja_Collection,Ln_Caja_Manual`}
+                message={`La sección Apertura solo permite componentes del tipo LN-common/anexo,Ln_Caja_Collection,Ln_Caja_Manual`}
             />
         );
 
@@ -202,7 +202,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             <PageBuilderMessage
                 id="LN-Home-error"
                 type="warning"
-                message={`La sección Anexo_2 solo permite componentes del tipo LN-acumulado/anexoIframe`}
+                message={`La sección Anexo_2 solo permite componentes del tipo LN-common/anexo`}
             />
         );
 
@@ -243,7 +243,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             <PageBuilderMessage
                 id="LN-Home-error"
                 type="warning"
-                message={`La sección Breaking_1 solo permite componentes del tipo LN-acumulado/anexoIframe,Ln_Caja_Collection,Ln_Caja_Manual`}
+                message={`La sección Breaking_1 solo permite componentes del tipo LN-common/anexo,Ln_Caja_Collection,Ln_Caja_Manual`}
             />
         );
 
@@ -325,7 +325,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             <PageBuilderMessage
                 id="LN-Home-error"
                 type="warning"
-                message={`La sección Comercial_1 solo permite componentes del tipo LN-acumulado/anexoIframe,Ln_Caja_Collection,Ln_Caja_Manual`}
+                message={`La sección Comercial_1 solo permite componentes del tipo LN-common/anexo,Ln_Caja_Collection,Ln_Caja_Manual`}
             />
         );
 
@@ -366,7 +366,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             <PageBuilderMessage
                 id="LN-Home-error"
                 type="warning"
-                message={`La sección Bloque_2 solo permite componentes del tipo LN-acumulado/anexoIframe,Ln_Caja_Collection,Ln_Caja_Manual`}
+                message={`La sección Bloque_2 solo permite componentes del tipo LN-common/anexo,Ln_Caja_Collection,Ln_Caja_Manual`}
             />
         );
 

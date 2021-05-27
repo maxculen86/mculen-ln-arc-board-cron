@@ -22,7 +22,6 @@ const CajaCollection = props => {
             url,
             title,
             layout = '',
-            backgroundColor = 'default',
             initialPosition,
             imageId,
             hideTitle,
@@ -38,7 +37,6 @@ const CajaCollection = props => {
     const {
         collectionsInPage,
         notesQuantity,
-        bgColor,
         classCondition,
         position,
         sectionName
@@ -115,11 +113,6 @@ const CajaCollection = props => {
                     : articlesToShow
             }
             titleSize={isInsideApertura && '--l'}
-            backgroundColor={
-                backgroundColor !== 'default'
-                    ? `${bgColor}${backgroundColor}`
-                    : ''
-            }
         />
     );
 };
@@ -141,22 +134,19 @@ CajaCollection.propTypes = {
                 })
             })
         })
-    ),
+    ).isRequired,
     customFields: PropTypes.shape({
         ...cajaTemasCustomsFields('cajaCollection')
     }).isRequired,
-    tree: PropTypes.shape(PropTypes.node),
+    tree: PropTypes.shape(PropTypes.node).isRequired,
     globalContent: PropTypes.shape({
         name: PropTypes.string
-    })
+    }).isRequired
 };
 
 CajaCollection.defaultProps = {
     outputType: 'default',
-    renderables: [],
-    isAdmin: false,
-    tree: undefined,
-    globalContent: { name: '' }
+    isAdmin: false
 };
 
 export default Consumer(CajaCollection);

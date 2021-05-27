@@ -1,16 +1,18 @@
 import Consumer from 'fusion:consumer';
-import { get } from 'lodash';
-import bitacora from '../../private/LN/api/v1/bitacora';
 import home from '../../private/LN/api/v1/home';
-import browser from '../../private/common/utils/browser';
-// Url regex TODO: Mejorar la regular expression.
-// ^\/api\/v([1]+)\/home\/(.*\/)$
+import pageBuilderSections from '../config/LN-PageBuilder.config.json';
 
-const versions = {
-    1: {
-        bitacora,
-        LN: home
-    }
+import {
+    checkIfValid,
+    findSectionChildren
+} from '../../private/common/utils/validateSectionHome';
+
+const bannersPosition = {
+    Apertura: { id: 402, type: 1, feature: 'Banner', position: 'middle' },
+    Breaking_1: { id: 403, type: 1, feature: 'Banner', position: 'start' },
+    Breaking_2: { id: 404, type: 1, feature: 'Banner', position: 'start' },
+    Breaking_3: { id: 405, type: 1, feature: 'Banner', position: 'start' },
+    Opinion: { id: 406, type: 1, feature: 'Banner', position: 'start' }
 };
 
 const homeMobileSections = [
@@ -19,66 +21,86 @@ const homeMobileSections = [
     'Bomba',
     'Apertura',
     'Anexo',
-    'Tema',
-    'Tema',
-    'Tema',
+    'Tema1',
+    'Tema2',
+    'Tema3',
     'Anexo',
     'Opinion',
-    'Tema',
-    'Tema',
-    'Tema',
+    'Tema4',
+    'Tema5',
+    'Tema6',
     'Comercial',
-    'Tema',
+    'Tema7',
     'Comercial',
-    'Tema',
-    'Tema',
-    'Tema',
-    'Tema',
-    'Tema',
-    'Tema',
-    'Tema'
+    'Tema8',
+    'Tema9',
+    'Tema10',
+    'Tema11',
+    'Tema12',
+    'Tema13',
+    'Tema14'
 ];
 
-const getHomeElements = items => {
-    const features = items.reduce((res, elem, index) => {
-        if (elem && Array.isArray(elem) && elem.length > 0) {
-            const filtered = elem.filter(
-                e => e && e.information && !e.information.hideCaja
-            );
-            if (filtered && Array.isArray(filtered) && filtered.length > 0) {
-                res.push({
-                    feature: homeMobileSections[index],
-                    elements: filtered
-                });
-            }
+const validateSections = (section, name, position, renderables) => {
+    const sectionChildren = findSectionChildren(renderables, position);
+    const elements =
+        checkIfValid(name, sectionChildren) === true ? section : null;
+    const banner = bannersPosition[name];
+    if (elements && elements.length > 0 && banner) {
+        switch (banner.position) {
+            case 'middle':
+                elements.splice(Math.floor(elements.length / 2), 0, banner);
+                break;
+            case 'start':
+                elements.unshift(banner);
+                break;
+            default:
+                elements.push(banner);
+                break;
         }
-        return res;
-    }, []);
-    return features;
+    }
+    return elements;
 };
 
-// TODO: INTEGRAR CON LOS CAMBIOS DE FER
-export const getChainsFromSections = (renderable = [], sectionPosition) => {
-    return get(renderable, `[${sectionPosition}].children`, []);
+const getHomeElements = props => {
+    const { children, renderables, arcSite } = props;
+    const configurations = {
+        arcSite
+    };
+    return pageBuilderSections.reduce((r, e, i) => {
+        const child = validateSections(children[i], e, i, renderables);
+        const banner = bannersPosition[e];
+        if (child && Array.isArray(child) && child.length > 0) {
+            return r.concat(
+                [].concat(
+                    child.reduce((res, b) => {
+                        if (b && b.information && !b.information.hideCaja) {
+                            const addedInfo = { ...b, configurations };
+                            return res.concat({
+                                type: 0,
+                                feature: homeMobileSections[i],
+                                ...addedInfo
+                            });
+                        }
+                        if (b && b.feature) {
+                            return res.concat(b);
+                        }
+                        return res;
+                    }, [])
+                ) || []
+            );
+        }
+        if (banner) {
+            r.push(banner);
+        }
+
+        return r;
+    }, []);
 };
 
 const LNMainHome = props => {
-    const { children, requestUri } = props;
-    const homeSections = getHomeElements(children);
-    const homeType = browser.getParamFrom('params', 'tipo', requestUri);
-    const diagramation =
-        browser.getParamFrom('params', 'diagramacion', requestUri) ||
-        'completa';
-
-    const homeModels = versions[browser.getApiVersion(requestUri)];
-
-    if (homeModels[homeType]) {
-        if (!homeSections || !homeSections.length) return [];
-
-        return homeModels[homeType](homeSections, diagramation) || null;
-    }
-
-    throw new Error(`Se solicito una diagramacion inexistente`);
+    const homeSections = getHomeElements(props);
+    return home(homeSections) || [];
 };
 
 export default Consumer(LNMainHome);
