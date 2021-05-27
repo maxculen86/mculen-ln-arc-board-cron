@@ -5,7 +5,13 @@ import ComLink from './com-link';
 
 import '../../../resources/dist/css/ln/modules/mod-linklist.css';
 
-const ComLinkList = ({ list, extraClass, _ref, isEditoriales = false }) => {
+const ComLinkList = ({
+    list,
+    extraClass,
+    _ref,
+    isEditoriales = false,
+    isHome = false
+}) => {
     const extraOpts = {};
     return (
         (list && list.length && (
@@ -15,6 +21,10 @@ const ComLinkList = ({ list, extraClass, _ref, isEditoriales = false }) => {
                         extraOpts['data-pos'] = `990${i + 1}`;
                         extraOpts['data-id'] = element.id;
                         extraOpts['data-notaid'] = element.id;
+                    }
+                    if (isHome) {
+                        Object.assign(element, { dataEvent: 'LinkClick' });
+                        Object.assign(element, { dataSection: 'TagsFooter' });
                     }
                     return (
                         <li className="item" {...extraOpts}>
