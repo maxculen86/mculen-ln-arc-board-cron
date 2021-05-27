@@ -37,7 +37,7 @@ class BombaFeature {
             };
 
             return {
-                information: { hideCaja: hideFeature },
+                information: { hideCaja: hideFeature, layout: 'grilla1' },
                 articles: [article]
             };
         } catch (err) {
