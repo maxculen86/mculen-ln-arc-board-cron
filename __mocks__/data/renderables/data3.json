@@ -461,26 +461,6 @@
                     "displayProperties": {}
                 },
                 "children": []
-            },
-            {
-                "collection": "chains",
-                "type": "Ln_Caja_Collection",
-                "props": {
-                    "collection": "chains",
-                    "type": "Ln_Caja_Collection",
-                    "id": "c0fPSKyN8ebsEp",
-                    "name": null,
-                    "customFields": {
-                        "layout": "grilla3",
-                        "backgroundColor": "default",
-                        "initialPosition": 4,
-                        "hideTitle": false,
-                        "idCollection": "QJ3BOEZVQNEYZEVBXHF4C7KAWY",
-                        "title": "Bloque 2 (tema 10)"
-                    },
-                    "displayProperties": {}
-                },
-                "children": []
             }
         ]
     },
