@@ -2,9 +2,7 @@ export default {
     longTitle: 'Últimas noticias de Argentina y el mundo - LA NACION',
     title: 'LA NACION',
     description:
-        'LA NACION - Información confiable en Internet. Noticias de Argentina y del mundo - ¡Informate ya!',
-    shortDescription:
-        'Información confiable en Internet. Noticias de Argentina y del mundo - ¡Informate ya!',
+        'Todas las noticias de Argentina y el mundo: últimas noticias en actualidad, deportes, coronavirus, economía, política, y tecnología. Mantenete informado sobre las novedades de Argentina en LA NACION.',
     className: {
         body: 'ln'
     },
@@ -42,6 +40,10 @@ export default {
             location: ['head']
         },
         Petametrics: {
+            props: {},
+            location: ['head']
+        },
+        NewsMediaOrganization: {
             props: {},
             location: ['head']
         },
