@@ -1,7 +1,7 @@
-import colecction from '../../../../__mocks__/data/collection/OCTOV4V54FCFLJHOVB5IAJKHHM.json';
-import get from '../../../../components/private/common/utils/get';
+import colecction from '../../../../../__mocks__/data/collection/OCTOV4V54FCFLJHOVB5IAJKHHM.json';
+import get from '../../../../../components/private/common/utils/get';
 
-describe('Test del Chain - CajaCollection Json', () => {
+describe('Test del Chain - Opinion de CajaCollecion Json', () => {
     const customFields = {
         backgroundColor: 'default',
         hideTitle: false,
