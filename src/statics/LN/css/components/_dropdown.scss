@@ -400,28 +400,28 @@ body {
                     overflow-y: scroll;
                 }
 
-                &.scroll--active {
-                    .header__dropdown {
-                        position: fixed;
-                        height: 0;
-                        overflow: hidden;
-                    }
-                    .menu__dropdown {
-                        position: absolute;
-                        top: 70px;
-                    }
-                }
-                &.scroll--pasive {
-                    .header__dropdown {
-                        position: fixed;
-                        height: inherit;
-                        overflow: inherit;
-                    }
-                    .menu__dropdown {
-                        position: absolute;
-                        top: 140px;
-                    }
-                }
+                // &.scroll--active {
+                //     .header__dropdown {
+                //         position: fixed;
+                //         height: 0;
+                //         overflow: hidden;
+                //     }
+                //     .menu__dropdown {
+                //         position: absolute;
+                //         top: 70px;
+                //     }
+                // }
+                // &.scroll--pasive {
+                //     .header__dropdown {
+                //         position: fixed;
+                //         height: inherit;
+                //         overflow: inherit;
+                //     }
+                //     .menu__dropdown {
+                //         position: absolute;
+                //         top: 140px;
+                //     }
+                // }
             }
         }
     }

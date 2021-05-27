@@ -11,6 +11,8 @@
     max-width: 100%;
     overflow: hidden;
     z-index: 1;
+    margin-top: px(32); //cambiar a variable
+    margin-bottom: px(32); //cambiar a variable
 
     &:before {
         content: 'PUBLICIDAD';
@@ -26,9 +28,16 @@
     }
 
     &.--megatop {
-        position: relative;
-        z-index: 110;
-        background: $neutral-white;
+        //position: relative;
+        //z-index: 110;
+        //background: $neutral-white;
+        display: none;
+    }
+    .--ads &,
+    .sidebar__aside &,
+    &.--unoxuno_mob,
+    &.--unoxuno_dsk {
+        margin: 0;
     }
     &.--comercial {
         &:before {
@@ -42,6 +51,9 @@
         height: 100vh;
         width: 100%;
         top: 0;
+
+        margin: 0;
+
         .com-button {
             position: absolute;
             top: px(16);
@@ -55,7 +67,7 @@
     }
     &.--sticky {
         position: sticky;
-        margin-bottom: $spacing-md;
+        //margin-bottom: $spacing-md;
         top: 0;
 
         &.--active {
@@ -71,6 +83,7 @@
             width: 100%;
             z-index: 1000;
             background: white;
+            margin: 0;
         }
 
         // &.sticky2_mob {
@@ -87,6 +100,8 @@
         z-index: 100;
         left: calc((100% - 320px) / 2);
         background: white;
+
+        margin: 0;
 
         // &.--adhesion_mob {
         //     display: flex;
@@ -112,9 +127,9 @@
             font-size: px(16);
         }
     }
-    .cuerpo__nota & {
-        margin-bottom: $spacing-lg;
-    }
+    // .cuerpo__nota & {
+    //     margin-bottom: $spacing-lg;
+    // }
     &:not(:last-child) {
         .sidebar__aside & {
             padding-bottom: px(32);
@@ -137,7 +152,7 @@
     &.--caja3_mob,
     &.--caja4_mob {
         height: px(450);
-        margin-bottom: px(32);
+        //margin-bottom: px(32);
     }
     &.--comercial_mob {
         height: px(480);
@@ -167,14 +182,13 @@
         // }
         &.--cabezal_tab {
             display: flex;
-            margin-bottom: $spacing-lg;
-            &.--dark {
-                margin-bottom: 0;
-            }
+            //margin-bottom: $spacing-lg;
+            margin-top: 0;
+            // &.--dark {
+            //     margin: 0;
+            // }
         }
-
         //ALTURAS FIJAS
-
         &.--adhesion_tab,
         &.--cabezal_tab,
         &.--middle1_tab,
@@ -235,15 +249,19 @@
         }
         &.--cabezal_dsk {
             display: flex;
-            margin-bottom: $spacing-lg;
+            //margin-bottom: $spacing-lg;
+            margin-top: 0;
             height: px(170);
-            &.--dark {
-                margin-bottom: 0;
-            }
         }
 
         //ALTURAS FIJAS
         .home & {
+            &.--cabezal_dsk {
+                height: px(100);
+                // &.--dark {
+                //     margin: 0;
+                // }
+            }
             &.--adhesion_dsk {
                 height: px(100);
             }
@@ -283,9 +301,28 @@
     }
 }
 
-.--ads {
-    margin-bottom: px(32);
-    &:empty {
-        display: none;
+[class*='row-gap'] {
+    &.--ads {
+        margin-bottom: px(32);
+        &:empty {
+            display: none;
+        }
+    }
+}
+// .--ads {
+//     margin-bottom: px(32);
+//     &:empty {
+//         display: none;
+//     }
+// }
+
+.container {
+    &.--ads {
+        background: $neutral-white;
+        padding: px(24) 0;
+        .mod-banner {
+            width: fit-content;
+            margin: 0 auto;
+        }
     }
 }
