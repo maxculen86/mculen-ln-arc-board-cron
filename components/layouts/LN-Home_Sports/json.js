@@ -2,31 +2,6 @@ import bitacora from '../../private/LN/api/v1/bitacora';
 import Consumer from 'fusion:consumer';
 import home from '../../private/LN/api/v1/home';
 import pageBuilderSections from '../config/LN-PageBuilder.config.json';
-/* 
-const LNMainHome = ({ children }) => {
-    const listItems = [];
-    const ArticlesbyBox = bitacora(children);
-
-    listItems.push({
-        // fecha_foto: dateToday, //Data pendiente de añadir
-        // usuario_publica: 'XX', //Data pendiente de añadir
-        cajas: ArticlesbyBox
-    });
-
-    return Array.isArray(listItems) ? listItems : null;
-};
-
-LNMainHome.sections = [
-    'Banner-Megatop',
-    'Sticky-Mobile',
-    'Cabezal',
-    'Apertura',
-    'Cuerpo',
-    'Aside'
-];
-
-export default LNMainHome;
- */
 
 import {
     checkIfValid,

@@ -58,6 +58,7 @@ export const authorHomeMobile = author => {
 
     const resp = {
         ...authorData,
+        tipo: authorData.slug ? 1 : 2,
         imagen: image ? image[0] : null,
         mail: email,
         twitter: twitter ? twitter.trim() : twitter

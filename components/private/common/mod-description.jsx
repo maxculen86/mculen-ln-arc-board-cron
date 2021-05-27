@@ -102,7 +102,7 @@ ModDescription.propTypes = {
     authors: PropTypes.string,
     marquesina: PropTypes.string,
     category: PropTypes.string,
-    tags: PropTypes.arrayOf(PropTypes.obj)
+    tags: PropTypes.arrayOf(PropTypes.object)
 };
 
 ModDescription.defaultProps = {
