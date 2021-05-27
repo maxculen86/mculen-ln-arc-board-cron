@@ -1,0 +1,35 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.modal {
+    &.--notification {
+        z-index: 1500;
+        padding: px(16);
+        position: fixed;
+        width: 100%;
+        max-width: px(365);
+        top: 0;
+        left: px(90);
+        border-left: px(5) solid $neutral-black;
+        box-shadow: 0 0 1.75rem 0.1875rem rgba(0, 0, 0, 0.5);
+        background: $neutral-white;
+        display: none;
+
+        .com-link {
+            .com-logo {
+                color: $neutral-black;
+                margin-bottom: px(16);
+            }
+        }
+        .text {
+            font-family: $font-SuecaSlab;
+            margin-bottom: px(16);
+        }
+        .--bottom {
+            text-align: right;
+            .com-button {
+                margin-left: px(16);
+            }
+        }
+    }
+}

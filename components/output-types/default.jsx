@@ -34,6 +34,7 @@ import Syndication from '../private/common/syndication';
 import LinkAmpHTML from '../private/common/linkAmpHTML';
 import { pipe } from '../private/common/utils/functional';
 import Pwa from '../private/common/scriptManager/pwa';
+import PwaModals from '../private/LN/common/pwaModals';
 
 const scriptList = [
     {
@@ -304,8 +305,8 @@ const Default = props => {
                 />
 
                 <div id="fusion-app">{children}</div>
+                <PwaModals />
                 <Fusion />
-
                 <Scripts location="body-bottom" />
                 <ScriptLoadingList
                     section={_nodeType}
