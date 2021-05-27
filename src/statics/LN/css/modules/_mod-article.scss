@@ -31,6 +31,10 @@
                         background: white;
                         width: px(80);
                         height: px(80);
+                        @media ($media-m) {
+                            width: 100%;
+                            height: 100%;
+                        }
                     }
                 }
             }
