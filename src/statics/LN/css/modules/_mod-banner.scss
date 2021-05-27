@@ -28,11 +28,13 @@
     }
 
     &.--megatop {
-        position: relative;
-        z-index: 110;
-        background: $neutral-white;
+        //position: relative;
+        //z-index: 110;
+        //background: $neutral-white;
+        display: none;
     }
     .--ads &,
+    .sidebar__aside &,
     &.--unoxuno_mob,
     &.--unoxuno_dsk {
         margin: 0;
