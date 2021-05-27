@@ -562,7 +562,12 @@ const LNMainHome = props => {
                                         />
                                     )}
                                     <div className="acumulado">
-                                        <TagsListFeature id="TagsListFeatureHome" />
+                                        <section className="mod-linklist">
+                                            <TagsListFeature
+                                                id="TagsListFeatureHome"
+                                                title="Temas del día:"
+                                            />
+                                        </section>
                                     </div>
                                 </div>
                                 <div className="sidebar__aside hlp-tabletlm-none">
