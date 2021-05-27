@@ -70,8 +70,6 @@
         //margin-bottom: $spacing-md;
         top: 0;
 
-        margin: 0;
-
         &.--active {
             .--scrollDown & {
                 display: flex;
@@ -85,6 +83,7 @@
             width: 100%;
             z-index: 1000;
             background: white;
+            margin: 0;
         }
 
         // &.sticky2_mob {
