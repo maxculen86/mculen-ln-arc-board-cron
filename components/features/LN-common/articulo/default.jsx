@@ -127,7 +127,8 @@ ArticleFeature.propTypes = {
         }).isRequired,
         title: PropTypes.string.tag({
             name: 'Título',
-            description: 'Ingrese el texto del título. Máx: 100 caracteres incluyendo volanta.',
+            description:
+                'Ingrese el texto del título. Máx: 100 caracteres incluyendo volanta.',
             default: undefined,
             group: 'Ajustes Básicos'
         }),

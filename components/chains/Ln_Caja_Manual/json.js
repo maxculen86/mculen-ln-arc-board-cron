@@ -1,29 +1,50 @@
 /* eslint-disable react/prop-types */
 
 import Consumer from 'fusion:consumer';
+import get from '../../private/common/utils/get';
 
-const CajaManual = props => {
-    const { customFields, children } = props;
+class CajaManual {
+    constructor(props) {
+        this.props = props;
 
-    try {
-        const sources = children.reduce((result, article) => {
-            if (article) {
-                return result.concat(article);
-            }
-            return result;
-        }, []);
-
-        if (!sources.length) {
-            return null;
+        const imageId = get(props, 'customFields.imageId', '');
+        if (imageId) {
+            this.fetchContent({
+                containerImage: {
+                    source: 'relatedImageSource',
+                    query: {
+                        id: imageId,
+                        published: true
+                    }
+                }
+            });
         }
-
-        return {
-            information: customFields,
-            articles: sources
-        };
-    } catch (err) {
-        return { Success: false, Message: err.message };
     }
-};
+
+    render() {
+        try {
+            const { containerImage } = this.state || {};
+            const { children, customFields } = this.props;
+
+            const sources = children.reduce((result, article) => {
+                if (article) {
+                    return result.concat(article);
+                }
+                return result;
+            }, []);
+
+            if (!sources.length) {
+                return null;
+            }
+
+            return {
+                information: { ...customFields, containerImage },
+                articles: sources
+            };
+        } catch (err) {
+            return { Success: false, Message: err.message };
+        }
+    }
+}
 
 export default Consumer(CajaManual);
