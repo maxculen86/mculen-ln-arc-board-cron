@@ -45,7 +45,6 @@ const revistas = [
 const sections = ['economia', 'deportes'];
 
 const LNAcumuladoLayout = props => {
-    console.log(props.children);
     const {
         children: [
             bannerMegatop,
