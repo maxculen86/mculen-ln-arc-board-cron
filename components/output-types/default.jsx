@@ -22,7 +22,7 @@ import SocialEmbeds from '../private/common/scriptManager/socialEmbeds';
 import OptaEmbed from '../private/common/scriptManager/optaEmbed';
 import ScriptHtmlLibre from '../private/common/scriptManager/scriptHtmlLibre';
 import Petametrics from '../private/common/scriptManager/petametrics';
-import NewsMediaOrganization from '../private/common/scriptManager/newsMediaOrganization';
+import Schemas from '../private/common/scriptManager/schemas';
 import DataLayerIndex from '../private/common/dataLayerIndex';
 import paths from '../../config/paths';
 import SnippetIndex from '../private/common/snippet';
@@ -265,7 +265,7 @@ const Default = props => {
                     outputType={outputType}
                 />
                 <Libs />
-                <NewsMediaOrganization section={_nodeType} />
+                <Schemas section={_nodeType} />
                 {/* Para OTT carga los styles por front */}
                 {arcSite === 'ott' ? (
                     <link
