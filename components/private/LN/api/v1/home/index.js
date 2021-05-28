@@ -1,4 +1,7 @@
+//index.js v1/home
+
 import { get } from 'lodash';
+import Image from '../common/image';
 import { removeEmptyItems } from '../common/utils/responseCleaner';
 import Article from './article';
 
@@ -6,7 +9,7 @@ import Article from './article';
 // Recibir el array y validar que tenga notas
 const typeSection = {
     Anticipo: { tipoSeccion: 'anticipo', idSeccion: 501 },
-    Bomba: { tipoSeccion: 'bomba', idSeccion: 101 },
+    Bomba: { tipoSeccion: 'bomba', idSeccion: 102 },
     Apertura: { tipoSeccion: 'apertura', idSeccion: 200 },
     Anexo: { tipoSeccion: 'anexo', idSeccion: 0 },
     Opinion: { tipoSeccion: 'opinion', idSeccion: 1001 },
@@ -27,6 +30,10 @@ const featureInformation = (information, feature) => {
     }
 
     if (!information.hideTitle && feature !== 'Apertura') {
+        const image = get(information.image, 'promo_items.basic', null);
+
+        if (image && image.type === 'image') res.image = Image(image);
+
         return {
             ...res,
             tituloCaja: information.title,

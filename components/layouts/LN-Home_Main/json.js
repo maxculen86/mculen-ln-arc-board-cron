@@ -1,3 +1,5 @@
+//LN-Home_Main
+
 import Consumer from 'fusion:consumer';
 import home from '../../private/LN/api/v1/home';
 import pageBuilderSections from '../config/LN-PageBuilder.config.json';
@@ -8,7 +10,7 @@ import {
 } from '../../private/common/utils/validateSectionHome';
 
 const bannersPosition = {
-    Apertura: { id: 402, type: 1, feature: 'Banner', position: 'middle' },
+    Apertura_1: { id: 402, type: 1, feature: 'Banner', position: 'bottom' },
     Breaking_1: { id: 403, type: 1, feature: 'Banner', position: 'start' },
     Breaking_2: { id: 404, type: 1, feature: 'Banner', position: 'start' },
     Breaking_3: { id: 405, type: 1, feature: 'Banner', position: 'start' },
@@ -19,6 +21,7 @@ const homeMobileSections = [
     'Anticipo',
     'Anexo',
     'Bomba',
+    'Apertura',
     'Apertura',
     'Anexo',
     'Tema1',
@@ -74,16 +77,18 @@ const getHomeElements = props => {
             return r.concat(
                 [].concat(
                     child.reduce((res, b) => {
-                        if (b && b.information && !b.information.hideCaja) {
-                            const addedInfo = { ...b, configurations };
-                            return res.concat({
-                                type: 0,
-                                feature: homeMobileSections[i],
-                                ...addedInfo
-                            });
-                        }
-                        if (b && b.feature) {
-                            return res.concat(b);
+                        if (b) {
+                            if (b.information && !b.information.hideCaja) {
+                                const addedInfo = { ...b, configurations };
+                                return res.concat({
+                                    type: 0,
+                                    feature: homeMobileSections[i],
+                                    ...addedInfo
+                                });
+                            }
+                            if (b.feature) {
+                                return res.concat(b);
+                            }
                         }
                         return res;
                     }, [])
