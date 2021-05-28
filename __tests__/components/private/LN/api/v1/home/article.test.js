@@ -41,7 +41,6 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
         expect(notas[0].seccionProducto).toBe(null);
         expect(notas[0].seccionPadre).toBe(null);
     });
-
     it('Testeo articulo Caja Manual con un articulo null', () => {
         articlesfromCajaManual = [];
         articlesfromCajaManual.push(article1);
@@ -58,6 +57,7 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
         const elements = get(colecction, 'content_elements', []);
         try {
             const notas = Article(elements, configurations);
+            expect(notas[1].id).toBe('5OUY7OCFZNFLLBM6XM4CTSIUWQ');
         } catch (err) {
             expect(err.message).toBe(
                 "Cannot read property 'match' of undefined"

@@ -50,8 +50,8 @@ const getArticleAuthor = article => {
 const getArticleProduct = article => {
     const sections = Relacionados(article);
     if (sections.categorias && sections.categorias.length > 0) {
-        const productoDestacado = sections.categorias.filter(e =>
-            sectionsProduct.includes(e.slug)
+        const productoDestacado = sections.categorias.filter(
+            e => e && sectionsProduct.includes(e.slug)
         );
         return productoDestacado && productoDestacado.length > 0
             ? productoDestacado[0]
