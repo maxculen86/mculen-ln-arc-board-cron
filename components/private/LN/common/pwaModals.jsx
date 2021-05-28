@@ -9,7 +9,10 @@ import '../../../../resources/dist/css/ln/modules/modal.css';
 const PwaModals = () => {
     return (
         <>
-            <div id="notificacion-modal-pwa" className="modal --notification">
+            <div
+                id="notificacion-modal-pwa"
+                className="modal --notification --apps"
+            >
                 <ComLogo
                     logoName="la-nacion"
                     href="https://www.lanacion.com.ar/"

@@ -31,5 +31,13 @@
                 margin-left: px(16);
             }
         }
+
+        &.--apps {
+            top: auto;
+            bottom: px(60);
+            left: 50%;
+            transform: translate(-50%);
+            -webkit-transform: translate(-50%);
+        }
     }
 }
