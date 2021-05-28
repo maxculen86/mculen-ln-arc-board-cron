@@ -5,13 +5,14 @@ import article2 from '../../../../../../../__mocks__/data/articles/3SHTRO3NKBCN7
 import article3 from '../../../../../../../__mocks__/data/articles/3THDAILWTVHARHBYA5AEVL7OAU.json';
 import get from '../../../../../../../components/private/common/utils/get';
 describe('components - private - LN - api - v1 - home - article.js', () => {
-    const articlesfromCajaManual = [];
-    const articlesfromCajaCollections = [];
+    let articlesfromCajaManual = [];
+    let articlesfromCajaCollections = [];
     const configurations = {
         arcSite: 'la-nacion-ar'
     };
 
     it('Testeo articulo Caja Manual OK', () => {
+        articlesfromCajaManual = [];
         articlesfromCajaManual.push(article1);
         articlesfromCajaManual.push(article2);
         articlesfromCajaManual.push(article3);
@@ -42,6 +43,7 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
     });
 
     it('Testeo articulo Caja Manual con un articulo null', () => {
+        articlesfromCajaManual = [];
         articlesfromCajaManual.push(article1);
         articlesfromCajaManual.push(null);
         articlesfromCajaManual.push(article3);
