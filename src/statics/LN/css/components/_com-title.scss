@@ -16,13 +16,15 @@
     }
     ////////////////Cambiar por props////////////////
     .home & {
-        &.--m,
-        &.--xs {
-            font-weight: 500;
-        }
-        &.--l,
-        &.--xl {
-            font-weight: 700;
+        @media ($media-m) {
+            &.--m,
+            &.--xs {
+                font-weight: 500;
+            }
+            &.--l,
+            &.--xl {
+                font-weight: 700;
+            }
         }
     }
     ////////////////Cambiar por props///////////////////
