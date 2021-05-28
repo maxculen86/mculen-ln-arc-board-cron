@@ -29,6 +29,19 @@ const GetCajaCollection = propsParams => {
                         }
                     });
                 }
+
+                const imageId = get(props, 'customFields.imageId', '');
+                if (imageId) {
+                    this.fetchContent({
+                        containerImage: {
+                            source: 'relatedImageSource',
+                            query: {
+                                id: imageId,
+                                published: true
+                            }
+                        }
+                    });
+                }
             }
 
             getQueryElement = props => {
@@ -75,7 +88,7 @@ const GetCajaCollection = propsParams => {
 
             render() {
                 try {
-                    const { articleList } = this.state || {};
+                    const { articleList, containerImage } = this.state || {};
                     const { customFields } = this.props;
 
                     const error = validateFeature(
@@ -87,9 +100,10 @@ const GetCajaCollection = propsParams => {
                     if (!articleList || error) {
                         return null;
                     }
+
                     const elements = get(articleList, 'content_elements', []);
                     return {
-                        information: customFields,
+                        information: { ...customFields, image: containerImage },
                         articles: elements
                     };
                 } catch (err) {
