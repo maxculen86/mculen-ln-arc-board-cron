@@ -21,7 +21,7 @@
         overflow: hidden;
         .com-link {
             color: $light-neutral-700;
-            text-transform: uppercase;
+            //text-transform: uppercase;
         }
         @media ($media-l) {
             -webkit-line-clamp: 1;

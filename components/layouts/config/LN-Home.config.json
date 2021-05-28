@@ -1,112 +1,140 @@
 {
     "Anticipo": {
         "quantity": 1,
+        "operatorToUse": "!==",
         "types": ["LN-common/cajaAnticipo"],
         "position": 0
     },
     "Anexo_1": {
         "quantity": 1,
+        "operatorToUse": "!==",
         "types": ["LN-common/anexo"],
         "position": 1
     },
     "Bomba": {
         "quantity": 1,
+        "operatorToUse": "!==",
         "types": ["LN-common/bomba"],
         "position": 2
     },
-    "Apertura": {
-        "quantity": 2,
+    "Apertura_1": {
+        "quantity": 1,
+        "operatorToUse": "!==",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 3
     },
+    "Apertura_2": {
+        "quantity": 1,
+        "operatorToUse": "!==",
+        "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
+        "position": 4
+    },
     "Anexo_2": {
         "quantity": 1,
+        "operatorToUse": "!==",
         "types": ["LN-common/anexo"],
-        "position": 4
+        "position": 5
     },
     "Breaking_1": {
         "quantity": 1,
-        "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
-        "position": 5
-    },
-    "Breaking_2": {
-        "quantity": 1,
+        "operatorToUse": "!==",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 6
     },
-    "Breaking_3": {
+    "Breaking_2": {
         "quantity": 1,
+        "operatorToUse": "!==",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 7
     },
+    "Breaking_3": {
+        "quantity": 1,
+        "operatorToUse": "!==",
+        "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
+        "position": 8
+    },
     "Anexo_3": {
         "quantity": 1,
+        "operatorToUse": "!==",
         "types": ["LN-common/anexo"],
-        "position": 8
+        "position": 9
     },
     "Opinion": {
         "quantity": 2,
+        "operatorToUse": "!==",
         "types": ["LN-common/opinion", "LN-common/editoriales"],
-        "position": 9
+        "position": 10
     },
     "Breaking_4": {
         "quantity": 1,
-        "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
-        "position": 10
-    },
-    "Breaking_5": {
-        "quantity": 1,
+        "operatorToUse": "!==",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 11
     },
-    "Breaking_6": {
+    "Breaking_5": {
         "quantity": 1,
+        "operatorToUse": "!==",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 12
     },
-    "Comercial_1": {
+    "Breaking_6": {
         "quantity": 1,
+        "operatorToUse": "!==",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 13
     },
-    "Bloque_2": {
-        "quantity": 2,
+    "Comercial_1": {
+        "quantity": 1,
+        "operatorToUse": "!==",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 14
     },
-    "Comercial_2": {
-        "quantity": 1,
+    "Bloque_2": {
+        "quantity": 2,
+        "operatorToUse": ">",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 15
     },
-    "Bloque_3": {
-        "quantity": 2,
+    "Comercial_2": {
+        "quantity": 1,
+        "operatorToUse": "!==",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 16
     },
-    "Bloque_4": {
+    "Bloque_3": {
         "quantity": 2,
+        "operatorToUse": ">",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 17
     },
-    "Bloque_5": {
+    "Bloque_4": {
         "quantity": 2,
+        "operatorToUse": ">",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 18
     },
-    "Bloque_6": {
+    "Bloque_5": {
         "quantity": 2,
+        "operatorToUse": ">",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 19
     },
-    "Bloque_7": {
+    "Bloque_6": {
         "quantity": 2,
+        "operatorToUse": ">",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 20
     },
-    "Bloque_8": {
+    "Bloque_7": {
         "quantity": 2,
+        "operatorToUse": ">",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 21
+    },
+    "Bloque_8": {
+        "quantity": 2,
+        "operatorToUse": ">",
+        "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
+        "position": 22
     }
 }

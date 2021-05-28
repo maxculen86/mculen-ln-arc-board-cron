@@ -1,74 +1,76 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:context';
 // Utils
-import { getChildsFromSections } from '../../../private/LN/common/utils/homeHelper';
 import getSectionName from '../../../private/LN/common/utils/getSectionName';
+import { isInSection, getErrorMessage, getComponentType } from './anexoHelper';
+
 // Components
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
-import AnexoIframe from '../../../private/LN/acumulado/anexoIframe';
-import sectionsValidation from '../../../layouts/config/LN-Home.config.json';
 
-// Este componente es de uso exclusivo de HOME
-// Se agrega este index como constante por regla de negocio
-// Al estar en la sección 'Anexo_1' del layout necesita tener la clase '--anexo-1'.
-
-const AnexoFeature = ({
-    id,
-    isAdmin,
-    renderables,
-    globalContent: { node_type: nodeType, type } = {},
-    customFields: { url, hideByUrl, html, height, hideByHtml }
-}) => {
-    if (getSectionName({ nodeType, type }) !== 'home') return <></>;
-
-    const isInAnexo1 = getChildsFromSections(
-        renderables,
-        sectionsValidation.Anexo_1.position + 1
-    ).some(el => el.props.id === id);
-
-    const EXTRA_CLASS = (isInAnexo1 && '--anexo-1') || '';
-
-    const errorMessage =
-        (!url &&
-            !hideByUrl &&
-            !html &&
-            !hideByHtml &&
-            'Se requiere agregue la URL o HTML del anexo') ||
-        (!html &&
-            url &&
-            !hideByUrl &&
-            !height &&
-            'El alto fijo del anexo es un campo requerido para los anexos con URL') ||
-        '';
-
-    return (
-        (isAdmin && errorMessage && (
+const getComponentFromConfig = (_type, _props) => {
+    const components = {
+        Error: ({ id, errorMessage }) => (
             <PageBuilderMessage
                 key={id}
                 type="warning"
                 message={errorMessage}
             />
-        )) ||
-        (!errorMessage && !hideByHtml && html && (
+        ),
+        Html: ({ customFields: { html }, extraClass }) => (
             <div
-                className={`com-anexo ${EXTRA_CLASS}`}
+                className={`com-anexo ${extraClass}`}
                 dangerouslySetInnerHTML={{
                     __html: html
                 }}
             />
-        )) ||
-        (!errorMessage && !hideByUrl && url && (
-            <div style={{ height, overflow: 'hidden' }}>
-                <AnexoIframe
-                    url={url}
-                    id={id}
-                    extraClass={EXTRA_CLASS}
-                    _props={{ height }}
+        ),
+        Iframe: ({ id, customFields: { url, height }, extraClass }) => (
+            <div
+                className={`com-anexo ${extraClass}`}
+                style={{ height, overflow: 'hidden' }}
+            >
+                <iframe
+                    id={`anexo-${id}`}
+                    title={`anexo-${id}`}
+                    src={url}
+                    frameBorder="0"
+                    width="100%"
+                    height="100%"
                 />
             </div>
-        )) || <></>
+        )
+    };
+    return (components[_type] && components[_type](_props)) || <></>;
+};
+
+const AnexoFeature = props => {
+    const {
+        id,
+        renderables = [],
+        globalContent: { node_type: nodeType, type } = {},
+        customFields
+    } = props;
+    // Al estar en la sección 'Anexo_1' del layout necesita tener la clase '--anexo-1'.
+    const EXTRA_CLASS =
+        (isInSection({ sectionName: 'Anexo1', id, renderables }) &&
+            '--anexo-1') ||
+        '';
+
+    const errorMessage = getErrorMessage({
+        customFields,
+        sectionName: getSectionName({ nodeType, type })
+    });
+
+    return getComponentFromConfig(
+        getComponentType({ ...props, errorMessage }),
+        {
+            ...props,
+            errorMessage,
+            extraClass: EXTRA_CLASS
+        }
     );
 };
 

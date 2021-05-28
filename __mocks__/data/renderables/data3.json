@@ -123,24 +123,6 @@
                         "layout": "grilla3",
                         "backgroundColor": "default",
                         "initialPosition": 4,
-                        "hideTitle": true,
-                        "idCollection": "QJ3BOEZVQNEYZEVBXHF4C7KAWY"
-                    },
-                    "displayProperties": {}
-                }
-            },
-            {
-                "collection": "chains",
-                "type": "Ln_Caja_Manual",
-                "props": {
-                    "collection": "chains",
-                    "type": "Ln_Caja_Manual",
-                    "id": "c0fBGa0V5ebsvH",
-                    "name": null,
-                    "customFields": {
-                        "layout": "grilla3",
-                        "backgroundColor": "default",
-                        "initialPosition": 4,
                         "hideCaja": true,
                         "idCollection": "QJ3BOEZVQNEYZEVBXHF4C7KAWY"
                     },
@@ -154,6 +136,32 @@
         "props": {
             "collection": "sections",
             "id": 4
+        },
+        "children": [
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0fHtl7v5ebsyz",
+                    "name": null,
+                    "customFields": {
+                        "layout": "focalLeft3",
+                        "backgroundColor": "default",
+                        "initialPosition": 1,
+                        "hideTitle": true,
+                        "idCollection": "QJ3BOEZVQNEYZEVBXHF4C7KAWY"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 5
         },
         "children": [
             {
@@ -172,7 +180,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 5
+            "id": 6
         },
         "children": [
             {
@@ -201,7 +209,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 6
+            "id": 7
         },
         "children": [
             {
@@ -230,7 +238,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 7
+            "id": 8
         },
         "children": [
             {
@@ -259,7 +267,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 8
+            "id": 9
         },
         "children": [
             {
@@ -278,7 +286,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 9
+            "id": 10
         },
         "children": [
             {
@@ -323,7 +331,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 10
+            "id": 11
         },
         "children": [
             {
@@ -352,7 +360,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 11
+            "id": 12
         },
         "children": [
             {
@@ -381,7 +389,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 12
+            "id": 13
         },
         "children": [
             {
@@ -410,7 +418,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 13
+            "id": 14
         },
         "children": [
             {
@@ -439,7 +447,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 14
+            "id": 15
         },
         "children": [
             {
@@ -461,26 +469,6 @@
                     "displayProperties": {}
                 },
                 "children": []
-            },
-            {
-                "collection": "chains",
-                "type": "Ln_Caja_Collection",
-                "props": {
-                    "collection": "chains",
-                    "type": "Ln_Caja_Collection",
-                    "id": "c0fPSKyN8ebsEp",
-                    "name": null,
-                    "customFields": {
-                        "layout": "grilla3",
-                        "backgroundColor": "default",
-                        "initialPosition": 4,
-                        "hideTitle": false,
-                        "idCollection": "QJ3BOEZVQNEYZEVBXHF4C7KAWY",
-                        "title": "Bloque 2 (tema 10)"
-                    },
-                    "displayProperties": {}
-                },
-                "children": []
             }
         ]
     },
@@ -488,7 +476,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 15
+            "id": 16
         },
         "children": [
             {
@@ -517,7 +505,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 16
+            "id": 17
         },
         "children": [
             {
@@ -566,7 +554,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 17
+            "id": 18
         },
         "children": [
             {
@@ -615,7 +603,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 18
+            "id": 19
         },
         "children": [
             {
@@ -665,7 +653,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 19
+            "id": 20
         },
         "children": [
             {
@@ -715,7 +703,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 20
+            "id": 21
         },
         "children": [
             {
@@ -765,7 +753,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 21
+            "id": 22
         },
         "children": [
             {

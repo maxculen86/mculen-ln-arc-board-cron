@@ -434,6 +434,7 @@ const LNHome = props => {
                                                     <ComTitle
                                                         content="EDITORIALES"
                                                         size="--twoxs"
+                                                        link="https://www.lanacion.com.ar/editoriales/"
                                                     />
                                                     <ul className="com-unordered">
                                                         <li>

@@ -1,3 +1,4 @@
+/* eslint-disable no-eval */
 import sectionsValidation from '../../../layouts/config/LN-Home.config';
 import get from './get';
 
@@ -15,8 +16,14 @@ export const checkIfValid = (name, children) => {
             get(child, 'props.customFields.hideFeature', false) !== true
     );
     const sectionRule = sectionsValidation[name] || {};
-    if (sectionRule.quantity !== childrenWithoutHide.length) return false;
-
+    // Validacion por cantidad
+    if (
+        eval(
+            `${childrenWithoutHide.length} ${sectionRule.operatorToUse} ${sectionRule.quantity}`
+        )
+    )
+        return false;
+    // Validacion por tipo de componente
     if (
         !childrenWithoutHide.every(component =>
             sectionRule.types.includes(component.type)

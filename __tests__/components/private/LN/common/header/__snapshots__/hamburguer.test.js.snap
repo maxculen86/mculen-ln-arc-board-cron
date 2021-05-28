@@ -6,6 +6,8 @@ exports[`features - LaNacion - Nota - Hamburguer Test de snapshot Hamburguer 1`]
 >
   <button
     class="com-button  --tertiary --icon menu "
+    data-event=""
+    data-section=""
     type="button"
   >
     <i

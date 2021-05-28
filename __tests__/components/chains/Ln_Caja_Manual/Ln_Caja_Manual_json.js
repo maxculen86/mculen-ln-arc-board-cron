@@ -9,7 +9,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import CajaManual from '../../../components/chains/Ln_Caja_Manual/Ln_Caja_Manual_json';
 
-describe('Test del Chain - CajaManual', () => {
+describe('Test del Chain - CajaManual Json', () => {
     const hideCaja = false;
     const hideTitle = true;
     const initialPosition = 1;
