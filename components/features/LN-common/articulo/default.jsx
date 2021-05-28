@@ -2,6 +2,7 @@
 import React, { useState, useContext } from 'react';
 import { useAppContext } from 'fusion:context';
 import getProperties from 'fusion:properties';
+import Static from 'fusion:static';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import { validateArticleFeature } from '../../../private/LN/common/utils/cajaTemasHelper';
@@ -79,6 +80,20 @@ const ArticleFeature = ({
         dispatch({ type: 'ADD_TAGS_ARTICLES', article });
     }
 
+    const Component = (
+        <NoteCard
+            id={featureId}
+            article={article}
+            promoItems={image && image.promo_items}
+            articleProps={config}
+            customFields={customFields}
+            outputType={outputType}
+            index={index}
+            boxPosition={isBomba ? '00' : boxPosition}
+            layout={layout}
+            isAdmin={isAdmin}
+        />
+    );
     return (
         (isAdmin && !!error && (
             <div
@@ -95,20 +110,10 @@ const ArticleFeature = ({
                 />
             </div>
         )) ||
-        (!error && article && (
-            <NoteCard
-                id={featureId}
-                article={article}
-                promoItems={image && image.promo_items}
-                articleProps={config}
-                customFields={customFields}
-                outputType={outputType}
-                index={index}
-                boxPosition={isBomba ? '00' : boxPosition}
-                layout={layout}
-                isAdmin={isAdmin}
-            />
-        )) || <></>
+        (!error && article && (isInApertura || isBomba) && !isAdmin && (
+            <Static id={featureId}>{Component}</Static>
+        )) ||
+        (!error && article && Component) || <></>
     );
 };
 
