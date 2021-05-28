@@ -256,6 +256,13 @@ const Default = props => {
                     section={_nodeType}
                     defaultDescription={siteProperties.description}
                 />
+                {/* Eliminar noindex para la salida de home el 8 junio 21 */}
+                {_nodeType === 'home' ? (
+                    <meta name="robots" content="noindex" />
+                ) : (
+                    ''
+                )}
+                {/* Eliminar noindex para la salida de home el 8 junio 21 */}
                 <Syndication
                     type={type}
                     arcSite={arcSite}

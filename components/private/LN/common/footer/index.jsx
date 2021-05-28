@@ -17,7 +17,7 @@ const Index = ({ outputType, siteProperties: { host } }) => {
     if (outputType === 'amp')
         return <FooterAMP copyrightText={copyrightText} />;
     return (
-        <footer>
+        <footer className="footer-site">
             <div className="lay">
                 <Header host={host} />
                 <section className="row footer-sitio">

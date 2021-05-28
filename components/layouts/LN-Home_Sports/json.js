@@ -1,12 +1,6 @@
-import bitacora from '../../private/LN/api/v1/bitacora';
 import Consumer from 'fusion:consumer';
-import home from '../../private/LN/api/v1/home';
+import bitacora from '../../private/LN/api/v1/bitacora';
 import pageBuilderSections from '../config/LN-PageBuilder.config.json';
-
-import {
-    checkIfValid,
-    findSectionChildren
-} from '../../private/common/utils/validateSectionHome';
 
 const homeMobileSections = [
     'Banner-Megatop',
@@ -17,15 +11,8 @@ const homeMobileSections = [
     'Aside'
 ];
 
-const validateSections = (section, name, position, renderables) => {
-    const sectionChildren = findSectionChildren(renderables, position);
-    const result =
-        checkIfValid(name, sectionChildren) === true ? section : null;
-    return result;
-};
-
 const getHomeElements = props => {
-    const { children, renderables, arcSite } = props;
+    const { children, arcSite } = props;
     const configurations = {
         arcSite
     };

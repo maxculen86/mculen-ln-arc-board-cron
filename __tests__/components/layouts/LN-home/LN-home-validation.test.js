@@ -112,11 +112,25 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
 
     it('Validar Seccion Bomba en Home', () => {
         expect(
-            validateSectionHome(null, 'Bomba', sectionsValidation.Bomba.position, renderables1, 'default', true)
+            validateSectionHome(
+                null,
+                'Bomba',
+                sectionsValidation.Bomba.position,
+                renderables1,
+                'default',
+                true
+            )
         ).toEqual(null);
 
         expect(
-            validateSectionHome(null, 'Bomba', sectionsValidation.Bomba.position, renderables2, 'default', true)
+            validateSectionHome(
+                null,
+                'Bomba',
+                sectionsValidation.Bomba.position,
+                renderables2,
+                'default',
+                true
+            )
         ).toEqual(
             <PageBuilderMessage
                 id="LN-Home-error"
