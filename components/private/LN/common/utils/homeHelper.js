@@ -1,9 +1,6 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-undef */
 import React, { useContext } from 'react';
-import Ln_Caja_Collection from '../../../../chains/Ln_Caja_Collection/default';
-import Ln_Caja_Manual from '../../../../chains/Ln_Caja_Manual/default';
-import ArticleFeature from '../../../../features/LN-common/articulo/default';
 import useViewportSize from '../../../common/hooks/useViewportSize';
 import get from '../../../common/utils/get';
 import { LoginStore } from '../context/loginContext';
@@ -13,31 +10,6 @@ import {
     findSectionChildren,
     checkIfValid
 } from '../../../common/utils/validateSectionHome';
-
-const Components = {
-    Ln_Caja_Collection,
-    Ln_Caja_Manual
-};
-
-const withChilds = (childrens = []) => {
-    return childrens.map(child => {
-        return <ArticleFeature {...child.props} />;
-    });
-};
-
-const createComponent = element => {
-    if (typeof Components[element.type] !== 'undefined') {
-        return React.createElement(
-            Components[element.type],
-            {
-                ...element.props,
-                childProps: element.children
-            },
-            withChilds(element.children)
-        );
-    }
-    return null;
-};
 
 export const validateSectionHome = (
     section,
@@ -67,16 +39,6 @@ export const validateSectionHome = (
 
 export const getChildsFromSections = (renderable = [], sectionPosition) => {
     return get(renderable, `[${sectionPosition}].children`, []);
-};
-
-export const getChainsFromApertura = (renderable = []) => {
-    const chains = getChildsFromSections(
-        renderable,
-        get(sectionsValidation, 'Apertura.position', 3) + 1
-    );
-    const chainApertura1 = createComponent(chains[0] || {});
-    const chainApertura2 = createComponent(chains[1] || {});
-    return { chainApertura1, chainApertura2 };
 };
 
 export const isBombaVisible = (renderable = []) => {
@@ -112,7 +74,8 @@ export const getSubscription = () => {
 };
 
 export const sectionsWithBlocks = {
-    apertura: 'bloque1',
+    apertura1: 'bloque1',
+    apertura2: 'bloque1',
     anexo2: 'bloque2',
     breaking1: 'bloque2',
     breaking2: 'bloque3',

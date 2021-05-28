@@ -7,13 +7,15 @@ import React from 'react';
 import { mount } from 'enzyme';
 import {
     calculateSizeOfCollection,
-    getArticlesFromMyCurrentCollection,
     getCommonProps,
-    getIdsArticlesFromOtherCollections,
     getLayoutType,
     getMarkupForDatalayer,
     isInApertura
 } from '../../../components/private/LN/common/utils/cajaTemasHelper.js';
+import {
+    getArticlesFromMyCurrentCollection,
+    getIdsArticlesFromOtherCollections
+} from '../../../components/private/LN/common/utils/cajaTemasValidators';
 import { getArticlesToShow } from '../../../content/sources/utils/collectionsHelper.js';
 import CajaCollection from '../../../components/chains/Ln_Caja_Collection/default.jsx';
 import useGlobalProviderAcu from '../../../components/private/LN/acumulado/hooks/useGlobalProviderAcu.js';

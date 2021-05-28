@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
 import Consumer from 'fusion:consumer';
 import {
+    validateFeature,
     getCommonPropsJson,
     getArticlesFromMyCurrentCollection,
     getIdsArticlesFromOtherCollections
-} from '../../../../common/utils/cajaTemasHelperApi';
+} from '../../../../common/utils/cajaTemasValidators';
 import get from '../../../../../common/utils/get';
 import filter from '../../../../../../../content/filters/LN/acumulado/articleHomeMobile';
 
@@ -25,6 +26,19 @@ const GetCajaCollection = propsParams => {
                             source: 'collectionsSource',
                             query,
                             filter
+                        }
+                    });
+                }
+
+                const imageId = get(props, 'customFields.imageId', '');
+                if (imageId) {
+                    this.fetchContent({
+                        containerImage: {
+                            source: 'relatedImageSource',
+                            query: {
+                                id: imageId,
+                                published: true
+                            }
                         }
                     });
                 }
@@ -74,14 +88,22 @@ const GetCajaCollection = propsParams => {
 
             render() {
                 try {
-                    const { articleList } = this.state || {};
+                    const { articleList, containerImage } = this.state || {};
                     const { customFields } = this.props;
-                    if (!articleList) {
+
+                    const error = validateFeature(
+                        customFields.idCollection,
+                        articleList,
+                        customFields.layout
+                    );
+
+                    if (!articleList || error) {
                         return null;
                     }
+
                     const elements = get(articleList, 'content_elements', []);
                     return {
-                        information: customFields,
+                        information: { ...customFields, image: containerImage },
                         articles: elements
                     };
                 } catch (err) {

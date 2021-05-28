@@ -12,7 +12,6 @@ import LoadBanners from '../../private/common/banners/LoadBanners';
 import blocksBanners from '../../private/common/banners/blocksBannerHome';
 import Metarefresh from '../../features/LN-common/metarefresh';
 import {
-    getChainsFromApertura,
     sectionsWithBlocks,
     getSectionVisible,
     scrollToSection,
@@ -74,7 +73,7 @@ const checkIfOneBlockIsFalse = blocksToLoad => {
 
 const BannerCabezal = ({ isDesktop, isTablet }) => {
     return (
-        <>
+        <div className="container --ads">
             <DivBanner
                 id="cabezal_dsk"
                 shouldRender={isDesktop}
@@ -85,7 +84,7 @@ const BannerCabezal = ({ isDesktop, isTablet }) => {
                 shouldRender={isTablet}
                 classes="--dark"
             />
-        </>
+        </div>
     );
 };
 
@@ -96,7 +95,8 @@ const LNMainHome = props => {
         anticipo,
         anexo1,
         bomba,
-        apertura,
+        apertura1,
+        apertura2,
         anexo2,
         breaking1,
         breaking2,
@@ -125,13 +125,6 @@ const LNMainHome = props => {
             isAdmin
         );
     });
-
-    const { chainApertura1, chainApertura2 } = getChainsFromApertura(
-        renderables
-    );
-
-    const showSectionApertura =
-        !apertura || get(apertura, 'props.id', null) === 'LN-Home-error';
 
     const showBomba = isBombaVisible(renderables);
 
@@ -279,19 +272,15 @@ const LNMainHome = props => {
                                     )}
 
                                     {/* 1er Bloque */}
-                                    {!showSectionApertura ? (
-                                        <div data-section="apertura">
-                                            {chainApertura1}
-                                            {/* BANNER CAJA 1 MOB */}
-                                            <DivBanner
-                                                id="caja1_mob"
-                                                shouldRender={isMobile}
-                                            />
-                                            {chainApertura2}
-                                        </div>
-                                    ) : (
-                                        apertura
-                                    )}
+                                    <div data-section="apertura">
+                                        {apertura1}
+                                        {/* BANNER CAJA 1 MOB */}
+                                        <DivBanner
+                                            id="caja1_mob"
+                                            shouldRender={isMobile}
+                                        />
+                                        {apertura2}
+                                    </div>
 
                                     {/* BANNER BILLBOARD */}
                                     <DivBanner
@@ -384,26 +373,28 @@ const LNMainHome = props => {
                                         {blocksToLoad.bloque2 && breaking3}
                                     </div>
                                     {blocksToLoad.bloque3 && (
-                                        <div className="row-gap-tablet-2">
-                                            <CajaPromo
-                                                customFields={{
-                                                    text:
-                                                        'La información más completa del mercado inmobiliario minuto a minuto.',
-                                                    link:
-                                                        'https://www.lanacion.com.ar/propiedades/',
-                                                    logoName: 'propiedades'
-                                                }}
-                                            />
-                                            <CajaPromo
-                                                customFields={{
-                                                    text:
-                                                        'La mejor información para un sector clave que evoluciona día a día.',
-                                                    link:
-                                                        'https://www.lanacion.com.ar/economia/campo/',
-                                                    logoName: 'campo'
-                                                }}
-                                            />
-                                        </div>
+                                        <section className="container --promos">
+                                            <div className="row-gap-tablet-2">
+                                                <CajaPromo
+                                                    customFields={{
+                                                        text:
+                                                            'La información más completa del mercado inmobiliario minuto a minuto.',
+                                                        link:
+                                                            'https://www.lanacion.com.ar/propiedades/',
+                                                        logoName: 'propiedades'
+                                                    }}
+                                                />
+                                                <CajaPromo
+                                                    customFields={{
+                                                        text:
+                                                            'La mejor información para un sector clave que evoluciona día a día.',
+                                                        link:
+                                                            'https://www.lanacion.com.ar/economia/campo/',
+                                                        logoName: 'campo'
+                                                    }}
+                                                />
+                                            </div>
+                                        </section>
                                     )}
                                     {/* 3er Bloque */}
                                     {blocksToLoad.bloque3 && (
@@ -562,7 +553,12 @@ const LNMainHome = props => {
                                         />
                                     )}
                                     <div className="acumulado">
-                                        <TagsListFeature id="TagsListFeatureHome" />
+                                        <section className="mod-linklist">
+                                            <TagsListFeature
+                                                id="TagsListFeatureHome"
+                                                title="Temas del día:"
+                                            />
+                                        </section>
                                     </div>
                                 </div>
                                 <div className="sidebar__aside hlp-tabletlm-none">

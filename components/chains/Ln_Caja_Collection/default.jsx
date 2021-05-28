@@ -5,12 +5,14 @@ import getArticleInCollection from '../../private/LN/common/utils/getArticleInCo
 import CajaTema from '../../private/LN/common/cajaTema';
 import {
     cajaTemasCustomsFields,
-    validateFeature,
     getCommonProps,
-    getIdsArticlesFromOtherCollections,
-    isInApertura,
-    getArticlesFromMyCurrentCollection
+    isInApertura
 } from '../../private/LN/common/utils/cajaTemasHelper';
+import {
+    validateFeature,
+    getIdsArticlesFromOtherCollections,
+    getArticlesFromMyCurrentCollection
+} from '../../private/LN/common/utils/cajaTemasValidators';
 import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
 const CajaCollection = props => {

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useAppContext } from 'fusion:context';
 import { useContent as getContent } from 'fusion:content';
 import Static from 'fusion:static';
+import PropTypes from 'fusion:prop-types';
 import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
 import { GlobalContext } from '../../private/common/context/globalContext';
 import ComLinkList from '../../private/common/com-link-list';
@@ -11,8 +12,9 @@ import {
     transformTagsForAcu
 } from '../../private/common/utils/tags';
 import getSectionName from '../../private/LN/common/utils/getSectionName';
+import ComTitle from '../../private/common/com-title';
 
-const TagsListFeature = ({ id }) => {
+const TagsListFeature = ({ id, title }) => {
     const {
         globalContent: { _id: sectionId, node_type: nodeType, type } = {},
         arcSite = 'la-nacion-ar'
@@ -55,7 +57,14 @@ const TagsListFeature = ({ id }) => {
 
     const Component =
         (hidetagslist !== 'true' && tagList && (
-            <ComLinkList list={tagList} extraClass="--tags" />
+            <>
+                {title && <ComTitle size="--twoxs" content={title} />}
+                <ComLinkList
+                    list={tagList}
+                    extraClass="--tags"
+                    isHome={sectionIsHome}
+                />
+            </>
         )) ||
         null;
 
@@ -63,5 +72,14 @@ const TagsListFeature = ({ id }) => {
 };
 
 TagsListFeature.label = 'LN-Acumulado-Tag-List';
+
+TagsListFeature.propTypes = {
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string
+};
+
+TagsListFeature.defaultProps = {
+    title: ''
+};
 
 export default TagsListFeature;
