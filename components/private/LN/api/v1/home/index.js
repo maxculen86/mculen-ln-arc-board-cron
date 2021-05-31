@@ -1,7 +1,7 @@
 import { get } from 'lodash';
 import Image from '../common/image';
 import { removeEmptyItems } from '../common/utils/responseCleaner';
-import Article from './article';
+import { articleItem as Article, anexoItem as Anexo } from './article';
 
 // TODO: Recorrer las notas en un archivo nuevo.
 // Recibir el array y validar que tenga notas
@@ -44,10 +44,12 @@ const featureInformation = (information, feature) => {
 const storyBox = element => {
     const { information, feature, configurations } = element;
     const articles = get(element, 'articles', []);
-
     return {
         ...featureInformation(information, feature),
-        notas: Article(articles, configurations)
+        notas:
+            feature !== 'Anexo'
+                ? Article(articles, configurations)
+                : Anexo(articles)
     };
 };
 

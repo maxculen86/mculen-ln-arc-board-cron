@@ -6,7 +6,11 @@ class AnexoFeature {
     }
 
     render() {
-        return {};
+        const { html, hideByHtml } = this.props.customFields;
+        return {
+            information: { hideCaja: hideByHtml, layout: 'grilla1' },
+            articles: [{ html }]
+        };
     }
 }
 

@@ -41,6 +41,7 @@ class ArticleFeature {
             if (!articleSourceNota) {
                 return null;
             }
+
             const additionalProperties = {
                 noteId,
                 title,
