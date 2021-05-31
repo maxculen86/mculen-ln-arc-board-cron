@@ -1,6 +1,7 @@
 import React from 'react';
 import getProperties from 'fusion:properties';
 import { validateSectionHome } from '../../../../components/private/LN/common/utils/homeHelper';
+import sectionsValidation from '../../../../components/layouts/config/LN-Home.config';
 import PageBuilderMessage from '../../../../components/private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage.jsx';
 import renderables1 from '../../../../__mocks__/data/renderables/data1';
 import renderables2 from '../../../../__mocks__/data/renderables/data2';
@@ -32,7 +33,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             validateSectionHome(
                 null,
                 'Anticipo',
-                0,
+                sectionsValidation.Anticipo.position,
                 renderables1,
                 'default',
                 true
@@ -43,7 +44,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             validateSectionHome(
                 null,
                 'Anticipo',
-                0,
+                sectionsValidation.Anticipo.position,
                 renderables2,
                 'default',
                 true
@@ -60,7 +61,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             validateSectionHome(
                 true,
                 'Anticipo',
-                0,
+                sectionsValidation.Anticipo.position,
                 renderablesOk,
                 'default',
                 true
@@ -73,7 +74,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             validateSectionHome(
                 null,
                 'Anexo_1',
-                1,
+                sectionsValidation.Anexo_1.position,
                 renderables1,
                 'default',
                 true
@@ -84,7 +85,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             validateSectionHome(
                 null,
                 'Anexo_1',
-                1,
+                sectionsValidation.Anexo_1.position,
                 renderables2,
                 'default',
                 true
@@ -101,7 +102,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             validateSectionHome(
                 true,
                 'Anexo_1',
-                1,
+                sectionsValidation.Anexo_1.position,
                 renderablesOk,
                 'default',
                 true
@@ -111,11 +112,25 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
 
     it('Validar Seccion Bomba en Home', () => {
         expect(
-            validateSectionHome(null, 'Bomba', 2, renderables1, 'default', true)
+            validateSectionHome(
+                null,
+                'Bomba',
+                sectionsValidation.Bomba.position,
+                renderables1,
+                'default',
+                true
+            )
         ).toEqual(null);
 
         expect(
-            validateSectionHome(null, 'Bomba', 2, renderables2, 'default', true)
+            validateSectionHome(
+                null,
+                'Bomba',
+                sectionsValidation.Bomba.position,
+                renderables2,
+                'default',
+                true
+            )
         ).toEqual(
             <PageBuilderMessage
                 id="LN-Home-error"
@@ -128,7 +143,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             validateSectionHome(
                 true,
                 'Bomba',
-                2,
+                sectionsValidation.Bomba.position,
                 renderablesOk,
                 'default',
                 true
@@ -136,12 +151,12 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
         ).toEqual(true);
     });
 
-    it('Validar Seccion Apertura en Home', () => {
+    it('Validar Seccion Apertura 1 en Home', () => {
         expect(
             validateSectionHome(
                 null,
-                'Apertura',
-                3,
+                'Apertura_1',
+                sectionsValidation.Apertura_1.position,
                 renderables1,
                 'default',
                 true
@@ -151,8 +166,8 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
         expect(
             validateSectionHome(
                 null,
-                'Apertura',
-                3,
+                'Apertura_1',
+                sectionsValidation.Apertura_1.position,
                 renderables2,
                 'default',
                 true
@@ -161,15 +176,15 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             <PageBuilderMessage
                 id="LN-Home-error"
                 type="warning"
-                message={`La sección Apertura solo permite componentes del tipo LN-common/anexo,Ln_Caja_Collection,Ln_Caja_Manual`}
+                message={`La sección Apertura_1 solo permite componentes del tipo LN-common/anexo,Ln_Caja_Collection,Ln_Caja_Manual`}
             />
         );
 
         expect(
             validateSectionHome(
                 true,
-                'Apertura',
-                3,
+                'Apertura_1',
+                sectionsValidation.Apertura_1.position,
                 renderablesOk,
                 'default',
                 true
@@ -182,7 +197,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             validateSectionHome(
                 null,
                 'Anexo_2',
-                4,
+                sectionsValidation.Anexo_2.position,
                 renderables1,
                 'default',
                 true
@@ -193,7 +208,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             validateSectionHome(
                 null,
                 'Anexo_2',
-                4,
+                sectionsValidation.Anexo_2.position,
                 renderables2,
                 'default',
                 true
@@ -210,7 +225,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             validateSectionHome(
                 true,
                 'Anexo_2',
-                4,
+                sectionsValidation.Anexo_2.position,
                 renderablesOk,
                 'default',
                 true
@@ -223,7 +238,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             validateSectionHome(
                 null,
                 'Breaking_1',
-                5,
+                sectionsValidation.Breaking_1.position,
                 renderables1,
                 'default',
                 true
@@ -234,7 +249,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             validateSectionHome(
                 null,
                 'Breaking_1',
-                5,
+                sectionsValidation.Breaking_1.position,
                 renderables2,
                 'default',
                 true
@@ -251,7 +266,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             validateSectionHome(
                 true,
                 'Breaking_1',
-                5,
+                sectionsValidation.Breaking_1.position,
                 renderablesOk,
                 'default',
                 true
@@ -264,7 +279,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             validateSectionHome(
                 null,
                 'Opinion',
-                9,
+                sectionsValidation.Opinion.position,
                 renderables1,
                 'default',
                 true
@@ -275,7 +290,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             validateSectionHome(
                 null,
                 'Opinion',
-                9,
+                sectionsValidation.Opinion.position,
                 renderables2,
                 'default',
                 true
@@ -292,7 +307,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             validateSectionHome(
                 true,
                 'Opinion',
-                9,
+                sectionsValidation.Opinion.position,
                 renderablesOk,
                 'default',
                 true
@@ -305,7 +320,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             validateSectionHome(
                 null,
                 'Comercial_1',
-                13,
+                sectionsValidation.Comercial_1.position,
                 renderables1,
                 'default',
                 true
@@ -316,7 +331,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             validateSectionHome(
                 null,
                 'Comercial_1',
-                13,
+                sectionsValidation.Comercial_1.position,
                 renderables2,
                 'default',
                 true
@@ -333,7 +348,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             validateSectionHome(
                 true,
                 'Comercial_1',
-                13,
+                sectionsValidation.Comercial_1.position,
                 renderablesOk,
                 'default',
                 true
@@ -346,7 +361,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             validateSectionHome(
                 null,
                 'Bloque_2',
-                14,
+                sectionsValidation.Bloque_2.position,
                 renderables1,
                 'default',
                 true
@@ -357,7 +372,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             validateSectionHome(
                 null,
                 'Bloque_2',
-                14,
+                sectionsValidation.Bloque_2.position,
                 renderables2,
                 'default',
                 true
@@ -374,7 +389,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             validateSectionHome(
                 true,
                 'Bloque_2',
-                14,
+                sectionsValidation.Bloque_2.position,
                 renderablesOk,
                 'default',
                 true

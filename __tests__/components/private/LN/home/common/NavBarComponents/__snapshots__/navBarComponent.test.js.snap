@@ -42,7 +42,7 @@ exports[`private - LN - common - Navbar - listMenu Test de snapshot NavBar 1`] =
     </a>
     <a
       class="col-3 item-foo"
-      href="https://micuenta.lanacion.com.ar/mis-datos/"
+      href="https://myaccount.lanacion.com.ar/mi-usuario"
     >
       <i
         class="icon-user"

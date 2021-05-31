@@ -68,6 +68,9 @@ const Comercial = props => {
         >
             <ComButton
                 classCondition="--primary --compact"
+                dataEvent="LinkClick"
+                dataSection="Comercial-home"
+                id="btn-bajar-comercial_dsk"
                 textname="CERRAR"
                 onClick={handleClick}
             />

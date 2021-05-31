@@ -9,6 +9,8 @@ const ComButton = props => {
         id,
         children,
         classCondition,
+        dataEvent,
+        dataSection,
         onClick,
         onMouseDown,
         classesNames,
@@ -25,6 +27,8 @@ const ComButton = props => {
             <button
                 id={id}
                 type="button"
+                data-event={dataEvent}
+                data-section={dataSection}
                 className={`com-button ${classesNames || ``} ${classCondition ||
                     ''} ${iconName ? `--icon` : ``} `}
                 onClick={onClick}
@@ -39,6 +43,8 @@ const ComButton = props => {
         return (
             <button
                 id={id}
+                data-event={dataEvent}
+                data-section={dataSection}
                 type="button"
                 className={`com-button ${classesNames || ``} ${classCondition ||
                     ''} ${
@@ -58,6 +64,8 @@ const ComButton = props => {
     return (
         <button
             id={id}
+            data-event={dataEvent}
+            data-section={dataSection}
             type="button"
             className={`com-button ${classesNames || ``} ${classCondition ||
                 ''}`}
@@ -87,7 +95,15 @@ ComButton.propTypes = {
     size: PropTypes.string,
     title: PropTypes.string,
     id: PropTypes.string,
+    dataEvent: PropTypes.string,
+    dataSection: PropTypes.string,
     style: PropTypes.node
+};
+
+ComButton.defaultProps = {
+    id: '',
+    dataEvent: '',
+    dataSection: ''
 };
 
 export default ComButton;

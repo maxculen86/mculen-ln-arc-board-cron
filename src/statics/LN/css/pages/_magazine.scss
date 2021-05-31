@@ -1,6 +1,14 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 
+.nota.noticia {
+    .--apertura {
+        .com-title {
+            margin-bottom: px(16);
+        }
+    }
+}
+
 /* REVISTAS */
 @mixin magazine($logo, $primario) {
     &.nota {

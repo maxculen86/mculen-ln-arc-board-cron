@@ -15,20 +15,14 @@
         display: block;
     }
     ////////////////Cambiar por props////////////////
-    &.--m,
-    &.--xs {
-        .home & {
-            font-weight: 500;
-        }
-    }
-    &.--l,
-    &.--xl {
-        .mod-headersection & {
-            font-weight: 700;
-        }
-        .home & {
-            font-weight: 500;
-            @media ($media-l) {
+    .home & {
+        @media ($media-m) {
+            &.--m,
+            &.--xs {
+                font-weight: 500;
+            }
+            &.--l,
+            &.--xl {
                 font-weight: 700;
             }
         }

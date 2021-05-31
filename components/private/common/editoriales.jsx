@@ -43,7 +43,7 @@ const Editoriales = props => {
 };
 
 Editoriales.propTypes = {
-    articles: PropTypes.arrayOf(PropTypes.obj),
+    articles: PropTypes.arrayOf(PropTypes.object),
     layout: PropTypes.string,
     title: PropTypes.string,
     link: PropTypes.string,
