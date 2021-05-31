@@ -1,7 +1,9 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import getProperties from 'fusion:properties';
 import PropTypes from 'prop-types';
+import config from '../../../../properties/sites/la-nacion-ar';
 
 class Pwa extends React.Component {
     constructor(props) {
@@ -18,12 +20,35 @@ class Pwa extends React.Component {
 
         if (layout !== layoutsName.Home) return <></>;
 
+        const { firebase } = config;
+
+        const script = `
+            firebase.initializeApp({
+                apiKey: "${firebase.apiKey}",
+                authDomain: "${firebase.authDomain}",
+                databaseURL: "${firebase.databaseURL}",
+                projectId: "${firebase.projectId}",
+                storageBucket: "${firebase.storageBucket}",
+                messagingSenderId: "${firebase.messagingSenderId}"
+              });
+   `;
+
         return (
-            <script
-                id="pwaScript"
-                deployment={deployment.value}
-                src={deployment(`/pf/resources/register.js`)}
-            />
+            <>
+                <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js" />
+                <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-messaging.js" />
+                <script
+                    type="text/javascript"
+                    dangerouslySetInnerHTML={{ __html: script }}
+                />
+                <script
+                    async
+                    defer
+                    id="pwaScript"
+                    deployment={deployment.value}
+                    src={deployment(`/pf/resources/register.js`)}
+                />
+            </>
         );
     }
 }

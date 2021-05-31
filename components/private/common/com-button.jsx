@@ -6,6 +6,7 @@ import ComText from './com-text';
 
 const ComButton = props => {
     const {
+        id,
         children,
         classCondition,
         onClick,
@@ -22,6 +23,7 @@ const ComButton = props => {
     if (iconName && !children)
         return (
             <button
+                id={id}
                 type="button"
                 className={`com-button ${classesNames || ``} ${classCondition ||
                     ''} ${iconName ? `--icon` : ``} `}

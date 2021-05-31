@@ -9,8 +9,10 @@
 // import handleCookie from '../components/private/LN/common/utils/handleCookie';
 
 let messaging = null;
-
 let deferredPrompt;
+
+const apiNotification = 'https://notificaciones.lanacion.com.ar/api/';
+const topicName = 'pwatemp';
 
 const _setCookie = (nameCookie, valueCookie, timeExpiration) => {
     const seconds = timeExpiration ? timeExpiration * 60 * 1000 : undefined;
@@ -185,7 +187,7 @@ const register = deployment => {
                 showNoShowModal('#notificacion-modal-pwa', 'block');
                 // setShowModalApp(true);
             }
-            initialize();
+
             return false;
         });
 
@@ -194,6 +196,7 @@ const register = deployment => {
             navigator.serviceWorker
                 .register(`/sw.js?d=${deployment}`)
                 .then(reg => {
+                    initialize();
                     console.log('[Service Worker] Yes, it did.');
                 })
                 .catch(err => {
@@ -264,12 +267,10 @@ const setDataLayer = event => {
 };
 
 const initialize = () => {
-    // var _fb = window.config.Firebase;
+    //var _fb = window.firebase;
     // _fb.messagingSenderId = _fb.messagingSenderId.toString();
 
-    // firebase.initializeApp(_fb);
-
-    // messaging = firebase.messaging();
+    messaging = firebase.messaging();
 
     // const ls = Cookie.LeerCookie(notifKey);
     const ls = _getCookie('ln-notification');
@@ -305,35 +306,6 @@ const initialize = () => {
             checkSubscription(true);
         });
     }
-    /*
-    $(document).on('click', '#notificacion-no', (e) => {
-        e.preventDefault();
-        var modal = $('#notificacion-modal');
-
-        dataLayer.push({
-            'event': 'PushNoficationDismiss'
-        });
-
-
-        Cookie.SetNotification(false);
-        modal.hide();
-    });
-
-    $(document).on('click', '#notificacion-si', (e) => {
-        e.preventDefault();
-        var modal = $('#notificacion-modal');
-
-        dataLayer.push({
-            'event': 'PushNoficationConsent'
-        });
-
-        Cookie.SetNotification(true);
-        modal.hide();
-        checkSubscription(true);
-    });
-    */
-
-    // checkSubscription();
 };
 
 const displayNotificacion = () => {
@@ -451,7 +423,7 @@ const registerSuscription = (token, showError) => {
     // Registrar dispositivo en api notificaciones
     const body = { token };
 
-    const apiUrl = `${window.config.Statics.ApiNotificaciones}notification/register/`;
+    const apiUrl = `${apiNotification}notification/register/`;
 
     const headers = {
         Accept: 'application/json',
@@ -466,7 +438,7 @@ const registerSuscription = (token, showError) => {
         .then(response => response.json())
         .then(res => {
             console.log('device notifications registered.', res);
-            registerTopic(window.config.Statics.topicName, token, showError);
+            registerTopic(topicName, token, showError);
         })
         .catch(err => {
             console.log('device notifications error: ', err);
@@ -491,14 +463,14 @@ const registerSuscription = (token, showError) => {
     */
 };
 
-const registerTopic = (topicName, token, showError) => {
+const registerTopic = (topic, token, showError) => {
     // Registrar dispositivo en api notificaciones
     const body = {
         token,
-        topicName
+        topic
     };
 
-    const apiUrl = `${window.config.Statics.ApiNotificaciones}notification/subscriptions/`;
+    const apiUrl = `${apiNotification}notification/subscriptions/`;
     const headers = {
         Accept: 'application/json',
         'Content-Type': 'application/json',
