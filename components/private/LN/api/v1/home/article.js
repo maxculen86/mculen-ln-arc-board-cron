@@ -50,7 +50,7 @@ const getArticleSignature = (article, autor) => {
     return signature || (autor ? `Por ${autor.valor}` : null);
 };
 
-const articleItem = (articles, configuration) => {
+export const articleItem = (articles, configuration) => {
     return articles
         .filter(e => e)
         .map(article => {
@@ -76,7 +76,9 @@ const articleItem = (articles, configuration) => {
                 sitioId: get(article, 'configurations.arcSite', null),
                 url,
                 titulo,
-                volanta: get(label, 'volanta.text', null),
+                volanta:
+                    get(label, 'volanta.text', null) ||
+                    get(article, 'additionalProperties.lead', null),
                 bajada: get(article, 'subheadlines.basic', null),
                 chapita: getArticleTag(article),
                 autor,
@@ -89,4 +91,7 @@ const articleItem = (articles, configuration) => {
         });
 };
 
-export default articleItem;
+export const anexoItem = article => {
+    const html = get(article[0], 'html', '');
+    return [{ html }];
+};
