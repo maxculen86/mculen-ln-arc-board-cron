@@ -1,25 +1,19 @@
 import get from 'lodash.get';
 import Image from '../common/image';
 import { authorHomeMobile } from '../common/author';
-import Relacionados from '../nota/relacionados';
-
-const sectionsProduct = [
-    '/lnmas',
-    '/revista-brando',
-    '/revista-jardin',
-    '/revista-ohlala',
-    '/revista-lugares',
-    '/revista-living',
-    '/revista-hola'
-];
 
 const getArticleImage = article => {
-    const image =
-        get(article, 'additionalProperties.image.promo_items.basic', null) ||
-        get(article, 'promo_items.basic', null);
+    const opinion = get(article, 'additionalProperties.opinion', false);
+    if (!opinion) {
+        const image =
+            get(
+                article,
+                'additionalProperties.image.promo_items.basic',
+                null
+            ) || get(article, 'promo_items.basic', null);
 
-    if (image && image.type === 'image') return Image(image);
-
+        if (image && image.type === 'image') return Image(image);
+    }
     return null;
 };
 
@@ -44,19 +38,6 @@ const getArticleAuthor = article => {
         }
     }
 
-    return null;
-};
-
-const getArticleProduct = article => {
-    const sections = Relacionados(article);
-    if (sections.categorias && sections.categorias.length > 0) {
-        const productoDestacado = sections.categorias.filter(e =>
-            sectionsProduct.includes(e.slug)
-        );
-        return productoDestacado && productoDestacado.length > 0
-            ? productoDestacado[0]
-            : null;
-    }
     return null;
 };
 
@@ -87,10 +68,11 @@ const articleItem = (articles, configuration) => {
                 throw new Error('Titulo de la nota es null o undefined');
             }
 
+            const opinion = get(article, 'additionalProperties.opinion', false);
             const autor = getArticleAuthor(article);
             const resp = {
                 id,
-                templateId,
+                templateId: !opinion ? templateId : '3',
                 sitioId: get(article, 'configurations.arcSite', null),
                 url,
                 titulo,
@@ -99,9 +81,8 @@ const articleItem = (articles, configuration) => {
                 chapita: getArticleTag(article),
                 autor,
                 marquesina: getArticleSignature(article, autor),
-                seccionProducto: getArticleProduct(article),
                 seccionPadre: getArticleOpinionSubtype(article),
-                image: getArticleImage(article)
+                imagen: getArticleImage(article)
             };
 
             return resp;

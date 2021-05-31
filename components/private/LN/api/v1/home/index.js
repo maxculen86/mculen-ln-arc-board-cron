@@ -1,5 +1,3 @@
-//index.js v1/home
-
 import { get } from 'lodash';
 import Image from '../common/image';
 import { removeEmptyItems } from '../common/utils/responseCleaner';
@@ -32,7 +30,7 @@ const featureInformation = (information, feature) => {
     if (!information.hideTitle && feature !== 'Apertura') {
         const image = get(information.image, 'promo_items.basic', null);
 
-        if (image && image.type === 'image') res.image = Image(image);
+        if (image && image.type === 'image') res.imagen = Image(image);
 
         return {
             ...res,

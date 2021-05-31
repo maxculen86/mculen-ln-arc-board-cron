@@ -1,5 +1,3 @@
-//getCajacolletion
-
 import React, { PureComponent } from 'react';
 import Consumer from 'fusion:consumer';
 import {
