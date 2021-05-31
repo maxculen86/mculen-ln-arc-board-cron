@@ -92,6 +92,7 @@ export const getWithMedia = (customFields, articleProps, article) =>
 
 export const getWithSubhead = (articleProps, withMedia, customFields) =>
     !get(customFields, 'opinion') &&
+    !get(customFields, 'hideDescription') &&
     (get(articleProps, 'withSubheadAndMedia') ||
         (!get(articleProps, 'withSubheadAndMedia') && !withMedia));
 
