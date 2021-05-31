@@ -63,7 +63,7 @@ describe('Common - getMetasOG function', () => {
                 longTitle:
                     'Últimas noticias de Argentina y el mundo - LA NACION',
                 description:
-                    'Información confiable en Internet. Noticias de Argentina y del mundo - ¡Informate ya!',
+                    'odas las noticias de Argentina y el mundo: últimas noticias en actualidad, deportes, coronavirus, economía, política, y tecnología. Mantenete informado sobre las novedades de Argentina en LA NACION.',
                 shareConfig: {
                     facebook: {
                         appID: '205326199490321'
@@ -96,7 +96,8 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:description',
-                content: ''
+                content:
+                    'odas las noticias de Argentina y el mundo: últimas noticias en actualidad, deportes, coronavirus, economía, política, y tecnología. Mantenete informado sobre las novedades de Argentina en LA NACION.'
             },
             {
                 property: 'og:image',
