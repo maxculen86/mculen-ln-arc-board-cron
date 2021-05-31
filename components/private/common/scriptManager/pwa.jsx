@@ -31,18 +31,23 @@ class Pwa extends React.Component {
                 storageBucket: "${firebase.storageBucket}",
                 messagingSenderId: "${firebase.messagingSenderId}"
               });
-   `;
+        `;
 
         return (
             <>
-                <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js" />
-                <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-messaging.js" />
                 <script
-                    type="text/javascript"
-                    dangerouslySetInnerHTML={{ __html: script }}
+                    defer
+                    src="https://www.gstatic.com/firebasejs/5.11.1/firebase-app.js"
                 />
                 <script
-                    async
+                    defer
+                    src="https://www.gstatic.com/firebasejs/5.11.1/firebase-messaging.js"
+                />
+                {/* <script
+                    type="text/javascript"
+                    dangerouslySetInnerHTML={{ __html: script }}
+                /> */}
+                <script
                     defer
                     id="pwaScript"
                     deployment={deployment.value}

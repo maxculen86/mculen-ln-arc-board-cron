@@ -38,6 +38,7 @@ const ComButton = props => {
     if (iconName && children)
         return (
             <button
+                id={id}
                 type="button"
                 className={`com-button ${classesNames || ``} ${classCondition ||
                     ''} ${
@@ -56,6 +57,7 @@ const ComButton = props => {
         );
     return (
         <button
+            id={id}
             type="button"
             className={`com-button ${classesNames || ``} ${classCondition ||
                 ''}`}
@@ -84,6 +86,7 @@ ComButton.propTypes = {
     iconPosition: PropTypes.string,
     size: PropTypes.string,
     title: PropTypes.string,
+    id: PropTypes.string,
     style: PropTypes.node
 };
 

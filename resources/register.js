@@ -13,6 +13,14 @@ let deferredPrompt;
 
 const apiNotification = 'https://notificaciones.lanacion.com.ar/api/';
 const topicName = 'pwatemp';
+const firebaseConfig = {
+    apiKey: 'AIzaSyCFxG5eKZiyU1DDlg7yZw4JzblfO6pc0m4',
+    authDomain: 'lanacion-92a91.firebaseapp.com',
+    databaseURL: 'https://lanacion-92a91.firebaseio.com',
+    messagingSenderId: '221085116662',
+    projectId: 'lanacion-92a91',
+    storageBucket: 'lanacion-92a91.appspot.com'
+};
 
 const _setCookie = (nameCookie, valueCookie, timeExpiration) => {
     const seconds = timeExpiration ? timeExpiration * 60 * 1000 : undefined;
@@ -267,10 +275,14 @@ const setDataLayer = event => {
 };
 
 const initialize = () => {
-    //var _fb = window.firebase;
+    // const _fb = window.firebase;
     // _fb.messagingSenderId = _fb.messagingSenderId.toString();
 
-    messaging = firebase.messaging();
+    if (typeof firebase !== 'undefined') {
+        firebase.initializeApp(firebaseConfig);
+
+        messaging = firebase.messaging();
+    }
 
     // const ls = Cookie.LeerCookie(notifKey);
     const ls = _getCookie('ln-notification');
@@ -367,19 +379,19 @@ const checkSubscription = showError => {
                     localStorage.setItem('x-auth3-token', token);
 
                     /* En caso de utilizar el firebase storage  para almacenar
-                    caches.open('sw').then(function (cache) {
-                    cache.match('/pushtoken').then(function (val) {
-                        if (val && val.ok) {
-                            val.json().then(function (result) {
-                                if (token != result.token) {
-                                    localStorage.setItem('x-auth4-token', token);
+                        caches.open('sw').then(function (cache) {
+                            cache.match('/pushtoken').then(function (val) {
+                                if (val && val.ok) {
+                                    val.json().then(function (result) {
+                                        if (token != result.token) {
+                                            localStorage.setItem('x-auth4-token', token);
+                                        }
+                                        
+                                    });
                                 }
-                                
-                            });
-                        }
-                    })
-                });
-                */
+                            })
+                        });
+                    */
 
                     if (
                         token !== localStorage.getItem('x-auth2-token') ||
