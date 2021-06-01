@@ -11,7 +11,7 @@
 let messaging = null;
 let deferredPrompt;
 
-const apiNotification = 'https://notificaciones.lanacion.com.ar/api/';
+const apiNotification = 'https://qa-notificaciones.lanacion.com.ar'; // 'https://notificaciones.lanacion.com.ar/api/';
 const topicName = 'Alertas_LA_NACION'; // 'pwatemp';
 /*
 const firebaseConfig = {
@@ -467,7 +467,7 @@ const registerSuscription = (token, showError) => {
     savePushTokenCache(token);
 
     // Registrar dispositivo en api notificaciones
-    const body = { token };
+    const body = JSON.stringify({ token });
 
     const apiUrl = `${apiNotification}notification/register/`;
 
@@ -511,10 +511,10 @@ const registerSuscription = (token, showError) => {
 
 const registerTopic = (topic, token, showError) => {
     // Registrar dispositivo en api notificaciones
-    const body = {
+    const body = JSON.stringify({
         token,
         topic
-    };
+    });
 
     const apiUrl = `${apiNotification}notification/subscriptions/`;
     const headers = {
