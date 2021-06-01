@@ -133,6 +133,7 @@
     &:not(:last-child) {
         .sidebar__aside & {
             margin-bottom: px(32);
+            background: none;
             // padding-bottom: px(32);
             // background: $neutral-white;
         }
