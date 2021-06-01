@@ -164,6 +164,8 @@ const HeaderDesktop = ({
                                 ))}
                                 <li>
                                     <a
+                                        data-event="LinkClick"
+                                        data-section="MenuLN"
                                         href="javascript:void(0);"
                                         onMouseDown={() => {
                                             goToLogout();

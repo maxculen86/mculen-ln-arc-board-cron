@@ -1,4 +1,4 @@
-import { SITE_LANACION, ARC_STATIC } from 'fusion:environment';
+import { ARC_STATIC } from 'fusion:environment';
 import getDomain from '../utils/getDomain';
 import addRelatedImage from '../../LN/common/utils/addRelatedImage';
 import addForwardSlash from '../../LN/common/utils/addForwardSlash';
@@ -25,6 +25,7 @@ const getDescription = ({
     if (isArticle) {
         description = subheadlinesBasic || descriptionDefault || '';
     }
+
     if (!isArticle) {
         const customTitle =
             metaValue('title') === 'Últimas noticias - LA NACION'
@@ -57,7 +58,7 @@ const getData = ({
     )}`;
     const {
         title: titleDefault,
-        shortDescription: descriptionDefault,
+        description: descriptionDefault,
         longTitle
     } = siteProperties;
 
@@ -104,6 +105,7 @@ const getData = ({
 
 const getMetasOG = props => {
     const data = getData(props);
+    const { section, siteProperties } = props;
     const metas = [
         {
             property: 'fb_app_id',
@@ -130,12 +132,21 @@ const getMetasOG = props => {
             content: addForwardSlash(data.url)
         }
     ];
+
     if (data.isArticle) {
         metas.push({
             property: 'article:published_time',
             content: data.publishDate
         });
     }
+
+    if (section === 'home') {
+        metas.push({
+            property: 'og:site_name',
+            content: siteProperties.title
+        });
+    }
+
     return metas;
 };
 

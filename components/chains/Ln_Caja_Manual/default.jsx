@@ -4,9 +4,9 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import {
     cajaTemasCustomsFields,
-    validateChainManual,
     getCommonProps
 } from '../../private/LN/common/utils/cajaTemasHelper';
+import { validateChainManual } from '../../private/LN/common/utils/cajaTemasValidators';
 import CajaTema from '../../private/LN/common/cajaTema';
 import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 

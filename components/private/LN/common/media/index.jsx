@@ -25,7 +25,8 @@ const media = ({
     parrafo,
     tituloNota,
     active,
-    anexo
+    anexo,
+    titleText
 }) => {
     const refContainer = useRef();
     const [zoom, setZoom] = useState(false);
@@ -75,7 +76,7 @@ const media = ({
                     >
                         <Image
                             active={active}
-                            image={mediaData}
+                            image={{ ...mediaData, titleText }}
                             href={href}
                             withLazy={itsGallery ? false : !zoom}
                         />

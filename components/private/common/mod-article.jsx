@@ -78,6 +78,7 @@ const ModArticle = props => {
                     href={link}
                     outputType={outputType}
                     anexo={anexo}
+                    titleText={titleText}
                     // labelArticle="La Chapita solo se tiene que ver con foto o placeholder"
                 />
             )}

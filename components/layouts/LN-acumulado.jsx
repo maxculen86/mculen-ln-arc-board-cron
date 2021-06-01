@@ -28,7 +28,8 @@ const pageBuilderSections = [
     'Apertura',
     'Links',
     'Notas',
-    'Aside'
+    'Aside',
+    'Bottom'
 ];
 
 const CLASS_ACU_REVISTA = '';
@@ -53,7 +54,8 @@ const LNAcumuladoLayout = props => {
             apertura,
             links,
             notas,
-            aside
+            aside,
+            bottom
         ],
         globalContent,
         outputType,
@@ -134,6 +136,12 @@ const LNAcumuladoLayout = props => {
                                 <div className="sidebar__aside hlp-tabletlm-none">
                                     {/* BANNERS, RANKING DE NOTAS */}
                                     {aside}
+                                </div>
+                            </div>
+                            <div className="lay-sidebar">
+                                <div className="sidebar__main">
+                                    {/* Bottom */}
+                                    {bottom}
                                 </div>
                             </div>
                         </main>
