@@ -33,7 +33,7 @@ describe('Common - Utils - Storage', () => {
     it('getAndSaveCustomDimension deberia llamar a localStorage', () => {
         getAndSaveCustomDimension();
 
-        expect(window.localStorage.setItem).toHaveBeenCalledTimes(6);
+        expect(window.localStorage.setItem).toHaveBeenCalledTimes(7);
     });
 
     it('filterNotesWithinDays deberia filtrar nota anterior a 28 dias', () => {
