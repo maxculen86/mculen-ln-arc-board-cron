@@ -110,7 +110,7 @@ const ArticleFeature = ({
                 />
             </div>
         )) ||
-        (!error && article && (isInApertura || isBomba) && !isAdmin && (
+        (!error && article && isInApertura && !isAdmin && (
             <Static id={featureId}>{Component}</Static>
         )) ||
         (!error && article && Component) || <></>

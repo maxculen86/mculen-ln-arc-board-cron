@@ -205,6 +205,9 @@ const Default = props => {
                     href="https://www.google-analytics.com"
                     rel="preconnect"
                 />
+                <link rel="dns-prefetch" href="//ads.rubiconproject.com" />
+                <link rel="dns-prefetch" href="//www.googletagservices.com" />
+                <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
                 <MetaSectionParsely taxonomy={taxonomy} arcSite={arcSite} />
