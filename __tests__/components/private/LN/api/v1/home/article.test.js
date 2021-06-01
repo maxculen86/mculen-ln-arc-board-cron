@@ -53,6 +53,16 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
         expect(notas[1].id).toBe('3THDAILWTVHARHBYA5AEVL7OAU');
     });
 
+    it('Testeo articulo Caja Manual con todos los articulo null', () => {
+        articlesfromCajaManual = [];
+        articlesfromCajaManual.push(null);
+        articlesfromCajaManual.push(null);
+        articlesfromCajaManual.push(null);
+
+        const notas = Article(articlesfromCajaManual, configurations);
+        expect(notas.length).toBe(0);
+    });
+
     it('Testeo articulo Caja Collection Ok', () => {
         const elements = get(colecction, 'content_elements', []);
         try {
@@ -62,6 +72,216 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
             expect(err.message).toBe(
                 "Cannot read property 'match' of undefined"
             );
+        }
+    });
+
+    it('Testeo articulo Caja Collection con un articulo null', () => {
+        let elements = get(colecction, 'content_elements', []);
+        elements[0] = null;
+        const notas = Article(elements, configurations);
+        expect(notas[0].id).toBe('5OUY7OCFZNFLLBM6XM4CTSIUWQ');
+    });
+
+    it('Testeo articulo sin campo id', () => {
+        const articlesinId = {
+            canonical_url: '/deportes/por-el-mercado-nid570000/',
+            content_elements: [
+                {
+                    _id: 'UGOTNNA5NNH3NK2KSBIANFMLM4',
+                    additional_properties: {},
+                    content:
+                        'AGADIR.- Como en cualquier lugar del mundo islámico, la recorrida de las calles es un paseo obligado. Otras costumbres, otra manera de vivir. Ni mejor ni peor. Diferente. Poco queda en Agadir de esa ciudad magrebí que los portugueses convirtieron en factoría, en 1505, para obtener jugosos beneficios de la caña de azúcar, dátiles, cera, pieles, aceites, especias y esclavos. Cuarenta años después, los empresarios que compartían ganancias con la corona lusitana abandonaron este puerto. Mucho tiempo después, en 1960, un terremoto sepultó el pasado. Agadir es un sitio de construcciones nuevas, con casas de uno o dos pisos. Poca gente se mueve por sus calles. Son días de fiesta religiosa, la celebración del cordero, en la que los jefes de las familias con dinero compran el animal, lo sacrifican -como lo hizo Abraham en el Antiguo Testamento- y lo comparten con los que menos tienen, como un símbolo de unidad. Por eso, encontrar algún mercado funcionando a pleno es una misión complicada.',
+                    type: 'text'
+                },
+                {
+                    _id: 'MFRUCA2MOVGHVGG2CA65DGMTQY',
+                    additional_properties: {},
+                    content:
+                        'El souk -traducción del vocablo mercado- de Agadir está cerrado. Hay que tomar un taxi y viajar unos 15 kilómetros hasta Anza, para encontrar uno a medio abrir. Apenas se estaciona, aparece Abdul, que al encontrarse con un visitante dice en inglés: Eres bienvenido a Marruecos. Abdul se convierte en el guía por ese laberinto de tiendas en el que proliferan las fotos de Mohammed VI, descendiente del profeta Mahoma, rey y jefe religioso de Marruecos.',
+                    type: 'text'
+                },
+                {
+                    _id: 'Y6W6A5PU2VBULNONTYAXFWL7TE',
+                    additional_properties: {},
+                    content:
+                        'Abdul se siente como pez en el agua. Por unas monedas, es el reaseguro para recorrer sin problemas local por local. Y pide, en un sector, al escuchar los gritos, que nadie saque fotos. Levanta la cabeza y señala contra una esquina: "Está loco, no lo miren. Es capaz de cualquier cosa". Sigue su camino. Un par de contraseñas son útiles para entrar en un negocio y ser testigo de innumerables ofertas y regateos. En francés, en inglés o en español. Todas en euros y no en dirham, la moneda local. Desde las Adidas de Marruecos (un calzado típico), túnicas y el también clásico gorro bordó (babouche) con pompón negro. Y si todo eso no satisface la demanda, el souk se encargará de demostrar que detrás de sus lúgubres callecitas, entre una decena de remeras con leyendas árabes, se ve una camiseta negra. Dice David Beckham, tiene una imagen del futbolista inglés y la palabra Real Madrid. Suficiente para convencerse de que la enjundia marketinera de Florentino Pérez tiene acceso a todas partes. Aun en el souk de este remoto y escondido pueblo.',
+                    type: 'text'
+                }
+            ],
+            configurations: {
+                arcSite: 'la-nacion-ar'
+            },
+            credits: {},
+            distributor: {
+                category: 'staff',
+                name: 'lanacionar'
+            },
+            headlines: {
+                basic: 'Por el mercado',
+                mobile: 'Por el mercado'
+            },
+            label: {
+                edicion: {
+                    display: true,
+                    text: 'Impresa'
+                },
+                volanta: {
+                    display: true,
+                    text: 'De viaje.'
+                }
+            },
+            owner: {},
+            related_content: {
+                basic: []
+            },
+            subheadlines: {
+                basic: 'Por Alfredo Bernardi'
+            },
+            subtype: '1',
+            taxonomy: {
+                primary_section: {
+                    _id: '/deportes',
+                    _website: 'la-nacion-ar',
+                    additional_properties: {
+                        original: {
+                            ancestors: {},
+                            site: {}
+                        }
+                    },
+                    name: 'Deportes',
+                    parent_id: '/',
+                    path: '/deportes'
+                },
+                sections: [
+                    {
+                        _id: '/deportes',
+                        _website: 'la-nacion-ar',
+                        additional_properties: {
+                            original: {
+                                ancestors: {},
+                                site: {}
+                            }
+                        },
+                        name: 'Deportes',
+                        parent_id: '/',
+                        path: '/deportes'
+                    }
+                ],
+                tags: []
+            },
+            type: 'story',
+            website_url: '/deportes/por-el-mercado-nid570000/'
+        };
+        articlesfromCajaManual = [];
+        articlesfromCajaManual.push(article1);
+        articlesfromCajaManual.push(articlesinId);
+        articlesfromCajaManual.push(article3);
+        try {
+            const notas = Article(articlesfromCajaManual, configurations);
+            expect(notas[0].id).toBe('2KOBND62KNFVVBFQZOADNN6WNY');
+        } catch (err) {
+            expect(err.message).toBe(
+                'Revisar Parametros de Articulo en null o undefined'
+            );
+        }
+    });
+
+    it('Testeo articulo sin campo titulo', () => {
+        const articlesinId = {
+            _id: '3SHTRO3NKBCN7L3JITCDQYSJLM',
+            canonical_url: '/deportes/por-el-mercado-nid570000/',
+            content_elements: [
+                {
+                    _id: 'UGOTNNA5NNH3NK2KSBIANFMLM4',
+                    additional_properties: {},
+                    content:
+                        'AGADIR.- Como en cualquier lugar del mundo islámico, la recorrida de las calles es un paseo obligado. Otras costumbres, otra manera de vivir. Ni mejor ni peor. Diferente. Poco queda en Agadir de esa ciudad magrebí que los portugueses convirtieron en factoría, en 1505, para obtener jugosos beneficios de la caña de azúcar, dátiles, cera, pieles, aceites, especias y esclavos. Cuarenta años después, los empresarios que compartían ganancias con la corona lusitana abandonaron este puerto. Mucho tiempo después, en 1960, un terremoto sepultó el pasado. Agadir es un sitio de construcciones nuevas, con casas de uno o dos pisos. Poca gente se mueve por sus calles. Son días de fiesta religiosa, la celebración del cordero, en la que los jefes de las familias con dinero compran el animal, lo sacrifican -como lo hizo Abraham en el Antiguo Testamento- y lo comparten con los que menos tienen, como un símbolo de unidad. Por eso, encontrar algún mercado funcionando a pleno es una misión complicada.',
+                    type: 'text'
+                },
+                {
+                    _id: 'MFRUCA2MOVGHVGG2CA65DGMTQY',
+                    additional_properties: {},
+                    content:
+                        'El souk -traducción del vocablo mercado- de Agadir está cerrado. Hay que tomar un taxi y viajar unos 15 kilómetros hasta Anza, para encontrar uno a medio abrir. Apenas se estaciona, aparece Abdul, que al encontrarse con un visitante dice en inglés: Eres bienvenido a Marruecos. Abdul se convierte en el guía por ese laberinto de tiendas en el que proliferan las fotos de Mohammed VI, descendiente del profeta Mahoma, rey y jefe religioso de Marruecos.',
+                    type: 'text'
+                },
+                {
+                    _id: 'Y6W6A5PU2VBULNONTYAXFWL7TE',
+                    additional_properties: {},
+                    content:
+                        'Abdul se siente como pez en el agua. Por unas monedas, es el reaseguro para recorrer sin problemas local por local. Y pide, en un sector, al escuchar los gritos, que nadie saque fotos. Levanta la cabeza y señala contra una esquina: "Está loco, no lo miren. Es capaz de cualquier cosa". Sigue su camino. Un par de contraseñas son útiles para entrar en un negocio y ser testigo de innumerables ofertas y regateos. En francés, en inglés o en español. Todas en euros y no en dirham, la moneda local. Desde las Adidas de Marruecos (un calzado típico), túnicas y el también clásico gorro bordó (babouche) con pompón negro. Y si todo eso no satisface la demanda, el souk se encargará de demostrar que detrás de sus lúgubres callecitas, entre una decena de remeras con leyendas árabes, se ve una camiseta negra. Dice David Beckham, tiene una imagen del futbolista inglés y la palabra Real Madrid. Suficiente para convencerse de que la enjundia marketinera de Florentino Pérez tiene acceso a todas partes. Aun en el souk de este remoto y escondido pueblo.',
+                    type: 'text'
+                }
+            ],
+            configurations: {
+                arcSite: 'la-nacion-ar'
+            },
+            credits: {},
+            distributor: {
+                category: 'staff',
+                name: 'lanacionar'
+            },
+            label: {
+                edicion: {
+                    display: true,
+                    text: 'Impresa'
+                },
+                volanta: {
+                    display: true,
+                    text: 'De viaje.'
+                }
+            },
+            owner: {},
+            related_content: {
+                basic: []
+            },
+            subheadlines: {
+                basic: 'Por Alfredo Bernardi'
+            },
+            subtype: '1',
+            taxonomy: {
+                primary_section: {
+                    _id: '/deportes',
+                    _website: 'la-nacion-ar',
+                    additional_properties: {
+                        original: {
+                            ancestors: {},
+                            site: {}
+                        }
+                    },
+                    name: 'Deportes',
+                    parent_id: '/',
+                    path: '/deportes'
+                },
+                sections: [
+                    {
+                        _id: '/deportes',
+                        _website: 'la-nacion-ar',
+                        additional_properties: {
+                            original: {
+                                ancestors: {},
+                                site: {}
+                            }
+                        },
+                        name: 'Deportes',
+                        parent_id: '/',
+                        path: '/deportes'
+                    }
+                ],
+                tags: []
+            },
+            type: 'story',
+            website_url: '/deportes/por-el-mercado-nid570000/'
+        };
+        articlesfromCajaManual = [];
+        articlesfromCajaManual.push(article1);
+        articlesfromCajaManual.push(articlesinId);
+        articlesfromCajaManual.push(article3);
+        try {
+            const notas = Article(articlesfromCajaManual, configurations);
+            expect(notas[0].id).toBe('2KOBND62KNFVVBFQZOADNN6WNY');
+        } catch (err) {
+            expect(err.message).toBe('Titulo de la nota es null o undefined');
         }
     });
 });
