@@ -1,5 +1,3 @@
-import Consumer from 'fusion:consumer';
-
 const CajaAnticipo = ({ customFields: { hide, title, link } }) => {
     if (!title) return null;
 
@@ -8,7 +6,6 @@ const CajaAnticipo = ({ customFields: { hide, title, link } }) => {
         title,
         url: link
     };
-
     return {
         information: {
             hideCaja: hide || false,
@@ -18,4 +15,4 @@ const CajaAnticipo = ({ customFields: { hide, title, link } }) => {
     };
 };
 
-export default Consumer(CajaAnticipo);
+export default CajaAnticipo;
