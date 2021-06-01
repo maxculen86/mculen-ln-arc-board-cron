@@ -11,7 +11,7 @@
 let messaging = null;
 let deferredPrompt;
 
-const apiNotification = 'https://qa-notificaciones.lanacion.com.ar'; // 'https://notificaciones.lanacion.com.ar/api/';
+const apiNotification = 'https://qa-notificaciones.lanacion.com.ar/api/'; // 'https://notificaciones.lanacion.com.ar/api/';
 const topicName = 'Alertas_LA_NACION'; // 'pwatemp';
 /*
 const firebaseConfig = {
