@@ -44,6 +44,7 @@ const getRegex = sectionId => {
     const regexList = [
         /\/(lnmas)/,
         /^\/(propiedades)(?:\/.+)?/,
+        /^\/(economia\/campo)(?:\/.+)?/,
         /\/revista-(.\w+[^\W]?)/
     ];
 
@@ -62,9 +63,12 @@ const getLogoData = sections => {
 
         const regex = getRegex(sectionId);
         const match = (regex && sectionId.match(regex)) || [];
-        const [fullMatch, $1] = match;
 
-        const logoName = ($1 === 'lnmas' && 'ln-mas') || $1;
+        const [fullMatch, $1] = match;
+        const logoName =
+            ($1 === 'lnmas' && 'ln-mas') ||
+            ($1 === 'economia/campo' && 'campo') ||
+            $1;
 
         const path =
             regex &&
