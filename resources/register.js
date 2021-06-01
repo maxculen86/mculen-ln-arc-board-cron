@@ -513,14 +513,13 @@ const registerTopic = (topic, token, showError) => {
     // Registrar dispositivo en api notificaciones
     const body = JSON.stringify({
         token,
-        topic
+        topicName: topic
     });
 
     const apiUrl = `${apiNotification}notification/subscriptions/`;
     const headers = {
         Accept: 'application/json',
-        'Content-Type': 'application/json',
-        'x-token': _getCookie('token')
+        'Content-Type': 'application/json'
     };
 
     fetch(apiUrl, {
