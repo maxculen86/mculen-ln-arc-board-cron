@@ -3,17 +3,12 @@ import Image from '../common/image';
 import { authorHomeMobile } from '../common/author';
 
 const getArticleImage = article => {
-    const opinion = get(article, 'additionalProperties.opinion', false);
-    if (!opinion) {
-        const image =
-            get(
-                article,
-                'additionalProperties.image.promo_items.basic',
-                null
-            ) || get(article, 'promo_items.basic', null);
+    const image =
+        get(article, 'additionalProperties.image.promo_items.basic', null) ||
+        get(article, 'promo_items.basic', null);
 
-        if (image && image.type === 'image') return Image(image);
-    }
+    if (image && image.type === 'image') return Image(image);
+
     return null;
 };
 
@@ -68,11 +63,10 @@ export const articleItem = (articles, configuration) => {
                 throw new Error('Titulo de la nota es null o undefined');
             }
 
-            const opinion = get(article, 'additionalProperties.opinion', false);
             const autor = getArticleAuthor(article);
             const resp = {
                 id,
-                templateId: !opinion ? templateId : '3',
+                templateId,
                 sitioId: get(article, 'configurations.arcSite', null),
                 url,
                 titulo,
@@ -84,7 +78,8 @@ export const articleItem = (articles, configuration) => {
                 autor,
                 marquesina: getArticleSignature(article, autor),
                 seccionPadre: getArticleOpinionSubtype(article),
-                imagen: getArticleImage(article)
+                imagen: getArticleImage(article),
+                opinion: get(article, 'additionalProperties.opinion', false)
             };
 
             return resp;
