@@ -72,7 +72,10 @@ const NoteCard = ({
                 articleData={article}
                 withMedia={withMedia}
                 link={get(article, 'website_url')}
-                titleSize={get(articleProps, 'titleSize')}
+                titleSize={
+                    (!withMedia && get(articleProps, 'titleSizeNoMedia')) ||
+                    get(articleProps, 'titleSize')
+                }
                 titleText={get(article, 'headlines.basic')}
                 titleTag={get(articleProps, 'titleTag', 'h2')}
                 authors={get(article, 'marquesina')}

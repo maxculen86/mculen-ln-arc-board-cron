@@ -566,10 +566,34 @@ export default {
                 }
             }
         },
-        grilla2: { className: '' },
-        grilla3: { className: '' },
-        grilla6: { className: '' },
-        grilla9: { className: '' },
+        grilla2: {
+            className: '',
+            articles: {
+                0: { titleSize: '--l' },
+                1: { titleSize: '--l' }
+            }
+        },
+        grilla3: {
+            className: '',
+            articles: {
+                0: { titleSizeNoMedia: '--m' },
+                1: { titleSizeNoMedia: '--m' }
+            }
+        },
+        grilla6: {
+            className: '',
+            articles: {
+                0: { titleSizeNoMedia: '--m' },
+                1: { titleSizeNoMedia: '--m' }
+            }
+        },
+        grilla9: {
+            className: '',
+            articles: {
+                0: { titleSizeNoMedia: '--m' },
+                1: { titleSizeNoMedia: '--m' }
+            }
+        },
         bomba1: {
             className: '--bomba',
             articles: {

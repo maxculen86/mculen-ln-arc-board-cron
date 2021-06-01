@@ -60,6 +60,11 @@ const CajaCollection = props => {
     const isInsideApertura =
         tree.type === 'LN-acumulado' ? isInApertura(tree, featureId) : false;
 
+    const titleSize =
+        ((isInsideApertura || layout === 'grilla1' || layout === 'grilla2') &&
+            '--l') ||
+        '';
+
     const articlesToShow = !isInSiteService
         ? getArticleInCollection(
               idCollection,
@@ -114,7 +119,7 @@ const CajaCollection = props => {
                     ? articlesFromCollectionSiteService
                     : articlesToShow
             }
-            titleSize={isInsideApertura && '--l'}
+            titleSize={titleSize}
         />
     );
 };
