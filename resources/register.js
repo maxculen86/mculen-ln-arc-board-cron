@@ -12,7 +12,8 @@ let messaging = null;
 let deferredPrompt;
 
 const apiNotification = 'https://notificaciones.lanacion.com.ar/api/';
-const topicName = 'pwatemp';
+const topicName = 'Alertas_LA_NACION'; // 'pwatemp';
+/*
 const firebaseConfig = {
     apiKey: 'AIzaSyCFxG5eKZiyU1DDlg7yZw4JzblfO6pc0m4',
     authDomain: 'lanacion-92a91.firebaseapp.com',
@@ -20,6 +21,15 @@ const firebaseConfig = {
     messagingSenderId: '221085116662',
     projectId: 'lanacion-92a91',
     storageBucket: 'lanacion-92a91.appspot.com'
+};
+*/
+const firebaseConfig = {
+    apiKey: 'AIzaSyDx9szVMLkQylr9LN0G3v5faTrMKXyz3rM',
+    authDomain: 'lanaciontest-24eed.firebaseapp.com',
+    databaseURL: 'https://lanaciontest-24eed.firebaseio.com',
+    messagingSenderId: '247148690244',
+    projectId: 'lanaciontest-24eed',
+    storageBucket: 'lanaciontest-24eed.appspot.com'
 };
 
 const _setCookie = (nameCookie, valueCookie, timeExpiration) => {
@@ -157,10 +167,16 @@ const register = deployment => {
                             console.log(
                                 '[Service Worker] User cancelled home screen install'
                             );
-                            localStorage.setItem(
-                                'pwaNotificationInit',
-                                new Date()
-                            );
+                            try {
+                                localStorage.setItem(
+                                    'pwaNotificationInit',
+                                    new Date()
+                                );
+                            } catch (err) {
+                                console.log(
+                                    'Error al intentar guardar pwaNotificationInit en localStorage'
+                                );
+                            }
                         } else {
                             setDataLayer('notificationConsent');
                             // dataLayer.push({
@@ -171,8 +187,14 @@ const register = deployment => {
                 });
 
                 notificacionPwaNo.addEventListener('click', () => {
-                    localStorage.setItem('pwaNotificationInit', new Date());
-                    showNoShowModal('#notificacion-modal-pwa', 'none');
+                    try {
+                        localStorage.setItem('pwaNotificationInit', new Date());
+                        showNoShowModal('#notificacion-modal-pwa', 'none');
+                    } catch (err) {
+                        console.log(
+                            'Error al intentar guardar pwaNotificationInit en localStorage'
+                        );
+                    }
                 });
             }
 
@@ -376,7 +398,13 @@ const checkSubscription = showError => {
                 .then(() => handleToken())
                 .then(token => {
                     console.log('[Service Worker] Notificaciones Admitidas');
-                    localStorage.setItem('x-auth3-token', token);
+                    try {
+                        localStorage.setItem('x-auth3-token', token);
+                    } catch (e) {
+                        console.log(
+                            'Error al intentar guardar x-auth3-token en localStorage'
+                        );
+                    }
 
                     /* En caso de utilizar el firebase storage  para almacenar
                         caches.open('sw').then(function (cache) {
@@ -397,8 +425,14 @@ const checkSubscription = showError => {
                         token !== localStorage.getItem('x-auth2-token') ||
                         localStorage.getItem('x-auth2-token') === null
                     ) {
-                        localStorage.setItem('x-auth2-token', token);
-                        registerSuscription(token, showError);
+                        try {
+                            localStorage.setItem('x-auth2-token', token);
+                            registerSuscription(token, showError);
+                        } catch (e) {
+                            console.log(
+                                'Error al intentar guardar x-auth2-token en localStorage'
+                            );
+                        }
                     }
                 })
                 .catch(err => {
