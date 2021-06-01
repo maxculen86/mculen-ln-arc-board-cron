@@ -132,8 +132,9 @@
     // }
     &:not(:last-child) {
         .sidebar__aside & {
-            padding-bottom: px(32);
-            background: $neutral-white;
+            margin-bottom: px(32);
+            // padding-bottom: px(32);
+            // background: $neutral-white;
         }
     }
     // &.--cabezal_tab,
