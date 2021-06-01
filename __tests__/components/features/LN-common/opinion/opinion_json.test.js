@@ -1,11 +1,13 @@
-import colecction from '../../../../../__mocks__/data/collection/OCTOV4V54FCFLJHOVB5IAJKHHM.json';
+import Consumer from 'fusion:consumer';
+import colecction from '../../../../../__mocks__/data/collection/WM5DMXURZJBZZASUK356FPQNUI.json';
 import get from '../../../../../components/private/common/utils/get';
+import Opinion from '../../../../../components/features/LN-common/opinion/json.js';
 
 describe('Test del Chain - Opinion de CajaCollecion Json', () => {
     const customFields = {
         backgroundColor: 'default',
         hideTitle: false,
-        idCollection: 'QJ3BOEZVQNEYZEVBXHF4C7KAWY',
+        idCollection: 'WM5DMXURZJBZZASUK356FPQNUI',
         initialPosition: 1,
         layout: 'focalLeft3',
         pbInternal_cloneId: 'c0ffOCwkYqcA22',
@@ -13,16 +15,23 @@ describe('Test del Chain - Opinion de CajaCollecion Json', () => {
     };
     const articleList = colecction;
 
+    const props = {};
+    props.customFields = customFields;
+    test('Test props into class', () => {
+        const opinion = new Opinion(props);
+        expect(opinion.props.customFields).toMatchObject(customFields);
+    });
+
     test('Test OK', () => {
         const elements = get(articleList, 'content_elements', []);
         const results = {
             information: customFields,
             articles: elements
         };
-        expect('QJ3BOEZVQNEYZEVBXHF4C7KAWY').toMatch(
+        expect('WM5DMXURZJBZZASUK356FPQNUI').toMatch(
             results.information.idCollection
         );
-        expect('HLOPIMO7PBDXPAB5ACWRGZKTPM').toMatch(results.articles[0]._id);
+        expect('4QYCKI34WZBHXIWYHE236U663A').toMatch(results.articles[0]._id);
     });
 
     test('Test null', () => {
