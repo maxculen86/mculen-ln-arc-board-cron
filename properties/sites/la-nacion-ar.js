@@ -573,7 +573,11 @@ export default {
         bomba1: {
             className: '--bomba',
             articles: {
-                0: { titleSize: '--threexl', titleTag: 'h1' }
+                0: {
+                    titleSize: '--threexl',
+                    titleTag: 'h1',
+                    withSubheadAndMedia: true
+                }
             }
         },
         opinion4: {
