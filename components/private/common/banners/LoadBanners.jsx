@@ -83,9 +83,11 @@ const queueGoogletagCommand = bannersToLoad => {
             });
         };
 
-        pbjs.rp.requestBids({
-            callback: sendAdServerRequest,
-            gptSlotObjects: headerBiddingSlots
+        pbjs.que.push(function() {
+            pbjs.rp.requestBids({
+                callback: sendAdServerRequest,
+                gptSlotObjects: headerBiddingSlots
+            });
         });
 
         // this timeout is a failsafe
