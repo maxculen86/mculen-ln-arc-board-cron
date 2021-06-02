@@ -57,7 +57,7 @@ const bannerBox = element => {
     const type = typeSection[element.feature];
     return {
         ...type,
-        IdSeccion: element.id
+        idSeccion: element.id
     };
 };
 
