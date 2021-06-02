@@ -2,17 +2,18 @@
 import React, { useState, useContext } from 'react';
 import { useAppContext } from 'fusion:context';
 import getProperties from 'fusion:properties';
-import Static from 'fusion:static';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
-import { validateArticleFeature } from '../../../private/LN/common/utils/cajaTemasHelper';
+import {
+    getChildrenFromAperturaHome,
+    validateArticleFeature
+} from '../../../private/LN/common/utils/cajaTemasHelper';
 import { getCajaTemaConfig } from '../../../private/LN/home/components/noteCard/noteCardHelper';
 import NoteCard from '../../../private/LN/home/components/noteCard/noteCard';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
 import { GlobalContext } from '../../../private/common/context/globalContext';
 import get from '../../../private/common/utils/get';
-import sectionsValidation from '../../../layouts/config/LN-Home.config.json';
 
 const notesLoaded = [];
 
@@ -27,10 +28,7 @@ const ArticleFeature = ({
 }) => {
     // Este componente tiene uso en home
     // por regla de negocio se va a evaluar los articulo de apertura
-    const INDEX_SECTION_APERTURA_1 =
-        get(sectionsValidation, 'Apertura_1.position', 3) + 1;
-    const INDEX_SECTION_APERTURA_2 =
-        get(sectionsValidation, 'Apertura_2.position', 4) + 1;
+
     const { isAdmin, arcSite, renderables, outputType } = useAppContext();
     const { cajaTemaConfig } = getProperties(arcSite);
     const { config, index, boxPosition, layout } =
@@ -55,11 +53,7 @@ const ArticleFeature = ({
 
     const error = validateArticleFeature(id, article);
 
-    const aperturasChildren = get(
-        renderables,
-        `[${INDEX_SECTION_APERTURA_1}].children`,
-        []
-    ).concat(get(renderables, `[${INDEX_SECTION_APERTURA_2}].children`, []));
+    const aperturasChildren = getChildrenFromAperturaHome(renderables);
 
     const isInApertura = aperturasChildren.some(el => {
         return (
@@ -80,22 +74,8 @@ const ArticleFeature = ({
         dispatch({ type: 'ADD_TAGS_ARTICLES', article });
     }
 
-    const Component = (
-        <NoteCard
-            id={featureId}
-            article={article}
-            promoItems={image && image.promo_items}
-            articleProps={config}
-            customFields={customFields}
-            outputType={outputType}
-            index={index}
-            boxPosition={isBomba ? '00' : boxPosition}
-            layout={layout}
-            isAdmin={isAdmin}
-        />
-    );
-    return (
-        (isAdmin && !!error && (
+    if (isAdmin && !!error) {
+        return (
             <div
                 style={{
                     marginTop: '10px',
@@ -109,11 +89,24 @@ const ArticleFeature = ({
                     message={error.message}
                 />
             </div>
-        )) ||
-        (!error && article && isInApertura && !isAdmin && (
-            <Static id={featureId}>{Component}</Static>
-        )) ||
-        (!error && article && Component) || <></>
+        );
+    }
+
+    return (
+        (!error && article && (
+            <NoteCard
+                id={featureId}
+                article={article}
+                promoItems={image && image.promo_items}
+                articleProps={config}
+                customFields={customFields}
+                outputType={outputType}
+                index={index}
+                boxPosition={isBomba ? '00' : boxPosition}
+                layout={layout}
+                isAdmin={isAdmin}
+            />
+        )) || <></>
     );
 };
 
