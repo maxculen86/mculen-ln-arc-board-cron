@@ -4,6 +4,7 @@ import config from '../../../../../properties/sites/la-nacion-ar';
 import get from '../../../common/utils/get';
 import { formatText } from '../../../common/utils/sectionUtils';
 import useGlobalProviderAcu from '../../acumulado/hooks/useGlobalProviderAcu';
+import sectionsValidation from '../../../../layouts/config/LN-Home.config.json';
 
 const featuredRules = {
     cajaCollection: {
@@ -295,6 +296,21 @@ export const calculateSizeOfCollection = (collections, notesQuantity) => {
     );
     const totalArticlesToAsk = notesQuantity + totalArticlesInCollections;
     return totalArticlesToAsk < 20 ? totalArticlesToAsk : 20;
+};
+
+export const getChildrenFromAperturaHome = renderables => {
+    const INDEX_SECTION_APERTURA_1 =
+        get(sectionsValidation, 'Apertura_1.position', 3) + 1;
+    const INDEX_SECTION_APERTURA_2 =
+        get(sectionsValidation, 'Apertura_2.position', 4) + 1;
+
+    const aperturasChildren = get(
+        renderables,
+        `[${INDEX_SECTION_APERTURA_1}].children`,
+        []
+    ).concat(get(renderables, `[${INDEX_SECTION_APERTURA_2}].children`, []));
+
+    return aperturasChildren;
 };
 
 export const isInApertura = (tree = {}, idFeature) => {
