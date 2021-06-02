@@ -1,19 +1,10 @@
-﻿// import * as Cookie from '../cookie';
-// import Ajax from '@ln/core/pwa/ajax';
-// const firebase = require('firebase');
-// import firebase from 'firebase';
-// import { createDatalayer } from '../analytics/MetricsEvents';
-// import 'firebase/messaging';
-// import fbmessaging from 'firebase/messaging';
-// import get from '../components/private/common/utils/get';
-// import handleCookie from '../components/private/LN/common/utils/handleCookie';
-
-let messaging = null;
+﻿let messaging = null;
 let deferredPrompt;
 
-const apiNotification = 'https://qa-notificaciones.lanacion.com.ar/api/'; // 'https://notificaciones.lanacion.com.ar/api/';
+// TODO: refactor de todo este archivo o_O
+const apiNotification = 'https://notificaciones.lanacion.com.ar/api/';
 const topicName = 'Alertas_LA_NACION'; // 'pwatemp';
-/*
+
 const firebaseConfig = {
     apiKey: 'AIzaSyCFxG5eKZiyU1DDlg7yZw4JzblfO6pc0m4',
     authDomain: 'lanacion-92a91.firebaseapp.com',
@@ -21,15 +12,6 @@ const firebaseConfig = {
     messagingSenderId: '221085116662',
     projectId: 'lanacion-92a91',
     storageBucket: 'lanacion-92a91.appspot.com'
-};
-*/
-const firebaseConfig = {
-    apiKey: 'AIzaSyDx9szVMLkQylr9LN0G3v5faTrMKXyz3rM',
-    authDomain: 'lanaciontest-24eed.firebaseapp.com',
-    databaseURL: 'https://lanaciontest-24eed.firebaseio.com',
-    messagingSenderId: '247148690244',
-    projectId: 'lanaciontest-24eed',
-    storageBucket: 'lanaciontest-24eed.appspot.com'
 };
 
 const _setCookie = (nameCookie, valueCookie, timeExpiration) => {
@@ -155,10 +137,6 @@ const register = deployment => {
                     e.prompt();
                     setDataLayer('notificationPrompt');
 
-                    // dataLayer.push({
-                    //    'event': 'notificationPrompt'
-                    // });
-
                     // e.userChoice will return a Promise.
                     // For more details read: https://developers.google.com/web/fundamentals/getting-started/primers/promises
                     e.userChoice.then(choiceResult => {
@@ -179,9 +157,6 @@ const register = deployment => {
                             }
                         } else {
                             setDataLayer('notificationConsent');
-                            // dataLayer.push({
-                            //    'event': 'notificationConsent'
-                            // });
                         }
                     });
                 });
@@ -212,10 +187,7 @@ const register = deployment => {
             })(navigator.userAgent || navigator.vendor || window.opera);
             if (validatePopupPwa() && mobileCheck) {
                 // if (Cookie.LeerCookie(notifKey) && validatePopupPwa() && mobileCheck) {
-                // const modal = $('#notificacion-modal-pwa');
-                // modal.show();
                 showNoShowModal('#notificacion-modal-pwa', 'block');
-                // setShowModalApp(true);
             }
 
             return false;
@@ -239,20 +211,6 @@ const register = deployment => {
     });
 };
 
-/*
-if (document.querySelector('#notificacion-pwa-no')) {
-    document.querySelector('#notificacion-pwa-no').addEventListener('click',
-        function () {
-            localStorage.setItem('pwaNotificationInit', new Date());
-            ocultarPopupPwa();
-        });
-}
-
-const ocultarPopupPwa = value => {
-    var modal = $('#notificacion-modal-pwa');
-    modal.hide();
-};
-*/
 const showNoShowModal = (id, value) => {
     const modal = document.querySelector(id);
     if (modal) modal.style.display = value;
@@ -297,16 +255,12 @@ const setDataLayer = event => {
 };
 
 const initialize = () => {
-    // const _fb = window.firebase;
-    // _fb.messagingSenderId = _fb.messagingSenderId.toString();
-
     if (typeof firebase !== 'undefined') {
         firebase.initializeApp(firebaseConfig);
 
         messaging = firebase.messaging();
     }
 
-    // const ls = Cookie.LeerCookie(notifKey);
     const ls = _getCookie('ln-notification');
 
     document.addEventListener('freeze', e => {
@@ -317,7 +271,6 @@ const initialize = () => {
     });
 
     if (!ls) {
-        // no existe el flag, muestro el modal
         displayNotificacion();
     }
 
@@ -343,19 +296,10 @@ const initialize = () => {
 };
 
 const displayNotificacion = () => {
-    // $(document).ready(function () {
     if (isNotificationDefault()) {
         setDataLayer('PushNoficationPrompt');
-
-        // dataLayer.push({
-        //   'event': 'PushNoficationPrompt'
-        // });
-        // var modal = $('#notificacion-modal');
-        // modal.show();
         showNoShowModal('#notificacion-modal', 'block');
-        // setShowModalNotification(true);
     }
-    // });
 };
 /*
 const displayNotificacionError = () => {
@@ -462,11 +406,11 @@ const savePushTokenCache = token => {
         });
 };
 
+// Registrar dispositivo en api notificaciones
 const registerSuscription = (token, showError) => {
     // Guarda el token en cache
     savePushTokenCache(token);
 
-    // Registrar dispositivo en api notificaciones
     const body = JSON.stringify({ token });
 
     const apiUrl = `${apiNotification}notification/register/`;
@@ -494,23 +438,10 @@ const registerSuscription = (token, showError) => {
             }
             */
         });
-    /*
-    Ajax.post(apiUrl, body, headers)
-        .then(res => {
-            console.log('device notifications registered.', res)
-            registerTopic(window.config.Statics.topicName, token, showError);
-        })
-        .catch(err => {
-            console.log('device notifications error: ', err);
-            if (showError) {
-                displayNotificacionError();
-            }
-        });
-    */
 };
 
+// Registrar topico en api notificaciones
 const registerTopic = (topic, token, showError) => {
-    // Registrar dispositivo en api notificaciones
     const body = JSON.stringify({
         token,
         topicName: topic
@@ -543,20 +474,6 @@ const registerTopic = (topic, token, showError) => {
             }
             */
         });
-    /*
-    Ajax.post(apiUrl, body, headers).then((res) => {
-        if (res.status === 200) {
-            console.log('topic registered.');
-            return true;
-        }
-        return false;
-    }).catch(err => {
-        console.log('device notifications error: ', err);
-        if (showError) {
-            displayNotificacionError();
-        }
-    });
-    */
 };
 
 const start = () => {

@@ -1,27 +1,23 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import Consumer from 'fusion:consumer';
-import getProperties from 'fusion:properties';
 import PropTypes from 'prop-types';
-import config from '../../../../properties/sites/la-nacion-ar';
 
 class Pwa extends React.Component {
     constructor(props) {
         super(props);
 
-        const { config, location = 'head' } = props;
+        const { config, location = 'body-bottom' } = props;
         this.location = location;
         this.config = config;
     }
 
     render() {
-        const { deployment, layout } = this.props;
-        const { layoutsName } = getProperties('la-nacion-ar');
+        const { deployment } = this.props;
 
-        if (layout !== layoutsName.Home) return <></>;
-
+        /*
         const { firebase } = config;
-
+ 
         const script = `
             firebase.initializeApp({
                 apiKey: "${firebase.apiKey}",
@@ -32,7 +28,7 @@ class Pwa extends React.Component {
                 messagingSenderId: "${firebase.messagingSenderId}"
               });
         `;
-
+        */
         return (
             <>
                 <script
@@ -60,12 +56,11 @@ class Pwa extends React.Component {
 
 Pwa.propTypes = {
     deployment: PropTypes.func.isRequired,
-    location: PropTypes.string,
-    layout: PropTypes.string.isRequired
+    location: PropTypes.string
 };
 
 Pwa.defaultProps = {
-    location: 'head'
+    location: 'body-bottom'
 };
 
 export default Consumer(Pwa);

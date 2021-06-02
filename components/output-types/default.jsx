@@ -296,6 +296,7 @@ const Default = props => {
                     type="image/x-icon"
                     href={deployment(`${contextPath}/resources/favicon.ico`)}
                 />
+                <meta name="theme-color" content="#ffffff" />
                 <link rel="manifest" href="/manifest.json" />
                 {/* <Scripts name="Microdata" /> */}
             </head>
