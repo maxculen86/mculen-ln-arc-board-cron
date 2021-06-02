@@ -327,6 +327,16 @@
         }
     }
 
+    &.campo {
+        main {
+            .com-lead,
+            .--tags li .com-link,
+            .mod-article .mod-description > div .com-link.--tags {
+                color: $campo;
+            }
+        }
+    }
+
     .com-anexo {
         margin-bottom: $spacing-lg;
     }
@@ -423,6 +433,7 @@
     /* End: Solo para dema maqueta */
 }
 
+/*Start: Estas va a afuera porque son page y no acu*/
 .economia.economia {
     h1 .com-link.--black,
     .com-breadcrumb .com-link,
@@ -456,21 +467,23 @@
     }
 }
 
-.campo.campo {
-    h1 .com-link.--black,
-    .com-breadcrumb .com-link,
-    main .com-button .com-icon,
-    .--category .com-link,
-    .--tags .com-link,
-    .com-link.--tags,
-    //.mod-headersection .com-link,
-    .mod-description .com-lead {
-        color: $campo;
-    }
-    .mod-headersection.--bg.mod-headersection.--bg {
-        background-color: $campo;
-    }
-}
+// .campo.campo {
+//     h1 .com-link.--black,
+//     .com-breadcrumb .com-link,
+//     main .com-button .com-icon,
+//     .--category .com-link,
+//     .--tags .com-link,
+//     .com-link.--tags,
+//     //.mod-headersection .com-link,
+//     .mod-description .com-lead {
+//         color: $campo;
+//     }
+//     .mod-headersection.--bg.mod-headersection.--bg {
+//         background-color: $campo;
+//     }
+// }
+
+/*End: Estas va a afuera porque son page y no acu*/
 
 .com-unordered {
     .mod-categories & {
