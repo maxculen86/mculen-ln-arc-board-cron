@@ -613,17 +613,17 @@ export default {
                 },
                 1: {
                     titleSize: '--xs',
-                    authorSize: '--twoxs',
+                    authorSize: '--fourxs',
                     isRenderAuthorOpinion: true
                 },
                 2: {
                     titleSize: '--xs',
-                    authorSize: '--twoxs',
+                    authorSize: '--fourxs',
                     isRenderAuthorOpinion: true
                 },
                 3: {
                     titleSize: '--l',
-                    authorSize: '--twoxs',
+                    authorSize: '--fourxs',
                     isRenderAuthorOpinion: true
                 }
             }
