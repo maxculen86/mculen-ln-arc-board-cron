@@ -11,8 +11,8 @@
     max-width: 100%;
     overflow: hidden;
     z-index: 1;
-    margin-top: px(32); //cambiar a variable
-    margin-bottom: px(32); //cambiar a variable
+    //margin-top: px(32); //cambiar a variable
+    margin-bottom: px(64); //cambiar a variable
 
     &:before {
         content: 'PUBLICIDAD';
@@ -199,7 +199,7 @@
         &.--cabezal_tab {
             display: flex;
             //margin-bottom: $spacing-lg;
-            margin-top: 0;
+            //margin-top: 0;
             // &.--dark {
             //     margin: 0;
             // }
@@ -277,7 +277,7 @@
         &.--cabezal_dsk {
             display: flex;
             //margin-bottom: $spacing-lg;
-            margin-top: 0;
+            //margin-top: 0;
             height: px(170);
         }
 
@@ -342,7 +342,7 @@
 
 [class*='row-gap'] {
     &.--ads {
-        margin-bottom: px(32);
+        margin-bottom: px(64);
         &:empty {
             display: none;
         }
@@ -355,7 +355,7 @@
 //     }
 // }
 
-.container {
+.home > .container {
     &.--ads {
         background: $neutral-white;
         padding: px(24) 0;

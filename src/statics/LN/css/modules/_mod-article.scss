@@ -350,9 +350,11 @@
 /*LLEVAR BOX-ARTICLES*/
 
 .box-articles {
-    .mod-headersection {
-        margin-top: px(64);
-    }
+    margin-bottom: px(64);
+
+    // .mod-headersection {
+    //     margin-top: px(64);
+    // }
 
     .mod-article {
         margin-bottom: px(32);
@@ -603,10 +605,13 @@
                     .mod-description {
                         .mod-marquee {
                             position: absolute;
-                            bottom: 32px;
-                            left: 72px;
+                            bottom: px(16);
+                            left: px(72);
                             max-width: calc(100% - 72px);
                             justify-content: left;
+                            height: px(48);
+                            white-space: break-spaces;
+                            align-items: center;
                         }
                     }
                 }
@@ -804,7 +809,7 @@
 
     @media ($media-m) {
         //768
-        margin-bottom: 0;
+        // margin-bottom: 0;
 
         // &.--color {
         //     padding-top: px(32);
@@ -881,33 +886,42 @@
 }
 
 /*Momentaneo*/
+$rank-mob1: px(1540);
+$rank-mob2: px(1590);
+$rank-tab: px(440);
+$rank-dsk: px(440);
 .ranking-ln9.ranking-ln9 {
     width: 100%;
-    height: px(1540);
+    height: $rank-mob1;
     margin-bottom: px(32);
     padding: 0;
     iframe {
-        height: px(1540);
+        height: $rank-mob1;
     }
     @media (min-width: 400px) {
-        height: px(1590);
+        height: $rank-mob2;
         iframe {
-            height: px(1590);
+            height: $rank-mob2;
         }
     }
     @media ($media-m) {
-        height: px(360);
+        height: $rank-tab;
         //padding-right: px(16);
         //padding-left: px(16);
         iframe {
-            height: px(360);
+            height: $rank-tab;
         }
     }
     // @media ($media-l) {
     //     margin-bottom: px(32);
     // }
-    // @media ($media-xl) {
-    //     padding-right: $spacing-xl;
-    //     padding-left: $spacing-xl;
-    // }
+    @media ($media-xl) {
+        height: $rank-dsk;
+        width: px(1340);
+        margin-left: auto;
+        margin-right: auto;
+        iframe {
+            height: $rank-dsk;
+        }
+    }
 }

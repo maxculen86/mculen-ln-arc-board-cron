@@ -259,7 +259,7 @@ const LNMainHome = props => {
                             classes="--sticky2_mob --sticky"
                             shouldRender={isMobile}
                         />
-                        <div className="row">
+                        <div className="">
                             <div id="content-main" className="lay-sidebar">
                                 {/* Cuerpo */}
                                 <div className="sidebar__main">
