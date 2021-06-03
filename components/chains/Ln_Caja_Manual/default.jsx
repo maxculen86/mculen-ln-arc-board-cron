@@ -5,10 +5,10 @@ import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
 import {
     cajaTemasCustomsFields,
-    validateChainManual,
     getCommonProps,
     getChildrenFromAperturaHome
 } from '../../private/LN/common/utils/cajaTemasHelper';
+import { validateChainManual } from '../../private/LN/common/utils/cajaTemasValidators';
 import CajaTema from '../../private/LN/common/cajaTema';
 import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import get from '../../private/common/utils/get';

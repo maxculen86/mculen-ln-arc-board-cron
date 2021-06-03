@@ -98,6 +98,12 @@
     @include magazine($logo, $primario);
 }
 
+.campo {
+    $primario: $campo;
+    $logo: $logo-campo;
+    @include magazine($logo, $primario);
+}
+
 // .nota.noticia {
 //     .mod-banner.--cabezal_dsk {
 //         position: absolute;

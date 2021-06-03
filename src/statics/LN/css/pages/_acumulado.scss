@@ -423,10 +423,11 @@
     /* End: Solo para dema maqueta */
 }
 
+/*Start: Estas va a afuera porque son page y no acu*/
 .economia.economia {
     h1 .com-link.--black,
     .com-breadcrumb .com-link,
-    main .com-button .com-icon,
+    //main .com-button .com-icon,
     .--category .com-link,
     .--tags .com-link,
     .com-link.--tags,
@@ -443,7 +444,7 @@
 .deportes.deportes {
     h1 .com-link.--black,
     .com-breadcrumb .com-link,
-    main .com-button .com-icon,
+    //main .com-button .com-icon,
     .--category .com-link,
     .--tags .com-link,
     .com-link.--tags,
@@ -459,7 +460,7 @@
 .campo.campo {
     h1 .com-link.--black,
     .com-breadcrumb .com-link,
-    main .com-button .com-icon,
+    //main .com-button .com-icon,
     .--category .com-link,
     .--tags .com-link,
     .com-link.--tags,
@@ -471,6 +472,8 @@
         background-color: $campo;
     }
 }
+
+/*End: Estas va a afuera porque son page y no acu*/
 
 .com-unordered {
     .mod-categories & {

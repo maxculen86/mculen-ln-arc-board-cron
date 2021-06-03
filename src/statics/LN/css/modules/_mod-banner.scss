@@ -132,8 +132,10 @@
     // }
     &:not(:last-child) {
         .sidebar__aside & {
-            padding-bottom: px(32);
-            //background: $neutral-white;
+            margin-bottom: px(32);
+            background: none;
+            // padding-bottom: px(32);
+            // background: $neutral-white;
         }
     }
     // &.--cabezal_tab,
@@ -147,13 +149,27 @@
     &.--adhesion_mob {
         height: px(50);
     }
-    &.--caja1_mob,
-    &.--caja2_mob,
-    &.--caja3_mob,
-    &.--caja4_mob {
+
+    &.--caja1_mob {
         height: px(450);
-        //margin-bottom: px(32);
     }
+
+    &.--caja3_mob,
+    &.--caja4_mob,
+    &.--caja5_mob {
+        height: px(250);
+    }
+
+    .home & {
+        &.--caja1_mob,
+        &.--caja2_mob,
+        &.--caja3_mob,
+        &.--caja4_mob {
+            height: px(450);
+            //margin-bottom: px(32);
+        }
+    }
+
     &.--comercial_mob {
         height: px(480);
     }
@@ -188,19 +204,30 @@
             //     margin: 0;
             // }
         }
+
         //ALTURAS FIJAS
+
         &.--adhesion_tab,
         &.--cabezal_tab,
         &.--middle1_tab,
         &.--middle2_tab {
             height: px(90);
         }
+
         &.--caja1_tab,
-        &.--caja2_tab,
-        &.--caja3_tab,
-        &.--caja4_tab {
-            height: px(250);
+        &.--caja2_tab {
+            height: px(600);
         }
+
+        .home & {
+            &.--caja1_tab,
+            &.--caja2_tab,
+            &.--caja3_tab,
+            &.--caja4_tab {
+                height: px(250);
+            }
+        }
+
         &.--logo_tag_tab {
             height: px(280);
         }
@@ -255,6 +282,18 @@
         }
 
         //ALTURAS FIJAS
+
+        &.--caja2_dsk,
+        &.--caja3_dsk {
+            height: px(250);
+        }
+
+        &.--caja1_dsk,
+        &.--caja4_dsk,
+        &.--caja5_dsk {
+            height: px(600);
+        }
+
         .home & {
             &.--cabezal_dsk {
                 height: px(100);

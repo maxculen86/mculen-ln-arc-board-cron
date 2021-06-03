@@ -4,16 +4,15 @@ import { useAppContext } from 'fusion:context';
 import getProperties from 'fusion:properties';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
-import {
-    getChildrenFromAperturaHome,
-    validateArticleFeature
-} from '../../../private/LN/common/utils/cajaTemasHelper';
+import { validateArticleFeature } from '../../../private/LN/common/utils/cajaTemasValidators';
+import { getChildrenFromAperturaHome } from '../../../private/LN/common/utils/cajaTemasHelper';
 import { getCajaTemaConfig } from '../../../private/LN/home/components/noteCard/noteCardHelper';
 import NoteCard from '../../../private/LN/home/components/noteCard/noteCard';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
 import { GlobalContext } from '../../../private/common/context/globalContext';
 import get from '../../../private/common/utils/get';
+import featureArticleCustomsFields from '../../../private/LN/common/utils/articuloHelper';
 
 const notesLoaded = [];
 
@@ -118,66 +117,7 @@ ArticleFeature.propTypes = {
         children: PropTypes.array
     }).isRequired,
     customFields: PropTypes.shape({
-        noteId: PropTypes.string.tag({
-            name: 'ID de la nota',
-            description: 'Ingrese aquí el id de la nota',
-            default: undefined,
-            group: 'Ajustes Básicos'
-        }).isRequired,
-        title: PropTypes.string.tag({
-            name: 'Título',
-            description:
-                'Ingrese el texto del título. Máx: 100 caracteres incluyendo volanta.',
-            default: undefined,
-            group: 'Ajustes Básicos'
-        }),
-        lead: PropTypes.string.tag({
-            name: 'Volanta',
-            description: 'Ingrese aquí el texto de la volanta',
-            group: 'Ajustes Básicos'
-        }),
-        imageId: PropTypes.string.tag({
-            name: 'Foto',
-            description: 'Ingrese aquí el id de la imagen en PhotoCenter',
-            default: undefined,
-            group: 'Ajustes Básicos'
-        }),
-        hideImage: PropTypes.bool.tag({
-            name: 'Ocultar foto',
-            description: 'Seleccione si no debe mostrarse la foto en la nota ',
-            default: false,
-            group: 'Ajustes Básicos'
-        }),
-        authors: PropTypes.string.tag({
-            name: 'Firma',
-            description: 'Ingrese aquí el texto de la marquesina',
-            default: undefined,
-            group: 'Ajustes Básicos'
-        }),
-        opinion: PropTypes.bool.tag({
-            name: 'Nota Opinión',
-            description: 'Seleccione si la nota debe mostrarse de tipo opinión',
-            default: false,
-            group: 'Ajustes Básicos'
-        }),
-        description: PropTypes.string.tag({
-            name: 'Bajada',
-            description: 'Ingrese aquí el texto de la bajada',
-            default: undefined,
-            group: 'Ajustes Extra'
-        }),
-        chapita: PropTypes.string.tag({
-            name: 'Chapita',
-            description: 'Ingrese el texto de la chapita. Máx: 24 caracteres.',
-            default: undefined,
-            group: 'Ajustes Extra'
-        }),
-        html: PropTypes.string.tag({
-            name: 'Tablero / HTML',
-            description: 'Ingrese aquí el html del tablero',
-            default: undefined,
-            group: 'Ajustes Extra'
-        })
+        ...(featureArticleCustomsFields('articuloGeneral') || {})
     }),
     searchableField: PropTypes.shape({
         imageId: PropTypes.string

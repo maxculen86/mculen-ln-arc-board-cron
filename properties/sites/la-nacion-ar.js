@@ -2,9 +2,7 @@ export default {
     longTitle: 'Últimas noticias de Argentina y el mundo - LA NACION',
     title: 'LA NACION',
     description:
-        'LA NACION - Información confiable en Internet. Noticias de Argentina y del mundo - ¡Informate ya!',
-    shortDescription:
-        'Información confiable en Internet. Noticias de Argentina y del mundo - ¡Informate ya!',
+        'Todas las noticias de Argentina y el mundo: últimas noticias en actualidad, deportes, coronavirus, economía, política, y tecnología. Mantenete informado sobre las novedades de Argentina en LA NACION.',
     className: {
         body: 'ln'
     },
@@ -46,6 +44,10 @@ export default {
             location: ['head']
         },
         Petametrics: {
+            props: {},
+            location: ['head']
+        },
+        NewsMediaOrganization: {
             props: {},
             location: ['head']
         },
@@ -576,14 +578,42 @@ export default {
                 }
             }
         },
-        grilla2: { className: '' },
-        grilla3: { className: '' },
-        grilla6: { className: '' },
-        grilla9: { className: '' },
+        grilla2: {
+            className: '',
+            articles: {
+                0: { titleSize: '--l' },
+                1: { titleSize: '--l' }
+            }
+        },
+        grilla3: {
+            className: '',
+            articles: {
+                0: { titleSizeNoMedia: '--m' },
+                1: { titleSizeNoMedia: '--m' }
+            }
+        },
+        grilla6: {
+            className: '',
+            articles: {
+                0: { titleSizeNoMedia: '--m' },
+                1: { titleSizeNoMedia: '--m' }
+            }
+        },
+        grilla9: {
+            className: '',
+            articles: {
+                0: { titleSizeNoMedia: '--m' },
+                1: { titleSizeNoMedia: '--m' }
+            }
+        },
         bomba1: {
             className: '--bomba',
             articles: {
-                0: { titleSize: '--threexl', titleTag: 'h1' }
+                0: {
+                    titleSize: '--threexl',
+                    titleTag: 'h1',
+                    withSubheadAndMedia: true
+                }
             }
         },
         opinion4: {

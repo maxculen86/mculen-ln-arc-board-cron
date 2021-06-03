@@ -21,7 +21,8 @@ const getArticleTitle = article => {
 const getArticleTag = article => {
     const originalTag = get(article, 'label.chapita.text', null);
     const tag = get(article, 'additionalProperties.chapita', null);
-    return originalTag || tag || null;
+    const result = originalTag || tag || null;
+    return result ? result.toUpperCase() : result;
 };
 
 const getArticleAuthor = article => {
