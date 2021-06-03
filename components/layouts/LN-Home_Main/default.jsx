@@ -426,7 +426,10 @@ const LNMainHome = props => {
                                         </>
                                     )}
 
-                                    <div data-section="opinion">
+                                    <div
+                                        data-section="opinion"
+                                        className="container --opinion"
+                                    >
                                         {blocksToLoad.bloque3 && opinion}
                                     </div>
                                     {/* BANNER  */}

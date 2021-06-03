@@ -558,6 +558,9 @@
     }
 
     &.--opinion {
+        .container & {
+            margin-bottom: 0;
+        }
         @media ($media-m) {
             //768
             //margin-bottom: px(32); lo lleva EDITORIALES
@@ -883,6 +886,11 @@
             justify-content: center;
         }
     }
+}
+
+.container.--opinion,
+.sidebar__main .com-anexo {
+    margin-bottom: px(64);
 }
 
 /*Momentaneo*/
