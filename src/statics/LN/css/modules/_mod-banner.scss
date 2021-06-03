@@ -359,6 +359,9 @@
     &.--ads {
         background: $neutral-white;
         padding: px(24) 0;
+        &:empty {
+            display: none;
+        }
         .mod-banner {
             width: fit-content;
             margin: 0 auto;

@@ -591,10 +591,18 @@
         .container & {
             margin-bottom: 0;
         }
+        .col-tablet-3,
+        .col-tablet-4 {
+            margin-top: px(32);
+        }
         @media ($media-m) {
             //768
             //margin-bottom: px(32); lo lleva EDITORIALES
 
+            .col-tablet-3,
+            .col-tablet-4 {
+                margin-top: 0;
+            }
             .mod-article {
                 margin-bottom: 0;
             }
@@ -666,8 +674,7 @@
         //padding: px(16) 0;
         //display: block;
         width: calc(100% + #{$spacing-lg});
-        margin-left: -$spacing-sm;
-        margin-bottom: px(32);
+        margin: px(32) 0 0 px(-16);
 
         .mod-footersection {
             grid-template-columns: 122px 1fr;
@@ -711,8 +718,8 @@
             }
         }
         @media ($media-m) {
-            margin: px(32) 0 px(32);
             width: 100%;
+            margin-left: 0;
             .mod-footersection {
                 display: grid;
                 padding: $spacing-sm 0;
