@@ -3901,13 +3901,13 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
         expect(home[0][0]).toEqual(
             expect.objectContaining({
                 tipoSeccion: 'banner',
-                IdSeccion: 402
+                idSeccion: 402
             })
         );
         expect(home[0][1]).toEqual(
             expect.objectContaining({
                 tipoSeccion: 'banner',
-                IdSeccion: 403
+                idSeccion: 403
             })
         );
     });
