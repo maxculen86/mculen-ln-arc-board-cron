@@ -103,7 +103,7 @@ const ModArticle = props => {
                 titleSize={noMedia || isRenderAuthor ? '--m' : titleSize}
                 titleText={titleText}
                 authors={authors}
-                authorSize={isRenderAuthor ? '--twoxs' : authorSize}
+                authorSize={isRenderAuthor ? '--fourxs' : authorSize}
                 subheadText={subheadText}
                 subheadSize={subheadSize}
                 dateText={dateText}

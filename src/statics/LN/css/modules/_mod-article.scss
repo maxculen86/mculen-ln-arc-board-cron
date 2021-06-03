@@ -356,17 +356,26 @@
     //     margin-top: px(64);
     // }
 
-    .mod-article {
-        margin-bottom: px(32);
-    }
+    // .mod-article {
+    //     margin-bottom: px(32);
+    //     border-bottom: 16px solid red;
+    // }
 
-    .row-gap-tablet-2,
-    .row-gap-tablet-3,
-    .row-gap-tablet-4 {
-        margin-bottom: px(32);
+    // .row-gap-tablet-2,
+    // .row-gap-tablet-3,
+    // .row-gap-tablet-4 {
+    //     margin-bottom: px(32);
+    //     border-bottom: 16px solid green;
 
-        .mod-article {
-            margin-bottom: 0;
+    //     .mod-article {
+    //         margin-bottom: 0;
+    //     }
+    // }
+
+    .col-tablet-4,
+    .col-tablet-8 {
+        .mod-article:not(:last-child) {
+            margin-bottom: px(32);
         }
     }
 
@@ -376,15 +385,26 @@
             border-bottom: 1px solid #ccc;
             padding-bottom: px(32);
             margin-bottom: px(32);
-            > div {
-                .mod-article:last-child {
-                    margin-bottom: 0;
-                }
-            }
+            // > div {
+            //     .mod-article:last-child {
+            //         margin-bottom: 0;
+            //     }
+            // }
         }
     }
 
     &.--left {
+        .col-tablet-8 {
+            .mod-article {
+                margin-bottom: px(32);
+            }
+        }
+        .col-tablet-4 {
+            .mod-article:not(:last-child) {
+                margin-bottom: px(32);
+            }
+        }
+
         @media ($media-m) {
             //768
 
@@ -394,6 +414,7 @@
                 padding-right: px(24);
 
                 .mod-article {
+                    margin-bottom: 0;
                     > div {
                         //mod-media container
                         order: 2;
@@ -441,6 +462,12 @@
     }
 
     &.--right {
+        .col-tablet-4 {
+            .mod-article {
+                margin-bottom: px(32);
+            }
+        }
+
         @media ($media-m) {
             //768
             // display: flex;
@@ -464,6 +491,9 @@
             .col-tablet-4 {
                 order: 1;
                 padding-right: px(12);
+                .mod-article {
+                    margin-bottom: 0;
+                }
                 .mod-media {
                     display: none;
                 }
