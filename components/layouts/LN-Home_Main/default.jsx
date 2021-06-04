@@ -78,11 +78,13 @@ const BannerCabezal = ({ isDesktop, isTablet }) => {
                 id="cabezal_dsk"
                 shouldRender={isDesktop}
                 classes="--dark"
+                withoutHide
             />
             <DivBanner
                 id="cabezal_tab"
                 shouldRender={isTablet}
                 classes="--dark"
+                withoutHide
             />
         </div>
     );
@@ -202,12 +204,12 @@ const LNMainHome = props => {
             <LoginProvider>
                 {/* 1x1 */}
                 <DivBanner
-                    id="unoxuno_dsk"
+                    id="1x1_dsk"
                     shouldRender={isDesktop}
                     validateSuscription
                 />
                 <DivBanner
-                    id="unoxuno_mob"
+                    id="1x1_mob"
                     shouldRender={isMobile}
                     validateSuscription
                 />
@@ -259,7 +261,7 @@ const LNMainHome = props => {
                             classes="--sticky2_mob --sticky"
                             shouldRender={isMobile}
                         />
-                        <div className="row">
+                        <div className="">
                             <div id="content-main" className="lay-sidebar">
                                 {/* Cuerpo */}
                                 <div className="sidebar__main">
@@ -426,7 +428,10 @@ const LNMainHome = props => {
                                         </>
                                     )}
 
-                                    <div data-section="opinion">
+                                    <div
+                                        data-section="opinion"
+                                        className="container --opinion"
+                                    >
                                         {blocksToLoad.bloque3 && opinion}
                                     </div>
                                     {/* BANNER  */}

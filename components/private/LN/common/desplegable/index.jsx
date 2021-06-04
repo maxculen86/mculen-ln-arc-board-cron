@@ -131,12 +131,18 @@ const Desplegable = ({ toglleDesplegable }) => {
             <div className="com-dropdown" ref={comDromdownRef}>
                 <section className="header__dropdown row">
                     <div className="logo__dropdown col-10">
-                        <i className="logo-la-nacion" />
+                        <a
+                            href="https://www.lanacion.com.ar/"
+                            title="LA NACION"
+                        >
+                            <i className="logo-la-nacion" />
+                        </a>
                     </div>
                     <div
                         className="close__dropdown col-2"
                         role="button"
                         tabIndex="0"
+                        title="Cerrar"
                         onMouseDown={toglleDesplegable}
                     >
                         <i className="icon-close" />

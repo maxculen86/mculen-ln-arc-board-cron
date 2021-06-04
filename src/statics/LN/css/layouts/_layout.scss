@@ -8,13 +8,13 @@
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
-    margin-bottom: $spacing-xl;
 }
 
 @media ($media-lm) {
     //vuelo aside en 1024
     .lay-sidebar {
         flex-direction: row;
+        margin-bottom: $spacing-xl;
     }
     .sidebar__main {
         flex-basis: 100%;

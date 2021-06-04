@@ -9,7 +9,8 @@ const DivBanner = props => {
         shouldRender,
         closeButton,
         fixed,
-        validateSuscription = false
+        validateSuscription = false,
+        withoutHide
     } = props;
     const subscription = validateSuscription ? getSubscription() : false;
     const ref = useRef();
@@ -20,7 +21,9 @@ const DivBanner = props => {
         <div
             className={`mod-banner ${classes} ${
                 closeButton ? '--close' : ' '
-            } ${fixed ? '--fixed' : ''} --${id}`}
+            } ${fixed ? '--fixed' : ''} --${id} ${
+                withoutHide ? '' : 'hlp-none'
+            } `}
             ref={ref}
         >
             {closeButton && (
@@ -42,7 +45,8 @@ DivBanner.propTypes = {
     shouldRender: PropTypes.bool,
     closeButton: PropTypes.bool,
     fixed: PropTypes.bool,
-    validateSuscription: PropTypes.bool
+    validateSuscription: PropTypes.bool,
+    withoutHide: PropTypes.bool
 };
 
 DivBanner.defaultProps = {
@@ -50,7 +54,8 @@ DivBanner.defaultProps = {
     shouldRender: true,
     closeButton: false,
     fixed: false,
-    validateSuscription: false
+    validateSuscription: false,
+    withoutHide: false
 };
 
 export default DivBanner;
