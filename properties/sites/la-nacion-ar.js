@@ -117,6 +117,55 @@ export default {
                     ]
                 }
             },
+            techoImagen: {
+                promo_items: {
+                    sizes: [
+                        {
+                            width: 222,
+                            height: 160,
+                            media: '(min-width: 1024px)'
+                        }
+                    ]
+                },
+                content_elements: {
+                    sizes: [
+                        {
+                            width: 278,
+                            height: 186,
+                            media: '(min-width: 1280px)'
+                        },
+                        {
+                            width: 344,
+                            height: 230,
+                            media: '(min-width: 1024px)'
+                        },
+                        {
+                            width: 768,
+                            height: 513,
+                            media: '(min-width: 768px)'
+                        },
+                        {
+                            width: 350,
+                            height: 234,
+                            media: '(min-width: 360px)'
+                        },
+                        {
+                            width: 360,
+                            height: 234,
+                            media: '(min-width: 320px)'
+                        }
+                    ]
+                },
+                credits: {
+                    sizes: [
+                        {
+                            width: 80,
+                            height: 80,
+                            media: '(min-width: 320px)'
+                        }
+                    ]
+                }
+            },
             fotoAl100: {
                 promo_items: {
                     sizes: [
