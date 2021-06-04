@@ -45,12 +45,17 @@
         .mod-marquee {
             position: absolute;
             overflow: hidden;
-            white-space: nowrap;
+            //white-space: nowrap;
             margin: 0;
-            bottom: px(16);
+            //bottom: px(16);
             left: px(16);
             width: calc(100% - 32px);
             justify-content: center;
+
+            height: px(48);
+            white-space: break-spaces;
+            align-items: center;
+            bottom: 0;
         }
         .com-label {
             display: none;
