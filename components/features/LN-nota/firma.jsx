@@ -40,8 +40,8 @@ const getPropsBuilderFromContentElements = position => contentElements =>
               );
 
 const getPropsBuilder = position => authors =>
-    authors.map(author =>
-        ({
+    authors
+        .map(author => ({
             name:
                 get(author, 'additional_properties.original.author_type') === ''
                     ? get(author, 'name')
@@ -50,7 +50,8 @@ const getPropsBuilder = position => authors =>
             link: `/pf/autor/${get(author, 'name')}/`,
             photo: get(author, 'additional_properties.original.image'),
             medio: get(author, 'additional_properties.original.role')
-        }.reduce(
+        }))
+        .reduce(
             (accumulator, value) => {
                 const props = {
                     ...accumulator,
@@ -79,8 +80,7 @@ const getPropsBuilder = position => authors =>
                 return props;
             },
             { authors: [], photo: null, medio: null, smth: 'credits' }
-        ))
-    );
+        );
 
 const FirmaFeature = props => {
     const {
