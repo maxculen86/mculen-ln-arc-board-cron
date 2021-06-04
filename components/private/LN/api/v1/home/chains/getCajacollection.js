@@ -31,13 +31,16 @@ const GetCajaCollection = propsParams => {
                 }
 
                 const imageId = get(props, 'customFields.imageId', '');
+
                 if (imageId) {
                     this.fetchContent({
                         containerImage: {
                             source: 'relatedImageSource',
                             query: {
                                 id: imageId,
-                                published: true
+                                published: true,
+                                imageConfig: 'm',
+                                'arc-site': 'la-nacion-ar'
                             }
                         }
                     });

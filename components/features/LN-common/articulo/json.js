@@ -20,7 +20,9 @@ class ArticleFeature {
                 source: 'relatedImageSource',
                 query: {
                     id: imageId,
-                    published: true
+                    published: true,
+                    imageConfig: 'm',
+                    'arc-site': 'la-nacion-ar'
                 }
             }
         });
