@@ -142,6 +142,7 @@ const Desplegable = ({ toglleDesplegable }) => {
                         className="close__dropdown col-2"
                         role="button"
                         tabIndex="0"
+                        title="Cerrar"
                         onMouseDown={toglleDesplegable}
                     >
                         <i className="icon-close" />
