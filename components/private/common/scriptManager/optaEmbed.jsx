@@ -47,7 +47,10 @@ const OptaEmbed = props => {
     return (
         <>
             <link rel="stylesheet" href={style} />
-            <script src="https://secure.widget.cloud.opta.net/v3/v3.opta-widgets.js" />
+            <script
+                async
+                src="https://secure.widget.cloud.opta.net/v3/v3.opta-widgets.js"
+            />
             <script dangerouslySetInnerHTML={{ __html: script }} />
             <noscript>Your browser does not suport javascript</noscript>
         </>

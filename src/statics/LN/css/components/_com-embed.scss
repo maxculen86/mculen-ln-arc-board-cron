@@ -2,7 +2,6 @@
 @import '../abstracts/mixins';
 
 .com-embed {
-    margin-bottom: $spacing-lg;
     &.--youtube,
     &.--vimeo,
     &.--dailymotion {
@@ -23,5 +22,9 @@
             //     height: 200px;
             // }
         }
+    }
+
+    .nota & {
+        margin-bottom: px(64);
     }
 }

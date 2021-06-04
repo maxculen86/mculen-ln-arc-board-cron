@@ -14,7 +14,9 @@ class CajaManual {
                     source: 'relatedImageSource',
                     query: {
                         id: imageId,
-                        published: true
+                        published: true,
+                        imageConfig: 'techoImagen',
+                        'arc-site': 'la-nacion-ar'
                     }
                 }
             });

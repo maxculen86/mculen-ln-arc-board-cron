@@ -9,7 +9,11 @@ const Hamburger = ({ _onMouseDown }) => {
     return (
         <div className="com-hamburger" onMouseDown={_onMouseDown}>
             {/* <ComIcon iconName="menu" /> */}
-            <ComButton classCondition="--tertiary" iconName="menu">
+            <ComButton
+                classCondition="--tertiary"
+                iconName="menu"
+                title="Secciones"
+            >
                 Secciones
             </ComButton>
         </div>

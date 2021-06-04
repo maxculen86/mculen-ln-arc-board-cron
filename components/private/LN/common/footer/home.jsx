@@ -141,21 +141,25 @@ const Index = ({
                                 name="facebook-filled"
                                 href="https://www.facebook.com/lanacion"
                                 target="_blank"
+                                title="Facebook"
                             />
                             <Icon
                                 name="twitter-filled"
                                 href="https://twitter.com/LANACION"
                                 target="_blank"
+                                title="Twitter"
                             />
                             <Icon
                                 name="instagram"
                                 href="https://www.instagram.com/lanacioncom/"
                                 target="_blank"
+                                title="Instagram"
                             />
                             <Icon
                                 name="rss"
                                 href="http://servicios.lanacion.com.ar/herramientas/rss/ayuda"
                                 target="_blank"
+                                title="Rss"
                             />
                         </div>
                         <div className="col-desksm-4 --center">

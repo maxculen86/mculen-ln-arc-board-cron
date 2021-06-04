@@ -23,6 +23,7 @@ export default {
             [320, 50],
             [300, 250],
             [300, 450],
+            [320, 100],
             [1, 1]
         ],
         targeting: defaultTargeting
@@ -33,6 +34,7 @@ export default {
             [320, 50],
             [300, 250],
             [300, 450],
+            [320, 100],
             [1, 1]
         ],
         targeting: defaultTargeting
@@ -43,6 +45,7 @@ export default {
             [320, 50],
             [300, 250],
             [300, 450],
+            [320, 100],
             [1, 1]
         ],
         targeting: defaultTargeting
@@ -53,6 +56,7 @@ export default {
             [320, 50],
             [300, 250],
             [300, 450],
+            [320, 100],
             [1, 1]
         ],
         targeting: defaultTargeting
@@ -63,6 +67,7 @@ export default {
             [320, 50],
             [300, 250],
             [300, 450],
+            [320, 100],
             [1, 1]
         ],
         targeting: defaultTargeting
@@ -96,7 +101,7 @@ export default {
         ],
         targeting: defaultTargeting
     },
-    unoxuno_mob: {
+    '1x1_mob': {
         slotName: `${PATH_SLOT}/1x1_mob`,
         dimensions: [[1, 1]],
         targeting: defaultTargeting
