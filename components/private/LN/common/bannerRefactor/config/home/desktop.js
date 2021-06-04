@@ -3,7 +3,7 @@ import { defaultTargeting } from './defaults';
 const PATH_SLOT = 'la_nacion_desktop/Home';
 
 export default {
-    unoxuno_dsk: {
+    '1x1_dsk': {
         slotName: `${PATH_SLOT}/1x1_dsk`,
         dimensions: [[1, 1]],
         targeting: defaultTargeting
@@ -24,7 +24,8 @@ export default {
         slotName: `${PATH_SLOT}/adhesion_dsk`,
         dimensions: [
             [920, 100],
-            [728, 90]
+            [728, 90],
+            [1, 1]
         ],
         targeting: defaultTargeting
     },
@@ -48,27 +49,6 @@ export default {
         dimensions: [[300, 250]],
         targeting: defaultTargeting
     },
-    caja1_amp: {
-        slotName: '/133919216/AMP/ROS/caja1_amp',
-        dimensions: {
-            width: 300,
-            height: 250
-        }
-    },
-    caja2_amp: {
-        slotName: '/133919216/AMP/ROS/caja2_amp',
-        dimensions: {
-            width: 300,
-            height: 250
-        }
-    },
-    caja3_amp: {
-        slotName: '/133919216/AMP/ROS/caja3_amp',
-        dimensions: {
-            width: 320,
-            height: 50
-        }
-    },
     comercial_dsk: {
         slotName: `${PATH_SLOT}/comercial_dsk`,
         dimensions: [
@@ -81,8 +61,9 @@ export default {
         slotName: `${PATH_SLOT}/middle1_dsk`,
         dimensions: [
             [1, 1],
-            [468, 60],
-            [920, 250]
+            [920, 120],
+            [920, 250],
+            [728, 90]
         ],
         targeting: defaultTargeting
     },
@@ -92,27 +73,36 @@ export default {
             [120, 600],
             [250, 600],
             [160, 600],
-            [728, 90],
-            [920, 100],
             [300, 600]
         ],
         targeting: defaultTargeting
     },
     megalateral2_dsk: {
         slotName: `${PATH_SLOT}/megalateral2_dsk`,
-        dimensions: [[300, 600]],
+        dimensions: [
+            [120, 600],
+            [250, 600],
+            [160, 600],
+            [300, 600]
+        ],
         targeting: defaultTargeting
     },
     megalateral3_dsk: {
         slotName: `${PATH_SLOT}/megalateral3_dsk`,
-        dimensions: [[300, 600]],
+        dimensions: [
+            [120, 600],
+            [250, 600],
+            [160, 600],
+            [300, 600]
+        ],
         targeting: defaultTargeting
     },
     billboard_dsk: {
         slotName: `${PATH_SLOT}/billboard_dsk`,
         dimensions: [
             [728, 90],
-            [920, 250]
+            [920, 250],
+            [1, 1]
         ],
         targeting: defaultTargeting
     },
@@ -131,8 +121,9 @@ export default {
         dimensions: [
             [1, 1],
             [728, 90],
-            [920, 100],
-            [920, 250]
+            [920, 120],
+            [920, 250],
+            [920, 300]
         ],
         targeting: defaultTargeting
     },
@@ -141,8 +132,9 @@ export default {
         dimensions: [
             [1, 1],
             [728, 90],
-            [920, 100],
-            [920, 250]
+            [920, 120],
+            [920, 250],
+            [920, 300]
         ],
         targeting: defaultTargeting
     }

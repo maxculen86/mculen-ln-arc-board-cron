@@ -28,7 +28,10 @@ export default {
     },
     caja1_tab: {
         slotName: `${PATH_SLOT}/caja1_tab`,
-        dimensions: [[300, 250]],
+        dimensions: [
+            [300, 250],
+            [300, 600]
+        ],
         targeting: defaultTargeting
     },
     caja2_tab: {
