@@ -463,7 +463,13 @@
     }
 
     &.--right {
+        .col-tablet-8 {
+            order: 2;
+        }
+
         .col-tablet-4 {
+            order: 1;
+
             .mod-article {
                 margin-bottom: px(32);
             }
@@ -475,8 +481,6 @@
             // flex-direction: row;
 
             .col-tablet-8 {
-                order: 2;
-
                 padding-left: px(24);
 
                 &:before {
@@ -490,7 +494,6 @@
                 }
             }
             .col-tablet-4 {
-                order: 1;
                 padding-right: px(12);
                 .mod-article {
                     margin-bottom: 0;
