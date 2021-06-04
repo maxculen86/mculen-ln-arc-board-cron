@@ -88,7 +88,7 @@ export const getCajaTemaConfig = (
 
     const layout = get(parent, 'props.customFields.layout');
 
-    const config = get(renderables, `${layout}.articles[${index}]`, null);
+    const config = get(cajaTemaConfig, `${layout}.articles[${index}]`, null);
     return {
         imageConfig:
             (renderables.some(
