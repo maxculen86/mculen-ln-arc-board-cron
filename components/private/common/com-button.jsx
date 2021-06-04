@@ -42,6 +42,7 @@ const ComButton = props => {
     if (iconName && children)
         return (
             <button
+                id={id}
                 data-event={dataEvent}
                 data-section={dataSection}
                 type="button"
@@ -62,6 +63,7 @@ const ComButton = props => {
         );
     return (
         <button
+            id={id}
             data-event={dataEvent}
             data-section={dataSection}
             type="button"
@@ -92,6 +94,9 @@ ComButton.propTypes = {
     iconPosition: PropTypes.string,
     size: PropTypes.string,
     title: PropTypes.string,
+    id: PropTypes.string,
+    dataEvent: PropTypes.string,
+    dataSection: PropTypes.string,
     style: PropTypes.node
 };
 

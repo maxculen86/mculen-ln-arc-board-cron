@@ -22,6 +22,7 @@ import SocialEmbeds from '../private/common/scriptManager/socialEmbeds';
 import OptaEmbed from '../private/common/scriptManager/optaEmbed';
 import ScriptHtmlLibre from '../private/common/scriptManager/scriptHtmlLibre';
 import Petametrics from '../private/common/scriptManager/petametrics';
+import Schemas from '../private/common/scriptManager/schemas';
 import DataLayerIndex from '../private/common/dataLayerIndex';
 import paths from '../../config/paths';
 import SnippetIndex from '../private/common/snippet';
@@ -33,7 +34,8 @@ import getSectionName from '../private/LN/common/utils/getSectionName';
 import Syndication from '../private/common/syndication';
 import LinkAmpHTML from '../private/common/linkAmpHTML';
 import { pipe } from '../private/common/utils/functional';
-// import Queryly from '../private/common/scriptManager/queryly';
+import Pwa from '../private/common/scriptManager/pwa';
+import PwaModals from '../private/LN/common/pwaModals';
 
 const scriptList = [
     {
@@ -47,6 +49,7 @@ const scriptList = [
     { component: { name: 'GTM', function: GTM }, feature: 'none' },
     { component: { name: 'Comscore', function: Comscore }, feature: 'none' },
     { component: { name: 'Microdata', function: Microdata }, feature: 'none' },
+    { component: { name: 'Pwa', function: Pwa }, feature: 'none' },
     {
         component: { name: 'PostBid', function: PostBid },
         feature: 'none'
@@ -274,6 +277,7 @@ const Default = props => {
                     outputType={outputType}
                 />
                 <Libs />
+                <Schemas section={_nodeType} />
                 {/* Para OTT carga los styles por front */}
                 {arcSite === 'ott' ? (
                     <link
@@ -294,6 +298,8 @@ const Default = props => {
                     type="image/x-icon"
                     href={deployment(`${contextPath}/resources/favicon.ico`)}
                 />
+                <meta name="theme-color" content="#ffffff" />
+                <link rel="manifest" href="/manifest.json" />
                 {/* <Scripts name="Microdata" /> */}
             </head>
             <body {...getBodyClass(siteProperties)}>
@@ -305,8 +311,8 @@ const Default = props => {
                 />
 
                 <div id="fusion-app">{children}</div>
+                <PwaModals />
                 <Fusion />
-
                 <Scripts location="body-bottom" />
                 <ScriptLoadingList
                     section={_nodeType}

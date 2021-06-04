@@ -5,7 +5,8 @@ const getPrincipalCategory = section => {
 };
 
 const getSubCategory = section => {
-    if (!section) return null;
+    if (!section || !section._id) return null;
+
     const category = getCategory(section);
     const resp = {
         ...category,

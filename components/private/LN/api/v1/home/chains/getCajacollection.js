@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
 import Consumer from 'fusion:consumer';
 import {
+    validateFeature,
     getCommonPropsJson,
     getArticlesFromMyCurrentCollection,
     getIdsArticlesFromOtherCollections
-} from '../../../../common/utils/cajaTemasHelperApi';
+} from '../../../../common/utils/cajaTemasValidators';
 import get from '../../../../../common/utils/get';
 import filter from '../../../../../../../content/filters/LN/acumulado/articleHomeMobile';
 
@@ -92,13 +93,13 @@ const GetCajaCollection = propsParams => {
                     const { articleList, containerImage } = this.state || {};
                     const { customFields } = this.props;
 
-                    // const error = validateFeature(
-                    //     customFields.idCollection,
-                    //     articleList,
-                    //     customFields.layout
-                    // );
+                    const error = validateFeature(
+                        customFields.idCollection,
+                        articleList,
+                        customFields.layout
+                    );
 
-                    if (!articleList) {
+                    if (!articleList || error) {
                         return null;
                     }
 

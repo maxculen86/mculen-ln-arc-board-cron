@@ -103,6 +103,7 @@ const getHomeElements = props => {
 
 const LNMainHome = props => {
     const homeSections = getHomeElements(props);
+    // return [homeSections];
     return home(homeSections) || [];
 };
 

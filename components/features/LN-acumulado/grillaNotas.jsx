@@ -6,7 +6,7 @@ import GrillaNotas from '../../private/LN/acumulado/grillaNotas/grillaNotas';
 import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
 import { getSlotsOptions } from '../../private/LN/common/bannerRefactor/config';
 import findTermica from '../../private/common/utils/findTermica';
-import { getIdsArticlesFromOtherCollections } from '../../private/LN/common/utils/cajaTemasHelper';
+import { getIdsArticlesFromOtherCollections } from '../../private/LN/common/utils/cajaTemasValidators';
 import { GlobalContext } from '../../private/common/context/globalContext';
 
 const groupBannerConfig = props => {

@@ -5,12 +5,14 @@ import getArticleInCollection from '../../private/LN/common/utils/getArticleInCo
 import CajaTema from '../../private/LN/common/cajaTema';
 import {
     cajaTemasCustomsFields,
-    validateFeature,
     getCommonProps,
-    getIdsArticlesFromOtherCollections,
-    isInApertura,
-    getArticlesFromMyCurrentCollection
+    isInApertura
 } from '../../private/LN/common/utils/cajaTemasHelper';
+import {
+    validateFeature,
+    getIdsArticlesFromOtherCollections,
+    getArticlesFromMyCurrentCollection
+} from '../../private/LN/common/utils/cajaTemasValidators';
 import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
 const CajaCollection = props => {
@@ -57,6 +59,11 @@ const CajaCollection = props => {
 
     const isInsideApertura =
         tree.type === 'LN-acumulado' ? isInApertura(tree, featureId) : false;
+
+    const titleSize =
+        ((isInsideApertura || layout === 'grilla1' || layout === 'grilla2') &&
+            '--l') ||
+        '';
 
     const articlesToShow = !isInSiteService
         ? getArticleInCollection(
@@ -112,7 +119,7 @@ const CajaCollection = props => {
                     ? articlesFromCollectionSiteService
                     : articlesToShow
             }
-            titleSize={isInsideApertura && '--l'}
+            titleSize={titleSize}
         />
     );
 };

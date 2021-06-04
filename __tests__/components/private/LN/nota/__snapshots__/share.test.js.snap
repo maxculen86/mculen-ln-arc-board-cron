@@ -67,6 +67,7 @@ exports[`Share Matches snapshot 1`] = `
       class="com-button   --icon comment "
       data-event=""
       data-section=""
+      id=""
       title="Comentar"
       type="button"
     >

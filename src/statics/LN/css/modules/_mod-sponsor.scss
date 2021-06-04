@@ -65,7 +65,11 @@
             color: $rolling;
         }
     }
-
+    &.campo {
+        > .com-text {
+            color: $campo;
+        }
+    }
     &.--contentlab {
         // .com-logo {
         //     &::after {

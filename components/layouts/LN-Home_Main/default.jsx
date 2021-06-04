@@ -489,7 +489,7 @@ const LNMainHome = props => {
                             {blocksToLoad.bloque3 && (
                                 <div
                                     data-section="ranking"
-                                    className="lay ranking-ln9"
+                                    className="ranking-ln9"
                                 >
                                     <AnexoFeature
                                         id="ranking"
