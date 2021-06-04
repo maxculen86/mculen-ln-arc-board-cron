@@ -15,16 +15,18 @@ const ArticleFeature = ({
     id: featureId,
     customFields,
     searchableField,
-    imageConfig,
-    customConfig,
     customFields: { noteId: id, imageId },
     isBomba = false
 }) => {
     const { isAdmin, arcSite, renderables, outputType } = useAppContext();
     const { cajaTemaConfig } = getProperties(arcSite);
-    const { config, index, boxPosition, layout } =
-        customConfig ||
-        getCajaTemaConfig(featureId, renderables, cajaTemaConfig);
+    const {
+        config,
+        index,
+        boxPosition,
+        layout,
+        imageConfig
+    } = getCajaTemaConfig(featureId, renderables, cajaTemaConfig, isBomba);
 
     const article = useContent({
         source: 'articleSourceNota',
@@ -69,7 +71,7 @@ const ArticleFeature = ({
                 customFields={customFields}
                 outputType={outputType}
                 index={index}
-                boxPosition={isBomba ? '00' : boxPosition}
+                boxPosition={boxPosition}
                 layout={layout}
                 isAdmin={isAdmin}
             />

@@ -11,6 +11,7 @@ const getArticleInCollection = (
     filterRepetead = false,
     notesQuantity,
     layout = '',
+    diagramation,
     website = 'la-nacion-ar'
 ) => {
     const articleList = idCollection
@@ -26,7 +27,8 @@ const getArticleInCollection = (
                   filterRepetead,
                   notesQuantity,
                   imageConfig: 'm',
-                  isFocal: layout && layout.includes('focal')
+                  isFocal: layout && layout.includes('focal'),
+                  diagramation
               },
               filter
           })
