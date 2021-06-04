@@ -14,6 +14,8 @@ import {
     getArticlesFromMyCurrentCollection
 } from '../../private/LN/common/utils/cajaTemasValidators';
 import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
+import siteConfig from '../../../properties/sites/la-nacion-ar';
+import get from '../../private/common/utils/get';
 
 const CajaCollection = props => {
     const {
@@ -43,6 +45,17 @@ const CajaCollection = props => {
         position,
         sectionName
     } = getCommonProps(props);
+
+    const { layoutsName = {} } = siteConfig || {};
+
+    const diagramation =
+        (renderables.some(
+            elem =>
+                get(elem, 'collection') === 'layouts' &&
+                get(elem, 'type') === layoutsName.Home
+        ) &&
+            layout) ||
+        '';
 
     const articlesFromCollectionSiteService = getArticlesFromMyCurrentCollection(
         collectionsInPage,
@@ -74,7 +87,8 @@ const CajaCollection = props => {
               true,
               !isInSiteService,
               notesQuantity,
-              layout
+              layout,
+              diagramation
           )
         : [];
 

@@ -2,10 +2,8 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
-import getProperties from 'fusion:properties';
 import Static from 'fusion:static';
 import FeatureArticulo from '../articulo/default';
-import get from '../../../private/common/utils/get';
 import featureArticleCustomsFields from '../../../private/LN/common/utils/articuloHelper';
 
 const BombaFeature = props => {
@@ -13,16 +11,9 @@ const BombaFeature = props => {
         customFields: { hideFeature, hideImage } = {},
         id: featureId
     } = props;
-    const { arcSite, isAdmin } = useAppContext();
+    const { isAdmin } = useAppContext();
 
     if (hideFeature) return <></>;
-
-    const { cajaTemaConfig } = getProperties(arcSite);
-
-    const config = {
-        config: get(cajaTemaConfig, `bomba1.articles[0]`, null),
-        index: 0
-    };
 
     const Component = (
         <section
@@ -33,12 +24,7 @@ const BombaFeature = props => {
             data-block-name="h_tema-00"
             data-diagramacion-id="h_00"
         >
-            <FeatureArticulo
-                {...props}
-                imageConfig="fotoAl100"
-                customConfig={config}
-                isBomba
-            />
+            <FeatureArticulo {...props} isBomba />
         </section>
     );
 
