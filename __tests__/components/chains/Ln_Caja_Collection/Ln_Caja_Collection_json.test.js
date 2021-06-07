@@ -1,14 +1,28 @@
 import Consumer from 'fusion:consumer';
-import { shallow } from 'enzyme';
 import React from 'react';
 import colecction from '../../../../__mocks__/data/collection/OCTOV4V54FCFLJHOVB5IAJKHHM.json';
 import get from '../../../../components/private/common/utils/get';
 import GetCajaCollection from '../../../../components/private/LN/api/v1/home/chains/getCajacollection';
+import filter from '../../../../content/filters/LN/acumulado/articleHomeMobile';
+//import * as ChainCajaCollection from '../../../../components/chains/Ln_Caja_Collection/json';
 
-class TestComponent extends React.Component {
-    render() {}
+const mockfetchContent = jest.fn();
+jest.mock('../../../../content/filters/LN/acumulado/articleHomeMobile', () => ({
+    __esModule: true,
+    default: jest.fn().mockImplementation(() => {})
+}));
+
+class MockAuthService extends GetCajaCollection {
+    constructor(props) {
+        super(props);
+    }
+    fetchContent(param) {}
+    isAuthenticated() {
+        return 'Mocked';
+    }
 }
-describe('Test del Chain - CajaCollection Json', () => {
+
+describe('components - chains - Ln_Caja_Collection - json', () => {
     const customFields = {
         backgroundColor: 'default',
         hideTitle: false,
@@ -47,33 +61,12 @@ describe('Test del Chain - CajaCollection Json', () => {
     ];
     const props = {};
     props.customFields = customFields;
-    const ComponentCajaCollection = GetCajaCollection(
-        <TestComponent customFields={customFields} renderables={renderables} />
-    );
-    const component = shallow(
-        <ComponentCajaCollection
-            customFields={customFields}
-            renderables={renderables}
-        />
-    );
-    console.log(component.props());
-    it('Testeo que la propiedad pasada corresponda', () => {
-        expect(component.prop('customFields')).toBe(undefined);
-    });
-    test('Test OK', () => {
-        const elements = get(articleList, 'content_elements', []);
-        const results = {
-            information: customFields,
-            articles: elements
-        };
-        expect('QJ3BOEZVQNEYZEVBXHF4C7KAWY').toMatch(
-            results.information.idCollection
+    props.renderables = renderables;
+    props.fetchContent = mockfetchContent;
+    test('Test props into class', () => {
+        const CajaCollection = new MockAuthService(props);
+        expect(Object.keys(CajaCollection).sort()).toEqual(
+            ['getQueryElement', 'props', 'state'].sort()
         );
-        expect('HLOPIMO7PBDXPAB5ACWRGZKTPM').toMatch(results.articles[0]._id);
-    });
-
-    test('Test null', () => {
-        const elements = get(null, 'content_elements', []);
-        expect(elements.length).toBe(0);
     });
 });
