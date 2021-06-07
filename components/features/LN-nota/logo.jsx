@@ -31,7 +31,7 @@ const Logo = props => {
             content={renderToString(
                 React.createElement(
                     ComLink,
-                    { link: path },
+                    { link: path ? `${path}/` : null },
                     React.createElement(ComLogo, {
                         color: true,
                         size: '--xs',

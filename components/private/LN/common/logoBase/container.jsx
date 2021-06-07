@@ -29,7 +29,7 @@ const LogoBaseContainer = ({
                 type={`${advertiser ? '--contentlab' : ''}`}
                 sponsor={logoName}
                 textName={advertiser}
-                link={path}
+                link={`${path}/`}
                 tooltip={tooltip}
             />
         );
@@ -37,7 +37,7 @@ const LogoBaseContainer = ({
 
     return (
         <LogoComponent
-            path={path}
+            path={`${path}/`}
             logoName={logoName}
             color={color}
             subtype={subtype}
