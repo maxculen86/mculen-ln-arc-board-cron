@@ -1,25 +1,14 @@
 import Consumer from 'fusion:consumer';
 import React from 'react';
-import colecction from '../../../../__mocks__/data/collection/OCTOV4V54FCFLJHOVB5IAJKHHM.json';
+import colecction from '../../../../__mocks__/data/collection/QJ3BOEZVQNEYZEVBXHF4C7KAWY.json';
 import get from '../../../../components/private/common/utils/get';
 import GetCajaCollection from '../../../../components/private/LN/api/v1/home/chains/getCajacollection';
-import filter from '../../../../content/filters/LN/acumulado/articleHomeMobile';
-//import * as ChainCajaCollection from '../../../../components/chains/Ln_Caja_Collection/json';
 
-const mockfetchContent = jest.fn();
-jest.mock('../../../../content/filters/LN/acumulado/articleHomeMobile', () => ({
-    __esModule: true,
-    default: jest.fn().mockImplementation(() => {})
-}));
-
-class MockAuthService extends GetCajaCollection {
+class MockGetCajaCollection extends GetCajaCollection {
     constructor(props) {
         super(props);
     }
     fetchContent(param) {}
-    isAuthenticated() {
-        return 'Mocked';
-    }
 }
 
 describe('components - chains - Ln_Caja_Collection - json', () => {
@@ -62,11 +51,35 @@ describe('components - chains - Ln_Caja_Collection - json', () => {
     const props = {};
     props.customFields = customFields;
     props.renderables = renderables;
-    props.fetchContent = mockfetchContent;
     test('Test props into class', () => {
-        const CajaCollection = new MockAuthService(props);
+        const CajaCollection = new MockGetCajaCollection(props);
         expect(Object.keys(CajaCollection).sort()).toEqual(
             ['getQueryElement', 'props', 'state'].sort()
         );
+    });
+
+    test('Test render when articleList is Ok', () => {
+        try {
+            const CajaCollection = new MockGetCajaCollection(props);
+            CajaCollection.state.articleList = colecction;
+            CajaCollection.state.containerImage = null;
+            const result = CajaCollection.render();
+            expect(Object.keys(result).sort()).toEqual(
+                ['articles', 'information'].sort()
+            );
+            expect(result.articles.length).toBe(11);
+        } catch (err) {
+            expect(err.message).toBe(
+                `Cannot read property 'additionalProperties' of null`
+            );
+        }
+    });
+
+    test('Test render when articleList is null', () => {
+        const CajaCollection = new MockGetCajaCollection(props);
+        CajaCollection.state.articleList = null;
+        CajaCollection.state.containerImage = null;
+        const result = CajaCollection.render();
+        expect(result.Message).toBe(`Cannot read property 'length' of null`);
     });
 });
