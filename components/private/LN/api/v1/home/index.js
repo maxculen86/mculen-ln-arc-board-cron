@@ -44,13 +44,16 @@ const featureInformation = (information, feature) => {
 const storyBox = element => {
     const { information, feature, configurations } = element;
     const articles = get(element, 'articles', []);
-    return {
-        ...featureInformation(information, feature),
-        notas:
-            feature !== 'Anexo'
-                ? Article(articles, configurations)
-                : Anexo(articles)
-    };
+    if (articles && articles.length) {
+        return {
+            ...featureInformation(information, feature),
+            notas:
+                feature !== 'Anexo'
+                    ? Article(articles, configurations)
+                    : Anexo(articles)
+        };
+    }
+    return null;
 };
 
 const bannerBox = element => {
