@@ -62,7 +62,7 @@ const Component = props => {
             !metarefresh ||
             isAdmin ||
             outputType === 'amp' ||
-            subscription ||
+            (subscription && template !== 'home') ||
             interval < 1 ||
             shouldBeExcluded(contentElements, promoItem)
         ) {
