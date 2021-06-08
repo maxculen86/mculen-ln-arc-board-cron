@@ -55,6 +55,7 @@ const Component = props => {
     // const metarefresh = content && content.Metarefresh;
     const interval = getInterval(type || _id, resolution, metarefresh);
     const cookieProductoPremium = getCookie('ProductoPremiumId');
+    const template = findTemplate(type);
 
     useEffect(() => {
         if (
@@ -64,11 +65,12 @@ const Component = props => {
             subscription ||
             interval < 1 ||
             shouldBeExcluded(contentElements, promoItem)
-        )
+        ) {
             return;
+        }
 
         setTimeout(() => {
-            !cookieProductoPremium &&
+            (!cookieProductoPremium || template === 'home') &&
                 localStorage.setItem('CDmetaRefresh', true);
             window.location.reload();
         }, interval);
@@ -80,7 +82,8 @@ const Component = props => {
         metarefresh,
         outputType,
         promoItem,
-        subscription
+        subscription,
+        template
     ]);
 
     return <></>;
