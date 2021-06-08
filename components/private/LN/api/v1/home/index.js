@@ -44,7 +44,7 @@ const featureInformation = (information, feature) => {
 const storyBox = element => {
     const { information, feature, configurations } = element;
     const articles = get(element, 'articles', []);
-    if (articles && articles.length) {
+    if (articles && articles.length > 0) {
         return {
             ...featureInformation(information, feature),
             notas:
