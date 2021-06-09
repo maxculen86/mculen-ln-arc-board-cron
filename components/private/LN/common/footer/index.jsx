@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import FooterAMP from './footerAMP';
+//import FooterAMP from './footerAMP';
 import Logo from '../../../common/com-logo';
 import Icon from '../../../common/icon';
 import Text from '../../../common/text';
@@ -177,7 +177,7 @@ const Index = ({
                                 size="--sm"
                                 href="https://www.lanacion.com.ar/"
                                 title="LA NACION"
-                            ></Logo>
+                            />
                         </div>
                         <div className="col-desksm-4 --right">
                             <Image
