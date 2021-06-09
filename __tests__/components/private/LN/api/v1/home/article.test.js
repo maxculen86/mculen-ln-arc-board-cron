@@ -24,7 +24,7 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
         expect(notas[0].url).toBe(
             '/deportes/prueba-ios-y-android-cuerpo-nid12052020/'
         );
-        expect(notas[0].titulo).toBe('Prueba iOS y Android cuerpo');
+        expect(notas[0].titulo).toBe('Prueba Mobile');
         expect(notas[0].volanta).toBe('Esto es una volanta.');
         expect(notas[0].bajada).toBe(
             'Esto es una bajada. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod...'
