@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
+import { SITE_LANACION } from 'fusion:environment';
 import get from './utils/get';
 import withScreenUtils from './hocs/withScreenUtils';
 import withLoginData from '../LN/common/hocs/withLoginData';
@@ -72,7 +73,9 @@ const Component = props => {
         setTimeout(() => {
             (!cookieProductoPremium || template === 'home') &&
                 localStorage.setItem('CDmetaRefresh', true);
-            window.location.href = window.location.href;
+            template === 'home'
+                ? (window.location.href = SITE_LANACION)
+                : window.location.reload();
         }, interval);
     }, [
         contentElements,
