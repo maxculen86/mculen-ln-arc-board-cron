@@ -254,7 +254,7 @@ const Index = ({
                                     'gda.svg'
                                 )}
                                 alt="gda"
-                                mod="img_gda"
+                                classCondition="--gda"
                                 width="36"
                                 height="20"
                                 amp={outputType === 'amp'}
@@ -269,6 +269,7 @@ const Index = ({
                                     'data-fiscal.svg'
                                 )}
                                 alt="Data fiscal"
+                                classCondition="--data"
                                 width="28"
                                 height="38"
                                 amp={outputType === 'amp'}
