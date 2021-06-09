@@ -25,7 +25,7 @@ const goToLoginUrl = () => {
     location.href = LOGIN_URL + window.btoa(location.href);
 };
 
-const setupCookies = obj => {
+const setupCookies = ({ Usuario: obj }) => {
     // eslint-disable-next-line guard-for-in
     for (const key in obj) {
         let aux;
