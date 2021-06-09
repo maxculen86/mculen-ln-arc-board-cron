@@ -72,7 +72,7 @@ const Component = props => {
         setTimeout(() => {
             (!cookieProductoPremium || template === 'home') &&
                 localStorage.setItem('CDmetaRefresh', true);
-            window.location.reload();
+            window.location.href = window.location.href;
         }, interval);
     }, [
         contentElements,
