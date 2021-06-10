@@ -42,29 +42,15 @@ const NoteCard = ({
     );
 
     useEffect(() => {
-        if (isAdmin) {
-            setWithMedia(getWithMedia(customFields, articleProps, article));
-        }
-    }, [article, articleProps, customFields, isAdmin]);
+        setWithMedia(getWithMedia(customFields, articleProps, article));
+    }, [article, articleProps, customFields]);
 
     useEffect(() => {
-        if (isAdmin) {
-            setArticle(transform(content, customFields, promoItems));
-            setLabel(getLabel(content, customFields, withMedia));
-            setWithSubhead(
-                getWithSubhead(articleProps, withMedia, customFields)
-            );
-            setIsRenderAutor(getIsRenderAutor(customFields, layout));
-        }
-    }, [
-        articleProps,
-        content,
-        customFields,
-        promoItems,
-        withMedia,
-        layout,
-        isAdmin
-    ]);
+        setArticle(transform(content, customFields, promoItems));
+        setLabel(getLabel(content, customFields, withMedia));
+        setWithSubhead(getWithSubhead(articleProps, withMedia, customFields));
+        setIsRenderAutor(getIsRenderAutor(customFields, layout));
+    }, [articleProps, content, customFields, promoItems, withMedia, layout]);
 
     return (
         (article && (
