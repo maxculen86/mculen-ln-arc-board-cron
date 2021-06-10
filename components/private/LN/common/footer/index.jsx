@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-//import FooterAMP from './footerAMP';
 import Logo from '../../../common/com-logo';
 import Icon from '../../../common/icon';
 import Text from '../../../common/text';
