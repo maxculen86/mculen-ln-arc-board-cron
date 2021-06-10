@@ -7,6 +7,7 @@ import Hamburguer from './hamburger';
 import ComLink from '../../../common/com-link';
 import ComLogo from '../../../common/com-logo';
 import ComIcon from '../../../common/com-icon';
+import Logo from '../../../common/com-logo';
 
 import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../../../../resources/dist/css/ln/components/usuario.css';
@@ -107,13 +108,13 @@ const HeaderDesktop = ({
                 </label>
             </div>
             <div className="col-7 col-desksm-4 header__middle">
-                <ComLink
-                    link={host || '/'}
-                    classCondition="header__middle__logo"
+                <Logo
+                    logoName="la-nacion"
+                    color
+                    //size="--md"
+                    href={host || '/'}
                     title="LA NACION"
-                >
-                    <ComLogo logoName="la-nacion" />
-                </ComLink>
+                />
             </div>
             <div className="col-4 header__right">
                 <div

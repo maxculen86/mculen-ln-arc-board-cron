@@ -13,6 +13,7 @@ const ComButton = props => {
         dataSection,
         onClick,
         onMouseDown,
+        on,
         classesNames,
         textname,
         iconName,
@@ -35,6 +36,7 @@ const ComButton = props => {
                 onMouseDown={onMouseDown}
                 style={style}
                 title={title}
+                on={on || ''}
             >
                 <ComIco iconName={iconName} />
             </button>
@@ -53,6 +55,7 @@ const ComButton = props => {
                 onClick={onClick}
                 style={style}
                 title={title}
+                on={on || ''}
             >
                 <ComIco iconName={iconName} />
                 <ComText size={size || ''}>
@@ -71,6 +74,7 @@ const ComButton = props => {
                 ''}`}
             onClick={onClick}
             style={style}
+            on={on || ''}
         >
             <ComText size={size || ''}>
                 {children || ``}

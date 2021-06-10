@@ -142,15 +142,14 @@ amp-sidebar {
         display: flex;
         align-items: center;
         //justify-content: center;
-        .header__middle__logo {
-            .logo-la-nacion {
-                //Logo LN
-                color: $ln-active;
-                &:before {
-                    font-size: px(17);
-                }
+        .logo-la-nacion {
+            //Logo LN
+            color: $ln-active;
+            &:before {
+                font-size: px(17);
             }
         }
+
         @media (min-width: 768px) {
             justify-content: center;
         }
@@ -203,10 +202,8 @@ amp-sidebar {
         }
 
         .header__middle {
-            .header__middle__logo {
-                .logo-la-nacion {
-                    color: $neutral-white;
-                }
+            .logo-la-nacion.logo-la-nacion {
+                color: $neutral-white;
             }
         }
         // .header__right {
@@ -266,11 +263,9 @@ amp-sidebar {
         // }
 
         .header__middle {
-            .header__middle__logo {
-                .logo-la-nacion {
-                    &:before {
-                        font-size: px(30);
-                    }
+            .logo-la-nacion {
+                &:before {
+                    font-size: px(30);
                 }
             }
         }
