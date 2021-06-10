@@ -165,7 +165,7 @@ const Index = ({
                             />
                             <Icon
                                 name="rss"
-                                href="http://servicios.lanacion.com.ar/herramientas/rss/ayuda/"
+                                href="https://servicios.lanacion.com.ar/herramientas/rss/ayuda/"
                                 target="_blank"
                                 title="Rss"
                             />
