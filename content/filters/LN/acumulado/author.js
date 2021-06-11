@@ -6,7 +6,6 @@ export default `
     author_type,
     byline,
     bio_page,
-    username,
     image { url },
     longBio,
     slug,
