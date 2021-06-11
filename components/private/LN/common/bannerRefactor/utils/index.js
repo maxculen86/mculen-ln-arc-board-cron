@@ -14,10 +14,11 @@ export const getDimsFromSiteService = config => slotGroup => finalSlot => {
     );
 };
 
-export const getSlotForDevice = device => slots =>
-    slots.find(slot => slot.name === device)
+export const getSlotForDevice = device => slots => {
+    return slots.find(slot => slot.name === device)
         ? slots.find(slot => slot.name === device).slot || null
         : null;
+};
 
 export const isPrimarySectionInBannerSegments = primarySection => segments => {
     if (!segments || !primarySection) return [false, null];

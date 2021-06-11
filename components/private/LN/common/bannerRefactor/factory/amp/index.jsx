@@ -15,13 +15,14 @@ export default config => {
     switch (slotId) {
         case CAJA_1_AMP:
         case CAJA_2_AMP:
+        case CAJA_3_AMP:
             return React.createElement(withSimpleAmpWrapper(Amp), {
                 ...config
             });
-        case CAJA_3_AMP:
-            return React.createElement(withStickyAmpWrapper(Amp), {
-                ...config
-            });
+        // case CAJA_3_AMP:
+        //     return React.createElement(withStickyAmpWrapper(Amp), {
+        //         ...config
+        //     });
         default:
             return <></>;
     }
