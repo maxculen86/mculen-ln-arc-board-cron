@@ -59,16 +59,13 @@ const headerAMP = props => {
             >
                 {' '}
                 <section className="header_sidebar">
-                    <a
-                        href="https://www.lanacion.com.ar"
-                        className="header__middle__logo"
-                    >
-                        <i className="logo-la-nacion"></i>
-                    </a>
-                    <button
-                        on="tap:sidebar-left.close"
-                        className="icon-close"
-                    ></button>
+                    <Logo
+                        color
+                        logoName="la-nacion"
+                        href="https://www.lanacion.com.ar/"
+                        title="Ir a la página principal"
+                    />
+                    <Button on="tap:sidebar-left.close" iconName="close" />
                 </section>
                 <ul className="menu-nav">
                     <li className="menu_li desplegable">

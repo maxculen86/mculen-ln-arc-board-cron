@@ -1,5 +1,3 @@
-// import ListMenu from './listMenu';
-
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Icon from '../../../common/icon';

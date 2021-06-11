@@ -14,6 +14,7 @@ const ComButton = props => {
         onClick,
         onMouseDown,
         on,
+        tabIndex,
         classesNames,
         textname,
         iconName,
@@ -36,6 +37,7 @@ const ComButton = props => {
                 onMouseDown={onMouseDown}
                 style={style}
                 title={title}
+                tabIndex={tabIndex}
                 on={on || ''}
             >
                 <ComIco iconName={iconName} />
