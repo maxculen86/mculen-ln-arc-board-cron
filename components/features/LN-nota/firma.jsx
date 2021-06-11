@@ -47,7 +47,7 @@ const getPropsBuilder = position => authors =>
                     ? get(author, 'name')
                     : get(author, 'additional_properties.original.byline') ||
                       get(author, 'name'),
-            link: `/pf/autor/${get(author, 'name')}/`,
+            link: `/autor/${get(author, 'name')}/`,
             photo: get(author, 'additional_properties.original.image'),
             medio: get(author, 'additional_properties.original.role')
         }))
