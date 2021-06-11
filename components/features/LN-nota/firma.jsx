@@ -42,9 +42,8 @@ const getPropsBuilderFromContentElements = position => contentElements =>
 const getPropsBuilder = position => authors =>
     authors
         .map(author => {
+            const id = get(author, '_id');
             const name = get(author, 'name');
-            const byLine =
-                get(author, 'additional_properties.original.byline') || name;
 
             return {
                 name:
@@ -53,8 +52,11 @@ const getPropsBuilder = position => authors =>
                         'additional_properties.original.author_type'
                     ) === ''
                         ? name
-                        : byLine,
-                link: `/autor/${byLine}/`,
+                        : get(
+                              author,
+                              'additional_properties.original.byline'
+                          ) || name,
+                link: id ? `/autor/${id}/` : '',
                 photo: get(author, 'additional_properties.original.image'),
                 medio: get(author, 'additional_properties.original.role')
             };
