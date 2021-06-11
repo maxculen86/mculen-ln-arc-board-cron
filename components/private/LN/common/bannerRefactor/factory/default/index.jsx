@@ -175,13 +175,21 @@ function getBannerForAccumTemplate(config) {
         case MEGATOP_MOB:
         case MEGATOP_DSK:
             return <Megatop {...config} />;
-        case ADHESION_DSK:
         case ADHESION_TAB:
         case ADHESION_MOB:
+            // Meterle comportamiento viejo de adhesion, va para los dos tab y mob
             return createElement(
                 withNonSubscribersConstraint(
                     withBondingToBottomMobile(Default)
                 ),
+                {
+                    ...config,
+                    closeButton: true
+                }
+            );
+        case ADHESION_DSK:
+            return createElement(
+                withNonSubscribersConstraint(withBondingToBottom(Default)),
                 {
                     ...config,
                     closeButton: true
@@ -218,13 +226,21 @@ function getBannerForHomeTemplate(config) {
         case MEGATOP_MOB:
         case MEGATOP_DSK:
             return <Megatop {...config} />;
-        case ADHESION_DSK:
         case ADHESION_TAB:
         case ADHESION_MOB:
+            // Meterle comportamiento viejo de adhesion, va para los dos tab y mob
             return createElement(
                 withNonSubscribersConstraint(
                     withBondingToBottomMobile(Default)
                 ),
+                {
+                    ...config,
+                    closeButton: true
+                }
+            );
+        case ADHESION_DSK:
+            return createElement(
+                withNonSubscribersConstraint(withBondingToBottom(Default)),
                 {
                     ...config,
                     closeButton: true

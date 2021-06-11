@@ -26,7 +26,8 @@
         "doc": "react-doc-generator ./components/ -o ./components.md",
         "test:e2e": "jest --passWithNoTests --config ./e2eTests/config/jest.config.js",
         "test:e2e:sandbox": "TOKEN=$(echo `node ./e2eTests/utils/sandboxGetCredentials.js`) && ARC_ENDPOINT=SANDBOX SANDBOX_TOKEN=$TOKEN jest --passWithNoTests --config ./e2eTests/config/jest.config.js",
-        "test:e2e:local": "ARC_ENDPOINT=LOCAL jest --passWithNoTests --config ./e2eTests/config/jest.config.js"
+        "test:e2e:local": "ARC_ENDPOINT=LOCAL jest --passWithNoTests --config ./e2eTests/config/jest.config.js",
+        "analize": "npx webpack-bundle-analyzer -p 3000 .fusion/dist/stats.json .fusion/dist/components/combinations/"
     },
     "dependencies": {
         "crypto": "1.0.1",
@@ -84,6 +85,7 @@
         "resolve-url-loader": "3.1.1",
         "sass-loader": "7.3.1",
         "webpack": "4.41.2",
+        "webpack-bundle-analyzer": "^4.4.2",
         "webpack-cli": "3.3.10"
     },
     "repository": {

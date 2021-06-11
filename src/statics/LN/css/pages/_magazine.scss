@@ -99,7 +99,7 @@
 }
 
 .campo {
-    $primario: $campo;
+    $primario: $teal-700;
     $logo: $logo-campo;
     @include magazine($logo, $primario);
 }
