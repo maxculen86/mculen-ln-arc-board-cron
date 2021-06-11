@@ -13,6 +13,7 @@ exports[`Share Matches snapshot 1`] = `
       data-event=""
       data-section=""
       id=""
+      on=""
       title="Facebook"
       type="button"
     >
@@ -25,6 +26,7 @@ exports[`Share Matches snapshot 1`] = `
       data-event=""
       data-section=""
       id=""
+      on=""
       title="Twitter"
       type="button"
     >
@@ -37,6 +39,7 @@ exports[`Share Matches snapshot 1`] = `
       data-event=""
       data-section=""
       id="whatsAppShareDesktop"
+      on=""
       title="WhatsApp"
       type="button"
     >
@@ -56,6 +59,7 @@ exports[`Share Matches snapshot 1`] = `
       data-event=""
       data-section=""
       id=""
+      on=""
       title="E-mail"
       type="button"
     >
@@ -68,6 +72,7 @@ exports[`Share Matches snapshot 1`] = `
       data-event=""
       data-section=""
       id=""
+      on=""
       title="Comentar"
       type="button"
     >
@@ -103,6 +108,7 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
       data-event=""
       data-section=""
       id=""
+      on=""
       title="Facebook"
       type="button"
     >
@@ -115,6 +121,7 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
       data-event=""
       data-section=""
       id=""
+      on=""
       title="Twitter"
       type="button"
     >
@@ -127,6 +134,7 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
       data-event=""
       data-section=""
       id="whatsAppShareDesktop"
+      on=""
       title="WhatsApp"
       type="button"
     >
@@ -146,6 +154,7 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
       data-event=""
       data-section=""
       id=""
+      on=""
       title="E-mail"
       type="button"
     >

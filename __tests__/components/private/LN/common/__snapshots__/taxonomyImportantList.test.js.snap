@@ -13,6 +13,7 @@ exports[`components - private - LN - common - TaxonomyImportantList Test de snap
       data-event=""
       data-section=""
       id=""
+      on=""
       type="button"
     >
       <span
@@ -31,6 +32,7 @@ exports[`components - private - LN - common - TaxonomyImportantList Test de snap
       data-event=""
       data-section=""
       id=""
+      on=""
       type="button"
     >
       <span
@@ -49,6 +51,7 @@ exports[`components - private - LN - common - TaxonomyImportantList Test de snap
       data-event=""
       data-section=""
       id=""
+      on=""
       type="button"
     >
       <span
