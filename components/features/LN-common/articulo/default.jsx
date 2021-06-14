@@ -5,11 +5,15 @@ import getProperties from 'fusion:properties';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import { validateArticleFeature } from '../../../private/LN/common/utils/cajaTemasValidators';
-import { getCajaTemaConfig } from '../../../private/LN/home/components/noteCard/noteCardHelper';
+import {
+    getCajaTemaConfig,
+    isInHomeAperturaOrBomba
+} from '../../../private/LN/home/components/noteCard/noteCardHelper';
 import NoteCard from '../../../private/LN/home/components/noteCard/noteCard';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
 import featureArticleCustomsFields from '../../../private/LN/common/utils/articuloHelper';
+import siteConfig from '../../../../properties/sites/la-nacion-ar';
 
 const ArticleFeature = ({
     id: featureId,
@@ -18,7 +22,13 @@ const ArticleFeature = ({
     customFields: { noteId: id, imageId },
     isBomba = false
 }) => {
-    const { isAdmin, arcSite, renderables, outputType } = useAppContext();
+    const {
+        isAdmin,
+        arcSite,
+        renderables,
+        outputType,
+        layout: layoutPageBuilder
+    } = useAppContext();
     const { cajaTemaConfig } = getProperties(arcSite);
     const {
         config,
@@ -42,6 +52,8 @@ const ArticleFeature = ({
         });
 
     const error = validateArticleFeature(id, article);
+
+    const { layoutsName = {} } = siteConfig || {};
 
     if (isAdmin && !!error) {
         return (
@@ -74,6 +86,12 @@ const ArticleFeature = ({
                 boxPosition={boxPosition}
                 layout={layout}
                 isAdmin={isAdmin}
+                isInHomeAperturaOrBomba={isInHomeAperturaOrBomba(
+                    renderables,
+                    featureId,
+                    layoutsName,
+                    layoutPageBuilder
+                )}
             />
         )) || <></>
     );

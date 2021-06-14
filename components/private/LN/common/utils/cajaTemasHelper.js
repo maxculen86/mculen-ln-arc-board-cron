@@ -177,19 +177,29 @@ export const calculateSizeOfCollection = (collections, notesQuantity) => {
     return totalArticlesToAsk < 20 ? totalArticlesToAsk : 20;
 };
 
-export const getChildrenFromAperturaHome = renderables => {
-    const INDEX_SECTION_APERTURA_1 =
-        get(sectionsValidation, 'Apertura_1.position', 3) + 1;
-    const INDEX_SECTION_APERTURA_2 =
-        get(sectionsValidation, 'Apertura_2.position', 4) + 1;
+export const getChildrenFromSectionHome = (
+    renderables,
+    sectionName,
+    sectionPosition
+) => {
+    const INDEX_SECTION =
+        get(sectionsValidation, `${sectionName}.position`, sectionPosition) + 1;
 
-    const aperturasChildren = get(
+    return get(renderables, `[${INDEX_SECTION}].children`, []);
+};
+
+export const getChildrenFromAperturaHome = renderables => {
+    const aperturasChildren = getChildrenFromSectionHome(
         renderables,
-        `[${INDEX_SECTION_APERTURA_1}].children`,
-        []
-    ).concat(get(renderables, `[${INDEX_SECTION_APERTURA_2}].children`, []));
+        'Apertura_1',
+        3
+    ).concat(getChildrenFromSectionHome(renderables, 'Apertura_2', 4));
 
     return aperturasChildren;
+};
+
+export const getChildrenFromBombaHome = renderables => {
+    return getChildrenFromSectionHome(renderables, 'Bomba', 2);
 };
 
 export const isInApertura = (tree = {}, idFeature) => {

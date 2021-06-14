@@ -124,7 +124,10 @@ const CajaCollection = props => {
             imageId={imageId}
             outputType={outputType}
             layout={layout}
-            classCondition={classCondition}
+            classCondition={`${classCondition}${(isInApertura &&
+                layout.includes('focal') &&
+                ' --apertura') ||
+                ''}`}
             notesQuantity={notesQuantity}
             position={position}
             sectionName={sectionName}

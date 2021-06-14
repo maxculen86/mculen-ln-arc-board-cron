@@ -82,7 +82,10 @@ const CajaManual = props => {
             imageId={imageId}
             outputType={outputType}
             layout={layout}
-            classCondition={classCondition}
+            classCondition={`${classCondition}${(isInApertura &&
+                layout.includes('focal') &&
+                ' --apertura') ||
+                ''}`}
             notesQuantity={notesQuantity}
             position={position}
             sectionName={sectionName}
@@ -101,11 +104,16 @@ CajaManual.label = 'LN Caja Manual';
 
 CajaManual.propTypes = {
     id: PropTypes.string.isRequired,
-    isAdmin: PropTypes.bool.isRequired,
-    outputType: PropTypes.bool.isRequired,
+    isAdmin: PropTypes.bool,
+    outputType: PropTypes.string,
     customFields: PropTypes.shape({
         ...cajaTemasCustomsFields('cajaManual')
     }).isRequired
+};
+
+CajaManual.defaultProps = {
+    isAdmin: false,
+    outputType: 'default'
 };
 
 export default Consumer(CajaManual);
