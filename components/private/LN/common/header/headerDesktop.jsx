@@ -15,7 +15,7 @@ import '../../../../../resources/dist/css/ln/components/button.css';
 import dynamicallyLoadScript from '../utils/dynamicallyLoadScript';
 // import ModsubHeather from './subHeader';
 
-const ItemAnchor = ({ url, text }) => {
+const ItemAnchor = ({ url, text, alt }) => {
     const callURL = address => {
         // eslint-disable-next-line no-restricted-globals
         location.href = address;
@@ -28,6 +28,7 @@ const ItemAnchor = ({ url, text }) => {
                 href="javascript:void(0)"
                 data-event="LinkClick"
                 data-section="MenuLN"
+                title={alt}
             >
                 {text}
             </a>
@@ -37,21 +38,25 @@ const ItemAnchor = ({ url, text }) => {
 
 ItemAnchor.propTypes = {
     url: PropTypes.string.isRequired,
-    text: PropTypes.text.isRequired
+    text: PropTypes.text.isRequired,
+    alt: PropTypes.text.isRequired
 };
 
 const enlaces = [
     {
         url: 'https://myaccount.lanacion.com.ar/mi-usuario',
-        text: 'Mi cuenta'
+        text: 'Mi cuenta',
+        alt: 'Ir a mi cuenta'
     },
     {
         url: 'https://myaccount.lanacion.com.ar/datos-personales',
-        text: 'Mis datos'
+        text: 'Mis datos',
+        alt: 'Ir a mis datos'
     },
     {
         url: 'https://micuenta.lanacion.com.ar/mis-suscripciones',
-        text: 'Mis suscripciones'
+        text: 'Mis suscripciones',
+        alt: 'Ir a mis suscripciones'
     }
 ];
 
@@ -98,7 +103,7 @@ const HeaderDesktop = ({
                     onClick={handleClickBuscar}
                     id="querylyButton"
                     htmlFor="queryly_toggle"
-                    title="Buscar"
+                    title="Ir al buscador"
                 >
                     <i className="com-button --tertiary --icon queryly_searchicon">
                         <ComIcon iconName="search" />
@@ -113,7 +118,7 @@ const HeaderDesktop = ({
                     color
                     //size="--md"
                     href={host || '/'}
-                    title="LA NACION"
+                    title="Ir a la página principal"
                 />
             </div>
             <div className="col-4 header__right">
@@ -146,7 +151,10 @@ const HeaderDesktop = ({
                             onBlur={() => setActive('')}
                             onScroll={() => setActive('')}
                         >
-                            <p className="com-usuario__name">
+                            <p
+                                className="com-usuario__name"
+                                title="Ir al menú de suscriptor o suscriptora digital"
+                            >
                                 {loginData.userName}
                             </p>
                             {loginData.subscription ? (
@@ -171,6 +179,7 @@ const HeaderDesktop = ({
                                         data-event="LinkClick"
                                         data-section="MenuLN"
                                         href="javascript:void(0);"
+                                        title="Desloguearse"
                                         onMouseDown={() => {
                                             goToLogout();
                                         }}

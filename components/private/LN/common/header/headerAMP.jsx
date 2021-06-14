@@ -25,7 +25,7 @@ const headerAMP = props => {
                                 color
                                 //size="--md"
                                 href="https://www.lanacion.com.ar/"
-                                title="LA NACION"
+                                title="Ir a la página principal"
                             />
                         </div>
                         <div className="col-5 col-desksm-4 header__right">

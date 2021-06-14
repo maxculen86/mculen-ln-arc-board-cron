@@ -14,7 +14,7 @@ exports[`Share Matches snapshot 1`] = `
       data-section=""
       id=""
       on=""
-      title="Facebook"
+      title="Compartir la nota en Facebook"
       type="button"
     >
       <i
@@ -27,7 +27,7 @@ exports[`Share Matches snapshot 1`] = `
       data-section=""
       id=""
       on=""
-      title="Twitter"
+      title="Compartir la nota en Twitter"
       type="button"
     >
       <i
@@ -40,7 +40,7 @@ exports[`Share Matches snapshot 1`] = `
       data-section=""
       id="whatsAppShareDesktop"
       on=""
-      title="WhatsApp"
+      title="Compartir la nota en WhatsApp"
       type="button"
     >
       <i
@@ -60,7 +60,7 @@ exports[`Share Matches snapshot 1`] = `
       data-section=""
       id=""
       on=""
-      title="E-mail"
+      title="Compartir la nota por E-mail"
       type="button"
     >
       <i
@@ -73,7 +73,7 @@ exports[`Share Matches snapshot 1`] = `
       data-section=""
       id=""
       on=""
-      title="Comentar"
+      title="Ir a los comentarios de la nota"
       type="button"
     >
       <i
@@ -109,7 +109,7 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
       data-section=""
       id=""
       on=""
-      title="Facebook"
+      title="Compartir la nota en Facebook"
       type="button"
     >
       <i
@@ -122,7 +122,7 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
       data-section=""
       id=""
       on=""
-      title="Twitter"
+      title="Compartir la nota en Twitter"
       type="button"
     >
       <i
@@ -135,7 +135,7 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
       data-section=""
       id="whatsAppShareDesktop"
       on=""
-      title="WhatsApp"
+      title="Compartir la nota en WhatsApp"
       type="button"
     >
       <i
@@ -155,7 +155,7 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
       data-section=""
       id=""
       on=""
-      title="E-mail"
+      title="Compartir la nota por E-mail"
       type="button"
     >
       <i

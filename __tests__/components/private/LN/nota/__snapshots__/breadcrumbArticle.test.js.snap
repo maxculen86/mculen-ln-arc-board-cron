@@ -8,6 +8,7 @@ Array [
     <a
       class="com-link --fourxs"
       href="//"
+      title="Ir a las nota de LA NACION"
     >
       <i
         class="com-icon bullet icon-bullet-xs"
@@ -17,6 +18,7 @@ Array [
     <a
       class="com-link --fourxs"
       href="/recetas/"
+      title="Ir a las nota de Recetas"
     >
       <i
         class="com-icon bullet icon-bullet-xs"
@@ -26,6 +28,7 @@ Array [
     <a
       class="com-link --fourxs"
       href="/recetas/recetas-con-ingredientes/"
+      title="Ir a las nota de Recetas con ingredientes"
     >
       <i
         class="com-icon bullet icon-bullet-xs"
@@ -35,6 +38,7 @@ Array [
     <a
       class="com-link --fourxs"
       href="/recetas/recetas-con-ingredientes/pollo/"
+      title="Ir a las nota de Pollo"
     >
       <i
         class="com-icon bullet icon-bullet-xs"
