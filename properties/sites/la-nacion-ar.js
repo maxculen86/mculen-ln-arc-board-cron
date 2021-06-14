@@ -1303,12 +1303,12 @@ export default {
                 0: {
                     titleSize: '--l',
                     withSubheadAndMedia: true,
-                    imageConfig: 'mediumFocalDerecho'
+                    imageConfig: 'featuredFocalDerecho'
                 },
                 1: {
                     titleSize: '--xl',
                     withSubheadAndMedia: true,
-                    imageConfig: 'featuredFocalDerecho',
+                    imageConfig: 'mediumFocalDerecho',
                     withSubhead: true
                 }
             }

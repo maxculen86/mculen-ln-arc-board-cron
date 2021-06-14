@@ -76,18 +76,16 @@ const TagsListFeature = ({ id, title }) => {
 
     const tagList = transformTagsForAcu(orderAndCountTags, colorTags);
 
-    const Component =
-        (hidetagslist !== 'true' && tagList.length && (
-            <>
-                {title && <ComTitle size="--twoxs" content={title} />}
-                <ComLinkList
-                    list={tagList}
-                    extraClass="--tags"
-                    isHome={sectionIsHome}
-                />
-            </>
-        )) ||
-        null;
+    const Component = (hidetagslist !== 'true' && tagList.length && (
+        <>
+            {title && <ComTitle size="--twoxs" content={title} />}
+            <ComLinkList
+                list={tagList}
+                extraClass="--tags"
+                isHome={sectionIsHome}
+            />
+        </>
+    )) || <></>;
 
     return sectionIsHome ? Component : <Static id={id}>{Component}</Static>;
 };

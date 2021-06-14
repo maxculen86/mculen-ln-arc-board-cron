@@ -13,7 +13,12 @@ const BombaFeature = props => {
     } = props;
     const { isAdmin } = useAppContext();
 
-    if (hideFeature) return <></>;
+    if (hideFeature)
+        return (
+            <Static id={featureId}>
+                <></>
+            </Static>
+        );
 
     const Component = (
         <section

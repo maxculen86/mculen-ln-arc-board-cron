@@ -26,7 +26,12 @@ const CajaManual = props => {
         renderables
     } = props;
 
-    if (hideCaja) return <></>;
+    if (hideCaja)
+        return (
+            <Static id={featureId}>
+                <></>
+            </Static>
+        );
 
     const {
         notesQuantity,

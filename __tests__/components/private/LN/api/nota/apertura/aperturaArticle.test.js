@@ -72,7 +72,6 @@ describe('Test de JSON de apertura en article', () => {
     it('Render de atributos de apertura', () => {
         const resp = Apertura(ArticleApertura[0]);
         expect(resp.bajada).toBe(ArticleApertura[0].subheadlines.basic);
-        expect(resp.volanta).toBe(ArticleApertura[0].label.volanta.text);
 
         const articleAuthor = ArticleApertura[0].credits.by[0];
 
