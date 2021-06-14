@@ -114,7 +114,7 @@ const LNHome = props => {
                                             data-is-loaded="true"
                                         >
                                             <section
-                                                className="box-articles --focal --left"
+                                                className="box-articles --apertura --focal --left"
                                                 id="tema_01"
                                                 data-is-block="true"
                                                 data-block-name="h_tema-01"
