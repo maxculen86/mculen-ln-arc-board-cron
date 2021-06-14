@@ -12,9 +12,7 @@ const getContent = element => {
             ? `<span class="hlp-bold">${element.label.volanta.text}</span>&nbsp;`
             : '';
 
-    const content = element.headlines.mobile
-        ? `${span} ${element.headlines.mobile}`
-        : element.headlines.basic;
+    const content = element.headlines.mobile ? `${span} ${element.headlines.mobile}` : element.headlines.basic;
 
     return content;
 };
