@@ -332,7 +332,8 @@ export default `
             type
             _id
             headlines {
-                basic
+                basic,
+                mobile
             }
             ${labels}
             website_url
