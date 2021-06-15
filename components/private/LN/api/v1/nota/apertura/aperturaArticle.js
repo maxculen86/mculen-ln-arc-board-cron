@@ -21,10 +21,8 @@ const apertura = article => {
     const bajada = get(article, 'subheadlines.basic', null);
     const autores = get(article, 'credits.by', null);
     const autoresFixed = autores && autores.filter(a => a.type === 'author');
-    const volanta = get(article, 'label.volanta.text', null);
 
     const resp = {
-        volanta,
         titulo: titulo || tituloMobile,
         tituloMobile,
         bajada

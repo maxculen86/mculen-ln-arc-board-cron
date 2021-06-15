@@ -2,6 +2,10 @@
 import get from '../../../../common/utils/get';
 import getAuthorsAsString from '../../../../common/utils/getAuthorsAsString';
 import getBajadaOrFirstTextParagraph from '../../../../common/utils/getBajadaOrFirstTextParagraph';
+import {
+    getChildrenFromAperturaHome,
+    getChildrenFromBombaHome
+} from '../../../common/utils/cajaTemasHelper';
 import siteConfig from '../../../../../../properties/sites/la-nacion-ar';
 
 export const transform = (content, customFields, promoItems) => {
@@ -132,3 +136,27 @@ export const getLabel = (article, customFields, withMedia) => {
 
 export const getIsRenderAutor = (customFields, layout) =>
     get(customFields, 'opinion', false) || layout === 'author3';
+
+export const isInHomeAperturaOrBomba = (
+    renderables,
+    featureId,
+    layoutsName,
+    layoutPageBuilder
+) => {
+    const aperturasChildren =
+        layoutsName.Home === layoutPageBuilder
+            ? (getChildrenFromAperturaHome(renderables) || []).concat(
+                  getChildrenFromBombaHome(renderables) || []
+              )
+            : [];
+
+    return aperturasChildren.some(el => {
+        return (
+            !get(el, 'props.customFields.hideCaja', false) &&
+            (get(el, 'children', []).some(
+                child => get(child, 'props.id') === featureId
+            ) ||
+                get(el, 'props.id') === featureId)
+        );
+    });
+};
