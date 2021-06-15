@@ -45,7 +45,7 @@ const enlaces = [
         text: 'Mi cuenta'
     },
     {
-        url: 'https://micuenta.lanacion.com.ar/ayuda',
+        url: 'https://myaccount.lanacion.com.ar/datos-personales',
         text: 'Mis datos'
     },
     {
@@ -97,6 +97,7 @@ const HeaderDesktop = ({
                     onClick={handleClickBuscar}
                     id="querylyButton"
                     htmlFor="queryly_toggle"
+                    title="Buscar"
                 >
                     <i className="com-button --tertiary --icon queryly_searchicon">
                         <ComIcon iconName="search" />
@@ -109,6 +110,7 @@ const HeaderDesktop = ({
                 <ComLink
                     link={host || '/'}
                     classCondition="header__middle__logo"
+                    title="LA NACION"
                 >
                     <ComLogo logoName="la-nacion" />
                 </ComLink>
@@ -123,6 +125,7 @@ const HeaderDesktop = ({
                             className="com-button --special"
                             id="btnsuscribite"
                             type="button"
+                            title="Suscribite"
                             onClick={() => {
                                 location.href =
                                     `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
@@ -183,6 +186,7 @@ const HeaderDesktop = ({
                             id="btningresar"
                             onClick={() => goToLoginUrl()}
                             type="button"
+                            title="Ingresar"
                         >
                             INGRESAR
                         </button>

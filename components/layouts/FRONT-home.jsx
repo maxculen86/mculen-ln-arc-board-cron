@@ -11,7 +11,7 @@ import Dolar from '../private/common/mod-dolar';
 import GlobalProvider from '../private/common/context/globalContext';
 import ModPromo from '../private/common/mod-promo';
 import ComButton from '../private/common/com-button';
-import NewFooter from '../private/LN/common/footer/home';
+import NewFooter from '../private/LN/common/footer';
 import Anticipo from '../private/common/com-advance';
 import Escudos from '../../components/features/LN-acumulado/cajaEscudo';
 import SubHeader from '../private/LN/common/header/subHeader';
@@ -97,7 +97,7 @@ const LNHome = props => {
                             </section>
                         </div>
                         <main>
-                            <div className="row">
+                            <div className="">
                                 <div className="lay-sidebar">
                                     <div className="sidebar__main">
                                         <section className="mod-banner">
@@ -114,7 +114,7 @@ const LNHome = props => {
                                             data-is-loaded="true"
                                         >
                                             <section
-                                                className="box-articles --focal --left"
+                                                className="box-articles --apertura --focal --left"
                                                 id="tema_01"
                                                 data-is-block="true"
                                                 data-block-name="h_tema-01"
@@ -1573,13 +1573,13 @@ const LNHome = props => {
                                         </div>
                                         {/*
                                         <section className="demofonts">
-                                            <i class="com-icon icon-snow"></i>
-                                            <i class="com-icon icon-snow-cloudy"></i>
-                                            <i class="com-icon icon-storm"></i>
-                                            <i class="com-icon icon-storm-cloudy"></i>
-                                            <i class="com-icon icon-sun"></i>
-                                            <i class="com-icon icon-sun-cloudy"></i>
-                                            <i class="com-icon icon-windy"></i>
+                                            <i className="com-icon icon-snow"></i>
+                                            <i className="com-icon icon-snow-cloudy"></i>
+                                            <i className="com-icon icon-storm"></i>
+                                            <i className="com-icon icon-storm-cloudy"></i>
+                                            <i className="com-icon icon-sun"></i>
+                                            <i className="com-icon icon-sun-cloudy"></i>
+                                            <i className="com-icon icon-windy"></i>
                                         </section>
                                         
                                         <section className="demofonts">
@@ -1784,7 +1784,7 @@ const LNHome = props => {
                             </div>
                         </main>
                         {/* <Footer /> */}
-                        <NewFooter />
+                        <NewFooter home />
                     </div>
                 </GlobalProviderAcu>
             </LoginProvider>

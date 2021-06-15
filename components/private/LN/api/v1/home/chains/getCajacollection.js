@@ -33,7 +33,7 @@ class GetCajaCollection {
                     query: {
                         id: imageId,
                         published: true,
-                        imageConfig: 'm',
+                        imageConfig: 'techoImagen',
                         'arc-site': 'la-nacion-ar'
                     }
                 }

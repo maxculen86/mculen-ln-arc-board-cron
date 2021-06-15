@@ -1,17 +1,6 @@
 import get from 'lodash.get';
 import Image from '../common/image';
 import { authorHomeMobile } from '../common/author';
-import Relacionados from '../nota/relacionados';
-
-const sectionsProduct = [
-    '/lnmas',
-    '/revista-brando',
-    '/revista-jardin',
-    '/revista-ohlala',
-    '/revista-lugares',
-    '/revista-living',
-    '/revista-hola'
-];
 
 const getArticleImage = article => {
     const image =
@@ -25,7 +14,9 @@ const getArticleImage = article => {
 
 const getArticleTitle = article => {
     const title = get(article, 'additionalProperties.title', null);
-    const originalTitle = get(article, 'headlines.basic', null);
+    const originalTitle =
+        get(article, 'headlines.mobile', null) ||
+        get(article, 'headlines.basic', null);
     return title || originalTitle;
 };
 
@@ -48,19 +39,6 @@ const getArticleAuthor = article => {
     return null;
 };
 
-const getArticleProduct = article => {
-    const sections = Relacionados(article);
-    if (sections.categorias && sections.categorias.length > 0) {
-        const productoDestacado = sections.categorias.filter(
-            e => e && sectionsProduct.includes(e.slug)
-        );
-        return productoDestacado && productoDestacado.length > 0
-            ? productoDestacado[0]
-            : null;
-    }
-    return null;
-};
-
 const getArticleOpinionSubtype = article => {
     return get(article, 'additionalProperties.subtype', null);
 };
@@ -70,7 +48,7 @@ const getArticleSignature = (article, autor) => {
     return signature || (autor ? `Por ${autor.valor}` : null);
 };
 
-const articleItem = (articles, configuration) => {
+export const articleItem = (articles, configuration) => {
     return articles
         .filter(e => e)
         .map(article => {
@@ -95,18 +73,23 @@ const articleItem = (articles, configuration) => {
                 sitioId: get(article, 'configurations.arcSite', null),
                 url,
                 titulo,
-                volanta: get(label, 'volanta.text', null),
+                volanta:
+                    get(label, 'volanta.text', null) ||
+                    get(article, 'additionalProperties.lead', null),
                 bajada: get(article, 'subheadlines.basic', null),
                 chapita: getArticleTag(article),
                 autor,
                 marquesina: getArticleSignature(article, autor),
-                seccionProducto: getArticleProduct(article),
                 seccionPadre: getArticleOpinionSubtype(article),
-                image: getArticleImage(article)
+                imagen: getArticleImage(article),
+                opinion: get(article, 'additionalProperties.opinion', false)
             };
 
             return resp;
         });
 };
 
-export default articleItem;
+export const anexoItem = article => {
+    const html = get(article[0], 'html', '');
+    return [{ html }];
+};

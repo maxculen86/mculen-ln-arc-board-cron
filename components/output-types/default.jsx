@@ -34,7 +34,8 @@ import getSectionName from '../private/LN/common/utils/getSectionName';
 import Syndication from '../private/common/syndication';
 import LinkAmpHTML from '../private/common/linkAmpHTML';
 import { pipe } from '../private/common/utils/functional';
-// import Queryly from '../private/common/scriptManager/queryly';
+import Pwa from '../private/common/scriptManager/pwa';
+import PwaModals from '../private/LN/common/pwaModals';
 
 const scriptList = [
     {
@@ -48,6 +49,7 @@ const scriptList = [
     { component: { name: 'GTM', function: GTM }, feature: 'none' },
     { component: { name: 'Comscore', function: Comscore }, feature: 'none' },
     { component: { name: 'Microdata', function: Microdata }, feature: 'none' },
+    { component: { name: 'Pwa', function: Pwa }, feature: 'none' },
     {
         component: { name: 'PostBid', function: PostBid },
         feature: 'none'
@@ -204,6 +206,9 @@ const Default = props => {
                     href="https://www.google-analytics.com"
                     rel="preconnect"
                 />
+                <link rel="dns-prefetch" href="//ads.rubiconproject.com" />
+                <link rel="dns-prefetch" href="//www.googletagservices.com" />
+                <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
                 <MetaSectionParsely taxonomy={taxonomy} arcSite={arcSite} />
@@ -257,13 +262,6 @@ const Default = props => {
                     section={_nodeType}
                     defaultDescription={siteProperties.description}
                 />
-                {/* Eliminar noindex para la salida de home el 8 junio 21 */}
-                {_nodeType === 'home' ? (
-                    <meta name="robots" content="noindex" />
-                ) : (
-                    ''
-                )}
-                {/* Eliminar noindex para la salida de home el 8 junio 21 */}
                 <Syndication
                     type={type}
                     arcSite={arcSite}
@@ -293,6 +291,8 @@ const Default = props => {
                     type="image/x-icon"
                     href={deployment(`${contextPath}/resources/favicon.ico`)}
                 />
+                <meta name="theme-color" content="#ffffff" />
+                <link rel="manifest" href="/manifest.json" />
                 {/* <Scripts name="Microdata" /> */}
             </head>
             <body {...getBodyClass(siteProperties)}>
@@ -304,8 +304,8 @@ const Default = props => {
                 />
 
                 <div id="fusion-app">{children}</div>
+                <PwaModals />
                 <Fusion />
-
                 <Scripts location="body-bottom" />
                 <ScriptLoadingList
                     section={_nodeType}

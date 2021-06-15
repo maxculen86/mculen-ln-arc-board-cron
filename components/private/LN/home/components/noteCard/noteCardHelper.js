@@ -2,6 +2,11 @@
 import get from '../../../../common/utils/get';
 import getAuthorsAsString from '../../../../common/utils/getAuthorsAsString';
 import getBajadaOrFirstTextParagraph from '../../../../common/utils/getBajadaOrFirstTextParagraph';
+import {
+    getChildrenFromAperturaHome,
+    getChildrenFromBombaHome
+} from '../../../common/utils/cajaTemasHelper';
+import siteConfig from '../../../../../../properties/sites/la-nacion-ar';
 
 export const transform = (content, customFields, promoItems) => {
     const title = {
@@ -50,7 +55,22 @@ export const transform = (content, customFields, promoItems) => {
     );
 };
 
-export const getCajaTemaConfig = (featureId, renderables, cajaTemaConfig) => {
+export const getCajaTemaConfig = (
+    featureId,
+    renderables,
+    cajaTemaConfig,
+    isBomba
+) => {
+    if (isBomba)
+        return {
+            imageConfig: get(cajaTemaConfig, `bomba1.articles[0].imageConfig`),
+            config: get(cajaTemaConfig, `bomba1.articles[0]`),
+            index: 0,
+            boxPosition: '00',
+            layout: 'bomba1'
+        };
+    const { layoutsName = {} } = siteConfig || {};
+
     const parent = renderables.find(
         elem =>
             get(elem, 'collection') === 'chains' &&
@@ -73,8 +93,19 @@ export const getCajaTemaConfig = (featureId, renderables, cajaTemaConfig) => {
     const layout = get(parent, 'props.customFields.layout');
 
     const config = get(cajaTemaConfig, `${layout}.articles[${index}]`, null);
-
     return {
+        imageConfig:
+            (renderables.some(
+                elem =>
+                    get(elem, 'collection') === 'layouts' &&
+                    get(elem, 'type') === layoutsName.Home
+            ) &&
+                get(
+                    cajaTemaConfig,
+                    `${layout}.articles[${index}].imageConfig`,
+                    'boxArticles'
+                )) ||
+            '',
         config,
         index,
         boxPosition: `0${Number(position) + 1}`.slice(-2),
@@ -105,3 +136,27 @@ export const getLabel = (article, customFields, withMedia) => {
 
 export const getIsRenderAutor = (customFields, layout) =>
     get(customFields, 'opinion', false) || layout === 'author3';
+
+export const isInHomeAperturaOrBomba = (
+    renderables,
+    featureId,
+    layoutsName,
+    layoutPageBuilder
+) => {
+    const aperturasChildren =
+        layoutsName.Home === layoutPageBuilder
+            ? (getChildrenFromAperturaHome(renderables) || []).concat(
+                  getChildrenFromBombaHome(renderables) || []
+              )
+            : [];
+
+    return aperturasChildren.some(el => {
+        return (
+            !get(el, 'props.customFields.hideCaja', false) &&
+            (get(el, 'children', []).some(
+                child => get(child, 'props.id') === featureId
+            ) ||
+                get(el, 'props.id') === featureId)
+        );
+    });
+};

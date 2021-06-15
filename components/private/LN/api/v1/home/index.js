@@ -1,7 +1,7 @@
 import { get } from 'lodash';
 import Image from '../common/image';
 import { removeEmptyItems } from '../common/utils/responseCleaner';
-import Article from './article';
+import { articleItem as Article, anexoItem as Anexo } from './article';
 
 // TODO: Recorrer las notas en un archivo nuevo.
 // Recibir el array y validar que tenga notas
@@ -30,7 +30,7 @@ const featureInformation = (information, feature) => {
     if (!information.hideTitle && feature !== 'Apertura') {
         const image = get(information.image, 'promo_items.basic', null);
 
-        if (image && image.type === 'image') res.image = Image(image);
+        if (image && image.type === 'image') res.imagen = Image(image);
 
         return {
             ...res,
@@ -44,18 +44,23 @@ const featureInformation = (information, feature) => {
 const storyBox = element => {
     const { information, feature, configurations } = element;
     const articles = get(element, 'articles', []);
-
-    return {
-        ...featureInformation(information, feature),
-        notas: Article(articles, configurations)
-    };
+    if (articles && articles.length > 0) {
+        return {
+            ...featureInformation(information, feature),
+            notas:
+                feature !== 'Anexo'
+                    ? Article(articles, configurations)
+                    : Anexo(articles)
+        };
+    }
+    return null;
 };
 
 const bannerBox = element => {
     const type = typeSection[element.feature];
     return {
         ...type,
-        IdSeccion: element.id
+        idSeccion: element.id
     };
 };
 

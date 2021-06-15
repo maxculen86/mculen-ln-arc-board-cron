@@ -1,4 +1,4 @@
-import Article from '../../../../../../../components/private/LN/api/v1/home/article';
+import { articleItem as Article } from '../../../../../../../components/private/LN/api/v1/home/article';
 import colecction from '../../../../../../../__mocks__/data/collection/OCTOV4V54FCFLJHOVB5IAJKHHM.json';
 import article1 from '../../../../../../../__mocks__/data/articles/2KOBND62KNFVVBFQZOADNN6WNY.json';
 import article2 from '../../../../../../../__mocks__/data/articles/3SHTRO3NKBCN7L3JITCDQYSJLM.json';
@@ -24,7 +24,7 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
         expect(notas[0].url).toBe(
             '/deportes/prueba-ios-y-android-cuerpo-nid12052020/'
         );
-        expect(notas[0].titulo).toBe('Prueba iOS y Android cuerpo');
+        expect(notas[0].titulo).toBe('Prueba Mobile');
         expect(notas[0].volanta).toBe('Esto es una volanta.');
         expect(notas[0].bajada).toBe(
             'Esto es una bajada. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod...'
@@ -38,7 +38,6 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
         expect(notas[0].autor.mail).toBe(undefined);
         expect(notas[0].autor.twitter).toBe(undefined);
         expect(notas[0].marquesina).toBe('Por Max Fisher');
-        expect(notas[0].seccionProducto).toBe(null);
         expect(notas[0].seccionPadre).toBe(null);
     });
     it('Testeo articulo Caja Manual con un articulo null', () => {

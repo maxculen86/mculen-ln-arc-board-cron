@@ -2,13 +2,17 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import Static from 'fusion:static';
 import {
     cajaTemasCustomsFields,
-    getCommonProps
+    getCommonProps,
+    getChildrenFromAperturaHome
 } from '../../private/LN/common/utils/cajaTemasHelper';
 import { validateChainManual } from '../../private/LN/common/utils/cajaTemasValidators';
 import CajaTema from '../../private/LN/common/cajaTema';
 import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
+import get from '../../private/common/utils/get';
+import config from '../../../properties/sites/la-nacion-ar';
 
 const CajaManual = props => {
     const {
@@ -17,10 +21,17 @@ const CajaManual = props => {
         customFields: { url, title, layout = '', imageId, hideTitle, hideCaja },
         outputType,
         childProps,
-        children
+        children,
+        layout: layoutPageBuilder,
+        renderables
     } = props;
 
-    if (hideCaja) return <></>;
+    if (hideCaja)
+        return (
+            <Static id={featureId}>
+                <></>
+            </Static>
+        );
 
     const {
         notesQuantity,
@@ -28,10 +39,23 @@ const CajaManual = props => {
         position,
         sectionName
     } = getCommonProps(props);
+    const { layoutsName = {} } = config || {};
     const error = validateChainManual(childProps, layout);
 
-    return (
-        (isAdmin && !!error && (
+    const aperturasChildren =
+        layoutsName.Home === layoutPageBuilder
+            ? getChildrenFromAperturaHome(renderables)
+            : [];
+
+    const isInApertura = aperturasChildren.some(el => {
+        return (
+            !get(el, 'props.customFields.hideCaja', false) &&
+            get(el, 'props.id', undefined) === featureId
+        );
+    });
+
+    if (isAdmin && error) {
+        return (
             <div
                 style={{
                     marginTop: '10px',
@@ -45,22 +69,34 @@ const CajaManual = props => {
                     message={error.message}
                 />
             </div>
-        )) ||
-        (!error && (
-            <CajaTema
-                title={title}
-                hideTitle={hideTitle}
-                url={url}
-                imageId={imageId}
-                outputType={outputType}
-                layout={layout}
-                classCondition={classCondition}
-                notesQuantity={notesQuantity}
-                position={position}
-                sectionName={sectionName}
-                _children={children}
-            />
-        )) || <></>
+        );
+    }
+
+    if (error) return <></>;
+
+    const Component = (
+        <CajaTema
+            title={title}
+            hideTitle={hideTitle}
+            url={url}
+            imageId={imageId}
+            outputType={outputType}
+            layout={layout}
+            classCondition={`${classCondition}${(isInApertura &&
+                layout.includes('focal') &&
+                ' --apertura') ||
+                ''}`}
+            notesQuantity={notesQuantity}
+            position={position}
+            sectionName={sectionName}
+            _children={children}
+        />
+    );
+
+    return isInApertura && !isAdmin ? (
+        <Static id={featureId}>{Component}</Static>
+    ) : (
+        Component
     );
 };
 
@@ -68,11 +104,16 @@ CajaManual.label = 'LN Caja Manual';
 
 CajaManual.propTypes = {
     id: PropTypes.string.isRequired,
-    isAdmin: PropTypes.bool.isRequired,
-    outputType: PropTypes.bool.isRequired,
+    isAdmin: PropTypes.bool,
+    outputType: PropTypes.string,
     customFields: PropTypes.shape({
         ...cajaTemasCustomsFields('cajaManual')
     }).isRequired
+};
+
+CajaManual.defaultProps = {
+    isAdmin: false,
+    outputType: 'default'
 };
 
 export default Consumer(CajaManual);

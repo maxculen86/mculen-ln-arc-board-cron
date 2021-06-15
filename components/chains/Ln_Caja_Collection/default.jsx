@@ -14,6 +14,8 @@ import {
     getArticlesFromMyCurrentCollection
 } from '../../private/LN/common/utils/cajaTemasValidators';
 import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
+import siteConfig from '../../../properties/sites/la-nacion-ar';
+import get from '../../private/common/utils/get';
 
 const CajaCollection = props => {
     const {
@@ -44,6 +46,17 @@ const CajaCollection = props => {
         sectionName
     } = getCommonProps(props);
 
+    const { layoutsName = {} } = siteConfig || {};
+
+    const diagramation =
+        (renderables.some(
+            elem =>
+                get(elem, 'collection') === 'layouts' &&
+                get(elem, 'type') === layoutsName.Home
+        ) &&
+            layout) ||
+        '';
+
     const articlesFromCollectionSiteService = getArticlesFromMyCurrentCollection(
         collectionsInPage,
         idCollection,
@@ -60,6 +73,11 @@ const CajaCollection = props => {
     const isInsideApertura =
         tree.type === 'LN-acumulado' ? isInApertura(tree, featureId) : false;
 
+    const titleSize =
+        ((isInsideApertura || layout === 'grilla1' || layout === 'grilla2') &&
+            '--l') ||
+        '';
+
     const articlesToShow = !isInSiteService
         ? getArticleInCollection(
               idCollection,
@@ -69,7 +87,8 @@ const CajaCollection = props => {
               true,
               !isInSiteService,
               notesQuantity,
-              layout
+              layout,
+              diagramation
           )
         : [];
 
@@ -105,7 +124,10 @@ const CajaCollection = props => {
             imageId={imageId}
             outputType={outputType}
             layout={layout}
-            classCondition={classCondition}
+            classCondition={`${classCondition}${(isInApertura &&
+                layout.includes('focal') &&
+                ' --apertura') ||
+                ''}`}
             notesQuantity={notesQuantity}
             position={position}
             sectionName={sectionName}
@@ -114,7 +136,7 @@ const CajaCollection = props => {
                     ? articlesFromCollectionSiteService
                     : articlesToShow
             }
-            titleSize={isInsideApertura && '--l'}
+            titleSize={titleSize}
         />
     );
 };

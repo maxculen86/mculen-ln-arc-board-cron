@@ -17,6 +17,7 @@ const ModDescription = props => {
         authors,
         subheadText,
         subheadSize,
+        subheadTag,
         dateText,
         label,
         lead,
@@ -43,6 +44,7 @@ const ModDescription = props => {
                     link={link}
                     subheadSize={subheadSize}
                     subheadText={subheadText}
+                    subheadTag={subheadTag}
                 />
             )}
             <div>
@@ -96,6 +98,7 @@ ModDescription.propTypes = {
     authorSize: PropTypes.string.isRequired,
     subheadText: PropTypes.string,
     subheadSize: PropTypes.string,
+    subheadTag: PropTypes.string,
     dateText: PropTypes.string,
     label: PropTypes.string,
     lead: PropTypes.string,
@@ -110,6 +113,7 @@ ModDescription.defaultProps = {
     titleSize: '--xs',
     subheadText: false,
     subheadSize: '',
+    subheadTag: '',
     dateText: undefined,
     label: undefined,
     lead: undefined,

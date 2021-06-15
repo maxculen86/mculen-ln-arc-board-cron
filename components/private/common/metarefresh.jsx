@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
+import { SITE_LANACION } from 'fusion:environment';
 import get from './utils/get';
 import withScreenUtils from './hocs/withScreenUtils';
 import withLoginData from '../LN/common/hocs/withLoginData';
@@ -55,22 +56,26 @@ const Component = props => {
     // const metarefresh = content && content.Metarefresh;
     const interval = getInterval(type || _id, resolution, metarefresh);
     const cookieProductoPremium = getCookie('ProductoPremiumId');
+    const template = findTemplate(type);
 
     useEffect(() => {
         if (
             !metarefresh ||
             isAdmin ||
             outputType === 'amp' ||
-            subscription ||
+            (subscription && template !== 'home') ||
             interval < 1 ||
             shouldBeExcluded(contentElements, promoItem)
-        )
+        ) {
             return;
+        }
 
         setTimeout(() => {
-            !cookieProductoPremium &&
+            (!cookieProductoPremium || template === 'home') &&
                 localStorage.setItem('CDmetaRefresh', true);
-            window.location.reload();
+            template === 'home'
+                ? (window.location.href = SITE_LANACION)
+                : window.location.reload();
         }, interval);
     }, [
         contentElements,
@@ -80,7 +85,8 @@ const Component = props => {
         metarefresh,
         outputType,
         promoItem,
-        subscription
+        subscription,
+        template
     ]);
 
     return <></>;

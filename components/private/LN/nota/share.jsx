@@ -13,7 +13,7 @@ import {
     scrollToComments
 } from '../common/utils/shareHelper';
 import ComButton from '../../common/com-button';
-import ComLine from '../common/footer/com-line';
+import ComLine from '../../common/com-line';
 import AmpContainer from '../../common/ampContainer';
 import get from '../../common/utils/get';
 

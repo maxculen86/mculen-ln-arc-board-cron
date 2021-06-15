@@ -62,6 +62,7 @@ describe('components - features - LN-common - articulo - json.js', () => {
                     'Image',
                     'lead',
                     'noteId',
+                    'opinion',
                     'title'
                 ].sort()
             );

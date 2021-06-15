@@ -23,7 +23,8 @@ const NoteCard = ({
     promoItems,
     index,
     boxPosition,
-    layout
+    layout,
+    isInHomeAperturaOrBomba
 }) => {
     const [article, setArticle] = useState(
         transform(content, customFields, promoItems)
@@ -58,14 +59,26 @@ const NoteCard = ({
                 articleData={article}
                 withMedia={withMedia}
                 link={get(article, 'website_url')}
-                titleSize={get(articleProps, 'titleSize')}
+                titleSize={
+                    (!withMedia && get(articleProps, 'titleSizeNoMedia')) ||
+                    get(articleProps, 'titleSize')
+                }
                 titleText={get(article, 'headlines.basic')}
-                titleTag={get(articleProps, 'titleTag', 'h2')}
+                titleTag={
+                    (isInHomeAperturaOrBomba &&
+                        get(articleProps, 'titleTagApertura')) ||
+                    get(articleProps, 'titleTag', 'h2')
+                }
                 authors={get(article, 'marquesina')}
                 subheadText={
                     get(articleProps, 'skipSubhead', false)
                         ? false
                         : withSubhead && get(article, 'subheadlines.basic')
+                }
+                subheadTag={
+                    (isInHomeAperturaOrBomba &&
+                        get(articleProps, 'subheadTagApertura')) ||
+                    get(articleProps, 'subheadTag', 'h3')
                 }
                 leadText={get(article, 'label.volanta.text')}
                 outputType={outputType}

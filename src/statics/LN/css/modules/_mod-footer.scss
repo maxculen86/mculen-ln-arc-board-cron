@@ -61,8 +61,11 @@
 
             .com-link {
                 margin-right: px(32);
+                display: inline-block;
                 .com-image {
                     border-radius: px(4);
+                    width: px(120);
+                    height: px(35);
                 }
                 &:last-child {
                     margin-right: 0;
@@ -117,6 +120,16 @@
 
                 span {
                     margin: 0 px(16);
+                }
+
+                .--gda {
+                    width: px(30);
+                    height: px(20);
+                }
+
+                .--data {
+                    width: px(28);
+                    height: px(38);
                 }
 
                 @media ($media-l) {

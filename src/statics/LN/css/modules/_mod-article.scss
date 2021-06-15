@@ -45,12 +45,17 @@
         .mod-marquee {
             position: absolute;
             overflow: hidden;
-            white-space: nowrap;
+            //white-space: nowrap;
             margin: 0;
-            bottom: px(16);
+            //bottom: px(16);
             left: px(16);
             width: calc(100% - 32px);
             justify-content: center;
+
+            height: px(48);
+            white-space: break-spaces;
+            align-items: center;
+            bottom: 0;
         }
         .com-label {
             display: none;
@@ -200,10 +205,6 @@
 
 // }
 
-.lay-sidebar {
-    margin-bottom: 0;
-}
-
 .demofonts {
     h1 {
         margin-bottom: px(8);
@@ -350,39 +351,64 @@
 /*LLEVAR BOX-ARTICLES*/
 
 .box-articles {
-    .mod-headersection {
-        margin-top: px(64);
-    }
+    margin-bottom: px(64);
 
-    .mod-article {
-        margin-bottom: px(32);
-    }
+    // .mod-headersection {
+    //     margin-top: px(64);
+    // }
 
-    .row-gap-tablet-2,
-    .row-gap-tablet-3,
-    .row-gap-tablet-4 {
-        margin-bottom: px(32);
+    // .mod-article {
+    //     margin-bottom: px(32);
+    //     border-bottom: 16px solid red;
+    // }
 
-        .mod-article {
-            margin-bottom: 0;
+    // .row-gap-tablet-2,
+    // .row-gap-tablet-3,
+    // .row-gap-tablet-4 {
+    //     margin-bottom: px(32);
+    //     border-bottom: 16px solid green;
+
+    //     .mod-article {
+    //         margin-bottom: 0;
+    //     }
+    // }
+
+    .col-tablet-4,
+    .col-tablet-8 {
+        .mod-article:not(:last-child) {
+            margin-bottom: px(32);
         }
     }
 
-    &.--focal {
-        @media ($media-m) {
-            //768
-            border-bottom: 1px solid #ccc;
-            padding-bottom: px(32);
-            margin-bottom: px(32);
-            > div {
-                .mod-article:last-child {
-                    margin-bottom: 0;
-                }
+    &.--focal:not(.--apertura) {
+        .mod-article .mod-description .com-subhead {
+            display: none;
+            @media ($media-m) {
+                display: block;
             }
         }
     }
 
+    &.--apertura {
+        @media ($media-m) {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: px(32);
+            margin-bottom: px(32);
+        }
+    }
+
     &.--left {
+        .col-tablet-8 {
+            .mod-article {
+                margin-bottom: px(32);
+            }
+        }
+        .col-tablet-4 {
+            .mod-article:not(:last-child) {
+                margin-bottom: px(32);
+            }
+        }
+
         @media ($media-m) {
             //768
 
@@ -392,6 +418,7 @@
                 padding-right: px(24);
 
                 .mod-article {
+                    margin-bottom: 0;
                     > div {
                         //mod-media container
                         order: 2;
@@ -439,14 +466,24 @@
     }
 
     &.--right {
+        .col-tablet-8 {
+            order: 2;
+        }
+
+        .col-tablet-4 {
+            order: 1;
+
+            .mod-article {
+                margin-bottom: px(32);
+            }
+        }
+
         @media ($media-m) {
             //768
             // display: flex;
             // flex-direction: row;
 
             .col-tablet-8 {
-                order: 2;
-
                 padding-left: px(24);
 
                 &:before {
@@ -460,10 +497,17 @@
                 }
             }
             .col-tablet-4 {
-                order: 1;
                 padding-right: px(12);
+                .mod-article {
+                    margin-bottom: 0;
+                }
                 .mod-media {
                     display: none;
+                }
+                .mod-description {
+                    .com-label {
+                        display: none;
+                    }
                 }
             }
         }
@@ -556,10 +600,21 @@
     }
 
     &.--opinion {
+        .container & {
+            margin-bottom: 0;
+        }
+        .col-tablet-3,
+        .col-tablet-4 {
+            margin-top: px(32);
+        }
         @media ($media-m) {
             //768
             //margin-bottom: px(32); lo lleva EDITORIALES
 
+            .col-tablet-3,
+            .col-tablet-4 {
+                margin-top: 0;
+            }
             .mod-article {
                 margin-bottom: 0;
             }
@@ -603,10 +658,13 @@
                     .mod-description {
                         .mod-marquee {
                             position: absolute;
-                            bottom: 32px;
-                            left: 72px;
+                            bottom: px(16);
+                            left: px(72);
                             max-width: calc(100% - 72px);
                             justify-content: left;
+                            height: px(48);
+                            white-space: break-spaces;
+                            align-items: center;
                         }
                     }
                 }
@@ -628,8 +686,7 @@
         //padding: px(16) 0;
         //display: block;
         width: calc(100% + #{$spacing-lg});
-        margin-left: -$spacing-sm;
-        margin-bottom: px(32);
+        margin: px(32) 0 0 px(-16);
 
         .mod-footersection {
             grid-template-columns: 122px 1fr;
@@ -673,8 +730,8 @@
             }
         }
         @media ($media-m) {
-            margin: px(32) 0 px(32);
             width: 100%;
+            margin-left: 0;
             .mod-footersection {
                 display: grid;
                 padding: $spacing-sm 0;
@@ -804,7 +861,7 @@
 
     @media ($media-m) {
         //768
-        margin-bottom: 0;
+        // margin-bottom: 0;
 
         // &.--color {
         //     padding-top: px(32);
@@ -880,33 +937,48 @@
     }
 }
 
+.container.--opinion,
+.sidebar__main .com-anexo {
+    margin-bottom: px(64);
+}
+
 /*Momentaneo*/
+$rank-mob1: px(1550);
+$rank-mob2: px(1650);
+$rank-tab: px(380);
+$rank-dsk: px(400);
 .ranking-ln9.ranking-ln9 {
-    height: px(1540);
-    margin-bottom: 0;
+    width: 100%;
+    height: $rank-mob1;
+    margin-bottom: px(32);
     padding: 0;
     iframe {
-        height: px(1540);
+        height: $rank-mob1;
     }
     @media (min-width: 400px) {
-        height: px(1590);
+        height: $rank-mob2;
         iframe {
-            height: px(1590);
+            height: $rank-mob2;
         }
     }
     @media ($media-m) {
-        height: px(360);
-        padding-right: px(16);
-        padding-left: px(16);
+        height: $rank-tab;
+        //padding-right: px(16);
+        //padding-left: px(16);
         iframe {
-            height: px(360);
+            height: $rank-tab;
         }
     }
-    @media ($media-l) {
-        margin-bottom: px(32);
-    }
+    // @media ($media-l) {
+    //     margin-bottom: px(32);
+    // }
     @media ($media-xl) {
-        padding-right: $spacing-xl;
-        padding-left: $spacing-xl;
+        height: $rank-dsk;
+        width: px(1340);
+        margin-left: auto;
+        margin-right: auto;
+        iframe {
+            height: $rank-dsk;
+        }
     }
 }

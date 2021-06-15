@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+//LN_Caja_Manual
 
 import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
@@ -16,7 +16,7 @@ class CajaManual {
                     query: {
                         id: imageId,
                         published: true,
-                        imageConfig: 'm',
+                        imageConfig: 'techoImagen',
                         'arc-site': 'la-nacion-ar'
                     }
                 }

@@ -36,18 +36,21 @@ class ArticleFeature {
                 title,
                 authors,
                 lead,
-                chapita
+                chapita,
+                opinion
             } = this.props.customFields;
 
             if (!articleSourceNota) {
                 return null;
             }
+
             const additionalProperties = {
                 noteId,
                 title,
                 authors,
                 lead,
                 chapita,
+                opinion,
                 Image: articleImage || null
             };
             return { ...articleSourceNota, additionalProperties };

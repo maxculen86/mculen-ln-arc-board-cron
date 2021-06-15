@@ -11,7 +11,9 @@
     .com-title {
         margin-bottom: $spacing-sm;
         margin-right: 0;
-        min-width: max-content;
+        @media ($media-m) {
+            min-width: max-content;
+        }
     }
     .mod-logo {
         //display: flex;

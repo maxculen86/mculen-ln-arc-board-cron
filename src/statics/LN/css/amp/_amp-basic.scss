@@ -3,7 +3,8 @@
 @import '../layouts/grid';
 @import '../layouts/layout';
 
-@import '../components/footer';
+//@import '../components/footer';
+@import '../modules/mod-footer';
 
 @import '../components/_nav-mobile';
 @import '../components/banners';
@@ -28,5 +29,6 @@
 @import '../modules/mod-figcaption';
 @import '../modules/mod-title';
 @import '../modules/mod-trust';
+@import '../modules/mod-list';
 
 @import '../base/helpers-amp';
