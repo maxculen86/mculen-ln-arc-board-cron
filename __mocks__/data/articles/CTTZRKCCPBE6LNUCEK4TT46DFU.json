@@ -1,0 +1,112 @@
+{
+    "_id": "CTTZRKCCPBE6LNUCEK4TT46DFU",
+    "credits": {
+        "by": [
+            {
+                "byline": "Ignacio Madrid",
+                "name": "Ignacio Madrid",
+                "type": "externo"
+            }
+        ]
+    },
+    "display_date": "2021-06-15T16:24:36.990Z",
+    "headlines": {
+        "basic": "Elecciones 2021: Cristina Kirchner tiene peor imagen que Mauricio Macri en la provincia de Buenos Aires, según Management & Fit",
+        "mobile": "Cristina Kirchner mide menos que Macri en la provincia de Buenos Aires"
+    },
+    "label": {
+        "recomendar": {
+            "text": "Si"
+        },
+        "volanta": {
+            "display": true,
+            "text": "Encuesta."
+        }
+    },
+    "promo_items": {
+        "basic": {
+            "height": 513,
+            "owner": {},
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 513,
+                        "media": "(min-width: 768px)",
+                        "width": 768
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/xFeFWUorcqsbs74iY2RSgeV9FOw=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/S2PWL2C5LBH7FHXT5E4Y64PJQE.jpg"
+                }
+            ],
+            "subtitle": "Mauricio Macri y Cristina Kirchner",
+            "type": "image",
+            "url": "https://resizer.glanacion.com/resizer/xFeFWUorcqsbs74iY2RSgeV9FOw=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/S2PWL2C5LBH7FHXT5E4Y64PJQE.jpg",
+            "width": 768
+        }
+    },
+    "publish_date": "2021-06-15T16:24:39.963Z",
+    "subheadlines": {
+        "basic": "Los consultores Mariel Fornoni y Eduardo Fidanza coincidieron en que el Frente de Todos ha perdido valoración positiva; Vidal no es una buena opción para la provincia, según uno de ellos"
+    },
+    "subtype": "1",
+    "taxonomy": {
+        "primary_section": {
+            "_id": "/politica",
+            "additional_properties": {
+                "original": {}
+            },
+            "name": "Política",
+            "path": "/politica"
+        },
+        "sections": [
+            {
+                "_id": "/politica",
+                "_website": "la-nacion-ar",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {},
+                        "migration": {
+                            "id_section_ln9": "30",
+                            "migrated_mob": "false"
+                        },
+                        "site": {}
+                    }
+                },
+                "name": "Política",
+                "parent_id": "/",
+                "path": "/politica",
+                "type": "section"
+            }
+        ],
+        "tags": [
+            {
+                "slug": "actualidad-politica-tid56691",
+                "text": "Actualidad política"
+            },
+            {
+                "slug": "maria-eugenia-vidal-tid48142",
+                "text": "María Eugenia Vidal"
+            },
+            {
+                "slug": "horacio-rodriguez-larreta-tid48170",
+                "text": "Horacio Rodríguez Larreta"
+            },
+            {
+                "slug": "cristina-kirchner-tid988",
+                "text": "Cristina Kirchner"
+            },
+            {
+                "slug": "alberto-fernandez-tid849",
+                "text": "Alberto Fernández"
+            },
+            {
+                "slug": "frente-de-todos-tid66805",
+                "text": "Frente de Todos"
+            },
+            {
+                "slug": "juntos-por-el-cambio-tid66746",
+                "text": "Juntos por el cambio"
+            }
+        ]
+    },
+    "website_url": "/politica/elecciones-2021-cristina-kirchner-tiene-peor-imagen-que-mauricio-macri-en-la-provincia-de-buenos-nid15062021/"
+}

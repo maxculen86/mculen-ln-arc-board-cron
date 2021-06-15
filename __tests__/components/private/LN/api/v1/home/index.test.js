@@ -3741,7 +3741,20 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
         }
     ];
 
-    let homeSections = [
+    const homeSections = [
+        {
+            type: 0,
+            feature: 'Anticipo',
+            information: {
+                hideCaja: false,
+                title: 'Anticipo',
+                url:
+                    'https://www.lanacion.com.ar/el-mundo/los-infectados-son-capaces-de-generar-anticuerpos-contra-el-coronavirus-durante-el-resto-de-su-vida-nid02062021/'
+            },
+            configurations: {
+                arcSite: 'la-nacion-ar'
+            }
+        },
         {
             type: 0,
             feature: 'Apertura',
@@ -3776,7 +3789,77 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
                 layout: 'focalLeft3',
                 initialPosition: 1,
                 hideTitle: true,
-                containerImage: undefined
+                image: {
+                    promo_items: {
+                        basic: {
+                            _id: 'XDW3TU62JRDFBPPR3C42T4MRMY',
+                            additional_properties: {
+                                fullSizeResizeUrl:
+                                    '/resizer/PRaa8uFpB995g77-mc1wesTbDiY=/arc-anglerfish-arc2-prod-lanacionar/public/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                                galleries: [],
+                                ingestionMethod: 'manual',
+                                mime_type: 'image/png',
+                                originalName: 'politica-home.png',
+                                originalUrl:
+                                    'https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                                owner: 'mralcobendas@lanacion.com.ar',
+                                proxyUrl:
+                                    '/resizer/PRaa8uFpB995g77-mc1wesTbDiY=/arc-anglerfish-arc2-prod-lanacionar/public/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                                published: true,
+                                resizeUrl:
+                                    '/resizer/PRaa8uFpB995g77-mc1wesTbDiY=/arc-anglerfish-arc2-prod-lanacionar/public/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                                restricted: false,
+                                thumbnailResizeUrl:
+                                    '/resizer/zWkAx9MA4fnR1lbA4P5KWcSEhQY=/300x0/arc-anglerfish-arc2-prod-lanacionar/public/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                                version: 0,
+                                template_id: 706
+                            },
+                            address: {},
+                            caption: 'cabezal home Política',
+                            created_date: '2021-06-09T00:23:17Z',
+                            credits: {
+                                affiliation: []
+                            },
+                            height: 513,
+                            image_type: 'photograph',
+                            last_updated_date: '2021-06-09T00:23:17Z',
+                            licensable: false,
+                            owner: {
+                                id: 'lanacionar',
+                                sponsored: false
+                            },
+                            source: {
+                                additional_properties: {
+                                    editor: 'photo center'
+                                },
+                                edit_url:
+                                    'https://lanacionar.arcpublishing.com/photo/XDW3TU62JRDFBPPR3C42T4MRMY',
+                                system: 'photo center'
+                            },
+                            type: 'image',
+                            url:
+                                'https://resizer.glanacion.com/resizer/BXJgIkahoP2Nb5mdTfdz7SLiL0c=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                            version: '0.10.3',
+                            width: 768,
+                            syndication: {},
+                            resized_urls: [
+                                {
+                                    resizedUrl:
+                                        'https://resizer.glanacion.com/resizer/goWKcDxIL8sX9PhnL2z3Tqa43PU=/222x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                                    option: {
+                                        width: 222,
+                                        height: 160,
+                                        media: '(min-width: 1024px)'
+                                    }
+                                }
+                            ],
+                            resized_urls_zoom: []
+                        }
+                    },
+                    _id:
+                        'faa5387d7c770f84fb427496280f183a5678bc0d27b8977ea4b3452bd81a7b46'
+                },
+                imageId: 'XDW3TU62JRDFBPPR3C42T4MRMY'
             },
             articles: articlesCollections
         },
@@ -3813,12 +3896,184 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
                 image: undefined
             },
             articles: articlesCollections
+        },
+        {
+            type: 0,
+            feature: 'Opinion',
+            information: {
+                layout: 'grilla3',
+                backgroundColor: 'default',
+                initialPosition: 1,
+                hideTitle: false,
+                idCollection: 'WM5DMXURZJBZZASUK356FPQNUI',
+                title: 'Comercial 2',
+                image: undefined
+            }
+        },
+        {
+            type: 0,
+            feature: 'Anexo',
+            information: {
+                hideCaja: false,
+                layout: 'grilla1'
+            },
+            articles: [
+                {
+                    html:
+                        '<article style="width: 100%; position:relative;" class="toi9999 nid2702090" data-pos="9999" data-id="2702090" data-notaid="2702090" data-source="editor">\n<h2 class="content-titulo" style="display:none;">Década por década, las películas argentinas memorables</h2>\n<iframe frameborder="0" width="100%" height="300" class="pym" scrolling="no" src="https://especialess3.lanacion.com.ar/20/02/anexo-a-fondo/"></iframe>\n<a style="position:absolute;top:0;left:0;bottom:0;right:0;" href="/espectaculos/cine/cine-argentino-decada-por-decada-las-imperdibles-peliculas-que-marcaron-la-pantalla-grande-nid20052021/"></a>\n</article>'
+                }
+            ],
+            configurations: {
+                arcSite: 'la-nacion-ar'
+            }
+        },
+        {
+            type: 0,
+            feature: 'Tema4',
+            information: {
+                layout: 'focalLeft3',
+                initialPosition: 1,
+                hideTitle: false,
+                image: {
+                    promo_items: {
+                        basic: {
+                            _id: 'XDW3TU62JRDFBPPR3C42T4MRMY',
+                            type: 'video'
+                        }
+                    },
+                    _id:
+                        'faa5387d7c770f84fb427496280f183a5678bc0d27b8977ea4b3452bd81a7b46'
+                },
+                imageId: 'XDW3TU62JRDFBPPR3C42T4MRMY'
+            },
+            articles: articlesCollections
+        },
+        {
+            type: 0,
+            feature: 'Tema5',
+            information: {
+                layout: 'focalLeft3',
+                initialPosition: 1,
+                hideTitle: false
+            },
+            articles: articlesCollections
+        },
+        {
+            type: 0,
+            feature: 'Tema6',
+            information: {
+                layout: 'focalLeft3',
+                initialPosition: 1,
+                hideTitle: false,
+                image: {
+                    promo_items: {
+                        basic: {
+                            _id: 'XDW3TU62JRDFBPPR3C42T4MRMY',
+                            additional_properties: {
+                                fullSizeResizeUrl:
+                                    '/resizer/PRaa8uFpB995g77-mc1wesTbDiY=/arc-anglerfish-arc2-prod-lanacionar/public/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                                galleries: [],
+                                ingestionMethod: 'manual',
+                                mime_type: 'image/png',
+                                originalName: 'politica-home.png',
+                                originalUrl:
+                                    'https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                                owner: 'mralcobendas@lanacion.com.ar',
+                                proxyUrl:
+                                    '/resizer/PRaa8uFpB995g77-mc1wesTbDiY=/arc-anglerfish-arc2-prod-lanacionar/public/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                                published: true,
+                                resizeUrl:
+                                    '/resizer/PRaa8uFpB995g77-mc1wesTbDiY=/arc-anglerfish-arc2-prod-lanacionar/public/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                                restricted: false,
+                                thumbnailResizeUrl:
+                                    '/resizer/zWkAx9MA4fnR1lbA4P5KWcSEhQY=/300x0/arc-anglerfish-arc2-prod-lanacionar/public/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                                version: 0,
+                                template_id: 706
+                            },
+                            address: {},
+                            caption: 'cabezal home Política',
+                            created_date: '2021-06-09T00:23:17Z',
+                            credits: {
+                                affiliation: []
+                            },
+                            height: 513,
+                            image_type: 'photograph',
+                            last_updated_date: '2021-06-09T00:23:17Z',
+                            licensable: false,
+                            owner: {
+                                id: 'lanacionar',
+                                sponsored: false
+                            },
+                            source: {
+                                additional_properties: {
+                                    editor: 'photo center'
+                                },
+                                edit_url:
+                                    'https://lanacionar.arcpublishing.com/photo/XDW3TU62JRDFBPPR3C42T4MRMY',
+                                system: 'photo center'
+                            },
+                            type: 'image',
+                            url:
+                                'https://resizer.glanacion.com/resizer/BXJgIkahoP2Nb5mdTfdz7SLiL0c=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                            version: '0.10.3',
+                            width: 768,
+                            syndication: {},
+                            resized_urls: [
+                                {
+                                    resizedUrl:
+                                        'https://resizer.glanacion.com/resizer/goWKcDxIL8sX9PhnL2z3Tqa43PU=/222x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                                    option: {
+                                        width: 222,
+                                        height: 160,
+                                        media: '(min-width: 1024px)'
+                                    }
+                                }
+                            ],
+                            resized_urls_zoom: []
+                        }
+                    },
+                    _id:
+                        'faa5387d7c770f84fb427496280f183a5678bc0d27b8977ea4b3452bd81a7b46'
+                },
+                imageId: 'XDW3TU62JRDFBPPR3C42T4MRMY'
+            },
+            articles: articlesCollections
         }
     ];
 
+    it('Test caja sin notas', () => {
+        const home = index(homeSections) || [];
+        expect(home[0]).toHaveLength(12);
+    });
+
+    it('Test Caja Anticipo', () => {
+        const home = index(homeSections) || [];
+        expect(home[0][0].tipoSeccion).toBe('anticipo');
+    });
+
+    it('Test Caja Anticipo', () => {
+        const home = index(homeSections) || [];
+        expect(home[0][8].tipoSeccion).toBe('anexo');
+    });
+
+    it('Test Imagen Caja No Tipo Video', () => {
+        const home = index(homeSections) || [];
+        expect(home[0][9].imagen).toBeUndefined();
+    });
+
+    it('Test Imagen Caja Null', () => {
+        const home = index(homeSections) || [];
+        expect(home[0][10].imagen).toBeUndefined();
+    });
+
+    it('Test Imagen Techo', () => {
+        const home = index(homeSections) || [];
+        expect(home[0][11].imagen.id).toBe('XDW3TU62JRDFBPPR3C42T4MRMY');
+    });
+
     it('Testeo Secciones Cajas OK', () => {
         const home = index(homeSections) || [];
-        expect(home[0][0].tipoSeccion).toBe('apertura');
+        expect(home[0][1].tipoSeccion).toBe('apertura');
     });
 
     it('Testeo Secciones Seccion Apertura sin information', () => {
