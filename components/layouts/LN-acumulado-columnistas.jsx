@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
+import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import LoginProvider from '../private/LN/common/context/loginContext';
@@ -64,7 +65,9 @@ const LNAcumuladoColumnistasLayout = props => {
                         </div>
                     </div>
                 </main>
-                <Footer />
+                <Static id="StaticFooter">
+                    <Footer />
+                </Static>
             </div>
         </LoginProvider>
     );

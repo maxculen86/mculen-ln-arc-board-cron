@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import Static from 'fusion:static';
 import { getSectionStyle } from '../private/common/utils/sectionUtils';
 import LoginProvider from '../private/LN/common/context/loginContext';
 
@@ -146,7 +147,9 @@ class LNNotaReceta extends Component {
                                     </div>
                                 </div>
                             </main>
-                            <Footer />
+                            <Static id="StaticFooter">
+                                <Footer />
+                            </Static>
                         </div>
                         <LoadBanners />
                     </CommentsProvider>
