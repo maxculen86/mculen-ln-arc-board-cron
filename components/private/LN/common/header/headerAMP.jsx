@@ -1,4 +1,8 @@
 import React from 'react';
+import Logo from '../../../common/com-logo';
+import NavBarMobile from '../navbar';
+import Button from '../../../common/com-button';
+import Link from '../../../common/link';
 
 const headerAMP = props => {
     return (
@@ -7,70 +11,46 @@ const headerAMP = props => {
                 <div className="lay">
                     <div className="row">
                         <div className="col-4 header__left">
-                            {/* <button
+                            <Button
+                                classCondition="--tertiary"
+                                iconName="menu"
                                 on="tap:sidebar-left.toggle"
-                                className="icon-menu"
                             >
                                 Secciones
-                            </button> */}
-                            <button
-                                type="button"
-                                on="tap:sidebar-left.toggle"
-                                class="com-button  --tertiary --icon menu "
-                            >
-                                <i class="com-icon icon-menu   "></i>
-                                <span class="com-text  ">Secciones</span>
-                            </button>
+                            </Button>
                         </div>
                         <div className="col-7 col-desksm-4 header__middle">
-                            <a
-                                href="https://www.lanacion.com.ar"
-                                className="header__middle__logo"
-                            >
-                                <i className="logo-la-nacion"></i>
-                            </a>
+                            <Logo
+                                logoName="la-nacion"
+                                color
+                                //size="--md"
+                                href="https://www.lanacion.com.ar/"
+                                title="Ir a la página principal"
+                            />
                         </div>
                         <div className="col-5 col-desksm-4 header__right">
                             <div id="user-menu" className="com-usuario">
-                                {/* <div className="row">
-                                    <div class="col-desksm-4 hlp-tablet-none">
-                                        {' '}
-                                    </div>
-                                    <div className="col-12 col-desksm-4">
-                                        <a
-                                            className="suscribir__header com-button --special --compact"
-                                            href="https://suscripciones.lanacion.com.ar/suscribirme"
-                                        >
-                                            SUSCRIBITE
-                                        </a>
-                                    </div>
-                                    <div className="col-12 col-desksm-4">
-                                        <button
-                                            type="button"
-                                            className="com-button --secondary --compact"
-                                        >
-                                            INGRESAR
-                                        </button>
-                                    </div>
-                                </div> */}
-                                <a
-                                    className=" com-button --special"
+                                <Link
+                                    mod="com-button --special"
                                     href="https://suscripciones.lanacion.com.ar/suscribirme"
                                 >
                                     SUSCRIBITE
-                                </a>
-
-                                <button
-                                    type="button"
-                                    className="com-button --secondary"
+                                </Link>
+                                <Link
+                                    mod="com-button --secondary"
+                                    href="https://ingresar.lanacion.com.ar/ingresar/D/1/"
                                 >
                                     INGRESAR
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     </div>
                 </div>
             </header>
+
+            <NavBarMobile amp />
+            <div id="target-element-left"></div>
+
             <amp-sidebar
                 id="sidebar-left"
                 class="sample-sidebar"
@@ -79,16 +59,13 @@ const headerAMP = props => {
             >
                 {' '}
                 <section className="header_sidebar">
-                    <a
-                        href="https://www.lanacion.com.ar"
-                        className="header__middle__logo"
-                    >
-                        <i className="logo-la-nacion"></i>
-                    </a>
-                    <button
-                        on="tap:sidebar-left.close"
-                        className="icon-close"
-                    ></button>
+                    <Logo
+                        color
+                        logoName="la-nacion"
+                        href="https://www.lanacion.com.ar/"
+                        title="Ir a la página principal"
+                    />
+                    <Button on="tap:sidebar-left.close" iconName="close" />
                 </section>
                 <ul className="menu-nav">
                     <li className="menu_li desplegable">
@@ -509,7 +486,7 @@ const headerAMP = props => {
                 </ul>
             </amp-sidebar>
 
-            <nav className="com-nav-mobile">
+            {/* <nav className="com-nav-mobile">
                 <div className="row">
                     <a
                         href="https://www.lanacion.com.ar/"
@@ -540,24 +517,8 @@ const headerAMP = props => {
                         <i className="icon-user" />
                         <p>Mi Cuenta</p>
                     </a>
-                </div>
-                {/* <a href="https://www.lanacion.com.ar/" className="col-3 icon-home">
-                        Home
-                    </a>
-                    <button on="tap:sidebar-left.toggle" className="col-3 icon-menu">
-                        Secciones
-                    </button>
-                    <a href="https://club.lanacion.com.ar/" className="col-3 icon-club">
-                        Club LA NACIÓN
-                    </a>
-                    <a
-                        href="https://micuenta.lanacion.com.ar/mis-datos"
-                        className="col-3 icon-user"
-                    >
-                        Mi cuenta
-                    </a> */}
-                <div id="target-element-left"></div>
-            </nav>
+                </div>               
+            </nav> */}
         </>
     );
 };

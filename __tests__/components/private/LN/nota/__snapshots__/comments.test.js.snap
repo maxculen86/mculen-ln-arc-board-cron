@@ -80,6 +80,7 @@ exports[`Comments Matches snapshot 1`] = `
           <button
             className="item_link ver-legales"
             onClick={[Function]}
+            title="Ver legales"
             type="button"
           >
              
