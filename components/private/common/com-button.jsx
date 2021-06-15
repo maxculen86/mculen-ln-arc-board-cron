@@ -76,6 +76,7 @@ const ComButton = props => {
                 ''}`}
             onClick={onClick}
             style={style}
+            title={title}
             on={on || ''}
         >
             <ComText size={size || ''}>

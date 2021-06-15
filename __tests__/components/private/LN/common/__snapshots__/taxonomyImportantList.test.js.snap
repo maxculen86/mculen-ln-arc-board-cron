@@ -5,61 +5,25 @@ exports[`components - private - LN - common - TaxonomyImportantList Test de snap
   class="mod-themes"
 >
   <a
-    class="com-link"
+    class="com-link com-button --secondary --compact"
     href="/tema/asd-1/"
+    title="Ir a las notas de asd 1"
   >
-    <button
-      class="com-button --secondary --compact"
-      data-event=""
-      data-section=""
-      id=""
-      on=""
-      type="button"
-    >
-      <span
-        class="com-text --fivexs "
-      >
-        asd 1
-      </span>
-    </button>
+    asd 1
   </a>
   <a
-    class="com-link"
+    class="com-link com-button --secondary --compact"
     href="/tema/asd-2/"
+    title="Ir a las notas de asd 2"
   >
-    <button
-      class="com-button --secondary --compact"
-      data-event=""
-      data-section=""
-      id=""
-      on=""
-      type="button"
-    >
-      <span
-        class="com-text --fivexs "
-      >
-        asd 2
-      </span>
-    </button>
+    asd 2
   </a>
   <a
-    class="com-link"
+    class="com-link com-button --secondary --compact"
     href="asd-3/"
+    title="Ir a las notas de asd 3"
   >
-    <button
-      class="com-button --secondary --compact"
-      data-event=""
-      data-section=""
-      id=""
-      on=""
-      type="button"
-    >
-      <span
-        class="com-text --fivexs "
-      >
-        asd 3
-      </span>
-    </button>
+    asd 3
   </a>
 </section>
 `;
