@@ -33,7 +33,7 @@
         //background: $neutral-white;
         display: none;
     }
-    .--ads &,
+    //.--ads &,
     .sidebar__aside &,
     &.--unoxuno_mob,
     &.--unoxuno_dsk {
@@ -346,14 +346,11 @@
         &:empty {
             display: none;
         }
+        .mod-banner {
+            margin: 0;
+        }
     }
 }
-// .--ads {
-//     margin-bottom: px(32);
-//     &:empty {
-//         display: none;
-//     }
-// }
 
 .home > .container {
     &.--ads {

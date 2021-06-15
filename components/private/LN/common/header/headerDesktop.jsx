@@ -45,7 +45,7 @@ const enlaces = [
         text: 'Mi cuenta'
     },
     {
-        url: 'https://micuenta.lanacion.com.ar/ayuda',
+        url: 'https://myaccount.lanacion.com.ar/datos-personales',
         text: 'Mis datos'
     },
     {

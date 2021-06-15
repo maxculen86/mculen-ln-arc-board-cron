@@ -3,9 +3,9 @@
 
 .com-lead {
     color: $light-blue-500;
-    margin-right: px(4);
+    padding-right: px(6);
     font-style: normal;
-    display: inline-block;
+    display: inline-flex;
     .--bomba.--bomba &,
     .--highlight.--highlight & {
         color: $neutral-white;

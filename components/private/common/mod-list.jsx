@@ -18,7 +18,7 @@ const List = ({ children, order, inline, mod, size }) => {
                     {item.href ? (
                         <Link
                             textname={item.text}
-                            title={item.text}
+                            title={item.alt || item.text}
                             link={item.href}
                             target={item.target}
                         />

@@ -29,6 +29,7 @@ const ModArticle = props => {
         withMedia,
         subheadText,
         subheadSize,
+        subheadTag,
         dateText,
         dateSize,
         leadText,
@@ -106,6 +107,7 @@ const ModArticle = props => {
                 authorSize={isRenderAuthor ? '--twoxs' : authorSize}
                 subheadText={subheadText}
                 subheadSize={subheadSize}
+                subheadTag={subheadTag}
                 dateText={dateText}
                 dateSize={dateSize}
                 lead={leadText}
@@ -127,6 +129,7 @@ ModArticle.propTypes = {
     titleText: PropTypes.string.isRequired,
     subheadText: PropTypes.string,
     subheadSize: PropTypes.string,
+    subheadTag: PropTypes.string,
     dateText: PropTypes.string,
     dateSize: PropTypes.string,
     hour: PropTypes.oneOfType([PropTypes.string, PropTypes.boolean]),
@@ -152,6 +155,7 @@ ModArticle.defaultProps = {
     titleSize: '--xs',
     subheadText: false,
     subheadSize: '',
+    subheadTag: '',
     dateText: undefined,
     dateSize: undefined,
     authors: '',
