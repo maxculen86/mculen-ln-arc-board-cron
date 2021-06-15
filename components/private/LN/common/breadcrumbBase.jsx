@@ -16,7 +16,7 @@ const getListSections = (sections, extraOpts, host, colorCategory) =>
                 className="com-link --fourxs"
                 key={path}
                 href={`${path}/`}
-                title={`Ir a las nota de ${section.name}`}
+                title={`Ir a ${section.name}`}
                 {...extraOpts}
                 //style={{ color: colorCategory, borderLeftColor: colorCategory }}
 

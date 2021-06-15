@@ -22,7 +22,7 @@ const ModAutor = props => {
                     <ModImage
                         link={author.link}
                         src={foto}
-                        alt={`Ir a las notas de ${author.name}`}
+                        alt={`Ir a notas de ${author.name}`}
                         amp={amp}
                     />
                 </div>

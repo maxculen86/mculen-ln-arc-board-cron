@@ -14,7 +14,7 @@ const ModFirma = props => {
                         textname={author.name}
                         link={author.link}
                         classCondition={classCondition}
-                        title={`Ir a las notas de ${author.name}`}
+                        title={`Ir a notas de ${author.name}`}
                     />
                 ))}
         </div>

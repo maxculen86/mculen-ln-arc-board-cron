@@ -30,7 +30,7 @@ const TaxonomyImportantList = ({ list, destacado }) => {
                     link={v.type === 'tag' ? `/tema/${v.path}/` : `${v.path}/`}
                     keytext={v.text}
                     classCondition="com-button --secondary --compact"
-                    title={`Ir a las notas de ${v.text}`}
+                    title={`Ir a notas de ${v.text}`}
                 >
                     {/* <ComButton
                         classesNames="--secondary"
