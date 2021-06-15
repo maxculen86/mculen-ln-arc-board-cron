@@ -1,6 +1,7 @@
 import React from 'react';
 import { useContent } from 'fusion:content';
 import Subheader from '../../private/LN/common/header/subHeader';
+import withStatic from '../../private/common/hocs/withStatic';
 
 const SubHeader = () => {
     const { data: dolar } = useContent({ source: 'dolarSource' }) || {};
@@ -11,4 +12,4 @@ const SubHeader = () => {
 
 SubHeader.label = 'LN Subheader Home';
 
-export default SubHeader;
+export default withStatic(SubHeader);

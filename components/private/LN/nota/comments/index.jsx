@@ -319,6 +319,7 @@ const Comments = props => {
                             type="button"
                             className="item_link ver-legales"
                             onClick={onShowLegal}
+                            title="Ver legales"
                         >
                             {' '}
                             Ver legales

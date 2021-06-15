@@ -2,6 +2,10 @@ import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { pipe } from '../../../common/utils/functional';
 import ListMenu from './listMenu';
+import ComLogo from '../../../common/com-logo';
+import ComIcon from '../../../common/com-icon';
+import ComButton from '../../../common/com-button';
+
 import '../../../../../resources/dist/css/ln/components/dropdown.css';
 
 const handleScroll = comDromdownRef => {
@@ -129,37 +133,19 @@ const Desplegable = ({ toglleDesplegable }) => {
                 onMouseDown={toglleDesplegable}
             />
             <div className="com-dropdown" ref={comDromdownRef}>
-                <section className="header__dropdown row">
-                    <div className="logo__dropdown col-10">
-                        <a
-                            href="https://www.lanacion.com.ar/"
-                            title="LA NACION"
-                        >
-                            <i className="logo-la-nacion" />
-                        </a>
-                    </div>
-                    <div
-                        className="close__dropdown col-2"
-                        role="button"
-                        tabIndex="0"
+                <section className="header__dropdown">
+                    <ComLogo
+                        color
+                        logoName="la-nacion"
+                        href="https://www.lanacion.com.ar/"
+                        title="Ir a la página principal"
+                    />
+                    <ComButton
+                        iconName="close"
                         title="Cerrar"
+                        tabIndex="0"
                         onMouseDown={toglleDesplegable}
-                    >
-                        <i className="icon-close" />
-                    </div>
-                    {/* <div className="search__dropdown row">
-                        <div className="col-12 content-input">
-                            <input
-                                type="search"
-                                name="busqueda"
-                                id="txtBusqueda"
-                                data-id="buscador"
-                                className="input-buscador"
-                                placeholder="Buscar"
-                            />
-                            <i className="icon-search" />
-                        </div>
-                    </div> */}
+                    />
                 </section>
                 <section className="menu__dropdown">
                     <nav className="nav__dropdown">

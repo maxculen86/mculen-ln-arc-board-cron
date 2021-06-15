@@ -2,6 +2,7 @@
 import React, { useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
+import Static from 'fusion:static';
 import get from '../../private/common/utils/get';
 import throttle from '../../private/common/utils/throttle';
 import Header from '../../private/LN/common/header';
@@ -606,7 +607,9 @@ const LNMainHome = props => {
                             </div>
                         </div>
                     </main>
-                    <Footer home />
+                    <Static id="StaticFooter">
+                        <Footer home />
+                    </Static>
                 </div>
                 <LoadBanners blocksBanners={blocksBanners.bloque1} />
                 {blocksToLoad.bloque2 && (

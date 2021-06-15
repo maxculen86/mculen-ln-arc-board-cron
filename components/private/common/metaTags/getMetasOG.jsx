@@ -140,7 +140,7 @@ const getMetasOG = props => {
         });
     }
 
-    if (section === 'home') {
+    if (['home', 'nota', 'acumulado'].includes(section)) {
         metas.push({
             property: 'og:site_name',
             content: siteProperties.title
