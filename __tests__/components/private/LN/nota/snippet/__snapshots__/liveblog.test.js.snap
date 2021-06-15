@@ -1,0 +1,180 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Private - LN - nota - snippet - liveblog  Snapshot Snippet Liveblog 1`] = `
+<script
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "{
+  \\"@context\\": \\"https://schema.org\\",
+  \\"@type\\": \\"LiveBlogPosting\\",
+  \\"publisher\\": {
+    \\"@type\\": \\"Organization\\",
+    \\"name\\": \\"\\",
+    \\"url\\": \\"https://www.lanacion.com.ar\\",
+    \\"logo\\": {
+      \\"@context\\": \\"https://schema.org\\",
+      \\"@type\\": \\"ImageObject\\",
+      \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST\\",
+      \\"height\\": 41,
+      \\"width\\": 391
+    }
+  },
+  \\"url\\": \\"https://www.lanacion.com.ar/arquitectura/nota-de-prueba-foto-al-100-nid25062020/\\",
+  \\"@id\\": \\"#liveBlogPosting\\",
+  \\"description\\": \\"Esta es la prueba de la bajada en Foto al 100\\",
+  \\"coverageStartTime\\": \\"2020-06-25T16:39:44.527Z\\",
+  \\"coverageEndTime\\": \\"2020-06-25T17:39:38.448Z\\",
+  \\"name\\": \\"Nota de prueba Foto al 100\\",
+  \\"liveBlogUpdate\\": [
+    {
+      \\"@type\\": \\"BlogPosting\\",
+      \\"headline\\": \\"Esta es la prueba de la bajada en Foto al 100\\",
+      \\"url\\": \\"https://www.lanacion.com.ar/arquitectura/nota-de-prueba-foto-al-100-nid25062020#parrafo_1\\",
+      \\"@id\\": \\"#parrafo_1\\",
+      \\"mainEntityOfPage\\": {
+        \\"@type\\": \\"WebPage\\"
+      },
+      \\"datePublished\\": \\"2020-06-25T16:49:44.527Z\\",
+      \\"dateModified\\": \\"2020-06-25T16:49:44.527Z\\",
+      \\"articleBody\\": \\"S<a href=\\\\\\"https://www.lanacion.com.ar/el-mundo/primer-latinoamericano-pasajero-argentino-del-crucero-japon-nid2331517\\\\\\" target=_blank>e trata del primer caso confirmado</a> de un latinoamericano diagnosticado con esta enfermedad que se haya anunciado hasta el momento. <a href=\\\\\\"https://www.lanacion.com.ar/el-mundo/de-crucero-de-lujo-a-carcel-flotante-el-drama-de-una-cuarentena-a-bordo-nid2331408\\\\\\" target=_blank>El crucero</a> , que llegó el lunes por la noche a las inmediaciones del puerto de <b>Yokohama </b>, al suroeste de Tokio, tiene unos <a href=\\\\\\"https://www.lanacion.com.ar/el-mundo/primer-latinoamericano-pasajero-argentino-del-crucero-japon-nid2331517\\\\\\" target=_blank><b>3.700 pasajeros</b></a> y tripulantes, de los cuales 273 se sometieron a las pruebas de detección. Permanecerían en cuarentena hasta el 19 de febrero.\\",
+      \\"image\\": {
+        \\"@type\\": \\"ImageObject\\",
+        \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST\\"
+      },
+      \\"author\\": {
+        \\"@type\\": \\"PERSON\\",
+        \\"name\\": \\"Redacción LA NACION\\"
+      },
+      \\"publisher\\": {
+        \\"name\\": \\"LA NACION\\",
+        \\"@type\\": \\"Organization\\"
+      }
+    },
+    {
+      \\"@type\\": \\"BlogPosting\\",
+      \\"headline\\": \\"Esta es la prueba de la bajada en Foto al 100\\",
+      \\"url\\": \\"https://www.lanacion.com.ar/arquitectura/nota-de-prueba-foto-al-100-nid25062020#parrafo_2\\",
+      \\"@id\\": \\"#parrafo_2\\",
+      \\"mainEntityOfPage\\": {
+        \\"@type\\": \\"WebPage\\"
+      },
+      \\"datePublished\\": \\"2020-06-25T16:59:44.527Z\\",
+      \\"dateModified\\": \\"2020-06-25T16:59:44.527Z\\",
+      \\"articleBody\\": \\"<b>El nombre de Squeff </b>, muy cercana al kirchnerismo, comenzó a sonar en los pasillos de la Cancillería luego del traspié del Gobierno tras <a href=\\\\\\"https://www.lanacion.com.ar/politica/antes-del-viaje-alberto-fernandez-se-cayo-nid2324570\\\\\\" target=_blank>la caída sorpresiva de la postulación de Luis Bellando</a> , otro diplomático de carrera, para representar al país en la Santa Sede.\\",
+      \\"image\\": {
+        \\"@type\\": \\"ImageObject\\",
+        \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST\\"
+      },
+      \\"author\\": {
+        \\"@type\\": \\"PERSON\\",
+        \\"name\\": \\"Redacción LA NACION\\"
+      },
+      \\"publisher\\": {
+        \\"name\\": \\"LA NACION\\",
+        \\"@type\\": \\"Organization\\"
+      }
+    },
+    {
+      \\"@type\\": \\"BlogPosting\\",
+      \\"headline\\": \\"Esta es la prueba de la bajada en Foto al 100\\",
+      \\"url\\": \\"https://www.lanacion.com.ar/arquitectura/nota-de-prueba-foto-al-100-nid25062020#parrafo_3\\",
+      \\"@id\\": \\"#parrafo_3\\",
+      \\"mainEntityOfPage\\": {
+        \\"@type\\": \\"WebPage\\"
+      },
+      \\"datePublished\\": \\"2020-06-25T17:09:44.527Z\\",
+      \\"dateModified\\": \\"2020-06-25T17:09:44.527Z\\",
+      \\"articleBody\\": \\"En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo que vivía un hidalgo de los de lanza en astillero.\\",
+      \\"image\\": {
+        \\"@type\\": \\"ImageObject\\",
+        \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST\\"
+      },
+      \\"author\\": {
+        \\"@type\\": \\"PERSON\\",
+        \\"name\\": \\"Redacción LA NACION\\"
+      },
+      \\"publisher\\": {
+        \\"name\\": \\"LA NACION\\",
+        \\"@type\\": \\"Organization\\"
+      }
+    },
+    {
+      \\"@type\\": \\"BlogPosting\\",
+      \\"headline\\": \\"Esta es la prueba de la bajada en Foto al 100\\",
+      \\"url\\": \\"https://www.lanacion.com.ar/arquitectura/nota-de-prueba-foto-al-100-nid25062020#parrafo_4\\",
+      \\"@id\\": \\"#parrafo_4\\",
+      \\"mainEntityOfPage\\": {
+        \\"@type\\": \\"WebPage\\"
+      },
+      \\"datePublished\\": \\"2020-06-25T17:19:44.527Z\\",
+      \\"dateModified\\": \\"2020-06-25T17:19:44.527Z\\",
+      \\"articleBody\\": \\"Quieren decir que tenía el sobrenombre de Quijada, o Quesada, que en esto hay alguna diferencia en los autores que deste caso escriben.\\",
+      \\"image\\": {
+        \\"@type\\": \\"ImageObject\\",
+        \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST\\"
+      },
+      \\"author\\": {
+        \\"@type\\": \\"PERSON\\",
+        \\"name\\": \\"Redacción LA NACION\\"
+      },
+      \\"publisher\\": {
+        \\"name\\": \\"LA NACION\\",
+        \\"@type\\": \\"Organization\\"
+      }
+    },
+    {
+      \\"@type\\": \\"BlogPosting\\",
+      \\"headline\\": \\"Esta es la prueba de la bajada en Foto al 100\\",
+      \\"url\\": \\"https://www.lanacion.com.ar/arquitectura/nota-de-prueba-foto-al-100-nid25062020#parrafo_5\\",
+      \\"@id\\": \\"#parrafo_5\\",
+      \\"mainEntityOfPage\\": {
+        \\"@type\\": \\"WebPage\\"
+      },
+      \\"datePublished\\": \\"2020-06-25T17:29:44.527Z\\",
+      \\"dateModified\\": \\"2020-06-25T17:29:44.527Z\\",
+      \\"articleBody\\": \\"<b>El nombre de Squeff </b>, muy cercana al kirchnerismo, comenzó a sonar en los pasillos de la Cancillería luego del traspié del Gobierno tras <a href=\\\\\\"https://www.lanacion.com.ar/politica/antes-del-viaje-alberto-fernandez-se-cayo-nid2324570\\\\\\" target=_blank>la caída sorpresiva de la postulación de Luis Bellando</a> , otro diplomático de carrera, para representar al país en la Santa Sede.\\",
+      \\"image\\": {
+        \\"@type\\": \\"ImageObject\\",
+        \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST\\"
+      },
+      \\"author\\": {
+        \\"@type\\": \\"PERSON\\",
+        \\"name\\": \\"Redacción LA NACION\\"
+      },
+      \\"publisher\\": {
+        \\"name\\": \\"LA NACION\\",
+        \\"@type\\": \\"Organization\\"
+      }
+    },
+    {
+      \\"@type\\": \\"BlogPosting\\",
+      \\"headline\\": \\"Esta es la prueba de la bajada en Foto al 100\\",
+      \\"url\\": \\"https://www.lanacion.com.ar/arquitectura/nota-de-prueba-foto-al-100-nid25062020#parrafo_6\\",
+      \\"@id\\": \\"#parrafo_6\\",
+      \\"mainEntityOfPage\\": {
+        \\"@type\\": \\"WebPage\\"
+      },
+      \\"datePublished\\": \\"2020-06-25T17:39:44.527Z\\",
+      \\"dateModified\\": \\"2020-06-25T17:39:44.527Z\\",
+      \\"articleBody\\": \\"<b>El nombre de Squeff </b>, muy cercana al kirchnerismo, comenzó a sonar en los pasillos de la Cancillería luego del traspié del Gobierno tras <a href=\\\\\\"https://www.lanacion.com.ar/politica/antes-del-viaje-alberto-fernandez-se-cayo-nid2324570\\\\\\" target=_blank>la caída sorpresiva de la postulación de Luis Bellando</a> , otro diplomático de carrera, para representar al país en la Santa Sede.\\",
+      \\"image\\": {
+        \\"@type\\": \\"ImageObject\\",
+        \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST\\"
+      },
+      \\"author\\": {
+        \\"@type\\": \\"PERSON\\",
+        \\"name\\": \\"Redacción LA NACION\\"
+      },
+      \\"publisher\\": {
+        \\"name\\": \\"LA NACION\\",
+        \\"@type\\": \\"Organization\\"
+      }
+    }
+  ]
+}",
+    }
+  }
+  id="Schema_LiveBlog"
+  type="application/ld+json"
+/>
+`;

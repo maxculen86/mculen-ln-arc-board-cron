@@ -43,7 +43,7 @@ function formatDateHoursMinAndSecond(originalDate) {
     )}:${`00${date.getSeconds()}`.slice(-2)}`;
 }
 
-function formatDateTreeHoursMore(originalDate) {
+export function formatDateTreeHoursMore(originalDate) {
     return new Date(originalDate - 3600000 * 3);
 }
 
@@ -131,4 +131,15 @@ export function convertToFormat(dateInJS) {
         .toString()
         .padStart(2, '0')}`;
     return dateFormated;
+}
+
+export function differenceInMinutes(firstDate, secondDate) {
+    const date1 = new Date(firstDate);
+    const date2 = new Date(secondDate);
+
+    return Math.ceil((date2 - date1) / (1000 * 60));
+}
+
+export function addMinutes(date, minutes) {
+    return new Date(date.getTime() + minutes * 60000);
 }
