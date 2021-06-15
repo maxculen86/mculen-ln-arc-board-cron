@@ -125,7 +125,11 @@ const SnippetLiveblog = props => {
         description: subheadlines && subheadlines.basic,
         coverageStartTime: formatDateTreeHoursMore(new Date(firstPublishDate)),
         coverageEndTime: formatDateTreeHoursMore(new Date(lastUpdatedDate)),
-        name: headlines && `${headlines.basic || 'LA NACION - Noticia'}`, // "titulo meta o basico de la nota",
+        name:
+            headlines &&
+            `${headlines.meta_title ||
+                headlines.basic ||
+                'LA NACION - Noticia'}`,
         liveBlogUpdate: blogObjects
     };
 

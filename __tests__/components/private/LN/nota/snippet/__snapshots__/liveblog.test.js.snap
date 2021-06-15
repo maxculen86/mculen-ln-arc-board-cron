@@ -24,7 +24,7 @@ exports[`Private - LN - nota - snippet - liveblog  Snapshot Snippet Liveblog 1`]
   \\"description\\": \\"Esta es la prueba de la bajada en Foto al 100\\",
   \\"coverageStartTime\\": \\"2020-06-25T16:39:44.527Z\\",
   \\"coverageEndTime\\": \\"2020-06-25T17:39:38.448Z\\",
-  \\"name\\": \\"Nota de prueba Foto al 100\\",
+  \\"name\\": \\"Meta titulo\\",
   \\"liveBlogUpdate\\": [
     {
       \\"@type\\": \\"BlogPosting\\",

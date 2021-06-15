@@ -62,7 +62,7 @@ describe('Private - LN - nota - snippet - liveblog ', () => {
             siteProperties: { host },
             globalContent: {
                 canonical_url,
-                headlines: { basic: title },
+                headlines: { basic: title, meta_title: metaTitle },
                 credits: { by },
                 first_publish_date: firstPublishDate,
                 last_updated_date: lastUpdatedDate
@@ -97,7 +97,7 @@ describe('Private - LN - nota - snippet - liveblog ', () => {
 
         expect(context).toBe('https://schema.org');
         expect(type).toBe('LiveBlogPosting');
-        expect(name).toBe(title);
+        expect(name).toBe(metaTitle);
         expect(url).toBe(`${host}${canonical_url}`);
         expect(coverageStartTime).toBe(
             formatDateTreeHoursMore(new Date(firstPublishDate)).toISOString()
