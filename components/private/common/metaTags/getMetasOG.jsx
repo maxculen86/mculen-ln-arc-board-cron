@@ -106,7 +106,6 @@ const getData = ({
 const getMetasOG = props => {
     const data = getData(props);
     const { section, siteProperties } = props;
-    console.log('CONSOLE LOOOOOOOG', section);
     const metas = [
         {
             property: 'fb_app_id',
