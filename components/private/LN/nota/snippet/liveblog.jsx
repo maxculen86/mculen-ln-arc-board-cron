@@ -28,6 +28,8 @@ const calculateDateModified = (
     totalElements,
     index
 ) => {
+    if (index === 1) return new Date(firstPublishDate);
+
     const minutesToAdd = (minutes / totalElements) * index;
 
     return addMinutes(new Date(firstPublishDate), minutesToAdd);
