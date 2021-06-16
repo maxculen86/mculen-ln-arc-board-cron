@@ -10,16 +10,12 @@ const cuerpo = props => {
         ...props,
         bannerConfig
     };
-
-    //console.log(bannerConfig);
     // eslint-disable-next-line react/jsx-props-no-spreading
     return <Cuerpo {...properties} />;
 };
 
 // TODO: improve this function's algorithm
 const groupBannerConfig = props => {
-    console.log(props);
-
     const optionsSet = Object.keys(props.customFields);
 
     const numberGroups = optionsSet
