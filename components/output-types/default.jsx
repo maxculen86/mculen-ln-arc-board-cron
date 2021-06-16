@@ -30,7 +30,6 @@ import getFirstParagraph from '../private/common/utils/getFirstParagraph';
 import getSectionName from '../private/LN/common/utils/getSectionName';
 import Syndication from '../private/common/syndication';
 import LinkAmpHTML from '../private/common/linkAmpHTML';
-import LinkCssPreload from '../private/common/linkCssPreload';
 import { pipe } from '../private/common/utils/functional';
 import Pwa from '../private/common/scriptManager/pwa';
 import PwaModals from '../private/LN/common/pwaModals';
@@ -99,13 +98,6 @@ const getBodyClass = props => {
     return undefined;
 };
 const pathCss = `${paths.outputPath.base}/${paths.outputPath.css}`;
-
-const fontsToPreload = [
-    'lana-icons-v1.woff',
-    'lana-logos-v1.woff',
-    'suecaslab-bold-webfont.woff',
-    'suecaslab-medium-webfont.woff'
-];
 
 const Default = props => {
     const {
@@ -191,13 +183,6 @@ const Default = props => {
             <head>
                 <meta charset="utf-8" />
                 <title>{title}</title>
-                {fontsToPreload.map(font => (
-                    <LinkCssPreload
-                        href={deployment(
-                            `${contextPath}/resources/dist/fonts/${font}`
-                        )}
-                    />
-                ))}
                 {arcSite === 'ott' ? (
                     <link
                         rel="stylesheet"
