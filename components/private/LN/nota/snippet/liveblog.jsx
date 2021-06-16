@@ -47,7 +47,7 @@ const buildBlogObjects = (globalContent, url, PLACEHOLDER) => {
 
     const headline = get(
         globalContent,
-        'headline.basic',
+        'headlines.basic',
         'LA NACION - Noticia'
     );
 

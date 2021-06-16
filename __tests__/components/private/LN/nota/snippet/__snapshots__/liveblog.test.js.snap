@@ -28,7 +28,7 @@ exports[`Private - LN - nota - snippet - liveblog  Snapshot Snippet Liveblog 1`]
   \\"liveBlogUpdate\\": [
     {
       \\"@type\\": \\"BlogPosting\\",
-      \\"headline\\": \\"LA NACION - Noticia\\",
+      \\"headline\\": \\"Nota de prueba Foto al 100\\",
       \\"url\\": \\"https://www.lanacion.com.ar/arquitectura/nota-de-prueba-foto-al-100-nid25062020#parrafo_1\\",
       \\"@id\\": \\"#parrafo_1\\",
       \\"mainEntityOfPage\\": {
@@ -52,7 +52,7 @@ exports[`Private - LN - nota - snippet - liveblog  Snapshot Snippet Liveblog 1`]
     },
     {
       \\"@type\\": \\"BlogPosting\\",
-      \\"headline\\": \\"LA NACION - Noticia\\",
+      \\"headline\\": \\"Nota de prueba Foto al 100\\",
       \\"url\\": \\"https://www.lanacion.com.ar/arquitectura/nota-de-prueba-foto-al-100-nid25062020#parrafo_2\\",
       \\"@id\\": \\"#parrafo_2\\",
       \\"mainEntityOfPage\\": {
@@ -76,7 +76,7 @@ exports[`Private - LN - nota - snippet - liveblog  Snapshot Snippet Liveblog 1`]
     },
     {
       \\"@type\\": \\"BlogPosting\\",
-      \\"headline\\": \\"LA NACION - Noticia\\",
+      \\"headline\\": \\"Nota de prueba Foto al 100\\",
       \\"url\\": \\"https://www.lanacion.com.ar/arquitectura/nota-de-prueba-foto-al-100-nid25062020#parrafo_3\\",
       \\"@id\\": \\"#parrafo_3\\",
       \\"mainEntityOfPage\\": {
@@ -100,7 +100,7 @@ exports[`Private - LN - nota - snippet - liveblog  Snapshot Snippet Liveblog 1`]
     },
     {
       \\"@type\\": \\"BlogPosting\\",
-      \\"headline\\": \\"LA NACION - Noticia\\",
+      \\"headline\\": \\"Nota de prueba Foto al 100\\",
       \\"url\\": \\"https://www.lanacion.com.ar/arquitectura/nota-de-prueba-foto-al-100-nid25062020#parrafo_4\\",
       \\"@id\\": \\"#parrafo_4\\",
       \\"mainEntityOfPage\\": {
@@ -124,7 +124,7 @@ exports[`Private - LN - nota - snippet - liveblog  Snapshot Snippet Liveblog 1`]
     },
     {
       \\"@type\\": \\"BlogPosting\\",
-      \\"headline\\": \\"LA NACION - Noticia\\",
+      \\"headline\\": \\"Nota de prueba Foto al 100\\",
       \\"url\\": \\"https://www.lanacion.com.ar/arquitectura/nota-de-prueba-foto-al-100-nid25062020#parrafo_5\\",
       \\"@id\\": \\"#parrafo_5\\",
       \\"mainEntityOfPage\\": {
@@ -148,7 +148,7 @@ exports[`Private - LN - nota - snippet - liveblog  Snapshot Snippet Liveblog 1`]
     },
     {
       \\"@type\\": \\"BlogPosting\\",
-      \\"headline\\": \\"LA NACION - Noticia\\",
+      \\"headline\\": \\"Nota de prueba Foto al 100\\",
       \\"url\\": \\"https://www.lanacion.com.ar/arquitectura/nota-de-prueba-foto-al-100-nid25062020#parrafo_6\\",
       \\"@id\\": \\"#parrafo_6\\",
       \\"mainEntityOfPage\\": {
