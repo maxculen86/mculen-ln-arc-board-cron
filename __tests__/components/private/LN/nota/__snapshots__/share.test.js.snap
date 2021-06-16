@@ -13,7 +13,8 @@ exports[`Share Matches snapshot 1`] = `
       data-event=""
       data-section=""
       id=""
-      title="Facebook"
+      on=""
+      title="Compartir la nota en Facebook"
       type="button"
     >
       <i
@@ -25,7 +26,8 @@ exports[`Share Matches snapshot 1`] = `
       data-event=""
       data-section=""
       id=""
-      title="Twitter"
+      on=""
+      title="Compartir la nota en Twitter"
       type="button"
     >
       <i
@@ -37,7 +39,8 @@ exports[`Share Matches snapshot 1`] = `
       data-event=""
       data-section=""
       id="whatsAppShareDesktop"
-      title="WhatsApp"
+      on=""
+      title="Compartir la nota en WhatsApp"
       type="button"
     >
       <i
@@ -56,7 +59,8 @@ exports[`Share Matches snapshot 1`] = `
       data-event=""
       data-section=""
       id=""
-      title="E-mail"
+      on=""
+      title="Compartir la nota por E-mail"
       type="button"
     >
       <i
@@ -68,7 +72,8 @@ exports[`Share Matches snapshot 1`] = `
       data-event=""
       data-section=""
       id=""
-      title="Comentar"
+      on=""
+      title="Ir a los comentarios de la nota"
       type="button"
     >
       <i
@@ -103,7 +108,8 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
       data-event=""
       data-section=""
       id=""
-      title="Facebook"
+      on=""
+      title="Compartir la nota en Facebook"
       type="button"
     >
       <i
@@ -115,7 +121,8 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
       data-event=""
       data-section=""
       id=""
-      title="Twitter"
+      on=""
+      title="Compartir la nota en Twitter"
       type="button"
     >
       <i
@@ -127,7 +134,8 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
       data-event=""
       data-section=""
       id="whatsAppShareDesktop"
-      title="WhatsApp"
+      on=""
+      title="Compartir la nota en WhatsApp"
       type="button"
     >
       <i
@@ -146,7 +154,8 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
       data-event=""
       data-section=""
       id=""
-      title="E-mail"
+      on=""
+      title="Compartir la nota por E-mail"
       type="button"
     >
       <i

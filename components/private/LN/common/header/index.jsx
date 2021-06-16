@@ -151,16 +151,16 @@ class Index extends Component {
                     host={host}
                     headerDark={headerDark}
                 />
-                <>
-                    <NavBarMobile
-                        toglleDesplegable={this.toglleDesplegable}
-                        showNav={
-                            scrollDirection.isScrollDown
-                                ? ` ${CLASS_SCROLL_DOWN}`
-                                : ''
-                        }
-                    />
-                </>
+
+                <NavBarMobile
+                    toglleDesplegable={this.toglleDesplegable}
+                    // showNav={
+                    //     scrollDirection.isScrollDown
+                    //         ? ` ${CLASS_SCROLL_DOWN}`
+                    //         : ''
+                    // }
+                />
+
                 <Desplegable toglleDesplegable={this.toglleDesplegable} />
             </>
         );

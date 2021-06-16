@@ -80,6 +80,7 @@ const ListMenu = ({
                     className="link__item"
                     data-event="LinkClick"
                     data-section="MenuLN"
+                    title={`Ir a ${name}`}
                 >
                     {name}
                 </a>
