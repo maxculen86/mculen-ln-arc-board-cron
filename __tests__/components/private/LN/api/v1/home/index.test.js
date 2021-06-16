@@ -35,7 +35,7 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
                 layout: 'focalLeft3',
                 initialPosition: 1,
                 hideTitle: true,
-                containerImage: undefined
+                image: undefined
             }
         },
         {
@@ -3921,7 +3921,7 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
     //                 layout: 'focalLeft3',
     //                 initialPosition: 1,
     //                 hideTitle: false,
-    //                 containerImage: undefined,
+    //                 image: undefined,
     //                 title: 'Mi techo abc'
     //             },
     //             configurations: {
