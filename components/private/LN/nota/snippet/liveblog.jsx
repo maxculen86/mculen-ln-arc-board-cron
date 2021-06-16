@@ -6,7 +6,7 @@ import getAssetsPath from '../../../common/utils/getAssetsPath';
 import getAuthorByline from '../../../common/utils/getAuthorByline';
 import get from '../../../common/utils/get';
 import {
-    addMinutes,
+    restMinutes,
     differenceInMinutes,
     formatDateTreeHoursMore
 } from '../../../common/utils/dateAndTimeUtil';
@@ -23,16 +23,16 @@ const extracDataFromCredits = by => {
 };
 
 const calculateDateModified = (
-    firstPublishDate,
+    lastUpdatedDate,
     minutes,
     totalElements,
     index
 ) => {
-    if (index === 1) return new Date(firstPublishDate);
+    if (index === 1) return new Date(lastUpdatedDate);
 
     const minutesToAdd = (minutes / totalElements) * index;
 
-    return addMinutes(new Date(firstPublishDate), minutesToAdd);
+    return restMinutes(new Date(lastUpdatedDate), minutesToAdd);
 };
 
 const buildBlogObjects = (globalContent, url, PLACEHOLDER) => {
@@ -47,8 +47,8 @@ const buildBlogObjects = (globalContent, url, PLACEHOLDER) => {
 
     const headline = get(
         globalContent,
-        'subheadlines.basic',
-        get(globalContent, 'headline.basic', 'LA NACION - Noticia')
+        'headline.basic',
+        'LA NACION - Noticia'
     );
 
     const minutes = differenceInMinutes(firstPublishDate, lastUpdatedDate);
@@ -57,7 +57,7 @@ const buildBlogObjects = (globalContent, url, PLACEHOLDER) => {
 
     return textElements.map((elem, i) => {
         const dateModified = calculateDateModified(
-            firstPublishDate,
+            lastUpdatedDate,
             minutes,
             textElements.length,
             i + 1

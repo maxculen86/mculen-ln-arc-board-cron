@@ -3,7 +3,7 @@ import { render, mount } from 'enzyme';
 import SnippetLiveblog from '../../../../../../components/private/LN/nota/snippet/liveblog';
 import article from '../../../../../../__mocks__/data/articles/YODTB72QWJCR7AAC3AHCCV46CM';
 import {
-    addMinutes,
+    restMinutes,
     differenceInMinutes,
     formatDateTreeHoursMore
 } from '../../../../../../components/private/common/utils/dateAndTimeUtil';
@@ -133,11 +133,11 @@ describe('Private - LN - nota - snippet - liveblog ', () => {
 
     it('Add minutes to first_publish_date in Liveblog', () => {
         const minutes1 = 2;
-        const newDate = addMinutes(
-            new Date(props.globalContent.first_publish_date),
+        const newDate = restMinutes(
+            new Date(props.globalContent.last_updated_date),
             minutes1
         );
-        expect(newDate.toISOString()).toEqual('2020-06-25T19:41:44.527Z');
+        expect(newDate.toISOString()).toEqual('2020-06-25T20:37:38.448Z');
     });
 
     it('Difference in minutes between last_updated_date and first_publish_date in Liveblog', () => {
