@@ -50,7 +50,7 @@ const ModSubheader = props => {
                         dataSection="MenuLN"
                         link="https://club.lanacion.com.ar/"
                         size="--fourxs"
-                        title="Club LA NACION"
+                        title="Ir a Club LA NACION"
                     >
                         <ComLogo logoName="club" size="--xs" />
                         Descubrí tus beneficos

@@ -12,7 +12,9 @@ const getContent = element => {
             ? `<span class="hlp-bold">${element.label.volanta.text}</span>&nbsp;`
             : '';
 
-    const content = element.headlines.mobile ? `${span} ${element.headlines.mobile}` : element.headlines.basic;
+    const content = element.headlines.mobile
+        ? `${span} ${element.headlines.mobile}`
+        : element.headlines.basic;
 
     return content;
 };
@@ -42,6 +44,7 @@ const Index = ({ relatedContent = [] }) => {
                         <ComLink
                             link={element.website_url || element.canonical_url}
                             size="--twoxs"
+                            title={content}
                         >
                             {content}
                         </ComLink>

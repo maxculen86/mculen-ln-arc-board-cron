@@ -8,6 +8,7 @@ class CajaManual {
         this.props = props;
 
         const imageId = get(props, 'customFields.imageId', '');
+
         if (imageId) {
             this.fetchContent({
                 containerImage: {

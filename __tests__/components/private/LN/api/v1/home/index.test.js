@@ -1,77 +1,6 @@
 import index from '../../../../../../../components/private/LN/api/v1/home/index';
 
 describe('components - private - LN - api - v1 - home - index.js', () => {
-    let homeSections = [
-        {
-            type: 0,
-            feature: 'Apertura',
-            information: {
-                layout: 'focalLeft3',
-                backgroundColor: 'default',
-                initialPosition: 1,
-                hideTitle: false,
-                idCollection: 'QJ3BOEZVQNEYZEVBXHF4C7KAWY',
-                title: 'Apertura',
-                pbInternal_cloneId: 'c0ffOCwkYqcA22',
-                image: undefined
-            }
-        },
-        {
-            id: 402,
-            type: 1,
-            feature: 'Banner',
-            position: 'bottom'
-        },
-        {
-            id: 403,
-            type: 1,
-            feature: 'Banner',
-            position: 'start'
-        },
-        {
-            type: 0,
-            feature: 'Tema1',
-            information: {
-                layout: 'focalLeft3',
-                initialPosition: 1,
-                hideTitle: true,
-                containerImage: undefined
-            }
-        },
-        {
-            id: 404,
-            type: 1,
-            feature: 'Banner',
-            position: 'start'
-        },
-        {
-            type: 0,
-            feature: 'Tema2',
-            information: {
-                layout: 'grilla3',
-                backgroundColor: 'default',
-                initialPosition: 1,
-                hideTitle: false,
-                idCollection: 'WM5DMXURZJBZZASUK356FPQNUI',
-                title: 'Breaking 3',
-                image: undefined
-            }
-        },
-        {
-            type: 0,
-            feature: 'Comercial',
-            information: {
-                layout: 'grilla3',
-                backgroundColor: 'default',
-                initialPosition: 1,
-                hideTitle: false,
-                idCollection: 'WM5DMXURZJBZZASUK356FPQNUI',
-                title: 'Comercial 2',
-                image: undefined
-            }
-        }
-    ];
-
     const articlesCollections = [
         {
             _id: 'ZTYQMEK7ZBBORNEKA6IQDMYQOM',
@@ -3811,27 +3740,359 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
             }
         }
     ];
-    // it('Testeo Secciones Cajas OK', () => {
-    //     const home = index(homeSections) || [];
-    //     expect(home[0][0].tipoSeccion).toBe('apertura');
-    // });
 
-    // it('Testeo Secciones Seccion Apertura sin information', () => {
-    //     const Seccion = [
-    //         {
-    //             type: 0,
-    //             feature: 'Apertura'
-    //         }
-    //     ];
-    //     try {
-    //         const home = index(Seccion) || [];
-    //         expect(home.length).toBe(null);
-    //     } catch (err) {
-    //         expect(err.message).toBe(
-    //             "Cannot read property 'layout' of undefined"
-    //         );
-    //     }
-    // });
+    const homeSections = [
+        {
+            type: 0,
+            feature: 'Anticipo',
+            information: {
+                hideCaja: false,
+                title: 'Anticipo',
+                url:
+                    'https://www.lanacion.com.ar/el-mundo/los-infectados-son-capaces-de-generar-anticuerpos-contra-el-coronavirus-durante-el-resto-de-su-vida-nid02062021/'
+            },
+            configurations: {
+                arcSite: 'la-nacion-ar'
+            }
+        },
+        {
+            type: 0,
+            feature: 'Apertura',
+            information: {
+                layout: 'focalLeft3',
+                backgroundColor: 'default',
+                initialPosition: 1,
+                hideTitle: false,
+                idCollection: 'QJ3BOEZVQNEYZEVBXHF4C7KAWY',
+                title: 'Apertura',
+                pbInternal_cloneId: 'c0ffOCwkYqcA22',
+                image: undefined
+            },
+            articles: articlesCollections
+        },
+        {
+            id: 402,
+            type: 1,
+            feature: 'Banner',
+            position: 'bottom'
+        },
+        {
+            id: 403,
+            type: 1,
+            feature: 'Banner',
+            position: 'start'
+        },
+        {
+            type: 0,
+            feature: 'Tema1',
+            information: {
+                layout: 'focalLeft3',
+                initialPosition: 1,
+                hideTitle: true,
+                image: {
+                    promo_items: {
+                        basic: {
+                            _id: 'XDW3TU62JRDFBPPR3C42T4MRMY',
+                            additional_properties: {
+                                fullSizeResizeUrl:
+                                    '/resizer/PRaa8uFpB995g77-mc1wesTbDiY=/arc-anglerfish-arc2-prod-lanacionar/public/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                                galleries: [],
+                                ingestionMethod: 'manual',
+                                mime_type: 'image/png',
+                                originalName: 'politica-home.png',
+                                originalUrl:
+                                    'https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                                owner: 'mralcobendas@lanacion.com.ar',
+                                proxyUrl:
+                                    '/resizer/PRaa8uFpB995g77-mc1wesTbDiY=/arc-anglerfish-arc2-prod-lanacionar/public/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                                published: true,
+                                resizeUrl:
+                                    '/resizer/PRaa8uFpB995g77-mc1wesTbDiY=/arc-anglerfish-arc2-prod-lanacionar/public/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                                restricted: false,
+                                thumbnailResizeUrl:
+                                    '/resizer/zWkAx9MA4fnR1lbA4P5KWcSEhQY=/300x0/arc-anglerfish-arc2-prod-lanacionar/public/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                                version: 0,
+                                template_id: 706
+                            },
+                            address: {},
+                            caption: 'cabezal home Política',
+                            created_date: '2021-06-09T00:23:17Z',
+                            credits: {
+                                affiliation: []
+                            },
+                            height: 513,
+                            image_type: 'photograph',
+                            last_updated_date: '2021-06-09T00:23:17Z',
+                            licensable: false,
+                            owner: {
+                                id: 'lanacionar',
+                                sponsored: false
+                            },
+                            source: {
+                                additional_properties: {
+                                    editor: 'photo center'
+                                },
+                                edit_url:
+                                    'https://lanacionar.arcpublishing.com/photo/XDW3TU62JRDFBPPR3C42T4MRMY',
+                                system: 'photo center'
+                            },
+                            type: 'image',
+                            url:
+                                'https://resizer.glanacion.com/resizer/BXJgIkahoP2Nb5mdTfdz7SLiL0c=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                            version: '0.10.3',
+                            width: 768,
+                            syndication: {},
+                            resized_urls: [
+                                {
+                                    resizedUrl:
+                                        'https://resizer.glanacion.com/resizer/goWKcDxIL8sX9PhnL2z3Tqa43PU=/222x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                                    option: {
+                                        width: 222,
+                                        height: 160,
+                                        media: '(min-width: 1024px)'
+                                    }
+                                }
+                            ],
+                            resized_urls_zoom: []
+                        }
+                    },
+                    _id:
+                        'faa5387d7c770f84fb427496280f183a5678bc0d27b8977ea4b3452bd81a7b46'
+                },
+                imageId: 'XDW3TU62JRDFBPPR3C42T4MRMY'
+            },
+            articles: articlesCollections
+        },
+        {
+            id: 404,
+            type: 1,
+            feature: 'Banner',
+            position: 'start'
+        },
+        {
+            type: 0,
+            feature: 'Tema2',
+            information: {
+                layout: 'grilla3',
+                backgroundColor: 'default',
+                initialPosition: 1,
+                hideTitle: false,
+                idCollection: 'WM5DMXURZJBZZASUK356FPQNUI',
+                title: 'Breaking 3',
+                image: undefined
+            },
+            articles: articlesCollections
+        },
+        {
+            type: 0,
+            feature: 'Comercial',
+            information: {
+                layout: 'grilla3',
+                backgroundColor: 'default',
+                initialPosition: 1,
+                hideTitle: false,
+                idCollection: 'WM5DMXURZJBZZASUK356FPQNUI',
+                title: 'Comercial 2',
+                image: undefined
+            },
+            articles: articlesCollections
+        },
+        {
+            type: 0,
+            feature: 'Opinion',
+            information: {
+                layout: 'grilla3',
+                backgroundColor: 'default',
+                initialPosition: 1,
+                hideTitle: false,
+                idCollection: 'WM5DMXURZJBZZASUK356FPQNUI',
+                title: 'Comercial 2',
+                image: undefined
+            }
+        },
+        {
+            type: 0,
+            feature: 'Anexo',
+            information: {
+                hideCaja: false,
+                layout: 'grilla1'
+            },
+            articles: [
+                {
+                    html:
+                        '<article style="width: 100%; position:relative;" class="toi9999 nid2702090" data-pos="9999" data-id="2702090" data-notaid="2702090" data-source="editor">\n<h2 class="content-titulo" style="display:none;">Década por década, las películas argentinas memorables</h2>\n<iframe frameborder="0" width="100%" height="300" class="pym" scrolling="no" src="https://especialess3.lanacion.com.ar/20/02/anexo-a-fondo/"></iframe>\n<a style="position:absolute;top:0;left:0;bottom:0;right:0;" href="/espectaculos/cine/cine-argentino-decada-por-decada-las-imperdibles-peliculas-que-marcaron-la-pantalla-grande-nid20052021/"></a>\n</article>'
+                }
+            ],
+            configurations: {
+                arcSite: 'la-nacion-ar'
+            }
+        },
+        {
+            type: 0,
+            feature: 'Tema4',
+            information: {
+                layout: 'focalLeft3',
+                initialPosition: 1,
+                hideTitle: false,
+                image: {
+                    promo_items: {
+                        basic: {
+                            _id: 'XDW3TU62JRDFBPPR3C42T4MRMY',
+                            type: 'video'
+                        }
+                    },
+                    _id:
+                        'faa5387d7c770f84fb427496280f183a5678bc0d27b8977ea4b3452bd81a7b46'
+                },
+                imageId: 'XDW3TU62JRDFBPPR3C42T4MRMY'
+            },
+            articles: articlesCollections
+        },
+        {
+            type: 0,
+            feature: 'Tema5',
+            information: {
+                layout: 'focalLeft3',
+                initialPosition: 1,
+                hideTitle: false
+            },
+            articles: articlesCollections
+        },
+        {
+            type: 0,
+            feature: 'Tema6',
+            information: {
+                layout: 'focalLeft3',
+                initialPosition: 1,
+                hideTitle: false,
+                image: {
+                    promo_items: {
+                        basic: {
+                            _id: 'XDW3TU62JRDFBPPR3C42T4MRMY',
+                            additional_properties: {
+                                fullSizeResizeUrl:
+                                    '/resizer/PRaa8uFpB995g77-mc1wesTbDiY=/arc-anglerfish-arc2-prod-lanacionar/public/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                                galleries: [],
+                                ingestionMethod: 'manual',
+                                mime_type: 'image/png',
+                                originalName: 'politica-home.png',
+                                originalUrl:
+                                    'https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                                owner: 'mralcobendas@lanacion.com.ar',
+                                proxyUrl:
+                                    '/resizer/PRaa8uFpB995g77-mc1wesTbDiY=/arc-anglerfish-arc2-prod-lanacionar/public/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                                published: true,
+                                resizeUrl:
+                                    '/resizer/PRaa8uFpB995g77-mc1wesTbDiY=/arc-anglerfish-arc2-prod-lanacionar/public/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                                restricted: false,
+                                thumbnailResizeUrl:
+                                    '/resizer/zWkAx9MA4fnR1lbA4P5KWcSEhQY=/300x0/arc-anglerfish-arc2-prod-lanacionar/public/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                                version: 0,
+                                template_id: 706
+                            },
+                            address: {},
+                            caption: 'cabezal home Política',
+                            created_date: '2021-06-09T00:23:17Z',
+                            credits: {
+                                affiliation: []
+                            },
+                            height: 513,
+                            image_type: 'photograph',
+                            last_updated_date: '2021-06-09T00:23:17Z',
+                            licensable: false,
+                            owner: {
+                                id: 'lanacionar',
+                                sponsored: false
+                            },
+                            source: {
+                                additional_properties: {
+                                    editor: 'photo center'
+                                },
+                                edit_url:
+                                    'https://lanacionar.arcpublishing.com/photo/XDW3TU62JRDFBPPR3C42T4MRMY',
+                                system: 'photo center'
+                            },
+                            type: 'image',
+                            url:
+                                'https://resizer.glanacion.com/resizer/BXJgIkahoP2Nb5mdTfdz7SLiL0c=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                            version: '0.10.3',
+                            width: 768,
+                            syndication: {},
+                            resized_urls: [
+                                {
+                                    resizedUrl:
+                                        'https://resizer.glanacion.com/resizer/goWKcDxIL8sX9PhnL2z3Tqa43PU=/222x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XDW3TU62JRDFBPPR3C42T4MRMY.png',
+                                    option: {
+                                        width: 222,
+                                        height: 160,
+                                        media: '(min-width: 1024px)'
+                                    }
+                                }
+                            ],
+                            resized_urls_zoom: []
+                        }
+                    },
+                    _id:
+                        'faa5387d7c770f84fb427496280f183a5678bc0d27b8977ea4b3452bd81a7b46'
+                },
+                imageId: 'XDW3TU62JRDFBPPR3C42T4MRMY'
+            },
+            articles: articlesCollections
+        }
+    ];
+
+    it('Test caja sin notas', () => {
+        const home = index(homeSections) || [];
+        expect(home[0]).toHaveLength(12);
+    });
+
+    it('Test Caja Anticipo', () => {
+        const home = index(homeSections) || [];
+        expect(home[0][0].tipoSeccion).toBe('anticipo');
+    });
+
+    it('Test Caja Anticipo', () => {
+        const home = index(homeSections) || [];
+        expect(home[0][8].tipoSeccion).toBe('anexo');
+    });
+
+    it('Test Imagen Caja No Tipo Video', () => {
+        const home = index(homeSections) || [];
+        expect(home[0][9].imagen).toBeUndefined();
+    });
+
+    it('Test Imagen Caja Null', () => {
+        const home = index(homeSections) || [];
+        expect(home[0][10].imagen).toBeUndefined();
+    });
+
+    it('Test Imagen Techo', () => {
+        const home = index(homeSections) || [];
+        expect(home[0][11].imagen.id).toBe('XDW3TU62JRDFBPPR3C42T4MRMY');
+    });
+
+    it('Testeo Secciones Cajas OK', () => {
+        const home = index(homeSections) || [];
+        expect(home[0][1].tipoSeccion).toBe('apertura');
+    });
+
+    it('Testeo Secciones Seccion Apertura sin information', () => {
+        const Seccion = [
+            {
+                type: 0,
+                feature: 'Apertura',
+                articles: articlesCollections
+            }
+        ];
+        try {
+            const home = index(Seccion) || [];
+            expect(home.length).toBe(null);
+        } catch (err) {
+            expect(err.message).toBe(
+                "Cannot read property 'layout' of undefined"
+            );
+        }
+    });
 
     it('Testeo Seccion Array vacio', () => {
         const Seccion = [];
@@ -3850,36 +4111,37 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
             expect(err.message).toBe("Cannot read property 'reduce' of null");
         }
     });
-    // it('Testeo Seccion Apertura', () => {
-    //     const Seccion = [
-    //         {
-    //             type: 0,
-    //             feature: 'Apertura',
-    //             information: {
-    //                 layout: 'focalLeft3',
-    //                 backgroundColor: 'default',
-    //                 initialPosition: 1,
-    //                 hideTitle: false,
-    //                 idCollection: 'QJ3BOEZVQNEYZEVBXHF4C7KAWY',
-    //                 title: 'Apertura',
-    //                 pbInternal_cloneId: 'c0ffOCwkYqcA22',
-    //                 image: undefined
-    //             },
-    //             configurations: {
-    //                 arcSite: 'la-nacion-ar'
-    //             }
-    //         }
-    //     ];
-    //     const home = index(Seccion) || [];
+    it('Testeo Seccion Apertura', () => {
+        const Seccion = [
+            {
+                type: 0,
+                feature: 'Apertura',
+                information: {
+                    layout: 'focalLeft3',
+                    backgroundColor: 'default',
+                    initialPosition: 1,
+                    hideTitle: false,
+                    idCollection: 'QJ3BOEZVQNEYZEVBXHF4C7KAWY',
+                    title: 'Apertura',
+                    pbInternal_cloneId: 'c0ffOCwkYqcA22',
+                    image: undefined
+                },
+                articles: articlesCollections,
+                configurations: {
+                    arcSite: 'la-nacion-ar'
+                }
+            }
+        ];
+        const home = index(Seccion) || [];
 
-    //     expect(home[0][0]).toEqual(
-    //         expect.objectContaining({
-    //             diagramacion: 'focalLeft3',
-    //             idSeccion: 200,
-    //             tipoSeccion: 'apertura'
-    //         })
-    //     );
-    // });
+        expect(home[0][0]).toEqual(
+            expect.objectContaining({
+                diagramacion: 'focalLeft3',
+                idSeccion: 200,
+                tipoSeccion: 'apertura'
+            })
+        );
+    });
 
     it('Testeo Seccion Banner', () => {
         const Seccion = [
@@ -3912,63 +4174,65 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
         );
     });
 
-    // it('Testeo Tema Caso Caja Manual', () => {
-    //     const Seccion = [
-    //         {
-    //             type: 0,
-    //             feature: 'Tema1',
-    //             information: {
-    //                 layout: 'focalLeft3',
-    //                 initialPosition: 1,
-    //                 hideTitle: false,
-    //                 containerImage: undefined,
-    //                 title: 'Mi techo abc'
-    //             },
-    //             configurations: {
-    //                 arcSite: 'la-nacion-ar'
-    //             }
-    //         }
-    //     ];
+    it('Testeo Tema Caso Caja Manual', () => {
+        const Seccion = [
+            {
+                type: 0,
+                feature: 'Tema1',
+                information: {
+                    layout: 'focalLeft3',
+                    initialPosition: 1,
+                    hideTitle: false,
+                    containerImage: undefined,
+                    title: 'Mi techo abc'
+                },
+                articles: articlesCollections,
+                configurations: {
+                    arcSite: 'la-nacion-ar'
+                }
+            }
+        ];
 
-    //     const home = index(Seccion) || [];
+        const home = index(Seccion) || [];
 
-    //     expect(home[0][0]).toEqual(
-    //         expect.objectContaining({
-    //             tipoSeccion: 'tema',
-    //             idSeccion: 305,
-    //             diagramacion: 'focalLeft3',
-    //             tituloCaja: 'Mi techo abc'
-    //         })
-    //     );
-    // });
+        expect(home[0][0]).toEqual(
+            expect.objectContaining({
+                tipoSeccion: 'tema',
+                idSeccion: 305,
+                diagramacion: 'focalLeft3',
+                tituloCaja: 'Mi techo abc'
+            })
+        );
+    });
 
-    // it('Testeo Tema Caja Comercial', () => {
-    //     const Seccion = [
-    //         {
-    //             type: 0,
-    //             feature: 'Comercial',
-    //             information: {
-    //                 layout: 'grilla3',
-    //                 backgroundColor: 'default',
-    //                 initialPosition: 1,
-    //                 hideTitle: false,
-    //                 idCollection: 'WM5DMXURZJBZZASUK356FPQNUI',
-    //                 title: 'Comercial 2',
-    //                 image: undefined
-    //             },
-    //             configurations: {
-    //                 arcSite: 'la-nacion-ar'
-    //             }
-    //         }
-    //     ];
+    it('Testeo Tema Caja Comercial', () => {
+        const Seccion = [
+            {
+                type: 0,
+                feature: 'Comercial',
+                information: {
+                    layout: 'grilla3',
+                    backgroundColor: 'default',
+                    initialPosition: 1,
+                    hideTitle: false,
+                    idCollection: 'WM5DMXURZJBZZASUK356FPQNUI',
+                    title: 'Comercial 2',
+                    image: undefined
+                },
+                articles: articlesCollections,
+                configurations: {
+                    arcSite: 'la-nacion-ar'
+                }
+            }
+        ];
 
-    //     const home = index(Seccion) || [];
+        const home = index(Seccion) || [];
 
-    //     expect(home[0][0]).toMatchObject({
-    //         tipoSeccion: 'comercial',
-    //         idSeccion: 1101,
-    //         diagramacion: 'grilla3',
-    //         tituloCaja: 'Comercial 2'
-    //     });
-    // });
+        expect(home[0][0]).toMatchObject({
+            tipoSeccion: 'comercial',
+            idSeccion: 1101,
+            diagramacion: 'grilla3',
+            tituloCaja: 'Comercial 2'
+        });
+    });
 });

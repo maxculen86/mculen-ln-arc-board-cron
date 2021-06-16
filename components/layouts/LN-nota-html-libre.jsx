@@ -2,7 +2,6 @@ import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import Header from '../private/LN/common/header';
-import Footer from '../private/LN/common/footer';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import HtmlLibre from '../private/LN/nota/cuerpo/htmlLibre';
 import LoginProvider from '../private/LN/common/context/loginContext';
