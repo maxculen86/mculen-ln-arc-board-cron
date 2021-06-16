@@ -1,8 +1,8 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
-import colecction from '../../../../../__mocks__/data/collection/WM5DMXURZJBZZASUK356FPQNUI.json';
+import colecction from '../../../../../__mocks__/data/collection/IZK32Y5I6BF4PNU6E3R2IBMZZI.json';
 import get from '../../../../../components/private/common/utils/get';
-import Opinion from '../../../../../components/features/LN-common/opinion/json';
+import Editoriales from '../../../../../components/features/LN-common/editoriales/json';
 import * as CajaCollection from '../../../../../components/chains/Ln_Caja_Collection/json';
 
 jest.mock(
@@ -19,16 +19,16 @@ jest.mock(
 );
 
 const customFields = {
-    layout: 'opinion4',
+    layout: 'editoriales2',
     initialPosition: 1,
     hideTitle: true,
-    idCollection: 'WM5DMXURZJBZZASUK356FPQNUI'
+    idCollection: 'IZK32Y5I6BF4PNU6E3R2IBMZZI'
 };
 const articleList = colecction;
 const props = {};
 props.customFields = customFields;
 
-describe('components - features - LN-common - opinion -json.js', () => {
+describe('components - features - LN-common - editoriales -json.js', () => {
     const elements = get(articleList, 'content_elements', []);
     const articles = elements.map(e => {
         return {
@@ -42,43 +42,40 @@ describe('components - features - LN-common - opinion -json.js', () => {
         information: customFields,
         articles
     };
-    const results2 = {
-        information: customFields
-    };
     test('Test props into class', () => {
-        const opinion = new Opinion(props);
-        expect(Object.keys(opinion).sort()).toEqual(
+        const editorial = new Editoriales(props);
+        expect(Object.keys(editorial).sort()).toEqual(
             ['articulos', 'props'].sort()
         );
     });
 
     test('Test results render into class OK', () => {
         props.articles = articleList;
-        const opinion = new Opinion(props);
-        const result = opinion.render();
+        const editorial = new Editoriales(props);
+        const result = editorial.render();
 
         expect(result.information).toMatchObject({
-            layout: 'opinion4',
+            layout: 'editoriales2',
             initialPosition: 1,
             hideTitle: true,
-            idCollection: 'WM5DMXURZJBZZASUK356FPQNUI'
+            idCollection: 'IZK32Y5I6BF4PNU6E3R2IBMZZI'
         });
         expect(result.articles[0].additionalProperties).toMatchObject({
-            subtype: 1
+            subtype: 2
         });
     });
     test('Test OK properties article', () => {
-        expect('WM5DMXURZJBZZASUK356FPQNUI').toMatch(
+        expect('IZK32Y5I6BF4PNU6E3R2IBMZZI').toMatch(
             results.information.idCollection
         );
-        expect('4QYCKI34WZBHXIWYHE236U663A').toMatch(results.articles[0]._id);
+        expect('46P7NCPKIZAE5CY2LULAHCIMFQ').toMatch(results.articles[0]._id);
     });
 
     test('Test results render into class when articles is null', () => {
         try {
             props.articles = null;
-            const opinion = new Opinion(null);
-            const result = opinion.render();
+            const editorial = new Editoriales(null);
+            const result = editorial.render();
             expect(result).toBe(null);
         } catch (err) {
             expect(err.message).toBe(`Cannot read property 'articles' of null`);
@@ -86,8 +83,8 @@ describe('components - features - LN-common - opinion -json.js', () => {
     });
     test('Test results render into class when articles is null', () => {
         props.articles = null;
-        const opinion = new Opinion(props);
-        const result = opinion.render();
+        const editorial = new Editoriales(props);
+        const result = editorial.render();
         expect(result).toBe(null);
     });
 });
