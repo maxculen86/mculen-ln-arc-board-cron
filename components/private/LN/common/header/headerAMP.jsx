@@ -350,12 +350,9 @@ const headerAMP = props => {
                                         </a>
                                     </li>
                                     <li className="menu_secciones">
-                                        <a href="https://recetas.lanacion.com.ar/">
+                                        <a href="https://www.lanacion.com.ar/recetas/">
                                             Cocina y recetas
                                         </a>
-                                    </li>
-                                    <li className="menu_secciones">
-                                        <a href="#">Avisos fúnebres</a>
                                     </li>
                                 </ul>
                             </section>
@@ -395,7 +392,7 @@ const headerAMP = props => {
                                         href="https://www.lanacion.com.ar/edicion-impresa"
                                         className="url-link"
                                     >
-                                        Ed Impresa
+                                        Edición Impresa
                                     </a>
                                 </h2>
                                 <ul className="menu">
@@ -537,7 +534,7 @@ const headerAMP = props => {
                         <p>Club LA NACION</p>
                     </a>
                     <a
-                        href="https://micuenta.lanacion.com.ar/mis-datos"
+                        href="https://myaccount.lanacion.com.ar/mi-usuario"
                         className="col-3 item-foo"
                     >
                         <i className="icon-user" />

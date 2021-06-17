@@ -54,28 +54,27 @@ body {
                 max-height: 130px;
                 z-index: 2;
                 .logo__dropdown {
-                    padding: 0.4375rem 1.1875rem 0.625rem;
-                    @media (min-width: 769px) {
-                        padding: 10px 20px;
-                    }
+                    padding: px(8) px(16);
                     display: flex;
-                    justify-content: flex-start;
-                    align-items: center;
-                    i {
-                        font-size: 17px;
-                        color: #006998;
-                        @media (min-width: 769px) {
+                    //justify-content: flex-start;
+                    //align-items: center;
+                    a {
+                        display: flex;
+                        align-items: center;
+                        i {
+                            font-size: 17px;
+                            color: #006998;
+                            @media (min-width: 769px) {
+                            }
                         }
                     }
                 }
                 .close__dropdown {
-                    padding: 0.4375rem 1.1875rem 0.625rem;
-                    @media (min-width: 769px) {
-                        padding: 10px 20px;
-                    }
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
+                    padding: px(8) px(14);
+                    // display: flex;
+                    // justify-content: center;
+                    // align-items: center;
+                    text-align: right;
                     cursor: pointer;
                     i {
                         font-size: 25px;
@@ -400,28 +399,28 @@ body {
                     overflow-y: scroll;
                 }
 
-                &.scroll--active {
-                    .header__dropdown {
-                        position: fixed;
-                        height: 0;
-                        overflow: hidden;
-                    }
-                    .menu__dropdown {
-                        position: absolute;
-                        top: 70px;
-                    }
-                }
-                &.scroll--pasive {
-                    .header__dropdown {
-                        position: fixed;
-                        height: inherit;
-                        overflow: inherit;
-                    }
-                    .menu__dropdown {
-                        position: absolute;
-                        top: 140px;
-                    }
-                }
+                // &.scroll--active {
+                //     .header__dropdown {
+                //         position: fixed;
+                //         height: 0;
+                //         overflow: hidden;
+                //     }
+                //     .menu__dropdown {
+                //         position: absolute;
+                //         top: 70px;
+                //     }
+                // }
+                // &.scroll--pasive {
+                //     .header__dropdown {
+                //         position: fixed;
+                //         height: inherit;
+                //         overflow: inherit;
+                //     }
+                //     .menu__dropdown {
+                //         position: absolute;
+                //         top: 140px;
+                //     }
+                // }
             }
         }
     }

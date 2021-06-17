@@ -37,7 +37,8 @@ const transform = data => {
                     type: 'image'
                 }
             )
-        }
+        },
+        node_type: 'author'
     };
 };
 

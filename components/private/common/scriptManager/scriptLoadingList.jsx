@@ -1,15 +1,16 @@
 /* eslint-disable no-console */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
 import get from '../utils/get';
 
 const ScriptLoadingList = ({
     arcSite: website = 'la-nacion-ar',
-    location = 'body-bottom'
+    location = 'body-bottom',
+    section
 }) => {
-    const data = useContent({
+    const resp = useContent({
         sourceName: 'navigationTreeSource',
         query: {
             website
@@ -18,16 +19,25 @@ const ScriptLoadingList = ({
             site {
                 script_loading_list
             }
-        }`
+        }`,
+        transform: data => get(data, 'site.script_loading_list', [])
     });
 
-    return get(data, 'site.script_loading_list', []).map(scriptConfig => {
+    return resp.map(scriptConfig => {
         try {
             const scriptData = JSON.parse(scriptConfig);
-            const { location: _location = 'body-bottom' } = scriptData;
-            delete scriptData.location;
+            const {
+                location: _location = 'body-bottom',
+                section: _section
+            } = scriptData;
 
-            return location === _location && <script {...scriptData} />;
+            delete scriptData.location;
+            delete scriptData.section;
+
+            return (
+                section === _section &&
+                location === _location && <script {...scriptData} />
+            );
         } catch (error) {
             console.log('🚀 ~ file: scriptLoadingList ~ error', error);
             return <></>;
@@ -37,7 +47,10 @@ const ScriptLoadingList = ({
 
 ScriptLoadingList.propTypes = {
     arcSite: PropTypes.string.isRequired,
-    location: PropTypes.string
+    location: PropTypes.string,
+    section: PropTypes.string
 };
+
+ScriptLoadingList.defaultProps = { section: '' };
 
 export default ScriptLoadingList;

@@ -64,6 +64,7 @@ function WithAcuArticlesData(
                 const authorId = get(this, 'props.authorId', null);
                 const distributorId = get(this, 'props.distributorId', null);
                 const size = get(this, 'props.size', 30);
+                const type = get(this, 'props.globalContent.type');
 
                 if (
                     !sectionId &&
@@ -99,7 +100,8 @@ function WithAcuArticlesData(
                         promoItemsOnly,
                         distributorId,
                         sectionsIds,
-                        sourceOrigin
+                        sourceOrigin,
+                        type
                     },
                     filter
                 });
@@ -127,39 +129,6 @@ function WithAcuArticlesData(
                 };
             };
 
-            setOrderAndCountTags = articles => {
-                const tags = articles
-                    .map(article => get(article, 'taxonomy.tags', []))
-                    .reduce((tagsGrouped, _tags) => {
-                        const tagsReduced = { ...tagsGrouped };
-                        _tags.forEach(tag => {
-                            tagsReduced[tag.slug] = {
-                                count:
-                                    tagsReduced[tag.slug] &&
-                                    tagsReduced[tag.slug].count
-                                        ? tagsReduced[tag.slug].count + 1
-                                        : 1,
-                                slug: tag.slug,
-                                text: tag.text
-                            };
-                        });
-                        return tagsReduced;
-                    }, []);
-
-                const orderAndCountTags =
-                    Object.keys(tags)
-                        .sort((a, b) =>
-                            tags[a].count < tags[b].count ? 1 : -1
-                        )
-                        .slice(0, 10)
-                        .map(key => tags[key]) || [];
-                // console.log('orderAndCountTags', orderAndCountTags);
-
-                return (
-                    (orderAndCountTags.length >= 4 && orderAndCountTags) || []
-                );
-            };
-
             obtenerMasNotas = () => {
                 const { page } = this.state;
                 const { articles } = this.state;
@@ -176,7 +145,7 @@ function WithAcuArticlesData(
                     page + 1
                 );
             };
-
+            /*
             isRecommend = article => {
                 const { label } = article;
                 const { recomendar } = label || undefined;
@@ -184,6 +153,7 @@ function WithAcuArticlesData(
                     !recomendar || recomendar === {} || recomendar.text === 'Si'
                 );
             };
+            */
 
             addShortTitle = (article, filterFeature) => {
                 if (filterFeature === '0' || filterFeature === '1') {
@@ -206,8 +176,7 @@ function WithAcuArticlesData(
                 } = this.props;
 
                 if (type === 'story') {
-                    const isIdPresent =
-                        articles && articles.find(e => e._id === _id);
+                    // const isIdPresent = articles && articles.find(e => e._id === _id);
                     const {
                         size: { originalSize }
                     } = this.props;
@@ -216,19 +185,14 @@ function WithAcuArticlesData(
                         .map(article => {
                             return this.addShortTitle(article, filterFeature);
                         })
-                        .filter(article => {
-                            return isIdPresent
-                                ? article._id !== _id &&
-                                      this.isRecommend(article)
-                                : this.isRecommend(article);
-                        })
+                        // si la nota aparece en listado la excluyo
+                        .filter(article => article._id !== _id)
                         .slice(0, originalSize);
                 }
 
                 return (
                     <WrappedArticles
                         articles={articlesArray}
-                        orderAndCountTags={this.setOrderAndCountTags(articles)}
                         obtenerMasNotas={this.obtenerMasNotas}
                         hayMasNotas={hayMasNotas}
                         loading={loading}

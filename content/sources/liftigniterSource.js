@@ -12,6 +12,7 @@ import {
     STORYTELLING
 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 import get from '../../components/private/common/utils/get';
+import logger from '../../components/private/common/utils/logger';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import getPresets from './utils/presets';
 
@@ -24,26 +25,31 @@ const transformArticles = (liftigniterArticles = [], cantidadNotas) =>
                 !(e.image && e.image.includes('/images/placeholderLN.jpg'))
         )
         .slice(0, cantidadNotas)
-        .map(({ url, id, title, image }) => ({
-            subtype: 1,
-            by: {},
-            website_url: url,
-            _id: id,
-            headlines: {
-                basic: title
-            },
-            promo_items: {
-                basic: {
-                    type: 'image',
-                    url: image
+        .map(elem => {
+            const { url, id, title, image } = elem;
+            return {
+                subtype: 1,
+                by: {},
+                website_url: url,
+                _id: id,
+                headlines: {
+                    basic: title
+                },
+                promo_items: {
+                    basic: {
+                        type: 'image',
+                        url: image
+                    }
                 }
-            }
-        }));
+            };
+        });
 
 /**
  * TODO: Por completar de tarea
  * 1. Mejorar armado de uri, version, endpoint y body como parametro de liftigniter
+ * 2. Mejora de registro de click, enviar listado de items
  */
+
 const duplicateMaxCount = cantidadNotas => cantidadNotas * 2;
 
 const fetch = query => {
@@ -52,45 +58,135 @@ const fetch = query => {
         referrer = SITE_LANACION,
         imageConfig = 'm',
         idArticle,
-        userId,
+        userId = '',
         sessionId,
-        excludeItems
+        excludeItems = [],
+        arcSite,
+        action,
+        nextUrl,
+        widgetType,
+        articles = []
     } = query;
 
-    const userIdParam = userId ? `/${userId}` : '';
-    return request({
-        uri: `https://query.petametrics.com/v3/${JSK_ID}${userIdParam}/model`,
-        method: 'POST',
-        headers: {
-            'Accept-Encoding': '*,q=0.8',
-            'Content-Type': 'application/json',
-            'x-api-key': LIFTIGNITER_X_API_KEY
-        },
-        body: JSON.stringify({
-            widgetName: WIDGETS,
-            maxCount: duplicateMaxCount(cantidadNotas),
-            requestFields: ['url', 'title', 'image', 'id', 'published_time'],
-            referrer,
-            pageviewId: idArticle,
-            url: referrer,
-            sessionId,
-            excludeItems
-        })
-    })
-        .then(response => {
-            const { items } = JSON.parse(response);
-            return transformArticles(items, cantidadNotas);
-        })
-        .catch(() => {
-            // TODO: Implementar registro de error en logger
-            return [];
-        });
-};
+    const userIdParam = userId && !userId.includes('/') ? `/${userId}` : '';
+    const baseUrl = `https://query.petametrics.com/v3/${JSK_ID}${userIdParam}`;
+    const headers = {
+        'Accept-Encoding': '*,q=0.8',
+        'Content-Type': 'application/json',
+        'x-api-key': LIFTIGNITER_X_API_KEY
+    };
+    const body = {
+        url: referrer,
+        referrer,
+        sessionId,
+        pageviewId: idArticle
+    };
 
-/**
- * TODO: Por completar de tarea
- * 1. fijarse en funcion de acuArticlesSource para crear utilitario de promoItems
- */
+    const timestamp = Date.now();
+
+    const WIDGET_BODY = {
+        widget_click: {
+            ...body,
+            type: 'widget_click',
+            widgetName: WIDGETS,
+            clickUrl: nextUrl,
+            source: 'LI',
+            timestamp,
+            visibleItems: articles
+        },
+        widget_shown: {
+            ...body,
+            type: 'widget_shown',
+            widgetName: WIDGETS,
+            source: 'LI',
+            timestamp,
+            visibleItems: articles
+        },
+        widget_visible: {
+            ...body,
+            type: 'widget_visible',
+            widgetName: WIDGETS,
+            source: 'LI',
+            timestamp,
+            visibleItems: articles
+        }
+    };
+
+    const REQUESTS = {
+        activity: {
+            uri: `${baseUrl}/activity`,
+            method: 'POST',
+            headers,
+            body: JSON.stringify({
+                activities: [
+                    {
+                        ...WIDGET_BODY[widgetType]
+                    }
+                ]
+            }),
+            resolve: response => {
+                return (response && JSON.parse(response)) || {};
+            },
+            reject: error => {
+                logger.push(
+                    error,
+                    {
+                        source: 'content/sources/liftigniterSource',
+                        url: `${baseUrl}/activity`
+                    },
+                    arcSite
+                );
+            }
+        },
+        model: {
+            uri: `${baseUrl}/model`,
+            method: 'POST',
+            headers,
+            body: JSON.stringify({
+                widgetName: WIDGETS,
+                maxCount: duplicateMaxCount(cantidadNotas),
+                requestFields: [
+                    'url',
+                    'title',
+                    'image',
+                    'id',
+                    'published_time'
+                ],
+                referrer,
+                pageviewId: idArticle,
+                url: referrer,
+                sessionId,
+                excludeItems
+            }),
+            resolve: response => {
+                const { items } = JSON.parse(response);
+                return transform(
+                    transformArticles(items, cantidadNotas),
+                    query
+                );
+            },
+            reject: error => {
+                logger.push(
+                    error,
+                    {
+                        source: 'content/sources/liftigniterSource',
+                        url: `${baseUrl}/model`
+                    },
+                    arcSite
+                );
+            }
+        }
+    };
+
+    return request({
+        uri: REQUESTS[action].uri,
+        method: REQUESTS[action].method,
+        headers: REQUESTS[action].headers,
+        body: REQUESTS[action].body
+    })
+        .then(response => REQUESTS[action].resolve(response))
+        .catch(error => REQUESTS[action].reject(error));
+};
 
 const transform = (data, siteProps) => {
     const { presets, presetsDefault } = getPresets(siteProps);
@@ -104,7 +200,11 @@ const transform = (data, siteProps) => {
         return {
             ...elem,
             ...addResizedUrls(
-                { ...(promoItems && { promo_items: promoItems }) },
+                {
+                    ...(promoItems && {
+                        promo_items: promoItems
+                    })
+                },
                 {
                     resizerSecret: RESIZER_KEY,
                     resizerUrl: RESIZER_URL,
@@ -128,11 +228,12 @@ const transform = (data, siteProps) => {
  */
 export default {
     fetch,
-    transform,
     params: {
         cantidadNotas: 'text',
         referrer: 'text',
-        imageConfig: 'text'
+        imageConfig: 'text',
+        action: 'text',
+        sessionId: 'text'
     },
     ttl: 120
 };

@@ -21,10 +21,10 @@
             font-size: px(30);
         }
         &.--lg {
-            font-size: px(60);
+            font-size: px(50);
         }
         &.--color {
-            color: $ln;
+            color: $light-blue-600;
         }
     }
     &.logo-brando.logo-brando {
@@ -38,7 +38,7 @@
             font-size: px(30);
         }
         &.--lg {
-            font-size: px(70);
+            font-size: px(50);
         }
         &.--color {
             color: $brando;
@@ -46,16 +46,16 @@
     }
     &.logo-hola.logo-hola {
         &.--xs {
-            font-size: px(32);
+            font-size: px(22);
         }
         &.--sm {
-            font-size: px(42);
+            font-size: px(30);
         }
         &.--md {
-            font-size: px(58);
+            font-size: px(48);
         }
         &.--lg {
-            font-size: px(90);
+            font-size: px(80);
         }
         &.--color {
             color: $hola;
@@ -63,16 +63,16 @@
     }
     &.logo-jardin.logo-jardin {
         &.--xs {
-            font-size: px(23);
+            font-size: px(20);
         }
         &.--sm {
-            font-size: px(30);
+            font-size: px(28);
         }
         &.--md {
             font-size: px(40);
         }
         &.--lg {
-            font-size: px(90);
+            font-size: px(62);
         }
         &.--color {
             color: $jardin;
@@ -80,16 +80,16 @@
     }
     &.logo-living.logo-living {
         &.--xs {
-            font-size: px(24);
+            font-size: px(20);
         }
         &.--sm {
-            font-size: px(32);
+            font-size: px(28);
         }
         &.--md {
             font-size: px(43);
         }
         &.--lg {
-            font-size: px(98);
+            font-size: px(62);
         }
         &.--color {
             color: $living;
@@ -97,7 +97,7 @@
     }
     &.logo-lugares.logo-lugares {
         &.--xs {
-            font-size: px(17);
+            font-size: px(16);
         }
         &.--sm {
             font-size: px(22);
@@ -106,7 +106,7 @@
             font-size: px(30);
         }
         &.--lg {
-            font-size: px(60);
+            font-size: px(50);
         }
         &.--color {
             color: $lugares;
@@ -124,7 +124,7 @@
             font-size: px(40);
         }
         &.--lg {
-            font-size: px(90);
+            font-size: px(62);
         }
         &.--color {
             color: $rolling;
@@ -135,13 +135,13 @@
             font-size: px(18);
         }
         &.--sm {
-            font-size: px(24);
+            font-size: px(30);
         }
         &.--md {
-            font-size: px(33);
+            font-size: px(42);
         }
         &.--lg {
-            font-size: px(70);
+            font-size: px(62);
         }
         &.--color {
             color: $ohlala;
@@ -158,7 +158,7 @@
             font-size: px(37);
         }
         &.--lg {
-            font-size: px(76);
+            font-size: px(62);
         }
         &.--color {
             color: $lnmas;
@@ -192,7 +192,7 @@
             font-size: px(84);
         }
         &.--lg {
-            font-size: px(160);
+            font-size: px(120);
         }
         &.--color {
             color: $club2;
@@ -209,7 +209,7 @@
             font-size: px(90);
         }
         &.--lg {
-            font-size: px(160);
+            font-size: px(120);
         }
         &.--color {
             color: $club2;
@@ -217,16 +217,16 @@
     }
     &.logo-bbc.logo-bbc {
         &.--xs {
-            font-size: px(32);
+            font-size: px(20);
         }
         &.--sm {
-            font-size: px(38);
+            font-size: px(26);
         }
         &.--md {
             font-size: px(45);
         }
         &.--lg {
-            font-size: px(70);
+            font-size: px(54);
         }
         &.--color {
             &:before {
@@ -236,19 +236,53 @@
     }
     &.logo-propiedades.logo-propiedades {
         &.--xs {
-            font-size: px(19);
+            font-size: px(22);
         }
         &.--sm {
-            font-size: px(21);
+            font-size: px(32);
         }
         &.--md {
-            font-size: px(30);
+            font-size: px(48);
         }
         &.--lg {
-            font-size: px(60);
+            font-size: px(62);
         }
         &.--color {
             color: $propiedades;
+        }
+    }
+    &.logo-campo.logo-campo {
+        &.--xs {
+            font-size: px(22);
+        }
+        &.--sm {
+            font-size: px(32);
+        }
+        &.--md {
+            font-size: px(48);
+        }
+        &.--lg {
+            font-size: px(48);
+        }
+        &.--color {
+            color: $campo;
+        }
+    }
+    &.logo-deportes.logo-deportes {
+        &.--xs {
+            font-size: px(22);
+        }
+        &.--sm {
+            font-size: px(28);
+        }
+        &.--md {
+            font-size: px(40);
+        }
+        &.--lg {
+            font-size: px(62);
+        }
+        &.--color {
+            color: $deportes;
         }
     }
 }

@@ -2,23 +2,41 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-const ModBajada = ({ link, subheadSize, subheadText }) => {
+import '../../../resources/dist/css/ln/components/com-subhead.css';
+
+const ModBajada = ({
+    link,
+    subheadSize,
+    subheadText,
+    subheadTag,
+    classCondition
+}) => {
+    const CustomTag = subheadTag || 'h3';
+
     return (
-        <p className={`com-subhead ${subheadSize || '--twoxs'}`}>
-            <a
-                href={link}
-                aria-label={subheadText}
-                className="com-link"
-                title={subheadText}
-                dangerouslySetInnerHTML={{ __html: subheadText }}
-            />
-        </p>
+        <CustomTag
+            className={`com-subhead ${classCondition || ''} ${subheadSize ||
+                '--twoxs'}`}
+        >
+            {link ? (
+                <a
+                    href={link}
+                    aria-label={subheadText}
+                    className="com-link"
+                    title={subheadText}
+                    dangerouslySetInnerHTML={{ __html: subheadText }}
+                />
+            ) : (
+                subheadText
+            )}
+        </CustomTag>
     );
 };
 
 ModBajada.propTypes = {
-    link: PropTypes.string.isRequired,
-    subheadSize: PropTypes.string.isRequired,
+    tag: PropTypes.string,
+    link: PropTypes.string,
+    subheadSize: PropTypes.string,
     subheadText: PropTypes.string.isRequired
 };
 

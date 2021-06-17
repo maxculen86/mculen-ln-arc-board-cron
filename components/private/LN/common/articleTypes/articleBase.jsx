@@ -13,10 +13,11 @@ const ArticleBase = ({
     children,
     border,
     dataSection,
-    position
+    position,
+    handleClick
 }) => {
-    const volanta = label && label.volanta && label.volanta.text;
-    const borderClass = border ? '--border ' : '';
+    // const volanta = label && label.volanta && label.volanta.text;
+    // const borderClass = border ? '--border ' : '';
     const extraOpts = {};
     if (dataSection) {
         extraOpts['data-section'] = dataSection;
@@ -27,10 +28,17 @@ const ArticleBase = ({
         extraOpts['data-id'] = _id;
         extraOpts['data-notaid'] = _id;
     }
+
+    const onCLick = event => {
+        typeof handleClick == 'function' && handleClick(event, websiteUrl);
+    };
+
     return (
         <article
-            //className={`mod-caja-nota ${borderClass} ${extraClasses || ''}`}
+            // className={`mod-caja-nota ${borderClass} ${extraClasses || ''}`}
             className={`mod-caja-nota ${extraClasses || ''}`}
+            onClick={onCLick}
+            aria-hidden="true"
             {...extraOpts}
         >
             {hourComponent}
@@ -38,7 +46,7 @@ const ArticleBase = ({
             <div className="mod-caja-nota__descrip">
                 <TitleAcu
                     headlines={headlines}
-                    volanta={volanta}
+                    // volanta={volanta}
                     href={websiteUrl}
                 />
                 {children}

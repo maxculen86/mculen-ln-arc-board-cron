@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ArticleMain from '../../common/articleTypes/articleMain';
 import withAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
-import ComTitle from '../../../common/com-title';
+import HeaderSection from '../../../common/mod-headerSection';
+import filter from '../../../../../content/filters/LN/acumulado/articleMasNotas';
+import addRelatedImage from '../../common/utils/addRelatedImage';
 
 const ArticleList = props => {
     const { articles, border, outputType, title, dataBlockName } = props;
@@ -13,8 +15,7 @@ const ArticleList = props => {
             {articles.length > 0 && (
                 <div className="row more-articles">
                     <div className="col-12">
-                        {/* <h2 className="com-title-section-l">{title || ''}</h2> */}
-                        <ComTitle tag="h2" size="--l" content={title || ''} />
+                        <HeaderSection title={title || ''} />
                         <section
                             className="row-gap-tablet-3 row-gap-desksm-3"
                             data-is-block="true"
@@ -40,11 +41,11 @@ const ArticleList = props => {
 };
 
 ArticleList.propTypes = {
-    title: PropTypes.string,
-    articles: PropTypes.arrayOf(PropTypes.any),
-    border: PropTypes.bool,
-    outputType: PropTypes.string,
-    dataBlockName: PropTypes.string
+    title: PropTypes.string.isRequired,
+    articles: PropTypes.arrayOf(PropTypes.any).isRequired,
+    border: PropTypes.bool.isRequired,
+    outputType: PropTypes.string.isRequired,
+    dataBlockName: PropTypes.string.isRequired
 };
 
-export default withAcuArticlesData(ArticleList, null, 'm', true);
+export default withAcuArticlesData(ArticleList, filter, 'm', true);

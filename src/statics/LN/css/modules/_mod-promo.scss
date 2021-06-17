@@ -1,0 +1,50 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.mod-promo {
+    position: relative;
+    width: 100%;
+    border: 1px solid #ccc;
+    //margin-bottom: px(32);
+    .link {
+        display: block;
+        padding: px(16);
+
+        .com-logo {
+            margin-bottom: px(8);
+            &.--md {
+                font-size: px(22);
+            }
+        }
+        .com-text {
+            margin-bottom: px(8);
+        }
+        &:hover {
+            .com-button {
+                background: #0074c4;
+                color: #fefefe;
+            }
+        }
+    }
+
+    @media ($media-m) {
+        .link {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            .com-text {
+                margin-bottom: 0;
+            }
+        }
+    }
+    @media ($media-l) {
+        .link {
+            padding: px(24);
+        }
+    }
+}
+
+.--promos {
+    margin-bottom: px(64);
+}

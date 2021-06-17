@@ -4,8 +4,9 @@
     //font-family: $font-arial;
     //font-size: px(14);
     color: $link;
-    text-transform: initial;
-    &.--acu {
+    //text-transform: initial;
+    &.--acu,
+    &.--black {
         color: $neutral-black;
     }
     // .text & {
@@ -126,7 +127,19 @@
             }
         }
     }
+    .com-title & {
+        // .mod-headersection.--teal &,
+        // .mod-headersection.--blue &,
+        // .mod-headersection.--red &,
+        .mod-headersection.--bg & {
+            color: $blanco;
+        }
+    }
+    .com-advance.com-advance & {
+        color: $blanco;
+    }
 }
+
 @media ($media-l) {
     .com-link {
         .--apps & {

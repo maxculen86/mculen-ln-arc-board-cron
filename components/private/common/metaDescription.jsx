@@ -28,13 +28,16 @@ const MetaDescription = ({
     arcSite,
     nodeType,
     name,
+    subheadlines,
     _id,
-    payload
-    // authorType
+    payload,
+    section,
+    defaultDescription
 }) => {
     if (arcSite !== 'la-nacion-ar') return <></>;
-    // TODO: faltan meta descripction para otros acumulados (tags, author, recetas)
+
     const acusWithMeta = ['section', 'author', 'distributor', 'tags'];
+
     if (acusWithMeta.includes(nodeType) && _id !== '/recetas') {
         const { tagId } = extractDataFromTags(payload);
         return (
@@ -49,19 +52,22 @@ const MetaDescription = ({
         );
     }
 
-    if (!subtype) return <></>;
+    if (!subtype && section !== 'home') return <></>;
 
     return (
-        subtype && (
-            <meta
-                name="description"
-                content={`${getMetaDescription(
-                    description,
-                    firstParagraphContentElements,
-                    metaTitleBasic
-                )} - LA NACION`}
-            />
-        )
+        <meta
+            name="description"
+            content={
+                (subtype &&
+                    `${getMetaDescription(
+                        description,
+                        firstParagraphContentElements,
+                        metaTitleBasic,
+                        subheadlines
+                    )} - LA NACION`) ||
+                defaultDescription
+            }
+        />
     );
 };
 
@@ -71,7 +77,8 @@ MetaDescription.propTypes = {
     firstParagraphContentElements: PropTypes.string,
     metaTitleBasic: PropTypes.string.isRequired,
     nodeType: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired,
+    subheadlines: PropTypes.object
 };
 
 export default MetaDescription;

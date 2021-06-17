@@ -13,6 +13,7 @@ import {
 } from '../../private/LN/common/bannerRefactor/config';
 import ConfigBuilder from '../../private/LN/common/bannerRefactor/builder';
 import { GlobalContext } from '../../private/common/context/globalContext';
+import WithSkeletonBannerWithoutHide from '../../private/LN/common/bannerRefactor/withSkeletonBannerWithoutHide';
 
 import {
     getSlotForDevice,
@@ -80,6 +81,8 @@ const Banner = props => {
 
     if (!configBuilder.current) {
         slotId = getSlotForDevice(device)(slots);
+        if (typeof window === 'undefined')
+            return <WithSkeletonBannerWithoutHide slotId={slotId} />;
 
         // if (slotId === 'NINGUNO') return null;
 
@@ -146,14 +149,14 @@ const Banner = props => {
         );
     }
 
-    if (mostrarBannersValue !== 'No')
-        return (
-            <BannerComponent
-                isAdmin={isAdmin}
-                config={configBuilder.current.get()}
-            />
-        );
-    return <></>;
+    return mostrarBannersValue !== 'No' ? (
+        <BannerComponent
+            isAdmin={isAdmin}
+            config={configBuilder.current.get()}
+        />
+    ) : (
+        <></>
+    );
 };
 
 Banner.label = 'LN-Common-BannerRefactor';

@@ -6,7 +6,7 @@ import GrillaNotas from '../../private/LN/acumulado/grillaNotas/grillaNotas';
 import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
 import { getSlotsOptions } from '../../private/LN/common/bannerRefactor/config';
 import findTermica from '../../private/common/utils/findTermica';
-import { getIdsArticlesFromOtherCollections } from '../../private/LN/common/utils/cajaTemasHelper';
+import { getIdsArticlesFromOtherCollections } from '../../private/LN/common/utils/cajaTemasValidators';
 import { GlobalContext } from '../../private/common/context/globalContext';
 
 const groupBannerConfig = props => {
@@ -99,7 +99,7 @@ function GrillaNotasFeature(props) {
         hide_banner = true
     } = acumuladoGeneral;
     const {
-        globalContent: { author_type: authorType, _id, Payload, distributorId },
+        globalContent: { node_type: nodeType, _id, Payload, distributorId },
         siteProperties,
         outputType,
         renderables
@@ -112,8 +112,8 @@ function GrillaNotasFeature(props) {
             ? Payload.items[0].slug
             : undefined;
 
-    const sectionId = !authorType && !Payload ? _id : null;
-    const authorId = authorType ? _id : null;
+    const sectionId = nodeType === 'section' ? _id : null;
+    const authorId = nodeType === 'author' ? _id : null;
 
     const bannerConfig = groupBannerConfig(props);
     const termicas = findTermica('banners');

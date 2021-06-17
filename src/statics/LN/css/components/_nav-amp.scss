@@ -1,11 +1,5 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
-// .layout {
-//     display: block;
-//     width: 100vw;
-//     height: 100vh;
-//     position: relative;
-// }
 
 amp-sidebar {
     //Sidebar
@@ -18,14 +12,14 @@ amp-sidebar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 15px 20px;
+        padding: 10px 10px 10px 20px;
         background: $neutral-white;
         border-bottom: solid 1px #eaeaea;
-        margin-bottom: $spacing;
+        //margin-bottom: $spacing;
 
         .logo-la-nacion {
             //Logo LN
-            font-size: 15px;
+            font-size: px(17);
             color: $ln-active;
         }
         .icon-close {
@@ -122,25 +116,19 @@ amp-sidebar {
             }
         }
     }
+    @media (min-width: 1024px) {
+        width: px(280);
+    }
 }
 
-// .icon-cerrar {
-//     position: absolute;
-//     right: 10px;
-//     top: 10px;
-//     font-family: 'LNicons';
-// }
-// a.icon-cerrar:before {
-//     font-family: 'LNicons';
-//     font-size: 20px;
-//     display: block;
-// }
-
 .header {
-    border-bottom: 1px solid #f2f2f2;
-    padding: px(13) 0;
+    border-bottom: 1px solid #e4e4e4;
+    padding: px(16) 0;
     position: relative;
     z-index: 10;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
 
     .header__left {
         display: none;
@@ -153,14 +141,18 @@ amp-sidebar {
     .header__middle {
         display: flex;
         align-items: center;
+        //justify-content: center;
         .header__middle__logo {
             .logo-la-nacion {
                 //Logo LN
                 color: $ln-active;
                 &:before {
-                    font-size: 17px;
+                    font-size: px(17);
                 }
             }
+        }
+        @media (min-width: 768px) {
+            justify-content: center;
         }
     }
 
@@ -169,7 +161,7 @@ amp-sidebar {
             text-align: right;
             .--secondary {
                 display: none;
-                margin-left: 1rem;
+                margin-left: px(24);
             }
         }
     }
@@ -179,20 +171,20 @@ amp-sidebar {
     //         display: none;
     //     }
     // }
-    .suscribir__header {
-        display: flex;
-        justify-content: flex-end;
-        padding-right: 0;
-        background: transparent;
-        color: #006998;
-        font-weight: normal;
-        border: none;
-        &:hover {
-            background: transparent;
-            color: #006998;
-            border: none;
-        }
-    }
+    // .suscribir__header {
+    //     display: flex;
+    //     justify-content: flex-end;
+    //     padding-right: 0;
+    //     background: transparent;
+    //     color: #006998;
+    //     font-weight: normal;
+    //     border: none;
+    //     &:hover {
+    //         background: transparent;
+    //         color: #006998;
+    //         border: none;
+    //     }
+    // }
 
     .--transparent & {
         //sirve para storytelling y foto al 100
@@ -217,19 +209,19 @@ amp-sidebar {
                 }
             }
         }
-        .header__right {
-            .suscribir__header {
-                color: $neutral-white;
-            }
-        }
+        // .header__right {
+        //     .suscribir__header {
+        //         color: $neutral-white;
+        //     }
+        // }
 
-        @media (min-width: 768px) {
-            .header__right {
-                .suscribir__header {
-                    color: $neutral-black;
-                }
-            }
-        }
+        // @media (min-width: 768px) {
+        //     .header__right {
+        //         .suscribir__header {
+        //             color: $neutral-black;
+        //         }
+        //     }
+        // }
     }
 }
 
@@ -242,39 +234,44 @@ amp-sidebar {
     }
 }
 
-@media (min-width: 768px) {
-    amp-sidebar {
-        width: 40%;
-        max-width: 40%;
-    }
-    .header {
-        .suscribir__header {
-            display: inline-block;
-            justify-content: inherit;
-            text-align: center;
-        }
-    }
-}
+// @media (min-width: 768px) {
+//     amp-sidebar {
+//         width: 40%;
+//         max-width: 40%;
+//     }
+//     //.header {
+//         // .suscribir__header {
+//         //     display: inline-block;
+//         //     justify-content: inherit;
+//         //     text-align: center;
+//         // }
+//     //}
+// }
 @media (min-width: 1024px) {
     .header {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-color: #d9d9d9;
-
         .header__left {
             display: block;
         }
 
-        .suscribir__header {
-            background-color: #ffff24;
-            border: 1px solid $light-neutral-400;
-            color: $neutral-black;
-            padding: 0.625rem 1.5rem;
-            &:hover {
-                background: $neutral-black;
-                border-color: $neutral-black;
-                color: $neutral-white;
+        // .suscribir__header {
+        //     background-color: #ffff24;
+        //     border: 1px solid $light-neutral-400;
+        //     color: $neutral-black;
+        //     padding: 0.625rem 1.5rem;
+        //     &:hover {
+        //         background: $neutral-black;
+        //         border-color: $neutral-black;
+        //         color: $neutral-white;
+        //     }
+        // }
+
+        .header__middle {
+            .header__middle__logo {
+                .logo-la-nacion {
+                    &:before {
+                        font-size: px(30);
+                    }
+                }
             }
         }
 
@@ -286,18 +283,18 @@ amp-sidebar {
             }
         }
 
-        .lay {
-            .row {
-                align-items: center;
-                .logo-la-nacion {
-                    //Logo LN
-                    color: $ln-active;
-                    &:before {
-                        font-size: 30px;
-                    }
-                }
-            }
-        }
+        // .lay {
+        //     .row {
+        //         //align-items: center;
+        //         .logo-la-nacion {
+        //             //Logo LN
+        //             //color: $ln-active;
+        //             &:before {
+        //                 font-size: 30px;
+        //             }
+        //         }
+        //     }
+        // }
 
         // button {
         //     &.icon-menu {
@@ -315,10 +312,6 @@ amp-sidebar {
         //         }
         //     }
         // }
-    }
-    amp-sidebar {
-        width: 25%;
-        max-width: 25%;
     }
     .nav {
         display: none;

@@ -11,9 +11,19 @@ const layout = {
         6: 'row-gap-tablet-3',
         9: 'row-gap-tablet-3'
     },
+    ArticleFeature: {
+        1: 'row',
+        2: 'row-gap-tablet-2',
+        3: 'row-gap-tablet-3',
+        4: 'row-gap-tablet-4',
+        6: 'row-gap-tablet-3',
+        9: 'row-gap-tablet-3'
+    },
     Listado: 'row',
     Timeline: 'breaking-news',
-    Focal: 'row'
+    Focal: 'row',
+    Opinion: 'row',
+    Editoriales: 'row'
 };
 
 const ModRowGap = props => {
@@ -25,7 +35,7 @@ const ModRowGap = props => {
     } = props;
 
     const classLayout =
-        typeArticle === 'Grilla'
+        typeArticle === 'Grilla' || typeArticle === 'ArticleFeature'
             ? layout[typeArticle][column]
             : layout[typeArticle] || '';
 

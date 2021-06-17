@@ -1,4 +1,3 @@
-import env from '../../../../../../__mocks__/fusion:environment';
 import NotaIndex from '../../../../../../components/private/LN/api/v1/nota';
 import QAZ7BVHG5BCNFN7S67XCBP6PA4 from '../../../../../../__mocks__/data/articles/QAZ7BVHG5BCNFN7S67XCBP6PA4.json';
 import JMQ44OZHHBC5ZJ5TXTSIIPZMTI from '../../../../../../__mocks__/data/articles/JMQ44OZHHBC5ZJ5TXTSIIPZMTI.json';

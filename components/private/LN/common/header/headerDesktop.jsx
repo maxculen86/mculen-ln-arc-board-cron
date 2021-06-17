@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from 'react';
 import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import PropTypes from 'fusion:prop-types';
@@ -10,7 +11,8 @@ import ComIcon from '../../../common/com-icon';
 import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../../../../resources/dist/css/ln/components/usuario.css';
 import '../../../../../resources/dist/css/ln/components/button.css';
-import ModsubHeather from './subHeather';
+import dynamicallyLoadScript from '../utils/dynamicallyLoadScript';
+// import ModsubHeather from './subHeader';
 
 const ItemAnchor = ({ url, text }) => {
     const callURL = address => {
@@ -20,7 +22,12 @@ const ItemAnchor = ({ url, text }) => {
 
     return (
         <li key={text}>
-            <a onMouseDown={() => callURL(url)} href="javascript:void(0)">
+            <a
+                onMouseDown={() => callURL(url)}
+                href="javascript:void(0)"
+                data-event="LinkClick"
+                data-section="MenuLN"
+            >
                 {text}
             </a>
         </li>
@@ -34,11 +41,11 @@ ItemAnchor.propTypes = {
 
 const enlaces = [
     {
-        url: 'https://micuenta.lanacion.com.ar/mis-datos',
+        url: 'https://myaccount.lanacion.com.ar/mi-usuario',
         text: 'Mi cuenta'
     },
     {
-        url: 'https://micuenta.lanacion.com.ar/ayuda',
+        url: 'https://myaccount.lanacion.com.ar/datos-personales',
         text: 'Mis datos'
     },
     {
@@ -52,7 +59,7 @@ const HeaderDesktop = ({
     loginData,
     goToLogout,
     host,
-    //headerDark,
+    // headerDark,
     toglleDesplegable
 }) => {
     const { loading } = loginData;
@@ -69,11 +76,29 @@ const HeaderDesktop = ({
         setLoadingUserData(loading ? ' hlp-none' : '');
     }, [loading]);
 
+    const handleClickBuscar = () => {
+        dynamicallyLoadScript('//www.queryly.com/js/queryly.v4.js', 'body')
+            .then(() => {
+                const initScript = document.createElement('script');
+                initScript.innerHTML = `queryly.init('8075c0c1c4c44847', document.querySelectorAll('#fusion-app'));`;
+                document.body.appendChild(initScript);
+                document.getElementById('querylyButton').click();
+            })
+            .catch(() => {
+                // console.error('Script loading failed! Handle this error', error);
+            });
+    };
+
     return (
-        <Header id="header" className={`header`}>
+        <Header id="header" className="header">
             <div className="col-4 header__left">
                 <Hamburguer _onMouseDown={toglleDesplegable} />
-                <label for="queryly_toggle">
+                <label
+                    onClick={handleClickBuscar}
+                    id="querylyButton"
+                    htmlFor="queryly_toggle"
+                    title="Buscar"
+                >
                     <i className="com-button --tertiary --icon queryly_searchicon">
                         <ComIcon iconName="search" />
                         BUSCAR
@@ -85,6 +110,7 @@ const HeaderDesktop = ({
                 <ComLink
                     link={host || '/'}
                     classCondition="header__middle__logo"
+                    title="LA NACION"
                 >
                     <ComLogo logoName="la-nacion" />
                 </ComLink>
@@ -97,7 +123,9 @@ const HeaderDesktop = ({
                     {!loginData.subscription && (
                         <button
                             className="com-button --special"
+                            id="btnsuscribite"
                             type="button"
+                            title="Suscribite"
                             onClick={() => {
                                 location.href =
                                     `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
@@ -139,6 +167,8 @@ const HeaderDesktop = ({
                                 ))}
                                 <li>
                                     <a
+                                        data-event="LinkClick"
+                                        data-section="MenuLN"
                                         href="javascript:void(0);"
                                         onMouseDown={() => {
                                             goToLogout();
@@ -152,9 +182,11 @@ const HeaderDesktop = ({
                     )}
                     {!logueado && (
                         <button
-                            type="button"
                             className="com-button --secondary"
+                            id="btningresar"
                             onClick={() => goToLoginUrl()}
+                            type="button"
+                            title="Ingresar"
                         >
                             INGRESAR
                         </button>
@@ -162,7 +194,7 @@ const HeaderDesktop = ({
                 </div>
             </div>
             <div className="col-1 header__search">
-                <label for="queryly_toggle">
+                <label onClick={handleClickBuscar} htmlFor="queryly_toggle">
                     <i className="com-icon icon-search queryly_searchicon" />
                 </label>
             </div>

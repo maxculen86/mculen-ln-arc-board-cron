@@ -1,47 +1,69 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import getProperties from 'fusion:properties';
 import ArticleAcum from '../../acumulado/articleAcum';
+import get from '../../../common/utils/get';
 
-const FocalFactory = ({ directionFocal, articles = [], outputType }) => {
-    if (articles.length < 2) return null;
-    if (directionFocal === 'focalLeft3' && articles.length < 3) return null;
+const FocalFactory = ({
+    directionFocal,
+    articles = [],
+    _children,
+    outputType,
+    boxPosition
+}) => {
+    const articleList =
+        (_children && _children.length && _children) ||
+        (articles && articles.length && articles) ||
+        [];
+
+    if (
+        articleList.length < 2 ||
+        (directionFocal === 'focalLeft3' && articleList.length < 3)
+    )
+        return null;
+
+    const { cajaTemaConfig } = getProperties('la-nacion-ar');
+    const manualArticles =
+        articleList &&
+        articleList.length &&
+        articleList.map((art, index) => {
+            const articleProps = get(
+                cajaTemaConfig,
+                `${directionFocal}.articles[${index}]`,
+                null
+            );
+            const comp = (_children && _children.length && art) || (
+                <ArticleAcum
+                    article={art}
+                    outputType={outputType}
+                    label="Chapita"
+                    artPosition={`0${index + 1}`}
+                    boxPosition={boxPosition}
+                    {...(articleProps || {})}
+                />
+            );
+            return comp;
+        });
+
     return (
-        <>
-            <div className="col-tablet-8">
-                <ArticleAcum
-                    article={articles[0]}
-                    outputType={outputType}
-                    label="Chapita"
-                    titleSize={directionFocal === 'focalLeft3' ? '--xl' : '--l'}
-                    withSubhead={directionFocal === 'focalLeft3'}
-                />
-            </div>
-            <div className="col-tablet-4">
-                <ArticleAcum
-                    article={articles[1]}
-                    outputType={outputType}
-                    label="Chapita"
-                    titleSize={
-                        directionFocal === 'focalRight3' ? '--xl' : '--xs'
-                    }
-                    withSubhead={directionFocal === 'focalRight3'}
-                />
-                {directionFocal === 'focalLeft3' && (
-                    <ArticleAcum
-                        article={articles[2]}
-                        outputType={outputType}
-                        label="Chapita"
-                    />
-                )}
-            </div>
-        </>
+        (articleList && articleList.length && (
+            <>
+                <div className="col-tablet-8">{manualArticles[0]}</div>
+                <div className="col-tablet-4">
+                    {manualArticles[1]}
+                    {directionFocal === 'focalLeft3' && manualArticles[2]}
+                </div>
+            </>
+        )) ||
+        null
     );
 };
 
 FocalFactory.propTypes = {
     directionFocal: PropTypes.string.isRequired,
     outputType: PropTypes.string.isRequired,
-    articles: PropTypes.arrayOf(PropTypes.node).isRequired
+    articles: PropTypes.arrayOf(PropTypes.node).isRequired,
+    _children: PropTypes.arrayOf(PropTypes.node).isRequired
 };
 
 export default FocalFactory;

@@ -49,17 +49,17 @@
     }
 }
 
-.hlp-overflow-scroll {
-    overflow: scroll;
-}
+// .hlp-overflow-scroll {
+//     overflow: scroll;
+// }
 
 .hlp-bold {
     font-weight: bold;
 }
-::selection {
-    background-color: $ln;
-    color: $neutral-white;
-}
+// ::selection {
+//     background-color: $ln;
+//     color: $neutral-white;
+// }
 
 //=============================
 // MEDIDAS DE FONT
@@ -263,36 +263,6 @@ b,//vienen en las notas
 
 .--sueca {
     font-family: $font-SuecaSlab;
-}
-
-//=============================
-// DISPLAY NONE / HIDE
-//=============================
-
-.--none {
-    display: none;
-}
-
-.--mobile-none {
-    @media (max-width: 767px) {
-        display: none;
-    }
-}
-
-.--tablet-none {
-    @media (max-width: 1023px) {
-        display: none;
-    }
-}
-
-.--hide {
-    visibility: hidden;
-    opacity: 0;
-}
-
-.--show {
-    visibility: visible;
-    opacity: 1;
 }
 
 @media ($media-m) {

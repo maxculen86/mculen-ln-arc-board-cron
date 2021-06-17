@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
+import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import LoginProvider from '../private/LN/common/context/loginContext';
@@ -17,6 +18,8 @@ import '../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
 import get from '../private/common/utils/get';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
+import { formatText } from '../private/common/utils/sectionUtils';
+import LoadBanners from '../private/common/banners/LoadBanners';
 
 const pageBuilderSections = [
     'Banner-Megatop',
@@ -26,19 +29,21 @@ const pageBuilderSections = [
     'Apertura',
     'Links',
     'Notas',
-    'Aside'
+    'Aside',
+    'Bottom'
 ];
 
-const formatText = str => {
-    return str
-        .toLowerCase()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '');
-};
-
-const CLASS_ACU_REVISTA = 'acu-revista';
-const revistas = ['ohlala'];
-const sections = ['economia'];
+const CLASS_ACU_REVISTA = '';
+const revistas = [
+    'ohlala',
+    'lugares',
+    'hola',
+    'living',
+    'brando',
+    'jardin',
+    'rolling-stone'
+];
+const sections = ['economia', 'deportes'];
 
 const LNAcumuladoLayout = props => {
     const {
@@ -50,7 +55,8 @@ const LNAcumuladoLayout = props => {
             apertura,
             links,
             notas,
-            aside
+            aside,
+            bottom
         ],
         globalContent,
         outputType,
@@ -128,14 +134,23 @@ const LNAcumuladoLayout = props => {
                                     {/* NOTAS */}
                                     {notas}
                                 </div>
-                                <div className="sidebar__aside hlp-tablet-none">
+                                <div className="sidebar__aside hlp-tabletlm-none">
                                     {/* BANNERS, RANKING DE NOTAS */}
                                     {aside}
                                 </div>
                             </div>
+                            <div className="lay-sidebar">
+                                <div className="sidebar__main">
+                                    {/* Bottom */}
+                                    {bottom}
+                                </div>
+                            </div>
                         </main>
-                        <Footer />
+                        <Static id="StaticFooter">
+                            <Footer />
+                        </Static>
                     </div>
+                    <LoadBanners />
                 </GlobalProviderAcu>
             </LoginProvider>
         </GlobalProvider>

@@ -2,20 +2,32 @@
 @import '../abstracts/mixins';
 
 .mod-headersection {
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
     margin-bottom: $spacing-sm;
     width: 100%;
 
-    .com-title {
+    .com-title.com-title {
         margin-bottom: 0;
-        width: 100%;
-        display: block;
-        white-space: nowrap;
+        //width: 100%;
+        //display: block;
+        // white-space: nowrap;
+        // overflow: hidden;
+        // text-overflow: ellipsis;
+        //text-transform: uppercase;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
         overflow: hidden;
-        text-overflow: ellipsis;
+        .com-link {
+            color: $light-neutral-700;
+            //text-transform: uppercase;
+        }
         @media ($media-l) {
-            width: 50%;
+            -webkit-line-clamp: 1;
+            .sidebar__aside & {
+                -webkit-line-clamp: initial;
+            }
         }
     }
 
@@ -26,10 +38,6 @@
     .com-image {
         //margin-bottom: $spacing-sm;
         max-height: px(24);
-    }
-
-    .com-link.com-link {
-        color: $light-neutral-700;
     }
 
     // &.--blue,

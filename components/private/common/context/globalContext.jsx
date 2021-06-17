@@ -5,13 +5,54 @@ import { useContent } from 'fusion:content';
 
 export const GlobalContext = React.createContext();
 
-const reducer = (state, action) => {
-    switch (action.type) {
-        default:
-            return state;
-    }
-};
+const actionType = {
+    ADD_TAGS_ARTICLES: (state = {}, action = {}) => {
+        const tags = state.tagsHome;
+        tags.push(action.article);
+        return {
+            ...state,
+            tagsHome: tags
+        };
+    },
 
+    ADD_ADUNIT_DEFINITION: (state, action) => {
+        const adUnits = state.bannersConfig.bannersToLoad || [];
+        adUnits.push(action.payload);
+        return {
+            ...state,
+            bannersConfig: { ...state.bannersConfig, bannersToLoad: adUnits }
+        };
+    },
+    REMOVE_ITEM_FROM_SHALL_BE_EXLUDED_LIST: (state, action) => {
+        const shallBeExcluded = state.bannersConfig.shallBeExcluded.filter(
+            el => el !== action.payload.id
+        );
+        return {
+            ...state,
+            bannersConfig: {
+                ...state.bannersConfig,
+                shallBeExcluded
+            }
+        };
+    },
+    ADD_BANNER_IN_GRILLAS: (state, action) => {
+        const adUnits = state.bannersConfig.bannersInGrillaNotas || [];
+        adUnits.push(action.payload.id);
+        return {
+            ...state,
+            bannersConfig: {
+                ...state.bannersConfig,
+                bannersInGrillaNotas: adUnits
+            }
+        };
+    },
+    default: state => state
+};
+const reducer = (state, action) => {
+    return actionType[action.type]
+        ? actionType[action.type](state, action)
+        : actionType.default(state);
+};
 const GlobalProvider = ({ children }) => {
     const { arcSite: website = 'la-nacion-ar' } = useAppContext();
     const [state, dispatch] = React.useReducer(reducer, {
@@ -21,7 +62,7 @@ const GlobalProvider = ({ children }) => {
                 website
             },
             filter: `
-                {  
+                {
                     tooltips
                     Termicas
                     bannerConfig
@@ -58,18 +99,27 @@ const GlobalProvider = ({ children }) => {
                     }))
                 };
             }
-        })
+        }),
+        bannersConfig: {
+            bannersToLoad: [],
+            bannersInGrillaNotas: [],
+            shallBeExcluded: [
+                'caja3_dsk',
+                'caja4_dsk',
+                'caja2_tab',
+                'middle_1_tab',
+                'middle_2_tab'
+            ]
+        },
+        tagsHome: []
     });
-
     return (
         <GlobalContext.Provider value={{ state, dispatch }}>
             {children}
         </GlobalContext.Provider>
     );
 };
-
 GlobalProvider.propTypes = {
     children: PropTypes.arrayOf(PropTypes.node).isRequired
 };
-
 export default GlobalProvider;

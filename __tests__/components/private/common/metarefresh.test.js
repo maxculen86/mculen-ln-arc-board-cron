@@ -21,9 +21,7 @@ jest.mock(
 
 jest.mock('fusion:content', () => ({
     useContent: () => ({
-        Metarefresh: {
-            nota_desktop: 30
-        }
+        nota_desktop: 30
     })
 }));
 

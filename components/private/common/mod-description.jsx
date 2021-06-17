@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import ComTitle from './com-title';
 import ComDate from './com-date';
 import ModBajada from './mod-bajada';
@@ -59,7 +59,7 @@ const ModDescription = props => {
                         content={categoryName}
                         sizeText="--fourxs"
                         sizeBullet={withMarquee && '--fourxs'}
-                        link={categoryPath}
+                        link={`${categoryPath}/`}
                         classCondition="--tags"
                     />
                 )}
@@ -102,7 +102,7 @@ ModDescription.propTypes = {
     authors: PropTypes.string,
     marquesina: PropTypes.string,
     category: PropTypes.string,
-    tags: PropTypes.arrayOf(PropTypes.obj)
+    tags: PropTypes.arrayOf(PropTypes.object)
 };
 
 ModDescription.defaultProps = {

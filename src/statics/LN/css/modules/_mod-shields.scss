@@ -1,0 +1,61 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.--shields {
+    margin-bottom: $spacing-xl;
+    justify-content: center;
+    .sports {
+        // @include flex(inline);
+        // flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-row-gap: $spacing-sm;
+        grid-column-gap: $spacing-sm;
+
+        @media ($media-m) {
+            grid-template-columns: repeat(9, 1fr);
+            grid-column-gap: $spacing-sm;
+        }
+        @media ($media-l) {
+            grid-template-columns: repeat(10, 1fr);
+            grid-column-gap: px(31);
+        }
+    }
+    .--shield {
+        .com-image {
+            width: px(48);
+            height: auto;
+        }
+    }
+
+    .com-link.--shield {
+        //margin-right: $spacing-m;
+        //margin-bottom: $spacing-sm;
+        justify-self: center;
+        position: relative;
+        width: px(64);
+        height: px(64);
+        border: solid 1px $light-neutral-400;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        @include flex(flex, row, center, center);
+        &:after {
+            content: '';
+            display: block;
+            width: 65px;
+            height: 80px;
+            border: 1px solid #000;
+            border-color: #000 transparent transparent transparent;
+            -moz-border-radius: 50px 50px 50px 0;
+            border-radius: 50px 50px 50px 0;
+            position: absolute;
+            top: 0;
+            -webkit-border-radius: 50px 50px 50px 0;
+            -ms-border-radius: 50px 50px 50px 0;
+            -o-border-radius: 50px 50px 50px 0;
+        }
+    }
+}

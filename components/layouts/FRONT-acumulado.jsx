@@ -1,6 +1,7 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
@@ -56,24 +57,7 @@ import '../../resources/dist/css/ln/components/banners.css';
 import '../../resources/dist/css/ln/base/helpers.css';
 
 import GlobalProvider from '../private/common/context/globalContext';
-
-const getBannerMegatop = (element, outputType, tree, isAdmin) => {
-    const { children } = tree;
-    // children[0] => Section BannerMegatop
-    const { children: childrenSectionBannerMegatop } = children[0];
-    const isValid =
-        outputType !== 'amp' && childrenSectionBannerMegatop.length <= 1;
-    const component = isValid ? (
-        element
-    ) : (
-        <PageBuilderMessage
-            id="LN-nota-foto-al-100-error"
-            type="warning"
-            message="La sección BannerMegatop solo permite un banner y no se mostrará en salida AMP"
-        />
-    );
-    if (isAdmin) return component;
-};
+import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 
 const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
@@ -487,7 +471,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                             </div>
                         </div>
                         {/* Tercera */}
-                        <div className="sidebar__aside hlp-tablet-none">
+                        <div className="sidebar__aside hlp-tabletlm-none">
                             {children[6]}
 
                             {/* RANKING DE NOTAS */}
@@ -520,7 +504,9 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                         </div>
                     </div>
                 </main>
-                <Footer />
+                <Static id="StaticFooter">
+                    <Footer />
+                </Static>
             </div>
         </GlobalProvider>
     );

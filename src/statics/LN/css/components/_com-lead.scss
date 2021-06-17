@@ -3,10 +3,14 @@
 
 .com-lead {
     color: $light-blue-500;
-    margin-right: px(2);
+    margin-right: px(4);
     font-style: normal;
+    display: inline-block;
     .--bomba.--bomba &,
     .--highlight.--highlight & {
         color: $neutral-white;
+    }
+    &:first-letter {
+        text-transform: uppercase;
     }
 }

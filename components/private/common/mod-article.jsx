@@ -25,6 +25,7 @@ const ModArticle = props => {
         authors,
         authorSize,
         isRenderAuthor,
+        isRenderAuthorOpinion,
         withMedia,
         subheadText,
         subheadSize,
@@ -34,45 +35,40 @@ const ModArticle = props => {
         anexo,
         noMedia,
         label,
-        position,
+        artPosition,
+        boxPosition,
         hour,
         category,
         tags
     } = props;
+    const { _id } = articleData || {};
     const extraOpts = {};
     if (dataSection) {
         extraOpts['data-section'] = dataSection;
         extraOpts['data-event'] = 'LinkClick';
     }
-    const imagenDestacada = isRenderAuthor
-        ? getAuthorsPhoto(articleData)
-        : get(articleData, 'promo_items.basic', null);
+    if (boxPosition) {
+        extraOpts['data-pos'] = `${boxPosition}${artPosition}`;
+        extraOpts['data-id'] = _id;
+        extraOpts['data-notaid'] = _id;
+        extraOpts['data-source'] = 'editor';
+    }
+    const imagenDestacada =
+        isRenderAuthor || isRenderAuthorOpinion
+            ? getAuthorsPhoto(articleData)
+            : get(articleData, 'promo_items.basic', null);
     const marquesina = get(articleData, 'marquesina', null);
 
     const type = get(imagenDestacada, 'type', null);
 
-    //Esto es para una demo para Leito ********************
-    const idArc = `nid5E23BMUH${position}XZ3LSXEK3BKOOA`;
-    const classDemo = `toi${position} ${idArc}`;
-
-    const extraDemo = {};
-    if (frontdemo) {
-        extraDemo['data-pos'] = position;
-        extraDemo['data-id'] = idArc;
-        extraDemo['data-notaid'] = idArc;
-        extraDemo['data-source'] = `editor`;
-    }
-    // demo front *****************************************
-
     return (
         <article
             className={`mod-article ${classCondition || ''} ${
-                frontdemo ? classDemo : ''
+                boxPosition ? `toi${boxPosition}${artPosition} nid${_id}` : ''
             } ${noMedia ? '--no-media' : ''} ${
-                isRenderAuthor ? '--author' : ''
+                isRenderAuthor || isRenderAuthorOpinion ? '--author' : ''
             }`}
             {...extraOpts}
-            {...extraDemo}
         >
             {hour && hour}
 
@@ -81,6 +77,8 @@ const ModArticle = props => {
                     mediaData={type === 'image' ? imagenDestacada : null}
                     href={link}
                     outputType={outputType}
+                    anexo={anexo}
+                    titleText={titleText}
                     // labelArticle="La Chapita solo se tiene que ver con foto o placeholder"
                 />
             )}
@@ -136,12 +134,15 @@ ModArticle.propTypes = {
     withMedia: PropTypes.boolean,
     outputType: PropTypes.string,
     articleData: PropTypes.shape({
+        _id: PropTypes.string,
         promo_items: PropTypes.shape({
             basic: PropTypes.object
         })
     }).isRequired,
     category: PropTypes.string,
-    tags: PropTypes.string
+    tags: PropTypes.string,
+    isRenderAuthor: PropTypes.bool,
+    isRenderAuthorOpinion: PropTypes.bool
 };
 
 ModArticle.defaultProps = {
@@ -159,7 +160,9 @@ ModArticle.defaultProps = {
     hour: undefined,
     outputType: 'default',
     category: undefined,
-    tags: undefined
+    tags: undefined,
+    isRenderAuthor: false,
+    isRenderAuthorOpinion: false
 };
 
 export default ModArticle;

@@ -1,3 +1,5 @@
+import getScrollPercent from '../../common/utils/getScrollPercent';
+
 /* eslint-disable prettier/prettier */
 export default function handleScrollForNota() {
     if (typeof window === 'undefined') return;
@@ -47,17 +49,6 @@ export default function handleScrollForNota() {
         }
     }
 }
-
-const getScrollPercent = () => {
-    const docElem = document.documentElement;
-    const bod = document.body;
-    return (
-        ((docElem.scrollTop || bod.scrollTop) /
-            ((docElem.scrollHeight || bod.scrollHeight) -
-                docElem.clientHeight)) *
-        100
-    );
-};
 
 const scrolledIntoView = elem => {
     const element = document.querySelector(elem);

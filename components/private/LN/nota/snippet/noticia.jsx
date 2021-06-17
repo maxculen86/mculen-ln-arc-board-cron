@@ -9,6 +9,7 @@ import getFirstParagraph from '../../../common/utils/getFirstParagraph';
 import get from '../../../common/utils/get';
 import * as Trust from './constants';
 import addRelatedImage from '../../common/utils/addRelatedImage';
+import addForwardSlash from '../../common/utils/addForwardSlash';
 
 const extractDataFromTags = tags => {
     let keywords = [];
@@ -62,7 +63,7 @@ const extractDataFromPromoItems = (promoItems, PLACEHOLDER) => {
 };
 
 const publishingPrinciples =
-    'https://www.lanacion.com.ar/tema/trust-project-tid68036';
+    'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/';
 
 const getTrustProject = trust => data => sponsored => {
     if (!trust && !sponsored) return { ...data };
@@ -168,7 +169,9 @@ const SnippetNoticia = props => {
         dateCreated: `${new Date(createdDate).toUTCString() || ''}`,
         datePublished: `${new Date(firstPublishDate).toUTCString() || ''}`,
         dateModified: `${new Date(displayDate).toUTCString() || ''}`,
-        mainEntityOfPage: `${siteProperties.host}${path || ''}`,
+        mainEntityOfPage: `${addForwardSlash(
+            `${siteProperties.host}${path || ''}`
+        )}`,
         articleSection: `${name || ''}`,
         isAccessibleForFree: `${contentCode === 'abierta'}`,
         hasPart: {
@@ -191,7 +194,7 @@ const SnippetNoticia = props => {
             logo: {
                 '@context': 'https://schema.org',
                 '@type': 'ImageObject',
-                url: `${LOGO_AMP}`,
+                url: `${PLACEHOLDER}`,
                 height: 41,
                 width: 391
             }

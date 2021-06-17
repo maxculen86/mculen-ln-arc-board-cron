@@ -88,16 +88,18 @@
 }
 
 .interest {
-    padding-top: px(40);
-    border-top: 1px solid $light-neutral-400;
-    .com-title-section-l {
-        margin-bottom: px(24);
-        line-height: px(32);
-        font-size: px(24);
-    }
-    > section {
-        margin-bottom: px(40);
-    }
+    margin-bottom: px(64);
+
+    //     // padding-top: px(40);
+    //     // border-top: 1px solid $light-neutral-400;
+    //     .com-title-section-l {
+    //         margin-bottom: px(24);
+    //         line-height: px(32);
+    //         font-size: px(24);
+    //     }
+    //     // > section {
+    //     //     margin-bottom: px(40);
+    //     // }
 }
 
 .more-articles,

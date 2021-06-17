@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Private - LN - Acumulado - ArticleAcum Test de snapshot ArticleAcum 1`] = `
+<mod-article-mock
+  articledata="[object Object]"
+  authors="Por Mirta Albamonte"
+  category="false"
+  datasection="CuerpoAcu"
+  datetext="2020-06-02T15:28:04.694Z"
+  hour="false"
+  isrenderauthor="false"
+  label="Chapa"
+  leadtext="Volanta"
+  link="/recetas/test-dl-nid02062020/"
+  subheadtext="false"
+  tags="false"
+  titlesize=""
+  titletag=""
+  titletext="Titulo Movil Corto"
+  typearticle="Grilla"
+  withmedia="true"
+/>
+`;

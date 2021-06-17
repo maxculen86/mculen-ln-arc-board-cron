@@ -1,5 +1,5 @@
 jest.mock(
-    '../../../components/chains/Ln_Caja_Collection.jsx',
+    '../../../components/chains/Ln_Caja_Collection/default.jsx',
     () => 'mock-component'
 );
 
@@ -7,12 +7,23 @@ import React from 'react';
 import { mount } from 'enzyme';
 import {
     calculateSizeOfCollection,
-    getArticlesFromMyCurrentCollection,
-    getIdsArticlesFromOtherCollections,
+    getCommonProps,
+    getLayoutType,
+    getMarkupForDatalayer,
     isInApertura
 } from '../../../components/private/LN/common/utils/cajaTemasHelper.js';
+import {
+    getArticlesFromMyCurrentCollection,
+    getIdsArticlesFromOtherCollections
+} from '../../../components/private/LN/common/utils/cajaTemasValidators';
 import { getArticlesToShow } from '../../../content/sources/utils/collectionsHelper.js';
-import CajaCollection from '../../../components/chains/Ln_Caja_Collection.jsx';
+import CajaCollection from '../../../components/chains/Ln_Caja_Collection/default.jsx';
+import useGlobalProviderAcu from '../../../components/private/LN/acumulado/hooks/useGlobalProviderAcu.js';
+
+jest.mock(
+    '../../../components/private/LN/acumulado/hooks/useGlobalProviderAcu.js',
+    () => jest.fn()
+);
 
 describe('Test del Chain - <Ln_Caja_Collection />', () => {
     const idCollection = 'WPDJCUD7RNAQVA4JEPFJYZMCSE';
@@ -94,7 +105,8 @@ describe('Test del Chain - <Ln_Caja_Collection />', () => {
                     idCollection: 'WPDJCUD7RNAQVA4JEPFJYZMCSE',
                     layout: 'grilla3',
                     initialPosition: 1
-                }
+                },
+                id: 1
             }
         },
         {
@@ -105,7 +117,8 @@ describe('Test del Chain - <Ln_Caja_Collection />', () => {
                     idCollection: 'WPDJCUD7RNAQVA4JEPFJYZMCSE',
                     layout: 'grilla3',
                     initialPosition: 4
-                }
+                },
+                id: 2
             }
         }
     ];
@@ -147,6 +160,38 @@ describe('Test del Chain - <Ln_Caja_Collection />', () => {
     it('Recibe de customFields el campo opcional title', () => {
         expect(mock.props('customFields').customFields.title).toBeTruthy();
         expect(mock.props('customFields').customFields.title).toBe(title);
+    });
+
+    it('Deberia traer propiedades en comun', () => {
+        const props = {
+            customFields,
+            renderables,
+            id: 2,
+            globalContent: {
+                name: 'Economía',
+                acumuladoGeneral: {
+                    usa_datalayer: 'true'
+                }
+            }
+        };
+        const {
+            collectionsInPage,
+            notesQuantity,
+            bgColor,
+            classCondition,
+            position,
+            sectionName
+        } = getCommonProps(props);
+        expect(collectionsInPage.length).toBe(0);
+        expect(bgColor).toBe('--bgcolor ');
+        expect(position).toBe('02');
+        expect(notesQuantity).toBe(3);
+        expect(classCondition).toBe('');
+        expect(sectionName).toBe('economia_');
+
+        props.globalContent.acumuladoGeneral.usa_datalayer = 'false';
+        const { position: positionFalse } = getCommonProps(props);
+        expect(positionFalse).toBe(false);
     });
 
     // Collections del tipo automatica
@@ -302,5 +347,54 @@ describe('Test del Chain - <Ln_Caja_Collection />', () => {
             3
         );
         expect(articles4.length).toBe(0);
+    });
+
+    it('Deberia traer los datos de dataLyer para Layout Opinion', () => {
+        const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
+            'Opinion',
+            '',
+            0,
+            ''
+        );
+        expect(Object.keys(extraOptsDiv).length).toEqual(0);
+        expect(extraOpts['data-block-name']).toEqual('h_opinion');
+    });
+
+    it('Deberia traer los datos de dataLyer para Layout Opinion', () => {
+        const layout1 = getLayoutType('grilla3', [[]], []);
+        const layout2 = getLayoutType('opinion4', [[]], []);
+        const layout3 = getLayoutType('editoriales2', [[]], []);
+        const layout4 = getLayoutType('focal', [[]], []);
+        const layout5 = getLayoutType('xx', [], [[]]);
+        expect(layout1).toEqual('Grilla');
+        expect(layout2).toEqual('Opinion');
+        expect(layout3).toEqual('Editoriales');
+        expect(layout4).toEqual('Focal');
+        expect(layout5).toEqual('ArticleFeature');
+    });
+
+    it('Deberia traer los datos de dataLyer para Layout Editoriales', () => {
+        const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
+            'Editoriales',
+            '',
+            0,
+            ''
+        );
+        expect(Object.keys(extraOptsDiv).length).toEqual(0);
+        expect(extraOpts['data-block-name']).toEqual('h_editoriales');
+    });
+
+    it('Deberia traer los datos de dataLyer para Layout generico', () => {
+        const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
+            '',
+            'grilla3',
+            '00',
+            'deportes_'
+        );
+        expect(extraOptsDiv['data-module']).toEqual('tema_00');
+        expect(extraOpts['data-block-name']).toEqual('h_deportes_tema-00');
+        expect(extraOpts['data-diagramacion-id']).toEqual('grilla3');
+        expect(extraOpts['data-is-block']).toEqual(true);
+        expect(extraOpts.id).toEqual('tema_00');
     });
 });

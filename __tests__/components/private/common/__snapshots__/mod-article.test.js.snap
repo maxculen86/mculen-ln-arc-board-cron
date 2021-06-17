@@ -21,6 +21,12 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
   <section
     class="mod-description"
   >
+    <div
+      class="com-label --sixxs"
+      title="chapita"
+    >
+      chapita
+    </div>
     <h1
       class="com-title --s"
     >
@@ -31,8 +37,8 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
         Este es el titulo
       </a>
     </h1>
-    <p
-      class="com-subhead --twoxs"
+    <h3
+      class="com-subhead  --twoxs"
     >
       <a
         aria-label="Este es el subtitulo"
@@ -42,7 +48,7 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
       >
         Este es el subtitulo
       </a>
-    </p>
+    </h3>
     <div>
       <strong
         class="mod-marquee  --fourxs"

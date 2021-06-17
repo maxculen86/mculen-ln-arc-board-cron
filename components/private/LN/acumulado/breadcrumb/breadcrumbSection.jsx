@@ -9,6 +9,7 @@ function BreadcrumbSection({ sections, host, colorCategory }) {
     return (
         <>
             <BreadCrumbBase
+                lastLinked
                 sections={sections}
                 dataSection={DATA_SECTION}
                 host={host}
@@ -31,7 +32,12 @@ BreadcrumbSection.propTypes = {
             path: PropTypes.string
         })
     ).isRequired,
-    host: PropTypes.string.isRequired
+    host: PropTypes.string.isRequired,
+    colorCategory: PropTypes.string
+};
+
+BreadcrumbSection.defaultProps = {
+    colorCategory: ''
 };
 
 export default WithNavigation(BreadcrumbSection);

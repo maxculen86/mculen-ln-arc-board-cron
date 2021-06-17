@@ -10,6 +10,7 @@ export default {
     },
     sticky1_mob: {
         slotName: `${PATH_SLOT}/sticky1_mob`,
+        withoutHide: true,
         dimensions: [
             [320, 50],
             [320, 100]
@@ -94,5 +95,13 @@ export default {
             width: 320,
             height: 50
         }
+    },
+    comercial_mob: {
+        slotName: `${PATH_SLOT}/comercial_mob`,
+        dimensions: [
+            [1, 1],
+            [320, 480]
+        ],
+        targeting: defaultTargeting
     }
 };

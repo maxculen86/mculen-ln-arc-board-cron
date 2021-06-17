@@ -3,7 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import withAcuCategories from '../hocs/withAcuCategories';
 import capitalizeFirstLetter from '../../../common/utils/capitalizeFirstLetter';
 import get from '../../../common/utils/get';
-
+import { SITE_LANACION } from 'fusion:environment';
 import '../../../../../resources/dist/css/ln/components/title.css';
 import '../../../../../resources/dist/css/ln/components/tag.css';
 import ModCategory from '../../../common/mod-category';
@@ -19,6 +19,16 @@ const setTitle = (
     return '';
 };
 
+const setUrl = globalContent => {
+    if (globalContent.node_type === 'tags')
+        return `${SITE_LANACION}${
+            globalContent.canonical_url ? globalContent.canonical_url : ''
+        }`;
+    if (globalContent.node_type === 'section')
+        return `${SITE_LANACION}${globalContent._id}/`;
+    return SITE_LANACION;
+};
+
 const AcumuladoTitle = props => {
     const { outputType, idLogoImage, colorCategory } = props;
     const isPrimarySection = get(props, 'isPrimarySection', {});
@@ -28,7 +38,7 @@ const AcumuladoTitle = props => {
     const prefixTitle = get(props, 'customFields.prefixTitle', null);
 
     const title = setTitle(replaceTitle, globalContent);
-    const { _id: url = '' } = globalContent;
+    const url = setUrl(globalContent);
 
     const prefixText =
         !isPrimarySection && title && url.includes('/recetas') && prefixTitle
@@ -67,6 +77,7 @@ const AcumuladoTitle = props => {
             navigation={categories}
             style={{ color: colorCategory }}
             outputType={outputType}
+            url={url}
         />
     );
 };

@@ -1,4 +1,3 @@
-import env from '../../../../../../__mocks__/fusion:environment';
 import articlesRecetas from '../../../../../../__mocks__/data/articleCollections/recetas.json';
 import articlesDeportes from '../../../../../../__mocks__/data/articleCollections/deportes.json';
 import AcuIndex from '../../../../../../components/private/LN/api/v1/acumulado';

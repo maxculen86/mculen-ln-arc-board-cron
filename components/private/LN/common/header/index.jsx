@@ -8,6 +8,7 @@ import withLoginData from '../hocs/withLoginData';
 import Desplegable from '../desplegable';
 import Scroll from '../../../common/utils/scroll';
 import debounce from '../../../common/utils/debounce';
+import { getAndSaveCustomDimension } from '../../../common/utils/storage';
 
 const CLASS_SCROLL_UP = '--scrollUp';
 const CLASS_SCROLL_DOWN = '--scrollDown';
@@ -31,7 +32,8 @@ class Index extends Component {
         const header = document.getElementById('header');
         //const vshare = document.getElementById('v-share');
         const userMenu = document.getElementById('user-menu');
-        const wrapper = document.getElementById('wrapper');
+        const fusionApp = document.getElementById('fusion-app');
+        const wrapper = fusionApp && fusionApp.querySelector('#wrapper');
 
         if (header) {
             const headerHeigth = header.clientHeight || header.offsetHeight;
@@ -50,6 +52,8 @@ class Index extends Component {
                     });
                 })
             );
+
+            getAndSaveCustomDimension();
         }
     }
 

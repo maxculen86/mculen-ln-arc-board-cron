@@ -4,7 +4,7 @@
  * .tag() in the prop-types. Instead of importing normal react prop-types
  * you will need to instead do:
  *
- * import PropTypes from 'fusion:prop-types';
+ *  from 'import PropTypesfusion:prop-types';
  *
  * and then in your test file the prop-types will be auto-mocked with
  * with the .tag() functionality so you don't get unit test errors

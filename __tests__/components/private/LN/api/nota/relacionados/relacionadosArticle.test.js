@@ -1,4 +1,3 @@
-import env from '../../../../../../../__mocks__/fusion:environment';
 import get from 'lodash.get';
 
 import Relacionados from '../../../../../../../components/private/LN/api/v1/nota/relacionados';

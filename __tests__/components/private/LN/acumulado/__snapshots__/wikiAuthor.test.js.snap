@@ -17,11 +17,13 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="mod-picture "
         >
           <img
-            alt="Imagen de Autor"
+            alt="Joaquín Morales Solá"
             class="com-image "
+            height="280"
             loading="lazy"
             src="https://bucket2.glanacion.com/anexos/fotos/95/3037695h320.png"
             srcset="https://bucket2.glanacion.com/anexos/fotos/95/3037695h320.png"
+            width="280"
           />
         </div>
       </figure>
@@ -32,11 +34,11 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
       <div
         class="com-container  --info"
       >
-        <h2
+        <h1
           class="com-title --l"
         >
           Joaquín Morales Solá
-        </h2>
+        </h1>
         <span
           class="com-text --twoxs --profesion"
         />
@@ -287,7 +289,9 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           >
             <a
               class="com-link --sociallist"
-              href="@moralessola"
+              href="https://twitter.com/@moralessola"
+              rel="nonoopener noreferrer"
+              target="_blank"
             >
               <div
                 class="com-bullet"
@@ -313,6 +317,8 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
             <a
               class="com-link --sociallist"
               href="@moralessola"
+              rel="nonoopener noreferrer"
+              target="_blank"
             >
               <div
                 class="com-bullet"
@@ -338,6 +344,8 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
             <a
               class="com-link --sociallist"
               href="@moralessola"
+              rel="nonoopener noreferrer"
+              target="_blank"
             >
               <div
                 class="com-bullet"
@@ -363,6 +371,8 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
             <a
               class="com-link --sociallist"
               href="@moralessola"
+              rel="nonoopener noreferrer"
+              target="_blank"
             >
               <div
                 class="com-bullet"
@@ -388,6 +398,8 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
             <a
               class="com-link --sociallist"
               href="@moralessola"
+              rel="nonoopener noreferrer"
+              target="_blank"
             >
               <div
                 class="com-bullet"
@@ -413,6 +425,8 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
             <a
               class="com-link --sociallist"
               href="@moralessola"
+              rel="nonoopener noreferrer"
+              target="_blank"
             >
               <div
                 class="com-bullet"
@@ -438,6 +452,8 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
             <a
               class="com-link --sociallist"
               href="@moralessola"
+              rel="nonoopener noreferrer"
+              target="_blank"
             >
               <div
                 class="com-bullet"
@@ -463,6 +479,8 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
             <a
               class="com-link --sociallist"
               href="@moralessola"
+              rel="nonoopener noreferrer"
+              target="_blank"
             >
               <div
                 class="com-bullet"
@@ -488,6 +506,8 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
             <a
               class="com-link --sociallist"
               href="@moralessola"
+              rel="nonoopener noreferrer"
+              target="_blank"
             >
               <div
                 class="com-bullet"
@@ -513,6 +533,8 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
             <a
               class="com-link --sociallist"
               href="@moralessola"
+              rel="nonoopener noreferrer"
+              target="_blank"
             >
               <div
                 class="com-bullet"
@@ -538,6 +560,8 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
             <a
               class="com-link --sociallist"
               href="@moralessola"
+              rel="nonoopener noreferrer"
+              target="_blank"
             >
               <div
                 class="com-bullet"
@@ -563,6 +587,8 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
             <a
               class="com-link --sociallist"
               href="@moralessola"
+              rel="nonoopener noreferrer"
+              target="_blank"
             >
               <div
                 class="com-bullet"
@@ -602,11 +628,11 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
       <div
         class="com-container  --info"
       >
-        <h2
+        <h1
           class="com-title --l"
         >
           Joaquín Morales Solá
-        </h2>
+        </h1>
         <span
           class="com-text --twoxs --profesion"
         />
@@ -694,7 +720,9 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           >
             <a
               class="com-link --sociallist"
-              href="@moralessola"
+              href="https://twitter.com/@moralessola"
+              rel="nonoopener noreferrer"
+              target="_blank"
             >
               <div
                 class="com-bullet"

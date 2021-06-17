@@ -79,6 +79,14 @@ export default `
             recomendar {
                 text
             }
+            volanta {
+                text
+                display
+            }
+            chapita {
+                text
+                display
+            }
         }
         related_content {
             basic{

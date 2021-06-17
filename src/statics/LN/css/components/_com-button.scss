@@ -4,6 +4,7 @@
 .com-button {
     @include flex(inline, row, center, center);
     background: transparent;
+    transition: all 0.2s ease-in-out;
     padding: px(12) px(16);
     color: $neutral-black;
     font-size: px(12);
@@ -20,43 +21,15 @@
     }
     .mod-share & {
         padding: 0;
-        margin-right: $spacing-sm;
-        &.comment {
-            margin: 0;
+        margin-right: px(24);
+        &:last-child {
+            margin-right: 0;
         }
         @media ($media-l) {
             margin-right: 0;
         }
     }
 
-    &.facebook {
-        background: $facebook;
-        color: $neutral-white;
-        &:hover {
-            background: rgba($facebook, 0.7);
-        }
-    }
-    &.instagram {
-        background: $instagram;
-        color: $neutral-white;
-        &:hover {
-            background: rgba($instagram, 0.7);
-        }
-    }
-    &.twitter {
-        background: $twitter;
-        color: $neutral-white;
-        &:hover {
-            background: rgba($twitter, 0.7);
-        }
-    }
-    &.whatsapp {
-        background: $whatsapp;
-        color: $neutral-white;
-        &:hover {
-            background: rgba($whatsapp, 0.7);
-        }
-    }
     &:hover {
         background: transparent;
         color: $ln;
@@ -86,19 +59,20 @@
         }
     }
     &.--secondary {
+        background: $neutral-white;
         border-color: $light-blue-500;
         color: $light-blue-500;
         &:hover {
-            background: $light-blue-500;
+            background: $light-blue-400;
+            border-color: $light-blue-400;
             color: $light-neutral-50;
         }
         &:active {
-            border-color: $light-blue-600;
             background: $light-blue-600;
+            border-color: $light-blue-600;
             color: $light-neutral-50;
         }
         &:disabled {
-            background: $light-neutral-400;
             color: $light-neutral-400;
             border-color: $light-neutral-400;
         }
@@ -108,6 +82,7 @@
             // }
             .amp.--transparent & {
                 @media ($media-l) {
+                    background: none;
                     color: $neutral-white;
                     border-color: $neutral-white;
                     &:hover {
@@ -122,24 +97,27 @@
         }
     }
     &.--tertiary {
-        border-color: $light-neutral-200;
         background: $light-neutral-200;
+        border-color: $light-neutral-200;
         color: $light-neutral-800;
 
         &:hover {
-            background: $light-neutral-300;
+            color: $light-blue-400;
         }
         &:active {
             background: $light-neutral-400;
+            border-color: $light-neutral-400;
+            color: $light-blue-400;
         }
         &:disabled {
             background: $light-neutral-300;
+            border-color: $light-neutral-300;
             color: $light-neutral-500;
         }
     }
     //&.--highlight,
     &.--special {
-        background: $highlight;
+        background: $yellow-500;
         border-color: $light-neutral-400;
         color: $neutral-black;
 
@@ -154,7 +132,7 @@
             color: $light-neutral-50;
         }
         &:disabled {
-            background: $light-neutral-400;
+            background: $neutral-white;
             color: $light-neutral-400;
             border-color: $light-neutral-400;
         }
@@ -163,7 +141,11 @@
                 color: $neutral-white;
                 @media ($media-l) {
                     color: $light-neutral-700;
-                    border-color: $highlight;
+                    border-color: $yellow-500;
+                    &:hover {
+                        border-color: $neutral-black;
+                        color: $light-neutral-50;
+                    }
                 }
             }
         }
@@ -236,23 +218,52 @@
             right: 0;
         }
     }
-    .--megatop & {
-        position: absolute;
-        top: 0;
-        padding: px(8) px(10);
-        background: $link;
-        color: $neutral-white;
-        text-transform: uppercase;
-        border-radius: 0 0 px(4) px(4);
-        & span {
-            font-weight: 700;
-            margin-left: px(5);
-        }
-    }
+    // .--megatop & {
+    //     position: absolute;
+    //     top: 0;
+    //     padding: px(8) px(10);
+    //     background: $link;
+    //     color: $neutral-white;
+    //     text-transform: uppercase;
+    //     border-radius: 0 0 px(4) px(4);
+    //     & span {
+    //         font-weight: 700;
+    //         margin-left: px(5);
+    //     }
+    // }
     // .header & {
     //     font-family: $font-arial;
     // }
+    // &.facebook {
+    //     background: $facebook;
+    //     color: $neutral-white;
+    //     &:hover {
+    //         background: rgba($facebook, 0.7);
+    //     }
+    // }
+    // &.instagram {
+    //     background: $instagram;
+    //     color: $neutral-white;
+    //     &:hover {
+    //         background: rgba($instagram, 0.7);
+    //     }
+    // }
+    // &.twitter {
+    //     background: $twitter;
+    //     color: $neutral-white;
+    //     &:hover {
+    //         background: rgba($twitter, 0.7);
+    //     }
+    // }
+    // &.whatsapp {
+    //     background: $whatsapp;
+    //     color: $neutral-white;
+    //     &:hover {
+    //         background: rgba($whatsapp, 0.7);
+    //     }
+    // }
 }
+
 @media ($media-l) {
     .com-button {
         .mod-share & {
@@ -275,7 +286,7 @@
         // &.--special.--special {
         //     .com-usuario & {
         //         .header & {
-        //             background: $highlight;
+        //             background: $yellow-500;
         //             color: $light-neutral-700;
         //             border-color: $light-neutral-400;
         //             margin-right: px(16);

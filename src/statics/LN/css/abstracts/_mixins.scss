@@ -9,6 +9,7 @@
             url('../../fonts/#{$file}.ttf') format('truetype'),
             url('../../fonts/#{$file}.svg?#webfont') format('svg');
         font-weight: $weight;
+        font-display: swap;
         font-style: normal;
     }
 }
@@ -46,21 +47,21 @@
     }
 }
 
-@mixin headerBlanco {
-    background: $neutral-white;
-    border-bottom: 1px solid $light-neutral-300;
-    .logo-la-nacion {
-        color: $ln;
-    }
-    .--btn.--secondary {
-        background-color: $neutral-white;
-        border: 1px solid $link;
-        color: $link;
-    }
-    .com-hamburger:before {
-        color: $neutral-black;
-    }
-}
+// @mixin headerBlanco {
+//     background: $neutral-white;
+//     border-bottom: 1px solid $light-neutral-300;
+//     .logo-la-nacion {
+//         color: $ln;
+//     }
+//     .--btn.--secondary {
+//         background-color: $neutral-white;
+//         border: 1px solid $link;
+//         color: $link;
+//     }
+//     .com-hamburger:before {
+//         color: $neutral-black;
+//     }
+// }
 @mixin flex($display, $direction: null, $ejeX: null, $ejeY: null) {
     //Sólo agregamos el "@include flex($display, $direction, $ejeX, $ejeY);"
     @if $display == flex {
@@ -128,7 +129,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: calc(100vh - 60px);
+            height: calc(100vh - 98px); //resto banner y header mobile
             border: 0;
 
             @media (min-width: 769px) {
@@ -274,3 +275,99 @@
 //         background: $primario;
 //     }
 // }
+
+//=======================================
+// MIXIN GRID REPEDITOS o ÚNICOS
+//=======================================
+
+$guion: '-';
+@mixin grid-repeat($col, $screen: false) {
+    @if $screen {
+        .grid-#{$screen}#{$guion}#{$col} {
+            grid-template-columns: repeat($col, 1fr);
+            grid-template-rows: auto;
+        }
+    } @else {
+        .grid-#{$col} {
+            grid-template-columns: repeat($col, 1fr);
+            grid-template-rows: auto;
+        }
+    }
+}
+@mixin grid-repeat-gap($col, $screen: false) {
+    @if $screen {
+        .grid-#{$screen}#{$guion}#{$col} {
+            grid-template-columns: repeat($col, 1fr);
+            grid-template-rows: auto;
+        }
+    } @else {
+        .grid-#{$col} {
+            grid-template-columns: repeat($col, 1fr);
+            grid-template-rows: auto;
+        }
+    }
+}
+@mixin grid-norepeat(
+    $col,
+    $fr1: null,
+    $fr2: null,
+    $fr3: null,
+    $fr4: null,
+    $screen: false
+) {
+    @if $screen {
+        .grid-#{$screen}#{$guion}#{$col} {
+            grid-template-columns: $fr1 $fr2 $fr3 $fr4;
+            grid-template-rows: auto;
+        }
+    } @else {
+        .grid-#{$col} {
+            grid-template-columns: $fr1 $fr2 $fr3 $fr4;
+            grid-template-rows: auto;
+        }
+    }
+}
+@mixin grid-norepeat-gap(
+    $col,
+    $fr1: null,
+    $fr2: null,
+    $fr3: null,
+    $fr4: null,
+    $screen: false
+) {
+    @if $screen {
+        .grid-#{$screen}#{$guion}#{$col}-gap {
+            grid-template-columns: $fr1 $fr2 $fr3 $fr4;
+            grid-template-rows: auto;
+        }
+    } @else {
+        .grid-#{$col}-gap {
+            grid-template-columns: $fr1 $fr2 $fr3 $fr4;
+            grid-template-rows: auto;
+        }
+    }
+}
+@mixin column-grid($start, $end) {
+    grid-column-start: $start;
+    grid-column-end: $end;
+}
+
+//BACKGROUND RAYAS DIAGONALES
+@mixin BgDiagonal {
+    background: #fff -webkit-repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1), rgba(
+                    255,
+                    255,
+                    255,
+                    0.1
+                )
+                4px, rgba(0, 0, 0, 0.15) 6px);
+    background: #fff
+        repeating-linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 0.1) 4px,
+            rgba(0, 0, 0, 0.15) 6px
+        );
+}

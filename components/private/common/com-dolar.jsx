@@ -13,9 +13,12 @@ const ComDolar = props => {
     return (
         <div className="com-dolar">
             <ComLink
+                classCondition="--dolar"
+                dataEvent="LinkClick"
+                dataSection="MenuLN"
                 link="https://www.lanacion.com.ar/dolar-hoy"
                 size={size}
-                classCondition="--dolar"
+                title="Dólar hoy"
             >
                 Dólar:
             </ComLink>
@@ -28,9 +31,12 @@ const ComDolar = props => {
                 {precioVentaBna ? `$${precioVentaBna}` : '$00,00'}
             </span>
             <ComLink
+                classCondition="--blue"
+                dataEvent="LinkClick"
+                dataSection="MenuLN"
                 link="https://www.lanacion.com.ar/dolar-hoy"
                 size={size}
-                classCondition="--blue"
+                title="Dólar blue"
             >
                 Blue:
             </ComLink>

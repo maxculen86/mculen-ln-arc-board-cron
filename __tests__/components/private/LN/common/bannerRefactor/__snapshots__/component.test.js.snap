@@ -2,19 +2,12 @@
 
 exports[`Banner Matches snapshot 1`] = `
 <div
-  class="mod-banner --bg-banner
-                    
-                    
-                     
-                   hlp-none
-                    --cabezal_dsk
-                "
+  class="mod-banner --bg-banner    --cabezal_dsk hlp-none "
+  style="display:"
 >
   <div
     class="com-banner"
     id="cabezal_dsk"
-  >
-    <div />
-  </div>
+  />
 </div>
 `;

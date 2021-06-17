@@ -1,9 +1,9 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
-import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import LoginProvider from '../private/LN/common/context/loginContext';
 
 import '../../resources/dist/css/ln/base.css'; // chequear para sacar base porque se repite estilo
@@ -56,25 +56,8 @@ import '../../resources/dist/css/ln/pages/magazine.css';
 import GlobalProvider from '../private/common/context/globalContext';
 import { CommentsProvider } from '../private/common/context/commentsContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
-
-const getBannerMegatop = (element, outputType, tree, isAdmin) => {
-    const { children } = tree;
-    // children[0] => Section BannerMegatop
-    const { children: childrenSectionBannerMegatop } = children[0];
-    const isValid =
-        outputType !== 'amp' && childrenSectionBannerMegatop.length <= 1;
-    const component = isValid ? (
-        element
-    ) : (
-        <PageBuilderMessage
-            id="LN-nota-noticia-error"
-            type="warning"
-            message="La sección BannerMegatop solo permite un banner y no se mostrará en salida AMP"
-        />
-    );
-    if (isAdmin) return component;
-    return isValid ? component : null;
-};
+import LoadBanners from '../private/common/banners/LoadBanners';
+import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 
 const lnNotaNoticia = ({
     children,
@@ -144,7 +127,7 @@ const lnNotaNoticia = ({
                                     </div>
                                     <section className="cuerpo__nota">
                                         <div className="row">
-                                            <div className="col-1 hlp-marginBottom-40 hlp-mobile-show">
+                                            <div className="col-12 col-desksm-1">
                                                 {/* hlp-mobile-show */}
                                                 {/* Left-Cuerpo Shared */}
                                                 {children[4]}
@@ -163,7 +146,7 @@ const lnNotaNoticia = ({
                                 </div>
 
                                 {/* Tercera */}
-                                <div className="sidebar__aside hlp-tablet-none">
+                                <div className="sidebar__aside hlp-tabletlm-none">
                                     {children[6]}
                                 </div>
                             </div>
@@ -174,14 +157,17 @@ const lnNotaNoticia = ({
                                     {/* Bottom */}
                                     {children[9]}
                                 </div>
-                                <div className="sidebar__aside hlp-tablet-none">
+                                <div className="sidebar__aside hlp-tabletlm-none">
                                     {/* Bottom-Tercera */}
                                     {children[10]}
                                 </div>
                             </div>
                         </main>
-                        <Footer />
+                        <Static id="StaticFooter">
+                            <Footer />
+                        </Static>
                     </div>
+                    <LoadBanners />
                 </CommentsProvider>
             </LoginProvider>
         </GlobalProvider>

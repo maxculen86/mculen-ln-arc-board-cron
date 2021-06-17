@@ -7,6 +7,8 @@ import ComLink from '../../../common/com-link';
 import ComImage from '../../../common/com-image';
 
 import '../../../../../resources/dist/css/ln/components/footer.css';
+import SvgFiscal from '../../../common/svgDataFiscal';
+import SvgGda from '../../../common/svgGda';
 
 const Index = ({ outputType, siteProperties: { host } }) => {
     const year = new Date().getFullYear();
@@ -15,13 +17,13 @@ const Index = ({ outputType, siteProperties: { host } }) => {
     if (outputType === 'amp')
         return <FooterAMP copyrightText={copyrightText} />;
     return (
-        <footer>
+        <footer className="footer-site">
             <div className="lay">
                 <Header host={host} />
                 <section className="row footer-sitio">
                     <section className="col-desksm-9 col-deskxl-8 footer-sitio__links">
                         <ComLink
-                            link="http://especiales.lanacion.com.ar/varios/mapa-sitio/index.html"
+                            link="https://www.lanacion.com.ar/mapa-del-sitio/"
                             classCondition="item_link"
                         >
                             Mapa del sitio
@@ -75,21 +77,23 @@ const Index = ({ outputType, siteProperties: { host } }) => {
                 <section className="row footer-copyright">
                     <section className="col-desksm-6 col-desk-6 footer-copyright__fiscal">
                         <p>
-                            <ComImage
+                            {/*                             <ComImage
                                 src="https://static.glanacion.com/v2/ln/img/gda.jpg"
                                 alt="gda"
                                 classCondition="img_gda"
-                            />
+                            /> */}
+                            <SvgGda />
                             Miembro de GDA.Grupo de Diarios América
                             <ComLink
                                 link="https://serviciosweb.afip.gob.ar/clavefiscal/qr/publicInfoD.aspx"
                                 target="_blank"
                             >
-                                <ComImage
+                                {/*                                 <ComImage
                                     src="https://static.glanacion.com/v2/ln/img/data.jpg"
                                     alt="Data fiscal"
                                     classCondition="img_data-fiscal"
-                                />
+                                /> */}
+                                <SvgFiscal />
                             </ComLink>
                         </p>
                     </section>

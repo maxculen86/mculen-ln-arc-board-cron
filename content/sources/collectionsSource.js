@@ -15,6 +15,7 @@ import get from '../../components/private/common/utils/get';
 import logger from '../../components/private/common/utils/logger';
 import { getArticlesToShow, isNotRecommend } from './utils/collectionsHelper';
 import { hasFutureDisplayDate } from '../../components/private/common/utils/dateAndTimeUtil';
+import siteConfig from '../../properties/sites/la-nacion-ar';
 
 const resolve = key => {
     const { id, size, website, from = 0 } = key;
@@ -56,6 +57,8 @@ const transform = (data, siteProps) => {
     const respData = data;
     const contentElements = get(data, `content_elements`, []);
     const isCollectionDinamic = get(data, `dynamic_items`, false);
+    const isFocal = get(siteProps, 'isFocal', null);
+    const diagramation = get(siteProps, 'diagramation');
 
     const { presets, presetsDefault, presetsCredits } = getPresets(siteProps);
     const presetsPromoItems = get(presets, 'promo_items', null);
@@ -68,7 +71,23 @@ const transform = (data, siteProps) => {
 
     respData.content_elements =
         contentElementsFiltered &&
-        contentElementsFiltered.map(elem => {
+        contentElementsFiltered.map((elem, index) => {
+            const imageConfig =
+                (diagramation &&
+                    get(
+                        siteConfig,
+                        `cajaTemaConfig.${diagramation}.articles[${index}.imageConfig`
+                    )) ||
+                (isFocal && index === 0 && 'l');
+
+            const {
+                presets: {
+                    promo_items: presetsPromoItemsCustom,
+                    credits: presetsCreditsCustom
+                } = {}
+            } =
+                (imageConfig && getPresets({ ...siteProps, imageConfig })) ||
+                {};
             // const promoItems = get(elem, `promo_items`, null);
             // const marquesina = get(elem, `description.basic`, null);
             const subtype = get(elem, `subtype`, null);
@@ -80,9 +99,10 @@ const transform = (data, siteProps) => {
                     resizerSecret: RESIZER_KEY,
                     resizerUrl: RESIZER_URL,
                     presets: {
-                        promoItems: presetsPromoItems,
+                        promoItems:
+                            presetsPromoItemsCustom || presetsPromoItems,
                         presetsDefault,
-                        credits: presetsCredits
+                        credits: presetsCreditsCustom || presetsCredits
                     },
                     // Se pasa el subtype para que las notas de foto al 100
                     // y storytelling no sean excluidas de las validaciones del resizer

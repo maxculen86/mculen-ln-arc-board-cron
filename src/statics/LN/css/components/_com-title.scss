@@ -14,12 +14,29 @@
     .more-articles & {
         display: block;
     }
+    ////////////////Cambiar por props////////////////
+    .home & {
+        @media ($media-m) {
+            &.--m,
+            &.--xs {
+                font-weight: 500;
+            }
+            &.--l,
+            &.--xl {
+                font-weight: 700;
+            }
+        }
+    }
+    ////////////////Cambiar por props///////////////////
+}
+.com-title.com-title {
     .com-link.com-link {
-        .more-articles & {
+        .more-articles.more-articles & {
             color: $light-neutral-700;
         }
     }
 }
+
 @media ($media-l) {
     .com-title {
         //margin-bottom: $spacing-sm;

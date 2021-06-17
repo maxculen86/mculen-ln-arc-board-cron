@@ -15,11 +15,13 @@ export default {
     },
     cabezal_dsk: {
         slotName: `${PATH_SLOT}/cabezal_dsk`,
+        withoutHide: true,
         dimensions: [
-            [1260, 100],
-            [1260, 170],
-            [920, 170],
-            [728, 90]
+            [1, 1],
+            [728, 90],
+            [920, 100],
+            [970, 90],
+            [1260, 100]
         ],
         targeting: defaultTargeting
     },
@@ -84,5 +86,13 @@ export default {
             width: 320,
             height: 50
         }
+    },
+    comercial_dsk: {
+        slotName: `${PATH_SLOT}/comercial_dsk`,
+        dimensions: [
+            [1, 1],
+            [800, 600]
+        ],
+        targeting: defaultTargeting
     }
 };

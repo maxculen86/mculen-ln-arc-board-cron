@@ -9,7 +9,7 @@ import { getAutorId } from '../../../../../../../components/private/common/utils
 describe('Test de JSON de apertura en article', () => {
     it('Render de atributos de apertura Titulos', () => {
         const respTituloMobile = Apertura(ArticleApertura[0]);
-        expect(respTituloMobile.titulo).toBe(
+        expect(respTituloMobile.tituloMobile).toBe(
             ArticleApertura[0].headlines.mobile
         );
 
@@ -17,10 +17,61 @@ describe('Test de JSON de apertura en article', () => {
         expect(respTitulo.titulo).toBe(ArticleApertura[1].headlines.basic);
     });
 
+    it('Render de atributos de apertura Titulo Nulo', () => {
+        const mockTituloenApertura = {
+            headlines: {
+                meta_title: '',
+                mobile: ''
+            },
+            credits: {
+                by: [
+                    {
+                        _id: 'max-fisher-4189',
+                        additional_properties: {
+                            original: {
+                                role: 'The New York Times'
+                            }
+                        },
+                        image: {
+                            url: ''
+                        },
+                        name: 'Max Fisher',
+                        slug: 'max-fisher-4189',
+                        type: 'author',
+                        url: '/autor/max-fisher-4189/'
+                    }
+                ]
+            },
+            subheadlines: {
+                basic:
+                    'Esto es una bajada. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod...'
+            },
+            label: {
+                edicion: {
+                    display: true,
+                    text: 'Digital'
+                },
+                volanta: {
+                    display: true,
+                    text: 'Esto es una volanta.'
+                }
+            },
+            subtype: '1',
+            owner: {
+                sponsored: false
+            }
+        };
+        try {
+            const respTitulo = Apertura(mockTituloenApertura);
+            expect(resp).toBe(null);
+        } catch (err) {
+            expect(err.message).toBe('Titulo de la nota es null o undefined');
+        }
+    });
+
     it('Render de atributos de apertura', () => {
         const resp = Apertura(ArticleApertura[0]);
         expect(resp.bajada).toBe(ArticleApertura[0].subheadlines.basic);
-        expect(resp.volanta).toBe(ArticleApertura[0].label.volanta.text);
 
         const articleAuthor = ArticleApertura[0].credits.by[0];
 

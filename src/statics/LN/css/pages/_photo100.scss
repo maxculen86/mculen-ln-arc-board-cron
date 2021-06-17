@@ -1,10 +1,6 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 
-$header_h_desktop: px(73);
-$header_h_tablet: px(51);
-$header_h_mobile: px(49);
-
 $width_nota100_l: px(1024 / $cant-col * 8);
 $width_nota100_lm: px(1100 / $cant-col * 8);
 $width_nota100_lg: px(1280 / $cant-col * 8);
@@ -142,35 +138,38 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
         }
     }
 
-    &.--scrollUp {
-        main > .row {
-            .mod-share {
-                display: flex;
-                z-index: 100;
+    // &.--scrollUp {
+    //     main > .row {
+    //         .mod-share {
+    //             //display: flex;
+    //             //z-index: 100;
 
-                @media ($media-l) {
-                    display: block;
-                    //top: calc(#{$spacing-sm} + #{$header_h_desktop});
-                }
-            }
-        }
-    }
+    //             @media ($media-l) {
+    //                 display: block;
+    //                 //top: calc(#{$spacing-sm} + #{$header-desktop});
+    //             }
+    //             // &.--active {
+    //             //     display: none;
+    //             // }
+    //         }
+    //     }
+    // }
 
-    &.amp {
-        main > .row {
-            .mod-share {
-                // position: relative;
-                // border: none;
-                // display: flex;
-                margin-bottom: $spacing-sm;
-                //padding: 0 $spacing-sm;
-                @media ($media-l) {
-                    //     position: sticky;
-                    //     display: block;
-                    margin-bottom: 0;
-                    //padding: 0;
-                }
-            }
-        }
-    }
+    // &.amp {
+    //     main > .row {
+    //         .mod-share {
+    //             // position: relative;
+    //             // border: none;
+    //             // display: flex;
+    //             // margin-bottom: $spacing-sm;
+    //             // padding: 0 $spacing-sm;
+    //             @media ($media-l) {
+    //                 //     position: sticky;
+    //                 //     display: block;
+    //                 margin-bottom: 0;
+    //                 padding: 0;
+    //             }
+    //         }
+    //     }
+    // }
 }

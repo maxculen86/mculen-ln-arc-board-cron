@@ -1,22 +1,31 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 
+.nota.noticia {
+    .--apertura {
+        .com-title {
+            margin-bottom: px(16);
+        }
+    }
+}
+
 /* REVISTAS */
 @mixin magazine($logo, $primario) {
     &.nota {
         main {
             .com-breadcrumb a,
             .mod-autor .com-link,
-            .com-cita .com-link,
-            .keep-reading .com-link,
-            .com-paragraph .com-link,
+            // .com-cita .com-link,
+            // .keep-reading .com-link,
+            // .com-paragraph .com-link,
+            .cuerpo__nota .com-link.com-link,
             .mod-share .com-text,
-            .mod-share .com-button:hover,
-            .sidebar__main .com-button.--secondary {
+            .mod-share .com-button:hover {
                 color: $primario;
             }
             .sidebar__main .com-button {
                 &.--secondary {
+                    color: $primario;
                     border-color: $primario;
                     &:hover {
                         background-color: $primario;
@@ -82,9 +91,27 @@
     @include magazine($logo, $primario);
 }
 
-.rolling,
-.rolling-stone {
+//.rolling-stone,
+.rolling {
     $primario: $rolling;
     $logo: $logo-rolling;
     @include magazine($logo, $primario);
 }
+
+.campo {
+    $primario: $campo;
+    $logo: $logo-campo;
+    @include magazine($logo, $primario);
+}
+
+// .nota.noticia {
+//     .mod-banner.--cabezal_dsk {
+//         position: absolute;
+//         width: 100%;
+//     }
+//     main {
+//         .--apertura {
+//             margin-top: px(202);
+//         }
+//     }
+// }

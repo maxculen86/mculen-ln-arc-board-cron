@@ -14,6 +14,8 @@ $cant-col: 12; //Cantidad de columnas
 $col-width: 100 / $cant-col; //Ancho de columnas
 $scroll-width: px(17);
 $letter-spacing: -0.4px; //espacio de interletrado
+$header-mobile: px(49);
+$header-desktop: px(73);
 
 //=======================================
 // Fuentes
@@ -71,6 +73,8 @@ $logo-la-nacion: '\e806';
 $logo-hola-argentina: '\e804';
 $logo-club-lanacion: '\e802';
 $logo-club: '\e801';
+$logo-campo: '\e902';
+$logo-deportes: '\e903';
 
 //=======================================
 // Espaciados
@@ -89,16 +93,19 @@ $spacing-3xl: $spacing * 10; //80px
 //=======================================
 // Iconos
 //=======================================
-$icon-close: '\e913';
-$icon-email: '\e91b';
-$icon-facebook-filled: '\e926';
-$icon-twitter-filled: '\e973';
-$icon-whatsapp-filled: '\e979';
-$icon-zoom: '\e97d';
-$icon-bullet: '\e907';
-$icon-bullet-xs: '\e909';
-$icon-arrow-right: '\e905';
-$icon-arrow-left: '\e904';
+$icon-arrow-down: '\e905';
+$icon-arrow-left: '\e906';
+$icon-arrow-right: '\e907';
+$icon-arrow-up: '\e908';
+$icon-bullet: '\e909';
+$icon-bullet-outline: '\e90a';
+$icon-bullet-xs: '\e90b';
+$icon-close: '\e915';
+$icon-email: '\e923';
+$icon-facebook-filled: '\e930';
+$icon-twitter-filled: '\e980';
+$icon-whatsapp-filled: '\e986';
+$icon-zoom: '\e98a';
 
 //=======================================
 // Colores
@@ -265,11 +272,12 @@ $lnmas: #322d61;
 $deportes: #0d880c;
 $negocios: #d83e2c;
 $espectaculos: #eb0049;
-$lifestyle: #008185;
+$lifestyle: $green-800;
 $club: $violet-600;
 $club2: #007aff;
 $afondo: $red-400;
 $sponsor: #d83e2c;
+$campo: #00c48f;
 
 $info: $light-blue-800;
 $light-info: $dark-blue-300;

@@ -30,6 +30,14 @@
     "subheadlines": {
         "basic": "Este es el subtitulo"
     },
+    "label": {
+        "volanta": {
+            "text": "Volanta"
+        },
+        "chapita": {
+            "text": "Chapa"
+        }
+    },
     "subtype": "7",
     "website_url": "/recetas/test-dl-nid02062020/"
 }

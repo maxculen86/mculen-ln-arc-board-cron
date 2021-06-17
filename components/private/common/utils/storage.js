@@ -5,7 +5,6 @@ const urlApiSuscripcion =
 
 export const setStorageConfiguration = notaId => {
     if (typeof window === 'undefined') return false;
-    getAndSaveCustomDimension();
     counterNota(notaId);
     return true;
 };
@@ -20,8 +19,10 @@ export const getAndSaveCustomDimension = () => {
 
     if (usuarioLogeado != null) {
         getSuscriptorType(usuarioLogeado);
+        localStorage.setItem('CDusuarioLogeado', 'yes');
     } else {
         localStorage.setItem('CDsuscriptorType', 'N/A');
+        localStorage.setItem('CDusuarioLogeado', 'no');
     }
 
     localStorage.setItem('CDcacheCommon', Date.now());

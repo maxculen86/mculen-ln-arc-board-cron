@@ -2,7 +2,6 @@ import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import Header from '../private/LN/common/header';
-import Footer from '../private/LN/common/footer';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import HtmlLibre from '../private/LN/nota/cuerpo/htmlLibre';
 import LoginProvider from '../private/LN/common/context/loginContext';
@@ -53,24 +52,8 @@ import '../../resources/dist/css/ln/base/helpers.css';
 
 import GlobalProvider from '../private/common/context/globalContext';
 import { CommentsProvider } from '../private/common/context/commentsContext';
-
-// TODO: componentizar banner megatop
-const getBannerMegatop = (element, outputType, tree, isAdmin) => {
-    const { children } = tree;
-    const { children: childrenSectionBannerMegatop } = children[0];
-    const isValid =
-        outputType !== 'amp' && childrenSectionBannerMegatop.length <= 1;
-    const component = isValid ? (
-        element
-    ) : (
-        <PageBuilderMessage
-            id="LN-nota-error"
-            type="warning"
-            message="La sección BannerMegatop solo permite un banner y no se mostrará en salida AMP"
-        />
-    );
-    return isValid ? component : null;
-};
+import LoadBanners from '../private/common/banners/LoadBanners';
+import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 
 const lnNotaNoticia = ({
     children: [bannerMegatop, bottom, bottomTercera],
@@ -114,6 +97,7 @@ const lnNotaNoticia = ({
                             </div>
                         </main>
                     </div>
+                    <LoadBanners />
                 </CommentsProvider>
             </LoginProvider>
         </GlobalProvider>

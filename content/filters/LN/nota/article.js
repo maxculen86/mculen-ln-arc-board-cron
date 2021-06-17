@@ -164,6 +164,10 @@ const labels = `
             text
             display
         }
+        chapita {
+            text
+            display
+        }
         mostrar_banners {
             url
             text
@@ -282,6 +286,9 @@ export default `
             slug
             image {
                 url
+                resized_urls {
+                    ${imageResizedUrl}
+                }
             }
             additional_properties {
                 original {

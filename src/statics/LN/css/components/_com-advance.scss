@@ -4,6 +4,7 @@
     @include flex(flex, row, start);
     background: $light-neutral-900;
     padding: $spacing-md;
+    border-bottom: 1px solid $light-neutral-200;
     .com-title {
         color: $blanco;
         margin-bottom: 0;

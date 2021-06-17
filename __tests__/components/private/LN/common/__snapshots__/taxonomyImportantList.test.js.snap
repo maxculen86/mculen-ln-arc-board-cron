@@ -10,6 +10,9 @@ exports[`components - private - LN - common - TaxonomyImportantList Test de snap
   >
     <button
       class="com-button --secondary --compact"
+      data-event=""
+      data-section=""
+      id=""
       type="button"
     >
       <span
@@ -25,6 +28,9 @@ exports[`components - private - LN - common - TaxonomyImportantList Test de snap
   >
     <button
       class="com-button --secondary --compact"
+      data-event=""
+      data-section=""
+      id=""
       type="button"
     >
       <span
@@ -40,6 +46,9 @@ exports[`components - private - LN - common - TaxonomyImportantList Test de snap
   >
     <button
       class="com-button --secondary --compact"
+      data-event=""
+      data-section=""
+      id=""
       type="button"
     >
       <span

@@ -1,6 +1,7 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
@@ -55,27 +56,8 @@ import '../../resources/dist/css/ln/pages/magazine.css';
 import GlobalProvider from '../private/common/context/globalContext';
 import { CommentsProvider } from '../private/common/context/commentsContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
-
-const getBannerMegatop = (element, outputType, tree, isAdmin) => {
-    const { children } = tree;
-    // children[0] => Section BannerMegatop
-    const { children: childrenSectionBannerMegatop } = children[0];
-    const isValid =
-        outputType !== 'amp' && childrenSectionBannerMegatop.length <= 1;
-    const component = isValid ? (
-        element
-    ) : (
-        <PageBuilderMessage
-            id="LN-nota-foto-al-100-error"
-            type="warning"
-            message="La sección BannerMegatop solo permite un banner y no se mostrará en salida AMP"
-        />
-    );
-    if (isAdmin) return component;
-    return isValid ? component : null;
-};
-
-// if CATEGORIA REVISTA
+import LoadBanners from '../private/common/banners/LoadBanners';
+import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 
 const lnNotaFotoAl100 = ({
     children: [
@@ -126,7 +108,7 @@ const lnNotaFotoAl100 = ({
                                     {/* Post-Cuerpo */}
                                     {postCuerpo}
                                 </div>
-                                <div className="sidebar__aside hlp-tablet-none">
+                                <div className="sidebar__aside hlp-tabletlm-none">
                                     {/* Post-Cuerpo-Tercera */}
                                     {postCuerpoTercera}
                                 </div>
@@ -140,14 +122,17 @@ const lnNotaFotoAl100 = ({
                                     {/* Bottom */}
                                     {bottom}
                                 </div>
-                                <div className="sidebar__aside hlp-tablet-none">
+                                <div className="sidebar__aside hlp-tabletlm-none">
                                     {/* Bottom-Tercera */}
                                     {bottomTercera}
                                 </div>
                             </div>
                         </main>
-                        <Footer />
+                        <Static id="StaticFooter">
+                            <Footer />
+                        </Static>
                     </div>
+                    <LoadBanners />
                 </CommentsProvider>
             </LoginProvider>
         </GlobalProvider>

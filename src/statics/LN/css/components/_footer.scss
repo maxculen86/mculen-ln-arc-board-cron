@@ -2,10 +2,11 @@
 footer {
     margin-bottom: px(20);
     .footer-header {
-        margin-bottom: px(20);
+        margin-bottom: px(32);
         @media ($media-l) {
-            padding-bottom: px(15);
+            padding-bottom: px(16);
             border-bottom: 1px solid $light-neutral-400;
+            margin-bottom: px(24);
         }
         .footer-header__logo {
             border-bottom: 1px solid $light-neutral-400;
@@ -69,7 +70,7 @@ footer {
         }
     }
     .footer-sitio {
-        margin-bottom: px(20);
+        margin-bottom: px(24);
         .footer-sitio__links {
             display: none;
             @media (min-width: 1024px) {
@@ -119,7 +120,7 @@ footer {
         }
     }
     .footer-copyright {
-        margin-bottom: px(20);
+        margin-bottom: px(64);
         .footer-copyright__fiscal {
             p {
                 color: $light-neutral-600;
@@ -133,16 +134,25 @@ footer {
                 vertical-align: top;
                 text-align: left;
                 margin: px(-20) 0 px(20) 0;
+                .com-svg {
+                    max-width: px(38);
+                    height: px(42);
+                    margin: 0 px(16) 0 0;
+                    &:last-child {
+                        margin: 0 0 0 px(24);
+                    }
+                }
+                /*
                 .img_gda {
                     width: auto;
                     margin: 0 px(20) 0 px(-5);
                 }
                 a {
-                    margin-left: px(20);
                     .img_data-fiscal {
                         width: px(35);
                     }
                 }
+                */
             }
             @media ($media-l) {
                 order: 2;
@@ -150,10 +160,10 @@ footer {
                     text-align: right;
                     width: 100%;
                     margin: px(-6) 0 0 0;
-                    display: block;
+                    justify-content: flex-end;
                     a {
                         float: right;
-                        margin-top: px(8);
+                        margin-bottom: px(-8);
                     }
                 }
             }
@@ -202,6 +212,9 @@ footer {
                 text-align: left;
                 order: 1;
             }
+        }
+        @media ($media-l) {
+            margin-bottom: px(24);
         }
     }
 }

@@ -1,4 +1,3 @@
-import env from '../../../../../../__mocks__/fusion:environment';
 import articlesRanking from '../../../../../../__mocks__/data/articleRankingCollections/recetas.json';
 import articlesAcumulado from '../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
 import articlesTPInteresar from '../../../../../../__mocks__/data/articles/tePuedeInteresar.json';
@@ -77,6 +76,10 @@ describe('Test de index en Json', () => {
         );
         expect(respAcumulado[0].titulo).toBe(
             articlesAcumulado.content_elements[0].headlines.basic
+        );
+
+        expect(respAcumulado[0].tituloMobile).toBe(
+            articlesAcumulado.content_elements[0].headlines.mobile
         );
         expect(respAcumulado[0].url).toBe(
             articlesAcumulado.content_elements[0].website_url
@@ -172,7 +175,7 @@ describe('Test de index en Json', () => {
 
     test('Test render data de articulo Ranking titulo Mobile', () => {
         expect(respRanking[2].titulo).toBe(
-            articlesRanking.content_elements[2].headlines.mobile
+            articlesRanking.content_elements[2].headlines.basic
         );
     });
 
@@ -246,7 +249,7 @@ describe('Test de index en Json', () => {
 
     test('Autores del articulo', () => {
         expect(respRanking[0].autores[0].valor).toBe('Vinciane Smeets');
-        expect(respRanking[0].autores[0].tipo).toBe(1);
+        expect(respRanking[0].autores[0].tipo).toBe(2);
     });
 
     test('Sin Categoria principal', () => {

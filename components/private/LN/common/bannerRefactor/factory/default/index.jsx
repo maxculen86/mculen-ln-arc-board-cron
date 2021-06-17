@@ -5,8 +5,12 @@ import React, { useReducer, useEffect, createElement } from 'react';
 
 import Default from './types';
 import Megatop from './types/megatop';
+import Comercial from './types/comercial';
+
+import WithSkeletonBannerWithoutHide from '../../withSkeletonBannerWithoutHide';
 
 import {
+    HOME_TEMPLATE,
     STORY_TEMPLATE,
     ACCUM_TEMPLATE,
     ONE_X_ONE_DSK,
@@ -39,7 +43,9 @@ import {
     MEGATOP_MOB,
     ADHESION_DSK,
     ADHESION_MOB,
-    ADHESION_TAB
+    ADHESION_TAB,
+    COMERCIAL_DSK,
+    COMERCIAL_MOB
 } from '../constants';
 
 import withStickyFromPointToPoint from '../../decorators/withStickyFromPointToPoint';
@@ -48,7 +54,6 @@ import withParagraphCondition from '../../decorators/withParagraphCondition';
 import withNonSubscribersConstraint from '../../decorators/withNonSubscribersConstraint';
 import withBondingToBottomMobile from '../../decorators/withBondingToBottomMobile';
 import withCommentsEnabledConstraint from '../../decorators/withCommentsEnabledConstraint';
-import withStickyMobile from '../../decorators/withStickyMobile';
 
 // TODO: luego mover cada funcion inherente a cada template a su propio archivo aparte
 function getBannerForStoryTemplate(config) {
@@ -57,13 +62,16 @@ function getBannerForStoryTemplate(config) {
         case STICKY_1_MOB:
             return <Default {...config} />;
         case STICKY_2_MOB:
-            return createElement(withStickyMobile(Default), { ...config });
+            return createElement(Default, { ...config });
         case CABEZAL_TAB:
             // Sin sticky
             return createElement(Default, { ...config });
         case CABEZAL_DSK:
             return createElement(
-                withStickyFromPointToPoint(Default)('lay-sidebar'),
+                withStickyFromPointToPoint(Default)([
+                    '#header',
+                    '.lay-sidebar'
+                ]),
                 {
                     ...config
                 }
@@ -139,6 +147,9 @@ function getBannerForStoryTemplate(config) {
             return createElement(withNonSubscribersConstraint(Default), {
                 ...config
             });
+        case COMERCIAL_DSK:
+        case COMERCIAL_MOB:
+            return <Comercial {...config} />;
         case MIDDLE_TEADS_DSK:
         case CAJA_1_DSK:
         case CAJA_2_DSK:
@@ -160,11 +171,12 @@ function getBannerForAccumTemplate(config) {
         case STICKY_1_MOB:
             return <Default {...config} />;
         case STICKY_2_MOB:
-            return createElement(withStickyMobile(Default), { ...config });
+            return createElement(Default, { ...config });
         case MEGATOP_MOB:
         case MEGATOP_DSK:
             return <Megatop {...config} />;
         case ADHESION_DSK:
+        case ADHESION_TAB:
         case ADHESION_MOB:
             return createElement(
                 withNonSubscribersConstraint(
@@ -175,6 +187,52 @@ function getBannerForAccumTemplate(config) {
                     closeButton: true
                 }
             );
+        case COMERCIAL_DSK:
+        case COMERCIAL_MOB:
+            return <Comercial {...config} />;
+        case CABEZAL_DSK:
+        case CABEZAL_TAB:
+        case CAJA_1_DSK:
+        case CAJA_2_DSK:
+        case CAJA_3_DSK:
+        case CAJA_4_DSK:
+        case CAJA_1_TAB:
+        case CAJA_2_TAB:
+        case CAJA_1_MOB:
+        case CAJA_2_MOB:
+        case CAJA_3_MOB:
+        case CAJA_4_MOB:
+            return <Default {...config} />;
+        default:
+            return <></>;
+    }
+}
+
+function getBannerForHomeTemplate(config) {
+    const { slotId } = config;
+    switch (slotId) {
+        case STICKY_1_MOB:
+            return <Default {...config} />;
+        case STICKY_2_MOB:
+            return createElement(withStickyMobile(Default), { ...config });
+        case MEGATOP_MOB:
+        case MEGATOP_DSK:
+            return <Megatop {...config} />;
+        case ADHESION_DSK:
+        case ADHESION_TAB:
+        case ADHESION_MOB:
+            return createElement(
+                withNonSubscribersConstraint(
+                    withBondingToBottomMobile(Default)
+                ),
+                {
+                    ...config,
+                    closeButton: true
+                }
+            );
+        case COMERCIAL_DSK:
+        case COMERCIAL_MOB:
+            return <Comercial {...config} />;
         case CABEZAL_DSK:
         case CABEZAL_TAB:
         case CAJA_1_DSK:
@@ -202,13 +260,15 @@ function reducer(state, action) {
             return { ...state, ...getBannerForAccumTemplate(config) };
         case STORY_TEMPLATE:
             return { ...state, ...getBannerForStoryTemplate(config) };
+        case HOME_TEMPLATE:
+            return { ...state, ...getBannerForHomeTemplate(config) };
         default:
             throw new Error();
     }
 }
 
 export default config => {
-    const { slotGroup } = config || { slotGroup: null };
+    const { slotGroup, slotId } = config || { slotGroup: null };
 
     return props => {
         const [banner, dispatch] = useReducer(reducer, null);
@@ -221,12 +281,15 @@ export default config => {
                     case ACCUM_TEMPLATE:
                         dispatch({ type: ACCUM_TEMPLATE, meta: { config } });
                         break;
+                    case HOME_TEMPLATE:
+                        dispatch({ type: HOME_TEMPLATE, meta: { config } });
+                        break;
                     default:
                         break;
                 }
             }
         }, [banner]);
 
-        return banner;
+        return banner || <WithSkeletonBannerWithoutHide slotId={slotId} />;
     };
 };

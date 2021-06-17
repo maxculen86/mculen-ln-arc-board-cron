@@ -1,65 +1,119 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
+
 .mod-banner {
+    @include BgDiagonal;
+    position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     width: inherit;
     max-width: 100%;
     overflow: hidden;
     z-index: 1;
+    //margin-top: px(32); //cambiar a variable
+    margin-bottom: px(64); //cambiar a variable
+
+    &:before {
+        content: 'PUBLICIDAD';
+        font-size: px(11);
+        line-height: px(16);
+        background: white;
+        display: inline-block;
+        padding: px(4) px(8);
+        margin: 0 auto;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+    }
+
     &.--megatop {
-        position: relative;
-        z-index: 110;
+        //position: relative;
+        //z-index: 110;
+        //background: $neutral-white;
+        display: none;
+    }
+    //.--ads &,
+    .sidebar__aside &,
+    &.--unoxuno_mob,
+    &.--unoxuno_dsk {
+        margin: 0;
+    }
+    &.--comercial {
+        &:before {
+            display: none;
+        }
+        align-items: center;
+        position: fixed;
+        top: 0;
+        z-index: 1100000;
         background: $neutral-white;
-    }
-    &.--bg-banner {
-        background: $light-neutral-200;
+        height: 100vh;
         width: 100%;
+        top: 0;
+
+        margin: 0;
+
+        .com-button {
+            position: absolute;
+            top: px(16);
+            right: px(16);
+        }
     }
+
     &.--mobile,
     &.--sticky1_mob {
-        margin-bottom: px(24);
-    }
-    &.--desktop {
-        margin-bottom: px(24);
+        display: none;
     }
     &.--sticky {
         position: sticky;
-        margin-bottom: $spacing-md;
-        .--scrollDown & {
-            top: 0;
-        }
+        //margin-bottom: $spacing-md;
+        top: 0;
+
         &.--active {
             .--scrollDown & {
                 display: flex;
             }
         }
-        &.sticky2_mob {
-            .--scrollUp & {
-                top: px(80);
-                display: none;
-            }
+
+        &.--sticky2_mob {
+            height: px(50);
+            position: fixed;
+            display: flex;
+            width: 100%;
+            z-index: 1000;
+            background: white;
+            margin: 0;
         }
-        .sidebar__aside & {
-            .--scrollDown & {
-                top: px(10);
-            }
-        }
+
+        // &.sticky2_mob {
+        //     .--scrollUp & {
+        //         top: px(80);
+        //         display: none;
+        //     }
+        // }
     }
+
     &.--fixed {
         position: fixed;
-        bottom: px(60);
+        bottom: px(56);
         z-index: 100;
         left: calc((100% - 320px) / 2);
+        background: white;
 
-        .--scrollDown & {
-            bottom: px(0);
-        }
-        &.--bg-banner {
-            background: $light-neutral-200;
-            width: 100%;
-        }
+        margin: 0;
+
+        // &.--adhesion_mob {
+        //     display: flex;
+        // }
+
+        // .--scrollDown & {
+        //     bottom: px(0);
+        // }
+        // &.--bg-banner {
+        //     background: $light-neutral-200;
+        //     width: 100%;
+        // }
     }
     &.--close {
         .icon-close {
@@ -68,19 +122,68 @@
             background: $neutral-black;
             position: absolute;
             top: 0;
-            right: px(1);
+            right: 0;
             color: $neutral-white;
             font-size: px(16);
         }
     }
-    .cuerpo__nota & {
-        margin-bottom: $spacing-lg;
+    // .cuerpo__nota & {
+    //     margin-bottom: $spacing-lg;
+    // }
+    &:not(:last-child) {
+        .sidebar__aside & {
+            margin-bottom: px(32);
+            background: none;
+            // padding-bottom: px(32);
+            // background: $neutral-white;
+        }
     }
-    .sidebar__aside & {
-        margin-bottom: px(40);
+    // &.--cabezal_tab,
+    // &.--cabezal_dsk {
+    //     display: none;
+    // }
+
+    //ALTURAS FIJAS
+
+    &.--sticky2_mob,
+    &.--adhesion_mob {
+        height: px(50);
     }
-    &.--cabezal_dsk {
-        margin-bottom: $spacing-lg;
+
+    &.--caja1_mob {
+        height: px(450);
+    }
+
+    &.--caja3_mob,
+    &.--caja4_mob,
+    &.--caja5_mob {
+        height: px(250);
+    }
+
+    .home & {
+        &.--caja1_mob,
+        &.--caja2_mob,
+        &.--caja3_mob,
+        &.--caja4_mob {
+            height: px(450);
+            //margin-bottom: px(32);
+        }
+    }
+
+    &.--comercial_mob {
+        height: px(480);
+    }
+
+    &.--top {
+        //banner pre-loader
+        display: none;
+        @media ($media-m) {
+            display: flex;
+            height: px(90); //cabezal_tab
+        }
+        @media ($media-l) {
+            height: px(170); //cabezal_dsk
+        }
     }
 }
 @media ($media-m) {
@@ -89,19 +192,79 @@
             display: none;
         }
         &.--fixed {
-            bottom: px(0);
+            bottom: px(56);
             left: calc((100% - 728px) / 2);
+        }
+        // &.--sticky1_mob {
+        //     display: none;
+        // }
+        &.--cabezal_tab {
+            display: flex;
+            //margin-bottom: $spacing-lg;
+            //margin-top: 0;
+            // &.--dark {
+            //     margin: 0;
+            // }
+        }
+
+        //ALTURAS FIJAS
+
+        &.--adhesion_tab,
+        &.--cabezal_tab,
+        &.--middle1_tab,
+        &.--middle2_tab {
+            height: px(90);
+        }
+
+        &.--caja1_tab,
+        &.--caja2_tab {
+            height: px(600);
+        }
+
+        .home & {
+            &.--caja1_tab,
+            &.--caja2_tab,
+            &.--caja3_tab,
+            &.--caja4_tab {
+                height: px(250);
+            }
+        }
+
+        &.--logo_tag_tab {
+            height: px(280);
         }
     }
 }
 @media ($media-l) {
     .mod-banner {
+        &.--desktop {
+            margin-bottom: px(24);
+        }
         .sidebar__aside & {
             display: flex;
             width: 100%;
-            top: px(82);
+            //top: px(82);
+        }
+        &.--sticky {
+            top: $header-desktop;
+            //.sidebar__aside & {
+            //top: $header-desktop; //descomentar si es diferente al cabezal_dsk
+            // padding-top: px(24);
+            // background: $neutral-white;
+            // .--scrollUp & {
+            //     top: $header-desktop;
+            // }
+            //}
+            // .sidebar__aside & {
+            //     .--scrollUp & {
+            //         padding-top: px(10);
+            //         top: px(72);
+            //         background: $neutral-white;
+            //     }
+            // }
         }
         &.--fixed {
+            bottom: 0;
             left: calc((100% - 920px) / 2);
             &.--small {
                 left: calc((100% - 728px) / 2);
@@ -109,6 +272,59 @@
         }
         .cuerpo__nota & {
             display: none;
+        }
+        &.--cabezal_tab {
+            display: none;
+        }
+        &.--cabezal_dsk {
+            display: flex;
+            //margin-bottom: $spacing-lg;
+            //margin-top: 0;
+            height: px(170);
+        }
+
+        //ALTURAS FIJAS
+
+        &.--caja2_dsk,
+        &.--caja3_dsk {
+            height: px(250);
+        }
+
+        &.--caja1_dsk,
+        &.--caja4_dsk,
+        &.--caja5_dsk {
+            height: px(600);
+        }
+
+        .home & {
+            &.--cabezal_dsk {
+                height: px(100);
+                // &.--dark {
+                //     margin: 0;
+                // }
+            }
+            &.--adhesion_dsk {
+                height: px(100);
+            }
+
+            &.--middle1_dsk,
+            &.--caja1_dsk,
+            &.--caja2_dsk,
+            &.--caja3_dsk,
+            &.--caja4_dsk,
+            &.--billboard_dsk,
+            &.--caja_producto1_dsk,
+            &.--caja_producto2_dsk,
+            &.--cinturon1_dsk,
+            &.--cinturon2_dsk {
+                height: px(250);
+            }
+
+            &.--megalateral_dsk,
+            &.--megalateral2_dsk,
+            &.--megalateral3_dsk {
+                height: px(600);
+            }
         }
     }
 }
@@ -122,6 +338,32 @@
             &.--small {
                 left: calc((100% - 1068px) / 2);
             }
+        }
+    }
+}
+
+[class*='row-gap'] {
+    &.--ads {
+        margin-bottom: px(64);
+        &:empty {
+            display: none;
+        }
+        .mod-banner {
+            margin: 0;
+        }
+    }
+}
+
+.home > .container {
+    &.--ads {
+        background: $neutral-white;
+        padding: px(24) 0;
+        &:empty {
+            display: none;
+        }
+        .mod-banner {
+            width: fit-content;
+            margin: 0 auto;
         }
     }
 }

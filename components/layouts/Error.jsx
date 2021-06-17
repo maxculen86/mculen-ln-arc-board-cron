@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 
-import '../../resources/dist/css/ln/base.css';
-import '../../resources/dist/css/ln/layouts/layout.css';
-import '../../resources/dist/css/ln/layouts/grid.css';
-import '../../resources/dist/css/ln/components/button.css';
+import Image from '../private/common/com-image';
+import Copyright from '../private/LN/common/footer/copyright';
+
 import '../../resources/dist/css/ln/pages/error.css';
 
 const ErrorPage = ({ siteProperties: { host } }) => (
@@ -23,9 +22,9 @@ const ErrorPage = ({ siteProperties: { host } }) => (
                         <p>Seguí navegando y encontrá lo que necesitás:</p>
                         <nav>
                             <a className="--btn --secondary" href={host || '/'}>
-                                Página principal
+                                LA NACION
                             </a>
-                            <a className="--btn --secondary" href={host || '/'}>
+                            {/* <a className="--btn --secondary" href={host || '/'}>
                                 Buscador
                             </a>
                             <a
@@ -33,7 +32,7 @@ const ErrorPage = ({ siteProperties: { host } }) => (
                                 href="http://especiales.lanacion.com.ar/varios/mapa-sitio/index.html"
                             >
                                 MAPA DEL SITIO
-                            </a>
+                            </a> */}
                         </nav>
                     </div>
                 </div>
@@ -43,8 +42,8 @@ const ErrorPage = ({ siteProperties: { host } }) => (
             <div className="lay">
                 <div className="row">
                     <div className="col-12">
-                        <img
-                            src="https://www.lanacion.com.ar/error/liniers-horizontal.jpg"
+                        <Image
+                            src="https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/RSUQWM65SRA4VG2QHCZ3KER6JM.jpg"
                             alt="Imagen de Liniers"
                         />
                     </div>
@@ -54,7 +53,7 @@ const ErrorPage = ({ siteProperties: { host } }) => (
         <footer>
             <div className="lay">
                 <div className="row footer-copyright">
-                    <div className="col-12 col-desksm-6 col-desk-6 footer-humor">
+                    {/* <div className="col-12 col-desksm-6 col-desk-6 footer-humor">
                         <p>
                             Visitá&nbsp;
                             <a href="https://www.lanacion.com.ar/humor">
@@ -62,12 +61,9 @@ const ErrorPage = ({ siteProperties: { host } }) => (
                             </a>
                             &nbsp; en LA NACION
                         </p>
-                    </div>
-                    <div className="col-12 col-desksm-6 col-desk-6 footer-copyright__reserved">
-                        <p>
-                            Copyright 2020 SA LA NACION | Todos los derechos
-                            reservados
-                        </p>
+                    </div> */}
+                    <div className="col-12 footer-copyright__reserved">
+                        <Copyright />
                     </div>
                 </div>
             </div>

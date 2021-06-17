@@ -1,4 +1,5 @@
 import React from 'react';
+import Consumer from 'fusion:consumer';
 import Context from 'fusion:context';
 import { mount, render } from 'enzyme';
 import ArticleMain from '../../../../../../components/private/LN/common/articleTypes/articleMain';

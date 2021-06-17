@@ -11,6 +11,7 @@ import {
     hasFutureDisplayDate,
     isOlderThan24HourAgo
 } from '../../components/private/common/utils/dateAndTimeUtil';
+import { isNotRecommend } from './utils/collectionsHelper';
 
 const resolve = key => {
     const {
@@ -41,7 +42,7 @@ const resolve = key => {
         const includeField =
             '_id,subtype,promo_items,taxonomy.tags,taxonomy.primary_section,credits,headlines.basic,headlines.mobile,subheadlines,content_elements,display_date,publish_date,first_publish_date,website_url,display_date,canonical_url,marquesina,label.recomendar.text,related_content';
         return `${basePath}&q=type:story+AND+source.system:${sourceOrigin}+AND+taxonomy.sites._id:${sectionsIds}
-            &sort=first_publish_date:desc&size=${cant}&from=${from}&_sourceInclude=${includeField}`;
+            &sort=display_date:desc&size=${cant}&from=${from}&_sourceInclude=${includeField}`;
     }
 
     const sourceOriginFilter =
@@ -113,8 +114,11 @@ const resolve = key => {
         ,{
             "constant_score": {
                 "filter": {
-                    "exists": {
-                        "field": "promo_items.basic.url"
+         	        "or": {
+                 	    "filters": [
+		         	        { "exists": { "field": "promo_items.basic.url" } },
+		           	        { "term": { "related_content.basic.referent.type": "image" }  }
+                        ]
                     }
                 }
             }
@@ -154,7 +158,7 @@ const transform = (data, siteProps) => {
     const respData = data;
     const { content_elements: contentElements } = data || {};
     const { presets, presetsDefault } = getPresets(siteProps);
-    const { sectionsIds } = siteProps;
+    const { sectionsIds, type, size } = siteProps;
 
     const presetsPromoItems = get(presets, 'promo_items', null);
 
@@ -185,6 +189,14 @@ const transform = (data, siteProps) => {
             };
         });
 
+    // Si viene de mas notas return solo las necesarias mas 1 por si se excluye misma nota
+    if (type === 'story') {
+        const originalSize = Math.floor(size / 1.5);
+        respData.content_elements = respData.content_elements
+            .filter(art => !isNotRecommend(art))
+            .slice(0, Number(originalSize) + 1);
+    }
+
     // De todos los Content Elements, solo traigo el primero que sea parrafo
     // (para no mandar mas info innecesaria)
     respData.content_elements = respData.content_elements.map(story => {
@@ -198,9 +210,10 @@ const transform = (data, siteProps) => {
         };
     });
 
+    // Si viene de Ultimas Noticias
     if (sectionsIds) {
         respData.content_elements = respData.content_elements
-            .filter(story => !isOlderThan24HourAgo(story.first_publish_date))
+            .filter(story => !isOlderThan24HourAgo(story.display_date))
             .filter(story => !hasFutureDisplayDate(story.display_date))
             .map(story => {
                 return {

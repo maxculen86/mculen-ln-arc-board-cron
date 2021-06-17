@@ -1,13 +1,78 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ModRowGap from '../../common/mod-rowgap';
 import ModHeaderSection from '../../common/mod-headerSection';
+import Opinion from '../../common/opinion';
+import Editoriales from '../../common/editoriales';
 import ArticleAcum from '../acumulado/articleAcum';
 import FocalFactory from '../home/templatesContainers/focalFactory';
+import { getLayoutType, getMarkupForDatalayer } from './utils/cajaTemasHelper';
+
+const getComponentForLayout = (layoutName, props) => {
+    const types = {
+        Opinion: ({ articles, layout }) => {
+            return <Opinion articles={articles} layout={layout} />;
+        },
+        Editoriales: ({ articles, layout, title, url }) => {
+            return (
+                <Editoriales
+                    articles={articles}
+                    layout={layout}
+                    title={title}
+                    link={url}
+                />
+            );
+        },
+        Focal: ({ articles, layout, outputType, position, _children }) => {
+            return (
+                <FocalFactory
+                    directionFocal={layout}
+                    articles={articles}
+                    outputType={outputType}
+                    boxPosition={position}
+                    _children={_children}
+                />
+            );
+        },
+        Grilla: ({
+            articles,
+            layout = 'grilla3',
+            outputType = 'default',
+            position,
+            titleSize,
+            withSubhead = false
+        }) => {
+            return articles.map((art, i) => {
+                const artPosition = `0${Number(i) + 1}`.slice(-2);
+                const isRenderAuthor = layout.includes('author');
+
+                return (
+                    <ArticleAcum
+                        key={art._id}
+                        article={art}
+                        outputType={outputType}
+                        frontdemo
+                        titleSize={titleSize}
+                        isRenderAuthor={isRenderAuthor}
+                        withSubhead={withSubhead}
+                        boxPosition={position}
+                        artPosition={artPosition}
+                    />
+                );
+            });
+        },
+        ArticleFeature: ({ _children = [], notesQuantity }) => {
+            return _children.slice(0, notesQuantity);
+        }
+    };
+
+    return (types[layoutName] && types[layoutName](props)) || <></>;
+};
 
 const CajaTema = props => {
     const {
-        outputType,
         title,
         imageId,
         url,
@@ -15,50 +80,48 @@ const CajaTema = props => {
         layout = 'grilla3',
         backgroundColor = '',
         classCondition = '',
-        titleSize,
         notesQuantity = 3,
         hideTitle = false,
-        withSubhead = false
+        position,
+        sectionName = '',
+        _children = []
     } = props;
 
-    const isFocal = layout.includes('focal');
-    const isRenderAuthor = layout.includes('author');
+    const artWithoutDate =
+        (articles && articles.map(art => ({ ...art, display_date: '' }))) || [];
+
+    const layoutName = getLayoutType(layout, artWithoutDate, _children);
+
+    const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
+        layoutName,
+        layout,
+        position,
+        sectionName
+    );
+
+    const childrenComponent = getComponentForLayout(layoutName, {
+        ...props,
+        articles: artWithoutDate
+    });
 
     return (
-        <section
-            className={`box-articles ${backgroundColor} ${classCondition}`}
-        >
-            {!hideTitle && (
-                <ModHeaderSection imageId={imageId} title={title} link={url} />
-            )}
-            <ModRowGap
-                typeArticle={isFocal ? 'Focal' : 'Grilla'}
-                column={notesQuantity}
+        <div {...extraOptsDiv}>
+            <section
+                {...extraOpts}
+                className={`box-articles ${backgroundColor} ${classCondition}`}
             >
-                {isFocal ? (
-                    <FocalFactory
-                        directionFocal={layout}
-                        articles={articles}
-                        outputType={outputType}
+                {!hideTitle && layoutName !== 'Editoriales' && (
+                    <ModHeaderSection
+                        imageId={imageId}
+                        title={title}
+                        link={url}
                     />
-                ) : (
-                    articles.map(art => {
-                        const artWithoutDate = { ...art, display_date: '' };
-                        return (
-                            <ArticleAcum
-                                key={artWithoutDate._id}
-                                article={artWithoutDate}
-                                outputType={outputType}
-                                frontdemo
-                                titleSize={titleSize}
-                                isRenderAuthor={isRenderAuthor}
-                                withSubhead={withSubhead}
-                            />
-                        );
-                    })
                 )}
-            </ModRowGap>
-        </section>
+                <ModRowGap typeArticle={layoutName} column={notesQuantity}>
+                    {childrenComponent}
+                </ModRowGap>
+            </section>
+        </div>
     );
 };
 
@@ -74,21 +137,33 @@ CajaTema.propTypes = {
     classCondition: PropTypes.string.isRequired,
     notesQuantity: PropTypes.number.isRequired,
     hideTitle: PropTypes.boolean.isRequired,
-    withSubhead: PropTypes.boolean.isRequired,
+    withSubhead: PropTypes.boolean,
     title: PropTypes.string,
-    titleSize: PropTypes.string,
+    titleSize: PropTypes.oneOfType([PropTypes.boolean, PropTypes.string]),
     url: PropTypes.string,
-    imageId: PropTypes.string
+    imageId: PropTypes.string,
+    position: PropTypes.oneOfType([PropTypes.boolean, PropTypes.string])
+        .isRequired,
+    sectionName: PropTypes.string.isRequired,
+    _children: PropTypes.arrayOf(PropTypes.obj)
 };
 
 CajaTema.defaultProps = {
     title: null,
     url: null,
     imageId: null,
-    titleSize: null
+    titleSize: null,
+    withSubhead: false,
+    _children: []
 };
 
 const areEqual = (prevProps, nextProps) =>
+    prevProps &&
+    nextProps &&
+    prevProps.articles &&
+    nextProps.articles &&
+    prevProps.articles.length &&
+    nextProps.articles.length &&
     prevProps.articles.length === nextProps.articles.length;
 
 export default React.memo(CajaTema, areEqual);

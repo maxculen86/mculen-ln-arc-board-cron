@@ -20,6 +20,7 @@ import {
 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 import logger from '../../components/private/common/utils/logger';
 import paywallUtils from './utils/paywall';
+import removeInvalidUrlTagA from '../../components/private/common/utils/removeInvalidUrlTagA';
 
 const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -35,7 +36,7 @@ const resolve = (key, a) => {
 };
 
 const fetch = query => {
-    const { url = '' } = query;
+    const { url = '', imageConfig } = query;
     const arcSite = query['arc-site'];
     const properties = getProperties(arcSite);
     const opt = {
@@ -70,7 +71,7 @@ const fetch = query => {
                 responseData: response
             });
 
-            return transform(response, arcSite, properties);
+            return transform(response, arcSite, properties, imageConfig);
         })
         .catch(error => {
             logger.push(error, { source: 'content/source', url }, arcSite);
@@ -80,7 +81,7 @@ const fetch = query => {
 
 // Al no poder exportar esta fn para que la utilice Fusion directamente, ya que devuelve una promise y no lo soporta, la llamamos
 // directamente nosotros desde el fetch
-const transform = (data, arcSite, properties) => {
+const transform = (data, arcSite, properties, imageConfig) => {
     // Data
     const subtype = get(data, `subtype`, null);
 
@@ -91,6 +92,13 @@ const transform = (data, arcSite, properties) => {
         'imageConfig.resize.zoom.promo_items.sizes',
         presetsDefault
     );
+
+    const {
+        promo_items: presetsPromoItemsCustom,
+        content_elements: presetsContentElementsCustom,
+        credits: presetsCreditsCustom
+    } = get(properties, `imageConfig.resize.${imageConfig}`, {});
+
     const presetsPromoItemsFotoAl100 =
         (data.subtype === FOTOAL100 || data.subtype === STORYTELLING) &&
         get(properties, 'imageConfig.resize.fotoAl100.promo_items', null);
@@ -121,14 +129,16 @@ const transform = (data, arcSite, properties) => {
             resizerUrl: RESIZER_URL,
             presets: {
                 promoItems:
+                    presetsPromoItemsCustom ||
                     presetsPromoItemsFotoAl100 ||
                     presetsPromoItems ||
                     presetsDefault,
                 contentElements:
+                    presetsContentElementsCustom ||
                     presetsContentElementsFotoAl100 ||
                     presetsContentElements ||
                     presetsDefault,
-                credits: presetsCredits,
+                credits: presetsCreditsCustom || presetsCredits,
                 presetsDefault,
                 zoomSizes: presetsZoom
             },
@@ -206,60 +216,15 @@ const transformContent = (jsonArticle, arcSite) => {
         );
     });
 
-    /*     promiseArr.push(
-        new Promise(resolver =>
-            resolver(getNavigationSiteProperties(arcSite))
-        ).then(data => {
-            resp.siteService = {
-                tooltips: data.tooltips,
-                banners: data.banners,
-                adserver: data.adserver,
-                termicas: data.termicas
-            };
-        })
-    ); */
+    // Url Validator
+    // if (resp && resp.content_elements) {
+    //     resp.content_elements = removeInvalidUrlTagA(resp.content_elements);
+    // }
 
     return Promise.all(promiseArr).then(() => {
         return resp;
     });
 };
-
-/* const getNavigationSiteProperties = arcSite => {
-    return navigationTreeSource
-        .fetch({ website: arcSite })
-        .then(fetchedRelated => {
-            const {
-                site = {},
-                Termicas: termicasConfig = {},
-                bannerConfig = {}
-            } = fetchedRelated || {};
-
-            const { sitio_adserver: sitioAdserver = {}, tooltips = {} } =
-                site || {};
-
-            return {
-                tooltips: Object.keys(tooltips).map(key => ({
-                    text: key,
-                    label: tooltips[key]
-                })),
-                banners: Object.keys(bannerConfig).map(key => ({
-                    adunit: key,
-                    dimensions: bannerConfig[key]
-                })),
-                adserver: Object.keys(sitioAdserver).map(key => ({
-                    key,
-                    value: sitioAdserver[key]
-                })),
-                termicas: Object.keys(termicasConfig).forEach(key => ({
-                    key,
-                    value: termicasConfig[key]
-                }))
-            };
-        })
-        .catch(e => {
-            // console.log('Error article source: getNavigationSiteProperties -> e', e);
-        });
-}; */
 
 const addGalleryData = (gallery, arcSite) => {
     const { _id: galleryId } = gallery;

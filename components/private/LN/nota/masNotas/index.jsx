@@ -1,5 +1,6 @@
 import React from 'react';
 import ArticleList from './articleList';
+import addForwardSlash from './../../common/utils/addForwardSlash';
 
 const index = props => {
     const {
@@ -44,19 +45,21 @@ const index = props => {
             break;
         case '1':
             border = true;
-            title = `${getSectionTitle(
-                subtype
-            )}<a href='${path}' class='com-link'>${sectionName}</a>`;
+            title = `${getSectionTitle(subtype)}<a href='${addForwardSlash(
+                path
+            )}' class='com-link'>${sectionName}</a>`;
             dataBlockName = 'n_otras_noticias';
             break;
         default:
-            title = `Últimas notas de <a href='${path}' class='com-link'> ${sectionName}</a>`;
+            title = `Últimas notas de <a href='${addForwardSlash(
+                path
+            )}' class='com-link'> ${sectionName}</a>`;
             dataBlockName = 'n_ultimas_noticias';
             break;
     }
 
     const getTripleSize = size => ({
-        tripleSize: size * 3,
+        tripleSize: Math.ceil(size * 1.5),
         originalSize: size
     });
 

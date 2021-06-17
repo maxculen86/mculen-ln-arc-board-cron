@@ -1,4 +1,5 @@
 @import '../abstracts/variables';
+@import '../abstracts/mixins';
 
 //=======================================
 // lay CON ASIDE
@@ -7,13 +8,13 @@
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
-    margin-bottom: $spacing-xl;
 }
 
 @media ($media-lm) {
     //vuelo aside en 1024
     .lay-sidebar {
         flex-direction: row;
+        margin-bottom: $spacing-xl;
     }
     .sidebar__main {
         flex-basis: 100%;
@@ -22,6 +23,7 @@
         //overflow: hidden;
     }
     .sidebar__aside {
+        @include BgDiagonal;
         flex-basis: px(300);
         flex-shrink: 0;
     }
@@ -72,12 +74,6 @@
         padding-left: $spacing-xl;
     }
 }
-//=======================================
-// Se suma Padding para sacar todos los estacios TOP
-//=======================================
-main {
-    padding-top: $spacing-md;
-}
 
 //=======================================
 // lay al 100% sin paddings ni margins
@@ -86,4 +82,42 @@ main {
     padding-left: 0;
     padding-right: 0;
     max-width: 100%;
+}
+
+#fusion-app > #wrapper {
+    //fusion-app es por pagebuilder
+    position: relative;
+    //margin-bottom: 80px;
+    //margin-top: 50px; //alto header mobile
+
+    &:before {
+        @include BgDiagonal;
+        content: '';
+        height: px(50);
+        width: 100%;
+        display: block;
+
+        @media (min-width: 768px) {
+            display: none;
+        }
+    }
+    &.--transparent {
+        &:before {
+            background: $neutral-black;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        //margin-bottom: 0;
+        margin-top: $header-desktop; //alto header desktop para header fijo
+        // &.--scrollUp,
+        // &.--scrollDown {
+        //     margin-top: 73px; //alto header desktop
+        // }
+    }
+}
+
+main {
+    position: relative;
+    padding-top: $spacing-md;
 }

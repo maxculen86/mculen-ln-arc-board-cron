@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Private - Feature - CajaAnticipo => with a valid response Snapshot Caja Promo 1`] = `
+<CajaPromo
+  customFields={
+    Object {
+      "link": "https://www.lanacion.com.ar/",
+      "logoName": "propiedades",
+      "text": "La información más completa del mercado inmobiliario minuto a minuto.",
+    }
+  }
+>
+  <ModPromo
+    classCondition={null}
+    link="https://www.lanacion.com.ar/"
+    logoName="propiedades"
+    logoSize={null}
+    tag={null}
+    text="La información más completa del mercado inmobiliario minuto a minuto."
+    textButton={null}
+  >
+    <section
+      className="mod-promo "
+    >
+      <a
+        className="link"
+        href="https://www.lanacion.com.ar/"
+        title="La información más completa del mercado inmobiliario minuto a minuto."
+      >
+        <div>
+          <ComLogo
+            color={true}
+            logoName="propiedades"
+            size="--md"
+          >
+            <i
+              className="com-logo logo-propiedades --color --md"
+            />
+          </ComLogo>
+          <p
+            className="com-text --twoxs"
+          >
+            La información más completa del mercado inmobiliario minuto a minuto.
+          </p>
+        </div>
+        <span
+          className="com-button --secondary"
+        >
+          INGRESAR
+        </span>
+      </a>
+    </section>
+  </ModPromo>
+</CajaPromo>
+`;

@@ -9,8 +9,14 @@ import Article from '../private/common/mod-article';
 import HeaderSection from '../private/common/mod-headerSection';
 import Dolar from '../private/common/mod-dolar';
 import GlobalProvider from '../private/common/context/globalContext';
+import ModPromo from '../private/common/mod-promo';
+import ComButton from '../private/common/com-button';
+import NewFooter from '../private/LN/common/footer/home';
+import Anticipo from '../private/common/com-advance';
+import Escudos from '../../components/features/LN-acumulado/cajaEscudo';
+import SubHeader from '../private/LN/common/header/subHeader';
 
-import '../../resources/dist/css/ln/components/banners.css';
+import '../../resources/dist/css/ln/pages/home.css';
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
 
 // import withCollections from '../private/LN/acumulado/hocs/withCollections';
@@ -29,18 +35,47 @@ const LNHome = props => {
             <LoginProvider>
                 <GlobalProviderAcu>
                     {seccion1}
-                    <div
-                        id="wrapper"
-                        className={`home demofront ${amp} --transparent`}
-                    >
+                    {/* <div className="mod-banner --comercial">
+                        <ComButton
+                            classCondition="--secondary --compact"
+                            textname="CERRAR"
+                        />
+                        <div
+                            id="comercial_dsk"
+                            className="com-banner"
+                            data-google-query-id="CJa2odea1u8CFeoD0AQd0OQHtA"
+                        >
+                            <div id="google_ads_iframe_">
+                                <iframe
+                                    src="https://source.unsplash.com/800x600"
+                                    width="800"
+                                    height="600"
+                                    scrolling="no"
+                                ></iframe>
+                            </div>
+                        </div>
+                    </div> */}
+                    <div id="wrapper" className={`home demofront ${amp}`}>
                         <Header />
+                        <SubHeader />
+                        {/* <Anticipo title="El Gobierno anticipó al mercado y dio indicios de su nueva estrategia" /> */}
+                        <div className="com-anexo --anexo-1">
+                            <iframe
+                                src="https://especialess3.lanacion.com.ar/21/03/anexo-home-vacunas/?initialWidth=1905&amp;childId=bloque1-pymnro0&amp;parentTitle=%C3%9Altimas%20noticias%20de%20Argentina%20y%20el%20mundo%20-%20LA%20NACION&amp;parentUrl=https%3A%2F%2Fwww.lanacion.com.ar%2F"
+                                width="100%"
+                                scrolling="no"
+                                marginheight="0"
+                                frameborder="0"
+                                height="198px"
+                            ></iframe>
+                        </div>
                         <div
                             data-module="tema_00"
                             data-is-loading="false"
                             data-is-loaded="true"
                         >
                             <section
-                                className="mod-opening --bomba"
+                                className="mod-opening --bomba --no-image"
                                 id="tema_00"
                                 data-is-block="true"
                                 data-block-name="h_tema-00"
@@ -62,7 +97,7 @@ const LNHome = props => {
                             </section>
                         </div>
                         <main>
-                            <div className="row">
+                            <div className="">
                                 <div className="lay-sidebar">
                                     <div className="sidebar__main">
                                         <section className="mod-banner">
@@ -70,6 +105,9 @@ const LNHome = props => {
                                                 Banner
                                             </div>
                                         </section>
+
+                                        <Escudos />
+
                                         <div
                                             data-module="tema_01"
                                             data-is-loading="false"
@@ -219,13 +257,18 @@ const LNHome = props => {
                                                 Banner
                                             </div>
                                         </section>
-
-                                        <section className="mod-anexo">
-                                            <div className="com-anexo">
-                                                ANEXO 2
-                                            </div>
-                                        </section>
-
+                                        <div className="row-gap-tablet-2">
+                                            <ModPromo
+                                                text="La información más completa del mercado inmobiliario minuto a minuto."
+                                                link="https://www.lanacion.com.ar/propiedades/"
+                                                logoName="propiedades"
+                                            />
+                                            <ModPromo
+                                                text="La información más completa del mercado inmobiliario minuto a minuto."
+                                                link="https://www.lanacion.com.ar/economia/campo/"
+                                                logoName="campo"
+                                            />
+                                        </div>
                                         <div
                                             data-module="tema_04"
                                             data-is-loading="false"
@@ -347,9 +390,10 @@ const LNHome = props => {
                                                             srcdemo="https://source.unsplash.com/300x300/?face"
                                                             link="#"
                                                             leadText="Opinión 2."
-                                                            titleSize="--twoxs"
+                                                            titleSize="--xs"
                                                             titleText="Una ventana al bienestar que promete el verano"
                                                             authors="Nombre Apellido"
+                                                            authorSize="--twoxs"
                                                             position="0602"
                                                         />
                                                         <Article
@@ -357,9 +401,10 @@ const LNHome = props => {
                                                             srcdemo="https://source.unsplash.com/300x301/?face"
                                                             link="#"
                                                             leadText="Opinión 3."
-                                                            titleSize="--twoxs"
+                                                            titleSize="--xs"
                                                             titleText="Trumpismo, maoísmo y peronismo"
                                                             authors="Nombre Apellido"
+                                                            authorSize="--twoxs"
                                                             position="0603"
                                                         />
                                                     </div>
@@ -372,20 +417,30 @@ const LNHome = props => {
                                                             titleSize="--l"
                                                             titleText="Inolvidable declaración de amor a la ciudad de Madrid"
                                                             authors="Nombre Apellido"
+                                                            authorSize="--twoxs"
                                                             position="0604"
                                                         />
                                                     </div>
                                                 </section>
+                                            </section>
+                                            <section
+                                                className="box-articles --editoriales"
+                                                id="tema_06"
+                                                data-is-block="true"
+                                                data-block-name="h_tema-06"
+                                                data-diagramacion-id="h_caja-opinion"
+                                            >
                                                 <section className="mod-footersection">
                                                     <ComTitle
                                                         content="EDITORIALES"
                                                         size="--twoxs"
+                                                        link="https://www.lanacion.com.ar/editoriales/"
                                                     />
                                                     <ul className="com-unordered">
                                                         <li>
                                                             <a
                                                                 href="/editoriales/mafia-politica-narcotrafico-peor-pandemia-nid2547665"
-                                                                className="--twoxs"
+                                                                className="com-link --twoxs"
                                                                 title="Mafia política y narcotráfico, la peor pandemia"
                                                             >
                                                                 Mafia política y
@@ -396,7 +451,7 @@ const LNHome = props => {
                                                         <li>
                                                             <a
                                                                 href="/editoriales/la-remocion-jueces-fiscales-nid2547655"
-                                                                className="--twoxs"
+                                                                className="com-link --twoxs"
                                                                 title="La remoción de jueces y fiscales"
                                                             >
                                                                 La remoción de
@@ -537,6 +592,20 @@ const LNHome = props => {
                                                 />
                                             </div>
                                         </section>
+
+                                        {/* <section className="mod-">
+                                            <ComTitle size="--twoxs" content="Temáticas LA NACION" />
+                                            <div className="row-gap-tablet-2">
+                                                <a href="https://www.lanacion.com.ar/propiedades/">
+                                                    <div className="mod-"><img src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/7AXX6ZVNCRGLBMXP5UPH5SWDIQ.png" loading="lazy" className="com-image " alt="Logo"/></div>
+                                                    Toda la informacion del mercado inmobiliario 
+                                                </a>
+                                                <a href="https://www.lanacion.com.ar/propiedades/">
+                                                    <div className="mod-"><img src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/7AXX6ZVNCRGLBMXP5UPH5SWDIQ.png" loading="lazy" className="com-image " alt="Logo"/></div>
+                                                    Noticias, informes y referentes del campo argentino 
+                                                </a>
+                                            </div>
+                                        </section> */}
 
                                         <section className="box-articles --bgcolor --bgteal">
                                             <HeaderSection
@@ -874,7 +943,7 @@ const LNHome = props => {
                                             </div>
                                         </section>
                                     </div>
-                                    <div className="sidebar__aside hlp-tablet-none"></div>
+                                    <div className="sidebar__aside hlp-tabletlm-none"></div>
                                 </div>
 
                                 <div className="lay">
@@ -1504,6 +1573,16 @@ const LNHome = props => {
                                         </div>
                                         {/*
                                         <section className="demofonts">
+                                            <i className="com-icon icon-snow"></i>
+                                            <i className="com-icon icon-snow-cloudy"></i>
+                                            <i className="com-icon icon-storm"></i>
+                                            <i className="com-icon icon-storm-cloudy"></i>
+                                            <i className="com-icon icon-sun"></i>
+                                            <i className="com-icon icon-sun-cloudy"></i>
+                                            <i className="com-icon icon-windy"></i>
+                                        </section>
+                                        
+                                        <section className="demofonts">
                                             <div>
                                                 <h1 className="--threexl">
                                                     <strong>
@@ -1700,11 +1779,12 @@ const LNHome = props => {
                                         </section>
                                         */}
                                     </div>
-                                    <div className="sidebar__aside hlp-tablet-none"></div>
+                                    <div className="sidebar__aside hlp-tabletlm-none"></div>
                                 </div>
                             </div>
                         </main>
-                        <Footer />
+                        {/* <Footer /> */}
+                        <NewFooter />
                     </div>
                 </GlobalProviderAcu>
             </LoginProvider>

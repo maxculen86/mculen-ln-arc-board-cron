@@ -10,6 +10,10 @@ exports[`Share Matches snapshot 1`] = `
   >
     <button
       class="com-button   --icon "
+      data-event=""
+      data-section=""
+      id=""
+      title="Facebook"
       type="button"
     >
       <i
@@ -18,6 +22,10 @@ exports[`Share Matches snapshot 1`] = `
     </button>
     <button
       class="com-button   --icon "
+      data-event=""
+      data-section=""
+      id=""
+      title="Twitter"
       type="button"
     >
       <i
@@ -26,6 +34,10 @@ exports[`Share Matches snapshot 1`] = `
     </button>
     <button
       class="com-button   --icon "
+      data-event=""
+      data-section=""
+      id="whatsAppShareDesktop"
+      title="WhatsApp"
       type="button"
     >
       <i
@@ -41,6 +53,10 @@ exports[`Share Matches snapshot 1`] = `
   >
     <button
       class="com-button   --icon "
+      data-event=""
+      data-section=""
+      id=""
+      title="E-mail"
       type="button"
     >
       <i
@@ -49,6 +65,10 @@ exports[`Share Matches snapshot 1`] = `
     </button>
     <button
       class="com-button   --icon comment "
+      data-event=""
+      data-section=""
+      id=""
+      title="Comentar"
       type="button"
     >
       <i
@@ -58,8 +78,12 @@ exports[`Share Matches snapshot 1`] = `
         class="com-text --fourxs "
       >
         <label
-          for=""
-        />
+          class="livefyre-commentcount"
+          data-lf-article-id="JZQDUAOPSRF3LLDZOT6374IDOM"
+          id="livefyre-commentcount"
+        >
+          0
+        </label>
       </span>
     </button>
   </div>
@@ -76,6 +100,10 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
   >
     <button
       class="com-button   --icon "
+      data-event=""
+      data-section=""
+      id=""
+      title="Facebook"
       type="button"
     >
       <i
@@ -84,6 +112,10 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
     </button>
     <button
       class="com-button   --icon "
+      data-event=""
+      data-section=""
+      id=""
+      title="Twitter"
       type="button"
     >
       <i
@@ -92,6 +124,10 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
     </button>
     <button
       class="com-button   --icon "
+      data-event=""
+      data-section=""
+      id="whatsAppShareDesktop"
+      title="WhatsApp"
       type="button"
     >
       <i
@@ -107,6 +143,10 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
   >
     <button
       class="com-button   --icon "
+      data-event=""
+      data-section=""
+      id=""
+      title="E-mail"
       type="button"
     >
       <i

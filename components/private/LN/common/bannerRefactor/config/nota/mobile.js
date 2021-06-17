@@ -39,6 +39,7 @@ export default {
         slotName: 'la_nacion_mobile/Nota/sticky1_mob',
         dimensions: [[320, 100]],
         targeting: defaultTargeting,
+        withoutHide: true,
         bidding: {
             prebid: {
                 enabled: true,
@@ -196,11 +197,13 @@ export default {
     caja2_mob: {
         slotName: 'la_nacion_mobile/Nota/caja2_mob',
         dimensions: [
+            [1, 1],
             [300, 250],
             [300, 450],
             [320, 50],
             [320, 100],
-            [1, 1]
+            [320, 180],
+            [360, 270]
         ],
         targeting: defaultTargeting,
         bidding: {
@@ -456,5 +459,13 @@ export default {
             width: 320,
             height: 50
         }
+    },
+    comercial_mob: {
+        slotName: 'la_nacion_mobile/Nota/comercial_mob',
+        dimensions: [
+            [1, 1],
+            [320, 480]
+        ],
+        targeting: defaultTargeting
     }
 };
