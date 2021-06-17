@@ -6,7 +6,7 @@ import Static from 'fusion:static';
 import get from '../../private/common/utils/get';
 import throttle from '../../private/common/utils/throttle';
 import Header from '../../private/LN/common/header';
-import Footer from '../../private/LN/common/footer/home';
+import Footer from '../../private/LN/common/footer';
 import GlobalProvider from '../../private/common/context/globalContext';
 import LoginProvider from '../../private/LN/common/context/loginContext';
 import LoadBanners from '../../private/common/banners/LoadBanners';
@@ -608,7 +608,7 @@ const LNMainHome = props => {
                         </div>
                     </main>
                     <Static id="StaticFooter">
-                        <Footer />
+                        <Footer home />
                     </Static>
                 </div>
                 <LoadBanners blocksBanners={blocksBanners.bloque1} />

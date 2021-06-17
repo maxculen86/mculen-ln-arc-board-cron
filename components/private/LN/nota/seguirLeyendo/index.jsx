@@ -5,14 +5,16 @@ import '../../../../../resources/dist/css/ln/modules/mod-keepreading.css';
 import ComLink from '../../../common/com-link';
 
 const getContent = element => {
+    if (!element.headlines) return '';
+
     const span =
         element.label && element.label.volanta
             ? `<span class="hlp-bold">${element.label.volanta.text}</span>&nbsp;`
             : '';
 
-    const content = `${span} ${
-        element.headlines ? element.headlines.basic : ''
-    }`;
+    const content = element.headlines.mobile
+        ? `${span} ${element.headlines.mobile}`
+        : element.headlines.basic;
 
     return content;
 };
@@ -42,6 +44,7 @@ const Index = ({ relatedContent = [] }) => {
                         <ComLink
                             link={element.website_url || element.canonical_url}
                             size="--twoxs"
+                            title={content}
                         >
                             {content}
                         </ComLink>

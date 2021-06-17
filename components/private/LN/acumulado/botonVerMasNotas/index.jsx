@@ -12,6 +12,7 @@ const Button = ({ onClickHandler, name, loading, loadingIcon }) => {
                 onClick={onClickHandler}
                 className="com-button --secondary"
                 disabled={loading}
+                title={`Ver más notas de ${name.toUpperCase()}`}
             >
                 VER MÁS NOTAS
                 {name && ` DE ${name.toUpperCase()}`}

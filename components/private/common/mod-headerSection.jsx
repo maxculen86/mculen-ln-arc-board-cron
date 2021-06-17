@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import '../../../resources/dist/css/ln/modules/mod-headersection.css';
-import ComLine from '../LN/common/footer/com-line';
+import ComLine from './com-line';
 import ComTitle from './com-title';
 import withImage from './hocs/withImage';
 import ComImage from './com-image';

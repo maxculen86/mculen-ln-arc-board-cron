@@ -4,11 +4,7 @@
     width: 100%;
     height: px(1);
     background: $light-neutral-400;
-    .footer & {
-        display: flex;
-        margin-bottom: $spacing-md;
-        order: 2;
-    }
+
     .mod-share & {
         display: none;
     }
@@ -29,9 +25,6 @@
 }
 @media ($media-l) {
     .com-line {
-        .footer & {
-            margin-bottom: $spacing-sm;
-        }
         .mod-share & {
             display: flex;
             background: $neutral-black;
