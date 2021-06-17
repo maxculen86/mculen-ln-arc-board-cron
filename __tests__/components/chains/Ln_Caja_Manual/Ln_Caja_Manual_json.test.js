@@ -48,7 +48,7 @@ describe('components - chains - Ln_Caja_Manual - json.js', () => {
             initialPosition: 1,
             layout: 'focalLeft3',
             title: 'Mi techo abc',
-            containerImage: undefined
+            image: undefined
         });
     });
 });

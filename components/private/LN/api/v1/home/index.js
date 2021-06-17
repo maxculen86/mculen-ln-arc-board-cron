@@ -43,6 +43,9 @@ const featureInformation = (information, feature) => {
 
 const storyBox = element => {
     const { information, feature, configurations } = element;
+    if (feature === 'Anticipo')
+        return { ...featureInformation(information, feature) };
+
     const articles = get(element, 'articles', []);
     if (feature === 'Anticipo')
         return { ...featureInformation(information, feature) };

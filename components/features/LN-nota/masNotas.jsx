@@ -7,16 +7,13 @@ import MasNotas from '../../private/LN/nota/masNotas';
 
 const masNotas = props => {
     const {
-        outputType,
         customFields: { cantidadNotas },
         id: featureId
     } = props;
-    return outputType === 'amp' ? (
+    return (
         <Static id={featureId}>
             <MasNotas {...props} cantidadNotas={cantidadNotas} />
         </Static>
-    ) : (
-        <MasNotas {...props} cantidadNotas={cantidadNotas} />
     );
 };
 

@@ -89,6 +89,15 @@ class GetCajaCollection {
             }
 
             const elements = get(articleList, 'content_elements', []);
+            const layout = get(customFields, 'layout', null);
+            let storiesQuantity = 0;
+            if (layout) {
+                storiesQuantity = parseInt(
+                    layout.charAt(layout.length - 1),
+                    10
+                );
+                elements.slice(0, storiesQuantity || elements.length);
+            }
             return {
                 information: { ...customFields, image: containerImage },
                 articles: elements
