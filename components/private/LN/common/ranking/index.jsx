@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import withRankingData from '../hocs/WithRankingData';
-import WithRelatedImages from '../hocs/WithRelatedImages';
 
 import OrderedList from '../lists/ordered';
 import ArticleMain from '../articleTypes/articleMain';
@@ -43,4 +42,4 @@ Ranking.defaultProps = {
     articles: []
 };
 
-export default withRankingData(WithRelatedImages(Ranking), 'm');
+export default withRankingData(Ranking, 'm');
