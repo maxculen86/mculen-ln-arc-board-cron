@@ -27,10 +27,15 @@ const snippetIndex = props => {
     const sitio = config[arcSite];
     if (!sitio) return null;
 
-    const Snippet = subtype === LIVEBLOG ? LiveblogSnippet : sitio[layout];
+    const Snippet = sitio[layout];
 
     if (!Snippet) return null;
-    return <Snippet {...props} />;
+    return (
+        <>
+            <Snippet {...props} />
+            {subtype === LIVEBLOG && <LiveblogSnippet {...props} />}
+        </>
+    );
 };
 
 snippetIndex.propTypes = {
