@@ -105,8 +105,8 @@ const tePuedeInteresar = props => {
                 arcSite={arcSite}
                 dataLayerSection={
                     layout === layoutsName.Home
-                        ? 'h_sugerencias'
-                        : 'n_te_puede_interesar'
+                        ? 'TePuedeInteresarHome'
+                        : 'TePuedeInteresar'
                 }
             />
         </Lazy>

@@ -2,6 +2,7 @@
 
 exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
 <article
+  aria-hidden="true"
   class="mod-article    "
 >
   <div>

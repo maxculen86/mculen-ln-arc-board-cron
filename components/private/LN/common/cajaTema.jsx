@@ -9,6 +9,7 @@ import Editoriales from '../../common/editoriales';
 import ArticleAcum from '../acumulado/articleAcum';
 import FocalFactory from '../home/templatesContainers/focalFactory';
 import { getLayoutType, getMarkupForDatalayer } from './utils/cajaTemasHelper';
+import OrderedList from './lists/ordered';
 
 const getComponentForLayout = (layoutName, props) => {
     const types = {
@@ -42,7 +43,9 @@ const getComponentForLayout = (layoutName, props) => {
             outputType = 'default',
             position,
             titleSize,
-            withSubhead = false
+            withSubhead = false,
+            dataSection,
+            handleClick
         }) => {
             return articles.map((art, i) => {
                 const artPosition = `0${Number(i) + 1}`.slice(-2);
@@ -57,8 +60,14 @@ const getComponentForLayout = (layoutName, props) => {
                         titleSize={titleSize}
                         isRenderAuthor={isRenderAuthor}
                         withSubhead={withSubhead}
-                        boxPosition={position}
-                        artPosition={artPosition}
+                        boxPosition={
+                            position === 'toi'
+                                ? `toi${Number(i) + 1}`
+                                : position
+                        }
+                        artPosition={position !== 'toi' ? artPosition : ''}
+                        handleClick={handleClick}
+                        dataSection={dataSection}
                     />
                 );
             });
@@ -118,7 +127,11 @@ const CajaTema = props => {
                     />
                 )}
                 <ModRowGap typeArticle={layoutName} column={notesQuantity}>
-                    {childrenComponent}
+                    {sectionName === 'Ranking' ? (
+                        <OrderedList>{childrenComponent}</OrderedList>
+                    ) : (
+                        childrenComponent
+                    )}
                 </ModRowGap>
             </section>
         </div>
@@ -135,7 +148,7 @@ CajaTema.propTypes = {
     layout: PropTypes.string.isRequired,
     backgroundColor: PropTypes.string.isRequired,
     classCondition: PropTypes.string.isRequired,
-    notesQuantity: PropTypes.number.isRequired,
+    notesQuantity: PropTypes.number,
     hideTitle: PropTypes.boolean.isRequired,
     withSubhead: PropTypes.boolean,
     title: PropTypes.string,
@@ -154,6 +167,7 @@ CajaTema.defaultProps = {
     imageId: null,
     titleSize: null,
     withSubhead: false,
+    notesQuantity: 3,
     _children: []
 };
 

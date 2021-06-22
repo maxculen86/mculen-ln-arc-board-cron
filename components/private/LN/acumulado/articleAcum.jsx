@@ -39,7 +39,8 @@ const ArticleAcum = ({
     boxPosition,
     artPosition,
     withCategory,
-    withTags
+    withTags,
+    handleClick
 }) => {
     const _article = addRelatedImage(article);
     const {
@@ -93,6 +94,7 @@ const ArticleAcum = ({
                 category={withCategory && primarySection}
                 tags={withTags && tagList}
                 label={chapita}
+                handleClick={handleClick}
             />
             {children}
         </>

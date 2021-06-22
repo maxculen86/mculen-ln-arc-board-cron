@@ -3,8 +3,8 @@ jest.mock(
     () => 'list-mock'
 );
 jest.mock(
-    '../../../../../../components/private/LN/common/articleTypes/articleMain',
-    () => 'articleMain-mock'
+    '../../../../../../components/private/common/mod-article',
+    () => 'mod-article-mock'
 );
 jest.mock(
     '../../../../../../components/private/common/com-title.jsx',
@@ -24,6 +24,19 @@ jest.mock('fusion:consumer', Component => {
 
 import Consumer from 'fusion:consumer';
 
+jest.mock('fusion:context', () => () => ({
+    default: props => {
+        const mockAvailableProps = {
+            outputType: 'default',
+            arcSite: 'la-nacion-ar'
+        };
+
+        return props.children(mockAvailableProps);
+    }
+}));
+
+import Context from 'fusion:context';
+
 import React from 'react';
 import { mount } from 'enzyme';
 import Ranking from '../../../../../../components/private/LN/common/ranking';
@@ -32,6 +45,10 @@ import nota from '../../../../../../__mocks__/data/articles/TWKFZQ6FCNF3ZKPHGGZP
 import articles from '../../../../../../__mocks__/data/articleCollections/recetas';
 
 describe('Private - LN - Common - Ranking', () => {
+    Context.useAppContext = jest.fn(() => ({
+        globalContent: { subtype: '1' }
+    }));
+
     const props = {
         articles: articles,
         dataSection: '/recetas',
@@ -60,7 +77,7 @@ describe('Private - LN - Common - Ranking', () => {
     it('Atributos y nodo del DOM correcto', () => {
         const component = mount(<Ranking {...props} />);
         expect(component.find('list-mock')).toHaveLength(1);
-        expect(component.find('articleMain-mock')).toHaveLength(9);
+        expect(component.find('mod-article-mock')).toHaveLength(9);
         expect(component.find('title-mock')).toHaveLength(1);
         expect(component.find('title-mock').props().content).toBe(
             'Más Leídas de Recetas'
