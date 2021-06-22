@@ -84,6 +84,9 @@
             z-index: 1000;
             background: white;
             margin: 0;
+            @media ($media-m) {
+                display: none;
+            }
         }
 
         // &.sticky2_mob {
@@ -356,6 +359,7 @@
 
 .home > .container {
     &.--ads {
+        display: none;
         background: $neutral-white;
         padding: px(24) 0;
         &:empty {
@@ -364,6 +368,9 @@
         .mod-banner {
             width: fit-content;
             margin: 0 auto;
+        }
+        @media ($media-m) {
+            display: block;
         }
     }
 }
