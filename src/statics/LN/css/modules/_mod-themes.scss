@@ -8,9 +8,14 @@
     // overflow: scroll;
     margin-bottom: $spacing-sm;
 
-    .com-button.com-button {
+    .com-link.com-button {
+        margin-right: $spacing-sm;
+        margin-bottom: $spacing-sm;
+        white-space: nowrap;
+        display: inline-block;
+
         .cuerpo__nota & {
-            margin: 0;
+            margin-bottom: $spacing-sm;
         }
     }
 

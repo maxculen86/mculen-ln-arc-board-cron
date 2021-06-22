@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 
 import withRankingData from '../hocs/WithRankingData';
 
@@ -21,7 +21,6 @@ const Ranking = ({ articles, dataSection, title }) => {
             <OrderedList>
                 {articles.map((article, index) => (
                     <ArticleMain
-                        // border
                         articleData={article}
                         dataSection={dataSection}
                         position={index + 1}

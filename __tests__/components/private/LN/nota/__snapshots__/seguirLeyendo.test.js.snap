@@ -12,8 +12,9 @@ exports[`SeguirLeyendo Matches snapshot con canonical_url 1`] = `
     <a
       class="com-link --twoxs"
       href="/comunidad/de-cocaina-psicofarmacos-que-efectos-tiene-consumo-nid2470491/"
+      title="De cocaína a psicofármacos: qué efectos tiene el consumo de sustancias ilícitas"
     >
-       De cocaína a psicofármacos: qué efectos tiene el consumo de sustancias ilícitas
+      De cocaína a psicofármacos: qué efectos tiene el consumo de sustancias ilícitas
     </a>
   </li>
   <li
@@ -24,8 +25,9 @@ exports[`SeguirLeyendo Matches snapshot con canonical_url 1`] = `
     <a
       class="com-link --twoxs"
       href="/comunidad/alcoholismo-senales-alerta-peligros-salud-nid2464890/"
+      title="Alcoholismo. Señales de alerta y los peligros para la salud"
     >
-       Alcoholismo. Señales de alerta y los peligros para la salud
+      Alcoholismo. Señales de alerta y los peligros para la salud
     </a>
   </li>
 </ul>
@@ -43,8 +45,14 @@ exports[`SeguirLeyendo Matches snapshot con website_url 1`] = `
     <a
       class="com-link --twoxs"
       href="/arquitectura/prueba-storytelling-roger-nid15072020/"
+      title="<span class=\\"hlp-bold\\">Texto volanta</span>&nbsp; Titulo mobile"
     >
-       Prueba Storytelling roger.
+      <span
+        class="hlp-bold"
+      >
+        Texto volanta
+      </span>
+        Titulo mobile
     </a>
   </li>
   <li
@@ -55,8 +63,9 @@ exports[`SeguirLeyendo Matches snapshot con website_url 1`] = `
     <a
       class="com-link --twoxs"
       href="/propiedades/los-desarrolladores-ponen-la-mira-en-la-zona-de-canning-nid20102020/"
+      title="Los desarrolladores ponen la mira en la zona de Canning"
     >
-       Los desarrolladores ponen la mira en la zona de Canning
+      Los desarrolladores ponen la mira en la zona de Canning
     </a>
   </li>
 </ul>

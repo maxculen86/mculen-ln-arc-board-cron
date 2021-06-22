@@ -380,17 +380,20 @@
         }
     }
 
-    &.--focal {
+    &.--focal:not(.--apertura) {
+        .mod-article .mod-description .com-subhead {
+            display: none;
+            @media ($media-m) {
+                display: block;
+            }
+        }
+    }
+
+    &.--apertura {
         @media ($media-m) {
-            //768
             border-bottom: 1px solid #ccc;
             padding-bottom: px(32);
             margin-bottom: px(32);
-            // > div {
-            //     .mod-article:last-child {
-            //         margin-bottom: 0;
-            //     }
-            // }
         }
     }
 
@@ -500,6 +503,11 @@
                 }
                 .mod-media {
                     display: none;
+                }
+                .mod-description {
+                    .com-label {
+                        display: none;
+                    }
                 }
             }
         }

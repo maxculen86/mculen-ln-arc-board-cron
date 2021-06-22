@@ -3,7 +3,9 @@ import PropTypes from 'fusion:prop-types';
 
 import NotaSnippet from '../../LN/nota/snippet/receta';
 import NoticiaSnippet from '../../LN/nota/snippet/noticia';
+import LiveblogSnippet from '../../LN/nota/snippet/liveblog';
 import SnippetAcumulado from '../../LN/acumulado/snippet';
+import { LIVEBLOG } from '../utils/subtypes/subtypeHelper';
 
 const config = {
     OTT: {},
@@ -19,7 +21,8 @@ const config = {
 };
 
 const snippetIndex = props => {
-    const { arcSite, layout } = props;
+    const { arcSite, layout, globalContent } = props;
+    const { subtype } = globalContent || {};
 
     const sitio = config[arcSite];
     if (!sitio) return null;
@@ -27,12 +30,20 @@ const snippetIndex = props => {
     const Snippet = sitio[layout];
 
     if (!Snippet) return null;
-    return <Snippet {...props} />;
+    return (
+        <>
+            <Snippet {...props} />
+            {subtype === LIVEBLOG && <LiveblogSnippet {...props} />}
+        </>
+    );
 };
 
 snippetIndex.propTypes = {
     arcSite: PropTypes.string.isRequired,
-    layout: PropTypes.string.isRequired
+    layout: PropTypes.string.isRequired,
+    globalContent: PropTypes.shape({
+        subtype: PropTypes.string
+    }).isRequired
 };
 
 export default snippetIndex;

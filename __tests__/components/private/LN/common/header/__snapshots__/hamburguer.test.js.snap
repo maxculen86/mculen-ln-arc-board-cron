@@ -9,6 +9,7 @@ exports[`features - LaNacion - Nota - Hamburguer Test de snapshot Hamburguer 1`]
     data-event=""
     data-section=""
     id=""
+    on=""
     title="Secciones"
     type="button"
   >

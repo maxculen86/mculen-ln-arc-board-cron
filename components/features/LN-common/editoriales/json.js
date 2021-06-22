@@ -1,16 +1,15 @@
-import Consumer from 'fusion:consumer';
 import get from '../../../private/common/utils/get';
 import ChainCajaCollection from '../../../chains/Ln_Caja_Collection/json';
 
 class Editoriales {
     constructor(props) {
         this.props = props;
+        this.articulos = new ChainCajaCollection(this.props);
     }
 
     render() {
         try {
-            const articulos = new ChainCajaCollection(this.props);
-            const { articleList } = articulos.state || {};
+            const { articleList } = this.articulos.state || {};
 
             if (!articleList) {
                 return null;
@@ -38,4 +37,4 @@ class Editoriales {
     }
 }
 
-export default Consumer(Editoriales);
+export default Editoriales;
