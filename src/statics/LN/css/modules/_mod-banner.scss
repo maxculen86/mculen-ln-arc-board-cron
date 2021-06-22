@@ -380,18 +380,38 @@
     .container.--ads {
         display: none;
         @media ($media-m) {
-            display: block;
-            .cabezal_dsk {
+            display: flex;
+            .--cabezal_dsk {
                 display: none;
             }
         }
         @media ($media-l) {
-            .cabezal_tab {
+            .--cabezal_tab {
                 display: none;
             }
-            .cabezal_dsk {
-                display: block;
+            .--cabezal_dsk {
+                display: flex;
             }
+        }
+    }
+    [class*='_tab'],
+    [class*='_dsk'] {
+        display: none !important;
+    }
+    @media ($media-m) {
+        [class*='_tab'] {
+            display: flex !important;
+        }
+        [class*='_mob'] {
+            display: none !important;
+        }
+    }
+    @media ($media-l) {
+        [class*='_dsk'] {
+            display: flex !important;
+        }
+        [class*='_tab'] {
+            display: none !important;
         }
     }
 }
