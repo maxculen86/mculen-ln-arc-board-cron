@@ -358,12 +358,20 @@
     &.--ads {
         background: $neutral-white;
         padding: px(24) 0;
+        height: px(148);
         &:empty {
             display: none;
         }
         .mod-banner {
             width: fit-content;
             margin: 0 auto;
+        }
+    }
+}
+.home {
+    .sidebar__main {
+        > .container.--ads {
+            height: px(164);
         }
     }
 }

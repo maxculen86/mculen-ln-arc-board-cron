@@ -33,6 +33,7 @@ import LinkAmpHTML from '../private/common/linkAmpHTML';
 import { pipe } from '../private/common/utils/functional';
 import Pwa from '../private/common/scriptManager/pwa';
 import PwaModals from '../private/LN/common/pwaModals';
+import ScriptSWG from '../private/common/scriptManager/scriptSWG';
 
 const scriptList = [
     {
@@ -69,6 +70,10 @@ const scriptList = [
     {
         component: { name: 'Petametrics', function: Petametrics },
         feature: ['LN-nota/tePuedeInteresar']
+    },
+    {
+        component: { name: 'ScriptSWG', function: ScriptSWG },
+        feature: 'none'
     },
     {
         component: { name: 'SocialEmbeds', function: SocialEmbeds },
@@ -259,7 +264,7 @@ const Default = props => {
                 <Schemas section={_nodeType} />
                 <meta
                     name="viewport"
-                    content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+                    content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
                 <link
                     rel="icon"
@@ -281,7 +286,11 @@ const Default = props => {
                     <Fusion>{children}</Fusion>
                 </div>
                 <PwaModals />
-                <Scripts location="body-bottom" />
+                <Scripts
+                    location="body-bottom"
+                    section={_nodeType}
+                    {...props}
+                />
                 <ScriptLoadingList
                     section={_nodeType}
                     location="body-bottom"

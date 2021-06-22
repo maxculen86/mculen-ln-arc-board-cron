@@ -39,5 +39,6 @@ export default {
         env: 'prod',
         trackInteractions: 'true'
     },
-    ARC_STATIC: 'https://arc-static.glanacion.com'
+    ARC_STATIC: 'https://arc-static.glanacion.com',
+    LAZY_OFFSETTOP: 500
 };
