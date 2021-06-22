@@ -357,18 +357,28 @@
     }
 }
 
-.home > .container {
-    &.--ads {
+.home {
+    > .container {
+        &.--ads {
+            background: $neutral-white;
+            padding: px(24) 0;
+            height: px(148);
+            &:empty {
+                display: none;
+            }
+            .mod-banner {
+                width: fit-content;
+                margin: 0 auto;
+            }
+        }
+    }
+    .sidebar__main {
+        > .container.--ads {
+            height: px(164);
+        }
+    }
+    .container.--ads {
         display: none;
-        background: $neutral-white;
-        padding: px(24) 0;
-        &:empty {
-            display: none;
-        }
-        .mod-banner {
-            width: fit-content;
-            margin: 0 auto;
-        }
         @media ($media-m) {
             display: block;
         }
