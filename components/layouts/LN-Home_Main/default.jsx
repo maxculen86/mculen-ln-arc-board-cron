@@ -1,7 +1,7 @@
 /* eslint-disable consistent-return */
 import React, { useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types';
-import Consumer from 'fusion:consumer';
+import { useAppContext } from 'fusion:context';
 import Static from 'fusion:static';
 import get from '../../private/common/utils/get';
 import throttle from '../../private/common/utils/throttle';
@@ -92,7 +92,8 @@ const BannerCabezal = ({ isDesktop, isTablet }) => {
 };
 
 const LNMainHome = props => {
-    const { children, outputType, isAdmin, renderables } = props;
+    const { children } = props;
+    const { outputType, isAdmin, renderables } = useAppContext();
 
     const [
         anticipo,
@@ -292,12 +293,10 @@ const LNMainHome = props => {
                                     />
 
                                     {/* BANNER CAJA 2 MOB */}
-                                    {blocksToLoad.bloque2 && (
-                                        <DivBanner
-                                            id="caja2_mob"
-                                            shouldRender={isMobile}
-                                        />
-                                    )}
+                                    <DivBanner
+                                        id="caja2_mob"
+                                        shouldRender={isMobile}
+                                    />
                                     {blocksToLoad.bloque2 && (
                                         <section
                                             data-section="anexo2"
@@ -313,64 +312,52 @@ const LNMainHome = props => {
                                         {blocksToLoad.bloque2 && breaking1}
                                     </div>
                                     {/* BANNER CAJA 3 MOB */}
-                                    {blocksToLoad.bloque2 && (
-                                        <>
-                                            <DivBanner
-                                                id="caja3_mob"
-                                                shouldRender={isMobile}
-                                            />
-                                            <div className="row-gap-tablet-2 --ads">
-                                                <DivBanner
-                                                    id="caja1_tab"
-                                                    shouldRender={isTablet}
-                                                />
-                                                <DivBanner
-                                                    id="caja2_tab"
-                                                    shouldRender={isTablet}
-                                                />
-                                            </div>
-                                        </>
-                                    )}
+                                    <DivBanner
+                                        id="caja3_mob"
+                                        shouldRender={isMobile}
+                                    />
+                                    <div className="row-gap-tablet-2 --ads">
+                                        <DivBanner
+                                            id="caja1_tab"
+                                            shouldRender={isTablet}
+                                        />
+                                        <DivBanner
+                                            id="caja2_tab"
+                                            shouldRender={isTablet}
+                                        />
+                                    </div>
                                     {/* BANNER CAJA DSK  */}
-                                    {blocksToLoad.bloque2 && (
-                                        <div className="row-gap-tablet-3 --ads">
-                                            <DivBanner
-                                                id="caja1_dsk"
-                                                shouldRender={isDesktop}
-                                            />
-                                            <DivBanner
-                                                id="caja_producto1_dsk"
-                                                shouldRender={isDesktop}
-                                            />
-                                            <DivBanner
-                                                id="caja2_dsk"
-                                                shouldRender={isDesktop}
-                                            />
-                                        </div>
-                                    )}
+                                    <div className="row-gap-tablet-3 --ads">
+                                        <DivBanner
+                                            id="caja1_dsk"
+                                            shouldRender={isDesktop}
+                                        />
+                                        <DivBanner
+                                            id="caja_producto1_dsk"
+                                            shouldRender={isDesktop}
+                                        />
+                                        <DivBanner
+                                            id="caja2_dsk"
+                                            shouldRender={isDesktop}
+                                        />
+                                    </div>
                                     <div data-section="breaking2">
                                         {blocksToLoad.bloque2 && breaking2}
                                     </div>
                                     {/* BANNER CAJA 4 MOB */}
-                                    {blocksToLoad.bloque2 && (
-                                        <>
-                                            <DivBanner
-                                                id="caja4_mob"
-                                                shouldRender={isMobile}
-                                            />
-                                            <DivBanner
-                                                id="middle1_tab"
-                                                shouldRender={isTablet}
-                                            />
-                                        </>
-                                    )}
+                                    <DivBanner
+                                        id="caja4_mob"
+                                        shouldRender={isMobile}
+                                    />
+                                    <DivBanner
+                                        id="middle1_tab"
+                                        shouldRender={isTablet}
+                                    />
                                     {/* BANNER CINTURON 1 */}
-                                    {blocksToLoad.bloque2 && (
-                                        <DivBanner
-                                            id="cinturon1_dsk"
-                                            shouldRender={isDesktop}
-                                        />
-                                    )}
+                                    <DivBanner
+                                        id="cinturon1_dsk"
+                                        shouldRender={isDesktop}
+                                    />
 
                                     <div data-section="breaking3">
                                         {blocksToLoad.bloque2 && breaking3}
@@ -412,22 +399,19 @@ const LNMainHome = props => {
                                     )}
 
                                     {/* BANNER CAJA 5 MOB - BANNER CINTURON 2 - BANNER MIDDLE 2 */}
-                                    {blocksToLoad.bloque3 && (
-                                        <>
-                                            <DivBanner
-                                                id="caja5_mob"
-                                                shouldRender={isMobile}
-                                            />
-                                            <DivBanner
-                                                id="cinturon2_dsk"
-                                                shouldRender={isDesktop}
-                                            />
-                                            <DivBanner
-                                                id="middle2_tab"
-                                                shouldRender={isTablet}
-                                            />
-                                        </>
-                                    )}
+
+                                    <DivBanner
+                                        id="caja5_mob"
+                                        shouldRender={isMobile}
+                                    />
+                                    <DivBanner
+                                        id="cinturon2_dsk"
+                                        shouldRender={isDesktop}
+                                    />
+                                    <DivBanner
+                                        id="middle2_tab"
+                                        shouldRender={isTablet}
+                                    />
 
                                     <div
                                         data-section="opinion"
@@ -436,45 +420,39 @@ const LNMainHome = props => {
                                         {blocksToLoad.bloque3 && opinion}
                                     </div>
                                     {/* BANNER  */}
-                                    {blocksToLoad.bloque3 && (
-                                        <div className="row-gap-tablet-3 --ads">
-                                            <DivBanner
-                                                id="caja3_dsk"
-                                                shouldRender={isDesktop}
-                                            />
-                                            <DivBanner
-                                                id="caja_producto2_dsk"
-                                                shouldRender={isDesktop}
-                                            />
-                                            <DivBanner
-                                                id="caja4_dsk"
-                                                shouldRender={isDesktop}
-                                            />
-                                        </div>
-                                    )}
+                                    <div className="row-gap-tablet-3 --ads">
+                                        <DivBanner
+                                            id="caja3_dsk"
+                                            shouldRender={isDesktop}
+                                        />
+                                        <DivBanner
+                                            id="caja_producto2_dsk"
+                                            shouldRender={isDesktop}
+                                        />
+                                        <DivBanner
+                                            id="caja4_dsk"
+                                            shouldRender={isDesktop}
+                                        />
+                                    </div>
                                     {/* BANNER CAJAS TAB */}
-                                    {blocksToLoad.bloque3 && (
-                                        <div className="row-gap-tablet-2 --ads">
-                                            <DivBanner
-                                                id="caja3_tab"
-                                                shouldRender={isTablet}
-                                            />
-                                            <DivBanner
-                                                id="caja4_tab"
-                                                shouldRender={isTablet}
-                                            />
-                                        </div>
-                                    )}
+                                    <div className="row-gap-tablet-2 --ads">
+                                        <DivBanner
+                                            id="caja3_tab"
+                                            shouldRender={isTablet}
+                                        />
+                                        <DivBanner
+                                            id="caja4_tab"
+                                            shouldRender={isTablet}
+                                        />
+                                    </div>
                                     <div data-section="breaking4">
                                         {blocksToLoad.bloque3 && breaking4}
                                     </div>
                                     {/* BANNER MIDDLE 1 */}
-                                    {blocksToLoad.bloque3 && (
-                                        <DivBanner
-                                            id="middle1_dsk"
-                                            shouldRender={isDesktop}
-                                        />
-                                    )}
+                                    <DivBanner
+                                        id="middle1_dsk"
+                                        shouldRender={isDesktop}
+                                    />
                                     <div data-section="breaking5">
                                         {blocksToLoad.bloque3 && breaking5}
                                     </div>
@@ -569,13 +547,11 @@ const LNMainHome = props => {
                                 </div>
                                 <div className="sidebar__aside hlp-tabletlm-none">
                                     {/* BANNER ASIDE */}
-                                    {blocksToLoad.bloque5 && (
-                                        <DivBanner
-                                            id="megalateral3_dsk"
-                                            classes="--megalateral --sticky"
-                                            shouldRender={isDesktop}
-                                        />
-                                    )}
+                                    <DivBanner
+                                        id="megalateral3_dsk"
+                                        classes="--megalateral --sticky"
+                                        shouldRender={isDesktop}
+                                    />
                                 </div>
                             </div>
                             <div className="lay-sidebar">
@@ -632,9 +608,6 @@ const LNMainHome = props => {
 
 LNMainHome.propTypes = {
     children: PropTypes.node.isRequired,
-    renderables: PropTypes.node.isRequired,
-    outputType: PropTypes.string,
-    isAdmin: PropTypes.bool.isRequired,
     globalContent: PropTypes.shape({
         style: PropTypes.shape({
             section_style_name: PropTypes.string,
@@ -663,10 +636,6 @@ LNMainHome.propTypes = {
     }).isRequired
 };
 
-LNMainHome.defaultProps = {
-    outputType: 'default'
-};
-
 LNMainHome.sections = pageBuilderSections;
 
-export default Consumer(LNMainHome);
+export default LNMainHome;

@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+import Static from 'fusion:static';
 import { getSubscription } from '../../LN/common/utils/homeHelper';
 
 const DivBanner = props => {
     const {
         id,
         classes = '',
-        shouldRender,
         closeButton,
         fixed,
         validateSuscription = false,
@@ -15,9 +15,19 @@ const DivBanner = props => {
     const subscription = validateSuscription ? getSubscription() : false;
     const ref = useRef();
 
-    if (!shouldRender || (validateSuscription && subscription)) return <></>;
+    if (validateSuscription && subscription) return <></>;
 
-    return (
+    return id.search('adhesion') ? (
+        <Static id={id} htmlOnly>
+            <div
+                className={`mod-banner ${classes}  ${
+                    fixed ? '--fixed' : ''
+                } --${id} ${withoutHide ? '' : 'hlp-none'} `}
+            >
+                <div id={id} className={`com-banner ${classes || ''}`} />
+            </div>
+        </Static>
+    ) : (
         <div
             className={`mod-banner ${classes} ${
                 closeButton ? '--close' : ' '
