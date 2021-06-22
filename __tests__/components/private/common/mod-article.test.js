@@ -34,6 +34,7 @@ describe('Private - Common - ModArticle', () => {
         dateSize: '',
         subheadText: 'Este es el subtitulo',
         subheadSize: '',
+        subheadTag: '',
         outputType: 'default',
         label: 'chapita',
         category: '',

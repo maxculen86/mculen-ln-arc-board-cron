@@ -92,12 +92,7 @@
         margin-bottom: $spacing-sm;
         font-weight: 700;
     }
-    .mod-themes & {
-        margin-right: $spacing-sm;
-        margin-bottom: $spacing-sm;
-        white-space: nowrap;
-        display: inline-block;
-    }
+
     &.--sociallist {
         @include flex(inline, row, center, center);
         font-weight: 700;

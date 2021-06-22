@@ -11,7 +11,7 @@ import Dolar from '../private/common/mod-dolar';
 import GlobalProvider from '../private/common/context/globalContext';
 import ModPromo from '../private/common/mod-promo';
 import ComButton from '../private/common/com-button';
-import NewFooter from '../private/LN/common/footer/home';
+import NewFooter from '../private/LN/common/footer';
 import Anticipo from '../private/common/com-advance';
 import Escudos from '../../components/features/LN-acumulado/cajaEscudo';
 import SubHeader from '../private/LN/common/header/subHeader';
@@ -114,7 +114,7 @@ const LNHome = props => {
                                             data-is-loaded="true"
                                         >
                                             <section
-                                                className="box-articles --focal --left"
+                                                className="box-articles --apertura --focal --left"
                                                 id="tema_01"
                                                 data-is-block="true"
                                                 data-block-name="h_tema-01"
@@ -1784,7 +1784,7 @@ const LNHome = props => {
                             </div>
                         </main>
                         {/* <Footer /> */}
-                        <NewFooter />
+                        <NewFooter home />
                     </div>
                 </GlobalProviderAcu>
             </LoginProvider>

@@ -47,6 +47,8 @@ const storyBox = element => {
         return { ...featureInformation(information, feature) };
 
     const articles = get(element, 'articles', []);
+    if (feature === 'Anticipo')
+        return { ...featureInformation(information, feature) };
     if (articles && articles.length > 0) {
         return {
             ...featureInformation(information, feature),

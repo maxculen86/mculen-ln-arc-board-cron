@@ -29,6 +29,7 @@ const ModNewsletter = props => {
                         link="https://newsletter.lanacion.com.ar/#/"
                         size="--threexs"
                         target="_blank"
+                        title="Mirá todos los newsletters que tenemos para vos"
                     >
                         Mirá todos los newsletters que tenemos para vos
                     </ComLink>
@@ -38,6 +39,7 @@ const ModNewsletter = props => {
                         onClick={handleClick}
                         classesNames="--primary"
                         size="--fivexs"
+                        title={`Suscribite al Newsletter de ${titulo}`}
                     >
                         SUSCRIBITE AL NEWSLETTER
                     </ComButton>

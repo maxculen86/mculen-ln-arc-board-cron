@@ -13,6 +13,7 @@ exports[`Private - Common - ModDescription ModDescription - Snapshots 1`] = `
   <mod-bajada-mock
     link="http://google.com"
     subheadsize=""
+    subheadtag=""
     subheadtext="Este es el subtitulo"
   />
   <div>

@@ -13,7 +13,7 @@ import {
     scrollToComments
 } from '../common/utils/shareHelper';
 import ComButton from '../../common/com-button';
-import ComLine from '../common/footer/com-line';
+import ComLine from '../../common/com-line';
 import AmpContainer from '../../common/ampContainer';
 import get from '../../common/utils/get';
 
@@ -58,14 +58,14 @@ const Share = props => {
                 <div className="container --left">
                     <ComButton
                         iconName="facebook-filled"
-                        title="Facebook"
+                        title="Compartir la nota en Facebook"
                         onClick={() =>
                             popUpCompartirNotaFB(requestUri, config.host, title)
                         }
                     />
                     <ComButton
                         iconName="twitter-filled"
-                        title="Twitter"
+                        title="Compartir la nota en Twitter"
                         onClick={() =>
                             popUpCompartirNotaTW(
                                 requestUri,
@@ -76,7 +76,7 @@ const Share = props => {
                     />
                     <ComButton
                         iconName="whatsapp-filled"
-                        title="WhatsApp"
+                        title="Compartir la nota en WhatsApp"
                         id="whatsAppShareDesktop"
                         onClick={() =>
                             shareWhatsAppDesktop(requestUri, config.host)
@@ -89,7 +89,7 @@ const Share = props => {
                 <div className="container --right">
                     <ComButton
                         iconName="email"
-                        title="E-mail"
+                        title="Compartir la nota por E-mail"
                         onClick={() =>
                             popUpCompartirMailTo(requestUri, config.host)
                         }
@@ -100,7 +100,7 @@ const Share = props => {
                             onClick={() => scrollToComments()}
                             size="--fourxs"
                             iconName="comment"
-                            title="Comentar"
+                            title="Ir a los comentarios de la nota"
                         >
                             <label
                                 id="livefyre-commentcount"
