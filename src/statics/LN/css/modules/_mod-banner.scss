@@ -381,6 +381,17 @@
         display: none;
         @media ($media-m) {
             display: block;
+            .cabezal_dsk {
+                display: none;
+            }
+        }
+        @media ($media-l) {
+            .cabezal_tab {
+                display: none;
+            }
+            .cabezal_dsk {
+                display: block;
+            }
         }
     }
 }
