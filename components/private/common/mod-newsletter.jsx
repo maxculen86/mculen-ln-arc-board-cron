@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import ComLink from './com-link';
 import '../../../resources/dist/css/ln/modules/mod-newsletter.css';
