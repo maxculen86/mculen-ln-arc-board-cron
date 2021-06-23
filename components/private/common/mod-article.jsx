@@ -1,3 +1,6 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import '../../../resources/dist/css/ln/modules/mod-article.css';
@@ -75,7 +78,9 @@ const ModArticle = props => {
             }`}
             {...extraOpts}
             onClick={onCLick}
-            aria-hidden="true"
+            {...(typeof handleClick == 'function'
+                ? { 'aria-hidden': 'true' }
+                : {})}
         >
             {hour && hour}
 

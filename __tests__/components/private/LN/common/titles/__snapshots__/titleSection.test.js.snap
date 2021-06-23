@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`TitleSection matches snapshot 1`] = `
-<h2
-  class="com-title --l"
->
-  Sample title
-</h2>
-`;

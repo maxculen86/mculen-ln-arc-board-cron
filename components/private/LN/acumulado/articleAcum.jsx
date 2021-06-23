@@ -35,6 +35,7 @@ const ArticleAcum = ({
     titleTag,
     titleSize,
     withSubhead,
+    withVolanta,
     isRenderAuthor,
     boxPosition,
     artPosition,
@@ -57,7 +58,7 @@ const ArticleAcum = ({
     const subheadText = withSubhead && getBajadaOrFirstTextParagraph(_article);
 
     const titleText = get(headlines, 'mobile') || get(headlines, 'basic');
-    const leadText = get(label, 'volanta.text', '');
+    const leadText = withVolanta ? get(label, 'volanta.text', '') : '';
     const chapita = get(label, 'chapita.text', '');
 
     const tagList =
@@ -103,6 +104,7 @@ const ArticleAcum = ({
 
 ArticleAcum.propTypes = {
     dataSection: PropTypes.string,
+    handleClick: PropTypes.func,
     article: PropTypes.shape({
         _id: PropTypes.string,
         display_date: PropTypes.string,
@@ -126,6 +128,7 @@ ArticleAcum.propTypes = {
     titleTag: PropTypes.string,
     titleSize: PropTypes.string,
     withSubhead: PropTypes.bool,
+    withVolanta: PropTypes.bool,
     isRenderAuthor: PropTypes.bool,
     boxPosition: PropTypes.string.isRequired,
     artPosition: PropTypes.string.isRequired
@@ -136,10 +139,12 @@ ArticleAcum.defaultProps = {
     titleSize: '',
     titleTag: '',
     children: undefined,
+    handleClick: undefined,
     withCategory: false,
     withTags: false,
     isRenderAuthor: false,
-    withSubhead: false
+    withSubhead: false,
+    withVolanta: true
 };
 
 export default ArticleAcum;

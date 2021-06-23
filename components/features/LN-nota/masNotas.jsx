@@ -91,6 +91,7 @@ const masNotas = props => {
                 articles={articles}
                 position="toi"
                 outputType={outputType}
+                withVolanta={false}
             />
         </Static>
     );

@@ -17,6 +17,7 @@ const Ranking = ({ articles, dataSection, title, outputType }) => {
             dataSection={dataSection}
             outputType={outputType}
             classCondition="com-ranking"
+            withVolanta={false}
         />
     ) : null;
 };

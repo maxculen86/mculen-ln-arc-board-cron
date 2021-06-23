@@ -45,7 +45,8 @@ const getComponentForLayout = (layoutName, props) => {
             titleSize,
             withSubhead = false,
             dataSection,
-            handleClick
+            handleClick,
+            withVolanta = true
         }) => {
             return articles.map((art, i) => {
                 const artPosition = `0${Number(i) + 1}`.slice(-2);
@@ -60,6 +61,7 @@ const getComponentForLayout = (layoutName, props) => {
                         titleSize={titleSize}
                         isRenderAuthor={isRenderAuthor}
                         withSubhead={withSubhead}
+                        withVolanta={withVolanta}
                         boxPosition={
                             position === 'toi'
                                 ? `toi${Number(i) + 1}`
