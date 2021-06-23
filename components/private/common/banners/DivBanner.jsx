@@ -52,7 +52,6 @@ const DivBanner = props => {
 DivBanner.propTypes = {
     id: PropTypes.string.isRequired,
     classes: PropTypes.string,
-    shouldRender: PropTypes.bool,
     closeButton: PropTypes.bool,
     fixed: PropTypes.bool,
     validateSuscription: PropTypes.bool,
@@ -61,7 +60,6 @@ DivBanner.propTypes = {
 
 DivBanner.defaultProps = {
     classes: '',
-    shouldRender: true,
     closeButton: false,
     fixed: false,
     validateSuscription: false,
