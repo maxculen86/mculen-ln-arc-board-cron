@@ -121,7 +121,7 @@
         //de home
         .com-subhead {
             color: $light-neutral-700;
-            margin-bottom: px(8);
+            margin-bottom: $spacing;
         }
         .com-link {
             &.com-link:not(.--tags) {
@@ -207,10 +207,10 @@
 
 .demofonts {
     h1 {
-        margin-bottom: px(8);
+        margin-bottom: $spacing;
     }
     div {
-        margin-bottom: px(40);
+        margin-bottom: $spacing-xl;
     }
 }
 
@@ -282,7 +282,7 @@
             right: 0;
             bottom: 0;
             margin: auto;
-            padding-bottom: px(16);
+            padding-bottom: $spacing-sm;
 
             &:after {
                 background-color: rgba(0, 0, 0, 0.65);
@@ -351,21 +351,21 @@
 /*LLEVAR BOX-ARTICLES*/
 
 .box-articles {
-    margin-bottom: px(64);
+    margin-bottom: $spacing-2xl;
 
     // .mod-headersection {
-    //     margin-top: px(64);
+    //     margin-top: $spacing-2xl;
     // }
 
     // .mod-article {
-    //     margin-bottom: px(32);
+    //     margin-bottom: $spacing-lg;
     //     border-bottom: 16px solid red;
     // }
 
     // .row-gap-tablet-2,
     // .row-gap-tablet-3,
     // .row-gap-tablet-4 {
-    //     margin-bottom: px(32);
+    //     margin-bottom: $spacing-lg;
     //     border-bottom: 16px solid green;
 
     //     .mod-article {
@@ -376,7 +376,7 @@
     .col-tablet-4,
     .col-tablet-8 {
         .mod-article:not(:last-child) {
-            margin-bottom: px(32);
+            margin-bottom: $spacing-lg;
         }
     }
 
@@ -392,20 +392,20 @@
     &.--apertura {
         @media ($media-m) {
             border-bottom: 1px solid #ccc;
-            padding-bottom: px(32);
-            margin-bottom: px(32);
+            padding-bottom: $spacing-lg;
+            margin-bottom: $spacing-lg;
         }
     }
 
     &.--left {
         .col-tablet-8 {
             .mod-article {
-                margin-bottom: px(32);
+                margin-bottom: $spacing-lg;
             }
         }
         .col-tablet-4 {
             .mod-article:not(:last-child) {
-                margin-bottom: px(32);
+                margin-bottom: $spacing-lg;
             }
         }
 
@@ -429,7 +429,7 @@
                     .mod-description {
                         position: static;
                         order: 1;
-                        margin-bottom: px(16);
+                        margin-bottom: $spacing-sm;
                         .com-label {
                             top: auto;
                             bottom: px(8);
@@ -474,7 +474,7 @@
             order: 1;
 
             .mod-article {
-                margin-bottom: px(32);
+                margin-bottom: $spacing-lg;
             }
         }
 
@@ -605,11 +605,11 @@
         }
         .col-tablet-3,
         .col-tablet-4 {
-            margin-top: px(32);
+            margin-top: $spacing-lg;
         }
         @media ($media-m) {
             //768
-            //margin-bottom: px(32); lo lleva EDITORIALES
+            //margin-bottom: $spacing-lg; lo lleva EDITORIALES
 
             .col-tablet-3,
             .col-tablet-4 {
@@ -619,7 +619,7 @@
                 margin-bottom: 0;
             }
             .row > div:nth-child(1) {
-                padding-right: px(8);
+                padding-right: $spacing;
             }
 
             .row > div:nth-child(2) {
@@ -640,7 +640,7 @@
                     //768
 
                     &:first-child {
-                        margin-bottom: px(32);
+                        margin-bottom: $spacing-lg;
                     }
 
                     text-align: left;
@@ -695,7 +695,7 @@
 
             .com-title {
                 text-transform: uppercase;
-                margin-bottom: px(16);
+                margin-bottom: $spacing-sm;
                 .com-link {
                     color: $light-neutral-700;
                 }
@@ -708,7 +708,7 @@
                 li {
                     //align-items: center;
                     display: flex;
-                    margin-bottom: px(8);
+                    margin-bottom: $spacing;
                     &:last-child {
                         margin-bottom: 0;
                     }
@@ -751,8 +751,8 @@
     }
 
     &.--cinema {
-        margin-top: px(64);
-        margin-bottom: px(64);
+        margin-top: $spacing-2xl;
+        margin-bottom: $spacing-2xl;
 
         &:first-child {
             margin-top: 0;
@@ -865,7 +865,7 @@
 
         // &.--color {
         //     padding-top: px(32);
-        //     padding-bottom: px(32);
+        //     padding-bottom: $spacing-lg;
         // }
 
         &.--highlight.--highlight {
@@ -883,7 +883,7 @@
             }
         }
         &.--cinema {
-            //margin-top: px(32);
+            //margin-top: $spacing-lg;
             .mod-media {
                 .mod-picture {
                     padding-top: calc((2 / 5) * 100%);
@@ -925,7 +925,7 @@
 
 .demofront {
     .mod-banner {
-        margin-bottom: px(32);
+        margin-bottom: $spacing-lg;
         .com-banner {
             background: #666;
             width: 100%;
@@ -939,7 +939,7 @@
 
 .container.--opinion,
 .sidebar__main .com-anexo {
-    margin-bottom: px(64);
+    margin-bottom: $spacing-2xl;
 }
 
 /*Momentaneo*/
@@ -950,7 +950,7 @@ $rank-dsk: px(400);
 .ranking-ln9.ranking-ln9 {
     width: 100%;
     height: $rank-mob1;
-    margin-bottom: px(32);
+    margin-bottom: $spacing-lg;
     padding: 0;
     iframe {
         height: $rank-mob1;
@@ -963,14 +963,14 @@ $rank-dsk: px(400);
     }
     @media ($media-m) {
         height: $rank-tab;
-        //padding-right: px(16);
-        //padding-left: px(16);
+        //padding-right: $spacing-sm;
+        //padding-left: $spacing-sm;
         iframe {
             height: $rank-tab;
         }
     }
     // @media ($media-l) {
-    //     margin-bottom: px(32);
+    //     margin-bottom: $spacing-lg;
     // }
     @media ($media-xl) {
         height: $rank-dsk;

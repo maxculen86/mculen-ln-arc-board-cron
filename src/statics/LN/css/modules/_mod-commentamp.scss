@@ -3,7 +3,7 @@
 .mod-commentamp {
     @include flex(flex, column, center, center);
     .com-button {
-        margin-bottom: px(32);
+        margin-bottom: $spacing-lg;
     }
 }
 @media ($media-l) {
@@ -17,5 +17,5 @@
 }
 
 .more-articles {
-    margin-bottom: px(32);
+    margin-bottom: $spacing-lg;
 }

@@ -79,7 +79,7 @@
             text-transform: initial;
             font-family: $font-SuecaSlab;
             font-weight: 700;
-            margin-right: px(40);
+            margin-right: $spacing-xl;
             text-align: center;
             display: inline-block;
             &:last-child {
