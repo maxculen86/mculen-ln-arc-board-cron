@@ -315,8 +315,9 @@ const Default = props => {
                     arcSite={arcSite}
                 />
 
-                <div id="fusion-app">{children}</div>
-                <Fusion />
+                <div id="fusion-app">
+                    <Fusion>{children}</Fusion>
+                </div>
                 <PwaModals />
                 <Scripts
                     location="body-bottom"
