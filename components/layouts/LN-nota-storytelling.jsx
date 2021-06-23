@@ -151,6 +151,7 @@ const lnNotaStorytelling = ({
 
 const pageBuilderSections = [
     'Banner-Megatop',
+    'Pre-Titulo',
     'Left-Cuerpo',
     'Cuerpo',
     'Tercera',

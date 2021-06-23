@@ -141,6 +141,7 @@ const lnNotaFotoAl100 = ({
 
 const pageBuilderSections = [
     'Banner-Megatop',
+    'Pre-Titulo',
     'Left-Cuerpo',
     'Cuerpo',
     'Post-Cuerpo',
