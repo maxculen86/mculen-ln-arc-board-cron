@@ -81,7 +81,7 @@
 
         .com-title {
             margin-bottom: 0;
-            margin-right: px(24);
+            margin-right: $spacing-md;
             padding-bottom: px(10);
         }
         .mod-logo {
@@ -93,7 +93,7 @@
         }
         .com-button {
             padding: 0;
-            margin-bottom: px(8);
+            margin-bottom: $spacing;
             &:not(.hlp-none) {
                 display: inline-flex;
             }

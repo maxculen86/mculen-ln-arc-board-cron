@@ -3,7 +3,7 @@
 
 .mod-linklist {
     display: block;
-    margin-bottom: px(24);
+    margin-bottom: $spacing-md;
     .com-title {
         display: inline;
         min-width: max-content;
@@ -17,7 +17,7 @@
         margin-bottom: 0;
 
         li {
-            margin-bottom: px(8);
+            margin-bottom: $spacing;
         }
     }
 }

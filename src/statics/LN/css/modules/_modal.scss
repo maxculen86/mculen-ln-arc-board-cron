@@ -16,17 +16,17 @@
         .com-link {
             .com-logo {
                 color: $neutral-black;
-                margin-bottom: px(16);
+                margin-bottom: $spacing-sm;
             }
         }
         .text {
             font-family: $font-SuecaSlab;
-            margin-bottom: px(16);
+            margin-bottom: $spacing-sm;
         }
         .--bottom {
             text-align: right;
             .com-button {
-                margin-left: px(8);
+                margin-left: $spacing;
 
                 &.--secondary {
                     border: none;

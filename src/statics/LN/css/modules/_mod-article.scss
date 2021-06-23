@@ -59,7 +59,7 @@
         //de home
         .com-subhead {
             color: $light-neutral-700;
-            margin-bottom: px(8);
+            margin-bottom: $spacing;
         }
         .com-link {
             &.com-link:not(.--tags) {
