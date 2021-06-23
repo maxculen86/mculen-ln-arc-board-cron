@@ -151,6 +151,7 @@ class Index extends Component {
                     position="toi"
                     outputType={outputType}
                     handleClick={this.handleClick}
+                    withVolanta={false}
                 />
             </div>
         ) : (
