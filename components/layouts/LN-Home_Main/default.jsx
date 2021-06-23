@@ -158,7 +158,7 @@ const LNMainHome = props => {
                 if (!sectionVisible) return;
                 sessionStorage.setItem('lb', sectionVisible);
                 const scrollPercentRounded = getScrollPercent();
-                if (scrollPercentRounded > 70) {
+                if (scrollPercentRounded > 30) {
                     // const blockToLoad = sectionsWithBlocks[sectionVisible];
                     dispatch({ type: 'updateNextBlock' });
                 }
