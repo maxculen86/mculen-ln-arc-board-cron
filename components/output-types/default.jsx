@@ -285,7 +285,8 @@ const Default = props => {
                 <div id="fusion-app">
                     <Fusion>{children}</Fusion>
                 </div>
-                <PwaModals />
+                {arcSite != 'ott' ? <PwaModals /> : null}
+
                 <Scripts
                     location="body-bottom"
                     section={_nodeType}
