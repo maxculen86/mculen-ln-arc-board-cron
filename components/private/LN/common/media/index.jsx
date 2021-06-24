@@ -5,7 +5,6 @@ import ComFigure from '../../../common/com-figure';
 import ModMedia from '../../../common/mod-media';
 import VideoPlayer from './videoPlayer';
 import Placeholder from '../imagePlaceholder';
-import ComFigcaption from '../../../common/com-figcaption';
 import {
     FOTOAL100,
     STORYTELLING

@@ -36,6 +36,8 @@ const RawHTML = ({
 
 RawHTML.arcType = 'oembed_response';
 RawHTML.outputType = 'default';
+RawHTML.isStatic = true;
+
 RawHTML.propTypes = {
     data: PropTypes.shape({
         raw_oembed: PropTypes.string,

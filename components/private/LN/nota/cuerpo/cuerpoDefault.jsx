@@ -4,6 +4,7 @@
 
 import React, { useEffect, useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
+import Static from 'fusion:static';
 
 import BlockQuote from './blockQuote';
 import Gallery from '../../common/carrousell';
@@ -161,15 +162,28 @@ const Cuerpo = props => {
                 const { nodeType = {} } = additionalProperties || {};
                 if (nodeType.length) return <></>;
                 counter += 1;
+
+                const _Comp = (
+                    <Component
+                        data={element}
+                        capital={currentIndex === capitalIndex}
+                        outputType={outputType}
+                        {...extraProps}
+                        {...extraPropsVideo}
+                    />
+                );
                 return (
                     <React.Fragment>
-                        <Component
-                            data={element}
-                            capital={currentIndex === capitalIndex}
-                            outputType={outputType}
-                            {...extraProps}
-                            {...extraPropsVideo}
-                        />
+                        {(() => {
+                            if (Component.isStatic) {
+                                return (
+                                    <Static id={currentIndex} htmlOnly>
+                                        {_Comp}
+                                    </Static>
+                                );
+                            }
+                            return _Comp;
+                        })()}
                         {banners &&
                             banners.some(
                                 banner => banner.position === counter

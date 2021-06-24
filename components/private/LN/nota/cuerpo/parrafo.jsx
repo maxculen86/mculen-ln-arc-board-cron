@@ -83,6 +83,7 @@ const Parrafo = ({ data, capital, size, classCondition }) => {
 };
 
 Parrafo.arcType = 'text';
+Parrafo.isStatic = true;
 
 Parrafo.propTypes = {
     data: PropTypes.shape({
