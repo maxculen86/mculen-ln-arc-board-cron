@@ -80,12 +80,14 @@ const BannerCabezal = ({ isDesktop, isTablet }) => {
                 shouldRender={isDesktop}
                 classes="--dark"
                 withoutHide
+                isStatic
             />
             <DivBanner
                 id="cabezal_tab"
                 shouldRender={isTablet}
                 classes="--dark"
                 withoutHide
+                isStatic
             />
         </div>
     );
@@ -208,11 +210,13 @@ const LNMainHome = props => {
                     id="1x1_dsk"
                     shouldRender={isDesktop}
                     validateSuscription
+                    isStatic
                 />
                 <DivBanner
                     id="1x1_mob"
                     shouldRender={isMobile}
                     validateSuscription
+                    isStatic
                 />
                 {/* COMERCIAL */}
                 {isDesktop && (
@@ -261,6 +265,7 @@ const LNMainHome = props => {
                             id="sticky2_mob"
                             classes="--sticky2_mob --sticky"
                             shouldRender={isMobile}
+                            isStatic
                         />
                         <div className="">
                             <div id="content-main" className="lay-sidebar">
@@ -281,6 +286,7 @@ const LNMainHome = props => {
                                         <DivBanner
                                             id="caja1_mob"
                                             shouldRender={isMobile}
+                                            isStatic
                                         />
                                         {apertura2}
                                     </div>
@@ -289,6 +295,7 @@ const LNMainHome = props => {
                                     <DivBanner
                                         id="billboard_dsk"
                                         shouldRender={isDesktop}
+                                        isStatic
                                     />
 
                                     {/* BANNER CAJA 2 MOB */}

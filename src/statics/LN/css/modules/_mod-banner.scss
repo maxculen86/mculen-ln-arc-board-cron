@@ -84,6 +84,9 @@
             z-index: 1000;
             background: white;
             margin: 0;
+            @media ($media-m) {
+                display: none;
+            }
         }
 
         // &.sticky2_mob {
@@ -354,16 +357,61 @@
     }
 }
 
-.home > .container {
-    &.--ads {
-        background: $neutral-white;
-        padding: px(24) 0;
-        &:empty {
-            display: none;
+.home {
+    > .container {
+        &.--ads {
+            background: $neutral-white;
+            padding: px(24) 0;
+            height: px(148);
+            &:empty {
+                display: none;
+            }
+            .mod-banner {
+                width: fit-content;
+                margin: 0 auto;
+            }
         }
-        .mod-banner {
-            width: fit-content;
-            margin: 0 auto;
+    }
+    .sidebar__main {
+        > .container.--ads {
+            height: px(164);
+        }
+    }
+    .container.--ads {
+        display: none;
+        @media ($media-m) {
+            display: flex;
+            .--cabezal_dsk {
+                display: none;
+            }
+        }
+        @media ($media-l) {
+            .--cabezal_tab {
+                display: none;
+            }
+            .--cabezal_dsk {
+                display: flex;
+            }
+        }
+    }
+    [class*='_tab'],
+    [class*='_dsk'] {
+        display: none !important;
+    }
+    @media ($media-m) {
+        [class*='_tab'] {
+            display: flex !important;
+        }
+        [class*='_mob'] {
+            display: none !important;
+        }
+    }
+    @media ($media-l) {
+        [class*='_dsk'] {
+            display: flex !important;
+        }
+        [class*='_tab'] {
+            display: none !important;
         }
     }
 }
