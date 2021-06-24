@@ -47,6 +47,7 @@ const Index = forwardRef((props, ref) => {
                     type="button"
                     aria-label="Close"
                     className="icon-close"
+                    title="Cerrar publicidad"
                     onClick={onClose}
                 />
             )}
