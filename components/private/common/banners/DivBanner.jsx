@@ -7,17 +7,30 @@ const DivBanner = props => {
     const {
         id,
         classes = '',
+        shouldRender,
         closeButton,
         fixed,
         validateSuscription = false,
-        withoutHide
+        withoutHide,
+        isStatic
     } = props;
     const subscription = validateSuscription ? getSubscription() : false;
     const ref = useRef();
 
-    if (validateSuscription && subscription) return <></>;
+    if (!isStatic && (!shouldRender || (validateSuscription && subscription)))
+        return <></>;
 
-    return id.search('adhesion') === 0 ? (
+    return isStatic ? (
+        <Static id={id} htmlOnly>
+            <div
+                className={`mod-banner ${classes}  ${
+                    fixed ? '--fixed' : ''
+                } --${id} ${withoutHide ? '' : 'hlp-none'}`}
+            >
+                <div id={id} className={`com-banner ${classes || ''}`} />
+            </div>
+        </Static>
+    ) : (
         <div
             className={`mod-banner ${classes} ${
                 closeButton ? '--close' : ' '
@@ -36,16 +49,6 @@ const DivBanner = props => {
             )}
             <div id={id} className={`com-banner ${classes || ''}`} />
         </div>
-    ) : (
-        <Static id={id} htmlOnly>
-            <div
-                className={`mod-banner ${classes}  ${
-                    fixed ? '--fixed' : ''
-                } --${id} ${withoutHide ? '' : 'hlp-none'}`}
-            >
-                <div id={id} className={`com-banner ${classes || ''}`} />
-            </div>
-        </Static>
     );
 };
 

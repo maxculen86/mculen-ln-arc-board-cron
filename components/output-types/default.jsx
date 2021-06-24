@@ -239,6 +239,12 @@ const Default = props => {
                     rel="preconnect"
                     href="https://especialess3.lanacion.com.ar/"
                 />
+                <Scripts location="head" {...props} />
+                <ScriptLoadingList
+                    section={_nodeType}
+                    location="head"
+                    arcSite={arcSite}
+                />
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
                 <MetaSectionParsely taxonomy={taxonomy} arcSite={arcSite} />
@@ -300,12 +306,6 @@ const Default = props => {
                 />
                 <meta name="theme-color" content="#ffffff" />
                 <link rel="manifest" href="/manifest.json" />
-                <Scripts location="head" {...props} />
-                <ScriptLoadingList
-                    section={_nodeType}
-                    location="head"
-                    arcSite={arcSite}
-                />
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />
