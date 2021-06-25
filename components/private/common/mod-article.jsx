@@ -72,7 +72,12 @@ const ModArticle = props => {
     return (
         <article
             className={`mod-article ${classCondition || ''} ${
-                boxPosition ? `toi${boxPosition}${artPosition} nid${_id}` : ''
+                boxPosition
+                    ? `toi${boxPosition.replace(
+                          'toi',
+                          ''
+                      )}${artPosition} nid${_id}`
+                    : ''
             } ${noMedia ? '--no-media' : ''} ${
                 isRenderAuthor || isRenderAuthorOpinion ? '--author' : ''
             }`}
