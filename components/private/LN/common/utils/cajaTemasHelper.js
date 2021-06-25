@@ -131,6 +131,7 @@ export const getMarkupForDatalayer = (
             }
         },
         Default: (pos, section, lay) => {
+            if (!pos) return {};
             return {
                 extraOptsDiv: {
                     'data-module': `tema_${pos}`
