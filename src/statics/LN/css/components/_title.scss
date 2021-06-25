@@ -108,7 +108,7 @@ h1.com-title-nota {
         margin-bottom: px(30);
     }
     @media (min-width: 1024px) {
-        margin-bottom: px(40);
+        margin-bottom: $spacing-xl;
     }
     //[class^='com-title'],
     [class*='com-title'] {

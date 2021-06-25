@@ -2,7 +2,7 @@
 
 .aper-receta {
     background: $light-neutral-200;
-    margin-bottom: px(40);
+    margin-bottom: $spacing-xl;
     &.sin-foto {
         .col-desksm-8 .content-pic {
             background: $neutral-white;
@@ -25,10 +25,10 @@
         }
     }
     @media ($media-l) {
-        margin-bottom: px(80);
+        margin-bottom: $spacing-3xl;
     }
     @media ($media-m) {
-        margin-bottom: px(40);
+        margin-bottom: $spacing-xl;
     }
 
     .col-desksm-8 {

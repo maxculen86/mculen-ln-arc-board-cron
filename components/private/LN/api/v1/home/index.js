@@ -43,14 +43,22 @@ const featureInformation = (information, feature) => {
 
 const storyBox = element => {
     const { information, feature, configurations } = element;
+    if (feature === 'Anticipo')
+        return { ...featureInformation(information, feature) };
+
     const articles = get(element, 'articles', []);
-    return {
-        ...featureInformation(information, feature),
-        notas:
-            feature !== 'Anexo'
-                ? Article(articles, configurations)
-                : Anexo(articles)
-    };
+    if (feature === 'Anticipo')
+        return { ...featureInformation(information, feature) };
+    if (articles && articles.length > 0) {
+        return {
+            ...featureInformation(information, feature),
+            notas:
+                feature !== 'Anexo'
+                    ? Article(articles, configurations)
+                    : Anexo(articles)
+        };
+    }
+    return null;
 };
 
 const bannerBox = element => {

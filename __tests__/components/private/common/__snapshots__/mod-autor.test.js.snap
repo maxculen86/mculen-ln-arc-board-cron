@@ -13,12 +13,14 @@ exports[`ModAutor Matches snapshot 1`] = `
       <a
         class="com-link --autor"
         href="https://lanacion.com.ar"
+        title="Ir a notas de Pepe"
       >
         Pepe
       </a>
       <a
         class="com-link --autor"
         href="https://lanacion.com.ar"
+        title="Ir a notas de Paco"
       >
         Paco
       </a>

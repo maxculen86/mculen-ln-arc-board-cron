@@ -8,10 +8,7 @@ import GTM from '../private/common/scriptManager/googleTagManager';
 import Comscore from '../private/common/scriptManager/comscore';
 import Microdata from '../private/common/scriptManager/microdata';
 import PostBid from '../private/common/scriptManager/postbid';
-// import ArcAds from '../private/common/scriptManager/arcAds';
-// import FacebookSDK from '../private/common/scriptManager/facebookSDK';
 import MetasOG from '../private/common/metaTags/metasOG';
-// import Livefyre from '../private/common/scriptManager/Livefyre';
 import LivefyreCommentCount from '../private/common/scriptManager/LivefyreCommentCount';
 import LiftIgniter from '../private/common/scriptManager/Liftigniter';
 import Datadog from '../private/common/scriptManager/dataDog';
@@ -36,6 +33,7 @@ import LinkAmpHTML from '../private/common/linkAmpHTML';
 import { pipe } from '../private/common/utils/functional';
 import Pwa from '../private/common/scriptManager/pwa';
 import PwaModals from '../private/LN/common/pwaModals';
+import ScriptSWG from '../private/common/scriptManager/scriptSWG';
 
 const scriptList = [
     {
@@ -72,6 +70,10 @@ const scriptList = [
     {
         component: { name: 'Petametrics', function: Petametrics },
         feature: ['LN-nota/tePuedeInteresar']
+    },
+    {
+        component: { name: 'ScriptSWG', function: ScriptSWG },
+        feature: 'none'
     },
     {
         component: { name: 'SocialEmbeds', function: SocialEmbeds },
@@ -111,13 +113,11 @@ const Default = props => {
         CssLinks,
         Fusion,
         Libs,
-        // MetaTags,
         metaValue,
         siteProperties,
         renderables,
         globalContent,
-        outputType,
-        layout
+        outputType
     } = props;
 
     const {
@@ -134,8 +134,7 @@ const Default = props => {
         name,
         Payload,
         _id,
-        taxonomy,
-        name: globalContentName
+        taxonomy
     } = globalContent || {};
 
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
@@ -177,19 +176,6 @@ const Default = props => {
         siteProperties.scripts
     );
 
-    const validateSection = (name, siteProperties) => {
-        switch (name) {
-            case 'Deportes':
-                return siteProperties.deportesTitle;
-
-            case 'Últimas noticias':
-                return siteProperties.ultimasNoticiasTitle;
-
-            default:
-                return siteProperties.longTitle;
-        }
-    };
-
     const _nodeType = getSectionName({ nodeType, type });
 
     const title =
@@ -202,6 +188,17 @@ const Default = props => {
             <head>
                 <meta charset="utf-8" />
                 <title>{title}</title>
+                {arcSite === 'ott' ? (
+                    <link
+                        rel="stylesheet"
+                        href={deployment(
+                            `${contextPath}${pathCss}/${arcSite}/style.css`
+                        )}
+                    />
+                ) : (
+                    <CssLinks />
+                )}
+                <Libs />
                 <link
                     href="https://www.google-analytics.com"
                     rel="preconnect"
@@ -218,17 +215,12 @@ const Default = props => {
                     location="head"
                     arcSite={arcSite}
                 />
-                {/* TODO: Revisar la forma de traer metatags desde PB, y omitir o customizar los metas de 'title' y 'description' */}
-                {/* {subtype === '7' && <MetaTags />} */}
                 <MetasOG {...props} section={_nodeType} title={title} />
                 {canonicalUrl && (
                     <link
                         rel="canonical"
                         href={`https://www.lanacion.com.ar${canonicalUrl}`}
                     />
-                )}
-                {layout === 'FRONT-home' && ( //Borrarlo una vez subida al home a producción
-                    <meta name="robots" content="noindex, nofollow" />
                 )}
                 <LinkAmpHTML
                     subtype={subtype}
@@ -262,13 +254,6 @@ const Default = props => {
                     section={_nodeType}
                     defaultDescription={siteProperties.description}
                 />
-                {/* Eliminar noindex para la salida de home el 8 junio 21 */}
-                {_nodeType === 'home' ? (
-                    <meta name="robots" content="noindex" />
-                ) : (
-                    ''
-                )}
-                {/* Eliminar noindex para la salida de home el 8 junio 21 */}
                 <Syndication
                     type={type}
                     arcSite={arcSite}
@@ -276,22 +261,10 @@ const Default = props => {
                     syndication={syndication}
                     outputType={outputType}
                 />
-                <Libs />
                 <Schemas section={_nodeType} />
-                {/* Para OTT carga los styles por front */}
-                {arcSite === 'ott' ? (
-                    <link
-                        rel="stylesheet"
-                        href={deployment(
-                            `${contextPath}${pathCss}/${arcSite}/style.css`
-                        )}
-                    />
-                ) : (
-                    <CssLinks />
-                )}
                 <meta
                     name="viewport"
-                    content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+                    content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
                 <link
                     rel="icon"
@@ -300,7 +273,6 @@ const Default = props => {
                 />
                 <meta name="theme-color" content="#ffffff" />
                 <link rel="manifest" href="/manifest.json" />
-                {/* <Scripts name="Microdata" /> */}
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />
@@ -310,10 +282,15 @@ const Default = props => {
                     arcSite={arcSite}
                 />
 
-                <div id="fusion-app">{children}</div>
-                <PwaModals />
-                <Fusion />
-                <Scripts location="body-bottom" />
+                <div id="fusion-app">
+                    <Fusion>{children}</Fusion>
+                </div>
+                {arcSite !== 'ott' && <PwaModals />}
+                <Scripts
+                    location="body-bottom"
+                    section={_nodeType}
+                    {...props}
+                />
                 <ScriptLoadingList
                     section={_nodeType}
                     location="body-bottom"
@@ -337,20 +314,8 @@ Default.propTypes = {
     renderables: PropTypes.arrayOf(PropTypes.any).isRequired,
     globalContent: PropTypes.objectOf(PropTypes.any).isRequired,
     outputType: PropTypes.string.isRequired,
-    siteProperties: PropTypes.isRequired
+    siteProperties: PropTypes.isRequired,
+    layout: PropTypes.string.isRequired
 };
-Default.contentType = 'text/html';
 
-Default.transform = {
-    arcio({ context, data }) {
-        return {
-            contentType: 'application/json',
-            data: {
-                tree: context.tree,
-                globalContent: context.globalContent,
-                featureContent: context.contentCache
-            }
-        };
-    }
-};
 export default Default;

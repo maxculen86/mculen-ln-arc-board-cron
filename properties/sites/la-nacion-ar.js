@@ -79,6 +79,10 @@ export default {
             props: {},
             location: ['head']
         },
+        ScriptSWG: {
+            props: {},
+            location: ['body-bottom']
+        },
         Queryly: {
             props: {},
             location: ['body-bottom']
@@ -1281,6 +1285,8 @@ export default {
             articles: {
                 0: {
                     titleSize: '--xl',
+                    titleTagApertura: 'h1',
+                    subheadTagApertura: 'h2',
                     withSubheadAndMedia: true,
                     withSubhead: true,
                     imageConfig: 'featuredFocalIzquierdo'
@@ -1303,12 +1309,14 @@ export default {
                 0: {
                     titleSize: '--l',
                     withSubheadAndMedia: true,
-                    imageConfig: 'mediumFocalDerecho'
+                    imageConfig: 'featuredFocalDerecho'
                 },
                 1: {
                     titleSize: '--xl',
+                    titleTagApertura: 'h1',
+                    subheadTagApertura: 'h2',
                     withSubheadAndMedia: true,
-                    imageConfig: 'featuredFocalDerecho',
+                    imageConfig: 'mediumFocalDerecho',
                     withSubhead: true
                 }
             }
@@ -1403,7 +1411,8 @@ export default {
             articles: {
                 0: {
                     titleSize: '--threexl',
-                    titleTag: 'h1',
+                    titleTagApertura: 'h1',
+                    subheadTagApertura: 'h2',
                     withSubheadAndMedia: true,
                     imageConfig: 'bomba'
                 }

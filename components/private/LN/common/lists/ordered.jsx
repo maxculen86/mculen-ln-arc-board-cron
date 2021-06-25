@@ -4,14 +4,14 @@ import PropTypes from 'fusion:prop-types';
 
 const ordered = ({ children }) => {
     return (
-        <ul className="com-ordered">
+        <ol className="com-ordered">
             {children.length > 0 &&
                 children.map((item, index) => (
                     <li className="com-item" key={index}>
                         {item}
                     </li>
                 ))}
-        </ul>
+        </ol>
     );
 };
 

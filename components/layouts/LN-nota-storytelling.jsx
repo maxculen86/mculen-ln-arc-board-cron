@@ -4,6 +4,7 @@ import React from 'react';
 // Fusion
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import Static from 'fusion:static';
 
 // Private Components
 import Header from '../private/LN/common/header';
@@ -137,7 +138,9 @@ const lnNotaStorytelling = ({
                                 </div>
                             </div>
                         </main>
-                        <Footer />
+                        <Static id="StaticFooter">
+                            <Footer />
+                        </Static>
                     </div>
                     <LoadBanners />
                 </CommentsProvider>

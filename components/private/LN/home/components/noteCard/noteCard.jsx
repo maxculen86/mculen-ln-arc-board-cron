@@ -23,7 +23,8 @@ const NoteCard = ({
     promoItems,
     index,
     boxPosition,
-    layout
+    layout,
+    isInHomeAperturaOrBomba
 }) => {
     const [article, setArticle] = useState(
         transform(content, customFields, promoItems)
@@ -42,29 +43,15 @@ const NoteCard = ({
     );
 
     useEffect(() => {
-        if (isAdmin) {
-            setWithMedia(getWithMedia(customFields, articleProps, article));
-        }
-    }, [article, articleProps, customFields, isAdmin]);
+        setWithMedia(getWithMedia(customFields, articleProps, article));
+    }, [article, articleProps, customFields]);
 
     useEffect(() => {
-        if (isAdmin) {
-            setArticle(transform(content, customFields, promoItems));
-            setLabel(getLabel(content, customFields, withMedia));
-            setWithSubhead(
-                getWithSubhead(articleProps, withMedia, customFields)
-            );
-            setIsRenderAutor(getIsRenderAutor(customFields, layout));
-        }
-    }, [
-        articleProps,
-        content,
-        customFields,
-        promoItems,
-        withMedia,
-        layout,
-        isAdmin
-    ]);
+        setArticle(transform(content, customFields, promoItems));
+        setLabel(getLabel(content, customFields, withMedia));
+        setWithSubhead(getWithSubhead(articleProps, withMedia, customFields));
+        setIsRenderAutor(getIsRenderAutor(customFields, layout));
+    }, [articleProps, content, customFields, promoItems, withMedia, layout]);
 
     return (
         (article && (
@@ -77,12 +64,21 @@ const NoteCard = ({
                     get(articleProps, 'titleSize')
                 }
                 titleText={get(article, 'headlines.basic')}
-                titleTag={get(articleProps, 'titleTag', 'h2')}
+                titleTag={
+                    (isInHomeAperturaOrBomba &&
+                        get(articleProps, 'titleTagApertura')) ||
+                    get(articleProps, 'titleTag', 'h2')
+                }
                 authors={get(article, 'marquesina')}
                 subheadText={
                     get(articleProps, 'skipSubhead', false)
                         ? false
                         : withSubhead && get(article, 'subheadlines.basic')
+                }
+                subheadTag={
+                    (isInHomeAperturaOrBomba &&
+                        get(articleProps, 'subheadTagApertura')) ||
+                    get(articleProps, 'subheadTag', 'h3')
                 }
                 leadText={get(article, 'label.volanta.text')}
                 outputType={outputType}

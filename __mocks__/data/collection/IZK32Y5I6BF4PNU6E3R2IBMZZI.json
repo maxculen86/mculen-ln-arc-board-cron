@@ -1,0 +1,3579 @@
+{
+    "_id": "IZK32Y5I6BF4PNU6E3R2IBMZZI",
+    "headlines": { "basic": "Automatica Seccion 'Comercio Exterior'" },
+    "type": "collection",
+    "version": "0.10.6",
+    "canonical_website": "la-nacion-ar",
+    "content_elements": [
+        {
+            "subheadlines": { "basic": "" },
+            "description": { "basic": "" },
+            "language": "",
+            "taxonomy": {
+                "primary_site": {
+                    "path": "/economia",
+                    "parent_id": "/",
+                    "name": "Economía",
+                    "_id": "/economia",
+                    "additional_properties": {
+                        "original": {
+                            "parent": {
+                                "default": "/",
+                                "Header-FirstNav": "/"
+                            },
+                            "inactive": false,
+                            "acumuladoGeneral": {
+                                "colecciones": [
+                                    "QJ3BOEZVQNEYZEVBXHF4C7KAWY",
+                                    "ATQPBRBSXFHUJDW74KTQBEQDWQ"
+                                ],
+                                "cantidad_notas": "30",
+                                "usa_datalayer": "false",
+                                "hierarchy_navigation": "Economy",
+                                "id_collection_promo_items": null,
+                                "hidesectionslist": "false"
+                            },
+                            "migration": {
+                                "id_section_ln9": "272",
+                                "migrated_mob": "false"
+                            },
+                            "name": "Economía",
+                            "Termicas": { "banners": "false" },
+                            "style": { "headerdark": "false" },
+                            "_id": "/economia",
+                            "acumuladoColor": {
+                                "background_color": null,
+                                "id_logo_image": "QJFKLBWXHVGUFA3O65BIHPFILA",
+                                "header_class_name": "false",
+                                "navigation_color_tags": "#d83e2c",
+                                "navigation_color": "#d83e2c"
+                            },
+                            "ancestors": { "Header-FirstNav": ["/"] },
+                            "order": {
+                                "default": 1017,
+                                "Header-FirstNav": 1003
+                            }
+                        }
+                    },
+                    "type": "site",
+                    "version": "0.5.8"
+                },
+                "sites": [
+                    {
+                        "path": "/economia",
+                        "parent_id": "/",
+                        "name": "Economía",
+                        "_id": "/economia",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/",
+                                    "Header-FirstNav": "/"
+                                },
+                                "inactive": false,
+                                "acumuladoGeneral": {
+                                    "colecciones": [
+                                        "QJ3BOEZVQNEYZEVBXHF4C7KAWY",
+                                        "ATQPBRBSXFHUJDW74KTQBEQDWQ"
+                                    ],
+                                    "cantidad_notas": "30",
+                                    "usa_datalayer": "false",
+                                    "hierarchy_navigation": "Economy",
+                                    "id_collection_promo_items": null,
+                                    "hidesectionslist": "false"
+                                },
+                                "migration": {
+                                    "id_section_ln9": "272",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Economía",
+                                "Termicas": { "banners": "false" },
+                                "style": { "headerdark": "false" },
+                                "_id": "/economia",
+                                "acumuladoColor": {
+                                    "background_color": null,
+                                    "id_logo_image": "QJFKLBWXHVGUFA3O65BIHPFILA",
+                                    "header_class_name": "false",
+                                    "navigation_color_tags": "#d83e2c",
+                                    "navigation_color": "#d83e2c"
+                                },
+                                "ancestors": { "Header-FirstNav": ["/"] },
+                                "order": {
+                                    "default": 1017,
+                                    "Header-FirstNav": 1003
+                                }
+                            }
+                        },
+                        "type": "site",
+                        "version": "0.5.8"
+                    },
+                    {
+                        "path": "/economia/campo",
+                        "parent_id": "/economia",
+                        "name": "Campo",
+                        "_id": "/economia/campo",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": "/",
+                                    "Header-FirstNav": "/economia"
+                                },
+                                "inactive": false,
+                                "acumuladoGeneral": {
+                                    "colecciones": [
+                                        "RTSJKCDG3RBMXJ25YBX3NYESWE"
+                                    ],
+                                    "cantidad_notas": "42",
+                                    "hide_banner": "false",
+                                    "hierarchy_navigation": null,
+                                    "id_collection_promo_items": "RTSJKCDG3RBMXJ25YBX3NYESWE",
+                                    "hidetagslist": "false",
+                                    "tipo_acumulado": "Grilla",
+                                    "hidesectionslist": "false"
+                                },
+                                "migration": {
+                                    "id_section_ln9": "337",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Campo",
+                                "_id": "/economia/campo",
+                                "acumuladoColor": {
+                                    "id_logo_image": "IQPIP67DV5CXXL5N2GGQFND2DE",
+                                    "header_class_name": "false",
+                                    "navigation_color_tags": "#77DD77",
+                                    "navigation_color": "#77DD77"
+                                },
+                                "ancestors": {
+                                    "Economy": ["/"],
+                                    "Header-FirstNav": ["/", "/economia"]
+                                },
+                                "order": {
+                                    "Economy": 1003,
+                                    "Header-FirstNav": 2002
+                                }
+                            }
+                        },
+                        "type": "site",
+                        "version": "0.5.8"
+                    },
+                    {
+                        "path": "/economia/comercio-exterior",
+                        "parent_id": "/economia",
+                        "name": "Comercio Exterior",
+                        "_id": "/economia/comercio-exterior",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": null,
+                                    "Header-FirstNav": "/economia"
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "migration": {
+                                    "id_section_ln9": "347",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Comercio Exterior",
+                                "_id": "/economia/comercio-exterior",
+                                "ancestors": {
+                                    "Economy": [],
+                                    "Header-FirstNav": ["/", "/economia"]
+                                },
+                                "order": { "Header-FirstNav": 2004 }
+                            }
+                        },
+                        "type": "site",
+                        "version": "0.5.8"
+                    },
+                    {
+                        "path": "/economia/dolar",
+                        "parent_id": "/economia",
+                        "name": "Dólar Hoy",
+                        "_id": "/economia/dolar",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": null,
+                                    "Header-FirstNav": "/economia"
+                                },
+                                "site": { "site_title": null },
+                                "inactive": false,
+                                "node_type": "section",
+                                "migration": {
+                                    "id_section_ln9": "8014",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Dólar Hoy",
+                                "_id": "/economia/dolar",
+                                "ancestors": {
+                                    "Economy": [],
+                                    "Header-FirstNav": ["/", "/economia"]
+                                },
+                                "order": { "Header-FirstNav": 2001 }
+                            }
+                        },
+                        "type": "site",
+                        "version": "0.5.8"
+                    },
+                    {
+                        "path": "/economia/empleos",
+                        "parent_id": "/economia",
+                        "name": "Empleos",
+                        "_id": "/economia/empleos",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": null
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "migration": {
+                                    "id_section_ln9": "401",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Empleos",
+                                "_id": "/economia/empleos",
+                                "ancestors": { "Economy": [] },
+                                "order": {}
+                            }
+                        },
+                        "type": "site",
+                        "version": "0.5.8"
+                    },
+                    {
+                        "path": "/economia/industria",
+                        "parent_id": "/economia",
+                        "name": "Industria",
+                        "_id": "/economia/industria",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": null
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "migration": {
+                                    "id_section_ln9": "8002",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Industria",
+                                "_id": "/economia/industria",
+                                "ancestors": { "Economy": [] },
+                                "order": {}
+                            }
+                        },
+                        "type": "site",
+                        "version": "0.5.8"
+                    },
+                    {
+                        "path": "/economia/negocios",
+                        "parent_id": "/economia",
+                        "name": "Negocios",
+                        "description": null,
+                        "_id": "/economia/negocios",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": "/"
+                                },
+                                "social": {
+                                    "twitter": null,
+                                    "rss": null,
+                                    "facebook": null,
+                                    "instagram": null
+                                },
+                                "site_topper": { "site_logo_image": null },
+                                "acumuladoColor": { "header_class_name": "No" },
+                                "_admin": {
+                                    "alias_ids": ["/economia/negocios"]
+                                },
+                                "navigation": { "nav_title": null },
+                                "site": {
+                                    "pagebuilder_path_for_native_apps": null,
+                                    "site_url": null,
+                                    "site_keywords": null,
+                                    "site_about": null,
+                                    "site_description": null,
+                                    "site_title": null,
+                                    "site_tagline": null
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "migration": {
+                                    "id_section_ln9": "8018",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Negocios",
+                                "_id": "/economia/negocios",
+                                "ancestors": {
+                                    "default": ["/economia"],
+                                    "Economy": ["/"]
+                                },
+                                "order": { "Economy": 1004 }
+                            }
+                        },
+                        "type": "site",
+                        "version": "0.5.8"
+                    }
+                ],
+                "sections": [
+                    {
+                        "parent": { "default": "/" },
+                        "path": "/economia",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/",
+                        "name": "Economía",
+                        "_id": "/economia",
+                        "_website_section_id": "la-nacion-ar./economia",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/",
+                                    "Header-FirstNav": "/"
+                                },
+                                "Termicas": { "banners": "false" },
+                                "acumuladoColor": {
+                                    "background_color": "",
+                                    "id_logo_image": "QJFKLBWXHVGUFA3O65BIHPFILA",
+                                    "header_class_name": "false",
+                                    "navigation_color_tags": "#d83e2c",
+                                    "navigation_color": "#d83e2c"
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "_website": "la-nacion-ar",
+                                "acumuladoGeneral": {
+                                    "colecciones": [
+                                        "QJ3BOEZVQNEYZEVBXHF4C7KAWY",
+                                        "ATQPBRBSXFHUJDW74KTQBEQDWQ"
+                                    ],
+                                    "cantidad_notas": "30",
+                                    "usa_datalayer": "false",
+                                    "hierarchy_navigation": "Economy",
+                                    "id_collection_promo_items": "",
+                                    "hidesectionslist": "false"
+                                },
+                                "migration": {
+                                    "id_section_ln9": "272",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Economía",
+                                "style": { "headerdark": "false" },
+                                "_id": "/economia",
+                                "ancestors": { "Header-FirstNav": ["/"] },
+                                "order": {
+                                    "default": 1017,
+                                    "Header-FirstNav": 1003
+                                }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    },
+                    {
+                        "parent": { "default": "/economia" },
+                        "path": "/economia/campo",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/economia",
+                        "name": "Campo",
+                        "_id": "/economia/campo",
+                        "_website_section_id": "la-nacion-ar./economia/campo",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": "/",
+                                    "Header-FirstNav": "/economia"
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "_website": "la-nacion-ar",
+                                "acumuladoGeneral": {
+                                    "colecciones": [
+                                        "RTSJKCDG3RBMXJ25YBX3NYESWE"
+                                    ],
+                                    "cantidad_notas": "42",
+                                    "hide_banner": "false",
+                                    "hierarchy_navigation": null,
+                                    "id_collection_promo_items": "RTSJKCDG3RBMXJ25YBX3NYESWE",
+                                    "hidetagslist": "false",
+                                    "tipo_acumulado": "Grilla",
+                                    "hidesectionslist": "false"
+                                },
+                                "migration": {
+                                    "id_section_ln9": "337",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Campo",
+                                "_id": "/economia/campo",
+                                "acumuladoColor": {
+                                    "id_logo_image": "IQPIP67DV5CXXL5N2GGQFND2DE",
+                                    "header_class_name": "false",
+                                    "navigation_color_tags": "#77DD77",
+                                    "navigation_color": "#77DD77"
+                                },
+                                "ancestors": {
+                                    "Economy": ["/"],
+                                    "Header-FirstNav": ["/", "/economia"]
+                                },
+                                "order": {
+                                    "Economy": 1003,
+                                    "Header-FirstNav": 2002
+                                }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    },
+                    {
+                        "parent": { "default": "/economia" },
+                        "path": "/economia/comercio-exterior",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/economia",
+                        "name": "Comercio Exterior",
+                        "_id": "/economia/comercio-exterior",
+                        "_website_section_id": "la-nacion-ar./economia/comercio-exterior",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": null,
+                                    "Header-FirstNav": "/economia"
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "_website": "la-nacion-ar",
+                                "migration": {
+                                    "id_section_ln9": "347",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Comercio Exterior",
+                                "_id": "/economia/comercio-exterior",
+                                "ancestors": {
+                                    "Economy": [],
+                                    "Header-FirstNav": ["/", "/economia"]
+                                },
+                                "order": { "Header-FirstNav": 2004 }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    },
+                    {
+                        "parent": { "default": "/economia" },
+                        "path": "/economia/dolar",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/economia",
+                        "name": "Dólar Hoy",
+                        "_id": "/economia/dolar",
+                        "_website_section_id": "la-nacion-ar./economia/dolar",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": null,
+                                    "Header-FirstNav": "/economia"
+                                },
+                                "site": { "site_title": "" },
+                                "inactive": false,
+                                "node_type": "section",
+                                "_website": "la-nacion-ar",
+                                "migration": {
+                                    "id_section_ln9": "8014",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Dólar Hoy",
+                                "_id": "/economia/dolar",
+                                "ancestors": {
+                                    "Economy": [],
+                                    "Header-FirstNav": ["/", "/economia"]
+                                },
+                                "order": { "Header-FirstNav": 2001 }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    },
+                    {
+                        "parent": { "default": "/economia" },
+                        "path": "/economia/empleos",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/economia",
+                        "name": "Empleos",
+                        "_id": "/economia/empleos",
+                        "_website_section_id": "la-nacion-ar./economia/empleos",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": null
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "_website": "la-nacion-ar",
+                                "migration": {
+                                    "id_section_ln9": "401",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Empleos",
+                                "_id": "/economia/empleos",
+                                "ancestors": { "Economy": [] },
+                                "order": {}
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    },
+                    {
+                        "parent": { "default": "/economia" },
+                        "path": "/economia/industria",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/economia",
+                        "name": "Industria",
+                        "_id": "/economia/industria",
+                        "_website_section_id": "la-nacion-ar./economia/industria",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": null
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "_website": "la-nacion-ar",
+                                "migration": {
+                                    "id_section_ln9": "8002",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Industria",
+                                "_id": "/economia/industria",
+                                "ancestors": { "Economy": [] },
+                                "order": {}
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    },
+                    {
+                        "parent": { "default": "/economia" },
+                        "path": "/economia/negocios",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/economia",
+                        "name": "Negocios",
+                        "description": null,
+                        "_id": "/economia/negocios",
+                        "_website_section_id": "la-nacion-ar./economia/negocios",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": "/"
+                                },
+                                "social": {
+                                    "twitter": null,
+                                    "rss": null,
+                                    "facebook": null,
+                                    "instagram": null
+                                },
+                                "site_topper": { "site_logo_image": null },
+                                "acumuladoColor": { "header_class_name": "No" },
+                                "_admin": {
+                                    "alias_ids": ["/economia/negocios"]
+                                },
+                                "navigation": { "nav_title": null },
+                                "site": {
+                                    "pagebuilder_path_for_native_apps": null,
+                                    "site_url": null,
+                                    "site_keywords": null,
+                                    "site_about": null,
+                                    "site_description": null,
+                                    "site_title": null,
+                                    "site_tagline": null
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "_website": "la-nacion-ar",
+                                "migration": {
+                                    "id_section_ln9": "8018",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Negocios",
+                                "_id": "/economia/negocios",
+                                "ancestors": {
+                                    "default": ["/economia"],
+                                    "Economy": ["/"]
+                                },
+                                "order": { "Economy": 1004 }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    }
+                ],
+                "primary_section": {
+                    "parent": { "default": "/" },
+                    "path": "/economia",
+                    "_website": "la-nacion-ar",
+                    "parent_id": "/",
+                    "name": "Economía",
+                    "_id": "/economia",
+                    "_website_section_id": "la-nacion-ar./economia",
+                    "additional_properties": {
+                        "original": {
+                            "parent": {
+                                "default": "/",
+                                "Header-FirstNav": "/"
+                            },
+                            "Termicas": { "banners": "false" },
+                            "acumuladoColor": {
+                                "background_color": "",
+                                "id_logo_image": "QJFKLBWXHVGUFA3O65BIHPFILA",
+                                "header_class_name": "false",
+                                "navigation_color_tags": "#d83e2c",
+                                "navigation_color": "#d83e2c"
+                            },
+                            "inactive": false,
+                            "node_type": "section",
+                            "_website": "la-nacion-ar",
+                            "acumuladoGeneral": {
+                                "colecciones": [
+                                    "QJ3BOEZVQNEYZEVBXHF4C7KAWY",
+                                    "ATQPBRBSXFHUJDW74KTQBEQDWQ"
+                                ],
+                                "cantidad_notas": "30",
+                                "usa_datalayer": "false",
+                                "hierarchy_navigation": "Economy",
+                                "id_collection_promo_items": "",
+                                "hidesectionslist": "false"
+                            },
+                            "migration": {
+                                "id_section_ln9": "272",
+                                "migrated_mob": "false"
+                            },
+                            "name": "Economía",
+                            "style": { "headerdark": "false" },
+                            "_id": "/economia",
+                            "ancestors": { "Header-FirstNav": ["/"] },
+                            "order": {
+                                "default": 1017,
+                                "Header-FirstNav": 1003
+                            }
+                        }
+                    },
+                    "type": "section",
+                    "version": "0.6.0"
+                },
+                "tags": []
+            },
+            "label": {
+                "trust": {
+                    "display": true,
+                    "text": "Noticia Original",
+                    "url": ""
+                },
+                "enviar_a_apps": { "display": true, "text": "Si", "url": "" },
+                "recomendar": { "display": true, "text": "Si", "url": "" },
+                "mostrar_banners": { "display": true, "text": "Si", "url": "" },
+                "autor": { "display": true, "text": "Firma", "url": "" },
+                "edicion": { "display": true, "text": "Digital", "url": "" }
+            },
+            "type": "story",
+            "canonical_url": "/economia/el-gobierno-renovo-la-deuda-que-le-vencia-nid24022021/",
+            "distributor": {
+                "mode": "reference",
+                "reference_id": "a19656bb-25db-481a-9492-55e88b0ff568"
+            },
+            "version": "0.10.7",
+            "canonical_website": "la-nacion-ar",
+            "revision": {
+                "published": true,
+                "revision_id": "LAVU6BKH6NCRVA3GO3N35TW2KA"
+            },
+            "display_date": "2021-05-03T14:02:15.792Z",
+            "credits": {
+                "by": [
+                    {
+                        "image": {
+                            "version": "0.5.8",
+                            "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ded21cfd-b9a6-4cee-9a7b-22ad1fb00d1a.png"
+                        },
+                        "socialLinks": [
+                            {
+                                "site": "email",
+                                "deprecated": true,
+                                "deprecation_msg": "Please use social_links.",
+                                "url": "javier_blanco@lanacion.com.ar"
+                            },
+                            {
+                                "site": "facebook",
+                                "deprecated": true,
+                                "deprecation_msg": "Please use social_links.",
+                                "url": "facebook.com.ar"
+                            },
+                            {
+                                "site": "twitter",
+                                "deprecated": true,
+                                "deprecation_msg": "Please use social_links.",
+                                "url": "@javierblancook"
+                            },
+                            {
+                                "site": "youtube",
+                                "deprecated": true,
+                                "deprecation_msg": "Please use social_links.",
+                                "url": "https://youtube.com"
+                            },
+                            {
+                                "site": "tumblr",
+                                "deprecated": true,
+                                "deprecation_msg": "Please use social_links.",
+                                "url": "https://google.com.ar"
+                            },
+                            {
+                                "site": "pinterest",
+                                "deprecated": true,
+                                "deprecation_msg": "Please use social_links.",
+                                "url": "https://pinterest.com"
+                            },
+                            {
+                                "site": "soundcloud",
+                                "deprecated": true,
+                                "deprecation_msg": "Please use social_links.",
+                                "url": "https://soundcloud.com"
+                            },
+                            {
+                                "site": "instagram",
+                                "deprecated": true,
+                                "deprecation_msg": "Please use social_links.",
+                                "url": "https://instagram.com"
+                            },
+                            {
+                                "site": "linkedin",
+                                "deprecated": true,
+                                "deprecation_msg": "Please use social_links.",
+                                "url": "https://linkedIn.com"
+                            }
+                        ],
+                        "org": "Argentina",
+                        "social_links": [
+                            {
+                                "site": "email",
+                                "url": "javier_blanco@lanacion.com.ar"
+                            },
+                            { "site": "facebook", "url": "facebook.com.ar" },
+                            { "site": "twitter", "url": "@javierblancook" },
+                            { "site": "youtube", "url": "https://youtube.com" },
+                            {
+                                "site": "tumblr",
+                                "url": "https://google.com.ar"
+                            },
+                            {
+                                "site": "pinterest",
+                                "url": "https://pinterest.com"
+                            },
+                            {
+                                "site": "soundcloud",
+                                "url": "https://soundcloud.com"
+                            },
+                            {
+                                "site": "instagram",
+                                "url": "https://instagram.com"
+                            },
+                            {
+                                "site": "linkedin",
+                                "url": "https://linkedIn.com"
+                            }
+                        ],
+                        "name": "Javier Blanco",
+                        "_id": "javier-blanco-170",
+                        "additional_properties": {
+                            "original": {
+                                "whatsapp": "https://whasapp.com",
+                                "youtube": "https://youtube.com",
+                                "lastName": "Blanco",
+                                "education": [
+                                    {
+                                        "name": "Periodismo, Universidad de Buenos Aires, 1989."
+                                    },
+                                    {
+                                        "name": "Periodismo, Universidad de Buenos Aires, 1995."
+                                    }
+                                ],
+                                "role": "LA NACION",
+                                "affiliations": " Academia de Periodismo.",
+                                "tumblr": "https://google.com.ar",
+                                "instagram": "https://instagram.com",
+                                "linkedin": "https://linkedIn.com",
+                                "medium": "https://medium.com",
+                                "expertise": "Politica,Economia",
+                                "soundcloud": "https://soundcloud.com",
+                                "snapchat": "https://snapchat.com",
+                                "twitter": "@javierblancook",
+                                "personal_website": "https://google.com",
+                                "reddit": "https://google.com.ar",
+                                "bio_page": "/autor/javier-blanco-170/",
+                                "last_updated_date": "2021-03-17T16:31:05.343Z",
+                                "byline": "Javier Blanco",
+                                "email": "javier_blanco@lanacion.com.ar",
+                                "slug": "javier-blanco-170",
+                                "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ded21cfd-b9a6-4cee-9a7b-22ad1fb00d1a.png",
+                                "languages": "Ingles, Frances",
+                                "longBio": "Columnista político del diario LA NACION. Es profesor de Historia en la Universidad Nacional de Mar del Plata y fue docente de la cátedra de Historia de las Ideas Políticas de la Facultad de Derecho de la Universidad Nacional de Mar del Plata, e investigador del Instituto Emilio Ravignani de la Facultad de Filosofía y Letras de la UBA. Presta servicios de consultoría política para instituciones y empresas del país y el exterior. En 2002 fue condecorado por el gobierno de la República de Brasil con la Orden de Río Branco.",
+                                "facebook": "facebook.com.ar",
+                                "pinterest": "https://pinterest.com",
+                                "author_type": "Estandar",
+                                "firstName": "Javier",
+                                "books": [
+                                    {
+                                        "publisher": "Editorial",
+                                        "title": "Carlos Pagni en Odisea Argentina",
+                                        "url": "https://google.com"
+                                    }
+                                ],
+                                "podcasts": [
+                                    {
+                                        "download_url": "",
+                                        "name": "Un podcast",
+                                        "url": "https://google.com"
+                                    },
+                                    {
+                                        "download_url": "",
+                                        "name": "Segundo Podcast",
+                                        "url": "https://google.com"
+                                    }
+                                ],
+                                "awards": [
+                                    {
+                                        "name": "Condecorado por el gobierno de la República de Brasil con la Orden de Río Branco, 2002."
+                                    },
+                                    {
+                                        "name": "Condecorado por el gobierno de la República de Brasil con la Orden de Río Branco, 2002."
+                                    }
+                                ],
+                                "location": "Argentina",
+                                "_id": "javier-blanco-170",
+                                "status": false
+                            }
+                        },
+                        "type": "author",
+                        "version": "0.5.8",
+                        "slug": "javier-blanco-170",
+                        "url": "/autor/javier-blanco-170/"
+                    }
+                ]
+            },
+            "subtype": "1",
+            "headlines": {
+                "tablet": "",
+                "print": "",
+                "meta_title": "Financiamiento: El Gobierno renovó la deuda que le vencía",
+                "native": "",
+                "web": "",
+                "mobile": "El Gobierno renovó la deuda que le vencía",
+                "basic": "El Gobierno renovó la deuda que le vencía13"
+            },
+            "websites": {
+                "la-nacion-ar": {
+                    "website_url": "/economia/el-gobierno-renovo-la-deuda-que-le-vencia-nid24022021/",
+                    "website_section": {
+                        "parent": { "default": "/" },
+                        "path": "/economia",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/",
+                        "name": "Economía",
+                        "_id": "/economia",
+                        "_website_section_id": "la-nacion-ar./economia",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/",
+                                    "Header-FirstNav": "/"
+                                },
+                                "Termicas": { "banners": "false" },
+                                "acumuladoColor": {
+                                    "background_color": "",
+                                    "id_logo_image": "QJFKLBWXHVGUFA3O65BIHPFILA",
+                                    "header_class_name": "false",
+                                    "navigation_color_tags": "#d83e2c",
+                                    "navigation_color": "#d83e2c"
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "_website": "la-nacion-ar",
+                                "acumuladoGeneral": {
+                                    "colecciones": [
+                                        "QJ3BOEZVQNEYZEVBXHF4C7KAWY",
+                                        "ATQPBRBSXFHUJDW74KTQBEQDWQ"
+                                    ],
+                                    "cantidad_notas": "30",
+                                    "usa_datalayer": "false",
+                                    "hierarchy_navigation": "Economy",
+                                    "id_collection_promo_items": "",
+                                    "hidesectionslist": "false"
+                                },
+                                "migration": {
+                                    "id_section_ln9": "272",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Economía",
+                                "style": { "headerdark": "false" },
+                                "_id": "/economia",
+                                "ancestors": { "Header-FirstNav": ["/"] },
+                                "order": {
+                                    "default": 1017,
+                                    "Header-FirstNav": 1003
+                                }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    }
+                }
+            },
+            "publish_date": "2021-05-03T17:02:21.573Z",
+            "_id": "46P7NCPKIZAE5CY2LULAHCIMFQ",
+            "additional_properties": { "backfill": true }
+        },
+        {
+            "subheadlines": { "basic": "" },
+            "description": { "basic": "" },
+            "language": "",
+            "taxonomy": {
+                "primary_site": {
+                    "path": "/economia/comercio-exterior",
+                    "parent_id": "/economia",
+                    "name": "Comercio Exterior",
+                    "_id": "/economia/comercio-exterior",
+                    "additional_properties": {
+                        "original": {
+                            "parent": "/economia",
+                            "inactive": false,
+                            "node_type": "section",
+                            "migration": {
+                                "id_section_ln9": "347",
+                                "migrated_mob": "false"
+                            },
+                            "name": "Comercio Exterior",
+                            "_id": "/economia/comercio-exterior"
+                        }
+                    },
+                    "type": "site",
+                    "version": "0.5.8"
+                },
+                "sites": [
+                    {
+                        "path": "/economia/comercio-exterior",
+                        "parent_id": "/economia",
+                        "name": "Comercio Exterior",
+                        "_id": "/economia/comercio-exterior",
+                        "additional_properties": {
+                            "original": {
+                                "parent": "/economia",
+                                "inactive": false,
+                                "node_type": "section",
+                                "migration": {
+                                    "id_section_ln9": "347",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Comercio Exterior",
+                                "_id": "/economia/comercio-exterior"
+                            }
+                        },
+                        "type": "site",
+                        "version": "0.5.8"
+                    }
+                ],
+                "sections": [
+                    {
+                        "parent": { "default": "/economia" },
+                        "path": "/economia/comercio-exterior",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/economia",
+                        "name": "Comercio Exterior",
+                        "_id": "/economia/comercio-exterior",
+                        "_website_section_id": "la-nacion-ar./economia/comercio-exterior",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": "/",
+                                    "Header-FirstNav": "/economia"
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "_website": "la-nacion-ar",
+                                "migration": {
+                                    "id_section_ln9": "347",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Comercio Exterior",
+                                "_id": "/economia/comercio-exterior",
+                                "ancestors": {
+                                    "Economy": ["/"],
+                                    "Header-FirstNav": ["/", "/economia"]
+                                },
+                                "order": {
+                                    "Economy": 1002,
+                                    "Header-FirstNav": 2004
+                                }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    }
+                ],
+                "primary_section": {
+                    "parent": { "default": "/economia" },
+                    "path": "/economia/comercio-exterior",
+                    "_website": "la-nacion-ar",
+                    "parent_id": "/economia",
+                    "name": "Comercio Exterior",
+                    "_id": "/economia/comercio-exterior",
+                    "_website_section_id": "la-nacion-ar./economia/comercio-exterior",
+                    "additional_properties": {
+                        "original": {
+                            "parent": {
+                                "default": "/economia",
+                                "Economy": "/",
+                                "Header-FirstNav": "/economia"
+                            },
+                            "inactive": false,
+                            "node_type": "section",
+                            "_website": "la-nacion-ar",
+                            "migration": {
+                                "id_section_ln9": "347",
+                                "migrated_mob": "false"
+                            },
+                            "name": "Comercio Exterior",
+                            "_id": "/economia/comercio-exterior",
+                            "ancestors": {
+                                "Economy": ["/"],
+                                "Header-FirstNav": ["/", "/economia"]
+                            },
+                            "order": {
+                                "Economy": 1002,
+                                "Header-FirstNav": 2004
+                            }
+                        }
+                    },
+                    "type": "section",
+                    "version": "0.6.0"
+                },
+                "tags": [
+                    {
+                        "description": "Cocina healthy",
+                        "text": "Cocina healthy",
+                        "slug": "cocina-healthy-tid64716"
+                    }
+                ]
+            },
+            "label": {
+                "trust": {
+                    "display": true,
+                    "text": "Noticia Original",
+                    "url": ""
+                },
+                "enviar_a_apps": { "display": true, "text": "Si", "url": "" },
+                "recomendar": { "display": true, "text": "Si", "url": "" },
+                "mostrar_banners": { "display": true, "text": "Si", "url": "" },
+                "edicion": { "display": true, "text": "Digital", "url": "" }
+            },
+            "type": "story",
+            "canonical_url": "/economia/comercio-exterior/nota-de-prueba-para-capacitacion-nid18022021/",
+            "promo_items": {
+                "basic": {
+                    "owner": { "sponsored": false, "id": "sandbox.lanacionar" },
+                    "copyright": "LA NACION",
+                    "address": {},
+                    "syndication": {},
+                    "caption": "lucia berlin",
+                    "source": {
+                        "system": "photo center",
+                        "edit_url": "https://sandbox.lanacionar.arcpublishing.com/photo/QJD6UJMZUZGGVFW42NFXFTNVVE",
+                        "additional_properties": { "editor": "photo center" }
+                    },
+                    "taxonomy": { "associated_tasks": [] },
+                    "type": "image",
+                    "version": "0.10.3",
+                    "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QJD6UJMZUZGGVFW42NFXFTNVVE.JPG",
+                    "licensable": false,
+                    "alt_text": "lucia Berlin",
+                    "credits": {
+                        "affiliation": [],
+                        "by": [
+                            {
+                                "name": "la nacion",
+                                "type": "author",
+                                "byline": "la nacion"
+                            }
+                        ]
+                    },
+                    "subtitle": "Una actriz de exportacion",
+                    "width": 2000,
+                    "_id": "QJD6UJMZUZGGVFW42NFXFTNVVE",
+                    "additional_properties": {
+                        "fullSizeResizeUrl": "/resizer/3fNcSTCKHT74bmuk1m-4PJV13R8=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/QJD6UJMZUZGGVFW42NFXFTNVVE.JPG",
+                        "owner": "melucesole@lanacion.com.ar",
+                        "iptc_source": "archivo",
+                        "keywords": ["", "lnr", "lucia", "berlin"],
+                        "proxyUrl": "/resizer/3fNcSTCKHT74bmuk1m-4PJV13R8=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/QJD6UJMZUZGGVFW42NFXFTNVVE.JPG",
+                        "takenOn": "2021-01-05T00:00:00Z",
+                        "originalUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QJD6UJMZUZGGVFW42NFXFTNVVE.JPG",
+                        "published": true,
+                        "resizeUrl": "/resizer/3fNcSTCKHT74bmuk1m-4PJV13R8=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/QJD6UJMZUZGGVFW42NFXFTNVVE.JPG",
+                        "focal_point": { "min": [898, 805], "max": [898, 805] },
+                        "ingestionMethod": "manual",
+                        "thumbnailResizeUrl": "/resizer/ajOkd6tHnxyYrRMH_dEU79u3YX8=/300x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/QJD6UJMZUZGGVFW42NFXFTNVVE.JPG",
+                        "version": 2,
+                        "originalName": "lucia berlin 026.JPG",
+                        "mime_type": "image/jpeg",
+                        "restricted": false,
+                        "template_id": 770,
+                        "galleries": []
+                    },
+                    "created_date": "2021-01-14T13:56:58Z",
+                    "last_updated_date": "2021-01-14T19:39:02Z",
+                    "height": 1333,
+                    "image_type": "photograph"
+                }
+            },
+            "distributor": {
+                "mode": "reference",
+                "reference_id": "a19656bb-25db-481a-9492-55e88b0ff568"
+            },
+            "version": "0.10.7",
+            "canonical_website": "la-nacion-ar",
+            "revision": {
+                "published": true,
+                "revision_id": "ZIHZOME26ZAK7MVYRB5TRZQBE4"
+            },
+            "display_date": "2021-02-18T15:09:45.390Z",
+            "credits": {
+                "by": [
+                    {
+                        "image": {
+                            "version": "0.5.8",
+                            "url": "https://bucket.glanacion.com/anexos/fotos/60/2717460.png"
+                        },
+                        "socialLinks": [
+                            {
+                                "site": "email",
+                                "deprecated": true,
+                                "deprecation_msg": "Please use social_links.",
+                                "url": ""
+                            },
+                            {
+                                "site": "twitter",
+                                "deprecated": true,
+                                "deprecation_msg": "Please use social_links.",
+                                "url": "@paulaurien"
+                            }
+                        ],
+                        "social_links": [
+                            { "site": "email", "url": "" },
+                            { "site": "twitter", "url": "@paulaurien" }
+                        ],
+                        "name": "Paula Urien",
+                        "_id": "paula-urien-277",
+                        "additional_properties": {
+                            "original": {
+                                "image": "https://bucket.glanacion.com/anexos/fotos/60/2717460.png",
+                                "lastName": "Urien",
+                                "education": [],
+                                "role": "LA NACION",
+                                "longBio": "",
+                                "author_type": "Estándar",
+                                "firstName": "Paula",
+                                "twitter": "@paulaurien",
+                                "books": [],
+                                "podcasts": [],
+                                "awards": [],
+                                "_id": "paula-urien-277",
+                                "bio_page": "/autor/paula-urien-277/",
+                                "last_updated_date": "2019-11-12T18:08:28.634Z",
+                                "byline": "Paula Urien",
+                                "email": "",
+                                "slug": "paula-urien-277",
+                                "status": false
+                            }
+                        },
+                        "type": "author",
+                        "version": "0.5.8",
+                        "slug": "paula-urien-277",
+                        "url": "/autor/paula-urien-277/"
+                    }
+                ]
+            },
+            "subtype": "1",
+            "headlines": {
+                "tablet": "",
+                "print": "",
+                "meta_title": "",
+                "native": "",
+                "web": "",
+                "mobile": "",
+                "basic": "Nota de prueba para capacitacion"
+            },
+            "websites": {
+                "la-nacion-ar": {
+                    "website_url": "/economia/comercio-exterior/nota-de-prueba-para-capacitacion-nid18022021/",
+                    "website_section": {
+                        "parent": { "default": "/economia" },
+                        "path": "/economia/comercio-exterior",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/economia",
+                        "name": "Comercio Exterior",
+                        "_id": "/economia/comercio-exterior",
+                        "_website_section_id": "la-nacion-ar./economia/comercio-exterior",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": "/",
+                                    "Header-FirstNav": "/economia"
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "_website": "la-nacion-ar",
+                                "migration": {
+                                    "id_section_ln9": "347",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Comercio Exterior",
+                                "_id": "/economia/comercio-exterior",
+                                "ancestors": {
+                                    "Economy": ["/"],
+                                    "Header-FirstNav": ["/", "/economia"]
+                                },
+                                "order": {
+                                    "Economy": 1002,
+                                    "Header-FirstNav": 2004
+                                }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    }
+                }
+            },
+            "publish_date": "2021-02-18T15:09:48.249Z",
+            "_id": "7UAI6CG7URCHBLG5T4TWX77EYU",
+            "additional_properties": { "backfill": true }
+        },
+        {
+            "subheadlines": {
+                "basic": "El economista jefe de la BCBA advierte sobre la inconveniencia de aplicar retenciones a los productos exportables"
+            },
+            "description": { "basic": "" },
+            "language": "",
+            "taxonomy": {
+                "primary_site": {
+                    "path": "/economia/comercio-exterior",
+                    "parent_id": "/economia",
+                    "name": "Comercio Exterior",
+                    "_id": "/economia/comercio-exterior",
+                    "additional_properties": {
+                        "original": {
+                            "parent": "/economia",
+                            "inactive": false,
+                            "node_type": "section",
+                            "migration": {
+                                "id_section_ln9": "347",
+                                "migrated_mob": "false"
+                            },
+                            "name": "Comercio Exterior",
+                            "_id": "/economia/comercio-exterior"
+                        }
+                    },
+                    "type": "site",
+                    "version": "0.5.8"
+                },
+                "sites": [
+                    {
+                        "path": "/economia/comercio-exterior",
+                        "parent_id": "/economia",
+                        "name": "Comercio Exterior",
+                        "_id": "/economia/comercio-exterior",
+                        "additional_properties": {
+                            "original": {
+                                "parent": "/economia",
+                                "inactive": false,
+                                "node_type": "section",
+                                "migration": {
+                                    "id_section_ln9": "347",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Comercio Exterior",
+                                "_id": "/economia/comercio-exterior"
+                            }
+                        },
+                        "type": "site",
+                        "version": "0.5.8"
+                    },
+                    {
+                        "path": "/economia",
+                        "parent_id": "/",
+                        "name": "Economía",
+                        "_id": "/economia",
+                        "additional_properties": {
+                            "original": {
+                                "parent": "/",
+                                "inactive": false,
+                                "acumuladoGeneral": {
+                                    "colecciones": [
+                                        "QJ3BOEZVQNEYZEVBXHF4C7KAWY",
+                                        "ATQPBRBSXFHUJDW74KTQBEQDWQ"
+                                    ],
+                                    "usa_datalayer": "false",
+                                    "hierarchy_navigation": "Economy",
+                                    "id_collection_promo_items": "",
+                                    "hidesectionslist": "false"
+                                },
+                                "migration": {
+                                    "id_section_ln9": "272",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Economía",
+                                "Termicas": { "banners": "false" },
+                                "style": { "headerdark": "false" },
+                                "_id": "/economia",
+                                "acumuladoColor": {
+                                    "background_color": "",
+                                    "id_logo_image": "QJFKLBWXHVGUFA3O65BIHPFILA",
+                                    "header_class_name": "false",
+                                    "navigation_color_tags": "",
+                                    "navigation_color": ""
+                                },
+                                "order": 1017
+                            }
+                        },
+                        "type": "site",
+                        "version": "0.5.8"
+                    }
+                ],
+                "sections": [
+                    {
+                        "parent": { "default": "/economia" },
+                        "path": "/economia/comercio-exterior",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/economia",
+                        "name": "Comercio Exterior",
+                        "_id": "/economia/comercio-exterior",
+                        "_website_section_id": "la-nacion-ar./economia/comercio-exterior",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": "/",
+                                    "Header-FirstNav": "/economia"
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "_website": "la-nacion-ar",
+                                "migration": {
+                                    "id_section_ln9": "347",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Comercio Exterior",
+                                "_id": "/economia/comercio-exterior",
+                                "ancestors": {
+                                    "Economy": ["/"],
+                                    "Header-FirstNav": ["/", "/economia"]
+                                },
+                                "order": {
+                                    "Economy": 1002,
+                                    "Header-FirstNav": 2004
+                                }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    },
+                    {
+                        "parent": { "default": "/" },
+                        "path": "/economia",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/",
+                        "name": "Economía",
+                        "_id": "/economia",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/",
+                                    "Header-FirstNav": "/"
+                                },
+                                "inactive": false,
+                                "_website": "la-nacion-ar",
+                                "acumuladoGeneral": {
+                                    "colecciones": [
+                                        "QJ3BOEZVQNEYZEVBXHF4C7KAWY"
+                                    ],
+                                    "hierarchy_navigation": "Economy",
+                                    "id_collection_promo_items": "",
+                                    "hidesectionslist": "false"
+                                },
+                                "migration": {
+                                    "id_section_ln9": "272",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Economía",
+                                "Termicas": { "banners": "false" },
+                                "style": { "headerdark": "false" },
+                                "_id": "/economia",
+                                "acumuladoColor": {
+                                    "background_color": "",
+                                    "id_logo_image": "QJFKLBWXHVGUFA3O65BIHPFILA",
+                                    "header_class_name": "false",
+                                    "navigation_color_tags": "",
+                                    "navigation_color": ""
+                                },
+                                "ancestors": { "Header-FirstNav": ["/"] },
+                                "order": {
+                                    "default": 1017,
+                                    "Header-FirstNav": 1003
+                                }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    }
+                ],
+                "primary_section": {
+                    "parent": { "default": "/economia" },
+                    "path": "/economia/comercio-exterior",
+                    "_website": "la-nacion-ar",
+                    "parent_id": "/economia",
+                    "name": "Comercio Exterior",
+                    "_id": "/economia/comercio-exterior",
+                    "_website_section_id": "la-nacion-ar./economia/comercio-exterior",
+                    "additional_properties": {
+                        "original": {
+                            "parent": {
+                                "default": "/economia",
+                                "Economy": "/",
+                                "Header-FirstNav": "/economia"
+                            },
+                            "inactive": false,
+                            "node_type": "section",
+                            "_website": "la-nacion-ar",
+                            "migration": {
+                                "id_section_ln9": "347",
+                                "migrated_mob": "false"
+                            },
+                            "name": "Comercio Exterior",
+                            "_id": "/economia/comercio-exterior",
+                            "ancestors": {
+                                "Economy": ["/"],
+                                "Header-FirstNav": ["/", "/economia"]
+                            },
+                            "order": {
+                                "Economy": 1002,
+                                "Header-FirstNav": 2004
+                            }
+                        }
+                    },
+                    "type": "section",
+                    "version": "0.6.0"
+                },
+                "tags": []
+            },
+            "label": {
+                "trust": {
+                    "display": true,
+                    "text": "Noticia Original",
+                    "url": ""
+                },
+                "enviar_a_apps": { "display": true, "text": "Si", "url": "" },
+                "recomendar": { "display": true, "text": "Si", "url": "" },
+                "mostrar_banners": { "display": true, "text": "Si", "url": "" },
+                "autor": { "display": true, "text": "Firma", "url": "" },
+                "edicion": { "display": true, "text": "Impresa", "url": "" }
+            },
+            "type": "story",
+            "canonical_url": "/economia/comercio-exterior/agustin-tejeda-rodriguez-nuestra-politica-agropecuaria-es-la-mas-regresiva-del-mundo-nid16022021/",
+            "promo_items": {
+                "basic": {
+                    "referent": {
+                        "referent_properties": {
+                            "additional_properties": {
+                                "focal_point": {
+                                    "min": [346, 401],
+                                    "max": [346, 401]
+                                }
+                            }
+                        },
+                        "provider": "",
+                        "id": "SNPG3QS7IVAHDEKXD2RGDYTB3U",
+                        "type": "image"
+                    },
+                    "_id": "SNPG3QS7IVAHDEKXD2RGDYTB3U",
+                    "type": "reference"
+                }
+            },
+            "distributor": {
+                "mode": "reference",
+                "reference_id": "a19656bb-25db-481a-9492-55e88b0ff568"
+            },
+            "version": "0.10.7",
+            "canonical_website": "la-nacion-ar",
+            "revision": {
+                "published": true,
+                "revision_id": "Y3L6V3EK6BDOHHRPEJZUEUXL7I"
+            },
+            "display_date": "2021-02-16T14:29:51.649Z",
+            "credits": {
+                "by": [
+                    {
+                        "image": { "version": "0.5.8", "url": "" },
+                        "socialLinks": [
+                            {
+                                "site": "email",
+                                "deprecated": true,
+                                "deprecation_msg": "Please use social_links.",
+                                "url": ""
+                            },
+                            {
+                                "site": "twitter",
+                                "deprecated": true,
+                                "deprecation_msg": "Please use social_links.",
+                                "url": ""
+                            }
+                        ],
+                        "social_links": [
+                            { "site": "email", "url": "" },
+                            { "site": "twitter", "url": "" }
+                        ],
+                        "name": "Nieves Guerrero Lozano",
+                        "_id": "nieves-guerrero-lozano-7481",
+                        "additional_properties": {
+                            "original": {
+                                "image": "",
+                                "lastName": "Guerrero Lozano",
+                                "education": [],
+                                "role": "",
+                                "longBio": "",
+                                "author_type": "Estándar",
+                                "firstName": "Nieves",
+                                "twitter": "",
+                                "books": [],
+                                "podcasts": [],
+                                "awards": [],
+                                "_id": "nieves-guerrero-lozano-7481",
+                                "bio_page": "/autor/nieves-guerrero-lozano-7481/",
+                                "last_updated_date": "2019-11-13T10:00:15.572Z",
+                                "byline": "Nieves Guerrero Lozano",
+                                "email": "",
+                                "slug": "nieves-guerrero-lozano-7481",
+                                "status": true
+                            }
+                        },
+                        "type": "author",
+                        "version": "0.5.8",
+                        "slug": "nieves-guerrero-lozano-7481",
+                        "url": "/autor/nieves-guerrero-lozano-7481/"
+                    }
+                ]
+            },
+            "subtype": "1",
+            "headlines": {
+                "tablet": "",
+                "print": "",
+                "meta_title": "",
+                "native": "",
+                "web": "",
+                "mobile": "",
+                "basic": "Agustín Tejeda Rodríguez: “Nuestra política agropecuaria es la más regresiva del mundo”"
+            },
+            "websites": {
+                "la-nacion-ar": {
+                    "website_url": "/economia/comercio-exterior/agustin-tejeda-rodriguez-nuestra-politica-agropecuaria-es-la-mas-regresiva-del-mundo-nid16022021/",
+                    "website_section": {
+                        "parent": { "default": "/economia" },
+                        "path": "/economia/comercio-exterior",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/economia",
+                        "name": "Comercio Exterior",
+                        "_id": "/economia/comercio-exterior",
+                        "_website_section_id": "la-nacion-ar./economia/comercio-exterior",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": "/",
+                                    "Header-FirstNav": "/economia"
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "_website": "la-nacion-ar",
+                                "migration": {
+                                    "id_section_ln9": "347",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Comercio Exterior",
+                                "_id": "/economia/comercio-exterior",
+                                "ancestors": {
+                                    "Economy": ["/"],
+                                    "Header-FirstNav": ["/", "/economia"]
+                                },
+                                "order": {
+                                    "Economy": 1002,
+                                    "Header-FirstNav": 2004
+                                }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    }
+                }
+            },
+            "publish_date": "2021-02-18T15:11:05.76Z",
+            "_id": "TLSHHSMHMFCW3MPPOFQIEBDXGI",
+            "additional_properties": { "backfill": true }
+        },
+        {
+            "subheadlines": { "basic": "" },
+            "description": { "basic": "" },
+            "language": "",
+            "taxonomy": {
+                "primary_site": {
+                    "path": "/economia/comercio-exterior",
+                    "parent_id": "/economia",
+                    "name": "Comercio Exterior",
+                    "_id": "/economia/comercio-exterior",
+                    "additional_properties": {
+                        "original": {
+                            "parent": {
+                                "default": "/economia",
+                                "Economy": "/",
+                                "Header-FirstNav": "/economia"
+                            },
+                            "inactive": false,
+                            "node_type": "section",
+                            "migration": {
+                                "id_section_ln9": "347",
+                                "migrated_mob": "false"
+                            },
+                            "name": "Comercio Exterior",
+                            "_id": "/economia/comercio-exterior",
+                            "ancestors": {
+                                "Economy": ["/"],
+                                "Header-FirstNav": ["/", "/economia"]
+                            },
+                            "order": {
+                                "Economy": 1001,
+                                "Header-FirstNav": 2004
+                            }
+                        }
+                    },
+                    "type": "site",
+                    "version": "0.5.8"
+                },
+                "sites": [
+                    {
+                        "path": "/economia/comercio-exterior",
+                        "parent_id": "/economia",
+                        "name": "Comercio Exterior",
+                        "_id": "/economia/comercio-exterior",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": "/",
+                                    "Header-FirstNav": "/economia"
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "migration": {
+                                    "id_section_ln9": "347",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Comercio Exterior",
+                                "_id": "/economia/comercio-exterior",
+                                "ancestors": {
+                                    "Economy": ["/"],
+                                    "Header-FirstNav": ["/", "/economia"]
+                                },
+                                "order": {
+                                    "Economy": 1001,
+                                    "Header-FirstNav": 2004
+                                }
+                            }
+                        },
+                        "type": "site",
+                        "version": "0.5.8"
+                    },
+                    {
+                        "path": "/economia",
+                        "parent_id": "/",
+                        "name": "Economía",
+                        "_id": "/economia",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/",
+                                    "Header-FirstNav": "/"
+                                },
+                                "inactive": false,
+                                "acumuladoGeneral": {
+                                    "colecciones": [
+                                        "QJ3BOEZVQNEYZEVBXHF4C7KAWY",
+                                        "ATQPBRBSXFHUJDW74KTQBEQDWQ"
+                                    ],
+                                    "usa_datalayer": "false",
+                                    "hierarchy_navigation": "Economy",
+                                    "id_collection_promo_items": null,
+                                    "hidesectionslist": "false"
+                                },
+                                "migration": {
+                                    "id_section_ln9": "272",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Economía",
+                                "Termicas": { "banners": "false" },
+                                "style": { "headerdark": "false" },
+                                "_id": "/economia",
+                                "acumuladoColor": {
+                                    "background_color": null,
+                                    "id_logo_image": "QJFKLBWXHVGUFA3O65BIHPFILA",
+                                    "header_class_name": "false",
+                                    "navigation_color_tags": null,
+                                    "navigation_color": null
+                                },
+                                "ancestors": { "Header-FirstNav": ["/"] },
+                                "order": {
+                                    "default": 1017,
+                                    "Header-FirstNav": 1003
+                                }
+                            }
+                        },
+                        "type": "site",
+                        "version": "0.5.8"
+                    }
+                ],
+                "sections": [
+                    {
+                        "parent": { "default": "/economia" },
+                        "path": "/economia/comercio-exterior",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/economia",
+                        "name": "Comercio Exterior",
+                        "_id": "/economia/comercio-exterior",
+                        "_website_section_id": "la-nacion-ar./economia/comercio-exterior",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": "/",
+                                    "Header-FirstNav": "/economia"
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "_website": "la-nacion-ar",
+                                "migration": {
+                                    "id_section_ln9": "347",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Comercio Exterior",
+                                "_id": "/economia/comercio-exterior",
+                                "ancestors": {
+                                    "Economy": ["/"],
+                                    "Header-FirstNav": ["/", "/economia"]
+                                },
+                                "order": {
+                                    "Economy": 1001,
+                                    "Header-FirstNav": 2004
+                                }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    },
+                    {
+                        "parent": { "default": "/" },
+                        "path": "/economia",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/",
+                        "name": "Economía",
+                        "_id": "/economia",
+                        "_website_section_id": "la-nacion-ar./economia",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/",
+                                    "Header-FirstNav": "/"
+                                },
+                                "Termicas": { "banners": "false" },
+                                "acumuladoColor": {
+                                    "background_color": "",
+                                    "id_logo_image": "QJFKLBWXHVGUFA3O65BIHPFILA",
+                                    "header_class_name": "false",
+                                    "navigation_color_tags": "",
+                                    "navigation_color": ""
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "_website": "la-nacion-ar",
+                                "acumuladoGeneral": {
+                                    "colecciones": [
+                                        "QJ3BOEZVQNEYZEVBXHF4C7KAWY",
+                                        "ATQPBRBSXFHUJDW74KTQBEQDWQ"
+                                    ],
+                                    "usa_datalayer": "false",
+                                    "hierarchy_navigation": "Economy",
+                                    "id_collection_promo_items": "",
+                                    "hidesectionslist": "false"
+                                },
+                                "migration": {
+                                    "id_section_ln9": "272",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Economía",
+                                "style": { "headerdark": "false" },
+                                "_id": "/economia",
+                                "ancestors": { "Header-FirstNav": ["/"] },
+                                "order": {
+                                    "default": 1017,
+                                    "Header-FirstNav": 1003
+                                }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    }
+                ],
+                "primary_section": {
+                    "parent": { "default": "/economia" },
+                    "path": "/economia/comercio-exterior",
+                    "_website": "la-nacion-ar",
+                    "parent_id": "/economia",
+                    "name": "Comercio Exterior",
+                    "_id": "/economia/comercio-exterior",
+                    "_website_section_id": "la-nacion-ar./economia/comercio-exterior",
+                    "additional_properties": {
+                        "original": {
+                            "parent": {
+                                "default": "/economia",
+                                "Economy": "/",
+                                "Header-FirstNav": "/economia"
+                            },
+                            "inactive": false,
+                            "node_type": "section",
+                            "_website": "la-nacion-ar",
+                            "migration": {
+                                "id_section_ln9": "347",
+                                "migrated_mob": "false"
+                            },
+                            "name": "Comercio Exterior",
+                            "_id": "/economia/comercio-exterior",
+                            "ancestors": {
+                                "Economy": ["/"],
+                                "Header-FirstNav": ["/", "/economia"]
+                            },
+                            "order": {
+                                "Economy": 1001,
+                                "Header-FirstNav": 2004
+                            }
+                        }
+                    },
+                    "type": "section",
+                    "version": "0.6.0"
+                },
+                "tags": []
+            },
+            "label": {
+                "trust": {
+                    "display": true,
+                    "text": "Noticia Original",
+                    "url": ""
+                },
+                "enviar_a_apps": { "display": true, "text": "Si", "url": "" },
+                "recomendar": { "display": true, "text": "Si", "url": "" },
+                "mostrar_banners": { "display": true, "text": "Si", "url": "" },
+                "edicion": { "display": true, "text": "Digital", "url": "" }
+            },
+            "type": "story",
+            "canonical_url": "/economia/comercio-exterior/comercio-exterior-prueba-nid21012021/",
+            "promo_items": {
+                "basic": {
+                    "owner": { "sponsored": false, "id": "sandbox.lanacionar" },
+                    "copyright": "LA NACION",
+                    "address": {},
+                    "source": {
+                        "system": "photo center",
+                        "edit_url": "https://sandbox.lanacionar.arcpublishing.com/photo/A2B3HO55ZRAZFL7QVOFOWZXNHE",
+                        "additional_properties": { "editor": "photo center" }
+                    },
+                    "taxonomy": {},
+                    "type": "image",
+                    "version": "0.10.3",
+                    "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A2B3HO55ZRAZFL7QVOFOWZXNHE.JPG",
+                    "licensable": false,
+                    "credits": { "affiliation": [] },
+                    "width": 2000,
+                    "_id": "A2B3HO55ZRAZFL7QVOFOWZXNHE",
+                    "additional_properties": {
+                        "fullSizeResizeUrl": "/resizer/A-QCQrc6pgo4HcVQp7ipogva1xE=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/A2B3HO55ZRAZFL7QVOFOWZXNHE.JPG",
+                        "owner": "melucesole@lanacion.com.ar",
+                        "keywords": [""],
+                        "proxyUrl": "/resizer/A-QCQrc6pgo4HcVQp7ipogva1xE=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/A2B3HO55ZRAZFL7QVOFOWZXNHE.JPG",
+                        "takenOn": "2021-01-05T16:15:26Z",
+                        "originalUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A2B3HO55ZRAZFL7QVOFOWZXNHE.JPG",
+                        "published": true,
+                        "resizeUrl": "/resizer/A-QCQrc6pgo4HcVQp7ipogva1xE=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/A2B3HO55ZRAZFL7QVOFOWZXNHE.JPG",
+                        "ingestionMethod": "manual",
+                        "thumbnailResizeUrl": "/resizer/xmdeUsmxgDKAHbffr2Kh1VHyhWw=/300x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/A2B3HO55ZRAZFL7QVOFOWZXNHE.JPG",
+                        "version": 1,
+                        "originalName": "libro rock 052.JPG",
+                        "mime_type": "image/jpeg",
+                        "restricted": false,
+                        "template_id": 770,
+                        "galleries": []
+                    },
+                    "created_date": "2021-01-14T13:56:58Z",
+                    "last_updated_date": "2021-01-14T18:31:39Z",
+                    "height": 1333,
+                    "image_type": "photograph"
+                }
+            },
+            "distributor": {
+                "mode": "reference",
+                "reference_id": "a19656bb-25db-481a-9492-55e88b0ff568"
+            },
+            "version": "0.10.7",
+            "canonical_website": "la-nacion-ar",
+            "revision": {
+                "published": true,
+                "revision_id": "L6EEDCD33ZDEHJ6CVOSBM6VHHE"
+            },
+            "display_date": "2021-01-21T20:20:32.873Z",
+            "credits": {
+                "by": [
+                    {
+                        "image": {
+                            "version": "0.5.8",
+                            "url": "https://bucket.glanacion.com/anexos/fotos/60/2717460.png"
+                        },
+                        "socialLinks": [
+                            {
+                                "site": "email",
+                                "deprecated": true,
+                                "deprecation_msg": "Please use social_links.",
+                                "url": ""
+                            },
+                            {
+                                "site": "twitter",
+                                "deprecated": true,
+                                "deprecation_msg": "Please use social_links.",
+                                "url": "@paulaurien"
+                            }
+                        ],
+                        "social_links": [
+                            { "site": "email", "url": "" },
+                            { "site": "twitter", "url": "@paulaurien" }
+                        ],
+                        "name": "Paula Urien",
+                        "_id": "paula-urien-277",
+                        "additional_properties": {
+                            "original": {
+                                "image": "https://bucket.glanacion.com/anexos/fotos/60/2717460.png",
+                                "lastName": "Urien",
+                                "education": [],
+                                "role": "LA NACION",
+                                "longBio": "",
+                                "author_type": "Estándar",
+                                "firstName": "Paula",
+                                "twitter": "@paulaurien",
+                                "books": [],
+                                "podcasts": [],
+                                "awards": [],
+                                "_id": "paula-urien-277",
+                                "bio_page": "/autor/paula-urien-277/",
+                                "last_updated_date": "2019-11-12T18:08:28.634Z",
+                                "byline": "Paula Urien",
+                                "email": "",
+                                "slug": "paula-urien-277",
+                                "status": false
+                            }
+                        },
+                        "type": "author",
+                        "version": "0.5.8",
+                        "slug": "paula-urien-277",
+                        "url": "/autor/paula-urien-277/"
+                    }
+                ]
+            },
+            "subtype": "1",
+            "headlines": {
+                "tablet": "",
+                "print": "",
+                "meta_title": "",
+                "native": "",
+                "web": "Titulo Web",
+                "mobile": "Titulo de Movil",
+                "basic": "Comercio Exterior Prueba"
+            },
+            "websites": {
+                "la-nacion-ar": {
+                    "website_url": "/economia/comercio-exterior/comercio-exterior-prueba-nid21012021/",
+                    "website_section": {
+                        "parent": { "default": "/economia" },
+                        "path": "/economia/comercio-exterior",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/economia",
+                        "name": "Comercio Exterior",
+                        "_id": "/economia/comercio-exterior",
+                        "_website_section_id": "la-nacion-ar./economia/comercio-exterior",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": "/",
+                                    "Header-FirstNav": "/economia"
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "_website": "la-nacion-ar",
+                                "migration": {
+                                    "id_section_ln9": "347",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Comercio Exterior",
+                                "_id": "/economia/comercio-exterior",
+                                "ancestors": {
+                                    "Economy": ["/"],
+                                    "Header-FirstNav": ["/", "/economia"]
+                                },
+                                "order": {
+                                    "Economy": 1001,
+                                    "Header-FirstNav": 2004
+                                }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    }
+                }
+            },
+            "publish_date": "2021-03-26T18:24:10.518Z",
+            "_id": "IW4AGDLSZRHCLAGKBGCV5ULGE4",
+            "additional_properties": { "backfill": true }
+        },
+        {
+            "subheadlines": {
+                "basic": "El Presidente dijo en Roma que ya envió el pliego de esta diplomática de carrera, que se convertirá en la primera mujer en ocupar ese cargo. Es una defensora de las minorías y de los refugiados 2"
+            },
+            "description": { "basic": "" },
+            "language": "",
+            "taxonomy": {
+                "primary_site": {
+                    "path": "/economia",
+                    "parent_id": "/",
+                    "name": "Economía",
+                    "_id": "/economia",
+                    "additional_properties": {
+                        "original": {
+                            "parent": {
+                                "default": "/",
+                                "Header-FirstNav": "/"
+                            },
+                            "inactive": false,
+                            "acumuladoGeneral": {
+                                "colecciones": [
+                                    "QJ3BOEZVQNEYZEVBXHF4C7KAWY",
+                                    "ATQPBRBSXFHUJDW74KTQBEQDWQ"
+                                ],
+                                "cantidad_notas": "30",
+                                "usa_datalayer": "false",
+                                "hierarchy_navigation": "Economy",
+                                "id_collection_promo_items": null,
+                                "hidesectionslist": "false"
+                            },
+                            "migration": {
+                                "id_section_ln9": "272",
+                                "migrated_mob": "false"
+                            },
+                            "name": "Economía",
+                            "Termicas": { "banners": "false" },
+                            "style": { "headerdark": "false" },
+                            "_id": "/economia",
+                            "acumuladoColor": {
+                                "background_color": null,
+                                "id_logo_image": "QJFKLBWXHVGUFA3O65BIHPFILA",
+                                "header_class_name": "false",
+                                "navigation_color_tags": "#d83e2c",
+                                "navigation_color": "#d83e2c"
+                            },
+                            "ancestors": { "Header-FirstNav": ["/"] },
+                            "order": {
+                                "default": 1017,
+                                "Header-FirstNav": 1003
+                            }
+                        }
+                    },
+                    "type": "site",
+                    "version": "0.5.8"
+                },
+                "sites": [
+                    {
+                        "path": "/economia",
+                        "parent_id": "/",
+                        "name": "Economía",
+                        "_id": "/economia",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/",
+                                    "Header-FirstNav": "/"
+                                },
+                                "inactive": false,
+                                "acumuladoGeneral": {
+                                    "colecciones": [
+                                        "QJ3BOEZVQNEYZEVBXHF4C7KAWY",
+                                        "ATQPBRBSXFHUJDW74KTQBEQDWQ"
+                                    ],
+                                    "cantidad_notas": "30",
+                                    "usa_datalayer": "false",
+                                    "hierarchy_navigation": "Economy",
+                                    "id_collection_promo_items": null,
+                                    "hidesectionslist": "false"
+                                },
+                                "migration": {
+                                    "id_section_ln9": "272",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Economía",
+                                "Termicas": { "banners": "false" },
+                                "style": { "headerdark": "false" },
+                                "_id": "/economia",
+                                "acumuladoColor": {
+                                    "background_color": null,
+                                    "id_logo_image": "QJFKLBWXHVGUFA3O65BIHPFILA",
+                                    "header_class_name": "false",
+                                    "navigation_color_tags": "#d83e2c",
+                                    "navigation_color": "#d83e2c"
+                                },
+                                "ancestors": { "Header-FirstNav": ["/"] },
+                                "order": {
+                                    "default": 1017,
+                                    "Header-FirstNav": 1003
+                                }
+                            }
+                        },
+                        "type": "site",
+                        "version": "0.5.8"
+                    },
+                    {
+                        "path": "/economia/dolar",
+                        "parent_id": "/economia",
+                        "name": "Dólar Hoy",
+                        "_id": "/economia/dolar",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": null,
+                                    "Header-FirstNav": "/economia"
+                                },
+                                "site": { "site_title": null },
+                                "inactive": false,
+                                "node_type": "section",
+                                "migration": {
+                                    "id_section_ln9": "8014",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Dólar Hoy",
+                                "_id": "/economia/dolar",
+                                "ancestors": {
+                                    "Economy": [],
+                                    "Header-FirstNav": ["/", "/economia"]
+                                },
+                                "order": { "Header-FirstNav": 2001 }
+                            }
+                        },
+                        "type": "site",
+                        "version": "0.5.8"
+                    },
+                    {
+                        "path": "/economia/industria",
+                        "parent_id": "/economia",
+                        "name": "Industria",
+                        "_id": "/economia/industria",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": null
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "migration": {
+                                    "id_section_ln9": "8002",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Industria",
+                                "_id": "/economia/industria",
+                                "ancestors": { "Economy": [] },
+                                "order": {}
+                            }
+                        },
+                        "type": "site",
+                        "version": "0.5.8"
+                    },
+                    {
+                        "path": "/economia/comercio-exterior",
+                        "parent_id": "/economia",
+                        "name": "Comercio Exterior",
+                        "_id": "/economia/comercio-exterior",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": null,
+                                    "Header-FirstNav": "/economia"
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "migration": {
+                                    "id_section_ln9": "347",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Comercio Exterior",
+                                "_id": "/economia/comercio-exterior",
+                                "ancestors": {
+                                    "Economy": [],
+                                    "Header-FirstNav": ["/", "/economia"]
+                                },
+                                "order": { "Header-FirstNav": 2004 }
+                            }
+                        },
+                        "type": "site",
+                        "version": "0.5.8"
+                    },
+                    {
+                        "path": "/revista-hola",
+                        "parent_id": "/",
+                        "name": "Revista ¡HOLA!",
+                        "_id": "/revista-hola",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/",
+                                    "Header-SecondaryNav": "/revistas"
+                                },
+                                "inactive": false,
+                                "migration": {
+                                    "id_section_ln9": "7353",
+                                    "migrated_mob": "true"
+                                },
+                                "name": "Revista ¡HOLA!",
+                                "style": { "section_style_name": "hola" },
+                                "_id": "/revista-hola",
+                                "ancestors": {
+                                    "Header-SecondaryNav": ["/", "/revistas"]
+                                },
+                                "order": {
+                                    "default": 1033,
+                                    "Header-SecondaryNav": 2002
+                                }
+                            }
+                        },
+                        "type": "site",
+                        "version": "0.5.8"
+                    },
+                    {
+                        "path": "/revista-hola/estilo-hola",
+                        "parent_id": "/revista-hola",
+                        "name": "Estilo ¡HOLA!",
+                        "_id": "/revista-hola/estilo-hola",
+                        "additional_properties": {
+                            "original": {
+                                "parent": { "default": "/revista-hola" },
+                                "inactive": false,
+                                "migration": {
+                                    "id_section_ln9": "7353",
+                                    "migrated_mob": "true"
+                                },
+                                "name": "Estilo ¡HOLA!",
+                                "_id": "/revista-hola/estilo-hola"
+                            }
+                        },
+                        "type": "site",
+                        "version": "0.5.8"
+                    }
+                ],
+                "sections": [
+                    {
+                        "parent": { "default": "/" },
+                        "path": "/economia",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/",
+                        "name": "Economía",
+                        "_id": "/economia",
+                        "_website_section_id": "la-nacion-ar./economia",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/",
+                                    "Header-FirstNav": "/"
+                                },
+                                "Termicas": { "banners": "false" },
+                                "acumuladoColor": {
+                                    "background_color": "",
+                                    "id_logo_image": "QJFKLBWXHVGUFA3O65BIHPFILA",
+                                    "header_class_name": "false",
+                                    "navigation_color_tags": "#d83e2c",
+                                    "navigation_color": "#d83e2c"
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "_website": "la-nacion-ar",
+                                "acumuladoGeneral": {
+                                    "colecciones": [
+                                        "QJ3BOEZVQNEYZEVBXHF4C7KAWY",
+                                        "ATQPBRBSXFHUJDW74KTQBEQDWQ"
+                                    ],
+                                    "cantidad_notas": "30",
+                                    "usa_datalayer": "false",
+                                    "hierarchy_navigation": "Economy",
+                                    "id_collection_promo_items": "",
+                                    "hidesectionslist": "false"
+                                },
+                                "migration": {
+                                    "id_section_ln9": "272",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Economía",
+                                "style": { "headerdark": "false" },
+                                "_id": "/economia",
+                                "ancestors": { "Header-FirstNav": ["/"] },
+                                "order": {
+                                    "default": 1017,
+                                    "Header-FirstNav": 1003
+                                }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    },
+                    {
+                        "parent": { "default": "/economia" },
+                        "path": "/economia/dolar",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/economia",
+                        "name": "Dólar Hoy",
+                        "_id": "/economia/dolar",
+                        "_website_section_id": "la-nacion-ar./economia/dolar",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": null,
+                                    "Header-FirstNav": "/economia"
+                                },
+                                "site": { "site_title": "" },
+                                "inactive": false,
+                                "node_type": "section",
+                                "_website": "la-nacion-ar",
+                                "migration": {
+                                    "id_section_ln9": "8014",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Dólar Hoy",
+                                "_id": "/economia/dolar",
+                                "ancestors": {
+                                    "Economy": [],
+                                    "Header-FirstNav": ["/", "/economia"]
+                                },
+                                "order": { "Header-FirstNav": 2001 }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    },
+                    {
+                        "parent": { "default": "/economia" },
+                        "path": "/economia/industria",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/economia",
+                        "name": "Industria",
+                        "_id": "/economia/industria",
+                        "_website_section_id": "la-nacion-ar./economia/industria",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": null
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "_website": "la-nacion-ar",
+                                "migration": {
+                                    "id_section_ln9": "8002",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Industria",
+                                "_id": "/economia/industria",
+                                "ancestors": { "Economy": [] },
+                                "order": {}
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    },
+                    {
+                        "parent": { "default": "/economia" },
+                        "path": "/economia/comercio-exterior",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/economia",
+                        "name": "Comercio Exterior",
+                        "_id": "/economia/comercio-exterior",
+                        "_website_section_id": "la-nacion-ar./economia/comercio-exterior",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": null,
+                                    "Header-FirstNav": "/economia"
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "_website": "la-nacion-ar",
+                                "migration": {
+                                    "id_section_ln9": "347",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Comercio Exterior",
+                                "_id": "/economia/comercio-exterior",
+                                "ancestors": {
+                                    "Economy": [],
+                                    "Header-FirstNav": ["/", "/economia"]
+                                },
+                                "order": { "Header-FirstNav": 2004 }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    },
+                    {
+                        "parent": { "default": "/" },
+                        "path": "/revista-hola",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/",
+                        "name": "Revista ¡HOLA!",
+                        "_id": "/revista-hola",
+                        "_website_section_id": "la-nacion-ar./revista-hola",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/",
+                                    "Header-SecondaryNav": "/revistas"
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "_website": "la-nacion-ar",
+                                "migration": {
+                                    "id_section_ln9": "7353",
+                                    "migrated_mob": "true"
+                                },
+                                "name": "Revista ¡HOLA!",
+                                "style": { "section_style_name": "hola" },
+                                "_id": "/revista-hola",
+                                "ancestors": {
+                                    "Header-SecondaryNav": ["/", "/revistas"]
+                                },
+                                "order": {
+                                    "default": 1033,
+                                    "Header-SecondaryNav": 2002
+                                }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    },
+                    {
+                        "parent": { "default": "/revista-hola" },
+                        "path": "/revista-hola/estilo-hola",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/revista-hola",
+                        "name": "Estilo ¡HOLA!",
+                        "_id": "/revista-hola/estilo-hola",
+                        "_website_section_id": "la-nacion-ar./revista-hola/estilo-hola",
+                        "additional_properties": {
+                            "original": {
+                                "parent": { "default": "/revista-hola" },
+                                "inactive": false,
+                                "node_type": "section",
+                                "_website": "la-nacion-ar",
+                                "migration": {
+                                    "id_section_ln9": "7353",
+                                    "migrated_mob": "true"
+                                },
+                                "name": "Estilo ¡HOLA!",
+                                "_id": "/revista-hola/estilo-hola"
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    }
+                ],
+                "primary_section": {
+                    "parent": { "default": "/" },
+                    "path": "/economia",
+                    "_website": "la-nacion-ar",
+                    "parent_id": "/",
+                    "name": "Economía",
+                    "_id": "/economia",
+                    "_website_section_id": "la-nacion-ar./economia",
+                    "additional_properties": {
+                        "original": {
+                            "parent": {
+                                "default": "/",
+                                "Header-FirstNav": "/"
+                            },
+                            "Termicas": { "banners": "false" },
+                            "acumuladoColor": {
+                                "background_color": "",
+                                "id_logo_image": "QJFKLBWXHVGUFA3O65BIHPFILA",
+                                "header_class_name": "false",
+                                "navigation_color_tags": "#d83e2c",
+                                "navigation_color": "#d83e2c"
+                            },
+                            "inactive": false,
+                            "node_type": "section",
+                            "_website": "la-nacion-ar",
+                            "acumuladoGeneral": {
+                                "colecciones": [
+                                    "QJ3BOEZVQNEYZEVBXHF4C7KAWY",
+                                    "ATQPBRBSXFHUJDW74KTQBEQDWQ"
+                                ],
+                                "cantidad_notas": "30",
+                                "usa_datalayer": "false",
+                                "hierarchy_navigation": "Economy",
+                                "id_collection_promo_items": "",
+                                "hidesectionslist": "false"
+                            },
+                            "migration": {
+                                "id_section_ln9": "272",
+                                "migrated_mob": "false"
+                            },
+                            "name": "Economía",
+                            "style": { "headerdark": "false" },
+                            "_id": "/economia",
+                            "ancestors": { "Header-FirstNav": ["/"] },
+                            "order": {
+                                "default": 1017,
+                                "Header-FirstNav": 1003
+                            }
+                        }
+                    },
+                    "type": "section",
+                    "version": "0.6.0"
+                },
+                "tags": [
+                    {
+                        "description": "Crónicas",
+                        "text": "Crónicas",
+                        "slug": "cronicas-tid61570"
+                    }
+                ]
+            },
+            "label": {
+                "edicion": { "display": true, "text": "Digital", "url": "" }
+            },
+            "type": "story",
+            "canonical_url": "/economia/el-gobierno-evalua-postular-a-una-diplomatica-de-carrera-para-la-embajada-en-el-vaticano-nid23012020/",
+            "distributor": {
+                "mode": "reference",
+                "reference_id": "e22f1457-19ad-4f07-9043-614ec3921308"
+            },
+            "version": "0.10.7",
+            "canonical_website": "la-nacion-ar",
+            "revision": {
+                "published": true,
+                "revision_id": "4FCFTEKMPZCRXIXSY3QQQP2RQY"
+            },
+            "display_date": "2020-05-13T01:43:50.136Z",
+            "credits": {
+                "by": [
+                    {
+                        "image": { "version": "0.5.8", "url": "" },
+                        "socialLinks": [
+                            {
+                                "site": "email",
+                                "deprecated": true,
+                                "deprecation_msg": "Please use social_links.",
+                                "url": "asoria@lanacion.com.ar"
+                            },
+                            {
+                                "site": "twitter",
+                                "deprecated": true,
+                                "deprecation_msg": "Please use social_links.",
+                                "url": "@AlanSG6"
+                            }
+                        ],
+                        "social_links": [
+                            {
+                                "site": "email",
+                                "url": "asoria@lanacion.com.ar"
+                            },
+                            { "site": "twitter", "url": "@AlanSG6" }
+                        ],
+                        "name": "Alan Soria Guadalupe",
+                        "_id": "alan-soria-guadalupe-7262",
+                        "additional_properties": {
+                            "original": {
+                                "image": "",
+                                "lastName": "Soria Guadalupe",
+                                "education": [],
+                                "role": "LA NACION",
+                                "longBio": "",
+                                "author_type": "Estándar",
+                                "firstName": "Alan",
+                                "twitter": "@AlanSG6",
+                                "books": [],
+                                "podcasts": [],
+                                "awards": [],
+                                "_id": "alan-soria-guadalupe-7262",
+                                "bio_page": "/autor/alan-soria-guadalupe-7262/",
+                                "last_updated_date": "2019-11-13T09:00:10.743Z",
+                                "byline": "Alan Soria Guadalupe",
+                                "email": "asoria@lanacion.com.ar",
+                                "slug": "alan-soria-guadalupe-7262",
+                                "status": true
+                            }
+                        },
+                        "type": "author",
+                        "version": "0.5.8",
+                        "slug": "alan-soria-guadalupe-7262",
+                        "url": "/autor/alan-soria-guadalupe-7262/"
+                    }
+                ]
+            },
+            "subtype": "1",
+            "headlines": {
+                "tablet": "",
+                "print": "",
+                "meta_title": "Hoooollaaaaa !!!!!",
+                "native": "",
+                "web": "",
+                "mobile": "El Gobierno evalúa postular a una diplomática....",
+                "basic": "El Gobierno evalúa postular a una diplomática de carrera para la embajada en el Vaticano...."
+            },
+            "websites": {
+                "la-nacion-ar": {
+                    "website_url": "/economia/el-gobierno-evalua-postular-a-una-diplomatica-de-carrera-para-la-embajada-en-el-vaticano-nid23012020/",
+                    "website_section": {
+                        "parent": { "default": "/" },
+                        "path": "/economia",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/",
+                        "name": "Economía",
+                        "_id": "/economia",
+                        "_website_section_id": "la-nacion-ar./economia",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/",
+                                    "Header-FirstNav": "/"
+                                },
+                                "Termicas": { "banners": "false" },
+                                "acumuladoColor": {
+                                    "background_color": "",
+                                    "id_logo_image": "QJFKLBWXHVGUFA3O65BIHPFILA",
+                                    "header_class_name": "false",
+                                    "navigation_color_tags": "#d83e2c",
+                                    "navigation_color": "#d83e2c"
+                                },
+                                "inactive": false,
+                                "node_type": "section",
+                                "_website": "la-nacion-ar",
+                                "acumuladoGeneral": {
+                                    "colecciones": [
+                                        "QJ3BOEZVQNEYZEVBXHF4C7KAWY",
+                                        "ATQPBRBSXFHUJDW74KTQBEQDWQ"
+                                    ],
+                                    "cantidad_notas": "30",
+                                    "usa_datalayer": "false",
+                                    "hierarchy_navigation": "Economy",
+                                    "id_collection_promo_items": "",
+                                    "hidesectionslist": "false"
+                                },
+                                "migration": {
+                                    "id_section_ln9": "272",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Economía",
+                                "style": { "headerdark": "false" },
+                                "_id": "/economia",
+                                "ancestors": { "Header-FirstNav": ["/"] },
+                                "order": {
+                                    "default": 1017,
+                                    "Header-FirstNav": 1003
+                                }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    }
+                }
+            },
+            "publish_date": "2021-05-12T02:43:32.579Z",
+            "_id": "AVYWDWDAVVESZGD7HXMW46GTYA",
+            "additional_properties": { "backfill": true }
+        },
+        {
+            "subheadlines": {
+                "basic": "Las fórmulas aplicadas por los dos últimos gobiernos demuestran que repetir recetas no es el camino para reactivar el sector y la economía nacional"
+            },
+            "taxonomy": {
+                "sections": [
+                    {
+                        "parent": { "default": "/" },
+                        "path": "/economia",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/",
+                        "name": "Economía",
+                        "_id": "/economia",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/",
+                                    "Header-FirstNav": "/"
+                                },
+                                "inactive": false,
+                                "_website": "la-nacion-ar",
+                                "acumuladoGeneral": {
+                                    "colecciones": [
+                                        "QJ3BOEZVQNEYZEVBXHF4C7KAWY"
+                                    ],
+                                    "hierarchy_navigation": "Economy",
+                                    "id_collection_promo_items": "",
+                                    "hidesectionslist": "false"
+                                },
+                                "migration": {
+                                    "id_section_ln9": "272",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Economía",
+                                "Termicas": { "banners": "false" },
+                                "style": { "headerdark": "false" },
+                                "_id": "/economia",
+                                "acumuladoColor": {
+                                    "background_color": "",
+                                    "id_logo_image": "QJFKLBWXHVGUFA3O65BIHPFILA",
+                                    "header_class_name": "false",
+                                    "navigation_color_tags": "",
+                                    "navigation_color": ""
+                                },
+                                "ancestors": { "Header-FirstNav": ["/"] },
+                                "order": {
+                                    "default": 1017,
+                                    "Header-FirstNav": 1003
+                                }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    },
+                    {
+                        "parent": { "default": "/economia" },
+                        "path": "/economia/comercio-exterior",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/economia",
+                        "name": "Comercio Exterior",
+                        "_id": "/economia/comercio-exterior",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": "/",
+                                    "Header-FirstNav": "/economia"
+                                },
+                                "inactive": false,
+                                "_website": "la-nacion-ar",
+                                "migration": {
+                                    "id_section_ln9": "347",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Comercio Exterior",
+                                "_id": "/economia/comercio-exterior",
+                                "ancestors": {
+                                    "Economy": ["/"],
+                                    "Header-FirstNav": ["/", "/economia"]
+                                },
+                                "order": {
+                                    "Economy": 1002,
+                                    "Header-FirstNav": 2004
+                                }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    }
+                ],
+                "primary_section": {
+                    "parent": { "default": "/economia" },
+                    "path": "/economia/comercio-exterior",
+                    "_website": "la-nacion-ar",
+                    "parent_id": "/economia",
+                    "name": "Comercio Exterior",
+                    "_id": "/economia/comercio-exterior",
+                    "additional_properties": {
+                        "original": {
+                            "parent": {
+                                "default": "/economia",
+                                "Economy": "/",
+                                "Header-FirstNav": "/economia"
+                            },
+                            "inactive": false,
+                            "_website": "la-nacion-ar",
+                            "migration": {
+                                "id_section_ln9": "347",
+                                "migrated_mob": "false"
+                            },
+                            "name": "Comercio Exterior",
+                            "_id": "/economia/comercio-exterior",
+                            "ancestors": {
+                                "Economy": ["/"],
+                                "Header-FirstNav": ["/", "/economia"]
+                            },
+                            "order": {
+                                "Economy": 1002,
+                                "Header-FirstNav": 2004
+                            }
+                        }
+                    },
+                    "type": "section",
+                    "version": "0.6.0"
+                },
+                "tags": []
+            },
+            "label": { "edicion": { "display": true, "text": "Impresa" } },
+            "type": "story",
+            "canonical_url": "/economia/comercio-exterior/y-si-afinamos-la-punteria-como-ir-hacia-un-comercio-exterior-mas-inteligente-nid2304526/",
+            "distributor": {
+                "name": "lanacionar",
+                "category": "staff",
+                "subcategory": ""
+            },
+            "version": "0.10.4",
+            "canonical_website": "la-nacion-ar",
+            "revision": {
+                "published": true,
+                "revision_id": "JVPIRHQ2FFACBMGIQRHKTHX7BM"
+            },
+            "display_date": "2019-11-08T03:00:00Z",
+            "credits": {
+                "by": [
+                    {
+                        "image": {
+                            "version": "0.5.8",
+                            "url": "https://bucket.glanacion.com/anexos/fotos/65/2707765.png"
+                        },
+                        "socialLinks": [
+                            {
+                                "site": "email",
+                                "deprecated": true,
+                                "deprecation_msg": "Please use social_links.",
+                                "url": ""
+                            },
+                            {
+                                "site": "twitter",
+                                "deprecated": true,
+                                "deprecation_msg": "Please use social_links.",
+                                "url": ""
+                            }
+                        ],
+                        "social_links": [
+                            { "site": "email", "url": "" },
+                            { "site": "twitter", "url": "" }
+                        ],
+                        "name": "Diego Dumont",
+                        "_id": "diego-dumont-9828",
+                        "additional_properties": {
+                            "original": {
+                                "image": "https://bucket.glanacion.com/anexos/fotos/65/2707765.png",
+                                "lastName": "Dumont",
+                                "education": [],
+                                "role": "",
+                                "longBio": "",
+                                "author_type": "Estándar",
+                                "firstName": "Diego",
+                                "twitter": "",
+                                "books": [],
+                                "podcasts": [],
+                                "awards": [],
+                                "_id": "diego-dumont-9828",
+                                "bio_page": "/autor/diego-dumont-9828/",
+                                "last_updated_date": "2019-11-13T20:02:11.192Z",
+                                "byline": "Diego Dumont",
+                                "email": "",
+                                "slug": "diego-dumont-9828",
+                                "status": true
+                            }
+                        },
+                        "type": "author",
+                        "version": "0.5.8",
+                        "slug": "diego-dumont-9828",
+                        "url": "/autor/diego-dumont-9828/"
+                    }
+                ]
+            },
+            "subtype": "3",
+            "headlines": {
+                "mobile": "¿Y si afinamos la puntería? Cómo ir hacia un comercio exterior más inteligente",
+                "basic": "¿Y si afinamos la puntería? Cómo ir hacia un comercio exterior más inteligente"
+            },
+            "websites": {
+                "la-nacion-ar": {
+                    "website_url": "/economia/comercio-exterior/y-si-afinamos-la-punteria-como-ir-hacia-un-comercio-exterior-mas-inteligente-nid2304526/",
+                    "website_section": {
+                        "parent": { "default": "/economia" },
+                        "path": "/economia/comercio-exterior",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/economia",
+                        "name": "Comercio Exterior",
+                        "_id": "/economia/comercio-exterior",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": "/",
+                                    "Header-FirstNav": "/economia"
+                                },
+                                "inactive": false,
+                                "_website": "la-nacion-ar",
+                                "migration": {
+                                    "id_section_ln9": "347",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Comercio Exterior",
+                                "_id": "/economia/comercio-exterior",
+                                "ancestors": {
+                                    "Economy": ["/"],
+                                    "Header-FirstNav": ["/", "/economia"]
+                                },
+                                "order": {
+                                    "Economy": 1002,
+                                    "Header-FirstNav": 2004
+                                }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    }
+                }
+            },
+            "publish_date": "2019-11-08T03:00:00Z",
+            "_id": "4M5VQTE5IZADNEKDY4J6ANDGDE",
+            "additional_properties": { "backfill": true }
+        },
+        {
+            "subheadlines": {
+                "basic": "Los principales puntos a tener en cuenta para lograr un crecimiento sostenido del sector"
+            },
+            "taxonomy": {
+                "sections": [
+                    {
+                        "parent": { "default": "/" },
+                        "path": "/economia",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/",
+                        "name": "Economía",
+                        "_id": "/economia",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/",
+                                    "Header-FirstNav": "/"
+                                },
+                                "inactive": false,
+                                "_website": "la-nacion-ar",
+                                "acumuladoGeneral": {
+                                    "colecciones": [
+                                        "QJ3BOEZVQNEYZEVBXHF4C7KAWY"
+                                    ],
+                                    "hierarchy_navigation": "Economy",
+                                    "id_collection_promo_items": "",
+                                    "hidesectionslist": "false"
+                                },
+                                "migration": {
+                                    "id_section_ln9": "272",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Economía",
+                                "Termicas": { "banners": "false" },
+                                "style": { "headerdark": "false" },
+                                "_id": "/economia",
+                                "acumuladoColor": {
+                                    "background_color": "",
+                                    "id_logo_image": "QJFKLBWXHVGUFA3O65BIHPFILA",
+                                    "header_class_name": "false",
+                                    "navigation_color_tags": "",
+                                    "navigation_color": ""
+                                },
+                                "ancestors": { "Header-FirstNav": ["/"] },
+                                "order": {
+                                    "default": 1017,
+                                    "Header-FirstNav": 1003
+                                }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    },
+                    {
+                        "parent": { "default": "/economia" },
+                        "path": "/economia/comercio-exterior",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/economia",
+                        "name": "Comercio Exterior",
+                        "_id": "/economia/comercio-exterior",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": "/",
+                                    "Header-FirstNav": "/economia"
+                                },
+                                "inactive": false,
+                                "_website": "la-nacion-ar",
+                                "migration": {
+                                    "id_section_ln9": "347",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Comercio Exterior",
+                                "_id": "/economia/comercio-exterior",
+                                "ancestors": {
+                                    "Economy": ["/"],
+                                    "Header-FirstNav": ["/", "/economia"]
+                                },
+                                "order": {
+                                    "Economy": 1002,
+                                    "Header-FirstNav": 2004
+                                }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    }
+                ],
+                "primary_section": {
+                    "parent": { "default": "/economia" },
+                    "path": "/economia/comercio-exterior",
+                    "_website": "la-nacion-ar",
+                    "parent_id": "/economia",
+                    "name": "Comercio Exterior",
+                    "_id": "/economia/comercio-exterior",
+                    "additional_properties": {
+                        "original": {
+                            "parent": {
+                                "default": "/economia",
+                                "Economy": "/",
+                                "Header-FirstNav": "/economia"
+                            },
+                            "inactive": false,
+                            "_website": "la-nacion-ar",
+                            "migration": {
+                                "id_section_ln9": "347",
+                                "migrated_mob": "false"
+                            },
+                            "name": "Comercio Exterior",
+                            "_id": "/economia/comercio-exterior",
+                            "ancestors": {
+                                "Economy": ["/"],
+                                "Header-FirstNav": ["/", "/economia"]
+                            },
+                            "order": {
+                                "Economy": 1002,
+                                "Header-FirstNav": 2004
+                            }
+                        }
+                    },
+                    "type": "section",
+                    "version": "0.6.0"
+                },
+                "tags": []
+            },
+            "label": { "edicion": { "display": true, "text": "Impresa" } },
+            "type": "story",
+            "canonical_url": "/economia/comercio-exterior/perspectivas-y-desafios-del-comercio-exterior-para-el-2020-nid2304846/",
+            "distributor": {
+                "name": "lanacionar",
+                "category": "staff",
+                "subcategory": ""
+            },
+            "version": "0.10.4",
+            "canonical_website": "la-nacion-ar",
+            "revision": {
+                "published": true,
+                "revision_id": "AUDZDYJQBFHSHNJQP5LGSBMJB4"
+            },
+            "display_date": "2019-11-08T03:00:00Z",
+            "credits": {
+                "by": [
+                    {
+                        "image": { "version": "0.5.8", "url": "" },
+                        "socialLinks": [
+                            {
+                                "site": "email",
+                                "deprecated": true,
+                                "deprecation_msg": "Please use social_links.",
+                                "url": ""
+                            },
+                            {
+                                "site": "twitter",
+                                "deprecated": true,
+                                "deprecation_msg": "Please use social_links.",
+                                "url": ""
+                            }
+                        ],
+                        "social_links": [
+                            { "site": "email", "url": "" },
+                            { "site": "twitter", "url": "" }
+                        ],
+                        "name": "Ezequiel García Corado",
+                        "_id": "ezequiel-garcia-corado-1387",
+                        "additional_properties": {
+                            "original": {
+                                "image": "",
+                                "lastName": "García Corado",
+                                "education": [],
+                                "role": "PARA LA NACION",
+                                "longBio": "",
+                                "author_type": "Estándar",
+                                "firstName": "Ezequiel",
+                                "twitter": "",
+                                "books": [],
+                                "podcasts": [],
+                                "awards": [],
+                                "_id": "ezequiel-garcia-corado-1387",
+                                "bio_page": "/autor/ezequiel-garcia-corado-1387/",
+                                "last_updated_date": "2019-11-12T18:44:56.115Z",
+                                "byline": "Ezequiel García Corado",
+                                "email": "",
+                                "slug": "ezequiel-garcia-corado-1387",
+                                "status": true
+                            }
+                        },
+                        "type": "author",
+                        "version": "0.5.8",
+                        "slug": "ezequiel-garcia-corado-1387",
+                        "url": "/autor/ezequiel-garcia-corado-1387/"
+                    }
+                ]
+            },
+            "subtype": "3",
+            "headlines": {
+                "mobile": "Perspectivas y desafíos del comercio exterior para el 2020",
+                "basic": "Perspectivas y desafíos del comercio exterior para el 2020"
+            },
+            "websites": {
+                "la-nacion-ar": {
+                    "website_url": "/economia/comercio-exterior/perspectivas-y-desafios-del-comercio-exterior-para-el-2020-nid2304846/",
+                    "website_section": {
+                        "parent": { "default": "/economia" },
+                        "path": "/economia/comercio-exterior",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/economia",
+                        "name": "Comercio Exterior",
+                        "_id": "/economia/comercio-exterior",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": "/",
+                                    "Header-FirstNav": "/economia"
+                                },
+                                "inactive": false,
+                                "_website": "la-nacion-ar",
+                                "migration": {
+                                    "id_section_ln9": "347",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Comercio Exterior",
+                                "_id": "/economia/comercio-exterior",
+                                "ancestors": {
+                                    "Economy": ["/"],
+                                    "Header-FirstNav": ["/", "/economia"]
+                                },
+                                "order": {
+                                    "Economy": 1002,
+                                    "Header-FirstNav": 2004
+                                }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    }
+                }
+            },
+            "publish_date": "2019-11-08T03:00:00Z",
+            "_id": "BT7Z6WYKRJFFJGPZQYOT7HJEPE",
+            "additional_properties": { "backfill": true }
+        },
+        {
+            "subheadlines": {
+                "basic": "El directivo cree necesario adoptar una estrategia integral de competitividad"
+            },
+            "description": { "basic": "" },
+            "language": "",
+            "taxonomy": {
+                "primary_site": {
+                    "path": "/economia/comercio-exterior",
+                    "parent_id": "/economia",
+                    "name": "Comercio Exterior",
+                    "_id": "/economia/comercio-exterior",
+                    "additional_properties": {
+                        "original": {
+                            "parent": "/economia",
+                            "inactive": false,
+                            "node_type": "section",
+                            "migration": {
+                                "id_section_ln9": "347",
+                                "migrated_mob": "false"
+                            },
+                            "name": "Comercio Exterior",
+                            "_id": "/economia/comercio-exterior"
+                        }
+                    },
+                    "type": "site",
+                    "version": "0.5.8"
+                },
+                "sites": [
+                    {
+                        "path": "/economia",
+                        "parent_id": "/",
+                        "name": "Economía",
+                        "_id": "/economia",
+                        "additional_properties": {
+                            "original": {
+                                "parent": "/",
+                                "inactive": false,
+                                "acumuladoGeneral": {
+                                    "colecciones": [
+                                        "QJ3BOEZVQNEYZEVBXHF4C7KAWY",
+                                        "ATQPBRBSXFHUJDW74KTQBEQDWQ"
+                                    ],
+                                    "usa_datalayer": "false",
+                                    "hierarchy_navigation": "Economy",
+                                    "id_collection_promo_items": "",
+                                    "hidesectionslist": "false"
+                                },
+                                "migration": {
+                                    "id_section_ln9": "272",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Economía",
+                                "Termicas": { "banners": "false" },
+                                "style": { "headerdark": "false" },
+                                "_id": "/economia",
+                                "acumuladoColor": {
+                                    "background_color": "",
+                                    "id_logo_image": "QJFKLBWXHVGUFA3O65BIHPFILA",
+                                    "header_class_name": "false",
+                                    "navigation_color_tags": "",
+                                    "navigation_color": ""
+                                },
+                                "order": 1017
+                            }
+                        },
+                        "type": "site",
+                        "version": "0.5.8"
+                    },
+                    {
+                        "path": "/economia/comercio-exterior",
+                        "parent_id": "/economia",
+                        "name": "Comercio Exterior",
+                        "_id": "/economia/comercio-exterior",
+                        "additional_properties": {
+                            "original": {
+                                "parent": "/economia",
+                                "inactive": false,
+                                "node_type": "section",
+                                "migration": {
+                                    "id_section_ln9": "347",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Comercio Exterior",
+                                "_id": "/economia/comercio-exterior"
+                            }
+                        },
+                        "type": "site",
+                        "version": "0.5.8"
+                    }
+                ],
+                "sections": [
+                    {
+                        "parent": { "default": "/" },
+                        "path": "/economia",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/",
+                        "name": "Economía",
+                        "_id": "/economia",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/",
+                                    "Header-FirstNav": "/"
+                                },
+                                "inactive": false,
+                                "_website": "la-nacion-ar",
+                                "acumuladoGeneral": {
+                                    "colecciones": [
+                                        "QJ3BOEZVQNEYZEVBXHF4C7KAWY"
+                                    ],
+                                    "hierarchy_navigation": "Economy",
+                                    "id_collection_promo_items": "",
+                                    "hidesectionslist": "false"
+                                },
+                                "migration": {
+                                    "id_section_ln9": "272",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Economía",
+                                "Termicas": { "banners": "false" },
+                                "style": { "headerdark": "false" },
+                                "_id": "/economia",
+                                "acumuladoColor": {
+                                    "background_color": "",
+                                    "id_logo_image": "QJFKLBWXHVGUFA3O65BIHPFILA",
+                                    "header_class_name": "false",
+                                    "navigation_color_tags": "",
+                                    "navigation_color": ""
+                                },
+                                "ancestors": { "Header-FirstNav": ["/"] },
+                                "order": {
+                                    "default": 1017,
+                                    "Header-FirstNav": 1003
+                                }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    },
+                    {
+                        "parent": { "default": "/economia" },
+                        "path": "/economia/comercio-exterior",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/economia",
+                        "name": "Comercio Exterior",
+                        "_id": "/economia/comercio-exterior",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": "/",
+                                    "Header-FirstNav": "/economia"
+                                },
+                                "inactive": false,
+                                "_website": "la-nacion-ar",
+                                "migration": {
+                                    "id_section_ln9": "347",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Comercio Exterior",
+                                "_id": "/economia/comercio-exterior",
+                                "ancestors": {
+                                    "Economy": ["/"],
+                                    "Header-FirstNav": ["/", "/economia"]
+                                },
+                                "order": {
+                                    "Economy": 1002,
+                                    "Header-FirstNav": 2004
+                                }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    }
+                ],
+                "primary_section": {
+                    "parent": { "default": "/economia" },
+                    "path": "/economia/comercio-exterior",
+                    "_website": "la-nacion-ar",
+                    "parent_id": "/economia",
+                    "name": "Comercio Exterior",
+                    "_id": "/economia/comercio-exterior",
+                    "additional_properties": {
+                        "original": {
+                            "parent": {
+                                "default": "/economia",
+                                "Economy": "/",
+                                "Header-FirstNav": "/economia"
+                            },
+                            "inactive": false,
+                            "_website": "la-nacion-ar",
+                            "migration": {
+                                "id_section_ln9": "347",
+                                "migrated_mob": "false"
+                            },
+                            "name": "Comercio Exterior",
+                            "_id": "/economia/comercio-exterior",
+                            "ancestors": {
+                                "Economy": ["/"],
+                                "Header-FirstNav": ["/", "/economia"]
+                            },
+                            "order": {
+                                "Economy": 1002,
+                                "Header-FirstNav": 2004
+                            }
+                        }
+                    },
+                    "type": "section",
+                    "version": "0.6.0"
+                },
+                "tags": []
+            },
+            "label": {
+                "volanta": {
+                    "display": true,
+                    "text": "Enrique Mantilla, titular de la Cámara de Exportadores."
+                },
+                "edicion": { "display": true, "text": "Impresa", "url": "" }
+            },
+            "type": "story",
+            "canonical_url": "/economia/comercio-exterior/hay-que-anticiparse-a-los-hechos-nid217888/",
+            "promo_items": {
+                "basic": {
+                    "owner": { "id": "sandbox.lanacionar" },
+                    "copyright": "",
+                    "caption": "",
+                    "description": { "basic": "" },
+                    "language": "es-419",
+                    "source": {
+                        "system": "photo center",
+                        "edit_url": "https://sandbox.lanacionar.arcpublishing.com/photo/Z2NA3LRW7NEWJKG3IZ3XNKAIAA",
+                        "source_type": "other",
+                        "source_id": "2785537.jpg"
+                    },
+                    "type": "image",
+                    "distributor": {
+                        "mode": "custom",
+                        "name": "Archivo",
+                        "category": "other"
+                    },
+                    "version": "0.10.3",
+                    "url": "https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/Z2NA3LRW7NEWJKG3IZ3XNKAIAA.jpg",
+                    "licensable": false,
+                    "display_date": "2018-10-07T05:41:00Z",
+                    "alt_text": "",
+                    "credits": {
+                        "affiliation": [{ "name": "", "type": "author" }]
+                    },
+                    "subtitle": "",
+                    "width": 2000,
+                    "first_publish_date": "2018-10-07T05:41:00Z",
+                    "_id": "Z2NA3LRW7NEWJKG3IZ3XNKAIAA",
+                    "additional_properties": {
+                        "fullSizeResizeUrl": "/photo/resize/o9Aat8eglD5On9_QOwSRkT62hlU=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/Z2NA3LRW7NEWJKG3IZ3XNKAIAA.jpg",
+                        "iptc_source": "Archivo",
+                        "keywords": ["Comercio Exterior Fotos"],
+                        "proxyUrl": "/photo/resize/o9Aat8eglD5On9_QOwSRkT62hlU=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/Z2NA3LRW7NEWJKG3IZ3XNKAIAA.jpg",
+                        "originalUrl": "https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/Z2NA3LRW7NEWJKG3IZ3XNKAIAA.jpg",
+                        "published": true,
+                        "resizeUrl": "http://thumbor-prod-us-east-1.photo.aws.arc.pub/o9Aat8eglD5On9_QOwSRkT62hlU=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/Z2NA3LRW7NEWJKG3IZ3XNKAIAA.jpg",
+                        "thumbnailResizeUrl": "http://thumbor-prod-us-east-1.photo.aws.arc.pub/xW2ZCFd5_xdLl0NS3wKvoLhv3AM=/300x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/Z2NA3LRW7NEWJKG3IZ3XNKAIAA.jpg",
+                        "version": 0,
+                        "originalName": "2785537.jpg",
+                        "mime_type": "image/jpeg",
+                        "restricted": false,
+                        "galleries": []
+                    },
+                    "created_date": "2020-02-14T20:33:03Z",
+                    "last_updated_date": "2020-02-14T20:33:03Z",
+                    "publish_date": "2018-10-07T05:41:00Z",
+                    "height": 1333,
+                    "status": "published"
+                }
+            },
+            "distributor": {
+                "name": "lanacionar",
+                "category": "staff",
+                "subcategory": ""
+            },
+            "version": "0.10.4",
+            "canonical_website": "la-nacion-ar",
+            "revision": {
+                "published": true,
+                "revision_id": "2EIGG5DJKNBRJNMAYDXPLVRRNU"
+            },
+            "display_date": "1998-04-14T03:00:00Z",
+            "credits": { "by": [] },
+            "subtype": "1",
+            "headlines": {
+                "tablet": "",
+                "print": "",
+                "meta_title": "",
+                "native": "",
+                "web": "",
+                "mobile": "Enrique Mantilla: \"Hay que anticiparse a los hechos\"",
+                "basic": "Enrique Mantilla: “Hay que anticiparse a los hechos”"
+            },
+            "websites": {
+                "la-nacion-ar": {
+                    "website_url": "/economia/comercio-exterior/hay-que-anticiparse-a-los-hechos-nid217888/",
+                    "website_section": {
+                        "parent": { "default": "/economia" },
+                        "path": "/economia/comercio-exterior",
+                        "_website": "la-nacion-ar",
+                        "parent_id": "/economia",
+                        "name": "Comercio Exterior",
+                        "_id": "/economia/comercio-exterior",
+                        "additional_properties": {
+                            "original": {
+                                "parent": {
+                                    "default": "/economia",
+                                    "Economy": "/",
+                                    "Header-FirstNav": "/economia"
+                                },
+                                "inactive": false,
+                                "_website": "la-nacion-ar",
+                                "migration": {
+                                    "id_section_ln9": "347",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Comercio Exterior",
+                                "_id": "/economia/comercio-exterior",
+                                "ancestors": {
+                                    "Economy": ["/"],
+                                    "Header-FirstNav": ["/", "/economia"]
+                                },
+                                "order": {
+                                    "Economy": 1002,
+                                    "Header-FirstNav": 2004
+                                }
+                            }
+                        },
+                        "type": "section",
+                        "version": "0.6.0"
+                    }
+                }
+            },
+            "publish_date": "2020-02-14T21:25:07.682Z",
+            "_id": "35CUPKXOKZBJNLXNCPY75JNJH4",
+            "additional_properties": { "backfill": true }
+        }
+    ],
+    "content_aliases": [],
+    "dynamic_items": {
+        "type": "sections",
+        "ids": ["/economia/comercio-exterior"]
+    },
+    "owner": { "id": "sandbox.lanacionar" },
+    "revision": { "branch": "default", "published": true },
+    "publishing": {
+        "scheduled_operations": {
+            "publish_edition": [],
+            "unpublish_edition": []
+        }
+    },
+    "last_updated_date": "1970-01-01T00:00:00.000Z",
+    "created_date": "1970-01-01T00:00:00.000Z",
+    "website": "la-nacion-ar"
+}

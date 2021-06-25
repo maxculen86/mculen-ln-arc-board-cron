@@ -2,8 +2,10 @@
 /* eslint-disable no-bitwise */
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState, useEffect } from 'react';
+import Lazy from 'lazy-child';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
+import { LAZY_OFFSETTOP } from 'fusion:environment';
 import TePuedeInteresar from '../../../private/LN/nota/tePuedeInteresar';
 import findTermica from '../../../private/common/utils/findTermica';
 import config from '../../../../properties/sites/la-nacion-ar';
@@ -84,24 +86,31 @@ const tePuedeInteresar = props => {
 
     // Se valida que el sessionId existe, porque en el 1er render viene nulo
     // y llama a la api de liftIgniter 2 veces (la 1ra sin los datos necesarios)
-    if (!sessionId) return <></>;
+    // if (!sessionId) return <></>;
 
     return (
-        <TePuedeInteresar
-            userId={userId}
-            sessionId={sessionId}
-            cantidadNotas={cantidadNotas}
-            excludeItems={excludeItems}
-            outputType={outputType}
-            url={url}
-            idArticle={_id}
-            arcSite={arcSite}
-            dataLayerSection={
-                layout === layoutsName.Home
-                    ? 'h_sugerencias'
-                    : 'n_te_puede_interesar'
-            }
-        />
+        <Lazy
+            renderPlaceholder={ref => {
+                return <div ref={ref} />;
+            }}
+            offsetTop={LAZY_OFFSETTOP}
+        >
+            <TePuedeInteresar
+                userId={userId}
+                sessionId={sessionId}
+                cantidadNotas={cantidadNotas}
+                excludeItems={excludeItems}
+                outputType={outputType}
+                url={url}
+                idArticle={_id}
+                arcSite={arcSite}
+                dataLayerSection={
+                    layout === layoutsName.Home
+                        ? 'TePuedeInteresarHome'
+                        : 'TePuedeInteresar'
+                }
+            />
+        </Lazy>
     );
 };
 

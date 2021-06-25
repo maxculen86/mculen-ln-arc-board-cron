@@ -8,6 +8,7 @@ class CajaManual {
         this.props = props;
 
         const imageId = get(props, 'customFields.imageId', '');
+
         if (imageId) {
             this.fetchContent({
                 containerImage: {
@@ -28,8 +29,22 @@ class CajaManual {
             const { containerImage } = this.state || {};
             const { children, customFields } = this.props;
 
+            const layout = get(customFields, 'layout', null);
+            let storiesQuantity = 0;
+            if (layout) {
+                storiesQuantity = parseInt(
+                    layout.charAt(layout.length - 1),
+                    10
+                );
+
+                storiesQuantity = storiesQuantity || children.length;
+            }
+
             const sources = children.reduce((result, article) => {
-                if (article) {
+                if (
+                    article &&
+                    (storiesQuantity === 0 || result.length < storiesQuantity)
+                ) {
                     return result.concat(article);
                 }
                 return result;
@@ -40,7 +55,7 @@ class CajaManual {
             }
 
             return {
-                information: { ...customFields, containerImage },
+                information: { ...customFields, image: containerImage },
                 articles: sources
             };
         } catch (err) {

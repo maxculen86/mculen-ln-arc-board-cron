@@ -3,11 +3,12 @@
 @mixin font-face($name, $file, $weight) {
     @font-face {
         font-family: '#{$name}';
-        src: url('../../fonts/#{$file}.eot');
-        src: url('../../fonts/#{$file}.eot?#iefix') format('embedded-opentype'),
-            url('../../fonts/#{$file}.woff') format('woff'),
-            url('../../fonts/#{$file}.ttf') format('truetype'),
-            url('../../fonts/#{$file}.svg?#webfont') format('svg');
+        src: url('../../fonts/#{$file}.woff') format('woff');
+        // src: url('../../fonts/#{$file}.eot');
+        // src: url('../../fonts/#{$file}.eot?#iefix') format('embedded-opentype'),
+        //     url('../../fonts/#{$file}.woff') format('woff'),
+        //     url('../../fonts/#{$file}.ttf') format('truetype'),
+        //     url('../../fonts/#{$file}.svg?#webfont') format('svg');
         font-weight: $weight;
         font-display: swap;
         font-style: normal;
@@ -168,7 +169,7 @@
         margin-bottom: 0;
 
         @media (min-width: 769px) {
-            padding-bottom: px(16);
+            padding-bottom: $spacing-sm;
             text-align: center;
         }
 
@@ -229,7 +230,7 @@
     }
     .mod-figcaption {
         border-bottom: 1px solid $light-neutral-400;
-        margin-top: px(8);
+        margin-top: $spacing;
         .--credit,
         .--caption {
             margin-bottom: $spacing;
@@ -354,20 +355,20 @@ $guion: '-';
 
 //BACKGROUND RAYAS DIAGONALES
 @mixin BgDiagonal {
-    background: #fff -webkit-repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1), rgba(
-                    255,
-                    255,
-                    255,
-                    0.1
-                )
-                4px, rgba(0, 0, 0, 0.15) 6px);
-    background: #fff
-        repeating-linear-gradient(
-            45deg,
-            rgba(255, 255, 255, 0.1),
-            rgba(255, 255, 255, 0.1),
-            rgba(255, 255, 255, 0.1),
-            rgba(255, 255, 255, 0.1) 4px,
-            rgba(0, 0, 0, 0.15) 6px
-        );
+    background: -webkit-repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1) 4px,
+        rgba(0, 0, 0, 0.15) 6px
+    );
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1) 4px,
+        rgba(0, 0, 0, 0.15) 6px
+    );
 }

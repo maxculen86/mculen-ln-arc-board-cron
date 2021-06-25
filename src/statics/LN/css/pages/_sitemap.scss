@@ -14,12 +14,12 @@
     main {
         .lay {
             > .com-title {
-                margin-bottom: px(32);
+                margin-bottom: $spacing-lg;
                 justify-content: center;
             }
             .row {
                 .com-title {
-                    margin-bottom: px(16);
+                    margin-bottom: $spacing-sm;
                 }
             }
         }

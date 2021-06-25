@@ -43,6 +43,7 @@ describe('Private - Common - ModDescription', () => {
         authors: ['Mariano Grondona'],
         subheadText: 'Este es el subtitulo',
         subheadSize: '',
+        subheadTag: '',
         dateText: '2020-06-02T15:28:04.694Z',
         dateSize: '',
         marquesina: 'Por Carlos Pagni',

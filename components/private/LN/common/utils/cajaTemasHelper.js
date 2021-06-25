@@ -83,22 +83,55 @@ export const getMarkupForDatalayer = (
     position,
     sectionName
 ) => {
+    const extraOptsdefault = {
+        'data-diagramacion-id': '0',
+        'data-is-block': true
+    };
     const types = {
         Opinion: {
             extraOpts: {
                 'data-block-name': 'h_opinion',
-                'data-diagramacion-id': '0',
-                'data-is-block': true
+                ...extraOptsdefault
             }
         },
         Editoriales: {
             extraOpts: {
                 'data-block-name': 'h_editoriales',
-                'data-diagramacion-id': '0',
-                'data-is-block': true
+                ...extraOptsdefault
+            }
+        },
+        OtrasNoticias: {
+            extraOpts: {
+                'data-block-name': 'n_otras_noticias',
+                ...extraOptsdefault
+            }
+        },
+        UltimasNoticias: {
+            extraOpts: {
+                'data-block-name': 'n_ultimas_noticias',
+                ...extraOptsdefault
+            }
+        },
+        TePuedeInteresarHome: {
+            extraOpts: {
+                'data-block-name': 'h_sugerencias',
+                ...extraOptsdefault
+            }
+        },
+        TePuedeInteresar: {
+            extraOpts: {
+                'data-block-name': 'n_te_puede_interesar',
+                ...extraOptsdefault
+            }
+        },
+        Ranking: {
+            extraOpts: {
+                'data-block-name': 'n_ranking',
+                ...extraOptsdefault
             }
         },
         Default: (pos, section, lay) => {
+            if (!pos) return {};
             return {
                 extraOptsDiv: {
                     'data-module': `tema_${pos}`
@@ -114,7 +147,9 @@ export const getMarkupForDatalayer = (
     };
 
     const { extraOptsDiv = {}, extraOpts = {} } =
-        types[layoutType] || types.Default(position, sectionName, layout);
+        types[layoutType] ||
+        types[sectionName] ||
+        types.Default(position, sectionName, layout);
 
     return { extraOptsDiv, extraOpts };
 };
@@ -177,19 +212,29 @@ export const calculateSizeOfCollection = (collections, notesQuantity) => {
     return totalArticlesToAsk < 20 ? totalArticlesToAsk : 20;
 };
 
-export const getChildrenFromAperturaHome = renderables => {
-    const INDEX_SECTION_APERTURA_1 =
-        get(sectionsValidation, 'Apertura_1.position', 3) + 1;
-    const INDEX_SECTION_APERTURA_2 =
-        get(sectionsValidation, 'Apertura_2.position', 4) + 1;
+export const getChildrenFromSectionHome = (
+    renderables,
+    sectionName,
+    sectionPosition
+) => {
+    const INDEX_SECTION =
+        get(sectionsValidation, `${sectionName}.position`, sectionPosition) + 1;
 
-    const aperturasChildren = get(
+    return get(renderables, `[${INDEX_SECTION}].children`, []);
+};
+
+export const getChildrenFromAperturaHome = renderables => {
+    const aperturasChildren = getChildrenFromSectionHome(
         renderables,
-        `[${INDEX_SECTION_APERTURA_1}].children`,
-        []
-    ).concat(get(renderables, `[${INDEX_SECTION_APERTURA_2}].children`, []));
+        'Apertura_1',
+        3
+    ).concat(getChildrenFromSectionHome(renderables, 'Apertura_2', 4));
 
     return aperturasChildren;
+};
+
+export const getChildrenFromBombaHome = renderables => {
+    return getChildrenFromSectionHome(renderables, 'Bomba', 2);
 };
 
 export const isInApertura = (tree = {}, idFeature) => {

@@ -35,7 +35,7 @@
     .mod-wikiauthor & {
         &:not(.icon-bullet-xs) {
             color: $negro;
-            margin-right: px(8);
+            margin-right: $spacing;
         }
     }
     .mod-tooltip & {

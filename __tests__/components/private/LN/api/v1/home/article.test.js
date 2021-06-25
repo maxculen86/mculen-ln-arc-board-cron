@@ -3,6 +3,8 @@ import colecction from '../../../../../../../__mocks__/data/collection/OCTOV4V54
 import article1 from '../../../../../../../__mocks__/data/articles/2KOBND62KNFVVBFQZOADNN6WNY.json';
 import article2 from '../../../../../../../__mocks__/data/articles/3SHTRO3NKBCN7L3JITCDQYSJLM.json';
 import article3 from '../../../../../../../__mocks__/data/articles/3THDAILWTVHARHBYA5AEVL7OAU.json';
+import article4 from '../../../../../../../__mocks__/data/articles/CTTZRKCCPBE6LNUCEK4TT46DFU.json';
+
 import get from '../../../../../../../components/private/common/utils/get';
 describe('components - private - LN - api - v1 - home - article.js', () => {
     let articlesfromCajaManual = [];
@@ -24,7 +26,7 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
         expect(notas[0].url).toBe(
             '/deportes/prueba-ios-y-android-cuerpo-nid12052020/'
         );
-        expect(notas[0].titulo).toBe('Prueba iOS y Android cuerpo');
+        expect(notas[0].titulo).toBe('Prueba Mobile');
         expect(notas[0].volanta).toBe('Esto es una volanta.');
         expect(notas[0].bajada).toBe(
             'Esto es una bajada. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod...'
@@ -60,6 +62,13 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
 
         const notas = Article(articlesfromCajaManual, configurations);
         expect(notas.length).toBe(0);
+    });
+
+    it('Testeo articulo sin Autor', () => {
+        articlesfromCajaManual = [];
+        articlesfromCajaManual.push(article4);
+        const notas = Article(articlesfromCajaManual, configurations);
+        expect(notas[0].autor).toBeNull();
     });
 
     it('Testeo articulo Caja Collection Ok', () => {
