@@ -174,16 +174,15 @@ const Cuerpo = props => {
                 );
                 return (
                     <React.Fragment>
-                        {(() => {
-                            if (Component.isStatic) {
-                                return (
-                                    <Static id={currentIndex} htmlOnly>
-                                        {_Comp}
-                                    </Static>
-                                );
-                            }
-                            return _Comp;
-                        })()}
+                        {(Component.isStatic && (
+                            <Static
+                                id={`content_element_${currentIndex}`}
+                                htmlOnly
+                            >
+                                {_Comp}
+                            </Static>
+                        )) ||
+                            _Comp}
                         {banners &&
                             banners.some(
                                 banner => banner.position === counter
