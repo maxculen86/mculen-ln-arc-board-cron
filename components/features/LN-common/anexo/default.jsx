@@ -2,7 +2,8 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import Consumer from 'fusion:context';
+import { useAppContext } from 'fusion:context';
+import Static from 'fusion:static';
 // Utils
 import getSectionName from '../../../private/LN/common/utils/getSectionName';
 import { isInSection, getErrorMessage, getComponentType } from './anexoHelper';
@@ -27,32 +28,42 @@ const getComponentFromConfig = (_type, _props) => {
                 }}
             />
         ),
-        Iframe: ({ id, customFields: { url, height }, extraClass }) => (
-            <div
-                className={`com-anexo ${extraClass}`}
-                style={{ height, overflow: 'hidden' }}
-            >
-                <iframe
-                    id={`anexo-${id}`}
-                    title={`anexo-${id}`}
-                    src={url}
-                    frameBorder="0"
-                    width="100%"
-                    height="100%"
-                />
-            </div>
-        )
+        Iframe: ({ id, customFields: { url } }) => {
+            const anexoId = `anexo-${id}`;
+            return (
+                <>
+                    <iframe
+                        id={anexoId}
+                        title={`anexo-${id}`}
+                        data-src={url}
+                        frameBorder="0"
+                        width="100%"
+                        height="100%"
+                    />
+                    <script
+                        dangerouslySetInnerHTML={{
+                            __html: `
+                            window.addEventListener('DOMContentLoaded', (event) => {
+                                const iframeAnexo = document.getElementById('${anexoId}')
+                                iframeAnexo.src= iframeAnexo.dataset.src
+                            });
+                `
+                        }}
+                    />
+                </>
+            );
+        }
     };
     return (components[_type] && components[_type](_props)) || <></>;
 };
 
 const AnexoFeature = props => {
+    const { id, customFields } = props;
     const {
-        id,
         renderables = [],
-        globalContent: { node_type: nodeType, type } = {},
-        customFields
-    } = props;
+        globalContent: { node_type: nodeType, type } = {}
+    } = useAppContext();
+    const { height } = customFields;
     // Al estar en la sección 'Anexo_1' del layout necesita tener la clase '--anexo-1'.
     const EXTRA_CLASS =
         (isInSection({ sectionName: 'Anexo1', id, renderables }) &&
@@ -64,13 +75,25 @@ const AnexoFeature = props => {
         sectionName: getSectionName({ nodeType, type })
     });
 
-    return getComponentFromConfig(
-        getComponentType({ ...props, errorMessage }),
-        {
+    const _type = getComponentType({ ...props, errorMessage });
+    const comp = () =>
+        getComponentFromConfig(_type, {
             ...props,
             errorMessage,
             extraClass: EXTRA_CLASS
-        }
+        });
+
+    return _type === 'Iframe' ? (
+        <div
+            className={`com-anexo ${EXTRA_CLASS}`}
+            style={{ height, overflow: 'hidden' }}
+        >
+            <Static id={id} htmlOnly>
+                {comp()}
+            </Static>
+        </div>
+    ) : (
+        comp()
     );
 };
 
@@ -124,4 +147,4 @@ AnexoFeature.defaultProps = {
     }
 };
 
-export default Consumer(AnexoFeature);
+export default AnexoFeature;
