@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import Image from './imageBase';
 import ComFigure from '../../../common/com-figure';
 import ModMedia from '../../../common/mod-media';
