@@ -1,8 +1,9 @@
-import React, { forwardRef } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import Ads from '../../../ads';
 
-const Index = forwardRef((props, ref) => {
+const Index = props => {
+    const ref = useRef();
     const {
         slotId: id,
         slotName,
@@ -22,7 +23,6 @@ const Index = forwardRef((props, ref) => {
         slotGroup,
         withoutHide
     } = props;
-    const onClose = () => ref.current.remove();
 
     return Object.values(show).some(element => element === false) ? (
         <></>
@@ -47,7 +47,7 @@ const Index = forwardRef((props, ref) => {
                     type="button"
                     aria-label="Close"
                     className="icon-close"
-                    onClick={onClose}
+                    onClick={() => ref.current.remove()}
                 />
             )}
             <Ads
@@ -65,7 +65,7 @@ const Index = forwardRef((props, ref) => {
             />
         </div>
     );
-});
+};
 
 Index.propTypes = {
     slotId: PropTypes.string.isRequired,
