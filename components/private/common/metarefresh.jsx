@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
-import { SITE_LANACION } from 'fusion:environment';
 import get from './utils/get';
 import withScreenUtils from './hocs/withScreenUtils';
 import withLoginData from '../LN/common/hocs/withLoginData';
@@ -73,9 +72,15 @@ const Component = props => {
         setTimeout(() => {
             (!cookieProductoPremium || template === 'home') &&
                 localStorage.setItem('CDmetaRefresh', true);
-            template === 'home'
-                ? (window.location.href = SITE_LANACION)
-                : window.location.reload();
+            if (template === 'home') {
+                const currentLocation = window.location.href;
+                sessionStorage.setItem('hp', 0);
+                sessionStorage.setItem('lb', 'apertura1');
+                window.location.href = currentLocation;
+                window.addEventListener('scroll', () => scrollTo(0, 0));
+            } else {
+                window.location.reload();
+            }
         }, interval);
     }, [
         contentElements,
@@ -89,7 +94,7 @@ const Component = props => {
         template
     ]);
 
-    return <></>;
+    return <> </>;
 };
 
 Component.propTypes = {
