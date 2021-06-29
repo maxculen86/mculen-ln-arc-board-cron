@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
+import { SITE_LANACION } from 'fusion:environment';
 import get from './utils/get';
 import withScreenUtils from './hocs/withScreenUtils';
 import withLoginData from '../LN/common/hocs/withLoginData';
@@ -73,11 +74,10 @@ const Component = props => {
             (!cookieProductoPremium || template === 'home') &&
                 localStorage.setItem('CDmetaRefresh', true);
             if (template === 'home') {
-                const currentLocation = window.location.href;
+                window.scrollTo(0, 0);
                 sessionStorage.setItem('hp', 0);
                 sessionStorage.setItem('lb', 'apertura1');
-                window.location.href = currentLocation;
-                window.addEventListener('scroll', () => scrollTo(0, 0));
+                window.location.href = SITE_LANACION;
             } else {
                 window.location.reload();
             }
