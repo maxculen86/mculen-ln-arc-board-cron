@@ -14,7 +14,7 @@
 
     width: calc(100% + 2rem);
     margin-left: px(-16);
-    margin-bottom: px(32);
+    margin-bottom: $spacing-lg;
 
     .container {
         @include flex(flex, row, center, center);
@@ -45,7 +45,7 @@
     //     //display: flex;
     //     //border: none;
     //     //padding: 0;
-    //     //margin-bottom: px(32);
+    //     //margin-bottom: $spacing-lg;
     //     // background: $neutral-white;
     //     // padding: px(32) 0;
     //     // margin: px(-32) 0 0 0;

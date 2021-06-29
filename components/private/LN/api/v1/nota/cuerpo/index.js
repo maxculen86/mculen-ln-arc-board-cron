@@ -9,6 +9,7 @@ const cuerpoIndex = dataNota => {
         '1': DefaultCuerpo,
         '2': DefaultCuerpo,
         '4': DefaultCuerpo,
+        '6': DefaultCuerpo,
         '7': RecetaCuerpo,
         '8': fotoAlCienCuerpo,
         '9': htmlCuerpo,

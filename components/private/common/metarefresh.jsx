@@ -73,9 +73,14 @@ const Component = props => {
         setTimeout(() => {
             (!cookieProductoPremium || template === 'home') &&
                 localStorage.setItem('CDmetaRefresh', true);
-            template === 'home'
-                ? (window.location.href = SITE_LANACION)
-                : window.location.reload();
+            if (template === 'home') {
+                window.scrollTo(0, 0);
+                sessionStorage.setItem('hp', 0);
+                sessionStorage.setItem('lb', 'apertura1');
+                window.location.href = SITE_LANACION;
+            } else {
+                window.location.reload();
+            }
         }, interval);
     }, [
         contentElements,
