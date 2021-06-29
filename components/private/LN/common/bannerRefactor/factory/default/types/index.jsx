@@ -1,9 +1,8 @@
-import React, { useRef } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import Ads from '../../../ads';
 
-const Index = props => {
-    const ref = useRef();
+const Index = forwardRef((props, ref) => {
     const {
         slotId: id,
         slotName,
@@ -65,7 +64,7 @@ const Index = props => {
             />
         </div>
     );
-};
+});
 
 Index.propTypes = {
     slotId: PropTypes.string.isRequired,
@@ -115,89 +114,3 @@ Index.defaultProps = {
 };
 
 export default Index;
-
-/* useEffect(() => {
-        if (!instanced && !bannersLoaded.includes(`/${dfpId}/${slotName}`)) {
-            bannersLoaded.push(`/${dfpId}/${slotName}`);
-
-            window.googletag = window.googletag || { cmd: [] };
-
-            googletag.cmd.push(() => {
-                console.log(
-                        '🚀 ~ Banner ',
-                        `/${dfpId}/${slotName}`,
-                        prebidEnabled
-                    );
-                const _adUnit = googletag.defineSlot(
-                    `/${dfpId}/${slotName}`,
-                    flatArray(dimensions),
-                    id
-                );
-
-                Object.keys(targeting || {}).forEach(key => {
-                    _adUnit.setTargeting(key, targeting[key]);
-                });
-
-                const tagsNuevos = Array.isArray(
-                    googletag.pubads().getTargeting('tags_nuevos')
-                )
-                    ? googletag.pubads().getTargeting('tags_nuevos')
-                    : [];
-
-                tagsNuevos.forEach(key => {
-                    _adUnit.setTargeting(key, tagsNuevos[key]);
-                });
-
-                _adUnit.setTargeting('adstest', hasAdsTestParam());
-
-                _adUnit.addService(googletag.pubads());
-
-                setAdUnit(() => _adUnit);
-                arrayAdUnit[id] = _adUnit;
-
-                if (prebidEnabled) {
-                     console.log(
-                        '🚀 ~ file: Index.jsx ~ line 77 ~ With Prebid ',
-                        `/${dfpId}/${slotName}`,
-                        prebidEnabled
-                    );
-
-                    const callAdserver = gptSlots => {
-                        if (pbjs.adserverCalled) return;
-                        pbjs.adserverCalled = true;
-                        console.log(
-                            '🚀 ~ Prebid Called ::: ',
-                            gptSlots[0].getSlotId().getName(),
-                            gptSlots.length
-                        );
-
-                        googletag.pubads().refresh(gptSlots, changeCorrelator);
-                    };
-
-                    // request pbjs bids when it loads
-                    pbjs.que.push(() => {
-                        pbjs.rp.requestBids({
-                            callback: callAdserver,
-                            gptSlotObjects: [_adUnit]
-                        });
-                    });
-
-                    // failsafe in case PBJS doesn't load
-                    setTimeout(() => {
-                        callAdserver([_adUnit]);
-                    }, 2500);
-                }
-            });
-
-            setInstanced(() => true);
-        }
-    }, [
-        changeCorrelator,
-        dfpId,
-        dimensions,
-        id,
-        instanced,
-        prebidEnabled,
-        slotName,
-        targeting
-    ]); */
