@@ -8,12 +8,12 @@
     font-size: px(16);
     line-height: px(24);
     border-bottom: 1px solid #e4e4e4;
-    //padding-bottom: px(8);
+    //padding-bottom: $spacing;
     min-height: px(33);
     //100% mobile
     @include fullwidth;
-    //padding-left: px(16);
-    //padding-right: px(16);
+    //padding-left: $spacing-sm;
+    //padding-right: $spacing-sm;
     padding: 0 px(16) px(8);
 
     @media ($media-l) {
