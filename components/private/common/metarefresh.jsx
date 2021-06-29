@@ -94,7 +94,7 @@ const Component = props => {
         template
     ]);
 
-    return <> </>;
+    return <></>;
 };
 
 Component.propTypes = {
