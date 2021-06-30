@@ -111,7 +111,7 @@ const Cuerpo = props => {
     const capitalIndex = contentElements.findIndex(v => v.type === 'text');
 
     let counter = 0;
-    const output = contentElements.map((element, currentIndex) => {
+    return contentElements.map((element, currentIndex) => {
         const hasOptaElements =
             element.content && element.content.includes('opta-widget');
         const Component = bodyComponents.find(bc => {
@@ -270,7 +270,6 @@ const Cuerpo = props => {
 
         return <></>;
     });
-    return output;
 };
 
 Cuerpo.propTypes = {

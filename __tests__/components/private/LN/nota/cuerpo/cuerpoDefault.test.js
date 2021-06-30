@@ -1,5 +1,6 @@
 import Consumer from 'fusion:consumer';
 import Context from 'fusion:context';
+import Static from 'fusion:static';
 
 import React from 'react';
 import { mount, shallow } from 'enzyme';

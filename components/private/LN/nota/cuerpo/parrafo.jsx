@@ -93,4 +93,8 @@ Parrafo.propTypes = {
     capital: PropTypes.bool
 };
 
+Parrafo.defaultProps = {
+    capital: false
+};
+
 export default Parrafo;
