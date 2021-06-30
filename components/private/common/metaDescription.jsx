@@ -63,7 +63,8 @@ const MetaDescription = ({
                         description,
                         firstParagraphContentElements,
                         metaTitleBasic,
-                        subheadlines
+                        subheadlines,
+                        subtype
                     )} - LA NACION`) ||
                 defaultDescription
             }

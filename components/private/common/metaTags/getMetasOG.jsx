@@ -2,6 +2,7 @@ import { ARC_STATIC } from 'fusion:environment';
 import getDomain from '../utils/getDomain';
 import addRelatedImage from '../../LN/common/utils/addRelatedImage';
 import addForwardSlash from '../../LN/common/utils/addForwardSlash';
+import { RECETA } from '../utils/subtypes/subtypeHelper';
 
 const getAppId = siteProperties =>
     siteProperties &&
@@ -68,7 +69,8 @@ const getData = ({
         promo_items: promoItems = {},
         canonical_url: canonicalUrl,
         _id,
-        publish_date: publishDate
+        publish_date: publishDate,
+        subtype
     } = addRelatedImage(globalContent) || {};
 
     const { basic: headlinesBasic } = headlines;
@@ -99,8 +101,28 @@ const getData = ({
         fbAppId: getAppId(siteProperties) || '',
         isArticle,
         ...(isArticle && { publishDate }),
-        ...(isArticle && { tier: 'metered' })
+        ...(isArticle && { tier: 'metered' }),
+        subtype
     };
+};
+const setMetaDescription = (data, section) => {
+    if (section === 'nota') {
+        return data.subtype === RECETA
+            ? `${
+                  data.description.split('.', 1)[0]
+              }. Encontrá acá la receta de ${data.title} - LA NACION`
+            : `${data.description} - LA NACION`;
+    }
+    return data.description;
+};
+
+const setTitle = (data, section) => {
+    if (section === 'nota') {
+        return data.subtype === RECETA
+            ? `Receta de ${data.title} - LA NACION`
+            : `${data.title} - LA NACION`;
+    }
+    return data.title;
 };
 
 const getMetasOG = props => {
@@ -117,11 +139,11 @@ const getMetasOG = props => {
         },
         {
             property: 'og:title',
-            content: data.title
+            content: setTitle(data, section)
         },
         {
             property: 'og:description',
-            content: data.description
+            content: setMetaDescription(data, section)
         },
         {
             property: 'og:image',
@@ -132,14 +154,12 @@ const getMetasOG = props => {
             content: addForwardSlash(data.url)
         }
     ];
-
     if (data.isArticle) {
         metas.push({
             property: 'article:published_time',
             content: data.publishDate
         });
     }
-
     if (['home', 'nota', 'acumulado'].includes(section)) {
         metas.push({
             property: 'og:site_name',
