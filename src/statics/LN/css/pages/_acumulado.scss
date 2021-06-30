@@ -61,16 +61,16 @@
                 }
             }
         }
-        .row {
-            > .mod-banner {
-                margin-bottom: $spacing-lg;
-            }
-        }
-        .mod-banner {
+        // .row {
+        //     > .mod-banner:not(.--fixed) {
+        //         margin-bottom: $spacing-lg;
+        //     }
+        // }
+        .mod-banner:not(.--fixed) {
             margin-bottom: $spacing-lg;
-            &.--adhesion_dsk {
-                margin-bottom: 0;
-            }
+            // &.--fixed { //equivale a todos los adhesion
+            //     margin-bottom: 0;
+            // }
         }
     }
     .sidebar__main > .row {

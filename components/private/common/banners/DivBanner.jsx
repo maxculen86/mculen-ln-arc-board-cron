@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+import Static from 'fusion:static';
 import { getSubscription } from '../../LN/common/utils/homeHelper';
 
 const DivBanner = props => {
@@ -10,14 +11,26 @@ const DivBanner = props => {
         closeButton,
         fixed,
         validateSuscription = false,
-        withoutHide
+        withoutHide,
+        isStatic
     } = props;
     const subscription = validateSuscription ? getSubscription() : false;
     const ref = useRef();
 
-    if (!shouldRender || (validateSuscription && subscription)) return <></>;
+    if (!isStatic && (!shouldRender || (validateSuscription && subscription)))
+        return <></>;
 
-    return (
+    return isStatic ? (
+        <Static id={id} htmlOnly>
+            <div
+                className={`mod-banner ${classes}  ${
+                    fixed ? '--fixed' : ''
+                } --${id} ${withoutHide ? '' : 'hlp-none'}`}
+            >
+                <div id={id} className={`com-banner ${classes || ''}`} />
+            </div>
+        </Static>
+    ) : (
         <div
             className={`mod-banner ${classes} ${
                 closeButton ? '--close' : ' '
@@ -43,7 +56,6 @@ const DivBanner = props => {
 DivBanner.propTypes = {
     id: PropTypes.string.isRequired,
     classes: PropTypes.string,
-    shouldRender: PropTypes.bool,
     closeButton: PropTypes.bool,
     fixed: PropTypes.bool,
     validateSuscription: PropTypes.bool,
@@ -52,7 +64,6 @@ DivBanner.propTypes = {
 
 DivBanner.defaultProps = {
     classes: '',
-    shouldRender: true,
     closeButton: false,
     fixed: false,
     validateSuscription: false,

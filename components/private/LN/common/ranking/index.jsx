@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 
 import withRankingData from '../hocs/WithRankingData';
 import '../../../../../resources/dist/css/ln/components/ranking.css';
