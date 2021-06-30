@@ -37,6 +37,18 @@ import ScriptSWG from '../private/common/scriptManager/scriptSWG';
 
 const scriptList = [
     {
+        component: { name: 'Datadog', function: Datadog },
+        feature: 'none'
+    },
+    {
+        component: { name: 'ScriptVideoPowa', function: ScriptVideoPowa },
+        feature: 'none'
+    },
+    { component: { name: 'GTM', function: GTM }, feature: 'none' },
+    { component: { name: 'Comscore', function: Comscore }, feature: 'none' },
+    { component: { name: 'Microdata', function: Microdata }, feature: 'none' },
+    { component: { name: 'Pwa', function: Pwa }, feature: 'none' },
+    {
         component: { name: 'PostBid', function: PostBid },
         feature: 'none'
     },
@@ -51,18 +63,6 @@ const scriptList = [
         },
         feature: 'none'
     },
-    { component: { name: 'GTM', function: GTM }, feature: 'none' },
-    { component: { name: 'Comscore', function: Comscore }, feature: 'none' },
-    {
-        component: { name: 'Datadog', function: Datadog },
-        feature: 'none'
-    },
-    {
-        component: { name: 'ScriptVideoPowa', function: ScriptVideoPowa },
-        feature: 'none'
-    },
-    { component: { name: 'Microdata', function: Microdata }, feature: 'none' },
-    { component: { name: 'Pwa', function: Pwa }, feature: 'none' },
     {
         component: { name: 'LiftIgniter', function: LiftIgniter },
         feature: ['LN-nota/tePuedeInteresar']
@@ -204,8 +204,8 @@ const Default = props => {
                     href="https://sb.scorecardresearch.com/"
                 />
                 <link
-                    rel="preconnect"
                     href="https://www.google-analytics.com"
+                    rel="preconnect"
                 />
                 <link rel="dns-prefetch" href="https://static.hotjar.com/" />
                 <link rel="dns-prefetch" href="https://c.go-mpulse.net/" />
@@ -215,6 +215,7 @@ const Default = props => {
                 <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
                 <link rel="dns-prefetch" href="//resizer.glanacion.com/" />
                 <link rel="preconnect" href="https://resizer.glanacion.com/" />
+                <link rel="dns-prefetch" href="//ingresar.lanacion.com.ar" />
                 <link rel="dns-prefetch" href="//cdn.livefyre.com" />
                 <link rel="dns-prefetch" href="//ingresar.lanacion.com.ar" />
                 <link
@@ -223,10 +224,7 @@ const Default = props => {
                 />
                 <link rel="dns-prefetch" href="//api-paywall.lanacion.com.ar" />
                 <link rel="preconnect" href="//api-paywall.lanacion.com.ar" />
-                <link
-                    rel="dns-prefetch"
-                    href="//api-contenidos.lanacion.com.ar"
-                />
+
                 <link
                     rel="dns-prefetch"
                     href="https://stats.g.doubleclick.net/"
@@ -239,15 +237,23 @@ const Default = props => {
                     rel="preconnect"
                     href="https://especialess3.lanacion.com.ar/"
                 />
+                {/*
+                    TODO: Evitar desacomplamiento de componentes:
+                    DataLayerIndex
+                    SnippetIndex
+                    MetaectionParsely
+                    en relación
+                    ScriptsManager
+                 */}
+                <DataLayerIndex {...props} />
+                <SnippetIndex {...props} />
+                <MetaSectionParsely taxonomy={taxonomy} arcSite={arcSite} />
                 <Scripts location="head" {...props} />
                 <ScriptLoadingList
                     section={_nodeType}
                     location="head"
                     arcSite={arcSite}
                 />
-                <DataLayerIndex {...props} />
-                <SnippetIndex {...props} />
-                <MetaSectionParsely taxonomy={taxonomy} arcSite={arcSite} />
                 <MetasOG {...props} section={_nodeType} title={title} />
                 {canonicalUrl && (
                     <link
