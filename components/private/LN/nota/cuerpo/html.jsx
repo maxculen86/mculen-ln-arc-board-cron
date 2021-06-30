@@ -36,9 +36,9 @@ Html.propTypes = {
     data: PropTypes.shape({
         _id: PropTypes.string,
         content: PropTypes.string
-    }).isRequired
+    })
 };
-Html.defaultPros = {
+Html.defaultProps = {
     data: {
         _id: '',
         content: ''

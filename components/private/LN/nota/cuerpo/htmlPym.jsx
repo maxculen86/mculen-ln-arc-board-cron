@@ -136,9 +136,9 @@ HtmlPym.propTypes = {
     data: PropTypes.shape({
         _id: PropTypes.string,
         content: PropTypes.string
-    }).isRequired
+    })
 };
-HtmlPym.defaultPros = {
+HtmlPym.defaultProps = {
     data: {
         _id: '',
         content: ''
