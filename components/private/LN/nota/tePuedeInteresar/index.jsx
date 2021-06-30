@@ -2,8 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import ArticleMain from '../../common/articleTypes/articleMain';
-import HeaderSection from '../../../common/mod-headerSection';
+import CajaTema from '../../common/cajaTema';
 
 /**
  * Este componente se mantiene en clase debido a que se necesita hacer uso
@@ -145,25 +144,15 @@ class Index extends Component {
 
         return articles && articles.length > 0 ? (
             <div className="row interest" ref={this.myRef}>
-                <HeaderSection title="Te puede interesar" />
-                <section
-                    className="row-gap-tablet-3 row-gap-desksm-3"
-                    data-is-block="true"
-                    data-block-name={dataLayerSection}
-                    data-diagramacion-id="0"
-                >
-                    {articles.map((article, index) => {
-                        return (
-                            <ArticleMain
-                                articleData={article}
-                                key={article._id}
-                                outputType={outputType}
-                                position={index + 1}
-                                handleClick={this.handleClick}
-                            />
-                        );
-                    })}
-                </section>
+                <CajaTema
+                    title="Te puede interesar"
+                    sectionName={dataLayerSection}
+                    articles={articles}
+                    position="toi"
+                    outputType={outputType}
+                    handleClick={this.handleClick}
+                    withVolanta={false}
+                />
             </div>
         ) : (
             <></>

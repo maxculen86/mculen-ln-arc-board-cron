@@ -83,22 +83,55 @@ export const getMarkupForDatalayer = (
     position,
     sectionName
 ) => {
+    const extraOptsdefault = {
+        'data-diagramacion-id': '0',
+        'data-is-block': true
+    };
     const types = {
         Opinion: {
             extraOpts: {
                 'data-block-name': 'h_opinion',
-                'data-diagramacion-id': '0',
-                'data-is-block': true
+                ...extraOptsdefault
             }
         },
         Editoriales: {
             extraOpts: {
                 'data-block-name': 'h_editoriales',
-                'data-diagramacion-id': '0',
-                'data-is-block': true
+                ...extraOptsdefault
+            }
+        },
+        OtrasNoticias: {
+            extraOpts: {
+                'data-block-name': 'n_otras_noticias',
+                ...extraOptsdefault
+            }
+        },
+        UltimasNoticias: {
+            extraOpts: {
+                'data-block-name': 'n_ultimas_noticias',
+                ...extraOptsdefault
+            }
+        },
+        TePuedeInteresarHome: {
+            extraOpts: {
+                'data-block-name': 'h_sugerencias',
+                ...extraOptsdefault
+            }
+        },
+        TePuedeInteresar: {
+            extraOpts: {
+                'data-block-name': 'n_te_puede_interesar',
+                ...extraOptsdefault
+            }
+        },
+        Ranking: {
+            extraOpts: {
+                'data-block-name': 'n_ranking',
+                ...extraOptsdefault
             }
         },
         Default: (pos, section, lay) => {
+            if (!pos) return {};
             return {
                 extraOptsDiv: {
                     'data-module': `tema_${pos}`
@@ -114,7 +147,9 @@ export const getMarkupForDatalayer = (
     };
 
     const { extraOptsDiv = {}, extraOpts = {} } =
-        types[layoutType] || types.Default(position, sectionName, layout);
+        types[layoutType] ||
+        types[sectionName] ||
+        types.Default(position, sectionName, layout);
 
     return { extraOptsDiv, extraOpts };
 };

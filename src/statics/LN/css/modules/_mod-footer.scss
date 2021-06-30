@@ -11,9 +11,9 @@
     }
 
     .top {
-        margin-bottom: px(16);
+        margin-bottom: $spacing-sm;
         @media ($media-l) {
-            padding-bottom: px(16);
+            padding-bottom: $spacing-sm;
             border-bottom: 1px solid $light-neutral-400;
         }
 
@@ -24,10 +24,10 @@
         .--left {
             order: 2;
             text-align: center;
-            margin-bottom: px(32);
+            margin-bottom: $spacing-lg;
 
             .com-link {
-                margin-right: px(32);
+                margin-right: $spacing-lg;
                 color: $light-neutral-800;
                 &:last-child {
                     margin-right: 0;
@@ -43,9 +43,9 @@
         .--center {
             text-align: center;
             order: 1;
-            padding-bottom: px(32);
+            padding-bottom: $spacing-lg;
             border-bottom: 1px solid #ccc;
-            margin-bottom: px(32);
+            margin-bottom: $spacing-lg;
             @media ($media-l) {
                 order: 2;
                 padding-bottom: 0;
@@ -57,10 +57,10 @@
         .--right {
             order: 3;
             text-align: center;
-            margin-bottom: px(16);
+            margin-bottom: $spacing-sm;
 
             .com-link {
-                margin-right: px(32);
+                margin-right: $spacing-lg;
                 display: inline-block;
                 .com-image {
                     border-radius: px(4);
@@ -83,13 +83,13 @@
 
         @media ($media-l) {
             display: block;
-            margin-bottom: px(16);
-            padding-top: px(8);
-            padding-bottom: px(8);
+            margin-bottom: $spacing-sm;
+            padding-top: $spacing;
+            padding-bottom: $spacing;
             border-bottom: 1px solid $light-neutral-400;
 
             .mod-list:not(:first-child) {
-                margin-right: px(16);
+                margin-right: $spacing-sm;
                 li:first-child {
                     font-weight: 100;
                 }
@@ -102,7 +102,7 @@
 
     .bottom {
         .row {
-            margin-bottom: px(16);
+            margin-bottom: $spacing-sm;
 
             .--left {
                 text-align: center;
@@ -116,7 +116,7 @@
                 display: flex;
                 align-items: end;
                 justify-content: center;
-                margin-bottom: px(32);
+                margin-bottom: $spacing-lg;
 
                 span {
                     margin: 0 px(16);
@@ -154,6 +154,6 @@
     }
 
     @media ($media-l) {
-        padding-bottom: px(16);
+        padding-bottom: $spacing-sm;
     }
 }
