@@ -5,6 +5,7 @@
 import React from 'react';
 import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
+import Static from 'fusion:static';
 import get from 'lodash.get';
 
 import Firma from '../../private/LN/nota/firma';
@@ -94,6 +95,7 @@ const getPropsBuilder = position => authors =>
 
 const FirmaFeature = props => {
     const {
+        id: featureId,
         outputType,
         customFields: { position },
         globalContent: {
@@ -114,10 +116,15 @@ const FirmaFeature = props => {
 
     const amp = outputType === 'amp';
 
-    return <Firma {...data} amp={amp} />;
+    return (
+        <Static id={featureId}>
+            <Firma {...data} amp={amp} />
+        </Static>
+    );
 };
 
 FirmaFeature.propTypes = {
+    id: PropTypes.string,
     outputType: PropTypes.string.isRequired,
     customFields: PropTypes.shape({
         position: PropTypes.oneOf([place.Top, place.Bottom]).tag({
