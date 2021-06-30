@@ -137,16 +137,17 @@ media.propTypes = {
     itsGallery: PropTypes.bool.isRequired,
     active: PropTypes.bool.isRequired,
     handleClick: PropTypes.func.isRequired,
-    withZoom: PropTypes.bool.tag({
-        defaultValue: false
-    }),
-    href: PropTypes.string.tag({
-        defaultValue: ''
-    }),
+    withZoom: PropTypes.bool,
+    href: PropTypes.string,
     tituloNota: PropTypes.string.isRequired,
     parrafo: PropTypes.shape({
         content: PropTypes.string
     }).isRequired
+};
+
+media.defaultProps = {
+    withZoom: false,
+    href: ''
 };
 
 export default media;
