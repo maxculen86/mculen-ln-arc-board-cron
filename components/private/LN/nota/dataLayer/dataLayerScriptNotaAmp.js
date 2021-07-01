@@ -59,7 +59,7 @@ const dataLayerScriptNotaAmp = globalContent => {
             ).toUTCString() || ''}",
             "articleAuthor": "${authors}",
             "articleTags": "${keywords}",
-            "articleTitle": "${title}",
+            "articleTitle": "${title.replace(/"/g, '\\"')}",
             "articleLastUpdate": "${new Date(displayDate).toUTCString() || ''}",
             "credentialType": "N/A",
             "payUser": "no",

@@ -8,7 +8,7 @@
     flex-wrap: nowrap;
     align-items: center;
     position: relative;
-    margin-bottom: px(40);
+    margin-bottom: $spacing-xl;
     width: 100%;
     @media (min-width: 768px) {
         //padding: 0 px(30);
@@ -70,7 +70,7 @@
             .title-cita {
                 width: 100%;
                 text-align: center;
-                margin-bottom: px(16);
+                margin-bottom: $spacing-sm;
 
                 .text {
                     font-family: $font-SuecaSlab;
@@ -86,7 +86,7 @@
             .cont-firma-autor {
                 display: flex;
                 justify-content: center;
-                margin-bottom: px(16);
+                margin-bottom: $spacing-sm;
                 @media (min-width: 768px) {
                     justify-content: flex-start;
                 }

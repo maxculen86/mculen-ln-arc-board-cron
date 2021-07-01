@@ -79,6 +79,10 @@ export default {
             props: {},
             location: ['head']
         },
+        ScriptSWG: {
+            props: {},
+            location: ['body-bottom']
+        },
         Queryly: {
             props: {},
             location: ['body-bottom']

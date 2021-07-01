@@ -4,7 +4,7 @@
 .nota.noticia {
     .--apertura {
         .com-title {
-            margin-bottom: px(16);
+            margin-bottom: $spacing-sm;
         }
     }
 }
@@ -115,3 +115,15 @@
 //         }
 //     }
 // }
+
+.nota.nota {
+    main {
+        .cuerpo__nota {
+            .box-articles {
+                .com-link.com-link {
+                    color: $light-neutral-700;
+                }
+            }
+        }
+    }
+}

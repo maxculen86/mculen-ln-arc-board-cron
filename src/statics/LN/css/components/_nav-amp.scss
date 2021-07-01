@@ -142,7 +142,7 @@ amp-sidebar {
             text-align: right;
             .--secondary {
                 display: none;
-                margin-left: px(24);
+                margin-left: $spacing-md;
             }
         }
     }

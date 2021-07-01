@@ -1,10 +1,12 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import '../../../resources/dist/css/ln/modules/mod-article.css';
 import Media from '../LN/common/media';
 import get from './utils/get';
 import ModDescription from './mod-description';
-//para demo front
 import ComImage from './com-image';
 import ModMedia from './mod-media';
 import getAuthorsPhoto from './utils/getAuthorsPhoto';
@@ -40,9 +42,10 @@ const ModArticle = props => {
         boxPosition,
         hour,
         category,
-        tags
+        tags,
+        handleClick
     } = props;
-    const { _id } = articleData || {};
+    const { _id, website_url: websiteUrl } = articleData || {};
     const extraOpts = {};
     if (dataSection) {
         extraOpts['data-section'] = dataSection;
@@ -62,14 +65,27 @@ const ModArticle = props => {
 
     const type = get(imagenDestacada, 'type', null);
 
+    const onCLick = event => {
+        typeof handleClick == 'function' && handleClick(event, websiteUrl);
+    };
+
     return (
         <article
             className={`mod-article ${classCondition || ''} ${
-                boxPosition ? `toi${boxPosition}${artPosition} nid${_id}` : ''
+                boxPosition
+                    ? `toi${boxPosition.replace(
+                          'toi',
+                          ''
+                      )}${artPosition} nid${_id}`
+                    : ''
             } ${noMedia ? '--no-media' : ''} ${
                 isRenderAuthor || isRenderAuthorOpinion ? '--author' : ''
             }`}
             {...extraOpts}
+            onClick={onCLick}
+            {...(typeof handleClick == 'function'
+                ? { 'aria-hidden': 'true' }
+                : {})}
         >
             {hour && hour}
 
@@ -122,6 +138,8 @@ const ModArticle = props => {
 
 ModArticle.propTypes = {
     dataSection: PropTypes.string,
+    artPosition: PropTypes.string,
+    boxPosition: PropTypes.string,
     classCondition: PropTypes.string,
     link: PropTypes.string,
     titleTag: PropTypes.string,
@@ -145,11 +163,14 @@ ModArticle.propTypes = {
     category: PropTypes.string,
     tags: PropTypes.string,
     isRenderAuthor: PropTypes.bool,
-    isRenderAuthorOpinion: PropTypes.bool
+    isRenderAuthorOpinion: PropTypes.bool,
+    handleClick: PropTypes.func
 };
 
 ModArticle.defaultProps = {
     dataSection: undefined,
+    artPosition: undefined,
+    boxPosition: undefined,
     classCondition: undefined,
     titleTag: 'h2',
     titleSize: '--xs',
@@ -165,6 +186,7 @@ ModArticle.defaultProps = {
     outputType: 'default',
     category: undefined,
     tags: undefined,
+    handleClick: undefined,
     isRenderAuthor: false,
     isRenderAuthorOpinion: false
 };

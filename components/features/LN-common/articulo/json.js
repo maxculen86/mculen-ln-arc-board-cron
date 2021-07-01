@@ -51,7 +51,7 @@ class ArticleFeature {
                 lead,
                 chapita,
                 opinion,
-                Image: articleImage || null
+                image: articleImage || null
             };
             return { ...articleSourceNota, additionalProperties };
         } catch (err) {

@@ -33,6 +33,7 @@ import LinkAmpHTML from '../private/common/linkAmpHTML';
 import { pipe } from '../private/common/utils/functional';
 import Pwa from '../private/common/scriptManager/pwa';
 import PwaModals from '../private/LN/common/pwaModals';
+import ScriptSWG from '../private/common/scriptManager/scriptSWG';
 
 const scriptList = [
     {
@@ -69,6 +70,10 @@ const scriptList = [
     {
         component: { name: 'Petametrics', function: Petametrics },
         feature: ['LN-nota/tePuedeInteresar']
+    },
+    {
+        component: { name: 'ScriptSWG', function: ScriptSWG },
+        feature: 'none'
     },
     {
         component: { name: 'SocialEmbeds', function: SocialEmbeds },
@@ -195,12 +200,51 @@ const Default = props => {
                 )}
                 <Libs />
                 <link
+                    rel="dns-prefetch"
+                    href="https://sb.scorecardresearch.com/"
+                />
+                <link
                     href="https://www.google-analytics.com"
                     rel="preconnect"
                 />
+                <link rel="dns-prefetch" href="https://static.hotjar.com/" />
+                <link rel="dns-prefetch" href="https://c.go-mpulse.net/" />
+                <link rel="preconnect" href="https://c.go-mpulse.net/" />
                 <link rel="dns-prefetch" href="//ads.rubiconproject.com" />
                 <link rel="dns-prefetch" href="//www.googletagservices.com" />
                 <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+                <link rel="dns-prefetch" href="//resizer.glanacion.com/" />
+                <link rel="preconnect" href="https://resizer.glanacion.com/" />
+                <link rel="dns-prefetch" href="//ingresar.lanacion.com.ar" />
+                <link rel="dns-prefetch" href="//cdn.livefyre.com" />
+                <link rel="dns-prefetch" href="//ingresar.lanacion.com.ar" />
+                <link
+                    rel="dns-prefetch"
+                    href="//api-ingresar.lanacion.com.ar"
+                />
+                <link rel="dns-prefetch" href="//api-paywall.lanacion.com.ar" />
+                <link rel="preconnect" href="//api-paywall.lanacion.com.ar" />
+
+                <link
+                    rel="dns-prefetch"
+                    href="https://stats.g.doubleclick.net/"
+                />
+                <link
+                    rel="dns-prefetch"
+                    href="//especialess3.lanacion.com.ar/"
+                />
+                <link
+                    rel="preconnect"
+                    href="https://especialess3.lanacion.com.ar/"
+                />
+                {/*
+                    TODO: Evitar desacomplamiento de componentes:
+                    DataLayerIndex
+                    SnippetIndex
+                    MetaectionParsely
+                    en relación
+                    ScriptsManager
+                 */}
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
                 <MetaSectionParsely taxonomy={taxonomy} arcSite={arcSite} />
@@ -259,7 +303,7 @@ const Default = props => {
                 <Schemas section={_nodeType} />
                 <meta
                     name="viewport"
-                    content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+                    content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
                 <link
                     rel="icon"
@@ -280,8 +324,12 @@ const Default = props => {
                 <div id="fusion-app">
                     <Fusion>{children}</Fusion>
                 </div>
-                <PwaModals />
-                <Scripts location="body-bottom" />
+                {arcSite !== 'ott' && <PwaModals />}
+                <Scripts
+                    location="body-bottom"
+                    section={_nodeType}
+                    {...props}
+                />
                 <ScriptLoadingList
                     section={_nodeType}
                     location="body-bottom"

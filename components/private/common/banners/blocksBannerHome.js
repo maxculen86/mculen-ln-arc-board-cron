@@ -15,10 +15,6 @@ export default {
         },
         {
             slotGroup: 'home',
-            desktop: 'billboard_dsk'
-        },
-        {
-            slotGroup: 'home',
             desktop: 'megalateral_dsk'
         },
         {
@@ -44,6 +40,10 @@ export default {
         }
     ],
     bloque2: [
+        {
+            slotGroup: 'home',
+            desktop: 'billboard_dsk'
+        },
         {
             slotGroup: 'home',
             desktop: 'caja1_dsk',

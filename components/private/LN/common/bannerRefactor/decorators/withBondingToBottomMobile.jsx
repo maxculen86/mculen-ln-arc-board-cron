@@ -9,6 +9,7 @@ import withLoginData from '../../hocs/withLoginData';
 
 export default Component => {
     return withLoginData(props => {
+        const ref = React.createRef();
         const {
             loginData: { subscription }
         } = props;
@@ -16,7 +17,12 @@ export default Component => {
         const { outputType } = useFusionContext();
 
         return outputType !== 'amp' ? (
-            <Component noShow subscription={subscription} {...props} />
+            <Component
+                noShow
+                subscription={subscription}
+                {...props}
+                ref={ref}
+            />
         ) : null;
     });
 };

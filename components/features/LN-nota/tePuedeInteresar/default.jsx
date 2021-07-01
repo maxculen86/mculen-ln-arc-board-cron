@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import Lazy from 'lazy-child';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
+import { LAZY_OFFSETTOP } from 'fusion:environment';
 import TePuedeInteresar from '../../../private/LN/nota/tePuedeInteresar';
 import findTermica from '../../../private/common/utils/findTermica';
 import config from '../../../../properties/sites/la-nacion-ar';
@@ -92,7 +93,7 @@ const tePuedeInteresar = props => {
             renderPlaceholder={ref => {
                 return <div ref={ref} />;
             }}
-            offsetTop="750"
+            offsetTop={LAZY_OFFSETTOP}
         >
             <TePuedeInteresar
                 userId={userId}
@@ -105,8 +106,8 @@ const tePuedeInteresar = props => {
                 arcSite={arcSite}
                 dataLayerSection={
                     layout === layoutsName.Home
-                        ? 'h_sugerencias'
-                        : 'n_te_puede_interesar'
+                        ? 'TePuedeInteresarHome'
+                        : 'TePuedeInteresar'
                 }
             />
         </Lazy>

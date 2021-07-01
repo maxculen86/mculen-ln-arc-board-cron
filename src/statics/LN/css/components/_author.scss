@@ -10,7 +10,7 @@
     //display: inline-flex; Fede: lo cambié porque rompia en las noticias el autor (Por tal)
     display: inline-block;
     align-items: center;
-    margin-bottom: px(40);
+    margin-bottom: $spacing-xl;
     @media (min-width: 1024px) {
         margin-bottom: px(60);
     }

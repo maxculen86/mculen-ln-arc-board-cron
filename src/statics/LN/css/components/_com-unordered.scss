@@ -6,10 +6,10 @@
     //width: 100%;
     margin-bottom: $spacing-lg;
     .com-item {
-        padding-left: px(32);
+        padding-left: $spacing-lg;
         font-size: px(16);
         line-height: px(24);
-        margin-bottom: px(16);
+        margin-bottom: $spacing-sm;
         position: relative;
 
         i {

@@ -62,6 +62,7 @@ import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 const lnNotaFotoAl100 = ({
     children: [
         bannerMegatop,
+        preTitulo,
         leftCuerpo,
         cuerpo,
         postCuerpo,
@@ -95,6 +96,7 @@ const lnNotaFotoAl100 = ({
                     >
                         <Header />
                         <main>
+                            {preTitulo}
                             <AperturaStorytelling />
 
                             {/* Cuerpo al 100% */}
@@ -141,6 +143,7 @@ const lnNotaFotoAl100 = ({
 
 const pageBuilderSections = [
     'Banner-Megatop',
+    'Pre-Titulo',
     'Left-Cuerpo',
     'Cuerpo',
     'Post-Cuerpo',
