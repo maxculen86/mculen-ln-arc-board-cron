@@ -117,7 +117,7 @@ const FirmaFeature = props => {
     const amp = outputType === 'amp';
 
     return (
-        <Static id={featureId}>
+        <Static id={featureId} htmlOnly persistent>
             <Firma {...data} amp={amp} />
         </Static>
     );
