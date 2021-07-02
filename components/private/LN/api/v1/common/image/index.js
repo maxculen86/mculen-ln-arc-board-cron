@@ -9,6 +9,7 @@ const imageCommon = image => {
             return str.replace(match, '{{param}}');
         }
     );
+    const i = 0;
     const hrefRegex = new RegExp(
         /\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/
     );
