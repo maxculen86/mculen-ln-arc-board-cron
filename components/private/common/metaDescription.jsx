@@ -61,11 +61,10 @@ const MetaDescription = ({
                 (subtype &&
                     `${getMetaDescription(
                         description,
-                        firstParagraphContentElements,
                         metaTitleBasic,
                         subheadlines,
                         subtype
-                    )} - LA NACION`) ||
+                    )}`) ||
                 defaultDescription
             }
         />

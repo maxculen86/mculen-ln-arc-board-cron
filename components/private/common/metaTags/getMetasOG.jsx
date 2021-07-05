@@ -24,7 +24,7 @@ const getDescription = ({
     if (section === 'home') return descriptionDefault;
 
     if (isArticle) {
-        description = subheadlinesBasic || descriptionDefault || '';
+        description = subheadlinesBasic || '';
     }
 
     if (!isArticle) {
@@ -107,11 +107,20 @@ const getData = ({
 };
 const setMetaDescription = (data, section) => {
     if (section === 'nota') {
-        return data.subtype === RECETA
-            ? `${
-                  data.description.split('.', 1)[0]
-              }. Encontrá acá la receta de ${data.title} - LA NACION`
-            : `${data.description} - LA NACION`;
+        if (data.subtype === RECETA && data.description !== '') {
+            return `${
+                data.description.split('.', 1)[0]
+            }. Encontrá acá la receta de ${data.title} - LA NACION`;
+        }
+        if (data.subtype === RECETA && data.description === '') {
+            return `Encontrá acá la receta de ${data.title} - LA NACION`;
+        }
+        if (data.subtype !== RECETA && data.description !== '') {
+            return `${data.description} - LA NACION`;
+        }
+        if (data.subtype !== RECETA && data.description === '') {
+            return `${data.title} - LA NACION`;
+        }
     }
     return data.description;
 };

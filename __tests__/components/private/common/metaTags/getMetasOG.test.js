@@ -98,7 +98,7 @@ describe('Common - getMetasOG function', () => {
             {
                 property: 'og:description',
                 content:
-                    'odas las noticias de Argentina y el mundo: últimas noticias en actualidad, deportes, coronavirus, economía, política, y tecnología. Encontrá acá la receta de Arroz chaufa de mariscos - LA NACION'
+                    'Encontrá acá la receta de Arroz chaufa de mariscos - LA NACION'
             },
             {
                 property: 'og:image',
