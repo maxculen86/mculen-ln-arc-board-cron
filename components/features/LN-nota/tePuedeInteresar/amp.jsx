@@ -60,7 +60,7 @@ tePuedeInteresar.propTypes = {
 };
 
 tePuedeInteresar.defaultProps = {
-    outputType: 'default',
+    outputType: 'amp',
     siteProperties: {}
 };
 

@@ -9,6 +9,7 @@ import ImageBase from './component';
  * esta rendereando multiples veces
  */
 
+// TODO: Este componentes ahora esta en components/private/LN/common/media/imageBase/index.jsx (BORRAR)
 class ImageArticle extends React.PureComponent {
     render() {
         const { image, zoom, href, outputType, active, withLazy } = this.props;

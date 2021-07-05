@@ -1,35 +1,11 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import Media from '../../common/media';
-import ComText from '../../../common/com-text';
-import get from '../../../common/utils/get';
+import { getEpigrafe } from '../../common/utils/mediaHelper';
 
 const video = ({ data, outputType, tituloNota, primerParrafo }) => {
     const parrafo = primerParrafo || 'LA NACION';
-    const { promo_items: promoItems } = data || {};
-    const { basic: basicVideo } = promoItems || {};
-    const { caption: captionVideo, credito: creditoVideo } = basicVideo || {};
-
-    const textEpigrafe = get(data, 'headlines.basic', captionVideo);
-
-    const Epigrafe = () => {
-        return (
-            <>
-                {textEpigrafe && (
-                    <ComText
-                        classCondition="--caption --twoxs"
-                        textname={textEpigrafe}
-                    />
-                )}
-                {creditoVideo && (
-                    <ComText
-                        classCondition="--credit --twoxs"
-                        textname={creditoVideo}
-                    />
-                )}
-            </>
-        );
-    };
+    const { caption, credit } = getEpigrafe(data);
 
     return (
         <>
@@ -40,7 +16,8 @@ const video = ({ data, outputType, tituloNota, primerParrafo }) => {
                 tituloNota={tituloNota}
                 parrafo={parrafo}
             >
-                <Epigrafe />
+                {caption}
+                {credit}
             </Media>
         </>
     );
@@ -58,6 +35,11 @@ video.propTypes = {
     outputType: PropTypes.string.isRequired,
     primerParrafo: PropTypes.string,
     tituloNota: PropTypes.string
+};
+
+video.defaultProps = {
+    primerParrafo: '',
+    tituloNota: ''
 };
 
 export default video;

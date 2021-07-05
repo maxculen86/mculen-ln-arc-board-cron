@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import Placeholder from '../../imagePlaceholder';
+import ComPicture from '../../../../common/com-picture';
 import ComImage from '../../../../common/com-image';
 import ComSource from '../../../../common/com-source';
+
+// TODO: Este componentes ahora esta en components/private/LN/common/media/imageBase/index.jsx.
+// Borrar a futuro
 
 const imageBase = ({
     srcsetAMP,
@@ -10,7 +13,6 @@ const imageBase = ({
     sources,
     sourcesZoom,
     altText,
-    zoom,
     href,
     height,
     width,
@@ -18,7 +20,6 @@ const imageBase = ({
     amp,
     withLazy
 }) => {
-    const isVertical = height > width;
     /**
      * TODO: Ver los sources para apertura con destacado, no se le esta pasando la prop al componente media.
      * Entonces no se le pueden setear srcset al tag amp-img
@@ -27,7 +28,7 @@ const imageBase = ({
      */
 
     const pic = (
-        <Placeholder href={href} zoom={zoom} isVertical={isVertical} amp={amp}>
+        <ComPicture href={href} amp={amp}>
             {!active &&
                 !amp &&
                 sources &&
@@ -71,7 +72,7 @@ const imageBase = ({
                     withLazy={withLazy}
                 />
             )}
-        </Placeholder>
+        </ComPicture>
     );
     return pic;
 };

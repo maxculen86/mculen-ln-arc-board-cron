@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Media from '../../common/media';
 import ComFigcaption from '../../../common/com-figcaption';
-import ComText from '../../../common/com-text';
-import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData';
+import { getEpigrafe } from '../../common/utils/mediaHelper';
 
 const image = ({ data, withZoom, outputType }) => {
-    const credito = EpigrafeAndCreditsData(data);
+    const { caption, credit } = getEpigrafe(data);
     const [active, setActive] = useState(false);
 
     const handleClick = () => {
@@ -28,18 +27,8 @@ const image = ({ data, withZoom, outputType }) => {
             >
                 {data && (
                     <ComFigcaption>
-                        {data.caption && (
-                            <ComText
-                                classCondition="--caption --twoxs"
-                                textname={data.caption}
-                            />
-                        )}
-                        {credito && (
-                            <ComText
-                                classCondition="--credit --twoxs"
-                                textname={credito}
-                            />
-                        )}
+                        {caption}
+                        {credit}
                     </ComFigcaption>
                 )}
             </Media>
@@ -57,7 +46,8 @@ image.propTypes = {
         credits: PropTypes.array,
         type: PropTypes.string.isRequired
     }).isRequired,
-    withZoom: PropTypes.string.isRequired
+    withZoom: PropTypes.string.isRequired,
+    outputType: PropTypes.string.isRequired
 };
 
 export default image;
