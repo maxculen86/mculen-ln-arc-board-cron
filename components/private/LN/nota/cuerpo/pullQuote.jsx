@@ -35,7 +35,7 @@ const pullQuote = props => {
 };
 
 pullQuote.arcType = 'pullquote';
-pullQuote.iStatic = true;
+pullQuote.isStatic = true;
 
 pullQuote.propTypes = {
     data: PropTypes.shape({
