@@ -23,4 +23,6 @@ describe('isPrimarySectionInBannerSegments =>', () => {
         evalSectionInBanner('/deportes/futbol/', [false, 'deportes']));
     it('it should be opinion does not included =>', () =>
         evalSectionInBanner('/opinion/', [false, 'opinion']));
+    it('it should be deportes (two sub-categories) does not included =>', () =>
+        evalSectionInBanner('/deportes/futbol/boca/', [false, 'deportes']));
 });
