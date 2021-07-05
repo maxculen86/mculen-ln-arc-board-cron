@@ -22,14 +22,14 @@ describe('Common - utils - getMetaDescription.js', () => {
 
 describe('Common - utils - getMetaDescription.js para receta', () => {
     const description = '';
-    const subHeadLines = 'Subheadline hasta el primer punto. Mas subheadline';
     const metaTitleBasic = 'Pastel de papa con canela';
+    const subHeadLines = 'Subheadline hasta el primer punto. Mas subheadline';
 
     test('Test de return getMetaDescription', () => {
         const metaDescription = getMetaDescription(
             description,
-            subHeadLines,
             metaTitleBasic,
+            subHeadLines,
             '7'
         );
         expect(metaDescription).toStrictEqual(

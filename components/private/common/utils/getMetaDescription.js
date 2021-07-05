@@ -2,8 +2,8 @@ import { RECETA } from './subtypes/subtypeHelper';
 
 const getMetaDescription = (
     description,
-    subheadlines,
     metaTitleBasic,
+    subheadlines,
     subtype
 ) => {
     if (subtype === RECETA) {

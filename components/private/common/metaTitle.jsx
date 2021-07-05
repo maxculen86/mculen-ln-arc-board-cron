@@ -20,7 +20,7 @@ const MetaTitle = ({
 }) => {
     if (arcSite !== 'la-nacion-ar') return <></>;
 
-    const metaTitleForStory =
+    let metaTitleForStory =
         metaTitleBasic && subtype === RECETA
             ? `Receta de ${metaTitleBasic} - LA NACION`
             : `${metaTitleBasic} - LA NACION`;
@@ -33,6 +33,7 @@ const MetaTitle = ({
         const customTitle =
             title === 'Últimas noticias - LA NACION' ? 'LA NACION' : title;
         metaTitleForAcum = `Últimas${prefix}${customTitle}`;
+        metaTitleForStory = undefined;
     }
 
     return (
