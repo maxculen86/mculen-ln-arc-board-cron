@@ -129,8 +129,11 @@
     @include sizeL; //mobile
     @media (max-width: 767px) {
         //mobile home
-        .mod-article:not(&.--bomba) & {
+        .mod-article & {
             @include sizeM;
+            .--bomba & {
+                @include sizeL;
+            }
         }
     }
     @media ($media-m) {

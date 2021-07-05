@@ -15,6 +15,7 @@
     //max-width: px(360);
     border: 1px solid transparent;
     cursor: pointer;
+    text-transform: uppercase;
     &.--bottom,
     &.--top {
         @include flex(flex, column, center, center);
