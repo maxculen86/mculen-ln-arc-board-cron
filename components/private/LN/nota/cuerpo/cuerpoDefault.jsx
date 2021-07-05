@@ -101,8 +101,6 @@ const Cuerpo = props => {
 
     const types = ['text', 'image', 'oembed_response', 'video'];
 
-    const firstText = contentElements.find(element => element.type === 'text');
-
     const getElementsCount = supportedTypes =>
         contentElements.filter(el => supportedTypes.includes(el.type)).length;
 
@@ -112,77 +110,68 @@ const Cuerpo = props => {
 
     let counter = 0;
     return contentElements.map((element, currentIndex) => {
-        const hasOptaElements =
-            element.content && element.content.includes('opta-widget');
-        const Component = bodyComponents.find(bc => {
-            if (subtype === FOTOAL100) {
-                return (
-                    !(
-                        element.type === 'oembed_response' ||
-                        element.type === 'raw_html' ||
-                        element.type === 'video'
-                    ) && bc.arcType === element.type
-                );
-            }
-            if (element.type === 'quote') return bc.arcType === element.subtype;
-            if (
-                hasOptaElements &&
-                element.type === 'raw_html' &&
-                outputType === 'amp'
-            ) {
-                return bc.arcType === element.type && bc.outputType === 'opta';
-            }
-            if (
-                element.type === 'oembed_response' ||
-                element.type === 'raw_html'
-            ) {
-                return (
-                    bc.arcType === element.type && bc.outputType === outputType
-                );
-            }
-            return bc.arcType === element.type;
-        });
+        const {
+            type: _type,
+            subtype: _subtype,
+            content,
+            additional_properties: { nodeType = {} } = {}
+        } = element || {};
 
+        const Component = bodyComponents.find(
+            bc =>
+                (subtype === FOTOAL100 &&
+                    !(
+                        _type === 'oembed_response' ||
+                        _type === 'raw_html' ||
+                        _type === 'video'
+                    ) &&
+                    bc.arcType === _type) ||
+                (_type === 'quote' && bc.arcType === _subtype) ||
+                (content &&
+                    content.includes('opta-widget') &&
+                    _type === 'raw_html' &&
+                    outputType === 'amp' &&
+                    bc.arcType === _type &&
+                    bc.outputType === 'opta') ||
+                ((_type === 'oembed_response' || _type === 'raw_html') &&
+                    bc.arcType === _type &&
+                    bc.outputType === outputType) ||
+                bc.arcType === _type
+        );
         const { arcType = '' } = Component || {};
-        const extraProps =
-            ['image', 'gallery'].findIndex(el => el === (arcType || '')) !== -1
-                ? { withZoom: '--zoom' }
-                : {};
-        const extraPropsVideo =
-            ['video'].findIndex(el => el === (arcType || '')) !== -1
-                ? {
-                      tituloNota,
-                      primerParrafo: firstText
-                  }
-                : {};
+        const extraProps = {
+            image: { withZoom: '--zoom' },
+            gallery: { withZoom: '--zoom' },
+            video: {
+                tituloNota,
+                primerParrafo:
+                    (capitalIndex && contentElements[capitalIndex]) || ''
+            }
+        };
+        const _BaseComp = (Component && (
+            <Component
+                data={element}
+                capital={currentIndex === capitalIndex}
+                outputType={outputType}
+                {...(extraProps[arcType] || {})}
+            />
+        )) || <></>;
+
+        const _Comp =
+            (Component && Component.isStatic && (
+                <Static id={`content_element_${currentIndex + 1}`} htmlOnly>
+                    {_BaseComp}
+                </Static>
+            )) ||
+            _BaseComp;
+
         if (Component) {
             if (types.includes(Component.arcType)) {
-                const { additional_properties: additionalProperties = {} } =
-                    element || {};
-                const { nodeType = {} } = additionalProperties || {};
                 if (nodeType.length) return <></>;
                 counter += 1;
-
-                const _Comp = (
-                    <Component
-                        data={element}
-                        capital={currentIndex === capitalIndex}
-                        outputType={outputType}
-                        {...extraProps}
-                        {...extraPropsVideo}
-                    />
-                );
                 return (
                     <React.Fragment>
-                        {(Component.isStatic && (
-                            <Static
-                                id={`content_element_${currentIndex}`}
-                                htmlOnly
-                            >
-                                {_Comp}
-                            </Static>
-                        )) ||
-                            _Comp}
+                        {_Comp}
                         {banners &&
                             banners.some(
                                 banner => banner.position === counter
@@ -258,14 +247,7 @@ const Cuerpo = props => {
                     </React.Fragment>
                 );
             }
-            return (
-                <Component
-                    data={element}
-                    capital={currentIndex === capitalIndex}
-                    outputType={outputType}
-                    {...extraProps}
-                />
-            );
+            return _Comp;
         }
 
         return <></>;
