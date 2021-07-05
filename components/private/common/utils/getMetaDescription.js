@@ -8,7 +8,7 @@ const getMetaDescription = (
 ) => {
     if (subtype === RECETA) {
         if (description && description !== '')
-            return `${description}. Encontrá acá la receta de ${metaTitleBasic} - LA NACION`;
+            return `${description} Encontrá acá la receta de ${metaTitleBasic} - LA NACION`;
         if (subheadlines && subheadlines !== '')
             return `${
                 subheadlines.split('.', 1)[0]
