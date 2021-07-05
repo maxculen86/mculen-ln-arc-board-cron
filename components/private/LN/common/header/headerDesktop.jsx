@@ -4,10 +4,11 @@ import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import PropTypes from 'fusion:prop-types';
 import Header from './headerBase';
 import Hamburguer from './hamburger';
-import ComLink from '../../../common/com-link';
-import ComLogo from '../../../common/com-logo';
+//import ComLink from '../../../common/com-link';
+//import ComLogo from '../../../common/com-logo';
 import ComIcon from '../../../common/com-icon';
 import Logo from '../../../common/com-logo';
+import DivBanner from '../../../common/banners/DivBanner';
 
 import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../../../../resources/dist/css/ln/components/usuario.css';
@@ -113,6 +114,24 @@ const HeaderDesktop = ({
                 </label>
             </div>
             <div className="col-7 col-desksm-4 header__middle">
+                <DivBanner
+                    id="logo_header_dsk"
+                    classes="--logo"
+                    //shouldRender={isDesktop}
+                    isStatic
+                />
+                <DivBanner
+                    id="logo_header_tab"
+                    classes="--logo"
+                    //shouldRender={isTablet}
+                    isStatic
+                />
+                <DivBanner
+                    id="logo_header_mob"
+                    classes="--logo"
+                    //shouldRender={isMobile}
+                    isStatic
+                />
                 <Logo
                     logoName="la-nacion"
                     color

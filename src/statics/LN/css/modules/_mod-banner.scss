@@ -27,7 +27,20 @@
         top: 0;
         z-index: -1;
     }
-
+    &.--logo {
+        position: absolute;
+        margin: 0;
+        width: px(170);
+        height: px(17);
+        @media ($media-m) {
+            width: px(2000);
+            height: px(20);
+        }
+        @media ($media-l) {
+            width: px(300);
+            height: px(30);
+        }
+    }
     &.--megatop {
         //position: relative;
         //z-index: 110;
