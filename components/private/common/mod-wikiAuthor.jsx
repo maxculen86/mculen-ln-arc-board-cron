@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import ComText from './com-text';
+import ComText from './text';
 import ComLink from './com-link';
 import ComContainer from './com-container';
 import ListSocialIcons from './list-socialicons';
@@ -26,7 +26,7 @@ const ModWikiAuthor = props => {
                 <div className="col-12 col-desksm-8">
                     <ComContainer classCondition="--info">
                         <ComTitle tag="h2" content="Nombre Autor" size="--l" />
-                        <ComText textname="Profesión" size="--threexs" />
+                        <ComText text="Profesión" size="--threexs" />
                         <ComContainer>
                             <ModDescriptionList size="--threexs" />
                         </ComContainer>

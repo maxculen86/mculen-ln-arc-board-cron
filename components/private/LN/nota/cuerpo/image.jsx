@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Media from '../../common/media';
 import ComFigcaption from '../../../common/com-figcaption';
-import ComText from '../../../common/com-text';
+import ComText from '../../../common/text';
 import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData';
 
 const image = ({ data, withZoom, outputType }) => {
@@ -30,15 +30,19 @@ const image = ({ data, withZoom, outputType }) => {
                     <ComFigcaption>
                         {data.caption && (
                             <ComText
-                                classCondition="--caption --twoxs"
-                                textname={data.caption}
-                            />
+                                extraClass="--caption --twoxs"
+                                //text={data.caption}
+                            >
+                                {data.caption}
+                            </ComText>
                         )}
                         {credito && (
                             <ComText
-                                classCondition="--credit --twoxs"
-                                textname={credito}
-                            />
+                                extraClass="--credit --twoxs"
+                                //text={credito}
+                            >
+                                {credito}
+                            </ComText>
                         )}
                     </ComFigcaption>
                 )}

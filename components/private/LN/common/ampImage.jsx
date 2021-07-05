@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import EpigrafeAndCreditsData from '../../common/utils/epigrafeAndCreditsData';
 import ComFigcaption from '../../common/com-figcaption';
-import ComText from '../../common/com-text';
+import ComText from '../../common/text';
 
 const AmpImage = props => {
     const {
@@ -61,15 +61,19 @@ const AmpImage = props => {
                 <ComFigcaption>
                     {caption && (
                         <ComText
-                            classCondition="--caption --twoxs"
-                            textname={caption}
-                        />
+                            extraClass="--caption --twoxs"
+                            //text={caption}
+                        >
+                            {caption}
+                        </ComText>
                     )}
                     {credito && (
                         <ComText
-                            classCondition="--credit --twoxs"
-                            textname={credito}
-                        />
+                            extraClass="--credit --twoxs"
+                            //text={credito}
+                        >
+                            {credito}
+                        </ComText>
                     )}
                 </ComFigcaption>
             )}

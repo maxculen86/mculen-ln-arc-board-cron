@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import '../../../resources/dist/css/ln/components/com-icon.css';
-import ComText from './com-text';
+import ComText from './text';
 
 const ComIco = props => {
     const { iconName, textname, style, sizeBullet, sizeText, sizeIcon } = props;
@@ -23,7 +23,7 @@ const ComIco = props => {
                         style={style}
                     />
                     {textname ? (
-                        <ComText textname={textname} size={sizeText || ''} />
+                        <ComText size={sizeText || ''}>{textname}</ComText>
                     ) : (
                         ''
                     )}
@@ -34,8 +34,12 @@ const ComIco = props => {
 };
 
 ComIco.propTypes = {
-    iconName: PropTypes.string.isRequired,
-    size: PropTypes.string
+    iconName: PropTypes.string,
+    textname: PropTypes.string,
+    style: PropTypes.string,
+    sizeBullet: PropTypes.string,
+    sizeText: PropTypes.string,
+    sizeIcon: PropTypes.string
 };
 
 export default ComIco;

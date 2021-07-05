@@ -22,7 +22,7 @@ const Text = ({
     const _size = getFontSize(size);
     const _weight = getFontWeight(weight);
 
-    const className = `text${extraClass ? ` ${extraClass}` : ''}${
+    const className = `com-text text${extraClass ? ` ${extraClass}` : ''}${
         font ? ` ${_font}` : ''
     }${size ? ` ${_size}` : ''}${weight ? ` ${_weight}` : ''}${
         bold ? ` --font-bold` : ''
@@ -53,17 +53,17 @@ Text.propTypes = {
 };
 
 Text.defaultProps = {
-    children: undefined,
-    tag: undefined,
-    text: undefined,
-    extraClass: undefined,
-    font: undefined,
-    size: undefined,
-    weight: undefined,
-    color: undefined,
-    bold: undefined,
-    highlight: undefined,
-    capital: undefined
+    children: '',
+    tag: '',
+    text: '',
+    extraClass: '',
+    font: '',
+    size: '',
+    weight: '',
+    color: '',
+    bold: '',
+    highlight: '',
+    capital: ''
 };
 
 export default Text;

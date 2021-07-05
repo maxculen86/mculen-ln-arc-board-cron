@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Media from '../../common/media';
-import ComText from '../../../common/com-text';
+import ComText from '../../../common/text';
 import get from '../../../common/utils/get';
 
 const video = ({ data, outputType, tituloNota, primerParrafo }) => {
@@ -17,15 +17,19 @@ const video = ({ data, outputType, tituloNota, primerParrafo }) => {
             <>
                 {textEpigrafe && (
                     <ComText
-                        classCondition="--caption --twoxs"
-                        textname={textEpigrafe}
-                    />
+                        extraClass="--caption --twoxs"
+                        //text={textEpigrafe}
+                    >
+                        {textEpigrafe}
+                    </ComText>
                 )}
                 {creditoVideo && (
                     <ComText
-                        classCondition="--credit --twoxs"
-                        textname={creditoVideo}
-                    />
+                        extraClass="--credit --twoxs"
+                        //text={creditoVideo}
+                    >
+                        {creditoVideo}
+                    </ComText>
                 )}
             </>
         );
