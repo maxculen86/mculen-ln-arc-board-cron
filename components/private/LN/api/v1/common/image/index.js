@@ -2,10 +2,13 @@ const imageCommon = image => {
     if (!image) return null;
     const { _id: id, resized_urls: resizedUrls } = image;
     if (!resizedUrls || resizedUrls.length === 0) return null;
-    // const regex = /.*\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/;
-    // const baseUrl = resizedUrls[0].resizedUrl.replace(regex, (str, match) => {
-    //     return str.replace(match, '{{param}}');
-    // });
+    const newRegex = /.*\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/;
+    const absoluteUrl = resizedUrls[0].resizedUrl.replace(
+        newRegex,
+        (str, match) => {
+            return str.replace(match, '{{param}}');
+        }
+    );
     const hrefRegex = new RegExp(
         /\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/
     );
@@ -16,6 +19,7 @@ const imageCommon = image => {
         baseUrl: regexResult
             ? regexResult[0].replace(regexResult[1], '{{param}}')
             : resizedUrls[0].resizedUrl,
+        absoluteUrl: absoluteUrl,
         parametros: []
     };
     const regex = /.*\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/;
