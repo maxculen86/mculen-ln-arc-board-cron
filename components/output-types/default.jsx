@@ -183,6 +183,8 @@ const Default = props => {
             ? siteProperties.longTitle
             : metaValue('title') || siteProperties.title;
 
+    console.log(canonicalUrl);
+
     return (
         <html lang="es">
             <head>

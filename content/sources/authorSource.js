@@ -17,7 +17,7 @@ const transform = data => {
         image: { url: data.image || '' },
         node_type: 'author',
         name: data.byline,
-        canonical_url: data.bio_page
+        canonical_url: `/autor/${data._id}/`
     };
 
     if (dataResp.image.url.length === 0) return dataResp;
