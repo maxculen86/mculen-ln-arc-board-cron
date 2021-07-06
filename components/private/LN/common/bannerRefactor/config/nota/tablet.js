@@ -16,7 +16,7 @@ const tab_middle_sizes = [
 ];
 
 export default {
-    unoxuno_tab: {
+    '1x1_tab': {
         device: 'tab',
         slotName: 'la_nacion_tablet/Nota/1x1_tab',
         dimensions: [[1, 1]],

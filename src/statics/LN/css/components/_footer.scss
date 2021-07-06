@@ -2,11 +2,11 @@
 // footer {
 //     margin-bottom: px(20);
 //     .footer-header {
-//         margin-bottom: px(32);
+//         margin-bottom: $spacing-lg;
 //         @media ($media-l) {
-//             padding-bottom: px(16);
+//             padding-bottom: $spacing-sm;
 //             border-bottom: 1px solid $light-neutral-400;
-//             margin-bottom: px(24);
+//             margin-bottom: $spacing-md;
 //         }
 //         .footer-header__logo {
 //             border-bottom: 1px solid $light-neutral-400;
@@ -47,7 +47,7 @@
 //                 display: inline-flex;
 //             }
 //             i {
-//                 margin-right: px(32);
+//                 margin-right: $spacing-lg;
 //                 @media (max-width: 1023px) {
 //                     margin: px(16);
 //                 }
@@ -70,7 +70,7 @@
 //         }
 //     }
 //     .footer-sitio {
-//         margin-bottom: px(24);
+//         margin-bottom: $spacing-md;
 //         .footer-sitio__links {
 //             display: none;
 //             @media (min-width: 1024px) {
@@ -120,7 +120,7 @@
 //         }
 //     }
 //     .footer-copyright {
-//         margin-bottom: px(64);
+//         margin-bottom: $spacing-2xl;
 //         .footer-copyright__fiscal {
 //             p {
 //                 color: $light-neutral-600;
@@ -214,7 +214,7 @@
 //             }
 //         }
 //         @media ($media-l) {
-//             margin-bottom: px(24);
+//             margin-bottom: $spacing-md;
 //         }
 //     }
 // }

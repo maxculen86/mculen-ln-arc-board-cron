@@ -3,6 +3,7 @@
 
 .mod-banner {
     @include BgDiagonal;
+    background-color: $neutral-white;
     position: relative;
     display: flex;
     justify-content: center;
@@ -11,8 +12,8 @@
     max-width: 100%;
     overflow: hidden;
     z-index: 1;
-    //margin-top: px(32); //cambiar a variable
-    margin-bottom: px(64); //cambiar a variable
+    //margin-top: $spacing-lg; //cambiar a variable
+    margin-bottom: $spacing-2xl; //cambiar a variable
 
     &:before {
         content: 'PUBLICIDAD';
@@ -20,7 +21,7 @@
         line-height: px(16);
         background: white;
         display: inline-block;
-        padding: px(4) px(8);
+        padding: px(4) $spacing;
         margin: 0 auto;
         position: absolute;
         top: 0;
@@ -56,8 +57,8 @@
 
         .com-button {
             position: absolute;
-            top: px(16);
-            right: px(16);
+            top: $spacing-sm;
+            right: $spacing-sm;
         }
     }
 
@@ -128,6 +129,7 @@
             right: 0;
             color: $neutral-white;
             font-size: px(16);
+            cursor: pointer;
         }
     }
     // .cuerpo__nota & {
@@ -135,9 +137,9 @@
     // }
     &:not(:last-child) {
         .sidebar__aside & {
-            margin-bottom: px(32);
+            margin-bottom: $spacing-lg;
             background: none;
-            // padding-bottom: px(32);
+            // padding-bottom: $spacing-lg;
             // background: $neutral-white;
         }
     }
@@ -169,7 +171,7 @@
         &.--caja3_mob,
         &.--caja4_mob {
             height: px(450);
-            //margin-bottom: px(32);
+            //margin-bottom: $spacing-lg;
         }
     }
 
@@ -241,7 +243,7 @@
 @media ($media-l) {
     .mod-banner {
         &.--desktop {
-            margin-bottom: px(24);
+            margin-bottom: $spacing-md;
         }
         .sidebar__aside & {
             display: flex;
@@ -347,7 +349,7 @@
 
 [class*='row-gap'] {
     &.--ads {
-        margin-bottom: px(64);
+        margin-bottom: $spacing-2xl;
         &:empty {
             display: none;
         }

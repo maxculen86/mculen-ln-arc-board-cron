@@ -44,6 +44,7 @@ const DivBanner = props => {
                     type="button"
                     aria-label="Close"
                     className="icon-close"
+                    title="Cerrar publicidad"
                     onClick={() => ref.current.remove()}
                 />
             )}
