@@ -159,7 +159,8 @@ $rank-dsk: px(400);
 
 .container.--opinion,
 .sidebar__main .com-anexo {
-    margin-bottom: px(64);
+    margin-bottom: $spacing-2xl;
+    position: relative;
 }
 
 .demofonts {

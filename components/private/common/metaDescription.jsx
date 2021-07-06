@@ -61,10 +61,10 @@ const MetaDescription = ({
                 (subtype &&
                     `${getMetaDescription(
                         description,
-                        firstParagraphContentElements,
                         metaTitleBasic,
-                        subheadlines
-                    )} - LA NACION`) ||
+                        subheadlines,
+                        subtype
+                    )}`) ||
                 defaultDescription
             }
         />
