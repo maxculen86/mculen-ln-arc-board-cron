@@ -63,7 +63,7 @@ describe('Common - getMetasOG function', () => {
                 longTitle:
                     'Últimas noticias de Argentina y el mundo - LA NACION',
                 description:
-                    'odas las noticias de Argentina y el mundo: últimas noticias en actualidad, deportes, coronavirus, economía, política, y tecnología. Mantenete informado sobre las novedades de Argentina en LA NACION.',
+                    'odas las noticias de Argentina y el mundo: últimas noticias en actualidad, deportes, coronavirus, economía, política, y tecnología. Encontrá acá la receta de Arroz chaufa de mariscos - LA NACION',
                 shareConfig: {
                     facebook: {
                         appID: '205326199490321'
@@ -78,7 +78,8 @@ describe('Common - getMetasOG function', () => {
             contextPath: '/pf',
             deployment: function deployment() {
                 return '$LATEST';
-            }
+            },
+            section: 'nota'
         };
 
         const metas = [
@@ -92,12 +93,12 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:title',
-                content: 'Arroz chaufa de mariscos'
+                content: 'Receta de Arroz chaufa de mariscos - LA NACION'
             },
             {
                 property: 'og:description',
                 content:
-                    'odas las noticias de Argentina y el mundo: últimas noticias en actualidad, deportes, coronavirus, economía, política, y tecnología. Mantenete informado sobre las novedades de Argentina en LA NACION.'
+                    'Encontrá acá la receta de Arroz chaufa de mariscos - LA NACION'
             },
             {
                 property: 'og:image',
@@ -110,6 +111,10 @@ describe('Common - getMetasOG function', () => {
             {
                 property: 'article:published_time',
                 content: '2021-01-08T15:24:00.940Z'
+            },
+            {
+                content: 'LA NACION',
+                property: 'og:site_name'
             }
         ];
         expect(getMetasOG(props)).toStrictEqual(metas);
@@ -133,7 +138,8 @@ describe('Common - getMetasOG function', () => {
             contextPath: '/pf',
             deployment: function deployment() {
                 return '$LATEST';
-            }
+            },
+            section: 'acumulado'
         };
 
         const metas = [
@@ -162,6 +168,10 @@ describe('Common - getMetasOG function', () => {
             {
                 property: 'og:url',
                 content: 'https://www.lanacion.com.ar/'
+            },
+            {
+                content: 'LA NACION',
+                property: 'og:site_name'
             }
         ];
 
