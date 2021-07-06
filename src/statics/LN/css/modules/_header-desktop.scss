@@ -18,7 +18,7 @@
 
     .com-button.--icon .com-icon {
         font-size: px(14);
-        margin-right: px(8);
+        margin-right: $spacing;
     }
 
     &__left {
@@ -32,11 +32,10 @@
         // max-width: 66.66667%;
         // display: flex;
         //aca logo lanacion
-        .com-link {
-            display: inline-flex;
-        }
+        // .com-link {
+        //     display: inline-flex;
+        // }
         .logo-la-nacion {
-            color: $ln-active;
             @media ($media-m) {
                 font-size: px(20);
             }
@@ -83,34 +82,6 @@
                     color: $light-neutral-200;
                 }
             }
-            // .com-hamburger {
-            //     &:before,
-            //     .com-icon {
-            //         color: $neutral-white;
-            //     }
-            //     &:hover {
-            //         color: $neutral-white;
-            //     }
-            // }
-
-            // .com-search {
-            //     &__input {
-            //         color: $neutral-white;
-
-            //         &::placeholder {
-            //             color: $light-neutral-400;
-            //         }
-            //     }
-
-            //     &__submit {
-            //         background: $neutral-white;
-            //         color: $link;
-            //     }
-
-            //     .icon-search {
-            //         color: $neutral-white;
-            //     }
-            // }
         }
 
         .header__middle {
@@ -166,7 +137,7 @@
     //.storytelling:not(.--scrollUp) &,
     //.--photo100:not(.--scrollUp) &,
     //.--color:not(.--scrollUp) &,
-    .--transparent:not(.--scrollUp) & {
+    .--transparent:not(.--scrollUp):not(.--scrollDown) & {
         //&:not(.--scrollUp) {
         @include darkHeader;
         //}
@@ -177,38 +148,20 @@
         }
     }
 
-    // @media (min-width: 769px) {
-
-    //     // &__middle {
-    //     //     &.col-4 {
-    //     //         -ms-flex: 0 0 33.33333%;
-    //     //         flex: 0 0 33.33333%;
-    //     //         max-width: 33.33333%;
-    //     //         //aca logo lanacion
-    //     //     }
-    //     // }
-
-    //     // &__right {
-    //     //     //padding-top: px(5);
-    //     // }
-
-    // }
-
     @media ($media-l) {
         //height: px(65);
         padding: px(16) 0;
         border-bottom: 1px solid $light-neutral-300;
 
+        top: 0;
+        position: fixed;
+
         &__left {
             display: block;
-            //padding-top: 0;
-            // display: grid;
-            // grid-template-columns: px(151) 1fr;
-            // align-items: center;
 
             .com-hamburger {
                 display: inline-flex;
-                margin-right: px(24);
+                margin-right: $spacing-md;
             }
         }
 
@@ -233,7 +186,7 @@
             }
             .com-usuario {
                 .--special {
-                    margin-right: px(24);
+                    margin-right: $spacing-md;
                 }
                 .--secondary {
                     display: flex;
@@ -250,22 +203,22 @@
         //=================================
         //scrollUp
         //&.--scrollDown,
-        .--scrollDown & {
-            /*transform: translateY(-100%);
-            position: absolute;*/
-            position: fixed;
-            top: -80px;
-        }
+        // .--scrollDown & {
+        // /*transform: translateY(-100%);
+        //     position: absolute;*/
+        //     position: fixed;
+        //     top: -80px;
+        // }
         //scrollDown
         //&.--scrollUp,
-        .--scrollUp & {
-            /*transform: translateY(0);*/
-            top: 0;
-            position: fixed;
-        }
-        .dropdown.--scrollUp & {
-            padding-right: $scroll-width;
-        }
+        // .--scrollUp & {
+        //     /*transform: translateY(0);*/
+        //     top: 0;
+        //     position: fixed;
+        // }
+        // .dropdown.--scrollUp & {
+        //     padding-right: $scroll-width;
+        // }
         //active del search-----
         // &.--active-search {
         //     .header__left {

@@ -7,14 +7,15 @@ import Hamburguer from './hamburger';
 import ComLink from '../../../common/com-link';
 import ComLogo from '../../../common/com-logo';
 import ComIcon from '../../../common/com-icon';
+import Logo from '../../../common/com-logo';
 
 import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../../../../resources/dist/css/ln/components/usuario.css';
 import '../../../../../resources/dist/css/ln/components/button.css';
 import dynamicallyLoadScript from '../utils/dynamicallyLoadScript';
-// import ModsubHeather from './subHeather';
+// import ModsubHeather from './subHeader';
 
-const ItemAnchor = ({ url, text }) => {
+const ItemAnchor = ({ url, text, alt }) => {
     const callURL = address => {
         // eslint-disable-next-line no-restricted-globals
         location.href = address;
@@ -22,7 +23,13 @@ const ItemAnchor = ({ url, text }) => {
 
     return (
         <li key={text}>
-            <a onMouseDown={() => callURL(url)} href="javascript:void(0)">
+            <a
+                onMouseDown={() => callURL(url)}
+                href="javascript:void(0)"
+                data-event="LinkClick"
+                data-section="MenuLN"
+                title={alt}
+            >
                 {text}
             </a>
         </li>
@@ -31,21 +38,25 @@ const ItemAnchor = ({ url, text }) => {
 
 ItemAnchor.propTypes = {
     url: PropTypes.string.isRequired,
-    text: PropTypes.text.isRequired
+    text: PropTypes.text.isRequired,
+    alt: PropTypes.text.isRequired
 };
 
 const enlaces = [
     {
-        url: 'https://micuenta.lanacion.com.ar/mis-datos',
-        text: 'Mi cuenta'
+        url: 'https://myaccount.lanacion.com.ar/mi-usuario',
+        text: 'Mi cuenta',
+        alt: 'Ir a mi cuenta'
     },
     {
-        url: 'https://micuenta.lanacion.com.ar/ayuda',
-        text: 'Mis datos'
+        url: 'https://myaccount.lanacion.com.ar/datos-personales',
+        text: 'Mis datos',
+        alt: 'Ir a mis datos'
     },
     {
         url: 'https://micuenta.lanacion.com.ar/mis-suscripciones',
-        text: 'Mis suscripciones'
+        text: 'Mis suscripciones',
+        alt: 'Ir a mis suscripciones'
     }
 ];
 
@@ -92,6 +103,7 @@ const HeaderDesktop = ({
                     onClick={handleClickBuscar}
                     id="querylyButton"
                     htmlFor="queryly_toggle"
+                    title="Ir al buscador"
                 >
                     <i className="com-button --tertiary --icon queryly_searchicon">
                         <ComIcon iconName="search" />
@@ -101,12 +113,13 @@ const HeaderDesktop = ({
                 </label>
             </div>
             <div className="col-7 col-desksm-4 header__middle">
-                <ComLink
-                    link={host || '/'}
-                    classCondition="header__middle__logo"
-                >
-                    <ComLogo logoName="la-nacion" />
-                </ComLink>
+                <Logo
+                    logoName="la-nacion"
+                    color
+                    //size="--md"
+                    href={host || '/'}
+                    title="Ir a la página principal"
+                />
             </div>
             <div className="col-4 header__right">
                 <div
@@ -116,7 +129,9 @@ const HeaderDesktop = ({
                     {!loginData.subscription && (
                         <button
                             className="com-button --special"
+                            id="btnsuscribite"
                             type="button"
+                            title="Suscribite"
                             onClick={() => {
                                 location.href =
                                     `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
@@ -136,7 +151,10 @@ const HeaderDesktop = ({
                             onBlur={() => setActive('')}
                             onScroll={() => setActive('')}
                         >
-                            <p className="com-usuario__name">
+                            <p
+                                className="com-usuario__name"
+                                title="Ir al menú de suscriptor o suscriptora digital"
+                            >
                                 {loginData.userName}
                             </p>
                             {loginData.subscription ? (
@@ -158,7 +176,10 @@ const HeaderDesktop = ({
                                 ))}
                                 <li>
                                     <a
+                                        data-event="LinkClick"
+                                        data-section="MenuLN"
                                         href="javascript:void(0);"
+                                        title="Desloguearse"
                                         onMouseDown={() => {
                                             goToLogout();
                                         }}
@@ -171,9 +192,11 @@ const HeaderDesktop = ({
                     )}
                     {!logueado && (
                         <button
-                            type="button"
                             className="com-button --secondary"
+                            id="btningresar"
                             onClick={() => goToLoginUrl()}
+                            type="button"
+                            title="Ingresar"
                         >
                             INGRESAR
                         </button>

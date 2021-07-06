@@ -34,7 +34,14 @@ describe('Private - Common - ModArticle', () => {
         dateSize: '',
         subheadText: 'Este es el subtitulo',
         subheadSize: '',
-        outputType: 'default'
+        subheadTag: '',
+        outputType: 'default',
+        label: 'chapita',
+        category: '',
+        tags: [],
+        hour: '',
+        isRenderAuthor: false,
+        isRenderAuthorOpinion: false
     };
 
     it('Render OK', () => {
@@ -54,6 +61,7 @@ describe('Private - Common - ModArticle', () => {
         expect(component.find('.com-subhead')).toHaveLength(1);
         expect(component.find('.mod-marquee')).toHaveLength(1);
         expect(component.find('.com-date')).toHaveLength(1);
+        expect(component.find('.com-label')).toHaveLength(1);
         expect(component.find('.com-title').html()).toBe(
             '<h1 class="com-title --s"><a href="http://google.com" class="com-link">Este es el titulo</a></h1>'
         );

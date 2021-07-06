@@ -149,28 +149,6 @@ body {
     overflow-x: hidden; //para notas con fondo color al 100%
 }
 
-#fusion-app > #wrapper {
-    position: relative;
-    margin-bottom: 80px;
-    //margin-top: 50px; //alto header mobile
-    @media (min-width: 1023px) {
-        margin-bottom: 0;
-        //margin-top: 73px; //alto header desktop para header fijo
-        &.--scrollUp,
-        &.--scrollDown {
-            margin-top: 73px; //alto header desktop
-        }
-    }
-}
-
-main {
-    position: relative;
-    //padding-bottom: 32px;
-    // @media (min-width: 768px) {
-    //     padding-bottom: 40px;
-    // }
-}
-
 a {
     text-decoration: none;
     color: inherit;

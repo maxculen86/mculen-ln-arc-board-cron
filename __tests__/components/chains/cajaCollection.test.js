@@ -7,11 +7,15 @@ import React from 'react';
 import { mount } from 'enzyme';
 import {
     calculateSizeOfCollection,
-    getArticlesFromMyCurrentCollection,
     getCommonProps,
-    getIdsArticlesFromOtherCollections,
+    getLayoutType,
+    getMarkupForDatalayer,
     isInApertura
 } from '../../../components/private/LN/common/utils/cajaTemasHelper.js';
+import {
+    getArticlesFromMyCurrentCollection,
+    getIdsArticlesFromOtherCollections
+} from '../../../components/private/LN/common/utils/cajaTemasValidators';
 import { getArticlesToShow } from '../../../content/sources/utils/collectionsHelper.js';
 import CajaCollection from '../../../components/chains/Ln_Caja_Collection/default.jsx';
 import useGlobalProviderAcu from '../../../components/private/LN/acumulado/hooks/useGlobalProviderAcu.js';
@@ -343,5 +347,54 @@ describe('Test del Chain - <Ln_Caja_Collection />', () => {
             3
         );
         expect(articles4.length).toBe(0);
+    });
+
+    it('Deberia traer los datos de dataLyer para Layout Opinion', () => {
+        const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
+            'Opinion',
+            '',
+            0,
+            ''
+        );
+        expect(Object.keys(extraOptsDiv).length).toEqual(0);
+        expect(extraOpts['data-block-name']).toEqual('h_opinion');
+    });
+
+    it('Deberia traer los datos de dataLyer para Layout Opinion', () => {
+        const layout1 = getLayoutType('grilla3', [[]], []);
+        const layout2 = getLayoutType('opinion4', [[]], []);
+        const layout3 = getLayoutType('editoriales2', [[]], []);
+        const layout4 = getLayoutType('focal', [[]], []);
+        const layout5 = getLayoutType('xx', [], [[]]);
+        expect(layout1).toEqual('Grilla');
+        expect(layout2).toEqual('Opinion');
+        expect(layout3).toEqual('Editoriales');
+        expect(layout4).toEqual('Focal');
+        expect(layout5).toEqual('ArticleFeature');
+    });
+
+    it('Deberia traer los datos de dataLyer para Layout Editoriales', () => {
+        const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
+            'Editoriales',
+            '',
+            0,
+            ''
+        );
+        expect(Object.keys(extraOptsDiv).length).toEqual(0);
+        expect(extraOpts['data-block-name']).toEqual('h_editoriales');
+    });
+
+    it('Deberia traer los datos de dataLyer para Layout generico', () => {
+        const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
+            '',
+            'grilla3',
+            '00',
+            'deportes_'
+        );
+        expect(extraOptsDiv['data-module']).toEqual('tema_00');
+        expect(extraOpts['data-block-name']).toEqual('h_deportes_tema-00');
+        expect(extraOpts['data-diagramacion-id']).toEqual('grilla3');
+        expect(extraOpts['data-is-block']).toEqual(true);
+        expect(extraOpts.id).toEqual('tema_00');
     });
 });

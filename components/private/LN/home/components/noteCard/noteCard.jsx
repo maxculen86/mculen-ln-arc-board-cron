@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 
 import ModArticle from '../../../../common/mod-article';
 import get from '../../../../common/utils/get';
@@ -22,7 +22,9 @@ const NoteCard = ({
     outputType,
     promoItems,
     index,
-    boxPosition
+    boxPosition,
+    layout,
+    isInHomeAperturaOrBomba
 }) => {
     const [article, setArticle] = useState(
         transform(content, customFields, promoItems)
@@ -34,10 +36,10 @@ const NoteCard = ({
         getWithSubhead(articleProps, withMedia, customFields)
     );
     const [label, setLabel] = useState(
-        getLabel(articleProps, customFields, withMedia)
+        getLabel(content, customFields, withMedia)
     );
     const [isRenderAutor, setIsRenderAutor] = useState(
-        getIsRenderAutor(customFields)
+        getIsRenderAutor(customFields, layout)
     );
 
     useEffect(() => {
@@ -46,10 +48,10 @@ const NoteCard = ({
 
     useEffect(() => {
         setArticle(transform(content, customFields, promoItems));
-        setLabel(getLabel(articleProps, customFields, withMedia));
+        setLabel(getLabel(content, customFields, withMedia));
         setWithSubhead(getWithSubhead(articleProps, withMedia, customFields));
-        setIsRenderAutor(getIsRenderAutor(customFields));
-    }, [articleProps, content, customFields, promoItems, withMedia]);
+        setIsRenderAutor(getIsRenderAutor(customFields, layout));
+    }, [articleProps, content, customFields, promoItems, withMedia, layout]);
 
     return (
         (article && (
@@ -57,15 +59,40 @@ const NoteCard = ({
                 articleData={article}
                 withMedia={withMedia}
                 link={get(article, 'website_url')}
-                titleSize={get(articleProps, 'titleSize')}
+                titleSize={
+                    (!withMedia && get(articleProps, 'titleSizeNoMedia')) ||
+                    get(articleProps, 'titleSize')
+                }
                 titleText={get(article, 'headlines.basic')}
+                titleTag={
+                    (isInHomeAperturaOrBomba &&
+                        get(articleProps, 'titleTagApertura')) ||
+                    get(articleProps, 'titleTag', 'h2')
+                }
                 authors={get(article, 'marquesina')}
-                subheadText={withSubhead && get(article, 'subheadlines.basic')}
+                subheadText={
+                    get(articleProps, 'skipSubhead', false)
+                        ? false
+                        : withSubhead && get(article, 'subheadlines.basic')
+                }
+                subheadTag={
+                    (isInHomeAperturaOrBomba &&
+                        get(articleProps, 'subheadTagApertura')) ||
+                    get(articleProps, 'subheadTag', 'h3')
+                }
                 leadText={get(article, 'label.volanta.text')}
                 outputType={outputType}
-                isRenderAuthor={isRenderAutor}
+                isRenderAuthor={
+                    get(articleProps, 'skipRenderAuthor', false)
+                        ? false
+                        : isRenderAutor
+                }
                 label={!get(customFields, 'html') && label}
-                anexo={!isRenderAutor && get(customFields, 'html')}
+                anexo={
+                    get(articleProps, 'skipHtml', false)
+                        ? false
+                        : !isRenderAutor && get(customFields, 'html')
+                }
                 boxPosition={boxPosition}
                 artPosition={`0${Number(index) + 1}`.slice(-2)}
             />

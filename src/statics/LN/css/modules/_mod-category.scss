@@ -11,7 +11,9 @@
     .com-title {
         margin-bottom: $spacing-sm;
         margin-right: 0;
-        min-width: max-content;
+        @media ($media-m) {
+            min-width: max-content;
+        }
     }
     .mod-logo {
         //display: flex;
@@ -79,7 +81,7 @@
 
         .com-title {
             margin-bottom: 0;
-            margin-right: px(24);
+            margin-right: $spacing-md;
             padding-bottom: px(10);
         }
         .mod-logo {
@@ -91,7 +93,7 @@
         }
         .com-button {
             padding: 0;
-            margin-bottom: px(8);
+            margin-bottom: $spacing;
             &:not(.hlp-none) {
                 display: inline-flex;
             }

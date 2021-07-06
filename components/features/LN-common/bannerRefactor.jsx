@@ -39,7 +39,8 @@ const Banner = props => {
             fixed
         },
         globalContent,
-        globalContentConfig
+        globalContentConfig,
+        outputType
     } = props;
 
     const device = useViewportSize();
@@ -81,7 +82,7 @@ const Banner = props => {
 
     if (!configBuilder.current) {
         slotId = getSlotForDevice(device)(slots);
-        if (typeof window === 'undefined')
+        if (typeof window === 'undefined' && outputType !== 'amp')
             return <WithSkeletonBannerWithoutHide slotId={slotId} />;
 
         // if (slotId === 'NINGUNO') return null;

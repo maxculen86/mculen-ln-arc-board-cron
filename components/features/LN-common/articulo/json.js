@@ -1,39 +1,59 @@
 import Consumer from 'fusion:consumer';
-import { addHoursAndFormat } from '../../../private/common/utils/dateAndTimeUtil';
-// URL de pagina: http://localhost/pf/deportes/?_website=la-nacion-ar&outputType=json
 
 class ArticleFeature {
     constructor(props) {
         this.props = props;
-
         const {
-            id: featureId,
-            customFields: { noteId: id, imageId }
+            customFields: { noteId, imageId }
         } = props;
-        this.state = { id, imageId, featureId };
+        this.state = {};
 
         this.fetchContent({
             articleSourceNota: {
                 source: 'articleSourceNota',
-                query: { id, published: true }
+                query: { id: noteId, published: true }
+            }
+        });
+
+        this.fetchContent({
+            articleImage: {
+                source: 'relatedImageSource',
+                query: {
+                    id: imageId,
+                    published: true,
+                    imageConfig: 'm',
+                    'arc-site': 'la-nacion-ar'
+                }
             }
         });
     }
 
     render() {
         try {
-            const { articleSourceNota } = this.state || {};
+            const { articleSourceNota, articleImage } = this.state || {};
+            const {
+                noteId,
+                title,
+                authors,
+                lead,
+                chapita,
+                opinion
+            } = this.props.customFields;
 
             if (!articleSourceNota) {
                 return null;
             }
 
-            const { _id: notaId, canonical_url: url } = articleSourceNota;
-            const articuloData = {
-                id_nota: notaId,
-                url_nota: url
+            const additionalProperties = {
+                noteId,
+                title,
+                authors,
+                lead,
+                chapita,
+                opinion,
+                image: articleImage || null
             };
-            return articuloData;
+            return { ...articleSourceNota, additionalProperties };
         } catch (err) {
             return { Success: false, Message: err.message };
         }

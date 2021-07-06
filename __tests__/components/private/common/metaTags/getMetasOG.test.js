@@ -57,21 +57,29 @@ describe('Common - getMetasOG function', () => {
                 website_url:
                     '/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/'
             },
+
             siteProperties: {
                 title: 'LA NACION',
+                longTitle:
+                    'Últimas noticias de Argentina y el mundo - LA NACION',
+                description:
+                    'odas las noticias de Argentina y el mundo: últimas noticias en actualidad, deportes, coronavirus, economía, política, y tecnología. Encontrá acá la receta de Arroz chaufa de mariscos - LA NACION',
                 shareConfig: {
                     facebook: {
                         appID: '205326199490321'
                     }
                 }
             },
+
             metaValue: function metaValue(name) {
                 return name === 'title' ? 'Arroz chaufa de mariscos' : '';
             },
+
             contextPath: '/pf',
             deployment: function deployment() {
                 return '$LATEST';
-            }
+            },
+            section: 'nota'
         };
 
         const metas = [
@@ -85,11 +93,12 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:title',
-                content: 'Arroz chaufa de mariscos'
+                content: 'Receta de Arroz chaufa de mariscos - LA NACION'
             },
             {
                 property: 'og:description',
-                content: ''
+                content:
+                    'Encontrá acá la receta de Arroz chaufa de mariscos - LA NACION'
             },
             {
                 property: 'og:image',
@@ -97,11 +106,15 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:url',
-                content: `https://recetas.lanacion.com.ar/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/`
+                content: `https://www.lanacion.com.ar/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/`
             },
             {
                 property: 'article:published_time',
                 content: '2021-01-08T15:24:00.940Z'
+            },
+            {
+                content: 'LA NACION',
+                property: 'og:site_name'
             }
         ];
         expect(getMetasOG(props)).toStrictEqual(metas);
@@ -125,7 +138,8 @@ describe('Common - getMetasOG function', () => {
             contextPath: '/pf',
             deployment: function deployment() {
                 return '$LATEST';
-            }
+            },
+            section: 'acumulado'
         };
 
         const metas = [
@@ -153,7 +167,11 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:url',
-                content: 'https://www.lanacion.com.ar'
+                content: 'https://www.lanacion.com.ar/'
+            },
+            {
+                content: 'LA NACION',
+                property: 'og:site_name'
             }
         ];
 
@@ -164,7 +182,7 @@ describe('Common - getMetasOG function', () => {
         const props = {
             globalContent: {
                 _id: 'EZYG5OEVH5HSJJCUMJO5XAHTTA',
-                canonical_url: '/autor/javier-blanco-170/',
+                canonical_url: '/recetas/autor/javier-blanco-170/',
                 node_type: 'author',
                 name: 'Javier Blanco',
                 website_url:
@@ -212,7 +230,7 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:url',
-                content: `https://recetas.lanacion.com.ar/autor/javier-blanco-170/`
+                content: `https://www.lanacion.com.ar/recetas/autor/javier-blanco-170/`
             }
         ];
         expect(getMetasOG(props)).toStrictEqual(metas);

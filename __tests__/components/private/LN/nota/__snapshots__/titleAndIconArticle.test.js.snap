@@ -4,7 +4,7 @@ exports[`features - LaNacion - Nota - TituloNota Test de snapshot Titulo e Icono
 Array [
   <a
     class="com-link"
-    href="/revista-brando"
+    href="/revista-brando/"
   >
     <i
       class="com-logo logo-brando --color --sm"

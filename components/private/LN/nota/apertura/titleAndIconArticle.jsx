@@ -41,11 +41,7 @@ const TitleAndIconArticle = ({
                 subtype={subtype}
                 tooltip={tooltip}
             />
-            <TitleArticle
-                prefix={prefix || ''}
-                headlines={headlines}
-                label={label}
-            />
+            <TitleArticle prefix={prefix || ''} headlines={headlines} />
         </>
     );
 };

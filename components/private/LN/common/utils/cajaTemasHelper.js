@@ -4,6 +4,7 @@ import config from '../../../../../properties/sites/la-nacion-ar';
 import get from '../../../common/utils/get';
 import { formatText } from '../../../common/utils/sectionUtils';
 import useGlobalProviderAcu from '../../acumulado/hooks/useGlobalProviderAcu';
+import sectionsValidation from '../../../../layouts/config/LN-Home.config.json';
 
 const featuredRules = {
     cajaCollection: {
@@ -15,10 +16,9 @@ const featuredRules = {
             focalLeft3: 'Focal Izquierdo',
             focalRight2: 'Focal Derecho',
             author3: 'Opinión',
-            notaColorAzul3: 'Vertical 3 color Azul',
-            notaColorRojo3: 'Vertical 3 color Rojo',
             notaColorRosa3: 'Vertical 3 color Rosa',
             notaColorVerde3: 'Vertical 3 color Verde',
+            grilla1: 'Grilla 1',
             grilla2: 'Grilla 2',
             grilla3: 'Grilla 3',
             grilla6: 'Grilla 6',
@@ -33,66 +33,125 @@ const featuredRules = {
         groupName: 'Ajuste Manual',
         layouts: {
             focalLeft3: 'Focal Izquierdo',
-            focalRight2: 'Focal Derecho'
+            focalRight2: 'Focal Derecho',
+            // author3: 'Opinión',
+            notaColorRosa3: 'Vertical 3 color Rosa',
+            notaColorVerde3: 'Vertical 3 color Verde',
+            grilla1: 'Grilla 1',
+            grilla2: 'Grilla 2',
+            grilla3: 'Grilla 3',
+            grilla6: 'Grilla 6',
+            grilla9: 'Grilla 9'
         },
         defaultLayout: 'focalLeft3'
+    },
+    cajaOpinion: {
+        hideInitialPosition: true,
+        hideIdCollection: false,
+        hideHideCaja: false,
+        groupName: 'Ajuste Collection',
+        layouts: {
+            opinion4: 'Home Opinion'
+        },
+        defaultLayout: 'opinion4'
+    },
+    cajaEditoriales: {
+        hideInitialPosition: true,
+        hideIdCollection: false,
+        hideHideCaja: false,
+        groupName: 'Ajuste Collection',
+        layouts: {
+            editoriales2: 'Home Editoriales'
+        },
+        defaultLayout: 'editoriales2'
     }
 };
 
-export const validateFeature = (idCollection, articles, message) => {
-    let error;
-    if (!idCollection)
-        error = {
-            type: 'warning',
-            message: 'Se requiere el id de la colección de la caja de temas'
-        };
-
-    if (idCollection && articles.length === 0)
-        error = {
-            type: 'warning',
-            message
-        };
-    return error;
-};
-
-export const validateChainManual = (childrenProps, layout) => {
-    const minimun = (layout && Number(layout.slice(-1))) || 3;
-
-    const invalidFeature = childrenProps.some(
-        children =>
-            !(
-                children.collection === 'features' &&
-                children.type === 'LN-common/articulo'
-            )
+export const getLayoutType = (layout, artWithoutDate, _children) => {
+    return (
+        (layout.includes('opinion4') && 'Opinion') ||
+        (layout.includes('editoriales2') && 'Editoriales') ||
+        (layout.includes('focal') && 'Focal') ||
+        (artWithoutDate && artWithoutDate.length && 'Grilla') ||
+        (_children && _children.length && 'ArticleFeature')
     );
-
-    const message =
-        (!layout && 'Se requiere que seleccione una diagramación') ||
-        (invalidFeature &&
-            'El Chain Caja Manual sólo admite Features del tipo LN Artículo') ||
-        (get(childrenProps, 'length') < minimun &&
-            `Se requiere la carga de ${minimun -
-                get(childrenProps, 'length')} artículo${
-                minimun - get(childrenProps, 'length') > 1 ? 's' : ''
-            }`) ||
-        null;
-
-    return message && { type: 'warning', message };
 };
 
-export const validateArticleFeature = (id, content) => {
-    const error =
-        (!id && {
-            type: 'warning',
-            message: 'El campo Id de la Nota es obligatorio.'
-        }) ||
-        (!content && {
-            type: 'info',
-            message: 'Cargando...'
-        }) ||
-        null;
+export const getMarkupForDatalayer = (
+    layoutType,
+    layout,
+    position,
+    sectionName
+) => {
+    const extraOptsdefault = {
+        'data-diagramacion-id': '0',
+        'data-is-block': true
+    };
+    const types = {
+        Opinion: {
+            extraOpts: {
+                'data-block-name': 'h_opinion',
+                ...extraOptsdefault
+            }
+        },
+        Editoriales: {
+            extraOpts: {
+                'data-block-name': 'h_editoriales',
+                ...extraOptsdefault
+            }
+        },
+        OtrasNoticias: {
+            extraOpts: {
+                'data-block-name': 'n_otras_noticias',
+                ...extraOptsdefault
+            }
+        },
+        UltimasNoticias: {
+            extraOpts: {
+                'data-block-name': 'n_ultimas_noticias',
+                ...extraOptsdefault
+            }
+        },
+        TePuedeInteresarHome: {
+            extraOpts: {
+                'data-block-name': 'h_sugerencias',
+                ...extraOptsdefault
+            }
+        },
+        TePuedeInteresar: {
+            extraOpts: {
+                'data-block-name': 'n_te_puede_interesar',
+                ...extraOptsdefault
+            }
+        },
+        Ranking: {
+            extraOpts: {
+                'data-block-name': 'n_ranking',
+                ...extraOptsdefault
+            }
+        },
+        Default: (pos, section, lay) => {
+            if (!pos) return {};
+            return {
+                extraOptsDiv: {
+                    'data-module': `tema_${pos}`
+                },
+                extraOpts: {
+                    'data-block-name': `h_${section}tema-${pos}`,
+                    'data-diagramacion-id': lay,
+                    'data-is-block': true,
+                    id: `tema_${pos}`
+                }
+            };
+        }
+    };
 
-    return error;
+    const { extraOptsDiv = {}, extraOpts = {} } =
+        types[layoutType] ||
+        types[sectionName] ||
+        types.Default(position, sectionName, layout);
+
+    return { extraOptsDiv, extraOpts };
 };
 
 export const getCommonProps = props => {
@@ -100,10 +159,11 @@ export const getCommonProps = props => {
         customFields: { layout = 'grilla3', backgroundColor },
         renderables = [],
         id: idFeature,
-        globalContent: { name, acumuladoGeneral }
+        globalContent: { name, acumuladoGeneral } = {},
+        layout: pageBuilderLayout
     } = props;
 
-    const { cajaTemaConfig = {} } = config || {};
+    const { cajaTemaConfig = {}, layoutsName = {} } = config || {};
     const { collectionsInPage = [] } = useGlobalProviderAcu() || {};
     const notesQuantity = (layout && Number(layout.slice(-1))) || 3;
     const bgColor =
@@ -121,8 +181,13 @@ export const getCommonProps = props => {
             )
             .findIndex(chain => chain.props.id === idFeature) || 0;
 
-    const sectionName = `${formatText(name === 'LA NACION' ? '' : `${name}_`)}`;
-    const showDatalayerMark = get(acumuladoGeneral, 'usa_datalayer', 'false');
+    const sectionName = `${formatText(
+        pageBuilderLayout === layoutsName.Home ? '' : `${name}_`
+    )}`;
+    const showDatalayerMark =
+        pageBuilderLayout === layoutsName.Home
+            ? 'true'
+            : get(acumuladoGeneral, 'usa_datalayer', 'false');
 
     return {
         collectionsInPage,
@@ -136,75 +201,6 @@ export const getCommonProps = props => {
     };
 };
 
-export const getCommonPropsJson = props => {
-    const {
-        customFields: { layout = '' }
-    } = props;
-    const { collectionsInPage = [] } = [];
-    const notesQuantity = (layout && Number(layout.slice(-1))) || 3;
-
-    return {
-        collectionsInPage,
-        notesQuantity
-    };
-};
-
-export const flattenArray = arr1 => {
-    return arr1.reduce(
-        (acc, val) =>
-            Array.isArray(val)
-                ? acc.concat(flattenArray(val))
-                : acc.concat(val),
-        []
-    );
-};
-
-export const getIdsArticlesFromOtherCollections = (
-    renderables,
-    collectionsInPage
-) => {
-    const chainsCollections = renderables.filter(
-        ren => ren.collection === 'chains' && ren.type === 'Ln_Caja_Collection'
-    );
-
-    const articlesViewables = chainsCollections.map(chain => {
-        const layoutChain = get(chain, 'props.customFields.layout', '');
-        const position = get(chain, 'props.customFields.initialPosition', 1);
-        const arts = getArticlesFromMyCurrentCollection(
-            collectionsInPage,
-            get(chain, 'props.customFields.idCollection', null),
-            Number(position) - 1,
-            Number(layoutChain.slice(-1))
-        );
-
-        return arts.map(art => art._id);
-    });
-
-    return flattenArray(articlesViewables);
-};
-
-export const getArticlesFromMyCurrentCollection = (
-    collections,
-    idCollection,
-    initialPosition,
-    notesQuantity
-) => {
-    const currentCollection = collections.find(
-        collect => collect.idCollection === idCollection
-    );
-
-    if (!currentCollection) return [];
-
-    const articlesFiltered = currentCollection.articles
-        ? currentCollection.articles.slice(
-              initialPosition,
-              initialPosition + notesQuantity
-          )
-        : [];
-
-    return articlesFiltered;
-};
-
 export const calculateSizeOfCollection = (collections, notesQuantity) => {
     const totalArticlesInCollections = collections.reduce(
         (total, currentValue) => {
@@ -214,6 +210,31 @@ export const calculateSizeOfCollection = (collections, notesQuantity) => {
     );
     const totalArticlesToAsk = notesQuantity + totalArticlesInCollections;
     return totalArticlesToAsk < 20 ? totalArticlesToAsk : 20;
+};
+
+export const getChildrenFromSectionHome = (
+    renderables,
+    sectionName,
+    sectionPosition
+) => {
+    const INDEX_SECTION =
+        get(sectionsValidation, `${sectionName}.position`, sectionPosition) + 1;
+
+    return get(renderables, `[${INDEX_SECTION}].children`, []);
+};
+
+export const getChildrenFromAperturaHome = renderables => {
+    const aperturasChildren = getChildrenFromSectionHome(
+        renderables,
+        'Apertura_1',
+        3
+    ).concat(getChildrenFromSectionHome(renderables, 'Apertura_2', 4));
+
+    return aperturasChildren;
+};
+
+export const getChildrenFromBombaHome = renderables => {
+    return getChildrenFromSectionHome(renderables, 'Bomba', 2);
 };
 
 export const isInApertura = (tree = {}, idFeature) => {
@@ -228,6 +249,7 @@ export const validateoutItem = itemNota => {
 
     return true;
 };
+
 export const cajaTemasCustomsFields = featuredName => {
     return {
         idCollection: PropTypes.string.tag({
@@ -246,27 +268,28 @@ export const cajaTemasCustomsFields = featuredName => {
             group: featuredRules[featuredName].groupName,
             labels: featuredRules[featuredName].layouts
         }).isRequired,
-        backgroundColor: PropTypes.oneOf([
-            'default',
-            '--bgpink',
-            '--bgblue',
-            '--bgred',
-            '--bgteal',
-            '--bggrey'
-        ]).tag({
-            label: 'Color de Fondo',
-            defaultValue: 'default',
-            description: 'Cambiar el color de fondo de la caja',
-            group: featuredRules[featuredName].groupName,
-            labels: {
-                default: 'Sin Fondo',
-                '--bgpink': 'Rosa',
-                '--bgblue': 'Celeste LN',
-                '--bgred': 'Rojo',
-                '--bgteal': 'Verde',
-                '--bggrey': 'Gris'
-            }
-        }),
+        // Se Pidió ocultarlo de momento. User Story[73305]
+        // backgroundColor: PropTypes.oneOf([
+        //     'default',
+        //     '--bgpink',
+        //     '--bgblue',
+        //     '--bgred',
+        //     '--bgteal',
+        //     '--bggrey'
+        // ]).tag({
+        //     label: 'Color de Fondo',
+        //     defaultValue: 'default',
+        //     description: 'Cambiar el color de fondo de la caja',
+        //     group: featuredRules[featuredName].groupName,
+        //     labels: {
+        //         default: 'Sin Fondo',
+        //         '--bgpink': 'Rosa',
+        //         '--bgblue': 'Celeste LN',
+        //         '--bgred': 'Rojo',
+        //         '--bgteal': 'Verde',
+        //         '--bggrey': 'Gris'
+        //     }
+        // }),
         initialPosition: PropTypes.number.tag({
             label: 'N° de nota inicial',
             description: 'Indicar a partir de que nota desea mostrar',
@@ -308,39 +331,3 @@ export const cajaTemasCustomsFields = featuredName => {
         })
     };
 };
-
-/*
-const isInAnotherCollection = (idArticle, collections) => {
-    const rto = collections.find(collect =>
-        collect.articles.some(artCol => artCol._id === idArticle)
-    );
-    return rto || false;
-};
-
-const isNotRecommend = article => {
-    const { label = {} } = article;
-    const { recomendar = {} } = label;
-    return recomendar.text === 'No';
-};
-
-export const getArticlesToShow = (
-    articles = [],
-    collections = [],
-    initialPosition,
-    notesQuantity
-) => {
-    const articlesRecomended = articles.filter(art => !isNotRecommend(art));
-
-    const articlesFiltered = articlesRecomended.filter(
-        art => isInAnotherCollection(art._id, collections) === false
-    );
-
-    const articlesToShow = articlesFiltered
-        ? articlesFiltered.slice(
-              initialPosition - 1,
-              initialPosition - 1 + notesQuantity
-          )
-        : [];
-    return articlesToShow;
-};
-*/

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const WithSkeletonBannerWithoutHide = ({ slotId }) =>
-    ['cabezal_dsk', 'cabezal_tab', 'sticky1_mob'].indexOf(slotId) !== -1 ? (
+    ['cabezal_dsk', 'cabezal_tab'].indexOf(slotId) !== -1 ? (
         <div className="mod-banner --top" />
     ) : null;
 

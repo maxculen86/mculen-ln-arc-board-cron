@@ -164,6 +164,10 @@ const labels = `
             text
             display
         }
+        chapita {
+            text
+            display
+        }
         mostrar_banners {
             url
             text
@@ -328,7 +332,8 @@ export default `
             type
             _id
             headlines {
-                basic
+                basic,
+                mobile
             }
             ${labels}
             website_url

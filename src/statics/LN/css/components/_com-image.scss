@@ -44,20 +44,18 @@
     //     }
     // }
 
-    .mod-picture & {
-        .mod-caja-nota & {
-            position: absolute;
-            object-fit: cover;
-            height: 100%;
-            top: 0;
-        }
-    }
+    // .mod-picture & {
+    //     .mod-caja-nota & {
+    //         position: absolute;
+    //         object-fit: cover;
+    //         height: 100%;
+    //         top: 0;
+    //     }
+    // }
 
     .mod-logo & {
-        width: inherit;
-        max-height: $spacing-md;
-    }
-    .mod-logo & {
+        //width: inherit;
+        max-height: px(46);
         width: auto;
     }
 }

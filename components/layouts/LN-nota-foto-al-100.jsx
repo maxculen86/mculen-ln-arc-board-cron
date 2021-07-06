@@ -1,6 +1,7 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
@@ -61,6 +62,7 @@ import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 const lnNotaFotoAl100 = ({
     children: [
         bannerMegatop,
+        preTitulo,
         leftCuerpo,
         cuerpo,
         postCuerpo,
@@ -94,6 +96,7 @@ const lnNotaFotoAl100 = ({
                     >
                         <Header />
                         <main>
+                            {preTitulo}
                             <AperturaStorytelling />
 
                             {/* Cuerpo al 100% */}
@@ -127,7 +130,9 @@ const lnNotaFotoAl100 = ({
                                 </div>
                             </div>
                         </main>
-                        <Footer />
+                        <Static id="StaticFooter">
+                            <Footer />
+                        </Static>
                     </div>
                     <LoadBanners />
                 </CommentsProvider>
@@ -138,6 +143,7 @@ const lnNotaFotoAl100 = ({
 
 const pageBuilderSections = [
     'Banner-Megatop',
+    'Pre-Titulo',
     'Left-Cuerpo',
     'Cuerpo',
     'Post-Cuerpo',

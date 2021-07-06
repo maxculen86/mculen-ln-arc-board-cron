@@ -58,6 +58,9 @@ const googlePublisherTagAcumulado = props => {
     const author = getAuthor(globalContent);
 
     const script = `
+            var pbjs = pbjs || {};
+            pbjs.que = pbjs.que || [];
+            
             (window.googletag = window.googletag || { cmd: [] });
                 googletag.cmd.push(function() {
                     googletag.pubads().setTargeting('tags_nuevos', ${JSON.stringify(
@@ -74,7 +77,7 @@ const googlePublisherTagAcumulado = props => {
         <>
             <script
                 async
-                src="https://www.googletagservices.com/tag/js/gpt.js"
+                src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"
             />
             <script
                 async

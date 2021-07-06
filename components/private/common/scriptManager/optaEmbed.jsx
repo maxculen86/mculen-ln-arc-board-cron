@@ -37,17 +37,26 @@ const OptaEmbed = props => {
     if (!hasOptaElements(contentElements, renderables)) return null;
 
     const script = `
+        window.onload = function() {
+            let tag = document.createElement('link');
+            tag.rel = "stylesheet";
+            tag.href = 'https://secure.widget.cloud.opta.net/v3/css/v3.all.opta-widgets.css';
+            document.head.appendChild(tag);
+        };
+
         var opta_settings = {
             subscription_id: '${config.optaConfig.subscription_id}',
             language: '${config.optaConfig.language}',
             timezone: '${config.optaConfig.timezone}'
         };
     `;
-    const style = `https://secure.widget.cloud.opta.net/v3/css/v3.all.opta-widgets.css`;
+
     return (
         <>
-            <link rel="stylesheet" href={style} />
-            <script src="https://secure.widget.cloud.opta.net/v3/v3.opta-widgets.js" />
+            <script
+                async
+                src="https://secure.widget.cloud.opta.net/v3/v3.opta-widgets.js"
+            />
             <script dangerouslySetInnerHTML={{ __html: script }} />
             <noscript>Your browser does not suport javascript</noscript>
         </>

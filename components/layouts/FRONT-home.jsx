@@ -11,11 +11,12 @@ import Dolar from '../private/common/mod-dolar';
 import GlobalProvider from '../private/common/context/globalContext';
 import ModPromo from '../private/common/mod-promo';
 import ComButton from '../private/common/com-button';
-import NewFooter from '../private/LN/common/footer/home';
-
+import NewFooter from '../private/LN/common/footer';
+import Anticipo from '../private/common/com-advance';
 import Escudos from '../../components/features/LN-acumulado/cajaEscudo';
+import SubHeader from '../private/LN/common/header/subHeader';
 
-import '../../resources/dist/css/ln/components/banners.css';
+import '../../resources/dist/css/ln/pages/home.css';
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
 
 // import withCollections from '../private/LN/acumulado/hocs/withCollections';
@@ -54,18 +55,27 @@ const LNHome = props => {
                             </div>
                         </div>
                     </div> */}
-                    <div
-                        id="wrapper"
-                        className={`home demofront ${amp} --transparent`}
-                    >
+                    <div id="wrapper" className={`home demofront ${amp}`}>
                         <Header />
+                        <SubHeader />
+                        {/* <Anticipo title="El Gobierno anticipó al mercado y dio indicios de su nueva estrategia" /> */}
+                        <div className="com-anexo --anexo-1">
+                            <iframe
+                                src="https://especialess3.lanacion.com.ar/21/03/anexo-home-vacunas/?initialWidth=1905&amp;childId=bloque1-pymnro0&amp;parentTitle=%C3%9Altimas%20noticias%20de%20Argentina%20y%20el%20mundo%20-%20LA%20NACION&amp;parentUrl=https%3A%2F%2Fwww.lanacion.com.ar%2F"
+                                width="100%"
+                                scrolling="no"
+                                marginheight="0"
+                                frameborder="0"
+                                height="198px"
+                            ></iframe>
+                        </div>
                         <div
                             data-module="tema_00"
                             data-is-loading="false"
                             data-is-loaded="true"
                         >
                             <section
-                                className="mod-opening --bomba"
+                                className="mod-opening --bomba --no-image"
                                 id="tema_00"
                                 data-is-block="true"
                                 data-block-name="h_tema-00"
@@ -87,7 +97,7 @@ const LNHome = props => {
                             </section>
                         </div>
                         <main>
-                            <div className="row">
+                            <div className="">
                                 <div className="lay-sidebar">
                                     <div className="sidebar__main">
                                         <section className="mod-banner">
@@ -104,7 +114,7 @@ const LNHome = props => {
                                             data-is-loaded="true"
                                         >
                                             <section
-                                                className="box-articles --focal --left"
+                                                className="box-articles --apertura --focal --left"
                                                 id="tema_01"
                                                 data-is-block="true"
                                                 data-block-name="h_tema-01"
@@ -412,16 +422,25 @@ const LNHome = props => {
                                                         />
                                                     </div>
                                                 </section>
+                                            </section>
+                                            <section
+                                                className="box-articles --editoriales"
+                                                id="tema_06"
+                                                data-is-block="true"
+                                                data-block-name="h_tema-06"
+                                                data-diagramacion-id="h_caja-opinion"
+                                            >
                                                 <section className="mod-footersection">
                                                     <ComTitle
                                                         content="EDITORIALES"
                                                         size="--twoxs"
+                                                        link="https://www.lanacion.com.ar/editoriales/"
                                                     />
                                                     <ul className="com-unordered">
                                                         <li>
                                                             <a
                                                                 href="/editoriales/mafia-politica-narcotrafico-peor-pandemia-nid2547665"
-                                                                className="--twoxs"
+                                                                className="com-link --twoxs"
                                                                 title="Mafia política y narcotráfico, la peor pandemia"
                                                             >
                                                                 Mafia política y
@@ -432,7 +451,7 @@ const LNHome = props => {
                                                         <li>
                                                             <a
                                                                 href="/editoriales/la-remocion-jueces-fiscales-nid2547655"
-                                                                className="--twoxs"
+                                                                className="com-link --twoxs"
                                                                 title="La remoción de jueces y fiscales"
                                                             >
                                                                 La remoción de
@@ -1554,13 +1573,13 @@ const LNHome = props => {
                                         </div>
                                         {/*
                                         <section className="demofonts">
-                                            <i class="com-icon icon-snow"></i>
-                                            <i class="com-icon icon-snow-cloudy"></i>
-                                            <i class="com-icon icon-storm"></i>
-                                            <i class="com-icon icon-storm-cloudy"></i>
-                                            <i class="com-icon icon-sun"></i>
-                                            <i class="com-icon icon-sun-cloudy"></i>
-                                            <i class="com-icon icon-windy"></i>
+                                            <i className="com-icon icon-snow"></i>
+                                            <i className="com-icon icon-snow-cloudy"></i>
+                                            <i className="com-icon icon-storm"></i>
+                                            <i className="com-icon icon-storm-cloudy"></i>
+                                            <i className="com-icon icon-sun"></i>
+                                            <i className="com-icon icon-sun-cloudy"></i>
+                                            <i className="com-icon icon-windy"></i>
                                         </section>
                                         
                                         <section className="demofonts">
@@ -1765,7 +1784,7 @@ const LNHome = props => {
                             </div>
                         </main>
                         {/* <Footer /> */}
-                        <NewFooter />
+                        <NewFooter home />
                     </div>
                 </GlobalProviderAcu>
             </LoginProvider>

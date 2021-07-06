@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import ComTitle from './com-title';
 import ComDate from './com-date';
 import ModBajada from './mod-bajada';
@@ -17,6 +17,7 @@ const ModDescription = props => {
         authors,
         subheadText,
         subheadSize,
+        subheadTag,
         dateText,
         label,
         lead,
@@ -43,6 +44,7 @@ const ModDescription = props => {
                     link={link}
                     subheadSize={subheadSize}
                     subheadText={subheadText}
+                    subheadTag={subheadTag}
                 />
             )}
             <div>
@@ -96,13 +98,14 @@ ModDescription.propTypes = {
     authorSize: PropTypes.string.isRequired,
     subheadText: PropTypes.string,
     subheadSize: PropTypes.string,
+    subheadTag: PropTypes.string,
     dateText: PropTypes.string,
     label: PropTypes.string,
     lead: PropTypes.string,
     authors: PropTypes.string,
     marquesina: PropTypes.string,
     category: PropTypes.string,
-    tags: PropTypes.arrayOf(PropTypes.obj)
+    tags: PropTypes.arrayOf(PropTypes.object)
 };
 
 ModDescription.defaultProps = {
@@ -110,6 +113,7 @@ ModDescription.defaultProps = {
     titleSize: '--xs',
     subheadText: false,
     subheadSize: '',
+    subheadTag: '',
     dateText: undefined,
     label: undefined,
     lead: undefined,

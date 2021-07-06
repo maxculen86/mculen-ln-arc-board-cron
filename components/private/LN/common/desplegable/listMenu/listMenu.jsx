@@ -75,7 +75,13 @@ const ListMenu = ({
     ) : (
         <li key={_id || ts} ref={elRef} className={`${classes}${itemActive}`}>
             {name && (
-                <a href={siteUrl || url} className="link__item">
+                <a
+                    href={siteUrl || url}
+                    className="link__item"
+                    data-event="LinkClick"
+                    data-section="MenuLN"
+                    title={`Ir a ${name}`}
+                >
                     {name}
                 </a>
             )}
@@ -101,13 +107,17 @@ ListMenu.propTypes = {
     name: PropTypes.string,
     site: PropTypes.shape({
         site_url: PropTypes.string
-    }).isRequired,
-    childs: PropTypes.shape({
-        el: PropTypes.string.isRequired,
-        extraClass: PropTypes.string
     }),
+    childs: PropTypes.arrayOf(
+        PropTypes.arrayOf(
+            PropTypes.shape({
+                el: PropTypes.string.isRequired,
+                extraClass: PropTypes.string
+            })
+        )
+    ),
     url: PropTypes.string,
-    onResizeDeskTop: PropTypes.bool.isRequired
+    onResizeDeskTop: PropTypes.bool
 };
 
 ListMenu.defaultProps = {
@@ -115,7 +125,9 @@ ListMenu.defaultProps = {
     name: undefined,
     childs: undefined,
     extraClass: undefined,
-    url: undefined
+    url: undefined,
+    site: undefined,
+    onResizeDeskTop: undefined
 };
 
 export default ListMenu;

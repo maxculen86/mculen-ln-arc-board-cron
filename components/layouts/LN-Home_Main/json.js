@@ -1,68 +1,109 @@
-const LNMainHome = ({ children }) => {
-    const listItems = [];
-    const ArticlesbyBox = [];
-    let posnum = 0;
-    let cajanum = 0;
+import Consumer from 'fusion:consumer';
+import home from '../../private/LN/api/v1/home';
+import pageBuilderSections from '../config/LN-PageBuilder.config.json';
 
-    children.map(element => {
-        const itemBoxes = element.map(elem => {
-            if (elem && elem.diagramacion_caja) {
-                cajanum += 1;
-                posnum = 0;
+import {
+    checkIfValid,
+    findSectionChildren
+} from '../../private/common/utils/validateSectionHome';
 
-                const subChild = elem.notas.map(item => {
-                    posnum += 1;
-                    return {
-                        ...item,
-                        posicion: `${String(posnum).padStart(2, '0')}`
-                    };
-                });
-                const result = {
-                    ...elem,
-                    id_caja: `${String(cajanum).padStart(2, '0')}`,
-                    notas: subChild
-                };
-                ArticlesbyBox.push(result);
-                return result;
-            }
-            return elem;
-        });
-
-        return itemBoxes;
-    });
-
-    listItems.push({
-        // fecha_foto: dateToday, //Data pendiente de añadir
-        // usuario_publica: 'XX', //Data pendiente de añadir
-        cajas: ArticlesbyBox
-    });
-
-    return Array.isArray(listItems) ? listItems : null;
+const bannersPosition = {
+    Apertura_1: { id: 402, type: 1, feature: 'Banner', position: 'bottom' },
+    Breaking_1: { id: 403, type: 1, feature: 'Banner', position: 'start' },
+    Breaking_2: { id: 404, type: 1, feature: 'Banner', position: 'start' },
+    Breaking_3: { id: 405, type: 1, feature: 'Banner', position: 'start' },
+    Opinion: { id: 406, type: 1, feature: 'Banner', position: 'start' }
 };
 
-LNMainHome.sections = [
-    'Banner-Megatop',
-    'Sticky-Mobile',
-    'Pre-Apertura',
+const homeMobileSections = [
+    'Anticipo',
+    'Anexo',
+    'Bomba',
     'Apertura',
-    'Anexo-2',
-    'Breaking-1',
-    'Breaking-2',
-    'Breaking-3',
-    'Anexo-3',
+    'Apertura',
+    'Anexo',
+    'Tema1',
+    'Tema2',
+    'Tema3',
+    'Anexo',
     'Opinion',
-    'Breaking-4',
-    'Breaking-5',
-    'Comercial-1',
-    'Bloque-2',
-    'Comercial-2',
-    'Bloque-3',
-    'Bloque-4',
-    'Bloque-5',
-    'Bloque-6',
-    'Bloque-7',
-    'Bloque-8',
-    'Aside'
+    'Tema4',
+    'Tema5',
+    'Tema6',
+    'Comercial',
+    'Tema7',
+    'Comercial',
+    'Tema8',
+    'Tema9',
+    'Tema10',
+    'Tema11',
+    'Tema12',
+    'Tema13',
+    'Tema14'
 ];
 
-export default LNMainHome;
+const validateSections = (section, name, position, renderables) => {
+    const sectionChildren = findSectionChildren(renderables, position);
+    const elements =
+        checkIfValid(name, sectionChildren) === true ? section : null;
+    const banner = bannersPosition[name];
+    if (elements && elements.length > 0 && banner) {
+        switch (banner.position) {
+            case 'middle':
+                elements.splice(Math.floor(elements.length / 2), 0, banner);
+                break;
+            case 'start':
+                elements.unshift(banner);
+                break;
+            default:
+                elements.push(banner);
+                break;
+        }
+    }
+    return elements;
+};
+
+const getHomeElements = props => {
+    const { children, renderables, arcSite } = props;
+    const configurations = {
+        arcSite
+    };
+    return pageBuilderSections.reduce((r, e, i) => {
+        const child = validateSections(children[i], e, i, renderables);
+        const banner = bannersPosition[e];
+        if (child && Array.isArray(child) && child.length > 0) {
+            return r.concat(
+                [].concat(
+                    child.reduce((res, b) => {
+                        if (b) {
+                            if (b.information && !b.information.hideCaja) {
+                                const addedInfo = { ...b, configurations };
+                                return res.concat({
+                                    type: 0,
+                                    feature: homeMobileSections[i],
+                                    ...addedInfo
+                                });
+                            }
+                            if (b.feature) {
+                                return res.concat(b);
+                            }
+                        }
+                        return res;
+                    }, [])
+                ) || []
+            );
+        }
+        if (banner) {
+            r.push(banner);
+        }
+
+        return r;
+    }, []);
+};
+
+const LNMainHome = props => {
+    const homeSections = getHomeElements(props);
+    return home(homeSections) || [];
+};
+
+export default Consumer(LNMainHome);

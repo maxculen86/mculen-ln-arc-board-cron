@@ -6,27 +6,39 @@ import ComText from './com-text';
 
 const ComButton = props => {
     const {
+        id,
         children,
         classCondition,
+        dataEvent,
+        dataSection,
         onClick,
         onMouseDown,
+        on,
+        tabIndex,
         classesNames,
         textname,
         iconName,
         iconPosition,
         size,
+        title,
         style
     } = props;
 
     if (iconName && !children)
         return (
             <button
+                id={id}
                 type="button"
+                data-event={dataEvent}
+                data-section={dataSection}
                 className={`com-button ${classesNames || ``} ${classCondition ||
                     ''} ${iconName ? `--icon` : ``} `}
                 onClick={onClick}
                 onMouseDown={onMouseDown}
                 style={style}
+                title={title}
+                tabIndex={tabIndex}
+                on={on || ''}
             >
                 <ComIco iconName={iconName} />
             </button>
@@ -34,6 +46,9 @@ const ComButton = props => {
     if (iconName && children)
         return (
             <button
+                id={id}
+                data-event={dataEvent}
+                data-section={dataSection}
                 type="button"
                 className={`com-button ${classesNames || ``} ${classCondition ||
                     ''} ${
@@ -41,6 +56,8 @@ const ComButton = props => {
                 } ${iconName} ${iconPosition || ``}`}
                 onClick={onClick}
                 style={style}
+                title={title}
+                on={on || ''}
             >
                 <ComIco iconName={iconName} />
                 <ComText size={size || ''}>
@@ -51,11 +68,16 @@ const ComButton = props => {
         );
     return (
         <button
+            id={id}
+            data-event={dataEvent}
+            data-section={dataSection}
             type="button"
             className={`com-button ${classesNames || ``} ${classCondition ||
                 ''}`}
             onClick={onClick}
             style={style}
+            title={title}
+            on={on || ''}
         >
             <ComText size={size || ''}>
                 {children || ``}
@@ -66,7 +88,10 @@ const ComButton = props => {
 };
 
 ComButton.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.node),
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.string
+    ]),
     classCondition: PropTypes.string,
     classesNames: PropTypes.string,
     textname: PropTypes.string,
@@ -75,7 +100,17 @@ ComButton.propTypes = {
     iconName: PropTypes.string,
     iconPosition: PropTypes.string,
     size: PropTypes.string,
-    style: PropTypes.obj
+    title: PropTypes.string,
+    id: PropTypes.string,
+    dataEvent: PropTypes.string,
+    dataSection: PropTypes.string,
+    style: PropTypes.node
+};
+
+ComButton.defaultProps = {
+    id: '',
+    dataEvent: '',
+    dataSection: ''
 };
 
 export default ComButton;

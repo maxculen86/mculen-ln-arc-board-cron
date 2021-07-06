@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import ComLink from './com-link';
 import '../../../resources/dist/css/ln/modules/mod-newsletter.css';
@@ -29,6 +29,7 @@ const ModNewsletter = props => {
                         link="https://newsletter.lanacion.com.ar/#/"
                         size="--threexs"
                         target="_blank"
+                        title="Mirá todos los newsletters que tenemos para vos"
                     >
                         Mirá todos los newsletters que tenemos para vos
                     </ComLink>
@@ -38,6 +39,7 @@ const ModNewsletter = props => {
                         onClick={handleClick}
                         classesNames="--primary"
                         size="--fivexs"
+                        title={`Suscribite al Newsletter de ${titulo}`}
                     >
                         SUSCRIBITE AL NEWSLETTER
                     </ComButton>

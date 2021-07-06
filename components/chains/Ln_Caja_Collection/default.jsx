@@ -5,13 +5,17 @@ import getArticleInCollection from '../../private/LN/common/utils/getArticleInCo
 import CajaTema from '../../private/LN/common/cajaTema';
 import {
     cajaTemasCustomsFields,
-    validateFeature,
     getCommonProps,
-    getIdsArticlesFromOtherCollections,
-    isInApertura,
-    getArticlesFromMyCurrentCollection
+    isInApertura
 } from '../../private/LN/common/utils/cajaTemasHelper';
+import {
+    validateFeature,
+    getIdsArticlesFromOtherCollections,
+    getArticlesFromMyCurrentCollection
+} from '../../private/LN/common/utils/cajaTemasValidators';
 import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
+import siteConfig from '../../../properties/sites/la-nacion-ar';
+import get from '../../private/common/utils/get';
 
 const CajaCollection = props => {
     const {
@@ -22,7 +26,6 @@ const CajaCollection = props => {
             url,
             title,
             layout = '',
-            backgroundColor,
             initialPosition,
             imageId,
             hideTitle,
@@ -38,11 +41,21 @@ const CajaCollection = props => {
     const {
         collectionsInPage,
         notesQuantity,
-        bgColor,
         classCondition,
         position,
         sectionName
     } = getCommonProps(props);
+
+    const { layoutsName = {} } = siteConfig || {};
+
+    const diagramation =
+        (renderables.some(
+            elem =>
+                get(elem, 'collection') === 'layouts' &&
+                get(elem, 'type') === layoutsName.Home
+        ) &&
+            layout) ||
+        '';
 
     const articlesFromCollectionSiteService = getArticlesFromMyCurrentCollection(
         collectionsInPage,
@@ -60,6 +73,11 @@ const CajaCollection = props => {
     const isInsideApertura =
         tree.type === 'LN-acumulado' ? isInApertura(tree, featureId) : false;
 
+    const titleSize =
+        ((isInsideApertura || layout === 'grilla1' || layout === 'grilla2') &&
+            '--l') ||
+        '';
+
     const articlesToShow = !isInSiteService
         ? getArticleInCollection(
               idCollection,
@@ -69,14 +87,15 @@ const CajaCollection = props => {
               true,
               !isInSiteService,
               notesQuantity,
-              layout
+              layout,
+              diagramation
           )
         : [];
 
     const error = validateFeature(
         idCollection,
         isInSiteService ? articlesFromCollectionSiteService : articlesToShow,
-        `La colección ${idCollection} no encontró notas`
+        layout
     );
 
     if (isAdmin && !!error) {
@@ -105,7 +124,10 @@ const CajaCollection = props => {
             imageId={imageId}
             outputType={outputType}
             layout={layout}
-            classCondition={classCondition}
+            classCondition={`${classCondition}${(isInApertura &&
+                layout.includes('focal') &&
+                ' --apertura') ||
+                ''}`}
             notesQuantity={notesQuantity}
             position={position}
             sectionName={sectionName}
@@ -114,12 +136,7 @@ const CajaCollection = props => {
                     ? articlesFromCollectionSiteService
                     : articlesToShow
             }
-            titleSize={isInsideApertura && '--l'}
-            backgroundColor={
-                backgroundColor !== 'default'
-                    ? `${bgColor}${backgroundColor}`
-                    : ''
-            }
+            titleSize={titleSize}
         />
     );
 };
@@ -128,8 +145,8 @@ CajaCollection.label = 'LN Caja Collection';
 
 CajaCollection.propTypes = {
     id: PropTypes.string.isRequired,
-    isAdmin: PropTypes.bool.isRequired,
-    outputType: PropTypes.bool.isRequired,
+    isAdmin: PropTypes.bool,
+    outputType: PropTypes.string,
     renderables: PropTypes.arrayOf(
         PropTypes.shape({
             type: PropTypes.string,
@@ -149,6 +166,11 @@ CajaCollection.propTypes = {
     globalContent: PropTypes.shape({
         name: PropTypes.string
     }).isRequired
+};
+
+CajaCollection.defaultProps = {
+    outputType: 'default',
+    isAdmin: false
 };
 
 export default Consumer(CajaCollection);

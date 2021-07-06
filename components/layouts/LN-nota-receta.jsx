@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import Static from 'fusion:static';
 import { getSectionStyle } from '../private/common/utils/sectionUtils';
 import LoginProvider from '../private/LN/common/context/loginContext';
 
@@ -106,7 +107,7 @@ class LNNotaReceta extends Component {
                                     <div className="sidebar__main">
                                         <section className="cuerpo__nota">
                                             <div className="row">
-                                                <div className="col-1 hlp-marginBottom-40 hlp-mobile-show">
+                                                <div className="col-12 col-desksm-1">
                                                     {/* hlp-mobile-show */}
                                                     {/* Left-Cuerpo Shared */}
                                                     {children[3]}
@@ -146,7 +147,9 @@ class LNNotaReceta extends Component {
                                     </div>
                                 </div>
                             </main>
-                            <Footer />
+                            <Static id="StaticFooter">
+                                <Footer />
+                            </Static>
                         </div>
                         <LoadBanners />
                     </CommentsProvider>

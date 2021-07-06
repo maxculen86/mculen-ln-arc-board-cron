@@ -1,6 +1,14 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 
+.nota.noticia {
+    .--apertura {
+        .com-title {
+            margin-bottom: $spacing-sm;
+        }
+    }
+}
+
 /* REVISTAS */
 @mixin magazine($logo, $primario) {
     &.nota {
@@ -88,4 +96,34 @@
     $primario: $rolling;
     $logo: $logo-rolling;
     @include magazine($logo, $primario);
+}
+
+.campo {
+    $primario: $teal-700;
+    $logo: $logo-campo;
+    @include magazine($logo, $primario);
+}
+
+// .nota.noticia {
+//     .mod-banner.--cabezal_dsk {
+//         position: absolute;
+//         width: 100%;
+//     }
+//     main {
+//         .--apertura {
+//             margin-top: px(202);
+//         }
+//     }
+// }
+
+.nota.nota {
+    main {
+        .cuerpo__nota {
+            .box-articles {
+                .com-link.com-link {
+                    color: $light-neutral-700;
+                }
+            }
+        }
+    }
 }

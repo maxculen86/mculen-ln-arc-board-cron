@@ -5,19 +5,19 @@
     position: relative;
     width: 100%;
     border: 1px solid #ccc;
-    margin-bottom: px(32);
+    //margin-bottom: $spacing-lg;
     .link {
         display: block;
         padding: px(16);
 
         .com-logo {
-            margin-bottom: px(8);
+            margin-bottom: $spacing;
             &.--md {
                 font-size: px(22);
             }
         }
         .com-text {
-            margin-bottom: px(8);
+            margin-bottom: $spacing;
         }
         &:hover {
             .com-button {
@@ -43,4 +43,8 @@
             padding: px(24);
         }
     }
+}
+
+.--promos {
+    margin-bottom: $spacing-2xl;
 }

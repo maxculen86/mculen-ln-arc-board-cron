@@ -17,7 +17,8 @@ const Comercial = props => {
         bidding,
         slotGroup,
         show,
-        sizemap
+        sizemap,
+        isHome = false
     } = props;
 
     if (device === 'tablet') return null;
@@ -48,7 +49,6 @@ const Comercial = props => {
         id,
         observerConfig
     );
-
     useLayoutEffect(() => {
         let idTimeout;
         if (showElement) {
@@ -68,21 +68,28 @@ const Comercial = props => {
         >
             <ComButton
                 classCondition="--primary --compact"
+                dataEvent="LinkClick"
+                dataSection="Comercial-home"
+                id="btn-bajar-comercial_dsk"
                 textname="CERRAR"
                 onClick={handleClick}
             />
-            <Ads
-                ref={adsRef}
-                slotId={id}
-                slotName={slotName}
-                dimensions={dimensions}
-                dfpId={dfpId}
-                targeting={targeting}
-                show={show}
-                bidding={bidding || {}}
-                sizemap={sizemap}
-                slotGroup={slotGroup}
-            />
+            {isHome ? (
+                <div id={id} className="com-banner" />
+            ) : (
+                <Ads
+                    ref={adsRef}
+                    slotId={id}
+                    slotName={slotName}
+                    dimensions={dimensions}
+                    dfpId={dfpId}
+                    targeting={targeting}
+                    show={show}
+                    bidding={bidding || {}}
+                    sizemap={sizemap}
+                    slotGroup={slotGroup}
+                />
+            )}
         </div>
     );
 };
@@ -107,7 +114,8 @@ Comercial.propTypes = {
     sizemap: PropTypes.shape({
         breakpoints: PropTypes.array,
         refresh: PropTypes.bool
-    })
+    }),
+    isHome: PropTypes.bool
 };
 
 Comercial.defaultProps = {
@@ -117,7 +125,8 @@ Comercial.defaultProps = {
         collections: false
     },
     slotGroup: 'desktop',
-    sizemap: []
+    sizemap: [],
+    isHome: false
 };
 
 export default Comercial;

@@ -49,4 +49,22 @@ export const authorAcu = author => {
     return resp;
 };
 
+export const authorHomeMobile = author => {
+    const authorData = getAuthorData(author);
+    const { email, twitter } = author;
+    const image = getImageUrl(
+        get(author, 'image.resized_urls[0].resizedUrl', null)
+    );
+
+    const resp = {
+        ...authorData,
+        tipo: authorData.slug ? 1 : 2,
+        imagen: image ? image[0] : null,
+        mail: email,
+        twitter: twitter ? twitter.trim() : twitter
+    };
+
+    return resp;
+};
+
 export default authorCommon;

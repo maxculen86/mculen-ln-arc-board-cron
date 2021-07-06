@@ -57,7 +57,7 @@ describe('SNIPPET - La Nacion - Nota - Receta ', () => {
 
     it('Test getDomain child site ', () => {
         const domain = getDomain({ _id: '/recetas' });
-        expect(domain).toBe('https://recetas.lanacion.com.ar');
+        expect(domain).toBe('https://www.lanacion.com.ar');
     });
 
     it('Test getDomain child with website_url and no _id ', () => {
@@ -66,7 +66,7 @@ describe('SNIPPET - La Nacion - Nota - Receta ', () => {
             website_url:
                 '/recetas/platos-de-comida-principal/risotto-con-alcauciles-y-frutos-de-mar-nid29102019-6/'
         });
-        expect(domain).toBe('https://recetas.lanacion.com.ar');
+        expect(domain).toBe('https://www.lanacion.com.ar');
     });
 
     it('Test Recipient Receta', () => {

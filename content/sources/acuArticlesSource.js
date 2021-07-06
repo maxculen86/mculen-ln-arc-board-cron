@@ -114,8 +114,11 @@ const resolve = key => {
         ,{
             "constant_score": {
                 "filter": {
-                    "exists": {
-                        "field": "promo_items.basic.url"
+                "bool" : {
+                     "should": [
+                                 { "exists": { "field": "promo_items.basic.url" } },
+                                   { "term": { "related_content.basic.referent.type": "image" }  }
+                        ]
                     }
                 }
             }

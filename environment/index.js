@@ -18,7 +18,7 @@ export default {
     LANACIONAR_URLASSETS:
         'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com',
     SITE_LANACION: 'https://www.lanacion.com.ar',
-    SITE_RECETAS: 'https://recetas.lanacion.com.ar',
+    SITE_RECETAS: 'https://www.lanacion.com.ar/recetas/',
     ELMAH_API_KEY:
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygEnNbXNiU2zvK/sjhd+ZoFnAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMpbLmk91HmkstVDIDAgEQgDv1oUAMVu4QBhNFxjWCSP4rvY58wGHKENbeNFRn01/jbWHR3mgtLkfJJJGHmP8tZGnCJZCFC1zEdZnEbQ==}',
     ELMAH_LOG_ID:
@@ -39,5 +39,6 @@ export default {
         env: 'prod',
         trackInteractions: 'true'
     },
-    ARC_STATIC: 'https://arc-static.glanacion.com'
+    ARC_STATIC: 'https://arc-static.glanacion.com',
+    LAZY_OFFSETTOP: 500
 };

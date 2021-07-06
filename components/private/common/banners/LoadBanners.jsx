@@ -11,6 +11,7 @@ import { getSlotForDevice } from '../../LN/common/bannerRefactor/utils';
 import ConfigBuilder from '../../LN/common/bannerRefactor/builder';
 import flatArray from '../utils/flatArray';
 import hasAdsTestParam from '../../LN/common/utils/hasAdsTesParam';
+import { getSubscription } from '../../LN/common/utils/homeHelper';
 
 let googleCmdPushed = false;
 let bannersWithoutHide = [];
@@ -49,10 +50,6 @@ const queueGoogletagCommand = bannersToLoad => {
                 .defineSlot(adUnitPath, size, optDiv)
                 .addService(googletag.pubads());
 
-        bannersWithoutHide = bannersToLoad
-            .filter(e => e.withoutHide)
-            .map(e => e.opt_div);
-
         const headerBiddingSlots = bannersToLoad
             .filter(e => e.prebidEnabled)
             .map(defineSlot);
@@ -86,9 +83,11 @@ const queueGoogletagCommand = bannersToLoad => {
             });
         };
 
-        pbjs.rp.requestBids({
-            callback: sendAdServerRequest,
-            gptSlotObjects: headerBiddingSlots
+        pbjs.que.push(function() {
+            pbjs.rp.requestBids({
+                callback: sendAdServerRequest,
+                gptSlotObjects: headerBiddingSlots
+            });
         });
 
         // this timeout is a failsafe
@@ -97,6 +96,10 @@ const queueGoogletagCommand = bannersToLoad => {
         setTimeout(() => {
             sendAdServerRequest(headerBiddingSlots);
         }, 3500);
+
+        bannersWithoutHide = bannersToLoad
+            .filter(e => e.withoutHide)
+            .map(e => e.opt_div);
 
         googletag
             .pubads()
@@ -131,6 +134,7 @@ const LoadBanners = ({ blocksBanners }) => {
     const bannersConfigured = renderables.filter(e =>
         ['LN-common/bannerRefactor', 'LN-nota/cuerpo'].includes(e.type)
     );
+    const subscription = blocksBanners ? getSubscription() : false;
 
     useEffect(() => {
         if (hasAdsTestParam() === 'true') {
@@ -260,20 +264,28 @@ const LoadBanners = ({ blocksBanners }) => {
 
                 const blocksConfig = blocksBanners
                     .map(el => {
-                        const { slotGroup, desktop, tablet, mobile } = el;
+                        const {
+                            slotGroup,
+                            desktop,
+                            tablet,
+                            mobile,
+                            validateSubscription
+                        } = el;
 
                         const slotId = getSlotForDevice(device)([
                             {
                                 name: 'desktop',
                                 slot: desktop
                             },
-                            { name: 'mobile', tablet },
-                            { name: 'tablet', mobile }
+                            { name: 'mobile', slot: mobile },
+                            { name: 'tablet', slot: tablet }
                         ]);
 
                         if (!slotId) return {};
 
-                        const config = slotsConfig.acumuladoHome[slotId];
+                        if (validateSubscription && subscription) return {};
+
+                        const config = slotsConfig.home[slotId];
 
                         if (!config) return {};
 
@@ -347,14 +359,19 @@ const LoadBanners = ({ blocksBanners }) => {
         isAdmin,
         siteProperties,
         state,
-        suffix
+        suffix,
+        subscription
     ]);
 
     return <div className="hlp-none">Cargando banners ...</div>;
 };
 
 LoadBanners.propTypes = {
-    blocksBanners: PropTypes.arrayOf(PropTypes.string)
+    blocksBanners: PropTypes.arrayOf(
+        PropTypes.shape({
+            slotGroup: PropTypes.string
+        })
+    )
 };
 
 LoadBanners.defaultProps = { blocksBanners: [] };

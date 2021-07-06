@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
+import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import LoginProvider from '../private/LN/common/context/loginContext';
@@ -28,7 +29,8 @@ const pageBuilderSections = [
     'Apertura',
     'Links',
     'Notas',
-    'Aside'
+    'Aside',
+    'Bottom'
 ];
 
 const CLASS_ACU_REVISTA = '';
@@ -53,7 +55,8 @@ const LNAcumuladoLayout = props => {
             apertura,
             links,
             notas,
-            aside
+            aside,
+            bottom
         ],
         globalContent,
         outputType,
@@ -136,8 +139,16 @@ const LNAcumuladoLayout = props => {
                                     {aside}
                                 </div>
                             </div>
+                            <div className="lay-sidebar">
+                                <div className="sidebar__main">
+                                    {/* Bottom */}
+                                    {bottom}
+                                </div>
+                            </div>
                         </main>
-                        <Footer />
+                        <Static id="StaticFooter">
+                            <Footer />
+                        </Static>
                     </div>
                     <LoadBanners />
                 </GlobalProviderAcu>

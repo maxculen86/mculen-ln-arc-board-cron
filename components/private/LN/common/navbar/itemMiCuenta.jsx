@@ -5,7 +5,7 @@ import React from 'react';
 export default function ItemClub() {
     return (
         <a
-            href="https://micuenta.lanacion.com.ar/mis-datos/"
+            href="https://myaccount.lanacion.com.ar/mi-usuario"
             className="col-3 item-foo"
         >
             <i className="icon-user" />

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
+import { SITE_LANACION } from 'fusion:environment';
 import get from './utils/get';
 import withScreenUtils from './hocs/withScreenUtils';
 import withLoginData from '../LN/common/hocs/withLoginData';
@@ -35,6 +36,9 @@ const shouldBeExcluded = (contentElements, promoItem) =>
 const Component = props => {
     const contentElements = get(props, 'globalContent.content_elements', null);
     const promoItem = get(props, 'globalContent.promo_items.basic', null);
+    const type = get(props, 'globalContent.type', null);
+    const _id = get(props, 'globalContent._id', null);
+    const subscription = get(props, 'loginData.subscription', null);
     const website = get(props, 'arcSite', null);
     const resolution = get(props, 'screenUtils.device', null);
     const isAdmin = get(props, 'isAdmin');
@@ -49,30 +53,34 @@ const Component = props => {
         }
     });
 
-    const {
-        globalContent: { type, _id },
-        loginData: { subscription }
-    } = props;
-
     // const metarefresh = content && content.Metarefresh;
     const interval = getInterval(type || _id, resolution, metarefresh);
     const cookieProductoPremium = getCookie('ProductoPremiumId');
+    const template = findTemplate(type);
 
     useEffect(() => {
         if (
             !metarefresh ||
             isAdmin ||
             outputType === 'amp' ||
-            subscription ||
+            (subscription && template !== 'home') ||
             interval < 1 ||
             shouldBeExcluded(contentElements, promoItem)
-        )
+        ) {
             return;
+        }
 
         setTimeout(() => {
-            !cookieProductoPremium &&
+            (!cookieProductoPremium || template === 'home') &&
                 localStorage.setItem('CDmetaRefresh', true);
-            window.location.reload();
+            if (template === 'home') {
+                window.scrollTo(0, 0);
+                sessionStorage.setItem('hp', 0);
+                sessionStorage.setItem('lb', 'apertura1');
+                window.location.href = SITE_LANACION;
+            } else {
+                window.location.reload();
+            }
         }, interval);
     }, [
         contentElements,
@@ -82,7 +90,8 @@ const Component = props => {
         metarefresh,
         outputType,
         promoItem,
-        subscription
+        subscription,
+        template
     ]);
 
     return <></>;

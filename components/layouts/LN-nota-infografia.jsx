@@ -1,6 +1,7 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
@@ -131,7 +132,7 @@ const lnNotaInfografia = ({
                                     </div>
                                     <section className="cuerpo__nota">
                                         <div className="row">
-                                            <div className="col-1 hlp-marginBottom-40 hlp-mobile-show">
+                                            <div className="col-12 col-desksm-1">
                                                 {/* hlp-mobile-show */}
                                                 {/* Left-Cuerpo Shared */}
                                                 {children[4]}
@@ -165,7 +166,9 @@ const lnNotaInfografia = ({
                                 </div>
                             </div>
                         </main>
-                        <Footer />
+                        <Static id="StaticFooter">
+                            <Footer />
+                        </Static>
                     </div>
                     <LoadBanners />
                 </CommentsProvider>

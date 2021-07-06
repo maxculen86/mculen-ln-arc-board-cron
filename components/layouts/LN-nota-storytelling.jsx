@@ -4,6 +4,7 @@ import React from 'react';
 // Fusion
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import Static from 'fusion:static';
 
 // Private Components
 import Header from '../private/LN/common/header';
@@ -96,23 +97,24 @@ const lnNotaStorytelling = ({
                     >
                         <Header />
                         <main>
+                            {children[1]}
                             <AperturaStorytelling />
                             <div className="lay-sidebar">
                                 <div className="sidebar__main">
                                     <section className="cuerpo__nota">
                                         <div className="row">
-                                            <div className="col-1 hlp-marginBottom-40 hlp-mobile-show">
+                                            <div className="col-12 col-desksm-1">
                                                 {/* // ***** INICIO PREGUNTAR A DARO */}
                                                 {/* hlp-mobile-show */}
                                                 {/* // ***** FIN PREGUNTAR A DARO */}
                                                 {/* Left-Cuerpo Shared */}
-                                                {children[1]}
+                                                {children[2]}
                                             </div>
                                             <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
                                                 <div className="row">
                                                     <div className="col-12">
                                                         {/* Cuerpo */}
-                                                        {children[2]}
+                                                        {children[3]}
                                                     </div>
                                                 </div>
                                             </div>
@@ -121,23 +123,25 @@ const lnNotaStorytelling = ({
                                 </div>
                                 {/* Tercera */}
                                 <div className="sidebar__aside hlp-tabletlm-none">
-                                    {children[3]}
+                                    {children[4]}
                                 </div>
                             </div>
                             {/* Newsletter */}
-                            <div className="lay">{children[4]}</div>
+                            <div className="lay">{children[5]}</div>
                             <div className="lay-sidebar">
                                 <div className="sidebar__main">
                                     {/* Bottom */}
-                                    {children[5]}
+                                    {children[6]}
                                 </div>
                                 <div className="sidebar__aside hlp-tabletlm-none">
                                     {/* Bottom-Tercera */}
-                                    {children[6]}
+                                    {children[7]}
                                 </div>
                             </div>
                         </main>
-                        <Footer />
+                        <Static id="StaticFooter">
+                            <Footer />
+                        </Static>
                     </div>
                     <LoadBanners />
                 </CommentsProvider>
@@ -148,6 +152,7 @@ const lnNotaStorytelling = ({
 
 const pageBuilderSections = [
     'Banner-Megatop',
+    'Pre-Titulo',
     'Left-Cuerpo',
     'Cuerpo',
     'Tercera',

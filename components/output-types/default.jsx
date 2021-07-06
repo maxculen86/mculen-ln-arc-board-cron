@@ -8,10 +8,7 @@ import GTM from '../private/common/scriptManager/googleTagManager';
 import Comscore from '../private/common/scriptManager/comscore';
 import Microdata from '../private/common/scriptManager/microdata';
 import PostBid from '../private/common/scriptManager/postbid';
-// import ArcAds from '../private/common/scriptManager/arcAds';
-// import FacebookSDK from '../private/common/scriptManager/facebookSDK';
 import MetasOG from '../private/common/metaTags/metasOG';
-// import Livefyre from '../private/common/scriptManager/Livefyre';
 import LivefyreCommentCount from '../private/common/scriptManager/LivefyreCommentCount';
 import LiftIgniter from '../private/common/scriptManager/Liftigniter';
 import Datadog from '../private/common/scriptManager/dataDog';
@@ -22,6 +19,7 @@ import SocialEmbeds from '../private/common/scriptManager/socialEmbeds';
 import OptaEmbed from '../private/common/scriptManager/optaEmbed';
 import ScriptHtmlLibre from '../private/common/scriptManager/scriptHtmlLibre';
 import Petametrics from '../private/common/scriptManager/petametrics';
+import Schemas from '../private/common/scriptManager/schemas';
 import DataLayerIndex from '../private/common/dataLayerIndex';
 import paths from '../../config/paths';
 import SnippetIndex from '../private/common/snippet';
@@ -33,7 +31,9 @@ import getSectionName from '../private/LN/common/utils/getSectionName';
 import Syndication from '../private/common/syndication';
 import LinkAmpHTML from '../private/common/linkAmpHTML';
 import { pipe } from '../private/common/utils/functional';
-// import Queryly from '../private/common/scriptManager/queryly';
+import Pwa from '../private/common/scriptManager/pwa';
+import PwaModals from '../private/LN/common/pwaModals';
+import ScriptSWG from '../private/common/scriptManager/scriptSWG';
 
 const scriptList = [
     {
@@ -47,6 +47,7 @@ const scriptList = [
     { component: { name: 'GTM', function: GTM }, feature: 'none' },
     { component: { name: 'Comscore', function: Comscore }, feature: 'none' },
     { component: { name: 'Microdata', function: Microdata }, feature: 'none' },
+    { component: { name: 'Pwa', function: Pwa }, feature: 'none' },
     {
         component: { name: 'PostBid', function: PostBid },
         feature: 'none'
@@ -69,6 +70,10 @@ const scriptList = [
     {
         component: { name: 'Petametrics', function: Petametrics },
         feature: ['LN-nota/tePuedeInteresar']
+    },
+    {
+        component: { name: 'ScriptSWG', function: ScriptSWG },
+        feature: 'none'
     },
     {
         component: { name: 'SocialEmbeds', function: SocialEmbeds },
@@ -108,13 +113,11 @@ const Default = props => {
         CssLinks,
         Fusion,
         Libs,
-        // MetaTags,
         metaValue,
         siteProperties,
         renderables,
         globalContent,
-        outputType,
-        layout
+        outputType
     } = props;
 
     const {
@@ -138,8 +141,7 @@ const Default = props => {
     const { basic: descriptionBasic } = description || {};
     const { name: distributorName } = distributor || {};
 
-    const metaTitleBasic =
-        metaTitle && metaTitle !== '' ? metaTitle : basicTitle;
+    const metaTitleBasic = metaTitle || basicTitle;
 
     const getPageBuilderFeatures = _renderables =>
         _renderables.filter(renderable => renderable.collection === 'features');
@@ -174,19 +176,75 @@ const Default = props => {
         siteProperties.scripts
     );
 
-    const title = metaValue('title') || siteProperties.title || 'LA NACION';
-
     const _nodeType = getSectionName({ nodeType, type });
+
+    const title =
+        _nodeType === 'home'
+            ? siteProperties.longTitle
+            : metaValue('title') || siteProperties.title;
 
     return (
         <html lang="es">
             <head>
                 <meta charset="utf-8" />
                 <title>{title}</title>
+                {arcSite === 'ott' ? (
+                    <link
+                        rel="stylesheet"
+                        href={deployment(
+                            `${contextPath}${pathCss}/${arcSite}/style.css`
+                        )}
+                    />
+                ) : (
+                    <CssLinks />
+                )}
+                <Libs />
+                <link
+                    rel="dns-prefetch"
+                    href="https://sb.scorecardresearch.com/"
+                />
                 <link
                     href="https://www.google-analytics.com"
                     rel="preconnect"
                 />
+                <link rel="dns-prefetch" href="https://static.hotjar.com/" />
+                <link rel="dns-prefetch" href="https://c.go-mpulse.net/" />
+                <link rel="preconnect" href="https://c.go-mpulse.net/" />
+                <link rel="dns-prefetch" href="//ads.rubiconproject.com" />
+                <link rel="dns-prefetch" href="//www.googletagservices.com" />
+                <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+                <link rel="dns-prefetch" href="//resizer.glanacion.com/" />
+                <link rel="preconnect" href="https://resizer.glanacion.com/" />
+                <link rel="dns-prefetch" href="//ingresar.lanacion.com.ar" />
+                <link rel="dns-prefetch" href="//cdn.livefyre.com" />
+                <link rel="dns-prefetch" href="//ingresar.lanacion.com.ar" />
+                <link
+                    rel="dns-prefetch"
+                    href="//api-ingresar.lanacion.com.ar"
+                />
+                <link rel="dns-prefetch" href="//api-paywall.lanacion.com.ar" />
+                <link rel="preconnect" href="//api-paywall.lanacion.com.ar" />
+
+                <link
+                    rel="dns-prefetch"
+                    href="https://stats.g.doubleclick.net/"
+                />
+                <link
+                    rel="dns-prefetch"
+                    href="//especialess3.lanacion.com.ar/"
+                />
+                <link
+                    rel="preconnect"
+                    href="https://especialess3.lanacion.com.ar/"
+                />
+                {/*
+                    TODO: Evitar desacomplamiento de componentes:
+                    DataLayerIndex
+                    SnippetIndex
+                    MetaectionParsely
+                    en relación
+                    ScriptsManager
+                 */}
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
                 <MetaSectionParsely taxonomy={taxonomy} arcSite={arcSite} />
@@ -196,17 +254,12 @@ const Default = props => {
                     location="head"
                     arcSite={arcSite}
                 />
-                {/* TODO: Revisar la forma de traer metatags desde PB, y omitir o customizar los metas de 'title' y 'description' */}
-                {/* {subtype === '7' && <MetaTags />} */}
-                <MetasOG {...props} />
+                <MetasOG {...props} section={_nodeType} title={title} />
                 {canonicalUrl && (
                     <link
                         rel="canonical"
                         href={`https://www.lanacion.com.ar${canonicalUrl}`}
                     />
-                )}
-                {layout === 'FRONT-home' && ( //Borrarlo una vez subida al home a producción
-                    <meta name="robots" content="noindex, nofollow" />
                 )}
                 <LinkAmpHTML
                     subtype={subtype}
@@ -221,6 +274,8 @@ const Default = props => {
                     arcSite={arcSite}
                     nodeType={nodeType}
                     _id={_id}
+                    section={_nodeType}
+                    defaultTitle={siteProperties.longTitle}
                 />
                 <MetaDescription
                     subtype={subtype}
@@ -235,6 +290,8 @@ const Default = props => {
                         getFirstParagraph(contentElements) || ''
                     }
                     arcSite={arcSite}
+                    section={_nodeType}
+                    defaultDescription={siteProperties.description}
                 />
                 <Syndication
                     type={type}
@@ -243,28 +300,18 @@ const Default = props => {
                     syndication={syndication}
                     outputType={outputType}
                 />
-                <Libs />
-                {/* Para OTT carga los styles por front */}
-                {arcSite === 'ott' ? (
-                    <link
-                        rel="stylesheet"
-                        href={deployment(
-                            `${contextPath}${pathCss}/${arcSite}/style.css`
-                        )}
-                    />
-                ) : (
-                    <CssLinks />
-                )}
+                <Schemas section={_nodeType} />
                 <meta
                     name="viewport"
-                    content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+                    content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
                 <link
                     rel="icon"
                     type="image/x-icon"
                     href={deployment(`${contextPath}/resources/favicon.ico`)}
                 />
-                {/* <Scripts name="Microdata" /> */}
+                <meta name="theme-color" content="#ffffff" />
+                <link rel="manifest" href="/manifest.json" />
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />
@@ -274,10 +321,15 @@ const Default = props => {
                     arcSite={arcSite}
                 />
 
-                <div id="fusion-app">{children}</div>
-                <Fusion />
-
-                <Scripts location="body-bottom" />
+                <div id="fusion-app">
+                    <Fusion>{children}</Fusion>
+                </div>
+                {arcSite !== 'ott' && <PwaModals />}
+                <Scripts
+                    location="body-bottom"
+                    section={_nodeType}
+                    {...props}
+                />
                 <ScriptLoadingList
                     section={_nodeType}
                     location="body-bottom"
@@ -301,20 +353,8 @@ Default.propTypes = {
     renderables: PropTypes.arrayOf(PropTypes.any).isRequired,
     globalContent: PropTypes.objectOf(PropTypes.any).isRequired,
     outputType: PropTypes.string.isRequired,
-    siteProperties: PropTypes.isRequired
+    siteProperties: PropTypes.isRequired,
+    layout: PropTypes.string.isRequired
 };
-Default.contentType = 'text/html';
 
-Default.transform = {
-    arcio({ context, data }) {
-        return {
-            contentType: 'application/json',
-            data: {
-                tree: context.tree,
-                globalContent: context.globalContent,
-                featureContent: context.contentCache
-            }
-        };
-    }
-};
 export default Default;
