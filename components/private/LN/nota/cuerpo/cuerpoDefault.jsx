@@ -117,27 +117,31 @@ const Cuerpo = props => {
             additional_properties: { nodeType = {} } = {}
         } = element || {};
 
-        const Component = bodyComponents.find(
-            bc =>
-                (subtype === FOTOAL100 &&
+        const Component = bodyComponents.find(bc => {
+            if (subtype === FOTOAL100) {
+                return (
                     !(
                         _type === 'oembed_response' ||
                         _type === 'raw_html' ||
                         _type === 'video'
-                    ) &&
-                    bc.arcType === _type) ||
-                (_type === 'quote' && bc.arcType === _subtype) ||
-                (content &&
-                    content.includes('opta-widget') &&
-                    _type === 'raw_html' &&
-                    outputType === 'amp' &&
-                    bc.arcType === _type &&
-                    bc.outputType === 'opta') ||
-                ((_type === 'oembed_response' || _type === 'raw_html') &&
-                    bc.arcType === _type &&
-                    bc.outputType === outputType) ||
-                bc.arcType === _type
-        );
+                    ) && bc.arcType === _type
+                );
+            }
+            if (_type === 'quote') return bc.arcType === _subtype;
+            if (
+                content &&
+                content.includes('opta-widget') &&
+                _type === 'raw_html' &&
+                outputType === 'amp'
+            ) {
+                return bc.arcType === _type && bc.outputType === 'opta';
+            }
+            if (_type === 'oembed_response' || _type === 'raw_html') {
+                return bc.arcType === _type && bc.outputType === outputType;
+            }
+            return bc.arcType === _type;
+        });
+
         const { arcType = '' } = Component || {};
         const extraProps = {
             image: { withZoom: '--zoom' },
