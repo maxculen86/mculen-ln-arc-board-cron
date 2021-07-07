@@ -35,7 +35,7 @@ const galleryItem = ({
                             />
                         )}
                         <ComText extraClass="--credit --twoxs" text={credito} />
-                        <ComText extraClass="--paginator">
+                        <ComText extraClass="com-text --paginator">
                             {galleryOrder + 1}
                             &nbsp;de&nbsp;
                             {totalGallery}
