@@ -7,17 +7,21 @@ jest.mock(
     () => 'com-date-mock'
 );
 jest.mock(
-    '../../../../components/private/common/mod-bajada.jsx',
-    () => 'mod-bajada-mock'
+    '../../../../components/private/common/text/index.jsx',
+    () => 'text-mock'
 );
-jest.mock(
-    '../../../../components/private/common/mod-marquee.jsx',
-    () => 'mod-marquee-mock'
-);
-jest.mock(
-    '../../../../components/private/common/com-labelArticle.jsx',
-    () => 'com-label-mock'
-);
+// jest.mock(
+//     '../../../../components/private/common/mod-bajada.jsx',
+//     () => 'mod-bajada-mock'
+// );
+// jest.mock(
+//     '../../../../components/private/common/mod-marquee.jsx',
+//     () => 'mod-marquee-mock'
+// );
+// jest.mock(
+//     '../../../../components/private/common/com-labelArticle.jsx',
+//     () => 'com-label-mock'
+// );
 jest.mock(
     '../../../../components/private/common/com-tag.jsx',
     () => 'com-tag-mock'
@@ -33,6 +37,7 @@ import ComLabel from '../../../../components/private/common/com-labelArticle';
 import ComTag from '../../../../components/private/common/com-tag';
 import ModDescription from '../../../../components/private/common/mod-description';
 import article from '../../../../__mocks__/data/articles/articleAcum.json';
+import Text from '../../../../components/private/common/text';
 
 describe('Private - Common - ModDescription', () => {
     const props = {
@@ -68,8 +73,8 @@ describe('Private - Common - ModDescription', () => {
     it('Atributos y nodo del DOM correcto', () => {
         const component = mount(<ModDescription {...props} />);
         expect(component.find('com-title-mock')).toHaveLength(1);
-        expect(component.find('mod-bajada-mock')).toHaveLength(1);
-        expect(component.find('mod-marquee-mock')).toHaveLength(1);
+        // expect(component.find('mod-bajada-mock')).toHaveLength(1);
+        // expect(component.find('mod-marquee-mock')).toHaveLength(1);
         expect(component.find('com-tag-mock')).toHaveLength(4);
         expect(component.find('com-date-mock')).toHaveLength(1);
         expect(component.find('com-title-mock').html()).toContain(

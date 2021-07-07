@@ -17,8 +17,7 @@ exports[`features - LaNacion - Nota - Hamburguer Test de snapshot Hamburguer 1`]
       class="com-icon icon-menu   "
     />
     <span
-      class="com-text text"
-      style="color:"
+      class=" com-text"
     >
       Secciones
     </span>

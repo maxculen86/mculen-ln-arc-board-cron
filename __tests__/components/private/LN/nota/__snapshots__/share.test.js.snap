@@ -80,8 +80,7 @@ exports[`Share Matches snapshot 1`] = `
         class="com-icon icon-comment   "
       />
       <span
-        class="com-text text --fourxs"
-        style="color:"
+        class=" com-text --fourxs"
       >
         <label
           class="livefyre-commentcount"
