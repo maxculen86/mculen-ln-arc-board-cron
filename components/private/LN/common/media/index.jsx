@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import Image from './imageBase';
 import ComFigure from '../../../common/com-figure';
 import ModMedia from '../../../common/mod-media';
 import VideoPlayer from './videoPlayer';
 import Placeholder from '../imagePlaceholder';
-import ComFigcaption from '../../../common/com-figcaption';
 import {
     FOTOAL100,
     STORYTELLING
@@ -138,16 +137,17 @@ media.propTypes = {
     itsGallery: PropTypes.bool.isRequired,
     active: PropTypes.bool.isRequired,
     handleClick: PropTypes.func.isRequired,
-    withZoom: PropTypes.bool.tag({
-        defaultValue: false
-    }),
-    href: PropTypes.string.tag({
-        defaultValue: ''
-    }),
+    withZoom: PropTypes.bool,
+    href: PropTypes.string,
     tituloNota: PropTypes.string.isRequired,
     parrafo: PropTypes.shape({
         content: PropTypes.string
     }).isRequired
+};
+
+media.defaultProps = {
+    withZoom: false,
+    href: ''
 };
 
 export default media;

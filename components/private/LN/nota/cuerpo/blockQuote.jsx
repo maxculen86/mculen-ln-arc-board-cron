@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 
 import Paragraph from './parrafo';
 import ModParagraph from '../../../common/mod-paragraph';
@@ -30,6 +30,7 @@ const blockQuote = ({
 };
 
 blockQuote.arcType = 'blockquote';
+blockQuote.isStatic = true;
 
 blockQuote.propTypes = {
     data: PropTypes.shape({

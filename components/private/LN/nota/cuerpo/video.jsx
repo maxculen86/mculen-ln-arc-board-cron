@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import Media from '../../common/media';
 import ComText from '../../../common/com-text';
 import get from '../../../common/utils/get';

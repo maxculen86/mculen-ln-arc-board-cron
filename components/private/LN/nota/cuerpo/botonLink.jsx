@@ -27,6 +27,7 @@ const BotonLink = ({ data }) => {
 };
 
 BotonLink.arcType = 'interstitial_link';
+BotonLink.isStatic = true;
 
 BotonLink.propTypes = {
     data: PropTypes.shape({
