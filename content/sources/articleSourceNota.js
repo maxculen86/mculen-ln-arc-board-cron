@@ -4,7 +4,8 @@ import {
     RESIZER_KEY,
     RESIZER_URL,
     ARC_ACCESS_TOKEN,
-    SITE_LANACION
+    SITE_LANACION,
+    API_ENV
 } from 'fusion:environment';
 import getProperties from 'fusion:properties';
 import get from '../../components/private/common/utils/get';
@@ -71,7 +72,7 @@ const fetch = query => {
                 responseData: response
             });
 
-            return transform(response, arcSite, properties, imageConfig);
+            return transform(response, arcSite, properties, imageConfig, url);
         })
         .catch(error => {
             logger.push(error, { source: 'content/source', url }, arcSite);
@@ -81,7 +82,7 @@ const fetch = query => {
 
 // Al no poder exportar esta fn para que la utilice Fusion directamente, ya que devuelve una promise y no lo soporta, la llamamos
 // directamente nosotros desde el fetch
-const transform = (data, arcSite, properties, imageConfig) => {
+const transform = (data, arcSite, properties, imageConfig, urlQuery) => {
     // Data
     const subtype = get(data, `subtype`, null);
 
@@ -145,10 +146,10 @@ const transform = (data, arcSite, properties, imageConfig) => {
             subtype
         })
     };
-    return transformContent(resp, arcSite);
+    return transformContent(resp, arcSite, urlQuery);
 };
 
-const transformContent = (jsonArticle, arcSite) => {
+const transformContent = (jsonArticle, arcSite, urlQuery) => {
     const promiseArr = [];
     const sections = get(jsonArticle, 'taxonomy.sections');
     const resp = {
@@ -217,9 +218,14 @@ const transformContent = (jsonArticle, arcSite) => {
     });
 
     // Url Validator
-    // if (resp && resp.content_elements) {
-    //     resp.content_elements = removeInvalidUrlTagA(resp.content_elements);
-    // }
+    if (resp && resp.content_elements) {
+        resp.content_elements = removeInvalidUrlTagA(
+            resp.content_elements,
+            arcSite,
+            urlQuery,
+            API_ENV
+        );
+    }
 
     return Promise.all(promiseArr).then(() => {
         return resp;

@@ -54,7 +54,7 @@ describe('Common - utils - removeInvalidUrlTagA.js', () => {
             const contentElementInvalid = [
                 {
                     _id: 'TQEIH4634FB77AAR32FNTSDIMU',
-                    content: `texto texto <a href="http://en www.sushiclub.com.ar/nuestros_espacios">algo</a>, texto texto.`,
+                    content: `texto texto <a href="http://en www.sushiclub.com.ar/nuestros_espacios">texto dentro del tag a</a>, texto texto.`,
                     type: 'text'
                 }
             ];
@@ -62,7 +62,7 @@ describe('Common - utils - removeInvalidUrlTagA.js', () => {
             const expectResul = [
                 {
                     _id: 'TQEIH4634FB77AAR32FNTSDIMU',
-                    content: `texto texto <!-- URL INVALIDA REMOVIDA -->, texto texto.`,
+                    content: `texto texto texto dentro del tag a, texto texto.`,
                     type: 'text'
                 }
             ];
@@ -75,7 +75,7 @@ describe('Common - utils - removeInvalidUrlTagA.js', () => {
             const contentElementInvalid = [
                 {
                     _id: 'TQEIH4634FB77AAR32FNTSDIMU',
-                    content: `texto texto <a href="435345www.test.com">algo</a>, texto texto.`,
+                    content: `texto texto <a href="435345www.test.com">texto dentro del tag a</a>, texto texto.`,
                     type: 'text'
                 }
             ];
@@ -83,7 +83,7 @@ describe('Common - utils - removeInvalidUrlTagA.js', () => {
             const expectResul = [
                 {
                     _id: 'TQEIH4634FB77AAR32FNTSDIMU',
-                    content: `texto texto <!-- URL INVALIDA REMOVIDA -->, texto texto.`,
+                    content: `texto texto texto dentro del tag a, texto texto.`,
                     type: 'text'
                 }
             ];
@@ -96,7 +96,7 @@ describe('Common - utils - removeInvalidUrlTagA.js', () => {
             const contentElementInvalid = [
                 {
                     _id: 'TQEIH4634FB77AAR32FNTSDIMU',
-                    content: `texto texto <a href="http://435345www.dsad.com">algo</a>, texto texto.`,
+                    content: `texto texto <a href="http://435345www.dsad.com">texto dentro del tag a</a>, texto texto.`,
                     type: 'text'
                 }
             ];
@@ -104,7 +104,7 @@ describe('Common - utils - removeInvalidUrlTagA.js', () => {
             const expectResul = [
                 {
                     _id: 'TQEIH4634FB77AAR32FNTSDIMU',
-                    content: `texto texto <!-- URL INVALIDA REMOVIDA -->, texto texto.`,
+                    content: `texto texto texto dentro del tag a, texto texto.`,
                     type: 'text'
                 }
             ];
@@ -117,7 +117,7 @@ describe('Common - utils - removeInvalidUrlTagA.js', () => {
             const contentElementInvalid = [
                 {
                     _id: 'TQEIH4634FB77AAR32FNTSDIMU',
-                    content: `texto texto <a href="hello">algo</a>, texto texto.`,
+                    content: `texto texto <a href="hello">texto dentro del tag a</a>, texto texto.`,
                     type: 'text'
                 }
             ];
@@ -125,7 +125,7 @@ describe('Common - utils - removeInvalidUrlTagA.js', () => {
             const expectResul = [
                 {
                     _id: 'TQEIH4634FB77AAR32FNTSDIMU',
-                    content: `texto texto <!-- URL INVALIDA REMOVIDA -->, texto texto.`,
+                    content: `texto texto texto dentro del tag a, texto texto.`,
                     type: 'text'
                 }
             ];
@@ -138,7 +138,7 @@ describe('Common - utils - removeInvalidUrlTagA.js', () => {
             const contentElementInvalid = [
                 {
                     _id: 'TQEIH4634FB77AAR32FNTSDIMU',
-                    content: `texto texto <a href="https://cas as.com">algo</a>, texto texto.`,
+                    content: `texto texto <a href="https://cas as.com">texto dentro del tag a</a>, texto texto.`,
                     type: 'text'
                 }
             ];
@@ -146,7 +146,7 @@ describe('Common - utils - removeInvalidUrlTagA.js', () => {
             const expectResul = [
                 {
                     _id: 'TQEIH4634FB77AAR32FNTSDIMU',
-                    content: `texto texto <!-- URL INVALIDA REMOVIDA -->, texto texto.`,
+                    content: `texto texto texto dentro del tag a, texto texto.`,
                     type: 'text'
                 }
             ];
@@ -159,7 +159,7 @@ describe('Common - utils - removeInvalidUrlTagA.js', () => {
             const contentElementInvalid = [
                 {
                     _id: 'TQEIH4634FB77AAR32FNTSDIMU',
-                    content: `texto texto <a href="-casas.com">algo</a>, texto texto.`,
+                    content: `texto texto <a href="-casas.com">texto dentro del tag a</a>, texto texto.`,
                     type: 'text'
                 }
             ];
@@ -167,7 +167,7 @@ describe('Common - utils - removeInvalidUrlTagA.js', () => {
             const expectResul = [
                 {
                     _id: 'TQEIH4634FB77AAR32FNTSDIMU',
-                    content: `texto texto <!-- URL INVALIDA REMOVIDA -->, texto texto.`,
+                    content: `texto texto texto dentro del tag a, texto texto.`,
                     type: 'text'
                 }
             ];
@@ -180,7 +180,7 @@ describe('Common - utils - removeInvalidUrlTagA.js', () => {
             const contentElementInvalid = [
                 {
                     _id: 'TQEIH4634FB77AAR32FNTSDIMU',
-                    content: `texto texto <a href="casas.com">algo</a>, texto texto <a href="casas s.com">algo</a>.`,
+                    content: `texto texto <a href="casas.com">algo</a>, texto texto <a href="casas s.com">texto dentro del tag a</a>.`,
                     type: 'text'
                 }
             ];
@@ -188,7 +188,7 @@ describe('Common - utils - removeInvalidUrlTagA.js', () => {
             const expectResul = [
                 {
                     _id: 'TQEIH4634FB77AAR32FNTSDIMU',
-                    content: `texto texto <a href="casas.com">algo</a>, texto texto <!-- URL INVALIDA REMOVIDA -->.`,
+                    content: `texto texto <a href="casas.com">algo</a>, texto texto texto dentro del tag a.`,
                     type: 'text'
                 }
             ];
