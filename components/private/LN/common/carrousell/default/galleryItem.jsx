@@ -31,17 +31,10 @@ const galleryItem = ({
                         {mediaData.caption && (
                             <ComText
                                 extraClass="--caption --twoxs"
-                                //text={mediaData.caption}
-                            >
-                                {mediaData.caption}
-                            </ComText>
+                                text={mediaData.caption}
+                            />
                         )}
-                        <ComText
-                            extraClass="--credit --twoxs"
-                            //text={credito}
-                        >
-                            {credito}
-                        </ComText>
+                        <ComText extraClass="--credit --twoxs" text={credito} />
                         <ComText extraClass="--paginator">
                             {galleryOrder + 1}
                             &nbsp;de&nbsp;

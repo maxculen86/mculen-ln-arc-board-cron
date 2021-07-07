@@ -31,18 +31,14 @@ const image = ({ data, withZoom, outputType }) => {
                         {data.caption && (
                             <ComText
                                 extraClass="--caption --twoxs"
-                                //text={data.caption}
-                            >
-                                {data.caption}
-                            </ComText>
+                                text={data.caption}
+                            />
                         )}
                         {credito && (
                             <ComText
                                 extraClass="--credit --twoxs"
-                                //text={credito}
-                            >
-                                {credito}
-                            </ComText>
+                                text={credito}
+                            />
                         )}
                     </ComFigcaption>
                 )}

@@ -18,18 +18,14 @@ const video = ({ data, outputType, tituloNota, primerParrafo }) => {
                 {textEpigrafe && (
                     <ComText
                         extraClass="--caption --twoxs"
-                        //text={textEpigrafe}
-                    >
-                        {textEpigrafe}
-                    </ComText>
+                        text={textEpigrafe}
+                    />
                 )}
                 {creditoVideo && (
                     <ComText
                         extraClass="--credit --twoxs"
-                        //text={creditoVideo}
-                    >
-                        {creditoVideo}
-                    </ComText>
+                        text={creditoVideo}
+                    />
                 )}
             </>
         );

@@ -62,18 +62,11 @@ const AmpImage = props => {
                     {caption && (
                         <ComText
                             extraClass="--caption --twoxs"
-                            //text={caption}
-                        >
-                            {caption}
-                        </ComText>
+                            text={caption}
+                        />
                     )}
                     {credito && (
-                        <ComText
-                            extraClass="--credit --twoxs"
-                            //text={credito}
-                        >
-                            {credito}
-                        </ComText>
+                        <ComText extraClass="--credit --twoxs" text={credito} />
                     )}
                 </ComFigcaption>
             )}

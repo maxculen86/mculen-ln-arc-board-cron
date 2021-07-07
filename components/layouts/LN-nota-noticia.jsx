@@ -51,7 +51,7 @@ import LoginProvider from '../private/LN/common/context/loginContext';
 // /* Se debe dejar último los helpers */
 // import '../../resources/dist/css/ln/base/helpers.css';
 
-// import '../../resources/dist/css/ln/pages/magazine.css';
+import '../../resources/dist/css/ln/pages/magazine.css';
 
 import GlobalProvider from '../private/common/context/globalContext';
 import { CommentsProvider } from '../private/common/context/commentsContext';

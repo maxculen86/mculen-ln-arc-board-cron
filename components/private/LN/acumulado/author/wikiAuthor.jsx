@@ -60,11 +60,10 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                         <ComTitle tag="h1" content={byline} size="--l" />
                         <ComText
                             //textname={role}
-                            extraClass="--profesion"
+                            extraClass="com-text --profesion"
                             size="--twoxs"
-                        >
-                            {role}
-                        </ComText>
+                            text={role}
+                        />
                         <ComContainer classCondition="--contact">
                             {email && (
                                 <ComLink
@@ -81,12 +80,11 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                             )}
                         </ComContainer>
                         <ComText
+                            tag="p"
                             size="--twoxs"
-                            extraClass="--bio"
-                            //text={longBio}
-                        >
-                            {longBio}
-                        </ComText>
+                            extraClass="com-text --bio"
+                            text={longBio}
+                        />
                         {education.length > 0 && (
                             <ComContainer classCondition="--educacion">
                                 <ModDescriptionList
