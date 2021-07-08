@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import { getFontFamily, getFontSize, getFontWeight } from './getFontData';
 
 const Text = ({
-    id,
     tag,
+    id,
     extraClass,
-    font,
-    size,
-    weight,
     children,
     text,
     link,
+    font,
+    size,
+    weight,
     styles
 }) => {
     const CustomTag = tag;
@@ -45,29 +45,29 @@ const Text = ({
 };
 
 Text.propTypes = {
-    children: PropTypes.node,
-    id: PropTypes.string,
     tag: PropTypes.string,
+    id: PropTypes.string,
+    extraClass: PropTypes.string,
+    children: PropTypes.node,
     text: PropTypes.string,
     link: PropTypes.string,
-    extraClass: PropTypes.string,
-    styles: PropTypes.string,
     font: PropTypes.string,
     size: PropTypes.string,
-    weight: PropTypes.string
+    weight: PropTypes.string,
+    styles: PropTypes.string
 };
 
 Text.defaultProps = {
-    children: '',
-    id: undefined,
     tag: 'span',
+    id: undefined,
+    extraClass: 'com-text',
+    children: '',
     text: '',
     link: '',
-    extraClass: 'com-text',
-    styles: undefined,
     font: '',
     size: '',
-    weight: ''
+    weight: '',
+    styles: undefined
 };
 
 export default Text;
