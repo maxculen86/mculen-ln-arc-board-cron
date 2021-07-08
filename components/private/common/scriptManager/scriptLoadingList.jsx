@@ -8,7 +8,8 @@ import get from '../utils/get';
 const ScriptLoadingList = ({
     arcSite: website = 'la-nacion-ar',
     location = 'body-bottom',
-    section
+    section,
+    Tag = 'script'
 }) => {
     const resp = useContent({
         sourceName: 'navigationTreeSource',
@@ -17,10 +18,10 @@ const ScriptLoadingList = ({
         },
         filter: `{
             site {
-                script_loading_list
+                ${Tag}_loading_list
             }
         }`,
-        transform: data => get(data, 'site.script_loading_list', [])
+        transform: data => get(data, `site.${Tag}_loading_list`, [])
     });
 
     return resp.map(scriptConfig => {
@@ -36,7 +37,7 @@ const ScriptLoadingList = ({
 
             return (
                 section === _section &&
-                location === _location && <script {...scriptData} />
+                location === _location && <Tag {...scriptData} />
             );
         } catch (error) {
             console.log('🚀 ~ file: scriptLoadingList ~ error', error);
