@@ -5,12 +5,14 @@ import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
 import get from '../utils/get';
 
-const ScriptLoadingList = ({
+const TagsLoadingList = ({
     arcSite: website = 'la-nacion-ar',
     location = 'body-bottom',
     section,
-    Tag = 'script'
+    Tag
 }) => {
+    if (!Tag) return <></>;
+
     const resp = useContent({
         sourceName: 'navigationTreeSource',
         query: {
@@ -40,18 +42,18 @@ const ScriptLoadingList = ({
                 location === _location && <Tag {...scriptData} />
             );
         } catch (error) {
-            console.log('🚀 ~ file: scriptLoadingList ~ error', error);
+            console.log('🚀 ~ file: tagsLoadingList ~ error', error);
             return <></>;
         }
     });
 };
 
-ScriptLoadingList.propTypes = {
+TagsLoadingList.propTypes = {
     arcSite: PropTypes.string.isRequired,
     location: PropTypes.string,
     section: PropTypes.string
 };
 
-ScriptLoadingList.defaultProps = { section: '' };
+TagsLoadingList.defaultProps = { section: '' };
 
-export default ScriptLoadingList;
+export default TagsLoadingList;

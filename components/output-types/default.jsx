@@ -12,7 +12,7 @@ import MetasOG from '../private/common/metaTags/metasOG';
 import LivefyreCommentCount from '../private/common/scriptManager/LivefyreCommentCount';
 import LiftIgniter from '../private/common/scriptManager/Liftigniter';
 import Datadog from '../private/common/scriptManager/dataDog';
-import ScriptLoadingList from '../private/common/scriptManager/scriptLoadingList';
+import TagsLoadingList from '../private/common/scriptManager/tagsLoadingList';
 import GooglePublisherTag from '../private/common/scriptManager/googlePublisherTag';
 import GooglePublisherTagAcumulado from '../private/common/scriptManager/googlePublisherTagAcumulado';
 import SocialEmbeds from '../private/common/scriptManager/socialEmbeds';
@@ -199,7 +199,7 @@ const Default = props => {
                     <CssLinks />
                 )}
                 <Libs />
-                <ScriptLoadingList
+                <TagsLoadingList
                     section="all"
                     location="head"
                     arcSite={arcSite}
@@ -217,10 +217,11 @@ const Default = props => {
                 <SnippetIndex {...props} />
                 <MetaSectionParsely taxonomy={taxonomy} arcSite={arcSite} />
                 <Scripts location="head" {...props} />
-                <ScriptLoadingList
+                <TagsLoadingList
                     section={_nodeType}
                     location="head"
                     arcSite={arcSite}
+                    Tag="script"
                 />
                 <MetasOG {...props} section={_nodeType} title={title} />
                 {canonicalUrl && (
@@ -283,10 +284,11 @@ const Default = props => {
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />
-                <ScriptLoadingList
+                <TagsLoadingList
                     section={_nodeType}
                     location="body-top"
                     arcSite={arcSite}
+                    Tag="script"
                 />
 
                 <div id="fusion-app">
@@ -298,10 +300,11 @@ const Default = props => {
                     section={_nodeType}
                     {...props}
                 />
-                <ScriptLoadingList
+                <TagsLoadingList
                     section={_nodeType}
                     location="body-bottom"
                     arcSite={arcSite}
+                    Tag="script"
                 />
                 <ScriptLogoBBC distributorName={distributorName} />
             </body>
