@@ -161,13 +161,13 @@ const Cuerpo = props => {
             />
         )) || <></>;
 
-        const _Comp =
-            (Component && Component.isStatic && (
-                <Static id={`content_element_${currentIndex + 1}`} htmlOnly>
-                    {_BaseComp}
-                </Static>
-            )) ||
-            _BaseComp;
+        const _Comp = _BaseComp;
+        // (Component && Component.isStatic && (
+        //     <Static id={`content_element_${currentIndex + 1}`} htmlOnly>
+        //         {_BaseComp}
+        //     </Static>
+        // )) ||
+        // _BaseComp;
 
         if (Component) {
             if (types.includes(Component.arcType)) {
