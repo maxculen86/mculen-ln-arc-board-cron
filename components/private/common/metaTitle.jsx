@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { RECETA } from './utils/subtypes/subtypeHelper';
 
 const getPrefix = _id => {
     if (_id === '/recetas') return ' ';
@@ -14,11 +15,15 @@ const MetaTitle = ({
     nodeType,
     _id = '',
     section,
-    defaultTitle
+    defaultTitle,
+    subtype
 }) => {
     if (arcSite !== 'la-nacion-ar') return <></>;
 
-    const metaTitleForStory = metaTitleBasic && `${metaTitleBasic} - LA NACION`;
+    let metaTitleForStory =
+        metaTitleBasic && subtype === RECETA
+            ? `Receta de ${metaTitleBasic} - LA NACION`
+            : `${metaTitleBasic} - LA NACION`;
     let metaTitleForAcum = '';
 
     const acusWithMeta = ['section', 'author', 'distributor', 'tags'];
@@ -28,6 +33,7 @@ const MetaTitle = ({
         const customTitle =
             title === 'Últimas noticias - LA NACION' ? 'LA NACION' : title;
         metaTitleForAcum = `Últimas${prefix}${customTitle}`;
+        metaTitleForStory = undefined;
     }
 
     return (
@@ -47,12 +53,18 @@ MetaTitle.propTypes = {
     arcSite: PropTypes.string.isRequired,
     nodeType: PropTypes.string.isRequired,
     _id: PropTypes.string,
-    title: PropTypes.string
+    title: PropTypes.string,
+    section: PropTypes.string,
+    defaultTitle: PropTypes.string,
+    subtype: PropTypes.string
 };
 
 MetaTitle.defaultProps = {
     _id: '',
-    title: ''
+    title: '',
+    section: '',
+    defaultTitle: '',
+    subtype: ''
 };
 
 export default MetaTitle;

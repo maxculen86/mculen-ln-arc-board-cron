@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Text from './text';
 import ComTitle from './com-title';
 import ComDate from './com-date';
-import ModBajada from './mod-bajada';
-import ModMarquesina from './mod-marquee';
-import ComLabel from './com-labelArticle';
+// import ModBajada from './mod-bajada';
+// import ModMarquesina from './mod-marquee';
+// import ComLabel from './com-labelArticle';
 import ComTag from './com-tag';
+
+import '../../../resources/dist/css/ln/components/mod-description.css';
 
 const ModDescription = props => {
     const {
@@ -30,7 +33,13 @@ const ModDescription = props => {
 
     return (
         <section className="mod-description">
-            {label && <ComLabel labelArticle={label} />}
+            {/* {label && <ComLabel labelArticle={label} />} */}
+            {label && (
+                <Text extraClass="com-label" size="6xs">
+                    {label}
+                </Text>
+            )}
+
             <ComTitle
                 tag={titleTag || 'h2'}
                 size={titleSize || '--xs'}
@@ -40,18 +49,32 @@ const ModDescription = props => {
             />
 
             {subheadText && (
-                <ModBajada
+                // <ModBajada
+                //     link={link}
+                //     subheadSize={subheadSize}
+                //     subheadText={subheadText}
+                //     subheadTag={subheadTag}
+                // />
+                <Text
+                    tag={subheadTag || 'h3'}
+                    extraClass="com-subhead"
+                    size={subheadSize || '2xs'}
+                    text={subheadText}
                     link={link}
-                    subheadSize={subheadSize}
-                    subheadText={subheadText}
-                    subheadTag={subheadTag}
                 />
             )}
             <div>
                 {withMarquee && (
-                    <ModMarquesina
+                    // <ModMarquesina
+                    //     text={marquesina || authors}
+                    //     size={authorSize}
+                    //     link={link}
+                    // />
+                    <Text
+                        tag="strong"
+                        extraClass="mod-marquee"
+                        size={authorSize || '4xs'}
                         text={marquesina || authors}
-                        size={authorSize}
                         link={link}
                     />
                 )}

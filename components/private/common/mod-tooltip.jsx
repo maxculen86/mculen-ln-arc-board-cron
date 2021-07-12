@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import ComText from './com-text';
+import ComText from './text';
 
 import '../../../resources/dist/css/ln/modules/mod-tooltip.css';
 

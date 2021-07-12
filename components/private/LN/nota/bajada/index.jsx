@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import Bajada from '../../../common/mod-bajada';
+import Text from '../../../common/text';
 
 const BajadaNota = props => {
     const {
@@ -11,11 +11,11 @@ const BajadaNota = props => {
 
     const subtitulo = basic || null;
     return (
-        <Bajada
-            subheadTag="h2"
-            subheadSize="--m-xs"
-            classCondition="--bajada"
-            subheadText={subtitulo}
+        <Text
+            tag="h2"
+            size="--m-xs"
+            extraClass="com-subhead --bajada"
+            text={subtitulo}
         />
     );
 };

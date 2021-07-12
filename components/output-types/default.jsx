@@ -200,12 +200,51 @@ const Default = props => {
                 )}
                 <Libs />
                 <link
+                    rel="dns-prefetch"
+                    href="https://sb.scorecardresearch.com/"
+                />
+                <link
                     href="https://www.google-analytics.com"
                     rel="preconnect"
                 />
+                <link rel="dns-prefetch" href="https://static.hotjar.com/" />
+                <link rel="dns-prefetch" href="https://c.go-mpulse.net/" />
+                <link rel="preconnect" href="https://c.go-mpulse.net/" />
                 <link rel="dns-prefetch" href="//ads.rubiconproject.com" />
                 <link rel="dns-prefetch" href="//www.googletagservices.com" />
                 <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+                <link rel="dns-prefetch" href="//resizer.glanacion.com/" />
+                <link rel="preconnect" href="https://resizer.glanacion.com/" />
+                <link rel="dns-prefetch" href="//ingresar.lanacion.com.ar" />
+                <link rel="dns-prefetch" href="//cdn.livefyre.com" />
+                <link rel="dns-prefetch" href="//ingresar.lanacion.com.ar" />
+                <link
+                    rel="dns-prefetch"
+                    href="//api-ingresar.lanacion.com.ar"
+                />
+                <link rel="dns-prefetch" href="//api-paywall.lanacion.com.ar" />
+                <link rel="preconnect" href="//api-paywall.lanacion.com.ar" />
+
+                <link
+                    rel="dns-prefetch"
+                    href="https://stats.g.doubleclick.net/"
+                />
+                <link
+                    rel="dns-prefetch"
+                    href="//especialess3.lanacion.com.ar/"
+                />
+                <link
+                    rel="preconnect"
+                    href="https://especialess3.lanacion.com.ar/"
+                />
+                {/*
+                    TODO: Evitar desacomplamiento de componentes:
+                    DataLayerIndex
+                    SnippetIndex
+                    MetaectionParsely
+                    en relación
+                    ScriptsManager
+                 */}
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
                 <MetaSectionParsely taxonomy={taxonomy} arcSite={arcSite} />

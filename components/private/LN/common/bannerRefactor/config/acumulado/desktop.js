@@ -8,7 +8,7 @@ export default {
         dimensions: [[800, 600]],
         targeting: defaultTargeting
     },
-    unoxuno_dsk: {
+    '1x1_dsk': {
         slotName: `${PATH_SLOT}/1x1_dsk`,
         dimensions: [[1, 1]],
         targeting: defaultTargeting

@@ -21,12 +21,11 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
   <section
     class="mod-description"
   >
-    <div
-      class="com-label --sixxs"
-      title="chapita"
+    <span
+      class=" com-label --sixxs"
     >
       chapita
-    </div>
+    </span>
     <h1
       class="com-title --s"
     >
@@ -38,11 +37,9 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
       </a>
     </h1>
     <h3
-      class="com-subhead  --twoxs"
+      class=" com-subhead --twoxs"
     >
       <a
-        aria-label="Este es el subtitulo"
-        class="com-link"
         href="http://google.com"
         title="Este es el subtitulo"
       >
@@ -51,11 +48,11 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
     </h3>
     <div>
       <strong
-        class="mod-marquee  --fourxs"
+        class=" mod-marquee --fourxs"
       >
         <a
-          class="com-link"
           href="http://google.com"
+          title="Mariano Grondona"
         >
           Mariano Grondona
         </a>

@@ -11,6 +11,9 @@ describe('Json imagen common', () => {
         expect(resp.baseUrl).toBe(
             '/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg'
         );
+        expect(resp.absoluteUrl).toBe(
+            'https://resizer.glanacion.com/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg'
+        );
         expect(resp.parametros[0].ancho).toBe(278);
         expect(resp.parametros[0].firma).toBe(
             'xXjJBfZwE6c26vxfxgfHerlzovg=/278x186/smart'

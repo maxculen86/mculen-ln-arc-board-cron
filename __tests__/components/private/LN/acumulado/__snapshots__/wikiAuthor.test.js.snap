@@ -39,9 +39,6 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
         >
           Joaquín Morales Solá
         </h1>
-        <span
-          class="com-text --twoxs --profesion"
-        />
         <div
           class="com-container  --contact"
         >
@@ -52,8 +49,8 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
             https://google.com
           </a>
         </div>
-        <span
-          class="com-text --twoxs --bio"
+        <p
+          class=" com-text --bio --twoxs"
         >
           Ejerce el periodismo desde los 16 años cuando ingresó al
                 diario La Gaceta de Tucumán. En 1975, Clarín lo convocó para
@@ -73,7 +70,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 vicepresidente Chacho Alvarez, sobre la trama secreta de los
                 sobornos en el Senado, las causas de su renuncia y los
                 errores que condujeron al fracaso de la Alianza.
-        </span>
+        </p>
         <div
           class="com-container  --educacion"
         >
@@ -305,7 +302,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-icon icon-twitter-filled --xl  "
               />
               <span
-                class="com-text --threexs "
+                class=" com-text --threexs"
               >
                 twitter
               </span>
@@ -332,7 +329,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-icon icon-facebook-filled --xl  "
               />
               <span
-                class="com-text --threexs "
+                class=" com-text --threexs"
               >
                 facebook
               </span>
@@ -359,7 +356,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-icon icon-youtube-filled --xl  "
               />
               <span
-                class="com-text --threexs "
+                class=" com-text --threexs"
               >
                 youtube
               </span>
@@ -386,7 +383,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-icon icon-instagram-filled --xl  "
               />
               <span
-                class="com-text --threexs "
+                class=" com-text --threexs"
               >
                 instagram
               </span>
@@ -413,7 +410,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-icon icon-linkedin-filled --xl  "
               />
               <span
-                class="com-text --threexs "
+                class=" com-text --threexs"
               >
                 linkedin
               </span>
@@ -440,7 +437,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-icon icon-rss-filled --xl  "
               />
               <span
-                class="com-text --threexs "
+                class=" com-text --threexs"
               >
                 rss
               </span>
@@ -467,7 +464,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-icon icon-medium-filled --xl  "
               />
               <span
-                class="com-text --threexs "
+                class=" com-text --threexs"
               >
                 medium
               </span>
@@ -494,7 +491,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-icon icon-pinterest-filled --xl  "
               />
               <span
-                class="com-text --threexs "
+                class=" com-text --threexs"
               >
                 pinterest
               </span>
@@ -521,7 +518,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-icon icon-soundcloud-filled --xl  "
               />
               <span
-                class="com-text --threexs "
+                class=" com-text --threexs"
               >
                 soundcloud
               </span>
@@ -548,7 +545,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-icon icon-snapchat-filled --xl  "
               />
               <span
-                class="com-text --threexs "
+                class=" com-text --threexs"
               >
                 snapchat
               </span>
@@ -575,7 +572,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-icon icon-whatsapp-filled --xl  "
               />
               <span
-                class="com-text --threexs "
+                class=" com-text --threexs"
               >
                 whatsapp
               </span>
@@ -602,7 +599,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-icon icon-tumblr-filled --xl  "
               />
               <span
-                class="com-text --threexs "
+                class=" com-text --threexs"
               >
                 tumblr
               </span>
@@ -633,9 +630,6 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
         >
           Joaquín Morales Solá
         </h1>
-        <span
-          class="com-text --twoxs --profesion"
-        />
         <div
           class="com-container  --contact"
         >
@@ -646,15 +640,15 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
             https://google.com
           </a>
         </div>
-        <span
-          class="com-text --twoxs --bio"
+        <p
+          class=" com-text --bio --twoxs"
         >
           Ejerce el periodismo desde los 16 años cuando ingresó al
                 diario La Gaceta de Tucumán. En 1975, Clarín lo convocó para
                 ser prosecretario de la sección Política. Durante 12 años
                 fue segundo jefe de Redacción y autor de la columna política
                 dominical de ese diario.
-        </span>
+        </p>
         <div
           class="com-container  "
         >
@@ -736,7 +730,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-icon icon-twitter-filled --xl  "
               />
               <span
-                class="com-text --threexs "
+                class=" com-text --threexs"
               >
                 twitter
               </span>
