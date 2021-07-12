@@ -11,38 +11,45 @@ import {
 
 const aperturaNoticia = props => {
     const { globalContent, outputType, id: idFeature } = props;
-    const {
-        promo_items: promoItems = {},
-        headlines: { basic: tituloNota },
-        content_elements: contentElements,
-        subtype
-    } = globalContent || {};
-    const { basic } = promoItems;
-    const { _id: idMedia } = basic || {};
-    const firstText = contentElements.find(element => element.type === 'text');
-    const scriptForZoom =
-        outputType !== 'amp' && buildScriptForZoom(basic, subtype, '--zoom');
-    const { caption, credit } = getEpigrafe(basic);
 
     return (
-        <Static id={idFeature}>
+        <Static id={idFeature} htmlOnly persistent>
             <section className="mod-opening">
-                <Media
-                    mediaData={basic}
-                    withZoom="--zoom"
-                    idMedia={idMedia}
-                    scriptForZoom={scriptForZoom}
-                    isApertura
-                    outputType={outputType}
-                    parrafo={firstText || 'LA NACION'}
-                    tituloNota={tituloNota}
-                    subtype={subtype}
-                >
-                    <figcaption className="mod-figcaption">
-                        {caption}
-                        {credit}
-                    </figcaption>
-                </Media>
+                {(() => {
+                    const {
+                        promo_items: promoItems = {},
+                        headlines: { basic: tituloNota },
+                        content_elements: contentElements,
+                        subtype
+                    } = globalContent || {};
+                    const { basic } = promoItems;
+                    const { _id: idMedia } = basic || {};
+                    const firstText = contentElements.find(
+                        element => element.type === 'text'
+                    );
+                    const scriptForZoom =
+                        outputType !== 'amp' &&
+                        buildScriptForZoom(basic, subtype, '--zoom');
+                    const { caption, credit } = getEpigrafe(basic);
+                    return (
+                        <Media
+                            mediaData={basic}
+                            withZoom="--zoom"
+                            idMedia={idMedia}
+                            scriptForZoom={scriptForZoom}
+                            isApertura
+                            outputType={outputType}
+                            parrafo={firstText || 'LA NACION'}
+                            tituloNota={tituloNota}
+                            subtype={subtype}
+                        >
+                            <figcaption className="mod-figcaption">
+                                {caption}
+                                {credit}
+                            </figcaption>
+                        </Media>
+                    );
+                })()}
             </section>
         </Static>
     );

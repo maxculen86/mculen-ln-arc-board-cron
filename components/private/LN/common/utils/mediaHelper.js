@@ -92,31 +92,19 @@ export const buildScriptForZoom = (
                             subtype,
                             width
                         )};
-                        if (${itsGallery} || zoom) {
-                            const modMedia = document.getElementById('${idMedia}');
-                            if (modMedia) {
-                                const figure = modMedia.querySelector('.mod-figure');
-                                if (figure) {
-                                    modMedia.classList.add('--zoom');
-                                    figure.addEventListener('click', (event) => {
-                                        if (!document.body.classList.contains('--no-scroll')) {
-                                            document.body.classList.add('--no-scroll');
-                                            modMedia.classList.add('--active');
-                                            if (${isVertical} && '${withZoom}') {
-                                                figure.classList.add('--vertical');
-                                                figure.classList.remove('--horizontal');
-                                            }
-                                        } else {
-                                            document.body.classList.remove('--no-scroll');
-                                            modMedia.classList.remove('--active');
-                                            if (${isVertical} && '${withZoom}') {
-                                                figure.classList.remove('--vertical');
-                                                figure.classList.add('--horizontal');
-                                            }
-                                        }
-                                    });
+                        const modMedia = document.getElementById('${idMedia}');
+                        if (zoom && modMedia) {
+                            const figure = modMedia.querySelector('.mod-figure');
+                            modMedia.classList.add('--zoom');
+                            figure.addEventListener('click', (event) => {
+                                if (!document.body.classList.contains('--no-scroll')) {
+                                    document.body.classList.add('--no-scroll');
+                                    modMedia.classList.add('--active');
+                                } else {
+                                    document.body.classList.remove('--no-scroll');
+                                    modMedia.classList.remove('--active');
                                 }
-                            }
+                            });
                         }
                     });
                 `
