@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import ComFigcaption from './com-figcaption';
-import ComText from './com-text';
+import ComText from './text';
 
 import '../../../resources/dist/css/ln/modules/mod-figcaption.css';
 
@@ -12,8 +12,12 @@ const ModFigcaption = props => {
 
     return (
         <ComFigcaption>
-            <ComText classCondition="--caption --twoxs" textname={title} />
-            <ComText classCondition="--credit --twoxs" textname={credit} />
+            <ComText extraClass="--caption" size="2xs">
+                {title}
+            </ComText>
+            <ComText extraClass="--credit" size="2xs">
+                {credit}
+            </ComText>
         </ComFigcaption>
     );
 };

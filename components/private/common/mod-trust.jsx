@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import ComText from './com-text';
+import ComText from './text';
 import ComLink from './com-link';
 import SvgTrust from './svg-trust';
 import '../../../resources/dist/css/ln/modules/mod-trust.css';

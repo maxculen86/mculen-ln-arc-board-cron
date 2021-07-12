@@ -16,23 +16,21 @@ const image = ({ data, withZoom, outputType }) => {
     };
 
     return (
-        <>
-            <Media
-                mediaData={data}
-                withZoom={withZoom}
-                colNumber={12}
-                handleClick={handleClick}
-                active={active}
-                outputType={outputType}
-            >
-                {data && (
-                    <ComFigcaption>
-                        {caption}
-                        {credit}
-                    </ComFigcaption>
-                )}
-            </Media>
-        </>
+        <Media
+            mediaData={data}
+            withZoom={withZoom}
+            colNumber={12}
+            handleClick={handleClick}
+            active={active}
+            outputType={outputType}
+        >
+            {data && (
+                <ComFigcaption>
+                    {caption}
+                    {credit}
+                </ComFigcaption>
+            )}
+        </Media>
     );
 };
 

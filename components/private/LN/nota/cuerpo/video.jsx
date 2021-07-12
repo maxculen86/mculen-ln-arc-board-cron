@@ -8,18 +8,16 @@ const video = ({ data, outputType, tituloNota, primerParrafo }) => {
     const { caption, credit } = getEpigrafe(data);
 
     return (
-        <>
-            <Media
-                mediaData={data}
-                colNumber={12}
-                outputType={outputType}
-                tituloNota={tituloNota}
-                parrafo={parrafo}
-            >
-                {caption}
-                {credit}
-            </Media>
-        </>
+        <Media
+            mediaData={data}
+            colNumber={12}
+            outputType={outputType}
+            tituloNota={tituloNota}
+            parrafo={parrafo}
+        >
+            {caption}
+            {credit}
+        </Media>
     );
 };
 

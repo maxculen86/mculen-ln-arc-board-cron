@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Media from '../../media';
 import ComFigcaption from '../../../../common/com-figcaption';
-import ComText from '../../../../common/com-text';
+import ComText from '../../../../common/text';
 import EpigrafeAndCreditsData from '../../../../common/utils/epigrafeAndCreditsData';
 
 const galleryItem = ({
@@ -30,15 +30,12 @@ const galleryItem = ({
                     <ComFigcaption>
                         {mediaData.caption && (
                             <ComText
-                                classCondition="--caption --twoxs"
-                                textname={mediaData.caption}
+                                extraClass="--caption --twoxs"
+                                text={mediaData.caption}
                             />
                         )}
-                        <ComText
-                            classCondition="--credit --twoxs"
-                            textname={credito}
-                        />
-                        <ComText classCondition="--paginator">
+                        <ComText extraClass="--credit --twoxs" text={credito} />
+                        <ComText extraClass="com-text --paginator">
                             {galleryOrder + 1}
                             &nbsp;de&nbsp;
                             {totalGallery}

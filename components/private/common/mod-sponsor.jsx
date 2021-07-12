@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-import ComText from './com-text';
+import ComText from './text';
 import ComLogo from './com-logo';
 import ComLink from './com-link';
 
@@ -22,7 +22,7 @@ const ModSponsor = props => {
 
             <>
                 {type === '--contentlab' ? (
-                    <ComText tag="" size="--threexs" classCondition="--sponsor">
+                    <ComText size="--threexs" extraClass="com-text --sponsor">
                         Content LAB para {textName}
                         {tooltip.label && (
                             <span className="com-text --tooltip">
@@ -33,7 +33,7 @@ const ModSponsor = props => {
                         )}
                     </ComText>
                 ) : (
-                    <ComText tag="" size="--threexs" classCondition="--sponsor">
+                    <ComText size="--threexs" extraClass="com-text --sponsor">
                         Espacio Patrocinado
                         {tooltip.label && (
                             <span className="com-text --tooltip">

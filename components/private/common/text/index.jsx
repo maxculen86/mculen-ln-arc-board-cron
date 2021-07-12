@@ -4,66 +4,70 @@ import { getFontFamily, getFontSize, getFontWeight } from './getFontData';
 
 const Text = ({
     tag,
+    id,
     extraClass,
+    children,
+    text,
+    link,
     font,
     size,
     weight,
-    bold,
-    highlight,
-    capital,
-    children,
-    text,
-    color
+    styles
 }) => {
-    const CustomTag = tag || 'span';
+    const CustomTag = tag;
     const _content = children || text;
 
     const _font = getFontFamily(font);
     const _size = getFontSize(size);
     const _weight = getFontWeight(weight);
 
-    const className = `text${extraClass ? ` ${extraClass}` : ''}${
+    const _className = `${extraClass ? ` ${extraClass}` : ''}${
         font ? ` ${_font}` : ''
-    }${size ? ` ${_size}` : ''}${weight ? ` ${_weight}` : ''}${
-        bold ? ` --font-bold` : ''
-    }${highlight ? ` --font-highlight` : ''}${capital ? ` --capital` : ''}`;
-    const _color = { color: `${color}` };
+    }${size ? ` ${_size}` : ''}${weight ? ` ${_weight}` : ''}`;
 
-    if (!children) return null;
+    if (!_content) return null;
 
     return (
-        <CustomTag className={className} style={_color}>
-            {_content}
+        <CustomTag id={id} className={_className} style={styles}>
+            {link ? (
+                <a
+                    href={link}
+                    //aria-label={_content}
+                    //className="link"
+                    title={_content}
+                    dangerouslySetInnerHTML={{ __html: _content }}
+                />
+            ) : (
+                _content
+            )}
         </CustomTag>
     );
 };
 
 Text.propTypes = {
-    children: PropTypes.node,
     tag: PropTypes.string,
-    text: PropTypes.string,
+    id: PropTypes.string,
     extraClass: PropTypes.string,
+    children: PropTypes.node,
+    text: PropTypes.string,
+    link: PropTypes.string,
     font: PropTypes.string,
     size: PropTypes.string,
     weight: PropTypes.string,
-    color: PropTypes.string,
-    bold: PropTypes.bool,
-    highlight: PropTypes.bool,
-    capital: PropTypes.bool
+    styles: PropTypes.string
 };
 
 Text.defaultProps = {
-    children: undefined,
-    tag: undefined,
-    text: undefined,
-    extraClass: undefined,
-    font: undefined,
-    size: undefined,
-    weight: undefined,
-    color: undefined,
-    bold: undefined,
-    highlight: undefined,
-    capital: undefined
+    tag: 'span',
+    id: undefined,
+    extraClass: 'com-text',
+    children: '',
+    text: '',
+    link: '',
+    font: '',
+    size: '',
+    weight: '',
+    styles: undefined
 };
 
 export default Text;

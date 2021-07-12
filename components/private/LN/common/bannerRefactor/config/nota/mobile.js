@@ -30,7 +30,7 @@ export default {
         dimensions: [[320, 480]],
         targeting: defaultTargeting
     },
-    unoxuno_mob: {
+    '1x1_mob': {
         slotName: 'la_nacion_mobile/Nota/1x1_mob',
         dimensions: [[1, 1]],
         targeting: defaultTargeting
