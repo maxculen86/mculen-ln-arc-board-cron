@@ -13,8 +13,8 @@ const aperturaNoticia = props => {
     const { globalContent, outputType, id: idFeature } = props;
 
     return (
-        <Static id={idFeature} htmlOnly persistent>
-            <section className="mod-opening">
+        <Static id={idFeature}>
+            <section className="mod-opening" persistent>
                 {(() => {
                     const {
                         promo_items: promoItems = {},
