@@ -83,6 +83,7 @@ const Parrafo = ({ data, capital, size, classCondition }) => {
 };
 
 Parrafo.arcType = 'text';
+Parrafo.isStatic = true;
 
 Parrafo.propTypes = {
     data: PropTypes.shape({
@@ -90,6 +91,10 @@ Parrafo.propTypes = {
         type: PropTypes.string.isRequired
     }).isRequired,
     capital: PropTypes.bool
+};
+
+Parrafo.defaultProps = {
+    capital: false
 };
 
 export default Parrafo;

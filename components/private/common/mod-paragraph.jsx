@@ -1,16 +1,24 @@
 import React from 'react';
-import Parrafo from '../../../components/private/LN/nota/cuerpo/parrafo';
+import PropTypes from 'prop-types';
 import '../../../resources/dist/css/ln/modules/mod-paragraph.css';
 
 const ModParagraph = props => {
-    const { children, classesNames, data, classCondition } = props;
+    const { children, classCondition } = props;
     return children ? (
-        <blockquote
-            className={`mod-paragraph ${classCondition ? classCondition : ``}`}
-        >
+        <blockquote className={`mod-paragraph ${classCondition || ''}`}>
             {children}
         </blockquote>
     ) : null;
+};
+
+ModParagraph.propTypes = {
+    children: PropTypes.arrayOf(PropTypes.symbol),
+    classCondition: PropTypes.string
+};
+
+ModParagraph.defaultProps = {
+    children: [],
+    classCondition: ''
 };
 
 export default ModParagraph;

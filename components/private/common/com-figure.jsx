@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import '../../../resources/dist/css/ln/modules/mod-figure.css';
 
-const ComFigure = ({ classCondition, children, handleClick, outputType }) => {
-    const amp = outputType === 'amp';
+const ComFigure = ({ classCondition, children, handleClick }) => {
     return children ? (
         <figure
             role="button"
@@ -22,8 +21,7 @@ const ComFigure = ({ classCondition, children, handleClick, outputType }) => {
 ComFigure.propTypes = {
     children: PropTypes.elementType.isRequired,
     classCondition: PropTypes.string.isRequired,
-    handleClick: PropTypes.func.isRequired,
-    outputType: PropTypes.string.isRequired
+    handleClick: PropTypes.func.isRequired
 };
 
 export default ComFigure;
