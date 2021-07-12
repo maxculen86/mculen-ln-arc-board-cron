@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import '../../../../../resources/dist/css/ln/components/com-embed.css';
 
 const getValue = (
@@ -212,6 +212,7 @@ const OembedAMP = ({ data }) => {
 
 OembedAMP.arcType = 'oembed_response';
 OembedAMP.outputType = 'amp';
+OembedAMP.isStatic = true;
 OembedAMP.propTypes = {
     data: PropTypes.shape({
         raw_oembed: PropTypes.any,

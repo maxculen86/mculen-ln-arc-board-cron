@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import Image from './imageBase';
 import ComFigure from '../../../common/com-figure';
 import ModMedia from '../../../common/mod-media';
+import ComPicture from '../../../common/com-picture';
 import VideoPlayer from './videoPlayer';
-import Placeholder from '../imagePlaceholder';
-import ComFigcaption from '../../../common/com-figcaption';
 import {
     FOTOAL100,
     STORYTELLING
@@ -14,7 +13,6 @@ import useSubtype from '../../../common/hooks/useSubtype';
 
 const media = ({
     mediaData,
-    colNumber,
     withZoom,
     itsGallery,
     href,
@@ -26,11 +24,12 @@ const media = ({
     tituloNota,
     active,
     anexo,
-    titleText
+    titleText,
+    scriptForZoom
 }) => {
     const refContainer = useRef();
     const [zoom, setZoom] = useState(false);
-    const { height = 0, width = 0 } = mediaData || {};
+    const { height = 0, width = 0, type, _id: idMedia } = mediaData || {};
     const isVertical = height > width;
     let item = null;
     const { subtipo } = useSubtype();
@@ -53,7 +52,6 @@ const media = ({
     }, [itsGallery, withZoom, width, subtipo.id]);
 
     if (mediaData) {
-        const { type, _id } = mediaData;
         // TODO: Sacar switch
         switch (type) {
             case 'image':
@@ -79,6 +77,8 @@ const media = ({
                             image={{ ...mediaData, titleText }}
                             href={href}
                             withLazy={itsGallery ? false : !zoom}
+                            outputType={outputType}
+                            zoom={zoom}
                         />
                         {children}
                     </ComFigure>
@@ -88,7 +88,7 @@ const media = ({
                 item = (
                     <figure className="mod-figure">
                         <VideoPlayer
-                            videoId={_id}
+                            videoId={idMedia}
                             mediaData={mediaData}
                             parrafo={parrafo}
                             tituloNota={tituloNota}
@@ -102,7 +102,7 @@ const media = ({
         }
     }
     if (!item) {
-        item = <Placeholder href={href} outputType={outputType} />;
+        item = <ComPicture href={href} amp={outputType === 'amp'} />;
     }
     return (
         <>
@@ -111,10 +111,12 @@ const media = ({
             ) : (
                 <div ref={refContainer}>
                     <ModMedia
+                        idMedia={isApertura && idMedia}
                         zoom={zoom}
                         withZoom={withZoom}
                         active={active}
                         anexo={anexo}
+                        scriptForZoom={scriptForZoom}
                     >
                         {item}
                     </ModMedia>
@@ -128,26 +130,46 @@ media.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node
-    ]),
+    ]).isRequired,
     outputType: PropTypes.string,
     mediaData: PropTypes.shape({
         type: PropTypes.string,
         _id: PropTypes.string
     }).isRequired,
-    colNumber: PropTypes.number.isRequired,
-    itsGallery: PropTypes.bool.isRequired,
-    active: PropTypes.bool.isRequired,
-    handleClick: PropTypes.func.isRequired,
-    withZoom: PropTypes.bool.tag({
-        defaultValue: false
-    }),
-    href: PropTypes.string.tag({
-        defaultValue: ''
-    }),
+    itsGallery: PropTypes.bool,
+    active: PropTypes.bool,
+    handleClick: PropTypes.func,
+    withZoom: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    href: PropTypes.string,
     tituloNota: PropTypes.string.isRequired,
-    parrafo: PropTypes.shape({
-        content: PropTypes.string
-    }).isRequired
+    parrafo: PropTypes.oneOfType([
+        PropTypes.shape({
+            content: PropTypes.string
+        }),
+        PropTypes.string
+    ]).isRequired,
+    isApertura: PropTypes.bool,
+    anexo: PropTypes.string,
+    titleText: PropTypes.string,
+    scriptForZoom: PropTypes.node
+};
+
+media.defaultProps = {
+    itsGallery: false,
+    withZoom: false,
+    isApertura: false,
+    href: '',
+    anexo: '',
+    titleText: '',
+    outputType: 'default',
+    scriptForZoom: undefined,
+    active: undefined,
+    handleClick: () => {}
+};
+
+media.defaultProps = {
+    withZoom: false,
+    href: ''
 };
 
 export default media;

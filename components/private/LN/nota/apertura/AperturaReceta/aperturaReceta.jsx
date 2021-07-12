@@ -3,27 +3,21 @@ import PropTypes from 'fusion:prop-types';
 import AperturaConDestacado from './AperturaConDestacado';
 import AperturaSinDestacado from './AperturaSinDestacado';
 import { getFirstParentSection } from '../../../../common/utils/sectionUtils';
-import checkSiteFields from '../../../common/utils/checkSiteFields';
 
 import '../../../../../../resources/dist/css/ln/layouts/grid.css';
 
 const aperturaReceta = props => {
     const {
-        globalContent: {
-            promo_items: promoItems,
-            taxonomy,
-            taxonomy: { tags },
-            subtype
-        }
+        globalContent: { promo_items: promoItems, taxonomy }
     } = props;
 
-    const primary = taxonomy.primary_section;
+    const { tags, primary_section: primary, sections } = taxonomy;
 
     let listSections = [];
     if (primary) {
         const parentPrimarySection = getFirstParentSection(primary);
         if (parentPrimarySection) {
-            listSections = taxonomy.sections.filter(x => {
+            listSections = sections.filter(x => {
                 const parentSection = getFirstParentSection(x);
                 return (
                     parentSection &&
@@ -74,7 +68,9 @@ aperturaReceta.propTypes = {
                     slug: PropTypes.string,
                     text: PropTypes.string
                 })
-            ).isRequired
+            ).isRequired,
+            primary_section: PropTypes.string,
+            sections: PropTypes.array
         }),
         promo_items: PropTypes.shape({
             receta: PropTypes.object,

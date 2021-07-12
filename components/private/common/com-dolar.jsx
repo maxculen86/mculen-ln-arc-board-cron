@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import ComLink from './com-link';
-import ComText from './com-text';
+import ComText from './text';
 
 const ComDolar = props => {
     const {
@@ -22,7 +23,7 @@ const ComDolar = props => {
             >
                 Dólar:
             </ComLink>
-            <ComText textname="BNA:" size={size} />
+            <ComText size={size}>BNA:</ComText>
             <span id="precioCompraBna" className={`precioDolar ${size}`}>
                 {precioCompraBna ? `$${precioCompraBna}` : '$00,00'}
             </span>
@@ -49,6 +50,14 @@ const ComDolar = props => {
             </span>
         </div>
     );
+};
+
+ComDolar.propTypes = {
+    precioCompraBna: PropTypes.string,
+    precioVentaBna: PropTypes.string,
+    precioCompraBlue: PropTypes.string,
+    precioVentaBlue: PropTypes.string,
+    size: PropTypes.string
 };
 
 export default ComDolar;

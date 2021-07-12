@@ -7,6 +7,10 @@ import getArticlesFromAcumSource from '../../private/LN/common/utils/getArticles
 import filter from '../../../content/filters/LN/acumulado/articleMasNotas';
 import addForwardSlash from '../../private/LN/common/utils/addForwardSlash';
 import CajaTema from '../../private/LN/common/cajaTema';
+import {
+    NOTICIA,
+    RECETA
+} from '../../private/common/utils/subtypes/subtypeHelper';
 
 const getSectionTitle = noteType => {
     if (Number(noteType) === 1) return 'Otras noticias de&nbsp;';
@@ -37,7 +41,8 @@ const masNotas = props => {
             subtype,
             taxonomy: {
                 primary_section: { _id, _website, name: sectionName, path }
-            }
+            },
+            _id: idArticle
         },
         outputType,
         id: featureId,
@@ -62,9 +67,9 @@ const masNotas = props => {
     let sectionId = _id;
     let excludeSectionId = false;
 
-    if (filterCustomField.toString() === '0' && subtype === '7')
+    if (filterCustomField.toString() === '0' && subtype === RECETA)
         sectionId = '/recetas';
-    if (filterCustomField.toString() === '0' && subtype === '1')
+    if (filterCustomField.toString() === '0' && subtype === NOTICIA)
         excludeSectionId = true;
 
     const { notRecommendedSections = [] } = getProperties(arcSite);
@@ -93,17 +98,21 @@ const masNotas = props => {
         shouldNotFilter
     );
 
+    const articlesFiltered = articles
+        .filter(article => article._id !== idArticle)
+        .slice(0, Number(size.originalSize));
+
     return (
         <Static id={featureId}>
             <CajaTema
                 title={title}
-                notesQuantity={cantidadNotas}
+                notesQuantity={size.originalSize}
                 sectionName={
                     filterCustomField.toString() === '1'
                         ? 'OtrasNoticias'
                         : 'UltimasNoticias'
                 }
-                articles={articles}
+                articles={articlesFiltered}
                 position="toi"
                 outputType={outputType}
                 withVolanta={false}
@@ -132,6 +141,7 @@ masNotas.propTypes = {
     }).isRequired,
     globalContent: PropTypes.shape({
         subtype: PropTypes.string,
+        _id: PropTypes.string,
         taxonomy: PropTypes.shape({
             primary_section: PropTypes.shape({
                 _id: PropTypes.string,

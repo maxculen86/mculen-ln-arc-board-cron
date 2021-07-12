@@ -9,36 +9,14 @@ const trim = string => {
 
 const ComPicture = props => {
     const { href, classCondition, children, video, amp } = props;
-    const PictureBasic = ({ classCon }) => {
-        const className = trim(`mod-picture ${video} ${classCon}`);
-        // TODO: optimizar condicionalmente
-        return (
-            <>
-                {amp ? (
-                    <div className={className}>{children}</div>
-                ) : (
-                    <picture className={className}>{children}</picture>
-                )}
-            </>
-        );
-    };
-    PictureBasic.propTypes = {
-        classCon: PropTypes.string
-    };
-    PictureBasic.defaultProps = {
-        classCon: ''
-    };
-    return (
-        <>
-            {href ? (
-                <a href={href}>
-                    <PictureBasic classCon={classCondition} />
-                </a>
-            ) : (
-                <PictureBasic classCon={classCondition} />
-            )}
-        </>
+    const className = trim(`mod-picture ${video} ${classCondition}`);
+    const picture = amp ? (
+        <div className={className}>{children}</div>
+    ) : (
+        <picture className={className}>{children}</picture>
     );
+
+    return <>{href ? <a href={href}>{picture}</a> : picture}</>;
 };
 
 ComPicture.propTypes = {
