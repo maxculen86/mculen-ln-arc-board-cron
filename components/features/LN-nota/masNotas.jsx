@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
@@ -6,6 +6,8 @@ import getArticlesFromAcumSource from '../../private/LN/common/utils/getArticles
 import filter from '../../../content/filters/LN/acumulado/articleMasNotas';
 import addForwardSlash from '../../private/LN/common/utils/addForwardSlash';
 import CajaTema from '../../private/LN/common/cajaTema';
+import { GlobalContext } from '../../private/common/context/globalContext';
+import get from '../../private/common/utils/get';
 
 const getSectionTitle = noteType => {
     if (Number(noteType) === 1) return 'Otras noticias de&nbsp;';
@@ -65,6 +67,30 @@ const masNotas = props => {
     if (filterCustomField.toString() === '0' && subtype === '1')
         excludeSectionId = true;
 
+    function getExceptionsFromSiteServices() {
+        const globalContext = useContext(GlobalContext);
+        const notRecommendedSections = get(
+            globalContext,
+            'state.siteService.notRecommendedSections',
+            []
+        );
+        return notRecommendedSections;
+    }
+    console.log(
+        '🚀 ~ file: masNotas.jsx ~ line 71 ~ getExceptionsFromSiteServices ~ getExceptionsFromSiteServices',
+        getExceptionsFromSiteServices
+    );
+
+    const SectionIdElements = sectionId.split('/');
+
+    const findCommonElements = (arr1, arr2) => {
+        return arr1.some(item => arr2.includes(item));
+    };
+    const shouldNotFilter = findCommonElements(
+        SectionIdElements,
+        getExceptionsFromSiteServices()
+    );
+
     const typesOfQuery = { sectionId };
     const articles = getArticlesFromAcumSource(
         typesOfQuery,
@@ -75,8 +101,10 @@ const masNotas = props => {
         excludeSectionId,
         'story',
         _website,
-        true
+        true,
+        shouldNotFilter
     );
+    console.log('🚀 ~ file: masNotas.jsx ~ line 99 ~ articles', articles);
 
     return (
         <Static id={featureId}>
