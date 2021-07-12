@@ -1,5 +1,6 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
+
 import Paragraph from './parrafo';
 
 const pullQuote = props => {
@@ -34,6 +35,7 @@ const pullQuote = props => {
 };
 
 pullQuote.arcType = 'pullquote';
+pullQuote.isStatic = true;
 
 pullQuote.propTypes = {
     data: PropTypes.shape({

@@ -167,4 +167,9 @@ media.defaultProps = {
     handleClick: () => {}
 };
 
+media.defaultProps = {
+    withZoom: false,
+    href: ''
+};
+
 export default media;

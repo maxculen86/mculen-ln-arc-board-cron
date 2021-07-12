@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import Media from '../../common/media';
 import ComFigcaption from '../../../common/com-figcaption';
 import { getEpigrafe } from '../../common/utils/mediaHelper';
