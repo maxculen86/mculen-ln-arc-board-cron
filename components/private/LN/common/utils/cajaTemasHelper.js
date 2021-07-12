@@ -154,6 +154,13 @@ export const getMarkupForDatalayer = (
     return { extraOptsDiv, extraOpts };
 };
 
+export const customHeading = {
+    OtrasNoticias: 'h3',
+    UltimasNoticias: 'h4',
+    TePuedeInteresar: 'h4',
+    Ranking: 'h3'
+};
+
 export const getCommonProps = props => {
     const {
         customFields: { layout = 'grilla3', backgroundColor },
