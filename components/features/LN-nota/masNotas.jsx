@@ -1,13 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
+import getProperties from 'fusion:properties';
 import getArticlesFromAcumSource from '../../private/LN/common/utils/getArticlesFromAcumSource';
 import filter from '../../../content/filters/LN/acumulado/articleMasNotas';
 import addForwardSlash from '../../private/LN/common/utils/addForwardSlash';
 import CajaTema from '../../private/LN/common/cajaTema';
-import { GlobalContext } from '../../private/common/context/globalContext';
-import get from '../../private/common/utils/get';
 
 const getSectionTitle = noteType => {
     if (Number(noteType) === 1) return 'Otras noticias de&nbsp;';
@@ -41,7 +40,8 @@ const masNotas = props => {
             }
         },
         outputType,
-        id: featureId
+        id: featureId,
+        arcSite
     } = props;
 
     if (!_id) return <></>;
@@ -67,19 +67,7 @@ const masNotas = props => {
     if (filterCustomField.toString() === '0' && subtype === '1')
         excludeSectionId = true;
 
-    function getExceptionsFromSiteServices() {
-        const globalContext = useContext(GlobalContext);
-        const notRecommendedSections = get(
-            globalContext,
-            'state.siteService.notRecommendedSections',
-            []
-        );
-        return notRecommendedSections;
-    }
-    console.log(
-        '🚀 ~ file: masNotas.jsx ~ line 71 ~ getExceptionsFromSiteServices ~ getExceptionsFromSiteServices',
-        getExceptionsFromSiteServices
-    );
+    const { notRecommendedSections = [] } = getProperties(arcSite);
 
     const SectionIdElements = sectionId.split('/');
 
@@ -88,7 +76,7 @@ const masNotas = props => {
     };
     const shouldNotFilter = findCommonElements(
         SectionIdElements,
-        getExceptionsFromSiteServices()
+        notRecommendedSections
     );
 
     const typesOfQuery = { sectionId };
@@ -104,7 +92,6 @@ const masNotas = props => {
         true,
         shouldNotFilter
     );
-    console.log('🚀 ~ file: masNotas.jsx ~ line 99 ~ articles', articles);
 
     return (
         <Static id={featureId}>
