@@ -41,7 +41,6 @@ const Tags = ({ tags, sections, destacado, temas }) => {
                 <div className="row">
                     <div className="col-12">
                         {listTags.length > 0 && (
-                            /* <ComTitle size="--l" tag="h4" content="Temas" />  */
                             <HeaderSection tag="h3" title="Temas" />
                         )}
                         {listTags ? (
