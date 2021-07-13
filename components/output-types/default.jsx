@@ -12,7 +12,7 @@ import MetasOG from '../private/common/metaTags/metasOG';
 import LivefyreCommentCount from '../private/common/scriptManager/LivefyreCommentCount';
 import LiftIgniter from '../private/common/scriptManager/Liftigniter';
 import Datadog from '../private/common/scriptManager/dataDog';
-import ScriptLoadingList from '../private/common/scriptManager/scriptLoadingList';
+import TagsLoadingList from '../private/common/scriptManager/tagsLoadingList';
 import GooglePublisherTag from '../private/common/scriptManager/googlePublisherTag';
 import GooglePublisherTagAcumulado from '../private/common/scriptManager/googlePublisherTagAcumulado';
 import SocialEmbeds from '../private/common/scriptManager/socialEmbeds';
@@ -199,43 +199,11 @@ const Default = props => {
                     <CssLinks />
                 )}
                 <Libs />
-                <link
-                    rel="dns-prefetch"
-                    href="https://sb.scorecardresearch.com/"
-                />
-                <link
-                    href="https://www.google-analytics.com"
-                    rel="preconnect"
-                />
-                <link rel="dns-prefetch" href="https://static.hotjar.com/" />
-                <link rel="dns-prefetch" href="https://c.go-mpulse.net/" />
-                <link rel="preconnect" href="https://c.go-mpulse.net/" />
-                <link rel="dns-prefetch" href="//ads.rubiconproject.com" />
-                <link rel="dns-prefetch" href="//www.googletagservices.com" />
-                <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
-                <link rel="dns-prefetch" href="//resizer.glanacion.com/" />
-                <link rel="preconnect" href="https://resizer.glanacion.com/" />
-                <link rel="dns-prefetch" href="//ingresar.lanacion.com.ar" />
-                <link rel="dns-prefetch" href="//cdn.livefyre.com" />
-                <link rel="dns-prefetch" href="//ingresar.lanacion.com.ar" />
-                <link
-                    rel="dns-prefetch"
-                    href="//api-ingresar.lanacion.com.ar"
-                />
-                <link rel="dns-prefetch" href="//api-paywall.lanacion.com.ar" />
-                <link rel="preconnect" href="//api-paywall.lanacion.com.ar" />
-
-                <link
-                    rel="dns-prefetch"
-                    href="https://stats.g.doubleclick.net/"
-                />
-                <link
-                    rel="dns-prefetch"
-                    href="//especialess3.lanacion.com.ar/"
-                />
-                <link
-                    rel="preconnect"
-                    href="https://especialess3.lanacion.com.ar/"
+                <TagsLoadingList
+                    section="all"
+                    location="head"
+                    arcSite={arcSite}
+                    Tag="link"
                 />
                 {/*
                     TODO: Evitar desacomplamiento de componentes:
@@ -249,10 +217,11 @@ const Default = props => {
                 <SnippetIndex {...props} />
                 <MetaSectionParsely taxonomy={taxonomy} arcSite={arcSite} />
                 <Scripts location="head" {...props} />
-                <ScriptLoadingList
+                <TagsLoadingList
                     section={_nodeType}
                     location="head"
                     arcSite={arcSite}
+                    Tag="script"
                 />
                 <MetasOG {...props} section={_nodeType} title={title} />
                 {canonicalUrl && (
@@ -315,10 +284,11 @@ const Default = props => {
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />
-                <ScriptLoadingList
+                <TagsLoadingList
                     section={_nodeType}
                     location="body-top"
                     arcSite={arcSite}
+                    Tag="script"
                 />
 
                 <div id="fusion-app">
@@ -330,10 +300,11 @@ const Default = props => {
                     section={_nodeType}
                     {...props}
                 />
-                <ScriptLoadingList
+                <TagsLoadingList
                     section={_nodeType}
                     location="body-bottom"
                     arcSite={arcSite}
+                    Tag="script"
                 />
                 <ScriptLogoBBC distributorName={distributorName} />
             </body>

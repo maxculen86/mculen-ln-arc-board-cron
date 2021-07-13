@@ -1,6 +1,6 @@
 /* React */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import '../../../../../resources/dist/css/ln/components/com-embed.css';
 
 const trim = string => {
@@ -36,6 +36,8 @@ const RawHTML = ({
 
 RawHTML.arcType = 'oembed_response';
 RawHTML.outputType = 'default';
+RawHTML.isStatic = true;
+
 RawHTML.propTypes = {
     data: PropTypes.shape({
         raw_oembed: PropTypes.string,
