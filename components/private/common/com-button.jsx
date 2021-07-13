@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import '../../../resources/dist/css/ln/components/com-button.css';
 import ComIco from './com-icon';
-import ComText from './com-text';
+import ComText from './text';
 
 const ComButton = props => {
     const {

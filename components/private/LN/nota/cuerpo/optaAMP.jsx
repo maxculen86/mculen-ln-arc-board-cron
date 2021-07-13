@@ -1,6 +1,6 @@
 import React from 'react';
 import { OPTA_WIDGET_URL } from 'fusion:environment';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 
 const hasOptaElements = content => content.includes('opta-widget');
@@ -26,19 +26,14 @@ const OptaAMP = props => {
                 frameborder="0"
                 layout="responsive"
                 src={urlForOpta || content}
-            >
-                <amp-img
-                    layout="fill"
-                    src={content}
-                    placeholder="placeholder"
-                />
-            </amp-iframe>
+            ></amp-iframe>
         </div>
     );
 };
 
 OptaAMP.arcType = 'raw_html';
 OptaAMP.outputType = 'opta';
+OptaAMP.isStatic = true;
 OptaAMP.propTypes = {
     data: PropTypes.shape({
         content: PropTypes.string

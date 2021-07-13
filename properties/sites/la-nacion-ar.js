@@ -1461,5 +1461,6 @@ export default {
     },
     layoutsName: {
         Home: 'LN-Home_Main'
-    }
+    },
+    notRecommendedSections: ['recetas']
 };

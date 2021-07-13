@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import Carrousell from './default';
 import CarrousellAmp from './amp';
 

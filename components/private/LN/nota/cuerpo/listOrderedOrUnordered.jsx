@@ -1,6 +1,6 @@
 /* eslint-disable react/no-danger */
 import React, { useState } from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 
 const ListOrderedOrUnordered = ({ data }) => {
     const [classList] = useState(
@@ -32,6 +32,7 @@ const ListOrderedOrUnordered = ({ data }) => {
 };
 
 ListOrderedOrUnordered.arcType = 'list';
+ListOrderedOrUnordered.isStatic = true;
 
 ListOrderedOrUnordered.propTypes = {
     data: PropTypes.shape({

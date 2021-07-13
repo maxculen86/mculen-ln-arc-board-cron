@@ -10,7 +10,8 @@ const getArticlesFromAcumSource = (
     excludeSectionId,
     type,
     website = 'la-nacion-ar',
-    promoItemsOnly = false
+    promoItemsOnly = false,
+    shouldNotFilter
 ) => {
     const { sectionId, tagId, authorId, distributorId, sectionsIds } =
         typesOfQuery || {};
@@ -32,7 +33,8 @@ const getArticlesFromAcumSource = (
             distributorId,
             sectionsIds,
             sourceOrigin,
-            type
+            type,
+            shouldNotFilter
         },
         filter,
         staticMode: true

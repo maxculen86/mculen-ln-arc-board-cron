@@ -5,11 +5,14 @@ import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
 import get from '../utils/get';
 
-const ScriptLoadingList = ({
+const TagsLoadingList = ({
     arcSite: website = 'la-nacion-ar',
     location = 'body-bottom',
-    section
+    section,
+    Tag
 }) => {
+    if (!Tag) return <></>;
+
     const resp = useContent({
         sourceName: 'navigationTreeSource',
         query: {
@@ -17,10 +20,10 @@ const ScriptLoadingList = ({
         },
         filter: `{
             site {
-                script_loading_list
+                ${Tag}_loading_list
             }
         }`,
-        transform: data => get(data, 'site.script_loading_list', [])
+        transform: data => get(data, `site.${Tag}_loading_list`, [])
     });
 
     return resp.map(scriptConfig => {
@@ -36,21 +39,21 @@ const ScriptLoadingList = ({
 
             return (
                 section === _section &&
-                location === _location && <script {...scriptData} />
+                location === _location && <Tag {...scriptData} />
             );
         } catch (error) {
-            console.log('🚀 ~ file: scriptLoadingList ~ error', error);
+            console.log('🚀 ~ file: tagsLoadingList ~ error', error);
             return <></>;
         }
     });
 };
 
-ScriptLoadingList.propTypes = {
+TagsLoadingList.propTypes = {
     arcSite: PropTypes.string.isRequired,
     location: PropTypes.string,
     section: PropTypes.string
 };
 
-ScriptLoadingList.defaultProps = { section: '' };
+TagsLoadingList.defaultProps = { section: '' };
 
-export default ScriptLoadingList;
+export default TagsLoadingList;

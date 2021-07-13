@@ -14,7 +14,10 @@ import GlobalProvider from '../private/common/context/globalContext';
 // import '../../resources/dist/css/ln/components/com-ordered.css';
 // import '../../resources/dist/css/ln/components/com-unordered.css';
 // import '../../resources/dist/css/ln/components/hour.css';
-import '../../resources/dist/css/ln/components/banners.css';
+// import '../../resources/dist/css/ln/components/banners.css';
+
+import '../../resources/dist/css/ln/pages/acumulado.css';
+
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
 import get from '../private/common/utils/get';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';

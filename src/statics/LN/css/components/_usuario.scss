@@ -3,13 +3,8 @@
 // USUARIO
 //=====================
 .com-usuario {
-    //font-family: $font-arial;
-    //line-height: px(16);
     display: flex;
     justify-content: flex-end;
-    // > button.--highlight {
-    //     margin-right: px(35);
-    // }
     &__name {
         font-weight: 700;
         font-size: px(14);

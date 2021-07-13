@@ -15,53 +15,55 @@ import LoginProvider from '../private/LN/common/context/loginContext';
 
 // Styles
 // ***** INICIO PREGUNTAR A DARO
-import '../../resources/dist/css/ln/base.css'; // chequear para sacar base porque se repite estilo
-// ***** FIN PREGUNTAR A DARO
+// import '../../resources/dist/css/ln/base.css'; // chequear para sacar base porque se repite estilo
+// // ***** FIN PREGUNTAR A DARO
 
-import '../../resources/dist/css/ln/base/reset.css';
-import '../../resources/dist/css/ln/base/types.css';
-import '../../resources/dist/css/ln/pages/recipe.css';
-import '../../resources/dist/css/ln/layouts/grid.css';
-import '../../resources/dist/css/ln/layouts/layout.css';
-import '../../resources/dist/css/ln/modules/header-desktop.css';
-import '../../resources/dist/css/ln/modules/header-mobile.css';
+// import '../../resources/dist/css/ln/base/reset.css';
+// import '../../resources/dist/css/ln/base/types.css';
+// import '../../resources/dist/css/ln/pages/recipe.css';
+// import '../../resources/dist/css/ln/layouts/grid.css';
+// import '../../resources/dist/css/ln/layouts/layout.css';
+// import '../../resources/dist/css/ln/modules/header-desktop.css';
+// import '../../resources/dist/css/ln/modules/header-mobile.css';
 
-// TODO, REVISAR ESTOS ESTILOS MAS ADELANTE. EN ALGUNOS LADOS FUNCIONAN EN
-// EL COMPONENTE Y EN OTROS NO
-import '../../resources/dist/css/ln/components/button.css';
-import '../../resources/dist/css/ln/components/date.css';
-import '../../resources/dist/css/ln/components/tag.css';
-import '../../resources/dist/css/ln/components/author.css';
-import '../../resources/dist/css/ln/components/lead.css';
-import '../../resources/dist/css/ln/components/com-ordered.css';
-import '../../resources/dist/css/ln/components/com-unordered.css';
-import '../../resources/dist/css/ln/components/input.css';
-import '../../resources/dist/css/ln/modules/newsletter.css';
-import '../../resources/dist/css/ln/components/blockquote.css';
-import '../../resources/dist/css/ln/components/text.css';
-import '../../resources/dist/css/ln/components/link.css';
-import '../../resources/dist/css/ln/components/subtitle.css';
-import '../../resources/dist/css/ln/components/slider.css';
-import '../../resources/dist/css/ln/components/epigraph.css';
-import '../../resources/dist/css/ln/components/appointment.css';
-import '../../resources/dist/css/ln/components/opinion-author.css';
+// // TODO, REVISAR ESTOS ESTILOS MAS ADELANTE. EN ALGUNOS LADOS FUNCIONAN EN
+// // EL COMPONENTE Y EN OTROS NO
+// import '../../resources/dist/css/ln/components/button.css';
+// import '../../resources/dist/css/ln/components/date.css';
+// import '../../resources/dist/css/ln/components/tag.css';
+// import '../../resources/dist/css/ln/components/author.css';
+// import '../../resources/dist/css/ln/components/lead.css';
+// import '../../resources/dist/css/ln/components/com-ordered.css';
+// import '../../resources/dist/css/ln/components/com-unordered.css';
+// import '../../resources/dist/css/ln/components/input.css';
+// import '../../resources/dist/css/ln/modules/newsletter.css';
+// import '../../resources/dist/css/ln/components/blockquote.css';
+// import '../../resources/dist/css/ln/components/text.css';
+// import '../../resources/dist/css/ln/components/link.css';
+// import '../../resources/dist/css/ln/components/subtitle.css';
+// import '../../resources/dist/css/ln/components/slider.css';
+// import '../../resources/dist/css/ln/components/epigraph.css';
+// import '../../resources/dist/css/ln/components/appointment.css';
+// import '../../resources/dist/css/ln/components/opinion-author.css';
 
-import '../../resources/dist/css/ln/components/colecciones.css';
-import '../../resources/dist/css/ln/components/carta-lectores.css';
+// import '../../resources/dist/css/ln/components/colecciones.css';
+// import '../../resources/dist/css/ln/components/carta-lectores.css';
+// import '../../resources/dist/css/ln/pages/storytelling.css';
+// // import '../../resources/dist/css/ln/modules/mod-opening.css';
+
+// import '../../resources/dist/css/ln/modules/mod-banner.css';
+// import '../../resources/dist/css/ln/components/com-banner.css';
+// import '../../resources/dist/css/ln/components/com-button.css';
+
+// /* Se debe importar por layouts */
+// import '../../resources/dist/css/ln/components/banners.css';
+
+// /* Se debe dejar último los helpers */
+// import '../../resources/dist/css/ln/base/helpers.css';
+
+// import '../../resources/dist/css/ln/pages/magazine.css';
+
 import '../../resources/dist/css/ln/pages/storytelling.css';
-// import '../../resources/dist/css/ln/modules/mod-opening.css';
-
-import '../../resources/dist/css/ln/modules/mod-banner.css';
-import '../../resources/dist/css/ln/components/com-banner.css';
-import '../../resources/dist/css/ln/components/com-button.css';
-
-/* Se debe importar por layouts */
-import '../../resources/dist/css/ln/components/banners.css';
-
-/* Se debe dejar último los helpers */
-import '../../resources/dist/css/ln/base/helpers.css';
-
-import '../../resources/dist/css/ln/pages/magazine.css';
 
 import GlobalProvider from '../private/common/context/globalContext';
 import { CommentsProvider } from '../private/common/context/commentsContext';
@@ -97,6 +99,7 @@ const lnNotaStorytelling = ({
                     >
                         <Header />
                         <main>
+                            {children[1]}
                             <AperturaStorytelling />
                             <div className="lay-sidebar">
                                 <div className="sidebar__main">
@@ -107,13 +110,13 @@ const lnNotaStorytelling = ({
                                                 {/* hlp-mobile-show */}
                                                 {/* // ***** FIN PREGUNTAR A DARO */}
                                                 {/* Left-Cuerpo Shared */}
-                                                {children[1]}
+                                                {children[2]}
                                             </div>
                                             <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
                                                 <div className="row">
                                                     <div className="col-12">
                                                         {/* Cuerpo */}
-                                                        {children[2]}
+                                                        {children[3]}
                                                     </div>
                                                 </div>
                                             </div>
@@ -122,19 +125,19 @@ const lnNotaStorytelling = ({
                                 </div>
                                 {/* Tercera */}
                                 <div className="sidebar__aside hlp-tabletlm-none">
-                                    {children[3]}
+                                    {children[4]}
                                 </div>
                             </div>
                             {/* Newsletter */}
-                            <div className="lay">{children[4]}</div>
+                            <div className="lay">{children[5]}</div>
                             <div className="lay-sidebar">
                                 <div className="sidebar__main">
                                     {/* Bottom */}
-                                    {children[5]}
+                                    {children[6]}
                                 </div>
                                 <div className="sidebar__aside hlp-tabletlm-none">
                                     {/* Bottom-Tercera */}
-                                    {children[6]}
+                                    {children[7]}
                                 </div>
                             </div>
                         </main>
@@ -151,6 +154,7 @@ const lnNotaStorytelling = ({
 
 const pageBuilderSections = [
     'Banner-Megatop',
+    'Pre-Titulo',
     'Left-Cuerpo',
     'Cuerpo',
     'Tercera',
