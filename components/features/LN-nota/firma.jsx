@@ -8,7 +8,7 @@ import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
 import get from 'lodash.get';
 
-import Firma from '../../private/LN/nota/firma';
+import ModAutor from '../../private/common/mod-autor';
 
 import { compose } from '../../private/common/utils/functional';
 
@@ -18,7 +18,7 @@ const filterByAuthor = authors =>
     authors.filter(author => author.type === 'author');
 
 const renderAsList = (authors, position) =>
-    (authors && authors.length > 1) || position === place.Bottom;
+    (authors && authors.length) || position === place.Bottom;
 
 const getPropsBuilderFromContentElements = position => contentElements =>
     position === place.Top
@@ -100,25 +100,35 @@ const FirmaFeature = props => {
         customFields: { position },
         globalContent: {
             content_elements: contentElements,
-            credits: { by: authors }
+            credits: { by }
         }
     } = props;
 
     const constructProps =
-        authors && authors.length > 0
+        by && by.length
             ? getPropsBuilder(position)
             : getPropsBuilderFromContentElements(position);
 
-    const data =
-        authors && authors.length > 0
-            ? compose(constructProps, filterByAuthor)(authors)
+    const { photo, medio, authors } =
+        by && by.length
+            ? compose(constructProps, filterByAuthor)(by)
             : compose(constructProps)(contentElements);
 
-    const amp = outputType === 'amp';
+    if (!authors || !authors.length) return null;
 
     return (
         <Static id={featureId} htmlOnly persistent>
-            <Firma {...data} amp={amp} />
+            <div className="row FirmaAutor">
+                <div className="col-12">
+                    <ModAutor
+                        autor={authors}
+                        foto={photo}
+                        classCondition="--autor"
+                        medio={medio}
+                        amp={outputType === 'amp'}
+                    />
+                </div>
+            </div>
         </Static>
     );
 };
