@@ -10,7 +10,6 @@ import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 
 // import '../../resources/dist/css/ln/base.css';
-// import '../../resources/dist/css/ln/pages/recipe.css';
 // import '../../resources/dist/css/ln/layouts/grid.css';
 // import '../../resources/dist/css/ln/layouts/layout.css';
 
@@ -43,6 +42,8 @@ import Footer from '../private/LN/common/footer';
 
 // /* Se debe dejar último los helpers */
 // import '../../resources/dist/css/ln/base/helpers.css';
+
+import '../../resources/dist/css/ln/pages/recipe.css';
 
 import GlobalProvider from '../private/common/context/globalContext';
 import { CommentsProvider } from '../private/common/context/commentsContext';

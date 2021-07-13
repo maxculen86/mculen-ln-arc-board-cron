@@ -7,15 +7,13 @@ import Footer from '../private/LN/common/footer';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import LoginProvider from '../private/LN/common/context/loginContext';
 
-import '../../resources/dist/css/ln/base.css'; // chequear para sacar base porque se repite estilo
-import '../../resources/dist/css/ln/base/reset.css';
-import '../../resources/dist/css/ln/base/types.css';
-import '../../resources/dist/css/ln/layouts/grid.css';
-import '../../resources/dist/css/ln/layouts/layout.css';
-
-import '../../resources/dist/css/ln/pages/photo100.css';
-
 import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelling';
+
+// import '../../resources/dist/css/ln/base.css'; // chequear para sacar base porque se repite estilo
+// import '../../resources/dist/css/ln/base/reset.css';
+// import '../../resources/dist/css/ln/base/types.css';
+// import '../../resources/dist/css/ln/layouts/grid.css';
+// import '../../resources/dist/css/ln/layouts/layout.css';
 
 // TODO, REVISAR ESTOS ESTILOS MAS ADELANTE. EN ALGUNOS LADOS FUNCIONAN EN
 // EL COMPONENTE Y EN OTROS NO
@@ -52,6 +50,8 @@ import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelli
 // import '../../resources/dist/css/ln/base/helpers.css';
 
 // import '../../resources/dist/css/ln/pages/magazine.css';
+
+import '../../resources/dist/css/ln/pages/photo100.css';
 
 import GlobalProvider from '../private/common/context/globalContext';
 import { CommentsProvider } from '../private/common/context/commentsContext';

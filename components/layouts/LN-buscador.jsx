@@ -9,13 +9,14 @@ import LoginProvider from '../private/LN/common/context/loginContext';
 // import '../../resources/dist/css/ln/base/types.css';
 // import '../../resources/dist/css/ln/layouts/grid.css';
 // import '../../resources/dist/css/ln/layouts/layout.css';
-// import '../../resources/dist/css/ln/pages/buscador.css';
 
 // /* Se debe importar por layouts */
 // import '../../resources/dist/css/ln/components/banners.css';
 
 // /* Se debe dejar último los helpers */
 // import '../../resources/dist/css/ln/base/helpers.css';
+
+import '../../resources/dist/css/ln/pages/buscador.css';
 
 import GlobalProvider from '../private/common/context/globalContext';
 
