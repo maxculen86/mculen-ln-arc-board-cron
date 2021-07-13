@@ -158,7 +158,7 @@ const transform = (data, siteProps) => {
     const respData = data;
     const { content_elements: contentElements } = data || {};
     const { presets, presetsDefault } = getPresets(siteProps);
-    const { sectionsIds, type, size } = siteProps;
+    const { sectionsIds, type, size, shouldNotFilter } = siteProps;
 
     const presetsPromoItems = get(presets, 'promo_items', null);
 
@@ -193,10 +193,9 @@ const transform = (data, siteProps) => {
     if (type === 'story') {
         const originalSize = Math.floor(size / 1.5);
         respData.content_elements = respData.content_elements
-            .filter(art => !isNotRecommend(art))
+            .filter(art => (shouldNotFilter ? art : !isNotRecommend(art)))
             .slice(0, Number(originalSize) + 1);
     }
-
     // De todos los Content Elements, solo traigo el primero que sea parrafo
     // (para no mandar mas info innecesaria)
     respData.content_elements = respData.content_elements.map(story => {
