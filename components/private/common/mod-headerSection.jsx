@@ -12,6 +12,7 @@ import addForwardSLash from '../LN/common/utils/addForwardSlash';
 const ModheaderSection = props => {
     const {
         title,
+        tag,
         line,
         size,
         image,
@@ -38,6 +39,7 @@ const ModheaderSection = props => {
             {!Image ? (
                 <ComTitle
                     size={size}
+                    tag={tag}
                     content={title}
                     link={addForwardSLash(link)}
                 />
@@ -53,6 +55,7 @@ ModheaderSection.propTypes = {
     link: PropTypes.string,
     title: PropTypes.string,
     classCondition: PropTypes.string,
+    tag: PropTypes.string,
     line: PropTypes.boolean,
     size: PropTypes.string,
     outputType: PropTypes.string.isRequired,
@@ -69,6 +72,7 @@ ModheaderSection.defaultProps = {
     classCondition: '',
     line: true,
     size: '--l',
+    tag: '',
     image: {}
 };
 
