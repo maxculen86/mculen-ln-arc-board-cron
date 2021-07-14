@@ -87,7 +87,7 @@ const index = children => {
 
 const orderArticles = (articles, diagramacion) => {
     if (diagramacion === 'focalRight2') {
-        return articles.slice(0).reverse();
+        return articles.slice(0, 2).reverse();
     }
     return null;
 };
