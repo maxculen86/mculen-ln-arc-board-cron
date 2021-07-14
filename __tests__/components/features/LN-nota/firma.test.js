@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, shallow, render } from 'enzyme';
+import { mount } from 'enzyme';
 
 jest.mock('fusion:context', Component => {
     return function(Component) {
