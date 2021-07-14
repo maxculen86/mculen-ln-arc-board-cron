@@ -8,7 +8,7 @@
         padding-top: 0;
 
         .--apertura {
-            background: $neutral-black;
+            background: $dark-neutral-50;
             color: $neutral-white;
             padding: px(32+72) 0 $spacing-lg;
             margin-top: px(-72);
@@ -69,15 +69,17 @@
                 }
             }
             .mod-media {
-                margin-bottom: 0;
                 .powa-shadow {
                     padding-bottom: $video;
                     background: red;
                 }
-                .mod-figcaption {
-                    width: 100%;
-                    margin-left: 0;
-                    padding: 0 0 0.5rem;
+                @media ($media-m) {
+                    margin-bottom: 0;
+                    .mod-figcaption {
+                        width: 100%;
+                        margin-left: 0;
+                        padding: 0 0 0.5rem;
+                    }
                 }
             }
             .col-tablet-4 {

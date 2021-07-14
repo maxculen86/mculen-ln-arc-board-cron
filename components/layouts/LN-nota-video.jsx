@@ -14,6 +14,8 @@ import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import LoadBanners from '../private/common/banners/LoadBanners';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 
+import Text from '../private/common/text';
+
 const lnNotaNoticia = ({
     children,
     outputType,
@@ -49,21 +51,19 @@ const lnNotaNoticia = ({
                                             {children[2]} */}
                                     <div className="row">
                                         <div className="col-tablet-4">
-                                            <h1 className="com-title --xl">
-                                                Este es un título especial de
-                                                noticia con unos 110 caracteres
-                                                máximo y unas cuantas líneas que
-                                                ocupar
-                                            </h1>
-                                            <h3 className=" com-subhead --m">
-                                                Subhead, bajada. Lana soñaba con
-                                                volar a la luna. Todas las
-                                                tardes se tumbaba en su cama y
-                                                se imaginaba cómo sería su viaje
-                                                a bordo de su propia nave
-                                                espacial. Leno, su hermano
-                                                mayor.
-                                            </h3>
+                                            <Text
+                                                tag="h1"
+                                                size="xl"
+                                                extraClass="com-title"
+                                                text="Este es un título especial de noticia con unos 110 caracteres máximo y unas cuantas líneas que ocupar"
+                                            />
+                                            <Text
+                                                tag="h3"
+                                                size="medium"
+                                                extraClass="com-subhead"
+                                                text="Subhead, bajada. Lana soñaba con volar a la luna. Todas las tardes se tumbaba en su cama y se imaginaba cómo sería su viaje a bordo de su propia nave espacial. Leno, su hermano mayor."
+                                            />
+
                                             <span class="mod-date">
                                                 <time
                                                     class="com-date --twoxs"
