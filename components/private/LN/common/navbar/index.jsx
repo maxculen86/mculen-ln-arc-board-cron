@@ -6,12 +6,11 @@ import '../../../../../resources/dist/css/ln/components/nav-mobile.css';
 
 const ListMenu = ({ toglleDesplegable, amp }) => {
     return (
-        //<nav className={`com-nav-mobile${showNav}`}>
         <nav className={`com-nav-mobile`}>
             <div className="row">
                 <Icon
                     name="home"
-                    href="https://www.lanacion.com.ar/"
+                    href="https://www.lanacion.com.ar/#"
                     mod="col-3 item-foo"
                 >
                     <p>Home</p>

@@ -485,40 +485,6 @@ const headerAMP = props => {
                     </li>
                 </ul>
             </amp-sidebar>
-
-            {/* <nav className="com-nav-mobile">
-                <div className="row">
-                    <a
-                        href="https://www.lanacion.com.ar/"
-                        className="col-3 item-foo"
-                    >
-                        <i className="icon-home" />
-                        <p>Home</p>
-                    </a>
-                    <button
-                        type="button"
-                        className="col-3 item-foo"
-                        on="tap:sidebar-left.toggle"
-                    >
-                        <i className="icon-sections" />
-                        <p>Secciones</p>
-                    </button>
-                    <a
-                        href="https://club.lanacion.com.ar/"
-                        className="col-3 item-foo"
-                    >
-                        <i className="icon-club" />
-                        <p>Club LA NACION</p>
-                    </a>
-                    <a
-                        href="https://myaccount.lanacion.com.ar/mi-usuario"
-                        className="col-3 item-foo"
-                    >
-                        <i className="icon-user" />
-                        <p>Mi Cuenta</p>
-                    </a>
-                </div>               
-            </nav> */}
         </>
     );
 };

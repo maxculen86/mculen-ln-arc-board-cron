@@ -253,7 +253,7 @@ const Index = ({
                                 logoName="la-nacion"
                                 color
                                 size="--sm"
-                                href="https://www.lanacion.com.ar/"
+                                href="https://www.lanacion.com.ar/#"
                                 title="Ir a la página principal"
                             />
                         </div>
