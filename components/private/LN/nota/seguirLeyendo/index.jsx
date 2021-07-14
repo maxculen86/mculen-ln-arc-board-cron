@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import '../../../../../resources/dist/css/ln/modules/mod-keepreading.css';
-//import ComTitle from '../../../common/com-title';
-import ComLink from '../../../common/com-link';
+import ComTitle from '../../../common/com-title';
 
 const getContent = element => {
     if (!element.headlines) return '';
@@ -33,21 +32,12 @@ const Index = ({ relatedContent = [] }) => {
                         data-id={elementId}
                         data-notaid={elementId}
                     >
-                        {/* <ComTitle
-                            tag="h2"
-                            content={content}
-                            link={element.website_url || element.canonical_url}
-                            size="--threexs"
-                        >
-                            {element.headlines ? element.headlines.basic : ''}
-                        </ComTitle> */}
-                        <ComLink
+                        <ComTitle
                             link={element.website_url || element.canonical_url}
                             size="--twoxs"
-                            title={content}
-                        >
-                            {content}
-                        </ComLink>
+                            tag="h3"
+                            content={content}
+                        />
                     </li>
                 );
             })}
