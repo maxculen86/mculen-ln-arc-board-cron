@@ -18,7 +18,7 @@ const filterByAuthor = authors =>
     authors.filter(author => author.type === 'author');
 
 const renderAsList = (authors, position) =>
-    (authors && authors.length) || position === place.Bottom;
+    (authors && authors.length > 1) || position === place.Bottom;
 
 const getPropsBuilderFromContentElements = position => contentElements =>
     position === place.Top
