@@ -2,12 +2,6 @@
 @import '../abstracts/mixins';
 
 .com-text {
-    .com-button & {
-        text-transform: uppercase;
-        // @media ($media-m) {
-        //     white-space: nowrap;
-        // }
-    }
     .footer & {
         color: $light-neutral-600;
         line-height: px(17);

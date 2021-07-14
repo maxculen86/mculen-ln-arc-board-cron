@@ -18,3 +18,13 @@
         left: px(8);
     }
 }
+
+.com-subhead {
+    &.--bajada {
+        margin-bottom: $spacing;
+
+        @media ($media-l) {
+            margin-bottom: $spacing-sm;
+        }
+    }
+}

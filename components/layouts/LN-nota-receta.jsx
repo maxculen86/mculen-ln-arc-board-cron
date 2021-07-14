@@ -8,40 +8,42 @@ import LoginProvider from '../private/LN/common/context/loginContext';
 
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
-import '../../resources/dist/css/ln/base.css';
+
+// import '../../resources/dist/css/ln/base.css';
+// import '../../resources/dist/css/ln/layouts/grid.css';
+// import '../../resources/dist/css/ln/layouts/layout.css';
+
+// // TODO, REVISAR ESTOS ESTILOS MAS ADELANTE. EN ALGUNOS LADOS FUNCIONAN EN
+// // EL COMPONENTE Y EN OTROS NO
+
+// import '../../resources/dist/css/ln/components/button.css';
+// import '../../resources/dist/css/ln/components/date.css';
+// import '../../resources/dist/css/ln/components/tag.css';
+// import '../../resources/dist/css/ln/components/author.css';
+// import '../../resources/dist/css/ln/components/lead.css';
+// import '../../resources/dist/css/ln/components/com-ordered.css';
+// import '../../resources/dist/css/ln/components/com-unordered.css';
+// import '../../resources/dist/css/ln/components/input.css';
+// import '../../resources/dist/css/ln/modules/newsletter.css';
+// import '../../resources/dist/css/ln/components/blockquote.css';
+// import '../../resources/dist/css/ln/components/text.css';
+// import '../../resources/dist/css/ln/components/link.css';
+// import '../../resources/dist/css/ln/components/subtitle.css';
+// import '../../resources/dist/css/ln/components/slider.css';
+// import '../../resources/dist/css/ln/components/epigraph.css';
+// import '../../resources/dist/css/ln/components/appointment.css';
+// import '../../resources/dist/css/ln/components/colecciones.css';
+// import '../../resources/dist/css/ln/components/carta-lectores.css';
+// import '../../resources/dist/css/ln/components/banners.css';
+// import '../../resources/dist/css/ln/base/helpers.css';
+
+// /* Se debe importar para AMP */
+// // import '../../resources/dist/css/ln/components/nav-amp.css';
+
+// /* Se debe dejar último los helpers */
+// import '../../resources/dist/css/ln/base/helpers.css';
+
 import '../../resources/dist/css/ln/pages/recipe.css';
-import '../../resources/dist/css/ln/layouts/grid.css';
-import '../../resources/dist/css/ln/layouts/layout.css';
-
-// TODO, REVISAR ESTOS ESTILOS MAS ADELANTE. EN ALGUNOS LADOS FUNCIONAN EN
-// EL COMPONENTE Y EN OTROS NO
-
-import '../../resources/dist/css/ln/components/button.css';
-import '../../resources/dist/css/ln/components/date.css';
-import '../../resources/dist/css/ln/components/tag.css';
-import '../../resources/dist/css/ln/components/author.css';
-import '../../resources/dist/css/ln/components/lead.css';
-import '../../resources/dist/css/ln/components/com-ordered.css';
-import '../../resources/dist/css/ln/components/com-unordered.css';
-import '../../resources/dist/css/ln/components/input.css';
-import '../../resources/dist/css/ln/modules/newsletter.css';
-import '../../resources/dist/css/ln/components/blockquote.css';
-import '../../resources/dist/css/ln/components/text.css';
-import '../../resources/dist/css/ln/components/link.css';
-import '../../resources/dist/css/ln/components/subtitle.css';
-import '../../resources/dist/css/ln/components/slider.css';
-import '../../resources/dist/css/ln/components/epigraph.css';
-import '../../resources/dist/css/ln/components/appointment.css';
-import '../../resources/dist/css/ln/components/colecciones.css';
-import '../../resources/dist/css/ln/components/carta-lectores.css';
-import '../../resources/dist/css/ln/components/banners.css';
-import '../../resources/dist/css/ln/base/helpers.css';
-
-/* Se debe importar para AMP */
-// import '../../resources/dist/css/ln/components/nav-amp.css';
-
-/* Se debe dejar último los helpers */
-import '../../resources/dist/css/ln/base/helpers.css';
 
 import GlobalProvider from '../private/common/context/globalContext';
 import { CommentsProvider } from '../private/common/context/commentsContext';

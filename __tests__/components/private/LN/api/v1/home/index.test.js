@@ -4235,4 +4235,60 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
             tituloCaja: 'Comercial 2'
         });
     });
+
+    it('Testeo cambio de orden de notas en API mobile para Focal derecho', () => {
+        const SeccionFocalRight = [
+            {
+                type: 0,
+                feature: 'TemaPrueba1',
+                information: {
+                    layout: 'focalRight2',
+                    initialPosition: 1,
+                    hideTitle: false,
+                    containerImage: undefined,
+                    title: 'Mi test prueba'
+                },
+                articles: articlesCollections,
+                configurations: {
+                    arcSite: 'la-nacion-ar'
+                }
+            }
+        ];
+        const SeccionFocalLeft = [
+            {
+                type: 0,
+                feature: 'TemaPrueba2',
+                information: {
+                    layout: 'focalLeft3',
+                    initialPosition: 1,
+                    hideTitle: false,
+                    containerImage: undefined,
+                    title: 'Mi test prueba'
+                },
+                articles: articlesCollections,
+                configurations: {
+                    arcSite: 'la-nacion-ar'
+                }
+            }
+        ];
+        const homeFocalRight = index(SeccionFocalRight) || [];
+        console.log(homeFocalRight[0][0]);
+        expect(homeFocalRight[0][0].notas[0].id).toBe(
+            'CCWIARQOVJFIXEG2HDB2RYZJWE'
+        );
+        expect(homeFocalRight[0][0].notas[1].id).toBe(
+            'ZTYQMEK7ZBBORNEKA6IQDMYQOM'
+        );
+        expect(homeFocalRight[0][0].notas.length).toBe(2);
+
+        const homeFocalLeft = index(SeccionFocalLeft) || [];
+        console.log(homeFocalLeft[0][0]);
+        expect(homeFocalLeft[0][0].notas[0].id).toBe(
+            'ZTYQMEK7ZBBORNEKA6IQDMYQOM'
+        );
+        expect(homeFocalLeft[0][0].notas[1].id).toBe(
+            'CCWIARQOVJFIXEG2HDB2RYZJWE'
+        );
+        expect(homeFocalLeft[0][0].notas.length).toBe(3);
+    });
 });

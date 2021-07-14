@@ -10,7 +10,7 @@ import '../../../../../resources/dist/css/ln/components/author.css';
 import '../../../../../resources/dist/css/ln/components/link.css';
 import ComTitle from '../../../common/com-title';
 import ComContainer from '../../../common/com-container';
-import ComText from '../../../common/com-text';
+import ComText from '../../../common/text';
 import ModDescriptionList from '../../../common/mod-descriptionList';
 import ListSocialIcons from '../../../common/list-socialicons';
 import ImageAuthor from './imageAuthor';
@@ -59,9 +59,10 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                     <ComContainer classCondition="--info">
                         <ComTitle tag="h1" content={byline} size="--l" />
                         <ComText
-                            textname={role}
-                            classCondition="--profesion"
+                            //textname={role}
+                            extraClass="com-text --profesion"
                             size="--twoxs"
+                            text={role}
                         />
                         <ComContainer classCondition="--contact">
                             {email && (
@@ -79,9 +80,10 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                             )}
                         </ComContainer>
                         <ComText
+                            tag="p"
                             size="--twoxs"
-                            classCondition="--bio"
-                            textname={longBio}
+                            extraClass="com-text --bio"
+                            text={longBio}
                         />
                         {education.length > 0 && (
                             <ComContainer classCondition="--educacion">
