@@ -127,9 +127,7 @@ const setMetaDescription = (data, section) => {
 
 const setTitle = (data, section) => {
     if (section === 'nota') {
-        return data.subtype === RECETA
-            ? `Receta de ${data.title} - LA NACION`
-            : `${data.title} - LA NACION`;
+        return data.subtype === RECETA ? `Receta de ${data.title}` : data.title;
     }
     return data.title;
 };
