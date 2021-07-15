@@ -25,7 +25,6 @@ const CajaManual = props => {
         layout: layoutPageBuilder,
         renderables
     } = props;
-    // console.log("🚀 ~ file: default.jsx ~ line 28 ~ isAdmin", isAdmin)
 
     if (hideCaja)
         return (
@@ -53,7 +52,6 @@ const CajaManual = props => {
         );
     });
     const error = validateChainManual(childProps, layout, isInApertura);
-    // console.log("🚀 ~ file: default.jsx ~ line 46 ~ error", error)
 
     if (isAdmin && error) {
         return (
