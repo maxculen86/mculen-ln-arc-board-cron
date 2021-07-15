@@ -13,8 +13,8 @@ const aperturaNoticia = props => {
     const { globalContent, outputType, id: idFeature } = props;
 
     return (
-        <Static id={idFeature}>
-            <section className="mod-opening" persistent>
+        <Static id={idFeature} persistent>
+            <section className="mod-opening">
                 {(() => {
                     const {
                         promo_items: promoItems = {},
@@ -22,18 +22,28 @@ const aperturaNoticia = props => {
                         content_elements: contentElements,
                         subtype
                     } = globalContent || {};
-                    const { basic } = promoItems;
-                    const { _id: idMedia } = basic || {};
+                    const {
+                        basic,
+                        apertura_multimedia: aperturaMultimedia
+                    } = promoItems;
+
+                    const { _id: idMedia, content } =
+                        aperturaMultimedia || basic || {};
                     const firstText = contentElements.find(
                         element => element.type === 'text'
                     );
                     const scriptForZoom =
                         outputType !== 'amp' &&
-                        buildScriptForZoom(basic, subtype, '--zoom');
-                    const { caption, credit } = getEpigrafe(basic);
+                        buildScriptForZoom(
+                            aperturaMultimedia || basic,
+                            subtype
+                        );
+                    const { caption, credit } = getEpigrafe(
+                        aperturaMultimedia || basic
+                    );
                     return (
                         <Media
-                            mediaData={basic}
+                            mediaData={aperturaMultimedia || basic}
                             withZoom="--zoom"
                             idMedia={idMedia}
                             scriptForZoom={scriptForZoom}
@@ -42,6 +52,7 @@ const aperturaNoticia = props => {
                             parrafo={firstText || 'LA NACION'}
                             tituloNota={tituloNota}
                             subtype={subtype}
+                            html={content}
                         >
                             <figcaption className="mod-figcaption">
                                 {caption}

@@ -94,7 +94,7 @@ const ModArticle = props => {
                     mediaData={type === 'image' ? imagenDestacada : null}
                     href={link}
                     outputType={outputType}
-                    anexo={anexo}
+                    html={anexo}
                     titleText={titleText}
                     // labelArticle="La Chapita solo se tiene que ver con foto o placeholder"
                 />
@@ -145,7 +145,7 @@ ModArticle.propTypes = {
     titleTag: PropTypes.string,
     titleSize: PropTypes.string,
     titleText: PropTypes.string.isRequired,
-    subheadText: PropTypes.string,
+    subheadText: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     subheadSize: PropTypes.string,
     subheadTag: PropTypes.string,
     dateText: PropTypes.string,
@@ -160,8 +160,8 @@ ModArticle.propTypes = {
             basic: PropTypes.object
         })
     }).isRequired,
-    category: PropTypes.string,
-    tags: PropTypes.string,
+    category: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    tags: PropTypes.oneOfType([PropTypes.bool, PropTypes.array]),
     isRenderAuthor: PropTypes.bool,
     isRenderAuthorOpinion: PropTypes.bool,
     handleClick: PropTypes.func

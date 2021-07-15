@@ -14,11 +14,12 @@ exports[`Share Matches snapshot 1`] = `
       data-section=""
       id=""
       on=""
+      tabindex=""
       title="Compartir la nota en Facebook"
       type="button"
     >
       <i
-        class="com-icon icon-facebook-filled   "
+        class="com-icon  icon-facebook-filled  "
       />
     </button>
     <button
@@ -27,11 +28,12 @@ exports[`Share Matches snapshot 1`] = `
       data-section=""
       id=""
       on=""
+      tabindex=""
       title="Compartir la nota en Twitter"
       type="button"
     >
       <i
-        class="com-icon icon-twitter-filled   "
+        class="com-icon  icon-twitter-filled  "
       />
     </button>
     <button
@@ -40,11 +42,12 @@ exports[`Share Matches snapshot 1`] = `
       data-section=""
       id="whatsAppShareDesktop"
       on=""
+      tabindex=""
       title="Compartir la nota en WhatsApp"
       type="button"
     >
       <i
-        class="com-icon icon-whatsapp-filled   "
+        class="com-icon  icon-whatsapp-filled  "
       />
     </button>
   </div>
@@ -60,11 +63,12 @@ exports[`Share Matches snapshot 1`] = `
       data-section=""
       id=""
       on=""
+      tabindex=""
       title="Compartir la nota por E-mail"
       type="button"
     >
       <i
-        class="com-icon icon-email   "
+        class="com-icon  icon-email  "
       />
     </button>
     <button
@@ -77,7 +81,7 @@ exports[`Share Matches snapshot 1`] = `
       type="button"
     >
       <i
-        class="com-icon icon-comment   "
+        class="com-icon  icon-comment  "
       />
       <span
         class=" com-text --fourxs"
@@ -109,11 +113,12 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
       data-section=""
       id=""
       on=""
+      tabindex=""
       title="Compartir la nota en Facebook"
       type="button"
     >
       <i
-        class="com-icon icon-facebook-filled   "
+        class="com-icon  icon-facebook-filled  "
       />
     </button>
     <button
@@ -122,11 +127,12 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
       data-section=""
       id=""
       on=""
+      tabindex=""
       title="Compartir la nota en Twitter"
       type="button"
     >
       <i
-        class="com-icon icon-twitter-filled   "
+        class="com-icon  icon-twitter-filled  "
       />
     </button>
     <button
@@ -135,11 +141,12 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
       data-section=""
       id="whatsAppShareDesktop"
       on=""
+      tabindex=""
       title="Compartir la nota en WhatsApp"
       type="button"
     >
       <i
-        class="com-icon icon-whatsapp-filled   "
+        class="com-icon  icon-whatsapp-filled  "
       />
     </button>
   </div>
@@ -155,11 +162,12 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
       data-section=""
       id=""
       on=""
+      tabindex=""
       title="Compartir la nota por E-mail"
       type="button"
     >
       <i
-        class="com-icon icon-email   "
+        class="com-icon  icon-email  "
       />
     </button>
   </div>

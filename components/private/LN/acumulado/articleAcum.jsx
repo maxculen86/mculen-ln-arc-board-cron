@@ -121,7 +121,7 @@ ArticleAcum.propTypes = {
         })
     }).isRequired,
     children: PropTypes.node,
-    typeArticle: PropTypes.string.isRequired,
+    typeArticle: PropTypes.string,
     outputType: PropTypes.string.isRequired,
     withCategory: PropTypes.bool,
     withTags: PropTypes.bool,
@@ -138,6 +138,7 @@ ArticleAcum.defaultProps = {
     dataSection: '',
     titleSize: '',
     titleTag: '',
+    typeArticle: 'Grilla',
     children: undefined,
     handleClick: undefined,
     withCategory: false,

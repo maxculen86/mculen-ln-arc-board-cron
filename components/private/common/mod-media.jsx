@@ -1,7 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Html from '../LN/nota/cuerpo/html';
 
 import '../../../resources/dist/css/ln/modules/mod-media.css';
+import HtmlAMP from '../LN/nota/cuerpo/htmlAMP';
+import OptaAMP from '../LN/nota/cuerpo/optaAMP';
+
+const renderHtml = (html, isAmp) => {
+    if (!isAmp) return <Html data={{ content: html }} />;
+    if (html.includes('opta-widget'))
+        return <OptaAMP data={{ content: html }} />;
+
+    return <HtmlAMP data={{ content: html }} />;
+};
 
 const ModMedia = props => {
     const {
@@ -12,8 +23,9 @@ const ModMedia = props => {
         itsGallery,
         active,
         zoom,
-        anexo,
-        scriptForZoom
+        html,
+        scriptForZoom,
+        outputType
     } = props;
 
     return (
@@ -27,11 +39,37 @@ const ModMedia = props => {
                     (itsGallery || zoom) && active ? '--active' : ''
                 } ${classCondition || ''}`}
             >
-                {(anexo && <Html data={{ content: anexo }} />) || children}
+                {(html && renderHtml(html, outputType === 'amp')) || children}
             </section>
             {scriptForZoom}
         </>
     );
+};
+
+ModMedia.propTypes = {
+    idMedia: PropTypes.string,
+    children: PropTypes.node,
+    classCondition: PropTypes.string,
+    withZoom: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    itsGallery: PropTypes.bool,
+    active: PropTypes.bool,
+    zoom: PropTypes.bool,
+    html: PropTypes.string,
+    scriptForZoom: PropTypes.string,
+    outputType: PropTypes.string
+};
+
+ModMedia.defaultProps = {
+    idMedia: '',
+    children: undefined,
+    classCondition: '',
+    withZoom: '',
+    itsGallery: false,
+    active: false,
+    zoom: false,
+    html: '',
+    scriptForZoom: '',
+    outputType: 'default'
 };
 
 export default ModMedia;

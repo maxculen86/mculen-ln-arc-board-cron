@@ -294,12 +294,12 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-bullet"
               >
                 <i
-                  class="com-icon icon-bullet-xs   "
+                  class="com-icon  icon-bullet-xs  "
                   style="color:#cccccc"
                 />
               </div>
               <i
-                class="com-icon icon-twitter-filled --xl  "
+                class="com-icon  icon-twitter-filled --xl "
               />
               <span
                 class=" com-text --threexs"
@@ -321,12 +321,12 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-bullet"
               >
                 <i
-                  class="com-icon icon-bullet-xs   "
+                  class="com-icon  icon-bullet-xs  "
                   style="color:#cccccc"
                 />
               </div>
               <i
-                class="com-icon icon-facebook-filled --xl  "
+                class="com-icon  icon-facebook-filled --xl "
               />
               <span
                 class=" com-text --threexs"
@@ -348,12 +348,12 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-bullet"
               >
                 <i
-                  class="com-icon icon-bullet-xs   "
+                  class="com-icon  icon-bullet-xs  "
                   style="color:#cccccc"
                 />
               </div>
               <i
-                class="com-icon icon-youtube-filled --xl  "
+                class="com-icon  icon-youtube-filled --xl "
               />
               <span
                 class=" com-text --threexs"
@@ -375,12 +375,12 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-bullet"
               >
                 <i
-                  class="com-icon icon-bullet-xs   "
+                  class="com-icon  icon-bullet-xs  "
                   style="color:#cccccc"
                 />
               </div>
               <i
-                class="com-icon icon-instagram-filled --xl  "
+                class="com-icon  icon-instagram-filled --xl "
               />
               <span
                 class=" com-text --threexs"
@@ -402,12 +402,12 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-bullet"
               >
                 <i
-                  class="com-icon icon-bullet-xs   "
+                  class="com-icon  icon-bullet-xs  "
                   style="color:#cccccc"
                 />
               </div>
               <i
-                class="com-icon icon-linkedin-filled --xl  "
+                class="com-icon  icon-linkedin-filled --xl "
               />
               <span
                 class=" com-text --threexs"
@@ -429,12 +429,12 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-bullet"
               >
                 <i
-                  class="com-icon icon-bullet-xs   "
+                  class="com-icon  icon-bullet-xs  "
                   style="color:#cccccc"
                 />
               </div>
               <i
-                class="com-icon icon-rss-filled --xl  "
+                class="com-icon  icon-rss-filled --xl "
               />
               <span
                 class=" com-text --threexs"
@@ -456,12 +456,12 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-bullet"
               >
                 <i
-                  class="com-icon icon-bullet-xs   "
+                  class="com-icon  icon-bullet-xs  "
                   style="color:#cccccc"
                 />
               </div>
               <i
-                class="com-icon icon-medium-filled --xl  "
+                class="com-icon  icon-medium-filled --xl "
               />
               <span
                 class=" com-text --threexs"
@@ -483,12 +483,12 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-bullet"
               >
                 <i
-                  class="com-icon icon-bullet-xs   "
+                  class="com-icon  icon-bullet-xs  "
                   style="color:#cccccc"
                 />
               </div>
               <i
-                class="com-icon icon-pinterest-filled --xl  "
+                class="com-icon  icon-pinterest-filled --xl "
               />
               <span
                 class=" com-text --threexs"
@@ -510,12 +510,12 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-bullet"
               >
                 <i
-                  class="com-icon icon-bullet-xs   "
+                  class="com-icon  icon-bullet-xs  "
                   style="color:#cccccc"
                 />
               </div>
               <i
-                class="com-icon icon-soundcloud-filled --xl  "
+                class="com-icon  icon-soundcloud-filled --xl "
               />
               <span
                 class=" com-text --threexs"
@@ -537,12 +537,12 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-bullet"
               >
                 <i
-                  class="com-icon icon-bullet-xs   "
+                  class="com-icon  icon-bullet-xs  "
                   style="color:#cccccc"
                 />
               </div>
               <i
-                class="com-icon icon-snapchat-filled --xl  "
+                class="com-icon  icon-snapchat-filled --xl "
               />
               <span
                 class=" com-text --threexs"
@@ -564,12 +564,12 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-bullet"
               >
                 <i
-                  class="com-icon icon-bullet-xs   "
+                  class="com-icon  icon-bullet-xs  "
                   style="color:#cccccc"
                 />
               </div>
               <i
-                class="com-icon icon-whatsapp-filled --xl  "
+                class="com-icon  icon-whatsapp-filled --xl "
               />
               <span
                 class=" com-text --threexs"
@@ -591,12 +591,12 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-bullet"
               >
                 <i
-                  class="com-icon icon-bullet-xs   "
+                  class="com-icon  icon-bullet-xs  "
                   style="color:#cccccc"
                 />
               </div>
               <i
-                class="com-icon icon-tumblr-filled --xl  "
+                class="com-icon  icon-tumblr-filled --xl "
               />
               <span
                 class=" com-text --threexs"
@@ -722,12 +722,12 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-bullet"
               >
                 <i
-                  class="com-icon icon-bullet-xs   "
+                  class="com-icon  icon-bullet-xs  "
                   style="color:#cccccc"
                 />
               </div>
               <i
-                class="com-icon icon-twitter-filled --xl  "
+                class="com-icon  icon-twitter-filled --xl "
               />
               <span
                 class=" com-text --threexs"
