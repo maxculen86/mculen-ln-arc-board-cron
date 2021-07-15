@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 jest.mock('fusion:context', Component => {
     return function(Component) {
@@ -53,22 +53,30 @@ jest.mock('fusion:context', Component => {
     };
 });
 
-import Context from 'fusion:context';
+jest.mock('fusion:static', () => 'mock-static');
 
 import FirmaFeature from '../../../../components/features/LN-nota/firma';
-import Firma from '../../../../components/private/LN/nota/firma';
+import ModAutor from '../../../../components/private/common/mod-autor';
 import getAuthorByline from '../../../../components/private/common/utils/getAuthorByline';
 
 describe('Firma Feature', () => {
+    const wrapper = mount(<FirmaFeature />);
+    const authorComponent = wrapper.find(ModAutor);
+    const staticComponent = wrapper.find('mock-static');
+
+    it('Sub-components exists', () => {
+        expect(authorComponent.exists()).toBeTruthy();
+        expect(staticComponent.exists()).toBeTruthy();
+    });
+
     it('Construct props properly', () => {
-        const component = mount(<FirmaFeature />);
+        expect(staticComponent.prop('htmlOnly')).toBeTruthy();
+        expect(staticComponent.prop('persistent')).toBeTruthy();
 
-        const firma = component.find(Firma).first();
-
-        expect(firma.prop('authors')).toHaveLength(2);
-        expect(firma.prop('photo')).toBeNull();
-        expect(firma.prop('medio')).toBeNull();
-        expect(firma.prop('amp')).toBeFalsy();
+        expect(authorComponent.prop('autor')).toHaveLength(2);
+        expect(authorComponent.prop('amp')).toBeFalsy();
+        expect(authorComponent.prop('foto')).toBeNull();
+        expect(authorComponent.prop('medio')).toBeNull();
     });
 });
 

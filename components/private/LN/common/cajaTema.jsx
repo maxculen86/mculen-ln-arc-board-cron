@@ -8,7 +8,11 @@ import Opinion from '../../common/opinion';
 import Editoriales from '../../common/editoriales';
 import ArticleAcum from '../acumulado/articleAcum';
 import FocalFactory from '../home/templatesContainers/focalFactory';
-import { getLayoutType, getMarkupForDatalayer } from './utils/cajaTemasHelper';
+import {
+    customHeading,
+    getLayoutType,
+    getMarkupForDatalayer
+} from './utils/cajaTemasHelper';
 import OrderedList from './lists/ordered';
 
 const getComponentForLayout = (layoutName, props) => {
@@ -46,8 +50,10 @@ const getComponentForLayout = (layoutName, props) => {
             withSubhead = false,
             dataSection,
             handleClick,
+            sectionName,
             withVolanta = true
         }) => {
+            const customTitleTag = customHeading[sectionName] || 'h2';
             return articles.map((art, i) => {
                 const artPosition = `0${Number(i) + 1}`.slice(-2);
                 const isRenderAuthor = layout.includes('author');
@@ -70,6 +76,7 @@ const getComponentForLayout = (layoutName, props) => {
                         artPosition={position !== 'toi' ? artPosition : ''}
                         handleClick={handleClick}
                         dataSection={dataSection}
+                        titleTag={customTitleTag}
                     />
                 );
             });

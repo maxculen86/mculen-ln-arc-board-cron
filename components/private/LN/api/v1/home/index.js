@@ -43,18 +43,21 @@ const featureInformation = (information, feature) => {
 
 const storyBox = element => {
     const { information, feature, configurations } = element;
-    if (feature === 'Anticipo')
-        return { ...featureInformation(information, feature) };
-
+    const featureInfo = featureInformation(information, feature);
+    if (feature === 'Anticipo') return { ...featureInfo };
     const articles = get(element, 'articles', []);
-    if (feature === 'Anticipo')
-        return { ...featureInformation(information, feature) };
+    if (feature === 'Anticipo') return { ...featureInfo };
     if (articles && articles.length > 0) {
+        const orderArticlesArray = orderArticles(articles, information.layout);
         return {
-            ...featureInformation(information, feature),
+            ...featureInfo,
             notas:
                 feature !== 'Anexo'
-                    ? Article(articles, configurations)
+                    ? orderArticlesArray !== null
+                        ? Article(orderArticlesArray, configurations)
+                        : Article(articles, configurations)
+                    : orderArticlesArray !== null
+                    ? Anexo(orderArticlesArray)
                     : Anexo(articles)
         };
     }
@@ -80,6 +83,13 @@ const index = children => {
         return result;
     }, []);
     return [removeEmptyItems(ArticlesbyBox)];
+};
+
+const orderArticles = (articles, diagramacion) => {
+    if (diagramacion === 'focalRight2') {
+        return articles.slice(0, 2).reverse();
+    }
+    return null;
 };
 
 export default index;

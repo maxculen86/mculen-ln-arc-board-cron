@@ -153,6 +153,13 @@ export const getMarkupForDatalayer = (
 
     return { extraOptsDiv, extraOpts };
 };
+// Desde acá manejamos los títulos de las cards en Nota
+export const customHeading = {
+    OtrasNoticias: 'h3',
+    UltimasNoticias: 'h3',
+    TePuedeInteresar: 'h3',
+    Ranking: 'h3'
+};
 
 export const getCommonProps = props => {
     const {
