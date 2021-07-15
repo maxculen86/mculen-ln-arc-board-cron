@@ -8,11 +8,12 @@ exports[`private - LN - common - Navbar - listMenu Test de snapshot NavBar 1`] =
     class="row"
   >
     <a
-      class="col-3 item-foo"
-      href="https://www.lanacion.com.ar/"
+      class="com-link col-3 item-foo"
+      href="https://www.lanacion.com.ar/#"
+      rel="nonoopener noreferrer"
     >
       <i
-        class="icon-home"
+        class="com-icon icon-home "
       />
       <p>
         Home
@@ -23,29 +24,31 @@ exports[`private - LN - common - Navbar - listMenu Test de snapshot NavBar 1`] =
       type="button"
     >
       <i
-        class="icon-sections"
+        class="com-icon icon-sections  "
       />
       <p>
         Secciones
       </p>
     </button>
     <a
-      class="col-3 item-foo"
+      class="com-link col-3 item-foo"
       href="https://club.lanacion.com.ar/"
+      rel="nonoopener noreferrer"
     >
       <i
-        class="icon-club"
+        class="com-icon icon-club "
       />
       <p>
         Club LA NACION
       </p>
     </a>
     <a
-      class="col-3 item-foo"
-      href="https://myaccount.lanacion.com.ar/mi-usuario"
+      class="com-link col-3 item-foo"
+      href="https://myaccount.lanacion.com.ar/mi-usuario/"
+      rel="nonoopener noreferrer"
     >
       <i
-        class="icon-user"
+        class="com-icon icon-user "
       />
       <p>
         Mi Cuenta
