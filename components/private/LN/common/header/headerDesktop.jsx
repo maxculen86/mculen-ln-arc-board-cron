@@ -117,7 +117,8 @@ const HeaderDesktop = ({
                     logoName="la-nacion"
                     color
                     //size="--md"
-                    href={`${host}/#` || '/#'}
+                    href={host || '/'}
+                    target="_top"
                     title="Ir a la página principal"
                 />
             </div>

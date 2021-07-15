@@ -10,7 +10,8 @@ const ListMenu = ({ toglleDesplegable, amp }) => {
             <div className="row">
                 <Icon
                     name="home"
-                    href="https://www.lanacion.com.ar/#"
+                    href="https://www.lanacion.com.ar/"
+                    target="_top"
                     mod="col-3 item-foo"
                 >
                     <p>Home</p>

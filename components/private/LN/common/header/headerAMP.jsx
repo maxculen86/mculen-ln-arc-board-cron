@@ -25,6 +25,7 @@ const headerAMP = props => {
                                 color
                                 //size="--md"
                                 href="https://www.lanacion.com.ar/"
+                                target="_top"
                                 title="Ir a la página principal"
                             />
                         </div>
