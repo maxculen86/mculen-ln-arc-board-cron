@@ -32,10 +32,11 @@ const getArticleAuthor = article => {
     if (authors && authors.length > 0) {
         const authorsFixed = authors.filter(v => v.type === 'author');
         if (authorsFixed.length > 0) {
-            return authorHomeMobile(authorsFixed[0]);
+            return authorsFixed.map(author => {
+                return authorHomeMobile(author);
+            });
         }
     }
-
     return null;
 };
 
