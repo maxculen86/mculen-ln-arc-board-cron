@@ -19,7 +19,7 @@ const aperturaNoticia = props => {
                     const {
                         promo_items: promoItems = {},
                         headlines: { basic: tituloNota },
-                        content_elements: contentElements,
+                        content_elements: contentElements = [],
                         subtype
                     } = globalContent || {};
                     const {
