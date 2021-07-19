@@ -6,12 +6,12 @@ import '../../../resources/dist/css/ln/modules/mod-media.css';
 import HtmlAMP from '../LN/nota/cuerpo/htmlAMP';
 import OptaAMP from '../LN/nota/cuerpo/optaAMP';
 
-const renderHtml = (html, isAmp) => {
+const renderHtml = (html, _id, isAmp) => {
     if (!isAmp) return <Html data={{ content: html }} />;
     if (html.includes('opta-widget'))
-        return <OptaAMP data={{ content: html }} />;
+        return <OptaAMP data={{ content: html, _id }} />;
 
-    return <HtmlAMP data={{ content: html }} />;
+    return <HtmlAMP data={{ content: html, _id }} />;
 };
 
 const ModMedia = props => {
@@ -39,7 +39,8 @@ const ModMedia = props => {
                     (itsGallery || zoom) && active ? '--active' : ''
                 } ${classCondition || ''}`}
             >
-                {(html && renderHtml(html, outputType === 'amp')) || children}
+                {(html && renderHtml(html, idMedia, outputType === 'amp')) ||
+                    children}
             </section>
             {scriptForZoom}
         </>

@@ -33,7 +33,7 @@ const OptaAMP = props => {
                 layout="responsive"
                 src={urlForOpta || content}
             >
-                <amp-img layout="fill" src={placeholder} placeholder />
+                <amp-img layout="fixed" src={placeholder} placeholder />
             </amp-iframe>
         </div>
     );
