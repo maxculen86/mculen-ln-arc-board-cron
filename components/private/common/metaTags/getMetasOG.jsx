@@ -125,15 +125,20 @@ const setMetaDescription = (data, section) => {
     return data.description;
 };
 
-const setTitle = (data, section) => {
+const setTitle = (data, section, pageBuilderTitle) => {
     if (section === 'nota') {
         return data.subtype === RECETA ? `Receta de ${data.title}` : data.title;
     }
-    return data.title;
+    return pageBuilderTitle;
 };
 
 const getMetasOG = props => {
     const data = getData(props);
+    const pageBuilderTitle = props.metaValue('title');
+    console.log(
+        '🚀 ~ file: getMetasOG.jsx ~ line 140 ~ pageBuilderTitle',
+        pageBuilderTitle
+    );
     const { section, siteProperties } = props;
     const metas = [
         {
@@ -146,7 +151,7 @@ const getMetasOG = props => {
         },
         {
             property: 'og:title',
-            content: setTitle(data, section)
+            content: setTitle(data, section, pageBuilderTitle)
         },
         {
             property: 'og:description',

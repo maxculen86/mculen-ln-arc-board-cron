@@ -34,6 +34,8 @@ import { pipe } from '../private/common/utils/functional';
 import Pwa from '../private/common/scriptManager/pwa';
 import PwaModals from '../private/LN/common/pwaModals';
 import ScriptSWG from '../private/common/scriptManager/scriptSWG';
+import getArticlesFromAcumSource from '../private/LN/common/utils/getArticlesFromAcumSource';
+import filter from '../../content/filters/LN/acumulado/articleAcuTitles';
 
 const scriptList = [
     {
@@ -175,6 +177,19 @@ const Default = props => {
         scripts,
         siteProperties.scripts
     );
+    const articles = getArticlesFromAcumSource(
+        { sectionId: _id },
+        filter,
+        'm',
+        2,
+        'composer',
+        false,
+        'acumulado',
+        arcSite,
+        false,
+        false
+    );
+    console.log('🚀 ~ file: default.jsx ~ line 190 ~ articles', articles);
 
     const _nodeType = getSectionName({ nodeType, type });
 
