@@ -4272,7 +4272,6 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
             }
         ];
         const homeFocalRight = index(SeccionFocalRight) || [];
-        console.log(homeFocalRight[0][0]);
         expect(homeFocalRight[0][0].notas[0].id).toBe(
             'CCWIARQOVJFIXEG2HDB2RYZJWE'
         );
@@ -4282,7 +4281,7 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
         expect(homeFocalRight[0][0].notas.length).toBe(2);
 
         const homeFocalLeft = index(SeccionFocalLeft) || [];
-        console.log(homeFocalLeft[0][0]);
+
         expect(homeFocalLeft[0][0].notas[0].id).toBe(
             'ZTYQMEK7ZBBORNEKA6IQDMYQOM'
         );

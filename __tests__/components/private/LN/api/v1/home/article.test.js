@@ -32,14 +32,16 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
             'Esto es una bajada. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod...'
         );
         expect(notas[0].chapita).toBe(null);
-        expect(notas[0].autor.id).toBe(4189);
-        expect(notas[0].autor.slug).toBe('max-fisher-4189');
-        expect(notas[0].autor.valor).toBe('Max Fisher');
-        expect(notas[0].autor.tipo).toBe(1);
-        expect(notas[0].autor.imagen).toBe(null);
-        expect(notas[0].autor.mail).toBe(undefined);
-        expect(notas[0].autor.twitter).toBe(undefined);
-        expect(notas[0].marquesina).toBe('Por Max Fisher');
+        expect(notas[0].autor[0].id).toBe(4189);
+        expect(notas[0].autor[0].slug).toBe('max-fisher-4189');
+        expect(notas[0].autor[0].valor).toBe('Max Fisher');
+        expect(notas[0].autor[0].tipo).toBe(1);
+        expect(notas[0].autor[0].imagen).toBe(null);
+        expect(notas[0].autor[0].mail).toBe(undefined);
+        expect(notas[0].autor[0].twitter).toBe(undefined);
+        expect(notas[0].marquesina).toBe(
+            'Por Max Fisher, Matias Velasquez, Soledad Velasquez e Ignacio Fernandez'
+        );
         expect(notas[0].seccionPadre).toBe(null);
     });
     it('Testeo articulo Caja Manual con un articulo null', () => {
@@ -291,5 +293,18 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
         } catch (err) {
             expect(err.message).toBe('Titulo de la nota es null o undefined');
         }
+    });
+
+    it('Testeo enviar todos los autores de una nota', () => {
+        articlesfromCajaManual = [];
+        articlesfromCajaManual.push(article1);
+        const notas = Article(articlesfromCajaManual, configurations);
+        expect(notas[0].autor.length).toBe(4);
+        expect(notas[0].marquesina).toBe(
+            'Por Max Fisher, Matias Velasquez, Soledad Velasquez e Ignacio Fernandez'
+        );
+        console.log(notas);
+        //expect(notas[1].autor.length).toBe(1);
+        //expect(notas[1].marquesina).toBe('Por Ignacio Madrid')
     });
 });
