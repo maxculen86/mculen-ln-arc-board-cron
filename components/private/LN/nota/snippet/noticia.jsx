@@ -31,6 +31,17 @@ const extracDataFromCredits = by => {
     return { authors: authors.length ? authors : ['Redacción LA NACION'] };
 };
 
+const getBiggestImage = basic => {
+    const { resized_urls: resizedUrls = [] } = basic || {};
+    const imagenFullSize = resizedUrls.reduce(
+        (prev, curr) => (prev.option.width > curr.option.width ? prev : curr),
+        {}
+    );
+    const { resizedUrl, option } = imagenFullSize;
+    const { width: bigWidth, height: bigHeight } = option || {};
+    return { resizedUrl, bigWidth, bigHeight };
+};
+
 const extractDataFromPromoItems = (promoItems, PLACEHOLDER) => {
     const { basic } = promoItems || {};
     const { url, type, height, width } = basic || {};
@@ -45,14 +56,15 @@ const extractDataFromPromoItems = (promoItems, PLACEHOLDER) => {
     };
 
     if (promoItems && isImage) {
+        const { resizedUrl, bigWidth, bigHeight } = getBiggestImage(undefined);
         const pathImagen = url;
         thumbnailUrl = `${pathImagen}`;
         image = {
             '@context': 'https://schema.org',
             '@type': 'ImageObject',
-            url: `${pathImagen}`,
-            height: `${height}`,
-            width: `${width}`
+            url: resizedUrl ? `${resizedUrl}` : `${pathImagen}`,
+            height: bigHeight ? `${bigHeight}` : `${height}`,
+            width: bigWidth ? `${bigWidth}` : `${width}`
         };
     }
 
