@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
+import getProperties from 'fusion:properties';
 import getArticlesFromAcumSource from '../../private/LN/common/utils/getArticlesFromAcumSource';
 import filter from '../../../content/filters/LN/acumulado/articleMasNotas';
 import addForwardSlash from '../../private/LN/common/utils/addForwardSlash';
@@ -44,7 +45,8 @@ const masNotas = props => {
             _id: idArticle
         },
         outputType,
-        id: featureId
+        id: featureId,
+        arcSite
     } = props;
 
     if (!_id) return <></>;
@@ -70,6 +72,18 @@ const masNotas = props => {
     if (filterCustomField.toString() === '0' && subtype === NOTICIA)
         excludeSectionId = true;
 
+    const { notRecommendedSections = [] } = getProperties(arcSite);
+
+    const SectionIdElements = sectionId.split('/');
+
+    const findCommonElements = (arr1, arr2) => {
+        return arr1.some(item => arr2.includes(item));
+    };
+    const shouldNotFilter = findCommonElements(
+        SectionIdElements,
+        notRecommendedSections
+    );
+
     const typesOfQuery = { sectionId };
     const articles = getArticlesFromAcumSource(
         typesOfQuery,
@@ -80,7 +94,8 @@ const masNotas = props => {
         excludeSectionId,
         'story',
         _website,
-        true
+        true,
+        shouldNotFilter
     );
 
     const articlesFiltered = articles
