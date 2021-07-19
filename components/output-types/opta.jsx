@@ -3,7 +3,7 @@ import React from 'react';
 import config from '../../properties/sites/la-nacion-ar';
 
 const Opta = props => {
-    const { children, globalContent } = props;
+    const { globalContent } = props;
     const { content_elements: contentElement } = globalContent || {};
     const { content = '' } = contentElement || {};
 
