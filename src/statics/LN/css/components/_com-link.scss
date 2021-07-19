@@ -87,11 +87,11 @@
     //         //font-family: $font-georgia;
     //     }
     // }
-    .mod-keepreading & {
-        display: block;
-        margin-bottom: $spacing-sm;
-        font-weight: 700;
-    }
+    // .mod-keepreading & {
+    //     display: block;
+    //     margin-bottom: $spacing-sm;
+    //     font-weight: 700;
+    // }
 
     &.--sociallist {
         @include flex(inline, row, center, center);
