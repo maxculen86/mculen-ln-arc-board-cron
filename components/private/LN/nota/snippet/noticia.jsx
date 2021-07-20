@@ -51,8 +51,8 @@ const extractDataFromPromoItems = (promoItems, PLACEHOLDER) => {
         '@context': 'https://schema.org',
         '@type': 'ImageObject',
         url: PLACEHOLDER,
-        height: '564',
-        width: '1080'
+        height: '800',
+        width: '1200'
     };
 
     if (promoItems && isImage) {
@@ -158,7 +158,7 @@ const SnippetNoticia = props => {
     const { promo_items: promoItems } = addRelatedImage(props.globalContent);
     const LOGO_AMP = getAssetsPath(contextPath)(deployment)('logo-ln-amp.png');
     const PLACEHOLDER = getAssetsPath(contextPath)(deployment)(
-        'placeholderLN.jpg'
+        'placeholderLN-1080'
     );
 
     const { path, name } = primarySection || {};
