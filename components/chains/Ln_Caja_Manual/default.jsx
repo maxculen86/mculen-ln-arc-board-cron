@@ -40,8 +40,6 @@ const CajaManual = props => {
         sectionName
     } = getCommonProps(props);
     const { layoutsName = {} } = config || {};
-    const error = validateChainManual(childProps, layout);
-
     const aperturasChildren =
         layoutsName.Home === layoutPageBuilder
             ? getChildrenFromAperturaHome(renderables)
@@ -53,6 +51,7 @@ const CajaManual = props => {
             get(el, 'props.id', undefined) === featureId
         );
     });
+    const error = validateChainManual(childProps, layout, isInApertura);
 
     if (isAdmin && error) {
         return (
@@ -104,7 +103,7 @@ CajaManual.label = 'LN Caja Manual';
 
 CajaManual.propTypes = {
     id: PropTypes.string.isRequired,
-    isAdmin: PropTypes.bool,
+    isAdmin: PropTypes.bool.isRequired,
     outputType: PropTypes.string,
     customFields: PropTypes.shape({
         ...cajaTemasCustomsFields('cajaManual')
@@ -112,7 +111,6 @@ CajaManual.propTypes = {
 };
 
 CajaManual.defaultProps = {
-    isAdmin: false,
     outputType: 'default'
 };
 

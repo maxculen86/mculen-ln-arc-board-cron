@@ -93,7 +93,7 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:title',
-                content: 'Receta de Arroz chaufa de mariscos - LA NACION'
+                content: 'Receta de Arroz chaufa de mariscos'
             },
             {
                 property: 'og:description',
