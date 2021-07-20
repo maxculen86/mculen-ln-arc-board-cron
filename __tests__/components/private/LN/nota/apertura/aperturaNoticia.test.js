@@ -25,13 +25,26 @@ jest.mock(
     '../../../../../../components/private/LN/common/media/videoPlayer',
     () => 'mock-video'
 );
+jest.mock(
+    '../../../../../../components/private/LN/nota/cuerpo/optaAMP',
+    () => 'mock-optaAmp'
+);
+jest.mock(
+    '../../../../../../components/private/LN/nota/cuerpo/htmlAMP',
+    () => 'mock-htmlAmp'
+);
+jest.mock(
+    '../../../../../../components/private/LN/nota/cuerpo/html',
+    () => 'mock-html'
+);
 
 import Context from 'fusion:context';
 
-import ComInfografia from '../../../../../../components/private/LN/nota/apertura/com-infografia';
-import HtmlAMP from '../../../../../../components/private/LN/nota/cuerpo/htmlAMP';
 import AperturaNoticia from '../../../../../../components/features/LN-nota/aperturaNoticia';
 import Media from '../../../../../../components/private/LN/common/media';
+import optaAMP from '../../../../../../components/private/LN/nota/cuerpo/optaAMP';
+import HtmlAMP from '../../../../../../components/private/LN/nota/cuerpo/htmlAMP';
+import Html from '../../../../../../components/private/LN/nota/cuerpo/html';
 
 describe('PRIVATE - LN - Nota - Apertura - Noticia', () => {
     Context.useAppContext = jest.fn(() => ({
@@ -62,33 +75,44 @@ describe('PRIVATE - LN - Nota - Apertura - Noticia', () => {
         width: 768
     };
 
-    const propsConHtml = {
-        globalContent: {
-            _id: 'ZODSVVPC2VEB7NA3XD6AOYYHLQ',
-            subtype: '1',
-            headlines: {
-                basic:
-                    'Alcoholismo. Señales de alerta y los peligros para la salud'
-            },
-            type: 'story',
-            promo_items: {
-                apertura_multimedia: {
-                    _id: '6POSMWEMKZCZBHINVUG3F4O3BY',
-                    content:
-                        '<iframe class="pym" id="LNcreativa" frameborder="0" width="100%" height="800" scrolling="no" src="https://especialess3.lanacion.com.ar/18/mundial/mundial2018-historicos/"></iframe>',
-                    type: 'raw_html'
-                },
-                basic: promoItemImage
-            }
+    const globalContent = {
+        _id: 'ZODSVVPC2VEB7NA3XD6AOYYHLQ',
+        subtype: '1',
+        headlines: {
+            basic: 'Alcoholismo. Señales de alerta y los peligros para la salud'
         },
-        outputType: 'amp'
+        type: 'story',
+        promo_items: {
+            apertura_multimedia: {
+                _id: '6POSMWEMKZCZBHINVUG3F4O3BY',
+                content:
+                    '<iframe class="pym" id="LNcreativa" frameborder="0" width="100%" height="800" scrolling="no" src="https://especialess3.lanacion.com.ar/18/mundial/mundial2018-historicos/"></iframe>',
+                type: 'raw_html'
+            },
+            basic: promoItemImage
+        }
     };
 
     it('Render OK cuando es Apertura Noticia con HTML en AMP', () => {
-        const component = mount(<AperturaNoticia {...propsConHtml} />);
+        const component = mount(
+            <AperturaNoticia globalContent={globalContent} outputType="amp" />
+        );
 
         expect(component).toBeDefined();
-        expect(component.find('amp-iframe')).toHaveLength(1);
+        //expect(component.find('amp-iframe')).toHaveLength(1);
+        expect(component.find(HtmlAMP)).toHaveLength(1);
+    });
+
+    it('Render OK cuando es Apertura Noticia con HTML en default', () => {
+        const component = mount(
+            <AperturaNoticia
+                globalContent={globalContent}
+                outputType="default"
+            />
+        );
+
+        expect(component).toBeDefined();
+        expect(component.find(Html)).toHaveLength(1);
     });
 
     const promoItemAperturaMultimedia = {
@@ -147,9 +171,9 @@ describe('PRIVATE - LN - Nota - Apertura - Noticia', () => {
                     'Alcoholismo. Señales de alerta y los peligros para la salud'
             },
             type: 'story',
-            promo_items: { basic: promoItemImage },
-            outputType: 'default'
-        }
+            promo_items: { basic: promoItemImage }
+        },
+        outputType: 'default'
     };
 
     const propsConImagenYVideo = {
@@ -164,9 +188,9 @@ describe('PRIVATE - LN - Nota - Apertura - Noticia', () => {
             promo_items: {
                 basic: promoItemImage,
                 apertura_multimedia: promoItemAperturaMultimedia
-            },
-            outputType: 'default'
-        }
+            }
+        },
+        outputType: 'default'
     };
 
     it('Render OK cuando es Apertura Noticia con Imagen', () => {
@@ -184,5 +208,35 @@ describe('PRIVATE - LN - Nota - Apertura - Noticia', () => {
         expect(mediaComponent.prop('mediaData')).toEqual(
             promoItemAperturaMultimedia
         );
+    });
+
+    const propsConOptaHtml = {
+        globalContent: {
+            _id: 'ZODSVVPC2VEB7NA3XD6AOYYHLQ',
+            subtype: '1',
+            headlines: {
+                basic:
+                    'Alcoholismo. Señales de alerta y los peligros para la salud'
+            },
+            type: 'story',
+            promo_items: {
+                basic: promoItemImage,
+                apertura_multimedia: {
+                    _id: '6POSMWEMKZCZBHINVUG3F4O3BY',
+                    content:
+                        '<opta-widget widget="match_summary" competition="724" season="2021" match="2206117" template="normal" live="true" show_match_header="true" show_score="true" show_attendance="false" show_date="false" date_format="dddd D MMMM YYYY HH:mm" show_cards="none" show_crests="true" show_team_formation="false" show_goals="true" show_goals_combined="true" show_penalties_missed="false" show_halftime_score="false" show_referee="false" show_subs="false" show_venue="true" show_shootouts="false" show_tooltips="false" show_images="false" show_competition_name="true" competition_naming="full" team_naming="full" player_naming="full" show_live="false" show_logo="true" show_title="true" breakpoints="400, 700" sport="football"></opta-widget>',
+                    type: 'raw_html'
+                }
+            }
+        },
+        outputType: 'amp'
+    };
+
+    it('Render OK cuando es Apertura Noticia con OPTA AMP', () => {
+        const component = mount(<AperturaNoticia {...propsConOptaHtml} />);
+
+        expect(component).toBeDefined();
+        //expect(optaAMP.exists()).toBeTruthy();
+        expect(component.find(optaAMP)).toHaveLength(1);
     });
 });
