@@ -118,6 +118,7 @@ const HeaderDesktop = ({
                     color
                     //size="--md"
                     href={host || '/'}
+                    target="_top"
                     title="Ir a la página principal"
                 />
             </div>

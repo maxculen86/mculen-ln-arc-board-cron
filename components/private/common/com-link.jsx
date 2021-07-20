@@ -27,7 +27,7 @@ const ComLink = props => {
         ...(link && { href: link }),
         ...(dataEvent && { 'data-event': dataEvent }),
         ...(dataSection && { 'data-section': dataSection }),
-        ...(link && { rel: target === '_blank' && 'nonoopener noreferrer' }),
+        ...(link && { rel: target === '_blank' && 'nofollow' }),
         ...(link && { target }),
         ...(link && { title }),
         ...(isString && { dangerouslySetInnerHTML: { __html: children } }),
