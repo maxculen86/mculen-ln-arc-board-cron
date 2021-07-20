@@ -14,7 +14,7 @@ export const validateFeature = (idCollection, articles, layout) => {
     return message && { type: 'warning', message };
 };
 
-export const validateChainManual = (childrenProps, layout) => {
+export const validateChainManual = (childrenProps, layout, isInApertura) => {
     const minimun = (layout && Number(layout.slice(-1))) || 3;
 
     const invalidFeature = childrenProps.some(
@@ -34,6 +34,9 @@ export const validateChainManual = (childrenProps, layout) => {
                 get(childrenProps, 'length')} artículo${
                 minimun - get(childrenProps, 'length') > 1 ? 's' : ''
             }`) ||
+        ((layout === 'grilla6' || layout === 'grilla9') &&
+            isInApertura &&
+            'No se permite esta diagramación') ||
         null;
 
     return message && { type: 'warning', message };

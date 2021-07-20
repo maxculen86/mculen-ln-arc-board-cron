@@ -254,6 +254,7 @@ const Index = ({
                                 color
                                 size="--sm"
                                 href="https://www.lanacion.com.ar/"
+                                target="_top"
                                 title="Ir a la página principal"
                             />
                         </div>
@@ -328,6 +329,8 @@ const Index = ({
                     <div className="row">
                         <div className="col-desksm-6 --right">
                             <Image
+                                href="http://gda.com/"
+                                target="_blank"
                                 src={getAssetsPath(contextPath)(deployment)(
                                     'gda.svg'
                                 )}
