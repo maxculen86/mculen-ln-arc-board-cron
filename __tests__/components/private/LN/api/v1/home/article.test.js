@@ -294,7 +294,7 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
             expect(err.message).toBe('Titulo de la nota es null o undefined');
         }
     });
-    it('Testeo getArticleSignature, marquesina', () => {
+    it('Testeo getArticleSignature, autores en marquesina', () => {
         const authors = [
             {
                 _id: 'matias-velasquez-4189',
