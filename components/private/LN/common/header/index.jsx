@@ -132,7 +132,7 @@ class Index extends Component {
             logueado,
             loginData,
             goToLogout,
-            headerDark,
+            // headerDark,
             siteProperties: { host }
         } = this.props;
         const { scrollDirection } = this.state;
@@ -149,7 +149,7 @@ class Index extends Component {
                     showNav
                     goToLogout={goToLogout}
                     host={host}
-                    headerDark={headerDark}
+                    // headerDark={headerDark}
                 />
 
                 <NavBarMobile
@@ -169,9 +169,6 @@ class Index extends Component {
 
 Index.propTypes = {
     outputType: PropTypes.string.isRequired,
-    screenUtils: PropTypes.shape({
-        device: PropTypes.string
-    }).isRequired,
     logueado: PropTypes.bool.isRequired,
     loginData: PropTypes.shape({
         subcription: PropTypes.bool,
@@ -181,8 +178,8 @@ Index.propTypes = {
     goToLogout: PropTypes.func.isRequired,
     siteProperties: PropTypes.shape({
         host: PropTypes.string
-    }).isRequired,
-    headerDark: PropTypes.string.isRequired
+    }).isRequired
+    // headerDark: PropTypes.string
 };
 
 export default withLoginData(Consumer(Index));

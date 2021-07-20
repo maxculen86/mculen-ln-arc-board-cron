@@ -10,6 +10,8 @@ exports[`Private - Common - ModheaderSection =>  Snapshot ModheaderSection con l
     <a
       class="com-link"
       href="https://lanacion.com.ar/"
+      target=""
+      title=""
     >
       Titulo Separador
     </a>

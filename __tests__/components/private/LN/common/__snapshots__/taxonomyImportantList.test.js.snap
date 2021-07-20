@@ -7,6 +7,7 @@ exports[`components - private - LN - common - TaxonomyImportantList Test de snap
   <a
     class="com-link com-button --secondary --compact"
     href="/tema/asd-1/"
+    target=""
     title="Ir a notas de asd 1"
   >
     asd 1
@@ -14,6 +15,7 @@ exports[`components - private - LN - common - TaxonomyImportantList Test de snap
   <a
     class="com-link com-button --secondary --compact"
     href="/tema/asd-2/"
+    target=""
     title="Ir a notas de asd 2"
   >
     asd 2
@@ -21,6 +23,7 @@ exports[`components - private - LN - common - TaxonomyImportantList Test de snap
   <a
     class="com-link com-button --secondary --compact"
     href="asd-3/"
+    target=""
     title="Ir a notas de asd 3"
   >
     asd 3

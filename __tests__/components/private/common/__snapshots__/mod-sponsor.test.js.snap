@@ -7,6 +7,8 @@ exports[`ModSponsor Matches Snapshot 1`] = `
   <a
     class="com-link"
     href="/revista-jardin"
+    target=""
+    title=""
   >
     <i
       class="com-logo logo-jardin --color --sm"

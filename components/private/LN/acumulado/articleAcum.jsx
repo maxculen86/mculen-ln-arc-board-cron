@@ -116,8 +116,8 @@ ArticleAcum.propTypes = {
             })
         }),
         taxonomy: PropTypes.shape({
-            primary_section: PropTypes.string,
-            tags: PropTypes.arrayOf(PropTypes.obj)
+            primary_section: PropTypes.node,
+            tags: PropTypes.arrayOf(PropTypes.node)
         })
     }).isRequired,
     children: PropTypes.node,

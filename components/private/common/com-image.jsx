@@ -52,12 +52,7 @@ const ComImage = props => {
     return (
         <>
             {href ? (
-                <ComLink
-                    link={href}
-                    target={target || ''}
-                    title={alt || ''}
-                    rel={target === '_blank' && 'nofollow'}
-                >
+                <ComLink link={href} target={target || ''} title={alt || ''}>
                     {amp ? imageAmp : image}
                 </ComLink>
             ) : (

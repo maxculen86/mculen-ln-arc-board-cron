@@ -150,11 +150,6 @@ GrillaNotas.propTypes = {
         })
     }).isRequired,
     loading: PropTypes.bool.isRequired,
-    siteProperties: PropTypes.shape({
-        bannerConfig: PropTypes.shape({
-            dfp_id: PropTypes.number.isRequired
-        })
-    }).isRequired,
     bannerConfig: PropTypes.shape({
         background: PropTypes.bool,
         position: PropTypes.number,

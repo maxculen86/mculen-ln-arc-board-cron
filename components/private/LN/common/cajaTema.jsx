@@ -155,7 +155,7 @@ CajaTema.propTypes = {
     ).isRequired,
     outputType: PropTypes.string.isRequired,
     layout: PropTypes.string.isRequired,
-    backgroundColor: PropTypes.string.isRequired,
+    backgroundColor: PropTypes.string,
     classCondition: PropTypes.string.isRequired,
     notesQuantity: PropTypes.number,
     hideTitle: PropTypes.boolean.isRequired,
@@ -167,7 +167,7 @@ CajaTema.propTypes = {
     position: PropTypes.oneOfType([PropTypes.boolean, PropTypes.string])
         .isRequired,
     sectionName: PropTypes.string.isRequired,
-    _children: PropTypes.arrayOf(PropTypes.obj)
+    _children: PropTypes.arrayOf(PropTypes.node)
 };
 
 CajaTema.defaultProps = {
@@ -177,7 +177,8 @@ CajaTema.defaultProps = {
     titleSize: null,
     withSubhead: false,
     notesQuantity: 3,
-    _children: []
+    _children: [],
+    backgroundColor: ''
 };
 
 const areEqual = (prevProps, nextProps) =>
