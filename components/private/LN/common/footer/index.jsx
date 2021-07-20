@@ -329,6 +329,8 @@ const Index = ({
                     <div className="row">
                         <div className="col-desksm-6 --right">
                             <Image
+                                href="http://gda.com/"
+                                target="_blank"
                                 src={getAssetsPath(contextPath)(deployment)(
                                     'gda.svg'
                                 )}
