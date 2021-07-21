@@ -34,7 +34,7 @@ import { pipe } from '../private/common/utils/functional';
 import Pwa from '../private/common/scriptManager/pwa';
 import PwaModals from '../private/LN/common/pwaModals';
 import ScriptSWG from '../private/common/scriptManager/scriptSWG';
-import get from '../private/common/utils/get';
+// import get from '../private/common/utils/get';
 
 const scriptList = [
     {
@@ -184,17 +184,17 @@ const Default = props => {
             ? siteProperties.longTitle
             : metaValue('title') || siteProperties.title;
 
-    const getDataToLinkImage = {
-        nota: () => {
-            return get(globalContent, 'promo_items.basic.resized_urls', []);
-        },
-        acumulado: () => {
-            // console.log('Busco data de acumulado preload img');
-        },
-        home: () => {
-            // console.log('Busco data de home preload img');
-        }
-    };
+    // const getDataToLinkImage = {
+    //     nota: () => {
+    //         return get(globalContent, 'promo_items.basic.resized_urls', []);
+    //     },
+    //     acumulado: () => {
+    //         return [];
+    //     },
+    //     home: () => {
+    //         return [];
+    //     }
+    // };
 
     return (
         <html lang="es">
@@ -212,7 +212,7 @@ const Default = props => {
                     <CssLinks />
                 )}
                 <Libs />
-
+                {/*
                 {getDataToLinkImage[_nodeType] &&
                     getDataToLinkImage[_nodeType]().map(elem => {
                         return (
@@ -223,7 +223,7 @@ const Default = props => {
                                 media={elem.option.media}
                             />
                         );
-                    })}
+                    })} */}
 
                 <TagsLoadingList
                     section="all"
