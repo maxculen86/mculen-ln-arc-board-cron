@@ -1,5 +1,5 @@
 jest.mock(
-    '../../../../../components/private/common/videoPlayer/component',
+    '../../../../../components/private/common/videoPlayer',
     () => 'mocked-component'
 );
 

@@ -23,7 +23,7 @@ const media = ({
     parrafo,
     tituloNota,
     active,
-    anexo,
+    html,
     titleText,
     scriptForZoom
 }) => {
@@ -115,8 +115,9 @@ const media = ({
                         zoom={zoom}
                         withZoom={withZoom}
                         active={active}
-                        anexo={anexo}
+                        html={html}
                         scriptForZoom={scriptForZoom}
+                        outputType={outputType}
                     >
                         {item}
                     </ModMedia>
@@ -141,15 +142,15 @@ media.propTypes = {
     handleClick: PropTypes.func,
     withZoom: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     href: PropTypes.string,
-    tituloNota: PropTypes.string.isRequired,
+    tituloNota: PropTypes.string,
     parrafo: PropTypes.oneOfType([
         PropTypes.shape({
             content: PropTypes.string
         }),
         PropTypes.string
-    ]).isRequired,
+    ]),
     isApertura: PropTypes.bool,
-    anexo: PropTypes.string,
+    html: PropTypes.string,
     titleText: PropTypes.string,
     scriptForZoom: PropTypes.node
 };
@@ -159,10 +160,12 @@ media.defaultProps = {
     withZoom: false,
     isApertura: false,
     href: '',
-    anexo: '',
+    html: '',
     titleText: '',
+    tituloNota: '',
     outputType: 'default',
     scriptForZoom: undefined,
+    parrafo: undefined,
     active: undefined,
     handleClick: () => {}
 };

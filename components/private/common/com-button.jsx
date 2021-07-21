@@ -1,5 +1,6 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import '../../../resources/dist/css/ln/components/com-button.css';
 import ComIco from './com-icon';
 import ComText from './text';
@@ -24,65 +25,33 @@ const ComButton = props => {
         style
     } = props;
 
-    if (iconName && !children)
-        return (
-            <button
-                id={id}
-                type="button"
-                data-event={dataEvent}
-                data-section={dataSection}
-                className={`com-button ${classesNames || ``} ${classCondition ||
-                    ''} ${iconName ? `--icon` : ``} `}
-                onClick={onClick}
-                onMouseDown={onMouseDown}
-                style={style}
-                title={title}
-                tabIndex={tabIndex}
-                on={on || ''}
-            >
-                <ComIco iconName={iconName} />
-            </button>
-        );
-    if (iconName && children)
-        return (
-            <button
-                id={id}
-                data-event={dataEvent}
-                data-section={dataSection}
-                type="button"
-                className={`com-button ${classesNames || ``} ${classCondition ||
-                    ''} ${
-                    iconName ? `--icon` : ``
-                } ${iconName} ${iconPosition || ``}`}
-                onClick={onClick}
-                style={style}
-                title={title}
-                on={on || ''}
-            >
-                <ComIco iconName={iconName} />
-                <ComText size={size || ''}>
-                    {children || ``}
-                    {textname || ``}
-                </ComText>
-            </button>
-        );
+    const conditionalProps = {
+        ...(iconName && !children && { onMouseDown }),
+        ...(iconName && !children && { tabIndex }),
+        className: `com-button ${classesNames || ''} ${classCondition || ''} ${
+            iconName ? `--icon` : ''
+        } ${iconName && children ? `${iconName} ${iconPosition || ''}` : ''}`
+    };
+
     return (
         <button
             id={id}
             data-event={dataEvent}
             data-section={dataSection}
             type="button"
-            className={`com-button ${classesNames || ``} ${classCondition ||
-                ''}`}
             onClick={onClick}
             style={style}
             title={title}
             on={on || ''}
+            {...conditionalProps}
         >
-            <ComText size={size || ''}>
-                {children || ``}
-                {textname || ``}
-            </ComText>
+            {iconName && <ComIco iconName={iconName} />}
+            {(children || textname) && (
+                <ComText size={size || ''}>
+                    {children || ``}
+                    {textname || ``}
+                </ComText>
+            )}
         </button>
     );
 };
@@ -102,15 +71,30 @@ ComButton.propTypes = {
     size: PropTypes.string,
     title: PropTypes.string,
     id: PropTypes.string,
+    on: PropTypes.string,
     dataEvent: PropTypes.string,
     dataSection: PropTypes.string,
+    tabIndex: PropTypes.string,
     style: PropTypes.node
 };
 
 ComButton.defaultProps = {
     id: '',
     dataEvent: '',
-    dataSection: ''
+    dataSection: '',
+    style: undefined,
+    title: '',
+    size: '',
+    on: '',
+    iconPosition: '',
+    iconName: '',
+    textname: '',
+    classesNames: '',
+    classCondition: '',
+    tabIndex: '',
+    onClick: () => {},
+    onMouseDown: () => {},
+    children: undefined
 };
 
 export default ComButton;

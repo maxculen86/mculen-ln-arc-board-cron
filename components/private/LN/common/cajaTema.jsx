@@ -154,11 +154,11 @@ CajaTema.propTypes = {
         })
     ).isRequired,
     outputType: PropTypes.string.isRequired,
-    layout: PropTypes.string.isRequired,
-    backgroundColor: PropTypes.string.isRequired,
-    classCondition: PropTypes.string.isRequired,
+    layout: PropTypes.string,
+    backgroundColor: PropTypes.string,
+    classCondition: PropTypes.string,
     notesQuantity: PropTypes.number,
-    hideTitle: PropTypes.boolean.isRequired,
+    hideTitle: PropTypes.boolean,
     withSubhead: PropTypes.boolean,
     title: PropTypes.string,
     titleSize: PropTypes.oneOfType([PropTypes.boolean, PropTypes.string]),
@@ -167,15 +167,19 @@ CajaTema.propTypes = {
     position: PropTypes.oneOfType([PropTypes.boolean, PropTypes.string])
         .isRequired,
     sectionName: PropTypes.string.isRequired,
-    _children: PropTypes.arrayOf(PropTypes.obj)
+    _children: PropTypes.arrayOf(PropTypes.object)
 };
 
 CajaTema.defaultProps = {
+    classCondition: '',
+    backgroundColor: '',
+    layout: 'grilla3',
     title: null,
     url: null,
     imageId: null,
     titleSize: null,
     withSubhead: false,
+    hideTitle: false,
     notesQuantity: 3,
     _children: []
 };
