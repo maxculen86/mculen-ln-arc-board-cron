@@ -34,6 +34,7 @@ import { pipe } from '../private/common/utils/functional';
 import Pwa from '../private/common/scriptManager/pwa';
 import PwaModals from '../private/LN/common/pwaModals';
 import ScriptSWG from '../private/common/scriptManager/scriptSWG';
+import get from '../private/common/utils/get';
 
 const scriptList = [
     {
@@ -183,6 +184,18 @@ const Default = props => {
             ? siteProperties.longTitle
             : metaValue('title') || siteProperties.title;
 
+    const getDataToLinkImage = {
+        nota: () => {
+            return get(globalContent, 'promo_items.basic.resized_urls', []);
+        },
+        acumulado: () => {
+            // console.log('Busco data de acumulado preload img');
+        },
+        home: () => {
+            // console.log('Busco data de home preload img');
+        }
+    };
+
     return (
         <html lang="es">
             <head>
@@ -199,6 +212,19 @@ const Default = props => {
                     <CssLinks />
                 )}
                 <Libs />
+
+                {getDataToLinkImage[_nodeType] &&
+                    getDataToLinkImage[_nodeType]().map(elem => {
+                        return (
+                            <link
+                                rel="preload"
+                                href={elem.resizedUrl}
+                                as="image"
+                                media={elem.option.media}
+                            />
+                        );
+                    })}
+
                 <TagsLoadingList
                     section="all"
                     location="head"
