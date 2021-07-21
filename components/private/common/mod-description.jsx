@@ -93,6 +93,7 @@ const ModDescription = props => {
                         const { text, slug } = item;
                         return (
                             <ComTag
+                                key={slug}
                                 iconName={
                                     (withMarquee || !!category) && 'bullet'
                                 }
@@ -118,8 +119,8 @@ ModDescription.propTypes = {
     titleTag: PropTypes.string,
     titleSize: PropTypes.string,
     titleText: PropTypes.string.isRequired,
-    authorSize: PropTypes.string.isRequired,
-    subheadText: PropTypes.string,
+    authorSize: PropTypes.string,
+    subheadText: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     subheadSize: PropTypes.string,
     subheadTag: PropTypes.string,
     dateText: PropTypes.string,
@@ -127,8 +128,11 @@ ModDescription.propTypes = {
     lead: PropTypes.string,
     authors: PropTypes.string,
     marquesina: PropTypes.string,
-    category: PropTypes.string,
-    tags: PropTypes.arrayOf(PropTypes.object)
+    category: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    tags: PropTypes.oneOfType([
+        PropTypes.bool,
+        PropTypes.arrayOf(PropTypes.object)
+    ])
 };
 
 ModDescription.defaultProps = {
@@ -136,6 +140,7 @@ ModDescription.defaultProps = {
     titleSize: '--xs',
     subheadText: false,
     subheadSize: '',
+    authorSize: '',
     subheadTag: '',
     dateText: undefined,
     label: undefined,

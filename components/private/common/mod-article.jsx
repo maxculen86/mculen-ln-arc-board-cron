@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import '../../../resources/dist/css/ln/modules/mod-article.css';
 import Media from '../LN/common/media';
 import get from './utils/get';
@@ -94,7 +94,7 @@ const ModArticle = props => {
                     mediaData={type === 'image' ? imagenDestacada : null}
                     href={link}
                     outputType={outputType}
-                    anexo={anexo}
+                    html={anexo}
                     titleText={titleText}
                     // labelArticle="La Chapita solo se tiene que ver con foto o placeholder"
                 />
@@ -139,20 +139,20 @@ const ModArticle = props => {
 ModArticle.propTypes = {
     dataSection: PropTypes.string,
     artPosition: PropTypes.string,
-    boxPosition: PropTypes.string,
+    boxPosition: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     classCondition: PropTypes.string,
     link: PropTypes.string,
     titleTag: PropTypes.string,
     titleSize: PropTypes.string,
     titleText: PropTypes.string.isRequired,
-    subheadText: PropTypes.string,
+    subheadText: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     subheadSize: PropTypes.string,
     subheadTag: PropTypes.string,
     dateText: PropTypes.string,
     dateSize: PropTypes.string,
-    hour: PropTypes.oneOfType([PropTypes.string, PropTypes.boolean]),
+    hour: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
     authors: PropTypes.string,
-    withMedia: PropTypes.boolean,
+    withMedia: PropTypes.bool,
     outputType: PropTypes.string,
     articleData: PropTypes.shape({
         _id: PropTypes.string,
@@ -160,8 +160,8 @@ ModArticle.propTypes = {
             basic: PropTypes.object
         })
     }).isRequired,
-    category: PropTypes.string,
-    tags: PropTypes.string,
+    category: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    tags: PropTypes.oneOfType([PropTypes.bool, PropTypes.array]),
     isRenderAuthor: PropTypes.bool,
     isRenderAuthorOpinion: PropTypes.bool,
     handleClick: PropTypes.func

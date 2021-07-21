@@ -34,7 +34,7 @@ const requestConfigProps = (index, defaultDays, defaultWeeks) => {
 
 ranking.label = 'LN-Common-Ranking';
 ranking.propTypes = {
-    outputType: PropTypes.string.isRequired,
+    outputType: PropTypes.string,
     customFields: PropTypes.shape({
         ...requestConfigProps(1, 1, 1),
         ...requestConfigProps(2, 5, 2)

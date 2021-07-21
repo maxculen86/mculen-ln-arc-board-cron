@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
 import getProperties from 'fusion:properties';
 import ArticlesAcum from '../articlesAcum';
@@ -134,8 +134,12 @@ class GrillaNotas extends React.Component {
 GrillaNotas.propTypes = {
     typeArticle: PropTypes.string.isRequired,
     outputType: PropTypes.string.isRequired,
-    hideBanners: PropTypes.string.isRequired,
-    termicas: PropTypes.string.isRequired,
+    hideBanners: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+    termicas: PropTypes.shape({
+        banners: PropTypes.bool,
+        liftigniter: PropTypes.bool,
+        livefyre: PropTypes.bool
+    }),
     arcSite: PropTypes.string.isRequired,
     articles: PropTypes.arrayOf(PropTypes.object).isRequired,
     idsArticlesToExclude: PropTypes.arrayOf(PropTypes.string).isRequired,
@@ -150,12 +154,19 @@ GrillaNotas.propTypes = {
         })
     }).isRequired,
     loading: PropTypes.bool.isRequired,
-    bannerConfig: PropTypes.shape({
-        background: PropTypes.bool,
-        position: PropTypes.number,
-        sticky: PropTypes.bool,
-        tablet: PropTypes.string
-    }).isRequired
+    bannerConfig: PropTypes.arrayOf(
+        PropTypes.shape({
+            background: PropTypes.bool,
+            position: PropTypes.number,
+            sticky: PropTypes.bool,
+            tablet: PropTypes.string
+        })
+    ).isRequired
+};
+
+GrillaNotas.defaultProps = {
+    hideBanners: false,
+    termicas: undefined
 };
 
 export default WithNavigation(
