@@ -20,7 +20,7 @@ const resolve = (key, a) => {
     const basePath = `/content/v4/stories/?website=${arcSite}`;
 
     if (noteId)
-        return `${basePath}&_id=${noteId}&included_fields=content_elements`;
+        return `${basePath}&_id=${noteId}&included_fields=content_elements,promo_items.apertura_multimedia`;
 
     throw new Error('Debe definir url o id para obtener la nota');
 };
@@ -51,10 +51,13 @@ const fetch = query => {
 const transform = (data, url) => {
     const { idRawHtml } = getRawIdAndNoteId(url);
     const contentElements = get(data, 'content_elements', []);
+    const aperturaMultimedia = get(data, 'promo_items.apertura_multimedia', {});
     const resp = {
-        content_elements: contentElements.find(
-            elem => elem.type === 'raw_html' && elem._id === idRawHtml
-        )
+        content_elements:
+            contentElements.find(
+                elem => elem.type === 'raw_html' && elem._id === idRawHtml
+            ) ||
+            (aperturaMultimedia._id === idRawHtml && aperturaMultimedia)
     };
 
     return resp;
