@@ -32,13 +32,13 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
             'Esto es una bajada. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod...'
         );
         expect(notas[0].chapita).toBe(null);
-        expect(notas[0].autor[0].id).toBe(4189);
-        expect(notas[0].autor[0].slug).toBe('max-fisher-4189');
-        expect(notas[0].autor[0].valor).toBe('Max Fisher');
-        expect(notas[0].autor[0].tipo).toBe(1);
-        expect(notas[0].autor[0].imagen).toBe(null);
-        expect(notas[0].autor[0].mail).toBe(undefined);
-        expect(notas[0].autor[0].twitter).toBe(undefined);
+        expect(notas[0].autor.id).toBe(4189);
+        expect(notas[0].autor.slug).toBe('max-fisher-4189');
+        expect(notas[0].autor.valor).toBe('Max Fisher');
+        expect(notas[0].autor.tipo).toBe(1);
+        expect(notas[0].autor.imagen).toBe(null);
+        expect(notas[0].autor.mail).toBe(undefined);
+        expect(notas[0].autor.twitter).toBe(undefined);
         expect(notas[0].marquesina).toBe(
             'Por Max Fisher, Matias Velasquez, Soledad Velasquez e Ignacio Fernandez'
         );
@@ -401,7 +401,7 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
         articlesfromCajaManual.push(articleauthor);
         articleauthor.credits.by.push(authors[0]);
         const articles = Article(articlesfromCajaManual, configurations);
-        expect(articles[0].autor.length).toBe(1);
+        expect(articles[0].autores.length).toBe(1);
         expect(articles[0].marquesina).toBe('Por Matias Velasquez');
 
         articleauthor.credits.by.splice(0, articleauthor.credits.by.length);
@@ -411,7 +411,7 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
             articlesfromCajaManual,
             configurations
         );
-        expect(articlesWithTwoAuthors[0].autor.length).toBe(2);
+        expect(articlesWithTwoAuthors[0].autores.length).toBe(2);
         expect(articlesWithTwoAuthors[0].marquesina).toBe(
             'Por Matias Velasquez e Isaías Anzola'
         );
@@ -425,7 +425,7 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
             articlesfromCajaManual,
             configurations
         );
-        expect(articlesWithFourAuthors[0].autor.length).toBe(4);
+        expect(articlesWithFourAuthors[0].autores.length).toBe(4);
         expect(articlesWithFourAuthors[0].marquesina).toBe(
             'Por Matias Velasquez, Isaías Anzola, Sally Flores y Leonardo Lemkin'
         );
@@ -438,7 +438,7 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
             articlesfromCajaManual,
             configurations
         );
-        expect(articlesWithThreeAuthors[0].autor.length).toBe(3);
+        expect(articlesWithThreeAuthors[0].autores.length).toBe(3);
         expect(articlesWithThreeAuthors[0].marquesina).toBe(
             'Por Matias Velasquez, Sally Flores e Isaías Anzola'
         );
@@ -450,7 +450,7 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
             articlesfromCajaManual,
             configurations
         );
-        expect(articlesWithTwoAuthorsY[0].autor.length).toBe(2);
+        expect(articlesWithTwoAuthorsY[0].autores.length).toBe(2);
         expect(articlesWithTwoAuthorsY[0].marquesina).toBe(
             'Por Matias Velasquez y Sally Flores'
         );
@@ -459,7 +459,17 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
         articlesfromCajaManual = [];
         articlesfromCajaManual.push(article1);
         const notas = Article(articlesfromCajaManual, configurations);
-        expect(notas[0].autor.length).toBe(4);
+        expect(notas[0].autores.length).toBe(4);
+        expect(notas[0].marquesina).toBe(
+            'Por Max Fisher, Matias Velasquez, Soledad Velasquez e Ignacio Fernandez'
+        );
+    });
+    it('Testeo campo autores en nota', () => {
+        articlesfromCajaManual = [];
+        articlesfromCajaManual.push(article1);
+        const notas = Article(articlesfromCajaManual, configurations);
+        expect(notas[0].autor.valor).toBe('Max Fisher');
+        expect(notas[0].autores.length).toBe(4);
         expect(notas[0].marquesina).toBe(
             'Por Max Fisher, Matias Velasquez, Soledad Velasquez e Ignacio Fernandez'
         );
