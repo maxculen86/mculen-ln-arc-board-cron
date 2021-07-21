@@ -4,9 +4,15 @@
             "type": "story",
             "params": [
                 {
-                    "categoria": {
-                        "slug": "/recetas",
-                        "valor": "Recetas"
+                    "taxonomy": {
+                        "sections": [
+                            {
+                                "_id": "/recetas",
+                                "parent_id": "/",
+                                "path": "/recetas",
+                                "type": "section"
+                            }
+                        ]
                     }
                 },
                 {

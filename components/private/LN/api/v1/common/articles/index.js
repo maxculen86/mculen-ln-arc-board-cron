@@ -32,7 +32,8 @@ const articleItem = article => {
         fecha: dateAndTimeForAppsUtil(article.display_date),
         fechaActualizacion: dateAndTimeForAppsUtil(lastUpdatedDate),
         url,
-        bajada
+        bajada,
+        enviarApp: matchObject(article)
     };
 
     if (image && image.type === 'image') {
@@ -57,7 +58,7 @@ const articleItem = article => {
             return getTag(v);
         });
     }
-    resp.enviarApp = matchObject(resp);
+
     return resp;
 };
 

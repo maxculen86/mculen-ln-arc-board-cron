@@ -34,11 +34,19 @@ const compareObject = (obj, param) => {
                 return false;
             }
 
-            objOrigen.map(o => {
-                value.map(p => {
-                    return compareObject(o, p);
-                });
-            });
+            return (
+                value
+                    .map(p => {
+                        return (
+                            objOrigen
+                                .map(o => {
+                                    return compareObject(o, p);
+                                })
+                                .filter(x => x === true).length > 0
+                        );
+                    })
+                    .filter(x => x === false).length === 0
+            );
         }
         if (typeof objOrigen === 'object' && typeof value === 'object') {
             return compareObject(objOrigen, value);
