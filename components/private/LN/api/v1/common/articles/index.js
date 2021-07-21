@@ -4,6 +4,7 @@ import Author from '../author';
 import { getTag } from '../tag';
 import { dateAndTimeForAppsUtil } from '../../../../../common/utils/dateAndTimeUtil';
 import { getPrincipalCategory } from '../category';
+import matchObject from '../utils/matchObject';
 
 const articleItem = article => {
     const {
@@ -56,7 +57,7 @@ const articleItem = article => {
             return getTag(v);
         });
     }
-
+    resp.enviarApp = matchObject(resp);
     return resp;
 };
 

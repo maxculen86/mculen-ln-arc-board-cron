@@ -1,0 +1,30 @@
+{
+    "Externas": [
+        {
+            "type": "story",
+            "params": [
+                {
+                    "credits": {
+                        "by": [
+                            {
+                                "_id": "max-fisher-41892"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "categoria": {
+                        "slug": "/recetas",
+                        "valor": "Recetas"
+                    }
+                },
+                {
+                    "description": { "basic": "" },
+                    "credits": {
+                        "by": []
+                    }
+                }
+            ]
+        }
+    ]
+}
