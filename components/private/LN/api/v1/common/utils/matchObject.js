@@ -27,10 +27,13 @@ const compareObject = (obj, param) => {
             if (JSON.stringify(objOrigen) === JSON.stringify(value)) {
                 return true;
             }
-            if (objOrigen.length === 0) {
-                return false;
+            if (objOrigen.length === 0 && value.length === 0) {
+                return true;
             }
-            if (objOrigen.length > 0 && value.length === 0) {
+            if (
+                (objOrigen.length === 0 && value.length > 0) ||
+                (objOrigen.length > 0 && value.length === 0)
+            ) {
                 return false;
             }
 

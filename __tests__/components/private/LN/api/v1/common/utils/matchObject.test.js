@@ -72,17 +72,17 @@ describe('components - private - LN - api - v1 - common - utils - matchObject.js
         expect(enviarApp).toBe(true);
     });
 
-    it('Testeo articulo con 1 Match objeto label de la posicion 4 del Mock', () => {
+    it('Testeo articulo con 1 Match objeto label de la posicion 4 del Mock Config', () => {
         const enviarApp = matchObject(article2);
         expect(enviarApp).toBe(false);
     });
 
-    it('Testeo articulo con 1 Match Caso con Array al objeto taxonomy de la posicion 2 del Mock', () => {
+    it('Testeo articulo con 1 Match Caso con Array al objeto taxonomy de la posicion 2 del Mock Config', () => {
         const enviarApp = matchObject(article3);
         expect(enviarApp).toBe(false);
     });
 
-    it('Testeo articulo con 1 Match con parte del objeto de la posicion 5 del Mock', () => {
+    it('Testeo articulo con 1 Match con parte del objeto de la posicion 5 del Mock Config', () => {
         const enviarApp = matchObject(article4);
         expect(enviarApp).toBe(false);
     });

@@ -1,4 +1,5 @@
 import get from 'lodash.get';
+import matchObject from '../../common/utils/matchObject';
 
 const notaRelacionada = dataNota => {
     if (!dataNota) return null;
@@ -13,7 +14,8 @@ const notaRelacionada = dataNota => {
     const resp = {
         id,
         titulo,
-        url: websiteUrl || canonicalUrl
+        url: websiteUrl || canonicalUrl,
+        enviarApp: !matchObject(dataNota)
     };
 
     const volanta = get(dataNota, 'label.volanta');

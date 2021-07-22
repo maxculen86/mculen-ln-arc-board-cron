@@ -16,6 +16,11 @@
                     }
                 },
                 {
+                    "label": {
+                        "enviar_a_apps": { "display": true, "text": "Si" }
+                    }
+                },
+                {
                     "param1": { "basic": "To Replace xxxx" }
                 },
                 {
