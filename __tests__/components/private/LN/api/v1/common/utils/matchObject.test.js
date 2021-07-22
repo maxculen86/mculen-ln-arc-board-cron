@@ -10,7 +10,7 @@ jest.mock(
     () => ({
         Externas: [
             {
-                type: 'story',
+                type: 'contains',
                 params: [
                     {
                         credits: {
@@ -56,6 +56,14 @@ jest.mock(
                                 text: 'Si'
                             }
                         }
+                    }
+                ]
+            },
+            {
+                type: 'regex',
+                params: [
+                    {
+                        website_url: '/economia/'
                     }
                 ]
             }
