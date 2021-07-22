@@ -75,7 +75,7 @@ ImageArticle.propTypes = {
         titleText: PropTypes.string
     }).isRequired,
     active: PropTypes.bool,
-    isVertical: PropTypes.bool.isRequired,
+    isVertical: PropTypes.bool,
     href: PropTypes.string,
     withLazy: PropTypes.bool
 };
@@ -83,7 +83,8 @@ ImageArticle.propTypes = {
 ImageArticle.defaultProps = {
     href: '',
     withLazy: true,
-    active: false
+    active: false,
+    isVertical: false
 };
 
 export default ImageArticle;

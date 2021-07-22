@@ -11,7 +11,7 @@ const childrenHasOpta = (children = []) => {
     );
 };
 
-const hasOptaElements = (contentElements, renderables) =>
+const hasOptaElements = (contentElements, renderables, promoItems) =>
     (contentElements &&
         contentElements.some(
             contentElement =>
@@ -25,16 +25,25 @@ const hasOptaElements = (contentElements, renderables) =>
                 get(elem, 'type') === 'Ln_Caja_Manual' &&
                 get(elem, 'props.customFields.hideCaja', false) !== true &&
                 childrenHasOpta(elem.children)
+        )) ||
+    (promoItems &&
+        get(promoItems, 'apertura_multimedia.type') === 'raw_html' &&
+        get(promoItems, 'apertura_multimedia.content', '').includes(
+            'opta-widget'
         ));
 
 const OptaEmbed = props => {
     const {
-        globalContent: { type, content_elements: contentElements },
+        globalContent: {
+            type,
+            content_elements: contentElements,
+            promo_items: promoItems
+        },
         renderables
     } = props;
 
     if (type === 'story' && !contentElements) return null;
-    if (!hasOptaElements(contentElements, renderables)) return null;
+    if (!hasOptaElements(contentElements, renderables, promoItems)) return null;
 
     const script = `
         window.onload = function() {
@@ -66,7 +75,8 @@ const OptaEmbed = props => {
 OptaEmbed.propTypes = {
     globalContent: PropTypes.shape({
         type: PropTypes.string.isRequired,
-        content_elements: PropTypes.shape.isRequired
+        content_elements: PropTypes.shape.isRequired,
+        promo_items: PropTypes.shape.isRequired
     }).isRequired,
     renderables: PropTypes.arrayOf(PropTypes.obj).isRequired
 };

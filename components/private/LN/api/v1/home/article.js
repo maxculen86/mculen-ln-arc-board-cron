@@ -32,10 +32,11 @@ const getArticleAuthor = article => {
     if (authors && authors.length > 0) {
         const authorsFixed = authors.filter(v => v.type === 'author');
         if (authorsFixed.length > 0) {
-            return authorHomeMobile(authorsFixed[0]);
+            return authorsFixed.map(author => {
+                return authorHomeMobile(author);
+            });
         }
     }
-
     return null;
 };
 
@@ -43,9 +44,29 @@ const getArticleOpinionSubtype = article => {
     return get(article, 'additionalProperties.subtype', null);
 };
 
-const getArticleSignature = (article, autor) => {
+const getArticleSignature = (article, authors) => {
     const signature = get(article, 'additionalProperties.authors', null);
-    return signature || (autor ? `Por ${autor.valor}` : null);
+    let authorsValue = [];
+    if (authors) {
+        const lastAuthor = authors[authors.length - 1];
+        authorsValue = authors.map(author => {
+            return (
+                (lastAuthor == author && authors.length !== 1
+                    ? author.valor[0].toUpperCase() == `I`
+                        ? ` e `
+                        : ` y `
+                    : author == authors[0]
+                    ? ``
+                    : ` `) + author.valor
+            );
+        });
+    }
+    return (
+        signature ||
+        (authorsValue
+            ? `Por ${authorsValue.toString().replace(/\,(?=[^,][ey])/, '')}`
+            : null)
+    );
 };
 
 export const articleItem = (articles, configuration) => {

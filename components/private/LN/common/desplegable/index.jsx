@@ -138,6 +138,7 @@ const Desplegable = ({ toglleDesplegable }) => {
                         color
                         logoName="la-nacion"
                         href="https://www.lanacion.com.ar/"
+                        target="_top"
                         title="Ir a la página principal"
                     />
                     <ComButton

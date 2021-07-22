@@ -11,12 +11,16 @@ const scriptVideoValidator = globalContent => {
     const subtype = get(globalContent, 'subtype');
     const promoItems = get(globalContent, 'promo_items');
     const basicPromoItems = get(promoItems, 'basic');
+    const aperturaMultimediaPromoItems = get(promoItems, 'apertura_multimedia');
     // const storytellingPromoItems = get(promoItems, 'storytelling');
     const typeBasic = get(basicPromoItems, 'type');
+    const typeMultimedia = get(aperturaMultimediaPromoItems, 'type');
     // const typeStorytelling = get(storytellingPromoItems, 'type');
 
     const loadVideo =
-        (videosBody(contentElements) > 0 || typeBasic === 'video') &&
+        (videosBody(contentElements) > 0 ||
+            typeMultimedia === 'video' ||
+            typeBasic === 'video') &&
         subtype !== FOTOAL100;
 
     return loadVideo;

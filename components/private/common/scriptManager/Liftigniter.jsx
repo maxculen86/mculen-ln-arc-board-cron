@@ -35,12 +35,15 @@ class LiftIgniter extends Component {
             label,
             content_elements: contentElements = [],
             credits,
-            _id
+            _id,
+            headlines
         } = globalContent || {};
+
         const { primary_section: primarySection, tags = [] } = taxonomy || {};
         const { name: tematica } = primarySection || {};
         const { by: authors = [] } = credits || {};
         const recomendar = get(label, 'recomendar.text', 'Si');
+        const title = get(headlines, 'mobile') || get(headlines, 'basic') || '';
 
         const scriptRum = `
             window.addEventListener('DOMContentLoaded', (event) => {
@@ -54,6 +57,7 @@ class LiftIgniter extends Component {
 
         const script = {
             id: _id,
+            title,
             noShow: recomendar !== 'Si',
             noIndex: false,
             tematica,
