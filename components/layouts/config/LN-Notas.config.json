@@ -16,18 +16,13 @@
                     }
                 },
                 {
-                    "label": {
-                        "enviar_a_apps": { "display": true, "text": "Si" }
-                    }
+                    "param1keyExample": { "basic": "To Replace xxxx" }
                 },
                 {
-                    "param1": { "basic": "To Replace xxxx" }
+                    "param2keyExample": { "basic": "To Replace xxxx" }
                 },
                 {
-                    "param2": { "basic": "To Replace xxxx" }
-                },
-                {
-                    "param3": { "basic": "To Replace xxxx" }
+                    "param3keyExample": { "basic": "To Replace xxxx" }
                 }
             ]
         }
