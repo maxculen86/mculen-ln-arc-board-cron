@@ -14,8 +14,9 @@ const notaRelacionada = dataNota => {
     const resp = {
         id,
         titulo,
-        url: websiteUrl || canonicalUrl,
-        enviarApp: !matchObject(dataNota)
+        url: websiteUrl || canonicalUrl
+        // TODO: pendiente agregar validacion para match
+        //enviarApp: !matchObject(dataNota)
     };
 
     const volanta = get(dataNota, 'label.volanta');
