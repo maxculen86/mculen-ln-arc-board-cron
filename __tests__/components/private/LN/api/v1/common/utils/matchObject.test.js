@@ -68,22 +68,22 @@ import Config from '../../../../../../../../components/layouts/config/LN-Notas.c
 
 describe('components - private - LN - api - v1 - common - utils - matchObject.js', () => {
     it('Testeo articulo sin Match', () => {
-        const enviarApp = matchObject(article1);
+        const enviarApp = matchObject(article1, 'contains');
         expect(enviarApp).toBe(true);
     });
 
     it('Testeo articulo con 1 Match objeto label de la posicion 4 del Mock Config', () => {
-        const enviarApp = matchObject(article2);
+        const enviarApp = matchObject(article2, 'contains');
         expect(enviarApp).toBe(false);
     });
 
     it('Testeo articulo con 1 Match Caso con Array al objeto taxonomy de la posicion 2 del Mock Config', () => {
-        const enviarApp = matchObject(article3);
+        const enviarApp = matchObject(article3, 'contains');
         expect(enviarApp).toBe(false);
     });
 
     it('Testeo articulo con 1 Match con parte del objeto de la posicion 5 del Mock Config', () => {
-        const enviarApp = matchObject(article4);
+        const enviarApp = matchObject(article4, 'contains');
         expect(enviarApp).toBe(false);
     });
 });

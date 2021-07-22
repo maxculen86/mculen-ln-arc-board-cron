@@ -1,11 +1,11 @@
 import get from 'lodash.get';
 import Config from '../../../../../../layouts/config/LN-Notas.config.json';
 
-const matchObject = obj => {
+const matchObject = (obj, type) => {
     let finded = [];
-    Config.Externas.map(v => {
+    Config.Externas.filter(x => x.type === type).map(v => {
         finded = v.params.map((current, i, result) => {
-            return compareObject(obj, current);
+            return compareObject(obj, current, type);
         });
         return finded;
     });
@@ -13,7 +13,7 @@ const matchObject = obj => {
     return finded.filter(x => x === true).length === 0;
 };
 
-const compareObject = (obj, param) => {
+const compareObject = (obj, param, type) => {
     let finded = true;
     const result = Object.entries(param).map(([key, value]) => {
         const objOrigen = get(obj, key, null);
@@ -55,6 +55,10 @@ const compareObject = (obj, param) => {
             return compareObject(objOrigen, value);
         }
         if (typeof value === 'string') {
+            if (type === 'regex') {
+                const regex = new RegExp(value).exec(objOrigen);
+                return !!regex;
+            }
             return objOrigen === value;
         }
         finded = true;
