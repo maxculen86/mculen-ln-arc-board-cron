@@ -73,14 +73,8 @@ export const getSourceSet = (sourceActive = [], isVertical, image) => {
     return srcset;
 };
 
-export const buildScriptForZoom = (
-    mediaData,
-    subtype,
-    withZoom,
-    itsGallery = false
-) => {
-    const { height = 0, width = 0, _id: idMedia, type } = mediaData || {};
-    const isVertical = height > width;
+export const buildScriptForZoom = (mediaData, subtype) => {
+    const { width = 0, _id: idMedia, type } = mediaData || {};
     return (
         type === 'image' &&
         idMedia && (

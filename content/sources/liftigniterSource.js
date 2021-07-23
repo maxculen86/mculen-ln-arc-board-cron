@@ -233,7 +233,9 @@ export default {
         referrer: 'text',
         imageConfig: 'text',
         action: 'text',
-        sessionId: 'text'
+        sessionId: 'text',
+        idArticle: 'text',
+        userId: 'text'
     },
     ttl: 120
 };

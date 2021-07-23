@@ -369,10 +369,7 @@ Comments.propTypes = {
         }),
         subtype: PropTypes.string
     }).isRequired,
-    deployment: PropTypes.func.isRequired,
-    termicas: PropTypes.shape({
-        livefyre: PropTypes.bool
-    }).isRequired
+    deployment: PropTypes.func.isRequired
 };
 
 export default withLoginData(Comments);

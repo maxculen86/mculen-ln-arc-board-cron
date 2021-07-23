@@ -1428,6 +1428,51 @@
                 "slug": "max-fisher-4189",
                 "type": "author",
                 "url": "/autor/max-fisher-4189/"
+            },
+            {
+                "_id": "matias-velasquez-4189",
+                "additional_properties": {
+                    "original": {
+                        "role": "The New York Times"
+                    }
+                },
+                "image": {
+                    "url": ""
+                },
+                "name": "Matias Velasquez",
+                "slug": "matias-velasquez-4189",
+                "type": "author",
+                "url": "/autor/matias-velasquez-4189/"
+            },
+            {
+                "_id": "soledad-velasquez-4189",
+                "additional_properties": {
+                    "original": {
+                        "role": "The New York Times"
+                    }
+                },
+                "image": {
+                    "url": ""
+                },
+                "name": "Soledad Velasquez",
+                "slug": "soledad-velasquez-4189",
+                "type": "author",
+                "url": "/autor/soledad-velasquez-4189/"
+            },
+            {
+                "_id": "ignacio-fernandez-4189",
+                "additional_properties": {
+                    "original": {
+                        "role": "The New York Times"
+                    }
+                },
+                "image": {
+                    "url": ""
+                },
+                "name": "Ignacio Fernandez",
+                "slug": "ignacio-fernandez-4189",
+                "type": "author",
+                "url": "/autor/ignacio-fernandez-4189/"
             }
         ]
     },

@@ -32,10 +32,11 @@ const getArticleAuthor = article => {
     if (authors && authors.length > 0) {
         const authorsFixed = authors.filter(v => v.type === 'author');
         if (authorsFixed.length > 0) {
-            return authorHomeMobile(authorsFixed[0]);
+            return authorsFixed.map(author => {
+                return authorHomeMobile(author);
+            });
         }
     }
-
     return null;
 };
 
@@ -43,9 +44,30 @@ const getArticleOpinionSubtype = article => {
     return get(article, 'additionalProperties.subtype', null);
 };
 
-const getArticleSignature = (article, autor) => {
+const getArticleSignature = (article, authors) => {
     const signature = get(article, 'additionalProperties.authors', null);
-    return signature || (autor ? `Por ${autor.valor}` : null);
+    let authorsValue = [];
+    if (authors) {
+        const lastAuthor = authors[authors.length - 1];
+        authorsValue = authors.map(author => {
+            return (
+                (lastAuthor == author && authors.length !== 1
+                    ? author.valor[0].toUpperCase() == `I`
+                        ? ` e `
+                        : ` y `
+                    : author == authors[0]
+                    ? ``
+                    : ` `) + author.valor
+            );
+        });
+    }
+    return (
+        signature ||
+        (authorsValue
+            ? (authorsValue.length > 0 ? `Por ` : ``) +
+              `${authorsValue.toString().replace(/\,(?=[^,][ey])/, '')}`
+            : null)
+    );
 };
 
 export const articleItem = (articles, configuration) => {
@@ -65,8 +87,8 @@ export const articleItem = (articles, configuration) => {
             if (!titulo) {
                 throw new Error('Titulo de la nota es null o undefined');
             }
-
-            const autor = getArticleAuthor(article);
+            const autores = getArticleAuthor(article);
+            const autor = autores ? autores[0] : null;
             const resp = {
                 id,
                 templateId,
@@ -79,7 +101,8 @@ export const articleItem = (articles, configuration) => {
                 bajada: get(article, 'subheadlines.basic', null),
                 chapita: getArticleTag(article),
                 autor,
-                marquesina: getArticleSignature(article, autor),
+                autores,
+                marquesina: getArticleSignature(article, autores),
                 seccionPadre: getArticleOpinionSubtype(article),
                 imagen: getArticleImage(article),
                 opinion: get(article, 'additionalProperties.opinion', false)
