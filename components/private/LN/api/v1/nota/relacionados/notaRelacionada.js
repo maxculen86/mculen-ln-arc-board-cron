@@ -16,7 +16,7 @@ const notaRelacionada = dataNota => {
         titulo,
         url: websiteUrl || canonicalUrl,
         // TODO: pendiente revisar validacion para match
-        enviarApp: matchObject(dataNota, 'regex')
+        enviarApps: matchObject(dataNota, 'regex')
     };
 
     const volanta = get(dataNota, 'label.volanta');

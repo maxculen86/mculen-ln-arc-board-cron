@@ -33,7 +33,7 @@ const articleItem = article => {
         fechaActualizacion: dateAndTimeForAppsUtil(lastUpdatedDate),
         url,
         bajada,
-        enviarApp: matchObject(article, 'contains')
+        enviarApps: matchObject(article, 'contains')
     };
 
     if (image && image.type === 'image') {
