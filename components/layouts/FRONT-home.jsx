@@ -1799,4 +1799,6 @@ LNHome.propTypes = {
 
 LNHome.sections = pageBuilderSections;
 
+LNHome.lazy = ['default', 'amp'];
+
 export default Consumer(LNHome);

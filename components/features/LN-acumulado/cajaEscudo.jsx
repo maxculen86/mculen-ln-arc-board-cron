@@ -166,4 +166,6 @@ const CajaEscudo = () => {
 
 CajaEscudo.label = 'LN Caja Escudos';
 
+CajaEscudo.lazy = ['default', 'amp'];
+
 export default CajaEscudo;

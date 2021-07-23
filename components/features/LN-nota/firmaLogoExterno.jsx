@@ -47,4 +47,6 @@ FirmaLogoExterno.propTypes = {
 
 FirmaLogoExterno.label = 'LN-Nota-FirmaLogoExterno';
 
+FirmaLogoExterno.lazy = ['default', 'amp'];
+
 export default withStatic(Context(FirmaLogoExterno));

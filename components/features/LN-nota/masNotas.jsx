@@ -153,4 +153,6 @@ masNotas.propTypes = {
     }).isRequired
 };
 
+masNotas.lazy = ['default', 'amp'];
+
 export default Consumer(masNotas);

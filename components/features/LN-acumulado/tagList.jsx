@@ -101,4 +101,6 @@ TagsListFeature.defaultProps = {
     title: ''
 };
 
+TagsListFeature.lazy = ['default', 'amp'];
+
 export default TagsListFeature;

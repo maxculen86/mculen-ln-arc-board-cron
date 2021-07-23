@@ -48,4 +48,6 @@ seguirLeyendo.propTypes = {
 
 seguirLeyendo.label = 'LN-Nota-SeguirLeyendo';
 
+seguirLeyendo.lazy = ['default', 'amp'];
+
 export default Consumer(seguirLeyendo);

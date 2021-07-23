@@ -23,5 +23,6 @@ AperturaFeature.propTypes = {
 };
 
 AperturaFeature.label = 'LN-Acumulado-Apertura';
+AperturaFeature.lazy = ['default', 'amp'];
 
 export default withStatic(Consumer(AperturaFeature));

@@ -15,4 +15,6 @@ AnexoFeature.propTypes = {
     }).isRequired
 };
 
+AnexoFeature.lazy = ['default', 'amp'];
+
 export default AnexoFeature;

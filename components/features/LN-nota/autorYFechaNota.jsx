@@ -15,4 +15,6 @@ const authorAndDate = props => {
 
 authorAndDate.label = 'LN-Nota-AutorYFecha';
 
+authorAndDate.lazy = ['default', 'amp'];
+
 export default Consumer(authorAndDate);

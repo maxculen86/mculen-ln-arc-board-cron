@@ -83,4 +83,6 @@ aperturaNoticia.propTypes = {
     }).isRequired
 };
 
+aperturaNoticia.lazy = ['default', 'amp'];
+
 export default Consumer(aperturaNoticia);

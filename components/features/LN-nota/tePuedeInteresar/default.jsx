@@ -135,4 +135,6 @@ tePuedeInteresar.defaultProps = {
     siteProperties: {}
 };
 
+tePuedeInteresar.lazy = ['default', 'amp'];
+
 export default tePuedeInteresar;

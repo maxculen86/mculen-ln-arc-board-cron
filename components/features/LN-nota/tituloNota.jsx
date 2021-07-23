@@ -18,4 +18,6 @@ tituloNota.propTypes = {
     }).isRequired
 };
 
+tituloNota.lazy = ['default', 'amp'];
+
 export default withStatic(Consumer(tituloNota));
