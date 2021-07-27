@@ -108,7 +108,13 @@ const LNAcumuladoLayout = props => {
         'acumuladoGeneral.colecciones',
         []
     );
-    const OPENING_CLASS = idCollectionApertura ? '--opening' : '';
+    const OPENING_CLASS = get(
+        globalContent,
+        'acumuladoGeneral.id_collection_promo_items',
+        false
+    )
+        ? '--opening'
+        : '';
 
     return (
         <GlobalProvider>
