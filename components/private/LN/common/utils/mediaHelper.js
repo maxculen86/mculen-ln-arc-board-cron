@@ -9,28 +9,30 @@ import {
 
 export const getEpigrafe = basic => {
     const { type, promo_items: promoItemsBasic, caption } = basic || {};
-    const { basic: basicVideo } = promoItemsBasic || {};
-    const { caption: captionVideo, credito: creditoVideo } = basicVideo || {};
-    const credito = EpigrafeAndCreditsData(basic);
-    const textEpigrafe = get(basic, 'headlines.basic', captionVideo);
 
     if (type === 'image' && basic) {
+        const creditImage = EpigrafeAndCreditsData(basic);
         return {
             caption: caption && (
                 <span className="com-text --caption --twoxs">{caption}</span>
             ),
-            credit: credito && (
-                <span className="com-text --credit --twoxs">{credito}</span>
+            credit: creditImage && (
+                <span className="com-text --credit --twoxs">{creditImage}</span>
             )
         };
     }
+
+    const { basic: basicVideo } = promoItemsBasic || {};
+    const { caption: captionVideo } = basicVideo || {};
+    const creditVideo = EpigrafeAndCreditsData(basicVideo);
+    const textEpigrafe = get(basic, 'headlines.basic', captionVideo);
 
     return {
         caption: textEpigrafe && (
             <span className="com-text --caption --twoxs">{textEpigrafe}</span>
         ),
-        credit: creditoVideo && (
-            <span className="com-text --credit --twoxs">{creditoVideo}</span>
+        credit: creditVideo && (
+            <span className="com-text --credit --twoxs">{creditVideo}</span>
         )
     };
 };
