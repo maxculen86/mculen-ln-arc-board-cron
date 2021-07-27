@@ -134,11 +134,9 @@ const setTitle = (data, section, pageBuilderTitle) => {
 
 const getMetasOG = props => {
     const data = getData(props);
-    const pageBuilderTitle = props.metaValue('title');
-    console.log(
-        '🚀 ~ file: getMetasOG.jsx ~ line 140 ~ pageBuilderTitle',
-        pageBuilderTitle
-    );
+    const pageBuilderTitle = props
+        .metaValue('title')
+        .replace(' - LA NACION', '');
     const { section, siteProperties } = props;
     const metas = [
         {

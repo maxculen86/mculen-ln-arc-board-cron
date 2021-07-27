@@ -49,7 +49,9 @@ const getMetaDescriptionForAcum = (
     const articlesTitles = articles.map(
         art => ` ${getTitleText(art.headlines)}`
     );
-    return `${description}${articlesTitles.join(',')}`;
+    return _id === '/recetas'
+        ? description
+        : `${description}${articlesTitles.join(',')}`;
 };
 
 export default getMetaDescriptionForAcum;

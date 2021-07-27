@@ -38,13 +38,18 @@ const MetaDescription = ({
     if (arcSite !== 'la-nacion-ar') return <></>;
 
     const acusWithMeta = ['section', 'author', 'distributor', 'tags'];
-
-    if (acusWithMeta.includes(nodeType) && _id !== '/recetas') {
+    const acuRecetaRegExp = new RegExp(/^\/recetas\/(.+)$/);
+    if (acusWithMeta.includes(nodeType)) {
         // const { tagId } = extractDataFromTags(payload);
+
         return (
             <meta
                 name="description"
-                content={`${metaDescription} - LA NACION`}
+                content={
+                    _id === '/recetas' || acuRecetaRegExp.test(_id)
+                        ? metaDescription
+                        : `${metaDescription} - LA NACION`
+                }
             />
         );
         // return (

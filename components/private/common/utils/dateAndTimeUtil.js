@@ -1,3 +1,18 @@
+const monthNames = [
+    'enero',
+    'febrero',
+    'marzo',
+    'abril',
+    'mayo',
+    'junio',
+    'julio',
+    'agosto',
+    'septiembre',
+    'octubre',
+    'noviembre',
+    'diciembre'
+];
+
 function formatDate(originalDate) {
     // TODO: en  el render desde el cliente toma la hora del mismo,
     // cuando es ssr toma la hora del servidor.
@@ -7,27 +22,21 @@ function formatDate(originalDate) {
             ? originalDate
             : formatDateTreeHoursMore(originalDate);
 
-    const monthNames = [
-        'enero',
-        'febrero',
-        'marzo',
-        'abril',
-        'mayo',
-        'junio',
-        'julio',
-        'agosto',
-        'septiembre',
-        'octubre',
-        'noviembre',
-        'diciembre'
-    ];
-
     const monthIndex = date.getMonth();
 
     return `${date.getDate()} de ${
         monthNames[monthIndex]
     } de ${date.getFullYear()}`;
 }
+
+export const getTodayDateForAcuDolar = () => {
+    const date = new Date();
+
+    const monthIndex = date.getMonth();
+    const month = monthNames[monthIndex];
+    const day = date.getDate();
+    return `${day} de ${month}`;
+};
 
 function formatDateHoursAndMint(originalDate) {
     const date = formatDateTreeHoursMore(originalDate);
