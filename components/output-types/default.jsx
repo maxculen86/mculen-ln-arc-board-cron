@@ -176,16 +176,18 @@ const Default = props => {
         scripts,
         siteProperties.scripts
     );
-    const metaDescription = getMetaDescriptionForAcum(
-        metaValue('description'),
-        _id,
-        Payload,
-        nodeType,
-        name,
-        arcSite
-    );
-
     const _nodeType = getSectionName({ nodeType, type });
+    const metaDescription =
+        _nodeType === 'acumulado'
+            ? getMetaDescriptionForAcum(
+                  metaValue('description'),
+                  _id,
+                  Payload,
+                  nodeType,
+                  name,
+                  arcSite
+              )
+            : '';
 
     const title =
         _nodeType === 'home'
