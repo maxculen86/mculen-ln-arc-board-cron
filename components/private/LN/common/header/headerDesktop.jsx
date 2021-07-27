@@ -1,11 +1,15 @@
+/* eslint-disable react/no-danger */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-restricted-globals */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable no-script-url */
+/* eslint-disable no-undef */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from 'react';
 import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import PropTypes from 'fusion:prop-types';
 import Header from './headerBase';
 import Hamburguer from './hamburger';
-//import ComLink from '../../../common/com-link';
-//import ComLogo from '../../../common/com-logo';
 import ComIcon from '../../../common/com-icon';
 import Logo from '../../../common/com-logo';
 import DivBanner from '../../../common/banners/DivBanner';
@@ -14,7 +18,11 @@ import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../../../../resources/dist/css/ln/components/usuario.css';
 import '../../../../../resources/dist/css/ln/components/button.css';
 import dynamicallyLoadScript from '../utils/dynamicallyLoadScript';
-// import ModsubHeather from './subHeader';
+import { getViewport } from '../utils/homeHelper';
+import { getSlotForDevice } from '../bannerRefactor/utils';
+import getBannerConfig from '../../../common/banners/bannersCommon';
+import hasAdsTestParam from '../utils/hasAdsTesParam';
+import { queueGoogletagCommand } from '../../../common/banners/LoadBanners';
 
 const ItemAnchor = ({ url, text, alt }) => {
     const callURL = address => {
@@ -66,6 +74,8 @@ const HeaderDesktop = ({
     loginData,
     goToLogout,
     host,
+    section,
+    dfpId,
     // headerDark,
     toglleDesplegable
 }) => {
@@ -76,12 +86,45 @@ const HeaderDesktop = ({
         loading ? ' hlp-none' : ''
     );
 
+    const { isMobile, isTablet, isDesktop, device } = getViewport();
+
+    const slotId = getSlotForDevice(device)([
+        { name: 'desktop', slot: 'logo_header_dsk' },
+        { name: 'mobile', slot: 'logo_header_mob' },
+        { name: 'tablet', slot: 'logo_header_tab' }
+    ]);
+
+    const loadBanner = (optDiv, slotGroup) => {
+        const { adUnitPath, size } = getBannerConfig({
+            optDiv,
+            device,
+            dfpId
+        });
+
+        const bannerToLoad = [
+            {
+                adUnitPath,
+                opt_div: optDiv,
+                prebidEnabled: false,
+                size,
+                slotGroup,
+                targeting: {
+                    sitio: 'lanacion',
+                    adstest: hasAdsTestParam()
+                }
+            }
+        ];
+
+        queueGoogletagCommand(bannerToLoad);
+    };
+
     const toggleMenu = () =>
         active === '' ? setActive(' --active') : setActive('');
 
     useEffect(() => {
         setLoadingUserData(loading ? ' hlp-none' : '');
-    }, [loading]);
+        if (slotId) loadBanner(slotId, section);
+    }, [loading, slotId]);
 
     const handleClickBuscar = () => {
         dynamicallyLoadScript('//www.queryly.com/js/queryly.v4.js', 'body')
@@ -117,25 +160,25 @@ const HeaderDesktop = ({
                 <DivBanner
                     id="logo_header_dsk"
                     classes="--logo"
-                    //shouldRender={isDesktop}
-                    isStatic
-                />
-                <DivBanner
-                    id="logo_header_tab"
-                    classes="--logo"
-                    //shouldRender={isTablet}
+                    shouldRender={isDesktop}
                     isStatic
                 />
                 <DivBanner
                     id="logo_header_mob"
                     classes="--logo"
-                    //shouldRender={isMobile}
+                    shouldRender={isMobile}
+                    isStatic
+                />
+                <DivBanner
+                    id="logo_header_tab"
+                    classes="--logo"
+                    shouldRender={isTablet}
                     isStatic
                 />
                 <Logo
                     logoName="la-nacion"
                     color
-                    //size="--md"
+                    // size="--md"
                     href={host || '/'}
                     title="Ir a la página principal"
                 />
@@ -241,8 +284,10 @@ HeaderDesktop.propTypes = {
     }).isRequired,
     goToLogout: PropTypes.func.isRequired,
     host: PropTypes.string.isRequired,
-    //headerDark: PropTypes.string,
-    toglleDesplegable: PropTypes.func.isRequired
+    // headerDark: PropTypes.string,
+    toglleDesplegable: PropTypes.func.isRequired,
+    section: PropTypes.string.isRequired,
+    dfpId: PropTypes.number.isRequired
 };
 
 // HeaderDesktop.defaultProps = {

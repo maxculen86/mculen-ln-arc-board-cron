@@ -9,6 +9,7 @@ import Desplegable from '../desplegable';
 import Scroll from '../../../common/utils/scroll';
 import debounce from '../../../common/utils/debounce';
 import { getAndSaveCustomDimension } from '../../../common/utils/storage';
+import getSectionName from '../utils/getSectionName';
 
 const CLASS_SCROLL_UP = '--scrollUp';
 const CLASS_SCROLL_DOWN = '--scrollDown';
@@ -30,7 +31,7 @@ class Index extends Component {
         // debugger;
 
         const header = document.getElementById('header');
-        //const vshare = document.getElementById('v-share');
+        // const vshare = document.getElementById('v-share');
         const userMenu = document.getElementById('user-menu');
         const fusionApp = document.getElementById('fusion-app');
         const wrapper = fusionApp && fusionApp.querySelector('#wrapper');
@@ -75,14 +76,14 @@ class Index extends Component {
         if (userMenu) userMenu.classList.remove(CLASS_ACTIVE);
         if (scrollPos) {
             if (scrollPos > height) {
-                //classList.add(CLASS_SCROLL_DOWN);
+                // classList.add(CLASS_SCROLL_DOWN);
                 if (wrapper) {
                     wrapper.classList.add(CLASS_SCROLL_DOWN);
                 }
             }
             if (isScrollUp) {
-                //classList.remove(CLASS_SCROLL_DOWN);
-                //classList.add(CLASS_SCROLL_UP);
+                // classList.remove(CLASS_SCROLL_DOWN);
+                // classList.add(CLASS_SCROLL_UP);
                 // if (vshare) {
                 //     vshare.classList.add(CLASS_SCROLL_UP);
                 //     vshare.classList.remove(CLASS_SCROLL_DOWN);
@@ -98,7 +99,7 @@ class Index extends Component {
                 classList.remove(CLASS_ACTIVE);
                 if (vshare) vshare.classList.remove(CLASS_ACTIVE);
 
-                //classList.remove(CLASS_SCROLL_UP);
+                // classList.remove(CLASS_SCROLL_UP);
                 // if (vshare) {
                 //     vshare.classList.remove(CLASS_SCROLL_UP);
                 //     vshare.classList.add(CLASS_SCROLL_DOWN);
@@ -109,11 +110,11 @@ class Index extends Component {
                 }
             }
             if (scrollPos < 65) {
-                //esta clsae está para el header transparente
+                // esta clsae está para el header transparente
                 classList.add(CLASS_ACTIVE);
                 if (vshare) vshare.classList.add(CLASS_ACTIVE);
-                //classList.remove(CLASS_SCROLL_UP);
-                //classList.remove(CLASS_SCROLL_DOWN);
+                // classList.remove(CLASS_SCROLL_UP);
+                // classList.remove(CLASS_SCROLL_DOWN);
                 // if (wrapper) {
                 //     wrapper.classList.remove(CLASS_SCROLL_UP);
                 //     wrapper.classList.remove(CLASS_SCROLL_DOWN);
@@ -133,9 +134,17 @@ class Index extends Component {
             loginData,
             goToLogout,
             headerDark,
-            siteProperties: { host }
+            siteProperties: {
+                host,
+                bannerConfig: { dfp_id: dfpId }
+            },
+            globalContent
         } = this.props;
-        const { scrollDirection } = this.state;
+
+        const { type, node_type: nodeType } = globalContent || {};
+        const section = getSectionName({ type, nodeType });
+
+        // const { scrollDirection } = this.state;
 
         if (outputType === 'amp')
             return <HeaderAMP toglleDesplegable={this.toglleDesplegable} />;
@@ -150,6 +159,8 @@ class Index extends Component {
                     goToLogout={goToLogout}
                     host={host}
                     headerDark={headerDark}
+                    section={section}
+                    dfpId={dfpId}
                 />
 
                 <NavBarMobile
@@ -180,9 +191,16 @@ Index.propTypes = {
     }).isRequired,
     goToLogout: PropTypes.func.isRequired,
     siteProperties: PropTypes.shape({
-        host: PropTypes.string
+        host: PropTypes.string,
+        bannerConfig: PropTypes.shape({
+            dfp_id: PropTypes.number
+        })
     }).isRequired,
-    headerDark: PropTypes.string.isRequired
+    headerDark: PropTypes.string.isRequired,
+    globalContent: PropTypes.shape({
+        type: PropTypes.string,
+        node_type: PropTypes.string
+    }).isRequired
 };
 
 export default withLoginData(Consumer(Index));
