@@ -1,6 +1,5 @@
-/* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import '../../../resources/dist/css/ln/components/com-link.css';
 import '../../../resources/dist/css/ln/components/com-text.css';
 
@@ -27,7 +26,7 @@ const ComLink = props => {
         ...(link && { href: link }),
         ...(dataEvent && { 'data-event': dataEvent }),
         ...(dataSection && { 'data-section': dataSection }),
-        ...(link && { rel: target === '_blank' && 'nonoopener noreferrer' }),
+        ...(link && { rel: target === '_blank' ? 'nofollow' : undefined }),
         ...(link && { target }),
         ...(link && { title }),
         ...(isString && { dangerouslySetInnerHTML: { __html: children } }),
@@ -44,15 +43,28 @@ const ComLink = props => {
 ComLink.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
-        PropTypes.string
+        PropTypes.string,
+        PropTypes.node
     ]).isRequired,
     link: PropTypes.string.isRequired,
-    textname: PropTypes.string.isRequired,
+    textname: PropTypes.string,
     title: PropTypes.string,
     target: PropTypes.string,
     classCondition: PropTypes.string,
     size: PropTypes.string,
-    style: PropTypes.string
+    style: PropTypes.string,
+    dataSection: PropTypes.string,
+    dataEvent: PropTypes.string
+};
+
+ComLink.defaultProps = {
+    textname: '',
+    title: '',
+    classCondition: '',
+    size: '',
+    style: '',
+    dataSection: '',
+    dataEvent: ''
 };
 
 export default ComLink;

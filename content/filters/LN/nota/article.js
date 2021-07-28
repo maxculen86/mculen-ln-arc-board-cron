@@ -276,6 +276,13 @@ export default `
         receta {
             ${customReceta}
         }
+        apertura_multimedia {
+            _id
+            type
+            ${video}
+            embed_html
+            content            
+        }
     }
     credits {
         by {

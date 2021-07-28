@@ -1,6 +1,5 @@
-/* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import '../../../resources/dist/css/ln/components/com-link.css';
 
 const Link = ({
@@ -34,14 +33,25 @@ const Link = ({
 };
 
 Link.propTypes = {
-    children: PropTypes.string,
+    children: PropTypes.arrayOf(PropTypes.node).isRequired,
     href: PropTypes.string,
     text: PropTypes.string,
     target: PropTypes.string,
     title: PropTypes.string,
     mod: PropTypes.string,
     size: PropTypes.string,
-    item: PropTypes.element
+    className: PropTypes.string,
+    onClick: PropTypes.func
+};
+
+Link.defaultProps = {
+    href: '',
+    text: '',
+    title: '',
+    mod: '',
+    size: '',
+    className: '',
+    onClick: undefined
 };
 
 export default Link;

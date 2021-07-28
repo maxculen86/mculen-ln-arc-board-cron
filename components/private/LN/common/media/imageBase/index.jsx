@@ -67,7 +67,7 @@ ImageArticle.propTypes = {
         type: PropTypes.oneOf(['image']),
         url: PropTypes.string,
         resized_urls: PropTypes.array.isRequired,
-        resized_urls_zoom: PropTypes.array.isRequired,
+        resized_urls_zoom: PropTypes.array,
         width: PropTypes.number,
         height: PropTypes.number,
         alt_text: PropTypes.string,
@@ -75,7 +75,7 @@ ImageArticle.propTypes = {
         titleText: PropTypes.string
     }).isRequired,
     active: PropTypes.bool,
-    isVertical: PropTypes.bool.isRequired,
+    isVertical: PropTypes.bool,
     href: PropTypes.string,
     withLazy: PropTypes.bool
 };
@@ -83,7 +83,8 @@ ImageArticle.propTypes = {
 ImageArticle.defaultProps = {
     href: '',
     withLazy: true,
-    active: false
+    active: false,
+    isVertical: false
 };
 
 export default ImageArticle;

@@ -39,7 +39,9 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
         expect(notas[0].autor.imagen).toBe(null);
         expect(notas[0].autor.mail).toBe(undefined);
         expect(notas[0].autor.twitter).toBe(undefined);
-        expect(notas[0].marquesina).toBe('Por Max Fisher');
+        expect(notas[0].marquesina).toBe(
+            'Por Max Fisher, Matias Velasquez, Soledad Velasquez e Ignacio Fernandez'
+        );
         expect(notas[0].seccionPadre).toBe(null);
     });
     it('Testeo articulo Caja Manual con un articulo null', () => {
@@ -291,5 +293,185 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
         } catch (err) {
             expect(err.message).toBe('Titulo de la nota es null o undefined');
         }
+    });
+    it('Testeo getArticleSignature, autores en marquesina', () => {
+        const authors = [
+            {
+                _id: 'matias-velasquez-4189',
+                additional_properties: { original: [Object] },
+                image: { url: '' },
+                name: 'Matias Velasquez',
+                slug: 'matias-velasquez-4189',
+                type: 'author',
+                url: '/autor/matias-velasquez-4189/'
+            },
+            {
+                _id: 'isaias-anzola-4189',
+                additional_properties: { original: [Object] },
+                image: { url: '' },
+                name: 'Isaías Anzola',
+                slug: 'isaias-anzola-4189',
+                type: 'author',
+                url: '/autor/isaias-anzola-4189/'
+            },
+            {
+                _id: 'sally-flores-4189',
+                additional_properties: { original: [Object] },
+                image: { url: '' },
+                name: 'Sally Flores',
+                slug: 'sally-flores-4189',
+                type: 'author',
+                url: '/autor/sally-flores-4189/'
+            },
+            {
+                _id: 'leonardo-lemkin-4189',
+                additional_properties: { original: [Object] },
+                image: { url: '' },
+                name: 'Leonardo Lemkin',
+                slug: 'leonardo-lemkin-4189',
+                type: 'author',
+                url: '/autor/leonardo-lemkin-4189/'
+            }
+        ];
+        const articleauthor = {
+            _id: '2KOBND62KNFVVBFQZOADNN6WNY',
+            canonical_url: '/deportes/por-el-mercado-nid570000/',
+            content_elements: [
+                {
+                    _id: 'UGOTNNA5NNH3NK2KSBIANFMLM4',
+                    additional_properties: {},
+                    content:
+                        'AGADIR.- Como en cualquier lugar del mundo islámico, la recorrida de las calles es un paseo obligado. Otras costumbres, otra manera de vivir. Ni mejor ni peor. Diferente. Poco queda en Agadir de esa ciudad magrebí que los portugueses convirtieron en factoría, en 1505, para obtener jugosos beneficios de la caña de azúcar, dátiles, cera, pieles, aceites, especias y esclavos. Cuarenta años después, los empresarios que compartían ganancias con la corona lusitana abandonaron este puerto. Mucho tiempo después, en 1960, un terremoto sepultó el pasado. Agadir es un sitio de construcciones nuevas, con casas de uno o dos pisos. Poca gente se mueve por sus calles. Son días de fiesta religiosa, la celebración del cordero, en la que los jefes de las familias con dinero compran el animal, lo sacrifican -como lo hizo Abraham en el Antiguo Testamento- y lo comparten con los que menos tienen, como un símbolo de unidad. Por eso, encontrar algún mercado funcionando a pleno es una misión complicada.',
+                    type: 'text'
+                }
+            ],
+            configurations: {
+                arcSite: 'la-nacion-ar'
+            },
+            credits: {
+                by: []
+            },
+            distributor: {
+                category: 'staff',
+                name: 'lanacionar'
+            },
+            headlines: {
+                basic: 'Por el mercado',
+                mobile: 'Por el mercado'
+            },
+            label: {
+                edicion: {
+                    display: true,
+                    text: 'Impresa'
+                },
+                volanta: {
+                    display: true,
+                    text: 'De viaje.'
+                }
+            },
+            owner: {},
+            related_content: {
+                basic: []
+            },
+            subheadlines: {
+                basic: 'Por La Nacion'
+            },
+            subtype: '1',
+            taxonomy: {
+                primary_section: {
+                    _id: '/deportes',
+                    _website: 'la-nacion-ar',
+                    additional_properties: {
+                        original: {
+                            ancestors: {},
+                            site: {}
+                        }
+                    },
+                    name: 'Deportes',
+                    parent_id: '/',
+                    path: '/deportes'
+                },
+
+                tags: []
+            },
+            type: 'story',
+            website_url: '/deportes/por-el-mercado-nid570000/'
+        };
+        articlesfromCajaManual = [];
+        articlesfromCajaManual.push(articleauthor);
+        articleauthor.credits.by.push(authors[0]);
+        const articles = Article(articlesfromCajaManual, configurations);
+        expect(articles[0].autores.length).toBe(1);
+        expect(articles[0].marquesina).toBe('Por Matias Velasquez');
+
+        articleauthor.credits.by.splice(0, articleauthor.credits.by.length);
+        articleauthor.credits.by.push(authors[0]);
+        articleauthor.credits.by.push(authors[1]);
+        const articlesWithTwoAuthors = Article(
+            articlesfromCajaManual,
+            configurations
+        );
+        expect(articlesWithTwoAuthors[0].autores.length).toBe(2);
+        expect(articlesWithTwoAuthors[0].marquesina).toBe(
+            'Por Matias Velasquez e Isaías Anzola'
+        );
+
+        articleauthor.credits.by.splice(0, articleauthor.credits.by.length);
+        articleauthor.credits.by.push(authors[0]);
+        articleauthor.credits.by.push(authors[1]);
+        articleauthor.credits.by.push(authors[2]);
+        articleauthor.credits.by.push(authors[3]);
+        const articlesWithFourAuthors = Article(
+            articlesfromCajaManual,
+            configurations
+        );
+        expect(articlesWithFourAuthors[0].autores.length).toBe(4);
+        expect(articlesWithFourAuthors[0].marquesina).toBe(
+            'Por Matias Velasquez, Isaías Anzola, Sally Flores y Leonardo Lemkin'
+        );
+
+        articleauthor.credits.by.splice(0, articleauthor.credits.by.length);
+        articleauthor.credits.by.push(authors[0]);
+        articleauthor.credits.by.push(authors[2]);
+        articleauthor.credits.by.push(authors[1]);
+        const articlesWithThreeAuthors = Article(
+            articlesfromCajaManual,
+            configurations
+        );
+        expect(articlesWithThreeAuthors[0].autores.length).toBe(3);
+        expect(articlesWithThreeAuthors[0].marquesina).toBe(
+            'Por Matias Velasquez, Sally Flores e Isaías Anzola'
+        );
+
+        articleauthor.credits.by.splice(0, articleauthor.credits.by.length);
+        articleauthor.credits.by.push(authors[0]);
+        articleauthor.credits.by.push(authors[2]);
+        const articlesWithTwoAuthorsY = Article(
+            articlesfromCajaManual,
+            configurations
+        );
+        expect(articlesWithTwoAuthorsY[0].autores.length).toBe(2);
+        expect(articlesWithTwoAuthorsY[0].marquesina).toBe(
+            'Por Matias Velasquez y Sally Flores'
+        );
+    });
+    it('Testeo enviar todos los autores de una nota', () => {
+        articlesfromCajaManual = [];
+        articlesfromCajaManual.push(article1);
+        const notas = Article(articlesfromCajaManual, configurations);
+        expect(notas[0].autores.length).toBe(4);
+        expect(notas[0].marquesina).toBe(
+            'Por Max Fisher, Matias Velasquez, Soledad Velasquez e Ignacio Fernandez'
+        );
+    });
+    it('Testeo campo autores en nota', () => {
+        articlesfromCajaManual = [];
+        articlesfromCajaManual.push(article1);
+        const notas = Article(articlesfromCajaManual, configurations);
+        expect(notas[0].autor.valor).toBe('Max Fisher');
+        expect(notas[0].autores.length).toBe(4);
+        expect(notas[0].marquesina).toBe(
+            'Por Max Fisher, Matias Velasquez, Soledad Velasquez e Ignacio Fernandez'
+        );
     });
 });

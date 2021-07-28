@@ -20,17 +20,17 @@ const ComPicture = props => {
 };
 
 ComPicture.propTypes = {
-    children: PropTypes.elementType.isRequired,
+    children: PropTypes.node.isRequired,
     href: PropTypes.string,
     classCondition: PropTypes.string,
-    amp: PropTypes.string,
+    amp: PropTypes.boolean,
     video: PropTypes.string
 };
 
 ComPicture.defaultProps = {
     href: '',
     classCondition: '',
-    amp: '',
+    amp: false,
     video: ''
 };
 

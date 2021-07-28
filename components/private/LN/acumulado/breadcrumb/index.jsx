@@ -103,7 +103,6 @@ function Index(props) {
 }
 
 Index.propTypes = {
-    host: PropTypes.string.isRequired,
     customFields: PropTypes.shape({
         sectionName: PropTypes.string.tag({ label: `Nombre de la Seccion` })
     })

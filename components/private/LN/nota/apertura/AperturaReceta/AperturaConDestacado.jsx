@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Tags from '../tags';
 import Sections from '../sections';
-import Destacado from '../destacado';
 import DetalleReceta from '../detalleReceta';
 
 import '../../../../../../resources/dist/css/ln/layouts/grid.css';
 import ComTitle from '../../../../common/com-title';
+import Media from '../../../common/media';
 
 const AperturaConDestacado = props => {
     const {
@@ -14,13 +14,18 @@ const AperturaConDestacado = props => {
             promo_items: promoItems,
             taxonomy,
             taxonomy: { tags }
-        }
+        },
+        outputType
     } = props;
 
     return (
         <>
             <div className="col-desksm-8">
-                <Destacado basic={promoItems.basic} />
+                <Media
+                    mediaData={promoItems.basic}
+                    outputType={outputType}
+                    colNumber={8}
+                />
             </div>
             <div className="col-desksm-4 cont-aper">
                 <Sections taxonomy={taxonomy} destacado />
@@ -59,7 +64,8 @@ AperturaConDestacado.propTypes = {
             receta: PropTypes.object,
             basic: PropTypes.object
         })
-    })
+    }).isRequired,
+    outputType: PropTypes.string.isRequired
 };
 
 export default AperturaConDestacado;

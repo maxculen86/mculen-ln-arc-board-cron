@@ -34,7 +34,7 @@ const LoginProvider = ({ children }) => {
 };
 
 LoginProvider.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.node).isRequired
+    children: PropTypes.node.isRequired
 };
 
 export default LoginProvider;

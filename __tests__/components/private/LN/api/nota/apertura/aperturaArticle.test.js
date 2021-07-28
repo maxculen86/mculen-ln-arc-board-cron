@@ -4,6 +4,7 @@ import Apertura from '../../../../../../../components/private/LN/api/v1/nota/ape
 import ArticleApertura from '../../../../../../../__mocks__/data/nota/apertura/apertura.json';
 import HistoryTellingArticle from '../../../../../../../__mocks__/data/articles/4HFO7YPZBFEYVB6K5XY6IFV3XY.json';
 import HistoryFotoAlCienArticle from '../../../../../../../__mocks__/data/articles/PTAOLSGRDBEZLG6A6T43M7A7PU.json';
+import AperturaMultimedia from '../../../../../../../__mocks__/data/articles/KMD6TFFRHRC7XBPE2DDNKOTALE.json';
 import { getAutorId } from '../../../../../../../components/private/common/utils/getElementId';
 
 describe('Test de JSON de apertura en article', () => {
@@ -162,6 +163,15 @@ describe('Test de JSON de apertura en article', () => {
     it('Render de videos de apertura', () => {
         const resp = Apertura(ArticleApertura[1]);
         const videoData = Video(ArticleApertura[1].promo_items.basic);
+        expect(resp.multimedio).toMatchObject(videoData);
+        expect(resp.imagenes).toBeUndefined();
+    });
+
+    it('Render de videos de apertura caso apertura multimedia', () => {
+        const resp = Apertura(AperturaMultimedia);
+        const videoData = Video(
+            AperturaMultimedia.promo_items.apertura_multimedia
+        );
         expect(resp.multimedio).toMatchObject(videoData);
         expect(resp.imagenes).toBeUndefined();
     });

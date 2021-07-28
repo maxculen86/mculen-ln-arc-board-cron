@@ -1,0 +1,544 @@
+{
+    "_id": "KMD6TFFRHRC7XBPE2DDNKOTALE",
+    "type": "story",
+    "version": "0.10.7",
+    "content_elements": [
+        {
+            "_id": "ZRKYXGDAMVFNPH5T3GAVZXNDWM",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1626813126603,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "En esta cronología se narran los hitos más importantes de la historia del mate. Pau Navajas, autor de <a href=\"http://caapora.com.ar/\">Caá porã, el espíritu de la yerba mate</a> y el historiador Daniel Balmaceda recorren las distintas etapas a través de los siglos: desde quiénes fueron sus primeros consumidores, hasta su llegada al mundo árabe."
+        },
+        {
+            "_id": "F4O26AV6HVHILPMO6JMW3SWB3E",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1626813126604,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Créditos:"
+        },
+        {
+            "_id": "LZGLHYGMNNAOLJLEAQJ36U472I",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1626813126605,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Producción General: Florencia Coelho"
+        },
+        {
+            "_id": "HUORAXLF55ENXOS6ZCT3JUZAMA",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1626813126606,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Filmación y Edición: Alex Mueller (Medill School, Northwestern University)"
+        },
+        {
+            "_id": "NCWTFDBDNJDVBBZQRISC7CYAWM",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1626813126607,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Producción y Textos: Ivanna Zanella, Maia Bubis Perera y Santiago Nasra (Master de Periodismo LA NACION - Universidad Torcuato Di Tella)"
+        }
+    ],
+    "created_date": "2021-07-19T17:39:26.704Z",
+    "revision": {
+        "revision_id": "ZHI3NFCFGFAJHLOLKT7KYOVG4E",
+        "parent_id": "Q4XZY4U7UZH2NI6BUF4ZVVURRM",
+        "editions": ["default"],
+        "branch": "default",
+        "user_id": "JAlvarez@lanacion.com.ar",
+        "published": true
+    },
+    "last_updated_date": "2021-07-21T13:27:59.756Z",
+    "canonical_url": "/arquitectura/la-historia-del-mate-ilex-paraguariensis-nid19072021/",
+    "headlines": {
+        "basic": "La Historia del Mate (Ilex paraguariensis) ",
+        "meta_title": "",
+        "mobile": "",
+        "native": "",
+        "print": "",
+        "tablet": "",
+        "web": ""
+    },
+    "owner": {
+        "sponsored": false,
+        "id": "lanacionar"
+    },
+    "content_restrictions": {
+        "content_code": "comun"
+    },
+    "address": {},
+    "comments": {
+        "allow_comments": false,
+        "display_comments": false,
+        "moderation_required": true
+    },
+    "syndication": {
+        "external_distribution": false,
+        "search": false
+    },
+    "workflow": {
+        "status_code": 1
+    },
+    "subheadlines": {
+        "basic": ""
+    },
+    "description": {
+        "basic": ""
+    },
+    "language": "",
+    "label": {
+        "edicion": {
+            "display": true,
+            "text": "Digital",
+            "url": ""
+        },
+        "enviar_a_apps": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "mostrar_banners": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "recomendar": {
+            "display": true,
+            "text": "No",
+            "url": ""
+        },
+        "trust": {
+            "display": true,
+            "text": "No mostrar Trust",
+            "url": ""
+        }
+    },
+    "source": {
+        "name": "LA NACION",
+        "source_type": "staff",
+        "system": "composer"
+    },
+    "taxonomy": {
+        "primary_section": {
+            "_id": "/arquitectura",
+            "_website": "la-nacion-ar",
+            "type": "section",
+            "version": "0.6.0",
+            "name": "Arquitectura",
+            "path": "/arquitectura",
+            "parent_id": "/",
+            "parent": {
+                "default": "/"
+            },
+            "additional_properties": {
+                "original": {
+                    "_id": "/arquitectura",
+                    "site": {
+                        "site_url": "/arquitectura/"
+                    },
+                    "migration": {
+                        "id_section_ln9": "366",
+                        "migrated_mob": "true"
+                    },
+                    "_website": "la-nacion-ar",
+                    "name": "Arquitectura",
+                    "parent": {
+                        "default": "/"
+                    },
+                    "inactive": false,
+                    "node_type": "section",
+                    "order": {
+                        "default": 1012
+                    }
+                }
+            }
+        },
+        "primary_site": {
+            "_id": "/arquitectura",
+            "type": "site",
+            "version": "0.5.8",
+            "name": "Arquitectura",
+            "path": "/arquitectura",
+            "parent_id": "/",
+            "additional_properties": {
+                "original": {
+                    "_id": "/arquitectura",
+                    "site": {
+                        "site_url": "/arquitectura/"
+                    },
+                    "migration": {
+                        "id_section_ln9": "366",
+                        "migrated_mob": "true"
+                    },
+                    "name": "Arquitectura",
+                    "parent": {
+                        "default": "/"
+                    },
+                    "inactive": false,
+                    "node_type": "section",
+                    "order": {
+                        "default": 1012
+                    }
+                }
+            }
+        },
+        "sections": [
+            {
+                "_id": "/arquitectura",
+                "_website": "la-nacion-ar",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Arquitectura",
+                "path": "/arquitectura",
+                "parent_id": "/",
+                "parent": {
+                    "default": "/"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/arquitectura",
+                        "site": {
+                            "site_url": "/arquitectura/"
+                        },
+                        "migration": {
+                            "id_section_ln9": "366",
+                            "migrated_mob": "true"
+                        },
+                        "_website": "la-nacion-ar",
+                        "name": "Arquitectura",
+                        "parent": {
+                            "default": "/"
+                        },
+                        "inactive": false,
+                        "node_type": "section",
+                        "order": {
+                            "default": 1012
+                        }
+                    }
+                },
+                "_website_section_id": "la-nacion-ar./arquitectura"
+            }
+        ],
+        "sites": [
+            {
+                "_id": "/arquitectura",
+                "type": "site",
+                "version": "0.5.8",
+                "name": "Arquitectura",
+                "path": "/arquitectura",
+                "parent_id": "/",
+                "additional_properties": {
+                    "original": {
+                        "_id": "/arquitectura",
+                        "site": {
+                            "site_url": "/arquitectura/"
+                        },
+                        "migration": {
+                            "id_section_ln9": "366",
+                            "migrated_mob": "true"
+                        },
+                        "name": "Arquitectura",
+                        "parent": {
+                            "default": "/"
+                        },
+                        "inactive": false,
+                        "node_type": "section",
+                        "order": {
+                            "default": 1012
+                        }
+                    }
+                }
+            }
+        ],
+        "tags": []
+    },
+    "promo_items": {
+        "apertura_multimedia": {
+            "type": "video",
+            "_id": "24d86814-683c-46cc-9899-a96052de46b5",
+            "version": "0.8.0",
+            "language": "es",
+            "canonical_url": "/video/mesa-chica-20-julio-2021-vid24d86814",
+            "canonical_website": "ott",
+            "short_url": "/video/mesa-chica-20-julio-2021-vid24d86814",
+            "created_date": "2021-07-21T11:36:20Z",
+            "last_updated_date": "2021-07-21T12:05:49Z",
+            "publish_date": "2021-07-21T12:05:54Z",
+            "first_publish_date": "2021-07-21T12:05:54Z",
+            "display_date": "2021-07-21T12:05:54Z",
+            "headlines": {
+                "basic": "Mesa chica - 20 julio 2021"
+            },
+            "credits": {},
+            "taxonomy": {
+                "tags": [],
+                "primary_site": {
+                    "type": "site",
+                    "_id": "/mesa-chica",
+                    "version": "0.5.8",
+                    "name": "Mesa chica",
+                    "path": "/mesa-chica",
+                    "primary": true
+                },
+                "sites": [
+                    {
+                        "type": "site",
+                        "_id": "/mesa-chica",
+                        "version": "0.5.8",
+                        "name": "Mesa chica",
+                        "path": "/mesa-chica",
+                        "primary": true
+                    }
+                ],
+                "primary_section": {
+                    "type": "section",
+                    "_id": "/mesa-chica",
+                    "_website": "ott",
+                    "version": "0.6.0",
+                    "name": "Mesa chica",
+                    "path": "/mesa-chica",
+                    "primary": true
+                },
+                "sections": [
+                    {
+                        "type": "section",
+                        "_id": "/mesa-chica",
+                        "_website": "ott",
+                        "version": "0.6.0",
+                        "name": "Mesa chica",
+                        "path": "/mesa-chica",
+                        "primary": true
+                    }
+                ],
+                "seo_keywords": []
+            },
+            "promo_items": {
+                "basic": {
+                    "type": "image",
+                    "version": "0.5.8",
+                    "credits": {},
+                    "caption": "a",
+                    "url": "https://d3us6z9haan6vf.cloudfront.net/07-21-2021/t_c260bb71e9dc400ab919a15324d91b59_name_file_1280x720_2000_v3_1_.jpg",
+                    "width": 1280,
+                    "height": 720
+                }
+            },
+            "related_content": {
+                "redirect": [],
+                "basic": []
+            },
+            "owner": {
+                "sponsored": false
+            },
+            "planning": {
+                "scheduling": {}
+            },
+            "revision": {
+                "published": true
+            },
+            "syndication": {
+                "search": true
+            },
+            "source": {
+                "system": "video center",
+                "edit_url": "https://lanacionar.arcpublishing.com/goldfish/video/60f806b4c9e77c00015cd5ac"
+            },
+            "distributor": {
+                "category": "staff"
+            },
+            "tracking": {
+                "in_url_headline": "video"
+            },
+            "additional_properties": {
+                "subsection": "Mesa chica",
+                "videoCategory": "ott---programa-completo",
+                "anglerfishArcId": "2VFSPC4HJBFIDJY4RIGHNQESYI",
+                "isWire": false,
+                "gifAsThumbnail": false,
+                "2VFSPC4HJBFIDJY4RIGHNQESYI": "07-21-2021/t_c260bb71e9dc400ab919a15324d91b59_name_file_1280x720_2000_v3_1_.jpg",
+                "videoId": "60f806b4c9e77c00015cd5ac",
+                "vertical": false,
+                "embedContinuousPlay": true,
+                "published": true,
+                "imageResizerUrls": [],
+                "advertising": {
+                    "allowPrerollOnDomain": false,
+                    "autoPlayPreroll": false,
+                    "commercialAdNode": "/mesa-chica",
+                    "enableAdInsertion": false,
+                    "enableAutoPreview": false,
+                    "enableServerSideFallback": false,
+                    "forceAd": false,
+                    "playAds": false,
+                    "playVideoAds": false,
+                    "videoAdZone": ""
+                },
+                "disableUpNext": false,
+                "videoAdZone": "",
+                "lastPublishedBy": {
+                    "name": "Leandro Gonzalez",
+                    "email": "LeGonzalez@lanacion.com.ar",
+                    "lastname": ""
+                },
+                "permalinkUrl": "/video/mesa-chica-20-julio-2021-vid24d86814",
+                "platform": "desktop",
+                "playVideoAds": false,
+                "forceClosedCaptionsOn": false,
+                "doNotShowTranscripts": false,
+                "useVariants": false,
+                "playlistTags": [],
+                "firstPublishedBy": {
+                    "name": "Leandro Gonzalez",
+                    "email": "LeGonzalez@lanacion.com.ar",
+                    "lastname": ""
+                }
+            },
+            "duration": 3646954,
+            "video_type": "clip",
+            "streams": [
+                {
+                    "height": 360,
+                    "width": 640,
+                    "filesize": 335014823,
+                    "stream_type": "mp4",
+                    "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/20210721/60f806b4c9e77c00015cd5ac/t_6a38e1899a8c4dcfb24597d7225f3456_name_Mesa_chica___20_julio_2021/file_640x360-600.mp4",
+                    "bitrate": 600,
+                    "provider": "mediaconvert"
+                },
+                {
+                    "height": 720,
+                    "width": 1280,
+                    "filesize": 973333349,
+                    "stream_type": "mp4",
+                    "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/20210721/60f806b4c9e77c00015cd5ac/t_6a38e1899a8c4dcfb24597d7225f3456_name_Mesa_chica___20_julio_2021/file_1280x720-2000-v3_1.mp4",
+                    "bitrate": 2000,
+                    "provider": "mediaconvert"
+                }
+            ],
+            "subtitles": {},
+            "promo_image": {
+                "type": "image",
+                "version": "0.5.8",
+                "credits": {},
+                "caption": "a",
+                "url": "https://d3us6z9haan6vf.cloudfront.net/07-21-2021/t_c260bb71e9dc400ab919a15324d91b59_name_file_1280x720_2000_v3_1_.jpg",
+                "width": 1280,
+                "height": 720
+            },
+            "embed_html": "<div class=\"powa\" id=\"powa-24d86814-683c-46cc-9899-a96052de46b5\" data-org=\"lanacionar\" data-uuid=\"24d86814-683c-46cc-9899-a96052de46b5\" data-ad-companion=\"coAd\" data-aspect-ratio=\"0.562\"><script src=\"https://lanacionar.video-player.arcpublishing.com/prod/powaBoot.js\"></script></div>",
+            "websites": {
+                "ott": {
+                    "website_section": {
+                        "path": "/mesa-chica",
+                        "_website": "ott",
+                        "name": "Mesa chica",
+                        "_id": "/mesa-chica",
+                        "type": "section",
+                        "version": "0.6.0",
+                        "primary": true
+                    },
+                    "website_url": "/video/mesa-chica-20-julio-2021-vid24d86814"
+                }
+            }
+        }
+    },
+    "related_content": {
+        "basic": [],
+        "redirect": []
+    },
+    "distributor": {
+        "name": "LA NACION",
+        "category": "staff",
+        "subcategory": "",
+        "reference_id": "35aa3ee5-fd10-4532-99fa-75052b0af967",
+        "mode": "reference_denormalized"
+    },
+    "canonical_website": "la-nacion-ar",
+    "geo": {},
+    "planning": {
+        "internal_note": "",
+        "story_length": {
+            "character_count_actual": 564,
+            "character_encoding": "UTF-16",
+            "inch_count_actual": 1,
+            "line_count_actual": 6,
+            "word_count_actual": 87
+        }
+    },
+    "display_date": "2021-07-19T17:46:56.158Z",
+    "credits": {
+        "by": []
+    },
+    "subtype": "1",
+    "first_publish_date": "2021-07-19T17:46:56.158Z",
+    "websites": {
+        "la-nacion-ar": {
+            "website_section": {
+                "_id": "/arquitectura",
+                "_website": "la-nacion-ar",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Arquitectura",
+                "path": "/arquitectura",
+                "parent_id": "/",
+                "parent": {
+                    "default": "/"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/arquitectura",
+                        "site": {
+                            "site_url": "/arquitectura/"
+                        },
+                        "migration": {
+                            "id_section_ln9": "366",
+                            "migrated_mob": "true"
+                        },
+                        "_website": "la-nacion-ar",
+                        "name": "Arquitectura",
+                        "parent": {
+                            "default": "/"
+                        },
+                        "inactive": false,
+                        "node_type": "section",
+                        "order": {
+                            "default": 1012
+                        }
+                    }
+                },
+                "_website_section_id": "la-nacion-ar./arquitectura"
+            },
+            "website_url": "/arquitectura/la-historia-del-mate-ilex-paraguariensis-nid19072021/"
+        }
+    },
+    "additional_properties": {
+        "clipboard": {},
+        "has_published_copy": true,
+        "is_published": true,
+        "publish_date": "2021-07-19T17:46:56.158Z"
+    },
+    "publish_date": "2021-07-21T13:27:59.561Z",
+    "publishing": {
+        "scheduled_operations": {
+            "publish_edition": [],
+            "unpublish_edition": []
+        }
+    },
+    "website": "la-nacion-ar",
+    "website_url": "/arquitectura/la-historia-del-mate-ilex-paraguariensis-nid19072021/"
+}

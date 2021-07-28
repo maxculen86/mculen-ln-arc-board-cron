@@ -19,7 +19,7 @@ const ComFigure = ({ classCondition, children, handleClick }) => {
 };
 
 ComFigure.propTypes = {
-    children: PropTypes.elementType.isRequired,
+    children: PropTypes.node.isRequired,
     classCondition: PropTypes.string.isRequired,
     handleClick: PropTypes.func.isRequired
 };

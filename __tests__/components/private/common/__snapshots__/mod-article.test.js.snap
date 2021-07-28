@@ -7,6 +7,7 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
   <div>
     <section
       class="mod-media   "
+      id=""
       role="button"
     >
       <a
@@ -32,6 +33,7 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
       <a
         class="com-link"
         href="http://google.com"
+        title=""
       >
         Este es el titulo
       </a>

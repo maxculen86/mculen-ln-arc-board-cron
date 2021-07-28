@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useRef, useState, useEffect, useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { MenuStore } from './store/menuContext';
@@ -19,20 +20,23 @@ const showMenu = dispatch => elRef => {
 
 const getChilds = (childs, onResizeDeskTop) =>
     childs &&
-    childs.map(({ _id, el, extraClass, name, childs: _childs, url, site }) => {
-        return (
-            <ListMenu
-                _id={_id}
-                el={el}
-                extraClass={extraClass}
-                name={name}
-                childs={_childs}
-                url={url}
-                onResizeDeskTop={onResizeDeskTop}
-                site={site}
-            />
-        );
-    });
+    childs.map(
+        ({ _id, el, extraClass, name, childs: _childs, url, site }, index) => {
+            return (
+                <ListMenu
+                    _id={_id}
+                    el={el}
+                    extraClass={extraClass}
+                    name={name}
+                    childs={_childs}
+                    url={url}
+                    onResizeDeskTop={onResizeDeskTop}
+                    site={site}
+                    key={`${index}${_id}`}
+                />
+            );
+        }
+    );
 
 const ListMenu = ({
     _id,
@@ -109,12 +113,10 @@ ListMenu.propTypes = {
         site_url: PropTypes.string
     }),
     childs: PropTypes.arrayOf(
-        PropTypes.arrayOf(
-            PropTypes.shape({
-                el: PropTypes.string.isRequired,
-                extraClass: PropTypes.string
-            })
-        )
+        PropTypes.shape({
+            el: PropTypes.string.isRequired,
+            extraClass: PropTypes.string
+        })
     ),
     url: PropTypes.string,
     onResizeDeskTop: PropTypes.bool
