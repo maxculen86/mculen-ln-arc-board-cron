@@ -63,7 +63,7 @@ describe('Private - Common - ModArticle', () => {
         expect(component.find('.com-date')).toHaveLength(1);
         expect(component.find('.com-label')).toHaveLength(1);
         expect(component.find('.com-title').html()).toBe(
-            '<h1 class="com-title --s"><a href="http://google.com" class="com-link">Este es el titulo</a></h1>'
+            '<h1 class="com-title --s"><a href="http://google.com" target="" title="" class="com-link">Este es el titulo</a></h1>'
         );
     });
 

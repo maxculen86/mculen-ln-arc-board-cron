@@ -131,7 +131,7 @@ media.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node
-    ]).isRequired,
+    ]),
     outputType: PropTypes.string,
     mediaData: PropTypes.shape({
         type: PropTypes.string,
@@ -167,6 +167,7 @@ media.defaultProps = {
     scriptForZoom: undefined,
     parrafo: undefined,
     active: undefined,
+    children: undefined,
     handleClick: () => {}
 };
 

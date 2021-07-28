@@ -1,6 +1,7 @@
 import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import logger from '../../components/private/common/utils/logger';
+import { getTodayDateForAcuDolar } from '../../components/private/common/utils/dateAndTimeUtil';
 
 const resolve = key => {
     const { id, website } = key;
@@ -53,7 +54,8 @@ const transform = (data, siteProps) => {
         err.statusCode = 404;
         throw err;
     }
-    return data;
+    const newData = { ...data, date: getTodayDateForAcuDolar() };
+    return newData;
 };
 
 export default {

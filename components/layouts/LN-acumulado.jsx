@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
@@ -48,6 +49,8 @@ const revistas = [
 ];
 const sections = ['economia', 'deportes'];
 
+const acumToSearchAperturaChain = ['tags'];
+
 const LNAcumuladoLayout = props => {
     const {
         children: [
@@ -64,9 +67,10 @@ const LNAcumuladoLayout = props => {
         globalContent,
         outputType,
         tree,
-        isAdmin
+        isAdmin,
+        renderables
     } = props;
-    const { style, name = '' } = globalContent;
+    const { style, name = '', node_type: nodeType } = globalContent;
     const sectionStyleName =
         style && style.section_style_name ? style.section_style_name : '';
     const classRevista =
@@ -86,16 +90,31 @@ const LNAcumuladoLayout = props => {
     // TODO: agregar todas las validaciones de acu color
     const COLOR_CLASS = backgroundCategory || colorTags ? '--color' : '';
     const HEADER_BACKGROUND = headerDark === 'true' ? ' --transparent' : '';
+
+    const chainCollection =
+        acumToSearchAperturaChain.includes(nodeType) &&
+        renderables.find(
+            ren =>
+                ren.collection === 'chains' && ren.type === 'Ln_Caja_Collection'
+        );
+
     const idCollectionApertura = get(
         globalContent,
-        'acumuladoGeneral.id_collection_promo_items'
+        'acumuladoGeneral.id_collection_promo_items',
+        get(chainCollection, 'props.customFields.idCollection')
     );
     const idCollectionsInPage = get(
         globalContent,
         'acumuladoGeneral.colecciones',
         []
     );
-    const OPENING_CLASS = idCollectionApertura ? '--opening' : '';
+    const OPENING_CLASS = get(
+        globalContent,
+        'acumuladoGeneral.id_collection_promo_items',
+        false
+    )
+        ? '--opening'
+        : '';
 
     return (
         <GlobalProvider>
@@ -161,16 +180,18 @@ const LNAcumuladoLayout = props => {
 };
 
 LNAcumuladoLayout.propTypes = {
-    children: PropTypes.node.isRequired,
-    outputType: PropTypes.string.isRequired,
+    children: PropTypes.node,
+    outputType: PropTypes.string,
     tree: PropTypes.shape(PropTypes.arrayOf(PropTypes.node)),
     isAdmin: PropTypes.bool,
+    renderables: PropTypes.arrayOf(PropTypes.node),
     globalContent: PropTypes.shape({
         style: PropTypes.shape({
             section_style_name: PropTypes.string,
             headerdark: PropTypes.string
         }),
         name: PropTypes.string,
+        node_type: PropTypes.string,
         acumuladoGeneral: PropTypes.shape({
             tipo_acumulado: PropTypes.string,
             hierarchy_navigation: PropTypes.string,
@@ -189,8 +210,8 @@ LNAcumuladoLayout.propTypes = {
             PropTypes.shape({
                 _id: PropTypes.string
             })
-        ).isRequired
-    }).isRequired
+        )
+    })
 };
 
 LNAcumuladoLayout.sections = pageBuilderSections;

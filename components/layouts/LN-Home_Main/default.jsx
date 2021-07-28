@@ -292,11 +292,12 @@ const LNMainHome = props => {
                                     </div>
 
                                     {/* BANNER BILLBOARD */}
-                                    <DivBanner
-                                        id="billboard_dsk"
-                                        shouldRender={isDesktop}
-                                        isStatic
-                                    />
+                                    {blocksToLoad.bloque2 && (
+                                        <DivBanner
+                                            id="billboard_dsk"
+                                            shouldRender={isDesktop}
+                                        />
+                                    )}
 
                                     {/* BANNER CAJA 2 MOB */}
                                     {blocksToLoad.bloque2 && (

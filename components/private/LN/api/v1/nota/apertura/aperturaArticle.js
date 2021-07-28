@@ -13,7 +13,10 @@ const apertura = article => {
     if (!titulo) {
         throw new Error('Titulo de la nota es null o undefined');
     }
-    let promoItem = get(article, 'promo_items.basic', null);
+    let promoItem = get(article, 'promo_items.apertura_multimedia', null);
+    promoItem =
+        promoItem == null ? get(article, 'promo_items.basic', null) : promoItem;
+
     if (template === '4' || template === '8')
         promoItem = get(article, 'promo_items.storytelling_mobile', null);
 

@@ -5,6 +5,8 @@ Array [
   <a
     class="com-link"
     href="/revista-brando/"
+    target=""
+    title=""
   >
     <i
       class="com-logo logo-brando --color --sm"

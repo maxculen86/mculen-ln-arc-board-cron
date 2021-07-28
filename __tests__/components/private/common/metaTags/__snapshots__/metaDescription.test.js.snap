@@ -14,10 +14,3 @@ exports[`LN - Common - MetaDescription MetaDescription nota snapshot 1`] = `
   />
 </MetaDescription>
 `;
-
-exports[`LN - Common - MetaDescription MetaDescriptionAcumulado 1`] = `
-<meta
-  content="Últimas Noticias de Politica - LA NACION"
-  name="description"
-/>
-`;

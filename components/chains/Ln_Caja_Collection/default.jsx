@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
@@ -154,23 +156,18 @@ CajaCollection.propTypes = {
                 customFields: PropTypes.shape({
                     layout: PropTypes.string,
                     idCollection: PropTypes.string,
-                    initialPosition: PropTypes.string
+                    initialPosition: PropTypes.number
                 })
             })
         })
-    ).isRequired,
+    ),
     customFields: PropTypes.shape({
         ...cajaTemasCustomsFields('cajaCollection')
-    }).isRequired,
-    tree: PropTypes.shape(PropTypes.node).isRequired,
+    }),
+    tree: PropTypes.shape(PropTypes.node),
     globalContent: PropTypes.shape({
         name: PropTypes.string
-    }).isRequired
-};
-
-CajaCollection.defaultProps = {
-    outputType: 'default',
-    isAdmin: false
+    })
 };
 
 export default Consumer(CajaCollection);

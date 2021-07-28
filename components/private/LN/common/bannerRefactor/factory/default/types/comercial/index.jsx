@@ -111,10 +111,12 @@ Comercial.propTypes = {
         collection: PropTypes.bool
     }),
     slotGroup: PropTypes.string,
-    sizemap: PropTypes.shape({
-        breakpoints: PropTypes.array,
-        refresh: PropTypes.bool
-    }),
+    sizemap: PropTypes.arrayOf(
+        PropTypes.shape({
+            breakpoints: PropTypes.array,
+            refresh: PropTypes.bool
+        })
+    ),
     isHome: PropTypes.bool
 };
 

@@ -4,6 +4,7 @@ import Author from '../author';
 import { getTag } from '../tag';
 import { dateAndTimeForAppsUtil } from '../../../../../common/utils/dateAndTimeUtil';
 import { getPrincipalCategory } from '../category';
+import matchObject from '../utils/matchObject';
 
 const articleItem = article => {
     const {
@@ -31,7 +32,8 @@ const articleItem = article => {
         fecha: dateAndTimeForAppsUtil(article.display_date),
         fechaActualizacion: dateAndTimeForAppsUtil(lastUpdatedDate),
         url,
-        bajada
+        bajada,
+        enviarApps: matchObject(article, 'contains')
     };
 
     if (image && image.type === 'image') {

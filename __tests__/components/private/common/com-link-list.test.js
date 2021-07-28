@@ -25,13 +25,23 @@ describe('LN-Private-Common-ComLinkList ', () => {
     describe('passing a filled list by params', () => {
         const list = [
             {
+                classCondition: '',
+                dataEvent: '',
+                dataSection: '',
                 link: 'http://www.google.com',
+                size: '',
+                style: '',
                 target: '_blank',
                 textname: 'LN Link Custom',
                 title: 'LN Link Custom'
             },
             {
+                classCondition: '',
+                dataEvent: '',
+                dataSection: '',
                 link: '/revista-ohlala',
+                size: '',
+                style: '',
                 target: '',
                 textname: 'OHLALA',
                 title: 'OHLALA'
