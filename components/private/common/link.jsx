@@ -47,7 +47,6 @@ Link.propTypes = {
 Link.defaultProps = {
     href: '',
     text: '',
-    target: '',
     title: '',
     mod: '',
     size: '',

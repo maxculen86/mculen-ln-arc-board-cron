@@ -2,7 +2,15 @@
 @import '../components/com-unordered';
 @import '../components/com-date';
 @import '../components/com-paragraph';
+@import '../components/author';
+@import '../components/tip';
+@import '../pages/recipe';
+@import '../modules/mod-themes';
+@import '../modules/mod-share';
 @import '../modules/mod-opening';
 @import '../modules/mod-date';
 @import '../modules/mod-paragraph';
 @import '../modules/mod-headersection';
+@import '../modules/mod-commentamp';
+// MANTENER SIEMPRE AL FINAL
+@import './amp-basic';
