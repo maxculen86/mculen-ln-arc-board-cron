@@ -27,6 +27,10 @@
             .mod-banner {
                 background: none;
                 margin-bottom: $spacing-lg;
+                // Se le colocó 101 porque era menor al del video y al del share
+                // El z-index del share es el mayor, con un valor de 100
+                // por lo que se le incrementó el del banner a 101
+                z-index: 101;
                 &:before {
                     background: $light-neutral-700;
                 }
@@ -70,8 +74,8 @@
             }
             .mod-media {
                 .powa-shadow {
-                    padding-bottom: $video;
-                    background: red;
+                    // padding-bottom: $video;
+                    // background: red;
                 }
                 @media ($media-m) {
                     margin-bottom: 0;

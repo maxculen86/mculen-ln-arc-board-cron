@@ -114,7 +114,8 @@ export const config = {
         'LN-nota-noticia': customElementForNote,
         'LN-nota-infografia': customElementForNote,
         'LN-nota-storytelling': customElementForNote,
-        'LN-nota-foto-al-100': customElementForNote
+        'LN-nota-foto-al-100': customElementForNote,
+        'LN-nota-video': customElementForNote
     }
 };
 
