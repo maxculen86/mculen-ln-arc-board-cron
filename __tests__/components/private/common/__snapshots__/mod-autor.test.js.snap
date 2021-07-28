@@ -13,7 +13,6 @@ exports[`ModAutor Matches snapshot 1`] = `
       <a
         class="com-link --autor"
         href="https://lanacion.com.ar"
-        target=""
         title="Ir a notas de Pepe"
       >
         Pepe
@@ -21,7 +20,6 @@ exports[`ModAutor Matches snapshot 1`] = `
       <a
         class="com-link --autor"
         href="https://lanacion.com.ar"
-        target=""
         title="Ir a notas de Paco"
       >
         Paco

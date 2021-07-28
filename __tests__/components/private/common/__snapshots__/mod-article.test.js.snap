@@ -33,7 +33,6 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
       <a
         class="com-link"
         href="http://google.com"
-        target=""
         title=""
       >
         Este es el titulo
