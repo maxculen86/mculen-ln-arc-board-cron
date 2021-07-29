@@ -60,7 +60,7 @@ ComLink.propTypes = {
 ComLink.defaultProps = {
     textname: '',
     title: '',
-    target: '',
+    target: undefined,
     classCondition: '',
     size: '',
     style: '',
