@@ -34,7 +34,7 @@ import { pipe } from '../private/common/utils/functional';
 import Pwa from '../private/common/scriptManager/pwa';
 import PwaModals from '../private/LN/common/pwaModals';
 import ScriptSWG from '../private/common/scriptManager/scriptSWG';
-import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
+// import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
 
 const scriptList = [
     {
@@ -184,17 +184,18 @@ const Default = props => {
             ? siteProperties.longTitle
             : metaValue('title') || siteProperties.title;
 
-    const LinkImagePreload = () =>
-        getDataToLinkImage(globalContent, _nodeType).map(elem => {
-            return (
-                <link
-                    rel="preload"
-                    href={elem.resizedUrl}
-                    as="image"
-                    media={elem.media}
-                />
-            );
-        });
+    // En espera definición de resolución min y max width de site prop.
+    // const LinkImagePreload = () =>
+    //     getDataToLinkImage(globalContent, _nodeType).map(elem => {
+    //         return (
+    //             <link
+    //                 rel="preload"
+    //                 href={elem.resizedUrl}
+    //                 as="image"
+    //                 media={elem.media}
+    //             />
+    //         );
+    //     });
 
     return (
         <html lang="es">
@@ -213,7 +214,7 @@ const Default = props => {
                 )}
                 <Libs />
 
-                {LinkImagePreload()}
+                {/* {LinkImagePreload()} */}
 
                 <TagsLoadingList
                     section="all"
