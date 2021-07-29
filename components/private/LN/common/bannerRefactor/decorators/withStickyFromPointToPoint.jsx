@@ -60,7 +60,7 @@ const idle = (element, point1) => {
         top - componentHeight + point1Height + gap
     )}px`;
     element.style.position = 'relative';
-    element.style.zIndex = 1;
+    element.style.zIndex = 101;
 };
 
 export default Component => selectors => {

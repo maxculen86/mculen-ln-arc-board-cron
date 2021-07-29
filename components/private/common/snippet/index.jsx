@@ -16,7 +16,8 @@ const config = {
         'LN-nota-storytelling': NoticiaSnippet,
         'LN-nota-foto-al-100': NoticiaSnippet,
         'LN-nota-html-libre': NoticiaSnippet,
-        'LN-acumulado': SnippetAcumulado
+        'LN-acumulado': SnippetAcumulado,
+        'LN-nota-video': NoticiaSnippet
     }
 };
 

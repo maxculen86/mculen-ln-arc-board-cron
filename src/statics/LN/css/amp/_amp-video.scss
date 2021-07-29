@@ -1,0 +1,19 @@
+@import '../pages/video';
+
+@import '../components/com-partner';
+@import '../components/com-date';
+@import '../components/com-hour';
+@import '../components/com-paragraph';
+
+@import '../modules/mod-date';
+@import '../modules/mod-share';
+@import '../modules/mod-paragraph';
+@import '../modules/mod-autor';
+@import '../modules/mod-sponsor';
+@import '../modules/mod-themes';
+@import '../modules/mod-headersection';
+@import '../components/mod-description';
+@import '../modules/mod-commentamp';
+
+// MANTENER SIEMPRE AL FINAL
+@import './amp-basic';

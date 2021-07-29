@@ -104,7 +104,8 @@ export const styleConfig = {
         'LN-nota-receta': 'resources/dist/css/ln/amp/amp-receta.css',
         'LN-nota-storytelling':
             'resources/dist/css/ln/amp/amp-storytelling.css',
-        'LN-acumulado': 'resources/dist/css/ln/amp/amp-acumulado.css'
+        'LN-acumulado': 'resources/dist/css/ln/amp/amp-acumulado.css',
+        'LN-nota-video': 'resources/dist/css/ln/amp/amp-video.css'
     }
 };
 
@@ -115,7 +116,8 @@ export const config = {
         'LN-nota-receta': customElementForNote,
         'LN-nota-infografia': customElementForNote,
         'LN-nota-storytelling': customElementForNote,
-        'LN-nota-foto-al-100': customElementForNote
+        'LN-nota-foto-al-100': customElementForNote,
+        'LN-nota-video': customElementForNote
     }
 };
 

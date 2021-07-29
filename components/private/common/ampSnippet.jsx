@@ -15,7 +15,8 @@ const AmpSnippet = props => {
             'LN-nota-infografia': NoticiaSnippet,
             'LN-nota-storytelling': NoticiaSnippet,
             'LN-nota-foto-al-100': NoticiaSnippet,
-            'LN-nota-html-libre': NoticiaSnippet
+            'LN-nota-html-libre': NoticiaSnippet,
+            'LN-nota-video': NoticiaSnippet
         }
     };
 
