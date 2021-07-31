@@ -124,12 +124,31 @@ const Banner = props => {
             configBuilder.current.setCustomAdUnit('ContentLab');
 
         // Site service dimensions check
-        if (bannersSiteConfig)
+        const bannerConfig = get(globalContent, 'bannerConfig');
+        const bannerSectionConfig =
+            (bannerConfig &&
+                Object.keys(bannerConfig).map(x => ({
+                    adunit: x,
+                    dimensions: bannerConfig[x]
+                }))) ||
+            (['propiedades', 'campo'].includes(section) && [
+                {
+                    adunit: 'nota_caja1_dsk',
+                    dimensions: '120x600,160x600,300x600'
+                },
+                {
+                    adunit: 'acumulado_caja1_dsk',
+                    dimensions: '120x600,160x600,300x600'
+                }
+            ]);
+
+        if (bannersSiteConfig) {
             configBuilder.current.setDimensionsFromSiteService(
-                bannersSiteConfig,
+                bannerSectionConfig || bannersSiteConfig,
                 slotGroup,
                 slotId
             );
+        }
     }
 
     if (!dfpId) {
@@ -194,7 +213,8 @@ Banner.propTypes = {
         query: PropTypes.shape({
             id: PropTypes.string
         })
-    }).isRequired
+    }).isRequired,
+    outputType: PropTypes.string.isRequired
 };
 
 export default Consumer(Banner);
