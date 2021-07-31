@@ -167,7 +167,7 @@ CajaTema.propTypes = {
     position: PropTypes.oneOfType([PropTypes.boolean, PropTypes.string])
         .isRequired,
     sectionName: PropTypes.string.isRequired,
-    _children: PropTypes.arrayOf(PropTypes.object)
+    _children: PropTypes.arrayOf(PropTypes.node)
 };
 
 CajaTema.defaultProps = {

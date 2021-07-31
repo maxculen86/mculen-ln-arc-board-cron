@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import '../../../resources/dist/css/ln/components/com-icon.css';
 import '../../../resources/dist/css/ln/components/com-bullet.css';
 import ComTitle from './com-title';
@@ -38,10 +38,10 @@ const ComTag = props => {
 };
 
 ComTag.propTypes = {
-    iconName: PropTypes.string,
+    iconName: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
     content: PropTypes.string,
-    style: PropTypes.obj,
-    sizeBullet: PropTypes.string,
+    style: PropTypes.node,
+    sizeBullet: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
     sizeText: PropTypes.string,
     sizeIcon: PropTypes.string,
     link: PropTypes.string,

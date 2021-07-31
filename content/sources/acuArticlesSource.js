@@ -20,6 +20,7 @@ const resolve = key => {
         promoItemsOnly,
         authorId,
         tagId,
+        subtype,
         size,
         page,
         website,
@@ -50,6 +51,13 @@ const resolve = key => {
         `},{
             "term": {
                 "source.system":"${sourceOrigin}"
+        }`;
+
+    const subtypeFilter =
+        subtype &&
+        `},{
+            "term": {
+                "subtype":"${subtype}"
         }`;
 
     const sectionFilter =
@@ -138,6 +146,7 @@ const resolve = key => {
                                 "revision.published": true
                             }
                         ${sourceOriginFilter || ''}
+                        ${subtypeFilter || ''}
                         }
                         ${suggestFilter || ''}
                         ${authorFilter || ''}
@@ -236,6 +245,7 @@ export default {
         sectionId: 'text',
         authorId: 'text',
         tagId: 'text',
+        subtype: 'text',
         size: 'text',
         page: 'text',
         website: 'text',

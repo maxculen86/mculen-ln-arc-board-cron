@@ -9,7 +9,8 @@ import addForwardSlash from '../../private/LN/common/utils/addForwardSlash';
 import CajaTema from '../../private/LN/common/cajaTema';
 import {
     NOTICIA,
-    RECETA
+    RECETA,
+    VIDEO
 } from '../../private/common/utils/subtypes/subtypeHelper';
 
 const getSectionTitle = noteType => {
@@ -84,7 +85,12 @@ const masNotas = props => {
         notRecommendedSections
     );
 
-    const typesOfQuery = { sectionId };
+    const customQuerys = {
+        [VIDEO]: { sectionId, subtype },
+        default: { sectionId }
+    };
+    const typesOfQuery = customQuerys[subtype] || customQuerys.default;
+
     const articles = getArticlesFromAcumSource(
         typesOfQuery,
         filter,

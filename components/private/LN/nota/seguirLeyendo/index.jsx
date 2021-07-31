@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import '../../../../../resources/dist/css/ln/modules/mod-keepreading.css';
-import ComTitle from '../../../common/com-title';
+import Text from '../../../common/text';
 
 const getContent = element => {
     if (!element.headlines) return '';
 
     const span =
         element.label && element.label.volanta
-            ? `<span class="hlp-bold">${element.label.volanta.text}</span>&nbsp;`
+            ? //? `<span class="hlp-bold">${element.label.volanta.text}</span>&nbsp;`
+              `${element.label.volanta.text}`
             : '';
 
     const content = element.headlines.mobile
@@ -32,11 +33,11 @@ const Index = ({ relatedContent = [] }) => {
                         data-id={elementId}
                         data-notaid={elementId}
                     >
-                        <ComTitle
+                        <Text
                             link={element.website_url || element.canonical_url}
                             size="--twoxs"
                             tag="h3"
-                            content={content}
+                            text={content}
                         />
                     </li>
                 );

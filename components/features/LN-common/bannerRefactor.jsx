@@ -179,7 +179,8 @@ Banner.propTypes = {
             dfp_id: PropTypes.number.isRequired
         })
     }),
-    isAdmin: PropTypes.bool.isRequired,
+    isAdmin: PropTypes.bool,
+    outputType: PropTypes.string,
     globalContent: PropTypes.shape({
         label: PropTypes.shape({
             mostrar_banners: PropTypes.shape({
@@ -189,12 +190,12 @@ Banner.propTypes = {
         termicas: PropTypes.shape({
             banners: PropTypes.string
         })
-    }).isRequired,
+    }),
     globalContentConfig: PropTypes.shape({
         query: PropTypes.shape({
             id: PropTypes.string
         })
-    }).isRequired
+    })
 };
 
 Banner.lazy = ['default', 'amp'];

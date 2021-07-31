@@ -25,7 +25,8 @@ const media = ({
     active,
     html,
     titleText,
-    scriptForZoom
+    scriptForZoom,
+    autoplay
 }) => {
     const refContainer = useRef();
     const [zoom, setZoom] = useState(false);
@@ -92,6 +93,7 @@ const media = ({
                             mediaData={mediaData}
                             parrafo={parrafo}
                             tituloNota={tituloNota}
+                            autoplay={autoplay}
                         />
                         {children}
                     </figure>
@@ -118,6 +120,7 @@ const media = ({
                         html={html}
                         scriptForZoom={scriptForZoom}
                         outputType={outputType}
+                        autoplay={autoplay}
                     >
                         {item}
                     </ModMedia>
@@ -131,7 +134,7 @@ media.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node
-    ]).isRequired,
+    ]),
     outputType: PropTypes.string,
     mediaData: PropTypes.shape({
         type: PropTypes.string,
@@ -152,7 +155,8 @@ media.propTypes = {
     isApertura: PropTypes.bool,
     html: PropTypes.string,
     titleText: PropTypes.string,
-    scriptForZoom: PropTypes.node
+    scriptForZoom: PropTypes.node,
+    autoplay: PropTypes.bool
 };
 
 media.defaultProps = {
@@ -167,7 +171,9 @@ media.defaultProps = {
     scriptForZoom: undefined,
     parrafo: undefined,
     active: undefined,
-    handleClick: () => {}
+    children: undefined,
+    handleClick: () => {},
+    autoplay: false
 };
 
 media.defaultProps = {

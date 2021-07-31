@@ -51,7 +51,7 @@ const Cuerpo = ({ globalContent: { content_elements: contentElements } }) => {
         <>
             <div className="row">
                 {ingredients.length > 0 ? (
-                    <div className="col-tablet-3 hlp-marginBottom-mobile-40">
+                    <div className="col-tablet-3 _ingredients">
                         <ListIngredients ingredients={ingredients} />
                     </div>
                 ) : (
@@ -59,7 +59,7 @@ const Cuerpo = ({ globalContent: { content_elements: contentElements } }) => {
                 )}
 
                 {preparation.length > 0 ? (
-                    <div className="col-tablet-8 offset-tablet-1">
+                    <div className="col-tablet-8 offset-tablet-1 _preparation">
                         <ListPreparation preparation={preparation} />
                     </div>
                 ) : (

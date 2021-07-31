@@ -15,7 +15,7 @@ const HeaderBase = props => {
 HeaderBase.propTypes = {
     id: PropTypes.string.isRequired,
     className: PropTypes.string.isRequired,
-    children: PropTypes.elementType
+    children: PropTypes.arrayOf(PropTypes.node).isRequired
 };
 
 // HeaderBase.defaultProps = {
