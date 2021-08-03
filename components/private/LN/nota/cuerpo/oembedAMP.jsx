@@ -198,25 +198,14 @@ const OembedAMP = ({ data }) => {
         }
         default: {
             const defaultUrlRegex = /src\s*=\s*"([^"]+)"/;
-            const widthRegex = /width="([0-9]+)"/;
-            const heightRegex = /height="([0-9]+)"/;
-
             const oembedSrc = getValue(null, rawOembed, defaultUrlRegex, 1);
-            const oembedWidth = getValue(width, rawOembed, widthRegex, 1, 300);
-            const oembedHeight = getValue(
-                height,
-                rawOembed,
-                heightRegex,
-                1,
-                380
-            );
 
             if (!oembedSrc) return null;
             return (
                 <div className={`com-embed --${subtype}`}>
                     <amp-iframe
-                        width={oembedWidth}
-                        height={oembedHeight}
+                        width="300"
+                        height="380"
                         frameborder="0"
                         allow="encrypted-media"
                         sandbox="allow-scripts allow-same-origin"
