@@ -13,7 +13,6 @@ import logger from '../../components/private/common/utils/logger';
 import get from '../../components/private/common/utils/get';
 import getPresets from './utils/presets';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
-import getSizesFrom from '../../components/private/common/utils/getSizesFrom';
 
 const resolve = key => {
     const { Ids, website } = key;
@@ -27,33 +26,20 @@ const resolve = key => {
 };
 
 const fetch = query => {
-    const { Ids, website, size: sizeCf, page: pageCf, uri } = query;
-    let isAdmin = true;
-    if (uri) {
-        isAdmin = false;
-    }
-    const arcSite = query['arc-site'];
-    const { size, page } = getSizesFrom(isAdmin, sizeCf, pageCf, 'params', uri);
+    const { Ids, sizeMax, uri } = query;
 
-    const resultData = Ids.split(/[ ,]+/);
-    const currentIds = changePage(resultData, size, page);
-    const objquery = {};
-    Object.entries(query).map(([key, value]) => {
-        let newvalue = query[key];
-        if (key === 'size') {
-            newvalue = size;
-        }
-        if (key === 'page') {
-            newvalue = page;
-        }
-        if (key === 'Ids') {
-            newvalue = currentIds;
-        }
-        objquery[key] = newvalue;
-    });
+    const arcSite = query['arc-site'];
+
+    const resultsIds = Ids.split(/[ ,]+/);
+
+    if (sizeMax && sizeMax < resultsIds.length) {
+        throw new Error(
+            `Error en validacion del máximo permitido: ${resultsIds.length}`
+        );
+    }
 
     const opt = {
-        uri: `${CONTENT_BASE}${resolve(objquery)}`,
+        uri: `${CONTENT_BASE}${resolve(query)}`,
         json: true
     };
     if (ARC_ACCESS_TOKEN) {
@@ -70,10 +56,8 @@ const fetch = query => {
                 objresponse[key] = value;
             });
 
-            objresponse.count = Ids.length;
-            objresponse.next = page * size;
-            const previous = objresponse.next - size * 2;
-            objresponse.previous = previous < 0 ? null : previous;
+            objresponse.count = resultsIds.length;
+            objresponse.next = null;
             return transform(objresponse, query);
         })
         .catch(error => {
@@ -140,19 +124,11 @@ const transform = (data, siteProps) => {
     return respData;
 };
 
-const changePage = (data, pageLimit, currentPage) => {
-    const offset = (currentPage - 1) * pageLimit;
-    const currentData = data.slice(offset, offset + pageLimit);
-    return currentData;
-};
-
 export default {
     fetch,
     params: {
         Ids: 'text',
-        // sizeMax: 'text',
-        size: 'text',
-        page: 'text'
+        sizeMax: 'text'
     },
     ttl: 120
 };
