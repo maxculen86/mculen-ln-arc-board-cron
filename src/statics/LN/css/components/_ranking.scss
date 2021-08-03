@@ -8,8 +8,13 @@
             margin-top: px(20);
         }
         &:before {
-            top: 0;
+            top: px(1);
+            left: px(1);
             z-index: 2;
+            font-family: $font-SuecaSlab;
+            font-size: px(16);
+            width: 1.4rem;
+            height: 2.4rem;
         }
     }
 
@@ -46,6 +51,7 @@
                             margin-left: $spacing-sm;
                             .com-title {
                                 font-weight: 500;
+                                font-family: $font-arial;
                             }
                         }
                     }
