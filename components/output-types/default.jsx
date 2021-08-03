@@ -277,6 +277,7 @@ const Default = props => {
                     _id={_id}
                     section={_nodeType}
                     defaultTitle={siteProperties.longTitle}
+                    metaValue={title}
                 />
                 <MetaDescription
                     subtype={subtype}
