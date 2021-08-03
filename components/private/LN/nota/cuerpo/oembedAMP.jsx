@@ -178,22 +178,22 @@ const OembedAMP = ({ data }) => {
             return null;
         }
         case 'tiktok': {
-            const tiktokRegex = /(https?:\/\/(www\.)?)?tiktok\.com\/(\w*?[^"]+)\/video\/([0-9]*)?/;
-            const tiktokId =
-                rawOembed &&
-                rawOembed.html &&
-                rawOembed.html.match(tiktokRegex);
-            if (tiktokId && tiktokId[4]) {
-                return (
-                    <div className={`com-embed --${subtype}`}>
-                        <amp-tiktok
-                            width="325"
-                            height="575"
-                            data-src={tiktokId[4]}
-                        />
-                    </div>
-                );
-            }
+            // const tiktokRegex = /(https?:\/\/(www\.)?)?tiktok\.com\/(\w*?[^"]+)\/video\/([0-9]*)?/;
+            // const tiktokId =
+            //     rawOembed &&
+            //     rawOembed.html &&
+            //     rawOembed.html.match(tiktokRegex);
+            // if (tiktokId && tiktokId[4]) {
+            //     return (
+            //         <div className={`com-embed --${subtype}`}>
+            //             <amp-tiktok
+            //                 width="325"
+            //                 height="575"
+            //                 data-src={tiktokId[4]}
+            //             />
+            //         </div>
+            //     );
+            // }
             return null;
         }
         default: {
