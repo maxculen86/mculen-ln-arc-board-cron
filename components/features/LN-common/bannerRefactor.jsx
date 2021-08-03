@@ -1,7 +1,9 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/require-default-props */
 
 import React, { useRef, useContext } from 'react';
 import Consumer from 'fusion:consumer';
+import { useContent } from 'fusion:content';
 import PropTypes from 'fusion:prop-types';
 import get from 'lodash.get';
 import BannerComponent from '../../private/LN/common/bannerRefactor';
@@ -115,6 +117,18 @@ const Banner = props => {
             primarySection
         )(segments);
 
+        const bannerConfig = get(globalContent, 'bannerConfig');
+
+        // const {
+        //     children: { bannerConfig }
+        // } = useContent({
+        //     sourceName: 'navigationTreeSource',
+        //     query: {
+        //         website: 'la-nacion-ar',
+        //         sectionId: `/${section}`
+        //     }
+        // });
+
         if (present) {
             configBuilder.current.segmentAdUnit(section, device);
         }
@@ -124,8 +138,7 @@ const Banner = props => {
             configBuilder.current.setCustomAdUnit('ContentLab');
 
         // Site service dimensions check
-        const bannerConfig = get(globalContent, 'bannerConfig');
-        const bannerSectionConfig =
+        const bannersSectionConfig =
             (bannerConfig &&
                 Object.keys(bannerConfig).map(x => ({
                     adunit: x,
@@ -140,11 +153,21 @@ const Banner = props => {
                     adunit: 'acumulado_caja1_dsk',
                     dimensions: '120x600,160x600,300x600'
                 }
-            ]);
+            ]) ||
+            [];
+
+        const adUnitsInSection = bannersSectionConfig.map(
+            ({ adunit }) => adunit
+        );
 
         if (bannersSiteConfig) {
             configBuilder.current.setDimensionsFromSiteService(
-                bannerSectionConfig || bannersSiteConfig,
+                [
+                    ...bannersSiteConfig.filter(
+                        ({ adunit }) => !adUnitsInSection.includes(adunit)
+                    ),
+                    ...bannersSectionConfig
+                ],
                 slotGroup,
                 slotId
             );
