@@ -1,16 +1,19 @@
-import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
+import request from 'request-promise-native';
+import {
+    CONTENT_BASE,
+    ARC_ACCESS_TOKEN,
+    RESIZER_KEY,
+    RESIZER_URL
+} from 'fusion:environment';
 import {
     FOTOAL100,
     STORYTELLING
 } from '../../components/private/common/utils/subtypes/subtypeHelper';
+import logger from '../../components/private/common/utils/logger';
 import get from '../../components/private/common/utils/get';
 import getPresets from './utils/presets';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
-import {
-    addHoursAndFormat,
-    hasFutureDisplayDate,
-    isOlderThan24HourAgo
-} from '../../components/private/common/utils/dateAndTimeUtil';
+import getSizesFrom from '../../components/private/common/utils/getSizesFrom';
 
 const resolve = key => {
     const { Ids, website } = key;
@@ -21,6 +24,62 @@ const resolve = key => {
     if (Ids) return `${basePath}&ids=${Ids}&sort=display_date:desc`;
 
     throw new Error('Debe definir los Ids para obtener las notas');
+};
+
+const fetch = query => {
+    const { Ids, website, size: sizeCf, page: pageCf, uri } = query;
+    let isAdmin = true;
+    if (uri) {
+        isAdmin = false;
+    }
+    const arcSite = query['arc-site'];
+    const { size, page } = getSizesFrom(isAdmin, sizeCf, pageCf, 'params', uri);
+
+    const resultData = Ids.split(/[ ,]+/);
+    const currentIds = changePage(resultData, size, page);
+    const objquery = {};
+    Object.entries(query).map(([key, value]) => {
+        let newvalue = query[key];
+        if (key === 'size') {
+            newvalue = size;
+        }
+        if (key === 'page') {
+            newvalue = page;
+        }
+        if (key === 'Ids') {
+            newvalue = currentIds;
+        }
+        objquery[key] = newvalue;
+    });
+
+    const opt = {
+        uri: `${CONTENT_BASE}${resolve(objquery)}`,
+        json: true
+    };
+    if (ARC_ACCESS_TOKEN) {
+        opt.auth = {
+            bearer: ARC_ACCESS_TOKEN
+        };
+    }
+
+    return request(opt)
+        .then(response => {
+            const objresponse = {};
+
+            Object.entries(response).map(([key, value]) => {
+                objresponse[key] = value;
+            });
+
+            objresponse.count = Ids.length;
+            objresponse.next = page * size;
+            const previous = objresponse.next - size * 2;
+            objresponse.previous = previous < 0 ? null : previous;
+            return transform(objresponse, query);
+        })
+        .catch(error => {
+            logger.push(error, { source: 'content/source', uri }, arcSite);
+            throw error;
+        });
 };
 
 const transform = (data, siteProps) => {
@@ -78,32 +137,22 @@ const transform = (data, siteProps) => {
         };
     });
 
-    // Si viene de Ultimas Noticias
-    /*     if (sectionsIds) {
-        respData.content_elements = respData.content_elements
-            .filter(story => !isOlderThan24HourAgo(story.display_date))
-            .filter(story => !hasFutureDisplayDate(story.display_date))
-            .map(story => {
-                return {
-                    ...story,
-                    display_date: addHoursAndFormat(-3, story.display_date),
-                    website_url: story.canonical_url
-                };
-            });
-        if (respData.content_elements.length === 0) {
-            respData.next = 0;
-        }
-    } */
-
     return respData;
 };
 
+const changePage = (data, pageLimit, currentPage) => {
+    const offset = (currentPage - 1) * pageLimit;
+    const currentData = data.slice(offset, offset + pageLimit);
+    return currentData;
+};
+
 export default {
-    resolve,
-    transform,
+    fetch,
     params: {
         Ids: 'text',
-        sizeMax: 'text'
+        // sizeMax: 'text',
+        size: 'text',
+        page: 'text'
     },
     ttl: 120
 };
