@@ -183,7 +183,7 @@ const OembedAMP = ({ data }) => {
                 rawOembed &&
                 rawOembed.html &&
                 rawOembed.html.match(tiktokRegex);
-            if (tiktokId && tiktokId[1]) {
+            if (tiktokId && tiktokId[4]) {
                 return (
                     <div className={`com-embed --${subtype}`}>
                         <amp-tiktok
