@@ -43,6 +43,4 @@ TitleFeature.defaultProps = {
     }
 };
 
-TitleFeature.lazy = ['default', 'amp'];
-
 export default TitleFeature;

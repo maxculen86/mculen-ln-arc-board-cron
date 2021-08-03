@@ -169,6 +169,4 @@ FirmaFeature.propTypes = {
 
 FirmaFeature.label = 'LN-Nota-Firma';
 
-FirmaFeature.lazy = ['default', 'amp'];
-
 export default Context(FirmaFeature);

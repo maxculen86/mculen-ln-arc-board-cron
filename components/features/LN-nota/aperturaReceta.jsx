@@ -15,6 +15,4 @@ const aperturaReceta = props => {
 
 aperturaReceta.label = 'LN-Nota-AperturaReceta';
 
-aperturaReceta.lazy = ['default', 'amp'];
-
 export default Consumer(aperturaReceta);

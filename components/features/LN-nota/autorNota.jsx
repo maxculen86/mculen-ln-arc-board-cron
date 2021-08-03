@@ -15,6 +15,4 @@ const authorNota = props => {
 
 authorNota.label = 'LN-Nota-AutorNota';
 
-authorNota.lazy = ['default', 'amp'];
-
 export default Consumer(authorNota);

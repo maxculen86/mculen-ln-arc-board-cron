@@ -50,6 +50,4 @@ wikiAuthor.propTypes = {
     outputType: PropTypes.string.isRequired
 };
 
-wikiAuthor.lazy = ['default', 'amp'];
-
 export default withStatic(Consumer(wikiAuthor));

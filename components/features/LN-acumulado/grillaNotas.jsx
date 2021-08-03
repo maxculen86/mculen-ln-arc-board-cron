@@ -154,6 +154,4 @@ GrillaNotasFeature.propTypes = {
     }).isRequired
 };
 
-GrillaNotasFeature.lazy = ['default', 'amp'];
-
 export default GrillaNotasFeature;

@@ -9,6 +9,4 @@ const share = props => {
 
 share.label = 'LN-Nota-Share';
 
-share.lazy = ['default', 'amp'];
-
 export default Consumer(share);

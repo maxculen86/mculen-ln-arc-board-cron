@@ -198,6 +198,4 @@ Banner.propTypes = {
     })
 };
 
-Banner.lazy = ['default', 'amp'];
-
 export default Consumer(Banner);

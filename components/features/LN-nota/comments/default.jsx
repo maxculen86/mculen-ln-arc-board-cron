@@ -64,6 +64,4 @@ CommentsFeature.propTypes = {
 
 CommentsFeature.label = 'LN-Nota-Comments';
 
-CommentsFeature.lazy = ['default', 'amp'];
-
 export default Consumer(CommentsFeature);

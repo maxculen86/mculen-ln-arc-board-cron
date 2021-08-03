@@ -38,6 +38,4 @@ TrustFeature.propTypes = {
 
 TrustFeature.label = 'LN-Nota-Trust';
 
-TrustFeature.lazy = ['default', 'amp'];
-
 export default Context(TrustFeature);

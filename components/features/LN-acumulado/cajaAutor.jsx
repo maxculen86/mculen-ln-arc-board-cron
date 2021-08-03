@@ -12,6 +12,4 @@ CajaAutor.propTypes = {
     })
 };
 
-CajaAutor.lazy = ['default', 'amp'];
-
 export default Consumer(CajaAutor);

@@ -41,6 +41,4 @@ UltimasNoticias.propTypes = {
     }).isRequired
 };
 
-UltimasNoticias.lazy = ['default', 'amp'];
-
 export default UltimasNoticias;

@@ -21,6 +21,4 @@ const NewsLetter = () => {
 
 NewsLetter.label = 'LN-Common-Newsletter';
 
-NewsLetter.lazy = ['default', 'amp'];
-
 export default NewsLetter;

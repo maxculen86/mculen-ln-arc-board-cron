@@ -20,6 +20,4 @@ const temas = props => {
 
 temas.label = 'LN-Nota-Temas';
 
-temas.lazy = ['default', 'amp'];
-
 export default Consumer(temas);

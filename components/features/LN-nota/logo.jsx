@@ -58,6 +58,4 @@ Logo.propTypes = {
     layout: PropTypes.string.isRequired
 };
 
-Logo.lazy = ['default', 'amp'];
-
 export default Consumer(Logo);

@@ -15,6 +15,4 @@ const bajadaNota = props => {
 
 bajadaNota.label = 'LN-Nota-Bajada';
 
-bajadaNota.lazy = ['default', 'amp'];
-
 export default Consumer(bajadaNota);

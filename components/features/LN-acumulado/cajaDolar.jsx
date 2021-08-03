@@ -28,6 +28,4 @@ CajaDolar.propTypes = {
     id: PropTypes.string.isRequired
 };
 
-CajaDolar.lazy = ['default', 'amp'];
-
 export default CajaDolar;

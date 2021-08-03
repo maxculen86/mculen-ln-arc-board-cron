@@ -7,6 +7,4 @@ const breadCrumbArticle = props => <BreadCrumbArticle {...props} />;
 
 breadCrumbArticle.label = 'LN-Nota-Breadcrumb';
 
-breadCrumbArticle.lazy = ['default', 'amp'];
-
 export default withStatic(Consumer(breadCrumbArticle));
