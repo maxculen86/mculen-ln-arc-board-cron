@@ -3,7 +3,6 @@
 
 import React, { useRef, useContext } from 'react';
 import Consumer from 'fusion:consumer';
-import { useContent } from 'fusion:content';
 import PropTypes from 'fusion:prop-types';
 import get from 'lodash.get';
 import BannerComponent from '../../private/LN/common/bannerRefactor';
