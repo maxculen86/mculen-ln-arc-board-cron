@@ -36,7 +36,15 @@ export default {
             location: ['head']
         },
         Comscore: {
-            props: { config: { c1: '2', c2: '6906398' } },
+            props: {
+                config: {
+                    c1: '2',
+                    c2: '6906398',
+                    c3: 'LANACION.COM.AR',
+                    c4: '*null',
+                    c6: '*null'
+                }
+            },
             location: ['head']
         },
         Livefyre: {
