@@ -19,3 +19,38 @@
     //     }
     // }
 }
+//Fotos cuadradas en la tercera
+@media ($media-l) {
+    .com-ranking {
+        .sidebar__aside & {
+            .com-ordered {
+                .com-item {
+                    margin-top: 0;
+                    margin-bottom: $spacing-md;
+                    .mod-article {
+                        flex-direction: row;
+                        .content-media {
+                            .mod-media {
+                                margin-bottom: 0;
+                                .mod-figure {
+                                    &.--horizontal {
+                                        .mod-picture {
+                                            padding-top: $box;
+                                            width: px(120);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .mod-description {
+                            margin-left: $spacing-sm;
+                            .com-title {
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

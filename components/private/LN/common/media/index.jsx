@@ -111,7 +111,7 @@ const media = ({
             {itsGallery ? (
                 <>{item}</>
             ) : (
-                <div ref={refContainer}>
+                <div className="content-media" ref={refContainer}>
                     <ModMedia
                         idMedia={isApertura && idMedia}
                         zoom={zoom}
