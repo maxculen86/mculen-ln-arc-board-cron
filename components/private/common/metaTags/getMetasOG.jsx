@@ -110,26 +110,19 @@ const setMetaDescription = (data, section) => {
         if (data.subtype === RECETA && data.description !== '') {
             return `${
                 data.description.split('.', 1)[0]
-            }. Encontrá acá la receta de ${data.title} - LA NACION`;
+            }. Encontrá acá la receta de ${data.title}`;
         }
         if (data.subtype === RECETA && data.description === '') {
-            return `Encontrá acá la receta de ${data.title} - LA NACION`;
+            return `Encontrá acá la receta de ${data.title}`;
         }
         if (data.subtype !== RECETA && data.description !== '') {
-            return `${data.description} - LA NACION`;
+            return `${data.description}`;
         }
         if (data.subtype !== RECETA && data.description === '') {
-            return `${data.title} - LA NACION`;
+            return `${data.title}`;
         }
     }
     return data.description;
-};
-
-const setTitle = (data, section, pageBuilderTitle) => {
-    if (section === 'nota') {
-        return data.subtype === RECETA ? `Receta de ${data.title}` : data.title;
-    }
-    return pageBuilderTitle;
 };
 
 const getMetasOG = props => {
@@ -148,7 +141,7 @@ const getMetasOG = props => {
         },
         {
             property: 'og:title',
-            content: setTitle(data, section, pageBuilderTitle)
+            content: pageBuilderTitle
         },
         {
             property: 'og:description',
