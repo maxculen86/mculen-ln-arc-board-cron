@@ -118,12 +118,6 @@
         // }
     }
 
-    &.--1x1_mob,
-    &.--1x1_dsk {
-        margin: 0;
-        position: absolute;
-    }
-
     &.--close {
         .icon-close {
             width: px(20);
@@ -362,6 +356,11 @@
             margin: 0;
         }
     }
+}
+
+[class*='--1x1_'] {
+    margin: 0;
+    position: absolute;
 }
 
 .home {
