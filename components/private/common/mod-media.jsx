@@ -61,7 +61,7 @@ ModMedia.propTypes = {
 };
 
 ModMedia.defaultProps = {
-    idMedia: '',
+    idMedia: undefined,
     children: undefined,
     classCondition: '',
     withZoom: '',

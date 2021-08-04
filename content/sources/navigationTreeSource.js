@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import logger from '../../components/private/common/utils/logger';
@@ -40,6 +41,7 @@ const transform = (data, { sectionId }) => {
         return {
             sections,
             Termicas: restProps && restProps.Termicas
+            // children: restProps.children.find(x => x._id === sectionId)
         };
     }
 
