@@ -1,5 +1,6 @@
 import Consumer from 'fusion:consumer';
 import IndexAcuV1 from '../../../private/LN/api/v1/acumulado';
+import IndexAcuV2 from '../../../private/LN/api/v2/acumulado';
 import browser from '../../../private/common/utils/browser';
 import getSizesFrom from '../../../private/common/utils/getSizesFrom';
 import get from 'lodash.get';
@@ -47,7 +48,8 @@ class AccumulatedTags {
         });
 
         this.versions = {
-            1: IndexAcuV1
+            1: IndexAcuV1,
+            2: IndexAcuV2
         };
     }
 
