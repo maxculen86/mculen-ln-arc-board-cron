@@ -56,7 +56,7 @@ const extractDataFromPromoItems = (promoItems, PLACEHOLDER) => {
     };
 
     if (promoItems && isImage) {
-        const { resizedUrl, bigWidth, bigHeight } = getBiggestImage(undefined);
+        const { resizedUrl, bigWidth, bigHeight } = getBiggestImage(basic);
         const pathImagen = url;
         thumbnailUrl = `${pathImagen}`;
         image = {
