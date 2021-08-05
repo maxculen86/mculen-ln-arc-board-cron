@@ -58,6 +58,7 @@ import { CommentsProvider } from '../private/common/context/commentsContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import LoadBanners from '../private/common/banners/LoadBanners';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
+import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 
 const lnNotaNoticia = ({
     children,
@@ -167,7 +168,8 @@ const lnNotaNoticia = ({
                             <Footer />
                         </Static>
                     </div>
-                    <LoadBanners />
+                    <LoadBannersSSR />
+                    {/* <LoadBanners /> */}
                 </CommentsProvider>
             </LoginProvider>
         </GlobalProvider>

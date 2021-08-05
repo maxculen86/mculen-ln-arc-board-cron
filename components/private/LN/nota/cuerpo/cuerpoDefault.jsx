@@ -32,46 +32,49 @@ import { setStorageConfiguration } from '../../../common/utils/storage';
 import { FOTOAL100 } from '../../../common/utils/subtypes/subtypeHelper';
 import useViewportSize from '../../../common/hooks/useViewportSize';
 import { GlobalContext } from '../../../common/context/globalContext';
+import {
+    getBannerConfiguration,
+    suffixDevice
+} from '../../common/utils/bannerHelper';
+import DivBannerSSR from '../../../common/banners/divBannerSSR';
 
 const Cuerpo = props => {
+    const { bannerConfig: banners, outputType, globalContent } = props;
+
     const {
-        bannerConfig: banners,
-        outputType,
-        globalContent: {
-            _id,
-            headlines: { basic: tituloNota },
-            content_elements: contentElements,
-            subtype
-        }
-    } = props;
+        _id,
+        headlines: { basic: tituloNota },
+        content_elements: contentElements,
+        subtype
+    } = globalContent;
 
-    const device = useViewportSize();
+    // const device = useViewportSize();
 
-    const sponsored = get(props.globalContent, 'owner.sponsored');
-    const advertiser = get(props.globalContent, 'label.marca_anunciante.text');
+    // const sponsored = get(props.globalContent, 'owner.sponsored');
+    // const advertiser = get(props.globalContent, 'label.marca_anunciante.text');
 
-    const mostrarBanners = get(
-        props.globalContent,
-        'label.mostrar_banners.text'
-    );
+    // const mostrarBanners = get(
+    //     props.globalContent,
+    //     'label.mostrar_banners.text'
+    // );
 
-    const gc = useContext(GlobalContext);
-    const siteService = get(gc, 'state.siteService', {});
-    const termicas = get(siteService, 'termicas', []).some(
-        termica => termica.key === 'banners'
-    )
-        ? get(siteService, 'termicas', []).find(
-              termica => termica.key === 'banners'
-          ).value === 'true'
-        : 'false';
-    const bannersSiteConfig = get(siteService, 'banners');
-    const dfpId = get(siteService, 'bannerConfig.dfp_id');
-    const adserver = get(siteService, 'adserver', []);
-    const segments = adserver.map(segment => segment.value);
-    const primarySection = get(
-        props.globalContent,
-        'taxonomy.primary_section._id'
-    );
+    // const gc = useContext(GlobalContext);
+    // const siteService = get(gc, 'state.siteService', {});
+    // const termicas = get(siteService, 'termicas', []).some(
+    //     termica => termica.key === 'banners'
+    // )
+    //     ? get(siteService, 'termicas', []).find(
+    //           termica => termica.key === 'banners'
+    //       ).value === 'true'
+    //     : 'false';
+    // const bannersSiteConfig = get(siteService, 'banners');
+    // const dfpId = get(siteService, 'bannerConfig.dfp_id');
+    // const adserver = get(siteService, 'adserver', []);
+    // const segments = adserver.map(segment => segment.value);
+    // const primarySection = get(
+    //     props.globalContent,
+    //     'taxonomy.primary_section._id'
+    // );
 
     const bodyComponents = [
         Paragraph,
@@ -183,68 +186,100 @@ const Cuerpo = props => {
                             banners
                                 .filter(banner => banner.position === counter)
                                 .map(value => {
-                                    if (mostrarBanners !== 'Si') return <></>;
+                                    const slotId =
+                                        value.desktop ||
+                                        value.mobile ||
+                                        value.tablet;
 
-                                    const slots = [
+                                    // if (mostrarBanners !== 'Si') return <></>;
+
+                                    // const slots = [
+                                    //     {
+                                    //         name: 'desktop',
+                                    //         slot: desktop
+                                    //     },
+                                    //     { name: 'mobile', slot: mobile },
+                                    //     { name: 'tablet', slot: tablet }
+                                    // ];
+                                    // const slotId = getSlotForDevice(device)(
+                                    //     slots
+                                    // );
+
+                                    // if (!slotId) return <></>;
+
+                                    // const config = slotsConfig.nota[slotId];
+                                    // if (!config) return <></>;
+
+                                    // // TODO: Mover esta lógica a un utilitario ?)
+                                    // const configBuilder = new ConfigBuilder();
+                                    // configBuilder.init({
+                                    //     ...config,
+                                    //     slotId,
+                                    //     dfpId,
+                                    //     slotGroup: 'nota',
+                                    //     show: {
+                                    //         termicas,
+                                    //         collection: true
+                                    //     }
+                                    // });
+
+                                    // const [
+                                    //     present,
+                                    //     section
+                                    // ] = isPrimarySectionInBannerSegments(
+                                    //     primarySection
+                                    // )(segments);
+                                    // if (present) {
+                                    //     configBuilder.segmentAdUnit(
+                                    //         section,
+                                    //         device
+                                    //     );
+                                    // }
+
+                                    // if (sponsored && advertiser)
+                                    //     configBuilder.setCustomAdUnit(
+                                    //         'ContentLab'
+                                    //     );
+
+                                    // if (bannersSiteConfig)
+                                    //     configBuilder.setDimensionsFromSiteService(
+                                    //         bannersSiteConfig,
+                                    //         'Nota',
+                                    //         slotId
+                                    //     );
+
+                                    const bannerConfiguration = getBannerConfiguration(
+                                        globalContent,
                                         {
-                                            name: 'desktop',
-                                            slot: value.desktop
+                                            slot: slotId.slice(0, -4),
+                                            group: 'nota',
+                                            device: Object.keys(
+                                                suffixDevice
+                                            ).find(key =>
+                                                slotId.includes(
+                                                    suffixDevice[key]
+                                                )
+                                            )
                                         },
-                                        { name: 'mobile', slot: value.mobile },
-                                        { name: 'tablet', slot: value.tablet }
-                                    ];
-                                    const slotId = getSlotForDevice(device)(
-                                        slots
+                                        {}
                                     );
 
-                                    if (!slotId) return <></>;
-
-                                    const config = slotsConfig.nota[slotId];
-                                    if (!config) return <></>;
-
-                                    // TODO: Mover esta lógica a un utilitario ?)
-                                    const configBuilder = new ConfigBuilder();
-                                    configBuilder.init({
-                                        ...config,
-                                        slotId,
-                                        dfpId,
-                                        slotGroup: 'nota',
-                                        show: {
-                                            termicas,
-                                            collection: true
-                                        }
-                                    });
-
-                                    const [
-                                        present,
-                                        section
-                                    ] = isPrimarySectionInBannerSegments(
-                                        primarySection
-                                    )(segments);
-                                    if (present) {
-                                        configBuilder.segmentAdUnit(
-                                            section,
-                                            device
-                                        );
-                                    }
-
-                                    if (sponsored && advertiser)
-                                        configBuilder.setCustomAdUnit(
-                                            'ContentLab'
-                                        );
-
-                                    if (bannersSiteConfig)
-                                        configBuilder.setDimensionsFromSiteService(
-                                            bannersSiteConfig,
-                                            'Nota',
-                                            slotId
-                                        );
+                                    if (
+                                        !bannerConfiguration ||
+                                        (outputType === 'amp' &&
+                                            !slotId.includes('_amp'))
+                                    )
+                                        return <></>;
 
                                     return (
                                         elementsCount > counter && (
-                                            <Banner
-                                                config={configBuilder.get()}
-                                            />
+                                            <Static id={slotId}>
+                                                <DivBannerSSR
+                                                    bannerConfiguration={
+                                                        bannerConfiguration
+                                                    }
+                                                />
+                                            </Static>
                                         )
                                     );
                                 })}

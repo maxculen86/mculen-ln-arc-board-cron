@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<mock-static>
+  <div
+    class="mod-banner   --close --fixed --adhesion_mob hlp-none "
+  >
+    <button
+      aria-label="Close"
+      class="icon-close"
+      id="btnCloseAd"
+      type="button"
+    />
+    <div
+      class="com-banner"
+      data-ad-unit-path="/133919216/la_nacion_mobile/Nota/adhesion_mob"
+      data-device="mobile"
+      data-prebid-enabled="false"
+      data-size="[[320,50]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="true"
+      data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+      data-without-hide="false"
+      id="adhesion_mob"
+    />
+  </div>
+</mock-static>
+`;
