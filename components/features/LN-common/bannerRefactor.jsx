@@ -3,6 +3,7 @@
 
 import React, { useRef, useContext } from 'react';
 import Consumer from 'fusion:consumer';
+import { useContent } from 'fusion:content';
 import PropTypes from 'fusion:prop-types';
 import get from 'lodash.get';
 import BannerComponent from '../../private/LN/common/bannerRefactor';
@@ -50,8 +51,8 @@ const Banner = props => {
     const { text: mostrarBannersValue } = mostrarBanners || '';
 
     const gc = useContext(GlobalContext);
-    const siteService = get(gc, 'state.siteService', {});
 
+    const siteService = get(gc, 'state.siteService', {});
     const termicas = findTermica('banners');
 
     const dfpId = get(siteProperties, 'bannerConfig.dfp_id');
@@ -74,6 +75,19 @@ const Banner = props => {
         type && type === 'story'
             ? get(globalContent, 'taxonomy.primary_section._id')
             : get(globalContentConfig, 'query.id');
+
+    // Site service banner segments check
+    const [present, section] = isPrimarySectionInBannerSegments(primarySection)(
+        segments
+    );
+
+    const { bannerConfig } = useContent({
+        sourceName: 'navigationTreeSource',
+        query: {
+            website: 'la-nacion-ar',
+            sectionId: `/${section}`
+        }
+    });
 
     const hideBanners = get(
         globalContent,
@@ -111,23 +125,6 @@ const Banner = props => {
             }
         });
 
-        // Site service banner segments check
-        const [present, section] = isPrimarySectionInBannerSegments(
-            primarySection
-        )(segments);
-
-        const bannerConfig = get(globalContent, 'bannerConfig');
-
-        // const {
-        //     children: { bannerConfig }
-        // } = useContent({
-        //     sourceName: 'navigationTreeSource',
-        //     query: {
-        //         website: 'la-nacion-ar',
-        //         sectionId: `/${section}`
-        //     }
-        // });
-
         if (present) {
             configBuilder.current.segmentAdUnit(section, device);
         }
@@ -139,20 +136,12 @@ const Banner = props => {
         // Site service dimensions check
         const bannersSectionConfig =
             (bannerConfig &&
-                Object.keys(bannerConfig).map(x => ({
-                    adunit: x,
-                    dimensions: bannerConfig[x]
-                }))) ||
-            (['propiedades', 'campo'].includes(section) && [
-                {
-                    adunit: 'nota_caja1_dsk',
-                    dimensions: '120x600,160x600,300x600'
-                },
-                {
-                    adunit: 'acumulado_caja1_dsk',
-                    dimensions: '120x600,160x600,300x600'
-                }
-            ]) ||
+                Object.keys(bannerConfig)
+                    .map(adunit => ({
+                        adunit,
+                        dimensions: bannerConfig[adunit]
+                    }))
+                    .filter(x => x.dimensions)) ||
             [];
 
         const adUnitsInSection = bannersSectionConfig.map(
