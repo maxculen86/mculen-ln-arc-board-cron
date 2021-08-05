@@ -137,20 +137,20 @@ describe('Private - LN - nota - snippet - noticia ', () => {
         expect(logoContext).toBe('https://schema.org');
         expect(logoType).toBe('ImageObject');
         expect(logoUrl).toBe(
-            'https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST'
+            'https://arc-static.glanacion.com/resources/images/placeholderLN-1080.jpg$LATEST'
         );
         expect(height).toBe(41);
         expect(width).toBe(391);
         expect(thumbnailUrl).toBe(
-            'https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST'
+            'https://arc-static.glanacion.com/resources/images/placeholderLN-1080.jpg$LATEST'
         );
         expect(image).toStrictEqual({
             '@context': 'https://schema.org',
             '@type': 'ImageObject',
-            height: '564',
+            height: '800',
             url:
-                'https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST',
-            width: '1080'
+                'https://arc-static.glanacion.com/resources/images/placeholderLN-1080.jpg$LATEST',
+            width: '1200'
         });
     });
 

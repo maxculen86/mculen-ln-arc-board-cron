@@ -43,18 +43,18 @@ exports[`Private - LN - nota - snippet - noticia  Snapshot Snippet Noticia 1`] =
     \\"logo\\": {
       \\"@context\\": \\"https://schema.org\\",
       \\"@type\\": \\"ImageObject\\",
-      \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST\\",
+      \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN-1080.jpg$LATEST\\",
       \\"height\\": 41,
       \\"width\\": 391
     }
   },
-  \\"thumbnailUrl\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST\\",
+  \\"thumbnailUrl\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN-1080.jpg$LATEST\\",
   \\"image\\": {
     \\"@context\\": \\"https://schema.org\\",
     \\"@type\\": \\"ImageObject\\",
-    \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST\\",
-    \\"height\\": \\"564\\",
-    \\"width\\": \\"1080\\"
+    \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN-1080.jpg$LATEST\\",
+    \\"height\\": \\"800\\",
+    \\"width\\": \\"1200\\"
   },
   \\"publishingPrinciples\\": \\"https://www.lanacion.com.ar/tema/the-trust-project-tid68036/\\"
 }",
