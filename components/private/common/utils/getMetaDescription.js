@@ -13,7 +13,7 @@ const getMetaDescription = (
             return `${
                 subheadlines.split('.', 1)[0]
             }. Encontrá acá la receta de ${metaTitleBasic} - LA NACION`;
-        return `Encontrá acá la receta de ${metaTitleBasic}`;
+        return `Encontrá acá la receta de ${metaTitleBasic} - LA NACION`;
     }
     if (description && description !== '') return `${description} - LA NACION`;
     if (subheadlines && subheadlines !== '')
