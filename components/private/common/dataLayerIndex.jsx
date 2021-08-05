@@ -14,6 +14,7 @@ const config = {
         'LN-nota-html-libre': NotaDataLayer,
         'LN-nota-foto-al-100': NotaDataLayer,
         'LN-nota-opta': NotaDataLayer,
+        'LN-nota-video': NotaDataLayer,
         'LN-Home_Sports': HomeDataLayer,
         'LN-Home_Main': HomeDataLayer
     }
