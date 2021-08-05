@@ -19,6 +19,7 @@
             padding-top: 100%;
             width: 100%;
             margin: 0 0 px(16) 0;
+            border: 1px solid $light-neutral-400;
             @media ($media-m) {
                 margin-bottom: $spacing-xl;
             }
