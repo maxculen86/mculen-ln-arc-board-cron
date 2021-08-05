@@ -9,76 +9,44 @@
     z-index: 15000;
     border-top: 1px solid $light-neutral-300;
     width: 100%;
-    //max-height: px(56);
     height: px(56);
-    //transition: all 0.25s ease-in-out;
+
     .row {
         max-width: px(400);
         margin: 0 auto;
         justify-content: space-between;
-    }
-    .item-foo {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background: transparent;
-        color: $light-neutral-700;
-        //OCULTO HAMBURGUESA
-        // TODO: Recordar dejar oculto
-        p {
-            //font-family: $font-arial;
-            font-size: px(9);
-            //color: $light-neutral-700;
-        }
-        i {
-            margin-bottom: px(4);
-        }
-        // &:hover {
-        //     p {
-        //         color: $ln;
-        //     }
-        //     i {
-        //         color: $ln;
-        //     }
-        // }
-        &.--active {
+
+        .item-foo {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+            color: $light-neutral-700;
             p {
-                color: $ln;
+                font-size: px(9);
+                @media ($media-s) {
+                    font-size: px(11);
+                }
             }
             i {
-                color: $ln;
+                margin-bottom: px(4);
             }
-        }
-        &:first-child {
-            margin: px(-5);
-        }
-    }
-    //scrollUp
-    // .--scrollDown & {
-    //     bottom: -200px;
-    // }
-    //scrollDown
-    // .--scrollUp & {
-    //     bottom: 0;
-    // }
-    /*@media ($media-l) {
-        display: none;
-    }*/ // en tablet landscape se ve mal sin esto
-}
-@media ($media-s) {
-    .com-nav-mobile {
-        //height: inherit;
-        .item-foo {
-            p {
-                font-size: px(11);
+            &.--active {
+                p {
+                    color: $ln;
+                }
+                i {
+                    color: $ln;
+                }
+            }
+            &:first-child {
+                margin: px(-5);
             }
         }
     }
-}
 
-@media ($media-l) {
-    .com-nav-mobile {
+    @media ($media-l) {
         display: none;
     }
 }

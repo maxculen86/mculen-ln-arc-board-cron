@@ -8,6 +8,8 @@ import {
     buildScriptForZoom,
     getEpigrafe
 } from '../../private/LN/common/utils/mediaHelper';
+import { VIDEO } from '../../private/common/utils/subtypes/subtypeHelper';
+import { getViewport } from '../../private/LN/common/utils/homeHelper';
 
 const aperturaNoticia = props => {
     const { globalContent, outputType, id: idFeature } = props;
@@ -27,7 +29,7 @@ const aperturaNoticia = props => {
                         apertura_multimedia: aperturaMultimedia
                     } = promoItems;
 
-                    const { _id: idMedia, content } =
+                    const { _id: idMedia, content, type } =
                         aperturaMultimedia || basic || {};
                     const firstText = contentElements.find(
                         element => element.type === 'text'
@@ -41,6 +43,10 @@ const aperturaNoticia = props => {
                     const { caption, credit } = getEpigrafe(
                         aperturaMultimedia || basic
                     );
+                    const { isDesktop } = getViewport();
+                    // const isDesktop = 'true';
+                    const autoplay =
+                        subtype === VIDEO && type === 'video' && isDesktop;
                     return (
                         <Media
                             mediaData={aperturaMultimedia || basic}
@@ -53,6 +59,7 @@ const aperturaNoticia = props => {
                             tituloNota={tituloNota}
                             subtype={subtype}
                             html={content}
+                            autoplay={autoplay}
                         >
                             <figcaption className="mod-figcaption">
                                 {caption}
