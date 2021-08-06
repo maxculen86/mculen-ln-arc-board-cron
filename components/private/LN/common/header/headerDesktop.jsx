@@ -126,6 +126,22 @@ const HeaderDesktop = ({
         if (slotId) loadBanner(slotId, section);
     }, [loading, slotId]);
 
+    const hideBannersByDefault = () => {
+        const script = `
+            window.addEventListener('DOMContentLoaded', () => {
+                const nodes = document.querySelectorAll('[id^="logo_header"]');
+                Array.from(nodes).map(x => x.classList.add('hlp-none')));
+            });
+        `;
+
+        return (
+            <script
+                type="text/javascript"
+                dangerouslySetInnerHTML={{ __html: script }}
+            />
+        );
+    };
+
     const handleClickBuscar = () => {
         dynamicallyLoadScript('//www.queryly.com/js/queryly.v4.js', 'body')
             .then(() => {
@@ -270,6 +286,7 @@ const HeaderDesktop = ({
                     <i className="com-icon icon-search queryly_searchicon" />
                 </label>
             </div>
+            <hideBannersByDefault />
         </Header>
     );
 };
