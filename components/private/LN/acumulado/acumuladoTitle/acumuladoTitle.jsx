@@ -1,9 +1,9 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
+import { SITE_LANACION } from 'fusion:environment';
 import withAcuCategories from '../hocs/withAcuCategories';
 import capitalizeFirstLetter from '../../../common/utils/capitalizeFirstLetter';
 import get from '../../../common/utils/get';
-import { SITE_LANACION } from 'fusion:environment';
 import '../../../../../resources/dist/css/ln/components/title.css';
 import '../../../../../resources/dist/css/ln/components/tag.css';
 import ModCategory from '../../../common/mod-category';
@@ -86,9 +86,11 @@ AcumuladoTitle.propTypes = {
     globalContent: PropTypes.shape({
         _id: PropTypes.string.isRequired,
         Payload: PropTypes.shape({
-            items: PropTypes.shape({
-                name: PropTypes.string
-            })
+            items: PropTypes.arrayOf(
+                PropTypes.shape({
+                    name: PropTypes.string
+                })
+            )
         }),
         byline: PropTypes.string,
         name: PropTypes.string,
@@ -104,8 +106,13 @@ AcumuladoTitle.propTypes = {
         )
     }).isRequired,
     outputType: PropTypes.string.isRequired,
-    idLogoImage: PropTypes.string.isRequired,
-    colorCategory: PropTypes.string.isRequired
+    idLogoImage: PropTypes.string,
+    colorCategory: PropTypes.string
+};
+
+AcumuladoTitle.defaultProps = {
+    idLogoImage: '',
+    colorCategory: ''
 };
 
 export default withAcuCategories(AcumuladoTitle);

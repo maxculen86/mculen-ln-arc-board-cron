@@ -84,7 +84,7 @@ const Ads = props => {
 
 Ads.propTypes = {
     slotId: PropTypes.string.isRequired,
-    dfpId: PropTypes.string.isRequired,
+    dfpId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     dimensions: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number))
         .isRequired,
     slotName: PropTypes.string.isRequired,
@@ -92,10 +92,12 @@ Ads.propTypes = {
         seccion: PropTypes.string,
         sitio: PropTypes.string
     }).isRequired,
-    sizemap: PropTypes.shape({
-        breakpoints: PropTypes.array,
-        refresh: PropTypes.bool
-    }),
+    sizemap: PropTypes.arrayOf(
+        PropTypes.shape({
+            breakpoints: PropTypes.array,
+            refresh: PropTypes.bool
+        })
+    ),
     bidding: PropTypes.objectOf(PropTypes.string),
     slotGroup: PropTypes.string,
     subscription: PropTypes.bool,

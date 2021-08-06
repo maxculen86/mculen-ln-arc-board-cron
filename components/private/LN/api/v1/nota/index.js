@@ -42,7 +42,7 @@ const indexNota = dataNota => {
 
     const resp = {
         id,
-        template: template === '6' ? '1' : template,
+        template: template === '6' || template === '5' ? '1' : template,
         url,
         mostrarBanners: !(showBanners && showBanners.toLowerCase() === 'no'),
         paywallStatus: paywallStatus || 'comun',

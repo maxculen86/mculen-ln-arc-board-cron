@@ -8,32 +8,48 @@ import {
     buildScriptForZoom,
     getEpigrafe
 } from '../../private/LN/common/utils/mediaHelper';
+import { VIDEO } from '../../private/common/utils/subtypes/subtypeHelper';
+import { getViewport } from '../../private/LN/common/utils/homeHelper';
 
 const aperturaNoticia = props => {
     const { globalContent, outputType, id: idFeature } = props;
 
     return (
-        <Static id={idFeature}>
-            <section className="mod-opening" persistent>
+        <Static id={idFeature} persistent>
+            <section className="mod-opening">
                 {(() => {
                     const {
                         promo_items: promoItems = {},
                         headlines: { basic: tituloNota },
-                        content_elements: contentElements,
+                        content_elements: contentElements = [],
                         subtype
                     } = globalContent || {};
-                    const { basic } = promoItems;
-                    const { _id: idMedia } = basic || {};
+                    const {
+                        basic,
+                        apertura_multimedia: aperturaMultimedia
+                    } = promoItems;
+
+                    const { _id: idMedia, content, type } =
+                        aperturaMultimedia || basic || {};
                     const firstText = contentElements.find(
                         element => element.type === 'text'
                     );
                     const scriptForZoom =
                         outputType !== 'amp' &&
-                        buildScriptForZoom(basic, subtype, '--zoom');
-                    const { caption, credit } = getEpigrafe(basic);
+                        buildScriptForZoom(
+                            aperturaMultimedia || basic,
+                            subtype
+                        );
+                    const { caption, credit } = getEpigrafe(
+                        aperturaMultimedia || basic
+                    );
+                    const { isDesktop } = getViewport();
+                    // const isDesktop = 'true';
+                    const autoplay =
+                        subtype === VIDEO && type === 'video' && isDesktop;
                     return (
                         <Media
-                            mediaData={basic}
+                            mediaData={aperturaMultimedia || basic}
                             withZoom="--zoom"
                             idMedia={idMedia}
                             scriptForZoom={scriptForZoom}
@@ -42,6 +58,8 @@ const aperturaNoticia = props => {
                             parrafo={firstText || 'LA NACION'}
                             tituloNota={tituloNota}
                             subtype={subtype}
+                            html={content}
+                            autoplay={autoplay}
                         >
                             <figcaption className="mod-figcaption">
                                 {caption}

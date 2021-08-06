@@ -50,12 +50,10 @@
         //background: $neutral-white;
         display: none;
     }
-    //.--ads &,
-    .sidebar__aside &,
-    &.--unoxuno_mob,
-    &.--unoxuno_dsk {
+    .sidebar__aside & {
         margin: 0;
     }
+
     &.--comercial {
         &:before {
             display: none;
@@ -135,6 +133,7 @@
         //     width: 100%;
         // }
     }
+
     &.--close {
         .icon-close {
             width: px(20);
@@ -373,6 +372,11 @@
             margin: 0;
         }
     }
+}
+
+[class*='--1x1_'] {
+    margin: 0;
+    position: absolute;
 }
 
 .home {

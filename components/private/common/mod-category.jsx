@@ -55,8 +55,10 @@ ModCategory.propTypes = {
     revista: PropTypes.string,
     category: PropTypes.string,
     url: PropTypes.string.isRequired,
-    style: PropTypes.obj,
-    navigation: PropTypes.string.isRequired,
+    style: PropTypes.shape({
+        color: PropTypes.string
+    }),
+    navigation: PropTypes.string,
     outputType: PropTypes.string.isRequired,
     image: PropTypes.shape({
         width: PropTypes.string.isRequired,
@@ -68,8 +70,9 @@ ModCategory.propTypes = {
 ModCategory.defaultProps = {
     revista: '',
     category: '',
-    style: {},
-    image: {}
+    style: undefined,
+    image: {},
+    navigation: undefined
 };
 
 export default withImage(ModCategory, null, true);

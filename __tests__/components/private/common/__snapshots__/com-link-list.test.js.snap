@@ -10,7 +10,7 @@ exports[`LN-Private-Common-ComLinkList  passing a filled list by params with ext
     <a
       class="com-link"
       href="http://www.google.com"
-      rel="nonoopener noreferrer"
+      rel="nofollow"
       target="_blank"
       title="LN Link Custom"
     >
@@ -42,7 +42,7 @@ exports[`LN-Private-Common-ComLinkList  passing a filled list by params without 
     <a
       class="com-link"
       href="http://www.google.com"
-      rel="nonoopener noreferrer"
+      rel="nofollow"
       target="_blank"
       title="LN Link Custom"
     >

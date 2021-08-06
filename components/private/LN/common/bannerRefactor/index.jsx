@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Context from 'fusion:context';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 
 import { slotsConfig } from './config';
 
@@ -21,9 +21,25 @@ const index = props => {
 };
 
 index.propTypes = {
-    outputType: PropTypes.string.isRequired,
+    outputType: PropTypes.string,
     config: PropTypes.shape({
         group: PropTypes.oneOf(Object.keys(slotsConfig)).isRequired,
+        selectedSlots: PropTypes.shape({
+            desktopSlot: PropTypes.string,
+            mobileSlot: PropTypes.string,
+            tabletSlot: PropTypes.string
+        }),
+        sticky: PropTypes.bool,
+        background: PropTypes.bool,
+        fixed: PropTypes.bool,
+        show: PropTypes.bool
+    })
+};
+
+index.defaultProps = {
+    outputType: 'default',
+    config: PropTypes.shape({
+        group: PropTypes.oneOf(Object.keys(slotsConfig)),
         selectedSlots: PropTypes.shape({
             desktopSlot: PropTypes.string,
             mobileSlot: PropTypes.string,

@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import '../../../resources/dist/css/ln/components/com-icon.css';
 import ComText from './text';
 
@@ -7,21 +7,21 @@ const ComIco = props => {
     const { iconName, textname, style, sizeBullet, sizeText, sizeIcon } = props;
 
     if (!iconName) return null;
+    const icon = (
+        <i
+            className={`com-icon ${
+                iconName === 'bullet' ? iconName : ''
+            } icon-${iconName} ${sizeIcon || ''} ${sizeBullet || ''}`}
+            style={style}
+        />
+    );
     return (
         <>
-            {iconName == 'bullet' ? (
-                <i
-                    className={`com-icon bullet icon-${iconName} ${sizeIcon ||
-                        ''} ${sizeBullet || ''} `}
-                    style={style}
-                />
+            {iconName === 'bullet' ? (
+                icon
             ) : (
                 <>
-                    <i
-                        className={`com-icon icon-${iconName} ${sizeIcon ||
-                            ''} ${sizeBullet || ''} `}
-                        style={style}
-                    />
+                    {icon}
                     {textname ? (
                         <ComText size={sizeText || ''}>{textname}</ComText>
                     ) : (
@@ -34,12 +34,20 @@ const ComIco = props => {
 };
 
 ComIco.propTypes = {
-    iconName: PropTypes.string,
+    iconName: PropTypes.string.isRequired,
     textname: PropTypes.string,
-    style: PropTypes.string,
+    style: PropTypes.objectOf(PropTypes.any),
     sizeBullet: PropTypes.string,
     sizeText: PropTypes.string,
     sizeIcon: PropTypes.string
+};
+
+ComIco.defaultProps = {
+    textname: '',
+    style: undefined,
+    sizeBullet: '',
+    sizeText: '',
+    sizeIcon: ''
 };
 
 export default ComIco;

@@ -34,6 +34,8 @@ import { pipe } from '../private/common/utils/functional';
 import Pwa from '../private/common/scriptManager/pwa';
 import PwaModals from '../private/LN/common/pwaModals';
 import ScriptSWG from '../private/common/scriptManager/scriptSWG';
+import getMetaDescriptionForAcum from '../private/common/utils/getMetaDescriptionForAcum';
+import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
 
 const scriptList = [
     {
@@ -175,13 +177,35 @@ const Default = props => {
         scripts,
         siteProperties.scripts
     );
-
     const _nodeType = getSectionName({ nodeType, type });
+    const metaDescription =
+        _nodeType === 'acumulado'
+            ? getMetaDescriptionForAcum(
+                  metaValue('description'),
+                  _id,
+                  Payload,
+                  nodeType,
+                  name,
+                  arcSite
+              )
+            : '';
 
     const title =
         _nodeType === 'home'
             ? siteProperties.longTitle
             : metaValue('title') || siteProperties.title;
+
+    const LinkImagePreload = () =>
+        getDataToLinkImage(globalContent, _nodeType).map(elem => {
+            return (
+                <link
+                    rel="preload"
+                    href={elem.resizedUrl}
+                    as="image"
+                    media={elem.media}
+                />
+            );
+        });
 
     return (
         <html lang="es">
@@ -199,6 +223,9 @@ const Default = props => {
                     <CssLinks />
                 )}
                 <Libs />
+
+                {LinkImagePreload()}
+
                 <TagsLoadingList
                     section="all"
                     location="head"
@@ -223,7 +250,12 @@ const Default = props => {
                     arcSite={arcSite}
                     Tag="script"
                 />
-                <MetasOG {...props} section={_nodeType} title={title} />
+                <MetasOG
+                    {...props}
+                    section={_nodeType}
+                    title={title}
+                    metaDescription={metaDescription}
+                />
                 {canonicalUrl && (
                     <link
                         rel="canonical"
@@ -245,6 +277,7 @@ const Default = props => {
                     _id={_id}
                     section={_nodeType}
                     defaultTitle={siteProperties.longTitle}
+                    metaValue={title}
                 />
                 <MetaDescription
                     subtype={subtype}
@@ -261,6 +294,7 @@ const Default = props => {
                     arcSite={arcSite}
                     section={_nodeType}
                     defaultDescription={siteProperties.description}
+                    metaDescription={metaDescription}
                 />
                 <Syndication
                     type={type}

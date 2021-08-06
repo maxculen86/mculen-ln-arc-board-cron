@@ -180,9 +180,6 @@ class Index extends Component {
 
 Index.propTypes = {
     outputType: PropTypes.string.isRequired,
-    screenUtils: PropTypes.shape({
-        device: PropTypes.string
-    }).isRequired,
     logueado: PropTypes.bool.isRequired,
     loginData: PropTypes.shape({
         subcription: PropTypes.bool,

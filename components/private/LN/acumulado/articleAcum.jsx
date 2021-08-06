@@ -116,13 +116,22 @@ ArticleAcum.propTypes = {
             })
         }),
         taxonomy: PropTypes.shape({
-            primary_section: PropTypes.string,
-            tags: PropTypes.arrayOf(PropTypes.obj)
+            primary_section: PropTypes.shape({
+                _id: PropTypes.string,
+                name: PropTypes.string,
+                path: PropTypes.string
+            }),
+            tags: PropTypes.arrayOf(
+                PropTypes.shape({
+                    slug: PropTypes.string,
+                    text: PropTypes.string
+                })
+            )
         })
     }).isRequired,
     children: PropTypes.node,
-    typeArticle: PropTypes.string.isRequired,
-    outputType: PropTypes.string.isRequired,
+    typeArticle: PropTypes.string,
+    outputType: PropTypes.string,
     withCategory: PropTypes.bool,
     withTags: PropTypes.bool,
     titleTag: PropTypes.string,
@@ -130,16 +139,20 @@ ArticleAcum.propTypes = {
     withSubhead: PropTypes.bool,
     withVolanta: PropTypes.bool,
     isRenderAuthor: PropTypes.bool,
-    boxPosition: PropTypes.string.isRequired,
-    artPosition: PropTypes.string.isRequired
+    boxPosition: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    artPosition: PropTypes.string
 };
 
 ArticleAcum.defaultProps = {
     dataSection: '',
     titleSize: '',
     titleTag: '',
+    artPosition: '',
+    typeArticle: 'Grilla',
+    outputType: 'default',
     children: undefined,
     handleClick: undefined,
+    boxPosition: undefined,
     withCategory: false,
     withTags: false,
     isRenderAuthor: false,

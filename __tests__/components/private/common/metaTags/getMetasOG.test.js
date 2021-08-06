@@ -2,6 +2,7 @@ import { SITE_LANACION, SITE_RECETAS } from 'fusion:environment';
 import getMetasOG from '../../../../../components/private/common/metaTags/getMetasOG';
 import getAssetsPath from '../../../../../components/private/common/utils/getAssetsPath';
 import { LANACIONAR_URLASSETS } from 'fusion:environment';
+import getMetaDescriptionForAcum from '../../../../../components/private/common/utils/getMetaDescriptionForAcum';
 
 jest.mock('fusion:content', () => ({
     useContent: () => ({
@@ -93,12 +94,11 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:title',
-                content: 'Receta de Arroz chaufa de mariscos - LA NACION'
+                content: 'Arroz chaufa de mariscos'
             },
             {
                 property: 'og:description',
-                content:
-                    'Encontrá acá la receta de Arroz chaufa de mariscos - LA NACION'
+                content: 'Encontrá acá la receta de Arroz chaufa de mariscos'
             },
             {
                 property: 'og:image',
@@ -139,7 +139,8 @@ describe('Common - getMetasOG function', () => {
             deployment: function deployment() {
                 return '$LATEST';
             },
-            section: 'acumulado'
+            section: 'acumulado',
+            metaDescription: 'Últimas Noticias de LA NACION'
         };
 
         const metas = [
@@ -202,7 +203,8 @@ describe('Common - getMetasOG function', () => {
             contextPath: '/pf',
             deployment: function deployment() {
                 return '$LATEST';
-            }
+            },
+            metaDescription: 'Últimas Noticias de Javier Blanco'
         };
 
         const metas = [
@@ -234,5 +236,28 @@ describe('Common - getMetasOG function', () => {
             }
         ];
         expect(getMetasOG(props)).toStrictEqual(metas);
+    });
+});
+jest.mock('fusion:content', () => ({
+    useContent: () => ({
+        content_elements: [
+            { headlines: { basic: 'Titulo Nota 1' } },
+            { headlines: { basic: 'Titulo Nota 2' } }
+        ]
+    })
+}));
+describe('Common - getMetasOG function metaDescriptionForAcum', () => {
+    it('metaDescriptionForAcum para Section', () => {
+        const meteDescription = getMetaDescriptionForAcum(
+            'Description',
+            '/economia',
+            undefined,
+            'section',
+            '',
+            'la-nacion-ar'
+        );
+        expect(meteDescription).toEqual(
+            'Description Titulo Nota 1, Titulo Nota 2'
+        );
     });
 });
