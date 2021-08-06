@@ -27,10 +27,8 @@ class Index extends Component {
     }
 
     componentDidMount() {
-        // debugger;
-
         const header = document.getElementById('header');
-        //const vshare = document.getElementById('v-share');
+        // const vshare = document.getElementById('v-share');
         const userMenu = document.getElementById('user-menu');
         const fusionApp = document.getElementById('fusion-app');
         const wrapper = fusionApp && fusionApp.querySelector('#wrapper');
@@ -75,14 +73,14 @@ class Index extends Component {
         if (userMenu) userMenu.classList.remove(CLASS_ACTIVE);
         if (scrollPos) {
             if (scrollPos > height) {
-                //classList.add(CLASS_SCROLL_DOWN);
+                // classList.add(CLASS_SCROLL_DOWN);
                 if (wrapper) {
                     wrapper.classList.add(CLASS_SCROLL_DOWN);
                 }
             }
             if (isScrollUp) {
-                //classList.remove(CLASS_SCROLL_DOWN);
-                //classList.add(CLASS_SCROLL_UP);
+                // classList.remove(CLASS_SCROLL_DOWN);
+                // classList.add(CLASS_SCROLL_UP);
                 // if (vshare) {
                 //     vshare.classList.add(CLASS_SCROLL_UP);
                 //     vshare.classList.remove(CLASS_SCROLL_DOWN);
@@ -98,7 +96,7 @@ class Index extends Component {
                 classList.remove(CLASS_ACTIVE);
                 if (vshare) vshare.classList.remove(CLASS_ACTIVE);
 
-                //classList.remove(CLASS_SCROLL_UP);
+                // classList.remove(CLASS_SCROLL_UP);
                 // if (vshare) {
                 //     vshare.classList.remove(CLASS_SCROLL_UP);
                 //     vshare.classList.add(CLASS_SCROLL_DOWN);
@@ -109,11 +107,11 @@ class Index extends Component {
                 }
             }
             if (scrollPos < 65) {
-                //esta clsae está para el header transparente
+                // esta clsae está para el header transparente
                 classList.add(CLASS_ACTIVE);
                 if (vshare) vshare.classList.add(CLASS_ACTIVE);
-                //classList.remove(CLASS_SCROLL_UP);
-                //classList.remove(CLASS_SCROLL_DOWN);
+                // classList.remove(CLASS_SCROLL_UP);
+                // classList.remove(CLASS_SCROLL_DOWN);
                 // if (wrapper) {
                 //     wrapper.classList.remove(CLASS_SCROLL_UP);
                 //     wrapper.classList.remove(CLASS_SCROLL_DOWN);
@@ -133,9 +131,11 @@ class Index extends Component {
             loginData,
             goToLogout,
             // headerDark,
-            siteProperties: { host }
+            siteProperties: { host, layoutsName = {} },
+            layout
         } = this.props;
-        const { scrollDirection } = this.state;
+
+        // const { scrollDirection } = this.state;
 
         if (outputType === 'amp')
             return <HeaderAMP toglleDesplegable={this.toglleDesplegable} />;
@@ -149,10 +149,12 @@ class Index extends Component {
                     showNav
                     goToLogout={goToLogout}
                     host={host}
+                    isHome={layoutsName.Home === layout}
                     // headerDark={headerDark}
                 />
 
                 <NavBarMobile
+                    isHome={layoutsName.Home === layout}
                     toglleDesplegable={this.toglleDesplegable}
                     // showNav={
                     //     scrollDirection.isScrollDown
@@ -161,7 +163,10 @@ class Index extends Component {
                     // }
                 />
 
-                <Desplegable toglleDesplegable={this.toglleDesplegable} />
+                <Desplegable
+                    toglleDesplegable={this.toglleDesplegable}
+                    isHome={layoutsName.Home === layout}
+                />
             </>
         );
     }
@@ -177,8 +182,12 @@ Index.propTypes = {
     }).isRequired,
     goToLogout: PropTypes.func.isRequired,
     siteProperties: PropTypes.shape({
-        host: PropTypes.string
-    }).isRequired
+        host: PropTypes.string,
+        layoutsName: PropTypes.shape({
+            Home: PropTypes.string
+        })
+    }).isRequired,
+    layout: PropTypes.string.isRequired
     // headerDark: PropTypes.string
 };
 

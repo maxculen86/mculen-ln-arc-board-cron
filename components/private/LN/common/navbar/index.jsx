@@ -1,16 +1,16 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import Icon from '../../../common/icon';
 
 import '../../../../../resources/dist/css/ln/components/nav-mobile.css';
 
-const ListMenu = ({ toglleDesplegable, amp }) => {
+const ListMenu = ({ toglleDesplegable, amp, isHome }) => {
     return (
-        <nav className={`com-nav-mobile`}>
+        <nav className="com-nav-mobile">
             <div className="row">
                 <Icon
                     name="home"
-                    href="https://www.lanacion.com.ar/"
+                    href={isHome ? '#' : 'https://www.lanacion.com.ar/'}
                     target="_top"
                     mod="col-3 item-foo"
                 >
@@ -58,8 +58,14 @@ const ListMenu = ({ toglleDesplegable, amp }) => {
 };
 
 ListMenu.propTypes = {
-    //showNav: PropTypes.string.isRequired,
+    // showNav: PropTypes.string.isRequired,
+    isHome: PropTypes.bool.isRequired,
+    amp: PropTypes.bool,
     toglleDesplegable: PropTypes.func.isRequired
+};
+
+ListMenu.defaultProps = {
+    amp: false
 };
 
 export default ListMenu;

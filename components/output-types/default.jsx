@@ -35,6 +35,7 @@ import Pwa from '../private/common/scriptManager/pwa';
 import PwaModals from '../private/LN/common/pwaModals';
 import ScriptSWG from '../private/common/scriptManager/scriptSWG';
 import getMetaDescriptionForAcum from '../private/common/utils/getMetaDescriptionForAcum';
+import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 // import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
 
 const scriptList = [
@@ -324,7 +325,6 @@ const Default = props => {
                     arcSite={arcSite}
                     Tag="script"
                 />
-
                 <div id="fusion-app">
                     <Fusion>{children}</Fusion>
                 </div>
@@ -341,6 +341,7 @@ const Default = props => {
                     Tag="script"
                 />
                 <ScriptLogoBBC distributorName={distributorName} />
+                <ScriptLogoEvent />
             </body>
         </html>
     );
