@@ -4,8 +4,8 @@ import Cuerpo from './cuerpo';
 import ModificadorTemplate from './modificadorTemplate';
 import Relacionados from './relacionados';
 import dateAndTimeUtil from '../../../../common/utils/dateAndTimeUtil';
-import { getPrincipalCategory } from '../common/category';
-import { removeEmptyItems } from '../common/utils/responseCleaner';
+import { getPrincipalCategory } from '../../common/category';
+import { removeEmptyItems } from '../../common/utils/responseCleaner';
 
 const indexNota = dataNota => {
     if (!dataNota) throw new Error(`La información de la nota esta vacia`);

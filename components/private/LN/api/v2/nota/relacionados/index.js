@@ -1,6 +1,6 @@
 import get from 'lodash.get';
-import { getSubCategory } from '../../common/category';
-import { getTag } from '../../common/tag';
+import { getSubCategory } from '../../../common/category';
+import { getTag } from '../../../common/tag';
 import NotaRelacionadas from './notaRelacionada';
 
 const relacionadosIndex = dataArticle => {

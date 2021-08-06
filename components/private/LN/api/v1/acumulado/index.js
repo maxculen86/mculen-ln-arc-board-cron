@@ -1,9 +1,9 @@
 import ArticleList from '../common/articles/list';
 import Configuration from './configuration';
 import Article from '../common/articles/index';
-import { removeEmptyItems } from '../common/utils/responseCleaner';
-import { getTag } from '../common/tag';
-import { authorAcu } from '../common/author';
+import { removeEmptyItems } from '../../common/utils/responseCleaner';
+import { getTag } from '../../common/tag';
+import { authorAcu } from '../../common/author';
 
 const index = acuData => {
     const resp = {

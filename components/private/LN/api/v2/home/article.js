@@ -1,6 +1,6 @@
 import get from 'lodash.get';
-import Image from '../common/image';
-import { authorHomeMobile } from '../common/author';
+import Image from '../../common/image';
+import { authorHomeMobile } from '../../common/author';
 
 const getArticleImage = article => {
     const image =
