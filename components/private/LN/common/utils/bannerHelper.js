@@ -64,8 +64,7 @@ export const getBannerConfiguration = (
     );
     const config = get(
         siteProperties,
-        `bannerConfig[${slotGroup}][${device}][${slotId}]`,
-        {}
+        `bannerConfig[${slotGroup}][${device}][${slotId}]`
     );
 
     const subscription =

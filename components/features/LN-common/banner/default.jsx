@@ -47,14 +47,6 @@ const BannerSSR = props => {
         customFields,
         globalContentConfig
     );
-    console.log(
-        '🚀 ~ file: default.jsx ~ line 51 ~ bannerConfiguration',
-        bannerConfiguration
-    );
-    // console.log(
-    //     '🚀 ~ file: banner.jsx ~ line 66 ~ bannerConfiguration',
-    //     bannerConfiguration
-    // );
 
     if (!bannerConfiguration)
         return (
