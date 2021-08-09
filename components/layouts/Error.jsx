@@ -56,11 +56,18 @@ const ErrorPage = props => {
                             <Image
                                 src="https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/RSUQWM65SRA4VG2QHCZ3KER6JM.jpg"
                                 alt="Imagen de Liniers"
+                                classCondition="img-404"
                             />
                         </div>
                     </div>
+                    <section className="box-articles">
+                        <section className="mod-headersection ">
+                            <h4 className="com-title --l">Últimas Noticias</h4>
+                            <div class="com-line  "></div>
+                        </section>
+                        {MasNotas}
+                    </section>
                 </div>
-                {MasNotas}
             </main>
             <footer>
                 <div className="lay">
