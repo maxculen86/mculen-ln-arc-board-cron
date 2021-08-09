@@ -116,6 +116,7 @@ const HeaderDesktop = ({
             <div className="col-7 col-desksm-4 header__middle">
                 <Logo
                     logoName="la-nacion"
+                    classCondition="nacion-home"
                     color
                     // size="--md"
                     href={isHome ? '#' : `${host}/`}

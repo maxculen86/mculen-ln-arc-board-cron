@@ -12,7 +12,7 @@ const ListMenu = ({ toglleDesplegable, amp, isHome }) => {
                     name="home"
                     href={isHome ? '#' : 'https://www.lanacion.com.ar/'}
                     target="_top"
-                    mod="col-3 item-foo"
+                    mod="col-3 item-foo nacion-home"
                 >
                     <p>Home</p>
                 </Icon>

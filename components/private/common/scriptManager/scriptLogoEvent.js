@@ -3,9 +3,10 @@ import React from 'react';
 
 const ScriptLogoEvent = () => {
     const script = `window.addEventListener('DOMContentLoaded', (event) => {
-        document.querySelectorAll('.logo-la-nacion').forEach(item => {
+        document.querySelectorAll('.nacion-home').forEach(item => {
             item.addEventListener('click', event => {
-                sessionStorage.setItem('hp', 0);
+                sessionStorage.removeItem('hp');
+                sessionStorage.removeItem('lb');
             })
           })
     });`;

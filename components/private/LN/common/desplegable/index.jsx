@@ -56,6 +56,7 @@ const Desplegable = ({ toglleDesplegable, isHome }) => {
                     <ComLogo
                         color
                         logoName="la-nacion"
+                        classCondition="nacion-home"
                         href={isHome ? '#' : 'https://www.lanacion.com.ar/'}
                         target="_top"
                         title="Ir a la página principal"

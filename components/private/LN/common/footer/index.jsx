@@ -250,6 +250,7 @@ const Index = ({
                         <div className="col-desksm-4 --center">
                             <Logo
                                 logoName="la-nacion"
+                                classCondition="nacion-home"
                                 color
                                 size="--sm"
                                 href={`${
