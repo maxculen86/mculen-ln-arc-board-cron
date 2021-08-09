@@ -77,7 +77,7 @@ const googlePublisherTagAcumulado = props => {
         <>
             <script
                 async
-                src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"
+                src=" https://securepubads.g.doubleclick.net/tag/js/gpt.js?network-code=133919216"
             />
             <script
                 async

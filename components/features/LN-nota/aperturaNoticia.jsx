@@ -6,6 +6,7 @@ import Static from 'fusion:static';
 import Media from '../../private/LN/common/media';
 import {
     buildScriptForZoom,
+    buildScriptForAutoplay,
     getEpigrafe
 } from '../../private/LN/common/utils/mediaHelper';
 
@@ -38,6 +39,12 @@ const aperturaNoticia = props => {
                             aperturaMultimedia || basic,
                             subtype
                         );
+                    const scriptForAutoplay =
+                        outputType !== 'amp' &&
+                        buildScriptForAutoplay(
+                            aperturaMultimedia || basic,
+                            subtype
+                        );
                     const { caption, credit } = getEpigrafe(
                         aperturaMultimedia || basic
                     );
@@ -47,6 +54,7 @@ const aperturaNoticia = props => {
                             withZoom="--zoom"
                             idMedia={idMedia}
                             scriptForZoom={scriptForZoom}
+                            scriptForAutoplay={scriptForAutoplay}
                             isApertura
                             outputType={outputType}
                             parrafo={firstText || 'LA NACION'}

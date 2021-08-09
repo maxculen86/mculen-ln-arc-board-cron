@@ -11,11 +11,8 @@ export const isInSection = ({ sectionName, id, renderables = [] }) => {
 };
 
 export const getErrorMessage = ({
-    customFields: { url, hideByUrl, html, height, hideByHtml } = {},
-    sectionName = ''
+    customFields: { url, hideByUrl, html, height, hideByHtml } = {}
 }) =>
-    (sectionName !== 'home' &&
-        'El feature LN Home Anexo es de uso exclusivo para Home') ||
     (!url &&
         !hideByUrl &&
         !html &&

@@ -6,7 +6,7 @@ Array [
     class="row"
   >
     <div
-      class="col-tablet-3 hlp-marginBottom-mobile-40"
+      class="col-tablet-3 _ingredients"
     >
       <h4
         class="com-title --m"
@@ -77,7 +77,7 @@ Array [
       </div>
     </div>
     <div
-      class="col-tablet-8 offset-tablet-1"
+      class="col-tablet-8 offset-tablet-1 _preparation"
     >
       <h4
         class="com-title --m"

@@ -13,7 +13,7 @@ const getArticlesFromAcumSource = (
     promoItemsOnly = false,
     shouldNotFilter
 ) => {
-    const { sectionId, tagId, authorId, distributorId, sectionsIds } =
+    const { sectionId, tagId, authorId, distributorId, sectionsIds, subtype } =
         typesOfQuery || {};
 
     if (!sectionId && !tagId && !authorId && !distributorId && !sectionsIds)
@@ -26,6 +26,7 @@ const getArticlesFromAcumSource = (
             sectionId,
             authorId,
             tagId,
+            subtype,
             size: size.tripleSize || size,
             imageConfig,
             excludeSectionId,

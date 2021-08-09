@@ -1,24 +1,24 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import getMetaDescription from './utils/getMetaDescription';
-import MetaDescriptionAcumulado from '../LN/acumulado/metaDescriptionAcumulado';
+// import MetaDescriptionAcumulado from '../LN/acumulado/metaDescriptionAcumulado';
 
-const extractDataFromTags = payload => {
-    const tagId =
-        payload && payload.items && payload.items.length
-            ? payload.items[0].slug
-            : undefined;
+// const extractDataFromTags = payload => {
+//     const tagId =
+//         payload && payload.items && payload.items.length
+//             ? payload.items[0].slug
+//             : undefined;
 
-    const tagName =
-        payload && payload.items && payload.items.length
-            ? payload.items[0].description
-            : undefined;
+//     const tagName =
+//         payload && payload.items && payload.items.length
+//             ? payload.items[0].description
+//             : undefined;
 
-    return {
-        tagId,
-        tagName
-    };
-};
+//     return {
+//         tagId,
+//         tagName
+//     };
+// };
 
 const MetaDescription = ({
     subtype,
@@ -32,24 +32,36 @@ const MetaDescription = ({
     _id,
     payload,
     section,
-    defaultDescription
+    defaultDescription,
+    metaDescription
 }) => {
     if (arcSite !== 'la-nacion-ar') return <></>;
 
     const acusWithMeta = ['section', 'author', 'distributor', 'tags'];
+    const acuRecetaRegExp = new RegExp(/^\/recetas\/(.+)$/);
+    if (acusWithMeta.includes(nodeType)) {
+        // const { tagId } = extractDataFromTags(payload);
 
-    if (acusWithMeta.includes(nodeType) && _id !== '/recetas') {
-        const { tagId } = extractDataFromTags(payload);
         return (
-            <MetaDescriptionAcumulado
-                size="2"
-                title={name}
-                sectionId={nodeType === 'section' ? _id : null}
-                authorId={nodeType === 'author' ? _id : null}
-                distributorId={nodeType === 'distributor' ? name : null}
-                tagId={nodeType === 'tags' ? tagId : null}
+            <meta
+                name="description"
+                content={
+                    _id === '/recetas' || acuRecetaRegExp.test(_id)
+                        ? metaDescription
+                        : `${metaDescription} - LA NACION`
+                }
             />
         );
+        // return (
+        //     <MetaDescriptionAcumulado
+        //         size="2"
+        //         title={name}
+        //         sectionId={nodeType === 'section' ? _id : null}
+        //         authorId={nodeType === 'author' ? _id : null}
+        //         distributorId={nodeType === 'distributor' ? name : null}
+        //         tagId={nodeType === 'tags' ? tagId : null}
+        //     />
+        // );
     }
 
     if (!subtype && section !== 'home') return <></>;

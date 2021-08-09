@@ -67,7 +67,7 @@ ImageArticle.propTypes = {
         type: PropTypes.oneOf(['image']),
         url: PropTypes.string,
         resized_urls: PropTypes.array.isRequired,
-        resized_urls_zoom: PropTypes.array.isRequired,
+        resized_urls_zoom: PropTypes.array,
         width: PropTypes.number,
         height: PropTypes.number,
         alt_text: PropTypes.string,

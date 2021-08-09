@@ -64,7 +64,9 @@ const ModNavigation = props => {
 
 ModNavigation.propTypes = {
     classCondition: PropTypes.string,
-    style: PropTypes.string,
+    style: PropTypes.shape({
+        color: PropTypes.string
+    }),
     navigation: PropTypes.arrayOf(PropTypes.func)
 };
 

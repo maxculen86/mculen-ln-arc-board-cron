@@ -35,6 +35,7 @@ import Pwa from '../private/common/scriptManager/pwa';
 import PwaModals from '../private/LN/common/pwaModals';
 import ScriptSWG from '../private/common/scriptManager/scriptSWG';
 import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
+import getMetaDescriptionForAcum from '../private/common/utils/getMetaDescriptionForAcum';
 
 const scriptList = [
     {
@@ -176,8 +177,18 @@ const Default = props => {
         scripts,
         siteProperties.scripts
     );
-
     const _nodeType = getSectionName({ nodeType, type });
+    const metaDescription =
+        _nodeType === 'acumulado'
+            ? getMetaDescriptionForAcum(
+                  metaValue('description'),
+                  _id,
+                  Payload,
+                  nodeType,
+                  name,
+                  arcSite
+              )
+            : '';
 
     const title =
         _nodeType === 'home'
@@ -240,7 +251,12 @@ const Default = props => {
                     arcSite={arcSite}
                     Tag="script"
                 />
-                <MetasOG {...props} section={_nodeType} title={title} />
+                <MetasOG
+                    {...props}
+                    section={_nodeType}
+                    title={title}
+                    metaDescription={metaDescription}
+                />
                 {canonicalUrl && (
                     <link
                         rel="canonical"
@@ -278,6 +294,7 @@ const Default = props => {
                     arcSite={arcSite}
                     section={_nodeType}
                     defaultDescription={siteProperties.description}
+                    metaDescription={metaDescription}
                 />
                 <Syndication
                     type={type}

@@ -8,7 +8,7 @@ import withLoginData from '../hocs/withLoginData';
 import Desplegable from '../desplegable';
 import Scroll from '../../../common/utils/scroll';
 import debounce from '../../../common/utils/debounce';
-import { getAndSaveCustomDimension } from '../../../common/utils/storage';
+// import { getAndSaveCustomDimension } from '../../../common/utils/storage';
 
 const CLASS_SCROLL_UP = '--scrollUp';
 const CLASS_SCROLL_DOWN = '--scrollDown';
@@ -30,7 +30,7 @@ class Index extends Component {
         // debugger;
 
         const header = document.getElementById('header');
-        //const vshare = document.getElementById('v-share');
+        // const vshare = document.getElementById('v-share');
         const userMenu = document.getElementById('user-menu');
         const fusionApp = document.getElementById('fusion-app');
         const wrapper = fusionApp && fusionApp.querySelector('#wrapper');
@@ -53,7 +53,7 @@ class Index extends Component {
                 })
             );
 
-            getAndSaveCustomDimension();
+            // getAndSaveCustomDimension();
         }
     }
 
@@ -75,14 +75,14 @@ class Index extends Component {
         if (userMenu) userMenu.classList.remove(CLASS_ACTIVE);
         if (scrollPos) {
             if (scrollPos > height) {
-                //classList.add(CLASS_SCROLL_DOWN);
+                // classList.add(CLASS_SCROLL_DOWN);
                 if (wrapper) {
                     wrapper.classList.add(CLASS_SCROLL_DOWN);
                 }
             }
             if (isScrollUp) {
-                //classList.remove(CLASS_SCROLL_DOWN);
-                //classList.add(CLASS_SCROLL_UP);
+                // classList.remove(CLASS_SCROLL_DOWN);
+                // classList.add(CLASS_SCROLL_UP);
                 // if (vshare) {
                 //     vshare.classList.add(CLASS_SCROLL_UP);
                 //     vshare.classList.remove(CLASS_SCROLL_DOWN);
@@ -98,7 +98,7 @@ class Index extends Component {
                 classList.remove(CLASS_ACTIVE);
                 if (vshare) vshare.classList.remove(CLASS_ACTIVE);
 
-                //classList.remove(CLASS_SCROLL_UP);
+                // classList.remove(CLASS_SCROLL_UP);
                 // if (vshare) {
                 //     vshare.classList.remove(CLASS_SCROLL_UP);
                 //     vshare.classList.add(CLASS_SCROLL_DOWN);
@@ -109,11 +109,11 @@ class Index extends Component {
                 }
             }
             if (scrollPos < 65) {
-                //esta clsae está para el header transparente
+                // esta clsae está para el header transparente
                 classList.add(CLASS_ACTIVE);
                 if (vshare) vshare.classList.add(CLASS_ACTIVE);
-                //classList.remove(CLASS_SCROLL_UP);
-                //classList.remove(CLASS_SCROLL_DOWN);
+                // classList.remove(CLASS_SCROLL_UP);
+                // classList.remove(CLASS_SCROLL_DOWN);
                 // if (wrapper) {
                 //     wrapper.classList.remove(CLASS_SCROLL_UP);
                 //     wrapper.classList.remove(CLASS_SCROLL_DOWN);
@@ -132,7 +132,7 @@ class Index extends Component {
             logueado,
             loginData,
             goToLogout,
-            headerDark,
+            // headerDark,
             siteProperties: { host }
         } = this.props;
         const { scrollDirection } = this.state;
@@ -149,7 +149,7 @@ class Index extends Component {
                     showNav
                     goToLogout={goToLogout}
                     host={host}
-                    headerDark={headerDark}
+                    // headerDark={headerDark}
                 />
 
                 <NavBarMobile
@@ -169,9 +169,6 @@ class Index extends Component {
 
 Index.propTypes = {
     outputType: PropTypes.string.isRequired,
-    screenUtils: PropTypes.shape({
-        device: PropTypes.string
-    }).isRequired,
     logueado: PropTypes.bool.isRequired,
     loginData: PropTypes.shape({
         subcription: PropTypes.bool,
@@ -181,8 +178,8 @@ Index.propTypes = {
     goToLogout: PropTypes.func.isRequired,
     siteProperties: PropTypes.shape({
         host: PropTypes.string
-    }).isRequired,
-    headerDark: PropTypes.string.isRequired
+    }).isRequired
+    // headerDark: PropTypes.string
 };
 
 export default withLoginData(Consumer(Index));

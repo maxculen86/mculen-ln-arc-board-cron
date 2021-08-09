@@ -21,7 +21,7 @@ const CommentsProvider = props => {
 };
 
 CommentsProvider.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.nodes).isRequired
+    children: PropTypes.arrayOf(PropTypes.node).isRequired
 };
 
 export { CommentsContext, CommentsProvider };

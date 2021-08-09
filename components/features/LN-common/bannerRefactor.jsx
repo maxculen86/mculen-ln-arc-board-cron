@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/require-default-props */
 
 import React, { useRef, useContext } from 'react';
@@ -115,6 +116,18 @@ const Banner = props => {
             primarySection
         )(segments);
 
+        const bannerConfig = get(globalContent, 'bannerConfig');
+
+        // const {
+        //     children: { bannerConfig }
+        // } = useContent({
+        //     sourceName: 'navigationTreeSource',
+        //     query: {
+        //         website: 'la-nacion-ar',
+        //         sectionId: `/${section}`
+        //     }
+        // });
+
         if (present) {
             configBuilder.current.segmentAdUnit(section, device);
         }
@@ -124,8 +137,7 @@ const Banner = props => {
             configBuilder.current.setCustomAdUnit('ContentLab');
 
         // Site service dimensions check
-        const bannerConfig = get(globalContent, 'bannerConfig');
-        const bannerSectionConfig =
+        const bannersSectionConfig =
             (bannerConfig &&
                 Object.keys(bannerConfig).map(x => ({
                     adunit: x,
@@ -140,11 +152,21 @@ const Banner = props => {
                     adunit: 'acumulado_caja1_dsk',
                     dimensions: '120x600,160x600,300x600'
                 }
-            ]);
+            ]) ||
+            [];
+
+        const adUnitsInSection = bannersSectionConfig.map(
+            ({ adunit }) => adunit
+        );
 
         if (bannersSiteConfig) {
             configBuilder.current.setDimensionsFromSiteService(
-                bannerSectionConfig || bannersSiteConfig,
+                [
+                    ...bannersSiteConfig.filter(
+                        ({ adunit }) => !adUnitsInSection.includes(adunit)
+                    ),
+                    ...bannersSectionConfig
+                ],
                 slotGroup,
                 slotId
             );
@@ -198,7 +220,7 @@ Banner.propTypes = {
             dfp_id: PropTypes.number.isRequired
         })
     }),
-    isAdmin: PropTypes.bool.isRequired,
+    isAdmin: PropTypes.bool,
     globalContent: PropTypes.shape({
         label: PropTypes.shape({
             mostrar_banners: PropTypes.shape({
@@ -208,7 +230,7 @@ Banner.propTypes = {
         termicas: PropTypes.shape({
             banners: PropTypes.string
         })
-    }).isRequired,
+    }),
     globalContentConfig: PropTypes.shape({
         query: PropTypes.shape({
             id: PropTypes.string

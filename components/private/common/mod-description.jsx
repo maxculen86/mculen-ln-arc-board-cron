@@ -93,6 +93,7 @@ const ModDescription = props => {
                         const { text, slug } = item;
                         return (
                             <ComTag
+                                key={slug}
                                 iconName={
                                     (withMarquee || !!category) && 'bullet'
                                 }

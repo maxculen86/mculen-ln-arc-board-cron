@@ -18,6 +18,7 @@
     //     display: block;
     // }
     ////////////////Cambiar por props////////////////
+    .recetas .mod-description &,
     .home & {
         @media ($media-m) {
             &.--m,
@@ -30,15 +31,13 @@
             }
         }
     }
+    ._ingredients &,
+    ._preparation & {
+        font-weight: 500;
+        margin-bottom: $spacing-sm;
+    }
     ////////////////Cambiar por props///////////////////
 }
-// .com-title.com-title {
-//     .com-link.com-link {
-//         .more-articles.more-articles & {
-//             color: $light-neutral-700;
-//         }
-//     }
-// }
 
 @media ($media-l) {
     .com-title {

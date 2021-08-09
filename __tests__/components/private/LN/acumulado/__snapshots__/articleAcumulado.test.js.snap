@@ -3,6 +3,7 @@
 exports[`Private - LN - Acumulado - ArticleAcum Test de snapshot ArticleAcum 1`] = `
 <mod-article-mock
   articledata="[object Object]"
+  artposition=""
   authors="Por Mirta Albamonte"
   category="false"
   datasection="CuerpoAcu"
@@ -12,6 +13,7 @@ exports[`Private - LN - Acumulado - ArticleAcum Test de snapshot ArticleAcum 1`]
   label="Chapa"
   leadtext="Volanta"
   link="/recetas/test-dl-nid02062020/"
+  outputtype="default"
   subheadtext="false"
   tags="false"
   titlesize=""

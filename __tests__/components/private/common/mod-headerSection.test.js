@@ -51,7 +51,7 @@ describe('Private - Common - ModheaderSection => ', () => {
         );
         expect(component.find('a')).toHaveLength(1);
         expect(component.find('a.com-link').html()).toContain(
-            '<a href="https://lanacion.com.ar/" class="com-link">Titulo Separador</a>'
+            '<a href="https://lanacion.com.ar/" title="" class="com-link">Titulo Separador</a>'
         );
     });
 
