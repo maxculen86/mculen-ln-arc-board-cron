@@ -2,6 +2,18 @@ import React from 'react';
 import { mount } from 'enzyme';
 import HeaderDesktop from '../../../../../../components/private/LN/common/header/headerDesktop';
 
+jest.mock('fusion:consumer', Component => {
+    return function(Component) {
+        return props => <Component {...props} />;
+    };
+});
+
+jest.mock(
+    '../../../../../../components/private/common/banners/DivBanner',
+    () => 'div-banner-mock'
+);
+jest.mock('../../../../../../components/private/common/banners/LoadBanners');
+
 let component;
 
 const props = {

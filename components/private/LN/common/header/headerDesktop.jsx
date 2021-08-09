@@ -126,7 +126,7 @@ const HeaderDesktop = ({
         if (slotId) loadBanner(slotId, section);
     }, [loading, slotId]);
 
-    const hideBannersByDefault = () => {
+    const HideBannersByDefault = () => {
         const script = `
             window.addEventListener('DOMContentLoaded', () => {
                 const nodes = document.querySelectorAll('[id^="logo_header"]');
@@ -287,7 +287,7 @@ const HeaderDesktop = ({
                     <i className="com-icon icon-search queryly_searchicon" />
                 </label>
             </div>
-            <hideBannersByDefault />
+            <HideBannersByDefault />
         </Header>
     );
 };
