@@ -8,5 +8,6 @@ export const imageResizedUrl = `
         media
         class
         type
+        media_preload
     }
 `;

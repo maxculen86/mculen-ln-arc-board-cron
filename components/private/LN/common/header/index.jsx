@@ -8,7 +8,7 @@ import withLoginData from '../hocs/withLoginData';
 import Desplegable from '../desplegable';
 import Scroll from '../../../common/utils/scroll';
 import debounce from '../../../common/utils/debounce';
-import { getAndSaveCustomDimension } from '../../../common/utils/storage';
+// import { getAndSaveCustomDimension } from '../../../common/utils/storage';
 
 const CLASS_SCROLL_UP = '--scrollUp';
 const CLASS_SCROLL_DOWN = '--scrollDown';
@@ -51,7 +51,7 @@ class Index extends Component {
                 })
             );
 
-            getAndSaveCustomDimension();
+            // getAndSaveCustomDimension();
         }
     }
 
