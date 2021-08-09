@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from 'react';
 import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import Header from './headerBase';
 import Hamburguer from './hamburger';
-import ComLink from '../../../common/com-link';
-import ComLogo from '../../../common/com-logo';
+// import ComLink from '../../../common/com-link';
+// import ComLogo from '../../../common/com-logo';
 import ComIcon from '../../../common/com-icon';
 import Logo from '../../../common/com-logo';
 
@@ -38,8 +38,8 @@ const ItemAnchor = ({ url, text, alt }) => {
 
 ItemAnchor.propTypes = {
     url: PropTypes.string.isRequired,
-    text: PropTypes.text.isRequired,
-    alt: PropTypes.text.isRequired
+    text: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired
 };
 
 const enlaces = [
@@ -65,6 +65,7 @@ const HeaderDesktop = ({
     loginData,
     goToLogout,
     host,
+    isHome,
     // headerDark,
     toglleDesplegable
 }) => {
@@ -116,8 +117,8 @@ const HeaderDesktop = ({
                 <Logo
                     logoName="la-nacion"
                     color
-                    //size="--md"
-                    href={host || '/'}
+                    // size="--md"
+                    href={isHome ? '#' : `${host}/`}
                     target="_top"
                     title="Ir a la página principal"
                 />
@@ -223,7 +224,8 @@ HeaderDesktop.propTypes = {
     }).isRequired,
     goToLogout: PropTypes.func.isRequired,
     host: PropTypes.string.isRequired,
-    //headerDark: PropTypes.string,
+    isHome: PropTypes.bool.isRequired,
+    // headerDark: PropTypes.string,
     toglleDesplegable: PropTypes.func.isRequired
 };
 

@@ -1,11 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable no-restricted-globals */
 import React, { useEffect } from 'react';
-import {
-    LOGIN_URL,
-    SITIO_SEGURO_REGISTRACION,
-    RELOGIN_VALIDATION
-} from 'fusion:environment';
+import { LOGIN_URL, RELOGIN_VALIDATION } from 'fusion:environment';
 import apiIngresar from '../../../common/services/apIngresar';
 import handleCookie from '../utils/handleCookie';
 import { LoginStore } from '../context/loginContext';
@@ -20,6 +16,10 @@ const {
 const ProductoPremiumId = getCookie('ProductoPremiumId');
 const UsuarioDetalleEmail = getCookie('usuarioemail');
 const IS_TOKEN_CREATED = getCookie('token');
+const _UserClientLibs = func =>
+    window.UserClientLibs && window.UserClientLibs[func]
+        ? window.UserClientLibs[func]
+        : () => {};
 
 const goToLoginUrl = () => {
     location.href = LOGIN_URL + window.btoa(location.href);
@@ -155,6 +155,7 @@ const reMeHandler = (res, token, xvalue, dispatch) => {
             setCookie('token', token);
             setCookie('xvalue', xvalue);
             setupCookies(JSON.parse(res.response) || {});
+            _UserClientLibs('RefreshAsync')();
             break;
         case '0001':
             /**
@@ -180,27 +181,20 @@ const reMeHandler = (res, token, xvalue, dispatch) => {
 };
 
 const goToLogout = dispatch => {
-    const urlToLogout = `${SITIO_SEGURO_REGISTRACION}/logout/logout.html?pagina=${location.href}`;
-
-    eraseCookie('shouldrelogin');
-
-    const ifrm = document.createElement('iframe');
-    ifrm.setAttribute('src', urlToLogout);
-    ifrm.style.width = '0px';
-    ifrm.style.height = '0px';
-    document.body.appendChild(ifrm);
-
-    dispatch({
-        type: 'SET_LOGIN',
-        payload: {
-            logueado: false,
-            loginData: {
-                subscription: false,
-                userName: 'Sin nombre',
-                goToLoginUrl,
-                loading: false
+    _UserClientLibs('LogoutAsync')().then(() => {
+        eraseCookie('shouldrelogin');
+        dispatch({
+            type: 'SET_LOGIN',
+            payload: {
+                logueado: false,
+                loginData: {
+                    subscription: false,
+                    userName: 'Sin nombre',
+                    goToLoginUrl,
+                    loading: false
+                }
             }
-        }
+        });
     });
 
     if (['undefined'].indexOf(typeof fyre)) fyre.conv.logout();
