@@ -6,6 +6,7 @@ import Relacionados from './relacionados';
 import dateAndTimeUtil from '../../../../common/utils/dateAndTimeUtil';
 import { getPrincipalCategory } from '../common/category';
 import { removeEmptyItems } from '../common/utils/responseCleaner';
+import matchObject from '../common/utils/matchObject';
 
 const indexNota = dataNota => {
     if (!dataNota) throw new Error(`La información de la nota esta vacia`);
@@ -28,7 +29,9 @@ const indexNota = dataNota => {
     const edition = get(dataNota, 'label.edicion.text', null);
     const showBanners = get(dataNota, 'label.mostrar_banners.text', null);
     const displayComments = get(dataNota, 'comments.display_comments', null);
-    const sentToApps = get(dataNota, 'label.enviar_a_apps.text', null);
+    // const sentToApps = get(dataNota, 'label.enviar_a_apps.text', null);
+    const enviarApps = matchObject(dataNota, 'contains');
+    /*  !(sentToApps && sentToApps.toLowerCase() === 'no') */
     const isPrintEdition = edition && edition.toLowerCase() === 'impresa';
     const distributor = get(dataNota, 'distributor', null);
     const { date: formatPublishDate, time: formatUpdateTime } = dateAndTimeUtil(
@@ -50,7 +53,7 @@ const indexNota = dataNota => {
         comentariosId: comentariosId || id,
         categoria: primarySection && getPrincipalCategory(primarySection),
         relacionados: Relacionados(dataNota),
-        enviarApps: !(sentToApps && sentToApps.toLowerCase() === 'no'),
+        enviarApps,
         modificadorTemplate: ModificadorTemplate(distributor)
     };
 
