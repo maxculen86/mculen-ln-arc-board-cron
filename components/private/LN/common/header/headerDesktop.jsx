@@ -38,8 +38,8 @@ const ItemAnchor = ({ url, text, alt }) => {
 
 ItemAnchor.propTypes = {
     url: PropTypes.string.isRequired,
-    text: PropTypes.text.isRequired,
-    alt: PropTypes.text.isRequired
+    text: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired
 };
 
 const enlaces = [
@@ -118,7 +118,7 @@ const HeaderDesktop = ({
                     logoName="la-nacion"
                     color
                     // size="--md"
-                    href={isHome ? '#' : host}
+                    href={isHome ? '#' : `${host}/`}
                     target="_top"
                     title="Ir a la página principal"
                 />
