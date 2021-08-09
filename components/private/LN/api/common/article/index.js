@@ -1,10 +1,10 @@
 import get from 'lodash.get';
-import Image from '../../../common/image';
-import Author from '../../../common/author';
-import { getTag } from '../../../common/tag';
-import { dateAndTimeForAppsUtil } from '../../../../../common/utils/dateAndTimeUtil';
-import { getPrincipalCategory } from '../../../common/category';
-import matchObject from '../../../common/utils/matchObject';
+import Image from '../image';
+import Author from '../author';
+import { getTag } from '../tag';
+import { dateAndTimeForAppsUtil } from '../../../../common/utils/dateAndTimeUtil';
+import { getPrincipalCategory } from '../category';
+import matchObject from '../utils/matchObject';
 
 const articleItem = article => {
     const {

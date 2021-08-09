@@ -1,5 +1,5 @@
 import Configuration from './configuration';
-import { articleItem } from '../home/article';
+import { articleItem } from '../../common/article/article';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
 import { getTag } from '../../common/tag';
 import { authorAcu } from '../../common/author';
