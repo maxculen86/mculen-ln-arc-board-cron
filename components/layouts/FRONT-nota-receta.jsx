@@ -24,7 +24,7 @@ import '../../resources/dist/css/ln/components/lead.css';
 import '../../resources/dist/css/ln/components/com-ordered.css';
 import '../../resources/dist/css/ln/components/com-unordered.css';
 import '../../resources/dist/css/ln/components/input.css';
-import '../../resources/dist/css/ln/modules/newsletter.css';
+//import '../../resources/dist/css/ln/modules/newsletter.css';
 import '../../resources/dist/css/ln/components/blockquote.css';
 import '../../resources/dist/css/ln/components/text.css';
 import '../../resources/dist/css/ln/components/link.css';
