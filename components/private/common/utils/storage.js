@@ -1,7 +1,7 @@
-import handleCookie from '../../LN/common/utils/handleCookie';
+// import handleCookie from '../../LN/common/utils/handleCookie';
 
-const urlApiSuscripcion =
-    'https://api-paywall.lanacion.com.ar/1/SuscripcionV1/ObtenerSuscripcionDigitalAnalytics';
+// const urlApiSuscripcion =
+//     'https://api-paywall.lanacion.com.ar/1/SuscripcionV1/ObtenerSuscripcionDigitalAnalytics';
 
 export const setStorageConfiguration = notaId => {
     if (typeof window === 'undefined') return false;
@@ -9,55 +9,55 @@ export const setStorageConfiguration = notaId => {
     return true;
 };
 
-export const getAndSaveCustomDimension = () => {
-    const { getCookie } = handleCookie();
-    const usuarioLogeado = getCookie('token');
-    const productoId = getCookie('ProductoPremiumId');
-    const clubLn = getCookie('usuarioDetalleClubNacion');
-    const userId = getCookie('usuario%5Fid');
-    const usuarioRegistrado = getCookie('usuarioemail');
+// export const getAndSaveCustomDimension = () => {
+//     const { getCookie } = handleCookie();
+//     const usuarioLogeado = getCookie('token');
+//     const productoId = getCookie('ProductoPremiumId');
+//     const clubLn = getCookie('usuarioDetalleClubNacion');
+//     const userId = getCookie('usuario%5Fid');
+//     const usuarioRegistrado = getCookie('usuarioemail');
 
-    if (usuarioLogeado != null) {
-        getSuscriptorType(usuarioLogeado);
-        localStorage.setItem('CDusuarioLogeado', 'yes');
-    } else {
-        localStorage.setItem('CDsuscriptorType', 'N/A');
-        localStorage.setItem('CDusuarioLogeado', 'no');
-    }
+//     if (usuarioLogeado != null) {
+//         getSuscriptorType(usuarioLogeado);
+//         localStorage.setItem('CDusuarioLogeado', 'yes');
+//     } else {
+//         localStorage.setItem('CDsuscriptorType', 'N/A');
+//         localStorage.setItem('CDusuarioLogeado', 'no');
+//     }
 
-    localStorage.setItem('CDcacheCommon', Date.now());
-    localStorage.setItem('CDpayUser', productoId ? 'yes' : 'no');
-    localStorage.setItem('CDcredentialType', clubLn || 'N/A');
-    localStorage.setItem('CDuserId', userId || 'N/A');
-    localStorage.setItem(
-        'CDusuarioRegistrado',
-        usuarioRegistrado ? 'yes' : 'no'
-    );
+//     localStorage.setItem('CDcacheCommon', Date.now());
+//     localStorage.setItem('CDpayUser', productoId ? 'yes' : 'no');
+//     localStorage.setItem('CDcredentialType', clubLn || 'N/A');
+//     localStorage.setItem('CDuserId', userId || 'N/A');
+//     localStorage.setItem(
+//         'CDusuarioRegistrado',
+//         usuarioRegistrado ? 'yes' : 'no'
+//     );
 
-    return true;
-};
+//     return true;
+// };
 
-const getSuscriptorType = token => {
-    fetch(urlApiSuscripcion, {
-        method: 'POST',
-        headers: {
-            'X-Token': token,
-            'Content-Type': 'application/json'
-        },
-        body: undefined
-    })
-        .then(res => res.json())
-        .then(res => saveSuscriptorType(res));
-};
+// const getSuscriptorType = token => {
+//     fetch(urlApiSuscripcion, {
+//         method: 'POST',
+//         headers: {
+//             'X-Token': token,
+//             'Content-Type': 'application/json'
+//         },
+//         body: undefined
+//     })
+//         .then(res => res.json())
+//         .then(res => saveSuscriptorType(res));
+// };
 
-const saveSuscriptorType = data => {
-    if (data && data.code === '0000') {
-        const combo = data.response && data.response.nombre;
-        localStorage.setItem('CDsuscriptorType', combo);
-    } else {
-        localStorage.setItem('CDsuscriptorType', 'N/A');
-    }
-};
+// const saveSuscriptorType = data => {
+//     if (data && data.code === '0000') {
+//         const combo = data.response && data.response.nombre;
+//         localStorage.setItem('CDsuscriptorType', combo);
+//     } else {
+//         localStorage.setItem('CDsuscriptorType', 'N/A');
+//     }
+// };
 
 export const counterNota = notaId => {
     let lsNotasCounter = JSON.parse(localStorage.getItem('NotasCounterData'));
