@@ -8,7 +8,7 @@ exports[`private - LN - common - Navbar - listMenu Test de snapshot NavBar 1`] =
     class="row"
   >
     <a
-      class="com-link col-3 item-foo"
+      class="com-link col-3 item-foo nacion-home"
       href="https://www.lanacion.com.ar/"
       rel="nonoopener noreferrer"
       target="_top"

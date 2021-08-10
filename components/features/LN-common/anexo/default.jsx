@@ -5,7 +5,6 @@ import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import Static from 'fusion:static';
 // Utils
-import getSectionName from '../../../private/LN/common/utils/getSectionName';
 import { isInSection, getErrorMessage, getComponentType } from './anexoHelper';
 
 // Components
@@ -59,23 +58,15 @@ const getComponentFromConfig = (_type, _props) => {
 
 const AnexoFeature = props => {
     const { id, customFields } = props;
-    const {
-        renderables = [],
-        globalContent: { node_type: nodeType, type } = {}
-    } = useAppContext();
+    const { renderables = [], isAdmin } = useAppContext();
     const { height } = customFields;
     // Al estar en la sección 'Anexo_1' del layout necesita tener la clase '--anexo-1'.
     const EXTRA_CLASS =
         (isInSection({ sectionName: 'Anexo1', id, renderables }) &&
             '--anexo-1') ||
         '';
-
-    const errorMessage = getErrorMessage({
-        customFields,
-        sectionName: getSectionName({ nodeType, type })
-    });
-
-    const _type = getComponentType({ ...props, errorMessage });
+    const errorMessage = getErrorMessage({ customFields });
+    const _type = getComponentType({ ...props, isAdmin, errorMessage });
     const comp = () =>
         getComponentFromConfig(_type, {
             ...props,
@@ -97,7 +88,7 @@ const AnexoFeature = props => {
     );
 };
 
-AnexoFeature.label = 'LN Home Anexo';
+AnexoFeature.label = 'LN Anexo';
 
 AnexoFeature.propTypes = {
     id: PropTypes.string.isRequired,

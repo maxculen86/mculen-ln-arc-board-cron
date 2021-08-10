@@ -80,7 +80,7 @@
                         (window.googletag.cmd = window.googletag.cmd || []),
                         (0, t.appendResource)(
                             'script',
-                            '//securepubads.g.doubleclick.net/tag/js/gpt.js',
+                            '//securepubads.g.doubleclick.net/tag/js/gpt.js?network-code=133919216',
                             !0,
                             !0
                         ),

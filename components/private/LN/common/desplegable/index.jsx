@@ -1,9 +1,9 @@
-import React, { useRef, useEffect, useState } from 'react';
-import PropTypes from 'fusion:prop-types';
+import React, { useRef, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { pipe } from '../../../common/utils/functional';
 import ListMenu from './listMenu';
 import ComLogo from '../../../common/com-logo';
-import ComIcon from '../../../common/com-icon';
+// import ComIcon from '../../../common/com-icon';
 import ComButton from '../../../common/com-button';
 
 import '../../../../../resources/dist/css/ln/components/dropdown.css';
@@ -20,88 +20,7 @@ const handleScroll = comDromdownRef => {
           );
 };
 
-// TODO: Usar la siguiente data para hacer testing
-const _menuData = [
-    {
-        el: 'ul',
-        extraClass: 'list__nav  first--nav',
-        childs: [
-            {
-                el: 'li',
-                extraClass: 'item--noticias',
-                name: 'Últimas noticias',
-                childs: [
-                    {
-                        el: 'ul',
-                        extraClass: 'sublist__nav',
-                        childs: [
-                            {
-                                el: 'li',
-                                name: ' Tránsito'
-                            },
-                            {
-                                el: 'li',
-                                name: ' Clima'
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                el: 'li',
-                extraClass: 'item--politica',
-                name: 'Política',
-                childs: [
-                    {
-                        el: 'ul',
-                        extraClass: 'sublist__nav',
-                        childs: [
-                            {
-                                el: 'li',
-                                name: 'Buenos Aires'
-                            },
-                            {
-                                el: 'li',
-                                name: ' Seguridad'
-                            },
-                            {
-                                el: 'li',
-                                name: ' Educación'
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                el: 'li',
-                extraClass: 'item--politica',
-                name: 'Economia',
-                childs: [
-                    {
-                        el: 'ul',
-                        extraClass: 'sublist__nav',
-                        childs: [
-                            {
-                                el: 'li',
-                                name: 'Buenos Aires'
-                            },
-                            {
-                                el: 'li',
-                                name: ' Cultura'
-                            },
-                            {
-                                el: 'li',
-                                name: ' Educación'
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    }
-];
-
-const Desplegable = ({ toglleDesplegable }) => {
+const Desplegable = ({ toglleDesplegable, isHome }) => {
     const despegableRef = useRef();
     const comDromdownRef = useRef();
 
@@ -137,7 +56,8 @@ const Desplegable = ({ toglleDesplegable }) => {
                     <ComLogo
                         color
                         logoName="la-nacion"
-                        href="https://www.lanacion.com.ar/"
+                        classCondition="nacion-home"
+                        href={isHome ? '#' : 'https://www.lanacion.com.ar/'}
                         target="_top"
                         title="Ir a la página principal"
                     />
@@ -159,7 +79,8 @@ const Desplegable = ({ toglleDesplegable }) => {
 };
 
 Desplegable.propTypes = {
-    toglleDesplegable: PropTypes.func.isRequired
+    toglleDesplegable: PropTypes.func.isRequired,
+    isHome: PropTypes.bool.isRequired
 };
 
 export default Desplegable;

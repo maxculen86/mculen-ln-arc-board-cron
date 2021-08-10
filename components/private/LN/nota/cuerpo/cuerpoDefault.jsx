@@ -4,7 +4,6 @@
 
 import React, { useEffect, useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
-import Static from 'fusion:static';
 
 import BlockQuote from './blockQuote';
 import Gallery from '../../common/carrousell';

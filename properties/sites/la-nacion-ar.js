@@ -41,7 +41,15 @@ export default {
             location: ['head']
         },
         Comscore: {
-            props: { config: { c1: '2', c2: '6906398' } },
+            props: {
+                config: {
+                    c1: '2',
+                    c2: '6906398',
+                    c3: 'LANACION.COM.AR',
+                    c4: '*null',
+                    c6: '*null'
+                }
+            },
             location: ['head']
         },
         Livefyre: {
@@ -869,35 +877,43 @@ export default {
                             height: 1280,
                             media: '(min-width: 1280px)',
                             useFullSize: true,
-                            proportion: '3:2'
+                            proportion: '3:2',
+                            media_preload: '(min-width: 1280.1px)'
                         },
                         {
                             width: 1200,
                             height: 800,
                             media: '(min-width: 1024px)',
                             useFullSize: true,
-                            proportion: '3:2'
+                            proportion: '3:2',
+                            media_preload:
+                                '(min-width: 1024.1px and max-width: 1280px)'
                         },
                         {
                             width: 1023,
                             height: 682,
                             media: '(min-width: 768px)',
                             useFullSize: true,
-                            proportion: '3:2'
+                            proportion: '3:2',
+                            media_preload:
+                                '(min-width: 768.1px and max-width: 1024px)'
                         },
                         {
                             width: 768,
                             height: 1152,
                             media: '(min-width: 360px)',
                             useFullSize: true,
-                            proportion: '2:3'
+                            proportion: '2:3',
+                            media_preload:
+                                '(min-width: 375.1px and max-width: 768px)'
                         },
                         {
                             width: 360,
                             height: 540,
                             media: '(min-width: 320px)',
                             useFullSize: true,
-                            proportion: '2:3'
+                            proportion: '2:3',
+                            media_preload: '(max-width: 375px)'
                         }
                     ]
                 },
@@ -948,31 +964,39 @@ export default {
                             width: 1920,
                             height: 1280,
                             media: '(min-width: 1280px)',
-                            proportion: '3:2'
+                            proportion: '3:2',
+                            media_preload: '(min-width: 1280.1px)'
                         },
                         {
                             width: 1200,
                             height: 800,
                             media: '(min-width: 1024px)',
-                            proportion: '3:2'
+                            proportion: '3:2',
+                            media_preload:
+                                '(min-width: 1024.1px and max-width: 1280px)'
                         },
                         {
                             width: 1023,
                             height: 682,
                             media: '(min-width: 768px)',
-                            proportion: '3:2'
+                            proportion: '3:2',
+                            media_preload:
+                                '(min-width: 768.1px and max-width: 1024px)'
                         },
                         {
                             width: 768,
                             height: 512,
-                            media: '(min-width: 360px)',
-                            proportion: '3:2'
+                            media: '(min-width: 375px)',
+                            proportion: '3:2',
+                            media_preload:
+                                '(min-width: 375.1px and max-width: 768px)'
                         },
                         {
                             width: 360,
                             height: 240,
                             media: '(min-width: 320px)',
-                            proportion: '3:2'
+                            proportion: '3:2',
+                            media_preload: '(max-width: 375px)'
                         }
                     ]
                 },
@@ -1022,31 +1046,39 @@ export default {
                             width: 879,
                             height: 586,
                             media: '(min-width: 1280px)',
-                            proportion: '3:2'
+                            proportion: '3:2',
+                            media_preload: '(min-width: 1280.1px)'
                         },
                         {
                             width: 1119,
                             height: 746,
                             media: '(min-width: 1024px)',
-                            proportion: '3:2'
+                            proportion: '3:2',
+                            media_preload:
+                                '(min-width: 1024.1px and max-width: 1280px'
                         },
                         {
                             width: 768,
                             height: 512,
                             media: '(min-width: 768px)',
-                            proportion: '3:2'
+                            proportion: '3:2',
+                            media_preload:
+                                '(min-width: 768.1px and max-width: 1024px)'
                         },
                         {
                             width: 351,
                             height: 234,
-                            media: '(min-width: 360px)',
-                            proportion: '3:2'
+                            media: '(min-width: 375px)',
+                            proportion: '3:2',
+                            media_preload:
+                                '(min-width: 375.1px and max-width: 768px)'
                         },
                         {
                             width: 309,
                             height: 206,
                             media: '(min-width: 320px)',
-                            proportion: '3:2'
+                            proportion: '3:2',
+                            media_preload: '(max-width: 375px)'
                         }
                     ]
                 },
@@ -1075,7 +1107,7 @@ export default {
                         {
                             width: 310,
                             height: 203,
-                            media: '(min-width: 320px)'
+                            media: '(-width: 320px)'
                         }
                     ]
                 },
@@ -1096,31 +1128,39 @@ export default {
                             width: 879,
                             height: 586,
                             media: '(min-width: 1280px)',
-                            proportion: '3:2'
+                            proportion: '3:2',
+                            media_preload: '(min-width: 1280.1px)'
                         },
                         {
                             width: 1119,
                             height: 746,
                             media: '(min-width: 1024px)',
-                            proportion: '3:2'
+                            proportion: '3:2',
+                            media_preload:
+                                '(min-width: 1024.1px and max-width: 1280px)'
                         },
                         {
                             width: 768,
                             height: 512,
                             media: '(min-width: 768px)',
-                            proportion: '3:2'
+                            proportion: '3:2',
+                            media_preload:
+                                '(min-width: 768.1px and max-width: 1024px)'
                         },
                         {
                             width: 351,
                             height: 234,
-                            media: '(min-width: 360px)',
-                            proportion: '3:2'
+                            media: '(min-width: 375px)',
+                            proportion: '3:2',
+                            media_preload:
+                                '(min-width: 375.1px and max-width: 768px)'
                         },
                         {
                             width: 309,
                             height: 206,
                             media: '(min-width: 320px)',
-                            proportion: '3:2'
+                            proportion: '3:2',
+                            media_preload: '(max-width: 375px)'
                         }
                     ]
                 },
@@ -1236,7 +1276,8 @@ export default {
                     width: 1033,
                     height: 768,
                     media: '(min-width: 768px)',
-                    class: 'img-desktop'
+                    class: 'img-desktop',
+                    media_preload: '(min-width: 768px)'
                 }
             ]
         }
