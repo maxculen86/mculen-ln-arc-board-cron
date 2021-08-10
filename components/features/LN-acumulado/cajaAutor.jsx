@@ -11,4 +11,5 @@ CajaAutor.propTypes = {
         })
     })
 };
+
 export default Consumer(CajaAutor);

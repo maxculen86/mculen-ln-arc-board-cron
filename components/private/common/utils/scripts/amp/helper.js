@@ -69,6 +69,10 @@ export const embedElements = {
         customElement: 'amp-vine',
         src: 'https://cdn.ampproject.org/v0/amp-vine-0.1.js'
     }
+    // 'amp-tiktok': {
+    //     customElement: 'amp-tiktok',
+    //     src: 'https://cdn.ampproject.org/v0/amp-tiktok-0.1.js'
+    // }
 };
 
 export const elementForNote = [
@@ -91,6 +95,7 @@ export const embedsForNote = [
     'amp-vimeo',
     'amp-dailymotion',
     'amp-vine'
+    // 'amp-tiktok'
 ];
 
 const customElementForNote = elementForNote.map(elem => customElements[elem]);

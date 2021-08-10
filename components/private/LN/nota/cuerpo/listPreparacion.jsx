@@ -6,7 +6,7 @@ import ComTitle from '../../../common/com-title';
 const listPreparacion = ({ preparation }) => {
     return (
         <>
-            <ComTitle tag="h4" size="--m" content={'Preparación'} />
+            <ComTitle tag="h3" size="--m" content={'Preparación'} />
             {preparation &&
                 preparation.length !== 0 &&
                 preparation.map(list => (
