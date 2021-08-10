@@ -9,10 +9,9 @@ jest.mock('fusion:consumer', Component => {
 });
 
 jest.mock(
-    '../../../../../../components/private/common/banners/DivBanner',
-    () => 'div-banner-mock'
+    '../../../../../../components/private/common/banners/BannerLogoHeader',
+    () => 'banner-logo-header'
 );
-jest.mock('../../../../../../components/private/common/banners/LoadBanners');
 
 let component;
 

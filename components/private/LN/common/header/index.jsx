@@ -160,7 +160,6 @@ class Index extends Component {
                     host={host}
                     headerDark={headerDark}
                     section={section}
-                    dfpId={dfpId}
                 />
 
                 <NavBarMobile
