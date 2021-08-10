@@ -8,8 +8,8 @@ import withLoginData from '../hocs/withLoginData';
 import Desplegable from '../desplegable';
 import Scroll from '../../../common/utils/scroll';
 import debounce from '../../../common/utils/debounce';
-import { getAndSaveCustomDimension } from '../../../common/utils/storage';
 import getSectionName from '../utils/getSectionName';
+// import { getAndSaveCustomDimension } from '../../../common/utils/storage';
 
 const CLASS_SCROLL_UP = '--scrollUp';
 const CLASS_SCROLL_DOWN = '--scrollDown';
@@ -28,8 +28,6 @@ class Index extends Component {
     }
 
     componentDidMount() {
-        // debugger;
-
         const header = document.getElementById('header');
         // const vshare = document.getElementById('v-share');
         const userMenu = document.getElementById('user-menu');
@@ -54,7 +52,7 @@ class Index extends Component {
                 })
             );
 
-            getAndSaveCustomDimension();
+            // getAndSaveCustomDimension();
         }
     }
 
@@ -133,11 +131,9 @@ class Index extends Component {
             logueado,
             loginData,
             goToLogout,
-            headerDark,
-            siteProperties: {
-                host,
-                bannerConfig: { dfp_id: dfpId }
-            },
+            // headerDark,
+            siteProperties: { host, layoutsName = {} },
+            layout,
             globalContent
         } = this.props;
 
@@ -158,11 +154,13 @@ class Index extends Component {
                     showNav
                     goToLogout={goToLogout}
                     host={host}
-                    headerDark={headerDark}
+                    isHome={layoutsName.Home === layout}
                     section={section}
+                    // headerDark={headerDark}
                 />
 
                 <NavBarMobile
+                    isHome={layoutsName.Home === layout}
                     toglleDesplegable={this.toglleDesplegable}
                     // showNav={
                     //     scrollDirection.isScrollDown
@@ -171,7 +169,10 @@ class Index extends Component {
                     // }
                 />
 
-                <Desplegable toglleDesplegable={this.toglleDesplegable} />
+                <Desplegable
+                    toglleDesplegable={this.toglleDesplegable}
+                    isHome={layoutsName.Home === layout}
+                />
             </>
         );
     }
@@ -188,15 +189,16 @@ Index.propTypes = {
     goToLogout: PropTypes.func.isRequired,
     siteProperties: PropTypes.shape({
         host: PropTypes.string,
-        bannerConfig: PropTypes.shape({
-            dfp_id: PropTypes.number
+        layoutsName: PropTypes.shape({
+            Home: PropTypes.string
         })
     }).isRequired,
-    headerDark: PropTypes.string.isRequired,
+    layout: PropTypes.string.isRequired,
     globalContent: PropTypes.shape({
         type: PropTypes.string,
         node_type: PropTypes.string
     }).isRequired
+    // headerDark: PropTypes.string
 };
 
 export default withLoginData(Consumer(Index));

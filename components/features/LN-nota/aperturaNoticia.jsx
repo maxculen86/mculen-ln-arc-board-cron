@@ -6,10 +6,9 @@ import Static from 'fusion:static';
 import Media from '../../private/LN/common/media';
 import {
     buildScriptForZoom,
+    buildScriptForAutoplay,
     getEpigrafe
 } from '../../private/LN/common/utils/mediaHelper';
-import { VIDEO } from '../../private/common/utils/subtypes/subtypeHelper';
-import { getViewport } from '../../private/LN/common/utils/homeHelper';
 
 const aperturaNoticia = props => {
     const { globalContent, outputType, id: idFeature } = props;
@@ -29,7 +28,7 @@ const aperturaNoticia = props => {
                         apertura_multimedia: aperturaMultimedia
                     } = promoItems;
 
-                    const { _id: idMedia, content, type } =
+                    const { _id: idMedia, content } =
                         aperturaMultimedia || basic || {};
                     const firstText = contentElements.find(
                         element => element.type === 'text'
@@ -40,26 +39,28 @@ const aperturaNoticia = props => {
                             aperturaMultimedia || basic,
                             subtype
                         );
+                    const scriptForAutoplay =
+                        outputType !== 'amp' &&
+                        buildScriptForAutoplay(
+                            aperturaMultimedia || basic,
+                            subtype
+                        );
                     const { caption, credit } = getEpigrafe(
                         aperturaMultimedia || basic
                     );
-                    const { isDesktop } = getViewport();
-                    // const isDesktop = 'true';
-                    const autoplay =
-                        subtype === VIDEO && type === 'video' && isDesktop;
                     return (
                         <Media
                             mediaData={aperturaMultimedia || basic}
                             withZoom="--zoom"
                             idMedia={idMedia}
                             scriptForZoom={scriptForZoom}
+                            scriptForAutoplay={scriptForAutoplay}
                             isApertura
                             outputType={outputType}
                             parrafo={firstText || 'LA NACION'}
                             tituloNota={tituloNota}
                             subtype={subtype}
                             html={content}
-                            autoplay={autoplay}
                         >
                             <figcaption className="mod-figcaption">
                                 {caption}

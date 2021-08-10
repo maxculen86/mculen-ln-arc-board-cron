@@ -401,6 +401,7 @@
     }
     .container.--ads {
         display: none;
+        width: 100%;
         @media ($media-m) {
             display: flex;
             .--cabezal_dsk {
