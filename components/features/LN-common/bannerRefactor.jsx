@@ -81,13 +81,14 @@ const Banner = props => {
         segments
     );
 
-    const { bannerConfig } = useContent({
-        sourceName: 'navigationTreeSource',
-        query: {
-            website: 'la-nacion-ar',
-            sectionId: `/${section}`
-        }
-    });
+    const { bannerConfig } =
+        useContent({
+            sourceName: 'navigationTreeSource',
+            query: {
+                website: 'la-nacion-ar',
+                sectionId: `/${section}`
+            }
+        }) || {};
 
     const hideBanners = get(
         globalContent,
