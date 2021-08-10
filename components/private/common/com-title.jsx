@@ -5,15 +5,16 @@ import ComLink from './com-link';
 import '../../../resources/dist/css/ln/components/com-title.css';
 import '../../../resources/dist/css/ln/components/com-lead.css';
 
-const ComTitle = ({ lead, tag, size, content, classCondition, link }) => {
+const ComTitle = ({ lead, tag, size, content, classCondition, link, alt }) => {
     if (!content) return null;
 
     const ALLOWED_TAGS = ['h1', 'h2', 'h3', 'h4'];
     const SIZE_CLASS = size ? ` ${size}` : '';
     const EXTRA_CLASS = classCondition ? ` ${classCondition}` : '';
+    const _alt = alt ? `${alt} ${content}` : `${content}`;
 
     const linkComponent = link && (
-        <ComLink link={link} classCondition={classCondition}>
+        <ComLink link={link} classCondition={classCondition} title={_alt}>
             {lead && <em className="com-lead">{`${lead} `}</em>}
             {content}
         </ComLink>
@@ -37,7 +38,8 @@ ComTitle.propTypes = {
     size: PropTypes.string,
     content: PropTypes.string.isRequired,
     classCondition: PropTypes.string,
-    link: PropTypes.string
+    link: PropTypes.string,
+    alt: PropTypes.string
 };
 
 ComTitle.defaultProps = {
@@ -45,7 +47,8 @@ ComTitle.defaultProps = {
     tag: 'h4',
     size: undefined,
     classCondition: undefined,
-    link: undefined
+    link: undefined,
+    alt: ''
 };
 
 export default ComTitle;
