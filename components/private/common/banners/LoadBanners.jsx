@@ -43,7 +43,7 @@ function onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
 }
 
-const queueGoogletagCommand = bannersToLoad => {
+export const queueGoogletagCommand = bannersToLoad => {
     googletag.cmd.push(() => {
         const defineSlot = ({ adUnitPath, size, opt_div: optDiv }) =>
             googletag

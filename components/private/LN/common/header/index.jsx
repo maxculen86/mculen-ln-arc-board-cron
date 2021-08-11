@@ -8,6 +8,7 @@ import withLoginData from '../hocs/withLoginData';
 import Desplegable from '../desplegable';
 import Scroll from '../../../common/utils/scroll';
 import debounce from '../../../common/utils/debounce';
+import getSectionName from '../utils/getSectionName';
 // import { getAndSaveCustomDimension } from '../../../common/utils/storage';
 
 const CLASS_SCROLL_UP = '--scrollUp';
@@ -132,8 +133,12 @@ class Index extends Component {
             goToLogout,
             // headerDark,
             siteProperties: { host, layoutsName = {} },
-            layout
+            layout,
+            globalContent
         } = this.props;
+
+        const { type, node_type: nodeType } = globalContent || {};
+        const section = getSectionName({ type, nodeType });
 
         // const { scrollDirection } = this.state;
 
@@ -150,6 +155,7 @@ class Index extends Component {
                     goToLogout={goToLogout}
                     host={host}
                     isHome={layoutsName.Home === layout}
+                    section={section}
                     // headerDark={headerDark}
                 />
 
@@ -187,7 +193,11 @@ Index.propTypes = {
             Home: PropTypes.string
         })
     }).isRequired,
-    layout: PropTypes.string.isRequired
+    layout: PropTypes.string.isRequired,
+    globalContent: PropTypes.shape({
+        type: PropTypes.string,
+        node_type: PropTypes.string
+    }).isRequired
     // headerDark: PropTypes.string
 };
 
