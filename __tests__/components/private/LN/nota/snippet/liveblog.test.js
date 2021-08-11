@@ -115,8 +115,8 @@ describe('Private - LN - nota - snippet - liveblog ', () => {
         expect(logoUrl).toBe(
             'https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST'
         );
-        expect(height).toBe(41);
-        expect(width).toBe(391);
+        expect(height).toBe(60);
+        expect(width).toBe(600);
         // expect(image).toStrictEqual({
         //     '@context': 'https://schema.org',
         //     '@type': 'ImageObject',
