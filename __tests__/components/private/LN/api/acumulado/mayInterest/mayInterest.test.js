@@ -1,5 +1,5 @@
 import articlesMayInterest from '../../../../../../../__mocks__/data/articleMayInterestCollections/mayInterest.json';
-import MayInterestIndex from '../../../../../../../components/private/LN/api/v1/acumulado';
+import MayInterestIndex from '../../../../../../../components/private/LN/api/v1/accumulated';
 
 describe('Test de index en Json MayInterest', () => {
     const acuData = {
