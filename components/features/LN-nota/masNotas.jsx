@@ -42,16 +42,9 @@ const masNotas = props => {
             subtype,
             taxonomy: {
                 primary_section: { _id, _website, name: sectionName, path }
-            } = {
-                primary_section: {
-                    _id: '/',
-                    _website: 'la-nacion-ar',
-                    name: 'La Nacion',
-                    path: '/'
-                }
             },
             _id: idArticle
-        } = {},
+        },
         outputType,
         id: featureId,
         arcSite
