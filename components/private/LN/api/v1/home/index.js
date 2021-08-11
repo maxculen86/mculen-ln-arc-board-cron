@@ -1,7 +1,10 @@
 import { get } from 'lodash';
 import Image from '../../common/image';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
-import { articleItem as Article, anexoItem as Anexo } from './article';
+import {
+    articleItem as Article,
+    anexoItem as Anexo
+} from '../../common/article/article';
 
 // TODO: Recorrer las notas en un archivo nuevo.
 // Recibir el array y validar que tenga notas
