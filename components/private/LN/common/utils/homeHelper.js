@@ -76,6 +76,7 @@ export const getSubscription = () => {
 export const sectionsWithBlocks = {
     apertura1: 'bloque1',
     apertura2: 'bloque1',
+    apertura: 'bloque1',
     anexo2: 'bloque2',
     breaking1: 'bloque2',
     breaking2: 'bloque3',
