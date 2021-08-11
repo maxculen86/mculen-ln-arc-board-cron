@@ -5,16 +5,34 @@ import ComLink from './com-link';
 import '../../../resources/dist/css/ln/components/com-title.css';
 import '../../../resources/dist/css/ln/components/com-lead.css';
 
-const ComTitle = ({ lead, tag, size, content, classCondition, link, alt }) => {
+const ComTitle = ({
+    lead,
+    tag,
+    size,
+    content,
+    classCondition,
+    link,
+    preTitle,
+    customTitle
+}) => {
     if (!content) return null;
 
     const ALLOWED_TAGS = ['h1', 'h2', 'h3', 'h4'];
     const SIZE_CLASS = size ? ` ${size}` : '';
     const EXTRA_CLASS = classCondition ? ` ${classCondition}` : '';
-    const _alt = alt ? `${alt} ${content}` : `${content}`;
+
+    const _content = lead ? `${lead} ${content}` : `${content}`;
+
+    const _preTitle = preTitle ? `${preTitle} ${_content}` : `${_content}`;
+
+    const _customTitle = customTitle ? `${customTitle}` : `${_preTitle}`;
 
     const linkComponent = link && (
-        <ComLink link={link} classCondition={classCondition} title={_alt}>
+        <ComLink
+            link={link}
+            classCondition={classCondition}
+            title={_customTitle}
+        >
             {lead && <em className="com-lead">{`${lead} `}</em>}
             {content}
         </ComLink>
@@ -39,7 +57,8 @@ ComTitle.propTypes = {
     content: PropTypes.string.isRequired,
     classCondition: PropTypes.string,
     link: PropTypes.string,
-    alt: PropTypes.string
+    preTitle: PropTypes.string,
+    customTitle: PropTypes.string
 };
 
 ComTitle.defaultProps = {
@@ -48,7 +67,8 @@ ComTitle.defaultProps = {
     size: undefined,
     classCondition: undefined,
     link: undefined,
-    alt: ''
+    preTitle: '',
+    customTitle: ''
 };
 
 export default ComTitle;
