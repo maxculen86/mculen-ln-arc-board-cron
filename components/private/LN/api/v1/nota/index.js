@@ -6,6 +6,7 @@ import Relacionados from './relacionados';
 import dateAndTimeUtil from '../../../../common/utils/dateAndTimeUtil';
 import { getPrincipalCategory } from '../../common/category';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
+import matchObject from '../../common/utils/matchObject';
 
 const indexNota = dataNota => {
     if (!dataNota) throw new Error(`La información de la nota esta vacia`);
