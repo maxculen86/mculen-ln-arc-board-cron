@@ -135,20 +135,31 @@ const HeaderDesktop = ({
                     className={`com-usuario${active}${loadingUserData}`}
                 >
                     {!loginData.subscription && (
-                        <button
+                        // <button
+                        //     className="com-button --special"
+                        //     id="btnsuscribite"
+                        //     type="button"
+                        //     title="Suscribite"
+                        //     onClick={() => {
+                        //         location.href =
+                        //             `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
+                        //                 location.href
+                        //             )}` || '/';
+                        //     }}
+                        // >
+                        //     SUSCRIBITE
+                        // </button>
+
+                        <a
                             className="com-button --special"
                             id="btnsuscribite"
-                            type="button"
-                            title="Suscribite"
-                            onClick={() => {
-                                location.href =
-                                    `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
-                                        location.href
-                                    )}` || '/';
-                            }}
+                            title="Suscribite a LA NACION"
+                            href={`${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
+                                location.href
+                            )}`}
                         >
                             SUSCRIBITE
-                        </button>
+                        </a>
                     )}
                     {logueado && (
                         <div
