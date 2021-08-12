@@ -40,6 +40,10 @@ function onlyUnique(value, index, self) {
 }
 
 const queueGoogletagCommand = bannersToLoad => {
+    console.log(
+        '🚀 ~ file: LoadBannersSSR.jsx ~ line 43 ~ bannersToLoad',
+        bannersToLoad
+    );
     googletag.cmd.push(() => {
         const defineSlot = ({ adUnitPath, size, opt_div: optDiv }) =>
             googletag

@@ -4,7 +4,7 @@
 
 import React, { useEffect, useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
-
+import Static from 'fusion:static';
 import BlockQuote from './blockQuote';
 import Gallery from '../../common/carrousell';
 import Image from './image';
@@ -35,7 +35,7 @@ import {
     getBannerConfiguration,
     suffixDevice
 } from '../../common/utils/bannerHelper';
-import DivBannerSSR from '../../../common/banners/divBannerSSR';
+import DivBannerSSR from '../../../common/banners/DivBannerSSR';
 
 const Cuerpo = props => {
     const { bannerConfig: banners, outputType, globalContent } = props;

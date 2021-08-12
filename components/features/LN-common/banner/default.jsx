@@ -8,7 +8,7 @@ import Placeholder from '../../../private/LN/common/bannerRefactor/placeholder';
 
 import { slotsConfig } from '../../../private/LN/common/bannerRefactor/config';
 import { getBannerConfiguration } from '../../../private/LN/common/utils/bannerHelper';
-import DivBannerSSR from '../../../private/common/banners/divBannerSSR';
+import DivBannerSSR from '../../../private/common/banners/DivBannerSSR';
 
 const BannerSSR = props => {
     // const configBuilder = useRef();
@@ -237,6 +237,27 @@ const BannerSSR = props => {
     return (
         <Static id={idFeature}>
             <DivBannerSSR bannerConfiguration={bannerConfiguration} />
+            {slot === 'cabezal' && (
+                <script
+                    type="text/javascript"
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                        window.addEventListener('DOMContentLoaded', () => {
+                            const nav = document.querySelector(".lay-sidebar");
+                            const topOfNav = nav.offsetTop;
+                            const cabezal = document.querySelector('.--cabezal_dsk');
+                            window.addEventListener('scroll', () => {
+                                if (window.pageYOffset > topOfNav) {
+                                    cabezal.classList.remove('--sticky');
+                                } else if (!cabezal.classList.contains('--sticky')) {
+                                    cabezal.classList.add('--sticky');
+                                }
+                            });
+                        })
+                    `
+                    }}
+                />
+            )}
         </Static>
     );
 };

@@ -1782,6 +1782,26 @@ export default {
                     }
                 }
             }
+        },
+        common: {
+            desktop: {
+                logo_header_dsk: {
+                    slotName: 'la_nacion_desktop/logo_header_dsk',
+                    dimensions: [[300, 30]]
+                }
+            },
+            mobile: {
+                logo_header_mob: {
+                    slotName: 'la_nacion_mobile/logo_header_mob',
+                    dimensions: [[170, 17]]
+                }
+            },
+            tablet: {
+                logo_header_tab: {
+                    slotName: 'la_nacion_tablet/logo_header_tab',
+                    dimensions: [[200, 20]]
+                }
+            }
         }
     },
     shareConfig: {
