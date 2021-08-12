@@ -34,8 +34,9 @@ import { pipe } from '../private/common/utils/functional';
 import Pwa from '../private/common/scriptManager/pwa';
 import PwaModals from '../private/LN/common/pwaModals';
 import ScriptSWG from '../private/common/scriptManager/scriptSWG';
-import getMetaDescriptionForAcum from '../private/common/utils/getMetaDescriptionForAcum';
 import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
+import getMetaDescriptionForAcum from '../private/common/utils/getMetaDescriptionForAcum';
+import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 
 const scriptList = [
     {
@@ -195,6 +196,7 @@ const Default = props => {
             ? siteProperties.longTitle
             : metaValue('title') || siteProperties.title;
 
+    // En espera definición de resolución min y max width de site prop.
     const LinkImagePreload = () =>
         getDataToLinkImage(globalContent, _nodeType).map(elem => {
             return (
@@ -324,7 +326,6 @@ const Default = props => {
                     arcSite={arcSite}
                     Tag="script"
                 />
-
                 <div id="fusion-app">
                     <Fusion>{children}</Fusion>
                 </div>
@@ -341,6 +342,7 @@ const Default = props => {
                     Tag="script"
                 />
                 <ScriptLogoBBC distributorName={distributorName} />
+                <ScriptLogoEvent />
             </body>
         </html>
     );

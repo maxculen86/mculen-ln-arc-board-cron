@@ -101,7 +101,7 @@ export const articleItem = (articles, configuration) => {
                 bajada: get(article, 'subheadlines.basic', null),
                 chapita: getArticleTag(article),
                 autor,
-                autores,
+                // autores,
                 marquesina: getArticleSignature(article, autores),
                 seccionPadre: getArticleOpinionSubtype(article),
                 imagen: getArticleImage(article),

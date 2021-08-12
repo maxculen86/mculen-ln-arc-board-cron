@@ -30,6 +30,7 @@ const ComTag = props => {
                 tag="h3"
                 content={content}
                 link={link}
+                preTitle="Noticias de "
                 size={sizeText || ''}
                 classCondition={classCondition}
             />

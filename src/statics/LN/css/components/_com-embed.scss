@@ -2,6 +2,7 @@
 @import '../abstracts/mixins';
 
 .com-embed {
+    &.--soundcloud,
     &.--youtube,
     &.--vimeo,
     &.--dailymotion {
@@ -11,7 +12,8 @@
         align-items: center;
         padding-top: $picture;
         position: relative;
-        iframe {
+        iframe,
+        amp-iframe {
             position: absolute;
             object-fit: cover;
             height: 100%;

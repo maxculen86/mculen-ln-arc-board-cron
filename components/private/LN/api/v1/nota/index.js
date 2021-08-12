@@ -29,6 +29,11 @@ const indexNota = dataNota => {
     const showBanners = get(dataNota, 'label.mostrar_banners.text', null);
     const displayComments = get(dataNota, 'comments.display_comments', null);
     const sentToApps = get(dataNota, 'label.enviar_a_apps.text', null);
+    const enviarApps =
+        matchObject(dataNota, 'contains') === false
+            ? matchObject(dataNota, 'contains')
+            : !(sentToApps && sentToApps.toLowerCase() === 'no');
+
     const isPrintEdition = edition && edition.toLowerCase() === 'impresa';
     const distributor = get(dataNota, 'distributor', null);
     const { date: formatPublishDate, time: formatUpdateTime } = dateAndTimeUtil(
@@ -50,7 +55,7 @@ const indexNota = dataNota => {
         comentariosId: comentariosId || id,
         categoria: primarySection && getPrincipalCategory(primarySection),
         relacionados: Relacionados(dataNota),
-        enviarApps: !(sentToApps && sentToApps.toLowerCase() === 'no'),
+        enviarApps,
         modificadorTemplate: ModificadorTemplate(distributor)
     };
 

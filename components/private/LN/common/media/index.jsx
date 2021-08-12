@@ -26,7 +26,7 @@ const media = ({
     html,
     titleText,
     scriptForZoom,
-    autoplay
+    scriptForAutoplay
 }) => {
     const refContainer = useRef();
     const [zoom, setZoom] = useState(false);
@@ -93,7 +93,7 @@ const media = ({
                             mediaData={mediaData}
                             parrafo={parrafo}
                             tituloNota={tituloNota}
-                            autoplay={autoplay}
+                            scriptForAutoplay={scriptForAutoplay}
                         />
                         {children}
                     </figure>
@@ -111,7 +111,7 @@ const media = ({
             {itsGallery ? (
                 <>{item}</>
             ) : (
-                <div ref={refContainer}>
+                <div className="content-media" ref={refContainer}>
                     <ModMedia
                         idMedia={isApertura && idMedia}
                         zoom={zoom}
@@ -120,7 +120,6 @@ const media = ({
                         html={html}
                         scriptForZoom={scriptForZoom}
                         outputType={outputType}
-                        autoplay={autoplay}
                     >
                         {item}
                     </ModMedia>
@@ -156,7 +155,7 @@ media.propTypes = {
     html: PropTypes.string,
     titleText: PropTypes.string,
     scriptForZoom: PropTypes.node,
-    autoplay: PropTypes.bool
+    scriptForAutoplay: PropTypes.string
 };
 
 media.defaultProps = {
@@ -169,11 +168,11 @@ media.defaultProps = {
     tituloNota: '',
     outputType: 'default',
     scriptForZoom: undefined,
+    scriptForAutoplay: undefined,
     parrafo: undefined,
     active: undefined,
     children: undefined,
-    handleClick: () => {},
-    autoplay: false
+    handleClick: () => {}
 };
 
 media.defaultProps = {
