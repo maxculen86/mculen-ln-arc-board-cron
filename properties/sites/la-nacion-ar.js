@@ -1453,27 +1453,6 @@ export default {
                     ],
                     targeting: defaultTargeting
                 },
-                caja1_amp: {
-                    slotName: '/133919216/AMP/ROS/caja1_amp',
-                    dimensions: {
-                        width: 300,
-                        height: 250
-                    }
-                },
-                caja2_amp: {
-                    slotName: '/133919216/AMP/ROS/caja2_amp',
-                    dimensions: {
-                        width: 300,
-                        height: 250
-                    }
-                },
-                caja3_amp: {
-                    slotName: '/133919216/AMP/ROS/caja3_amp',
-                    dimensions: {
-                        width: 320,
-                        height: 50
-                    }
-                },
                 comercial_dsk: {
                     slotName: 'la_nacion_desktop/Nota/comercial_dsk',
                     dimensions: [
@@ -1610,27 +1589,6 @@ export default {
                     ],
                     targeting: defaultTargeting
                 },
-                caja1_amp: {
-                    slotName: '/133919216/AMP/ROS/caja1_amp',
-                    dimensions: {
-                        width: 300,
-                        height: 250
-                    }
-                },
-                caja2_amp: {
-                    slotName: '/133919216/AMP/ROS/caja2_amp',
-                    dimensions: {
-                        width: 300,
-                        height: 250
-                    }
-                },
-                caja3_amp: {
-                    slotName: '/133919216/AMP/ROS/caja3_amp',
-                    dimensions: {
-                        width: 320,
-                        height: 50
-                    }
-                },
                 comercial_mob: {
                     slotName: 'la_nacion_mobile/Nota/comercial_mob',
                     dimensions: [
@@ -1759,27 +1717,20 @@ export default {
                     slotName: 'la_nacion_tablet/Nota/middle_teads_tab',
                     dimensions: [[1, 1]],
                     targeting: defaultTargeting
-                },
+                }
+            },
+            amp: {
                 caja1_amp: {
                     slotName: '/133919216/AMP/ROS/caja1_amp',
-                    dimensions: {
-                        width: 300,
-                        height: 250
-                    }
+                    dimensions: [[300, 250]]
                 },
                 caja2_amp: {
                     slotName: '/133919216/AMP/ROS/caja2_amp',
-                    dimensions: {
-                        width: 300,
-                        height: 250
-                    }
+                    dimensions: [[300, 250]]
                 },
                 caja3_amp: {
                     slotName: '/133919216/AMP/ROS/caja3_amp',
-                    dimensions: {
-                        width: 320,
-                        height: 50
-                    }
+                    dimensions: [[300, 250]]
                 }
             }
         },

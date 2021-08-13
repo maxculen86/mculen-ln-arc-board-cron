@@ -6,23 +6,14 @@ import PropTypes from 'fusion:prop-types';
 import Placeholder from '../../../private/LN/common/bannerRefactor/placeholder';
 import { slotsConfig } from '../../../private/LN/common/bannerRefactor/config';
 import { getBannerConfiguration } from '../../../private/LN/common/utils/bannerHelper';
-import { getTargetingFormat } from '../../../private/LN/common/bannerRefactor/decorators/utils';
+import DivBannerAMP from '../../../private/common/banners/DivBannerAMP';
 
 const BannerSSR = props => {
     const { isAdmin, customFields, globalContent, globalContentConfig } = props;
 
-    const { sticky, amp } = customFields;
+    const { amp } = customFields;
 
     if (!amp) return <></>;
-
-    const { taxonomy } = globalContent;
-
-    const { sections, tags } = taxonomy || {
-        sections: [],
-        tags: []
-    };
-
-    const targeting = getTargetingFormat(sections)(tags);
 
     // TODO: validar banners para nota, acu
 
@@ -30,10 +21,6 @@ const BannerSSR = props => {
         globalContent,
         customFields,
         globalContentConfig
-    );
-    console.log(
-        '🚀 ~ file: banner.jsx ~ AMP line 66 ~ bannerConfiguration',
-        bannerConfiguration
     );
 
     if (!bannerConfiguration) return <></>;
@@ -55,35 +42,7 @@ const BannerSSR = props => {
     )
         return <></>;
 
-    const { slotId, slotName, dimensions } = bannerConfiguration;
-
-    const comp = (
-        <amp-ad
-            id={`${slotId}`}
-            type="doubleclick"
-            class="banner"
-            width={dimensions.width}
-            height={dimensions.height}
-            data-slot={slotName}
-            json={`${targeting}`}
-        />
-    );
-
-    return (
-        <div className={`row ${sticky ? 'sticky-amp' : ''}`}>
-            <div className="col-12">
-                <div
-                    className={`--bg-banner ${sticky ? 'hlp-desksm-none' : ''}`}
-                >
-                    {sticky ? (
-                        <amp-sticky-ad layout="nodisplay">{comp}</amp-sticky-ad>
-                    ) : (
-                        comp
-                    )}
-                </div>
-            </div>
-        </div>
-    );
+    return <DivBannerAMP bannerConfiguration={bannerConfiguration} />;
 };
 
 BannerSSR.label = 'LN-Common-Banner';

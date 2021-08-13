@@ -1,5 +1,6 @@
+/* eslint-disable react/no-danger */
 /* eslint-disable react-hooks/rules-of-hooks */
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { useAppContext } from 'fusion:context';
 import findTermica from '../../../common/utils/findTermica';
 import get from '../../../common/utils/get';
@@ -18,7 +19,15 @@ export const getBannerConfiguration = (
     customFields,
     globalContentConfig
 ) => {
-    const { label } = globalContent || { label: { mostrar_banners: false } };
+    const { label, taxonomy } = globalContent || {
+        label: { mostrar_banners: false },
+        taxonomy: {
+            sections: [],
+            tags: []
+        }
+    };
+
+    const { sections, tags } = taxonomy;
     const { mostrar_banners: mostrarBanners } = label || {};
     const { text: mostrarBannersValue } = mostrarBanners || '';
 
@@ -27,7 +36,7 @@ export const getBannerConfiguration = (
     const { slot, device, fixed, sticky, background, group: slotGroup, amp } =
         customFields || {};
 
-    if (!slot || !device || !slotGroup) return null;
+    if (!slot || !slotGroup) return null;
 
     const slotId = `${slot}${amp ? '_amp' : suffixDevice[device]}`;
     const { siteProperties } = useAppContext();
@@ -64,7 +73,7 @@ export const getBannerConfiguration = (
     );
     const config = get(
         siteProperties,
-        `bannerConfig[${slotGroup}][${device}][${slotId}]`
+        `bannerConfig[${slotGroup}][${amp ? 'amp' : device}][${slotId}]`
     );
 
     const subscription =
@@ -106,8 +115,10 @@ export const getBannerConfiguration = (
         show: {
             termicas,
             collection: !(hideBanners === 'true')
-        }
+        },
+        targeting: amp ? getTargetingFormat(sections)(tags) : config.targeting
     };
+
     // configBuilder.current = new ConfigBuilder();
     // configBuilder.current.init({
     //     ...config,
@@ -188,6 +199,7 @@ export const isPrimarySectionInBannerSegments = primarySection => segments => {
     return [included, section];
 };
 
+/*
 export const changeSlotName = name => {
     const { slotName } = this._config;
     this._config = {
@@ -195,7 +207,7 @@ export const changeSlotName = name => {
         slotName: slotName.replace(/[^/]+$/g, name)
     };
 };
-
+*/
 export const setCustomAdUnit = (slotName, unit) => {
     // const { slotName } = this._config;
 
@@ -252,6 +264,35 @@ export const getTargetingFormat = sections => {
 
         return `${JSON.stringify(targeting)}`;
     };
+};
+
+export const getScriptForCabezalSticky = (header, sidebar, classCabezal) => {
+    return (
+        <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={{
+                __html: `
+                window.addEventListener('DOMContentLoaded', () => {
+                    const sidebar = document.querySelector(".${sidebar}");
+                    const header = document.querySelector("#${header}");
+                    const topOfSidebar = sidebar.offsetTop;
+                    const cabezal = document.querySelector('.--${classCabezal}');
+                    window.addEventListener('scroll', () => {
+                        if (window.scrollY + cabezal.clientHeight + header.clientHeight > topOfSidebar) {
+                            cabezal.classList.remove('--sticky');
+                            cabezal.style.top = Math.abs(topOfSidebar - cabezal.clientHeight + header.clientHeight) + 'px';
+                            cabezal.style.position = 'relative';
+                            cabezal.style.zIndex = '101';
+                        } else if (!cabezal.classList.contains('--sticky')) {
+                            cabezal.classList.add('--sticky');
+                            cabezal.style.cssText = '';
+                        }
+                    });
+                })
+            `
+            }}
+        />
+    );
 };
 
 /*

@@ -7,7 +7,10 @@ import PropTypes from 'fusion:prop-types';
 import Placeholder from '../../../private/LN/common/bannerRefactor/placeholder';
 
 import { slotsConfig } from '../../../private/LN/common/bannerRefactor/config';
-import { getBannerConfiguration } from '../../../private/LN/common/utils/bannerHelper';
+import {
+    getBannerConfiguration,
+    getScriptForCabezalSticky
+} from '../../../private/LN/common/utils/bannerHelper';
 import DivBannerSSR from '../../../private/common/banners/DivBannerSSR';
 
 const BannerSSR = props => {
@@ -17,15 +20,13 @@ const BannerSSR = props => {
 
     const {
         id: idFeature,
-        siteProperties,
         isAdmin,
         customFields,
         globalContent,
-        globalContentConfig,
-        outputType
+        globalContentConfig
     } = props;
 
-    const { amp, slot, device, group } = customFields;
+    const { amp, slot, device, group, sticky } = customFields;
 
     if (amp) return <></>;
 
@@ -233,31 +234,30 @@ const BannerSSR = props => {
             subscription,
             withoutHide
         */
+    // const { top } = point2.getBoundingClientRect();
+    // // heigt del header
+    // const { height } = point1.getBoundingClientRect();
 
+    // return top - component.clientHeight - gap - height <= 0;
+
+    // const { top, height: componentHeight } = element.getBoundingClientRect();
+    // const { height: point1Height } = point1.getBoundingClientRect();
+
+    // element.style.top = `${Math.abs(
+    //     top - componentHeight + point1Height + gap
+    // )}px`;
+    // element.style.position = 'relative';
+    // element.style.zIndex = 101;
     return (
         <Static id={idFeature}>
             <DivBannerSSR bannerConfiguration={bannerConfiguration} />
-            {slot === 'cabezal' && (
-                <script
-                    type="text/javascript"
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                        window.addEventListener('DOMContentLoaded', () => {
-                            const nav = document.querySelector(".lay-sidebar");
-                            const topOfNav = nav.offsetTop;
-                            const cabezal = document.querySelector('.--cabezal_dsk');
-                            window.addEventListener('scroll', () => {
-                                if (window.pageYOffset > topOfNav) {
-                                    cabezal.classList.remove('--sticky');
-                                } else if (!cabezal.classList.contains('--sticky')) {
-                                    cabezal.classList.add('--sticky');
-                                }
-                            });
-                        })
-                    `
-                    }}
-                />
-            )}
+            {sticky &&
+                slot.includes('cabezal') &&
+                getScriptForCabezalSticky(
+                    'header',
+                    'lay-sidebar',
+                    bannerConfiguration.slotId
+                )}
         </Static>
     );
 };

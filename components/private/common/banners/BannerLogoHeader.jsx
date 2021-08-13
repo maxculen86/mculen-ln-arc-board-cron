@@ -10,7 +10,7 @@ import { getViewport } from '../../LN/common/utils/homeHelper';
 import hasAdsTestParam from '../../LN/common/utils/hasAdsTesParam';
 import { suffixDevice } from '../../LN/common/utils/bannerHelper';
 
-const BannerLogoHeader = ({ section }) => {
+const BannerLogoHeader = ({ section, isAdmin }) => {
     const { siteProperties } = useAppContext();
     const dfpId = get(siteProperties, 'bannerConfig.dfp_id');
     const config = get(siteProperties, 'bannerConfig.common', {});
@@ -37,8 +37,8 @@ const BannerLogoHeader = ({ section }) => {
             queueGoogletagCommand(bannerToLoad);
         };
 
-        slotId && loadBanner(slotId, section, device);
-    }, [config, device, dfpId, section, slotId]);
+        !isAdmin && slotId && loadBanner(slotId, section, device);
+    }, [isAdmin, config, device, dfpId, section, slotId]);
 
     return (
         <Static id="id-banner-logo">
@@ -61,7 +61,8 @@ const BannerLogoHeader = ({ section }) => {
 };
 
 BannerLogoHeader.propTypes = {
-    section: PropTypes.string.isRequired
+    section: PropTypes.string.isRequired,
+    isAdmin: PropTypes.bool.isRequired
 };
 
 export default BannerLogoHeader;

@@ -4,7 +4,7 @@ function getArrayDepth(array) {
         : 0;
 }
 
-const FlatArray = array => {
+const FlatArray = (array = []) => {
     const flatAarray = [];
     const arrayDepth = getArrayDepth(array);
 

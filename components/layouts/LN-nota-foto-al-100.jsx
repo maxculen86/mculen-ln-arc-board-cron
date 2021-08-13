@@ -4,7 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
-import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
+// import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import LoginProvider from '../private/LN/common/context/loginContext';
 
 import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelling';
@@ -58,7 +58,7 @@ import { CommentsProvider } from '../private/common/context/commentsContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
-import LoadBanners from '../private/common/banners/LoadBanners';
+// import LoadBanners from '../private/common/banners/LoadBanners';
 
 const lnNotaFotoAl100 = ({
     children: [

@@ -36,6 +36,7 @@ import {
     suffixDevice
 } from '../../common/utils/bannerHelper';
 import DivBannerSSR from '../../../common/banners/DivBannerSSR';
+import DivBannerAMP from '../../../common/banners/DivBannerAMP';
 
 const Cuerpo = props => {
     const { bannerConfig: banners, outputType, globalContent } = props;
@@ -190,7 +191,8 @@ const Cuerpo = props => {
                                         const slotId =
                                             value.desktop ||
                                             value.mobile ||
-                                            value.tablet;
+                                            value.tablet ||
+                                            '';
 
                                         const bannerConfiguration = getBannerConfiguration(
                                             globalContent,
@@ -203,7 +205,8 @@ const Cuerpo = props => {
                                                     slotId.includes(
                                                         suffixDevice[key]
                                                     )
-                                                )
+                                                ),
+                                                amp: slotId.includes('_amp')
                                             },
                                             {}
                                         );
@@ -218,11 +221,20 @@ const Cuerpo = props => {
                                         return (
                                             elementsCount > counter && (
                                                 <Static id={slotId}>
-                                                    <DivBannerSSR
-                                                        bannerConfiguration={
-                                                            bannerConfiguration
-                                                        }
-                                                    />
+                                                    {outputType === 'amp' &&
+                                                    slotId.includes('_amp') ? (
+                                                        <DivBannerAMP
+                                                            bannerConfiguration={
+                                                                bannerConfiguration
+                                                            }
+                                                        />
+                                                    ) : (
+                                                        <DivBannerSSR
+                                                            bannerConfiguration={
+                                                                bannerConfiguration
+                                                            }
+                                                        />
+                                                    )}
                                                 </Static>
                                             )
                                         );
