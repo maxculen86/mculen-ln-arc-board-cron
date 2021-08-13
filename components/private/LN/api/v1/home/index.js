@@ -57,8 +57,12 @@ const storyBox = element => {
             notas:
                 feature !== 'Anexo'
                     ? orderArticlesArray !== null
-                        ? Article(orderArticlesArray, configurations)
-                        : Article(articles, configurations)
+                        ? orderArticlesArray.map(article => {
+                              return Article(article);
+                          })
+                        : articles.map(article => {
+                              return Article(article);
+                          })
                     : orderArticlesArray !== null
                     ? Anexo(orderArticlesArray)
                     : Anexo(articles)

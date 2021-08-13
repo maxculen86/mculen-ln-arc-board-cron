@@ -12,7 +12,10 @@ const index = acuData => {
         titulo: acuData.name
     };
 
-    if (acuData.articles) resp.notas = articleItem(acuData.articles);
+    if (acuData.articles)
+        resp.notas = acuData.articles.map(article => {
+            return articleItem(article);
+        });
 
     if (acuData.author) {
         resp.autor = authorAcu(acuData.author);
