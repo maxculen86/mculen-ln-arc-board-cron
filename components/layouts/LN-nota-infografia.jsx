@@ -4,8 +4,6 @@ import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
-import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
-import ComInfografia from '../private/LN/nota/apertura/com-infografia';
 import LoginProvider from '../private/LN/common/context/loginContext';
 
 // import '../../resources/dist/css/ln/base.css'; // chequear para sacar base porque se repite estilo
@@ -97,7 +95,6 @@ const lnNotaInfografia = ({
                                     <div className="col-12">
                                         {/* Titulo (breadcrumb, logo+titulo) */}
                                         {children[2]}
-                                        <ComInfografia />
                                     </div>
                                 </div>
                             </div>
