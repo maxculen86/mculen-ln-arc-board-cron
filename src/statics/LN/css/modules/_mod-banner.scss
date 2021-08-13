@@ -170,20 +170,20 @@
         height: px(50);
     }
 
-    &.--caja1_mob {
+    &.--caja1_mob,
+    &.--caja3_mob {
         height: px(450);
     }
 
-    &.--caja3_mob,
     &.--caja4_mob,
     &.--caja5_mob {
         height: px(250);
     }
 
     .home & {
-        &.--caja1_mob,
+        //&.--caja1_mob,
         &.--caja2_mob,
-        &.--caja3_mob,
+        //&.--caja3_mob,
         &.--caja4_mob {
             height: px(450);
             //margin-bottom: $spacing-lg;
