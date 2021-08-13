@@ -43,6 +43,11 @@ const featureInformation = (information, feature) => {
     }
     return res;
 };
+const articlesMap = articles => {
+    return articles.map(article => {
+        return Article(article);
+    });
+};
 
 const storyBox = element => {
     const { information, feature, configurations } = element;
@@ -57,12 +62,8 @@ const storyBox = element => {
             notas:
                 feature !== 'Anexo'
                     ? orderArticlesArray !== null
-                        ? orderArticlesArray.map(article => {
-                              return Article(article);
-                          })
-                        : articles.map(article => {
-                              return Article(article);
-                          })
+                        ? articlesMap(orderArticlesArray)
+                        : articlesMap(articles)
                     : orderArticlesArray !== null
                     ? Anexo(orderArticlesArray)
                     : Anexo(articles)
