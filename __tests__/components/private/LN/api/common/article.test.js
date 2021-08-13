@@ -1,15 +1,19 @@
 import articlesRanking from '../../../../../../__mocks__/data/articleRankingCollections/recetas.json';
 import articlesAcumulado from '../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
 import articlesTPInteresar from '../../../../../../__mocks__/data/articles/tePuedeInteresar.json';
-import AcuList from '../../../../../../components/private/LN/api/v1/common/articles/list';
-import Article from '../../../../../../components/private/LN/api/v1/common/articles/index';
+//import Article from '../../../../../../components/private/LN/api/v1/common/articles/index';
+import Article from '../../../../../../components/private/LN/api/v1/accumulated/story';
 import dateAndTimeUtil, {
     isOlderThan24HourAgo,
     hasFutureDisplayDate,
     addHoursAndFormat,
     dateAndTimeForAppsUtil
 } from '../../../../../../components/private/common/utils/dateAndTimeUtil';
-
+const AcuList = (type, articles) => {
+    return articles.map(v => {
+        return type(v);
+    });
+};
 describe('Test de index en Json', () => {
     const respRanking = AcuList(Article, articlesRanking.content_elements);
     const respAcumulado = AcuList(Article, articlesAcumulado.content_elements);
