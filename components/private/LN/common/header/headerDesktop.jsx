@@ -134,7 +134,7 @@ const HeaderDesktop = ({
                     id="user-menu"
                     className={`com-usuario${active}${loadingUserData}`}
                 >
-                    {!loginData.subscription && (
+                    {!loginData.subscription && typeof window !== 'undefined' && (
                         // <button
                         //     className="com-button --special"
                         //     id="btnsuscribite"
