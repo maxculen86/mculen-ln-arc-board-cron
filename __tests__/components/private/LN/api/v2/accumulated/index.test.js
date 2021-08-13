@@ -1,53 +1,24 @@
 import articlesRecetas from '../../../../../../../__mocks__/data/articleCollections/recetas.json';
 import AcuIndex from '../../../../../../../components/private/LN/api/v2/accumulated/index';
+import { getFeaturedTag } from '../../../../../../../components/private/LN/api/common/tag/index';
+import ArticleTagDestacado from '../../../../../../../__mocks__/data/nota/apertura/tagDestacado/tagDestacado.json';
 
-describe('Test de index en Json acumulado', () => {
-    const dataMock = {
-        name: 'Acu Test',
-        articles: [],
-        paginator: 5,
-        total: 100,
-        configuration: {
-            header_class_name: '--light',
-            background_color: '#6092CD',
-            navigation_color: '#FFFFFF',
-            navigation_color_tags: '#FFFFFF',
-            id_logo_image: '3OZ4BBHM6RAGZNU2GHAQ3P4SHA'
-        }
-    };
-
-    const dataMockNoConfiguration = {
-        name: 'Acu Test',
-        articles: [],
-        paginator: 5,
-        total: 100
-    };
-
-    test('Test render', () => {
-        const resp = AcuIndex(dataMock);
-        expect(resp.paginar).toBe(true);
-        expect(resp.titulo).toBe(dataMock.name);
-        expect(resp.configuracion.headerClass).toBe(
-            dataMock.configuration.header_class_name
-        );
-        expect(resp.configuracion.backgroundColor).toBe(
-            dataMock.configuration.background_color
-        );
-        expect(resp.configuracion.navigationColor).toBe(
-            dataMock.configuration.navigation_color
-        );
-        expect(resp.configuracion.colorTags).toBe(
-            dataMock.configuration.navigation_color_tags
-        );
-        expect(resp.configuracion.imagen).toBe(
-            dataMock.configuration.id_logo_image
+describe('Test unitarios para espacio patrocinado y content lab', () => {
+    it('test unitario en caso de enviar un null', () => {
+        const respNull = getFeaturedTag(null);
+        expect(respNull).toBe(null);
+    });
+    it('test datos de contentLab', () => {
+        const resp = getFeaturedTag(ArticleTagDestacado[0]);
+        expect(resp.formatoId).toBe(1);
+        expect(resp.tipoDescripcion).toBe('contentLab');
+        expect(resp.valor).toBe(
+            ArticleTagDestacado[0].label.marca_anunciante.text
         );
     });
+});
 
-    test('Test render', () => {
-        const resp = AcuIndex(dataMockNoConfiguration);
-        expect(resp.configuracion).toBeUndefined();
-    });
+describe('Json Acumulado section. Test de integracion', () => {
     const acuData = {
         name: 'Recetas',
         articles: articlesRecetas,
@@ -62,5 +33,12 @@ describe('Test de index en Json acumulado', () => {
 
     test('Test total', () => {
         expect(acuData.articles.length).toBeGreaterThan(0);
+        expect(resp.notas);
+        expect(resp.notas[0].id).toBe('B2EMM366VFGVHEPJDUVGBLCYX4');
+        expect(resp.notas[0].templateId).toBe('4');
+        expect(resp.notas[0].url).toBe('/autos/test-de-generacion-de-url/');
+        expect(resp.notas[0].titulo).toBe('Test de generacion de url');
+        expect(resp.notas[0].bajada).toBe('subheadline');
+        expect(resp.notas[0].marquesina).toBe('Por Diego Cabot y Diego Lopez');
     });
 });

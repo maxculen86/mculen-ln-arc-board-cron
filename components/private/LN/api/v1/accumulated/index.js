@@ -1,4 +1,3 @@
-import ArticleList from '../common/articles/list';
 import Configuration from '../../common/accumulated/configuration';
 import Article from './story';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
