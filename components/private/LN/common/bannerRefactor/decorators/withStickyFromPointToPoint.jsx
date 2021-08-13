@@ -75,7 +75,8 @@ export default Component => selectors => {
             slotId === CABEZAL_DSK &&
             wrapper &&
             wrapper.classList.contains('nota') &&
-            wrapper.classList.contains('video');
+            (wrapper.classList.contains('video') ||
+                wrapper.classList.contains('--info'));
         useLayoutEffect(() => {
             removeSticky(ref.current);
             const handleScroll = throttle(() => {
