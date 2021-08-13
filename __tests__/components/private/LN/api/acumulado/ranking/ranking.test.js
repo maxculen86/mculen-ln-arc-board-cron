@@ -1,5 +1,5 @@
 import articles from '../../../../../../../__mocks__/data/articleRankingCollections/recetas.json';
-import RankingIndex from '../../../../../../../components/private/LN/api/v1/acumulado';
+import RankingIndex from '../../../../../../../components/private/LN/api/v1/accumulated';
 
 describe('Test de index en Json ranking', () => {
     const acuData = {

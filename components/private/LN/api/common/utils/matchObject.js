@@ -1,5 +1,5 @@
 import get from 'lodash.get';
-import Config from '../../../../../../layouts/config/LN-Notas.config.json';
+import Config from '../../../../../layouts/config/LN-Notas.config.json';
 
 const matchObject = (obj, type) => {
     let finded = [];

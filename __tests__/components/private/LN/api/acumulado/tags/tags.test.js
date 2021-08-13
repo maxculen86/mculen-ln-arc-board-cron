@@ -1,5 +1,5 @@
 import AcuTags from '../../../../../../../__mocks__/data/articleTagsCollections/tags.json';
-import TagsIndex from '../../../../../../../components/private/LN/api/v1/acumulado';
+import TagsIndex from '../../../../../../../components/private/LN/api/v1/accumulated';
 
 describe('Test de index en Json Tags', () => {
     test('Test propiedad Tema existente', () => {

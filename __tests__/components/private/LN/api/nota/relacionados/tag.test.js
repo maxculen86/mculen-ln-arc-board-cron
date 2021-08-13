@@ -1,5 +1,5 @@
 import articleFull from '../../../../../../../__mocks__/data/articles/QAZ7BVHG5BCNFN7S67XCBP6PA4.json';
-import { getTag } from '../../../../../../../components/private/LN/api/v1/common/tag';
+import { getTag } from '../../../../../../../components/private/LN/api/common/tag/index';
 import { getTagId } from '../../../../../../../components/private/common/utils/getElementId';
 
 import get from 'lodash.get';

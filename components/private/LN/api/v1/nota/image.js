@@ -1,6 +1,6 @@
 import get from 'lodash.get';
 
-import ImageCommon from '../common/image';
+import ImageCommon from '../../common/image';
 import epigrafeAndCreditsData from '../../../../common/utils/epigrafeAndCreditsData';
 
 const imageNota = imageData => {

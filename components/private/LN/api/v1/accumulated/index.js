@@ -1,9 +1,8 @@
-import ArticleList from '../common/articles/list';
-import Configuration from './configuration';
-import Article from '../common/articles/index';
-import { removeEmptyItems } from '../common/utils/responseCleaner';
-import { getTag } from '../common/tag';
-import { authorAcu } from '../common/author';
+import Configuration from '../../common/accumulated/configuration';
+import Article from './story';
+import { removeEmptyItems } from '../../common/utils/responseCleaner';
+import { getTag } from '../../common/tag';
+import { authorAcu } from '../../common/author';
 
 const index = acuData => {
     const resp = {
@@ -12,9 +11,11 @@ const index = acuData => {
         paginar: acuData.paginator > 0,
         titulo: acuData.name
     };
-
-    if (acuData.articles) resp.notas = ArticleList(Article, acuData.articles);
-
+    if (acuData.articles) {
+        resp.notas = acuData.articles.map(v => {
+            return Article(v);
+        });
+    }
     if (acuData.author) {
         resp.autor = authorAcu(acuData.author);
     }
