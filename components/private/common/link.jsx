@@ -11,6 +11,7 @@ const Link = ({
     mod,
     size,
     className,
+    id,
     onClick
 }) => {
     const _className = `com-${href ? 'link' : 'text'}${size ? ` ${size}` : ''}${
@@ -21,9 +22,10 @@ const Link = ({
     return (
         <a
             className={_className}
+            id={id}
             href={href}
             target={target}
-            rel={target === '_blank' ? target : 'nonoopener noreferrer'}
+            rel={target === '_blank' ? 'nofollow' : undefined}
             title={title || text}
             onClick={onClick}
         >
@@ -41,17 +43,19 @@ Link.propTypes = {
     mod: PropTypes.string,
     size: PropTypes.string,
     className: PropTypes.string,
+    id: PropTypes.string,
     onClick: PropTypes.func
 };
 
 Link.defaultProps = {
     href: '',
-    text: '',
+    text: undefined,
     target: undefined,
-    title: '',
+    title: undefined,
     mod: '',
     size: '',
     className: '',
+    id: undefined,
     onClick: undefined
 };
 

@@ -1,6 +1,6 @@
 import articlesRecetas from '../../../../../../__mocks__/data/articleCollections/recetas.json';
 import articlesDeportes from '../../../../../../__mocks__/data/articleCollections/deportes.json';
-import AcuIndex from '../../../../../../components/private/LN/api/v1/acumulado';
+import AcuIndex from '../../../../../../components/private/LN/api/v1/accumulated';
 
 describe('Json Acumulado section. Test de integracion', () => {
     const acuData = {

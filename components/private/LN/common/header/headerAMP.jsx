@@ -33,6 +33,8 @@ const headerAMP = props => {
                             <div id="user-menu" className="com-usuario">
                                 <Link
                                     mod="com-button --special"
+                                    id="btnsuscribite"
+                                    title="Suscribite a LA NACION"
                                     href="https://suscripciones.lanacion.com.ar/suscribirme"
                                 >
                                     SUSCRIBITE

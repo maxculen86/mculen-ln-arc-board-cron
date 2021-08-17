@@ -1,5 +1,5 @@
 import get from 'lodash.get';
-import { getAutorId } from '../../../../../common/utils/getElementId';
+import { getAutorId } from '../../../../common/utils/getElementId';
 import { getImageUrl } from '../image';
 
 const getAuthorData = author => {
