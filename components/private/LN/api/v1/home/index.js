@@ -44,9 +44,11 @@ const featureInformation = (information, feature) => {
     return res;
 };
 const articlesMap = articles => {
-    return articles.map(article => {
-        return Article(article);
-    });
+    return articles
+        .filter(e => e)
+        .map(article => {
+            return Article(article);
+        });
 };
 
 const storyBox = element => {

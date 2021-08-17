@@ -87,7 +87,7 @@ export const articleItem = article => {
 
     const titulo = getArticleTitle(article);
     if (!titulo) {
-        throw new Error('Titulo de la nota es null o undef}ined');
+        throw new Error('Titulo de la nota es null o undefined');
     }
     const autores = getArticleAuthor(article);
     const autor = autores ? autores[0] : null;

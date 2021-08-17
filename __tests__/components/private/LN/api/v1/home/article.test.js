@@ -12,6 +12,13 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
     const configurations = {
         arcSite: 'la-nacion-ar'
     };
+    const articlesMap = articles => {
+        return articles
+            .filter(e => e)
+            .map(article => {
+                return Article(article);
+            });
+    };
 
     it('Testeo articulo Caja Manual OK', () => {
         articlesfromCajaManual = [];
@@ -19,7 +26,7 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
         articlesfromCajaManual.push(article2);
         articlesfromCajaManual.push(article3);
 
-        const notas = Article(articlesfromCajaManual, configurations);
+        const notas = articlesMap(articlesfromCajaManual);
         expect(notas[0].id).toBe('2KOBND62KNFVVBFQZOADNN6WNY');
         expect(notas[0].templateId).toBe('1');
         expect(notas[0].sitioId).toBe(null);
@@ -50,7 +57,7 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
         articlesfromCajaManual.push(null);
         articlesfromCajaManual.push(article3);
 
-        const notas = Article(articlesfromCajaManual, configurations);
+        const notas = articlesMap(articlesfromCajaManual);
         expect(notas.length).toBe(2);
         expect(notas[0].id).toBe('2KOBND62KNFVVBFQZOADNN6WNY');
         expect(notas[1].id).toBe('3THDAILWTVHARHBYA5AEVL7OAU');
@@ -62,21 +69,21 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
         articlesfromCajaManual.push(null);
         articlesfromCajaManual.push(null);
 
-        const notas = Article(articlesfromCajaManual, configurations);
+        const notas = articlesMap(articlesfromCajaManual);
         expect(notas.length).toBe(0);
     });
 
     it('Testeo articulo sin Autor', () => {
         articlesfromCajaManual = [];
         articlesfromCajaManual.push(article4);
-        const notas = Article(articlesfromCajaManual, configurations);
+        const notas = articlesMap(articlesfromCajaManual);
         expect(notas[0].autor).toBeNull();
     });
 
     it('Testeo articulo Caja Collection Ok', () => {
         const elements = get(colecction, 'content_elements', []);
         try {
-            const notas = Article(elements, configurations);
+            const notas = articlesMap(elements);
             expect(notas[1].id).toBe('5OUY7OCFZNFLLBM6XM4CTSIUWQ');
         } catch (err) {
             expect(err.message).toBe(
@@ -88,7 +95,7 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
     it('Testeo articulo Caja Collection con un articulo null', () => {
         let elements = get(colecction, 'content_elements', []);
         elements[0] = null;
-        const notas = Article(elements, configurations);
+        const notas = articlesMap(elements);
         expect(notas[0].id).toBe('5OUY7OCFZNFLLBM6XM4CTSIUWQ');
     });
 
@@ -187,7 +194,7 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
         articlesfromCajaManual.push(articlesinId);
         articlesfromCajaManual.push(article3);
         try {
-            const notas = Article(articlesfromCajaManual, configurations);
+            const notas = articlesMap(articlesfromCajaManual);
             expect(notas[0].id).toBe('2KOBND62KNFVVBFQZOADNN6WNY');
         } catch (err) {
             expect(err.message).toBe(
@@ -288,7 +295,7 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
         articlesfromCajaManual.push(articlesinId);
         articlesfromCajaManual.push(article3);
         try {
-            const notas = Article(articlesfromCajaManual, configurations);
+            const notas = articlesMap(articlesfromCajaManual);
             expect(notas[0].id).toBe('2KOBND62KNFVVBFQZOADNN6WNY');
         } catch (err) {
             expect(err.message).toBe('Titulo de la nota es null o undefined');
@@ -400,17 +407,14 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
         articlesfromCajaManual = [];
         articlesfromCajaManual.push(articleauthor);
         articleauthor.credits.by.push(authors[0]);
-        const articles = Article(articlesfromCajaManual, configurations);
+        const articles = articlesMap(articlesfromCajaManual);
         // expect(articles[0].autores.length).toBe(1);
         expect(articles[0].marquesina).toBe('Por Matias Velasquez');
 
         articleauthor.credits.by.splice(0, articleauthor.credits.by.length);
         articleauthor.credits.by.push(authors[0]);
         articleauthor.credits.by.push(authors[1]);
-        const articlesWithTwoAuthors = Article(
-            articlesfromCajaManual,
-            configurations
-        );
+        const articlesWithTwoAuthors = articlesMap(articlesfromCajaManual);
         // expect(articlesWithTwoAuthors[0].autores.length).toBe(2);
         expect(articlesWithTwoAuthors[0].marquesina).toBe(
             'Por Matias Velasquez e Isaías Anzola'
@@ -421,10 +425,7 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
         articleauthor.credits.by.push(authors[1]);
         articleauthor.credits.by.push(authors[2]);
         articleauthor.credits.by.push(authors[3]);
-        const articlesWithFourAuthors = Article(
-            articlesfromCajaManual,
-            configurations
-        );
+        const articlesWithFourAuthors = articlesMap(articlesfromCajaManual);
         // expect(articlesWithFourAuthors[0].autores.length).toBe(4);
         expect(articlesWithFourAuthors[0].marquesina).toBe(
             'Por Matias Velasquez, Isaías Anzola, Sally Flores y Leonardo Lemkin'
@@ -434,10 +435,7 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
         articleauthor.credits.by.push(authors[0]);
         articleauthor.credits.by.push(authors[2]);
         articleauthor.credits.by.push(authors[1]);
-        const articlesWithThreeAuthors = Article(
-            articlesfromCajaManual,
-            configurations
-        );
+        const articlesWithThreeAuthors = articlesMap(articlesfromCajaManual);
         // expect(articlesWithThreeAuthors[0].autores.length).toBe(3);
         expect(articlesWithThreeAuthors[0].marquesina).toBe(
             'Por Matias Velasquez, Sally Flores e Isaías Anzola'
@@ -446,10 +444,7 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
         articleauthor.credits.by.splice(0, articleauthor.credits.by.length);
         articleauthor.credits.by.push(authors[0]);
         articleauthor.credits.by.push(authors[2]);
-        const articlesWithTwoAuthorsY = Article(
-            articlesfromCajaManual,
-            configurations
-        );
+        const articlesWithTwoAuthorsY = articlesMap(articlesfromCajaManual);
         // expect(articlesWithTwoAuthorsY[0].autores.length).toBe(2);
         expect(articlesWithTwoAuthorsY[0].marquesina).toBe(
             'Por Matias Velasquez y Sally Flores'
@@ -458,7 +453,7 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
     it('Testeo enviar todos los autores de una nota', () => {
         articlesfromCajaManual = [];
         articlesfromCajaManual.push(article1);
-        const notas = Article(articlesfromCajaManual, configurations);
+        const notas = articlesMap(articlesfromCajaManual);
         // expect(notas[0].autores.length).toBe(4);
         expect(notas[0].marquesina).toBe(
             'Por Max Fisher, Matias Velasquez, Soledad Velasquez e Ignacio Fernandez'
@@ -467,7 +462,7 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
     it('Testeo campo autores en nota', () => {
         articlesfromCajaManual = [];
         articlesfromCajaManual.push(article1);
-        const notas = Article(articlesfromCajaManual, configurations);
+        const notas = articlesMap(articlesfromCajaManual);
         expect(notas[0].autor.valor).toBe('Max Fisher');
         // expect(notas[0].autores.length).toBe(4);
         expect(notas[0].marquesina).toBe(
