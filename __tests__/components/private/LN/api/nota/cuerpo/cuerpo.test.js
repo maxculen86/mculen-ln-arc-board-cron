@@ -5,8 +5,7 @@ import ArticleCuerpo from '../../../../../../../__mocks__/data/nota/cuerpo/notaC
 import ArticleHtml from '../../../../../../../__mocks__/data/nota/cuerpo/notaHtml.json';
 import ArticleFotoAlCien from '../../../../../../../__mocks__/data/nota/cuerpo/notaFotoAlCien.json';
 import ArticleSubtypeInexistente from '../../../../../../../__mocks__/data/nota/cuerpo/notaSubtypeInexistente.json';
-import { removeEmptyItems } from '../../../../../../../components/private/LN/api/v1/common/utils/responseCleaner';
-
+import { removeEmptyItems } from '../../../../../../../components/private/LN/api/common/utils/responseCleaner';
 
 describe('Test Json Text del cuerpo de la nota', () => {
     it('Test para validar si el cuerpo es null', () => {
@@ -18,7 +17,7 @@ describe('Test Json Text del cuerpo de la nota', () => {
         }
     });
 
-    it('Test para template inexistente',()=>{
+    it('Test para template inexistente', () => {
         try {
             const resp = Cuerpo(ArticleSubtypeInexistente);
             expect(resp).toBe(null);
@@ -28,7 +27,7 @@ describe('Test Json Text del cuerpo de la nota', () => {
     });
 
     it('Test para validar la cantidad de elementos del cuerpo', () => {
-        const resp = Cuerpo(ArticleCuerpo);        
+        const resp = Cuerpo(ArticleCuerpo);
         expect(resp.length).toBe(ArticleCuerpo.content_elements.length - 1);
     });
 

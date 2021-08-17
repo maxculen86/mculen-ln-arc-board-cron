@@ -113,10 +113,10 @@ describe('Private - LN - nota - snippet - liveblog ', () => {
         expect(logoContext).toBe('https://schema.org');
         expect(logoType).toBe('ImageObject');
         expect(logoUrl).toBe(
-            'https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST'
+            'https://arc-static.glanacion.com/resources/images/placeholderLN-600_amp.jpg$LATEST'
         );
-        expect(height).toBe(41);
-        expect(width).toBe(391);
+        expect(height).toBe(60);
+        expect(width).toBe(600);
         // expect(image).toStrictEqual({
         //     '@context': 'https://schema.org',
         //     '@type': 'ImageObject',

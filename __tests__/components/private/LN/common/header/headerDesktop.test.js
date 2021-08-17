@@ -58,7 +58,7 @@ describe('HeaderDesktop', () => {
             <HeaderDesktop {...{ ...props, ...{ logueado: false } }} />
         );
         const login = component.find('button');
-        login.at(2).simulate('click');
+        login.at(1).simulate('click');
         expect(props.loginData.goToLoginUrl).toHaveBeenCalled();
     });
 });
