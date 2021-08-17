@@ -4235,6 +4235,26 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
             tituloCaja: 'Comercial 2'
         });
     });
+    it('Testeo Seccion Dolar', () => {
+        //    Dolar: { tipoSeccion: 'dolar', idSeccion: 601 },
+
+        const Seccion = [
+            {
+                id: 601,
+                type: 1,
+                feature: 'Dolar',
+                position: 'bottom'
+            }
+        ];
+        const home = index(Seccion) || [];
+
+        expect(home[0][0]).toEqual(
+            expect.objectContaining({
+                tipoSeccion: 'dolar',
+                idSeccion: 601
+            })
+        );
+    });
 
     it('Testeo cambio de orden de notas en API mobile para Focal derecho', () => {
         const SeccionFocalRight = [
