@@ -106,6 +106,19 @@
             "type": "custom_embed"
         },
         {
+            "_id": "PI3PFAEB45HLLFDQEZ7T6ISNWQ",
+            "additional_properties": {},
+            "embed": {
+                "config": {
+                    "items": ["Arroz", "pollo"],
+                    "titleList": "Arroz con pollo",
+                    "typeList": "preparacion"
+                }
+            },
+            "subtype": "custom-preparacion",
+            "type": "custom_embed"
+        },
+        {
             "_id": "VQK2KQWZLRDONIKGL7FB67UCWU",
             "additional_properties": {},
             "content": "That said, no single exercise will tell you everything you need to know. An interview can be a very useful tool as well, but don’t waste time asking about syntax or language quirks. You need to see the big picture. Ask about",

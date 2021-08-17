@@ -3,31 +3,38 @@ import PropTypes from 'fusion:prop-types';
 import ListItems from '../../../common/listItems';
 import ComTitle from '../../../common/com-title';
 
-const listPreparacion = ({ preparation }) => {
+const listPreparacion = ({ data }) => {
+    const { items, titleList } = data.embed.config;
     return (
         <>
-            <ComTitle tag="h3" size="--m" content={'Preparación'} />
-            {preparation &&
-                preparation.length !== 0 &&
-                preparation.map(list => (
-                    <ListItems
-                        list={list.items}
-                        titleList={list.title}
-                        listNumeric
-                        key={list.title}
-                    />
-                ))}
+            <div className="row">
+                {items.length > 0 ? (
+                    <div className="col-tablet-8 offset-tablet-1 _preparation">
+                        <ComTitle tag="h3" size="--m" content={'Preparación'} />
+                        <ListItems
+                            list={items}
+                            titleList={titleList}
+                            listNumeric
+                            key={titleList}
+                        />
+                    </div>
+                ) : (
+                    <></>
+                )}
+            </div>
         </>
     );
 };
-
+listPreparacion.arcType = 'custom-preparacion';
 listPreparacion.propTypes = {
-    preparation: PropTypes.arrayOf(
-        PropTypes.shape({
-            title: PropTypes.string,
-            items: PropTypes.arrayOf(PropTypes.string)
+    data: PropTypes.shape({
+        embed: PropTypes.shape({
+            config: PropTypes.shape({
+                items: PropTypes.arrayOf(PropTypes.string),
+                titleList: PropTypes.string
+            })
         })
-    ).isRequired
+    }).isRequired
 };
 
 export default listPreparacion;
