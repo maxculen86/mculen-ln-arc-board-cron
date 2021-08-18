@@ -1,5 +1,5 @@
 import get from 'lodash.get';
-import matchObject from '../../common/utils/matchObject';
+import matchObject from '../../../common/utils/matchObject';
 
 const notaRelacionada = dataNota => {
     if (!dataNota) return null;

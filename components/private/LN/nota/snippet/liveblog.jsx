@@ -100,7 +100,7 @@ const SnippetLiveblog = props => {
     } = globalContent || {};
 
     const PLACEHOLDER = getAssetsPath(contextPath)(deployment)(
-        'placeholderLN.jpg'
+        'placeholderLN-600_amp.jpg'
     );
 
     const url = `${siteProperties.host}${canonicalUrl || ''}`;
@@ -118,8 +118,8 @@ const SnippetLiveblog = props => {
                 '@context': 'https://schema.org',
                 '@type': 'ImageObject',
                 url: `${PLACEHOLDER}`,
-                height: 41,
-                width: 391
+                height: 60,
+                width: 600
             }
         },
         url,

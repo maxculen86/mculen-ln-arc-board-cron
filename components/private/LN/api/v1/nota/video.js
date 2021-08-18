@@ -1,6 +1,6 @@
 import get from 'lodash.get';
-import VideoCommon from '../common/video';
-import VideoThumbnail from '../common/video/thumbnail';
+import VideoCommon from '../../common/video';
+import VideoThumbnail from '../../common/video/thumbnail';
 
 const videoNota = videoData => {
     if (!videoData) return null;

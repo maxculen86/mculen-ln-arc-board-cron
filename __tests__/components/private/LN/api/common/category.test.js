@@ -3,8 +3,8 @@ import articleFull from '../../../../../../__mocks__/data/articles/2KOBND62KNFVV
 import {
     getSubCategory,
     getPrincipalCategory
-} from '../../../../../../components/private/LN/api/v1/common/category';
-import articleItem from '../../../../../../components/private/LN/api/v1/common/articles/index';
+} from '../../../../../../components/private/LN/api/common/category/index';
+import articleItem from '../../../../../../components/private/LN/api/common/article/article';
 
 describe('Test de JSON de tags en article', () => {
     //Se puede retirar el foreach, ya que no tiene mucha cienca las categorias

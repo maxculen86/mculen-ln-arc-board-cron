@@ -4,23 +4,8 @@ html {
 }
 
 .error404 {
-    margin: 0 auto;
-    background: url(https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SDR7NBVY7BA6PNIKYEPCUNT5HY.jpg)
-        no-repeat;
-    height: 100vh;
-    background-position: bottom 130px right 0px;
-    background-size: 90%;
-    margin: 0;
-    @media (min-width: 450px) {
-        background-size: auto;
-    }
-    @media (min-width: 1023px) {
-        background: none;
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-    }
+    //margin: 0 auto;
+
     header {
         background-color: rgba(255, 255, 255, 0.9);
         padding: 30px 0;
@@ -83,27 +68,54 @@ html {
     }
     main {
         padding: 20px 0 0;
-        img {
-            //display: none;
-            visibility: hidden;
-            margin: 0 auto;
-            width: 100%;
-            @media (min-width: 1023px) {
-                //display: block;
-                visibility: visible;
+        .lay {
+            > .row {
+                .col-12 {
+                    text-align: center;
+                    background: url(https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SDR7NBVY7BA6PNIKYEPCUNT5HY.jpg)
+                        no-repeat;
+                    //height: 100vh;
+                    background-position: bottom 0px right 0px;
+                    background-size: 90%;
+                    margin-bottom: 64px;
+                    @media (min-width: 450px) {
+                        background-size: auto;
+                    }
+                    @media (min-width: 1023px) {
+                        background: none;
+                        // display: grid;
+                        // justify-content: center;
+                        // align-items: center;
+                        // height: 100%;
+                    }
+
+                    .img-404 {
+                        //display: none;
+                        visibility: hidden;
+                        margin: 0 auto;
+                        width: auto;
+                        height: 360px;
+                        margin-bottom: px(64);
+                        @media (min-width: 1023px) {
+                            //display: block;
+                            visibility: visible;
+                            height: auto;
+                        }
+                    }
+                }
             }
         }
     }
     footer {
         font-size: 14px;
         line-height: 24px;
-        position: absolute;
-        bottom: 0;
+        //position: absolute;
+        //bottom: 0;
         width: 100%;
-        @media (min-width: 1023px) {
-            position: relative;
-            bottom: auto;
-        }
+        // @media (min-width: 1023px) {
+        //     position: relative;
+        //     bottom: auto;
+        // }
         .row {
             padding: 20px 0;
             .footer-copyright__reserved {
