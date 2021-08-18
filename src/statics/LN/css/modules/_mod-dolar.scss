@@ -32,7 +32,7 @@
             }
         }
 
-        @media ($media-m) {
+        @media (max-width: 767px) {
             .com-link {
                 justify-content: left;
             }
