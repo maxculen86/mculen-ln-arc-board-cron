@@ -32,6 +32,12 @@
             }
         }
 
+        @media (max-width: 767px) {
+            .com-link {
+                justify-content: left;
+            }
+        }
+
         @media ($media-lm) {
             span {
                 display: inline;
