@@ -127,6 +127,7 @@
     }
 
     &.--caja1_mob,
+    &.--caja2_mob,
     &.--caja3_mob {
         height: px(450);
     }
@@ -137,7 +138,6 @@
     }
 
     .home & {
-        &.--caja2_mob,
         &.--caja4_mob {
             height: px(450);
         }
@@ -271,9 +271,6 @@
 }
 @media ($media-lm) {
     .mod-banner {
-        // .cuerpo__nota & {
-        //     display: block;
-        // }
         &.--fixed {
             left: calc((100% - 1260px) / 2);
             &.--small {
@@ -325,18 +322,7 @@
         width: 100%;
         @media ($media-m) {
             display: flex;
-            // .--cabezal_dsk {
-            //     display: none;
-            // }
         }
-        // @media ($media-l) {
-        //     .--cabezal_tab {
-        //         display: none;
-        //     }
-        //     .--cabezal_dsk {
-        //         display: flex;
-        //     }
-        // }
     }
 }
 
