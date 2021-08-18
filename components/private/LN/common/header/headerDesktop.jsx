@@ -1,3 +1,6 @@
+/* eslint-disable no-restricted-globals */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable no-script-url */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from 'react';
 import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
@@ -13,7 +16,7 @@ import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../../../../resources/dist/css/ln/components/usuario.css';
 import '../../../../../resources/dist/css/ln/components/button.css';
 import dynamicallyLoadScript from '../utils/dynamicallyLoadScript';
-// import ModsubHeather from './subHeader';
+import BannerLogoHeader from '../../../common/banners/BannerLogoHeader';
 
 const ItemAnchor = ({ url, text, alt }) => {
     const callURL = address => {
@@ -66,6 +69,7 @@ const HeaderDesktop = ({
     goToLogout,
     host,
     isHome,
+    section,
     // headerDark,
     toglleDesplegable
 }) => {
@@ -114,6 +118,7 @@ const HeaderDesktop = ({
                 </label>
             </div>
             <div className="col-7 col-desksm-4 header__middle">
+                <BannerLogoHeader section={section} />
                 <Logo
                     logoName="la-nacion"
                     classCondition="nacion-home"
@@ -238,7 +243,8 @@ HeaderDesktop.propTypes = {
     host: PropTypes.string.isRequired,
     isHome: PropTypes.bool.isRequired,
     // headerDark: PropTypes.string,
-    toglleDesplegable: PropTypes.func.isRequired
+    toglleDesplegable: PropTypes.func.isRequired,
+    section: PropTypes.string.isRequired
 };
 
 // HeaderDesktop.defaultProps = {
