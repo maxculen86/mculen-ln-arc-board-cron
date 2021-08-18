@@ -4238,7 +4238,7 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
     it('Testeo Seccion Dolar', () => {
         const Seccion = [
             {
-                id: 601,
+                id: 2000,
                 type: 1,
                 feature: 'Dolar',
                 position: 'bottom'
@@ -4249,7 +4249,7 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
         expect(home[0][0]).toEqual(
             expect.objectContaining({
                 tipoSeccion: 'dolar',
-                idSeccion: 601
+                idSeccion: 2000
             })
         );
     });

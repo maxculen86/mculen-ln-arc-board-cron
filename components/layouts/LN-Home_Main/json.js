@@ -10,7 +10,7 @@ import {
 
 const boxPosition = {
     Apertura_1: { id: 402, type: 1, feature: 'Banner', position: 'bottom' },
-    Apertura_2: { id: 601, type: 1, feature: 'Dolar', position: 'bottom' },
+    Apertura_2: { id: 2000, type: 1, feature: 'Dolar', position: 'bottom' },
     Breaking_1: { id: 403, type: 1, feature: 'Banner', position: 'start' },
     Breaking_2: { id: 404, type: 1, feature: 'Banner', position: 'start' },
     Breaking_3: { id: 405, type: 1, feature: 'Banner', position: 'start' },
