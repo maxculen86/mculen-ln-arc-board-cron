@@ -75,7 +75,7 @@ exports[` 1`] = `
                         if (viewPoint <= 0 && cabezal.classList.contains('--sticky')) {
                             const { top: topCabezal } = cabezal.getBoundingClientRect();
                             cabezal.classList.remove('--sticky');
-                            cabezal.style.top = Math.abs(sidebar.offsetTop - cabezal.clientHeight + header.clientHeight + 36) + 'px';
+                            cabezal.style.top = Math.abs(sidebar.offsetTop - cabezal.clientHeight) + 'px';
                             cabezal.style.position = 'relative';
                             cabezal.style.zIndex = '101';
                         } else if (viewPoint > 0 && !cabezal.classList.contains('--sticky')) {
