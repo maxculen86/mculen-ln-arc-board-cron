@@ -417,27 +417,25 @@
             }
         }
     }
-    [class*='_tab'],
+}
+
+[class*='_tab'],
+[class*='_dsk'] {
+    display: none;
+}
+@media ($media-m) {
+    [class*='_tab'] {
+        display: flex;
+    }
+    [class*='_mob'] {
+        display: none;
+    }
+}
+@media ($media-l) {
     [class*='_dsk'] {
-        display: none !important;
+        display: flex;
     }
-    @media ($media-m) {
-        [class*='_tab'] {
-            display: flex !important;
-        }
-        [class*='_mob'] {
-            display: none !important;
-        }
-    }
-    @media ($media-l) {
-        [class*='_dsk'] {
-            display: flex !important;
-        }
-        [class*='_tab'] {
-            display: none !important;
-        }
-        [class*='_mob'] {
-            display: none !important;
-        }
+    [class*='_tab'] {
+        display: none;
     }
 }
