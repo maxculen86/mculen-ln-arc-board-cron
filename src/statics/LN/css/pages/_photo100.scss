@@ -64,7 +64,6 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
             .FirmaAutor,
             .com-unordered,
             .com-ordered,
-            .mod-banner,
             figcaption {
                 display: block;
                 width: 100%;
@@ -79,7 +78,12 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
                 text-align: center;
             }
             .mod-banner {
-                display: flex;
+                width: 100%;
+                margin-right: auto;
+                margin-left: auto;
+
+                @include padding_rl;
+                @include width-nota100;
             }
             .mod-figure {
                 //cursor: default;
