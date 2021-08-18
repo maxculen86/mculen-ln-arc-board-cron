@@ -34,7 +34,7 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
             {closeButton && (
                 <>
                     <button
-                        id="btnCloseAd"
+                        id={`${slotId}_btnCloseAd`}
                         type="button"
                         aria-label="Close"
                         className="icon-close"
@@ -42,7 +42,7 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
                     <script
                         dangerouslySetInnerHTML={{
                             __html: `
-                            document.getElementById('btnCloseAd').onclick = function() {
+                            document.getElementById('${slotId}_btnCloseAd').onclick = function() {
                                 this.parentNode.classList.add('hlp-none')
                              };
                             `

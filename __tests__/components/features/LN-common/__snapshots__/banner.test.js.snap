@@ -2,13 +2,105 @@
 
 exports[` 1`] = `
 <mock-static>
+  <DivBannerSSR
+    bannerConfiguration={
+      Object {
+        "background": undefined,
+        "bidding": Object {
+          "prebid": Object {
+            "enabled": true,
+          },
+        },
+        "device": "desktop",
+        "dfpId": 133919216,
+        "dimensions": Array [
+          Array [
+            1,
+            1,
+          ],
+          Array [
+            728,
+            90,
+          ],
+          Array [
+            920,
+            100,
+          ],
+          Array [
+            920,
+            170,
+          ],
+          Array [
+            970,
+            90,
+          ],
+          Array [
+            1260,
+            100,
+          ],
+          Array [
+            1260,
+            170,
+          ],
+        ],
+        "fixed": undefined,
+        "show": Object {
+          "collection": true,
+          "termicas": true,
+        },
+        "slotGroup": "nota",
+        "slotId": "cabezal_dsk",
+        "slotName": "la_nacion_desktop/Nota/cabezal_dsk",
+        "sticky": true,
+        "subscription": undefined,
+        "targeting": Object {
+          "seccion": "nota",
+          "sitio": "lanacion",
+        },
+        "withoutHide": true,
+      }
+    }
+  />
+  <script
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+                window.addEventListener('DOMContentLoaded', () => {
+                    const sidebar = document.querySelector(\\".lay-sidebar\\");
+                    const header = document.querySelector(\\"#header\\");                    
+                    const cabezal = document.querySelector('.--cabezal_dsk');
+                    window.addEventListener('scroll', () => {
+                        const { top: topSidebar } = sidebar.getBoundingClientRect();
+                        const viewPoint = topSidebar - cabezal.clientHeight - header.clientHeight;
+                        if (viewPoint <= 0 && cabezal.classList.contains('--sticky')) {
+                            const { top: topCabezal } = cabezal.getBoundingClientRect();
+                            cabezal.classList.remove('--sticky');
+                            cabezal.style.top = Math.abs(sidebar.offsetTop - cabezal.clientHeight + header.clientHeight + 36) + 'px';
+                            cabezal.style.position = 'relative';
+                            cabezal.style.zIndex = '101';
+                        } else if (viewPoint > 0 && !cabezal.classList.contains('--sticky')) {
+                            cabezal.classList.add('--sticky');
+                            cabezal.style.cssText = '';
+                        }
+                    });
+                })
+            ",
+      }
+    }
+    type="text/javascript"
+  />
+</mock-static>
+`;
+
+exports[` 2`] = `
+<mock-static>
   <div
     class="mod-banner   --close --fixed --adhesion_mob hlp-none "
   >
     <button
       aria-label="Close"
       class="icon-close"
-      id="btnCloseAd"
+      id="adhesion_mob_btnCloseAd"
       type="button"
     />
     <div
@@ -26,4 +118,28 @@ exports[` 1`] = `
     />
   </div>
 </mock-static>
+`;
+
+exports[` 3`] = `
+<div
+  class="row "
+>
+  <div
+    class="col-12"
+  >
+    <div
+      class="--bg-banner "
+    >
+      <amp-ad
+        class="banner"
+        data-slot="/133919216/AMP/ROS/caja1_amp"
+        height="250"
+        id="caja1_amp"
+        json="{\\"tags\\":[\\"ca_el mundo|ca_ciencia|te_deportes|te_sake\\"],\\"tags_nuevos\\":[\\"ca_el mundo\\",\\"ca_ciencia\\",\\"te_deportes\\",\\"te_sake\\"]}"
+        type="doubleclick"
+        width="300"
+      />
+    </div>
+  </div>
+</div>
 `;

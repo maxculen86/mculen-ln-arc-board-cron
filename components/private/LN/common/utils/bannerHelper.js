@@ -49,15 +49,6 @@ export const getBannerConfiguration = (
     const bannersSiteConfig = get(siteService, 'banners');
     const adserver = get(siteService, 'adserver', []);
     const segments = adserver.map(segment => segment.value);
-
-    // if (!desktop && !mobile && !tablet) return null;
-
-    // const slots = [
-    //     { name: 'tablet', slot: tablet },
-    //     { name: 'desktop', slot: desktop },
-    //     { name: 'mobile', slot: mobile }
-    // ];
-
     const type = get(globalContent, 'type');
     const sponsored = get(globalContent, 'owner.sponsored');
     const advertiser = get(globalContent, 'label.marca_anunciante.text');
@@ -118,22 +109,6 @@ export const getBannerConfiguration = (
         },
         targeting: amp ? getTargetingFormat(sections)(tags) : config.targeting
     };
-
-    // configBuilder.current = new ConfigBuilder();
-    // configBuilder.current.init({
-    //     ...config,
-    //     device,
-    //     slotId,
-    //     slotGroup,
-    //     dfpId,
-    //     sticky,
-    //     background,
-    //     fixed,
-    //     show: {
-    //         termicas,
-    //         collection: !(hideBanners === 'true')
-    //     }
-    // });
 
     // Site service banner segments check
     const [present, section] = isPrimarySectionInBannerSegments(primarySection)(
@@ -209,8 +184,6 @@ export const changeSlotName = name => {
 };
 */
 export const setCustomAdUnit = (slotName, unit) => {
-    // const { slotName } = this._config;
-
     const slotNameSections = slotName && slotName.split('/').filter(Boolean);
 
     const stringToReplace =
@@ -220,16 +193,9 @@ export const setCustomAdUnit = (slotName, unit) => {
         '';
 
     return slotName.replace(stringToReplace, unit);
-
-    // this._config = {
-    //     ...this._config,
-    //     slotName: slotName.replace(stringToReplace, unit)
-    // };
 };
 
 export const changeSegmentAdUnit = (slotName, section, deviceSuffix) => {
-    // const { slotName } = this._config;
-
     const stringToReplace =
         (slotName &&
             slotName
@@ -239,11 +205,6 @@ export const changeSegmentAdUnit = (slotName, section, deviceSuffix) => {
         '';
 
     return slotName.replace(stringToReplace, `${section}${deviceSuffix}`);
-
-    // this._config = {
-    //     ...this._config,
-    //     slotName: slotName.replace(stringToReplace, `${section}_${device}`)
-    // };
 };
 
 export const getTargetingFormat = sections => {
@@ -274,16 +235,18 @@ export const getScriptForCabezalSticky = (header, sidebar, classCabezal) => {
                 __html: `
                 window.addEventListener('DOMContentLoaded', () => {
                     const sidebar = document.querySelector(".${sidebar}");
-                    const header = document.querySelector("#${header}");
-                    const topOfSidebar = sidebar.offsetTop;
+                    const header = document.querySelector("#${header}");                    
                     const cabezal = document.querySelector('.--${classCabezal}');
                     window.addEventListener('scroll', () => {
-                        if (window.scrollY + cabezal.clientHeight + header.clientHeight > topOfSidebar) {
+                        const { top: topSidebar } = sidebar.getBoundingClientRect();
+                        const viewPoint = topSidebar - cabezal.clientHeight - header.clientHeight;
+                        if (viewPoint <= 0 && cabezal.classList.contains('--sticky')) {
+                            const { top: topCabezal } = cabezal.getBoundingClientRect();
                             cabezal.classList.remove('--sticky');
-                            cabezal.style.top = Math.abs(topOfSidebar - cabezal.clientHeight + header.clientHeight) + 'px';
+                            cabezal.style.top = Math.abs(sidebar.offsetTop - cabezal.clientHeight) + 'px';
                             cabezal.style.position = 'relative';
                             cabezal.style.zIndex = '101';
-                        } else if (!cabezal.classList.contains('--sticky')) {
+                        } else if (viewPoint > 0 && !cabezal.classList.contains('--sticky')) {
                             cabezal.classList.add('--sticky');
                             cabezal.style.cssText = '';
                         }
@@ -294,12 +257,3 @@ export const getScriptForCabezalSticky = (header, sidebar, classCabezal) => {
         />
     );
 };
-
-/*
-export const setDimensionsFromSiteService = (bannersSiteConfig, slotGroup, slot) => {
-    return getDimsFromSiteService(bannersSiteConfig)(slotGroup)(slot) ||
-    this._config.dimensions =
-        getDimsFromSiteService(bannersSiteConfig)(slotGroup)(slot) ||
-        this._config.dimensions;
-};
-*/

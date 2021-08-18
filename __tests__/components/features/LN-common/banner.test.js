@@ -2,11 +2,13 @@ import React from 'react';
 import Consumer from 'fusion:consumer';
 import {
     getBannerConfiguration,
+    getTargetingFormat,
     isPrimarySectionInBannerSegments
 } from '../../../../components/private/LN/common/utils/bannerHelper';
 import BannerSSR from '../../../../components/features/LN-common/banner/default';
+import BannerSSRAmp from '../../../../components/features/LN-common/banner/amp';
 import Context from 'fusion:context';
-import { mount, render } from 'enzyme';
+import { mount, render, shallow } from 'enzyme';
 
 jest.mock('fusion:consumer', component => {
     return function(component) {
@@ -212,27 +214,6 @@ const siteProperties = {
                     ],
                     targeting: defaultTargeting
                 },
-                caja1_amp: {
-                    slotName: '/133919216/AMP/ROS/caja1_amp',
-                    dimensions: {
-                        width: 300,
-                        height: 250
-                    }
-                },
-                caja2_amp: {
-                    slotName: '/133919216/AMP/ROS/caja2_amp',
-                    dimensions: {
-                        width: 300,
-                        height: 250
-                    }
-                },
-                caja3_amp: {
-                    slotName: '/133919216/AMP/ROS/caja3_amp',
-                    dimensions: {
-                        width: 320,
-                        height: 50
-                    }
-                },
                 comercial_dsk: {
                     slotName: 'la_nacion_desktop/Nota/comercial_dsk',
                     dimensions: [
@@ -369,27 +350,6 @@ const siteProperties = {
                     ],
                     targeting: defaultTargeting
                 },
-                caja1_amp: {
-                    slotName: '/133919216/AMP/ROS/caja1_amp',
-                    dimensions: {
-                        width: 300,
-                        height: 250
-                    }
-                },
-                caja2_amp: {
-                    slotName: '/133919216/AMP/ROS/caja2_amp',
-                    dimensions: {
-                        width: 300,
-                        height: 250
-                    }
-                },
-                caja3_amp: {
-                    slotName: '/133919216/AMP/ROS/caja3_amp',
-                    dimensions: {
-                        width: 320,
-                        height: 50
-                    }
-                },
                 comercial_mob: {
                     slotName: 'la_nacion_mobile/Nota/comercial_mob',
                     dimensions: [
@@ -518,27 +478,20 @@ const siteProperties = {
                     slotName: 'la_nacion_tablet/Nota/middle_teads_tab',
                     dimensions: [[1, 1]],
                     targeting: defaultTargeting
-                },
+                }
+            },
+            amp: {
                 caja1_amp: {
                     slotName: '/133919216/AMP/ROS/caja1_amp',
-                    dimensions: {
-                        width: 300,
-                        height: 250
-                    }
+                    dimensions: [[300, 250]]
                 },
                 caja2_amp: {
                     slotName: '/133919216/AMP/ROS/caja2_amp',
-                    dimensions: {
-                        width: 300,
-                        height: 250
-                    }
+                    dimensions: [[300, 250]]
                 },
                 caja3_amp: {
                     slotName: '/133919216/AMP/ROS/caja3_amp',
-                    dimensions: {
-                        width: 320,
-                        height: 50
-                    }
+                    dimensions: [[300, 250]]
                 }
             }
         }
@@ -589,6 +542,15 @@ describe('isPrimarySectionInBannerSegments =>', () => {
         evalSectionInBanner('/opinion/', [false, 'opinion']));
     it('it should be deportes (two sub-categories) does not included =>', () =>
         evalSectionInBanner('/deportes/futbol/boca/', [false, 'deportes']));
+});
+
+describe('getTargetingFormat =>', () => {
+    const { taxonomy } = globalContent;
+    const { sections, tags } = taxonomy;
+    const targeting = getTargetingFormat(sections)(tags);
+    expect(targeting).toEqual(
+        '{"tags":["ca_el mundo|ca_ciencia|te_deportes|te_sake"],"tags_nuevos":["ca_el mundo","ca_ciencia","te_deportes","te_sake"]}'
+    );
 });
 
 describe('getBannerConfiguration =>', () => {
@@ -654,6 +616,20 @@ describe('getBannerConfiguration =>', () => {
     const config1x1 = getBannerConfiguration(globalContent, customFields, null);
     expect(config1x1).toEqual(unoxuno);
 
+    customFields = {
+        slot: 'cabezal',
+        device: 'desktop',
+        sticky: true,
+        // background,
+        group: 'nota'
+        //amp
+    };
+
+    const componentBannerCabezal = shallow(
+        <BannerSSR customFields={customFields} globalContent={globalContent} />
+    );
+    expect(componentBannerCabezal).toMatchSnapshot();
+
     const adhesionMobile = {
         slotName: 'la_nacion_mobile/Nota/adhesion_mob',
         dimensions: [[320, 50]],
@@ -686,8 +662,40 @@ describe('getBannerConfiguration =>', () => {
     );
     expect(configAdhesionMobile).toEqual(adhesionMobile);
 
-    const component = render(
+    const componentAdhesionBanner = render(
         <BannerSSR customFields={customFields} globalContent={globalContent} />
     );
-    expect(component).toMatchSnapshot();
+    expect(componentAdhesionBanner).toMatchSnapshot();
+
+    const componentAmp = mount(
+        <BannerSSR
+            customFields={{
+                slot: 'adhesion',
+                device: 'mobile',
+                group: 'nota',
+                amp: true
+            }}
+            globalContent={globalContent}
+        />
+    );
+
+    expect(componentAmp).toBeEmptyRender;
+
+    const componentCajaAmp = render(
+        <BannerSSRAmp
+            customFields={{
+                slot: 'caja1',
+                device: 'desktop',
+                group: 'nota',
+                amp: true
+            }}
+            globalContent={globalContent}
+            outputType="amp"
+        />
+    );
+
+    expect(componentCajaAmp).toBeDefined();
+    expect(componentCajaAmp.find('amp-ad')).toBeTruthy();
+    expect(componentCajaAmp.find('DivBannerAMP')).toBeTruthy();
+    expect(componentCajaAmp).toMatchSnapshot();
 });

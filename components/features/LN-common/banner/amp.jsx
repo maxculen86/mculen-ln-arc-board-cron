@@ -15,8 +15,6 @@ const BannerSSR = props => {
 
     if (!amp) return <></>;
 
-    // TODO: validar banners para nota, acu
-
     const bannerConfiguration = getBannerConfiguration(
         globalContent,
         customFields,
