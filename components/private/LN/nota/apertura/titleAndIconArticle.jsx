@@ -30,7 +30,7 @@ const TitleAndIconArticle = ({
     if (sponsored) keyTooltip = 'Espacio Patrocinado';
     if (advertiser) keyTooltip = 'Content LAB';
     const tooltip = getTooltip(keyTooltip, siteService);
-    debugger;
+
     return (
         <>
             <LogoBase
