@@ -30,11 +30,11 @@
             .com-image {
                 max-width: px(160);
             }
+        }
 
-            @media ($media-m) {
-                .com-link {
-                    justify-content: left;
-                }
+        @media ($media-m) {
+            .com-link {
+                justify-content: left;
             }
         }
 
