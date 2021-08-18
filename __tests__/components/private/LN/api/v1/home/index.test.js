@@ -4236,8 +4236,6 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
         });
     });
     it('Testeo Seccion Dolar', () => {
-        //    Dolar: { tipoSeccion: 'dolar', idSeccion: 601 },
-
         const Seccion = [
             {
                 id: 601,
