@@ -12,13 +12,13 @@
     max-width: 100%;
     overflow: hidden;
     z-index: 1;
-    margin-bottom: $spacing-2xl; //cambiar a variable
+    margin-bottom: $spacing-2xl;
 
     &:before {
         content: 'PUBLICIDAD';
         font-size: px(11);
         line-height: px(16);
-        background: white;
+        background: $neutral-white;
         display: inline-block;
         padding: px(4) $spacing;
         margin: 0 auto;
@@ -26,6 +26,15 @@
         top: 0;
         z-index: -1;
     }
+
+    //los que dimos de baja
+    &.--megatop,
+    &.--mobile,
+    &.--sticky1_mob {
+        display: none;
+    }
+
+    //modificadores
     &.--logo {
         position: absolute;
         margin: 0;
@@ -42,13 +51,6 @@
             right: 0;
             margin: auto;
         }
-    }
-
-    &.--megatop,
-    &.--mobile,
-    &.--sticky1_mob {
-        //banners que dimos de baja
-        display: none;
     }
 
     &.--comercial {
@@ -71,27 +73,16 @@
             right: $spacing-sm;
         }
     }
-    &.--comercial_mob {
-        height: px(480);
-    }
 
     &.--sticky {
         position: sticky;
         top: 0;
 
-        // &.--active { CREO QUE NO SE USA MAS
-        //     .--scrollDown & {
-        //         display: flex;
-        //     }
-        // }
-
         &.--sticky2_mob {
-            height: px(50);
             position: fixed;
-            //display: flex;
             width: 100%;
             z-index: 1000;
-            background: white;
+            background: $neutral-white;
             margin: 0;
         }
     }
@@ -120,6 +111,9 @@
     }
 
     //ALTURAS FIJAS
+    &.--comercial_mob {
+        height: px(480);
+    }
 
     &.--sticky2_mob,
     &.--adhesion_mob {
@@ -154,16 +148,15 @@
             height: px(170); //cabezal_dsk
         }
     }
-}
-@media ($media-m) {
-    .mod-banner {
+
+    //TABLET
+    @media ($media-m) {
         &.--fixed {
             bottom: px(56);
             left: calc((100% - 728px) / 2);
         }
 
         //ALTURAS FIJAS
-
         &.--adhesion_tab,
         &.--cabezal_tab,
         &.--middle1_tab,
@@ -189,15 +182,12 @@
             height: px(280);
         }
     }
-}
-@media ($media-l) {
-    .mod-banner {
-        //ASIDE
+
+    //DESKTOP
+    @media ($media-l) {
         .sidebar__aside & {
-            //display: flex;
             margin: 0;
             width: 100%;
-            //top: px(82);
         }
         &:not(:last-child) {
             .sidebar__aside & {
@@ -241,9 +231,7 @@
         }
 
         .home & {
-            &.--cabezal_dsk {
-                height: px(100);
-            }
+            &.--cabezal_dsk,
             &.--adhesion_dsk {
                 height: px(100);
             }
@@ -268,15 +256,37 @@
             }
         }
     }
-}
-@media ($media-lm) {
-    .mod-banner {
+
+    //DESKTOP XL
+    @media ($media-lm) {
         &.--fixed {
             left: calc((100% - 1260px) / 2);
             &.--small {
                 left: calc((100% - 1068px) / 2);
             }
         }
+    }
+}
+
+//Display según resolución
+[class*='_tab'],
+[class*='_dsk'] {
+    display: none;
+}
+@media ($media-m) {
+    [class*='_tab'] {
+        display: flex;
+    }
+    [class*='_mob'] {
+        display: none;
+    }
+}
+@media ($media-l) {
+    [class*='_dsk'] {
+        display: flex;
+    }
+    [class*='_tab'] {
+        display: none;
     }
 }
 
@@ -323,26 +333,5 @@
         @media ($media-m) {
             display: flex;
         }
-    }
-}
-
-[class*='_tab'],
-[class*='_dsk'] {
-    display: none;
-}
-@media ($media-m) {
-    [class*='_tab'] {
-        display: flex;
-    }
-    [class*='_mob'] {
-        display: none;
-    }
-}
-@media ($media-l) {
-    [class*='_dsk'] {
-        display: flex;
-    }
-    [class*='_tab'] {
-        display: none;
     }
 }
