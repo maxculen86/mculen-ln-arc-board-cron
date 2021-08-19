@@ -16,6 +16,7 @@ const typeSection = {
     Opinion: { tipoSeccion: 'opinion', idSeccion: 1001 },
     Comercial: { tipoSeccion: 'comercial', idSeccion: 1101 },
     Banner: { tipoSeccion: 'banner' },
+    Dolar: { tipoSeccion: 'dolar', idSeccion: 2000 },
     default: { tipoSeccion: 'tema', idSeccion: 305 }
 };
 
@@ -43,6 +44,13 @@ const featureInformation = (information, feature) => {
     }
     return res;
 };
+const articlesMap = articles => {
+    return articles
+        .filter(e => e)
+        .map(article => {
+            return Article(article);
+        });
+};
 
 const storyBox = element => {
     const { information, feature, configurations } = element;
@@ -57,8 +65,8 @@ const storyBox = element => {
             notas:
                 feature !== 'Anexo'
                     ? orderArticlesArray !== null
-                        ? Article(orderArticlesArray, configurations)
-                        : Article(articles, configurations)
+                        ? articlesMap(orderArticlesArray)
+                        : articlesMap(articles)
                     : orderArticlesArray !== null
                     ? Anexo(orderArticlesArray)
                     : Anexo(articles)

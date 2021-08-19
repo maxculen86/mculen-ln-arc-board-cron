@@ -78,46 +78,40 @@ const getArticleSignature = (article, authors) => {
     );
 };
 
-export const articleItem = (articles, configuration) => {
-    return articles
-        .filter(e => e)
-        .map(article => {
-            const { subtype: templateId, website_url: url, label } = article;
+export const articleItem = article => {
+    const { subtype: templateId, website_url: url, label } = article;
 
-            const id = get(article, '_id', null);
-            if (!id) {
-                throw new Error(
-                    'Revisar Parametros de Articulo en null o undefined'
-                );
-            }
+    const id = get(article, '_id', null);
+    if (!id) {
+        throw new Error('Revisar Parametros de Articulo en null o undefined');
+    }
 
-            const titulo = getArticleTitle(article);
-            if (!titulo) {
-                throw new Error('Titulo de la nota es null o undefined');
-            }
-            const autores = getArticleAuthor(article);
-            const autor = autores ? autores[0] : null;
-            const resp = {
-                id,
-                templateId,
-                sitioId: get(article, 'configurations.arcSite', null),
-                url,
-                titulo,
-                volanta:
-                    get(label, 'volanta.text', null) ||
-                    get(article, 'additionalProperties.lead', null),
-                bajada: get(article, 'subheadlines.basic', null),
-                chapita: getArticleTag(article),
-                autor,
-                // autores,
-                marquesina: getArticleSignature(article, autores),
-                seccionPadre: getArticleOpinionSubtype(article),
-                imagen: getArticleImage(article),
-                opinion: get(article, 'additionalProperties.opinion', false)
-            };
+    const titulo = getArticleTitle(article);
+    if (!titulo) {
+        throw new Error('Titulo de la nota es null o undefined');
+    }
+    const autores = getArticleAuthor(article);
+    const autor = autores ? autores[0] : null;
+    const resp = {
+        id,
+        templateId,
+        sitioId: get(article, 'configurations.arcSite', null),
+        url,
+        titulo,
+        volanta:
+            get(label, 'volanta.text', null) ||
+            get(article, 'additionalProperties.lead', null),
+        bajada: get(article, 'subheadlines.basic', null),
+        chapita: getArticleTag(article),
+        autor,
+        // autores,
+        marquesina: getArticleSignature(article, autores),
+        seccionPadre: getArticleOpinionSubtype(article),
+        imagen: getArticleImage(article),
+        opinion: get(article, 'additionalProperties.opinion', false)
+    };
 
-            return resp;
-        });
+    return resp;
 };
 
 export const anexoItem = article => {
