@@ -143,22 +143,32 @@ export const getBannerConfiguration = (
         bannerConfiguration = {
             ...bannerConfiguration,
             dimensions:
-                getDimsFromSiteService(bannersSiteConfig)(slotGroup)(slotId) ||
-                bannerConfiguration.dimensions
+                getDimsFromSiteService(
+                    bannersSiteConfig,
+                    `${slotGroup}_${slotId}`,
+                    section
+                ) || bannerConfiguration.dimensions
         };
     }
 
     return bannerConfiguration;
 };
 
-export const getDimsFromSiteService = config => slotGroup => finalSlot => {
-    if (!config || !slotGroup) return null;
+export const getDimsFromSiteService = (config, slotName, section) => {
+    if (!config || !slotName) return null;
 
-    const position = config.find(
-        item => item.adunit === `${slotGroup}_${finalSlot}`
-    );
+    const position = config.find(item => item.adunit === slotName);
+
+    // TODO: hacerlo dinamico
+    if (
+        ['propiedades', 'campo'].includes(section) &&
+        (slotName === 'nota_caja1_dsk' || slotName === 'acumulado_caja1_dsk')
+    )
+        position.dimensions = '120x600,160x600,300x600';
+
     if (!position || !position.dimensions || position.dimensions === '')
         return null;
+
     const dimensions = position.dimensions.split(',');
     return dimensions.map(dimension =>
         dimension.split('x').map(size => parseInt(size, 10))

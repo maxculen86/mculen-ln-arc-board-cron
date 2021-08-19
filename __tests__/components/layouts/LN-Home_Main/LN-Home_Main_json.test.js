@@ -182,6 +182,56 @@ describe('components - layouts - LN-Home_Main - json', () => {
             expect(homeSections[0].feature).toBe('Apertura');
         });
     });
+    describe('Test Section Apertura_2', () => {
+        test('Ok', () => {
+            const childrenTmp = children;
+            childrenTmp[4] = [
+                {
+                    information: {
+                        layout: 'focalLeft3',
+                        backgroundColor: 'default',
+                        initialPosition: 1,
+                        hideTitle: false,
+                        idCollection: 'QJ3BOEZVQNEYZEVBXHF4C7KAWY',
+                        title: 'Apertura',
+                        pbInternal_cloneId: 'c0ffOCwkYqcA22',
+                        image: undefined
+                    },
+                    articles: []
+                }
+            ];
+            props.children = childrenTmp;
+            props.renderables = [
+                {
+                    collection: 'sections',
+                    props: {
+                        collection: 'sections',
+                        id: 3
+                    },
+                    children: [
+                        {
+                            collection: 'chains',
+                            type: 'Ln_Caja_Collection',
+                            props: {},
+                            children: []
+                        }
+                    ]
+                },
+                {}
+            ];
+            const homeSections = LayoutLNMainHome.default(props);
+            /*expect(Object.keys(homeSections[0]).sort()).toEqual(
+                [
+                    'articles',
+                    'configurations',
+                    'feature',
+                    'information',
+                    'type'
+                ].sort()
+            );*/
+            expect(homeSections[0].feature).toBe('Apertura');
+        });
+    });
 
     describe('Test Section Opinion', () => {
         test('Ok', () => {
@@ -247,7 +297,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
             ];
 
             const homeSections = LayoutLNMainHome.default(props);
-            expect(Object.keys(homeSections[6]).sort()).toEqual(
+            expect(Object.keys(homeSections[7]).sort()).toEqual(
                 [
                     'articles',
                     'configurations',
@@ -256,7 +306,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'type'
                 ].sort()
             );
-            expect(homeSections[6].feature).toBe('Opinion');
+            expect(homeSections[7].feature).toBe('Opinion');
             expect(Object.keys(homeSections[7]).sort()).toEqual(
                 [
                     'articles',
@@ -317,7 +367,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
             ];
 
             const homeSections = LayoutLNMainHome.default(props);
-            expect(homeSections.length).toBe(5);
+            expect(homeSections.length).toBe(6);
         });
     });
 
@@ -358,7 +408,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                 {}
             ];
             const homeSections = LayoutLNMainHome.default(props);
-            expect(Object.keys(homeSections[5]).sort()).toEqual(
+            expect(Object.keys(homeSections[6]).sort()).toEqual(
                 [
                     'articles',
                     'configurations',
@@ -367,7 +417,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'type'
                 ].sort()
             );
-            expect(homeSections[5].feature).toBe('Comercial');
+            expect(homeSections[6].feature).toBe('Comercial');
         });
     });
 
@@ -405,7 +455,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                 }
             ];
             const homeSections = LayoutLNMainHome.default(props);
-            expect(Object.keys(homeSections[2]).sort()).toEqual(
+            expect(Object.keys(homeSections[3]).sort()).toEqual(
                 [
                     'articles',
                     'configurations',
@@ -414,7 +464,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'type'
                 ].sort()
             );
-            expect(homeSections[2].feature).toBe('Tema1');
+            expect(homeSections[3].feature).toBe('Tema1');
         });
         test('When props is null', () => {
             try {

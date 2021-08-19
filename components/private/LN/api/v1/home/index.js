@@ -16,6 +16,7 @@ const typeSection = {
     Opinion: { tipoSeccion: 'opinion', idSeccion: 1001 },
     Comercial: { tipoSeccion: 'comercial', idSeccion: 1101 },
     Banner: { tipoSeccion: 'banner' },
+    Dolar: { tipoSeccion: 'dolar', idSeccion: 2000 },
     default: { tipoSeccion: 'tema', idSeccion: 305 }
 };
 

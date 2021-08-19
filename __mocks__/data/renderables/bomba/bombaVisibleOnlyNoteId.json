@@ -1,0 +1,44 @@
+[
+    {},
+    {},
+    {},
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 2
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-common/bomba",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/bomba",
+                    "id": "f0fcLtIhSP7E7tK",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "chapita": "ULTIMO MOMENTO",
+                        "authors": "Wilbert",
+                        "lead": "",
+                        "title": "",
+                        "noteId": "3ZDQ542ANJHEBLH6HOKBTBR5J4",
+                        "imageId": "",
+                        "hideFeature": false,
+                        "hideImage": false
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {},
+    {}
+]

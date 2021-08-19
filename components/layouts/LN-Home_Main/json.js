@@ -8,8 +8,9 @@ import {
     findSectionChildren
 } from '../../private/common/utils/validateSectionHome';
 
-const bannersPosition = {
+const boxPosition = {
     Apertura_1: { id: 402, type: 1, feature: 'Banner', position: 'bottom' },
+    Apertura_2: { id: 2000, type: 1, feature: 'Dolar', position: 'bottom' },
     Breaking_1: { id: 403, type: 1, feature: 'Banner', position: 'start' },
     Breaking_2: { id: 404, type: 1, feature: 'Banner', position: 'start' },
     Breaking_3: { id: 405, type: 1, feature: 'Banner', position: 'start' },
@@ -47,7 +48,7 @@ const validateSections = (section, name, position, renderables) => {
     const sectionChildren = findSectionChildren(renderables, position);
     const elements =
         checkIfValid(name, sectionChildren) === true ? section : null;
-    const banner = bannersPosition[name];
+    const banner = boxPosition[name];
     if (elements && elements.length > 0 && banner) {
         switch (banner.position) {
             case 'middle':
@@ -71,7 +72,7 @@ const getHomeElements = props => {
     };
     return pageBuilderSections.reduce((r, e, i) => {
         const child = validateSections(children[i], e, i, renderables);
-        const banner = bannersPosition[e];
+        const banner = boxPosition[e];
         if (child && Array.isArray(child) && child.length > 0) {
             return r.concat(
                 [].concat(
