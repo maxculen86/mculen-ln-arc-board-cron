@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/no-danger */
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useContext } from 'react';
@@ -91,7 +92,7 @@ export const getBannerConfiguration = (
         },
     */
 
-    if (!config || !dfpId) return null;
+    if (!config || !dfpId || subscription) return null;
 
     let bannerConfiguration = {
         ...config,
@@ -225,6 +226,101 @@ export const getTargetingFormat = sections => {
 
         return `${JSON.stringify(targeting)}`;
     };
+};
+
+export const naveggSetTargeting = () => {
+    (function setTarge(w) {
+        try {
+            let name;
+            const persona = JSON.parse(
+                window.localStorage.getItem('nvgpersona18894')
+            );
+            for (const col in persona) {
+                if ({}.hasOwnProperty.call(persona, col)) {
+                    name = `nvg_${col}`;
+                    name = name.substring(0, 10);
+                    if (typeof googletag == 'object')
+                        googletag.pubads().setTargeting(name, persona[col]);
+                    // if (typeof GA_googleAddAttr == "function")
+                    //   GA_googleAddAttr(name, persona[col]);
+                }
+            }
+        } catch (e) {
+            console.error(e);
+        }
+    })(window);
+};
+
+export const queueGoogletagCommand = bannersToLoad => {
+    googletag.cmd.push(() => {
+        const defineSlot = ({ adUnitPath, size, opt_div: optDiv }) =>
+            googletag
+                .defineSlot(adUnitPath, size, optDiv)
+                .addService(googletag.pubads());
+
+        const headerBiddingSlots = bannersToLoad
+            .filter(e => e.prebidEnabled)
+            .map(defineSlot);
+        const nonHeaderBiddingSlots = bannersToLoad
+            .filter(e => !e.prebidEnabled)
+            .map(defineSlot);
+
+        // initialize
+        googletag.pubads().enableSingleRequest();
+        googletag.pubads().enableAsyncRendering();
+        googletag.pubads().disableInitialLoad();
+        googletag.enableServices();
+
+        googletag.pubads().refresh(nonHeaderBiddingSlots);
+
+        naveggSetTargeting();
+
+        // the callback function
+        // will be called twice:
+        //	once by Prebid when the auction's done
+        //	once by the failsafe timeout
+        // so a boolean is used to make sure ads are refreshed only once
+        pbjs.adserverRequestSent = false;
+        const sendAdServerRequest = _headerBiddingSlots => {
+            if (_headerBiddingSlots.length === 0) return;
+            googletag.cmd.push(() => {
+                // don't run again if already ran
+                if (pbjs.adserverRequestSent) return;
+                pbjs.adserverRequestSent = true;
+                googletag.pubads().refresh(_headerBiddingSlots);
+            });
+        };
+
+        pbjs.que.push(function() {
+            pbjs.rp.requestBids({
+                callback: sendAdServerRequest,
+                gptSlotObjects: headerBiddingSlots
+            });
+        });
+
+        // this timeout is a failsafe
+        // the ad ops team can set lower thresholds that will be respected by Prebid
+        // but the web-dev team can define the worst case here
+        setTimeout(() => {
+            sendAdServerRequest(headerBiddingSlots);
+        }, 3500);
+
+        const bannersWithoutHide = bannersToLoad
+            .filter(e => e.withoutHide)
+            .map(e => e.opt_div);
+
+        googletag
+            .pubads()
+            .addEventListener('slotRenderEnded', ({ slot, isEmpty }) => {
+                if (
+                    !isEmpty &&
+                    bannersWithoutHide.indexOf(slot.getSlotElementId()) === -1
+                )
+                    document
+                        .getElementById(slot.getSlotElementId())
+                        .parentNode.classList.remove('hlp-none');
+            });
+    });
 };
 
 export const getScriptForCabezalSticky = (header, sidebar, classCabezal) => {

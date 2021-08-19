@@ -32,7 +32,7 @@ const BannerSSR = props => {
         globalContentConfig
     );
 
-    if (!bannerConfiguration)
+    if (isAdmin && !bannerConfiguration)
         return (
             <Placeholder
                 error="sin configuracion"
@@ -51,9 +51,11 @@ const BannerSSR = props => {
     }
 
     if (
-        Object.values(bannerConfiguration.show).some(
-            element => element === false
-        )
+        (bannerConfiguration &&
+            Object.values(bannerConfiguration.show).some(
+                element => element === false
+            )) ||
+        !bannerConfiguration
     )
         return <></>;
 

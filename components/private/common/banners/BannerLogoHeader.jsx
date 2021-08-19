@@ -4,11 +4,13 @@ import PropTypes from 'prop-types';
 import Static from 'fusion:static';
 import { useAppContext } from 'fusion:context';
 import get from '../utils/get';
-import { queueGoogletagCommand } from './LoadBanners';
 import DivBanner from './DivBanner';
 import { getViewport } from '../../LN/common/utils/homeHelper';
 import hasAdsTestParam from '../../LN/common/utils/hasAdsTesParam';
-import { suffixDevice } from '../../LN/common/utils/bannerHelper';
+import {
+    queueGoogletagCommand,
+    suffixDevice
+} from '../../LN/common/utils/bannerHelper';
 
 const BannerLogoHeader = ({ section, isAdmin }) => {
     const { siteProperties } = useAppContext();

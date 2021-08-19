@@ -598,10 +598,13 @@ describe('getBannerConfiguration =>', () => {
         group: 'nota'
     };
 
+    const config1x1 = getBannerConfiguration(globalContent, customFields, null);
+    expect(config1x1).toEqual(null);
+
     const unoxuno = {
         dimensions: [[1, 1]],
         targeting: { sitio: 'lanacion', seccion: 'nota' },
-        subscription: undefined,
+        subscription: false,
         device: 'mobile',
         slotId: '1x1_mob',
         slotName: 'la_nacion_mobile/Nota/1x1_mob',
@@ -613,8 +616,12 @@ describe('getBannerConfiguration =>', () => {
         show: { termicas: true, collection: true }
     };
 
-    const config1x1 = getBannerConfiguration(globalContent, customFields, null);
-    expect(config1x1).toEqual(unoxuno);
+    const config1x1SinSuscripcion = getBannerConfiguration(
+        { ...globalContent, subscription: 'A' },
+        customFields,
+        null
+    );
+    expect(config1x1SinSuscripcion).toEqual(unoxuno);
 
     customFields = {
         slot: 'cabezal',
@@ -635,7 +642,7 @@ describe('getBannerConfiguration =>', () => {
         dimensions: [[320, 50]],
         targeting: { sitio: 'lanacion', seccion: 'nota' },
         closeButton: true,
-        subscription: true,
+        subscription: false,
         device: 'mobile',
         slotId: 'adhesion_mob',
         slotGroup: 'nota',
@@ -655,15 +662,25 @@ describe('getBannerConfiguration =>', () => {
         group: 'nota'
         //amp
     };
-    const configAdhesionMobile = getBannerConfiguration(
+    const configAdhesionMobileConSuscripcion = getBannerConfiguration(
         globalContent,
         customFields,
         null
     );
-    expect(configAdhesionMobile).toEqual(adhesionMobile);
+    expect(configAdhesionMobileConSuscripcion).toEqual(null);
+
+    const configAdhesionMobileSinSuscripcion = getBannerConfiguration(
+        { ...globalContent, subscription: 'A' },
+        customFields,
+        null
+    );
+    expect(configAdhesionMobileSinSuscripcion).toEqual(adhesionMobile);
 
     const componentAdhesionBanner = render(
-        <BannerSSR customFields={customFields} globalContent={globalContent} />
+        <BannerSSR
+            customFields={customFields}
+            globalContent={{ ...globalContent, subscription: 'A' }}
+        />
     );
     expect(componentAdhesionBanner).toMatchSnapshot();
 

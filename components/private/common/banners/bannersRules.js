@@ -27,13 +27,29 @@ export default {
             },
             middle_3_dsk: {
                 validateInclusion: ({ subscription }) => subscription !== 'S'
+            },
+            '1x1_dsk': {
+                validateInclusion: ({ subscription }) => subscription !== 'S'
             }
         },
         mobile: {
             adhesion_mob: {
                 validateInclusion: ({ subscription }) => subscription !== 'S'
+            },
+            caja2_mob: {
+                validateInclusion: ({ subscription }) => subscription !== 'S'
+            },
+            '1x1_mob': {
+                validateInclusion: ({ subscription }) => subscription !== 'S'
             }
         },
-        tablet: {}
+        tablet: {
+            adhesion_tab: {
+                validateInclusion: ({ subscription }) => subscription !== 'S'
+            },
+            '1x1_tab': {
+                validateInclusion: ({ subscription }) => subscription !== 'S'
+            }
+        }
     }
 };
