@@ -30,7 +30,7 @@
             "type": "regex",
             "params": [
                 {
-                    "website_url": "/economia/"
+                    "website_url": "/recetas/"
                 }
             ]
         }

@@ -6,7 +6,7 @@ import ComTitle from '../../../common/com-title';
 const listIngredientes = ({ ingredients }) => {
     return (
         <>
-            <ComTitle tag="h4" size="--m" content={'Ingredientes'} />
+            <ComTitle tag="h3" size="--m" content={'Ingredientes'} />
             {ingredients &&
                 ingredients.length !== 0 &&
                 ingredients.map(list => (

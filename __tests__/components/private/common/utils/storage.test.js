@@ -1,6 +1,6 @@
 import {
     counterNota,
-    getAndSaveCustomDimension,
+    // getAndSaveCustomDimension,
     filterNotesWithinDays
 } from '../../../../../components/private/common/utils/storage';
 
@@ -30,11 +30,11 @@ describe('Common - Utils - Storage', () => {
         );
     });
 
-    it('getAndSaveCustomDimension deberia llamar a localStorage', () => {
-        getAndSaveCustomDimension();
+    // it('getAndSaveCustomDimension deberia llamar a localStorage', () => {
+    // getAndSaveCustomDimension();
 
-        expect(window.localStorage.setItem).toHaveBeenCalledTimes(7);
-    });
+    // expect(window.localStorage.setItem).toHaveBeenCalledTimes(7);
+    // });
 
     it('filterNotesWithinDays deberia filtrar nota anterior a 28 dias', () => {
         const notasCounter = [

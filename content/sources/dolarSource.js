@@ -48,9 +48,9 @@ const fetch = ({ arcSite }) => {
 
 const transform = data => {
     const imageUrl = createResizer(RESIZER_KEY, RESIZER_URL).resizeUrl(
-        'https://especiales.lanacion.com.ar/LN/dolar/anexo-dolar/logo-invertir.png',
-        1023,
-        248,
+        'https://especialess3.lanacion.com.ar/LN/svg/logo-iol.svg',
+        249,
+        60,
         {
             height: 76,
             width: 314

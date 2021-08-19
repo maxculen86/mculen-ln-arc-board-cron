@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { RECETA } from './utils/subtypes/subtypeHelper';
 
-const getPrefix = _id => {
-    if (_id === '/recetas') return ' ';
-    if (_id.includes('/recetas')) return ' recetas de ';
-    return ' noticias de ';
-};
+// const getPrefix = _id => {
+//     if (_id === '/recetas') return ' ';
+//     if (_id.includes('/recetas')) return ' recetas de ';
+//     return ' noticias de ';
+// };
 
 const MetaTitle = ({
     metaTitleBasic,
@@ -16,23 +16,21 @@ const MetaTitle = ({
     _id = '',
     section,
     defaultTitle,
-    subtype
+    subtype,
+    metaValue
 }) => {
     if (arcSite !== 'la-nacion-ar') return <></>;
 
-    let metaTitleForStory =
-        metaTitleBasic && subtype === RECETA
-            ? `Receta de ${metaTitleBasic} - LA NACION`
-            : `${metaTitleBasic} - LA NACION`;
+    let metaTitleForStory = metaValue || '';
     let metaTitleForAcum = '';
 
     const acusWithMeta = ['section', 'author', 'distributor', 'tags'];
 
     if (acusWithMeta.includes(nodeType)) {
-        const prefix = getPrefix(_id);
+        // const prefix = getPrefix(_id);
         const customTitle =
             title === 'Últimas noticias - LA NACION' ? 'LA NACION' : title;
-        metaTitleForAcum = `Últimas${prefix}${customTitle}`;
+        metaTitleForAcum = customTitle;
         metaTitleForStory = undefined;
     }
 

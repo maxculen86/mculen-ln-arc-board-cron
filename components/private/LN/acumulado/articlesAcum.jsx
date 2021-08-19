@@ -65,12 +65,13 @@ ArticlesAcum.propTypes = {
     articles: PropTypes.arrayOf(PropTypes.object).isRequired,
     getBanner: PropTypes.func.isRequired,
     typeArticle: PropTypes.string.isRequired,
-    outputType: PropTypes.string.isRequired,
+    outputType: PropTypes.string,
     classCondition: PropTypes.string
 };
 
 ArticlesAcum.defaultProps = {
-    classCondition: ''
+    classCondition: '',
+    outputType: 'default'
 };
 
 export default ArticlesAcum;

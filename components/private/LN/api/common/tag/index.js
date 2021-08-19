@@ -1,5 +1,5 @@
 import get from 'lodash.get';
-import { getTagId } from '../../../../../common/utils/getElementId';
+import { getTagId } from '../../../../common/utils/getElementId';
 
 const getTag = dataTag => {
     if (!dataTag) return null;

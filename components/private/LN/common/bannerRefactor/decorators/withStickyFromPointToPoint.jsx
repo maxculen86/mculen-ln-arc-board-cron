@@ -4,6 +4,7 @@
 
 import React, { useLayoutEffect } from 'react';
 import throttle from '../../../../common/utils/throttle';
+import { CABEZAL_DSK } from '../factory/constants';
 
 const gap = 24;
 
@@ -60,13 +61,22 @@ const idle = (element, point1) => {
         top - componentHeight + point1Height + gap
     )}px`;
     element.style.position = 'relative';
-    element.style.zIndex = 1;
+    element.style.zIndex = 101;
 };
 
 export default Component => selectors => {
     return props => {
         const ref = React.createRef();
         const [selector1, selector2] = selectors;
+        const { slotId } = props;
+        const wrapper = document.querySelector('#wrapper');
+        // TODO: mejorar esta condición (evitar que se valide desde el nombre de las clases porque podrían llegar a cambiar)
+        const shouldIgnoreSticky =
+            slotId === CABEZAL_DSK &&
+            wrapper &&
+            wrapper.classList.contains('nota') &&
+            (wrapper.classList.contains('video') ||
+                wrapper.classList.contains('--info'));
         useLayoutEffect(() => {
             removeSticky(ref.current);
             const handleScroll = throttle(() => {
@@ -128,10 +138,13 @@ export default Component => selectors => {
                 }
             }, 10);
 
-            window.addEventListener('scroll', handleScroll);
+            !shouldIgnoreSticky &&
+                window.addEventListener('scroll', handleScroll);
 
-            return () => window.removeEventListener('scroll', handleScroll);
-        }, [ref, selector1, selector2]);
+            return () =>
+                !shouldIgnoreSticky &&
+                window.removeEventListener('scroll', handleScroll);
+        }, [ref, selector1, selector2, shouldIgnoreSticky]);
 
         return <Component {...props} ref={ref} />;
     };

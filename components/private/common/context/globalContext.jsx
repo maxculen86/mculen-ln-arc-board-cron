@@ -122,6 +122,6 @@ const GlobalProvider = ({ children }) => {
     );
 };
 GlobalProvider.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.node).isRequired
+    children: PropTypes.node.isRequired
 };
 export default GlobalProvider;

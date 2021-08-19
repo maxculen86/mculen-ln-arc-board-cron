@@ -4,8 +4,9 @@ import Cuerpo from './cuerpo';
 import ModificadorTemplate from './modificadorTemplate';
 import Relacionados from './relacionados';
 import dateAndTimeUtil from '../../../../common/utils/dateAndTimeUtil';
-import { getPrincipalCategory } from '../common/category';
-import { removeEmptyItems } from '../common/utils/responseCleaner';
+import { getPrincipalCategory } from '../../common/category';
+import { removeEmptyItems } from '../../common/utils/responseCleaner';
+import matchObject from '../../common/utils/matchObject';
 
 const indexNota = dataNota => {
     if (!dataNota) throw new Error(`La información de la nota esta vacia`);
@@ -29,6 +30,11 @@ const indexNota = dataNota => {
     const showBanners = get(dataNota, 'label.mostrar_banners.text', null);
     const displayComments = get(dataNota, 'comments.display_comments', null);
     const sentToApps = get(dataNota, 'label.enviar_a_apps.text', null);
+    const enviarApps =
+        matchObject(dataNota, 'contains') === false
+            ? matchObject(dataNota, 'contains')
+            : !(sentToApps && sentToApps.toLowerCase() === 'no');
+
     const isPrintEdition = edition && edition.toLowerCase() === 'impresa';
     const distributor = get(dataNota, 'distributor', null);
     const { date: formatPublishDate, time: formatUpdateTime } = dateAndTimeUtil(
@@ -42,7 +48,7 @@ const indexNota = dataNota => {
 
     const resp = {
         id,
-        template: template === '6' ? '1' : template,
+        template: template === '6' || template === '5' ? '1' : template,
         url,
         mostrarBanners: !(showBanners && showBanners.toLowerCase() === 'no'),
         paywallStatus: paywallStatus || 'comun',
@@ -50,7 +56,7 @@ const indexNota = dataNota => {
         comentariosId: comentariosId || id,
         categoria: primarySection && getPrincipalCategory(primarySection),
         relacionados: Relacionados(dataNota),
-        enviarApps: !(sentToApps && sentToApps.toLowerCase() === 'no'),
+        enviarApps,
         modificadorTemplate: ModificadorTemplate(distributor)
     };
 

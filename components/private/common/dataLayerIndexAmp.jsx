@@ -9,7 +9,8 @@ const config = {
         'LN-nota-infografia': dataLayerScriptNotaAmp,
         'LN-nota-html-libre': dataLayerScriptNotaAmp,
         'LN-nota-foto-al-100': dataLayerScriptNotaAmp,
-        'LN-nota-opta': dataLayerScriptNotaAmp
+        'LN-nota-opta': dataLayerScriptNotaAmp,
+        'LN-nota-video': dataLayerScriptNotaAmp
     }
 };
 

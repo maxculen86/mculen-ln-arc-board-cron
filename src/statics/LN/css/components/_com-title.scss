@@ -18,27 +18,26 @@
     //     display: block;
     // }
     ////////////////Cambiar por props////////////////
-    .home & {
-        @media ($media-m) {
-            &.--m,
-            &.--xs {
-                font-weight: 500;
-            }
-            &.--l,
-            &.--xl {
-                font-weight: 700;
-            }
+    //.recetas .mod-description &,
+    //.home & {
+    @media ($media-m) {
+        &.--m,
+        &.--xs {
+            font-weight: 500;
         }
+        // &.--l,
+        // &.--xl {
+        //     font-weight: 700;
+        // }
+    }
+    //}
+    ._ingredients &,
+    ._preparation & {
+        font-weight: 500;
+        margin-bottom: $spacing-sm;
     }
     ////////////////Cambiar por props///////////////////
 }
-// .com-title.com-title {
-//     .com-link.com-link {
-//         .more-articles.more-articles & {
-//             color: $light-neutral-700;
-//         }
-//     }
-// }
 
 @media ($media-l) {
     .com-title {

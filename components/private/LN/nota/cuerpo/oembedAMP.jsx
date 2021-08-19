@@ -177,27 +177,35 @@ const OembedAMP = ({ data }) => {
             }
             return null;
         }
+        case 'tiktok': {
+            // const tiktokRegex = /(https?:\/\/(www\.)?)?tiktok\.com\/(\w*?[^"]+)\/video\/([0-9]*)?/;
+            // const tiktokId =
+            //     rawOembed &&
+            //     rawOembed.html &&
+            //     rawOembed.html.match(tiktokRegex);
+            // if (tiktokId && tiktokId[4]) {
+            //     return (
+            //         <div className={`com-embed --${subtype}`}>
+            //             <amp-tiktok
+            //                 width="325"
+            //                 height="575"
+            //                 data-src={tiktokId[4]}
+            //             />
+            //         </div>
+            //     );
+            // }
+            return null;
+        }
         default: {
             const defaultUrlRegex = /src\s*=\s*"([^"]+)"/;
-            const widthRegex = /width="([0-9]+)"/;
-            const heightRegex = /height="([0-9]+)"/;
-
             const oembedSrc = getValue(null, rawOembed, defaultUrlRegex, 1);
-            const oembedWidth = getValue(width, rawOembed, widthRegex, 1, 300);
-            const oembedHeight = getValue(
-                height,
-                rawOembed,
-                heightRegex,
-                1,
-                380
-            );
 
             if (!oembedSrc) return null;
             return (
                 <div className={`com-embed --${subtype}`}>
                     <amp-iframe
-                        width={oembedWidth}
-                        height={oembedHeight}
+                        width="300"
+                        height="380"
                         frameborder="0"
                         allow="encrypted-media"
                         sandbox="allow-scripts allow-same-origin"

@@ -14,28 +14,27 @@ const getAppId = siteProperties =>
 
 const getDescription = ({
     isArticle,
-    metaValue,
     subheadlinesBasic,
     section,
-    descriptionDefault
+    descriptionDefault,
+    metaDescription
 }) => {
-    let description = '';
+    // let description = '';
 
     if (section === 'home') return descriptionDefault;
 
-    if (isArticle) {
-        description = subheadlinesBasic || '';
-    }
+    if (isArticle) return subheadlinesBasic || '';
 
-    if (!isArticle) {
-        const customTitle =
-            metaValue('title') === 'Últimas noticias - LA NACION'
-                ? 'del día de hoy en Argentina'
-                : `de ${metaValue('title')}`;
-        description = `Últimas Noticias ${customTitle}` || descriptionDefault;
-    }
+    if (!isArticle) return metaDescription;
+    // {
+    //     const customTitle =
+    //         metaValue('title') === 'Últimas noticias - LA NACION'
+    //             ? 'del día de hoy en Argentina'
+    //             : `de ${metaValue('title')}`;
+    //     description = `Últimas Noticias ${customTitle}` || descriptionDefault;
+    // }
 
-    return description;
+    return descriptionDefault;
 };
 
 const getUrl = (isArticle, url, domain) => {
@@ -50,7 +49,8 @@ const getData = ({
     contextPath,
     deployment,
     arcSite,
-    section
+    section,
+    metaDescription
 }) => {
     const domain = getDomain(globalContent);
     const isArticle = !!(globalContent && globalContent.type === 'story');
@@ -82,10 +82,10 @@ const getData = ({
     const url = canonicalUrl || _id;
     const description = getDescription({
         isArticle,
-        metaValue,
         subheadlinesBasic,
         section,
-        descriptionDefault
+        descriptionDefault,
+        metaDescription
     });
 
     const validateTitle = () => (section === 'home' ? longTitle : titleDefault);
@@ -110,30 +110,25 @@ const setMetaDescription = (data, section) => {
         if (data.subtype === RECETA && data.description !== '') {
             return `${
                 data.description.split('.', 1)[0]
-            }. Encontrá acá la receta de ${data.title} - LA NACION`;
+            }. Encontrá acá la receta de ${data.title}`;
         }
         if (data.subtype === RECETA && data.description === '') {
-            return `Encontrá acá la receta de ${data.title} - LA NACION`;
+            return `Encontrá acá la receta de ${data.title}`;
         }
         if (data.subtype !== RECETA && data.description !== '') {
-            return `${data.description} - LA NACION`;
+            return `${data.description}`;
         }
         if (data.subtype !== RECETA && data.description === '') {
-            return `${data.title} - LA NACION`;
+            return `${data.title}`;
         }
     }
     return data.description;
 };
 
-const setTitle = (data, section) => {
-    if (section === 'nota') {
-        return data.subtype === RECETA ? `Receta de ${data.title}` : data.title;
-    }
-    return data.title;
-};
-
 const getMetasOG = props => {
     const data = getData(props);
+    const metaTitleFromPB = props.metaValue('title') || '';
+    const pageBuilderTitle = metaTitleFromPB.replace(' - LA NACION', '');
     const { section, siteProperties } = props;
     const metas = [
         {
@@ -146,7 +141,7 @@ const getMetasOG = props => {
         },
         {
             property: 'og:title',
-            content: setTitle(data, section)
+            content: pageBuilderTitle
         },
         {
             property: 'og:description',

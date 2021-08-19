@@ -2,8 +2,8 @@ import get from 'lodash.get';
 import Image from '../image';
 import Video from '../video';
 import AperturaReceta from './aperturaReceta';
-import Author from '../../common/author';
-import { getFeaturedTag } from '../../common/tag';
+import Author from '../../../common/author';
+import { getFeaturedTag } from '../../../common/tag';
 
 const apertura = article => {
     const {
@@ -13,7 +13,10 @@ const apertura = article => {
     if (!titulo) {
         throw new Error('Titulo de la nota es null o undefined');
     }
-    let promoItem = get(article, 'promo_items.basic', null);
+    let promoItem = get(article, 'promo_items.apertura_multimedia', null);
+    promoItem =
+        promoItem == null ? get(article, 'promo_items.basic', null) : promoItem;
+
     if (template === '4' || template === '8')
         promoItem = get(article, 'promo_items.storytelling_mobile', null);
 

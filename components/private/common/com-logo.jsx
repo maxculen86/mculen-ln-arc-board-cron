@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import Link from '../common/com-link';
+import Link from './com-link';
 
 import '../../../resources/dist/css/ln/components/com-logo.css';
 

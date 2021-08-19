@@ -1,0 +1,118 @@
+@import '../abstracts/variables';
+
+.nota.video {
+    &.--transparent .header {
+        border-bottom: 1px solid $light-neutral-300;
+    }
+    main {
+        padding-top: 0;
+
+        .--apertura {
+            background: $dark-neutral-50;
+            color: $neutral-white;
+            padding: px(72) 0 $spacing-lg;
+            margin-top: px(-50);
+            margin-bottom: $spacing-lg;
+            @media ($media-l) {
+                padding-top: px(32+72);
+                margin-top: px(-72);
+            }
+            .com-title,
+            .com-subhead {
+                display: block;
+                margin-bottom: $spacing-sm;
+            }
+            .container-firma a {
+                color: $dark-blue-500;
+                font-weight: 700;
+            }
+            .container-medio .com-text.--medio {
+                color: $light-neutral-400;
+            }
+            .mod-banner {
+                background: none;
+                margin-bottom: $spacing-lg;
+                // Se le colocó 101 porque era menor al del video y al del share
+                // El z-index del share es el mayor, con un valor de 100
+                // por lo que se le incrementó el del banner a 101
+                z-index: 101;
+                &:before {
+                    background: $light-neutral-700;
+                }
+            }
+            .mod-date {
+                .com-date,
+                .com-hour {
+                    color: $light-neutral-400;
+                }
+            }
+            .mod-share {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                z-index: 100;
+                padding: 0;
+                width: 100%;
+                margin: 0;
+                background: none;
+                .container {
+                    flex-direction: row;
+                }
+                .com-line {
+                    display: none;
+                }
+                .com-button {
+                    margin-bottom: 0;
+                    margin-right: $spacing-md;
+                    &.comment {
+                        margin-right: 0;
+                        flex-direction: row;
+                        .com-icon {
+                            margin-right: px(4);
+                        }
+                        .com-text {
+                            color: $dark-blue-500;
+                        }
+                    }
+                }
+                .com-icon {
+                    color: $neutral-white;
+                }
+            }
+            .mod-media {
+                // .powa-shadow {
+                //     // padding-bottom: $video;
+                //     // background: red;
+                // }
+                .mod-figcaption {
+                    .--credit {
+                        color: $light-neutral-400;
+                    }
+                }
+                @media ($media-m) {
+                    margin-bottom: 0;
+                    .mod-figcaption {
+                        width: 100%;
+                        margin-left: 0;
+                        padding: 0 0 0.5rem;
+                    }
+                }
+            }
+            .col-tablet-4 {
+                order: 2;
+                @media ($media-m) {
+                    padding-right: px(20);
+                    order: 1;
+                }
+            }
+            .col-tablet-8 {
+                order: 1;
+                @media ($media-m) {
+                    padding-left: px(20);
+                    order: 2;
+                }
+            }
+        }
+    }
+}

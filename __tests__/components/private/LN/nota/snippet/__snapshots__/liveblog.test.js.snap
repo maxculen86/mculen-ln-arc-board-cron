@@ -14,9 +14,9 @@ exports[`Private - LN - nota - snippet - liveblog  Snapshot Snippet Liveblog 1`]
     \\"logo\\": {
       \\"@context\\": \\"https://schema.org\\",
       \\"@type\\": \\"ImageObject\\",
-      \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST\\",
-      \\"height\\": 41,
-      \\"width\\": 391
+      \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN-600_amp.jpg$LATEST\\",
+      \\"height\\": 60,
+      \\"width\\": 600
     }
   },
   \\"url\\": \\"https://www.lanacion.com.ar/arquitectura/nota-de-prueba-foto-al-100-nid25062020/\\",
@@ -39,7 +39,7 @@ exports[`Private - LN - nota - snippet - liveblog  Snapshot Snippet Liveblog 1`]
       \\"articleBody\\": \\"S<a href=\\\\\\"https://www.lanacion.com.ar/el-mundo/primer-latinoamericano-pasajero-argentino-del-crucero-japon-nid2331517\\\\\\" target=_blank>e trata del primer caso confirmado</a> de un latinoamericano diagnosticado con esta enfermedad que se haya anunciado hasta el momento. <a href=\\\\\\"https://www.lanacion.com.ar/el-mundo/de-crucero-de-lujo-a-carcel-flotante-el-drama-de-una-cuarentena-a-bordo-nid2331408\\\\\\" target=_blank>El crucero</a> , que llegó el lunes por la noche a las inmediaciones del puerto de <b>Yokohama </b>, al suroeste de Tokio, tiene unos <a href=\\\\\\"https://www.lanacion.com.ar/el-mundo/primer-latinoamericano-pasajero-argentino-del-crucero-japon-nid2331517\\\\\\" target=_blank><b>3.700 pasajeros</b></a> y tripulantes, de los cuales 273 se sometieron a las pruebas de detección. Permanecerían en cuarentena hasta el 19 de febrero.\\",
       \\"image\\": {
         \\"@type\\": \\"ImageObject\\",
-        \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST\\"
+        \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN-600_amp.jpg$LATEST\\"
       },
       \\"author\\": {
         \\"@type\\": \\"PERSON\\",
@@ -63,7 +63,7 @@ exports[`Private - LN - nota - snippet - liveblog  Snapshot Snippet Liveblog 1`]
       \\"articleBody\\": \\"<b>El nombre de Squeff </b>, muy cercana al kirchnerismo, comenzó a sonar en los pasillos de la Cancillería luego del traspié del Gobierno tras <a href=\\\\\\"https://www.lanacion.com.ar/politica/antes-del-viaje-alberto-fernandez-se-cayo-nid2324570\\\\\\" target=_blank>la caída sorpresiva de la postulación de Luis Bellando</a> , otro diplomático de carrera, para representar al país en la Santa Sede.\\",
       \\"image\\": {
         \\"@type\\": \\"ImageObject\\",
-        \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST\\"
+        \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN-600_amp.jpg$LATEST\\"
       },
       \\"author\\": {
         \\"@type\\": \\"PERSON\\",
@@ -87,7 +87,7 @@ exports[`Private - LN - nota - snippet - liveblog  Snapshot Snippet Liveblog 1`]
       \\"articleBody\\": \\"En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo que vivía un hidalgo de los de lanza en astillero.\\",
       \\"image\\": {
         \\"@type\\": \\"ImageObject\\",
-        \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST\\"
+        \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN-600_amp.jpg$LATEST\\"
       },
       \\"author\\": {
         \\"@type\\": \\"PERSON\\",
@@ -111,7 +111,7 @@ exports[`Private - LN - nota - snippet - liveblog  Snapshot Snippet Liveblog 1`]
       \\"articleBody\\": \\"Quieren decir que tenía el sobrenombre de Quijada, o Quesada, que en esto hay alguna diferencia en los autores que deste caso escriben.\\",
       \\"image\\": {
         \\"@type\\": \\"ImageObject\\",
-        \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST\\"
+        \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN-600_amp.jpg$LATEST\\"
       },
       \\"author\\": {
         \\"@type\\": \\"PERSON\\",
@@ -135,7 +135,7 @@ exports[`Private - LN - nota - snippet - liveblog  Snapshot Snippet Liveblog 1`]
       \\"articleBody\\": \\"<b>El nombre de Squeff </b>, muy cercana al kirchnerismo, comenzó a sonar en los pasillos de la Cancillería luego del traspié del Gobierno tras <a href=\\\\\\"https://www.lanacion.com.ar/politica/antes-del-viaje-alberto-fernandez-se-cayo-nid2324570\\\\\\" target=_blank>la caída sorpresiva de la postulación de Luis Bellando</a> , otro diplomático de carrera, para representar al país en la Santa Sede.\\",
       \\"image\\": {
         \\"@type\\": \\"ImageObject\\",
-        \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST\\"
+        \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN-600_amp.jpg$LATEST\\"
       },
       \\"author\\": {
         \\"@type\\": \\"PERSON\\",
@@ -159,7 +159,7 @@ exports[`Private - LN - nota - snippet - liveblog  Snapshot Snippet Liveblog 1`]
       \\"articleBody\\": \\"<b>El nombre de Squeff </b>, muy cercana al kirchnerismo, comenzó a sonar en los pasillos de la Cancillería luego del traspié del Gobierno tras <a href=\\\\\\"https://www.lanacion.com.ar/politica/antes-del-viaje-alberto-fernandez-se-cayo-nid2324570\\\\\\" target=_blank>la caída sorpresiva de la postulación de Luis Bellando</a> , otro diplomático de carrera, para representar al país en la Santa Sede.\\",
       \\"image\\": {
         \\"@type\\": \\"ImageObject\\",
-        \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST\\"
+        \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN-600_amp.jpg$LATEST\\"
       },
       \\"author\\": {
         \\"@type\\": \\"PERSON\\",

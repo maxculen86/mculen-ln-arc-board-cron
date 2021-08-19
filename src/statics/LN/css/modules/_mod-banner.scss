@@ -27,19 +27,33 @@
         top: 0;
         z-index: -1;
     }
-
+    &.--logo {
+        position: absolute;
+        margin: 0;
+        width: px(170);
+        height: px(17);
+        @media ($media-m) {
+            width: px(200);
+            height: px(20);
+        }
+        @media ($media-l) {
+            width: px(300);
+            height: px(30);
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+    }
     &.--megatop {
         //position: relative;
         //z-index: 110;
         //background: $neutral-white;
         display: none;
     }
-    //.--ads &,
-    .sidebar__aside &,
-    &.--unoxuno_mob,
-    &.--unoxuno_dsk {
+    .sidebar__aside & {
         margin: 0;
     }
+
     &.--comercial {
         &:before {
             display: none;
@@ -119,6 +133,7 @@
         //     width: 100%;
         // }
     }
+
     &.--close {
         .icon-close {
             width: px(20);
@@ -155,20 +170,20 @@
         height: px(50);
     }
 
-    &.--caja1_mob {
+    &.--caja1_mob,
+    &.--caja3_mob {
         height: px(450);
     }
 
-    &.--caja3_mob,
     &.--caja4_mob,
     &.--caja5_mob {
         height: px(250);
     }
 
     .home & {
-        &.--caja1_mob,
+        //&.--caja1_mob,
         &.--caja2_mob,
-        &.--caja3_mob,
+        //&.--caja3_mob,
         &.--caja4_mob {
             height: px(450);
             //margin-bottom: $spacing-lg;
@@ -359,6 +374,11 @@
     }
 }
 
+[class*='--1x1_'] {
+    margin: 0;
+    position: absolute;
+}
+
 .home {
     > .container {
         &.--ads {
@@ -381,6 +401,7 @@
     }
     .container.--ads {
         display: none;
+        width: 100%;
         @media ($media-m) {
             display: flex;
             .--cabezal_dsk {

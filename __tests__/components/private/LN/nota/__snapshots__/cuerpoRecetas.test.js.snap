@@ -6,13 +6,13 @@ Array [
     class="row"
   >
     <div
-      class="col-tablet-3 hlp-marginBottom-mobile-40"
+      class="col-tablet-3 _ingredients"
     >
-      <h4
+      <h3
         class="com-title --m"
       >
         Ingredientes
-      </h4>
+      </h3>
       <div>
         <h4
           class="com-title --l"
@@ -77,13 +77,13 @@ Array [
       </div>
     </div>
     <div
-      class="col-tablet-8 offset-tablet-1"
+      class="col-tablet-8 offset-tablet-1 _preparation"
     >
-      <h4
+      <h3
         class="com-title --m"
       >
         Preparación
-      </h4>
+      </h3>
       <div>
         <h4
           class="com-title --l"

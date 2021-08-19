@@ -11,7 +11,6 @@ import getAssetsPath from '../../../common/utils/getAssetsPath';
 
 import '../../../../../resources/dist/css/ln/modules/mod-footer.css';
 
-//const Footer = ({ children }) => {
 const Index = ({
     outputType,
     siteProperties: { host },
@@ -211,8 +210,8 @@ const Index = ({
         }
     ];
 
-    //const year = new Date().getFullYear();
-    //const copyrightText = `Copyright ${year} SA LA NACION | Todos los derechos reservados`;
+    // const year = new Date().getFullYear();
+    // const copyrightText = `Copyright ${year} SA LA NACION | Todos los derechos reservados`;
 
     // if (outputType === 'amp')
     //     return <FooterAMP copyrightText={copyrightText} />;
@@ -242,7 +241,7 @@ const Index = ({
                             />
                             <Icon
                                 name="rss"
-                                //href="https://servicios.lanacion.com.ar/herramientas/rss/ayuda"
+                                // href="https://servicios.lanacion.com.ar/herramientas/rss/ayuda"
                                 href="https://www.lanacion.com.ar/arc/outboundfeeds/rss/?outputType=xml"
                                 target="_blank"
                                 title="Ir a Rss"
@@ -251,9 +250,12 @@ const Index = ({
                         <div className="col-desksm-4 --center">
                             <Logo
                                 logoName="la-nacion"
+                                classCondition="nacion-home"
                                 color
                                 size="--sm"
-                                href="https://www.lanacion.com.ar/"
+                                href={`${
+                                    home ? '#' : 'https://www.lanacion.com.ar/'
+                                }`}
                                 target="_top"
                                 title="Ir a la página principal"
                             />

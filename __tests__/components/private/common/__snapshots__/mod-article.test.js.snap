@@ -4,7 +4,9 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
 <article
   class="mod-article    "
 >
-  <div>
+  <div
+    class="content-media"
+  >
     <section
       class="mod-media   "
       role="button"
@@ -32,6 +34,7 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
       <a
         class="com-link"
         href="http://google.com"
+        title="Este es el titulo"
       >
         Este es el titulo
       </a>

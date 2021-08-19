@@ -7,7 +7,7 @@ const getDataToLinkImage = (data = {}, section = '') => {
                 return get(data, 'promo_items.basic.resized_urls', []).map(
                     elem => ({
                         resizedUrl: get(elem, 'resizedUrl', ''),
-                        media: get(elem, 'option.media', '')
+                        media: get(elem, 'option.media_preload', '')
                     })
                 );
             },
