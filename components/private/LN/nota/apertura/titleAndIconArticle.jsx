@@ -7,6 +7,7 @@ import TitleArticle from './titleArticle';
 import '../../../../../resources/dist/css/ln/components/title.css';
 import getTooltip from '../../common/utils/getTooltip';
 import { GlobalContext } from '../../../common/context/globalContext';
+import { VIDEO } from '../../../common/utils/subtypes/subtypeHelper';
 
 const TitleAndIconArticle = ({
     customFields: { prefix },
@@ -41,7 +42,11 @@ const TitleAndIconArticle = ({
                 subtype={subtype}
                 tooltip={tooltip}
             />
-            <TitleArticle prefix={prefix || ''} headlines={headlines} />
+            <TitleArticle
+                prefix={prefix || ''}
+                size={subtype === VIDEO && '--xl'}
+                headlines={headlines}
+            />
         </>
     );
 };
