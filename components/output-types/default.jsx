@@ -209,8 +209,6 @@ const Default = props => {
             );
         });
 
-    console.log(siteProperties.host, canonicalUrl);
-
     return (
         <html lang="es">
             <head>
