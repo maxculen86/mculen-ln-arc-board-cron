@@ -4,15 +4,16 @@ import { authorHomeMobile } from '../common/author';
 
 const getArticleImage = article => {
     const { subtype: templateId } = article;
+    const imagedefault =
+        get(article, 'additionalProperties.image.promo_items.basic', null) ||
+        get(article, 'promo_items.basic', null);
 
-    const image =
+    let image =
         templateId === '4' || templateId === '8'
             ? get(article, 'promo_items.storytelling_mobile', null)
-            : get(
-                  article,
-                  'additionalProperties.image.promo_items.basic',
-                  null
-              ) || get(article, 'promo_items.basic', null);
+            : imagedefault;
+
+    image = image === null ? imagedefault : image;
 
     if (image && image.type === 'image') return Image(image);
 

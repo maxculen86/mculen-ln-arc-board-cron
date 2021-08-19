@@ -59,7 +59,9 @@ DivBanner.propTypes = {
     closeButton: PropTypes.bool,
     fixed: PropTypes.bool,
     validateSuscription: PropTypes.bool,
-    withoutHide: PropTypes.bool
+    withoutHide: PropTypes.bool,
+    shouldRender: PropTypes.bool,
+    isStatic: PropTypes.bool
 };
 
 DivBanner.defaultProps = {
@@ -67,7 +69,9 @@ DivBanner.defaultProps = {
     closeButton: false,
     fixed: false,
     validateSuscription: false,
-    withoutHide: false
+    withoutHide: false,
+    isStatic: false,
+    shouldRender: false
 };
 
 export default DivBanner;

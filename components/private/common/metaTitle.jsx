@@ -16,14 +16,12 @@ const MetaTitle = ({
     _id = '',
     section,
     defaultTitle,
-    subtype
+    subtype,
+    metaValue
 }) => {
     if (arcSite !== 'la-nacion-ar') return <></>;
 
-    let metaTitleForStory =
-        metaTitleBasic && subtype === RECETA
-            ? `Receta de ${metaTitleBasic} - LA NACION`
-            : `${metaTitleBasic} - LA NACION`;
+    let metaTitleForStory = metaValue || '';
     let metaTitleForAcum = '';
 
     const acusWithMeta = ['section', 'author', 'distributor', 'tags'];

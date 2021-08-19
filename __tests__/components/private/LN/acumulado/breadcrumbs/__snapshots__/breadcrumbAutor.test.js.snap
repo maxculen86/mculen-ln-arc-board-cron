@@ -10,7 +10,7 @@ Array [
       data-event="LinkClick"
       data-section="AperturaAcuRecetas"
       href="https://www.lanacion.com.ar/"
-      title="Ir a LA NACION"
+      title="Noticias de LA NACION"
     >
       <i
         class="com-icon bullet icon-bullet-xs"
@@ -22,7 +22,7 @@ Array [
       data-event="LinkClick"
       data-section="AperturaAcuRecetas"
       href="/autor/emilse-pizarro/"
-      title="Ir a Emilse Pizarro"
+      title="Noticias de Emilse Pizarro"
     >
       <i
         class="com-icon bullet icon-bullet-xs"

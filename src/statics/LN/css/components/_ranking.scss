@@ -8,8 +8,13 @@
             margin-top: px(20);
         }
         &:before {
-            top: 0;
+            top: px(1);
+            left: px(1);
             z-index: 2;
+            font-family: $font-SuecaSlab;
+            font-size: px(16);
+            width: 1.4rem;
+            height: 2.4rem;
         }
     }
 
@@ -18,4 +23,40 @@
     //         display: inline-block;
     //     }
     // }
+}
+//Fotos cuadradas en la tercera
+@media ($media-l) {
+    .com-ranking {
+        .sidebar__aside & {
+            .com-ordered {
+                .com-item {
+                    margin-top: 0;
+                    margin-bottom: $spacing-md;
+                    .mod-article {
+                        flex-direction: row;
+                        .content-media {
+                            .mod-media {
+                                margin-bottom: 0;
+                                .mod-figure {
+                                    &.--horizontal {
+                                        .mod-picture {
+                                            padding-top: $box;
+                                            width: px(120);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .mod-description {
+                            margin-left: $spacing-sm;
+                            .com-title {
+                                font-weight: 500;
+                                font-family: $font-arial;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

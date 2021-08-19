@@ -42,7 +42,10 @@ const getUserLogout = () => ({
 });
 
 const siteProperties = {
-    siteProperties: { host: 'https://www.lanacion.com.ar' }
+    siteProperties: {
+        host: 'https://www.lanacion.com.ar',
+        bannerConfig: { dfp_id: '133919216' }
+    }
 };
 
 /* const getUserLoginWithoutSubscription = () => ({
