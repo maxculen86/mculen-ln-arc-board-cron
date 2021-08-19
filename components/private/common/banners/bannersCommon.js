@@ -8,11 +8,11 @@ const getBannerConfig = ({ device, dfpId, optDiv }) => {
         },
         logo_header_mob: {
             adUnitPath: `${pathSlot}/logo_header_mob`,
-            dimensions: [[170, 17]]
+            size: [[170, 17]]
         },
         logo_header_tab: {
             adUnitPath: `${pathSlot}/logo_header_tab`,
-            dimensions: [[200, 20]]
+            size: [[200, 20]]
         }
     };
 
