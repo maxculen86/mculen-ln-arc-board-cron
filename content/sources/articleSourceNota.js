@@ -37,7 +37,7 @@ const resolve = (key, a) => {
 };
 
 const fetch = query => {
-    const { url = '', imageConfig } = query;
+    const { url = '', imageConfig, meteringVariant } = query;
     const arcSite = query['arc-site'];
     const properties = getProperties(arcSite);
     const opt = {
@@ -72,7 +72,14 @@ const fetch = query => {
                 responseData: response
             });
 
-            return transform(response, arcSite, properties, imageConfig, url);
+            return transform(
+                response,
+                arcSite,
+                properties,
+                imageConfig,
+                url,
+                meteringVariant
+            );
         })
         .catch(error => {
             logger.push(error, { source: 'content/source', url }, arcSite);
@@ -82,7 +89,14 @@ const fetch = query => {
 
 // Al no poder exportar esta fn para que la utilice Fusion directamente, ya que devuelve una promise y no lo soporta, la llamamos
 // directamente nosotros desde el fetch
-const transform = (data, arcSite, properties, imageConfig, urlQuery) => {
+const transform = (
+    data,
+    arcSite,
+    properties,
+    imageConfig,
+    urlQuery,
+    meteringVariant
+) => {
     // Data
     const subtype = get(data, `subtype`, null);
 
@@ -125,6 +139,7 @@ const transform = (data, arcSite, properties, imageConfig, urlQuery) => {
     // Data con urls Resizeadas
     const resp = {
         ...data,
+        subscription: meteringVariant,
         ...addResizedUrls(data, {
             resizerSecret: RESIZER_KEY,
             resizerUrl: RESIZER_URL,

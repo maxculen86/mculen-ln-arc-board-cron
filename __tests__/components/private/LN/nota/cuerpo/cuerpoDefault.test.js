@@ -1,5 +1,4 @@
 import Consumer from 'fusion:consumer';
-import Context from 'fusion:context';
 
 import React from 'react';
 import { shallow } from 'enzyme';
@@ -8,6 +7,19 @@ import NotaFoto100 from '../../../../../../__mocks__/data/articles/IGR6WQGQDNHAL
 import NotaEmbeds from '../../../../../../__mocks__/data/articles/OFVVZI3B7VA5PDPISOSILJ42LM.json';
 
 import BodyDefault from '../../../../../../components/private/LN/nota/cuerpo/cuerpoDefault';
+
+jest.mock('fusion:context', () => () => ({
+    default: props => {
+        const mockAvailableProps = {
+            outputType: 'default',
+            arcSite: 'la-nacion-ar'
+        };
+
+        return props.children(mockAvailableProps);
+    }
+}));
+
+import Context from 'fusion:context';
 
 describe('Cuerpo Default ->', () => {
     const props = {
@@ -99,6 +111,9 @@ describe('Cuerpo Default ->', () => {
 
     describe('Render Nota Embeds OFVVZI3B7VA5PDPISOSILJ42LM', () => {
         const _props = { ...props, globalContent: NotaEmbeds };
+        Context.useAppContext = jest.fn(() => ({
+            globalContent: NotaEmbeds
+        }));
         const bodyComponent = shallow(<BodyDefault {..._props} />);
         it('should have 67 elements', () => {
             expect(bodyComponent.getElements().length).toBe(67);
