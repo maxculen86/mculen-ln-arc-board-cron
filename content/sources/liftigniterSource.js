@@ -53,9 +53,8 @@ const transformArticles = (liftigniterArticles = [], cantidadNotas) =>
  */
 
 const fetch = query => {
-    const { referrer = SITE_LANACION, idArticle, uri } = query;
+    const { idArticle, uri } = query;
 
-    let urlReferer = referrer;
     if (idArticle) {
         const arcSiteStory = get(query, 'arc-site', null);
         const queryArticle = {
@@ -65,13 +64,15 @@ const fetch = query => {
         };
         return ArticleSourceNota.fetch(queryArticle)
             .then(resp => {
-                urlReferer = urlReferer.concat(
-                    get(resp, 'canonical_url', null)
-                );
-                urlReferer =
-                    isvalidUrl(urlReferer) === true ? urlReferer : referrer;
-                const obj = { urlReferer };
-                const queryAdapted = { ...query, ...obj };
+                let urlReferer = get(resp, 'canonical_url', null);
+
+                if (urlReferer && !urlReferer.includes('http')) {
+                    urlReferer = SITE_LANACION.concat(urlReferer);
+                }
+
+                urlReferer = isvalidUrl(urlReferer) ? { urlReferer } : null;
+                //const obj = { urlReferer };
+                const queryAdapted = { ...query, ...urlReferer };
                 return resolveData(queryAdapted);
             })
             .catch(error => {
@@ -105,7 +106,9 @@ const resolveData = query => {
         nextUrl,
         widgetType,
         articles = [],
-        urlReferer
+        urlReferer,
+        maxAgeInSeconds,
+        excludeUrl
     } = query;
 
     const userIdParam = userId && !userId.includes('/') ? `/${userId}` : '';
@@ -121,6 +124,26 @@ const resolveData = query => {
         sessionId,
         pageviewId: idArticle
     };
+
+    if (!excludeItems.length && excludeUrl && !!excludeUrl) {
+        const match = excludeUrl.match(/^\/\[(.*)\]/);
+        if (match && match[1] && referrer.includes('http')) {
+            const resultsUrls = match[1].split(/[ ,]+/);
+            resultsUrls.map((itemUrl, i) => {
+                let itemUrlTmp = itemUrl;
+                const matchItemUrl = itemUrl.match(/^http[s]?:\/\w+/);
+                if (!itemUrl.includes('http')) {
+                    const itemUrlAdapted = referrer.concat(itemUrl);
+                    excludeItems.push(itemUrlAdapted);
+                } else {
+                    if (matchItemUrl && matchItemUrl.length > 0) {
+                        itemUrlTmp = itemUrlTmp.replace(':/', '://');
+                    }
+                    excludeItems.push(itemUrlTmp);
+                }
+            });
+        }
+    }
 
     const timestamp = Date.now();
 
@@ -196,7 +219,8 @@ const resolveData = query => {
                 pageviewId: idArticle,
                 url: urlReferer === null ? referrer : urlReferer,
                 sessionId,
-                excludeItems
+                excludeItems,
+                maxAgeInSeconds
             }),
             resolve: response => {
                 const { items } = JSON.parse(response);
@@ -276,7 +300,9 @@ export default {
         action: 'text',
         sessionId: 'text',
         idArticle: 'text',
-        userId: 'text'
+        userId: 'text',
+        maxAgeInSeconds: 'text',
+        excludeUrl: 'text'
     },
     ttl: 120
 };
