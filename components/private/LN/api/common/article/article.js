@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import get from 'lodash.get';
 import Image from '../image';
 import { authorHomeMobile } from '../author';

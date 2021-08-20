@@ -6,7 +6,8 @@ import { authorAcu } from '../../common/author';
 
 const index = acuData => {
     const resp = {
-        tipoAcumulado: acuData.tipoAcumulado,
+        tipoSeccion: 'acumulado',
+        idSeccion: 305,
         acumuladoTotal: acuData.total,
         paginar: acuData.paginator > 0,
         titulo: acuData.name
@@ -31,6 +32,6 @@ const index = acuData => {
         resp.configuracion = Configuration(acuData.configuration);
     }
 
-    return removeEmptyItems(resp);
+    return [removeEmptyItems(resp)];
 };
 export default index;

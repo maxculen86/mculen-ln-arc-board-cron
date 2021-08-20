@@ -4,7 +4,7 @@
 
 import React, { useEffect, useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
-
+import Static from 'fusion:static';
 import BlockQuote from './blockQuote';
 import Gallery from '../../common/carrousell';
 import Image from './image';
@@ -31,18 +31,22 @@ import { setStorageConfiguration } from '../../../common/utils/storage';
 import { FOTOAL100 } from '../../../common/utils/subtypes/subtypeHelper';
 import useViewportSize from '../../../common/hooks/useViewportSize';
 import { GlobalContext } from '../../../common/context/globalContext';
+import {
+    getBannerConfiguration,
+    suffixDevice
+} from '../../common/utils/bannerHelper';
+import DivBannerSSR from '../../../common/banners/DivBannerSSR';
+import DivBannerAMP from '../../../common/banners/DivBannerAMP';
 
 const Cuerpo = props => {
+    const { bannerConfig: banners, outputType, globalContent } = props;
+
     const {
-        bannerConfig: banners,
-        outputType,
-        globalContent: {
-            _id,
-            headlines: { basic: tituloNota },
-            content_elements: contentElements,
-            subtype
-        }
-    } = props;
+        _id,
+        headlines: { basic: tituloNota },
+        content_elements: contentElements,
+        subtype
+    } = globalContent || {};
 
     const device = useViewportSize();
 
@@ -173,7 +177,7 @@ const Cuerpo = props => {
                 if (nodeType.length) return <></>;
                 counter += 1;
                 return (
-                    <React.Fragment>
+                    <>
                         {_Comp}
                         {banners &&
                             banners.some(
@@ -182,6 +186,61 @@ const Cuerpo = props => {
                             banners
                                 .filter(banner => banner.position === counter)
                                 .map(value => {
+                                    // TODO: logica para nuevo banner
+                                    if (subtype === FOTOAL100) {
+                                        const slotId =
+                                            value.desktop ||
+                                            value.mobile ||
+                                            value.tablet ||
+                                            '';
+
+                                        const bannerConfiguration = getBannerConfiguration(
+                                            globalContent,
+                                            {
+                                                group: 'nota'
+                                            },
+                                            {},
+                                            {
+                                                device: Object.keys(
+                                                    suffixDevice
+                                                ).find(key =>
+                                                    slotId.includes(
+                                                        suffixDevice[key]
+                                                    )
+                                                ),
+                                                slotId
+                                            }
+                                        );
+
+                                        if (
+                                            !bannerConfiguration ||
+                                            (outputType === 'amp' &&
+                                                !slotId.includes('_amp'))
+                                        )
+                                            return <></>;
+
+                                        return (
+                                            elementsCount > counter && (
+                                                <Static id={slotId}>
+                                                    {outputType === 'amp' &&
+                                                    slotId.includes('_amp') ? (
+                                                        <DivBannerAMP
+                                                            bannerConfiguration={
+                                                                bannerConfiguration
+                                                            }
+                                                        />
+                                                    ) : (
+                                                        <DivBannerSSR
+                                                            bannerConfiguration={
+                                                                bannerConfiguration
+                                                            }
+                                                        />
+                                                    )}
+                                                </Static>
+                                            )
+                                        );
+                                    }
+
                                     if (mostrarBanners !== 'Si') return <></>;
 
                                     const slots = [
@@ -247,7 +306,7 @@ const Cuerpo = props => {
                                         )
                                     );
                                 })}
-                    </React.Fragment>
+                    </>
                 );
             }
             return _Comp;
