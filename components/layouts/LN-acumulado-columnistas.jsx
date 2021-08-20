@@ -48,13 +48,13 @@ const LNAcumuladoColumnistasLayout = props => {
                     {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
                     {children[0]}
                     <div className="lay">
-                        {/* <div className="sidebar__main"> */}
                         {
                             /* Espacio para breadcrum */
                             <div className="row">
                                 <div className="col-12">
                                     {children[1]}
                                     <Text
+                                        tag="h1"
                                         size="--l"
                                         extraClass="com-title"
                                         text="Todos los columnistas"
@@ -67,71 +67,53 @@ const LNAcumuladoColumnistasLayout = props => {
                             {children[2]}
                             <Article
                                 frontdemo
-                                srcdemo="https://source.unsplash.com/300x205"
-                                isRenderColumnista
+                                srcdemo="https://source.unsplash.com/80x80/?face"
+                                classCondition="--columnista"
+                                authorSize="--twoxs"
                                 link="#"
-                                //leadText="Tragedia en al ruta."
-                                //titleText='Piden al FMI que tenga en cuenta la "impunidad" en Argentina'
                                 authors="Nombre Apellido"
-                                position="0203"
                             />
                             <Article
                                 frontdemo
-                                srcdemo="https://source.unsplash.com/300x205"
-                                isRenderColumnista
+                                srcdemo="https://source.unsplash.com/85x85/?face"
+                                classCondition="--columnista"
+                                authorSize="--twoxs"
                                 link="#"
-                                // leadText="Tragedia en al ruta."
-                                // titleText='Piden al FMI que tenga en cuenta la "impunidad" en Argentina'
                                 authors="Nombre Apellido Segundo Apellido"
-                                position="0203"
                             />
                             <Article
                                 frontdemo
-                                srcdemo="https://source.unsplash.com/300x205"
-                                isRenderColumnista
+                                srcdemo="https://source.unsplash.com/90x90/?face"
+                                classCondition="--columnista"
+                                authorSize="--twoxs"
                                 link="#"
-                                // leadText="Tragedia en al ruta."
-                                // titleText='Piden al FMI que tenga en cuenta la "impunidad" en Argentina'
                                 authors="Autor Primer Segundo Tercer Nombre Primer Segundo Apellido"
-                                position="0203"
                             />
                             <Article
                                 frontdemo
-                                srcdemo="https://source.unsplash.com/300x205"
-                                isRenderColumnista
+                                srcdemo="https://source.unsplash.com/95x95/?face"
+                                classCondition="--columnista"
+                                authorSize="--twoxs"
                                 link="#"
-                                // leadText="Tragedia en al ruta."
-                                // titleText='Piden al FMI que tenga en cuenta la "impunidad" en Argentina'
                                 authors="Nombre Apellido"
-                                position="0203"
                             />
                             <Article
                                 frontdemo
-                                srcdemo="https://source.unsplash.com/300x205"
-                                isRenderColumnista
+                                srcdemo="https://source.unsplash.com/100x100/?face"
+                                classCondition="--columnista"
+                                authorSize="--twoxs"
                                 link="#"
-                                // leadText="Tragedia en al ruta."
-                                // titleText='Piden al FMI que tenga en cuenta la "impunidad" en Argentina'
                                 authors="Nombre Apellido"
-                                position="0203"
                             />
                             <Article
                                 frontdemo
-                                srcdemo="https://source.unsplash.com/300x205"
-                                isRenderColumnista
+                                srcdemo="https://source.unsplash.com/105x105/?face"
+                                classCondition="--columnista"
+                                authorSize="--twoxs"
                                 link="#"
-                                // leadText="Tragedia en al ruta."
-                                // titleText='Piden al FMI que tenga en cuenta la "impunidad" en Argentina'
                                 authors="Nombre Apellido"
-                                position="0203"
                             />
                         </section>
-                        {/* </div> */}
-                        {/* <div className="sidebar__aside">
-                            <div className="banner --desktop --large">
-                                {children[3]}
-                            </div>
-                        </div> */}
                     </div>
                 </main>
                 <Static id="StaticFooter">

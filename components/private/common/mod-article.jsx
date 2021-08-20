@@ -28,7 +28,6 @@ const ModArticle = props => {
         authorSize,
         isRenderAuthor,
         isRenderAuthorOpinion,
-        isRenderColumnista,
         withMedia,
         subheadText,
         subheadSize,
@@ -80,8 +79,8 @@ const ModArticle = props => {
                       )}${artPosition} nid${_id}`
                     : ''
             } ${noMedia ? '--no-media' : ''} ${
-                isRenderColumnista ? '--columnista' : ''
-            } ${isRenderAuthor || isRenderAuthorOpinion ? '--author' : ''}`}
+                isRenderAuthor || isRenderAuthorOpinion ? '--author' : ''
+            }`}
             {...extraOpts}
             onClick={onCLick}
             {...(typeof handleClick == 'function'
@@ -121,11 +120,7 @@ const ModArticle = props => {
                 titleSize={noMedia || isRenderAuthor ? '--m' : titleSize}
                 titleText={titleText}
                 authors={authors}
-                authorSize={
-                    isRenderAuthor || isRenderColumnista
-                        ? '--twoxs'
-                        : authorSize
-                }
+                authorSize={isRenderAuthor ? '--twoxs' : authorSize}
                 subheadText={subheadText}
                 subheadSize={subheadSize}
                 subheadTag={subheadTag}

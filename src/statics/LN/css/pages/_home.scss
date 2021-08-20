@@ -137,6 +137,7 @@
             height: px(40);
         }
     }
+
     &.--no-media {
         border-top: 1px solid #ccc;
         width: calc(100% + #{$spacing-lg});
