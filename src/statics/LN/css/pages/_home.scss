@@ -73,6 +73,22 @@
     &.--author {
         @include renderAutor;
     }
+    .columnistas & {
+        &.--author {
+            padding-bottom: px(16);
+            > div {
+                position: relative;
+                bottom: auto;
+            }
+            .mod-description {
+                .mod-marquee {
+                    position: relative;
+                    overflow: visible;
+                    height: auto;
+                }
+            }
+        }
+    }
     &:before {
         .mod-ranking & {
             display: block;

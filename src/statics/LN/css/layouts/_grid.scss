@@ -312,6 +312,11 @@
 }
 
 //columnas de 4
+.row-gap-5 {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+//columnas de 4
 .row-gap-4 {
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }

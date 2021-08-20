@@ -28,6 +28,7 @@ const ModArticle = props => {
         authorSize,
         isRenderAuthor,
         isRenderAuthorOpinion,
+        isRenderColumnista,
         withMedia,
         subheadText,
         subheadSize,
@@ -131,6 +132,7 @@ const ModArticle = props => {
                 marquesina={marquesina}
                 category={category}
                 tags={tags}
+                isRenderColumnista={isRenderColumnista}
             />
         </article>
     );
