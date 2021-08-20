@@ -1,0 +1,4 @@
+diff a/components/private/common/mod-description.jsx b/components/private/common/mod-description.jsx	(rejected hunks)
+@@ -116,2 +115,0 @@ const ModDescription = props => {
+-
+-            

@@ -6,6 +6,7 @@ import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import LoginProvider from '../private/LN/common/context/loginContext';
 import Article from '../private/common/mod-article';
+import Text from '../private/common/text';
 
 // import '../../resources/dist/css/ln/base.css';
 // import '../../resources/dist/css/ln/layouts/layout.css';
@@ -51,16 +52,22 @@ const LNAcumuladoColumnistasLayout = props => {
                         {
                             /* Espacio para breadcrum */
                             <div className="row">
-                                <div className="col-12">{children[1]}</div>
+                                <div className="col-12">
+                                    {children[1]}
+                                    <Text
+                                        size="--l"
+                                        extraClass="com-title"
+                                        text="Todos los columnistas"
+                                    />
+                                </div>
                             </div>
                         }
                         {/* Espacio para el contenido */}
-                        <section className="row-gap-5 hlp-degrade">
+                        <section className="row-gap-2 row-gap-tablet-3 row-gap-desksm-5">
                             {children[2]}
                             <Article
                                 frontdemo
                                 srcdemo="https://source.unsplash.com/300x205"
-                                isRenderAuthor
                                 isRenderColumnista
                                 link="#"
                                 //leadText="Tragedia en al ruta."
@@ -71,7 +78,6 @@ const LNAcumuladoColumnistasLayout = props => {
                             <Article
                                 frontdemo
                                 srcdemo="https://source.unsplash.com/300x205"
-                                isRenderAuthor
                                 isRenderColumnista
                                 link="#"
                                 // leadText="Tragedia en al ruta."
@@ -82,7 +88,6 @@ const LNAcumuladoColumnistasLayout = props => {
                             <Article
                                 frontdemo
                                 srcdemo="https://source.unsplash.com/300x205"
-                                isRenderAuthor
                                 isRenderColumnista
                                 link="#"
                                 // leadText="Tragedia en al ruta."
@@ -93,7 +98,6 @@ const LNAcumuladoColumnistasLayout = props => {
                             <Article
                                 frontdemo
                                 srcdemo="https://source.unsplash.com/300x205"
-                                isRenderAuthor
                                 isRenderColumnista
                                 link="#"
                                 // leadText="Tragedia en al ruta."
@@ -104,7 +108,6 @@ const LNAcumuladoColumnistasLayout = props => {
                             <Article
                                 frontdemo
                                 srcdemo="https://source.unsplash.com/300x205"
-                                isRenderAuthor
                                 isRenderColumnista
                                 link="#"
                                 // leadText="Tragedia en al ruta."
@@ -115,7 +118,6 @@ const LNAcumuladoColumnistasLayout = props => {
                             <Article
                                 frontdemo
                                 srcdemo="https://source.unsplash.com/300x205"
-                                isRenderAuthor
                                 isRenderColumnista
                                 link="#"
                                 // leadText="Tragedia en al ruta."

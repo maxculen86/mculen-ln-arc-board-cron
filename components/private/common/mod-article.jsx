@@ -80,8 +80,8 @@ const ModArticle = props => {
                       )}${artPosition} nid${_id}`
                     : ''
             } ${noMedia ? '--no-media' : ''} ${
-                isRenderAuthor || isRenderAuthorOpinion ? '--author' : ''
-            }`}
+                isRenderColumnista ? '--columnista' : ''
+            } ${isRenderAuthor || isRenderAuthorOpinion ? '--author' : ''}`}
             {...extraOpts}
             onClick={onCLick}
             {...(typeof handleClick == 'function'
@@ -121,7 +121,11 @@ const ModArticle = props => {
                 titleSize={noMedia || isRenderAuthor ? '--m' : titleSize}
                 titleText={titleText}
                 authors={authors}
-                authorSize={isRenderAuthor ? '--twoxs' : authorSize}
+                authorSize={
+                    isRenderAuthor || isRenderColumnista
+                        ? '--twoxs'
+                        : authorSize
+                }
                 subheadText={subheadText}
                 subheadSize={subheadSize}
                 subheadTag={subheadTag}
@@ -132,7 +136,6 @@ const ModArticle = props => {
                 marquesina={marquesina}
                 category={category}
                 tags={tags}
-                isRenderColumnista={isRenderColumnista}
             />
         </article>
     );

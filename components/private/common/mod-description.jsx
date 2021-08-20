@@ -26,7 +26,6 @@ const ModDescription = props => {
         lead,
         marquesina,
         category,
-        isRenderColumnista,
         tags
     } = props;
     const withMarquee = !!(marquesina || authors);
@@ -111,8 +110,6 @@ const ModDescription = props => {
             </div>
 
             {dateText && <ComDate display_date={dateText} size="--fourxs" />}
-
-            {isRenderColumnista && <a className="com-button">IR A NOTAS</a>}
         </section>
     );
 };
