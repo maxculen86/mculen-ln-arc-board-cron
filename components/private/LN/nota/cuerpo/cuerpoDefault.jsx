@@ -197,8 +197,10 @@ const Cuerpo = props => {
                                         const bannerConfiguration = getBannerConfiguration(
                                             globalContent,
                                             {
-                                                slot: slotId.slice(0, -4),
-                                                group: 'nota',
+                                                group: 'nota'
+                                            },
+                                            {},
+                                            {
                                                 device: Object.keys(
                                                     suffixDevice
                                                 ).find(key =>
@@ -206,9 +208,8 @@ const Cuerpo = props => {
                                                         suffixDevice[key]
                                                     )
                                                 ),
-                                                amp: slotId.includes('_amp')
-                                            },
-                                            {}
+                                                slotId
+                                            }
                                         );
 
                                         if (

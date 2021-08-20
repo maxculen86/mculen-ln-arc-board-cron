@@ -6,10 +6,13 @@ import Static from 'fusion:static';
 import PropTypes from 'fusion:prop-types';
 import Placeholder from '../../../private/LN/common/bannerRefactor/placeholder';
 
-import { slotsConfig } from '../../../private/LN/common/bannerRefactor/config';
 import {
+    BANNERS_DESKTOP,
+    BANNERS_MOBILE,
+    BANNERS_TABLET,
     getBannerConfiguration,
-    getScriptForCabezalSticky
+    getScriptForCabezalSticky,
+    isForAmp
 } from '../../../private/LN/common/utils/bannerHelper';
 import DivBannerSSR from '../../../private/common/banners/DivBannerSSR';
 
@@ -22,53 +25,62 @@ const BannerSSR = props => {
         globalContentConfig
     } = props;
 
-    const { amp, slot, device, group, sticky } = customFields;
+    const { sticky, desktop, mobile, tablet } = customFields;
 
-    if (amp) return <></>;
+    if (isForAmp(desktop, mobile, tablet)) return <></>;
 
-    const bannerConfiguration = getBannerConfiguration(
-        globalContent,
-        customFields,
-        globalContentConfig
-    );
+    const bannersConfiguration = [
+        { device: 'desktop', slotId: desktop },
+        { device: 'mobile', slotId: mobile },
+        { device: 'tablet', slotId: tablet }
+    ]
+        .map(bannerConfig => {
+            return bannerConfig.slotId
+                ? getBannerConfiguration(
+                      globalContent,
+                      customFields,
+                      globalContentConfig,
+                      bannerConfig
+                  )
+                : null;
+        })
+        .filter(item => item !== null)
+        .filter(item => {
+            return Object.values(item.show).some(element => element !== false);
+        });
 
-    if (isAdmin && !bannerConfiguration)
-        return (
-            <Placeholder
-                error="sin configuracion"
-                slotName={`${group} => ${device} => ${slot}`}
-            />
-        );
-
-    if (isAdmin && bannerConfiguration) {
-        return (
-            <Placeholder
-                slotName={bannerConfiguration.slotName}
-                dimensions={bannerConfiguration.dimensions}
-                targeting={bannerConfiguration.targeting}
-            />
-        );
+    if (isAdmin && bannersConfiguration.length > 0) {
+        return bannersConfiguration.map(bannerConfiguration => {
+            return (
+                <Placeholder
+                    key={bannerConfiguration.slotName}
+                    slotName={bannerConfiguration.slotName}
+                    dimensions={bannerConfiguration.dimensions}
+                    targeting={bannerConfiguration.targeting}
+                />
+            );
+        });
     }
-
-    if (
-        (bannerConfiguration &&
-            Object.values(bannerConfiguration.show).some(
-                element => element === false
-            )) ||
-        !bannerConfiguration
-    )
-        return <></>;
 
     return (
         <Static id={idFeature}>
-            <DivBannerSSR bannerConfiguration={bannerConfiguration} />
-            {sticky &&
-                slot.includes('cabezal') &&
-                getScriptForCabezalSticky(
-                    'header',
-                    'lay-sidebar',
-                    bannerConfiguration.slotId
-                )}
+            {bannersConfiguration.map(bannerConfiguration => {
+                return (
+                    <>
+                        <DivBannerSSR
+                            key={bannerConfiguration.slotName}
+                            bannerConfiguration={bannerConfiguration}
+                        />
+                        {sticky &&
+                            bannerConfiguration.slotId.includes('cabezal') &&
+                            getScriptForCabezalSticky(
+                                'header',
+                                'lay-sidebar',
+                                bannerConfiguration.slotId
+                            )}
+                    </>
+                );
+            })}
         </Static>
     );
 };
@@ -77,33 +89,15 @@ BannerSSR.label = 'LN-Common-Banner';
 
 BannerSSR.propTypes = {
     customFields: PropTypes.shape({
-        group: PropTypes.oneOf(Object.keys(slotsConfig)).tag({
+        group: PropTypes.oneOf(['nota', 'acumulado', 'home']).tag({
             label: 'Ubicacion'
         }).isRequired,
-        device: PropTypes.oneOf(['desktop', 'mobile', 'tablet']),
-        slot: PropTypes.oneOf([
-            'comercial',
-            'adhesion',
-            'megatop',
-            '1x1',
-            'cabezal',
-            'caja1',
-            'caja2',
-            'caja3',
-            'caja4',
-            'caja5',
-            'inread',
-            'middle_1',
-            'middle_2',
-            'middle_3',
-            'middle_teads',
-            'sticky1',
-            'sticky2'
-        ]),
+        desktop: PropTypes.oneOf(BANNERS_DESKTOP),
+        mobile: PropTypes.oneOf(BANNERS_MOBILE),
+        tablet: PropTypes.oneOf(BANNERS_TABLET),
         sticky: PropTypes.bool,
         background: PropTypes.bool,
-        fixed: PropTypes.bool,
-        amp: PropTypes.bool
+        fixed: PropTypes.bool
     }),
     siteProperties: PropTypes.shape({
         bannerConfig: PropTypes.shape({

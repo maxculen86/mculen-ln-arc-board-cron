@@ -15,12 +15,73 @@ export const suffixDevice = {
     mobile: '_mob'
 };
 
+export const BANNERS_DESKTOP = [
+    'comercial_dsk',
+    'adhesion_dsk',
+    '1x1_dsk',
+    'cabezal_dsk',
+    'caja1_dsk',
+    'caja2_dsk',
+    'caja3_dsk',
+    'caja4_dsk',
+    'caja5_dsk',
+    'inread_dsk',
+    'middle_1_dsk',
+    'middle_2_dsk',
+    'middle_3_dsk',
+    'middle_teads_dsk',
+    'caja1_amp',
+    'caja2_amp',
+    'caja3_amp'
+];
+
+export const BANNERS_MOBILE = [
+    'comercial_mob',
+    'adhesion_mob',
+    '1x1_mob',
+    'sticky1_mob',
+    'sticky2_mob',
+    'caja1_mob',
+    'caja2_mob',
+    'caja3_mob',
+    'caja4_mob',
+    'caja5_mob',
+    'inread_mob',
+    'caja1_amp',
+    'caja2_amp',
+    'caja3_amp'
+];
+
+export const BANNERS_TABLET = [
+    'cabezal_tab',
+    '1x1_tab',
+    'adhesion_tab',
+    'caja1_tab',
+    'caja2_tab',
+    'caja3_tab',
+    'inread_tab',
+    'middle_1_tab',
+    'middle_2_tab',
+    'middle_teads_tab',
+    'caja1_amp',
+    'caja2_amp',
+    'caja3_amp'
+];
+
+export const isForAmp = (desktop = '', mobile = '', tablet = '') => {
+    return desktop
+        .concat(mobile)
+        .concat(tablet)
+        .includes('_amp');
+};
+
 export const getBannerConfiguration = (
     globalContent,
     customFields,
-    globalContentConfig
+    globalContentConfig,
+    bannerConfig = {}
 ) => {
-    const { label, taxonomy } = globalContent || {
+    const { label, taxonomy, type } = globalContent || {
         label: { mostrar_banners: false },
         taxonomy: {
             sections: [],
@@ -34,12 +95,12 @@ export const getBannerConfiguration = (
 
     if (mostrarBannersValue === 'No') return null;
 
-    const { slot, device, fixed, sticky, background, group: slotGroup, amp } =
-        customFields || {};
+    const { fixed, sticky, background, group: slotGroup } = customFields || {};
+    const { device, slotId } = bannerConfig;
 
-    if (!slot || !slotGroup) return null;
+    if (!slotId || !slotGroup) return null;
 
-    const slotId = `${slot}${amp ? '_amp' : suffixDevice[device]}`;
+    // const slotId = `${slot}${amp ? '_amp' : suffixDevice[device]}`;
     const { siteProperties } = useAppContext();
     const gc = useContext(GlobalContext);
     const siteService = get(gc, 'state.siteService', {});
@@ -50,7 +111,6 @@ export const getBannerConfiguration = (
     const bannersSiteConfig = get(siteService, 'banners');
     const adserver = get(siteService, 'adserver', []);
     const segments = adserver.map(segment => segment.value);
-    const type = get(globalContent, 'type');
     const sponsored = get(globalContent, 'owner.sponsored');
     const advertiser = get(globalContent, 'label.marca_anunciante.text');
     const primarySection =
@@ -65,7 +125,9 @@ export const getBannerConfiguration = (
     );
     const config = get(
         siteProperties,
-        `bannerConfig[${slotGroup}][${amp ? 'amp' : device}][${slotId}]`
+        `bannerConfig[${slotGroup}][${
+            slotId.includes('_amp') ? 'amp' : device
+        }][${slotId}]`
     );
 
     const subscription =
@@ -108,7 +170,9 @@ export const getBannerConfiguration = (
             termicas,
             collection: !(hideBanners === 'true')
         },
-        targeting: amp ? getTargetingFormat(sections)(tags) : config.targeting
+        targeting: slotId.includes('_amp')
+            ? getTargetingFormat(sections)(tags)
+            : config.targeting
     };
 
     // Site service banner segments check
@@ -150,7 +214,6 @@ export const getBannerConfiguration = (
                 ) || bannerConfiguration.dimensions
         };
     }
-
     return bannerConfiguration;
 };
 

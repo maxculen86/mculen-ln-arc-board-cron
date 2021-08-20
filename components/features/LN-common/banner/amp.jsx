@@ -4,21 +4,27 @@ import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import Placeholder from '../../../private/LN/common/bannerRefactor/placeholder';
-import { slotsConfig } from '../../../private/LN/common/bannerRefactor/config';
-import { getBannerConfiguration } from '../../../private/LN/common/utils/bannerHelper';
+import {
+    getBannerConfiguration,
+    BANNERS_DESKTOP,
+    BANNERS_MOBILE,
+    BANNERS_TABLET,
+    isForAmp
+} from '../../../private/LN/common/utils/bannerHelper';
 import DivBannerAMP from '../../../private/common/banners/DivBannerAMP';
 
 const BannerSSR = props => {
     const { isAdmin, customFields, globalContent, globalContentConfig } = props;
 
-    const { amp } = customFields;
+    const { desktop, mobile, tablet } = customFields;
 
-    if (!amp) return <></>;
+    if (!isForAmp(desktop, mobile, tablet)) return <></>;
 
     const bannerConfiguration = getBannerConfiguration(
         globalContent,
         customFields,
-        globalContentConfig
+        globalContentConfig,
+        { slotId: desktop || mobile || tablet || '', device: '' }
     );
 
     if (!bannerConfiguration) return <></>;
@@ -47,36 +53,15 @@ BannerSSR.label = 'LN-Common-Banner';
 
 BannerSSR.propTypes = {
     customFields: PropTypes.shape({
-        group: PropTypes.oneOf(Object.keys(slotsConfig)).tag({
+        group: PropTypes.oneOf(['nota', 'acumulado', 'home']).tag({
             label: 'Ubicacion'
         }).isRequired,
-        device: PropTypes.oneOf(['desktop', 'mobile', 'tablet']),
-        slot: PropTypes.oneOf([
-            'comercial',
-            'adhesion',
-            'megatop',
-            '1x1',
-            'cabezal',
-            'caja1',
-            'caja2',
-            'caja3',
-            'caja4',
-            'caja5',
-            'inread',
-            'middle_1',
-            'middle_2',
-            'middle_3',
-            'middle_teads',
-            'sticky1',
-            'sticky2'
-        ]),
-        // desktop: PropTypes.oneOf(getSlotsOptions('dsk')),
-        // mobile: PropTypes.oneOf(getSlotsOptions('mob')),
-        // tablet: PropTypes.oneOf(getSlotsOptions('tab')),
+        desktop: PropTypes.oneOf(BANNERS_DESKTOP),
+        mobile: PropTypes.oneOf(BANNERS_MOBILE),
+        tablet: PropTypes.oneOf(BANNERS_TABLET),
         sticky: PropTypes.bool,
         background: PropTypes.bool,
-        fixed: PropTypes.bool,
-        amp: PropTypes.bool
+        fixed: PropTypes.bool
     }),
     siteProperties: PropTypes.shape({
         bannerConfig: PropTypes.shape({

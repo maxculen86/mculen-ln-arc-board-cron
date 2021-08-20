@@ -3,6 +3,7 @@ import Consumer from 'fusion:consumer';
 import {
     getBannerConfiguration,
     getTargetingFormat,
+    isForAmp,
     isPrimarySectionInBannerSegments
 } from '../../../../components/private/LN/common/utils/bannerHelper';
 import BannerSSR from '../../../../components/features/LN-common/banner/default';
@@ -560,159 +561,196 @@ describe('getBannerConfiguration =>', () => {
     }));
 
     let customFields = {
-        slot: 'caja1',
-        device: 'desktop',
-        group: 'nota'
-    };
-    const caja1 = {
-        slotName: 'la_nacion_desktop/Nota/caja1_dsk',
-        withoutHide: true,
-        dimensions: [
-            [300, 600],
-            [300, 250]
-        ],
-        targeting: { sitio: 'lanacion', seccion: 'nota' },
-        bidding: { prebid: { enabled: true } },
-        subscription: undefined,
-        device: 'desktop',
-        slotId: 'caja1_dsk',
-        slotGroup: 'nota',
-        dfpId: 133919216,
-        sticky: undefined,
-        background: undefined,
-        fixed: undefined,
-        show: { termicas: true, collection: true }
-    };
-
-    const configCaja1 = getBannerConfiguration(
-        globalContent,
-        customFields,
-        null
-    );
-    expect(configCaja1).toEqual(caja1);
-    expect(configCaja1).toBeInstanceOf(Object);
-
-    customFields = {
-        slot: '1x1',
-        device: 'mobile',
+        desktop: 'caja1_dsk',
         group: 'nota'
     };
 
-    const config1x1 = getBannerConfiguration(globalContent, customFields, null);
-    expect(config1x1).toEqual(null);
+    it('Deberia traer la configuracion del banner Caja1_dsk', () => {
+        const caja1 = {
+            slotName: 'la_nacion_desktop/Nota/caja1_dsk',
+            withoutHide: true,
+            dimensions: [
+                [300, 600],
+                [300, 250]
+            ],
+            targeting: { sitio: 'lanacion', seccion: 'nota' },
+            bidding: { prebid: { enabled: true } },
+            subscription: undefined,
+            device: 'desktop',
+            slotId: 'caja1_dsk',
+            slotGroup: 'nota',
+            dfpId: 133919216,
+            sticky: undefined,
+            background: undefined,
+            fixed: undefined,
+            show: { termicas: true, collection: true }
+        };
 
-    const unoxuno = {
-        dimensions: [[1, 1]],
-        targeting: { sitio: 'lanacion', seccion: 'nota' },
-        subscription: false,
-        device: 'mobile',
-        slotId: '1x1_mob',
-        slotName: 'la_nacion_mobile/Nota/1x1_mob',
-        slotGroup: 'nota',
-        dfpId: 133919216,
-        sticky: undefined,
-        background: undefined,
-        fixed: undefined,
-        show: { termicas: true, collection: true }
-    };
+        const configCaja1 = getBannerConfiguration(
+            globalContent,
+            customFields,
+            null,
+            { device: 'desktop', slotId: 'caja1_dsk' }
+        );
+        expect(configCaja1).toEqual(caja1);
+        expect(configCaja1).toBeInstanceOf(Object);
+    });
 
-    const config1x1SinSuscripcion = getBannerConfiguration(
-        { ...globalContent, subscription: 'A' },
-        customFields,
-        null
-    );
-    expect(config1x1SinSuscripcion).toEqual(unoxuno);
+    it('Deberia traer la configuracion del banner 1x1_mob con y sin suscripcion', () => {
+        customFields = {
+            mobile: '1x1_mob',
+            group: 'nota'
+        };
 
-    customFields = {
-        slot: 'cabezal',
-        device: 'desktop',
-        sticky: true,
-        // background,
-        group: 'nota'
-        //amp
-    };
+        const config1x1 = getBannerConfiguration(
+            globalContent,
+            customFields,
+            null,
+            { device: 'mobile', slotId: '1x1_mob' }
+        );
+        expect(config1x1).toEqual(null);
 
-    const componentBannerCabezal = shallow(
-        <BannerSSR customFields={customFields} globalContent={globalContent} />
-    );
-    expect(componentBannerCabezal).toMatchSnapshot();
+        const unoxuno = {
+            dimensions: [[1, 1]],
+            targeting: { sitio: 'lanacion', seccion: 'nota' },
+            subscription: false,
+            device: 'mobile',
+            slotId: '1x1_mob',
+            slotName: 'la_nacion_mobile/Nota/1x1_mob',
+            slotGroup: 'nota',
+            dfpId: 133919216,
+            sticky: undefined,
+            background: undefined,
+            fixed: undefined,
+            show: { termicas: true, collection: true }
+        };
 
-    const adhesionMobile = {
-        slotName: 'la_nacion_mobile/Nota/adhesion_mob',
-        dimensions: [[320, 50]],
-        targeting: { sitio: 'lanacion', seccion: 'nota' },
-        closeButton: true,
-        subscription: false,
-        device: 'mobile',
-        slotId: 'adhesion_mob',
-        slotGroup: 'nota',
-        dfpId: 133919216,
-        sticky: undefined,
-        background: undefined,
-        fixed: true,
-        show: { termicas: true, collection: true }
-    };
+        const config1x1SinSuscripcion = getBannerConfiguration(
+            { ...globalContent, subscription: 'A' },
+            customFields,
+            null,
+            { device: 'mobile', slotId: '1x1_mob' }
+        );
+        expect(config1x1SinSuscripcion).toEqual(unoxuno);
+    });
 
-    customFields = {
-        slot: 'adhesion',
-        device: 'mobile',
-        fixed: true,
-        // sticky,
-        // background,
-        group: 'nota'
-        //amp
-    };
-    const configAdhesionMobileConSuscripcion = getBannerConfiguration(
-        globalContent,
-        customFields,
-        null
-    );
-    expect(configAdhesionMobileConSuscripcion).toEqual(null);
+    it('Deberia traer la configuracion del banner cabezal', () => {
+        customFields = {
+            desktop: 'cabezal_dsk',
+            sticky: true,
+            // background,
+            group: 'nota'
+            //amp
+        };
 
-    const configAdhesionMobileSinSuscripcion = getBannerConfiguration(
-        { ...globalContent, subscription: 'A' },
-        customFields,
-        null
-    );
-    expect(configAdhesionMobileSinSuscripcion).toEqual(adhesionMobile);
+        const componentBannerCabezal = shallow(
+            <BannerSSR
+                customFields={customFields}
+                globalContent={globalContent}
+            />
+        );
+        expect(componentBannerCabezal).toMatchSnapshot();
 
-    const componentAdhesionBanner = render(
-        <BannerSSR
-            customFields={customFields}
-            globalContent={{ ...globalContent, subscription: 'A' }}
-        />
-    );
-    expect(componentAdhesionBanner).toMatchSnapshot();
+        const componentBannerCabezalNoShow = shallow(
+            <BannerSSR
+                customFields={customFields}
+                globalContent={{
+                    ...globalContent,
+                    acumuladoGeneral: { hide_banner: 'true' }
+                }}
+            />
+        );
+        expect(componentBannerCabezalNoShow).toBeEmptyRender;
+    });
 
-    const componentAmp = mount(
-        <BannerSSR
-            customFields={{
-                slot: 'adhesion',
-                device: 'mobile',
-                group: 'nota',
-                amp: true
-            }}
-            globalContent={globalContent}
-        />
-    );
+    it('Deberia traer la configuracion del adhesion_mob con y sin suscripcion', () => {
+        const adhesionMobile = {
+            slotName: 'la_nacion_mobile/Nota/adhesion_mob',
+            dimensions: [[320, 50]],
+            targeting: { sitio: 'lanacion', seccion: 'nota' },
+            closeButton: true,
+            subscription: false,
+            device: 'mobile',
+            slotId: 'adhesion_mob',
+            slotGroup: 'nota',
+            dfpId: 133919216,
+            sticky: undefined,
+            background: undefined,
+            fixed: true,
+            show: { termicas: true, collection: true }
+        };
 
-    expect(componentAmp).toBeEmptyRender;
+        customFields = {
+            mobile: 'adhesion_mob',
+            fixed: true,
+            // sticky,
+            // background,
+            group: 'nota'
+            //amp
+        };
+        const configAdhesionMobileConSuscripcion = getBannerConfiguration(
+            globalContent,
+            customFields,
+            null,
+            { device: 'mobile', slotId: 'adhesion_mob' }
+        );
+        expect(configAdhesionMobileConSuscripcion).toEqual(null);
 
-    const componentCajaAmp = render(
-        <BannerSSRAmp
-            customFields={{
-                slot: 'caja1',
-                device: 'desktop',
-                group: 'nota',
-                amp: true
-            }}
-            globalContent={globalContent}
-            outputType="amp"
-        />
-    );
+        const configAdhesionMobileSinSuscripcion = getBannerConfiguration(
+            { ...globalContent, subscription: 'A' },
+            customFields,
+            null,
+            { device: 'mobile', slotId: 'adhesion_mob' }
+        );
+        expect(configAdhesionMobileSinSuscripcion).toEqual(adhesionMobile);
 
-    expect(componentCajaAmp).toBeDefined();
-    expect(componentCajaAmp.find('amp-ad')).toBeTruthy();
-    expect(componentCajaAmp.find('DivBannerAMP')).toBeTruthy();
-    expect(componentCajaAmp).toMatchSnapshot();
+        const componentAdhesionBanner = render(
+            <BannerSSR
+                customFields={customFields}
+                globalContent={{ ...globalContent, subscription: 'A' }}
+            />
+        );
+        expect(componentAdhesionBanner).toMatchSnapshot();
+    });
+
+    it('No deberia renderizar el adhesion_amp con y sin suscripcion', () => {
+        const componentAmp = mount(
+            <BannerSSR
+                customFields={{
+                    mobile: 'adhesion_amp',
+                    group: 'nota',
+                    amp: true
+                }}
+                globalContent={globalContent}
+            />
+        );
+
+        expect(componentAmp).toBeEmptyRender;
+    });
+
+    it('Deberia renderizar el caja1_amp con y sin suscripcion', () => {
+        const componentCajaAmp = render(
+            <BannerSSRAmp
+                customFields={{
+                    desktop: 'caja1_amp',
+                    group: 'nota',
+                    amp: true
+                }}
+                globalContent={globalContent}
+                outputType="amp"
+            />
+        );
+
+        expect(componentCajaAmp).toBeDefined();
+        expect(componentCajaAmp.find('amp-ad')).toBeTruthy();
+        expect(componentCajaAmp.find('DivBannerAMP')).toBeTruthy();
+        expect(componentCajaAmp).toMatchSnapshot();
+    });
+
+    it('Validar si el banner es para amp o no', () => {
+        expect(isForAmp(undefined, undefined, undefined)).toBeFalsy();
+        expect(isForAmp('caja1_desk', undefined, 'caja1_tab')).toBeFalsy();
+        expect(isForAmp('caja1_amp', undefined, undefined)).toBeTruthy();
+        // expect(isForAmp(null, null, null)).toBeFalsy();
+    });
 });
