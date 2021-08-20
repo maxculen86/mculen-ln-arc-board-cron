@@ -113,6 +113,38 @@ const LNAcumuladoColumnistasLayout = props => {
                                 link="#"
                                 authors="Nombre Apellido"
                             />
+                            <Article
+                                frontdemo
+                                srcdemo="https://source.unsplash.com/105x105/?face"
+                                classCondition="--columnista"
+                                authorSize="--twoxs"
+                                link="#"
+                                authors="Nombre Apellido"
+                            />
+                            <Article
+                                frontdemo
+                                srcdemo="https://source.unsplash.com/105x105/?face"
+                                classCondition="--columnista"
+                                authorSize="--twoxs"
+                                link="#"
+                                authors="Nombre Apellido"
+                            />
+                            <Article
+                                frontdemo
+                                srcdemo="https://source.unsplash.com/105x105/?face"
+                                classCondition="--columnista"
+                                authorSize="--twoxs"
+                                link="#"
+                                authors="Nombre Apellido"
+                            />
+                            <Article
+                                frontdemo
+                                srcdemo="https://source.unsplash.com/105x105/?face"
+                                classCondition="--columnista"
+                                authorSize="--twoxs"
+                                link="#"
+                                authors="Nombre Apellido"
+                            />
                         </section>
                     </div>
                 </main>
