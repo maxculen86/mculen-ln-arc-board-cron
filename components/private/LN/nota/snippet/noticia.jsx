@@ -31,6 +31,20 @@ const extracDataFromCredits = by => {
     return { authors: authors.length ? authors : ['Redacción LA NACION'] };
 };
 
+const getBiggestImage = basic => {
+    const { resized_urls: resizedUrls = [] } = basic || {};
+    const imagenFullSize = resizedUrls.reduce(
+        (prev, curr) =>
+            get(prev, 'option.width', 0) > get(curr, 'option.width', 0)
+                ? prev
+                : curr,
+        {}
+    );
+    const { resizedUrl, option } = imagenFullSize;
+    const { width: bigWidth, height: bigHeight } = option || {};
+    return { resizedUrl, bigWidth, bigHeight };
+};
+
 const extractDataFromPromoItems = (promoItems, PLACEHOLDER) => {
     const { basic } = promoItems || {};
     const { url, type, height, width } = basic || {};
@@ -40,19 +54,20 @@ const extractDataFromPromoItems = (promoItems, PLACEHOLDER) => {
         '@context': 'https://schema.org',
         '@type': 'ImageObject',
         url: PLACEHOLDER,
-        height: '564',
-        width: '1080'
+        height: '800',
+        width: '1200'
     };
 
     if (promoItems && isImage) {
+        const { resizedUrl, bigWidth, bigHeight } = getBiggestImage(basic);
         const pathImagen = url;
         thumbnailUrl = `${pathImagen}`;
         image = {
             '@context': 'https://schema.org',
             '@type': 'ImageObject',
-            url: `${pathImagen}`,
-            height: `${height}`,
-            width: `${width}`
+            url: resizedUrl ? `${resizedUrl}` : `${pathImagen}`,
+            height: bigHeight ? `${bigHeight}` : `${height}`,
+            width: bigWidth ? `${bigWidth}` : `${width}`
         };
     }
 
@@ -146,7 +161,7 @@ const SnippetNoticia = props => {
     const { promo_items: promoItems } = addRelatedImage(props.globalContent);
     const LOGO_AMP = getAssetsPath(contextPath)(deployment)('logo-ln-amp.png');
     const PLACEHOLDER = getAssetsPath(contextPath)(deployment)(
-        'placeholderLN.jpg'
+        'placeholderLN-1080.jpg'
     );
 
     const { path, name } = primarySection || {};

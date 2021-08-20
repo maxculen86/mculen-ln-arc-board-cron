@@ -196,18 +196,20 @@ const Default = props => {
             ? siteProperties.longTitle
             : metaValue('title') || siteProperties.title;
 
-    // En espera definición de resolución min y max width de site prop.
     const LinkImagePreload = () =>
-        getDataToLinkImage(globalContent, _nodeType).map(elem => {
-            return (
-                <link
-                    rel="preload"
-                    href={elem.resizedUrl}
-                    as="image"
-                    media={elem.media}
-                />
-            );
-        });
+        getDataToLinkImage(globalContent, _nodeType, renderables, arcSite).map(
+            elem => {
+                return (
+                    <link
+                        id="preload-img"
+                        rel="preload"
+                        href={elem.resizedUrl}
+                        as="image"
+                        media={elem.media}
+                    />
+                );
+            }
+        );
 
     return (
         <html lang="es">
@@ -279,6 +281,7 @@ const Default = props => {
                     _id={_id}
                     section={_nodeType}
                     defaultTitle={siteProperties.longTitle}
+                    metaValue={title}
                 />
                 <MetaDescription
                     subtype={subtype}

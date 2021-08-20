@@ -6,7 +6,7 @@ import { GlobalContext } from '../../private/common/context/globalContext';
 
 const UltimasNoticias = props => {
     const { customFields } = props;
-    const { sections } = customFields;
+    const { sections, layout, size } = customFields;
     const globalContext = useContext(GlobalContext);
     const { siteProperties, outputType } = useAppContext();
 
@@ -21,10 +21,10 @@ const UltimasNoticias = props => {
         <GrillaNotas
             sectionsIds={sectionsFormated}
             sourceOrigin="composer"
-            size={30}
+            size={size}
             page={1}
             siteProperties={siteProperties}
-            typeArticle="Timeline"
+            typeArticle={layout}
             outputType={outputType}
             gc={globalContext}
         />
@@ -37,7 +37,15 @@ UltimasNoticias.propTypes = {
     customFields: PropTypes.shape({
         sections: PropTypes.list.tag({
             label: 'Secciones'
-        }).isRequired
+        }).isRequired,
+        layout: PropTypes.oneOf(['Grilla', 'Timeline', 'Listados']).tag({
+            label: 'Layout',
+            defaultValue: 'Timeline'
+        }),
+        size: PropTypes.number.isRequired.tag({
+            label: 'Cantidad de Notas',
+            defaultValue: 30
+        })
     }).isRequired
 };
 
