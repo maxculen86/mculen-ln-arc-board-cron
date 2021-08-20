@@ -1,30 +1,19 @@
 import Consumer from 'fusion:consumer';
-//import IndexNotaV1 from '../../../private/LN/api/v1/nota';
-import browser from '../../../private/common/utils/browser';
 
-class Story {
+class Services {
     constructor(props) {
         this.props = props;
-
-        // Responde al resolver que permite pasar las versiones existentes
-        // Regex actual: ^/api/v([1]+)/notas/byId/(.+)/$
-        /*this.versions = {
-            1: IndexNotaV1
-        };*/
+        // Regex actual: ^\/api\/v([1]+)\/servicios
     }
 
     render() {
-        const indexNota = this.versions[
-            browser.getApiVersion(this.props.requestUri)
-        ];
         const { globalContent } = this.props;
         try {
             return globalContent;
-            //return indexNota(globalContent);
         } catch (err) {
             return { Success: false, Message: err.message };
         }
     }
 }
 
-export default Consumer(Story);
+export default Consumer(Services);
