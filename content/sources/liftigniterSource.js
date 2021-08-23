@@ -16,7 +16,7 @@ import isvalidUrl from '../../components/private/common/utils/isvalidUrl';
 import logger from '../../components/private/common/utils/logger';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import getPresets from './utils/presets';
-import ArticleSourceNota from './articleSourceNota';
+import ArticleSourceNotas from './acuArticlesSourcebyIds';
 
 const transformArticles = (liftigniterArticles = [], cantidadNotas) =>
     liftigniterArticles &&
@@ -53,26 +53,57 @@ const transformArticles = (liftigniterArticles = [], cantidadNotas) =>
  */
 
 const fetch = query => {
-    const { idArticle, uri } = query;
+    const {
+        referrer = SITE_LANACION,
+        idArticle,
+        excludeItems = [],
+        excludeNotas,
+        uri,
+        sizeMax
+    } = query;
 
-    if (idArticle) {
-        const arcSiteStory = get(query, 'arc-site', null);
-        const queryArticle = {
-            id: idArticle,
-            published: true,
-            'arc-site': arcSiteStory
+    let excludeAllNotas = excludeNotas?.replace('/', '') || '';
+    const idArticleClean = idArticle?.replace('/', '');
+    if (idArticle && !!idArticle) {
+        excludeAllNotas = idArticleClean.concat(',', excludeAllNotas);
+    }
+
+    if (excludeAllNotas && !!excludeAllNotas) {
+        const arcSiteStorys = get(query, 'arc-site', null);
+        const queryArticles = {
+            Ids: excludeAllNotas,
+            sizeMax,
+            uri,
+            'arc-site': arcSiteStorys
         };
-        return ArticleSourceNota.fetch(queryArticle)
+        return ArticleSourceNotas.fetch(queryArticles)
             .then(resp => {
-                let urlReferer = get(resp, 'canonical_url', null);
+                const queryAdapted = { ...query };
+                let urlReferer = null;
 
-                if (urlReferer && !urlReferer.includes('http')) {
-                    urlReferer = SITE_LANACION.concat(urlReferer);
-                }
+                resp.content_elements.map((item, i) => {
+                    let itemUrl = get(item, 'canonical_url', null);
 
-                urlReferer = isvalidUrl(urlReferer) ? { urlReferer } : null;
-                //const obj = { urlReferer };
-                const queryAdapted = { ...query, ...urlReferer };
+                    if (itemUrl && !itemUrl.includes('http')) {
+                        itemUrl = referrer.concat(itemUrl);
+                    }
+                    if (isvalidUrl(itemUrl)) {
+                        if (
+                            idArticle &&
+                            !!idArticle &&
+                            idArticle?.includes(item?._id)
+                        ) {
+                            urlReferer = itemUrl;
+                        } else {
+                            excludeItems.push(itemUrl);
+                        }
+                    }
+                });
+
+                queryAdapted.excludeItems = excludeItems;
+                queryAdapted.urlReferer = urlReferer;
+                queryAdapted.idArticle = idArticleClean;
+
                 return resolveData(queryAdapted);
             })
             .catch(error => {
@@ -82,7 +113,7 @@ const fetch = query => {
                         source: 'content/sources/articleSourceNota',
                         url: `${uri}`
                     },
-                    arcSiteStory
+                    arcSiteStorys
                 );
             });
     }
@@ -106,9 +137,8 @@ const resolveData = query => {
         nextUrl,
         widgetType,
         articles = [],
-        urlReferer,
-        maxAgeInSeconds,
-        excludeUrl
+        urlReferer = null,
+        maxAgeInSeconds
     } = query;
 
     const userIdParam = userId && !userId.includes('/') ? `/${userId}` : '';
@@ -124,26 +154,6 @@ const resolveData = query => {
         sessionId,
         pageviewId: idArticle
     };
-
-    if (!excludeItems.length && excludeUrl && !!excludeUrl) {
-        const match = excludeUrl.match(/^\/\[(.*)\]/);
-        if (match && match[1] && referrer.includes('http')) {
-            const resultsUrls = match[1].split(/[ ,]+/);
-            resultsUrls.map((itemUrl, i) => {
-                let itemUrlTmp = itemUrl;
-                const matchItemUrl = itemUrl.match(/^http[s]?:\/\w+/);
-                if (!itemUrl.includes('http')) {
-                    const itemUrlAdapted = referrer.concat(itemUrl);
-                    excludeItems.push(itemUrlAdapted);
-                } else {
-                    if (matchItemUrl && matchItemUrl.length > 0) {
-                        itemUrlTmp = itemUrlTmp.replace(':/', '://');
-                    }
-                    excludeItems.push(itemUrlTmp);
-                }
-            });
-        }
-    }
 
     const timestamp = Date.now();
 
@@ -302,7 +312,8 @@ export default {
         idArticle: 'text',
         userId: 'text',
         maxAgeInSeconds: 'text',
-        excludeUrl: 'text'
+        excludeNotas: 'text',
+        sizeMax: 'text'
     },
     ttl: 120
 };
