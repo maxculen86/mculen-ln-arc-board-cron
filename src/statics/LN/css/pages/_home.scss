@@ -666,7 +666,7 @@ $rank-dsk: px(400);
             //align-items: center;
             padding: $spacing-sm;
 
-            .com-title {
+            > .com-title {
                 text-transform: uppercase;
                 margin-bottom: px(16);
                 .com-link {

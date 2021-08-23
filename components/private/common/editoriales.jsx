@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import getProperties from 'fusion:properties';
-import ComLinkList from './com-link-list';
+//import ComLinkList from './com-link-list';
+//import ComLink from './com-link';
 import ComTitle from './com-title';
 import get from './utils/get';
 
@@ -25,7 +26,7 @@ const Editoriales = props => {
             id: article._id
         };
     });
-
+    const extraOpts = {};
     return (
         <section className="mod-footersection">
             {
@@ -36,7 +37,33 @@ const Editoriales = props => {
                 />
             }
             {(_articles && articles.length && (
-                <ComLinkList isEditoriales list={_articles} />
+                <>
+                    {/* <ComLinkList isEditoriales list={_articles} /> */}
+                    <ul className="com-unordered">
+                        {_articles.map((element, i) => {
+                            extraOpts['data-pos'] = `990${i + 1}`;
+                            extraOpts['data-id'] = element.id;
+                            extraOpts['data-notaid'] = element.id;
+                            return (
+                                <li className="item" {...extraOpts}>
+                                    <article className="mod-article">
+                                        <div className="mod-description">
+                                            <h2 className="com-title --twoxs">
+                                                <a
+                                                    href={element.link}
+                                                    className="com-link"
+                                                    title={element.title}
+                                                >
+                                                    {element.title}
+                                                </a>
+                                            </h2>
+                                        </div>
+                                    </article>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </>
             )) || <></>}
         </section>
     );
