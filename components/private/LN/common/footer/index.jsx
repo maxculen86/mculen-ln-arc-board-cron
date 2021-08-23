@@ -231,7 +231,6 @@ const Index = ({
                             <Icon
                                 name="twitter-filled"
                                 href="https://twitter.com/LANACION"
-                                target="_blank"
                                 rel
                                 title="Seguirnos en Twitter"
                             />

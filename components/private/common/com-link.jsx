@@ -29,7 +29,7 @@ const ComLink = props => {
         ...(dataSection && { 'data-section': dataSection }),
         // ...(link && !rel && { rel: target === '_blank' ? 'nofollow' : undefined }),
         ...(link && {
-            rel: rel || target === '_blank' ? 'nofollow' : undefined
+            rel: rel || (target === '_blank' ? 'nofollow' : undefined)
         }),
         ...(link && { target }),
         ...(link && { title }),
