@@ -43,7 +43,7 @@ exports[`Private - LN - nota - snippet - noticia  Snapshot Snippet Noticia 1`] =
     \\"logo\\": {
       \\"@context\\": \\"https://schema.org\\",
       \\"@type\\": \\"ImageObject\\",
-      \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN-1080.jpg$LATEST\\",
+      \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN-112$LATEST\\",
       \\"height\\": 41,
       \\"width\\": 391
     }
