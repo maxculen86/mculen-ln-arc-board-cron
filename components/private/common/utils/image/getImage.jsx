@@ -1,0 +1,32 @@
+import React from 'react';
+import { useContent } from 'fusion:content';
+import filterArticle from '../../../../../content/filters/LN/nota/articleAcu';
+
+const getImage = (
+    id = '',
+    sourceType = '',
+    imageConfig = '',
+    isHideImage = true
+) => {
+    const filter = {
+        relatedImageSource: '',
+        articleSourceNota: filterArticle
+    };
+
+    const fetchSourceData = () => {
+        return (
+            (id &&
+                sourceType &&
+                isHideImage === false &&
+                useContent({
+                    source: sourceType,
+                    query: { id, published: true, imageConfig },
+                    filter: filter[sourceType]
+                })) ||
+            {}
+        );
+    };
+
+    return fetchSourceData();
+};
+export default getImage;

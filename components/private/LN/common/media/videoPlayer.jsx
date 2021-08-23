@@ -13,7 +13,7 @@ const video = ({
     screenUtils,
     parrafo,
     tituloNota,
-    scriptForAutoplay
+    autoplay
 }) => {
     const { streams = [], promo_items: promoItems } = mediaData;
     const tituloVideo = get(mediaData, 'headlines.basic', '');
@@ -32,8 +32,8 @@ const video = ({
                     videoId={videoId}
                     adsURL={adsURL}
                     tituloVideo={tituloVideo}
+                    autoPlay={autoplay}
                 />
-                {scriptForAutoplay}
             </AmpContainer>
             <AmpContainer isForAmp>
                 <amp-ima-video
@@ -80,11 +80,11 @@ video.propTypes = {
     parrafo: PropTypes.shape({
         content: PropTypes.string
     }).isRequired,
-    scriptForAutoplay: PropTypes.string
+    autoplay: PropTypes.bool
 };
 
 video.defaultProps = {
-    scriptForAutoplay: undefined
+    autoplay: false
 };
 
 export default WithScreenUtils(video);

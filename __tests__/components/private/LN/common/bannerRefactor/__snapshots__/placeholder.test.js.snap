@@ -15,7 +15,7 @@ exports[`Placeholder Matches snapshot 1`] = `
     }
   >
     <h2>
-      Banner
+      Banner 
     </h2>
     <p>
       Slot: sticky1_mob

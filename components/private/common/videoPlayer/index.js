@@ -122,6 +122,7 @@ const VideoPlayer = props => {
             data-ad-bar={enableAdBar}
             data-autoinit={loadVideoOnInit ? 'native-hls' : 'false'}
             data-autoplay={autoPlay}
+            data-autoplay-muted={autoPlay}
             data-controls={enableControls}
             data-muted={muted}
             data-sticky={sticky}

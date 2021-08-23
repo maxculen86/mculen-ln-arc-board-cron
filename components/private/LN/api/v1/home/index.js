@@ -53,7 +53,7 @@ const articlesMap = articles => {
 };
 
 const storyBox = element => {
-    const { information, feature, configurations } = element;
+    const { information, feature } = element;
     const featureInfo = featureInformation(information, feature);
     if (feature === 'Anticipo') return { ...featureInfo };
     const articles = get(element, 'articles', []);

@@ -1,3 +1,8 @@
+const defaultTargeting = {
+    sitio: 'lanacion',
+    seccion: 'nota'
+};
+
 export default {
     longTitle: 'Últimas noticias de Argentina y el mundo - LA NACION',
     title: 'LA NACION',
@@ -106,42 +111,52 @@ export default {
                             height: 1280,
                             media: '(min-width: 1920px)',
                             useFullSize: true,
-                            proportion: '3:2'
+                            proportion: '3:2',
+                            media_preload: '(min-width: 1920.1px)'
                         },
                         {
                             width: 1280,
                             height: 854,
                             media: '(min-width: 1280px)',
                             useFullSize: true,
-                            proportion: '3:2'
+                            proportion: '3:2',
+                            media_preload:
+                                '(min-width: 1280.1px and max-width: 1920px)'
                         },
                         {
                             width: 1024,
                             height: 682,
                             media: '(min-width: 1024px)',
                             useFullSize: true,
-                            proportion: '3:2'
+                            proportion: '3:2',
+                            media_preload:
+                                '(min-width: 1024.1px and max-width: 1280px)'
                         },
                         {
                             width: 768,
                             height: 512,
                             media: '(min-width: 768px)',
                             useFullSize: true,
-                            proportion: '3:2'
+                            proportion: '3:2',
+                            media_preload:
+                                '(min-width: 768.1px and max-width: 1024px)'
                         },
                         {
                             width: 375,
                             height: 562,
                             media: '(min-width: 375px)',
                             useFullSize: true,
-                            proportion: '2:3'
+                            proportion: '2:3',
+                            media_preload:
+                                '(min-width: 375.1px and max-width: 768px)'
                         },
                         {
                             width: 320,
                             height: 480,
                             media: '(min-width: 320px)',
                             useFullSize: true,
-                            proportion: '2:3'
+                            proportion: '2:3',
+                            media_preload: '(max-width: 375px)'
                         }
                     ]
                 },
@@ -188,35 +203,43 @@ export default {
                             height: 373,
                             media: '(min-width: 1280px)',
                             useFullSize: true,
-                            proportion: '3:2'
+                            proportion: '3:2',
+                            media_preload: '(min-width: 1280.1px)'
                         },
                         {
                             width: 637,
                             height: 424,
                             media: '(min-width: 1024px)',
                             useFullSize: true,
-                            proportion: '3:2'
+                            proportion: '3:2',
+                            media_preload:
+                                '(min-width: 1024.1px and max-width: 1280px)'
                         },
                         {
                             width: 465,
                             height: 310,
                             media: '(min-width: 768px)',
                             useFullSize: true,
-                            proportion: '3:2'
+                            proportion: '3:2',
+                            media_preload:
+                                '(min-width: 768.1px and max-width: 1024px)'
                         },
                         {
                             width: 375,
                             height: 250,
                             media: '(min-width: 375px)',
                             useFullSize: true,
-                            proportion: '2:3'
+                            proportion: '2:3',
+                            media_preload:
+                                '(min-width: 375.1px and max-width: 768px)'
                         },
                         {
                             width: 320,
                             height: 213,
                             media: '(min-width: 320px)',
                             useFullSize: true,
-                            proportion: '2:3'
+                            proportion: '2:3',
+                            media_preload: '(max-width: 375px)'
                         }
                     ]
                 },
@@ -328,35 +351,43 @@ export default {
                             height: 399,
                             media: '(min-width: 1280px)',
                             useFullSize: true,
-                            proportion: '3:2'
+                            proportion: '3:2',
+                            media_preload: '(min-width: 1280.1px)'
                         },
                         {
                             width: 635,
                             height: 424,
                             media: '(min-width: 1024px)',
                             useFullSize: true,
-                            proportion: '3:2'
+                            proportion: '3:2',
+                            media_preload:
+                                '(min-width: 1024.1px and max-width: 1280px)'
                         },
                         {
                             width: 465,
                             height: 311,
                             media: '(min-width: 768px)',
                             useFullSize: true,
-                            proportion: '3:2'
+                            proportion: '3:2',
+                            media_preload:
+                                '(min-width: 768.1px and max-width: 1024px)'
                         },
                         {
                             width: 375,
                             height: 229,
                             media: '(min-width: 375px)',
                             useFullSize: true,
-                            proportion: '2:3'
+                            proportion: '2:3',
+                            media_preload:
+                                '(min-width: 375.1px and max-width: 768px)'
                         },
                         {
                             width: 320,
                             height: 192,
                             media: '(min-width: 320px)',
                             useFullSize: true,
-                            proportion: '2:3'
+                            proportion: '2:3',
+                            media_preload: '(max-width: 375px)'
                         }
                     ]
                 },
@@ -390,7 +421,7 @@ export default {
                     ]
                 }
             },
-            //solo se visualiza imagen en mobile
+            // solo se visualiza imagen en mobile
             mediumFocalDerecho: {
                 promo_items: {
                     sizes: [
@@ -1278,7 +1309,477 @@ export default {
         }
     },
     bannerConfig: {
-        dfp_id: 133919216
+        dfp_id: 133919216,
+        nota: {
+            desktop: {
+                adhesion_dsk: {
+                    slotName: 'la_nacion_desktop/Nota/adhesion_dsk',
+                    dimensions: [
+                        [728, 90],
+                        [920, 100]
+                    ],
+                    targeting: defaultTargeting,
+                    closeButton: true
+                },
+                megatop_dsk: {
+                    slotName: 'la_nacion_desktop/Nota/megatop_dsk',
+                    dimensions: [[800, 600]],
+                    targeting: defaultTargeting
+                },
+                '1x1_dsk': {
+                    slotName: 'la_nacion_desktop/Nota/1x1_dsk',
+                    dimensions: [[1, 1]],
+                    targeting: defaultTargeting
+                },
+                cabezal_dsk: {
+                    slotName: 'la_nacion_desktop/Nota/cabezal_dsk',
+                    withoutHide: true,
+                    dimensions: [
+                        [1, 1],
+                        [728, 90],
+                        [920, 100],
+                        [920, 170],
+                        [970, 90],
+                        [1260, 100],
+                        [1260, 170]
+                    ],
+                    targeting: defaultTargeting,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
+                caja1_dsk: {
+                    slotName: 'la_nacion_desktop/Nota/caja1_dsk',
+                    withoutHide: true,
+                    dimensions: [
+                        [300, 600],
+                        [300, 250]
+                    ],
+                    targeting: defaultTargeting,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
+                caja2_dsk: {
+                    slotName: 'la_nacion_desktop/Nota/caja2_dsk',
+                    withoutHide: true,
+                    dimensions: [[300, 250]],
+                    targeting: defaultTargeting,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
+                caja3_dsk: {
+                    slotName: 'la_nacion_desktop/Nota/caja3_dsk',
+                    withoutHide: true,
+                    dimensions: [
+                        [300, 600],
+                        [300, 250]
+                    ],
+                    targeting: defaultTargeting,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
+                caja4_dsk: {
+                    slotName: 'la_nacion_desktop/Nota/caja4_dsk',
+                    withoutHide: true,
+                    dimensions: [
+                        [300, 600],
+                        [300, 250]
+                    ],
+                    targeting: defaultTargeting,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
+                caja5_dsk: {
+                    slotName: 'la_nacion_desktop/Nota/caja5_dsk',
+                    withoutHide: true,
+                    dimensions: [[300, 250]],
+                    targeting: defaultTargeting,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
+                inread_dsk: {
+                    slotName: 'la_nacion_desktop/Nota/inread_dsk',
+                    dimensions: [
+                        [1, 1],
+                        [728, 90]
+                    ],
+                    targeting: defaultTargeting
+                },
+                middle_1_dsk: {
+                    slotName: 'la_nacion_desktop/Nota/middle_1_dsk',
+                    withoutHide: true,
+                    dimensions: [
+                        [1, 1],
+                        [640, 360],
+                        [640, 480],
+                        [728, 90],
+                        [468, 60]
+                    ],
+                    targeting: defaultTargeting,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
+                middle_2_dsk: {
+                    slotName: 'la_nacion_desktop/Nota/middle_2_dsk',
+                    withoutHide: true,
+                    dimensions: [
+                        [468, 60],
+                        [640, 480],
+                        [728, 90],
+                        [1, 1]
+                    ],
+                    targeting: defaultTargeting,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
+                middle_3_dsk: {
+                    slotName: 'la_nacion_desktop/Nota/middle_3_dsk',
+                    withoutHide: true,
+                    dimensions: [
+                        [728, 90],
+                        [640, 480],
+                        [468, 60],
+                        [1, 1]
+                    ],
+                    targeting: defaultTargeting,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
+                middle_teads_dsk: {
+                    slotName: 'la_nacion_desktop/Nota/middle_teads_dsk',
+                    dimensions: [
+                        [1, 1],
+                        [728, 90]
+                    ],
+                    targeting: defaultTargeting
+                },
+                comercial_dsk: {
+                    slotName: 'la_nacion_desktop/Nota/comercial_dsk',
+                    dimensions: [
+                        [1, 1],
+                        [800, 600]
+                    ],
+                    targeting: defaultTargeting
+                }
+            },
+            mobile: {
+                adhesion_mob: {
+                    slotName: 'la_nacion_mobile/Nota/adhesion_mob',
+                    dimensions: [[320, 50]],
+                    targeting: defaultTargeting,
+                    closeButton: true
+                },
+                megatop_mob: {
+                    slotName: 'la_nacion_mobile/Nota/megatop_mob',
+                    dimensions: [[320, 480]],
+                    targeting: defaultTargeting
+                },
+                '1x1_mob': {
+                    slotName: 'la_nacion_mobile/Nota/1x1_mob',
+                    dimensions: [[1, 1]],
+                    targeting: defaultTargeting
+                },
+                sticky1_mob: {
+                    slotName: 'la_nacion_mobile/Nota/sticky1_mob',
+                    dimensions: [[320, 100]],
+                    targeting: defaultTargeting,
+                    withoutHide: true,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
+                sticky2_mob: {
+                    slotName: 'la_nacion_mobile/Nota/sticky2_mob',
+                    dimensions: [[320, 50]],
+                    targeting: defaultTargeting,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
+                caja1_mob: {
+                    slotName: 'la_nacion_mobile/Nota/caja1_mob',
+                    withoutHide: true,
+                    dimensions: [
+                        [300, 250],
+                        [300, 450],
+                        [320, 100],
+                        [1, 1]
+                    ],
+                    targeting: defaultTargeting,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
+                caja2_mob: {
+                    slotName: 'la_nacion_mobile/Nota/caja2_mob',
+                    withoutHide: true,
+                    dimensions: [
+                        [1, 1],
+                        [300, 250],
+                        [300, 450],
+                        [320, 50],
+                        [320, 100],
+                        [320, 180],
+                        [360, 270]
+                    ],
+                    targeting: defaultTargeting,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
+                caja3_mob: {
+                    slotName: 'la_nacion_mobile/Nota/caja3_mob',
+                    withoutHide: true,
+                    dimensions: [
+                        [300, 250],
+                        [320, 100],
+                        [1, 1]
+                    ],
+                    targeting: defaultTargeting,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
+                caja4_mob: {
+                    slotName: 'la_nacion_mobile/Nota/caja4_mob',
+                    withoutHide: true,
+                    dimensions: [
+                        [300, 250],
+                        [320, 100],
+                        [1, 1]
+                    ],
+                    targeting: defaultTargeting,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
+                caja5_mob: {
+                    slotName: 'la_nacion_mobile/Nota/caja5_mob',
+                    withoutHide: true,
+                    dimensions: [
+                        [300, 250],
+                        [320, 100],
+                        [1, 1]
+                    ],
+                    targeting: defaultTargeting,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
+                inread_mob: {
+                    slotName: 'la_nacion_mobile/Nota/inread_mob',
+                    dimensions: [
+                        [1, 1],
+                        [320, 50],
+                        [300, 250]
+                    ],
+                    targeting: defaultTargeting
+                },
+                comercial_mob: {
+                    slotName: 'la_nacion_mobile/Nota/comercial_mob',
+                    dimensions: [
+                        [1, 1],
+                        [320, 480]
+                    ],
+                    targeting: defaultTargeting
+                }
+            },
+            tablet: {
+                '1x1_tab': {
+                    device: 'tab',
+                    slotName: 'la_nacion_tablet/Nota/1x1_tab',
+                    dimensions: [[1, 1]],
+                    targeting: defaultTargeting
+                },
+                cabezal_tab: {
+                    device: 'tab',
+                    slotName: 'la_nacion_tablet/Nota/cabezal_tab',
+                    dimensions: [[728, 90]],
+                    targeting: defaultTargeting,
+                    withoutHide: true,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
+                adhesion_tab: {
+                    device: 'tab',
+                    slotName: 'la_nacion_tablet/Nota/adhesion_tab',
+                    dimensions: [[728, 90]],
+                    targeting: defaultTargeting,
+                    closeButton: true
+                },
+                caja1_tab: {
+                    device: 'tab',
+                    slotName: 'la_nacion_tablet/Nota/caja1_tab',
+                    withoutHide: true,
+                    dimensions: [
+                        [300, 250],
+                        [300, 600]
+                    ],
+                    targeting: defaultTargeting,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
+                caja2_tab: {
+                    device: 'tab',
+                    caja2_tab: 'la_nacion_tablet/Nota/caja2_tab',
+                    withoutHide: true,
+                    dimensions: [
+                        [300, 250],
+                        [300, 600]
+                    ],
+                    targeting: defaultTargeting,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
+                caja3_tab: {
+                    device: 'tab',
+                    caja2_tab: 'la_nacion_tablet/Nota/caja3_tab',
+                    withoutHide: true,
+                    dimensions: [
+                        [300, 250],
+                        [1, 1]
+                    ],
+                    targeting: defaultTargeting,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
+                inread_tab: {
+                    device: 'tab',
+                    slotName: 'la_nacion_tablet/Nota/inread_tab',
+                    dimensions: [
+                        [1, 1],
+                        [728, 90]
+                    ],
+                    targeting: defaultTargeting
+                },
+                middle_1_tab: {
+                    device: 'tab',
+                    slotName: 'la_nacion_tablet/Nota/middle_1_tab',
+                    withoutHide: true,
+                    dimensions: [
+                        [728, 90],
+                        [640, 480],
+                        [468, 60],
+                        [1, 1]
+                    ],
+                    targeting: defaultTargeting,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
+                middle_2_tab: {
+                    device: 'tab',
+                    slotName: 'la_nacion_tablet/Nota/middle_2_tab',
+                    withoutHide: true,
+                    dimensions: [
+                        [728, 90],
+                        [640, 480],
+                        [468, 60],
+                        [1, 1]
+                    ],
+                    targeting: defaultTargeting,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
+                middle_teads_tab: {
+                    device: 'tab',
+                    slotName: 'la_nacion_tablet/Nota/middle_teads_tab',
+                    dimensions: [[1, 1]],
+                    targeting: defaultTargeting
+                }
+            },
+            amp: {
+                caja1_amp: {
+                    slotName: '/133919216/AMP/ROS/caja1_amp',
+                    dimensions: [[300, 250]]
+                },
+                caja2_amp: {
+                    slotName: '/133919216/AMP/ROS/caja2_amp',
+                    dimensions: [[300, 250]]
+                },
+                caja3_amp: {
+                    slotName: '/133919216/AMP/ROS/caja3_amp',
+                    dimensions: [[300, 250]]
+                }
+            }
+        },
+        common: {
+            desktop: {
+                logo_header_dsk: {
+                    slotName: 'la_nacion_desktop/logo_header_dsk',
+                    dimensions: [[300, 30]]
+                }
+            },
+            mobile: {
+                logo_header_mob: {
+                    slotName: 'la_nacion_mobile/logo_header_mob',
+                    dimensions: [[170, 17]]
+                }
+            },
+            tablet: {
+                logo_header_tab: {
+                    slotName: 'la_nacion_tablet/logo_header_tab',
+                    dimensions: [[200, 20]]
+                }
+            }
+        }
     },
     shareConfig: {
         facebook: {

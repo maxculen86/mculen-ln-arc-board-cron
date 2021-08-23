@@ -110,29 +110,3 @@ export const buildScriptForZoom = (mediaData, subtype) => {
         )
     );
 };
-
-export const buildScriptForAutoplay = (mediaData, subtype) => {
-    const { _id: idMedia, type } = mediaData || {};
-    return (
-        subtype === VIDEO &&
-        type === 'video' &&
-        idMedia && (
-            <script
-                dangerouslySetInnerHTML={{
-                    __html: `
-                    window.addEventListener('powaRender', (event)=> {
-                        const { detail: { id: powaId } = {} } = event || {}
-                        const isDesktop = document.documentElement.clientWidth  > 767;
-                        const modMedia = document.getElementById('${idMedia}');
-                        if (isDesktop && modMedia && powaId.includes('${idMedia}')) {
-                            const videoPlayer = window.powas && window.powas[powaId] || {};
-                            const loadedVideo = videoPlayer.powa;
-                            loadedVideo && loadedVideo.play();
-                        };
-                    })
-                `
-                }}
-            />
-        )
-    );
-};
