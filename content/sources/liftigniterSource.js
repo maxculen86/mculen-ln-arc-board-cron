@@ -12,9 +12,11 @@ import {
     STORYTELLING
 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 import get from '../../components/private/common/utils/get';
+import isvalidUrl from '../../components/private/common/utils/isvalidUrl';
 import logger from '../../components/private/common/utils/logger';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import getPresets from './utils/presets';
+import ArticleSourceNota from './articleSourceNota';
 
 const transformArticles = (liftigniterArticles = [], cantidadNotas) =>
     liftigniterArticles &&
@@ -50,9 +52,47 @@ const transformArticles = (liftigniterArticles = [], cantidadNotas) =>
  * 2. Mejora de registro de click, enviar listado de items
  */
 
+const fetch = query => {
+    const { idArticle, uri } = query;
+
+    if (idArticle) {
+        const arcSiteStory = get(query, 'arc-site', null);
+        const queryArticle = {
+            id: idArticle,
+            published: true,
+            'arc-site': arcSiteStory
+        };
+        return ArticleSourceNota.fetch(queryArticle)
+            .then(resp => {
+                let urlReferer = get(resp, 'canonical_url', null);
+
+                if (urlReferer && !urlReferer.includes('http')) {
+                    urlReferer = SITE_LANACION.concat(urlReferer);
+                }
+
+                urlReferer = isvalidUrl(urlReferer) ? { urlReferer } : null;
+                //const obj = { urlReferer };
+                const queryAdapted = { ...query, ...urlReferer };
+                return resolveData(queryAdapted);
+            })
+            .catch(error => {
+                logger.push(
+                    error,
+                    {
+                        source: 'content/sources/articleSourceNota',
+                        url: `${uri}`
+                    },
+                    arcSiteStory
+                );
+            });
+    }
+
+    return resolveData(query);
+};
+
 const duplicateMaxCount = cantidadNotas => cantidadNotas * 2;
 
-const fetch = query => {
+const resolveData = query => {
     const {
         cantidadNotas = 9,
         referrer = SITE_LANACION,
@@ -65,7 +105,10 @@ const fetch = query => {
         action,
         nextUrl,
         widgetType,
-        articles = []
+        articles = [],
+        urlReferer,
+        maxAgeInSeconds,
+        excludeUrl
     } = query;
 
     const userIdParam = userId && !userId.includes('/') ? `/${userId}` : '';
@@ -81,6 +124,26 @@ const fetch = query => {
         sessionId,
         pageviewId: idArticle
     };
+
+    if (!excludeItems.length && excludeUrl && !!excludeUrl) {
+        const match = excludeUrl.match(/^\/\[(.*)\]/);
+        if (match && match[1] && referrer.includes('http')) {
+            const resultsUrls = match[1].split(/[ ,]+/);
+            resultsUrls.map((itemUrl, i) => {
+                let itemUrlTmp = itemUrl;
+                const matchItemUrl = itemUrl.match(/^http[s]?:\/\w+/);
+                if (!itemUrl.includes('http')) {
+                    const itemUrlAdapted = referrer.concat(itemUrl);
+                    excludeItems.push(itemUrlAdapted);
+                } else {
+                    if (matchItemUrl && matchItemUrl.length > 0) {
+                        itemUrlTmp = itemUrlTmp.replace(':/', '://');
+                    }
+                    excludeItems.push(itemUrlTmp);
+                }
+            });
+        }
+    }
 
     const timestamp = Date.now();
 
@@ -108,7 +171,7 @@ const fetch = query => {
             widgetName: WIDGETS,
             source: 'LI',
             timestamp,
-            visibleItems: articles
+            visibleItems: articles // preguntar
         }
     };
 
@@ -154,9 +217,10 @@ const fetch = query => {
                 ],
                 referrer,
                 pageviewId: idArticle,
-                url: referrer,
+                url: urlReferer === null ? referrer : urlReferer,
                 sessionId,
-                excludeItems
+                excludeItems,
+                maxAgeInSeconds
             }),
             resolve: response => {
                 const { items } = JSON.parse(response);
@@ -177,13 +241,13 @@ const fetch = query => {
             }
         }
     };
-
-    return request({
+    const queryRequest = {
         uri: REQUESTS[action].uri,
         method: REQUESTS[action].method,
         headers: REQUESTS[action].headers,
         body: REQUESTS[action].body
-    })
+    };
+    return request(queryRequest)
         .then(response => REQUESTS[action].resolve(response))
         .catch(error => REQUESTS[action].reject(error));
 };
@@ -226,6 +290,7 @@ const transform = (data, siteProps) => {
  * TODO: Por completar de tarea
  * 3. Confirmar el ttl
  */
+
 export default {
     fetch,
     params: {
@@ -235,7 +300,9 @@ export default {
         action: 'text',
         sessionId: 'text',
         idArticle: 'text',
-        userId: 'text'
+        userId: 'text',
+        maxAgeInSeconds: 'text',
+        excludeUrl: 'text'
     },
     ttl: 120
 };

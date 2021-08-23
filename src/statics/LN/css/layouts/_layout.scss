@@ -115,6 +115,10 @@
         //     margin-top: 73px; //alto header desktop
         // }
     }
+
+    @media (max-width: 767px) {
+        overflow: hidden;
+    }
 }
 
 main {
