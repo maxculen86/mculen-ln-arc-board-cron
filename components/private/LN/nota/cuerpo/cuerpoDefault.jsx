@@ -116,10 +116,6 @@ const Cuerpo = props => {
     let counter = 0;
 
     return contentElements.map((element, currentIndex) => {
-        console.log(
-            '🚀 ~ file: cuerpoDefault.jsx ~ line 116 ~ returncontentElements.map ~ element',
-            element
-        );
         const {
             type: _type,
             subtype: _subtype,
