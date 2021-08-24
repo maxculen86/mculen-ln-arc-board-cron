@@ -1,7 +1,10 @@
 import { get } from 'lodash';
-import Image from '../common/image';
-import { removeEmptyItems } from '../common/utils/responseCleaner';
-import { articleItem as Article, anexoItem as Anexo } from './article';
+import Image from '../../common/image';
+import { removeEmptyItems } from '../../common/utils/responseCleaner';
+import {
+    articleItem as Article,
+    anexoItem as Anexo
+} from '../../common/article/article';
 
 // TODO: Recorrer las notas en un archivo nuevo.
 // Recibir el array y validar que tenga notas
@@ -13,6 +16,7 @@ const typeSection = {
     Opinion: { tipoSeccion: 'opinion', idSeccion: 1001 },
     Comercial: { tipoSeccion: 'comercial', idSeccion: 1101 },
     Banner: { tipoSeccion: 'banner' },
+    Dolar: { tipoSeccion: 'dolar', idSeccion: 2000 },
     default: { tipoSeccion: 'tema', idSeccion: 305 }
 };
 
@@ -40,9 +44,16 @@ const featureInformation = (information, feature) => {
     }
     return res;
 };
+const articlesMap = articles => {
+    return articles
+        .filter(e => e)
+        .map(article => {
+            return Article(article);
+        });
+};
 
 const storyBox = element => {
-    const { information, feature, configurations } = element;
+    const { information, feature } = element;
     const featureInfo = featureInformation(information, feature);
     if (feature === 'Anticipo') return { ...featureInfo };
     const articles = get(element, 'articles', []);
@@ -54,8 +65,8 @@ const storyBox = element => {
             notas:
                 feature !== 'Anexo'
                     ? orderArticlesArray !== null
-                        ? Article(orderArticlesArray, configurations)
-                        : Article(articles, configurations)
+                        ? articlesMap(orderArticlesArray)
+                        : articlesMap(articles)
                     : orderArticlesArray !== null
                     ? Anexo(orderArticlesArray)
                     : Anexo(articles)

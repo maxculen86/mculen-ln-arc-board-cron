@@ -5,6 +5,8 @@
  * {"targeting":{"tags": ["ca_turismo|ca_comun|ca_viajes|te_ohlala_viaja"], "tags_nuevos":["ca_turismo","ca_comun","ca_viajes","te_ohlala_viaja"] }
  */
 
+// TODO: borrar esta funcion porque ya se paso a bannerHelper
+
 export const getTargetingFormat = sections => {
     return tags => {
         const targeting = {

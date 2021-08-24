@@ -20,7 +20,6 @@ const fetch = ({ arcSite }) => {
             json: true
         }
     ];
-
     const promiseArr = endpoints.map(endpoint =>
         request(endpoint)
             .then(response => ({
@@ -48,9 +47,9 @@ const fetch = ({ arcSite }) => {
 
 const transform = data => {
     const imageUrl = createResizer(RESIZER_KEY, RESIZER_URL).resizeUrl(
-        'https://especiales.lanacion.com.ar/LN/dolar/anexo-dolar/logo-invertir.png',
-        1023,
-        248,
+        'https://especialess3.lanacion.com.ar/LN/svg/logo-iol.svg',
+        249,
+        60,
         {
             height: 76,
             width: 314
@@ -62,7 +61,6 @@ const transform = data => {
         dblue: 'Dólar Blue',
         dccl: 'Dólar Contado con Liqui'
     };
-
     return {
         data: data.map(item => {
             const { sourceName } = item;

@@ -71,7 +71,8 @@ const HeaderDesktop = ({
     isHome,
     section,
     // headerDark,
-    toglleDesplegable
+    toglleDesplegable,
+    isAdmin
 }) => {
     const { loading } = loginData;
     const { goToLoginUrl } = loginData;
@@ -118,7 +119,7 @@ const HeaderDesktop = ({
                 </label>
             </div>
             <div className="col-7 col-desksm-4 header__middle">
-                <BannerLogoHeader section={section} />
+                <BannerLogoHeader section={section} isAdmin={isAdmin} />
                 <Logo
                     logoName="la-nacion"
                     classCondition="nacion-home"
@@ -134,21 +135,32 @@ const HeaderDesktop = ({
                     id="user-menu"
                     className={`com-usuario${active}${loadingUserData}`}
                 >
-                    {!loginData.subscription && (
-                        <button
+                    {!loginData.subscription && typeof window !== 'undefined' && (
+                        // <button
+                        //     className="com-button --special"
+                        //     id="btnsuscribite"
+                        //     type="button"
+                        //     title="Suscribite"
+                        //     onClick={() => {
+                        //         location.href =
+                        //             `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
+                        //                 location.href
+                        //             )}` || '/';
+                        //     }}
+                        // >
+                        //     SUSCRIBITE
+                        // </button>
+
+                        <a
                             className="com-button --special"
                             id="btnsuscribite"
-                            type="button"
-                            title="Suscribite"
-                            onClick={() => {
-                                location.href =
-                                    `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
-                                        location.href
-                                    )}` || '/';
-                            }}
+                            title="Suscribite a LA NACION"
+                            href={`${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
+                                location.href
+                            )}`}
                         >
                             SUSCRIBITE
-                        </button>
+                        </a>
                     )}
                     {logueado && (
                         <div
@@ -222,6 +234,7 @@ const HeaderDesktop = ({
 
 HeaderDesktop.propTypes = {
     logueado: PropTypes.bool.isRequired,
+    isAdmin: PropTypes.bool.isRequired,
     loginData: PropTypes.shape({
         subscription: PropTypes.bool,
         userName: PropTypes.string,

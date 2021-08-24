@@ -1,6 +1,6 @@
 /* eslint-disable no-case-declarations         */
 /* eslint-disable react/jsx-props-no-spreading */
-
+// TODO: deberia borrarse ya que se usa nuevo banner
 import React from 'react';
 import Amp from './types';
 
