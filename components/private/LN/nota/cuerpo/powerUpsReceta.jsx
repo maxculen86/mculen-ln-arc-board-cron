@@ -6,7 +6,7 @@ import ComTitle from '../../../common/com-title';
 const powerUpsReceta = ({ data }) => {
     const { powerUp } = data;
     return (
-        <div className="row">
+        <div className="row --steps">
             {powerUp.length > 0 ? (
                 powerUp.map((e, i) => {
                     const { items, titleList, typeList } = e.embed.config;
@@ -14,19 +14,27 @@ const powerUpsReceta = ({ data }) => {
                         <div
                             className={
                                 typeList === 'preparacion'
-                                    ? 'col-tablet-8 offset-tablet-1 _preparation'
-                                    : 'col-tablet-3 _ingredients'
+                                    ? 'col-tablet-8 --preparation'
+                                    : 'col-tablet-3 --ingredients'
                             }
                         >
                             <ComTitle
                                 tag="h3"
                                 size="--m"
-                                content={typeList.toUpperCase()}
+                                content={
+                                    typeList === 'preparacion'
+                                        ? 'Preparación'
+                                        : 'Ingredientes'
+                                }
                             />
                             <ListItems
                                 list={items}
                                 titleList={titleList}
-                                listNumeric
+                                listNumeric={
+                                    typeList === 'preparacion'
+                                        ? true
+                                        : undefined
+                                }
                                 key={titleList}
                             />
                         </div>
