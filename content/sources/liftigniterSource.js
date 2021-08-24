@@ -59,10 +59,13 @@ const fetch = query => {
         excludeItems = [],
         excludeNotas,
         uri,
-        sizeMax
+        sizeMax = 20
     } = query;
 
     let excludeAllNotas = excludeNotas?.replace('/', '') || '';
+    excludeAllNotas = excludeAllNotas?.replace('[', '') || '';
+    excludeAllNotas = excludeAllNotas?.replace(']', '') || '';
+
     const idArticleClean = idArticle?.replace('/', '');
     if (idArticle && !!idArticle) {
         excludeAllNotas = idArticleClean.concat(',', excludeAllNotas);
