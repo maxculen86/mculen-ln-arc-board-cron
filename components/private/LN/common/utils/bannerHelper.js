@@ -89,7 +89,10 @@ export const getBannerConfiguration = (
         }
     };
 
-    const { sections, tags } = taxonomy;
+    const { sections, tags } = taxonomy || {
+        sections: [],
+        tags: []
+    };
     const { mostrar_banners: mostrarBanners } = label || {};
     const { text: mostrarBannersValue } = mostrarBanners || '';
 
