@@ -30,8 +30,56 @@
 @import '../modules/mod-title';
 @import '../modules/mod-trust';
 @import '../modules/mod-list';
-@import '../modules/mod-banner';
 
 @import '../modules/mod-article';
 
 @import '../base/helpers-amp';
+
+//BANNERS solo para AMP
+.mod-banner {
+    background: -webkit-repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1) 4px,
+        rgba(0, 0, 0, 0.15) 6px
+    );
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1) 4px,
+        rgba(0, 0, 0, 0.15) 6px
+    );
+    background-color: $neutral-white;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: inherit;
+    max-width: 100%;
+    overflow: hidden;
+    z-index: 1;
+    margin-bottom: $spacing-2xl;
+
+    &:before {
+        content: 'PUBLICIDAD';
+        font-size: px(11);
+        line-height: px(16);
+        background: $neutral-white;
+        display: inline-block;
+        padding: px(4) $spacing;
+        margin: 0 auto;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+    }
+
+    &.--caja1_amp,
+    &.--caja2_amp,
+    &.--caja3_amp {
+        height: px(250);
+    }
+}
