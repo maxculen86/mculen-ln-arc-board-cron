@@ -5,21 +5,17 @@ exports[`getBannerConfiguration => Deberia renderizar el caja1_amp con y sin sus
   class="row "
 >
   <div
-    class="col-12"
+    class="mod-banner --bg-banner "
   >
-    <div
-      class="--bg-banner "
-    >
-      <amp-ad
-        class="banner"
-        data-slot="/133919216/AMP/ROS/caja1_amp"
-        height="250"
-        id="caja1_amp"
-        json="{\\"tags\\":[\\"ca_el mundo|ca_ciencia|te_deportes|te_sake\\"],\\"tags_nuevos\\":[\\"ca_el mundo\\",\\"ca_ciencia\\",\\"te_deportes\\",\\"te_sake\\"]}"
-        type="doubleclick"
-        width="300"
-      />
-    </div>
+    <amp-ad
+      class="banner"
+      data-slot="/133919216/AMP/ROS/caja1_amp"
+      height="250"
+      id="caja1_amp"
+      json="{\\"tags\\":[\\"ca_el mundo|ca_ciencia|te_deportes|te_sake\\"],\\"tags_nuevos\\":[\\"ca_el mundo\\",\\"ca_ciencia\\",\\"te_deportes\\",\\"te_sake\\"]}"
+      type="doubleclick"
+      width="300"
+    />
   </div>
 </div>
 `;
