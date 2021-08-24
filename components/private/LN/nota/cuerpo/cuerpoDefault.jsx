@@ -28,11 +28,13 @@ import Html from './html';
 import OptaAMP from './optaAMP';
 import Video from './video';
 import { setStorageConfiguration } from '../../../common/utils/storage';
-import { FOTOAL100 } from '../../../common/utils/subtypes/subtypeHelper';
+import {
+    FOTOAL100,
+    RECETA
+} from '../../../common/utils/subtypes/subtypeHelper';
 import useViewportSize from '../../../common/hooks/useViewportSize';
 import { GlobalContext } from '../../../common/context/globalContext';
-import ListIngredients from './listIngredientes';
-import ListPreparation from './listPreparacion';
+import powerUpsReceta from './powerUpsReceta';
 
 const Cuerpo = props => {
     const {
@@ -89,13 +91,9 @@ const Cuerpo = props => {
         BotonLink,
         Html,
         OptaAMP,
-        ListIngredients,
-        ListPreparation
+        powerUpsReceta
     ];
-    console.log(
-        '🚀 ~ file: cuerpoDefault.jsx ~ line 95 ~ bodyComponents',
-        bodyComponents
-    );
+
     // TODO: Ver si este es el mejor lugar donde poner este script.
     // Setea valores en el Local Storage solo del lado del cliente
     useEffect(() => {
@@ -118,6 +116,10 @@ const Cuerpo = props => {
     let counter = 0;
 
     return contentElements.map((element, currentIndex) => {
+        console.log(
+            '🚀 ~ file: cuerpoDefault.jsx ~ line 116 ~ returncontentElements.map ~ element',
+            element
+        );
         const {
             type: _type,
             subtype: _subtype,
@@ -147,12 +149,7 @@ const Cuerpo = props => {
                 return bc.arcType === _type && bc.outputType === outputType;
             }
             if (_type === 'custom_embed') {
-                if (_subtype === 'custom-preparacion') {
-                    return bc.arcType === _subtype;
-                }
-                if (_subtype === 'custom-ingrediente') {
-                    return bc.arcType === _subtype;
-                }
+                return bc.arcType === _subtype;
             }
             return bc.arcType === _type;
         });
