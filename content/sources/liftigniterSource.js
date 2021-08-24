@@ -58,23 +58,33 @@ const fetch = query => {
         idArticle,
         excludeItems = [],
         excludeNotas,
+        action,
+        nextUrl,
+        articles = [],
         uri,
+        nextIdArticle,
+        listArticles,
         sizeMax = 20
     } = query;
 
-    let excludeAllNotas = excludeNotas?.replace('/', '') || '';
-    excludeAllNotas = excludeAllNotas?.replace('[', '') || '';
-    excludeAllNotas = excludeAllNotas?.replace(']', '') || '';
+    let allArticles = action === 'activity' ? listArticles : excludeNotas;
+    allArticles = allArticles?.replace('/', '') || '';
+    allArticles = allArticles?.replace('[', '') || '';
+    allArticles = allArticles?.replace(']', '') || '';
 
+    const nextIdArticleClean = nextIdArticle?.match(/([A-Z0-9]+)/)?.[1];
+    if (nextIdArticleClean && !!nextIdArticleClean) {
+        allArticles = nextIdArticleClean.concat(',', allArticles);
+    }
     const idArticleClean = idArticle?.replace('/', '');
     if (idArticle && !!idArticle) {
-        excludeAllNotas = idArticleClean.concat(',', excludeAllNotas);
+        allArticles = idArticleClean.concat(',', allArticles);
     }
 
-    if (excludeAllNotas && !!excludeAllNotas) {
+    if (allArticles && !!allArticles) {
         const arcSiteStorys = get(query, 'arc-site', null);
         const queryArticles = {
-            Ids: excludeAllNotas,
+            Ids: allArticles,
             sizeMax,
             uri,
             'arc-site': arcSiteStorys
@@ -83,6 +93,7 @@ const fetch = query => {
             .then(resp => {
                 const queryAdapted = { ...query };
                 let urlReferer = null;
+                let nextUrlReferer = nextUrl;
 
                 resp.content_elements.map((item, i) => {
                     let itemUrl = get(item, 'canonical_url', null);
@@ -97,8 +108,30 @@ const fetch = query => {
                             idArticle?.includes(item?._id)
                         ) {
                             urlReferer = itemUrl;
-                        } else {
+                        }
+
+                        if (
+                            nextIdArticle &&
+                            !!nextIdArticle &&
+                            nextIdArticle?.includes(item?._id)
+                        ) {
+                            nextUrlReferer = itemUrl;
+                        }
+
+                        if (
+                            excludeNotas &&
+                            !!excludeNotas &&
+                            excludeNotas?.includes(item?._id)
+                        ) {
                             excludeItems.push(itemUrl);
+                        }
+
+                        if (
+                            listArticles &&
+                            !!listArticles &&
+                            listArticles?.includes(item?._id)
+                        ) {
+                            articles.push(itemUrl);
                         }
                     }
                 });
@@ -106,6 +139,8 @@ const fetch = query => {
                 queryAdapted.excludeItems = excludeItems;
                 queryAdapted.urlReferer = urlReferer;
                 queryAdapted.idArticle = idArticleClean;
+                queryAdapted.nextUrl = nextUrlReferer;
+                queryAdapted.articles = articles;
 
                 return resolveData(queryAdapted);
             })
@@ -152,7 +187,7 @@ const resolveData = query => {
         'x-api-key': LIFTIGNITER_X_API_KEY
     };
     const body = {
-        url: referrer,
+        url: urlReferer === null ? referrer : urlReferer,
         referrer,
         sessionId,
         pageviewId: idArticle
@@ -316,6 +351,9 @@ export default {
         userId: 'text',
         maxAgeInSeconds: 'text',
         excludeNotas: 'text',
+        widgetType: 'text',
+        nextIdArticle: 'text',
+        listArticles: 'text',
         sizeMax: 'text'
     },
     ttl: 120
