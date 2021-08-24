@@ -81,6 +81,8 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
                 width: 100%;
                 margin-right: auto;
                 margin-left: auto;
+                text-align: center;
+                margin-bottom: $spacing-lg;
 
                 @include padding_rl;
                 @include width-nota100;
