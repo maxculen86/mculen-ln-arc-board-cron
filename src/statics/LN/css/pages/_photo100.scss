@@ -78,6 +78,7 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
                 text-align: center;
             }
             .mod-banner {
+                @include BgDiagonal;
                 width: 100%;
                 margin-right: auto;
                 margin-left: auto;
