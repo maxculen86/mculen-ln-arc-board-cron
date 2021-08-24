@@ -674,8 +674,8 @@ $rank-dsk: px(400);
                 }
             }
             .com-unordered {
-                font-family: $font-SuecaSlab;
-                font-weight: 500;
+                // font-family: $font-SuecaSlab;
+                // font-weight: 500;
                 display: block;
                 margin: 0;
                 li {
@@ -688,6 +688,7 @@ $rank-dsk: px(400);
                     .com-link {
                         display: inline-flex;
                         color: $light-neutral-700;
+                        font-weight: 500;
                         // &:hover {
                         //     color: $light-blue-500;
                         // }
