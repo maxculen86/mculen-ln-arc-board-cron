@@ -21,7 +21,7 @@ import NewFooter from '../private/LN/common/footer';
 // import '../../resources/dist/css/ln/components/com-title-new.css';
 // import '../../resources/dist/css/ln/components/com-unordered-new.css';
 // import '../../resources/dist/css/ln/components/com-tip-new.css';
-import '../../resources/dist/css/ln/modules/mod-banner.css';
+//import '../../resources/dist/css/ln/modules/mod-banner.css';
 
 const pageBuilderSections = [
     'Pre-Titulo',
@@ -43,7 +43,7 @@ const LNNotaReceta = ({ outputType, children }) => {
         <GlobalProvider>
             <LoginProvider>
                 <CommentsProvider>
-                    <div id="wrapper" className={`recetas ${amp}`}>
+                    <div id="wrapper" className={`nota receta ${amp}`}>
                         <Header />
                         <main>
                             {/* Pre-Titulo: Banners */}
