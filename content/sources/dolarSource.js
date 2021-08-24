@@ -20,7 +20,6 @@ const fetch = ({ arcSite }) => {
             json: true
         }
     ];
-
     const promiseArr = endpoints.map(endpoint =>
         request(endpoint)
             .then(response => ({
@@ -62,7 +61,6 @@ const transform = data => {
         dblue: 'Dólar Blue',
         dccl: 'Dólar Contado con Liqui'
     };
-
     return {
         data: data.map(item => {
             const { sourceName } = item;

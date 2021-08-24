@@ -93,16 +93,33 @@
             "type": "quote"
         },
         {
-            "_id": "PI3PFAEB45HLLFDQEZ7T5RXXWQ",
-            "additional_properties": {},
-            "embed": {
-                "config": {
-                    "items": ["Arroz", "queso"],
-                    "titleList": "Arroz con queso",
-                    "typeList": "ingredientes"
+            "powerUp": [
+                {
+                    "embed": {
+                        "config": {
+                            "items": ["uno", "dos", "tres"],
+                            "titleList": "De todo un poco",
+                            "typeList": "ingredientes"
+                        }
+                    },
+                    "subtype": "custom-ingrediente",
+                    "type": "custom_embed",
+                    "_id": "74MJKTA6VREJ7ONQIHVZZILDDL"
+                },
+                {
+                    "embed": {
+                        "config": {
+                            "items": ["uno", "dos", "tres"],
+                            "titleList": "Preparacion",
+                            "typeList": "preparacion"
+                        }
+                    },
+                    "subtype": "custom-preparacion",
+                    "type": "custom_embed",
+                    "_id": "74MJKTA6VREJ7ONQIHVZZISSAS"
                 }
-            },
-            "subtype": "custom-ingrediente",
+            ],
+            "subtype": "power-up-receta",
             "type": "custom_embed"
         },
         {
