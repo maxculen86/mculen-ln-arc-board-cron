@@ -189,7 +189,7 @@ export const getBannerConfiguration = (
             slotName: changeSegmentAdUnit(
                 bannerConfiguration.slotName,
                 section,
-                device
+                slotId.includes('_amp') ? 'amp' : device
             )
         };
     }

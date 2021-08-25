@@ -35,7 +35,20 @@ jest.mock('react', () => {
     const ActualReact = require.requireActual('react');
     return {
         ...ActualReact,
-        useContext: () => ({}) // what you want to return when useContext get fired goes here
+        useContext: () => ({
+            state: {
+                siteService: {
+                    adserver: [
+                        {
+                            value: 'campo'
+                        },
+                        {
+                            value: 'propiedades'
+                        }
+                    ]
+                }
+            }
+        }) // what you want to return when useContext get fired goes here
     };
 });
 
@@ -520,6 +533,26 @@ const globalContent = {
     }
 };
 
+const globalContentDeNotaCampo = {
+    type: 'story',
+    subscription: 'S',
+    owner: { sponsored: false },
+    comments: { allow_comments: true, display_comments: true },
+    label: { mostrar_banners: { display: true, text: 'Si' } },
+    taxonomy: {
+        primary_section: {
+            name: 'El Mundo',
+            parent_id: '/economia',
+            path: '/economia/campo/',
+            type: 'section',
+            _id: '/economia/campo/',
+            _website: 'la-nacion-ar'
+        },
+        sections: [{ name: 'Economia' }, { name: 'Campo' }],
+        tags: [{ text: 'campo' }]
+    }
+};
+
 describe('isPrimarySectionInBannerSegments =>', () => {
     const segments = ['campo', 'propiedades'];
 
@@ -556,12 +589,70 @@ describe('getTargetingFormat =>', () => {
 });
 
 describe('changeSegmentAdUnit =>', () => {
-    const slotName = changeSegmentAdUnit(
-        'la_nacion_desktop/Nota/middle_1_dsk',
-        'campo',
-        'desktop'
-    );
-    expect(slotName).toEqual('campo_desktop/Nota/middle_1_dsk');
+    it('Deberia cambiar el nombre de slot si uno de los segmentos del adserver esta en el path', () => {
+        const slotName = changeSegmentAdUnit(
+            'la_nacion_desktop/Nota/middle_1_dsk',
+            'campo',
+            'desktop'
+        );
+        expect(slotName).toEqual('campo_desktop/Nota/middle_1_dsk');
+    });
+
+    it('La configuracion del banner deberia venir con el slot propio del segmento del adserver', () => {
+        let customFields = {
+            desktop: 'caja1_dsk',
+            group: 'nota'
+        };
+
+        const configCaja1 = getBannerConfiguration(
+            globalContentDeNotaCampo,
+            customFields,
+            null,
+            { device: 'desktop', slotId: 'caja1_dsk' }
+        );
+
+        expect(configCaja1.slotName).toEqual('campo_desktop/Nota/caja1_dsk');
+
+        const configCaja1Amp = getBannerConfiguration(
+            globalContentDeNotaCampo,
+            {
+                desktop: 'caja1_amp',
+                group: 'nota'
+            },
+            null,
+            { slotId: 'caja1_amp' }
+        );
+
+        expect(configCaja1Amp.slotName).toEqual('/campo_amp/AMP/ROS/caja1_amp');
+
+        const configCajaAmpNoCampo = getBannerConfiguration(
+            globalContent,
+            {
+                desktop: 'caja1_amp',
+                group: 'nota'
+            },
+            null,
+            { slotId: 'caja1_amp' }
+        );
+
+        expect(configCajaAmpNoCampo.slotName).toEqual(
+            '/133919216/AMP/ROS/caja1_amp'
+        );
+
+        const configCajaNoCampo = getBannerConfiguration(
+            globalContent,
+            {
+                desktop: 'caja1_dsk',
+                group: 'nota'
+            },
+            null,
+            { device: 'desktop', slotId: 'caja1_dsk' }
+        );
+
+        expect(configCajaNoCampo.slotName).toEqual(
+            'la_nacion_desktop/Nota/caja1_dsk'
+        );
+    });
 });
 
 describe('getBannerConfiguration =>', () => {
