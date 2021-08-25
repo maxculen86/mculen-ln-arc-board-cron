@@ -189,7 +189,7 @@ export const getBannerConfiguration = (
             slotName: changeSegmentAdUnit(
                 bannerConfiguration.slotName,
                 section,
-                suffixDevice[device]
+                device
             )
         };
     }
@@ -272,7 +272,7 @@ export const setCustomAdUnit = (slotName, unit) => {
     return slotName.replace(stringToReplace, unit);
 };
 
-export const changeSegmentAdUnit = (slotName = '', section, deviceSuffix) => {
+export const changeSegmentAdUnit = (slotName = '', section, device) => {
     const stringToReplace = slotName
         ? slotName
               .split('/')
@@ -280,7 +280,7 @@ export const changeSegmentAdUnit = (slotName = '', section, deviceSuffix) => {
               .shift()
         : '';
 
-    return slotName.replace(stringToReplace, `${section}${deviceSuffix}`);
+    return slotName.replace(stringToReplace, `${section}_${device}`);
 };
 
 export const getTargetingFormat = sections => {

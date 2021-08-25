@@ -1,6 +1,7 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import {
+    changeSegmentAdUnit,
     getBannerConfiguration,
     getTargetingFormat,
     isForAmp,
@@ -552,6 +553,15 @@ describe('getTargetingFormat =>', () => {
     expect(targeting).toEqual(
         '{"tags":["ca_el mundo|ca_ciencia|te_deportes|te_sake"],"tags_nuevos":["ca_el mundo","ca_ciencia","te_deportes","te_sake"]}'
     );
+});
+
+describe('changeSegmentAdUnit =>', () => {
+    const slotName = changeSegmentAdUnit(
+        'la_nacion_desktop/Nota/middle_1_dsk',
+        'campo',
+        'desktop'
+    );
+    expect(slotName).toEqual('campo_desktop/Nota/middle_1_dsk');
 });
 
 describe('getBannerConfiguration =>', () => {
