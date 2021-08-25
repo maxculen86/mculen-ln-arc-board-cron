@@ -673,35 +673,28 @@ $rank-dsk: px(400);
                     color: $light-neutral-700;
                 }
             }
-            .com-unordered {
-                // font-family: $font-SuecaSlab;
-                // font-weight: 500;
-                display: block;
-                margin: 0;
-                li {
-                    //align-items: center;
-                    display: flex;
-                    margin-bottom: px(8);
-                    &:last-child {
-                        margin-bottom: 0;
-                    }
-                    .com-link {
-                        display: inline-flex;
-                        color: $light-neutral-700;
-                        font-weight: 500;
-                        // &:hover {
-                        //     color: $light-blue-500;
-                        // }
-
-                        &:before {
-                            font-family: LNicons;
-                            color: $light-neutral-400;
-                            content: $icon-bullet-xs;
-                            font-size: px(24);
-                        }
-                    }
-                }
-            }
+            // .com-unordered {
+            //     display: block;
+            //     margin: 0;
+            //     li {
+            //         display: flex;
+            //         margin-bottom: px(8);
+            //         &:last-child {
+            //             margin-bottom: 0;
+            //         }
+            //         .com-link {
+            //             display: inline-flex;
+            //             color: $light-neutral-700;
+            //             font-weight: 500;
+            //             &:before {
+            //                 font-family: LNicons;
+            //                 color: $light-neutral-400;
+            //                 content: $icon-bullet-xs;
+            //                 font-size: px(24);
+            //             }
+            //         }
+            //     }
+            // }
             .col-12 {
                 display: block;
                 margin: 0;
@@ -737,13 +730,12 @@ $rank-dsk: px(400);
                 .com-title {
                     margin: 0;
                 }
-                .com-unordered {
-                    display: inline-flex;
-                    li {
-                        margin: 0;
-                        //flex: 1;
-                    }
-                }
+                // .com-unordered {
+                //     display: inline-flex;
+                //     li {
+                //         margin: 0;
+                //     }
+                // }
                 .col-12 {
                     display: inline-flex;
                     .mod-article {
