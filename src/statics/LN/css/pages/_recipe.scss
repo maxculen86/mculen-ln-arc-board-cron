@@ -111,14 +111,14 @@
         margin-bottom: $spacing-sm;
     }
     .--ingredients {
-        order: 1;
+        //order: 1;
         @media ($media-m) {
             margin-right: 8.33333%;
         }
     }
-    .--preparation {
-        order: 2;
-    }
+    // .--preparation {
+    //     order: 2;
+    // }
 }
 
 .ingredient-list {
