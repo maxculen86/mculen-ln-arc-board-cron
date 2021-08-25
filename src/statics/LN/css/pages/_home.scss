@@ -702,6 +702,30 @@ $rank-dsk: px(400);
                     }
                 }
             }
+            .col-12 {
+                display: block;
+                margin: 0;
+
+                .mod-article {
+                    display: flex;
+                    width: auto;
+                    margin-bottom: px(8);
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                    .com-link {
+                        display: inline-flex;
+                        color: $light-neutral-700;
+                        font-weight: 500;
+                        &:before {
+                            font-family: LNicons;
+                            color: $light-neutral-400;
+                            content: $icon-bullet-xs;
+                            font-size: px(24);
+                        }
+                    }
+                }
+            }
         }
         @media ($media-m) {
             width: 100%;
@@ -718,6 +742,12 @@ $rank-dsk: px(400);
                     li {
                         margin: 0;
                         //flex: 1;
+                    }
+                }
+                .col-12 {
+                    display: inline-flex;
+                    .mod-article {
+                        margin: 0;
                     }
                 }
             }

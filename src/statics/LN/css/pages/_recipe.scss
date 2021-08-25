@@ -117,11 +117,14 @@
         //order: 1;
         @media ($media-m) {
             margin-right: 8.33333%;
+            margin-bottom: $spacing-lg;
         }
     }
-    // .--preparation {
-    //     order: 2;
-    // }
+    .--preparation {
+        @media ($media-m) {
+            margin-bottom: $spacing-lg;
+        }
+    }
 }
 
 .ingredient-list {

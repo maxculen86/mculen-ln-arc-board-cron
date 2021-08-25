@@ -39,30 +39,32 @@ const Editoriales = props => {
             {(_articles && articles.length && (
                 <>
                     {/* <ComLinkList isEditoriales list={_articles} /> */}
-                    <ul className="com-unordered">
+                    {/* <ul className="com-unordered"> */}
+                    <div class="col-12">
                         {_articles.map((element, i) => {
                             extraOpts['data-pos'] = `990${i + 1}`;
                             extraOpts['data-id'] = element.id;
                             extraOpts['data-notaid'] = element.id;
                             return (
-                                <li className="item" {...extraOpts}>
-                                    <article className="mod-article">
-                                        <div className="mod-description">
-                                            <h2 className="com-title --twoxs">
-                                                <a
-                                                    href={element.link}
-                                                    className="com-link"
-                                                    title={element.title}
-                                                >
-                                                    {element.title}
-                                                </a>
-                                            </h2>
-                                        </div>
-                                    </article>
-                                </li>
+                                // <li className="item" {...extraOpts}>
+                                <article className="mod-article" {...extraOpts}>
+                                    <div className="mod-description">
+                                        <h2 className="com-title --twoxs">
+                                            <a
+                                                href={element.link}
+                                                className="com-link"
+                                                title={element.title}
+                                            >
+                                                {element.title}
+                                            </a>
+                                        </h2>
+                                    </div>
+                                </article>
+                                // </li>
                             );
                         })}
-                    </ul>
+                    </div>
+                    {/* </ul> */}
                 </>
             )) || <></>}
         </section>
