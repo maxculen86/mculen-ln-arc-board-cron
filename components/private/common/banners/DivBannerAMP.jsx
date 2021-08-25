@@ -24,17 +24,19 @@ const DivBannerAMP = ({ bannerConfiguration }) => {
 
     return (
         <div className={`row ${sticky ? 'sticky-amp' : ''}`}>
-            <div className="col-12">
-                <div
-                    className={`--bg-banner ${sticky ? 'hlp-desksm-none' : ''}`}
-                >
-                    {sticky ? (
-                        <amp-sticky-ad layout="nodisplay">{comp}</amp-sticky-ad>
-                    ) : (
-                        comp
-                    )}
-                </div>
+            {/* <div className="col-12"> */}
+            <div
+                className={`mod-banner --bg-banner ${
+                    sticky ? 'hlp-desksm-none' : ''
+                }`}
+            >
+                {sticky ? (
+                    <amp-sticky-ad layout="nodisplay">{comp}</amp-sticky-ad>
+                ) : (
+                    comp
+                )}
             </div>
+            {/* </div> */}
         </div>
     );
 };
