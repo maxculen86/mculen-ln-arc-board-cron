@@ -12,9 +12,11 @@ import {
     STORYTELLING
 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 import get from '../../components/private/common/utils/get';
+import isvalidUrl from '../../components/private/common/utils/isvalidUrl';
 import logger from '../../components/private/common/utils/logger';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import getPresets from './utils/presets';
+import ArticleSourceNotas from './acuArticlesSourcebyIds';
 
 const transformArticles = (liftigniterArticles = [], cantidadNotas) =>
     liftigniterArticles &&
@@ -50,9 +52,116 @@ const transformArticles = (liftigniterArticles = [], cantidadNotas) =>
  * 2. Mejora de registro de click, enviar listado de items
  */
 
+const fetch = query => {
+    const {
+        referrer = SITE_LANACION,
+        idArticle,
+        excludeItems = [],
+        excludeNotas,
+        action,
+        nextUrl,
+        articles = [],
+        uri,
+        nextIdArticle,
+        listArticles,
+        sizeMax = 20
+    } = query;
+
+    let allArticles = action === 'activity' ? listArticles : excludeNotas;
+    allArticles = allArticles?.replace('/', '') || '';
+    allArticles = allArticles?.replace('[', '') || '';
+    allArticles = allArticles?.replace(']', '') || '';
+
+    const nextIdArticleClean = nextIdArticle?.match(/([A-Z0-9]+)/)?.[1];
+    if (nextIdArticleClean && !!nextIdArticleClean) {
+        allArticles = nextIdArticleClean.concat(',', allArticles);
+    }
+    const idArticleClean = idArticle?.replace('/', '');
+    if (idArticle && !!idArticle) {
+        allArticles = idArticleClean.concat(',', allArticles);
+    }
+
+    if (allArticles && !!allArticles) {
+        const arcSiteStorys = get(query, 'arc-site', null);
+        const queryArticles = {
+            Ids: allArticles,
+            sizeMax,
+            uri,
+            'arc-site': arcSiteStorys
+        };
+        return ArticleSourceNotas.fetch(queryArticles)
+            .then(resp => {
+                const queryAdapted = { ...query };
+                let urlReferer = null;
+                let nextUrlReferer = nextUrl;
+
+                resp.content_elements.map((item, i) => {
+                    let itemUrl = get(item, 'canonical_url', null);
+
+                    if (itemUrl && !itemUrl.includes('http')) {
+                        itemUrl = referrer.concat(itemUrl);
+                    }
+                    if (isvalidUrl(itemUrl)) {
+                        if (
+                            idArticle &&
+                            !!idArticle &&
+                            idArticle?.includes(item?._id)
+                        ) {
+                            urlReferer = itemUrl;
+                        }
+
+                        if (
+                            nextIdArticle &&
+                            !!nextIdArticle &&
+                            nextIdArticle?.includes(item?._id)
+                        ) {
+                            nextUrlReferer = itemUrl;
+                        }
+
+                        if (
+                            excludeNotas &&
+                            !!excludeNotas &&
+                            excludeNotas?.includes(item?._id)
+                        ) {
+                            excludeItems.push(itemUrl);
+                        }
+
+                        if (
+                            listArticles &&
+                            !!listArticles &&
+                            listArticles?.includes(item?._id)
+                        ) {
+                            articles.push(itemUrl);
+                        }
+                    }
+                });
+
+                queryAdapted.excludeItems = excludeItems;
+                queryAdapted.urlReferer = urlReferer;
+                queryAdapted.idArticle = idArticleClean;
+                queryAdapted.nextUrl = nextUrlReferer;
+                queryAdapted.articles = articles;
+
+                return resolveData(queryAdapted);
+            })
+            .catch(error => {
+                logger.push(
+                    error,
+                    {
+                        source: 'content/sources/articleSourceNota',
+                        url: `${uri}`
+                    },
+                    arcSiteStorys
+                );
+            });
+    }
+
+    return resolveData(query);
+};
+
 const duplicateMaxCount = cantidadNotas => cantidadNotas * 2;
 
-const fetch = query => {
+const resolveData = query => {
     const {
         cantidadNotas = 9,
         referrer = SITE_LANACION,
@@ -65,7 +174,9 @@ const fetch = query => {
         action,
         nextUrl,
         widgetType,
-        articles = []
+        articles = [],
+        urlReferer = null,
+        maxAgeInSeconds
     } = query;
 
     const userIdParam = userId && !userId.includes('/') ? `/${userId}` : '';
@@ -76,7 +187,7 @@ const fetch = query => {
         'x-api-key': LIFTIGNITER_X_API_KEY
     };
     const body = {
-        url: referrer,
+        url: urlReferer === null ? referrer : urlReferer,
         referrer,
         sessionId,
         pageviewId: idArticle
@@ -108,7 +219,7 @@ const fetch = query => {
             widgetName: WIDGETS,
             source: 'LI',
             timestamp,
-            visibleItems: articles
+            visibleItems: articles // preguntar
         }
     };
 
@@ -154,9 +265,10 @@ const fetch = query => {
                 ],
                 referrer,
                 pageviewId: idArticle,
-                url: referrer,
+                url: urlReferer === null ? referrer : urlReferer,
                 sessionId,
-                excludeItems
+                excludeItems,
+                maxAgeInSeconds
             }),
             resolve: response => {
                 const { items } = JSON.parse(response);
@@ -177,13 +289,13 @@ const fetch = query => {
             }
         }
     };
-
-    return request({
+    const queryRequest = {
         uri: REQUESTS[action].uri,
         method: REQUESTS[action].method,
         headers: REQUESTS[action].headers,
         body: REQUESTS[action].body
-    })
+    };
+    return request(queryRequest)
         .then(response => REQUESTS[action].resolve(response))
         .catch(error => REQUESTS[action].reject(error));
 };
@@ -226,6 +338,7 @@ const transform = (data, siteProps) => {
  * TODO: Por completar de tarea
  * 3. Confirmar el ttl
  */
+
 export default {
     fetch,
     params: {
@@ -235,7 +348,13 @@ export default {
         action: 'text',
         sessionId: 'text',
         idArticle: 'text',
-        userId: 'text'
+        userId: 'text',
+        maxAgeInSeconds: 'text',
+        excludeNotas: 'text',
+        widgetType: 'text',
+        nextIdArticle: 'text',
+        listArticles: 'text',
+        sizeMax: 'text'
     },
     ttl: 120
 };

@@ -30,7 +30,7 @@ import Video from './video';
 import { setStorageConfiguration } from '../../../common/utils/storage';
 import {
     FOTOAL100,
-    RECETA
+    NOTICIA
 } from '../../../common/utils/subtypes/subtypeHelper';
 import useViewportSize from '../../../common/hooks/useViewportSize';
 import { GlobalContext } from '../../../common/context/globalContext';
@@ -196,7 +196,10 @@ const Cuerpo = props => {
                                 .filter(banner => banner.position === counter)
                                 .map(value => {
                                     // TODO: logica para nuevo banner
-                                    if (subtype === FOTOAL100) {
+                                    if (
+                                        subtype === FOTOAL100 ||
+                                        subtype === NOTICIA
+                                    ) {
                                         const slotId =
                                             value.desktop ||
                                             value.mobile ||
@@ -224,7 +227,9 @@ const Cuerpo = props => {
                                         if (
                                             !bannerConfiguration ||
                                             (outputType === 'amp' &&
-                                                !slotId.includes('_amp'))
+                                                !slotId.includes('_amp')) ||
+                                            (outputType !== 'amp' &&
+                                                slotId.includes('_amp'))
                                         )
                                             return <></>;
 

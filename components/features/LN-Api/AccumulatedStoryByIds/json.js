@@ -1,5 +1,6 @@
 import Consumer from 'fusion:consumer';
 import IndexAcuV1 from '../../../private/LN/api/v1/accumulated';
+import IndexAcuV2 from '../../../private/LN/api/v2/accumulated';
 import browser from '../../../private/common/utils/browser';
 
 // URL de ejemplo: http://localhost/api/v1/notas/byIds/236DDMMNYVFNFC4PZQPP4AK6XI,2375VFXVGZBNZDLXL5CTHUVTMQ,23CPLUXGMFF2RBADC62EYLXH4M/?_website=la-nacion-ar&outputType=json
@@ -12,7 +13,8 @@ class AccumulatedStoryByIds {
         this.state.acuArticlesSource = this.props.globalContent;
 
         this.versions = {
-            1: IndexAcuV1
+            1: IndexAcuV1,
+            2: IndexAcuV2
         };
     }
 

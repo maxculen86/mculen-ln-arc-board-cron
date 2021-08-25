@@ -158,6 +158,7 @@ const HeaderDesktop = ({
                             href={`${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
                                 location.href
                             )}`}
+                            rel="nofollow"
                         >
                             SUSCRIBITE
                         </a>
