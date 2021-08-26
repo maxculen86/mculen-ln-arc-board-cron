@@ -113,10 +113,6 @@ const Amp = props => {
                     }}
                 />
                 <link
-                    href="https://fonts.googleapis.com/css?family=Oswald:200,300,400"
-                    rel="stylesheet"
-                />
-                <link
                     rel="icon"
                     type="image/x-icon"
                     href={deployment(`${contextPath}/resources/favicon.ico`)}

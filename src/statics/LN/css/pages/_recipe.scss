@@ -104,6 +104,29 @@
     }
 }
 
+.--steps {
+    margin-bottom: $spacing-lg;
+    .com-title {
+        font-weight: 500;
+        margin-bottom: $spacing-sm;
+    }
+    .com-text {
+        margin-bottom: $spacing-sm;
+    }
+    .--ingredients {
+        //order: 1;
+        @media ($media-m) {
+            margin-right: 8.33333%;
+            margin-bottom: $spacing-lg;
+        }
+    }
+    .--preparation {
+        @media ($media-m) {
+            margin-bottom: $spacing-lg;
+        }
+    }
+}
+
 .ingredient-list {
     list-style: disc;
     display: flex;

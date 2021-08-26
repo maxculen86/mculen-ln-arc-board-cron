@@ -71,7 +71,8 @@ const HeaderDesktop = ({
     isHome,
     section,
     // headerDark,
-    toglleDesplegable
+    toglleDesplegable,
+    isAdmin
 }) => {
     const { loading } = loginData;
     const { goToLoginUrl } = loginData;
@@ -118,7 +119,7 @@ const HeaderDesktop = ({
                 </label>
             </div>
             <div className="col-7 col-desksm-4 header__middle">
-                <BannerLogoHeader section={section} />
+                <BannerLogoHeader section={section} isAdmin={isAdmin} />
                 <Logo
                     logoName="la-nacion"
                     classCondition="nacion-home"
@@ -157,6 +158,7 @@ const HeaderDesktop = ({
                             href={`${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
                                 location.href
                             )}`}
+                            rel="nofollow"
                         >
                             SUSCRIBITE
                         </a>
@@ -233,6 +235,7 @@ const HeaderDesktop = ({
 
 HeaderDesktop.propTypes = {
     logueado: PropTypes.bool.isRequired,
+    isAdmin: PropTypes.bool.isRequired,
     loginData: PropTypes.shape({
         subscription: PropTypes.bool,
         userName: PropTypes.string,

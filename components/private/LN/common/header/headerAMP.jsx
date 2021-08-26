@@ -36,6 +36,7 @@ const headerAMP = props => {
                                     id="btnsuscribite"
                                     title="Suscribite a LA NACION"
                                     href="https://suscripciones.lanacion.com.ar/suscribirme"
+                                    rel="nofollow"
                                 >
                                     SUSCRIBITE
                                 </Link>
