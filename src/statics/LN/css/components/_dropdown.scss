@@ -123,6 +123,16 @@
                     }
                     border: 1px solid #d9d9d9;
                     background: $neutral-white;
+
+                    .item__nav.item--lifestyle:hover {
+                        @media (max-height: 800px) {
+                            .sublist__nav.sublist__nav {
+                                bottom: -20px;
+                                top: auto;
+                            }
+                        }
+                    }
+
                     &.secondary--nav {
                         .item__nav {
                             .link__item {

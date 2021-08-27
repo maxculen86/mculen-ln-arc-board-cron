@@ -159,8 +159,8 @@
         //ALTURAS FIJAS
         &.--adhesion_tab,
         &.--cabezal_tab,
-        &.--middle1_tab,
-        &.--middle2_tab {
+        &.--middle_1_tab,
+        &.--middle_2_tab {
             height: px(90);
         }
 
@@ -236,7 +236,7 @@
                 height: px(100);
             }
 
-            &.--middle1_dsk,
+            &.--middle_1_dsk,
             &.--caja1_dsk,
             &.--caja2_dsk,
             &.--caja3_dsk,

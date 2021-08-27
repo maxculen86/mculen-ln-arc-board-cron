@@ -27,6 +27,9 @@ class MayInterest {
 
             const indexAcu = this.versions[browser.getApiVersion(requestUri)];
 
+            if (globalContent && globalContent?.status) {
+                return globalContent;
+            }
             const acuData = {
                 name: 'Te puede interesar',
                 total: globalContent.length,
