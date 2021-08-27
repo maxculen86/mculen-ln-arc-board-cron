@@ -5,6 +5,7 @@ import HeaderDesktop from './headerDesktop';
 import NavBarMobile from '../navbar';
 import HeaderAMP from './headerAMP';
 import withLoginData from '../hocs/withLoginData';
+import loginHelper from '../utils/loginHelper';
 import Desplegable from '../desplegable';
 import Scroll from '../../../common/utils/scroll';
 import debounce from '../../../common/utils/debounce';
@@ -128,16 +129,15 @@ class Index extends Component {
     render() {
         const {
             outputType,
-            logueado,
-            loginData,
-            goToLogout,
             // headerDark,
             siteProperties: { host, layoutsName = {} },
             layout,
             globalContent,
             isAdmin
         } = this.props;
-
+        const { getLoginData, isLoggedIn, goToLogout } = loginHelper;
+        const loginData = getLoginData();
+        const logueado = isLoggedIn();
         const { type, node_type: nodeType } = globalContent || {};
         const section = getSectionName({ type, nodeType });
 
@@ -182,14 +182,7 @@ class Index extends Component {
 
 Index.propTypes = {
     outputType: PropTypes.string.isRequired,
-    logueado: PropTypes.bool.isRequired,
     isAdmin: PropTypes.bool.isRequired,
-    loginData: PropTypes.shape({
-        subcription: PropTypes.bool,
-        userName: PropTypes.string,
-        goToLoginUrl: PropTypes.func
-    }).isRequired,
-    goToLogout: PropTypes.func.isRequired,
     siteProperties: PropTypes.shape({
         host: PropTypes.string,
         layoutsName: PropTypes.shape({

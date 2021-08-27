@@ -1,9 +1,5 @@
 import Consumer from 'fusion:consumer';
 
-/* jest.mock(
-    '../../../../../../components/private/LN/common/header/headerMobile',
-    () => 'mocked-mobile-header'
-); */
 jest.mock(
     '../../../../../../components/private/LN/common/header/headerDesktop',
     () => 'mocked-desktop-header'
@@ -22,11 +18,6 @@ jest.mock(
     '../../../../../../components/private/LN/common/desplegable',
     () => 'mocked-desplegable'
 );
-
-/* jest.mock(
-    '../../../../../../components/private/common/hocs/withScreenUtils',
-    () => Comp => props => (Comp ? <Comp {...props} /> : null)
-); */
 
 import React from 'react';
 import { mount, render, shallow } from 'enzyme';

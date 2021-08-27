@@ -20,8 +20,16 @@ const isLoggedIn = () => {
     return logueado;
 };
 
+const goToLogout = () => {
+    const { state } = getContext(LoginStore);
+    console.log(state);
+    debugger;
+    return () => '/login';
+};
+
 export default {
     getLoginData,
     isSubscribed,
-    isLoggedIn
+    isLoggedIn,
+    goToLogout
 };
