@@ -5,7 +5,7 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import { useFusionContext } from 'fusion:context';
 
-import withLoginData from '../../hocs/withLoginData';
+import loginHelper from '../../utils/loginHelper';
 
 const hide = element => {
     if (element) element.style.visibility = 'hidden';
@@ -16,7 +16,7 @@ const show = element => {
 };
 
 export default Component => {
-    return withLoginData(props => {
+    return props => {
         const scrollPosition = useRef(0);
         const ref = React.createRef();
         const fusionContext = useFusionContext();
@@ -24,10 +24,7 @@ export default Component => {
         const megatopRef = useRef(
             document.querySelector('#megatop_dsk') || null
         );
-
-        const {
-            loginData: { subscription }
-        } = props;
+        const { isSubscribed } = loginHelper;
 
         const { outputType } = fusionContext;
 
@@ -63,7 +60,7 @@ export default Component => {
         // if (subscription) return null;
 
         return outputType !== 'amp' ? (
-            <Component subscription={subscription} {...props} ref={ref} />
+            <Component subscription={isSubscribed()} {...props} ref={ref} />
         ) : null;
-    });
+    };
 };

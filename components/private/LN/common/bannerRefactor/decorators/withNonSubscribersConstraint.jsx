@@ -3,18 +3,16 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-import withLoginData from '../../hocs/withLoginData';
+import loginHelper from '../../utils/loginHelper';
 
 export default Component => {
     if (!Component) return null;
 
-    const Enhanced = withLoginData(props => {
-        const {
-            loginData: { subscription }
-        } = props;
+    const Enhanced = props => {
+        const { isSubscribed } = loginHelper;
         // if (subscription) return null;
-        return <Component noShow subscription={subscription} {...props} />;
-    });
+        return <Component noShow subscription={isSubscribed()} {...props} />;
+    };
 
     Enhanced.propTypes = {
         slotId: PropTypes.string.isRequired,

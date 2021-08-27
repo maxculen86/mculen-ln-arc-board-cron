@@ -11,7 +11,7 @@ import { getSlotForDevice } from '../../LN/common/bannerRefactor/utils';
 import ConfigBuilder from '../../LN/common/bannerRefactor/builder';
 import flatArray from '../utils/flatArray';
 import hasAdsTestParam from '../../LN/common/utils/hasAdsTesParam';
-import { getSubscription } from '../../LN/common/utils/homeHelper';
+import loginHelper from '../../LN/common/utils/loginHelper';
 
 let googleCmdPushed = false;
 let bannersWithoutHide = [];
@@ -134,7 +134,8 @@ const LoadBanners = ({ blocksBanners }) => {
     const bannersConfigured = renderables.filter(e =>
         ['LN-common/bannerRefactor', 'LN-nota/cuerpo'].includes(e.type)
     );
-    const subscription = blocksBanners ? getSubscription() : false;
+    const { isSubscribed } = loginHelper;
+    const subscription = blocksBanners ? isSubscribed() : false;
 
     useEffect(() => {
         if (hasAdsTestParam() === 'true') {
