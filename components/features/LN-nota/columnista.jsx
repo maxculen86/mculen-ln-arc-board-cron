@@ -17,7 +17,7 @@ const Columnista = props => {
                 {
                     author: author.name,
                     type: author.node_type,
-                    image: { resized_urls: author.image.url }
+                    image: { resized_urls: [{ resizedUrl: author.image.url }] }
                 }
             ]
         }
