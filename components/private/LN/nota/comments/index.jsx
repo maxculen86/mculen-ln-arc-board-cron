@@ -14,7 +14,7 @@ import crypto from 'crypto';
 import { messages, providersToBlock } from './strings';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import handleCookie from '../../common/utils/handleCookie';
-import withLoginData from '../../common/hocs/withLoginData';
+import loginHelper from '../../common/utils/loginHelper';
 import '../../../../../resources/dist/css/ln/modules/comments.css';
 import useComments from '../../../common/hooks/useComments';
 import get from '../../../common/utils/get';
@@ -29,10 +29,10 @@ const Comments = props => {
             label,
             subtype
         },
-        logueado,
-        loginData,
         deployment
     } = props;
+    const { getLoginData, isLoggedIn } = loginHelper;
+    const loginData = getLoginData();
     // return <LoadingIcon />;
     // const {
     //     globalContent: { comments }
@@ -339,7 +339,7 @@ const Comments = props => {
                     </p>
                 )}
 
-                {!logueado && (
+                {!isLoggedIn() && (
                     <div className="comment-reminder">
                         Para poder comentar tenés que ingresar con tu usuario de
                         LA NACION.
@@ -352,10 +352,6 @@ const Comments = props => {
 };
 
 Comments.propTypes = {
-    logueado: PropTypes.bool.isRequired,
-    loginData: PropTypes.shape({
-        goToLoginUrl: PropTypes.func
-    }).isRequired,
     globalContent: PropTypes.shape({
         _id: PropTypes.string,
         canonical_url: PropTypes.string,
@@ -372,4 +368,4 @@ Comments.propTypes = {
     deployment: PropTypes.func.isRequired
 };
 
-export default withLoginData(Comments);
+export default Comments;

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Comments Matches snapshot 1`] = `
-<Component
+<Comments
   deployment={[Function]}
   globalContent={
     Object {
@@ -13,12 +13,6 @@ exports[`Comments Matches snapshot 1`] = `
       "subtype": 1,
     }
   }
-  loginData={
-    Object {
-      "goToLoginUrl": [Function],
-    }
-  }
-  logueado={true}
   termicas={
     Object {
       "comentarios": true,
@@ -26,72 +20,46 @@ exports[`Comments Matches snapshot 1`] = `
     }
   }
 >
-  <Comments
-    deployment={[Function]}
-    globalContent={
-      Object {
-        "_id": "RDCAIGB3WNHJVHSBLDT367MU3Q",
-        "canonical_url": "/turismo/ocio-y-negocios-nid30032020/",
-        "headlines": Object {
-          "basic": "Testing comments",
-        },
-        "subtype": 1,
-      }
-    }
-    loginData={
-      Object {
-        "goToLoginUrl": [Function],
-      }
-    }
-    logueado={true}
-    termicas={
-      Object {
-        "comentarios": true,
-        "livefyre": true,
-      }
-    }
+  <LoadingIcon>
+    <div
+      className="loader"
+    />
+  </LoadingIcon>
+  <section
+    className="comments arrow-down hlp-none"
+    data-module="nota-sugeridas-comentarios"
+    id="comentarios"
   >
-    <LoadingIcon>
-      <div
-        className="loader"
-      />
-    </LoadingIcon>
-    <section
-      className="comments arrow-down hlp-none"
-      data-module="nota-sugeridas-comentarios"
-      id="comentarios"
+    <div
+      className="techo"
     >
       <div
-        className="techo"
-      >
-        <div
-          data-entrada="RDCAIGB3WNHJVHSBLDT367MU3Q"
-          data-id="eyJhbGciOiJIUzI1NiJ9.MTU1NjY5YWZmMmUyYWE0NjJjMWE1ZjI1MWI5YTEwM2U.IRuyevM6kT8BK5BTyQ64JRkBQsCj00_L4gqzpSlS72U"
-          data-lf-siteid="356483"
-          id="tokenLF"
-        />
-        <h4
-          className="comment-title"
-        >
-          Enviá 
-          <b>
-            tu comentario 
-          </b>
-          <button
-            className="item_link ver-legales"
-            onClick={[Function]}
-            title="Ver legales"
-            type="button"
-          >
-             
-            Ver legales
-          </button>
-        </h4>
-      </div>
-      <div
-        id="livefyre"
+        data-entrada="RDCAIGB3WNHJVHSBLDT367MU3Q"
+        data-id="eyJhbGciOiJIUzI1NiJ9.MTU1NjY5YWZmMmUyYWE0NjJjMWE1ZjI1MWI5YTEwM2U.IRuyevM6kT8BK5BTyQ64JRkBQsCj00_L4gqzpSlS72U"
+        data-lf-siteid="356483"
+        id="tokenLF"
       />
-    </section>
-  </Comments>
-</Component>
+      <h4
+        className="comment-title"
+      >
+        Enviá 
+        <b>
+          tu comentario 
+        </b>
+        <button
+          className="item_link ver-legales"
+          onClick={[Function]}
+          title="Ver legales"
+          type="button"
+        >
+           
+          Ver legales
+        </button>
+      </h4>
+    </div>
+    <div
+      id="livefyre"
+    />
+  </section>
+</Comments>
 `;
