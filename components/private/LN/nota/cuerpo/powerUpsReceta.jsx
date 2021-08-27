@@ -5,10 +5,6 @@ import ComTitle from '../../../common/com-title';
 
 const powerUpsReceta = ({ data }) => {
     const { powerUp } = data;
-    console.log(
-        '🚀 ~ file: powerUpsReceta.jsx ~ line 8 ~ powerUpsReceta ~ powerUp',
-        powerUp
-    );
     return (
         <div className="row --steps">
             <div className="col-tablet-3 --ingredients">
