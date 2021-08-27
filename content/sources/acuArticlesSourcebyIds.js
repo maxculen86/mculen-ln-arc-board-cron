@@ -20,7 +20,7 @@ const resolve = key => {
     const arcSite = key['arc-site'];
     const basePath = `/content/v4/ids/?website=${website || arcSite}`;
 
-    if (Ids) return `${basePath}&ids=${Ids}`;
+    if (Ids) return `${basePath}&ids=${Ids}&sort=display_date:desc`;
 
     throw new Error('Debe definir los Ids para obtener las notas');
 };
@@ -29,6 +29,7 @@ const fetch = query => {
     const { Ids, sizeMax, uri } = query;
 
     const arcSite = query['arc-site'];
+
     const resultsIds = Ids.split(/[ ,]+/);
 
     if (sizeMax && sizeMax < resultsIds.length) {
@@ -46,16 +47,18 @@ const fetch = query => {
             bearer: ARC_ACCESS_TOKEN
         };
     }
+
     return request(opt)
         .then(response => {
             const objresponse = {};
+
             Object.entries(response).map(([key, value]) => {
                 objresponse[key] = value;
             });
 
-            objresponse.count = resultsIds.length;
+            objresponse.count = resultsIds.length || 0;
             objresponse.next = null;
-            return transform(objresponse, query, resultsIds);
+            return transform(objresponse, query);
         })
         .catch(error => {
             logger.push(error, { source: 'content/source', uri }, arcSite);
@@ -63,7 +66,7 @@ const fetch = query => {
         });
 };
 
-const transform = (data, siteProps, resultsIds = []) => {
+const transform = (data, siteProps) => {
     const respData = data;
     const { content_elements: contentElements } = data || {};
     const { presets, presetsDefault } = getPresets(siteProps);
@@ -116,11 +119,6 @@ const transform = (data, siteProps, resultsIds = []) => {
                     {}
             ]
         };
-    });
-    respData.content_elements = resultsIds.map(orderId => {
-        return respData.content_elements.find(
-            story => get(story, '_id', '') === orderId
-        );
     });
 
     return respData;
