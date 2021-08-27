@@ -20,7 +20,7 @@ const resolve = key => {
     const arcSite = key['arc-site'];
     const basePath = `/content/v4/ids/?website=${website || arcSite}`;
 
-    if (Ids) return `${basePath}&ids=${Ids}&sort=display_date:desc`;
+    if (Ids) return `${basePath}&ids=${Ids}`;
 
     throw new Error('Debe definir los Ids para obtener las notas');
 };
@@ -47,18 +47,16 @@ const fetch = query => {
             bearer: ARC_ACCESS_TOKEN
         };
     }
-
     return request(opt)
         .then(response => {
             const objresponse = {};
-
             Object.entries(response).map(([key, value]) => {
                 objresponse[key] = value;
             });
 
             objresponse.count = resultsIds.length;
             objresponse.next = null;
-            return transform(objresponse, query);
+            return transform(objresponse, query, resultsIds);
         })
         .catch(error => {
             logger.push(error, { source: 'content/source', uri }, arcSite);
@@ -66,7 +64,7 @@ const fetch = query => {
         });
 };
 
-const transform = (data, siteProps) => {
+const transform = (data, siteProps, resultsIds) => {
     const respData = data;
     const { content_elements: contentElements } = data || {};
     const { presets, presetsDefault } = getPresets(siteProps);
@@ -119,6 +117,9 @@ const transform = (data, siteProps) => {
                     {}
             ]
         };
+    });
+    respData.content_elements = resultsIds.map(orderId => {
+        return respData.content_elements.find(story => story._id === orderId);
     });
 
     return respData;
