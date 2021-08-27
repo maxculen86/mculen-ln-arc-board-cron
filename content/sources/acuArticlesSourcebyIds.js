@@ -29,7 +29,6 @@ const fetch = query => {
     const { Ids, sizeMax, uri } = query;
 
     const arcSite = query['arc-site'];
-
     const resultsIds = Ids.split(/[ ,]+/);
 
     if (sizeMax && sizeMax < resultsIds.length) {
@@ -64,7 +63,7 @@ const fetch = query => {
         });
 };
 
-const transform = (data, siteProps, resultsIds) => {
+const transform = (data, siteProps, resultsIds = []) => {
     const respData = data;
     const { content_elements: contentElements } = data || {};
     const { presets, presetsDefault } = getPresets(siteProps);
@@ -119,7 +118,9 @@ const transform = (data, siteProps, resultsIds) => {
         };
     });
     respData.content_elements = resultsIds.map(orderId => {
-        return respData.content_elements.find(story => story._id === orderId);
+        return respData.content_elements.find(
+            story => get(story, '_id', '') === orderId
+        );
     });
 
     return respData;
