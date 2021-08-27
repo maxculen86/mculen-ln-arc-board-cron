@@ -79,7 +79,10 @@ const ModArticle = props => {
                       )}${artPosition} nid${_id}`
                     : ''
             } ${noMedia ? '--no-media' : ''} ${
-                isRenderAuthor || isRenderAuthorOpinion ? '--author' : ''
+                (isRenderAuthor && classCondition !== '--columnista') ||
+                isRenderAuthorOpinion
+                    ? '--author'
+                    : ''
             }`}
             {...extraOpts}
             onClick={onCLick}

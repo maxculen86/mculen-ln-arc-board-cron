@@ -7,6 +7,8 @@ import Footer from '../private/LN/common/footer';
 import LoginProvider from '../private/LN/common/context/loginContext';
 import Article from '../private/common/mod-article';
 import Text from '../private/common/text';
+import GlobalProvider from '../private/common/context/globalContext';
+import LoadBanners from '../private/common/banners/LoadBanners';
 
 // import '../../resources/dist/css/ln/base.css';
 // import '../../resources/dist/css/ln/layouts/layout.css';
@@ -41,31 +43,32 @@ const LNAcumuladoColumnistasLayout = props => {
     }, [globalContent]);
 
     return (
-        <LoginProvider>
-            <div id="wrapper" className="acumulado columnistas">
-                <Header headerDark={headerDark} />
-                <main>
-                    {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
-                    {children[0]}
-                    <div className="lay">
-                        {
-                            /* Espacio para breadcrum */
-                            <div className="row">
-                                <div className="col-12">
-                                    {children[1]}
-                                    <Text
-                                        tag="h1"
-                                        size="--l"
-                                        extraClass="com-title"
-                                        text="Todos los columnistas"
-                                    />
+        <GlobalProvider>
+            <LoginProvider>
+                <div id="wrapper" className="acumulado columnistas">
+                    <Header headerDark={headerDark} />
+                    <main>
+                        {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
+                        {children[0]}
+                        <div className="lay">
+                            {
+                                /* Espacio para breadcrum */
+                                <div className="row">
+                                    <div className="col-12">
+                                        {children[1]}
+                                        <Text
+                                            tag="h1"
+                                            size="--l"
+                                            extraClass="com-title"
+                                            text="Todos los columnistas"
+                                        />
+                                    </div>
                                 </div>
-                            </div>
-                        }
-                        {/* Espacio para el contenido */}
-                        <section className="row-gap-2 row-gap-tablet-3 row-gap-desksm-5">
-                            {children[2]}
-                            <Article
+                            }
+                            {/* Espacio para el contenido */}
+                            <section className="row-gap-2 row-gap-tablet-3 row-gap-desksm-5">
+                                {children[2]}
+                                {/* <Article
                                 frontdemo
                                 srcdemo="https://source.unsplash.com/80x80/?face"
                                 classCondition="--columnista"
@@ -144,15 +147,17 @@ const LNAcumuladoColumnistasLayout = props => {
                                 authorSize="--twoxs"
                                 link="#"
                                 authors="Nombre Apellido"
-                            />
-                        </section>
-                    </div>
-                </main>
-                <Static id="StaticFooter">
-                    <Footer />
-                </Static>
-            </div>
-        </LoginProvider>
+                            /> */}
+                            </section>
+                        </div>
+                    </main>
+                    <Static id="StaticFooter">
+                        <Footer />
+                    </Static>
+                </div>
+                <LoadBanners />
+            </LoginProvider>
+        </GlobalProvider>
     );
 };
 
