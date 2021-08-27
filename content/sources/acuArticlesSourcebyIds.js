@@ -56,7 +56,7 @@ const fetch = query => {
 
             objresponse.count = resultsIds.length;
             objresponse.next = null;
-            return transform(objresponse, query, resultsIds);
+            return transform(objresponse, query);
         })
         .catch(error => {
             logger.push(error, { source: 'content/source', uri }, arcSite);
@@ -64,7 +64,7 @@ const fetch = query => {
         });
 };
 
-const transform = (data, siteProps, resultsIds) => {
+const transform = (data, siteProps) => {
     const respData = data;
     const { content_elements: contentElements } = data || {};
     const { presets, presetsDefault } = getPresets(siteProps);
@@ -118,10 +118,6 @@ const transform = (data, siteProps, resultsIds) => {
             ]
         };
     });
-    respData.content_elements = resultsIds.map(orderId => {
-        return respData.content_elements.find(story => story._id === orderId);
-    });
-
     return respData;
 };
 
