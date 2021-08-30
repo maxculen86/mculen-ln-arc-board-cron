@@ -22,14 +22,12 @@ const Placeholder = props => {
     }
 
     return (
-        <>
-            <div id="placeholder" style={style}>
-                <h2>Banner {error}</h2>
-                <p>{`Slot: ${slotName}`}</p>
-                <p>{`Targeting: ${JSON.stringify(targeting)}`}</p>
-                <p>{`Dimensions: ${JSON.stringify(dimensions)}`}</p>
-            </div>
-        </>
+        <div id="placeholder" style={style}>
+            <h2>Banner {error}</h2>
+            <p>{`Slot: ${slotName}`}</p>
+            <p>{`Targeting: ${JSON.stringify(targeting)}`}</p>
+            <p>{`Dimensions: ${JSON.stringify(dimensions)}`}</p>
+        </div>
     );
 };
 

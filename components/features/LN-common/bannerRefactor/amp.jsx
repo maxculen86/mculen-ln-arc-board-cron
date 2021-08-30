@@ -13,7 +13,7 @@ import {
 } from '../../../private/LN/common/utils/bannerHelper';
 import DivBannerAMP from '../../../private/common/banners/DivBannerAMP';
 
-const BannerSSR = props => {
+const Banner = props => {
     const { isAdmin, customFields, globalContent, globalContentConfig } = props;
 
     const { desktop, mobile, tablet } = customFields;
@@ -42,9 +42,10 @@ const BannerSSR = props => {
     return <DivBannerAMP bannerConfiguration={bannerConfiguration} />;
 };
 
-BannerSSR.label = 'LN-Common-Banner';
+Banner.label = 'LN-Common-BannerRefactor';
+Banner.static = true;
 
-BannerSSR.propTypes = {
+Banner.propTypes = {
     customFields: PropTypes.shape({
         group: PropTypes.oneOf(['nota', 'acumulado', 'home']).tag({
             label: 'Ubicacion'
@@ -83,4 +84,4 @@ BannerSSR.propTypes = {
     })
 };
 
-export default Consumer(BannerSSR);
+export default Consumer(Banner);

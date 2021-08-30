@@ -4,7 +4,6 @@ import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 import LoginProvider from '../private/LN/common/context/loginContext';
 import GlobalProvider from '../private/common/context/globalContext';
-import LoadBanners from '../private/common/banners/LoadBanners';
 import { CommentsProvider } from '../private/common/context/commentsContext';
 /* import Article from '../private/common/mod-article';
 import HeaderSection from '../private/common/mod-headerSection'; */
@@ -22,6 +21,7 @@ import NewFooter from '../private/LN/common/footer';
 // import '../../resources/dist/css/ln/components/com-unordered-new.css';
 // import '../../resources/dist/css/ln/components/com-tip-new.css';
 import '../../resources/dist/css/ln/modules/mod-banner.css';
+import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 
 const pageBuilderSections = [
     'Pre-Titulo',
@@ -100,7 +100,7 @@ const LNNotaReceta = ({ outputType, children }) => {
                             <NewFooter />
                         </Static>
                     </div>
-                    <LoadBanners />
+                    <LoadBannersSSR />
                 </CommentsProvider>
             </LoginProvider>
         </GlobalProvider>

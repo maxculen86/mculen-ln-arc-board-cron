@@ -1,6 +1,14 @@
-const defaultTargeting = {
+const targetingNota = {
     sitio: 'lanacion',
     seccion: 'nota'
+};
+const targetingAcumulado = {
+    sitio: 'lanacion',
+    seccion: 'acumulado'
+};
+const targetingHome = {
+    sitio: 'lanacion',
+    seccion: 'home'
 };
 
 export default {
@@ -1318,18 +1326,18 @@ export default {
                         [728, 90],
                         [920, 100]
                     ],
-                    targeting: defaultTargeting,
+                    targeting: targetingNota,
                     closeButton: true
                 },
                 megatop_dsk: {
                     slotName: 'la_nacion_desktop/Nota/megatop_dsk',
                     dimensions: [[800, 600]],
-                    targeting: defaultTargeting
+                    targeting: targetingNota
                 },
                 '1x1_dsk': {
                     slotName: 'la_nacion_desktop/Nota/1x1_dsk',
                     dimensions: [[1, 1]],
-                    targeting: defaultTargeting
+                    targeting: targetingNota
                 },
                 cabezal_dsk: {
                     slotName: 'la_nacion_desktop/Nota/cabezal_dsk',
@@ -1343,7 +1351,7 @@ export default {
                         [1260, 100],
                         [1260, 170]
                     ],
-                    targeting: defaultTargeting,
+                    targeting: targetingNota,
                     bidding: {
                         prebid: {
                             enabled: true
@@ -1357,7 +1365,7 @@ export default {
                         [300, 600],
                         [300, 250]
                     ],
-                    targeting: defaultTargeting,
+                    targeting: targetingNota,
                     bidding: {
                         prebid: {
                             enabled: true
@@ -1368,7 +1376,7 @@ export default {
                     slotName: 'la_nacion_desktop/Nota/caja2_dsk',
                     withoutHide: true,
                     dimensions: [[300, 250]],
-                    targeting: defaultTargeting,
+                    targeting: targetingNota,
                     bidding: {
                         prebid: {
                             enabled: true
@@ -1382,7 +1390,7 @@ export default {
                         [300, 600],
                         [300, 250]
                     ],
-                    targeting: defaultTargeting,
+                    targeting: targetingNota,
                     bidding: {
                         prebid: {
                             enabled: true
@@ -1396,7 +1404,7 @@ export default {
                         [300, 600],
                         [300, 250]
                     ],
-                    targeting: defaultTargeting,
+                    targeting: targetingNota,
                     bidding: {
                         prebid: {
                             enabled: true
@@ -1407,7 +1415,7 @@ export default {
                     slotName: 'la_nacion_desktop/Nota/caja5_dsk',
                     withoutHide: true,
                     dimensions: [[300, 250]],
-                    targeting: defaultTargeting,
+                    targeting: targetingNota,
                     bidding: {
                         prebid: {
                             enabled: true
@@ -1420,7 +1428,7 @@ export default {
                         [1, 1],
                         [728, 90]
                     ],
-                    targeting: defaultTargeting
+                    targeting: targetingNota
                 },
                 middle_1_dsk: {
                     slotName: 'la_nacion_desktop/Nota/middle_1_dsk',
@@ -1432,7 +1440,7 @@ export default {
                         [728, 90],
                         [468, 60]
                     ],
-                    targeting: defaultTargeting,
+                    targeting: targetingNota,
                     bidding: {
                         prebid: {
                             enabled: true
@@ -1448,7 +1456,7 @@ export default {
                         [728, 90],
                         [1, 1]
                     ],
-                    targeting: defaultTargeting,
+                    targeting: targetingNota,
                     bidding: {
                         prebid: {
                             enabled: true
@@ -1464,7 +1472,7 @@ export default {
                         [468, 60],
                         [1, 1]
                     ],
-                    targeting: defaultTargeting,
+                    targeting: targetingNota,
                     bidding: {
                         prebid: {
                             enabled: true
@@ -1477,7 +1485,7 @@ export default {
                         [1, 1],
                         [728, 90]
                     ],
-                    targeting: defaultTargeting
+                    targeting: targetingNota
                 },
                 comercial_dsk: {
                     slotName: 'la_nacion_desktop/Nota/comercial_dsk',
@@ -1485,30 +1493,31 @@ export default {
                         [1, 1],
                         [800, 600]
                     ],
-                    targeting: defaultTargeting
+                    targeting: targetingNota,
+                    closeButton: true
                 }
             },
             mobile: {
                 adhesion_mob: {
                     slotName: 'la_nacion_mobile/Nota/adhesion_mob',
                     dimensions: [[320, 50]],
-                    targeting: defaultTargeting,
+                    targeting: targetingNota,
                     closeButton: true
                 },
                 megatop_mob: {
                     slotName: 'la_nacion_mobile/Nota/megatop_mob',
                     dimensions: [[320, 480]],
-                    targeting: defaultTargeting
+                    targeting: targetingNota
                 },
                 '1x1_mob': {
                     slotName: 'la_nacion_mobile/Nota/1x1_mob',
                     dimensions: [[1, 1]],
-                    targeting: defaultTargeting
+                    targeting: targetingNota
                 },
                 sticky1_mob: {
                     slotName: 'la_nacion_mobile/Nota/sticky1_mob',
                     dimensions: [[320, 100]],
-                    targeting: defaultTargeting,
+                    targeting: targetingNota,
                     withoutHide: true,
                     bidding: {
                         prebid: {
@@ -1519,7 +1528,7 @@ export default {
                 sticky2_mob: {
                     slotName: 'la_nacion_mobile/Nota/sticky2_mob',
                     dimensions: [[320, 50]],
-                    targeting: defaultTargeting,
+                    targeting: targetingNota,
                     bidding: {
                         prebid: {
                             enabled: true
@@ -1535,7 +1544,7 @@ export default {
                         [320, 100],
                         [1, 1]
                     ],
-                    targeting: defaultTargeting,
+                    targeting: targetingNota,
                     bidding: {
                         prebid: {
                             enabled: true
@@ -1554,7 +1563,7 @@ export default {
                         [320, 180],
                         [360, 270]
                     ],
-                    targeting: defaultTargeting,
+                    targeting: targetingNota,
                     bidding: {
                         prebid: {
                             enabled: true
@@ -1569,7 +1578,7 @@ export default {
                         [320, 100],
                         [1, 1]
                     ],
-                    targeting: defaultTargeting,
+                    targeting: targetingNota,
                     bidding: {
                         prebid: {
                             enabled: true
@@ -1584,7 +1593,7 @@ export default {
                         [320, 100],
                         [1, 1]
                     ],
-                    targeting: defaultTargeting,
+                    targeting: targetingNota,
                     bidding: {
                         prebid: {
                             enabled: true
@@ -1599,7 +1608,7 @@ export default {
                         [320, 100],
                         [1, 1]
                     ],
-                    targeting: defaultTargeting,
+                    targeting: targetingNota,
                     bidding: {
                         prebid: {
                             enabled: true
@@ -1613,7 +1622,7 @@ export default {
                         [320, 50],
                         [300, 250]
                     ],
-                    targeting: defaultTargeting
+                    targeting: targetingNota
                 },
                 comercial_mob: {
                     slotName: 'la_nacion_mobile/Nota/comercial_mob',
@@ -1621,7 +1630,8 @@ export default {
                         [1, 1],
                         [320, 480]
                     ],
-                    targeting: defaultTargeting
+                    targeting: targetingNota,
+                    closeButton: true
                 }
             },
             tablet: {
@@ -1629,13 +1639,13 @@ export default {
                     device: 'tab',
                     slotName: 'la_nacion_tablet/Nota/1x1_tab',
                     dimensions: [[1, 1]],
-                    targeting: defaultTargeting
+                    targeting: targetingNota
                 },
                 cabezal_tab: {
                     device: 'tab',
                     slotName: 'la_nacion_tablet/Nota/cabezal_tab',
                     dimensions: [[728, 90]],
-                    targeting: defaultTargeting,
+                    targeting: targetingNota,
                     withoutHide: true,
                     bidding: {
                         prebid: {
@@ -1647,7 +1657,7 @@ export default {
                     device: 'tab',
                     slotName: 'la_nacion_tablet/Nota/adhesion_tab',
                     dimensions: [[728, 90]],
-                    targeting: defaultTargeting,
+                    targeting: targetingNota,
                     closeButton: true
                 },
                 caja1_tab: {
@@ -1658,7 +1668,7 @@ export default {
                         [300, 250],
                         [300, 600]
                     ],
-                    targeting: defaultTargeting,
+                    targeting: targetingNota,
                     bidding: {
                         prebid: {
                             enabled: true
@@ -1667,13 +1677,13 @@ export default {
                 },
                 caja2_tab: {
                     device: 'tab',
-                    caja2_tab: 'la_nacion_tablet/Nota/caja2_tab',
+                    slotName: 'la_nacion_tablet/Nota/caja2_tab',
                     withoutHide: true,
                     dimensions: [
                         [300, 250],
                         [300, 600]
                     ],
-                    targeting: defaultTargeting,
+                    targeting: targetingNota,
                     bidding: {
                         prebid: {
                             enabled: true
@@ -1682,13 +1692,13 @@ export default {
                 },
                 caja3_tab: {
                     device: 'tab',
-                    caja2_tab: 'la_nacion_tablet/Nota/caja3_tab',
+                    slotName: 'la_nacion_tablet/Nota/caja3_tab',
                     withoutHide: true,
                     dimensions: [
                         [300, 250],
                         [1, 1]
                     ],
-                    targeting: defaultTargeting,
+                    targeting: targetingNota,
                     bidding: {
                         prebid: {
                             enabled: true
@@ -1702,7 +1712,7 @@ export default {
                         [1, 1],
                         [728, 90]
                     ],
-                    targeting: defaultTargeting
+                    targeting: targetingNota
                 },
                 middle_1_tab: {
                     device: 'tab',
@@ -1714,7 +1724,7 @@ export default {
                         [468, 60],
                         [1, 1]
                     ],
-                    targeting: defaultTargeting,
+                    targeting: targetingNota,
                     bidding: {
                         prebid: {
                             enabled: true
@@ -1731,7 +1741,7 @@ export default {
                         [468, 60],
                         [1, 1]
                     ],
-                    targeting: defaultTargeting,
+                    targeting: targetingNota,
                     bidding: {
                         prebid: {
                             enabled: true
@@ -1742,7 +1752,7 @@ export default {
                     device: 'tab',
                     slotName: 'la_nacion_tablet/Nota/middle_teads_tab',
                     dimensions: [[1, 1]],
-                    targeting: defaultTargeting
+                    targeting: targetingNota
                 }
             },
             amp: {
@@ -1759,6 +1769,492 @@ export default {
                     dimensions: [[300, 250]]
                 }
             }
+        },
+        acumulado: {
+            desktop: {
+                megatop_dsk: {
+                    slotName: `la_nacion_desktop/Acumulado/megatop_dsk`,
+                    dimensions: [[800, 600]],
+                    targeting: targetingAcumulado
+                },
+                '1x1_dsk': {
+                    slotName: `la_nacion_desktop/Acumulado/1x1_dsk`,
+                    dimensions: [[1, 1]],
+                    targeting: targetingAcumulado
+                },
+                cabezal_dsk: {
+                    slotName: `la_nacion_desktop/Acumulado/cabezal_dsk`,
+                    withoutHide: true,
+                    dimensions: [
+                        [1, 1],
+                        [728, 90],
+                        [920, 100],
+                        [970, 90],
+                        [1260, 100]
+                    ],
+                    targeting: targetingAcumulado
+                },
+                adhesion_dsk: {
+                    slotName: `la_nacion_desktop/Acumulado/adhesion_dsk`,
+                    dimensions: [
+                        [920, 100],
+                        [728, 90]
+                    ],
+                    targeting: targetingAcumulado
+                },
+                caja1_dsk: {
+                    slotName: `la_nacion_desktop/Acumulado/caja1_dsk`,
+                    dimensions: [
+                        [300, 600],
+                        [300, 250]
+                    ],
+                    targeting: targetingAcumulado,
+                    withoutHide: true
+                },
+                caja2_dsk: {
+                    slotName: `la_nacion_desktop/Acumulado/caja2_dsk`,
+                    dimensions: [
+                        [300, 250],
+                        [300, 250],
+                        [300, 250]
+                    ],
+                    targeting: targetingAcumulado,
+                    withoutHide: true
+                },
+                caja3_dsk: {
+                    slotName: `la_nacion_desktop/Acumulado/caja3_dsk`,
+                    dimensions: [
+                        [300, 600],
+                        [300, 250]
+                    ],
+                    targeting: targetingAcumulado,
+                    withoutHide: true
+                },
+                caja4_dsk: {
+                    slotName: `la_nacion_desktop/Acumulado/caja4_dsk`,
+                    dimensions: [
+                        [300, 600],
+                        [300, 250]
+                    ],
+                    targeting: targetingAcumulado,
+                    withoutHide: true
+                },
+                comercial_dsk: {
+                    slotName: `la_nacion_desktop/Acumulado/comercial_dsk`,
+                    dimensions: [
+                        [1, 1],
+                        [800, 600]
+                    ],
+                    targeting: targetingAcumulado,
+                    closeButton: true
+                }
+            },
+            mobile: {
+                megatop_mob: {
+                    slotName: `la_nacion_mobile/Acumulado/megatop_mob`,
+                    dimensions: [[320, 480]],
+                    targeting: targetingAcumulado
+                },
+                sticky1_mob: {
+                    slotName: `la_nacion_mobile/Acumulado/sticky1_mob`,
+                    withoutHide: true,
+                    dimensions: [
+                        [320, 50],
+                        [320, 100]
+                    ],
+                    targeting: targetingAcumulado
+                },
+                sticky2_mob: {
+                    slotName: `la_nacion_mobile/Acumulado/sticky2_mob`,
+                    withoutHide: true,
+                    dimensions: [
+                        [300, 50],
+                        [320, 50]
+                    ],
+                    targeting: targetingAcumulado
+                },
+                adhesion_mob: {
+                    slotName: `la_nacion_mobile/Acumulado/adhesion_mob`,
+                    dimensions: [[320, 50]],
+                    targeting: targetingAcumulado
+                },
+                caja1_mob: {
+                    slotName: `la_nacion_mobile/Acumulado/caja1_mob`,
+                    dimensions: [
+                        [320, 50],
+                        [320, 100],
+                        [300, 250],
+                        [300, 450],
+                        [1, 1]
+                    ],
+                    targeting: targetingAcumulado,
+                    withoutHide: true
+                },
+                caja2_mob: {
+                    slotName: `la_nacion_mobile/Acumulado/caja2_mob`,
+                    dimensions: [
+                        [360, 270],
+                        [320, 50],
+                        [320, 100],
+                        [300, 250],
+                        [300, 450],
+                        [1, 1]
+                    ],
+                    targeting: targetingAcumulado,
+                    withoutHide: true
+                },
+                caja3_mob: {
+                    slotName: `la_nacion_mobile/Acumulado/caja3_mob`,
+                    dimensions: [
+                        [320, 50],
+                        [320, 100],
+                        [300, 250],
+                        [300, 450],
+                        [1, 1]
+                    ],
+                    targeting: targetingAcumulado,
+                    withoutHide: true
+                },
+                caja4_mob: {
+                    slotName: `la_nacion_mobile/Acumulado/caja4_mob`,
+                    dimensions: [
+                        [320, 50],
+                        [320, 100],
+                        [300, 250],
+                        [300, 450],
+                        [1, 1]
+                    ],
+                    targeting: targetingAcumulado,
+                    withoutHide: true
+                },
+                comercial_mob: {
+                    slotName: `la_nacion_mobile/Acumulado/comercial_mob`,
+                    dimensions: [
+                        [1, 1],
+                        [320, 480]
+                    ],
+                    targeting: targetingAcumulado,
+                    closeButton: true
+                }
+            },
+            tablet: {
+                cabezal_tab: {
+                    slotName: `la_nacion_tablet/Acumulado/cabezal_tab`,
+                    dimensions: [[728, 90]],
+                    targeting: targetingAcumulado,
+                    withoutHide: true
+                },
+                adhesion_tab: {
+                    slotName: `la_nacion_tablet/Acumulado/adhesion_tab`,
+                    dimensions: [[728, 90]],
+                    targeting: targetingAcumulado
+                },
+                caja1_tab: {
+                    slotName: `la_nacion_tablet/Acumulado/caja1_tab`,
+                    dimensions: [[728, 90]],
+                    targeting: targetingAcumulado,
+                    withoutHide: true
+                },
+                caja2_tab: {
+                    slotName: `la_nacion_tablet/Acumulado/caja2_tab`,
+                    dimensions: [[728, 90]],
+                    targeting: targetingAcumulado,
+                    withoutHide: true
+                }
+            },
+            amp: {
+                caja1_amp: {
+                    slotName: '/133919216/AMP/ROS/caja1_amp',
+                    dimensions: [[300, 250]]
+                },
+                caja2_amp: {
+                    slotName: '/133919216/AMP/ROS/caja2_amp',
+                    dimensions: [[300, 250]]
+                },
+                caja3_amp: {
+                    slotName: '/133919216/AMP/ROS/caja3_amp',
+                    dimensions: [[300, 250]]
+                }
+            }
+        },
+        home: {
+            desktop: {
+                '1x1_dsk': {
+                    slotName: `la_nacion_desktop/Home/1x1_dsk`,
+                    dimensions: [[1, 1]],
+                    targeting: targetingHome
+                },
+                cabezal_dsk: {
+                    slotName: `la_nacion_desktop/Home/cabezal_dsk`,
+                    withoutHide: true,
+                    dimensions: [
+                        [1, 1],
+                        [728, 90],
+                        [920, 100],
+                        [970, 90],
+                        [1260, 100]
+                    ],
+                    targeting: targetingHome
+                },
+                adhesion_dsk: {
+                    slotName: `la_nacion_desktop/Home/adhesion_dsk`,
+                    dimensions: [
+                        [920, 100],
+                        [728, 90],
+                        [1, 1]
+                    ],
+                    targeting: targetingHome
+                },
+                caja1_dsk: {
+                    slotName: `la_nacion_desktop/Home/caja1_dsk`,
+                    dimensions: [[300, 250]],
+                    targeting: targetingHome
+                },
+                caja2_dsk: {
+                    slotName: `la_nacion_desktop/Home/caja2_dsk`,
+                    dimensions: [[300, 250]],
+                    targeting: targetingHome
+                },
+                caja3_dsk: {
+                    slotName: `la_nacion_desktop/Home/caja3_dsk`,
+                    dimensions: [[300, 250]],
+                    targeting: targetingHome
+                },
+                caja4_dsk: {
+                    slotName: `la_nacion_desktop/Home/caja4_dsk`,
+                    dimensions: [[300, 250]],
+                    targeting: targetingHome
+                },
+                comercial_dsk: {
+                    slotName: `la_nacion_desktop/Home/comercial_dsk`,
+                    dimensions: [
+                        [1, 1],
+                        [800, 600]
+                    ],
+                    targeting: targetingHome,
+                    closeButton: true
+                },
+                middle1_dsk: {
+                    slotName: `la_nacion_desktop/Home/middle1_dsk`,
+                    dimensions: [
+                        [1, 1],
+                        [920, 120],
+                        [920, 250],
+                        [728, 90]
+                    ],
+                    targeting: targetingHome
+                },
+                megalateral_dsk: {
+                    slotName: `la_nacion_desktop/Home/megalateral_dsk`,
+                    dimensions: [
+                        [120, 600],
+                        [250, 600],
+                        [160, 600],
+                        [300, 600]
+                    ],
+                    targeting: targetingHome
+                },
+                megalateral2_dsk: {
+                    slotName: `la_nacion_desktop/Home/megalateral2_dsk`,
+                    dimensions: [
+                        [120, 600],
+                        [250, 600],
+                        [160, 600],
+                        [300, 600]
+                    ],
+                    targeting: targetingHome
+                },
+                megalateral3_dsk: {
+                    slotName: `la_nacion_desktop/Home/megalateral3_dsk`,
+                    dimensions: [
+                        [120, 600],
+                        [250, 600],
+                        [160, 600],
+                        [300, 600]
+                    ],
+                    targeting: targetingHome
+                },
+                billboard_dsk: {
+                    slotName: `la_nacion_desktop/Home/billboard_dsk`,
+                    dimensions: [
+                        [728, 90],
+                        [920, 250],
+                        [1, 1]
+                    ],
+                    targeting: targetingHome
+                },
+                caja_producto1_dsk: {
+                    slotName: `la_nacion_desktop/Home/caja_producto1_dsk`,
+                    dimensions: [[240, 250]],
+                    targeting: targetingHome
+                },
+                caja_producto2_dsk: {
+                    slotName: `la_nacion_desktop/Home/caja_producto2_dsk`,
+                    dimensions: [[240, 250]],
+                    targeting: targetingHome
+                },
+                cinturon1_dsk: {
+                    slotName: `la_nacion_desktop/Home/cinturon1_dsk`,
+                    dimensions: [
+                        [1, 1],
+                        [728, 90],
+                        [920, 120],
+                        [920, 250],
+                        [920, 300]
+                    ],
+                    targeting: targetingHome
+                },
+                cinturon2_dsk: {
+                    slotName: `la_nacion_desktop/Home/cinturon2_dsk`,
+                    dimensions: [
+                        [1, 1],
+                        [728, 90],
+                        [920, 120],
+                        [920, 250],
+                        [920, 300]
+                    ],
+                    targeting: targetingHome
+                }
+            },
+            mobile: {
+                sticky2_mob: {
+                    slotName: `la_nacion_mobile/Home/sticky2_mob`,
+                    dimensions: [
+                        [300, 50],
+                        [320, 50],
+                        [1, 1]
+                    ],
+                    targeting: targetingHome
+                },
+                adhesion_mob: {
+                    slotName: `la_nacion_mobile/Home/adhesion_mob`,
+                    dimensions: [[320, 50]],
+                    targeting: targetingHome
+                },
+                caja1_mob: {
+                    slotName: `la_nacion_mobile/Home/caja1_mob`,
+                    dimensions: [
+                        [320, 50],
+                        [300, 250],
+                        [300, 450],
+                        [320, 100],
+                        [1, 1]
+                    ],
+                    targeting: targetingHome
+                },
+                caja2_mob: {
+                    slotName: `la_nacion_mobile/Home/caja2_mob`,
+                    dimensions: [
+                        [320, 50],
+                        [300, 250],
+                        [300, 450],
+                        [320, 100],
+                        [1, 1]
+                    ],
+                    targeting: targetingHome
+                },
+                caja3_mob: {
+                    slotName: `la_nacion_mobile/Home/caja3_mob`,
+                    dimensions: [
+                        [320, 50],
+                        [300, 250],
+                        [300, 450],
+                        [320, 100],
+                        [1, 1]
+                    ],
+                    targeting: targetingHome
+                },
+                caja4_mob: {
+                    slotName: `la_nacion_mobile/Home/caja4_mob`,
+                    dimensions: [
+                        [320, 50],
+                        [300, 250],
+                        [300, 450],
+                        [320, 100],
+                        [1, 1]
+                    ],
+                    targeting: targetingHome
+                },
+                caja5_mob: {
+                    slotName: `la_nacion_mobile/Home/caja5_mob`,
+                    dimensions: [
+                        [320, 50],
+                        [300, 250],
+                        [300, 450],
+                        [320, 100],
+                        [1, 1]
+                    ],
+                    targeting: targetingHome
+                },
+                comercial_mob: {
+                    slotName: `la_nacion_mobile/Home/comercial_mob`,
+                    dimensions: [
+                        [1, 1],
+                        [320, 480]
+                    ],
+                    targeting: targetingHome,
+                    closeButton: true
+                },
+                '1x1_mob': {
+                    slotName: `la_nacion_mobile/Home/1x1_mob`,
+                    dimensions: [[1, 1]],
+                    targeting: targetingHome
+                }
+            },
+            tablet: {
+                cabezal_tab: {
+                    slotName: `la_nacion_tablet/Home/cabezal_tab`,
+                    dimensions: [[728, 90]],
+                    targeting: targetingHome,
+                    withoutHide: true
+                },
+                middle1_tab: {
+                    slotName: `la_nacion_tablet/Home/middle1_tab`,
+                    dimensions: [[728, 90]],
+                    targeting: targetingHome,
+                    withoutHide: true
+                },
+                middle2_tab: {
+                    slotName: `la_nacion_tablet/Home/middle2_tab`,
+                    dimensions: [[728, 90]],
+                    targeting: targetingHome,
+                    withoutHide: true
+                },
+                adhesion_tab: {
+                    slotName: `la_nacion_tablet/Home/adhesion_tab`,
+                    dimensions: [[728, 90]],
+                    targeting: targetingHome
+                },
+                caja1_tab: {
+                    slotName: `la_nacion_tablet/Home/caja1_tab`,
+                    dimensions: [
+                        [300, 250],
+                        [300, 600]
+                    ],
+                    targeting: targetingHome
+                },
+                caja2_tab: {
+                    slotName: `la_nacion_tablet/Home/caja2_tab`,
+                    dimensions: [[300, 250]],
+                    targeting: targetingHome
+                },
+                caja3_tab: {
+                    slotName: `la_nacion_tablet/Home/caja3_tab`,
+                    dimensions: [[300, 250]],
+                    targeting: targetingHome
+                },
+                caja4_tab: {
+                    slotName: `la_nacion_tablet/Home/caja4_tab`,
+                    dimensions: [[300, 250]],
+                    targeting: targetingHome
+                },
+                logo_tag_tab: {
+                    slotName: `la_nacion_tablet/Home/logo_tag_tab`,
+                    dimensions: [[40, 280]],
+                    targeting: targetingHome
+                }
+            },
+            amp: {}
         },
         common: {
             desktop: {
