@@ -12,6 +12,7 @@ const Link = ({
     size,
     className,
     id,
+    rel,
     onClick
 }) => {
     const _className = `com-${href ? 'link' : 'text'}${size ? ` ${size}` : ''}${
@@ -25,7 +26,7 @@ const Link = ({
             id={id}
             href={href}
             target={target}
-            rel={target === '_blank' ? 'nofollow' : undefined}
+            rel={rel || (target === '_blank' ? 'nofollow' : undefined)}
             title={title || text}
             onClick={onClick}
         >
@@ -41,6 +42,7 @@ Link.propTypes = {
     target: PropTypes.string,
     title: PropTypes.string,
     mod: PropTypes.string,
+    rel: PropTypes.string,
     size: PropTypes.string,
     className: PropTypes.string,
     id: PropTypes.string,
@@ -53,6 +55,7 @@ Link.defaultProps = {
     target: undefined,
     title: undefined,
     mod: '',
+    rel: undefined,
     size: '',
     className: '',
     id: undefined,

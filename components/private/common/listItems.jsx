@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import '../../../resources/dist/css/ln/components/com-ordered.css';
 import '../../../resources/dist/css/ln/components/com-unordered.css';
-import '../../../resources/dist/css/ln/components/title.css';
-import ComTitle from './com-title';
+//import '../../../resources/dist/css/ln/components/title.css';
+import Text from './text';
 
 const TypeList = ({ ol, children }) =>
     ol ? (
@@ -19,7 +19,7 @@ const TypeList = ({ ol, children }) =>
 const ListItemsFactory = ({ list, titleList, listNumeric }) => {
     return (
         <div>
-            <ComTitle size="--l" tag="h4" content={titleList} />
+            <Text size="2xs" weight="bold" tag="h4" text={titleList} />
             <TypeList ol={listNumeric}>
                 {list.map((item, key) => (
                     <li key={key} className="com-item">

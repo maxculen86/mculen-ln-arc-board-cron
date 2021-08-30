@@ -3,7 +3,7 @@
 
 import React, { useRef, useContext } from 'react';
 import Consumer from 'fusion:consumer';
-import { useContent } from 'fusion:content';
+// import { useContent } from 'fusion:content';
 import PropTypes from 'fusion:prop-types';
 import get from 'lodash.get';
 import BannerComponent from '../../private/LN/common/bannerRefactor';
@@ -81,14 +81,14 @@ const Banner = props => {
         segments
     );
 
-    const { bannerConfig } =
-        useContent({
-            sourceName: 'navigationTreeSource',
-            query: {
-                website: 'la-nacion-ar',
-                sectionId: `/${section}`
-            }
-        }) || {};
+    // const { bannerConfig } =
+    //     useContent({
+    //         sourceName: 'navigationTreeSource',
+    //         query: {
+    //             website: 'la-nacion-ar',
+    //             sectionId: `/${section}`
+    //         }
+    //     }) || {};
 
     const hideBanners = get(
         globalContent,
@@ -135,14 +135,23 @@ const Banner = props => {
             configBuilder.current.setCustomAdUnit('ContentLab');
 
         // Site service dimensions check
+        const bannerConfig = get(globalContent, 'bannerConfig');
         const bannersSectionConfig =
             (bannerConfig &&
-                Object.keys(bannerConfig)
-                    .map(adunit => ({
-                        adunit,
-                        dimensions: bannerConfig[adunit]
-                    }))
-                    .filter(x => x.dimensions)) ||
+                Object.keys(bannerConfig).map(x => ({
+                    adunit: x,
+                    dimensions: bannerConfig[x]
+                }))) ||
+            (['propiedades', 'campo'].includes(section) && [
+                {
+                    adunit: 'nota_caja1_dsk',
+                    dimensions: '120x600,160x600,300x600'
+                },
+                {
+                    adunit: 'acumulado_caja1_dsk',
+                    dimensions: '120x600,160x600,300x600'
+                }
+            ]) ||
             [];
 
         const adUnitsInSection = bannersSectionConfig.map(

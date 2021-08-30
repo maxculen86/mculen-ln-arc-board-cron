@@ -3,7 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import '../../../resources/dist/css/ln/components/com-icon.css';
 import Link from '../common/link';
 
-const Icon = ({ name, href, title, target, mod, size, children }) => {
+const Icon = ({ name, href, title, target, mod, rel, size, children }) => {
     //const className = `com-icon${name ? ` icon-${name}` : ``}${` ${mod}` || ``}${` ${size}` || ``}`;
     const className = `com-icon${name ? ` icon-${name}` : ``}${
         href ? `` : ` ${mod || ``}`
@@ -12,7 +12,13 @@ const Icon = ({ name, href, title, target, mod, size, children }) => {
     return (
         <>
             {href ? (
-                <Link href={href} title={title} target={target} mod={mod}>
+                <Link
+                    href={href}
+                    title={title}
+                    target={target}
+                    mod={mod}
+                    rel={rel}
+                >
                     <i className={className} />
                     {children}
                 </Link>
@@ -29,6 +35,7 @@ Icon.propTypes = {
     target: PropTypes.string,
     title: PropTypes.string,
     mod: PropTypes.string,
+    rel: PropTypes.string,
     size: PropTypes.string
 };
 
