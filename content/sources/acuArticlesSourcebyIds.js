@@ -56,7 +56,7 @@ const fetch = query => {
                 objresponse[key] = value;
             });
 
-            objresponse.count = resultsIds.length;
+            objresponse.count = resultsIds.length || 0;
             objresponse.next = null;
             return transform(objresponse, query);
         })
