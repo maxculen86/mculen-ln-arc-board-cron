@@ -20,7 +20,7 @@ import NewFooter from '../private/LN/common/footer';
 // import '../../resources/dist/css/ln/components/com-title-new.css';
 // import '../../resources/dist/css/ln/components/com-unordered-new.css';
 // import '../../resources/dist/css/ln/components/com-tip-new.css';
-import '../../resources/dist/css/ln/modules/mod-banner.css';
+// import '../../resources/dist/css/ln/modules/mod-banner.css';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 
 const pageBuilderSections = [
@@ -43,7 +43,7 @@ const LNNotaReceta = ({ outputType, children }) => {
         <GlobalProvider>
             <LoginProvider>
                 <CommentsProvider>
-                    <div id="wrapper" className={`recetas ${amp}`}>
+                    <div id="wrapper" className={`nota receta ${amp}`}>
                         <Header />
                         <main>
                             {/* Pre-Titulo: Banners */}
@@ -70,7 +70,7 @@ const LNNotaReceta = ({ outputType, children }) => {
                                             {/* Left-Cuerpo Shared */}
                                             {children[3]}
                                         </div>
-                                        <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
+                                        <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11 cuerpo__nota">
                                             {/* Cuerpo */}
                                             {children[5]}
                                         </div>

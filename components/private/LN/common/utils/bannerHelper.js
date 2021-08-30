@@ -175,7 +175,7 @@ export const getBannerConfiguration = (
             slotName: changeSegmentAdUnit(
                 bannerConfiguration.slotName,
                 section,
-                suffixDevice[device]
+                slotId.includes('_amp') ? 'amp' : device
             )
         };
     }
@@ -294,16 +294,15 @@ export const setCustomAdUnit = (slotName, unit) => {
     return slotName.replace(stringToReplace, unit);
 };
 
-export const changeSegmentAdUnit = (slotName, section, deviceSuffix) => {
-    const stringToReplace =
-        (slotName &&
-            slotName
-                .split('/')
-                .filter(Boolean)
-                .shift()) ||
-        '';
+export const changeSegmentAdUnit = (slotName = '', section, device) => {
+    const stringToReplace = slotName
+        ? slotName
+              .split('/')
+              .filter(Boolean)
+              .shift()
+        : '';
 
-    return slotName.replace(stringToReplace, `${section}${deviceSuffix}`);
+    return slotName.replace(stringToReplace, `${section}_${device}`);
 };
 
 export const getTargetingFormat = sections => {

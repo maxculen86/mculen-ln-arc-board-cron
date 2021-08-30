@@ -47,7 +47,7 @@ describe('Cuerpo Default ->', () => {
     describe('Render Nota Noticia 6Q4WDU7YVJBEZEOLSQEIK3YCYI', () => {
         const _props = { ...props, globalContent: NotaNoticia };
         const bodyComponent = shallow(<BodyDefault {..._props} />);
-        it('should have 12 elements', () => {
+        it('should have 13 elements', () => {
             expect(bodyComponent.getElements().length).toBe(12);
         });
         it('should render 5 paragraphs', () => {
@@ -78,12 +78,16 @@ describe('Cuerpo Default ->', () => {
                 .filter(e => e.props.data.type === 'gallery');
             expect(galleries.length).toBe(1);
         });
-        it('shouldn`t render 1 element type custom_embed', () => {
-            const notRender = bodyComponent
-                .getElements()
-                .filter(e => JSON.stringify(e.props) === '{}');
-            expect(notRender.length).toBe(1);
+        it('should render 1 powerUpsReceta', () => {
+            const powerUpsReceta = bodyComponent.find('powerUpsReceta');
+            expect(powerUpsReceta.length).toBe(1);
         });
+        // it('shouldn`t render 1 element type custom_embed', () => {
+        //     const notRender = bodyComponent
+        //         .getElements()
+        //         .filter(e => JSON.stringify(e.props) === '{}');
+        //     expect(notRender.length).toBe(1);
+        // });
 
         // it('should be wrapped by Static', () => {
         //     expect(countStaticElements(bodyComponent)).toBe(10);

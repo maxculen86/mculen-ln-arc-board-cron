@@ -260,10 +260,10 @@ const Default = props => {
                     title={title}
                     metaDescription={metaDescription}
                 />
-                {canonicalUrl && (
+                {canonicalUrl && siteProperties.host && (
                     <link
                         rel="canonical"
-                        href={`https://www.lanacion.com.ar${canonicalUrl}`}
+                        href={`${siteProperties.host}${canonicalUrl}`}
                     />
                 )}
                 <LinkAmpHTML
