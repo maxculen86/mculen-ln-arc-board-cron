@@ -101,7 +101,7 @@ const fetch = query => {
                     if (itemUrl && !itemUrl.includes('http')) {
                         itemUrl = referrer.concat(itemUrl);
                     }
-                    if (isvalidUrl(itemUrl)) {
+                    if (itemUrl && isvalidUrl(itemUrl)) {
                         if (
                             idArticle &&
                             !!idArticle &&
@@ -148,7 +148,7 @@ const fetch = query => {
                 logger.push(
                     error,
                     {
-                        source: 'content/sources/articleSourceNota',
+                        source: 'content/sources/articleSourcebyIds',
                         url: `${uri}`
                     },
                     arcSiteStorys
