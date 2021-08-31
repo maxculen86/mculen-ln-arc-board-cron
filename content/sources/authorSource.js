@@ -11,13 +11,15 @@ const resolve = key => {
     return path;
 };
 
-const transform = data => {
+const transform = (data, query) => {
+    const { meteringVariant } = query || {};
     const dataResp = {
         ...data,
         image: { url: data.image || '' },
         node_type: 'author',
         name: data.byline,
-        canonical_url: encodeURI(`/autor/${data._id}/`)
+        canonical_url: encodeURI(`/autor/${data._id}/`),
+        subscription: meteringVariant
     };
 
     if (dataResp.image.url.length === 0) return dataResp;
@@ -46,7 +48,8 @@ export default {
     resolve,
     params: {
         _id: 'text',
-        website: 'text'
+        website: 'text',
+        meteringVariant: 'text'
     },
     filter,
     transform,
