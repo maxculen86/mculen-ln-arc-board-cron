@@ -10,11 +10,13 @@ import ModDescription from './mod-description';
 import ComImage from './com-image';
 import ModMedia from './mod-media';
 import getAuthorsPhoto from './utils/getAuthorsPhoto';
+import ModVideo from './mod-video';
 
 const ModArticle = props => {
     const {
         frontdemo,
         srcdemo,
+        video,
         articleData,
         dataSection,
         outputType,
@@ -106,6 +108,11 @@ const ModArticle = props => {
                         <figure className="mod-figure">
                             <a href={link}>
                                 <picture className="mod-picture">
+                                    {video ? (
+                                        <ModVideo video={video} autoplay />
+                                    ) : (
+                                        ''
+                                    )}
                                     <ComImage src={srcdemo} />
                                 </picture>
                             </a>
