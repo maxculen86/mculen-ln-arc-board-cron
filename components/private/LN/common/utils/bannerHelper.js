@@ -206,7 +206,7 @@ export const getBannerConfiguration = (
     return bannerConfiguration;
 };
 
-export const shouldShow = (termicas, hideBanners, label) => {
+export const shouldShow = (termicas = [], hideBanners, label) => {
     // Si la termica banner esta en false o si en la seccion esta tildado hideBanner o en composer tiene no mostrar, no se muestra
     const element = termicas.find(ter => ter.key === 'banners') || {
         value: 'true'

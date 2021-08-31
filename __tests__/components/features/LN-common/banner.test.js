@@ -6,7 +6,8 @@ import {
     getBannerConfiguration,
     getTargetingFormat,
     isForAmp,
-    isPrimarySectionInBannerSegments
+    isPrimarySectionInBannerSegments,
+    shouldShow
 } from '../../../../components/private/LN/common/utils/bannerHelper';
 // import BannerSSR from '../../../../components/features/LN-common/banner/default';
 import Banner from '../../../../components/features/LN-common/bannerRefactor/default';
@@ -857,5 +858,40 @@ describe('getBannerConfiguration =>', () => {
         expect(
             buildBannerClasses({ slotName: 'Nota/comercial_dsk' }, {})
         ).toEqual('hlp-none --comercial ');
+    });
+
+    it('Validar que el banner no se muestra si recibe por termicas, por section o por composer el valor', () => {
+        expect(shouldShow(undefined, undefined, undefined)).toEqual(true);
+        expect(
+            shouldShow(
+                [{ key: 'banners', value: 'false' }],
+                undefined,
+                undefined
+            )
+        ).toEqual(false);
+        expect(
+            shouldShow([{ key: 'banners', value: 'true' }], 'true', undefined)
+        ).toEqual(false);
+        expect(
+            shouldShow([{ key: 'banners', value: 'true' }], 'false', {
+                mostrar_banners: { text: 'No' }
+            })
+        ).toEqual(false);
+        expect(
+            shouldShow([{ key: 'banners', value: 'true' }], 'false', {
+                mostrar_banners: { text: 'Si' }
+            })
+        ).toEqual(true);
+
+        const banner = shallow(
+            <Banner
+                customFields={customFields}
+                globalContent={{
+                    ...globalContent,
+                    label: { mostrar_banners: { text: 'No' } }
+                }}
+            />
+        );
+        expect(banner).toBeEmptyRender;
     });
 });

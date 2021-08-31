@@ -67,17 +67,6 @@ const BannerLogoHeader = ({ section, isAdmin }) => {
                     slotId: 'logo_header_tab'
                 }}
             />
-            <script
-                type="text/javascript"
-                dangerouslySetInnerHTML={{
-                    __html: `
-                window.addEventListener('DOMContentLoaded', () => {
-                    const nodes = document.querySelectorAll('[id^="logo_header"]');
-                    Array.from(nodes).map(x => x.classList.add('hlp-none'));
-                });
-                `
-                }}
-            />
         </Static>
     );
 };
