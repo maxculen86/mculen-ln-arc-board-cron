@@ -1,23 +1,21 @@
-[
-    {
-        "author_type": "Estándar",
-        "awards": [],
-        "bio_page": "/autor/joaquin-morales-sola-51/",
-        "books": [],
-        "byline": "Joaquín Morales Solá",
-        "canonical_url": "/autor/joaquin-morales-sola-51/",
-        "education": [],
-        "email": "",
-        "image": {
-            "url": "https://resizer.glanacion.com/resizer/EtZOBsudn8441bPnB-VpXjl06S0=/280x0/filters:quality(80)/s3.amazonaws.com/arc-authors/lanacionar/d672e0d3-65df-44ef-8ea4-cdc8ef590296.png"
-        },
-        "longBio": "",
-        "name": "Joaquín Morales Solá",
-        "node_type": "author",
-        "podcasts": [],
-        "role": "LA NACION",
-        "slug": "joaquin-morales-sola-51",
-        "twitter": "",
-        "_id": "joaquin-morales-sola-51"
-    }
-]
+{
+    "author_type": "Estándar",
+    "awards": [],
+    "bio_page": "/autor/joaquin-morales-sola-51/",
+    "books": [],
+    "byline": "Joaquín Morales Solá",
+    "canonical_url": "/autor/joaquin-morales-sola-51/",
+    "education": [],
+    "email": "",
+    "image": {
+        "url": "https://resizer.glanacion.com/resizer/EtZOBsudn8441bPnB-VpXjl06S0=/280x0/filters:quality(80)/s3.amazonaws.com/arc-authors/lanacionar/d672e0d3-65df-44ef-8ea4-cdc8ef590296.png"
+    },
+    "longBio": "",
+    "name": "Joaquín Morales Solá",
+    "node_type": "author",
+    "podcasts": [],
+    "role": "LA NACION",
+    "slug": "joaquin-morales-sola-51",
+    "twitter": "",
+    "_id": "joaquin-morales-sola-51"
+}

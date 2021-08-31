@@ -33,13 +33,16 @@ const renderBreadcrumbDistributor = (globalContent, host) => (
         host={host}
     />
 );
-const renderBreadcrumbColumnista = host => <BreadcrumbColumnista host={host} />;
+const renderBreadcrumbColumnista = (host, requestUri) => (
+    <BreadcrumbColumnista host={host} requestUri={requestUri} />
+);
 
 function isRender(
     globalContent,
     globalContentConfig,
     siteProperties,
     layout,
+    requestUri,
     host,
     title,
     customFields,
@@ -47,7 +50,7 @@ function isRender(
 ) {
     const { layoutsName } = siteProperties;
     if (layout === layoutsName.Columnistas)
-        return renderBreadcrumbColumnista(host);
+        return renderBreadcrumbColumnista(host, requestUri);
     if (customFields && customFields.sectionName)
         return (
             <BreadcrumbCustom
@@ -80,7 +83,8 @@ function Index(props) {
         globalContentConfig,
         siteProperties,
         customFields,
-        layout
+        layout,
+        requestUri
     } = props;
 
     const { host, title } = siteProperties;
@@ -106,6 +110,7 @@ function Index(props) {
         globalContentConfig,
         siteProperties,
         layout,
+        requestUri,
         host,
         title,
         customFields,

@@ -1,17 +1,18 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import BreadCrumbBase from '../../common/breadcrumbBase';
 import BreadCrumbSchema from '../../common/breadcrumbSchema';
 
 const DATA_SECTION = 'AperturaAcuRecetas';
-function BreadcrumbColumnista({ host }) {
+function BreadcrumbColumnista({ host, requestUri }) {
     const sections = [
         {
             path: host || '/',
             name: 'LA NACION'
         },
         {
-            path: '/',
+            path: requestUri,
             name: 'Columnistas'
         }
     ];
@@ -24,7 +25,8 @@ function BreadcrumbColumnista({ host }) {
 }
 
 BreadcrumbColumnista.propTypes = {
-    host: PropTypes.string.isRequired
+    host: PropTypes.string,
+    requestUri: PropTypes.string
 };
 
 export default BreadcrumbColumnista;

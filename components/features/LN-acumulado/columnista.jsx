@@ -11,13 +11,16 @@ const Columnista = props => {
         source: 'authorSource',
         query: { _id: Id }
     });
+    const { name, node_type: nodeType, image } = author || {
+        image: { url: '' }
+    };
     const data = {
         credits: {
             by: [
                 {
-                    author: author.name,
-                    type: author.node_type,
-                    image: { resized_urls: [{ resizedUrl: author.image.url }] }
+                    author: name,
+                    type: nodeType,
+                    image: { resized_urls: [{ resizedUrl: image.url }] }
                 }
             ]
         }
@@ -37,7 +40,7 @@ const Columnista = props => {
     );
 };
 Columnista.label = 'LN-Columnista-author';
-// Columnista.static = true;
+Columnista.static = true;
 
 Columnista.propTypes = {
     customFields: PropTypes.shape({
