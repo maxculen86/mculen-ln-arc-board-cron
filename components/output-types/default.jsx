@@ -122,6 +122,8 @@ const Default = props => {
         globalContent,
         outputType
     } = props;
+    const { layoutsName } = siteProperties;
+    const layOutColumnista = layoutsName.Columnistas;
 
     const {
         canonical_url: canonicalUrl,
@@ -187,7 +189,8 @@ const Default = props => {
                   Payload,
                   nodeType,
                   name,
-                  arcSite
+                  arcSite,
+                  layOutColumnista
               )
             : '';
 
@@ -196,6 +199,10 @@ const Default = props => {
             ? siteProperties.longTitle
             : metaValue('title') || siteProperties.title;
 
+    console.log(
+        "🚀 ~ file: default.jsx ~ line 202 ~ metaValue('title')",
+        metaValue('title')
+    );
     const LinkImagePreload = () =>
         getDataToLinkImage(globalContent, _nodeType, renderables, arcSite).map(
             elem => {
