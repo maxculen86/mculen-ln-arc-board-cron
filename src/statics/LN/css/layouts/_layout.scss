@@ -87,7 +87,7 @@
 #fusion-app > #wrapper:not(.sitemap) {
     //fusion-app es por pagebuilder
     position: relative;
-    overflow: clip;
+    overflow-x: clip;
 
     &:before {
         @include BgDiagonal;
