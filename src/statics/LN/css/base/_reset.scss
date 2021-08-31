@@ -146,7 +146,7 @@ button {
 body {
     font-family: Arial, 'sans-serif';
     color: #333;
-    overflow-x: hidden; //para notas con fondo color al 100%
+    // overflow-x: hidden; //trae problemas en sticky 2 mob y navbar
 }
 
 a {

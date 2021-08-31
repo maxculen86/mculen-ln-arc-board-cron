@@ -14,6 +14,7 @@ const ComLink = props => {
         title,
         classCondition,
         size,
+        rel,
         style
     } = props;
 
@@ -26,7 +27,10 @@ const ComLink = props => {
         ...(link && { href: link }),
         ...(dataEvent && { 'data-event': dataEvent }),
         ...(dataSection && { 'data-section': dataSection }),
-        ...(link && { rel: target === '_blank' ? 'nofollow' : undefined }),
+        // ...(link && !rel && { rel: target === '_blank' ? 'nofollow' : undefined }),
+        ...(link && {
+            rel: rel || (target === '_blank' ? 'nofollow' : undefined)
+        }),
         ...(link && { target }),
         ...(link && { title }),
         ...(isString && { dangerouslySetInnerHTML: { __html: children } }),

@@ -342,6 +342,11 @@
 }
 
 @media ($media-l) {
+    //columnas de 5
+    .row-gap-desksm-5 {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
     //columnas de 4
     .row-gap-desksm-4 {
         grid-template-columns: 1fr 1fr 1fr 1fr;

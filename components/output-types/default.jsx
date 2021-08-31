@@ -122,6 +122,8 @@ const Default = props => {
         globalContent,
         outputType
     } = props;
+    const { layoutsName } = siteProperties;
+    const layOutColumnista = layoutsName.Columnistas;
 
     const {
         canonical_url: canonicalUrl,
@@ -187,7 +189,8 @@ const Default = props => {
                   Payload,
                   nodeType,
                   name,
-                  arcSite
+                  arcSite,
+                  layOutColumnista
               )
             : '';
 
@@ -260,10 +263,10 @@ const Default = props => {
                     title={title}
                     metaDescription={metaDescription}
                 />
-                {canonicalUrl && (
+                {canonicalUrl && siteProperties.host && (
                     <link
                         rel="canonical"
-                        href={`https://www.lanacion.com.ar${canonicalUrl}`}
+                        href={`${siteProperties.host}${canonicalUrl}`}
                     />
                 )}
                 <LinkAmpHTML

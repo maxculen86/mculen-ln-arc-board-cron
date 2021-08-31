@@ -216,7 +216,7 @@ const Index = ({
     // if (outputType === 'amp')
     //     return <FooterAMP copyrightText={copyrightText} />;
     return (
-        <footer className="footer-site --threexs">
+        <footer id="footer" className="footer-site --threexs">
             <div className="lay">
                 <section className="top">
                     <div className="row">
@@ -225,18 +225,20 @@ const Index = ({
                                 name="facebook-filled"
                                 href="https://www.facebook.com/lanacion"
                                 target="_blank"
+                                rel
                                 title="Seguirnos en Facebook"
                             />
                             <Icon
                                 name="twitter-filled"
                                 href="https://twitter.com/LANACION"
-                                target="_blank"
+                                rel
                                 title="Seguirnos en Twitter"
                             />
                             <Icon
                                 name="instagram"
                                 href="https://www.instagram.com/lanacioncom"
                                 target="_blank"
+                                rel
                                 title="Seguirnos en Instagram"
                             />
                             <Icon
@@ -244,6 +246,7 @@ const Index = ({
                                 // href="https://servicios.lanacion.com.ar/herramientas/rss/ayuda"
                                 href="https://www.lanacion.com.ar/arc/outboundfeeds/rss/?outputType=xml"
                                 target="_blank"
+                                rel
                                 title="Ir a Rss"
                             />
                         </div>
