@@ -27,7 +27,7 @@
                     padding-top: 100%;
                     border: none;
                     .com-image {
-                        background: white;
+                        background: $neutral-white;
                         width: px(80);
                         height: px(80);
                         @media ($media-m) {
@@ -228,7 +228,7 @@ $rank-dsk: px(400);
             background: #666;
             width: 100%;
             min-height: px(100);
-            color: white;
+            color: $neutral-white;
             align-items: flex-start; //align-items: center;ALE
             justify-content: center;
         }
@@ -333,7 +333,7 @@ $rank-dsk: px(400);
             }
             .com-link.com-link,
             .com-link.com-link:hover {
-                color: white;
+                color: $neutral-white;
             }
             .com-label {
                 left: px(16);
@@ -345,6 +345,7 @@ $rank-dsk: px(400);
             .mod-marquee {
                 position: relative;
                 z-index: 1;
+                color: $dark-neutral-800;
                 //display: flex;
                 //margin: 0;
             }
