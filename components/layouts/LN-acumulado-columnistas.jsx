@@ -5,11 +5,9 @@ import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import LoginProvider from '../private/LN/common/context/loginContext';
-import Article from '../private/common/mod-article';
 import Text from '../private/common/text';
 import GlobalProvider from '../private/common/context/globalContext';
-import LoadBanners from '../private/common/banners/LoadBanners';
-
+import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 // import '../../resources/dist/css/ln/base.css';
 // import '../../resources/dist/css/ln/layouts/layout.css';
 // import '../../resources/dist/css/ln/layouts/grid.css';
@@ -68,86 +66,6 @@ const LNAcumuladoColumnistasLayout = props => {
                             {/* Espacio para el contenido */}
                             <section className="row-gap-2 row-gap-tablet-3 row-gap-desksm-5">
                                 {children[2]}
-                                {/* <Article
-                                frontdemo
-                                srcdemo="https://source.unsplash.com/80x80/?face"
-                                classCondition="--columnista"
-                                authorSize="--twoxs"
-                                link="#"
-                                authors="Nombre Apellido"
-                            />
-                            <Article
-                                frontdemo
-                                srcdemo="https://source.unsplash.com/85x85/?face"
-                                classCondition="--columnista"
-                                authorSize="--twoxs"
-                                link="#"
-                                authors="Nombre Apellido Segundo Apellido"
-                            />
-                            <Article
-                                frontdemo
-                                srcdemo="https://source.unsplash.com/90x90/?face"
-                                classCondition="--columnista"
-                                authorSize="--twoxs"
-                                link="#"
-                                authors="Autor Primer Segundo Tercer Nombre Primer Segundo Apellido"
-                            />
-                            <Article
-                                frontdemo
-                                srcdemo="https://source.unsplash.com/95x95/?face"
-                                classCondition="--columnista"
-                                authorSize="--twoxs"
-                                link="#"
-                                authors="Nombre Apellido"
-                            />
-                            <Article
-                                frontdemo
-                                srcdemo="https://source.unsplash.com/100x100/?face"
-                                classCondition="--columnista"
-                                authorSize="--twoxs"
-                                link="#"
-                                authors="Nombre Apellido"
-                            />
-                            <Article
-                                frontdemo
-                                srcdemo="https://source.unsplash.com/105x105/?face"
-                                classCondition="--columnista"
-                                authorSize="--twoxs"
-                                link="#"
-                                authors="Nombre Apellido"
-                            />
-                            <Article
-                                frontdemo
-                                srcdemo="https://source.unsplash.com/105x105/?face"
-                                classCondition="--columnista"
-                                authorSize="--twoxs"
-                                link="#"
-                                authors="Nombre Apellido"
-                            />
-                            <Article
-                                frontdemo
-                                srcdemo="https://source.unsplash.com/105x105/?face"
-                                classCondition="--columnista"
-                                authorSize="--twoxs"
-                                link="#"
-                                authors="Nombre Apellido"
-                            />
-                            <Article
-                                frontdemo
-                                srcdemo="https://source.unsplash.com/105x105/?face"
-                                classCondition="--columnista"
-                                authorSize="--twoxs"
-                                link="#"
-                                authors="Nombre Apellido"
-                            />
-                            <Article
-                                frontdemo
-                                srcdemo="https://source.unsplash.com/105x105/?face"
-                                classCondition="--columnista"
-                                authorSize="--twoxs"
-                                link="#"
-                                authors="Nombre Apellido"
-                            /> */}
                             </section>
                         </div>
                     </main>
@@ -155,7 +73,7 @@ const LNAcumuladoColumnistasLayout = props => {
                         <Footer />
                     </Static>
                 </div>
-                <LoadBanners />
+                <LoadBannersSSR />
             </LoginProvider>
         </GlobalProvider>
     );

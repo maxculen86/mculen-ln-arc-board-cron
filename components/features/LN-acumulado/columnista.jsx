@@ -22,14 +22,12 @@ const Columnista = props => {
             ]
         }
     };
-    // console.log("🚀 ~ file: columnista.jsx ~ line 14 ~ author", author)
     return (
         <>
             <ModArticle
                 withMedia
                 articleData={data}
                 isRenderAuthor
-                // srcdemo={author.image.url}
                 classCondition="--columnista"
                 authorSize="--twoxs"
                 link={author.canonical_url}
@@ -38,8 +36,8 @@ const Columnista = props => {
         </>
     );
 };
-
 Columnista.label = 'LN-Columnista-author';
+// Columnista.static = true;
 
 Columnista.propTypes = {
     customFields: PropTypes.shape({
