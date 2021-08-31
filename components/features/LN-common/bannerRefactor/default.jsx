@@ -1,9 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/require-default-props */
-
 import React from 'react';
 import Consumer from 'fusion:consumer';
-import Static from 'fusion:static';
 import PropTypes from 'fusion:prop-types';
 // import BannerComponent from '../../../private/LN/common/bannerRefactor';
 import Placeholder from '../../../private/LN/common/bannerRefactor/placeholder';
@@ -20,13 +18,7 @@ import bannersRules from '../../../private/common/banners/bannersRules';
 import get from '../../../private/common/utils/get';
 
 const Banner = props => {
-    const {
-        id: idFeature,
-        isAdmin,
-        customFields,
-        globalContent,
-        globalContentConfig
-    } = props;
+    const { isAdmin, customFields, globalContent, globalContentConfig } = props;
 
     const { sticky, desktop, mobile, tablet } = customFields;
 
@@ -62,33 +54,29 @@ const Banner = props => {
         });
     }
 
-    return (
-        <Static id={idFeature}>
-            {bannersConfiguration.map(bannerConfiguration => {
-                return (
-                    <>
-                        <DivBannerSSR
-                            key={bannerConfiguration.slotName}
-                            bannerConfiguration={bannerConfiguration}
-                        />
-                        {get(
-                            bannersRules,
-                            `[${bannerConfiguration.slotGroup}][${bannerConfiguration.device}][${bannerConfiguration.slotId}].customScript`
-                        ) &&
-                            bannersRules[bannerConfiguration.slotGroup][
-                                bannerConfiguration.device
-                            ][bannerConfiguration.slotId].customScript({
-                                sticky
-                            })}
-                    </>
-                );
-            })}
-        </Static>
-    );
+    return bannersConfiguration.map(bannerConfiguration => {
+        return (
+            <>
+                <DivBannerSSR
+                    key={bannerConfiguration.slotName}
+                    bannerConfiguration={bannerConfiguration}
+                />
+                {get(
+                    bannersRules,
+                    `[${bannerConfiguration.slotGroup}][${bannerConfiguration.device}][${bannerConfiguration.slotId}].customScript`
+                ) &&
+                    bannersRules[bannerConfiguration.slotGroup][
+                        bannerConfiguration.device
+                    ][bannerConfiguration.slotId].customScript({
+                        sticky
+                    })}
+            </>
+        );
+    });
 };
 
 Banner.label = 'LN-Common-BannerRefactor';
-// Banner.static = true;
+Banner.static = true;
 
 Banner.propTypes = {
     customFields: PropTypes.shape({
@@ -122,8 +110,7 @@ Banner.propTypes = {
         query: PropTypes.shape({
             id: PropTypes.string
         })
-    }).isRequired,
-    id: PropTypes.string
+    }).isRequired
 };
 
 export default Consumer(Banner);

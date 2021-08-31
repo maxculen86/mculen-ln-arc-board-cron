@@ -74,16 +74,14 @@ DivBannerSSR.propTypes = {
     bannerConfiguration: PropTypes.shape({
         slotId: PropTypes.string.isRequired,
         classes: PropTypes.string,
-        device: PropTypes.string.isRequired,
-        dfpId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-            .isRequired,
-        dimensions: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number))
-            .isRequired,
-        slotName: PropTypes.string.isRequired,
+        device: PropTypes.string,
+        dfpId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        dimensions: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)),
+        slotName: PropTypes.string,
         targeting: PropTypes.shape({
             seccion: PropTypes.string,
             sitio: PropTypes.string
-        }).isRequired,
+        }),
         sizemap: PropTypes.arrayOf(
             PropTypes.shape({
                 breakpoints: PropTypes.array,
@@ -92,7 +90,7 @@ DivBannerSSR.propTypes = {
         ),
         bidding: PropTypes.objectOf(PropTypes.string),
         closeButton: PropTypes.bool,
-        slotGroup: PropTypes.string.isRequired,
+        slotGroup: PropTypes.string,
         withoutHide: PropTypes.bool
     }).isRequired
 };
