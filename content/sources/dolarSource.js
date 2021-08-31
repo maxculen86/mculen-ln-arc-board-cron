@@ -57,16 +57,17 @@ const transform = data => {
     );
 
     const titles = {
-        dbna: 'Dólar Banco Nación',
-        dblue: 'Dólar Blue',
-        dccl: 'Dólar Contado con Liqui'
+        dbna: ['Dólar Banco Nación', 'Dólar BNA'],
+        dblue: ['Dólar Blue', 'Dólar CCL'],
+        dccl: ['Dólar Contado con Liqui', 'Dólar Contado con Liqui']
     };
     return {
         data: data.map(item => {
             const { sourceName } = item;
             return {
                 ...item,
-                title: titles[sourceName]
+                title: titles[sourceName][0],
+                titleMobile: titles[sourceName][1]
             };
         }),
         imageUrl
