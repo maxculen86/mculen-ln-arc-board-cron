@@ -1,9 +1,8 @@
 /* eslint-disable no-console */
 /* eslint-disable no-undef */
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
-import { GlobalContext } from '../context/globalContext';
 import get from '../utils/get';
 import useViewportSize from '../hooks/useViewportSize';
 import hasAdsTestParam from '../../LN/common/utils/hasAdsTesParam';
@@ -31,7 +30,7 @@ const getBannersInDOM = device => {
                 prebidEnabled: divBanner.dataset.prebidEnabled === 'true',
                 targeting: JSON.parse(divBanner.dataset.targeting),
                 slotGroup: divBanner.dataset.slotGroup,
-                subscription: divBanner.dataset.subscription === 'true',
+                // subscription: divBanner.dataset.subscription === 'true',
                 withoutHide: divBanner.dataset.withoutHide === 'true'
             });
         });
@@ -39,7 +38,6 @@ const getBannersInDOM = device => {
 };
 
 const LoadBannersSSR = ({ blocksBanners }) => {
-    const { state } = useContext(GlobalContext);
     const { renderables = [], outputType, isAdmin } = useAppContext();
     const [suffix, setSuffix] = useState();
     const device = useViewportSize();
@@ -47,6 +45,7 @@ const LoadBannersSSR = ({ blocksBanners }) => {
         [
             'LN-common/banner',
             'LN-nota/cuerpo',
+            'LN-acumulado/grillaNotas',
             'LN-common/bannerRefactor'
         ].includes(e.type)
     );
@@ -72,39 +71,22 @@ const LoadBannersSSR = ({ blocksBanners }) => {
                 const bannersToLoadFromDOM = getBannersInDOM(device);
 
                 const bannersInBody = [];
-                const {
-                    bannersConfig: {
-                        bannersToLoad = [],
-                        shallBeExcluded = [],
-                        bannersInGrillaNotas = []
-                    }
-                } = state || { bannersConfig: {} };
+                const bannersInGrillaNotas = [];
 
-                const finalBannersToLoad = [
-                    ...bannersToLoad,
-                    ...bannersToLoadFromDOM
-                ];
+                const finalBannersToLoad = [...bannersToLoadFromDOM];
 
                 let bannersWithSettings = bannersConfigured.filter(
                     bannerConfig => {
-                        // const bannerInPB = get(e, 'props.customFields', {})[
-                        //     device
-                        // ];
                         const bannerInPB = get(
                             bannerConfig,
                             'props.customFields',
                             {}
                         );
-                        // console.log("🚀 ~ file: LoadBannersSSR.jsx ~ line 171 ~ useEffect ~ bannerInPB", bannerInPB)
+
                         const slotGroup =
                             bannersToLoadFromDOM &&
                             bannersToLoadFromDOM[0] &&
                             bannersToLoadFromDOM[0].slotGroup;
-
-                        const thisIsExclude =
-                            slotGroup === 'nota'
-                                ? shallBeExcluded.includes(bannerInPB || '')
-                                : false;
 
                         const checkAmp =
                             outputType === 'amp'
@@ -136,11 +118,38 @@ const LoadBannersSSR = ({ blocksBanners }) => {
                                 });
                         }
 
+                        if (
+                            bannerConfig.type === 'LN-acumulado/grillaNotas' &&
+                            slotGroup === 'acumulado'
+                        ) {
+                            Object.keys(bannerInPB)
+                                .filter(value => value.includes(device))
+                                .forEach(value => {
+                                    const bannerSetInGrilla =
+                                        bannerInPB[value] || '';
+
+                                    return (
+                                        !bannersInGrillaNotas.includes(
+                                            bannerSetInGrilla
+                                        ) &&
+                                        bannerSetInGrilla.search(suffix) > -1 &&
+                                        Object.keys(bannersToLoadFromDOM).find(
+                                            i =>
+                                                bannersToLoadFromDOM[i]
+                                                    .opt_div ===
+                                                bannerSetInGrilla
+                                        ) &&
+                                        bannersInGrillaNotas.push(
+                                            bannerSetInGrilla
+                                        )
+                                    );
+                                });
+                        }
+
                         return (
                             bannerInPB &&
                             (bannerInPB.device === device ||
                                 bannerInPB[device]) &&
-                            !thisIsExclude &&
                             checkAmp &&
                             Object.keys(finalBannersToLoad).find(
                                 i =>
@@ -158,15 +167,6 @@ const LoadBannersSSR = ({ blocksBanners }) => {
                     ...bannersInGrillaNotas
                 ].filter(onlyUnique);
 
-                /* console.log(
-                    '::: PREVIA A LA CALL DE GOOGLETAG ',
-                    bannersWithSettings,
-                    bannersToLoad,
-                    bannersToLoad.length === bannersWithSettings.length,
-                    typeof window !== 'undefined',
-                    !googleCmdPushed
-                ); */
-
                 if (
                     finalBannersToLoad.length === bannersWithSettings.length &&
                     typeof window !== 'undefined' &&
@@ -181,23 +181,13 @@ const LoadBannersSSR = ({ blocksBanners }) => {
                         finalBannersToLoad
                     );
 
-                    queueGoogletagCommand(
-                        finalBannersToLoad.filter(e => !e.subscription)
-                    );
+                    queueGoogletagCommand(finalBannersToLoad);
                 }
             }
         } catch (error) {
             console.error('🚀 ~ file: LoadBannersSSR.jsx  ~ error', error);
         }
-    }, [
-        bannersConfigured,
-        blocksBanners,
-        device,
-        isAdmin,
-        state,
-        suffix,
-        outputType
-    ]);
+    }, [bannersConfigured, blocksBanners, device, isAdmin, suffix, outputType]);
 
     return <div className="hlp-none">Cargando banners ...</div>;
 };

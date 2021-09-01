@@ -41,7 +41,7 @@ const fetch = query => {
 };
 const transform = (data, siteProps) => {
     const { _id: idData } = data;
-    const { id: idQuery } = siteProps;
+    const { id: idQuery, meteringVariant } = siteProps;
     /**
      * Se valida que la sección consultada tenga
      * consistencia con la data respondida en la data
@@ -54,7 +54,11 @@ const transform = (data, siteProps) => {
         err.statusCode = 404;
         throw err;
     }
-    const newData = { ...data, date: getTodayDateForAcuDolar() };
+    const newData = {
+        ...data,
+        date: getTodayDateForAcuDolar(),
+        subscription: meteringVariant
+    };
     return newData;
 };
 
@@ -63,7 +67,8 @@ export default {
     schemaName: 'section-schema',
     params: {
         id: 'text',
-        website: 'text'
+        website: 'text',
+        meteringVariant: 'text'
     },
     ttl: 300
 };
