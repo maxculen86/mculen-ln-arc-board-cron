@@ -26,14 +26,24 @@ const getListSections = (sections, extraOpts, host, colorCategory) =>
                     })
                 }}
             >
-                <i
+                {/* <i
                     className="com-icon bullet icon-bullet-xs"
                     style={{
                         ...(colorCategory && {
                             color: colorCategory
                         })
                     }}
-                />
+                /> */}
+                <i
+                    className="--bullet --fourxs"
+                    style={{
+                        ...(colorCategory && {
+                            color: colorCategory
+                        })
+                    }}
+                >
+                    {`>`}
+                </i>
                 {section.name}
             </a>
         );
