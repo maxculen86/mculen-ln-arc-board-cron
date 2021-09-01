@@ -6,6 +6,7 @@ export default {
     header: {
         hierarchy: 'Header'
     },
+    host: 'https://lnmas.lanacion.com.ar',
     activeProgramsHierarchy: 'ActivePrograms',
     scripts: {
         GTM: {

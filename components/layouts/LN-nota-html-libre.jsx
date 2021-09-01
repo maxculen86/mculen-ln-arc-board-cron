@@ -70,7 +70,7 @@ const lnNotaNoticia = ({
                     {/* Banner Megatop */}
                     {getBannerMegatop(bannerMegatop, amp, tree, isAdmin)}
 
-                    <div id="wrapper" className={`nota noticia ${amp}`}>
+                    <div id="wrapper" className={`nota html-libre ${amp}`}>
                         <Header />
                         <main style={{ paddingTop: '0px' }}>
                             <div

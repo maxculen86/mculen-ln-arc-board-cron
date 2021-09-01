@@ -370,6 +370,19 @@ export default `
         }
         level
         content
+        powerUp{
+            _id
+            type
+            subtype
+            embed{
+                config{
+                    items
+                    titleList
+                    typeList
+                }
+            }
+
+        }
         citation {
             type
             content

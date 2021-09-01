@@ -47,7 +47,7 @@ const BannerLogoHeader = ({ section, isAdmin }) => {
             <DivBanner id="logo_header_dsk" classes="--logo" shouldRender />
             <DivBanner id="logo_header_mob" classes="--logo" shouldRender />
             <DivBanner id="logo_header_tab" classes="--logo" shouldRender />
-            <script
+            {/* <script
                 type="text/javascript"
                 dangerouslySetInnerHTML={{
                     __html: `
@@ -57,7 +57,7 @@ const BannerLogoHeader = ({ section, isAdmin }) => {
                 });
                 `
                 }}
-            />
+            /> */}
         </Static>
     );
 };
