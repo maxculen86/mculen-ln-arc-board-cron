@@ -4,7 +4,10 @@ import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 import Media from '../../private/LN/common/media';
-import { VIDEO } from '../../private/common/utils/subtypes/subtypeHelper';
+import {
+    INFOGRAFIA,
+    VIDEO
+} from '../../private/common/utils/subtypes/subtypeHelper';
 import {
     buildScriptForZoom,
     getEpigrafe
@@ -60,7 +63,7 @@ const aperturaNoticia = props => {
     );
 
     return (
-        (isVideo && Component) || (
+        ((isVideo || subtype === INFOGRAFIA) && Component) || (
             <Static id={idFeature} persistent>
                 {Component}
             </Static>

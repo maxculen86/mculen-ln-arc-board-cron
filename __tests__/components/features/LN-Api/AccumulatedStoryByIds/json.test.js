@@ -61,6 +61,13 @@ describe('components - features - LN-Api - AccumulatedStoryByIds - json.js', () 
             expect(result.notas[1].id).toEqual('2375VFXVGZBNZDLXL5CTHUVTMQ');
             expect(result.notas[2].id).toEqual('23CPLUXGMFF2RBADC62EYLXH4M');
         });
+        it('when the result is in order', () => {
+            const objArticle = new AccumulatedStoryByIds.default(props);
+            const result = objArticle.render();
+            expect(result.notas[0].id).toEqual('236DDMMNYVFNFC4PZQPP4AK6XI');
+            expect(result.notas[1].id).toEqual('2375VFXVGZBNZDLXL5CTHUVTMQ');
+            expect(result.notas[2].id).toEqual('23CPLUXGMFF2RBADC62EYLXH4M');
+        });
 
         it('When fetch acuArticlesSource is null', () => {
             const objArticle = new AccumulatedStoryByIds.default(props);

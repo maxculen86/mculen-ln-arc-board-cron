@@ -30,9 +30,10 @@ const fetch = query => {
 
     const arcSite = query['arc-site'];
 
-    const resultsIds = Ids.split(/[ ,]+/);
+    let resultsIds = Ids?.split(/[ ,]+/);
+    resultsIds = resultsIds?.filter(x => x !== '');
 
-    if (sizeMax && sizeMax < resultsIds.length) {
+    if (resultsIds && sizeMax && sizeMax < resultsIds.length) {
         throw new Error(
             `Error en validacion del máximo permitido: ${resultsIds.length}`
         );
@@ -56,7 +57,7 @@ const fetch = query => {
 
             objresponse.count = resultsIds.length;
             objresponse.next = null;
-            return transform(objresponse, query);
+            return transform(objresponse, query, resultsIds);
         })
         .catch(error => {
             logger.push(error, { source: 'content/source', uri }, arcSite);
@@ -64,7 +65,7 @@ const fetch = query => {
         });
 };
 
-const transform = (data, siteProps) => {
+const transform = (data, siteProps, resultsIds) => {
     const respData = data;
     const { content_elements: contentElements } = data || {};
     const { presets, presetsDefault } = getPresets(siteProps);
@@ -118,6 +119,10 @@ const transform = (data, siteProps) => {
             ]
         };
     });
+    respData.content_elements = resultsIds.map(orderId => {
+        return respData.content_elements.find(story => story._id === orderId);
+    });
+
     return respData;
 };
 

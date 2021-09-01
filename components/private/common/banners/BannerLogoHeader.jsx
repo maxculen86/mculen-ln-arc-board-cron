@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import Static from 'fusion:static';
 import { useAppContext } from 'fusion:context';
 import get from '../utils/get';
-import DivBanner from './DivBanner';
 import { getViewport } from '../../LN/common/utils/homeHelper';
 import hasAdsTestParam from '../../LN/common/utils/hasAdsTesParam';
 import {
     queueGoogletagCommand,
     suffixDevice
 } from '../../LN/common/utils/bannerHelper';
+import DivBannerSSR from './DivBannerSSR';
 
 const BannerLogoHeader = ({ section, isAdmin }) => {
     const { siteProperties } = useAppContext();
@@ -42,22 +42,31 @@ const BannerLogoHeader = ({ section, isAdmin }) => {
         !isAdmin && slotId && loadBanner(slotId, section, device);
     }, [isAdmin, config, device, dfpId, section, slotId]);
 
+    const bannerConfiguration = {
+        slotGroup: section,
+        classes: '--logo hlp-none'
+    };
+
     return (
         <Static id="id-banner-logo">
-            <DivBanner id="logo_header_dsk" classes="--logo" shouldRender />
-            <DivBanner id="logo_header_mob" classes="--logo" shouldRender />
-            <DivBanner id="logo_header_tab" classes="--logo" shouldRender />
-            {/* <script
-                type="text/javascript"
-                dangerouslySetInnerHTML={{
-                    __html: `
-                window.addEventListener('DOMContentLoaded', () => {
-                    const nodes = document.querySelectorAll('[id^="logo_header"]');
-                    Array.from(nodes).map(x => x.classList.add('hlp-none'));
-                });
-                `
+            <DivBannerSSR
+                bannerConfiguration={{
+                    ...bannerConfiguration,
+                    slotId: 'logo_header_dsk'
                 }}
-            /> */}
+            />
+            <DivBannerSSR
+                bannerConfiguration={{
+                    ...bannerConfiguration,
+                    slotId: 'logo_header_mob'
+                }}
+            />
+            <DivBannerSSR
+                bannerConfiguration={{
+                    ...bannerConfiguration,
+                    slotId: 'logo_header_tab'
+                }}
+            />
         </Static>
     );
 };
