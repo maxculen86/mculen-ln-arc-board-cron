@@ -36,7 +36,7 @@ const fetch = query => {
 };
 
 const transform = (data, query) => {
-    const { uri, slug } = query || {};
+    const { uri, slug, meteringVariant } = query || {};
     const { site } = data || {};
     const { distributor_name: distributor = {} } = site || {};
     const name = distributor[slug];
@@ -46,7 +46,8 @@ const transform = (data, query) => {
         name,
         byline: name,
         node_type: 'distributor',
-        canonical_url: uri
+        canonical_url: uri,
+        subscription: meteringVariant
     };
 
     return newData;
@@ -57,7 +58,8 @@ export default {
     schemaName: 'distributor-schema',
     params: {
         slug: 'text',
-        website: 'text'
+        website: 'text',
+        meteringVariant: 'text'
     },
     ttl: 120
 };
