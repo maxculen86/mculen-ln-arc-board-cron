@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable no-shadow */
 /* eslint-disable react/jsx-props-no-spreading */
@@ -135,12 +136,12 @@ const FirmaFeature = props => {
 
 FirmaFeature.propTypes = {
     id: PropTypes.string,
-    outputType: PropTypes.string.isRequired,
+    outputType: PropTypes.string,
     customFields: PropTypes.shape({
         position: PropTypes.oneOf([place.Top, place.Bottom]).tag({
             label: 'Ubicacion'
-        }).isRequired
-    }).isRequired,
+        })
+    }),
     globalContent: PropTypes.shape({
         content_elements: PropTypes.arrayOf(
             PropTypes.shape({
@@ -151,7 +152,7 @@ FirmaFeature.propTypes = {
                 }),
                 content: PropTypes.string
             })
-        ).isRequired,
+        ),
         credits: PropTypes.shape({
             by: PropTypes.shape({
                 image: PropTypes.shape({
@@ -164,7 +165,7 @@ FirmaFeature.propTypes = {
                 _id: PropTypes.string
             })
         })
-    }).isRequired
+    })
 };
 
 FirmaFeature.label = 'LN-Nota-Firma';

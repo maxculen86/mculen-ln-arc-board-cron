@@ -207,7 +207,7 @@ Banner.propTypes = {
     customFields: PropTypes.shape({
         group: PropTypes.oneOf(Object.keys(slotsConfig)).tag({
             label: 'Ubicacion'
-        }).isRequired,
+        }),
         desktop: PropTypes.oneOf(getSlotsOptions('dsk')),
         mobile: PropTypes.oneOf(getSlotsOptions('mob')),
         tablet: PropTypes.oneOf(getSlotsOptions('tab')),
@@ -217,7 +217,7 @@ Banner.propTypes = {
     }),
     siteProperties: PropTypes.shape({
         bannerConfig: PropTypes.shape({
-            dfp_id: PropTypes.number.isRequired
+            dfp_id: PropTypes.number
         })
     }),
     isAdmin: PropTypes.bool,
@@ -235,8 +235,8 @@ Banner.propTypes = {
         query: PropTypes.shape({
             id: PropTypes.string
         })
-    }).isRequired,
-    outputType: PropTypes.string.isRequired
+    }),
+    outputType: PropTypes.string
 };
 
 export default Consumer(Banner);
