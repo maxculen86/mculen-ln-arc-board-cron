@@ -32,6 +32,8 @@ const fetch = query => {
         };
     }
 
+    console.log(query);
+
     force404AMP({ outputType });
 
     return request(opt)
