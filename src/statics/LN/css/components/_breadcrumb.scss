@@ -1,8 +1,6 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
-//=======================================
-// Se saca los espacios al top
-//=======================================
+
 .com-breadcrumb {
     position: relative;
     display: flex;
@@ -10,7 +8,7 @@
     flex-wrap: wrap;
     align-items: center;
     margin-bottom: $spacing-md;
-    color: $light-neutral-600;
+    color: $light-neutral-800;
 
     .com-link,
     .com-text {
@@ -19,28 +17,17 @@
         &::first-letter {
             text-transform: uppercase;
         }
-        .com-icon {
-            margin-bottom: px(-2);
+        .--bullet {
+            margin: 0 px(8);
+            color: $light-neutral-400;
         }
     }
 
     .com-link {
         &:first-child {
-            .com-icon {
+            .--bullet {
                 display: none;
             }
         }
     }
-
-    // p {
-    //     border-left: solid 1px $light-neutral-600;
-    //     padding: 0 px(6);
-    // }
 }
-
-//Valores de tablet para arriba
-// @media (min-width: 768px) {
-//     .com-breadcrumb {
-//         display: flex;
-//     }
-// }
