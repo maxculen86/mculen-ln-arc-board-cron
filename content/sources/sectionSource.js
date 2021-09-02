@@ -32,7 +32,7 @@ const fetch = query => {
         };
     }
 
-    force404AMP({ outputType, promise: true });
+    force404AMP({ outputType });
 
     return request(opt)
         .then(response => {
