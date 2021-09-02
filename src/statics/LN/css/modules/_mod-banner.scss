@@ -14,6 +14,11 @@
     z-index: 1;
     margin-bottom: $spacing-2xl;
 
+    .com-banner {
+        width: 100%; //pedido de comercial
+        text-align: center;
+    }
+
     &:before {
         content: 'PUBLICIDAD';
         font-size: px(11);
@@ -221,9 +226,11 @@
         }
 
         &.--middle_1_dsk,
-        &.--middle_2_dsk,
-        &.--middle_3_dsk {
+        &.--middle_2_dsk {
             height: px(480);
+        }
+        &.--middle_3_dsk {
+            height: px(90);
         }
 
         .home & {
