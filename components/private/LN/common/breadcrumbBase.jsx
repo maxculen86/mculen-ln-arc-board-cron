@@ -34,16 +34,7 @@ const getListSections = (sections, extraOpts, host, colorCategory) =>
                         })
                     }}
                 /> */}
-                <i
-                    className="--bullet --fourxs"
-                    style={{
-                        ...(colorCategory && {
-                            color: colorCategory
-                        })
-                    }}
-                >
-                    {`>`}
-                </i>
+                <i className="--bullet --fourxs">{`>`}</i>
                 {section.name}
             </a>
         );
