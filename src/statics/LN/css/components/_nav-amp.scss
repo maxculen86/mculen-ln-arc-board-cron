@@ -69,7 +69,7 @@ amp-sidebar {
                         border-bottom: $border-nav;
 
                         a {
-                            color: #0074c4;
+                            color: $light-blue-500;
                         }
 
                         &::before {
@@ -209,7 +209,7 @@ amp-sidebar {
         background: transparent;
         border-color: transparent;
         padding: 0.1875rem 1rem;
-        color: #0074c4;
+        color: $light-blue-500;
     }
 }
 
