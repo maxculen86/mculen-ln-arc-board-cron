@@ -57,7 +57,8 @@ const ArticleAcum = ({
 
     const subheadText = withSubhead && getBajadaOrFirstTextParagraph(_article);
 
-    const titleText = get(headlines, 'mobile') || get(headlines, 'basic');
+    const titleTextShort = get(headlines, 'mobile', '');
+    const titleTextLong = get(headlines, 'basic', '');
     const leadText = withVolanta ? get(label, 'volanta.text', '') : '';
     const chapita = get(label, 'chapita.text', '');
 
@@ -81,8 +82,10 @@ const ArticleAcum = ({
                 link={website_url}
                 titleTag={titleTag}
                 titleSize={titleSize}
-                titleText={titleText}
-                leadText={leadText}
+                titleText={
+                    titleTextShort !== '' ? titleTextShort : titleTextLong
+                }
+                leadText={titleTextShort !== '' ? leadText : ''}
                 authors={authors}
                 dateText={!typeAcumRules[typeArticle].withHour && display_date}
                 hour={hourToDisplay}
