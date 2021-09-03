@@ -38,6 +38,7 @@ import ScriptSWG from '../private/common/scriptManager/scriptSWG';
 import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
 import getMetaDescriptionForAcum from '../private/common/utils/getMetaDescriptionForAcum';
 import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
+import addForwardSlash from '../private/LN/common/utils/addForwardSlash';
 
 const scriptList = [
     {
@@ -265,7 +266,9 @@ const Default = props => {
                 {canonicalUrl && siteProperties.host && (
                     <link
                         rel="canonical"
-                        href={`${siteProperties.host}${canonicalUrl}`}
+                        href={addForwardSlash(
+                            `${siteProperties.host}${canonicalUrl}`
+                        )}
                     />
                 )}
                 <LinkAmpHTML
