@@ -11,8 +11,10 @@ Array [
       title="Noticias de LA NACION"
     >
       <i
-        class="com-icon bullet icon-bullet-xs"
-      />
+        class="--bullet --fourxs"
+      >
+        &gt;
+      </i>
       LA NACION
     </a>
     <a
@@ -21,8 +23,10 @@ Array [
       title="Noticias de Recetas"
     >
       <i
-        class="com-icon bullet icon-bullet-xs"
-      />
+        class="--bullet --fourxs"
+      >
+        &gt;
+      </i>
       Recetas
     </a>
     <a
@@ -31,8 +35,10 @@ Array [
       title="Noticias de Recetas con ingredientes"
     >
       <i
-        class="com-icon bullet icon-bullet-xs"
-      />
+        class="--bullet --fourxs"
+      >
+        &gt;
+      </i>
       Recetas con ingredientes
     </a>
     <a
@@ -41,8 +47,10 @@ Array [
       title="Noticias de Pollo"
     >
       <i
-        class="com-icon bullet icon-bullet-xs"
-      />
+        class="--bullet --fourxs"
+      >
+        &gt;
+      </i>
       Pollo
     </a>
   </nav>,
