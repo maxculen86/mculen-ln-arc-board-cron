@@ -370,7 +370,7 @@ const headerAMP = props => {
                             <section>
                                 <h2 className="arrow-right">
                                     <a
-                                        href="https://www.lanacion.com.ar/edicion-impresa"
+                                        href="https://edicionimpresa.lanacion.com.ar/la-nacion"
                                         className="url-link"
                                     >
                                         Edición Impresa
