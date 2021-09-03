@@ -20,7 +20,7 @@ const resolve = key => {
     return `/site/v3/navigation/${finalWebsite}/?_id=${id}`;
 };
 const fetch = query => {
-    const { url = '', outputType } = query;
+    const { url = '', outputType, redirectUrl } = query;
     const arcSite = query['arc-site'];
     const opt = {
         uri: `${CONTENT_BASE}${resolve(query)}`,
@@ -32,9 +32,7 @@ const fetch = query => {
         };
     }
 
-    console.log(query);
-
-    force404AMP({ outputType });
+    force404AMP({ outputType, redirectUrl });
 
     return request(opt)
         .then(response => {
@@ -70,7 +68,8 @@ export default {
     params: {
         id: 'text',
         website: 'text',
-        outputType: 'text'
+        outputType: 'text',
+        redirectUrl: 'text'
     },
     ttl: 300
 };
