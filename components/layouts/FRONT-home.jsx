@@ -558,7 +558,7 @@ const LNHome = props => {
                                             <div className="row">
                                                 <Article
                                                     frontdemo
-                                                    autoplay
+                                                    autoplay="autoplay"
                                                     srcdemo="https://source.unsplash.com/460x600"
                                                     video="https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/06/10/5cfe914c46e0fb000981496e/t_520577cda990476baa7a9ecf733e4a97_name_05_30_2019_t_a35f599ee6764026add3d7967f88b000_name_Marilina_Rolling_1920x1080_2/file_1280x720-2000-v3_1.mp4"
                                                     link="#"
