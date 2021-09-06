@@ -1,0 +1,3804 @@
+[
+    {
+        "collection": "layouts",
+        "type": "LN-Home_Main",
+        "props": {
+            "collection": "layouts",
+            "type": "LN-Home_Main",
+            "id": "LN-Home_Main",
+            "childProps": [
+                {
+                    "collection": "sections",
+                    "id": 0
+                },
+                {
+                    "collection": "sections",
+                    "id": 1
+                },
+                {
+                    "collection": "sections",
+                    "id": 2
+                },
+                {
+                    "collection": "sections",
+                    "id": 3
+                },
+                {
+                    "collection": "sections",
+                    "id": 4
+                },
+                {
+                    "collection": "sections",
+                    "id": 5
+                },
+                {
+                    "collection": "sections",
+                    "id": 6
+                },
+                {
+                    "collection": "sections",
+                    "id": 7
+                },
+                {
+                    "collection": "sections",
+                    "id": 8
+                },
+                {
+                    "collection": "sections",
+                    "id": 9
+                },
+                {
+                    "collection": "sections",
+                    "id": 10
+                },
+                {
+                    "collection": "sections",
+                    "id": 11
+                },
+                {
+                    "collection": "sections",
+                    "id": 12
+                },
+                {
+                    "collection": "sections",
+                    "id": 13
+                },
+                {
+                    "collection": "sections",
+                    "id": 14
+                },
+                {
+                    "collection": "sections",
+                    "id": 15
+                },
+                {
+                    "collection": "sections",
+                    "id": 16
+                },
+                {
+                    "collection": "sections",
+                    "id": 17
+                },
+                {
+                    "collection": "sections",
+                    "id": 18
+                },
+                {
+                    "collection": "sections",
+                    "id": 19
+                },
+                {
+                    "collection": "sections",
+                    "id": 20
+                },
+                {
+                    "collection": "sections",
+                    "id": 21
+                },
+                {
+                    "collection": "sections",
+                    "id": 22
+                }
+            ]
+        },
+        "children": [
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 0
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-common/cajaAnticipo",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/cajaAnticipo",
+                            "id": "f0fsKOIpLgGn7O3",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "title": "Advierten que el registro de contratos hará subir los precios",
+                                "link": "https://www.lanacion.com.ar",
+                                "hide": false
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 1
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-common/anexo",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/anexo",
+                            "id": "f0f0raOK8mKx1sc",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "url": "https://especialess3.lanacion.com.ar/19/elecciones2019/anexos-home-agosto/#datasrc=auto&titulo=Resultados%20PASO%202019&visibles=1,1,1&black=true&vermapa=false",
+                                "height": 300,
+                                "html": "<style>\n  iframe.covid-desktop{\n   width: 100%;\n   height:180px;\n  }\n@media screen and (max-width: 640px) {\n  iframe.covid-desktop{\n   height:200px;\n  }\n}\n</style>\n<iframe class=\"covid-desktop\" width=\"100%\" frameborder=\"0\" scrolling=\"no\" src=\"https://especialess3.lanacion.com.ar/20/08/anexo-home-fiebres/index.html\"></iframe>",
+                                "hideByUrl": false
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 2
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-common/bomba",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/bomba",
+                            "id": "f0fcLtIhSP7E7tK",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "chapita": "ULTIMO MOMENTO",
+                                "authors": "",
+                                "lead": "",
+                                "title": "",
+                                "noteId": "YKFWJP34VFGSFOJZJZXAKZ5IHE",
+                                "imageId": "H53R624KARDARCICFNEC7ZC7YA",
+                                "hideFeature": true,
+                                "hideImage": false
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 3
+                },
+                "children": [
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Manual",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Manual",
+                            "id": "c0fCdBNjvrxb3sF",
+                            "name": null,
+                            "customFields": {
+                                "layout": "grilla6",
+                                "initialPosition": 1,
+                                "hideTitle": true,
+                                "pbInternal_cloneId": "c0fCdBNjvrxb3sF"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": [
+                            {
+                                "collection": "features",
+                                "type": "LN-common/articulo",
+                                "props": {
+                                    "collection": "features",
+                                    "type": "LN-common/articulo",
+                                    "id": "f0fUztJJurxb3Gx",
+                                    "name": null,
+                                    "contentConfig": {
+                                        "contentService": "",
+                                        "contentConfigValues": {},
+                                        "inherit": true
+                                    },
+                                    "customFields": {
+                                        "noteId": "Y76IVJSGXFHS3CRK3E7NBUMEUY",
+                                        "lead": ""
+                                    },
+                                    "displayProperties": {},
+                                    "localEdits": {},
+                                    "variants": {}
+                                }
+                            },
+                            {
+                                "collection": "features",
+                                "type": "LN-common/articulo",
+                                "props": {
+                                    "collection": "features",
+                                    "type": "LN-common/articulo",
+                                    "id": "f0f2PzG8vrxb3HY",
+                                    "name": null,
+                                    "contentConfig": {
+                                        "contentService": "",
+                                        "contentConfigValues": {},
+                                        "inherit": true
+                                    },
+                                    "customFields": {
+                                        "noteId": "KXO4EI7KNZDCVE2C7VIBJ3FTQQ",
+                                        "pbInternal_cloneId": "f0fVjANyNcBg6ou"
+                                    },
+                                    "displayProperties": {},
+                                    "localEdits": {},
+                                    "variants": {}
+                                }
+                            },
+                            {
+                                "collection": "features",
+                                "type": "LN-common/articulo",
+                                "props": {
+                                    "collection": "features",
+                                    "type": "LN-common/articulo",
+                                    "id": "f0fhayuevrxb3Tz",
+                                    "name": null,
+                                    "contentConfig": {
+                                        "contentService": "",
+                                        "contentConfigValues": {},
+                                        "inherit": true
+                                    },
+                                    "customFields": {
+                                        "noteId": "ANSZYDSL2JDJNPANYBG45GRVYA",
+                                        "pbInternal_cloneId": "f0fNh2HXRciZ7G6"
+                                    },
+                                    "displayProperties": {},
+                                    "localEdits": {},
+                                    "variants": {}
+                                }
+                            },
+                            {
+                                "collection": "features",
+                                "type": "LN-common/articulo",
+                                "props": {
+                                    "collection": "features",
+                                    "type": "LN-common/articulo",
+                                    "id": "f0fc92BNZcM15IL",
+                                    "name": null,
+                                    "contentConfig": {
+                                        "contentService": "",
+                                        "contentConfigValues": {},
+                                        "inherit": true
+                                    },
+                                    "customFields": {
+                                        "noteId": "ANSZYDSL2JDJNPANYBG45GRVYA",
+                                        "pbInternal_cloneId": "f0fc92BNZcM15IL"
+                                    },
+                                    "displayProperties": {},
+                                    "localEdits": {},
+                                    "variants": {}
+                                }
+                            },
+                            {
+                                "collection": "features",
+                                "type": "LN-common/articulo",
+                                "props": {
+                                    "collection": "features",
+                                    "type": "LN-common/articulo",
+                                    "id": "f0faG6Kwm9we3qv",
+                                    "name": null,
+                                    "contentConfig": {
+                                        "contentService": "",
+                                        "contentConfigValues": {},
+                                        "inherit": true
+                                    },
+                                    "customFields": {
+                                        "noteId": "ANSZYDSL2JDJNPANYBG45GRVYA",
+                                        "pbInternal_cloneId": "f0faG6Kwm9we3qv"
+                                    },
+                                    "displayProperties": {},
+                                    "localEdits": {},
+                                    "variants": {}
+                                }
+                            },
+                            {
+                                "collection": "features",
+                                "type": "LN-common/articulo",
+                                "props": {
+                                    "collection": "features",
+                                    "type": "LN-common/articulo",
+                                    "id": "f0f4lqb0C9Ae3fx",
+                                    "name": null,
+                                    "contentConfig": {
+                                        "contentService": "",
+                                        "contentConfigValues": {},
+                                        "inherit": true
+                                    },
+                                    "customFields": {
+                                        "noteId": "ANSZYDSL2JDJNPANYBG45GRVYA",
+                                        "pbInternal_cloneId": "f0f4lqb0C9Ae3fx"
+                                    },
+                                    "displayProperties": {},
+                                    "localEdits": {},
+                                    "variants": {}
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 4
+                },
+                "children": [
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Manual",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Manual",
+                            "id": "c0f6bXdBxQPZ4QW",
+                            "name": null,
+                            "customFields": {
+                                "layout": "notaColorRosa3",
+                                "initialPosition": 1,
+                                "hideTitle": true,
+                                "pbInternal_cloneId": "c0f6bXdBxQPZ4QW"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": [
+                            {
+                                "collection": "features",
+                                "type": "LN-common/articulo",
+                                "props": {
+                                    "collection": "features",
+                                    "type": "LN-common/articulo",
+                                    "id": "f0faKOjixQPZ4i9",
+                                    "name": null,
+                                    "contentConfig": {
+                                        "contentService": "",
+                                        "contentConfigValues": {},
+                                        "inherit": true
+                                    },
+                                    "customFields": {
+                                        "noteId": "Y76IVJSGXFHS3CRK3E7NBUMEUY",
+                                        "lead": ""
+                                    },
+                                    "displayProperties": {},
+                                    "localEdits": {},
+                                    "variants": {}
+                                }
+                            },
+                            {
+                                "collection": "features",
+                                "type": "LN-common/articulo",
+                                "props": {
+                                    "collection": "features",
+                                    "type": "LN-common/articulo",
+                                    "id": "f0fEPgosxQPZ4i8",
+                                    "name": null,
+                                    "contentConfig": {
+                                        "contentService": "",
+                                        "contentConfigValues": {},
+                                        "inherit": true
+                                    },
+                                    "customFields": {
+                                        "noteId": "KXO4EI7KNZDCVE2C7VIBJ3FTQQ",
+                                        "pbInternal_cloneId": "f0fVjANyNcBg6ou"
+                                    },
+                                    "displayProperties": {},
+                                    "localEdits": {},
+                                    "variants": {}
+                                }
+                            },
+                            {
+                                "collection": "features",
+                                "type": "LN-common/articulo",
+                                "props": {
+                                    "collection": "features",
+                                    "type": "LN-common/articulo",
+                                    "id": "f0fPxgcwxQPZ4Ga",
+                                    "name": null,
+                                    "contentConfig": {
+                                        "contentService": "",
+                                        "contentConfigValues": {},
+                                        "inherit": true
+                                    },
+                                    "customFields": {
+                                        "noteId": "ANSZYDSL2JDJNPANYBG45GRVYA",
+                                        "pbInternal_cloneId": "f0fNh2HXRciZ7G6"
+                                    },
+                                    "displayProperties": {},
+                                    "localEdits": {},
+                                    "variants": {}
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 5
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-common/anexo",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/anexo",
+                            "id": "f0fWQFhr2UNd8ks",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "url": "",
+                                "height": null,
+                                "html": "<style>\n    #iframe_jjoo_calendario {\n        height: 475px\n    }\n \n    @media (max-width: 770px) {\n        #iframe_jjoo_calendario {\n            height: 615px\n        }\n    }\n\n    @media (max-width: 640px) {\n        #iframe_jjoo_calendario {\n            height: 570px\n        }\n    }\n</style> \n\n<iframe id=\"iframe_jjoo_calendario\" frameborder=\"0\" width=\"100%\" height=\"465\" scrolling=\"no\"\n    src=\"https://especialess3.lanacion.com.ar/21/06/calendario_jjoo_tokio_2021/#/anexo\"></iframe>",
+                                "hideByUrl": true,
+                                "pbInternal_cloneId": "f0fWQFhr2UNd8ks",
+                                "hideByHtml": false
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 6
+                },
+                "children": [
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Manual",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Manual",
+                            "id": "c0fX3VSrYbNd9Nn",
+                            "name": null,
+                            "customFields": {
+                                "layout": "focalLeft3",
+                                "initialPosition": 1,
+                                "hideTitle": true,
+                                "pbInternal_cloneId": "c0fX3VSrYbNd9Nn"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": [
+                            {
+                                "collection": "features",
+                                "type": "LN-common/articulo",
+                                "props": {
+                                    "collection": "features",
+                                    "type": "LN-common/articulo",
+                                    "id": "f0fjGKcaYbNd9el",
+                                    "name": null,
+                                    "contentConfig": {
+                                        "contentService": "",
+                                        "contentConfigValues": {},
+                                        "inherit": true
+                                    },
+                                    "customFields": {
+                                        "noteId": "Y76IVJSGXFHS3CRK3E7NBUMEUY",
+                                        "lead": ""
+                                    },
+                                    "displayProperties": {},
+                                    "localEdits": {},
+                                    "variants": {}
+                                }
+                            },
+                            {
+                                "collection": "features",
+                                "type": "LN-common/articulo",
+                                "props": {
+                                    "collection": "features",
+                                    "type": "LN-common/articulo",
+                                    "id": "f0fLsUfjYbNd9ib",
+                                    "name": null,
+                                    "contentConfig": {
+                                        "contentService": "",
+                                        "contentConfigValues": {},
+                                        "inherit": true
+                                    },
+                                    "customFields": {
+                                        "noteId": "KXO4EI7KNZDCVE2C7VIBJ3FTQQ",
+                                        "pbInternal_cloneId": "f0fVjANyNcBg6ou"
+                                    },
+                                    "displayProperties": {},
+                                    "localEdits": {},
+                                    "variants": {}
+                                }
+                            },
+                            {
+                                "collection": "features",
+                                "type": "LN-common/articulo",
+                                "props": {
+                                    "collection": "features",
+                                    "type": "LN-common/articulo",
+                                    "id": "f0fr4vEnYbNd93W",
+                                    "name": null,
+                                    "contentConfig": {
+                                        "contentService": "",
+                                        "contentConfigValues": {},
+                                        "inherit": true
+                                    },
+                                    "customFields": {
+                                        "noteId": "ANSZYDSL2JDJNPANYBG45GRVYA",
+                                        "pbInternal_cloneId": "f0fNh2HXRciZ7G6"
+                                    },
+                                    "displayProperties": {},
+                                    "localEdits": {},
+                                    "variants": {}
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 7
+                },
+                "children": [
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Manual",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Manual",
+                            "id": "c0ftOzDh7MwnaCt",
+                            "name": null,
+                            "customFields": {
+                                "layout": "focalLeft3",
+                                "initialPosition": 1,
+                                "hideTitle": true
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": [
+                            {
+                                "collection": "features",
+                                "type": "LN-common/articulo",
+                                "props": {
+                                    "collection": "features",
+                                    "type": "LN-common/articulo",
+                                    "id": "f0ftrld5vG8oakm",
+                                    "name": null,
+                                    "contentConfig": {
+                                        "contentService": "",
+                                        "contentConfigValues": {},
+                                        "inherit": true
+                                    },
+                                    "customFields": {
+                                        "noteId": "O2LUDAQJTZB4FJDHFZDUKNIUDE"
+                                    },
+                                    "displayProperties": {},
+                                    "localEdits": {},
+                                    "variants": {}
+                                }
+                            },
+                            {
+                                "collection": "features",
+                                "type": "LN-common/articulo",
+                                "props": {
+                                    "collection": "features",
+                                    "type": "LN-common/articulo",
+                                    "id": "f0f5vEOc10ZW5Eo",
+                                    "name": null,
+                                    "contentConfig": {
+                                        "contentService": "",
+                                        "contentConfigValues": {},
+                                        "inherit": true
+                                    },
+                                    "customFields": {
+                                        "noteId": "QIIUJR7O75CGTM66XFFMIETQJI"
+                                    },
+                                    "displayProperties": {},
+                                    "localEdits": {},
+                                    "variants": {}
+                                }
+                            },
+                            {
+                                "collection": "features",
+                                "type": "LN-common/articulo",
+                                "props": {
+                                    "collection": "features",
+                                    "type": "LN-common/articulo",
+                                    "id": "f0fy1SefacInaG1",
+                                    "name": null,
+                                    "contentConfig": {
+                                        "contentService": "",
+                                        "contentConfigValues": {},
+                                        "inherit": true
+                                    },
+                                    "customFields": {
+                                        "noteId": "LT5VVVWHW5GWXGBCRCRLCRUIGI"
+                                    },
+                                    "displayProperties": {},
+                                    "localEdits": {},
+                                    "variants": {}
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 8
+                },
+                "children": [
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Collection",
+                            "id": "c0fAJwnfkOyQhI",
+                            "name": null,
+                            "customFields": {
+                                "layout": "grilla3",
+                                "backgroundColor": "default",
+                                "initialPosition": 1,
+                                "hideTitle": false,
+                                "idCollection": "WM5DMXURZJBZZASUK356FPQNUI",
+                                "title": "Breaking 3",
+                                "imageId": "RB5X6B4E7NCG7G3G3JKWVP4KMM"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 9
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-common/opinion",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/opinion",
+                            "id": "f0fxvjh2qLBR5Kn",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "layout": "opinion4",
+                                "initialPosition": 1,
+                                "hideTitle": true,
+                                "idCollection": "5HV777MXDBATBJSLKJMZZJFKYM",
+                                "title": "Opinion",
+                                "pbInternal_duplicateId": "f0fxvjh2qLBR5Kn"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/editoriales",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/editoriales",
+                            "id": "f0fAwjfDX3CR52P",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "layout": "editoriales2",
+                                "initialPosition": 1,
+                                "hideTitle": true,
+                                "idCollection": "LPKD4TBYRNGYRCQTIGN3TEFIVU",
+                                "title": "Editoriales",
+                                "pbInternal_duplicateId": "f0fAwjfDX3CR52P"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 10
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-common/opinion",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/opinion",
+                            "id": "f0fyshoxZ1Xj7mI",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "layout": "opinion4",
+                                "initialPosition": 1,
+                                "hideTitle": false,
+                                "idCollection": "5HV777MXDBATBJSLKJMZZJFKYM",
+                                "title": "Opinion"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/editoriales",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/editoriales",
+                            "id": "f0fJ2e0MBsor7jL",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "layout": "editoriales2",
+                                "initialPosition": 1,
+                                "hideTitle": true,
+                                "idCollection": "LPKD4TBYRNGYRCQTIGN3TEFIVU",
+                                "title": "Editoriales"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 11
+                },
+                "children": [
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Collection",
+                            "id": "c0f5DcVYPOhWSk",
+                            "name": null,
+                            "customFields": {
+                                "layout": "grilla3",
+                                "backgroundColor": "default",
+                                "initialPosition": 1,
+                                "hideTitle": false,
+                                "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                                "title": "Breaking 4",
+                                "imageId": "27WV7OBKL5EEBOPK3BCOOHOZ3M"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 12
+                },
+                "children": [
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Collection",
+                            "id": "c0fJFIJNP40ueQ",
+                            "name": null,
+                            "customFields": {
+                                "layout": "grilla3",
+                                "backgroundColor": "default",
+                                "initialPosition": 1,
+                                "hideTitle": false,
+                                "idCollection": "IZK32Y5I6BF4PNU6E3R2IBMZZI",
+                                "title": "Breaking 5 ",
+                                "imageId": "VFFBYIAKOJF4DPGGH6IAMKM37M"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 13
+                },
+                "children": [
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Collection",
+                            "id": "c0fpqvRvTweXfG",
+                            "name": null,
+                            "customFields": {
+                                "layout": "grilla3",
+                                "backgroundColor": "default",
+                                "initialPosition": 1,
+                                "hideTitle": false,
+                                "idCollection": "QJ3BOEZVQNEYZEVBXHF4C7KAWY",
+                                "title": "Breaking 6",
+                                "imageId": "JZODOBC4BRACXIN3XF3VJ2N24Q"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 14
+                },
+                "children": [
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Collection",
+                            "id": "c0f3cpDsCMSX2T",
+                            "name": null,
+                            "customFields": {
+                                "layout": "grilla3",
+                                "backgroundColor": "default",
+                                "initialPosition": 4,
+                                "hideTitle": false,
+                                "idCollection": "QJ3BOEZVQNEYZEVBXHF4C7KAWY",
+                                "title": "Comercial 1",
+                                "imageId": "WUACMNVYJVHEXATSNIX2TEGXNY"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 15
+                },
+                "children": [
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Collection",
+                            "id": "c0fSUXWdOd6ZcP",
+                            "name": null,
+                            "customFields": {
+                                "layout": "grilla3",
+                                "backgroundColor": "default",
+                                "initialPosition": 1,
+                                "hideTitle": false,
+                                "idCollection": "WM5DMXURZJBZZASUK356FPQNUI",
+                                "title": "Bloque 2 (caja 9)",
+                                "imageId": "IKAD32FPYZGIHNGZWYYFDNXMCM",
+                                "url": "https://www.lanacion.com.ar/"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    },
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Collection",
+                            "id": "c0fho824nIbe7qV",
+                            "name": null,
+                            "customFields": {
+                                "layout": "grilla3",
+                                "backgroundColor": "default",
+                                "initialPosition": 4,
+                                "hideTitle": false,
+                                "idCollection": "QJ3BOEZVQNEYZEVBXHF4C7KAWY",
+                                "title": "Bloque 2 (caja 10)",
+                                "pbInternal_cloneId": "c0fho824nIbe7qV",
+                                "imageId": "SE553SPBPVHQXF2QOIXUS4EYS4"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 16
+                },
+                "children": [
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Collection",
+                            "id": "c0fBzJyO9JLZLW",
+                            "name": null,
+                            "customFields": {
+                                "layout": "grilla3",
+                                "backgroundColor": "default",
+                                "initialPosition": 1,
+                                "hideTitle": false,
+                                "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                                "title": "Comercial 2"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 17
+                },
+                "children": [
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Collection",
+                            "id": "c0frvtibEiKzni",
+                            "name": null,
+                            "customFields": {
+                                "layout": "grilla3",
+                                "backgroundColor": "default",
+                                "initialPosition": 1,
+                                "hideTitle": false,
+                                "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                                "title": "Bloque 3 (caja 11)",
+                                "pbInternal_cloneId": "c0frvtibEiKzni",
+                                "imageId": "F4BOIZWHE5ENHKPEZ77YELJ3B4"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    },
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Collection",
+                            "id": "c0fEhn3pd8QzKi",
+                            "name": null,
+                            "customFields": {
+                                "layout": "grilla3",
+                                "backgroundColor": "default",
+                                "initialPosition": 1,
+                                "hideTitle": false,
+                                "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                                "title": "Bloque 3 (caja 12)",
+                                "pbInternal_cloneId": "c0fEhn3pd8QzKi",
+                                "imageId": "FUR3JBI4DVHTXF33ZG7AG7CCXQ"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 18
+                },
+                "children": [
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Collection",
+                            "id": "c0fAPuXVsiP11jT",
+                            "name": null,
+                            "customFields": {
+                                "layout": "grilla3",
+                                "backgroundColor": "default",
+                                "initialPosition": 1,
+                                "hideTitle": false,
+                                "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                                "title": "Bloque 4 (caja 13)",
+                                "pbInternal_cloneId": "c0fAPuXVsiP11jT"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    },
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Collection",
+                            "id": "c0fwJTHnKHSYkp",
+                            "name": null,
+                            "customFields": {
+                                "layout": "grilla3",
+                                "backgroundColor": "default",
+                                "initialPosition": 1,
+                                "hideTitle": false,
+                                "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                                "title": "Bloque 4 (caja 14)",
+                                "pbInternal_cloneId": "c0fwJTHnKHSYkp"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 19
+                },
+                "children": [
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Collection",
+                            "id": "c0fBsZ6qylJYyH",
+                            "name": null,
+                            "customFields": {
+                                "layout": "grilla3",
+                                "backgroundColor": "default",
+                                "initialPosition": 1,
+                                "hideTitle": false,
+                                "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                                "title": "Bloque 5 (caja 15)",
+                                "pbInternal_cloneId": "c0fBsZ6qylJYyH"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    },
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Collection",
+                            "id": "c0frPjg8M7OYHY",
+                            "name": null,
+                            "customFields": {
+                                "layout": "grilla3",
+                                "backgroundColor": "default",
+                                "initialPosition": 1,
+                                "hideTitle": false,
+                                "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                                "title": "Bloque 5 (caja 16)",
+                                "pbInternal_cloneId": "c0frPjg8M7OYHY"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 20
+                },
+                "children": [
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Collection",
+                            "id": "c0fG0arBgoFYnT",
+                            "name": null,
+                            "customFields": {
+                                "layout": "grilla3",
+                                "backgroundColor": "default",
+                                "initialPosition": 1,
+                                "hideTitle": false,
+                                "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                                "title": "Bloque 6 (caja 17)",
+                                "pbInternal_cloneId": "c0fG0arBgoFYnT"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    },
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Collection",
+                            "id": "c0fEtQfyMh4Zon",
+                            "name": null,
+                            "customFields": {
+                                "layout": "grilla3",
+                                "backgroundColor": "default",
+                                "initialPosition": 1,
+                                "hideTitle": false,
+                                "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                                "title": "Bloque 6 (caja 18)",
+                                "pbInternal_cloneId": "c0fEtQfyMh4Zon"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 21
+                },
+                "children": [
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Collection",
+                            "id": "c0fk3rEQAnYYWM",
+                            "name": null,
+                            "customFields": {
+                                "layout": "grilla3",
+                                "backgroundColor": "default",
+                                "initialPosition": 1,
+                                "hideTitle": false,
+                                "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                                "title": "Bloque 7 (caja 19)",
+                                "pbInternal_cloneId": "c0fk3rEQAnYYWM"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    },
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Collection",
+                            "id": "c0fVgoDWSSaZAB",
+                            "name": null,
+                            "customFields": {
+                                "layout": "grilla3",
+                                "backgroundColor": "default",
+                                "initialPosition": 1,
+                                "hideTitle": false,
+                                "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                                "title": "Bloque 7 (caja 20)",
+                                "pbInternal_cloneId": "c0fVgoDWSSaZAB"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 22
+                },
+                "children": []
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 0
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-common/cajaAnticipo",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/cajaAnticipo",
+                    "id": "f0fsKOIpLgGn7O3",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "title": "Advierten que el registro de contratos hará subir los precios",
+                        "link": "https://www.lanacion.com.ar",
+                        "hide": false
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 1
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-common/anexo",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/anexo",
+                    "id": "f0f0raOK8mKx1sc",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "url": "https://especialess3.lanacion.com.ar/19/elecciones2019/anexos-home-agosto/#datasrc=auto&titulo=Resultados%20PASO%202019&visibles=1,1,1&black=true&vermapa=false",
+                        "height": 300,
+                        "html": "<style>\n  iframe.covid-desktop{\n   width: 100%;\n   height:180px;\n  }\n@media screen and (max-width: 640px) {\n  iframe.covid-desktop{\n   height:200px;\n  }\n}\n</style>\n<iframe class=\"covid-desktop\" width=\"100%\" frameborder=\"0\" scrolling=\"no\" src=\"https://especialess3.lanacion.com.ar/20/08/anexo-home-fiebres/index.html\"></iframe>",
+                        "hideByUrl": false
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 2
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-common/bomba",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/bomba",
+                    "id": "f0fcLtIhSP7E7tK",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "chapita": "ULTIMO MOMENTO",
+                        "authors": "",
+                        "lead": "",
+                        "title": "",
+                        "noteId": "YKFWJP34VFGSFOJZJZXAKZ5IHE",
+                        "imageId": "H53R624KARDARCICFNEC7ZC7YA",
+                        "hideFeature": false,
+                        "hideImage": false
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 3
+        },
+        "children": [
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Manual",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Manual",
+                    "id": "c0fCdBNjvrxb3sF",
+                    "name": null,
+                    "customFields": {
+                        "layout": "grilla6",
+                        "initialPosition": 1,
+                        "hideTitle": true,
+                        "pbInternal_cloneId": "c0fCdBNjvrxb3sF"
+                    },
+                    "displayProperties": {}
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-common/articulo",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/articulo",
+                            "id": "f0fUztJJurxb3Gx",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "Y76IVJSGXFHS3CRK3E7NBUMEUY",
+                                "lead": ""
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/articulo",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/articulo",
+                            "id": "f0f2PzG8vrxb3HY",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "KXO4EI7KNZDCVE2C7VIBJ3FTQQ",
+                                "pbInternal_cloneId": "f0fVjANyNcBg6ou"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/articulo",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/articulo",
+                            "id": "f0fhayuevrxb3Tz",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "ANSZYDSL2JDJNPANYBG45GRVYA",
+                                "pbInternal_cloneId": "f0fNh2HXRciZ7G6"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/articulo",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/articulo",
+                            "id": "f0fc92BNZcM15IL",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "ANSZYDSL2JDJNPANYBG45GRVYA",
+                                "pbInternal_cloneId": "f0fc92BNZcM15IL"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/articulo",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/articulo",
+                            "id": "f0faG6Kwm9we3qv",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "ANSZYDSL2JDJNPANYBG45GRVYA",
+                                "pbInternal_cloneId": "f0faG6Kwm9we3qv"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/articulo",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/articulo",
+                            "id": "f0f4lqb0C9Ae3fx",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "ANSZYDSL2JDJNPANYBG45GRVYA",
+                                "pbInternal_cloneId": "f0f4lqb0C9Ae3fx"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 4
+        },
+        "children": [
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Manual",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Manual",
+                    "id": "c0f6bXdBxQPZ4QW",
+                    "name": null,
+                    "customFields": {
+                        "layout": "notaColorRosa3",
+                        "initialPosition": 1,
+                        "hideTitle": true,
+                        "pbInternal_cloneId": "c0f6bXdBxQPZ4QW"
+                    },
+                    "displayProperties": {}
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-common/articulo",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/articulo",
+                            "id": "f0faKOjixQPZ4i9",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "Y76IVJSGXFHS3CRK3E7NBUMEUY",
+                                "lead": ""
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/articulo",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/articulo",
+                            "id": "f0fEPgosxQPZ4i8",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "KXO4EI7KNZDCVE2C7VIBJ3FTQQ",
+                                "pbInternal_cloneId": "f0fVjANyNcBg6ou"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/articulo",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/articulo",
+                            "id": "f0fPxgcwxQPZ4Ga",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "ANSZYDSL2JDJNPANYBG45GRVYA",
+                                "pbInternal_cloneId": "f0fNh2HXRciZ7G6"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 5
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-common/anexo",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/anexo",
+                    "id": "f0fWQFhr2UNd8ks",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "url": "",
+                        "height": null,
+                        "html": "<style>\n    #iframe_jjoo_calendario {\n        height: 475px\n    }\n \n    @media (max-width: 770px) {\n        #iframe_jjoo_calendario {\n            height: 615px\n        }\n    }\n\n    @media (max-width: 640px) {\n        #iframe_jjoo_calendario {\n            height: 570px\n        }\n    }\n</style> \n\n<iframe id=\"iframe_jjoo_calendario\" frameborder=\"0\" width=\"100%\" height=\"465\" scrolling=\"no\"\n    src=\"https://especialess3.lanacion.com.ar/21/06/calendario_jjoo_tokio_2021/#/anexo\"></iframe>",
+                        "hideByUrl": true,
+                        "pbInternal_cloneId": "f0fWQFhr2UNd8ks",
+                        "hideByHtml": false
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 6
+        },
+        "children": [
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Manual",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Manual",
+                    "id": "c0fX3VSrYbNd9Nn",
+                    "name": null,
+                    "customFields": {
+                        "layout": "focalLeft3",
+                        "initialPosition": 1,
+                        "hideTitle": true,
+                        "pbInternal_cloneId": "c0fX3VSrYbNd9Nn"
+                    },
+                    "displayProperties": {}
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-common/articulo",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/articulo",
+                            "id": "f0fjGKcaYbNd9el",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "Y76IVJSGXFHS3CRK3E7NBUMEUY",
+                                "lead": ""
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/articulo",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/articulo",
+                            "id": "f0fLsUfjYbNd9ib",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "KXO4EI7KNZDCVE2C7VIBJ3FTQQ",
+                                "pbInternal_cloneId": "f0fVjANyNcBg6ou"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/articulo",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/articulo",
+                            "id": "f0fr4vEnYbNd93W",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "ANSZYDSL2JDJNPANYBG45GRVYA",
+                                "pbInternal_cloneId": "f0fNh2HXRciZ7G6"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 7
+        },
+        "children": [
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Manual",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Manual",
+                    "id": "c0ftOzDh7MwnaCt",
+                    "name": null,
+                    "customFields": {
+                        "layout": "focalLeft3",
+                        "initialPosition": 1,
+                        "hideTitle": true
+                    },
+                    "displayProperties": {}
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-common/articulo",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/articulo",
+                            "id": "f0ftrld5vG8oakm",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "O2LUDAQJTZB4FJDHFZDUKNIUDE"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/articulo",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/articulo",
+                            "id": "f0f5vEOc10ZW5Eo",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "QIIUJR7O75CGTM66XFFMIETQJI"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/articulo",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/articulo",
+                            "id": "f0fy1SefacInaG1",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "LT5VVVWHW5GWXGBCRCRLCRUIGI"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 8
+        },
+        "children": [
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0fAJwnfkOyQhI",
+                    "name": null,
+                    "customFields": {
+                        "layout": "grilla3",
+                        "backgroundColor": "default",
+                        "initialPosition": 1,
+                        "hideTitle": false,
+                        "idCollection": "WM5DMXURZJBZZASUK356FPQNUI",
+                        "title": "Breaking 3",
+                        "imageId": "RB5X6B4E7NCG7G3G3JKWVP4KMM"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 9
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-common/opinion",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/opinion",
+                    "id": "f0fxvjh2qLBR5Kn",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "layout": "opinion4",
+                        "initialPosition": 1,
+                        "hideTitle": true,
+                        "idCollection": "5HV777MXDBATBJSLKJMZZJFKYM",
+                        "title": "Opinion",
+                        "pbInternal_duplicateId": "f0fxvjh2qLBR5Kn"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-common/editoriales",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/editoriales",
+                    "id": "f0fAwjfDX3CR52P",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "layout": "editoriales2",
+                        "initialPosition": 1,
+                        "hideTitle": true,
+                        "idCollection": "LPKD4TBYRNGYRCQTIGN3TEFIVU",
+                        "title": "Editoriales",
+                        "pbInternal_duplicateId": "f0fAwjfDX3CR52P"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 10
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-common/opinion",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/opinion",
+                    "id": "f0fyshoxZ1Xj7mI",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "layout": "opinion4",
+                        "initialPosition": 1,
+                        "hideTitle": false,
+                        "idCollection": "5HV777MXDBATBJSLKJMZZJFKYM",
+                        "title": "Opinion"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-common/editoriales",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/editoriales",
+                    "id": "f0fJ2e0MBsor7jL",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "layout": "editoriales2",
+                        "initialPosition": 1,
+                        "hideTitle": true,
+                        "idCollection": "LPKD4TBYRNGYRCQTIGN3TEFIVU",
+                        "title": "Editoriales"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 11
+        },
+        "children": [
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0f5DcVYPOhWSk",
+                    "name": null,
+                    "customFields": {
+                        "layout": "grilla3",
+                        "backgroundColor": "default",
+                        "initialPosition": 1,
+                        "hideTitle": false,
+                        "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                        "title": "Breaking 4",
+                        "imageId": "27WV7OBKL5EEBOPK3BCOOHOZ3M"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 12
+        },
+        "children": [
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0fJFIJNP40ueQ",
+                    "name": null,
+                    "customFields": {
+                        "layout": "grilla3",
+                        "backgroundColor": "default",
+                        "initialPosition": 1,
+                        "hideTitle": false,
+                        "idCollection": "IZK32Y5I6BF4PNU6E3R2IBMZZI",
+                        "title": "Breaking 5 ",
+                        "imageId": "VFFBYIAKOJF4DPGGH6IAMKM37M"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 13
+        },
+        "children": [
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0fpqvRvTweXfG",
+                    "name": null,
+                    "customFields": {
+                        "layout": "grilla3",
+                        "backgroundColor": "default",
+                        "initialPosition": 1,
+                        "hideTitle": false,
+                        "idCollection": "QJ3BOEZVQNEYZEVBXHF4C7KAWY",
+                        "title": "Breaking 6",
+                        "imageId": "JZODOBC4BRACXIN3XF3VJ2N24Q"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 14
+        },
+        "children": [
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0f3cpDsCMSX2T",
+                    "name": null,
+                    "customFields": {
+                        "layout": "grilla3",
+                        "backgroundColor": "default",
+                        "initialPosition": 4,
+                        "hideTitle": false,
+                        "idCollection": "QJ3BOEZVQNEYZEVBXHF4C7KAWY",
+                        "title": "Comercial 1",
+                        "imageId": "WUACMNVYJVHEXATSNIX2TEGXNY"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 15
+        },
+        "children": [
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0fSUXWdOd6ZcP",
+                    "name": null,
+                    "customFields": {
+                        "layout": "grilla3",
+                        "backgroundColor": "default",
+                        "initialPosition": 1,
+                        "hideTitle": false,
+                        "idCollection": "WM5DMXURZJBZZASUK356FPQNUI",
+                        "title": "Bloque 2 (caja 9)",
+                        "imageId": "IKAD32FPYZGIHNGZWYYFDNXMCM",
+                        "url": "https://www.lanacion.com.ar/"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            },
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0fho824nIbe7qV",
+                    "name": null,
+                    "customFields": {
+                        "layout": "grilla3",
+                        "backgroundColor": "default",
+                        "initialPosition": 4,
+                        "hideTitle": false,
+                        "idCollection": "QJ3BOEZVQNEYZEVBXHF4C7KAWY",
+                        "title": "Bloque 2 (caja 10)",
+                        "pbInternal_cloneId": "c0fho824nIbe7qV",
+                        "imageId": "SE553SPBPVHQXF2QOIXUS4EYS4"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 16
+        },
+        "children": [
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0fBzJyO9JLZLW",
+                    "name": null,
+                    "customFields": {
+                        "layout": "grilla3",
+                        "backgroundColor": "default",
+                        "initialPosition": 1,
+                        "hideTitle": false,
+                        "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                        "title": "Comercial 2"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 17
+        },
+        "children": [
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0frvtibEiKzni",
+                    "name": null,
+                    "customFields": {
+                        "layout": "grilla3",
+                        "backgroundColor": "default",
+                        "initialPosition": 1,
+                        "hideTitle": false,
+                        "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                        "title": "Bloque 3 (caja 11)",
+                        "pbInternal_cloneId": "c0frvtibEiKzni",
+                        "imageId": "F4BOIZWHE5ENHKPEZ77YELJ3B4"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            },
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0fEhn3pd8QzKi",
+                    "name": null,
+                    "customFields": {
+                        "layout": "grilla3",
+                        "backgroundColor": "default",
+                        "initialPosition": 1,
+                        "hideTitle": false,
+                        "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                        "title": "Bloque 3 (caja 12)",
+                        "pbInternal_cloneId": "c0fEhn3pd8QzKi",
+                        "imageId": "FUR3JBI4DVHTXF33ZG7AG7CCXQ"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 18
+        },
+        "children": [
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0fAPuXVsiP11jT",
+                    "name": null,
+                    "customFields": {
+                        "layout": "grilla3",
+                        "backgroundColor": "default",
+                        "initialPosition": 1,
+                        "hideTitle": false,
+                        "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                        "title": "Bloque 4 (caja 13)",
+                        "pbInternal_cloneId": "c0fAPuXVsiP11jT"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            },
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0fwJTHnKHSYkp",
+                    "name": null,
+                    "customFields": {
+                        "layout": "grilla3",
+                        "backgroundColor": "default",
+                        "initialPosition": 1,
+                        "hideTitle": false,
+                        "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                        "title": "Bloque 4 (caja 14)",
+                        "pbInternal_cloneId": "c0fwJTHnKHSYkp"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 19
+        },
+        "children": [
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0fBsZ6qylJYyH",
+                    "name": null,
+                    "customFields": {
+                        "layout": "grilla3",
+                        "backgroundColor": "default",
+                        "initialPosition": 1,
+                        "hideTitle": false,
+                        "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                        "title": "Bloque 5 (caja 15)",
+                        "pbInternal_cloneId": "c0fBsZ6qylJYyH"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            },
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0frPjg8M7OYHY",
+                    "name": null,
+                    "customFields": {
+                        "layout": "grilla3",
+                        "backgroundColor": "default",
+                        "initialPosition": 1,
+                        "hideTitle": false,
+                        "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                        "title": "Bloque 5 (caja 16)",
+                        "pbInternal_cloneId": "c0frPjg8M7OYHY"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 20
+        },
+        "children": [
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0fG0arBgoFYnT",
+                    "name": null,
+                    "customFields": {
+                        "layout": "grilla3",
+                        "backgroundColor": "default",
+                        "initialPosition": 1,
+                        "hideTitle": false,
+                        "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                        "title": "Bloque 6 (caja 17)",
+                        "pbInternal_cloneId": "c0fG0arBgoFYnT"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            },
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0fEtQfyMh4Zon",
+                    "name": null,
+                    "customFields": {
+                        "layout": "grilla3",
+                        "backgroundColor": "default",
+                        "initialPosition": 1,
+                        "hideTitle": false,
+                        "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                        "title": "Bloque 6 (caja 18)",
+                        "pbInternal_cloneId": "c0fEtQfyMh4Zon"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 21
+        },
+        "children": [
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0fk3rEQAnYYWM",
+                    "name": null,
+                    "customFields": {
+                        "layout": "grilla3",
+                        "backgroundColor": "default",
+                        "initialPosition": 1,
+                        "hideTitle": false,
+                        "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                        "title": "Bloque 7 (caja 19)",
+                        "pbInternal_cloneId": "c0fk3rEQAnYYWM"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            },
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0fVgoDWSSaZAB",
+                    "name": null,
+                    "customFields": {
+                        "layout": "grilla3",
+                        "backgroundColor": "default",
+                        "initialPosition": 1,
+                        "hideTitle": false,
+                        "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                        "title": "Bloque 7 (caja 20)",
+                        "pbInternal_cloneId": "c0fVgoDWSSaZAB"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 22
+        },
+        "children": []
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/cajaAnticipo",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/cajaAnticipo",
+            "id": "f0fsKOIpLgGn7O3",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "title": "Advierten que el registro de contratos hará subir los precios",
+                "link": "https://www.lanacion.com.ar",
+                "hide": false
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/anexo",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/anexo",
+            "id": "f0f0raOK8mKx1sc",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "url": "https://especialess3.lanacion.com.ar/19/elecciones2019/anexos-home-agosto/#datasrc=auto&titulo=Resultados%20PASO%202019&visibles=1,1,1&black=true&vermapa=false",
+                "height": 300,
+                "html": "<style>\n  iframe.covid-desktop{\n   width: 100%;\n   height:180px;\n  }\n@media screen and (max-width: 640px) {\n  iframe.covid-desktop{\n   height:200px;\n  }\n}\n</style>\n<iframe class=\"covid-desktop\" width=\"100%\" frameborder=\"0\" scrolling=\"no\" src=\"https://especialess3.lanacion.com.ar/20/08/anexo-home-fiebres/index.html\"></iframe>",
+                "hideByUrl": false
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/bomba",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/bomba",
+            "id": "f0fcLtIhSP7E7tK",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "chapita": "ULTIMO MOMENTO",
+                "authors": "",
+                "lead": "",
+                "title": "",
+                "noteId": "YKFWJP34VFGSFOJZJZXAKZ5IHE",
+                "imageId": "H53R624KARDARCICFNEC7ZC7YA",
+                "hideFeature": false,
+                "hideImage": false
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Manual",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Manual",
+            "id": "c0fCdBNjvrxb3sF",
+            "name": null,
+            "customFields": {
+                "layout": "grilla6",
+                "initialPosition": 1,
+                "hideTitle": true,
+                "pbInternal_cloneId": "c0fCdBNjvrxb3sF"
+            },
+            "displayProperties": {}
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "id": "f0fUztJJurxb3Gx",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "Y76IVJSGXFHS3CRK3E7NBUMEUY",
+                        "lead": ""
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "id": "f0f2PzG8vrxb3HY",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "KXO4EI7KNZDCVE2C7VIBJ3FTQQ",
+                        "pbInternal_cloneId": "f0fVjANyNcBg6ou"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "id": "f0fhayuevrxb3Tz",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "ANSZYDSL2JDJNPANYBG45GRVYA",
+                        "pbInternal_cloneId": "f0fNh2HXRciZ7G6"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "id": "f0fc92BNZcM15IL",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "ANSZYDSL2JDJNPANYBG45GRVYA",
+                        "pbInternal_cloneId": "f0fc92BNZcM15IL"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "id": "f0faG6Kwm9we3qv",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "ANSZYDSL2JDJNPANYBG45GRVYA",
+                        "pbInternal_cloneId": "f0faG6Kwm9we3qv"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "id": "f0f4lqb0C9Ae3fx",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "ANSZYDSL2JDJNPANYBG45GRVYA",
+                        "pbInternal_cloneId": "f0f4lqb0C9Ae3fx"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/articulo",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "id": "f0fUztJJurxb3Gx",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "Y76IVJSGXFHS3CRK3E7NBUMEUY",
+                "lead": ""
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/articulo",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "id": "f0f2PzG8vrxb3HY",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "KXO4EI7KNZDCVE2C7VIBJ3FTQQ",
+                "pbInternal_cloneId": "f0fVjANyNcBg6ou"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/articulo",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "id": "f0fhayuevrxb3Tz",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "ANSZYDSL2JDJNPANYBG45GRVYA",
+                "pbInternal_cloneId": "f0fNh2HXRciZ7G6"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/articulo",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "id": "f0fc92BNZcM15IL",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "ANSZYDSL2JDJNPANYBG45GRVYA",
+                "pbInternal_cloneId": "f0fc92BNZcM15IL"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/articulo",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "id": "f0faG6Kwm9we3qv",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "ANSZYDSL2JDJNPANYBG45GRVYA",
+                "pbInternal_cloneId": "f0faG6Kwm9we3qv"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/articulo",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "id": "f0f4lqb0C9Ae3fx",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "ANSZYDSL2JDJNPANYBG45GRVYA",
+                "pbInternal_cloneId": "f0f4lqb0C9Ae3fx"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Manual",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Manual",
+            "id": "c0f6bXdBxQPZ4QW",
+            "name": null,
+            "customFields": {
+                "layout": "notaColorRosa3",
+                "initialPosition": 1,
+                "hideTitle": true,
+                "pbInternal_cloneId": "c0f6bXdBxQPZ4QW"
+            },
+            "displayProperties": {}
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "id": "f0faKOjixQPZ4i9",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "Y76IVJSGXFHS3CRK3E7NBUMEUY",
+                        "lead": ""
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "id": "f0fEPgosxQPZ4i8",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "KXO4EI7KNZDCVE2C7VIBJ3FTQQ",
+                        "pbInternal_cloneId": "f0fVjANyNcBg6ou"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "id": "f0fPxgcwxQPZ4Ga",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "ANSZYDSL2JDJNPANYBG45GRVYA",
+                        "pbInternal_cloneId": "f0fNh2HXRciZ7G6"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/articulo",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "id": "f0faKOjixQPZ4i9",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "Y76IVJSGXFHS3CRK3E7NBUMEUY",
+                "lead": ""
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/articulo",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "id": "f0fEPgosxQPZ4i8",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "KXO4EI7KNZDCVE2C7VIBJ3FTQQ",
+                "pbInternal_cloneId": "f0fVjANyNcBg6ou"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/articulo",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "id": "f0fPxgcwxQPZ4Ga",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "ANSZYDSL2JDJNPANYBG45GRVYA",
+                "pbInternal_cloneId": "f0fNh2HXRciZ7G6"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/anexo",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/anexo",
+            "id": "f0fWQFhr2UNd8ks",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "url": "",
+                "height": null,
+                "html": "<style>\n    #iframe_jjoo_calendario {\n        height: 475px\n    }\n \n    @media (max-width: 770px) {\n        #iframe_jjoo_calendario {\n            height: 615px\n        }\n    }\n\n    @media (max-width: 640px) {\n        #iframe_jjoo_calendario {\n            height: 570px\n        }\n    }\n</style> \n\n<iframe id=\"iframe_jjoo_calendario\" frameborder=\"0\" width=\"100%\" height=\"465\" scrolling=\"no\"\n    src=\"https://especialess3.lanacion.com.ar/21/06/calendario_jjoo_tokio_2021/#/anexo\"></iframe>",
+                "hideByUrl": true,
+                "pbInternal_cloneId": "f0fWQFhr2UNd8ks",
+                "hideByHtml": false
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Manual",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Manual",
+            "id": "c0fX3VSrYbNd9Nn",
+            "name": null,
+            "customFields": {
+                "layout": "focalLeft3",
+                "initialPosition": 1,
+                "hideTitle": true,
+                "pbInternal_cloneId": "c0fX3VSrYbNd9Nn"
+            },
+            "displayProperties": {}
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "id": "f0fjGKcaYbNd9el",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "Y76IVJSGXFHS3CRK3E7NBUMEUY",
+                        "lead": ""
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "id": "f0fLsUfjYbNd9ib",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "KXO4EI7KNZDCVE2C7VIBJ3FTQQ",
+                        "pbInternal_cloneId": "f0fVjANyNcBg6ou"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "id": "f0fr4vEnYbNd93W",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "ANSZYDSL2JDJNPANYBG45GRVYA",
+                        "pbInternal_cloneId": "f0fNh2HXRciZ7G6"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/articulo",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "id": "f0fjGKcaYbNd9el",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "Y76IVJSGXFHS3CRK3E7NBUMEUY",
+                "lead": ""
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/articulo",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "id": "f0fLsUfjYbNd9ib",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "KXO4EI7KNZDCVE2C7VIBJ3FTQQ",
+                "pbInternal_cloneId": "f0fVjANyNcBg6ou"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/articulo",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "id": "f0fr4vEnYbNd93W",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "ANSZYDSL2JDJNPANYBG45GRVYA",
+                "pbInternal_cloneId": "f0fNh2HXRciZ7G6"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Manual",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Manual",
+            "id": "c0ftOzDh7MwnaCt",
+            "name": null,
+            "customFields": {
+                "layout": "focalLeft3",
+                "initialPosition": 1,
+                "hideTitle": true
+            },
+            "displayProperties": {}
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "id": "f0ftrld5vG8oakm",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "O2LUDAQJTZB4FJDHFZDUKNIUDE"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "id": "f0f5vEOc10ZW5Eo",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "QIIUJR7O75CGTM66XFFMIETQJI"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "id": "f0fy1SefacInaG1",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "LT5VVVWHW5GWXGBCRCRLCRUIGI"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/articulo",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "id": "f0ftrld5vG8oakm",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "O2LUDAQJTZB4FJDHFZDUKNIUDE"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/articulo",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "id": "f0f5vEOc10ZW5Eo",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "QIIUJR7O75CGTM66XFFMIETQJI"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/articulo",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "id": "f0fy1SefacInaG1",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "LT5VVVWHW5GWXGBCRCRLCRUIGI"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "id": "c0fAJwnfkOyQhI",
+            "name": null,
+            "customFields": {
+                "layout": "grilla3",
+                "backgroundColor": "default",
+                "initialPosition": 1,
+                "hideTitle": false,
+                "idCollection": "WM5DMXURZJBZZASUK356FPQNUI",
+                "title": "Breaking 3",
+                "imageId": "RB5X6B4E7NCG7G3G3JKWVP4KMM"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/opinion",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/opinion",
+            "id": "f0fxvjh2qLBR5Kn",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "layout": "opinion4",
+                "initialPosition": 1,
+                "hideTitle": true,
+                "idCollection": "5HV777MXDBATBJSLKJMZZJFKYM",
+                "title": "Opinion",
+                "pbInternal_duplicateId": "f0fxvjh2qLBR5Kn"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/editoriales",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/editoriales",
+            "id": "f0fAwjfDX3CR52P",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "layout": "editoriales2",
+                "initialPosition": 1,
+                "hideTitle": true,
+                "idCollection": "LPKD4TBYRNGYRCQTIGN3TEFIVU",
+                "title": "Editoriales",
+                "pbInternal_duplicateId": "f0fAwjfDX3CR52P"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/opinion",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/opinion",
+            "id": "f0fyshoxZ1Xj7mI",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "layout": "opinion4",
+                "initialPosition": 1,
+                "hideTitle": false,
+                "idCollection": "5HV777MXDBATBJSLKJMZZJFKYM",
+                "title": "Opinion"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/editoriales",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/editoriales",
+            "id": "f0fJ2e0MBsor7jL",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "layout": "editoriales2",
+                "initialPosition": 1,
+                "hideTitle": true,
+                "idCollection": "LPKD4TBYRNGYRCQTIGN3TEFIVU",
+                "title": "Editoriales"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "id": "c0f5DcVYPOhWSk",
+            "name": null,
+            "customFields": {
+                "layout": "grilla3",
+                "backgroundColor": "default",
+                "initialPosition": 1,
+                "hideTitle": false,
+                "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                "title": "Breaking 4",
+                "imageId": "27WV7OBKL5EEBOPK3BCOOHOZ3M"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "id": "c0fJFIJNP40ueQ",
+            "name": null,
+            "customFields": {
+                "layout": "grilla3",
+                "backgroundColor": "default",
+                "initialPosition": 1,
+                "hideTitle": false,
+                "idCollection": "IZK32Y5I6BF4PNU6E3R2IBMZZI",
+                "title": "Breaking 5 ",
+                "imageId": "VFFBYIAKOJF4DPGGH6IAMKM37M"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "id": "c0fpqvRvTweXfG",
+            "name": null,
+            "customFields": {
+                "layout": "grilla3",
+                "backgroundColor": "default",
+                "initialPosition": 1,
+                "hideTitle": false,
+                "idCollection": "QJ3BOEZVQNEYZEVBXHF4C7KAWY",
+                "title": "Breaking 6",
+                "imageId": "JZODOBC4BRACXIN3XF3VJ2N24Q"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "id": "c0f3cpDsCMSX2T",
+            "name": null,
+            "customFields": {
+                "layout": "grilla3",
+                "backgroundColor": "default",
+                "initialPosition": 4,
+                "hideTitle": false,
+                "idCollection": "QJ3BOEZVQNEYZEVBXHF4C7KAWY",
+                "title": "Comercial 1",
+                "imageId": "WUACMNVYJVHEXATSNIX2TEGXNY"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "id": "c0fSUXWdOd6ZcP",
+            "name": null,
+            "customFields": {
+                "layout": "grilla3",
+                "backgroundColor": "default",
+                "initialPosition": 1,
+                "hideTitle": false,
+                "idCollection": "WM5DMXURZJBZZASUK356FPQNUI",
+                "title": "Bloque 2 (caja 9)",
+                "imageId": "IKAD32FPYZGIHNGZWYYFDNXMCM",
+                "url": "https://www.lanacion.com.ar/"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "id": "c0fho824nIbe7qV",
+            "name": null,
+            "customFields": {
+                "layout": "grilla3",
+                "backgroundColor": "default",
+                "initialPosition": 4,
+                "hideTitle": false,
+                "idCollection": "QJ3BOEZVQNEYZEVBXHF4C7KAWY",
+                "title": "Bloque 2 (caja 10)",
+                "pbInternal_cloneId": "c0fho824nIbe7qV",
+                "imageId": "SE553SPBPVHQXF2QOIXUS4EYS4"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "id": "c0fBzJyO9JLZLW",
+            "name": null,
+            "customFields": {
+                "layout": "grilla3",
+                "backgroundColor": "default",
+                "initialPosition": 1,
+                "hideTitle": false,
+                "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                "title": "Comercial 2"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "id": "c0frvtibEiKzni",
+            "name": null,
+            "customFields": {
+                "layout": "grilla3",
+                "backgroundColor": "default",
+                "initialPosition": 1,
+                "hideTitle": false,
+                "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                "title": "Bloque 3 (caja 11)",
+                "pbInternal_cloneId": "c0frvtibEiKzni",
+                "imageId": "F4BOIZWHE5ENHKPEZ77YELJ3B4"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "id": "c0fEhn3pd8QzKi",
+            "name": null,
+            "customFields": {
+                "layout": "grilla3",
+                "backgroundColor": "default",
+                "initialPosition": 1,
+                "hideTitle": false,
+                "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                "title": "Bloque 3 (caja 12)",
+                "pbInternal_cloneId": "c0fEhn3pd8QzKi",
+                "imageId": "FUR3JBI4DVHTXF33ZG7AG7CCXQ"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "id": "c0fAPuXVsiP11jT",
+            "name": null,
+            "customFields": {
+                "layout": "grilla3",
+                "backgroundColor": "default",
+                "initialPosition": 1,
+                "hideTitle": false,
+                "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                "title": "Bloque 4 (caja 13)",
+                "pbInternal_cloneId": "c0fAPuXVsiP11jT"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "id": "c0fwJTHnKHSYkp",
+            "name": null,
+            "customFields": {
+                "layout": "grilla3",
+                "backgroundColor": "default",
+                "initialPosition": 1,
+                "hideTitle": false,
+                "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                "title": "Bloque 4 (caja 14)",
+                "pbInternal_cloneId": "c0fwJTHnKHSYkp"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "id": "c0fBsZ6qylJYyH",
+            "name": null,
+            "customFields": {
+                "layout": "grilla3",
+                "backgroundColor": "default",
+                "initialPosition": 1,
+                "hideTitle": false,
+                "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                "title": "Bloque 5 (caja 15)",
+                "pbInternal_cloneId": "c0fBsZ6qylJYyH"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "id": "c0frPjg8M7OYHY",
+            "name": null,
+            "customFields": {
+                "layout": "grilla3",
+                "backgroundColor": "default",
+                "initialPosition": 1,
+                "hideTitle": false,
+                "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                "title": "Bloque 5 (caja 16)",
+                "pbInternal_cloneId": "c0frPjg8M7OYHY"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "id": "c0fG0arBgoFYnT",
+            "name": null,
+            "customFields": {
+                "layout": "grilla3",
+                "backgroundColor": "default",
+                "initialPosition": 1,
+                "hideTitle": false,
+                "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                "title": "Bloque 6 (caja 17)",
+                "pbInternal_cloneId": "c0fG0arBgoFYnT"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "id": "c0fEtQfyMh4Zon",
+            "name": null,
+            "customFields": {
+                "layout": "grilla3",
+                "backgroundColor": "default",
+                "initialPosition": 1,
+                "hideTitle": false,
+                "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                "title": "Bloque 6 (caja 18)",
+                "pbInternal_cloneId": "c0fEtQfyMh4Zon"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "id": "c0fk3rEQAnYYWM",
+            "name": null,
+            "customFields": {
+                "layout": "grilla3",
+                "backgroundColor": "default",
+                "initialPosition": 1,
+                "hideTitle": false,
+                "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                "title": "Bloque 7 (caja 19)",
+                "pbInternal_cloneId": "c0fk3rEQAnYYWM"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "id": "c0fVgoDWSSaZAB",
+            "name": null,
+            "customFields": {
+                "layout": "grilla3",
+                "backgroundColor": "default",
+                "initialPosition": 1,
+                "hideTitle": false,
+                "idCollection": "O7D5R47P3RDQNMBWRTHDICTSRE",
+                "title": "Bloque 7 (caja 20)",
+                "pbInternal_cloneId": "c0fVgoDWSSaZAB"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    }
+]

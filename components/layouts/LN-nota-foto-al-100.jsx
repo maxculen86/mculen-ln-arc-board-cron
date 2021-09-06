@@ -4,7 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
-import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
+// import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import LoginProvider from '../private/LN/common/context/loginContext';
 
 import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelling';
@@ -56,7 +56,7 @@ import '../../resources/dist/css/ln/pages/photo100.css';
 import GlobalProvider from '../private/common/context/globalContext';
 import { CommentsProvider } from '../private/common/context/commentsContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
-import LoadBanners from '../private/common/banners/LoadBanners';
+import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 
 const lnNotaFotoAl100 = ({
@@ -134,7 +134,7 @@ const lnNotaFotoAl100 = ({
                             <Footer />
                         </Static>
                     </div>
-                    <LoadBanners />
+                    <LoadBannersSSR />
                 </CommentsProvider>
             </LoginProvider>
         </GlobalProvider>

@@ -87,8 +87,7 @@
 #fusion-app > #wrapper:not(.sitemap) {
     //fusion-app es por pagebuilder
     position: relative;
-    //margin-bottom: 80px;
-    //margin-top: 50px; //alto header mobile
+    overflow-x: clip;
 
     &:before {
         @include BgDiagonal;
@@ -108,13 +107,12 @@
     }
 
     @media (min-width: 1024px) {
-        //margin-bottom: 0;
         margin-top: $header-desktop; //alto header desktop para header fijo
-        // &.--scrollUp,
-        // &.--scrollDown {
-        //     margin-top: 73px; //alto header desktop
-        // }
     }
+
+    // @media (max-width: 767px) {
+    //     overflow: hidden;
+    // }
 }
 
 main {

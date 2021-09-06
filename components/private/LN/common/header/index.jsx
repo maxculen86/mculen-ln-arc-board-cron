@@ -134,7 +134,8 @@ class Index extends Component {
             // headerDark,
             siteProperties: { host, layoutsName = {} },
             layout,
-            globalContent
+            globalContent,
+            isAdmin
         } = this.props;
 
         const { type, node_type: nodeType } = globalContent || {};
@@ -156,6 +157,7 @@ class Index extends Component {
                     host={host}
                     isHome={layoutsName.Home === layout}
                     section={section}
+                    isAdmin={isAdmin}
                     // headerDark={headerDark}
                 />
 
@@ -181,6 +183,7 @@ class Index extends Component {
 Index.propTypes = {
     outputType: PropTypes.string.isRequired,
     logueado: PropTypes.bool.isRequired,
+    isAdmin: PropTypes.bool.isRequired,
     loginData: PropTypes.shape({
         subcription: PropTypes.bool,
         userName: PropTypes.string,

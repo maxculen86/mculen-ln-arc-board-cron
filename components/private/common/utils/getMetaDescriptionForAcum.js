@@ -25,7 +25,8 @@ const getMetaDescriptionForAcum = (
     payload,
     nodeType,
     name,
-    arcSite
+    arcSite,
+    layOutColumnista
 ) => {
     const { tagId } = extractDataFromTags(payload);
     const articles = getArticlesFromAcumSource(
@@ -49,7 +50,7 @@ const getMetaDescriptionForAcum = (
     const articlesTitles = articles.map(
         art => ` ${getTitleText(art.headlines)}`
     );
-    return _id === '/recetas'
+    return _id === '/recetas' || layOutColumnista === 'LN-acumulado-columnistas'
         ? description
         : `${description}${articlesTitles.join(',')}`;
 };

@@ -1,4 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
+// TODO: deberia borrarse ya que se usa banner nuevo
 import React from 'react';
 import { useFusionContext } from 'fusion:context';
 

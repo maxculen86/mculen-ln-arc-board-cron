@@ -1,273 +1,273 @@
-@import '../abstracts/mixins';
-//================================
-//GRILLA
-//================================
-[class*='grid'] {
-    display: grid;
-}
-[class*='-gap'] {
-    grid-column-gap: $spacing-sm;
-    grid-row-gap: $spacing-lg;
-    @media ($media-xl) {
-        grid-column-gap: $spacing-xl;
-    }
-}
-//columnas de 12
-.grid-12-gap,
-.grid-12 {
-    grid-template-columns: repeat(12, 1fr);
-}
+// @import '../abstracts/mixins';
+// //================================
+// //GRILLA
+// //================================
+// [class*='grid'] {
+//     display: grid;
+// }
+// [class*='-gap'] {
+//     grid-column-gap: $spacing-sm;
+//     grid-row-gap: $spacing-lg;
+//     @media ($media-xl) {
+//         grid-column-gap: $spacing-xl;
+//     }
+// }
+// //columnas de 12
+// .grid-12-gap,
+// .grid-12 {
+//     grid-template-columns: repeat(12, 1fr);
+// }
 
-//columnas de 10
-.grid-10-gap,
-.grid-10 {
-    grid-template-columns: repeat(10, 1fr);
-}
+// //columnas de 10
+// .grid-10-gap,
+// .grid-10 {
+//     grid-template-columns: repeat(10, 1fr);
+// }
 
-//columnas de 8
-.grid-8-gap,
-.grid-8 {
-    grid-template-columns: repeat(8, 1fr);
-}
+// //columnas de 8
+// .grid-8-gap,
+// .grid-8 {
+//     grid-template-columns: repeat(8, 1fr);
+// }
 
-//columnas de 6
-.grid-6-gap,
-.grid-6 {
-    grid-template-columns: repeat(6, 1fr);
-}
+// //columnas de 6
+// .grid-6-gap,
+// .grid-6 {
+//     grid-template-columns: repeat(6, 1fr);
+// }
 
-//columnas de 4
-.grid-4-gap,
-.grid-4 {
-    grid-template-columns: repeat(4, 1fr);
-}
+// //columnas de 4
+// .grid-4-gap,
+// .grid-4 {
+//     grid-template-columns: repeat(4, 1fr);
+// }
 
-//columnas de 3
-.grid-3-gap,
-.grid-3 {
-    grid-template-columns: repeat(3, 1fr);
-}
+// //columnas de 3
+// .grid-3-gap,
+// .grid-3 {
+//     grid-template-columns: repeat(3, 1fr);
+// }
 
-//columnas de 2
-.grid-2-gap,
-.grid-2 {
-    grid-template-columns: repeat(2, 1fr);
-}
-//================================
-//GRILLA DE FORMS
-//================================
-.grid-3-9-gap,
-.grid-3-9 {
-    grid-template-columns: 3fr 9fr;
-}
-.grid-3-6-3-gap,
-.grid-3-6-3 {
-    grid-template-columns: 3fr 6fr 3fr;
-}
+// //columnas de 2
+// .grid-2-gap,
+// .grid-2 {
+//     grid-template-columns: repeat(2, 1fr);
+// }
+// //================================
+// //GRILLA DE FORMS
+// //================================
+// .grid-3-9-gap,
+// .grid-3-9 {
+//     grid-template-columns: 3fr 9fr;
+// }
+// .grid-3-6-3-gap,
+// .grid-3-6-3 {
+//     grid-template-columns: 3fr 6fr 3fr;
+// }
 
-@media ($media-m) {
-    //columnas de 12
-    .grid-tablet-12-gap,
-    .grid-tablet-12 {
-        @include grid-repeat(12);
-    }
+// @media ($media-m) {
+//     //columnas de 12
+//     .grid-tablet-12-gap,
+//     .grid-tablet-12 {
+//         @include grid-repeat(12);
+//     }
 
-    //columnas de 10
-    .grid-tablet-10-gap,
-    .grid-tablet-10 {
-        grid-template-columns: repeat(10, 1fr);
-    }
+//     //columnas de 10
+//     .grid-tablet-10-gap,
+//     .grid-tablet-10 {
+//         grid-template-columns: repeat(10, 1fr);
+//     }
 
-    //columnas de 8
-    .grid-tablet-8-gap,
-    .grid-tablet-8 {
-        grid-template-columns: repeat(8, 1fr);
-    }
+//     //columnas de 8
+//     .grid-tablet-8-gap,
+//     .grid-tablet-8 {
+//         grid-template-columns: repeat(8, 1fr);
+//     }
 
-    //columnas de 6
-    .grid-tablet-6-gap,
-    .grid-tablet-6 {
-        grid-template-columns: repeat(6, 1fr);
-    }
+//     //columnas de 6
+//     .grid-tablet-6-gap,
+//     .grid-tablet-6 {
+//         grid-template-columns: repeat(6, 1fr);
+//     }
 
-    //columnas de 4
-    .grid-tablet-4-gap,
-    .row-gap-tablet-4 {
-        grid-template-columns: repeat(4, 1fr);
-    }
-    //columnas de 3
-    .grid-tablet-3-gap,
-    .row-gap-tablet-3 {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    //columnas de 2
-    .grid-tablet-2-gap,
-    .row-gap-tablet-2 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    //================================
-    //GRILLA DE FORMS
-    //================================
-    .grid-tablet-3-9-gap,
-    .grid-tablet-3-9 {
-        grid-template-columns: 3fr 9fr;
-    }
-    .grid-tablet-3-6-3-gap,
-    .grid-tablet-3-6-3 {
-        grid-template-columns: 3fr 6fr 3fr;
-    }
-}
+//     //columnas de 4
+//     .grid-tablet-4-gap,
+//     .row-gap-tablet-4 {
+//         grid-template-columns: repeat(4, 1fr);
+//     }
+//     //columnas de 3
+//     .grid-tablet-3-gap,
+//     .row-gap-tablet-3 {
+//         grid-template-columns: repeat(3, 1fr);
+//     }
+//     //columnas de 2
+//     .grid-tablet-2-gap,
+//     .row-gap-tablet-2 {
+//         grid-template-columns: repeat(2, 1fr);
+//     }
+//     //================================
+//     //GRILLA DE FORMS
+//     //================================
+//     .grid-tablet-3-9-gap,
+//     .grid-tablet-3-9 {
+//         grid-template-columns: 3fr 9fr;
+//     }
+//     .grid-tablet-3-6-3-gap,
+//     .grid-tablet-3-6-3 {
+//         grid-template-columns: 3fr 6fr 3fr;
+//     }
+// }
 
-@media ($media-l) {
-    //columnas de 12
-    .grid-desksm-12-gap,
-    .grid-desksm-12 {
-        grid-template-columns: repeat(12, 1fr);
-    }
+// @media ($media-l) {
+//     //columnas de 12
+//     .grid-desksm-12-gap,
+//     .grid-desksm-12 {
+//         grid-template-columns: repeat(12, 1fr);
+//     }
 
-    //columnas de 10
-    .grid-desksm-10-gap,
-    .grid-desksm-10 {
-        grid-template-columns: repeat(10, 1fr);
-    }
+//     //columnas de 10
+//     .grid-desksm-10-gap,
+//     .grid-desksm-10 {
+//         grid-template-columns: repeat(10, 1fr);
+//     }
 
-    //columnas de 8
-    .grid-desksm-8-gap,
-    .grid-desksm-8 {
-        grid-template-columns: repeat(8, 1fr);
-    }
+//     //columnas de 8
+//     .grid-desksm-8-gap,
+//     .grid-desksm-8 {
+//         grid-template-columns: repeat(8, 1fr);
+//     }
 
-    //columnas de 6
-    .grid-desksm-6-gap,
-    .grid-desksm-6 {
-        grid-template-columns: repeat(6, 1fr);
-    }
+//     //columnas de 6
+//     .grid-desksm-6-gap,
+//     .grid-desksm-6 {
+//         grid-template-columns: repeat(6, 1fr);
+//     }
 
-    //columnas de 4
-    .grid-desksm-4-gap,
-    .grid-desksm-4 {
-        grid-template-columns: repeat(4, 1fr);
-    }
-    //columnas de 3
-    .grid-desksm-3-gap,
-    .grid-desksm-3 {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    //columnas de 2
-    .grid-desksm-2-gap,
-    .grid-desksm-2 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    //================================
-    //GRILLA DE FORMS
-    //================================
-    .grid-desksm-3-9-gap,
-    .grid-desksm-3-9 {
-        grid-template-columns: 3fr 9fr;
-    }
-    .grid-desksm-3-6-3-gap,
-    .grid-desksm-3-6-3 {
-        grid-template-columns: 3fr 6fr 3fr;
-    }
-}
+//     //columnas de 4
+//     .grid-desksm-4-gap,
+//     .grid-desksm-4 {
+//         grid-template-columns: repeat(4, 1fr);
+//     }
+//     //columnas de 3
+//     .grid-desksm-3-gap,
+//     .grid-desksm-3 {
+//         grid-template-columns: repeat(3, 1fr);
+//     }
+//     //columnas de 2
+//     .grid-desksm-2-gap,
+//     .grid-desksm-2 {
+//         grid-template-columns: repeat(2, 1fr);
+//     }
+//     //================================
+//     //GRILLA DE FORMS
+//     //================================
+//     .grid-desksm-3-9-gap,
+//     .grid-desksm-3-9 {
+//         grid-template-columns: 3fr 9fr;
+//     }
+//     .grid-desksm-3-6-3-gap,
+//     .grid-desksm-3-6-3 {
+//         grid-template-columns: 3fr 6fr 3fr;
+//     }
+// }
 
-@media ($media-lg) {
-    //columnas de 12
-    .grid-deskxl-12-gap,
-    .grid-deskxl-12 {
-        grid-template-columns: repeat(12, 1fr);
-    }
+// @media ($media-lg) {
+//     //columnas de 12
+//     .grid-deskxl-12-gap,
+//     .grid-deskxl-12 {
+//         grid-template-columns: repeat(12, 1fr);
+//     }
 
-    //columnas de 10
-    .grid-deskxl-10-gap,
-    .grid-deskxl-10 {
-        grid-template-columns: repeat(10, 1fr);
-    }
+//     //columnas de 10
+//     .grid-deskxl-10-gap,
+//     .grid-deskxl-10 {
+//         grid-template-columns: repeat(10, 1fr);
+//     }
 
-    //columnas de 8
-    .grid-deskxl-8-gap,
-    .grid-deskxl-8 {
-        grid-template-columns: repeat(8, 1fr);
-    }
+//     //columnas de 8
+//     .grid-deskxl-8-gap,
+//     .grid-deskxl-8 {
+//         grid-template-columns: repeat(8, 1fr);
+//     }
 
-    //columnas de 6
-    .grid-deskxl-6-gap,
-    .grid-deskxl-6 {
-        grid-template-columns: repeat(6, 1fr);
-    }
+//     //columnas de 6
+//     .grid-deskxl-6-gap,
+//     .grid-deskxl-6 {
+//         grid-template-columns: repeat(6, 1fr);
+//     }
 
-    //columnas de 4
-    .grid-deskxl-4-gap,
-    .grid-deskxl-4 {
-        grid-template-columns: repeat(4, 1fr);
-    }
-    //columnas de 3
-    .grid-deskxl-3-gap,
-    .grid-deskxl-3 {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    //columnas de 2
-    .grid-deskxl-2-gap,
-    .grid-deskxl-2 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    //================================
-    //GRILLA DE FORMS
-    //================================
-    .grid-deskxl-3-9-gap,
-    .grid-deskxl-3-9 {
-        grid-template-columns: 3fr 9fr;
-    }
-    .grid-deskxl-3-6-3-gap,
-    .grid-deskxl-3-6-3 {
-        grid-template-columns: 3fr 6fr 3fr;
-    }
-}
-//BORRAR
-.grid-gap {
-    border: 1px solid $orange-500;
-    height: 50px;
-    background: $orange-200;
-}
-.grid-gap-xs {
-    border: 1px solid $red-500;
-    height: 50px;
-    background: $red-200;
-}
+//     //columnas de 4
+//     .grid-deskxl-4-gap,
+//     .grid-deskxl-4 {
+//         grid-template-columns: repeat(4, 1fr);
+//     }
+//     //columnas de 3
+//     .grid-deskxl-3-gap,
+//     .grid-deskxl-3 {
+//         grid-template-columns: repeat(3, 1fr);
+//     }
+//     //columnas de 2
+//     .grid-deskxl-2-gap,
+//     .grid-deskxl-2 {
+//         grid-template-columns: repeat(2, 1fr);
+//     }
+//     //================================
+//     //GRILLA DE FORMS
+//     //================================
+//     .grid-deskxl-3-9-gap,
+//     .grid-deskxl-3-9 {
+//         grid-template-columns: 3fr 9fr;
+//     }
+//     .grid-deskxl-3-6-3-gap,
+//     .grid-deskxl-3-6-3 {
+//         grid-template-columns: 3fr 6fr 3fr;
+//     }
+// }
+// //BORRAR
+// .grid-gap {
+//     border: 1px solid $orange-500;
+//     height: 50px;
+//     background: $orange-200;
+// }
+// .grid-gap-xs {
+//     border: 1px solid $red-500;
+//     height: 50px;
+//     background: $red-200;
+// }
 
-//================================
-//GRILLA DE FORMS
-//================================
-.grid-3-9 {
-    grid-template-columns: 1fr;
+// //================================
+// //GRILLA DE FORMS
+// //================================
+// .grid-3-9 {
+//     grid-template-columns: 1fr;
 
-    @media screen and (min-width: px(1023)) {
-        grid-template-columns: 0.25fr 0.75fr;
-    }
-}
+//     @media screen and (min-width: px(1023)) {
+//         grid-template-columns: 0.25fr 0.75fr;
+//     }
+// }
 
-.grid-3-6-3 {
-    grid-template-columns: 1fr;
+// .grid-3-6-3 {
+//     grid-template-columns: 1fr;
 
-    @media screen and (min-width: px(1023)) {
-        grid-template-columns: 3fr 9fr;
-        grid-template-columns: 3fr 6fr 3fr;
-    }
-}
+//     @media screen and (min-width: px(1023)) {
+//         grid-template-columns: 3fr 9fr;
+//         grid-template-columns: 3fr 6fr 3fr;
+//     }
+// }
 
-.grid-25-50-25 {
-    grid-template-columns: 1fr;
+// .grid-25-50-25 {
+//     grid-template-columns: 1fr;
 
-    @media screen and (min-width: px(1023)) {
-        grid-template-columns: 3fr 6fr 3fr;
-    }
-}
-.column-1-4 {
-    @include column-grid(1, 4);
-}
-//Armar las clases de las columnas
-@for $i from 1 through 12 {
-    .column-1-#{$i} {
-        @include column-grid(1, #{$i});
-    }
-}
+//     @media screen and (min-width: px(1023)) {
+//         grid-template-columns: 3fr 6fr 3fr;
+//     }
+// }
+// .column-1-4 {
+//     @include column-grid(1, 4);
+// }
+// //Armar las clases de las columnas
+// @for $i from 1 through 12 {
+//     .column-1-#{$i} {
+//         @include column-grid(1, #{$i});
+//     }
+// }

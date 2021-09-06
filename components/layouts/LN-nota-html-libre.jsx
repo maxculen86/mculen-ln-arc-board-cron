@@ -2,7 +2,6 @@ import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import Header from '../private/LN/common/header';
-import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import HtmlLibre from '../private/LN/nota/cuerpo/htmlLibre';
 import LoginProvider from '../private/LN/common/context/loginContext';
 
@@ -52,8 +51,8 @@ import LoginProvider from '../private/LN/common/context/loginContext';
 
 import GlobalProvider from '../private/common/context/globalContext';
 import { CommentsProvider } from '../private/common/context/commentsContext';
-import LoadBanners from '../private/common/banners/LoadBanners';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
+import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 
 const lnNotaNoticia = ({
     children: [bannerMegatop, bottom, bottomTercera],
@@ -70,7 +69,7 @@ const lnNotaNoticia = ({
                     {/* Banner Megatop */}
                     {getBannerMegatop(bannerMegatop, amp, tree, isAdmin)}
 
-                    <div id="wrapper" className={`nota noticia ${amp}`}>
+                    <div id="wrapper" className={`nota html-libre ${amp}`}>
                         <Header />
                         <main style={{ paddingTop: '0px' }}>
                             <div
@@ -97,7 +96,7 @@ const lnNotaNoticia = ({
                             </div>
                         </main>
                     </div>
-                    <LoadBanners />
+                    <LoadBannersSSR />
                 </CommentsProvider>
             </LoginProvider>
         </GlobalProvider>

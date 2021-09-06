@@ -33,12 +33,14 @@ describe('Json Acumulado section. Test de integracion', () => {
 
     test('Test total', () => {
         expect(acuData.articles.length).toBeGreaterThan(0);
-        expect(resp.notas);
-        expect(resp.notas[0].id).toBe('B2EMM366VFGVHEPJDUVGBLCYX4');
-        expect(resp.notas[0].templateId).toBe('4');
-        expect(resp.notas[0].url).toBe('/autos/test-de-generacion-de-url/');
-        expect(resp.notas[0].titulo).toBe('Test de generacion de url');
-        expect(resp.notas[0].bajada).toBe('subheadline');
-        expect(resp.notas[0].marquesina).toBe('Por Diego Cabot y Diego Lopez');
+        expect(resp[0].notas);
+        expect(resp[0].notas[0].id).toBe('B2EMM366VFGVHEPJDUVGBLCYX4');
+        expect(resp[0].notas[0].templateId).toBe('4');
+        expect(resp[0].notas[0].url).toBe('/autos/test-de-generacion-de-url/');
+        expect(resp[0].notas[0].titulo).toBe('Test de generacion de url');
+        expect(resp[0].notas[0].bajada).toBe('subheadline');
+        expect(resp[0].notas[0].marquesina).toBe(
+            'Por Diego Cabot y Diego Lopez'
+        );
     });
 });

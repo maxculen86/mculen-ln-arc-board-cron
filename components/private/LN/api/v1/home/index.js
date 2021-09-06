@@ -16,6 +16,7 @@ const typeSection = {
     Opinion: { tipoSeccion: 'opinion', idSeccion: 1001 },
     Comercial: { tipoSeccion: 'comercial', idSeccion: 1101 },
     Banner: { tipoSeccion: 'banner' },
+    Dolar: { tipoSeccion: 'dolar', idSeccion: 2000 },
     default: { tipoSeccion: 'tema', idSeccion: 305 }
 };
 
@@ -52,7 +53,7 @@ const articlesMap = articles => {
 };
 
 const storyBox = element => {
-    const { information, feature, configurations } = element;
+    const { information, feature } = element;
     const featureInfo = featureInformation(information, feature);
     if (feature === 'Anticipo') return { ...featureInfo };
     const articles = get(element, 'articles', []);

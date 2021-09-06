@@ -4,8 +4,6 @@ import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
-import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
-import ComInfografia from '../private/LN/nota/apertura/com-infografia';
 import LoginProvider from '../private/LN/common/context/loginContext';
 
 // import '../../resources/dist/css/ln/base.css'; // chequear para sacar base porque se repite estilo
@@ -57,8 +55,8 @@ import LoginProvider from '../private/LN/common/context/loginContext';
 import GlobalProvider from '../private/common/context/globalContext';
 import { CommentsProvider } from '../private/common/context/commentsContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
-import LoadBanners from '../private/common/banners/LoadBanners';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
+import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 
 const lnNotaInfografia = ({
     children,
@@ -97,7 +95,6 @@ const lnNotaInfografia = ({
                                     <div className="col-12">
                                         {/* Titulo (breadcrumb, logo+titulo) */}
                                         {children[2]}
-                                        <ComInfografia />
                                     </div>
                                 </div>
                             </div>
@@ -170,7 +167,7 @@ const lnNotaInfografia = ({
                             <Footer />
                         </Static>
                     </div>
-                    <LoadBanners />
+                    <LoadBannersSSR />
                 </CommentsProvider>
             </LoginProvider>
         </GlobalProvider>

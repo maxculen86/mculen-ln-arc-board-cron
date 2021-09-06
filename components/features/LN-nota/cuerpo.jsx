@@ -2,7 +2,11 @@ import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import Cuerpo from '../../private/LN/nota/cuerpo';
-import { getSlotsOptions } from '../../private/LN/common/bannerRefactor/config';
+import {
+    BANNERS_DESKTOP,
+    BANNERS_MOBILE,
+    BANNERS_TABLET
+} from '../../private/LN/common/utils/bannerHelper';
 
 const cuerpo = props => {
     const bannerConfig = groupBannerConfig(props);
@@ -44,9 +48,24 @@ cuerpo.label = 'LN-nota-Cuerpo';
 
 function buildBodyCustomFields() {
     const attributes = [
-        { name: 'desktop', type: 'list', alias: 'dsk' },
-        { name: 'mobile', type: 'list', alias: 'mob' },
-        { name: 'tablet', type: 'list', alias: 'tab' },
+        {
+            name: 'desktop',
+            type: 'list',
+            alias: 'dsk',
+            bannerSlots: BANNERS_DESKTOP
+        },
+        {
+            name: 'mobile',
+            type: 'list',
+            alias: 'mob',
+            bannerSlots: BANNERS_MOBILE
+        },
+        {
+            name: 'tablet',
+            type: 'list',
+            alias: 'tab',
+            bannerSlots: BANNERS_TABLET
+        },
         {
             name: 'position',
             type: 'number',
@@ -69,7 +88,7 @@ function buildBodyCustomFields() {
                 case 'list':
                     Object.assign(result, {
                         [`${attribute.name}${i + 1}`]: PropTypes.oneOf(
-                            getSlotsOptions(attribute.alias)
+                            attribute.bannerSlots
                         ).tag({
                             label: attribute.name,
                             defaultValue: '',

@@ -1,13 +1,15 @@
 /* eslint-disable camelcase */
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import GrillaNotas from '../../private/LN/acumulado/grillaNotas/grillaNotas';
 import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
-import { getSlotsOptions } from '../../private/LN/common/bannerRefactor/config';
-import findTermica from '../../private/common/utils/findTermica';
 import { getIdsArticlesFromOtherCollections } from '../../private/LN/common/utils/cajaTemasValidators';
-import { GlobalContext } from '../../private/common/context/globalContext';
+import {
+    BANNERS_DESKTOP,
+    BANNERS_MOBILE,
+    BANNERS_TABLET
+} from '../../private/LN/common/utils/bannerHelper';
 
 const groupBannerConfig = props => {
     const optionsSet = Object.keys(props.customFields);
@@ -42,17 +44,20 @@ function buildCustomFieldsForBanners() {
         {
             name: 'desktop',
             type: 'list',
-            alias: 'dsk'
+            alias: 'dsk',
+            bannerSlots: BANNERS_DESKTOP
         },
         {
             name: 'tablet',
             type: 'list',
-            alias: 'tab'
+            alias: 'tab',
+            bannerSlots: BANNERS_TABLET
         },
         {
             name: 'mobile',
             type: 'list',
-            alias: 'mob'
+            alias: 'mob',
+            bannerSlots: BANNERS_MOBILE
         },
         {
             name: 'position',
@@ -68,13 +73,11 @@ function buildCustomFieldsForBanners() {
                     ...accumulator,
                     [`${value.name}${i + 1}`]:
                         value.type === 'list'
-                            ? PropTypes.oneOf(getSlotsOptions(value.alias)).tag(
-                                  {
-                                      label: value.name,
-                                      defaultValue: '',
-                                      group: `Banner ${i + 1}`
-                                  }
-                              )
+                            ? PropTypes.oneOf(value.bannerSlots).tag({
+                                  label: value.name,
+                                  defaultValue: '',
+                                  group: `Banner ${i + 1}`
+                              })
                             : PropTypes.number.tag({
                                   label: value.name,
                                   defaultValue: 0,
@@ -93,19 +96,12 @@ function GrillaNotasFeature(props) {
         articlesInCollection = [],
         collectionsInPage = []
     } = useGlobalProviderAcu();
-    const {
-        cantidad_notas = 30,
-        tipo_acumulado = 'Grilla',
-        hide_banner = true
-    } = acumuladoGeneral;
+    const { cantidad_notas = 30, tipo_acumulado = 'Grilla' } = acumuladoGeneral;
     const {
         globalContent: { node_type: nodeType, _id, Payload, distributorId },
-        siteProperties,
         outputType,
         renderables
     } = useAppContext();
-
-    const globalContext = useContext(GlobalContext);
 
     const tagId =
         Payload && Payload.items && Payload.items.length
@@ -116,7 +112,6 @@ function GrillaNotasFeature(props) {
     const authorId = nodeType === 'author' ? _id : null;
 
     const bannerConfig = groupBannerConfig(props);
-    const termicas = findTermica('banners');
 
     const idsArticlesFromOtherCollection = getIdsArticlesFromOtherCollections(
         renderables,
@@ -135,14 +130,10 @@ function GrillaNotasFeature(props) {
             distributorId={distributorId}
             size={outputType === 'amp' ? 30 : cantidad_notas}
             page={1}
-            siteProperties={siteProperties}
             typeArticle={tipo_acumulado}
             bannerConfig={bannerConfig}
             outputType={outputType}
-            hideBanner={hide_banner}
             idsArticlesToExclude={idsArticlesToExclude}
-            termicas={termicas}
-            gc={globalContext}
         />
     );
 }

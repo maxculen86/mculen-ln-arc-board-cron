@@ -159,7 +159,9 @@ const SnippetNoticia = props => {
     } = props;
 
     const { promo_items: promoItems } = addRelatedImage(props.globalContent);
-    const LOGO_AMP = getAssetsPath(contextPath)(deployment)('logo-ln-amp.png');
+    const LOGO_LN = getAssetsPath(contextPath)(deployment)(
+        'placeholderLN-600_amp.jpg'
+    );
     const PLACEHOLDER = getAssetsPath(contextPath)(deployment)(
         'placeholderLN-1080.jpg'
     );
@@ -209,9 +211,9 @@ const SnippetNoticia = props => {
             logo: {
                 '@context': 'https://schema.org',
                 '@type': 'ImageObject',
-                url: `${PLACEHOLDER}`,
-                height: 41,
-                width: 391
+                url: `${LOGO_LN}`,
+                height: 60,
+                width: 600
             }
         },
         thumbnailUrl,

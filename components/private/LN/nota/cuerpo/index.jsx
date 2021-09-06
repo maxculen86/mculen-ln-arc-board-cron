@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import CuerpoDefault from './cuerpoDefault';
-import CuerpoReceta from './cuerpoReceta';
+// import CuerpoReceta from './cuerpoReceta';
 import addEventListener from '../../../common/hooks/useEventListener';
 import handleScrollForNota from '../dataLayer/handleScrollForNota';
 // TODO: tests
@@ -16,7 +16,7 @@ const index = props => {
         addEventListener('scroll', handleScrollForNota, window);
     }
 
-    if (subtype === '7') return <CuerpoReceta {...props} />;
+    // if (subtype === '7') return <CuerpoReceta {...props} />;
 
     return <CuerpoDefault {...props} />;
 };

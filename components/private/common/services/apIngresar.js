@@ -1,7 +1,7 @@
 import handleCookie from '../../LN/common/utils/handleCookie';
 
 const apiIngresar = () => {
-    const { getCookie } = handleCookie();
+    const { getCookie, eraseCookie } = handleCookie();
     const urlApi = 'https://api-ingresar.lanacion.com.ar/UsuarioV1/';
 
     const reLogin = (token, xvalue) =>
@@ -17,7 +17,10 @@ const apiIngresar = () => {
                 OrigenLoginTipoId: '1',
                 IsRelogin: 1
             })
-        }).then(res => res.json());
+        }).then(res => {
+            eraseCookie('ProductoPremiumId');
+            return res.json();
+        });
 
     const getMe = (isRelogin = false, token, xvalue) => {
         const ProductoPremiumId = getCookie('ProductoPremiumId') || '';

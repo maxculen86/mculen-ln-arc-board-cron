@@ -17,6 +17,7 @@ import Redirect from './utils/redirect';
 import replaceTagInTextListRaw from './utils/replaceTagInTextListRaw';
 import {
     FOTOAL100,
+    RECETA,
     STORYTELLING
 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 import logger from '../../components/private/common/utils/logger';
@@ -37,7 +38,7 @@ const resolve = (key, a) => {
 };
 
 const fetch = query => {
-    const { url = '', imageConfig } = query;
+    const { url = '', imageConfig, meteringVariant } = query;
     const arcSite = query['arc-site'];
     const properties = getProperties(arcSite);
     const opt = {
@@ -72,7 +73,14 @@ const fetch = query => {
                 responseData: response
             });
 
-            return transform(response, arcSite, properties, imageConfig, url);
+            return transform(
+                response,
+                arcSite,
+                properties,
+                imageConfig,
+                url,
+                meteringVariant
+            );
         })
         .catch(error => {
             logger.push(error, { source: 'content/source', url }, arcSite);
@@ -82,7 +90,14 @@ const fetch = query => {
 
 // Al no poder exportar esta fn para que la utilice Fusion directamente, ya que devuelve una promise y no lo soporta, la llamamos
 // directamente nosotros desde el fetch
-const transform = (data, arcSite, properties, imageConfig, urlQuery) => {
+const transform = (
+    data,
+    arcSite,
+    properties,
+    imageConfig,
+    urlQuery,
+    meteringVariant
+) => {
     // Data
     const subtype = get(data, `subtype`, null);
 
@@ -125,6 +140,7 @@ const transform = (data, arcSite, properties, imageConfig, urlQuery) => {
     // Data con urls Resizeadas
     const resp = {
         ...data,
+        subscription: meteringVariant,
         ...addResizedUrls(data, {
             resizerSecret: RESIZER_KEY,
             resizerUrl: RESIZER_URL,
@@ -161,6 +177,7 @@ const transformContent = (jsonArticle, arcSite, urlQuery) => {
                 : null
         }
     };
+    const subtype = get(jsonArticle, `subtype`, null);
 
     if (resp && resp.content_elements) {
         resp.content_elements.forEach((e, i) => {
@@ -225,11 +242,33 @@ const transformContent = (jsonArticle, arcSite, urlQuery) => {
             urlQuery,
             API_ENV
         );
+        if (subtype === RECETA) {
+            const powerUps = powerUpsJoin(resp.content_elements);
+            const powerUpIndex = resp.content_elements.findIndex(e => {
+                return e.type === 'custom_embed';
+            });
+            resp.content_elements = resp.content_elements.filter(e => {
+                return e.type !== 'custom_embed';
+            });
+            resp.content_elements.splice(powerUpIndex, 0, powerUps);
+        }
     }
 
     return Promise.all(promiseArr).then(() => {
         return resp;
     });
+};
+
+const powerUpsJoin = contentElements => {
+    const powerUps = contentElements.filter(e => {
+        return e.type === 'custom_embed';
+    });
+
+    return {
+        type: 'custom_embed',
+        subtype: 'power-up-receta',
+        powerUp: powerUps
+    };
 };
 
 const addGalleryData = (gallery, arcSite) => {
@@ -244,7 +283,6 @@ const addGalleryData = (gallery, arcSite) => {
             const resp = {
                 ...gallery
             };
-
             resp.content_elements = gallery.content_elements.map((v, i) => {
                 return {
                     ...v,

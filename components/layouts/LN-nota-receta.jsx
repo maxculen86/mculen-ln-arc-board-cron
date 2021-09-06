@@ -4,7 +4,6 @@ import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 import LoginProvider from '../private/LN/common/context/loginContext';
 import GlobalProvider from '../private/common/context/globalContext';
-import LoadBanners from '../private/common/banners/LoadBanners';
 import { CommentsProvider } from '../private/common/context/commentsContext';
 /* import Article from '../private/common/mod-article';
 import HeaderSection from '../private/common/mod-headerSection'; */
@@ -21,7 +20,8 @@ import NewFooter from '../private/LN/common/footer';
 // import '../../resources/dist/css/ln/components/com-title-new.css';
 // import '../../resources/dist/css/ln/components/com-unordered-new.css';
 // import '../../resources/dist/css/ln/components/com-tip-new.css';
-import '../../resources/dist/css/ln/modules/mod-banner.css';
+// import '../../resources/dist/css/ln/modules/mod-banner.css';
+import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 
 const pageBuilderSections = [
     'Pre-Titulo',
@@ -43,7 +43,7 @@ const LNNotaReceta = ({ outputType, children }) => {
         <GlobalProvider>
             <LoginProvider>
                 <CommentsProvider>
-                    <div id="wrapper" className={`recetas ${amp}`}>
+                    <div id="wrapper" className={`nota receta ${amp}`}>
                         <Header />
                         <main>
                             {/* Pre-Titulo: Banners */}
@@ -70,7 +70,7 @@ const LNNotaReceta = ({ outputType, children }) => {
                                             {/* Left-Cuerpo Shared */}
                                             {children[3]}
                                         </div>
-                                        <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
+                                        <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11 cuerpo__nota">
                                             {/* Cuerpo */}
                                             {children[5]}
                                         </div>
@@ -100,7 +100,7 @@ const LNNotaReceta = ({ outputType, children }) => {
                             <NewFooter />
                         </Static>
                     </div>
-                    <LoadBanners />
+                    <LoadBannersSSR />
                 </CommentsProvider>
             </LoginProvider>
         </GlobalProvider>

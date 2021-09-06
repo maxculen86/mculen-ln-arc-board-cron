@@ -36,6 +36,7 @@ const headerAMP = props => {
                                     id="btnsuscribite"
                                     title="Suscribite a LA NACION"
                                     href="https://suscripciones.lanacion.com.ar/suscribirme"
+                                    rel="nofollow"
                                 >
                                     SUSCRIBITE
                                 </Link>
@@ -369,7 +370,7 @@ const headerAMP = props => {
                             <section>
                                 <h2 className="arrow-right">
                                     <a
-                                        href="https://www.lanacion.com.ar/edicion-impresa"
+                                        href="https://edicionimpresa.lanacion.com.ar/la-nacion"
                                         className="url-link"
                                     >
                                         Edición Impresa

@@ -20,7 +20,6 @@ const fetch = ({ arcSite }) => {
             json: true
         }
     ];
-
     const promiseArr = endpoints.map(endpoint =>
         request(endpoint)
             .then(response => ({
@@ -58,17 +57,17 @@ const transform = data => {
     );
 
     const titles = {
-        dbna: 'Dólar Banco Nación',
-        dblue: 'Dólar Blue',
-        dccl: 'Dólar Contado con Liqui'
+        dbna: ['Dólar Banco Nación', 'Dólar BNA'],
+        dblue: ['Dólar Blue', 'Dólar Blue'],
+        dccl: ['Dólar Contado con Liqui', 'Dólar CCL']
     };
-
     return {
         data: data.map(item => {
             const { sourceName } = item;
             return {
                 ...item,
-                title: titles[sourceName]
+                title: titles[sourceName][0],
+                titleMobile: titles[sourceName][1]
             };
         }),
         imageUrl

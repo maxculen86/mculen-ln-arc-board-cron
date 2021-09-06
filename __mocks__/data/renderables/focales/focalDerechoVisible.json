@@ -1,0 +1,111 @@
+[
+    {},
+    {},
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 1
+        },
+        "children": []
+    },
+    {},
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 3
+        },
+        "children": [
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Manual",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Manual",
+                    "id": "c0fCdBNjvrxb3sF",
+                    "name": null,
+                    "customFields": {
+                        "layout": "focalRight2",
+                        "initialPosition": 1,
+                        "hideTitle": true,
+                        "pbInternal_cloneId": "c0fCdBNjvrxb3sF",
+                        "hideCaja": false
+                    },
+                    "displayProperties": {}
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-common/articulo",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/articulo",
+                            "id": "f0fUztJJurxb3Gx",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "Y76IVJSGXFHS3CRK3E7NBUMEUY",
+                                "lead": "",
+                                "imageId": "",
+                                "hideImage": false
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/articulo",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/articulo",
+                            "id": "f0f2PzG8vrxb3HY",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "KXO4EI7KNZDCVE2C7VIBJ3FTQQ",
+                                "pbInternal_cloneId": "f0fVjANyNcBg6ou"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/articulo",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/articulo",
+                            "id": "f0fhayuevrxb3Tz",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "ANSZYDSL2JDJNPANYBG45GRVYA",
+                                "pbInternal_cloneId": "f0fNh2HXRciZ7G6"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {}
+]

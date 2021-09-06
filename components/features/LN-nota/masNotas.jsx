@@ -122,7 +122,7 @@ const masNotas = props => {
                 articles={articlesFiltered}
                 position="toi"
                 outputType={outputType}
-                withVolanta={false}
+                withVolanta
             />
         </Static>
     );

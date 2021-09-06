@@ -123,6 +123,16 @@
                     }
                     border: 1px solid #d9d9d9;
                     background: $neutral-white;
+
+                    .item__nav.item--lifestyle:hover {
+                        @media (max-height: 800px) {
+                            .sublist__nav.sublist__nav {
+                                bottom: -20px;
+                                top: auto;
+                            }
+                        }
+                    }
+
                     &.secondary--nav {
                         .item__nav {
                             .link__item {
@@ -168,7 +178,7 @@
                                 }
                             }
                             .link__item {
-                                color: #006998;
+                                color: $light-blue-500;
                                 text-decoration: underline;
                             }
                             .sublist__nav {
@@ -187,7 +197,7 @@
                             &:hover {
                                 background: #f2f2f2;
                                 .link__item {
-                                    color: #006998;
+                                    color: $light-blue-500;
                                     text-decoration: underline;
                                 }
                                 .sublist__nav {
@@ -215,7 +225,7 @@
                                         &:hover {
                                             background: #f2f2f2;
                                             .link__item {
-                                                color: #006998;
+                                                color: $light-blue-500;
                                                 text-decoration: underline;
                                                 background: #f2f2f2;
                                             }
@@ -261,7 +271,7 @@
                         &:hover {
                             background: #f2f2f2;
                             .link__item {
-                                color: #006998;
+                                color: $light-blue-500;
                                 text-decoration: underline;
                             }
                         }

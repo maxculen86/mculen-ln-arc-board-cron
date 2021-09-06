@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getBannerConfiguration => Deberia renderizar el caja1_amp con y sin suscripcion 1`] = `
+<div
+  class="row "
+>
+  <div
+    class="mod-banner --bg-banner "
+  >
+    <amp-ad
+      class="banner"
+      data-slot="/133919216/AMP/ROS/caja1_amp"
+      height="250"
+      id="caja1_amp"
+      json="{\\"tags\\":[\\"ca_el mundo|ca_ciencia|te_deportes|te_sake\\"],\\"tags_nuevos\\":[\\"ca_el mundo\\",\\"ca_ciencia\\",\\"te_deportes\\",\\"te_sake\\"]}"
+      type="doubleclick"
+      width="300"
+    />
+  </div>
+</div>
+`;
+
+exports[`getBannerConfiguration => Deberia traer la configuracion del adhesion_mob con y sin suscripcion 1`] = `
+<div
+  class="mod-banner --adhesion_mob --fixed --close hlp-none  "
+>
+  <button
+    aria-label="Close"
+    class="icon-close"
+    id="adhesion_mob_btnCloseAd"
+    type="button"
+  />
+  <div
+    class="com-banner"
+    data-ad-unit-path="/133919216/la_nacion_mobile/Nota/adhesion_mob"
+    data-device="mobile"
+    data-prebid-enabled="false"
+    data-size="[[320,50]]"
+    data-sizemap="[]"
+    data-slot-group="nota"
+    data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+    data-without-hide="false"
+    id="adhesion_mob"
+  />
+</div>
+`;
+
+exports[`getBannerConfiguration => Deberia traer la configuracion del banner cabezal 1`] = `
+<Fragment>
+  <DivBannerSSR
+    bannerConfiguration={
+      Object {
+        "bidding": Object {
+          "prebid": Object {
+            "enabled": true,
+          },
+        },
+        "classes": "--sticky ",
+        "device": "desktop",
+        "dfpId": 133919216,
+        "dimensions": Array [
+          Array [
+            1,
+            1,
+          ],
+          Array [
+            728,
+            90,
+          ],
+          Array [
+            920,
+            100,
+          ],
+          Array [
+            920,
+            170,
+          ],
+          Array [
+            970,
+            90,
+          ],
+          Array [
+            1260,
+            100,
+          ],
+          Array [
+            1260,
+            170,
+          ],
+        ],
+        "slotGroup": "nota",
+        "slotId": "cabezal_dsk",
+        "slotName": "la_nacion_desktop/Nota/cabezal_dsk",
+        "targeting": Object {
+          "seccion": "nota",
+          "sitio": "lanacion",
+        },
+        "withoutHide": true,
+      }
+    }
+    key="la_nacion_desktop/Nota/cabezal_dsk"
+  />
+  <script
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+                window.addEventListener('DOMContentLoaded', () => {
+                    const sidebar = document.querySelector(\\".lay-sidebar\\");
+                    const header = document.querySelector(\\"#header\\");                    
+                    const cabezal = document.querySelector('.--cabezal_dsk');
+                    window.addEventListener('scroll', () => {
+                        const { top: topSidebar } = sidebar.getBoundingClientRect();
+                        const viewPoint = topSidebar - cabezal.clientHeight - header.clientHeight;
+                        if (viewPoint <= 0 && cabezal.classList.contains('--sticky')) {
+                            const { top: topCabezal } = cabezal.getBoundingClientRect();
+                            cabezal.classList.remove('--sticky');
+                            cabezal.style.top = Math.abs(sidebar.offsetTop - cabezal.clientHeight) + 'px';
+                            cabezal.style.position = 'relative';
+                            cabezal.style.zIndex = '101';
+                        } else if (viewPoint > 0 && !cabezal.classList.contains('--sticky')) {
+                            cabezal.classList.add('--sticky');
+                            cabezal.style.cssText = '';
+                        }
+                    });
+                })
+            ",
+      }
+    }
+    type="text/javascript"
+  />
+</Fragment>
+`;
