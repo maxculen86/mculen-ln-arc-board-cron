@@ -1,8 +1,12 @@
 import filter from '../filters/LN/acumulado/tag';
+import force404AMP from './utils/force404AMP';
 
 const resolve = key => {
-    const { slug } = key;
+    const { slug, outputType, redirectUrl } = key;
+
     if (!slug) throw new Error('Debe definir un slug para obtener el tag');
+    force404AMP({ outputType, redirectUrl });
+
     return `/tags/v2/search?prefix=${slug}`;
 };
 
@@ -35,7 +39,9 @@ export default {
     transform,
     schemaName: 'tag-schema',
     params: {
-        slug: 'text'
+        slug: 'text',
+        outputType: 'text',
+        redirectUrl: 'text'
     },
     filter,
     ttl: 900

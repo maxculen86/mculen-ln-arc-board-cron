@@ -1,9 +1,13 @@
 import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
 import { createResizer } from '../../components/private/common/utils/image/resizer';
 import filter from '../filters/LN/acumulado/author';
+import force404AMP from './utils/force404AMP';
 
 const resolve = key => {
-    const { _id, website } = key;
+    const { _id, website, outputType, redirectUrl } = key;
+
+    force404AMP({ outputType, redirectUrl });
+
     if (!_id) throw new Error('El id de autor es necesario. ');
     const arcSite = key['arc-site'];
     const path = `/author/v1/author-service?website=${website ||
@@ -46,7 +50,9 @@ export default {
     resolve,
     params: {
         _id: 'text',
-        website: 'text'
+        website: 'text',
+        outputType: 'text',
+        redirectUrl: 'text'
     },
     filter,
     transform,

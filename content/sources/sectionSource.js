@@ -2,6 +2,7 @@ import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import logger from '../../components/private/common/utils/logger';
 import { getTodayDateForAcuDolar } from '../../components/private/common/utils/dateAndTimeUtil';
+import force404AMP from './utils/force404AMP';
 
 const resolve = key => {
     const { id, website } = key;
@@ -19,7 +20,7 @@ const resolve = key => {
     return `/site/v3/navigation/${finalWebsite}/?_id=${id}`;
 };
 const fetch = query => {
-    const { url = '' } = query;
+    const { url = '', outputType, redirectUrl } = query;
     const arcSite = query['arc-site'];
     const opt = {
         uri: `${CONTENT_BASE}${resolve(query)}`,
@@ -30,6 +31,9 @@ const fetch = query => {
             bearer: ARC_ACCESS_TOKEN
         };
     }
+
+    force404AMP({ outputType, redirectUrl });
+
     return request(opt)
         .then(response => {
             return transform(response, query);
@@ -63,7 +67,9 @@ export default {
     schemaName: 'section-schema',
     params: {
         id: 'text',
-        website: 'text'
+        website: 'text',
+        outputType: 'text',
+        redirectUrl: 'text'
     },
     ttl: 300
 };
