@@ -4,7 +4,9 @@ import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
-
+import Text from '../private/common/text';
+import GlobalProvider from '../private/common/context/globalContext';
+import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 // import '../../resources/dist/css/ln/base.css';
 // import '../../resources/dist/css/ln/layouts/layout.css';
 // import '../../resources/dist/css/ln/layouts/grid.css';
@@ -38,35 +40,39 @@ const LNAcumuladoColumnistasLayout = props => {
     }, [globalContent]);
 
     return (
-        <div id="wrapper">
-            <Header headerDark={headerDark} />
-            <main>
-                {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
-                {children[0]}
-                <div className="lay-sidebar">
-                    <div className="sidebar__main">
+        <GlobalProvider>
+            <div id="wrapper" className="acumulado columnistas">
+                <Header headerDark={headerDark} />
+                <main>
+                    {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
+                    {children[0]}
+                    <div className="lay">
                         {
                             /* Espacio para breadcrum */
                             <div className="row">
-                                <div className="col-12">{children[1]}</div>
+                                <div className="col-12">
+                                    {children[1]}
+                                    <Text
+                                        tag="h1"
+                                        size="--l"
+                                        extraClass="com-title"
+                                        text="Todos los columnistas"
+                                    />
+                                </div>
                             </div>
                         }
                         {/* Espacio para el contenido */}
-                        <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">
+                        <section className="row-gap-2 row-gap-tablet-3 row-gap-desksm-5">
                             {children[2]}
                         </section>
                     </div>
-                    <div className="sidebar__aside">
-                        <div className="banner --desktop --large">
-                            {children[3]}
-                        </div>
-                    </div>
-                </div>
-            </main>
-            <Static id="StaticFooter">
-                <Footer />
-            </Static>
-        </div>
+                </main>
+                <Static id="StaticFooter">
+                    <Footer />
+                </Static>
+            </div>
+            <LoadBannersSSR />
+        </GlobalProvider>
     );
 };
 

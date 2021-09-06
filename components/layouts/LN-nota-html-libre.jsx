@@ -50,8 +50,8 @@ import HtmlLibre from '../private/LN/nota/cuerpo/htmlLibre';
 
 import GlobalProvider from '../private/common/context/globalContext';
 import { CommentsProvider } from '../private/common/context/commentsContext';
-import LoadBanners from '../private/common/banners/LoadBanners';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
+import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 
 const lnNotaNoticia = ({
     children: [bannerMegatop, bottom, bottomTercera],
@@ -94,7 +94,7 @@ const lnNotaNoticia = ({
                         </div>
                     </main>
                 </div>
-                <LoadBanners />
+                <LoadBannersSSR />
             </CommentsProvider>
         </GlobalProvider>
     );

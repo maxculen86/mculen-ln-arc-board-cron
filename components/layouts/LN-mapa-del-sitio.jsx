@@ -27,7 +27,7 @@ const LNMapaDelSitio = ({ children }) => {
         },
         {
             text: 'Edición impresa',
-            href: 'https://www.lanacion.com.ar/edicion-impresa/'
+            href: 'https://edicionimpresa.lanacion.com.ar/la-nacion'
         },
         { text: 'Club LA NACION', href: 'https://club.lanacion.com.ar/' }
     ];

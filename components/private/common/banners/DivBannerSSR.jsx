@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from '../utils/get';
 import flatArray from '../utils/flatArray';
+import ComButton from '../com-button';
 
 const DivBannerSSR = ({ bannerConfiguration }) => {
     const {
@@ -15,30 +16,32 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
         withoutHide,
         dimensions,
         bidding,
-        sizemap,
-        subscription,
+        // subscription,
         closeButton,
-        background,
-        sticky,
-        fixed
+        classes
     } = bannerConfiguration;
 
     return (
-        <div
-            className={`mod-banner ${background ? '--bg-banner' : ''} ${
-                sticky ? '--sticky' : ''
-            } ${closeButton ? '--close' : ''} ${
-                fixed ? '--fixed' : ''
-            } --${slotId} ${withoutHide ? '' : 'hlp-none'} `}
-        >
+        <div className={`mod-banner --${slotId} ${classes || ''} `}>
             {closeButton && (
                 <>
-                    <button
-                        id={`${slotId}_btnCloseAd`}
-                        type="button"
-                        aria-label="Close"
-                        className="icon-close"
-                    />
+                    {slotId.includes('comercial') ? (
+                        <ComButton
+                            classCondition="--primary --compact"
+                            dataEvent="LinkClick"
+                            dataSection="Comercial-home"
+                            id={`${slotId}_btnCloseAd`}
+                            textname="CERRAR"
+                        />
+                    ) : (
+                        <button
+                            id={`${slotId}_btnCloseAd`}
+                            type="button"
+                            aria-label="Close"
+                            className="icon-close"
+                        />
+                    )}
+
                     <script
                         dangerouslySetInnerHTML={{
                             __html: `
@@ -55,7 +58,7 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
                 className="com-banner"
                 data-slot-group={slotGroup}
                 data-device={device}
-                data-subscription={subscription || false}
+                // data-subscription={subscription || false}
                 data-ad-unit-path={`/${dfpId}/${slotName}`}
                 data-targeting={JSON.stringify(targeting)}
                 data-without-hide={withoutHide || false}
@@ -70,16 +73,15 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
 DivBannerSSR.propTypes = {
     bannerConfiguration: PropTypes.shape({
         slotId: PropTypes.string.isRequired,
-        device: PropTypes.string.isRequired,
-        dfpId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-            .isRequired,
-        dimensions: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number))
-            .isRequired,
-        slotName: PropTypes.string.isRequired,
+        classes: PropTypes.string,
+        device: PropTypes.string,
+        dfpId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        dimensions: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)),
+        slotName: PropTypes.string,
         targeting: PropTypes.shape({
             seccion: PropTypes.string,
             sitio: PropTypes.string
-        }).isRequired,
+        }),
         sizemap: PropTypes.arrayOf(
             PropTypes.shape({
                 breakpoints: PropTypes.array,
@@ -87,16 +89,8 @@ DivBannerSSR.propTypes = {
             })
         ),
         bidding: PropTypes.objectOf(PropTypes.string),
-        background: PropTypes.bool,
-        fixed: PropTypes.bool,
         closeButton: PropTypes.bool,
-        sticky: PropTypes.bool,
-        show: PropTypes.shape({
-            termicas: PropTypes.bool,
-            collection: PropTypes.bool
-        }),
-        subscription: PropTypes.bool,
-        slotGroup: PropTypes.string.isRequired,
+        slotGroup: PropTypes.string,
         withoutHide: PropTypes.bool
     }).isRequired
 };

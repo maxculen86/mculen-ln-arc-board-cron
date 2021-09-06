@@ -1,11 +1,9 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/no-danger */
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { useAppContext } from 'fusion:context';
-import findTermica from '../../../common/utils/findTermica';
 import get from '../../../common/utils/get';
-// import { slotsConfig } from '../bannerRefactor/config';
 import { GlobalContext } from '../../../common/context/globalContext';
 import bannersRules from '../../../common/banners/bannersRules';
 
@@ -81,39 +79,26 @@ export const getBannerConfiguration = (
     globalContentConfig,
     bannerConfig = {}
 ) => {
-    const { label, taxonomy, type } = globalContent || {
-        label: { mostrar_banners: false },
-        taxonomy: {
-            sections: [],
-            tags: []
-        }
-    };
+    const { label, taxonomy, type } = globalContent || {};
 
-    const { sections, tags } = taxonomy || {
-        sections: [],
-        tags: []
-    };
-    const { mostrar_banners: mostrarBanners } = label || {};
-    const { text: mostrarBannersValue } = mostrarBanners || '';
+    const { sections, tags } = taxonomy || { sections: [], tags: [] };
 
-    if (mostrarBannersValue === 'No') return null;
-
-    const { fixed, sticky, background, group: slotGroup } = customFields || {};
+    const { group: slotGroup } = customFields || {};
     const { device, slotId } = bannerConfig;
 
     if (!slotId || !slotGroup) return null;
 
-    // const slotId = `${slot}${amp ? '_amp' : suffixDevice[device]}`;
     const { siteProperties } = useAppContext();
     const gc = useContext(GlobalContext);
     const siteService = get(gc, 'state.siteService', {});
+    const {
+        banners: bannersSiteConfig,
+        termicas = [],
+        adserver = []
+    } = siteService;
 
-    const termicas = findTermica('banners');
-
-    const dfpId = get(siteProperties, 'bannerConfig.dfp_id');
-    const bannersSiteConfig = get(siteService, 'banners');
-    const adserver = get(siteService, 'adserver', []);
     const segments = adserver.map(segment => segment.value);
+    const dfpId = get(siteProperties, 'bannerConfig.dfp_id');
     const sponsored = get(globalContent, 'owner.sponsored');
     const advertiser = get(globalContent, 'label.marca_anunciante.text');
     const primarySection =
@@ -126,6 +111,7 @@ export const getBannerConfiguration = (
         'acumuladoGeneral.hide_banner',
         'false'
     );
+
     const config = get(
         siteProperties,
         `bannerConfig[${slotGroup}][${
@@ -133,7 +119,8 @@ export const getBannerConfiguration = (
         }][${slotId}]`
     );
 
-    const subscription =
+    // Se valida que se cumpla las reglas del banner
+    const noValidate =
         get(
             bannersRules,
             `[${slotGroup}][${device}][${slotId}].validateInclusion`
@@ -157,28 +144,27 @@ export const getBannerConfiguration = (
         },
     */
 
-    if (!config || !dfpId || subscription) return null;
+    if (
+        !config ||
+        !dfpId ||
+        noValidate ||
+        !shouldShow(termicas, hideBanners, label)
+    )
+        return null;
 
     let bannerConfiguration = {
         ...config,
-        subscription,
         device,
         slotId,
         slotGroup,
         dfpId,
-        sticky,
-        background,
-        fixed,
-        show: {
-            termicas,
-            collection: !(hideBanners === 'true')
-        },
+        classes: buildBannerClasses(config, customFields),
         targeting: slotId.includes('_amp')
             ? getTargetingFormat(sections)(tags)
             : config.targeting
     };
 
-    // Site service banner segments check
+    // Si en adServer hay una seccion (ej: campo) para segmentar banner, se cambia el slotName
     const [present, section] = isPrimarySectionInBannerSegments(primarySection)(
         segments
     );
@@ -205,7 +191,7 @@ export const getBannerConfiguration = (
         };
     }
 
-    // Site service dimensions check
+    // Las dimensiones del banner se traen de Site service por Section -> por Sitio -> Site properties
     if (bannersSiteConfig) {
         bannerConfiguration = {
             ...bannerConfiguration,
@@ -218,6 +204,37 @@ export const getBannerConfiguration = (
         };
     }
     return bannerConfiguration;
+};
+
+export const shouldShow = (termicas = [], hideBanners, label) => {
+    // Si la termica banner esta en false o si en la seccion esta tildado hideBanner o en composer tiene no mostrar, no se muestra
+    const element = termicas.find(ter => ter.key === 'banners') || {
+        value: 'true'
+    };
+    const { mostrar_banners: mostrarBanners } = label || {};
+    const { text: mostrarBannersValue } = mostrarBanners || {};
+
+    return (
+        element &&
+        element.value &&
+        element.value.toString() === 'true' &&
+        !(hideBanners === 'true') &&
+        mostrarBannersValue !== 'No'
+    );
+};
+
+export const buildBannerClasses = (config, customFields) => {
+    const { slotName = '', withoutHide, closeButton } = config || {};
+    const { background, sticky, fixed } = customFields || {};
+    let classes = '';
+    if (background) classes += '--bg-banner ';
+    if (sticky) classes += '--sticky ';
+    if (fixed) classes += '--fixed ';
+    if (closeButton) classes += '--close ';
+    if (!withoutHide) classes += 'hlp-none ';
+    if (slotName.includes('comercial')) classes += '--comercial ';
+
+    return classes;
 };
 
 export const getDimsFromSiteService = (config, slotName, section) => {
@@ -250,6 +267,11 @@ export const isPrimarySectionInBannerSegments = primarySection => segments => {
 
     return [included, section];
 };
+
+export const getSlotForDevice = device => slots =>
+    slots.find(slot => slot.name === device)
+        ? slots.find(slot => slot.name === device).slot || null
+        : null;
 
 /*
 export const changeSlotName = name => {
@@ -396,35 +418,4 @@ export const queueGoogletagCommand = bannersToLoad => {
                         .parentNode.classList.remove('hlp-none');
             });
     });
-};
-
-export const getScriptForCabezalSticky = (header, sidebar, classCabezal) => {
-    return (
-        <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={{
-                __html: `
-                window.addEventListener('DOMContentLoaded', () => {
-                    const sidebar = document.querySelector(".${sidebar}") || {};
-                    const header = document.querySelector("#${header}") || {};                    
-                    const cabezal = document.querySelector('.--${classCabezal}') || {};
-                    window.addEventListener('scroll', () => {
-                        const { top: topSidebar } = sidebar.getBoundingClientRect();
-                        const viewPoint = topSidebar - cabezal.clientHeight - header.clientHeight;
-                        if (viewPoint <= 0 && cabezal.classList.contains('--sticky')) {
-                            const { top: topCabezal } = cabezal.getBoundingClientRect();
-                            cabezal.classList.remove('--sticky');
-                            cabezal.style.top = Math.abs(sidebar.offsetTop - cabezal.clientHeight) + 'px';
-                            cabezal.style.position = 'relative';
-                            cabezal.style.zIndex = '101';
-                        } else if (viewPoint > 0 && !cabezal.classList.contains('--sticky')) {
-                            cabezal.classList.add('--sticky');
-                            cabezal.style.cssText = '';
-                        }
-                    });
-                })
-            `
-            }}
-        />
-    );
 };

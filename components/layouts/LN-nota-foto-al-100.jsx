@@ -55,7 +55,6 @@ import { CommentsProvider } from '../private/common/context/commentsContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
-// import LoadBanners from '../private/common/banners/LoadBanners';
 
 const lnNotaFotoAl100 = ({
     children: [
@@ -132,7 +131,6 @@ const lnNotaFotoAl100 = ({
                     </Static>
                 </div>
                 <LoadBannersSSR />
-                {/* <LoadBanners /> */}
             </CommentsProvider>
         </GlobalProvider>
     );

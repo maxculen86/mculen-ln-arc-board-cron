@@ -66,8 +66,8 @@ import '../../resources/dist/css/ln/pages/storytelling.css';
 import GlobalProvider from '../private/common/context/globalContext';
 import { CommentsProvider } from '../private/common/context/commentsContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
-import LoadBanners from '../private/common/banners/LoadBanners';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
+import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 
 const lnNotaStorytelling = ({
     children,
@@ -142,7 +142,7 @@ const lnNotaStorytelling = ({
                         <Footer />
                     </Static>
                 </div>
-                <LoadBanners />
+                <LoadBannersSSR />
             </CommentsProvider>
         </GlobalProvider>
     );

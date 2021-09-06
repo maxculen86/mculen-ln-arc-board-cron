@@ -11,8 +11,9 @@ const resolve = key => {
 };
 
 const transform = (data, query) => {
+    const { uri, slug, meteringVariant } = query || {};
     if (data.Payload && data.Payload.items && data.Payload.items[0]) {
-        if (data.Payload.items[0].slug !== query.slug) {
+        if (data.Payload.items[0].slug !== slug) {
             const err = new Error('Tag no encontrado');
             err.statusCode = 404;
             throw err;
@@ -28,7 +29,8 @@ const transform = (data, query) => {
         ...data,
         node_type: 'tags',
         name: data.Payload.items[0].name,
-        canonical_url: query.uri
+        canonical_url: uri,
+        subscription: meteringVariant
     };
 
     return newData;
@@ -41,7 +43,8 @@ export default {
     params: {
         slug: 'text',
         outputType: 'text',
-        redirectUrl: 'text'
+        redirectUrl: 'text',
+        meteringVariant: 'text'
     },
     filter,
     ttl: 900

@@ -124,6 +124,8 @@ const Default = props => {
         globalContent,
         outputType
     } = props;
+    const { layoutsName } = siteProperties;
+    const layOutColumnista = layoutsName.Columnistas;
 
     const {
         canonical_url: canonicalUrl,
@@ -190,7 +192,8 @@ const Default = props => {
                   Payload,
                   nodeType,
                   name,
-                  arcSite
+                  arcSite,
+                  layOutColumnista
               )
             : '';
 

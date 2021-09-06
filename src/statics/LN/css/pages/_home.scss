@@ -73,6 +73,54 @@
     &.--author {
         @include renderAutor;
     }
+
+    &.--columnista {
+        @include renderAutor;
+
+        padding-bottom: px(16);
+        > div {
+            position: relative;
+            bottom: auto;
+            border: none;
+            padding: 0;
+            margin-bottom: px(8);
+        }
+        .mod-description {
+            height: 100%;
+            > div {
+                height: 100%;
+                .mod-marquee {
+                    position: relative;
+                    overflow: visible;
+                    height: auto;
+                    align-items: initial;
+                    padding-bottom: px(32);
+                    a {
+                        &::after {
+                            display: block;
+                            content: 'IR A NOTAS';
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            margin: auto;
+                            color: $light-blue-500;
+                            font-size: px(12);
+                            line-height: px(16);
+                        }
+                    }
+                }
+            }
+        }
+        &::after {
+            border-bottom: 1px solid $light-neutral-600;
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            width: px(80);
+        }
+    }
+
     &:before {
         .mod-ranking & {
             display: block;
@@ -89,6 +137,7 @@
             height: px(40);
         }
     }
+
     &.--no-media {
         border-top: 1px solid #ccc;
         width: calc(100% + #{$spacing-lg});
