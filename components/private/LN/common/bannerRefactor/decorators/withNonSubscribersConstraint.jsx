@@ -1,15 +1,14 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 
-import loginHelper from '../../utils/loginHelper';
+import { isSubscribed } from '../../utils/contextHelper';
 
 export default Component => {
     if (!Component) return null;
 
     const Enhanced = props => {
-        const { isSubscribed } = loginHelper;
         // if (subscription) return null;
         return <Component noShow subscription={isSubscribed()} {...props} />;
     };
@@ -25,7 +24,7 @@ export default Component => {
             seccion: PropTypes.string,
             sitio: PropTypes.string
         }).isRequired,
-        bidding: PropTypes.object.isRequired,
+        bidding: PropTypes.node.isRequired,
         background: PropTypes.string,
         closeButton: PropTypes.bool
     };

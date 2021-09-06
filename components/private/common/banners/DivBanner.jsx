@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import Static from 'fusion:static';
-import loginHelper from '../../LN/common/utils/loginHelper';
+import { isSubscribed } from '../../LN/common/utils/contextHelper';
 
 const DivBanner = props => {
     const {
@@ -14,11 +14,12 @@ const DivBanner = props => {
         withoutHide,
         isStatic
     } = props;
-    const { isSubscribed } = loginHelper;
-    const subscription = validateSuscription ? isSubscribed() : false;
+
+    const subscription = isSubscribed();
+    const isSuscribed = validateSuscription ? subscription : false;
     const ref = useRef();
 
-    if (!isStatic && (!shouldRender || (validateSuscription && subscription)))
+    if (!isStatic && (!shouldRender || (validateSuscription && isSuscribed)))
         return <></>;
 
     return isStatic ? (

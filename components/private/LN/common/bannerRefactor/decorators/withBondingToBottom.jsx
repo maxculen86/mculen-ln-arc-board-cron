@@ -4,8 +4,7 @@
 
 import React, { useLayoutEffect, useRef } from 'react';
 import { useFusionContext } from 'fusion:context';
-
-import loginHelper from '../../utils/loginHelper';
+import { isSubscribed } from '../../utils/contextHelper';
 
 const hide = element => {
     if (element) element.style.visibility = 'hidden';
@@ -24,7 +23,6 @@ export default Component => {
         const megatopRef = useRef(
             document.querySelector('#megatop_dsk') || null
         );
-        const { isSubscribed } = loginHelper;
 
         const { outputType } = fusionContext;
 

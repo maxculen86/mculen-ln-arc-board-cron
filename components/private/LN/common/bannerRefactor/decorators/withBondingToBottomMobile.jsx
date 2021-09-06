@@ -4,13 +4,11 @@
 
 import React from 'react';
 import { useFusionContext } from 'fusion:context';
-
-import loginHelper from '../../utils/loginHelper';
+import { isSubscribed } from '../../utils/contextHelper';
 
 export default Component => {
     return props => {
         const ref = React.createRef();
-        const { isSubscribed } = loginHelper;
 
         const { outputType } = useFusionContext();
 

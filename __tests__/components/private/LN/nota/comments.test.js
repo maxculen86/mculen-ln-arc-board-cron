@@ -2,19 +2,40 @@ import React from 'react';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Comments from '../../../../../components/private/LN/nota/comments';
-import loginHelper from '../../../../../components/private/LN/common/utils/loginHelper';
 
 jest.mock(
     '../../../../../components/private/common/hocs/withNavigation',
     () => Comp => props => (Comp ? <Comp {...props} /> : null)
 );
 
-jest.mock('../../../private/LN/common/utils/loginHelper.test.js', () => {
+jest.mock(
+    '../../../../../components/private/common/hooks/useComments',
+    () => () => {
+        return { setCommentsEnabledAndCount: () => {} };
+    }
+);
+
+jest.mock('react', () => {
+    const ActualReact = require.requireActual('react');
     return {
-        getLoginData: jest.fn(),
-        isLoggedIn: jest.fn()
+        ...ActualReact,
+        useContext: () => ({
+            state: {
+                logueado: true,
+                loginData: {
+                    goToLoginUrl: () => {}
+                }
+            }
+        })
     };
 });
+
+// jest.mock('../../../private/LN/common/utils/contextHelper.test.js', () => {
+//     return {
+//         getLoginData: jest.fn(),
+//         isLoggedIn: jest.fn()
+//     };
+// });
 
 global.MutationObserver = class {
     constructor(callback) {}
@@ -41,13 +62,13 @@ describe('Comments', () => {
         }
     };
 
-    jest.spyOn(loginHelper, 'getLoginData').mockReturnValue({
-        loginData: {
-            goToLoginUrl: () => {}
-        }
-    });
+    // jest.spyOn(contextHelper, 'getLoginData').mockReturnValue({
+    //     loginData: {
+    //         goToLoginUrl: () => {}
+    //     }
+    // });
 
-    jest.spyOn(loginHelper, 'isLoggedIn').mockReturnValue(true);
+    // jest.spyOn(contextHelper, 'isLoggedIn').mockReturnValue(true);
 
     it('Matches snapshot', () => {
         const comments = mount(<Comments {...props} />);

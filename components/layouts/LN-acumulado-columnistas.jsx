@@ -4,7 +4,6 @@ import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
-import LoginProvider from '../private/LN/common/context/loginContext';
 
 // import '../../resources/dist/css/ln/base.css';
 // import '../../resources/dist/css/ln/layouts/layout.css';
@@ -39,37 +38,35 @@ const LNAcumuladoColumnistasLayout = props => {
     }, [globalContent]);
 
     return (
-        <LoginProvider>
-            <div id="wrapper">
-                <Header headerDark={headerDark} />
-                <main>
-                    {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
-                    {children[0]}
-                    <div className="lay-sidebar">
-                        <div className="sidebar__main">
-                            {
-                                /* Espacio para breadcrum */
-                                <div className="row">
-                                    <div className="col-12">{children[1]}</div>
-                                </div>
-                            }
-                            {/* Espacio para el contenido */}
-                            <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">
-                                {children[2]}
-                            </section>
-                        </div>
-                        <div className="sidebar__aside">
-                            <div className="banner --desktop --large">
-                                {children[3]}
+        <div id="wrapper">
+            <Header headerDark={headerDark} />
+            <main>
+                {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
+                {children[0]}
+                <div className="lay-sidebar">
+                    <div className="sidebar__main">
+                        {
+                            /* Espacio para breadcrum */
+                            <div className="row">
+                                <div className="col-12">{children[1]}</div>
                             </div>
+                        }
+                        {/* Espacio para el contenido */}
+                        <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">
+                            {children[2]}
+                        </section>
+                    </div>
+                    <div className="sidebar__aside">
+                        <div className="banner --desktop --large">
+                            {children[3]}
                         </div>
                     </div>
-                </main>
-                <Static id="StaticFooter">
-                    <Footer />
-                </Static>
-            </div>
-        </LoginProvider>
+                </div>
+            </main>
+            <Static id="StaticFooter">
+                <Footer />
+            </Static>
+        </div>
     );
 };
 

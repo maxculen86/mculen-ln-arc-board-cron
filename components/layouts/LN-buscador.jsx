@@ -3,7 +3,6 @@ import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
-import LoginProvider from '../private/LN/common/context/loginContext';
 
 // import '../../resources/dist/css/ln/base/reset.css';
 // import '../../resources/dist/css/ln/base/types.css';
@@ -23,17 +22,15 @@ import GlobalProvider from '../private/common/context/globalContext';
 const lnBuscador = ({ children }) => {
     return (
         <GlobalProvider>
-            <LoginProvider>
-                <div id="wrapper" className="buscador">
-                    <Header />
-                    <main>
-                        <div className="lay">{children[0]}</div>
-                    </main>
-                    <Static id="StaticFooter">
-                        <Footer />
-                    </Static>
-                </div>
-            </LoginProvider>
+            <div id="wrapper" className="buscador">
+                <Header />
+                <main>
+                    <div className="lay">{children[0]}</div>
+                </main>
+                <Static id="StaticFooter">
+                    <Footer />
+                </Static>
+            </div>
         </GlobalProvider>
     );
 };

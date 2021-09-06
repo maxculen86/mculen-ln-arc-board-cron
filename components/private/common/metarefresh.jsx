@@ -5,8 +5,9 @@ import { useContent } from 'fusion:content';
 import { SITE_LANACION } from 'fusion:environment';
 import get from './utils/get';
 import withScreenUtils from './hocs/withScreenUtils';
-import loginHelper from '../LN/common/utils/loginHelper';
+// import loginHelper from '../LN/common/utils/loginHelper';
 import handleCookie from '../LN/common/utils/handleCookie';
+import { isSubscribed } from '../LN/common/utils/contextHelper';
 
 const { getCookie } = handleCookie();
 
@@ -38,7 +39,6 @@ const Component = props => {
     const promoItem = get(props, 'globalContent.promo_items.basic', null);
     const type = get(props, 'globalContent.type', null);
     const _id = get(props, 'globalContent._id', null);
-    const { isSubscribed } = loginHelper;
     const subscription = isSubscribed();
     const website = get(props, 'arcSite', null);
     const resolution = get(props, 'screenUtils.device', null);
@@ -102,9 +102,6 @@ Component.propTypes = {
     globalContent: PropTypes.shape({
         type: PropTypes.string,
         _id: PropTypes.string
-    }).isRequired,
-    loginData: PropTypes.shape({
-        subscription: PropTypes.bool
     }).isRequired
 };
 

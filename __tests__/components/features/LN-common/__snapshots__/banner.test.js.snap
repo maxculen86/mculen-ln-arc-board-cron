@@ -115,9 +115,9 @@ exports[`getBannerConfiguration => Deberia traer la configuracion del banner cab
       Object {
         "__html": "
                 window.addEventListener('DOMContentLoaded', () => {
-                    const sidebar = document.querySelector(\\".lay-sidebar\\");
-                    const header = document.querySelector(\\"#header\\");                    
-                    const cabezal = document.querySelector('.--cabezal_dsk');
+                    const sidebar = document.querySelector(\\".lay-sidebar\\") || {};
+                    const header = document.querySelector(\\"#header\\") || {};                    
+                    const cabezal = document.querySelector('.--cabezal_dsk') || {};
                     window.addEventListener('scroll', () => {
                         const { top: topSidebar } = sidebar.getBoundingClientRect();
                         const viewPoint = topSidebar - cabezal.clientHeight - header.clientHeight;

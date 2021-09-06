@@ -7,18 +7,17 @@ import React, {
     useCallback,
     useMemo
 } from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
-// import get from 'lodash.get';
 import { messages, providersToBlock } from './strings';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import handleCookie from '../../common/utils/handleCookie';
-import loginHelper from '../../common/utils/loginHelper';
 import '../../../../../resources/dist/css/ln/modules/comments.css';
 import useComments from '../../../common/hooks/useComments';
 import get from '../../../common/utils/get';
 import LoadingIcon from '../../common/loadingIcon';
+import { getLoginData, isLoggedIn } from '../../common/utils/contextHelper';
 
 const Comments = props => {
     const {
@@ -31,7 +30,7 @@ const Comments = props => {
         },
         deployment
     } = props;
-    const { getLoginData, isLoggedIn } = loginHelper;
+
     const loginData = getLoginData();
     // return <LoadingIcon />;
     // const {

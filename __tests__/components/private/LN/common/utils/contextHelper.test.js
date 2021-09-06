@@ -1,5 +1,9 @@
 import React, { useContext } from 'react';
-import loginHelper from '../../../../../../components/private/LN/common/utils/loginHelper';
+import {
+    getLoginData,
+    isLoggedIn,
+    isSubscribed
+} from '../../../../../../components/private/LN/common/utils/contextHelper';
 
 describe('Util loginHelper', () => {
     jest.mock('react', () => {
@@ -11,9 +15,9 @@ describe('Util loginHelper', () => {
     });
 
     it('should have functions defined', () => {
-        const { isSubscribed, isLoggedIn, getLoginData } = loginHelper;
-        expect(loginHelper).toBeDefined();
-        expect(typeof loginHelper).toBe('object');
+        // const { isSubscribed, isLoggedIn, getLoginData } = contextHelper;
+        //expect(contextHelper).toBeDefined();
+        //expect(typeof contextHelper).toBe('object');
         expect(isSubscribed).toBeDefined();
         expect(typeof isSubscribed).toBe('function');
         expect(isLoggedIn).toBeDefined();
@@ -36,17 +40,17 @@ describe('Util loginHelper', () => {
         }));
 
         it('isSubscribed should return true', () => {
-            const { isSubscribed } = loginHelper;
+            // const { isSubscribed } = loginHelper;
             expect(isSubscribed()).toBe(true);
         });
 
         it('isLoggedIn should return true', () => {
-            const { isLoggedIn } = loginHelper;
+            // const { isLoggedIn } = loginHelper;
             expect(isLoggedIn()).toBe(true);
         });
 
         it('getLoginData works correctly', () => {
-            const { getLoginData } = loginHelper;
+            // const { getLoginData } = loginHelper;
             expect(getLoginData()).toBe(contextValues.loginData);
         });
     });
