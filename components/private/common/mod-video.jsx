@@ -6,15 +6,16 @@ import ComSource from './com-source';
 //import '../../../resources/dist/css/ln/modules/mod-video.css';
 
 const ModVideo = props => {
-    const { image, video } = props;
+    const { image, video, autoplay, controls, muted } = props;
     if (!video) return null;
 
     return (
         <video
             loop="true"
-            autoplay="autoplay"
+            autoplay={autoplay}
+            controls={controls}
             className="mod-video"
-            muted="true"
+            muted={muted || 'muted'}
             playsinline="true"
             poster={image}
         >

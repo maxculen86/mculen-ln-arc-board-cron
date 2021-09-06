@@ -17,6 +17,8 @@ const ModArticle = props => {
         frontdemo,
         srcdemo,
         video,
+        controls,
+        autoplay,
         articleData,
         dataSection,
         outputType,
@@ -112,7 +114,11 @@ const ModArticle = props => {
                             <a href={link}>
                                 <picture className="mod-picture">
                                     {video ? (
-                                        <ModVideo video={video} autoplay />
+                                        <ModVideo
+                                            video={video}
+                                            controls={controls}
+                                            autoplay={autoplay}
+                                        />
                                     ) : (
                                         ''
                                     )}
