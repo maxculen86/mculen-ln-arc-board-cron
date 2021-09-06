@@ -839,6 +839,46 @@ $rank-dsk: px(400);
         }
     }
 
+    &.--grilla.--video {
+        .row {
+            .mod-article {
+                > div {
+                    .mod-media {
+                        .mod-picture {
+                            border: none;
+                            padding-top: calc((9 / 16) * 100%);
+                            img {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+                .mod-description {
+                    .com-label {
+                        position: relative;
+                        top: auto;
+                        left: auto;
+                        margin-bottom: px(8);
+                    }
+                }
+
+                @media ($media-m) {
+                    flex-direction: row-reverse;
+                    > div {
+                        flex: 0 0 66.66666%;
+                        max-width: 66.66666%;
+                        padding-left: px(8);
+                    }
+                    .mod-description {
+                        flex: 0 0 33.33333%;
+                        max-width: 33.33333%;
+                        padding-right: px(8);
+                    }
+                }
+            }
+        }
+    }
+
     &.--bgcolor {
         //display: flex;
         background: $light-neutral-100;
