@@ -1,14 +1,18 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import {
+    buildBannerClasses,
     changeSegmentAdUnit,
     getBannerConfiguration,
     getTargetingFormat,
     isForAmp,
-    isPrimarySectionInBannerSegments
+    isPrimarySectionInBannerSegments,
+    shouldShow
 } from '../../../../components/private/LN/common/utils/bannerHelper';
-import BannerSSR from '../../../../components/features/LN-common/banner/default';
-import BannerSSRAmp from '../../../../components/features/LN-common/banner/amp';
+// import BannerSSR from '../../../../components/features/LN-common/banner/default';
+import Banner from '../../../../components/features/LN-common/bannerRefactor/default';
+import BannerAmp from '../../../../components/features/LN-common/bannerRefactor/amp';
+// import BannerSSRAmp from '../../../../components/features/LN-common/banner/amp';
 import Context from 'fusion:context';
 import { mount, render, shallow } from 'enzyme';
 
@@ -676,15 +680,11 @@ describe('getBannerConfiguration =>', () => {
             ],
             targeting: { sitio: 'lanacion', seccion: 'nota' },
             bidding: { prebid: { enabled: true } },
-            subscription: undefined,
             device: 'desktop',
             slotId: 'caja1_dsk',
             slotGroup: 'nota',
             dfpId: 133919216,
-            sticky: undefined,
-            background: undefined,
-            fixed: undefined,
-            show: { termicas: true, collection: true }
+            classes: ''
         };
 
         const configCaja1 = getBannerConfiguration(
@@ -714,16 +714,12 @@ describe('getBannerConfiguration =>', () => {
         const unoxuno = {
             dimensions: [[1, 1]],
             targeting: { sitio: 'lanacion', seccion: 'nota' },
-            subscription: false,
             device: 'mobile',
             slotId: '1x1_mob',
             slotName: 'la_nacion_mobile/Nota/1x1_mob',
             slotGroup: 'nota',
             dfpId: 133919216,
-            sticky: undefined,
-            background: undefined,
-            fixed: undefined,
-            show: { termicas: true, collection: true }
+            classes: 'hlp-none '
         };
 
         const config1x1SinSuscripcion = getBannerConfiguration(
@@ -745,15 +741,12 @@ describe('getBannerConfiguration =>', () => {
         };
 
         const componentBannerCabezal = shallow(
-            <BannerSSR
-                customFields={customFields}
-                globalContent={globalContent}
-            />
+            <Banner customFields={customFields} globalContent={globalContent} />
         );
         expect(componentBannerCabezal).toMatchSnapshot();
 
         const componentBannerCabezalNoShow = shallow(
-            <BannerSSR
+            <Banner
                 customFields={customFields}
                 globalContent={{
                     ...globalContent,
@@ -770,15 +763,11 @@ describe('getBannerConfiguration =>', () => {
             dimensions: [[320, 50]],
             targeting: { sitio: 'lanacion', seccion: 'nota' },
             closeButton: true,
-            subscription: false,
             device: 'mobile',
             slotId: 'adhesion_mob',
             slotGroup: 'nota',
             dfpId: 133919216,
-            sticky: undefined,
-            background: undefined,
-            fixed: true,
-            show: { termicas: true, collection: true }
+            classes: '--fixed --close hlp-none '
         };
 
         customFields = {
@@ -806,7 +795,7 @@ describe('getBannerConfiguration =>', () => {
         expect(configAdhesionMobileSinSuscripcion).toEqual(adhesionMobile);
 
         const componentAdhesionBanner = render(
-            <BannerSSR
+            <Banner
                 customFields={customFields}
                 globalContent={{ ...globalContent, subscription: 'A' }}
             />
@@ -816,7 +805,7 @@ describe('getBannerConfiguration =>', () => {
 
     it('No deberia renderizar el adhesion_amp con y sin suscripcion', () => {
         const componentAmp = mount(
-            <BannerSSR
+            <Banner
                 customFields={{
                     mobile: 'adhesion_amp',
                     group: 'nota',
@@ -831,7 +820,7 @@ describe('getBannerConfiguration =>', () => {
 
     it('Deberia renderizar el caja1_amp con y sin suscripcion', () => {
         const componentCajaAmp = render(
-            <BannerSSRAmp
+            <BannerAmp
                 customFields={{
                     desktop: 'caja1_amp',
                     group: 'nota',
@@ -853,5 +842,56 @@ describe('getBannerConfiguration =>', () => {
         expect(isForAmp('caja1_desk', undefined, 'caja1_tab')).toBeFalsy();
         expect(isForAmp('caja1_amp', undefined, undefined)).toBeTruthy();
         // expect(isForAmp(null, null, null)).toBeFalsy();
+    });
+
+    it('Validar que las clases css se construyan bien segun la configuracion del banner', () => {
+        expect(
+            buildBannerClasses({ closeButton: true }, { fixed: true })
+        ).toEqual('--fixed --close hlp-none ');
+        expect(buildBannerClasses({}, {})).toEqual('hlp-none ');
+        expect(
+            buildBannerClasses(
+                { closeButton: true, withoutHide: false },
+                { fixed: true, sticky: true, background: true }
+            )
+        ).toEqual('--bg-banner --sticky --fixed --close hlp-none ');
+        expect(
+            buildBannerClasses({ slotName: 'Nota/comercial_dsk' }, {})
+        ).toEqual('hlp-none --comercial ');
+    });
+
+    it('Validar que el banner no se muestra si recibe por termicas, por section o por composer el valor', () => {
+        expect(shouldShow(undefined, undefined, undefined)).toEqual(true);
+        expect(
+            shouldShow(
+                [{ key: 'banners', value: 'false' }],
+                undefined,
+                undefined
+            )
+        ).toEqual(false);
+        expect(
+            shouldShow([{ key: 'banners', value: 'true' }], 'true', undefined)
+        ).toEqual(false);
+        expect(
+            shouldShow([{ key: 'banners', value: 'true' }], 'false', {
+                mostrar_banners: { text: 'No' }
+            })
+        ).toEqual(false);
+        expect(
+            shouldShow([{ key: 'banners', value: 'true' }], 'false', {
+                mostrar_banners: { text: 'Si' }
+            })
+        ).toEqual(true);
+
+        const banner = shallow(
+            <Banner
+                customFields={customFields}
+                globalContent={{
+                    ...globalContent,
+                    label: { mostrar_banners: { text: 'No' } }
+                }}
+            />
+        );
+        expect(banner).toBeEmptyRender;
     });
 });

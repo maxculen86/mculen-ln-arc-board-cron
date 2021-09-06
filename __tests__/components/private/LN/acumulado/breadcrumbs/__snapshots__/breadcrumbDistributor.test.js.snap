@@ -13,8 +13,10 @@ Array [
       title="Noticias de LA NACION"
     >
       <i
-        class="com-icon bullet icon-bullet-xs"
-      />
+        class="--bullet --fourxs"
+      >
+        &gt;
+      </i>
       LA NACION
     </a>
     <span

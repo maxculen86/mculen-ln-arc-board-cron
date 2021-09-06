@@ -11,7 +11,7 @@ import '../../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../../private/LN/acumulado/context/globalContextAcu';
 import get from '../../private/common/utils/get';
 import getBannerMegatop from '../../private/common/utils/getBannerMegatop';
-import LoadBanners from '../../private/common/banners/LoadBanners';
+import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
 
 const pageBuilderSections = [
     'Banner-Megatop',
@@ -39,11 +39,6 @@ const LNSportsHome = props => {
     } = props;
     const acumuladoGeneral = get(globalContent, 'acumuladoGeneral', {});
     const acumuladoColor = get(globalContent, 'acumuladoColor', {});
-    const {
-        background_color: backgroundCategory,
-        navigation_color_tags: colorTags,
-        header_class_name: headerDark
-    } = acumuladoColor;
     const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
     const idCollectionApertura = get(
         globalContent,
@@ -54,10 +49,6 @@ const LNSportsHome = props => {
         'acumuladoGeneral.colecciones',
         []
     );
-
-    const HEADER_BACKGROUND = headerDark === 'true' ? ' --transparent' : '';
-    const COLOR_CLASS = backgroundCategory || colorTags ? '--color' : '';
-    const OPENING_CLASS = idCollectionApertura ? '--opening' : '';
 
     return (
         <GlobalProvider>
@@ -97,7 +88,7 @@ const LNSportsHome = props => {
                             <Footer />
                         </Static>
                     </div>
-                    <LoadBanners />
+                    <LoadBannersSSR />
                 </GlobalProviderAcu>
             </LoginProvider>
         </GlobalProvider>

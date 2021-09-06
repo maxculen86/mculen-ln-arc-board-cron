@@ -7,6 +7,7 @@ import BreadcrumbSection from './breadcrumbSection';
 import BreadcrumbCustom from './BreadcrumbCustom';
 import get from '../../../common/utils/get';
 import BreadcrumbDistributor from './breadcrumbDistributor';
+import BreadcrumbColumnista from './breadcrumbColumista';
 
 const renderBreadCrumbTag = (globalContent, host) => {
     const tag = globalContent.Payload.items[0];
@@ -32,15 +33,24 @@ const renderBreadcrumbDistributor = (globalContent, host) => (
         host={host}
     />
 );
+const renderBreadcrumbColumnista = (host, requestUri) => (
+    <BreadcrumbColumnista host={host} requestUri={requestUri} />
+);
 
 function isRender(
     globalContent,
     globalContentConfig,
+    siteProperties,
+    layout,
+    requestUri,
     host,
     title,
     customFields,
     colorCategory
 ) {
+    const { layoutsName } = siteProperties;
+    if (layout === layoutsName.Columnistas)
+        return renderBreadcrumbColumnista(host, requestUri);
     if (customFields && customFields.sectionName)
         return (
             <BreadcrumbCustom
@@ -51,6 +61,7 @@ function isRender(
         );
 
     const { Payload, node_type: nodeType, byline } = globalContent;
+
     if (Payload) return renderBreadCrumbTag(globalContent, host);
 
     if (nodeType === 'section')
@@ -71,7 +82,9 @@ function Index(props) {
         globalContent,
         globalContentConfig,
         siteProperties,
-        customFields
+        customFields,
+        layout,
+        requestUri
     } = props;
 
     const { host, title } = siteProperties;
@@ -95,6 +108,9 @@ function Index(props) {
     return isRender(
         globalContent,
         globalContentConfig,
+        siteProperties,
+        layout,
+        requestUri,
         host,
         title,
         customFields,

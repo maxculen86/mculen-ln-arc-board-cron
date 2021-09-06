@@ -26,6 +26,7 @@ import SnippetIndex from '../private/common/snippet';
 import MetaTitle from '../private/common/metaTitle';
 import MetaDescription from '../private/common/metaDescription';
 import MetaSectionParsely from '../private/common/metaSectionParsely';
+import MetasFBNews from '../private/common/metaTags/metasFBNews';
 import getFirstParagraph from '../private/common/utils/getFirstParagraph';
 import getSectionName from '../private/LN/common/utils/getSectionName';
 import Syndication from '../private/common/syndication';
@@ -122,10 +123,13 @@ const Default = props => {
         globalContent,
         outputType
     } = props;
+    const { layoutsName } = siteProperties;
+    const layOutColumnista = layoutsName.Columnistas;
 
     const {
         canonical_url: canonicalUrl,
         content_elements: contentElements,
+        content_restrictions: { content_code: contentCode } = {},
         headlines,
         description,
         type,
@@ -187,7 +191,8 @@ const Default = props => {
                   Payload,
                   nodeType,
                   name,
-                  arcSite
+                  arcSite,
+                  layOutColumnista
               )
             : '';
 
@@ -319,6 +324,11 @@ const Default = props => {
                 />
                 <meta name="theme-color" content="#ffffff" />
                 <link rel="manifest" href="/manifest.json" />
+                <MetasFBNews
+                    nodeType={_nodeType}
+                    sections={taxonomy && taxonomy.sections}
+                    contentCode={contentCode}
+                />
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />
