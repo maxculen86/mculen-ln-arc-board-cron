@@ -67,7 +67,7 @@ const Index = ({
         {
             text: 'Edición impresa',
             alt: 'Ir a Edición impresa',
-            href: 'https://www.lanacion.com.ar/edicion-impresa/'
+            href: 'https://edicionimpresa.lanacion.com.ar/la-nacion'
         },
         {
             text: 'LN+',
