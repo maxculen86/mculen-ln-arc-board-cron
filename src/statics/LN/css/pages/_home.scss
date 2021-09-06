@@ -868,6 +868,10 @@ $rank-dsk: px(400);
                         flex: 0 0 66.66666%;
                         max-width: 66.66666%;
                         padding-left: px(8);
+                        .mod-media,
+                        .mod-video {
+                            margin-bottom: 0;
+                        }
                     }
                     .mod-description {
                         flex: 0 0 33.33333%;
