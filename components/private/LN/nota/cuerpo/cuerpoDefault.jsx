@@ -34,6 +34,7 @@ import {
 } from '../../../common/utils/subtypes/subtypeHelper';
 import useViewportSize from '../../../common/hooks/useViewportSize';
 import { GlobalContext } from '../../../common/context/globalContext';
+import powerUpsReceta from './powerUpsReceta';
 import {
     getBannerConfiguration,
     suffixDevice
@@ -93,8 +94,10 @@ const Cuerpo = props => {
         OembedAMP,
         BotonLink,
         Html,
-        OptaAMP
+        OptaAMP,
+        powerUpsReceta
     ];
+
     // TODO: Ver si este es el mejor lugar donde poner este script.
     // Setea valores en el Local Storage solo del lado del cliente
     useEffect(() => {
@@ -115,6 +118,7 @@ const Cuerpo = props => {
     const capitalIndex = contentElements.findIndex(v => v.type === 'text');
 
     let counter = 0;
+
     return contentElements.map((element, currentIndex) => {
         const {
             type: _type,
@@ -122,7 +126,6 @@ const Cuerpo = props => {
             content,
             additional_properties: { nodeType = {} } = {}
         } = element || {};
-
         const Component = bodyComponents.find(bc => {
             if (subtype === FOTOAL100) {
                 return (
@@ -144,6 +147,9 @@ const Cuerpo = props => {
             }
             if (_type === 'oembed_response' || _type === 'raw_html') {
                 return bc.arcType === _type && bc.outputType === outputType;
+            }
+            if (_type === 'custom_embed') {
+                return bc.arcType === _subtype;
             }
             return bc.arcType === _type;
         });

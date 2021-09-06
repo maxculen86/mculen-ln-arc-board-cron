@@ -50,7 +50,7 @@ const DivBanner = props => {
                     onClick={() => ref.current.remove()}
                 />
             )}
-            <div id={id} className={`com-banner ${classes || ''}`} />
+            <div id={id} className={`com-banner`} />
         </div>
     );
 };

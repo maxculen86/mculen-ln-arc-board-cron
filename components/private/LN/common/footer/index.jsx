@@ -216,7 +216,7 @@ const Index = ({
     // if (outputType === 'amp')
     //     return <FooterAMP copyrightText={copyrightText} />;
     return (
-        <footer className="footer-site --threexs">
+        <footer id="footer" className="footer-site --threexs">
             <div className="lay">
                 <section className="top">
                     <div className="row">

@@ -26,6 +26,7 @@ import SnippetIndex from '../private/common/snippet';
 import MetaTitle from '../private/common/metaTitle';
 import MetaDescription from '../private/common/metaDescription';
 import MetaSectionParsely from '../private/common/metaSectionParsely';
+import MetasFBNews from '../private/common/metaTags/metasFBNews';
 import getFirstParagraph from '../private/common/utils/getFirstParagraph';
 import getSectionName from '../private/LN/common/utils/getSectionName';
 import Syndication from '../private/common/syndication';
@@ -37,6 +38,7 @@ import ScriptSWG from '../private/common/scriptManager/scriptSWG';
 import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
 import getMetaDescriptionForAcum from '../private/common/utils/getMetaDescriptionForAcum';
 import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
+import addForwardSlash from '../private/LN/common/utils/addForwardSlash';
 
 const scriptList = [
     {
@@ -126,6 +128,7 @@ const Default = props => {
     const {
         canonical_url: canonicalUrl,
         content_elements: contentElements,
+        content_restrictions: { content_code: contentCode } = {},
         headlines,
         description,
         type,
@@ -246,7 +249,11 @@ const Default = props => {
                  */}
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
-                <MetaSectionParsely taxonomy={taxonomy} arcSite={arcSite} />
+                <MetaSectionParsely
+                    taxonomy={taxonomy}
+                    arcSite={arcSite}
+                    subtype={subtype}
+                />
                 <Scripts location="head" {...props} />
                 <TagsLoadingList
                     section={_nodeType}
@@ -260,10 +267,12 @@ const Default = props => {
                     title={title}
                     metaDescription={metaDescription}
                 />
-                {canonicalUrl && (
+                {canonicalUrl && siteProperties.host && (
                     <link
                         rel="canonical"
-                        href={`https://www.lanacion.com.ar${canonicalUrl}`}
+                        href={addForwardSlash(
+                            `${siteProperties.host}${canonicalUrl}`
+                        )}
                     />
                 )}
                 <LinkAmpHTML
@@ -319,6 +328,11 @@ const Default = props => {
                 />
                 <meta name="theme-color" content="#ffffff" />
                 <link rel="manifest" href="/manifest.json" />
+                <MetasFBNews
+                    nodeType={_nodeType}
+                    sections={taxonomy && taxonomy.sections}
+                    contentCode={contentCode}
+                />
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />

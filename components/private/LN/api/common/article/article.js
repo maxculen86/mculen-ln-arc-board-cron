@@ -95,7 +95,9 @@ export const articleItem = article => {
     const autor = autores ? autores[0] : null;
     const resp = {
         id,
-        templateId,
+        templateId: Number.isInteger(templateId)
+            ? templateId.toString()
+            : templateId,
         sitioId: get(article, 'configurations.arcSite', null),
         url,
         titulo,

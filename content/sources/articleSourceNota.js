@@ -17,6 +17,7 @@ import Redirect from './utils/redirect';
 import replaceTagInTextListRaw from './utils/replaceTagInTextListRaw';
 import {
     FOTOAL100,
+    RECETA,
     STORYTELLING
 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 import logger from '../../components/private/common/utils/logger';
@@ -176,6 +177,7 @@ const transformContent = (jsonArticle, arcSite, urlQuery) => {
                 : null
         }
     };
+    const subtype = get(jsonArticle, `subtype`, null);
 
     if (resp && resp.content_elements) {
         resp.content_elements.forEach((e, i) => {
@@ -240,11 +242,37 @@ const transformContent = (jsonArticle, arcSite, urlQuery) => {
             urlQuery,
             API_ENV
         );
+        if (subtype === RECETA) {
+            // unificar power ups
+            // conseguir el primer indice del power up encontrado
+            // filtrar content elements para sacar los power ups
+            // agregar el unificado en el indice del punto dos
+            const powerUps = powerUpsJoin(resp.content_elements);
+            const powerUpIndex = resp.content_elements.findIndex(e => {
+                return e.type === 'custom_embed';
+            });
+            resp.content_elements = resp.content_elements.filter(e => {
+                return e.type !== 'custom_embed';
+            });
+            resp.content_elements.splice(powerUpIndex, 0, powerUps);
+        }
     }
 
     return Promise.all(promiseArr).then(() => {
         return resp;
     });
+};
+
+const powerUpsJoin = contentElements => {
+    const powerUps = contentElements.filter(e => {
+        return e.type === 'custom_embed';
+    });
+
+    return {
+        type: 'custom_embed',
+        subtype: 'power-up-receta',
+        powerUp: powerUps
+    };
 };
 
 const addGalleryData = (gallery, arcSite) => {
@@ -259,7 +287,6 @@ const addGalleryData = (gallery, arcSite) => {
             const resp = {
                 ...gallery
             };
-
             resp.content_elements = gallery.content_elements.map((v, i) => {
                 return {
                     ...v,
