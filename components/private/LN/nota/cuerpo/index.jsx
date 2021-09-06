@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import CuerpoDefault from './cuerpoDefault';
 // import CuerpoReceta from './cuerpoReceta';
 import addEventListener from '../../../common/hooks/useEventListener';

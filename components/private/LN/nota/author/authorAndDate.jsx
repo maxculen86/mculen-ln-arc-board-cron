@@ -8,7 +8,6 @@ import Date from '../../common/dateHeader';
 const authorAndDate = props => {
     const { globalContent, author, date, authorDate } = props;
     const { display_date, credits, label } = globalContent || {};
-    console.log('🚀 ~ file: authorAndDate.jsx ~ line 11 ~ credits', credits);
     const { edicion: labelEdicionImpresa } = label || {};
     const [visible, setVisible] = useState(false);
 
@@ -62,10 +61,12 @@ authorAndDate.propTypes = {
         })
     }).isRequired,
     date: PropTypes.bool.isRequired,
-    author: PropTypes.bool
+    author: PropTypes.bool,
+    authorDate: PropTypes.string
 };
 authorAndDate.defaultProps = {
-    author: undefined
+    author: undefined,
+    authorDate: undefined
 };
 
 export default authorAndDate;

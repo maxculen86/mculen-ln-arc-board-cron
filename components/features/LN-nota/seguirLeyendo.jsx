@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
@@ -43,7 +44,7 @@ seguirLeyendo.propTypes = {
                 })
             })
         })
-    }).isRequired
+    })
 };
 
 seguirLeyendo.label = 'LN-Nota-SeguirLeyendo';

@@ -7,8 +7,7 @@ const ComParagraph = props => {
     return (
         <>
             <p
-                className={`com-paragraph ${classCondition ||
-                    ''} ${capital} ${size || ''}`}
+                className={`com-paragraph ${classCondition} ${capital} ${size}`}
                 dangerouslySetInnerHTML={{
                     __html: content
                 }}
@@ -18,12 +17,15 @@ const ComParagraph = props => {
 };
 
 ComParagraph.propTypes = {
-    size: PropTypes.string.isRequired,
+    size: PropTypes.string,
     capital: PropTypes.string,
-    content: PropTypes.string.isRequired
+    content: PropTypes.string.isRequired,
+    classCondition: PropTypes.string
 };
 ComParagraph.defaultProps = {
-    capital: ''
+    capital: '',
+    size: '',
+    classCondition: ''
 };
 
 export default ComParagraph;
