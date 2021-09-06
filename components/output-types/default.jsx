@@ -249,7 +249,11 @@ const Default = props => {
                  */}
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
-                <MetaSectionParsely taxonomy={taxonomy} arcSite={arcSite} />
+                <MetaSectionParsely
+                    taxonomy={taxonomy}
+                    arcSite={arcSite}
+                    subtype={subtype}
+                />
                 <Scripts location="head" {...props} />
                 <TagsLoadingList
                     section={_nodeType}
