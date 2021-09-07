@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
@@ -124,7 +125,7 @@ function buildBodyCustomFields() {
 }
 
 cuerpo.propTypes = {
-    customFields: PropTypes.shape(buildBodyCustomFields()).isRequired
+    customFields: PropTypes.shape(buildBodyCustomFields())
 };
 
 export default Consumer(cuerpo);

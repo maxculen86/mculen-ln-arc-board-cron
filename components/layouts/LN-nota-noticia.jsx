@@ -198,7 +198,7 @@ lnNotaNoticia.propTypes = {
     isAdmin: PropTypes.bool,
     globalContent: PropTypes.shape({
         taxonomy: PropTypes.shape({
-            sections: PropTypes.arrayOf(PropTypes.shape({}))
+            sections: PropTypes.arrayOf(PropTypes.shape())
         }),
         distributor: PropTypes.shape({
             name: PropTypes.string

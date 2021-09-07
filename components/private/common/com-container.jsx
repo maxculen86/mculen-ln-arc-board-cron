@@ -4,7 +4,6 @@ import '../../../resources/dist/css/ln/components/com-container.css';
 
 const ComContainer = props => {
     const { id, classesNames, children, classCondition } = props;
-    console.log('🚀 ~ file: com-container.jsx ~ line 7 ~ id', id);
     if (!children) return null;
     return (
         <div
@@ -19,7 +18,7 @@ const ComContainer = props => {
 ComContainer.propTypes = {
     id: PropTypes.string,
     classesNames: PropTypes.string,
-    children: PropTypes.shape({}).isRequired,
+    children: PropTypes.node.isRequired,
     classCondition: PropTypes.string
 };
 

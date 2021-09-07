@@ -154,16 +154,18 @@ FirmaFeature.propTypes = {
             })
         ),
         credits: PropTypes.shape({
-            by: PropTypes.shape({
-                image: PropTypes.shape({
-                    url: PropTypes.string
-                }),
-                byline: PropTypes.string,
-                name: PropTypes.string,
-                slug: PropTypes.string,
-                type: PropTypes.string,
-                _id: PropTypes.string
-            })
+            by: PropTypes.arrayOf(
+                PropTypes.shape({
+                    image: PropTypes.shape({
+                        url: PropTypes.string
+                    }),
+                    byline: PropTypes.string,
+                    name: PropTypes.string,
+                    slug: PropTypes.string,
+                    type: PropTypes.string,
+                    _id: PropTypes.string
+                })
+            )
         })
     })
 };

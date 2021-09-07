@@ -15,20 +15,17 @@ const index = props => {
     if (typeof window !== 'undefined') {
         addEventListener('scroll', handleScrollForNota, window);
     }
-
-    // if (subtype === '7') return <CuerpoReceta {...props} />;
-
     return <CuerpoDefault {...props} />;
 };
 
 index.propTypes = {
-    bannerConfig: PropTypes.shape({
-        background: PropTypes.bool,
-        desktop: PropTypes.string,
-        position: PropTypes.number,
-        sticky: PropTypes.bool,
-        table: PropTypes.string
-    }).isRequired,
+    // bannerConfig: PropTypes.arrayOf({
+    //     background: PropTypes.bool,
+    //     desktop: PropTypes.string,
+    //     position: PropTypes.number,
+    //     sticky: PropTypes.bool,
+    //     table: PropTypes.string
+    // }).isRequired,
     globalContent: PropTypes.shape({
         subtype: PropTypes.string.isRequired
     }).isRequired

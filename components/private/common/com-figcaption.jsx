@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 
 import '../../../resources/dist/css/ln/modules/mod-figcaption.css';
 
@@ -10,7 +10,7 @@ const ComFigcaption = props => {
 };
 
 ComFigcaption.propTypes = {
-    children: PropTypes.elementType.isRequired
+    children: PropTypes.node.isRequired
 };
 
 export default ComFigcaption;
