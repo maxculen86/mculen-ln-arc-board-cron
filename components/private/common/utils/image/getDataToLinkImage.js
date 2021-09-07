@@ -3,6 +3,7 @@ import get from '../get';
 import getImage from './getImage';
 import { getChildsFromSections } from '../../../LN/common/utils/homeHelper';
 import sectionsValidation from '../../../../layouts/config/LN-Home.config';
+import { FOTOAL100, STORYTELLING } from '../subtypes/subtypeHelper';
 
 const getDataToLinkImage = (
     data = {},
@@ -13,7 +14,12 @@ const getDataToLinkImage = (
     const sectionData =
         {
             nota: () => {
-                return getPromoItems(data);
+                const { subtype, promo_items: promoItems } = data || {};
+                const shouldExclude = !!(
+                    (subtype === FOTOAL100 || subtype === STORYTELLING) &&
+                    get(promoItems, 'storytelling_mobile.resized_urls.length')
+                );
+                return (!shouldExclude && getPromoItems(data)) || [];
             },
             acumulado: () => {
                 return [];
