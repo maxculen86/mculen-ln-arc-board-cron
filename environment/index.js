@@ -37,8 +37,8 @@ export default {
         sampleRateRum: 0.1,
         service: 'lanacion-arc',
         env: 'prod',
-        trackInteractions: 'true',
-        trackSessionAcrossSubdomains: 'true'
+        trackInteractions: true,
+        trackSessionAcrossSubdomains: true
     },
     ARC_STATIC: 'https://arc-static.glanacion.com',
     LAZY_OFFSETTOP: 500

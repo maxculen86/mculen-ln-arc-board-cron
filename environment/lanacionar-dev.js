@@ -28,7 +28,8 @@ export default {
         sampleRateRum: 100,
         service: 'lanacion-arc',
         env: 'dev',
-        trackSessionAcrossSubdomains: 'true'
+        trackInteractions: true,
+        trackSessionAcrossSubdomains: true
     },
     ARC_STATIC: 'https://dev.lanacionar.arcpublishing.com/'
 };

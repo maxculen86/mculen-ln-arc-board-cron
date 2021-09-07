@@ -49,7 +49,7 @@ function DataDog({ location = 'head' }) {
           service: "${service}",
           env: "${env}",
           version: "${version}",
-          trackSessionAcrossSubdomains: "${trackSessionAcrossSubdomains}",
+          trackSessionAcrossSubdomains: ${trackSessionAcrossSubdomains},
         });
         if ("${env}" !== "prod")
           console.log(
@@ -89,7 +89,7 @@ function DataDog({ location = 'head' }) {
           version: "${version}",
           sampleRate: ${sampleRateRum},
           trackInteractions: ${trackInteractions},
-          trackSessionAcrossSubdomains: "${trackSessionAcrossSubdomains}",
+          trackSessionAcrossSubdomains: ${trackSessionAcrossSubdomains},
         });
         if ("${env}" !== "prod")
             console.log(
