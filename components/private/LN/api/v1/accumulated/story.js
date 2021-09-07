@@ -23,10 +23,11 @@ const articleItem = article => {
     const primarySection = get(article, 'taxonomy.primary_section', null);
     const tags = get(article, 'taxonomy.tags', null);
     const bajada = get(article, 'subheadlines.basic', null);
-
     const resp = {
         id,
-        templateId,
+        templateId: Number.isInteger(templateId)
+            ? templateId.toString()
+            : templateId,
         titulo: titulo || tituloMobile,
         tituloMobile,
         fecha: dateAndTimeForAppsUtil(article.display_date),

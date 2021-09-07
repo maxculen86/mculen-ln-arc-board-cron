@@ -4,9 +4,6 @@ import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
-// import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
-import LoginProvider from '../private/LN/common/context/loginContext';
-
 import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelling';
 
 // import '../../resources/dist/css/ln/base.css'; // chequear para sacar base porque se repite estilo
@@ -85,58 +82,56 @@ const lnNotaFotoAl100 = ({
     const magazine = logo ? logo.logoName : '';
     return (
         <GlobalProvider>
-            <LoginProvider>
-                <CommentsProvider>
-                    {/* Banner MEGATOP */}
-                    {getBannerMegatop(bannerMegatop, amp, tree, isAdmin)}
+            <CommentsProvider>
+                {/* Banner MEGATOP */}
+                {getBannerMegatop(bannerMegatop, amp, tree, isAdmin)}
 
-                    <div
-                        id="wrapper"
-                        className={`nota ${magazine} --photo100 --transparent ${amp}`}
-                    >
-                        <Header />
-                        <main>
-                            {preTitulo}
-                            <AperturaStorytelling />
+                <div
+                    id="wrapper"
+                    className={`nota ${magazine} --photo100 --transparent ${amp}`}
+                >
+                    <Header />
+                    <main>
+                        {preTitulo}
+                        <AperturaStorytelling />
 
-                            {/* Cuerpo al 100% */}
-                            <div className="row">
-                                {leftCuerpo}
-                                {cuerpo}
+                        {/* Cuerpo al 100% */}
+                        <div className="row">
+                            {leftCuerpo}
+                            {cuerpo}
+                        </div>
+
+                        <div className="lay-sidebar">
+                            <div className="sidebar__main">
+                                {/* Post-Cuerpo */}
+                                {postCuerpo}
                             </div>
-
-                            <div className="lay-sidebar">
-                                <div className="sidebar__main">
-                                    {/* Post-Cuerpo */}
-                                    {postCuerpo}
-                                </div>
-                                <div className="sidebar__aside hlp-tabletlm-none">
-                                    {/* Post-Cuerpo-Tercera */}
-                                    {postCuerpoTercera}
-                                </div>
+                            <div className="sidebar__aside hlp-tabletlm-none">
+                                {/* Post-Cuerpo-Tercera */}
+                                {postCuerpoTercera}
                             </div>
+                        </div>
 
-                            {/* Newsletter */}
-                            <div className="lay">{newsletter}</div>
+                        {/* Newsletter */}
+                        <div className="lay">{newsletter}</div>
 
-                            <div className="lay-sidebar">
-                                <div className="sidebar__main">
-                                    {/* Bottom */}
-                                    {bottom}
-                                </div>
-                                <div className="sidebar__aside hlp-tabletlm-none">
-                                    {/* Bottom-Tercera */}
-                                    {bottomTercera}
-                                </div>
+                        <div className="lay-sidebar">
+                            <div className="sidebar__main">
+                                {/* Bottom */}
+                                {bottom}
                             </div>
-                        </main>
-                        <Static id="StaticFooter">
-                            <Footer />
-                        </Static>
-                    </div>
-                    <LoadBannersSSR />
-                </CommentsProvider>
-            </LoginProvider>
+                            <div className="sidebar__aside hlp-tabletlm-none">
+                                {/* Bottom-Tercera */}
+                                {bottomTercera}
+                            </div>
+                        </div>
+                    </main>
+                    <Static id="StaticFooter">
+                        <Footer />
+                    </Static>
+                </div>
+                <LoadBannersSSR />
+            </CommentsProvider>
         </GlobalProvider>
     );
 };

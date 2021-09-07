@@ -8,7 +8,6 @@ import throttle from '../../private/common/utils/throttle';
 import Header from '../../private/LN/common/header';
 import Footer from '../../private/LN/common/footer';
 import GlobalProvider from '../../private/common/context/globalContext';
-import LoginProvider from '../../private/LN/common/context/loginContext';
 import LoadBanners from '../../private/common/banners/LoadBanners';
 import blocksBanners from '../../private/common/banners/blocksBannerHome';
 import Metarefresh from '../../features/LN-common/metarefresh';
@@ -210,443 +209,428 @@ const LNMainHome = props => {
 
     return (
         <GlobalProvider>
-            <LoginProvider>
-                {/* 1x1 */}
-                <DivBanner
-                    id="1x1_dsk"
-                    shouldRender={isDesktop}
-                    validateSuscription
-                    isStatic
+            {/* 1x1 */}
+            <DivBanner
+                id="1x1_dsk"
+                shouldRender={isDesktop}
+                validateSuscription
+                isStatic
+            />
+            <DivBanner
+                id="1x1_mob"
+                shouldRender={isMobile}
+                validateSuscription
+                isStatic
+            />
+            {/* COMERCIAL */}
+            {isDesktop && (
+                <BannerComercial
+                    id="comercial_dsk"
+                    device={device}
+                    slotGroup="home"
                 />
-                <DivBanner
-                    id="1x1_mob"
-                    shouldRender={isMobile}
-                    validateSuscription
-                    isStatic
+            )}
+            {isMobile && (
+                <BannerComercial
+                    id="comercial_mob"
+                    device={device}
+                    slotGroup="home"
                 />
-                {/* COMERCIAL */}
-                {isDesktop && (
-                    <BannerComercial
-                        id="comercial_dsk"
-                        device={device}
-                        slotGroup="home"
-                    />
+            )}
+
+            <div id="wrapper" className="home">
+                <Header />
+                <SubHeader />
+                {/* ANTICIPO */}
+                {anticipo}
+
+                {/* ANEXO_1 */}
+                <section
+                    data-block-name="h_anexo-1"
+                    data-diagramacion-id="9999"
+                    data-is-block="true"
+                >
+                    {anexo1}
+                </section>
+
+                {/* BANNER_CABEZAL (BOMBA) */}
+                {showBomba && (
+                    <BannerCabezal isTablet={isTablet} isDesktop={isDesktop} />
                 )}
-                {isMobile && (
-                    <BannerComercial
-                        id="comercial_mob"
-                        device={device}
-                        slotGroup="home"
+
+                {/* BOMBA */}
+                {bomba}
+                <main>
+                    {/* STICKY MOB */}
+                    <DivBanner
+                        id="sticky2_mob"
+                        classes="--sticky2_mob --sticky"
+                        shouldRender={isMobile}
+                        isStatic
                     />
-                )}
+                    <div className="">
+                        <div id="content-main" className="lay-sidebar">
+                            {/* Cuerpo */}
+                            <div className="sidebar__main">
+                                {/* BANNER CABEZAL */}
+                                {!showBomba && (
+                                    <BannerCabezal
+                                        isTablet={isTablet}
+                                        isDesktop={isDesktop}
+                                    />
+                                )}
 
-                <div id="wrapper" className="home">
-                    <Header />
-                    <SubHeader />
-                    {/* ANTICIPO */}
-                    {anticipo}
+                                {/* 1er Bloque */}
+                                <div data-section="apertura">
+                                    {apertura1}
+                                    {/* BANNER CAJA 1 MOB */}
+                                    <DivBanner
+                                        id="caja1_mob"
+                                        shouldRender={isMobile}
+                                        isStatic
+                                    />
+                                    {apertura2}
+                                </div>
 
-                    {/* ANEXO_1 */}
-                    <section
-                        data-block-name="h_anexo-1"
-                        data-diagramacion-id="9999"
-                        data-is-block="true"
-                    >
-                        {anexo1}
-                    </section>
+                                {/* BANNER BILLBOARD */}
+                                {blocksToLoad.bloque2.loaded && (
+                                    <DivBanner
+                                        id="billboard_dsk"
+                                        shouldRender={isDesktop}
+                                    />
+                                )}
 
-                    {/* BANNER_CABEZAL (BOMBA) */}
-                    {showBomba && (
-                        <BannerCabezal
-                            isTablet={isTablet}
-                            isDesktop={isDesktop}
-                        />
-                    )}
-
-                    {/* BOMBA */}
-                    {bomba}
-                    <main>
-                        {/* STICKY MOB */}
-                        <DivBanner
-                            id="sticky2_mob"
-                            classes="--sticky2_mob --sticky"
-                            shouldRender={isMobile}
-                            isStatic
-                        />
-                        <div className="">
-                            <div id="content-main" className="lay-sidebar">
-                                {/* Cuerpo */}
-                                <div className="sidebar__main">
-                                    {/* BANNER CABEZAL */}
-                                    {!showBomba && (
-                                        <BannerCabezal
-                                            isTablet={isTablet}
-                                            isDesktop={isDesktop}
-                                        />
-                                    )}
-
-                                    {/* 1er Bloque */}
-                                    <div data-section="apertura">
-                                        {apertura1}
-                                        {/* BANNER CAJA 1 MOB */}
-                                        <DivBanner
-                                            id="caja1_mob"
-                                            shouldRender={isMobile}
-                                            isStatic
-                                        />
-                                        {apertura2}
-                                    </div>
-
-                                    {/* BANNER BILLBOARD */}
-                                    {blocksToLoad.bloque2.loaded && (
-                                        <DivBanner
-                                            id="billboard_dsk"
-                                            shouldRender={isDesktop}
-                                        />
-                                    )}
-
-                                    {/* BANNER CAJA 2 MOB */}
-                                    {blocksToLoad.bloque2.loaded && (
-                                        <DivBanner
-                                            id="caja2_mob"
-                                            shouldRender={isMobile}
-                                        />
-                                    )}
-                                    {blocksToLoad.bloque2.loaded && (
-                                        <section
-                                            data-section="anexo2"
-                                            data-block-name="h_anexo-2"
-                                            data-diagramacion-id="9999"
-                                            data-is-block="true"
-                                        >
-                                            {anexo2}
-                                        </section>
-                                    )}
-
-                                    <div data-section="breaking1">
-                                        {blocksToLoad.bloque2.loaded &&
-                                            breaking1}
-                                    </div>
-                                    {/* BANNER CAJA 3 MOB */}
-                                    {blocksToLoad.bloque2.loaded && (
-                                        <>
-                                            <DivBanner
-                                                id="caja3_mob"
-                                                shouldRender={isMobile}
-                                            />
-                                            <div className="row-gap-tablet-2 --ads">
-                                                <DivBanner
-                                                    id="caja1_tab"
-                                                    shouldRender={isTablet}
-                                                />
-                                                <DivBanner
-                                                    id="caja2_tab"
-                                                    shouldRender={isTablet}
-                                                />
-                                            </div>
-                                        </>
-                                    )}
-                                    {/* BANNER CAJA DSK  */}
-                                    {blocksToLoad.bloque2.loaded && (
-                                        <div className="row-gap-tablet-3 --ads">
-                                            <DivBanner
-                                                id="caja1_dsk"
-                                                shouldRender={isDesktop}
-                                            />
-                                            <DivBanner
-                                                id="caja_producto1_dsk"
-                                                shouldRender={isDesktop}
-                                            />
-                                            <DivBanner
-                                                id="caja2_dsk"
-                                                shouldRender={isDesktop}
-                                            />
-                                        </div>
-                                    )}
-                                    <div data-section="breaking2">
-                                        {blocksToLoad.bloque2.loaded &&
-                                            breaking2}
-                                    </div>
-                                    {/* BANNER CAJA 4 MOB */}
-                                    {blocksToLoad.bloque2.loaded && (
-                                        <>
-                                            <DivBanner
-                                                id="caja4_mob"
-                                                shouldRender={isMobile}
-                                            />
-                                            <DivBanner
-                                                id="middle1_tab"
-                                                shouldRender={isTablet}
-                                            />
-                                        </>
-                                    )}
-                                    {/* BANNER CINTURON 1 */}
-                                    {blocksToLoad.bloque2.loaded && (
-                                        <DivBanner
-                                            id="cinturon1_dsk"
-                                            shouldRender={isDesktop}
-                                        />
-                                    )}
-
-                                    <div data-section="breaking3">
-                                        {blocksToLoad.bloque2.loaded &&
-                                            breaking3}
-                                    </div>
-                                    {blocksToLoad.bloque3.loaded && (
-                                        <section className="container --promos">
-                                            <div className="row-gap-tablet-2">
-                                                <CajaPromo
-                                                    customFields={{
-                                                        text:
-                                                            'La información más completa del mercado inmobiliario minuto a minuto.',
-                                                        link:
-                                                            'https://www.lanacion.com.ar/propiedades/',
-                                                        logoName: 'propiedades'
-                                                    }}
-                                                />
-                                                <CajaPromo
-                                                    customFields={{
-                                                        text:
-                                                            'La mejor información para un sector clave que evoluciona día a día.',
-                                                        link:
-                                                            'https://www.lanacion.com.ar/economia/campo/',
-                                                        logoName: 'campo'
-                                                    }}
-                                                />
-                                            </div>
-                                        </section>
-                                    )}
-                                    {/* 3er Bloque */}
-                                    {blocksToLoad.bloque3.loaded && (
-                                        <section
-                                            data-section="anexo3"
-                                            data-block-name="h_anexo-3"
-                                            data-diagramacion-id="9999"
-                                            data-is-block="true"
-                                        >
-                                            {anexo3}
-                                        </section>
-                                    )}
-
-                                    {/* BANNER CAJA 5 MOB - BANNER CINTURON 2 - BANNER MIDDLE 2 */}
-                                    {blocksToLoad.bloque3.loaded && (
-                                        <>
-                                            <DivBanner
-                                                id="caja5_mob"
-                                                shouldRender={isMobile}
-                                            />
-                                            <DivBanner
-                                                id="cinturon2_dsk"
-                                                shouldRender={isDesktop}
-                                            />
-                                            <DivBanner
-                                                id="middle2_tab"
-                                                shouldRender={isTablet}
-                                            />
-                                        </>
-                                    )}
-
-                                    <div
-                                        data-section="opinion"
-                                        className="container --opinion"
+                                {/* BANNER CAJA 2 MOB */}
+                                {blocksToLoad.bloque2.loaded && (
+                                    <DivBanner
+                                        id="caja2_mob"
+                                        shouldRender={isMobile}
+                                    />
+                                )}
+                                {blocksToLoad.bloque2.loaded && (
+                                    <section
+                                        data-section="anexo2"
+                                        data-block-name="h_anexo-2"
+                                        data-diagramacion-id="9999"
+                                        data-is-block="true"
                                     >
-                                        {blocksToLoad.bloque3.loaded && opinion}
-                                    </div>
-                                    {/* BANNER  */}
-                                    {blocksToLoad.bloque3.loaded && (
-                                        <div className="row-gap-tablet-3 --ads">
-                                            <DivBanner
-                                                id="caja3_dsk"
-                                                shouldRender={isDesktop}
-                                            />
-                                            <DivBanner
-                                                id="caja_producto2_dsk"
-                                                shouldRender={isDesktop}
-                                            />
-                                            <DivBanner
-                                                id="caja4_dsk"
-                                                shouldRender={isDesktop}
-                                            />
-                                        </div>
-                                    )}
-                                    {/* BANNER CAJAS TAB */}
-                                    {blocksToLoad.bloque3.loaded && (
+                                        {anexo2}
+                                    </section>
+                                )}
+
+                                <div data-section="breaking1">
+                                    {blocksToLoad.bloque2.loaded && breaking1}
+                                </div>
+                                {/* BANNER CAJA 3 MOB */}
+                                {blocksToLoad.bloque2.loaded && (
+                                    <>
+                                        <DivBanner
+                                            id="caja3_mob"
+                                            shouldRender={isMobile}
+                                        />
                                         <div className="row-gap-tablet-2 --ads">
                                             <DivBanner
-                                                id="caja3_tab"
+                                                id="caja1_tab"
                                                 shouldRender={isTablet}
                                             />
                                             <DivBanner
-                                                id="caja4_tab"
+                                                id="caja2_tab"
                                                 shouldRender={isTablet}
                                             />
                                         </div>
-                                    )}
-                                    <div data-section="breaking4">
-                                        {blocksToLoad.bloque3.loaded &&
-                                            breaking4}
-                                    </div>
-                                    {/* BANNER MIDDLE 1 */}
-                                    {blocksToLoad.bloque3.loaded && (
+                                    </>
+                                )}
+                                {/* BANNER CAJA DSK  */}
+                                {blocksToLoad.bloque2.loaded && (
+                                    <div className="row-gap-tablet-3 --ads">
                                         <DivBanner
-                                            id="middle1_dsk"
+                                            id="caja1_dsk"
                                             shouldRender={isDesktop}
                                         />
-                                    )}
-                                    <div data-section="breaking5">
-                                        {blocksToLoad.bloque3.loaded &&
-                                            breaking5}
+                                        <DivBanner
+                                            id="caja_producto1_dsk"
+                                            shouldRender={isDesktop}
+                                        />
+                                        <DivBanner
+                                            id="caja2_dsk"
+                                            shouldRender={isDesktop}
+                                        />
                                     </div>
-                                    <div data-section="breaking6">
-                                        {blocksToLoad.bloque3.loaded &&
-                                            breaking6}
-                                    </div>
+                                )}
+                                <div data-section="breaking2">
+                                    {blocksToLoad.bloque2.loaded && breaking2}
                                 </div>
-                                <div className="sidebar__aside hlp-tabletlm-none">
-                                    {/* BANNERS */}
+                                {/* BANNER CAJA 4 MOB */}
+                                {blocksToLoad.bloque2.loaded && (
+                                    <>
+                                        <DivBanner
+                                            id="caja4_mob"
+                                            shouldRender={isMobile}
+                                        />
+                                        <DivBanner
+                                            id="middle1_tab"
+                                            shouldRender={isTablet}
+                                        />
+                                    </>
+                                )}
+                                {/* BANNER CINTURON 1 */}
+                                {blocksToLoad.bloque2.loaded && (
                                     <DivBanner
-                                        id="megalateral_dsk"
+                                        id="cinturon1_dsk"
+                                        shouldRender={isDesktop}
+                                    />
+                                )}
+
+                                <div data-section="breaking3">
+                                    {blocksToLoad.bloque2.loaded && breaking3}
+                                </div>
+                                {blocksToLoad.bloque3.loaded && (
+                                    <section className="container --promos">
+                                        <div className="row-gap-tablet-2">
+                                            <CajaPromo
+                                                customFields={{
+                                                    text:
+                                                        'La información más completa del mercado inmobiliario minuto a minuto.',
+                                                    link:
+                                                        'https://www.lanacion.com.ar/propiedades/',
+                                                    logoName: 'propiedades'
+                                                }}
+                                            />
+                                            <CajaPromo
+                                                customFields={{
+                                                    text:
+                                                        'La mejor información para un sector clave que evoluciona día a día.',
+                                                    link:
+                                                        'https://www.lanacion.com.ar/economia/campo/',
+                                                    logoName: 'campo'
+                                                }}
+                                            />
+                                        </div>
+                                    </section>
+                                )}
+                                {/* 3er Bloque */}
+                                {blocksToLoad.bloque3.loaded && (
+                                    <section
+                                        data-section="anexo3"
+                                        data-block-name="h_anexo-3"
+                                        data-diagramacion-id="9999"
+                                        data-is-block="true"
+                                    >
+                                        {anexo3}
+                                    </section>
+                                )}
+
+                                {/* BANNER CAJA 5 MOB - BANNER CINTURON 2 - BANNER MIDDLE 2 */}
+                                {blocksToLoad.bloque3.loaded && (
+                                    <>
+                                        <DivBanner
+                                            id="caja5_mob"
+                                            shouldRender={isMobile}
+                                        />
+                                        <DivBanner
+                                            id="cinturon2_dsk"
+                                            shouldRender={isDesktop}
+                                        />
+                                        <DivBanner
+                                            id="middle2_tab"
+                                            shouldRender={isTablet}
+                                        />
+                                    </>
+                                )}
+
+                                <div
+                                    data-section="opinion"
+                                    className="container --opinion"
+                                >
+                                    {blocksToLoad.bloque3.loaded && opinion}
+                                </div>
+                                {/* BANNER  */}
+                                {blocksToLoad.bloque3.loaded && (
+                                    <div className="row-gap-tablet-3 --ads">
+                                        <DivBanner
+                                            id="caja3_dsk"
+                                            shouldRender={isDesktop}
+                                        />
+                                        <DivBanner
+                                            id="caja_producto2_dsk"
+                                            shouldRender={isDesktop}
+                                        />
+                                        <DivBanner
+                                            id="caja4_dsk"
+                                            shouldRender={isDesktop}
+                                        />
+                                    </div>
+                                )}
+                                {/* BANNER CAJAS TAB */}
+                                {blocksToLoad.bloque3.loaded && (
+                                    <div className="row-gap-tablet-2 --ads">
+                                        <DivBanner
+                                            id="caja3_tab"
+                                            shouldRender={isTablet}
+                                        />
+                                        <DivBanner
+                                            id="caja4_tab"
+                                            shouldRender={isTablet}
+                                        />
+                                    </div>
+                                )}
+                                <div data-section="breaking4">
+                                    {blocksToLoad.bloque3.loaded && breaking4}
+                                </div>
+                                {/* BANNER MIDDLE 1 */}
+                                {blocksToLoad.bloque3.loaded && (
+                                    <DivBanner
+                                        id="middle1_dsk"
+                                        shouldRender={isDesktop}
+                                    />
+                                )}
+                                <div data-section="breaking5">
+                                    {blocksToLoad.bloque3.loaded && breaking5}
+                                </div>
+                                <div data-section="breaking6">
+                                    {blocksToLoad.bloque3.loaded && breaking6}
+                                </div>
+                            </div>
+                            <div className="sidebar__aside hlp-tabletlm-none">
+                                {/* BANNERS */}
+                                <DivBanner
+                                    id="megalateral_dsk"
+                                    classes="--megalateral --sticky"
+                                    shouldRender={isDesktop}
+                                />
+                            </div>
+                        </div>
+                        {/* RANKING */}
+                        {blocksToLoad.bloque3.loaded && (
+                            <div data-section="ranking" className="ranking-ln9">
+                                <AnexoFeature
+                                    id="ranking"
+                                    customFields={{
+                                        url:
+                                            'https://www.lanacion.com.ar/masleidas/home'
+                                    }}
+                                />
+                            </div>
+                        )}
+                        <div className="lay" data-section="comercial1">
+                            {blocksToLoad.bloque3.loaded && comercial1}
+                        </div>
+                        <div id="content-main-2" className="lay-sidebar">
+                            {/* Cuerpo */}
+                            <div className="sidebar__main">
+                                {/* 4to Bloque */}
+                                <div data-section="bloque2">
+                                    {blocksToLoad.bloque4.loaded && bloque2}
+                                </div>
+                                <div data-section="comercial2">
+                                    {blocksToLoad.bloque4.loaded && comercial2}
+                                </div>
+                                <div data-section="bloque3">
+                                    {blocksToLoad.bloque4.loaded && bloque3}
+                                </div>
+                                <div data-section="bloque4">
+                                    {blocksToLoad.bloque4.loaded && bloque4}
+                                </div>
+                            </div>
+                            <div className="sidebar__aside hlp-tabletlm-none">
+                                {/* BANNER ASIDE */}
+                                {blocksToLoad.bloque4.loaded && (
+                                    <DivBanner
+                                        id="megalateral2_dsk"
                                         classes="--megalateral --sticky"
                                         shouldRender={isDesktop}
                                     />
-                                </div>
-                            </div>
-                            {/* RANKING */}
-                            {blocksToLoad.bloque3.loaded && (
-                                <div
-                                    data-section="ranking"
-                                    className="ranking-ln9"
-                                >
-                                    <AnexoFeature
-                                        id="ranking"
-                                        customFields={{
-                                            url:
-                                                'https://www.lanacion.com.ar/masleidas/home'
-                                        }}
-                                    />
-                                </div>
-                            )}
-                            <div className="lay" data-section="comercial1">
-                                {blocksToLoad.bloque3.loaded && comercial1}
-                            </div>
-                            <div id="content-main-2" className="lay-sidebar">
-                                {/* Cuerpo */}
-                                <div className="sidebar__main">
-                                    {/* 4to Bloque */}
-                                    <div data-section="bloque2">
-                                        {blocksToLoad.bloque4.loaded && bloque2}
-                                    </div>
-                                    <div data-section="comercial2">
-                                        {blocksToLoad.bloque4.loaded &&
-                                            comercial2}
-                                    </div>
-                                    <div data-section="bloque3">
-                                        {blocksToLoad.bloque4.loaded && bloque3}
-                                    </div>
-                                    <div data-section="bloque4">
-                                        {blocksToLoad.bloque4.loaded && bloque4}
-                                    </div>
-                                </div>
-                                <div className="sidebar__aside hlp-tabletlm-none">
-                                    {/* BANNER ASIDE */}
-                                    {blocksToLoad.bloque4.loaded && (
-                                        <DivBanner
-                                            id="megalateral2_dsk"
-                                            classes="--megalateral --sticky"
-                                            shouldRender={isDesktop}
-                                        />
-                                    )}
-                                </div>
-                            </div>
-                            <div id="content-main-3" className="lay-sidebar">
-                                {/* Cuerpo */}
-                                <div className="sidebar__main">
-                                    {/* 5to Bloque */}
-                                    <div data-section="bloque5">
-                                        {blocksToLoad.bloque5.loaded && bloque5}
-                                    </div>
-                                    <div data-section="bloque6">
-                                        {blocksToLoad.bloque5.loaded && bloque6}
-                                    </div>
-                                    <div data-section="bloque7">
-                                        {blocksToLoad.bloque5.loaded && bloque7}
-                                    </div>
-                                    <div data-section="bloque8">
-                                        {blocksToLoad.bloque5.loaded && bloque8}
-                                    </div>
-                                    {blocksToLoad.bloque5.loaded && (
-                                        <TePuedeInteresar
-                                            customFields={{ cantidadNotas: 6 }}
-                                        />
-                                    )}
-                                    <div className="acumulado">
-                                        <section className="mod-linklist">
-                                            <TagsListFeature
-                                                id="TagsListFeatureHome"
-                                                title="Temas del día:"
-                                            />
-                                        </section>
-                                    </div>
-                                </div>
-                                <div className="sidebar__aside hlp-tabletlm-none">
-                                    {/* BANNER ASIDE */}
-                                    {blocksToLoad.bloque5.loaded && (
-                                        <DivBanner
-                                            id="megalateral3_dsk"
-                                            classes="--megalateral --sticky"
-                                            shouldRender={isDesktop}
-                                        />
-                                    )}
-                                </div>
-                            </div>
-                            <div className="lay-sidebar">
-                                <div className="sidebar__main">
-                                    {/* ADHESION */}
-                                    <DivBanner
-                                        id="adhesion_dsk"
-                                        classes="--adhesion_dsk --fixed"
-                                        shouldRender={isDesktop}
-                                        closeButton
-                                        validateSuscription
-                                    />
-
-                                    <DivBanner
-                                        id="adhesion_mob"
-                                        classes="--adhesion_mob --fixed"
-                                        shouldRender={isMobile}
-                                        closeButton
-                                        validateSuscription
-                                    />
-                                    <DivBanner
-                                        id="adhesion_tab"
-                                        classes="--adhesion_tab --fixed"
-                                        shouldRender={isTablet}
-                                        closeButton
-                                        validateSuscription
-                                    />
-                                </div>
+                                )}
                             </div>
                         </div>
-                    </main>
-                    <Static id="StaticFooter">
-                        <Footer home />
-                    </Static>
-                </div>
-                <LoadBanners blocksBanners={blocksBanners.bloque1} />
-                {blocksToLoad.bloque2.loaded && (
-                    <LoadBanners blocksBanners={blocksBanners.bloque2} />
-                )}
-                {blocksToLoad.bloque3.loaded && (
-                    <LoadBanners blocksBanners={blocksBanners.bloque3} />
-                )}
-                {blocksToLoad.bloque4.loaded && (
-                    <LoadBanners blocksBanners={blocksBanners.bloque4} />
-                )}
-                {blocksToLoad.bloque5.loaded && (
-                    <LoadBanners blocksBanners={blocksBanners.bloque5} />
-                )}
-                <Metarefresh />
-            </LoginProvider>
+                        <div id="content-main-3" className="lay-sidebar">
+                            {/* Cuerpo */}
+                            <div className="sidebar__main">
+                                {/* 5to Bloque */}
+                                <div data-section="bloque5">
+                                    {blocksToLoad.bloque5.loaded && bloque5}
+                                </div>
+                                <div data-section="bloque6">
+                                    {blocksToLoad.bloque5.loaded && bloque6}
+                                </div>
+                                <div data-section="bloque7">
+                                    {blocksToLoad.bloque5.loaded && bloque7}
+                                </div>
+                                <div data-section="bloque8">
+                                    {blocksToLoad.bloque5.loaded && bloque8}
+                                </div>
+                                {blocksToLoad.bloque5.loaded && (
+                                    <TePuedeInteresar
+                                        customFields={{ cantidadNotas: 6 }}
+                                    />
+                                )}
+                                <div className="acumulado">
+                                    <section className="mod-linklist">
+                                        <TagsListFeature
+                                            id="TagsListFeatureHome"
+                                            title="Temas del día:"
+                                        />
+                                    </section>
+                                </div>
+                            </div>
+                            <div className="sidebar__aside hlp-tabletlm-none">
+                                {/* BANNER ASIDE */}
+                                {blocksToLoad.bloque5.loaded && (
+                                    <DivBanner
+                                        id="megalateral3_dsk"
+                                        classes="--megalateral --sticky"
+                                        shouldRender={isDesktop}
+                                    />
+                                )}
+                            </div>
+                        </div>
+                        <div className="lay-sidebar">
+                            <div className="sidebar__main">
+                                {/* ADHESION */}
+                                <DivBanner
+                                    id="adhesion_dsk"
+                                    classes="--adhesion_dsk --fixed"
+                                    shouldRender={isDesktop}
+                                    closeButton
+                                    validateSuscription
+                                />
+
+                                <DivBanner
+                                    id="adhesion_mob"
+                                    classes="--adhesion_mob --fixed"
+                                    shouldRender={isMobile}
+                                    closeButton
+                                    validateSuscription
+                                />
+                                <DivBanner
+                                    id="adhesion_tab"
+                                    classes="--adhesion_tab --fixed"
+                                    shouldRender={isTablet}
+                                    closeButton
+                                    validateSuscription
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <Static id="StaticFooter">
+                    <Footer home />
+                </Static>
+            </div>
+            <LoadBanners blocksBanners={blocksBanners.bloque1} />
+            {blocksToLoad.bloque2.loaded && (
+                <LoadBanners blocksBanners={blocksBanners.bloque2} />
+            )}
+            {blocksToLoad.bloque3.loaded && (
+                <LoadBanners blocksBanners={blocksBanners.bloque3} />
+            )}
+            {blocksToLoad.bloque4.loaded && (
+                <LoadBanners blocksBanners={blocksBanners.bloque4} />
+            )}
+            {blocksToLoad.bloque5.loaded && (
+                <LoadBanners blocksBanners={blocksBanners.bloque5} />
+            )}
+            <Metarefresh />
         </GlobalProvider>
     );
 };
