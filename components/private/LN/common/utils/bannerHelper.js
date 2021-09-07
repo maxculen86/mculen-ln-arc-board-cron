@@ -350,6 +350,36 @@ export const queueGoogletagCommand = bannersToLoad => {
 
         naveggSetTargeting();
 
+        const slotAPS = {
+            slots: bannersToLoad.map(slot => {
+                const { adUnitPath, size, opt_div: optDiv } = slot;
+                return {
+                    slotID: optDiv, // example: 'caja1_dsk'
+                    slotName: adUnitPath, // example: '/133919216/la_nacion_desktop/nota/caja1_dsk'
+                    sizes: size // [[300, 250], [300, 600]]
+                };
+            }),
+            timeout: 2e3
+        };
+        console.log('🚀🚀🚀🚀x ~ file: LoadBanners.jsx slotAPS', {
+            ...slotAPS
+        });
+
+        apstag.fetchBids(
+            {
+                ...slotAPS
+            },
+            function(bids) {
+                console.log('🚀 ~ file: LoadBanners.jsx ~ bids APS', bids);
+                // set apstag targeting on googletag, then trigger the first GAM request in googletag's disableInitialLoad integration
+                googletag.cmd.push(function() {
+                    if (pbjs.adserverRequestSent) return;
+                    apstag.setDisplayBids();
+                    // googletag.pubads().refresh(bannerSlotDefined);
+                });
+            }
+        );
+
         // the callback function
         // will be called twice:
         //	once by Prebid when the auction's done
@@ -406,7 +436,7 @@ export const getScriptForCabezalSticky = (header, sidebar, classCabezal) => {
                 __html: `
                 window.addEventListener('DOMContentLoaded', () => {
                     const sidebar = document.querySelector(".${sidebar}") || {};
-                    const header = document.querySelector("#${header}") || {};                    
+                    const header = document.querySelector("#${header}") || {};
                     const cabezal = document.querySelector('.--${classCabezal}') || {};
                     window.addEventListener('scroll', () => {
                         const { top: topSidebar } = sidebar.getBoundingClientRect();

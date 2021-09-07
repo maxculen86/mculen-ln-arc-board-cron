@@ -39,6 +39,7 @@ import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage
 import getMetaDescriptionForAcum from '../private/common/utils/getMetaDescriptionForAcum';
 import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 import addForwardSlash from '../private/LN/common/utils/addForwardSlash';
+import AmazonPublisherServices from '../private/common/scriptManager/amazonPublisherServices';
 
 const scriptList = [
     {
@@ -98,6 +99,13 @@ const scriptList = [
             function: LivefyreCommentCount
         },
         feature: ['LN-nota/share']
+    },
+    {
+        component: {
+            name: 'AmazonPublisherServices',
+            function: AmazonPublisherServices
+        },
+        feature: 'none'
     }
 ];
 

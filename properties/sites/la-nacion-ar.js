@@ -15,6 +15,10 @@ export default {
     loggerOn: true,
     loggerExcludedErrors: [404, 301, 302],
     scripts: {
+        AmazonPublisherServices: {
+            props: {},
+            location: ['head']
+        },
         Datadog: { props: {}, location: ['head'] },
         ScriptVideoPowa: {
             props: {},
