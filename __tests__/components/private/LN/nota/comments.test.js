@@ -1,8 +1,7 @@
-import Consumer from 'fusion:consumer';
-
 import React from 'react';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
+import Comments from '../../../../../components/private/LN/nota/comments';
 
 jest.mock(
     '../../../../../components/private/common/hocs/withNavigation',
@@ -10,11 +9,33 @@ jest.mock(
 );
 
 jest.mock(
-    '../../../../../components/private/LN/common/hocs/withLoginData',
-    () => Comp => props => (Comp ? <Comp {...props} /> : null)
+    '../../../../../components/private/common/hooks/useComments',
+    () => () => {
+        return { setCommentsEnabledAndCount: () => {} };
+    }
 );
 
-import Comments from '../../../../../components/private/LN/nota/comments';
+jest.mock('react', () => {
+    const ActualReact = require.requireActual('react');
+    return {
+        ...ActualReact,
+        useContext: () => ({
+            state: {
+                logueado: true,
+                loginData: {
+                    goToLoginUrl: () => {}
+                }
+            }
+        })
+    };
+});
+
+// jest.mock('../../../private/LN/common/utils/contextHelper.test.js', () => {
+//     return {
+//         getLoginData: jest.fn(),
+//         isLoggedIn: jest.fn()
+//     };
+// });
 
 global.MutationObserver = class {
     constructor(callback) {}
@@ -34,16 +55,20 @@ describe('Comments', () => {
             headlines: { basic: 'Testing comments' },
             subtype: 1
         },
-        logueado: true,
-        loginData: {
-            goToLoginUrl: () => {}
-        },
         deployment: () => {},
         termicas: {
             livefyre: true,
             comentarios: true
         }
     };
+
+    // jest.spyOn(contextHelper, 'getLoginData').mockReturnValue({
+    //     loginData: {
+    //         goToLoginUrl: () => {}
+    //     }
+    // });
+
+    // jest.spyOn(contextHelper, 'isLoggedIn').mockReturnValue(true);
 
     it('Matches snapshot', () => {
         const comments = mount(<Comments {...props} />);

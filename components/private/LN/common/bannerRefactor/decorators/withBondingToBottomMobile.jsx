@@ -4,25 +4,21 @@
 
 import React from 'react';
 import { useFusionContext } from 'fusion:context';
-
-import withLoginData from '../../hocs/withLoginData';
+import { isSubscribed } from '../../utils/contextHelper';
 
 export default Component => {
-    return withLoginData(props => {
+    return props => {
         const ref = React.createRef();
-        const {
-            loginData: { subscription }
-        } = props;
 
         const { outputType } = useFusionContext();
 
         return outputType !== 'amp' ? (
             <Component
                 noShow
-                subscription={subscription}
+                subscription={isSubscribed()}
                 {...props}
                 ref={ref}
             />
         ) : null;
-    });
+    };
 };
