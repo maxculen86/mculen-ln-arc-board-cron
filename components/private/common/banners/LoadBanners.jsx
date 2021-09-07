@@ -7,7 +7,7 @@ import get from '../utils/get';
 import useViewportSize from '../hooks/useViewportSize';
 import flatArray from '../utils/flatArray';
 import hasAdsTestParam from '../../LN/common/utils/hasAdsTesParam';
-import { getSubscription } from '../../LN/common/utils/homeHelper';
+import { isSubscribed } from '../../LN/common/utils/contextHelper';
 import {
     getBannerConfiguration,
     getSlotForDevice,
@@ -21,7 +21,7 @@ const LoadBanners = ({ blocksBanners }) => {
     const [suffix, setSuffix] = useState();
     const device = useViewportSize();
 
-    const subscription = getSubscription();
+    const subscription = isSubscribed();
 
     const bannersConfiguration = blocksBanners.map(el => {
         const { desktop, tablet, mobile } = el;

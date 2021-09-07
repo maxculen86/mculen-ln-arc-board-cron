@@ -7,18 +7,17 @@ import React, {
     useCallback,
     useMemo
 } from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
-// import get from 'lodash.get';
 import { messages, providersToBlock } from './strings';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import handleCookie from '../../common/utils/handleCookie';
-import withLoginData from '../../common/hocs/withLoginData';
 import '../../../../../resources/dist/css/ln/modules/comments.css';
 import useComments from '../../../common/hooks/useComments';
 import get from '../../../common/utils/get';
 import LoadingIcon from '../../common/loadingIcon';
+import { getLoginData, isLoggedIn } from '../../common/utils/contextHelper';
 
 const Comments = props => {
     const {
@@ -29,10 +28,10 @@ const Comments = props => {
             label,
             subtype
         },
-        logueado,
-        loginData,
         deployment
     } = props;
+
+    const loginData = getLoginData();
     // return <LoadingIcon />;
     // const {
     //     globalContent: { comments }
@@ -339,7 +338,7 @@ const Comments = props => {
                     </p>
                 )}
 
-                {!logueado && (
+                {!isLoggedIn() && (
                     <div className="comment-reminder">
                         Para poder comentar tenés que ingresar con tu usuario de
                         LA NACION.
@@ -352,10 +351,6 @@ const Comments = props => {
 };
 
 Comments.propTypes = {
-    logueado: PropTypes.bool.isRequired,
-    loginData: PropTypes.shape({
-        goToLoginUrl: PropTypes.func
-    }).isRequired,
     globalContent: PropTypes.shape({
         _id: PropTypes.string,
         canonical_url: PropTypes.string,
@@ -372,4 +367,4 @@ Comments.propTypes = {
     deployment: PropTypes.func.isRequired
 };
 
-export default withLoginData(Comments);
+export default Comments;

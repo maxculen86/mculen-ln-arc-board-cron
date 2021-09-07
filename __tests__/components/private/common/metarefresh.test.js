@@ -1,18 +1,12 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import Metarefresh from '../../../../components/private/common/metarefresh';
 
 jest.mock('fusion:context', Component => {
     return function(Component) {
         return props => <Component {...props} />;
     };
 });
-
-import Context from 'fusion:context';
-
-jest.mock(
-    '../../../../components/private/LN/common/hocs/withLoginData',
-    () => Comp => props => (Comp ? <Comp {...props} /> : null)
-);
 
 jest.mock(
     '../../../../components/private/common/hocs/withScreenUtils',
@@ -25,7 +19,40 @@ jest.mock('fusion:content', () => ({
     })
 }));
 
-import Metarefresh from '../../../../components/private/common/metarefresh';
+jest.mock('react', () => {
+    const ActualReact = require.requireActual('react');
+    return {
+        ...ActualReact,
+        useContext: jest
+            .fn(() => ({
+                state: {
+                    loginData: {
+                        subscription: false,
+                        loading: false
+                    },
+                    logueado: false
+                }
+            }))
+            .mockImplementationOnce(() => ({
+                state: {
+                    loginData: {
+                        subscription: true,
+                        loading: false
+                    },
+                    logueado: true
+                }
+            }))
+            .mockImplementationOnce(() => ({
+                state: {
+                    loginData: {
+                        subscription: true,
+                        loading: false
+                    },
+                    logueado: true
+                }
+            }))
+    };
+});
 
 describe('Metarefresh', () => {
     const { reload } = window.location;
@@ -44,125 +71,128 @@ describe('Metarefresh', () => {
         jest.clearAllTimers();
     });
 
-    let props = {
-        arcSite: 'la-nacion-ar',
-        globalContent: {
-            type: 'story',
-            content_elements: []
-        },
-        loginData: {
-            subscription: true
-        },
-        screenUtils: {
-            device: 'desktop'
-        }
-    };
-
-    it('Does not reload when subscriptor is present', () => {
-        const component = mount(<Component {...props} />);
-        expect(window.location.reload).toHaveBeenCalledTimes(0);
-    });
-
-    it('Does not reload when videos are present', () => {
-        props = {
-            ...props,
-            globalContent: {
-                type: 'story',
-                content_elements: [
-                    {
-                        type: 'video'
-                    }
-                ]
-            },
-            loginData: {
-                subscription: false
-            }
-        };
-
-        const component = mount(<Component {...props} />);
-        expect(window.location.reload).not.toBeCalled();
-    });
-
-    it('Does not reload when spotify audio is present', () => {
-        props = {
-            ...props,
-            globalContent: {
-                type: 'story',
-                content_elements: [
-                    {
-                        subtype: 'spotify',
-                        type: 'raw_html'
-                    }
-                ]
-            },
-            loginData: {
-                subscription: false
-            }
-        };
-
-        const component = mount(<Component {...props} />);
-        expect(window.location.reload).not.toBeCalled();
-    });
-
-    it('Does not reload when any element of the content elements is type oembed_response', () => {
-        props = {
-            ...props,
-            globalContent: {
-                type: 'story',
-                content_elements: [
-                    {
-                        subtype: 'instagram',
-                        type: 'oembed_response'
-                    }
-                ]
-            },
-            loginData: {
-                subscription: false
-            }
-        };
-
-        const component = mount(<Component {...props} />);
-        expect(window.location.reload).not.toBeCalled();
-    });
-
-    it('Does not reload on accelerated mobile pages', () => {
-        props = {
-            ...props,
-            outputType: 'amp',
-            globalContent: {
-                type: 'story',
-                content_elements: []
-            },
-            loginData: {
-                subscription: false
-            }
-        };
-
-        const component = mount(<Component {...props} />);
-        expect(window.location.reload).not.toBeCalled();
-    });
-
-    it('Reload when required conditions are met', () => {
-        props = {
-            arcSite: 'la-nacion-ar',
-            globalContent: {
-                type: 'story',
-                content_elements: [{ type: 'text' }],
-                promo_items: {
-                    basic: {}
+    describe('when subscritor is present', () => {
+        it('Does not reload when subscriptor is present', () => {
+            const props = {
+                arcSite: 'la-nacion-ar',
+                globalContent: {
+                    type: 'story',
+                    content_elements: []
+                },
+                screenUtils: {
+                    device: 'desktop'
                 }
-            },
-            loginData: {
-                suscription: false
-            },
-            screenUtils: {
-                device: 'desktop'
-            }
-        };
-        const component = mount(<Component {...props} />);
-        jest.advanceTimersByTime(1000);
-        expect(window.location.reload).not.toBeCalled();
-        jest.advanceTimersByTime(30000);
-        expect(window.location.reload).toHaveBeenCalledTimes(1);
+            };
+            mount(<Component {...props} />);
+            jest.advanceTimersByTime(40000);
+            expect(window.location.reload).not.toBeCalled();
+        });
+    });
+
+    describe('when subscritor is not present', () => {
+        it('Does not reload when videos are present', () => {
+            const props = {
+                arcSite: 'la-nacion-ar',
+                globalContent: {
+                    type: 'story',
+                    content_elements: [
+                        {
+                            type: 'video'
+                        }
+                    ]
+                },
+                screenUtils: {
+                    device: 'desktop'
+                }
+            };
+
+            mount(<Component {...props} />);
+            jest.advanceTimersByTime(40000);
+            expect(window.location.reload).not.toBeCalled();
+        });
+
+        it('Does not reload when spotify audio is present', () => {
+            const props = {
+                arcSite: 'la-nacion-ar',
+                globalContent: {
+                    type: 'story',
+                    content_elements: [
+                        {
+                            subtype: 'spotify',
+                            type: 'raw_html'
+                        }
+                    ]
+                },
+                screenUtils: {
+                    device: 'desktop'
+                }
+            };
+
+            mount(<Component {...props} />);
+            jest.advanceTimersByTime(40000);
+            expect(window.location.reload).not.toBeCalled();
+        });
+
+        it('Does not reload when any element of the content elements is type oembed_response', () => {
+            const props = {
+                arcSite: 'la-nacion-ar',
+                globalContent: {
+                    type: 'story',
+                    content_elements: [
+                        {
+                            subtype: 'instagram',
+                            type: 'oembed_response'
+                        }
+                    ]
+                },
+                screenUtils: {
+                    device: 'desktop'
+                }
+            };
+
+            mount(<Component {...props} />);
+            jest.advanceTimersByTime(40000);
+            expect(window.location.reload).not.toBeCalled();
+        });
+
+        it('Does not reload on accelerated mobile pages', () => {
+            const props = {
+                arcSite: 'la-nacion-ar',
+                globalContent: {
+                    type: 'story',
+                    content_elements: []
+                },
+                outputType: 'amp',
+                screenUtils: {
+                    device: 'desktop'
+                }
+            };
+
+            mount(<Component {...props} />);
+            jest.advanceTimersByTime(40000);
+            expect(window.location.reload).not.toBeCalled();
+        });
+
+        it('Reload when required conditions are met', () => {
+            const props = {
+                arcSite: 'la-nacion-ar',
+                globalContent: {
+                    type: 'story',
+                    content_elements: [{ type: 'text' }],
+                    promo_items: {
+                        basic: {}
+                    }
+                },
+                screenUtils: {
+                    device: 'desktop'
+                }
+            };
+
+            mount(<Component {...props} />);
+            jest.advanceTimersByTime(1000);
+            expect(window.location.reload).not.toBeCalled();
+            jest.advanceTimersByTime(30000);
+            expect(window.location.reload).toHaveBeenCalledTimes(1);
+        });
     });
 });

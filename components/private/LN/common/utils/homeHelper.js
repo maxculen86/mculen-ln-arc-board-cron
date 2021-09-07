@@ -1,9 +1,8 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-undef */
-import React, { useContext } from 'react';
+import React from 'react';
 import useViewportSize from '../../../common/hooks/useViewportSize';
 import get from '../../../common/utils/get';
-import { LoginStore } from '../context/loginContext';
 import sectionsValidation from '../../../../layouts/config/LN-Home.config';
 import PageBuilderMessage from '../../home/common/components/pageBuilderMessage/pageBuilderMessage';
 import {
@@ -64,13 +63,6 @@ export const getViewport = () => {
         isDesktop: device === 'desktop',
         device
     };
-};
-
-export const getSubscription = () => {
-    const { state } = useContext(LoginStore);
-    const { loginData } = state || {};
-    const { subscription = false } = loginData || {};
-    return subscription;
 };
 
 export const sectionsWithBlocks = {

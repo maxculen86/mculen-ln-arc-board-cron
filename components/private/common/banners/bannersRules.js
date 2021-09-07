@@ -121,9 +121,9 @@ const getScriptForCabezalSticky = (header, sidebar, classCabezal) => {
             dangerouslySetInnerHTML={{
                 __html: `
                 window.addEventListener('DOMContentLoaded', () => {
-                    const sidebar = document.querySelector(".${sidebar}");
-                    const header = document.querySelector("#${header}");                    
-                    const cabezal = document.querySelector('.--${classCabezal}');
+                    const sidebar = document.querySelector(".${sidebar}") || {};
+                    const header = document.querySelector("#${header}") || {};                    
+                    const cabezal = document.querySelector('.--${classCabezal}') || {};
                     window.addEventListener('scroll', () => {
                         const { top: topSidebar } = sidebar.getBoundingClientRect();
                         const viewPoint = topSidebar - cabezal.clientHeight - header.clientHeight;
