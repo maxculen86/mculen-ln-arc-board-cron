@@ -48,6 +48,7 @@ function DataDog({ location = 'head' }) {
           service: "${service}",
           env: "${env}",
           version: "${version}",
+          trackInteractions: ${trackInteractions},
         });
         if ("${env}" !== "prod")
           console.log(
