@@ -1,8 +1,8 @@
-import Redirect from './redirect';
-
-const force404AMP = ({ outputType = 'default', redirectUrl }) => {
-    if (outputType === 'amp' && redirectUrl) {
-        throw new Redirect(redirectUrl, 301);
+const force404AMP = ({ outputType = 'default' }) => {
+    if (outputType === 'amp') {
+        const err = new Error();
+        err.statusCode = 404;
+        throw err;
     }
 };
 

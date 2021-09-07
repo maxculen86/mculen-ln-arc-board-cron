@@ -2,10 +2,10 @@ import filter from '../filters/LN/acumulado/tag';
 import force404AMP from './utils/force404AMP';
 
 const resolve = key => {
-    const { slug, outputType, redirectUrl } = key;
+    const { slug, outputType } = key;
 
     if (!slug) throw new Error('Debe definir un slug para obtener el tag');
-    force404AMP({ outputType, redirectUrl });
+    force404AMP({ outputType });
 
     return `/tags/v2/search?prefix=${slug}`;
 };

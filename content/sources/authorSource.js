@@ -4,9 +4,9 @@ import filter from '../filters/LN/acumulado/author';
 import force404AMP from './utils/force404AMP';
 
 const resolve = key => {
-    const { _id, website, outputType, redirectUrl } = key;
+    const { _id, website, outputType } = key;
 
-    force404AMP({ outputType, redirectUrl });
+    force404AMP({ outputType });
 
     if (!_id) throw new Error('El id de autor es necesario. ');
     const arcSite = key['arc-site'];
