@@ -13,18 +13,8 @@ const CommentsFeature = props => {
         globalContent: { comments }
     } = props;
     const displayComments = get(comments, 'display_comments', true);
-    console.log(
-        '🚀 ~ file: default.jsx ~ line 16 ~ displayComments',
-        displayComments
-    );
     const [isReady, setIsReady] = useState(false);
-    console.log('🚀 ~ file: default.jsx ~ line 18 ~ isReady', isReady);
-    // const [isLoading, setIsLoading] = useState(false);
     const showLivefyre = findTermica('livefyre');
-    console.log(
-        '🚀 ~ file: default.jsx ~ line 19 ~ showLivefyre',
-        showLivefyre
-    );
 
     useEffect(() => {
         const handleScrollForComments = () => {
