@@ -99,6 +99,12 @@
                     }
                 }
             }
+            .mod-sponsor {
+                > .com-text.com-text,
+                .com-logo.com-logo {
+                    color: $neutral-white;
+                }
+            }
             .col-tablet-4 {
                 order: 2;
                 @media ($media-m) {

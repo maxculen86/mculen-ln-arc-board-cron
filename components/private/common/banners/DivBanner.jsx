@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import Static from 'fusion:static';
-import { getSubscription } from '../../LN/common/utils/homeHelper';
+import { isSubscribed } from '../../LN/common/utils/contextHelper';
 
 const DivBanner = props => {
     const {
@@ -14,10 +14,12 @@ const DivBanner = props => {
         withoutHide,
         isStatic
     } = props;
-    const subscription = validateSuscription ? getSubscription() : false;
+
+    const subscription = isSubscribed();
+    const isSuscribed = validateSuscription ? subscription : false;
     const ref = useRef();
 
-    if (!isStatic && (!shouldRender || (validateSuscription && subscription)))
+    if (!isStatic && (!shouldRender || (validateSuscription && isSuscribed)))
         return <></>;
 
     return isStatic ? (
@@ -48,7 +50,7 @@ const DivBanner = props => {
                     onClick={() => ref.current.remove()}
                 />
             )}
-            <div id={id} className={`com-banner ${classes || ''}`} />
+            <div id={id} className={`com-banner`} />
         </div>
     );
 };

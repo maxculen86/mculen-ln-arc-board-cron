@@ -2,9 +2,7 @@ import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import Header from '../private/LN/common/header';
-import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import HtmlLibre from '../private/LN/nota/cuerpo/htmlLibre';
-import LoginProvider from '../private/LN/common/context/loginContext';
 
 // import '../../resources/dist/css/ln/base.css'; // chequear para sacar base porque se repite estilo
 // import '../../resources/dist/css/ln/base/reset.css';
@@ -52,8 +50,8 @@ import LoginProvider from '../private/LN/common/context/loginContext';
 
 import GlobalProvider from '../private/common/context/globalContext';
 import { CommentsProvider } from '../private/common/context/commentsContext';
-import LoadBanners from '../private/common/banners/LoadBanners';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
+import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 
 const lnNotaNoticia = ({
     children: [bannerMegatop, bottom, bottomTercera],
@@ -65,41 +63,39 @@ const lnNotaNoticia = ({
 
     return (
         <GlobalProvider>
-            <LoginProvider>
-                <CommentsProvider>
-                    {/* Banner Megatop */}
-                    {getBannerMegatop(bannerMegatop, amp, tree, isAdmin)}
+            <CommentsProvider>
+                {/* Banner Megatop */}
+                {getBannerMegatop(bannerMegatop, amp, tree, isAdmin)}
 
-                    <div id="wrapper" className={`nota noticia ${amp}`}>
-                        <Header />
-                        <main style={{ paddingTop: '0px' }}>
-                            <div
-                                className="lay --apertura"
-                                style={{ maxWidth: '100%', padding: '0rem' }}
-                            >
-                                <div className="row">
-                                    <div className="col-12">
-                                        {/* Html libre */}
-                                        <HtmlLibre />
-                                    </div>
+                <div id="wrapper" className={`nota html-libre ${amp}`}>
+                    <Header />
+                    <main style={{ paddingTop: '0px' }}>
+                        <div
+                            className="lay --apertura"
+                            style={{ maxWidth: '100%', padding: '0rem' }}
+                        >
+                            <div className="row">
+                                <div className="col-12">
+                                    {/* Html libre */}
+                                    <HtmlLibre />
                                 </div>
                             </div>
+                        </div>
 
-                            <div className="lay-sidebar">
-                                <div className="sidebar__main">
-                                    {/* Bottom */}
-                                    {bottom}
-                                </div>
-                                <div className="sidebar__aside">
-                                    {/* Bottom-Tercera */}
-                                    {bottomTercera}
-                                </div>
+                        <div className="lay-sidebar">
+                            <div className="sidebar__main">
+                                {/* Bottom */}
+                                {bottom}
                             </div>
-                        </main>
-                    </div>
-                    <LoadBanners />
-                </CommentsProvider>
-            </LoginProvider>
+                            <div className="sidebar__aside">
+                                {/* Bottom-Tercera */}
+                                {bottomTercera}
+                            </div>
+                        </div>
+                    </main>
+                </div>
+                <LoadBannersSSR />
+            </CommentsProvider>
         </GlobalProvider>
     );
 };

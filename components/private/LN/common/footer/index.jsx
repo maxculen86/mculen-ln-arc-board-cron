@@ -67,7 +67,7 @@ const Index = ({
         {
             text: 'Edición impresa',
             alt: 'Ir a Edición impresa',
-            href: 'https://www.lanacion.com.ar/edicion-impresa/'
+            href: 'https://edicionimpresa.lanacion.com.ar/la-nacion'
         },
         {
             text: 'LN+',
@@ -216,7 +216,7 @@ const Index = ({
     // if (outputType === 'amp')
     //     return <FooterAMP copyrightText={copyrightText} />;
     return (
-        <footer className="footer-site --threexs">
+        <footer id="footer" className="footer-site --threexs">
             <div className="lay">
                 <section className="top">
                     <div className="row">

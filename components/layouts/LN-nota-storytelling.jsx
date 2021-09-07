@@ -10,8 +10,6 @@ import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelling';
-import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
-import LoginProvider from '../private/LN/common/context/loginContext';
 
 // Styles
 // ***** INICIO PREGUNTAR A DARO
@@ -68,8 +66,8 @@ import '../../resources/dist/css/ln/pages/storytelling.css';
 import GlobalProvider from '../private/common/context/globalContext';
 import { CommentsProvider } from '../private/common/context/commentsContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
-import LoadBanners from '../private/common/banners/LoadBanners';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
+import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 
 const lnNotaStorytelling = ({
     children,
@@ -88,66 +86,64 @@ const lnNotaStorytelling = ({
     const magazine = logo ? logo.logoName : '';
     return (
         <GlobalProvider>
-            <LoginProvider>
-                <CommentsProvider>
-                    {/* Banner MEGATOP */}
-                    {bannerMegatop}
+            <CommentsProvider>
+                {/* Banner MEGATOP */}
+                {bannerMegatop}
 
-                    <div
-                        id="wrapper"
-                        className={`nota ${magazine} --storytelling --transparent ${amp}`}
-                    >
-                        <Header />
-                        <main>
-                            {children[1]}
-                            <AperturaStorytelling />
-                            <div className="lay-sidebar">
-                                <div className="sidebar__main">
-                                    <section className="cuerpo__nota">
-                                        <div className="row">
-                                            <div className="col-12 col-desksm-1">
-                                                {/* // ***** INICIO PREGUNTAR A DARO */}
-                                                {/* hlp-mobile-show */}
-                                                {/* // ***** FIN PREGUNTAR A DARO */}
-                                                {/* Left-Cuerpo Shared */}
-                                                {children[2]}
-                                            </div>
-                                            <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
-                                                <div className="row">
-                                                    <div className="col-12">
-                                                        {/* Cuerpo */}
-                                                        {children[3]}
-                                                    </div>
+                <div
+                    id="wrapper"
+                    className={`nota ${magazine} --storytelling --transparent ${amp}`}
+                >
+                    <Header />
+                    <main>
+                        {children[1]}
+                        <AperturaStorytelling />
+                        <div className="lay-sidebar">
+                            <div className="sidebar__main">
+                                <section className="cuerpo__nota">
+                                    <div className="row">
+                                        <div className="col-12 col-desksm-1">
+                                            {/* // ***** INICIO PREGUNTAR A DARO */}
+                                            {/* hlp-mobile-show */}
+                                            {/* // ***** FIN PREGUNTAR A DARO */}
+                                            {/* Left-Cuerpo Shared */}
+                                            {children[2]}
+                                        </div>
+                                        <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
+                                            <div className="row">
+                                                <div className="col-12">
+                                                    {/* Cuerpo */}
+                                                    {children[3]}
                                                 </div>
                                             </div>
                                         </div>
-                                    </section>
-                                </div>
-                                {/* Tercera */}
-                                <div className="sidebar__aside hlp-tabletlm-none">
-                                    {children[4]}
-                                </div>
+                                    </div>
+                                </section>
                             </div>
-                            {/* Newsletter */}
-                            <div className="lay">{children[5]}</div>
-                            <div className="lay-sidebar">
-                                <div className="sidebar__main">
-                                    {/* Bottom */}
-                                    {children[6]}
-                                </div>
-                                <div className="sidebar__aside hlp-tabletlm-none">
-                                    {/* Bottom-Tercera */}
-                                    {children[7]}
-                                </div>
+                            {/* Tercera */}
+                            <div className="sidebar__aside hlp-tabletlm-none">
+                                {children[4]}
                             </div>
-                        </main>
-                        <Static id="StaticFooter">
-                            <Footer />
-                        </Static>
-                    </div>
-                    <LoadBanners />
-                </CommentsProvider>
-            </LoginProvider>
+                        </div>
+                        {/* Newsletter */}
+                        <div className="lay">{children[5]}</div>
+                        <div className="lay-sidebar">
+                            <div className="sidebar__main">
+                                {/* Bottom */}
+                                {children[6]}
+                            </div>
+                            <div className="sidebar__aside hlp-tabletlm-none">
+                                {/* Bottom-Tercera */}
+                                {children[7]}
+                            </div>
+                        </div>
+                    </main>
+                    <Static id="StaticFooter">
+                        <Footer />
+                    </Static>
+                </div>
+                <LoadBannersSSR />
+            </CommentsProvider>
         </GlobalProvider>
     );
 };

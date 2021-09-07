@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
+import { LOGIN_URL } from 'fusion:environment';
 import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
+import { loginSetup } from '../../LN/common/utils/loginHelper';
 
 export const GlobalContext = React.createContext();
 
@@ -14,7 +16,17 @@ const actionType = {
             tagsHome: tags
         };
     },
-
+    SET_LOGIN: (state = {}, action = {}) => {
+        const { logueado, loginData } = action.payload || {};
+        return {
+            ...state,
+            ...(typeof logueado !== 'undefined' && { logueado }),
+            loginData: {
+                ...state.loginData,
+                ...loginData
+            }
+        };
+    },
     ADD_ADUNIT_DEFINITION: (state, action) => {
         const adUnits = state.bannersConfig.bannersToLoad || [];
         adUnits.push(action.payload);
@@ -113,8 +125,22 @@ const GlobalProvider = ({ children }) => {
                 'middle_2_tab'
             ]
         },
-        tagsHome: []
+        tagsHome: [],
+        logueado: false,
+        loginData: {
+            subscription: false,
+            userName: 'Sin nombre',
+            goToLoginUrl: () => {
+                location.href = LOGIN_URL + window.btoa(location.href);
+            },
+            loading: true
+        }
     });
+
+    useEffect(() => {
+        loginSetup(dispatch);
+    }, []);
+
     return (
         <GlobalContext.Provider value={{ state, dispatch }}>
             {children}

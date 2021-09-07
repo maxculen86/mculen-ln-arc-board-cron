@@ -1,17 +1,11 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-//import Header from '../private/LN/common/header';
-//import Footer from '../private/LN/common/footer';
-//import LoginProvider from '../private/LN/common/context/loginContext';
-
 import List from '../private/common/mod-list';
 import Logo from '../private/common/com-logo';
 import Title from '../private/common/com-title';
 import Copyright from '../private/LN/common/footer/copyright';
 
 import '../../resources/dist/css/ln/pages/sitemap.css';
-
-//import GlobalProvider from '../private/common/context/globalContext';
 
 const LNMapaDelSitio = ({ children }) => {
     const listado1 = [
@@ -33,7 +27,7 @@ const LNMapaDelSitio = ({ children }) => {
         },
         {
             text: 'Edición impresa',
-            href: 'https://www.lanacion.com.ar/edicion-impresa/'
+            href: 'https://edicionimpresa.lanacion.com.ar/la-nacion'
         },
         { text: 'Club LA NACION', href: 'https://club.lanacion.com.ar/' }
     ];
@@ -254,8 +248,6 @@ const LNMapaDelSitio = ({ children }) => {
 
     return (
         <>
-            {/* <GlobalProvider>
-            <LoginProvider> */}
             {children[0]}
             <div id="wrapper" className="sitemap">
                 {/* <Header /> */}
@@ -315,8 +307,6 @@ const LNMapaDelSitio = ({ children }) => {
                     </div>
                 </footer>
             </div>
-            {/* </LoginProvider>
-        </GlobalProvider> */}
         </>
     );
 };

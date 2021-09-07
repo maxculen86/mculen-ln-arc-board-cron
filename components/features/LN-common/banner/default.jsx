@@ -11,10 +11,11 @@ import {
     BANNERS_MOBILE,
     BANNERS_TABLET,
     getBannerConfiguration,
-    getScriptForCabezalSticky,
     isForAmp
 } from '../../../private/LN/common/utils/bannerHelper';
 import DivBannerSSR from '../../../private/common/banners/DivBannerSSR';
+import get from '../../../private/common/utils/get';
+import bannersRules from '../../../private/common/banners/bannersRules';
 
 const BannerSSR = props => {
     const {
@@ -44,12 +45,9 @@ const BannerSSR = props => {
                   )
                 : null;
         })
-        .filter(item => item !== null)
-        .filter(item => {
-            return Object.values(item.show).some(element => element !== false);
-        });
+        .filter(item => item !== null);
 
-    if (isAdmin && bannersConfiguration.length > 0) {
+    if (isAdmin) {
         return bannersConfiguration.map(bannerConfiguration => {
             return (
                 <Placeholder
@@ -71,13 +69,15 @@ const BannerSSR = props => {
                             key={bannerConfiguration.slotName}
                             bannerConfiguration={bannerConfiguration}
                         />
-                        {sticky &&
-                            bannerConfiguration.slotId.includes('cabezal') &&
-                            getScriptForCabezalSticky(
-                                'header',
-                                'lay-sidebar',
-                                bannerConfiguration.slotId
-                            )}
+                        {get(
+                            bannersRules,
+                            `[${bannerConfiguration.slotGroup}][${bannerConfiguration.device}][${bannerConfiguration.slotId}].customScript`
+                        ) &&
+                            bannersRules[bannerConfiguration.slotGroup][
+                                bannerConfiguration.device
+                            ][bannerConfiguration.slotId].customScript({
+                                sticky
+                            })}
                     </>
                 );
             })}

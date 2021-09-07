@@ -12,7 +12,7 @@ const CommentsFeature = () => {
             <section className="mod-commentamp">
                 <ComLink
                     textname="VER COMENTARIOS"
-                    link={`${toUrl}#comentarios`}
+                    link={`${toUrl}#footer`}
                     classCondition="com-button --secondary"
                 />
                 <ComLink link={toUrl} textname="Ir a la nota original" />

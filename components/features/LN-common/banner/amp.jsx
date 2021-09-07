@@ -39,13 +39,6 @@ const BannerSSR = props => {
         );
     }
 
-    if (
-        Object.values(bannerConfiguration.show).some(
-            element => element === false
-        )
-    )
-        return <></>;
-
     return <DivBannerAMP bannerConfiguration={bannerConfiguration} />;
 };
 

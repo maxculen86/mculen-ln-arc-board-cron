@@ -74,8 +74,7 @@ const HeaderDesktop = ({
     toglleDesplegable,
     isAdmin
 }) => {
-    const { loading } = loginData;
-    const { goToLoginUrl } = loginData;
+    const { loading, goToLoginUrl } = loginData;
     const [active, setActive] = useState('');
     const [loadingUserData, setLoadingUserData] = useState(
         loading ? ' hlp-none' : ''

@@ -4,14 +4,13 @@ import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 import Header from '../../private/LN/common/header';
 import Footer from '../../private/LN/common/footer';
-import LoginProvider from '../../private/LN/common/context/loginContext';
 import GlobalProvider from '../../private/common/context/globalContext';
 
 import '../../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../../private/LN/acumulado/context/globalContextAcu';
 import get from '../../private/common/utils/get';
 import getBannerMegatop from '../../private/common/utils/getBannerMegatop';
-import LoadBanners from '../../private/common/banners/LoadBanners';
+import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
 
 const pageBuilderSections = [
     'Banner-Megatop',
@@ -39,11 +38,6 @@ const LNSportsHome = props => {
     } = props;
     const acumuladoGeneral = get(globalContent, 'acumuladoGeneral', {});
     const acumuladoColor = get(globalContent, 'acumuladoColor', {});
-    const {
-        background_color: backgroundCategory,
-        navigation_color_tags: colorTags,
-        header_class_name: headerDark
-    } = acumuladoColor;
     const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
     const idCollectionApertura = get(
         globalContent,
@@ -55,51 +49,45 @@ const LNSportsHome = props => {
         []
     );
 
-    const HEADER_BACKGROUND = headerDark === 'true' ? ' --transparent' : '';
-    const COLOR_CLASS = backgroundCategory || colorTags ? '--color' : '';
-    const OPENING_CLASS = idCollectionApertura ? '--opening' : '';
-
     return (
         <GlobalProvider>
-            <LoginProvider>
-                <GlobalProviderAcu
-                    acumuladoGeneral={acumuladoGeneral}
-                    acumuladoColor={acumuladoColor}
-                    idCollectionsInPage={idCollectionsInPage}
-                    idCollectionApertura={idCollectionApertura}
-                >
-                    {megatop}
-                    <div id="wrapper" className="acumulado deportes ">
-                        <Header />
-                        <main>
-                            {stickyMobile}
-                            <div className="row --top">
-                                <div className="lay">
-                                    {/* BANNER y ANEXO */}
-                                    {/* TITULO/LOGO Y CATEGORIAS */}
-                                    {cabezal}
-                                </div>
+            <GlobalProviderAcu
+                acumuladoGeneral={acumuladoGeneral}
+                acumuladoColor={acumuladoColor}
+                idCollectionsInPage={idCollectionsInPage}
+                idCollectionApertura={idCollectionApertura}
+            >
+                {megatop}
+                <div id="wrapper" className="acumulado deportes ">
+                    <Header />
+                    <main>
+                        {stickyMobile}
+                        <div className="row --top">
+                            <div className="lay">
+                                {/* BANNER y ANEXO */}
+                                {/* TITULO/LOGO Y CATEGORIAS */}
+                                {cabezal}
                             </div>
-                            <div id="content-main" className="lay-sidebar">
-                                {/* Cuerpo */}
-                                <div className="sidebar__main">
-                                    {/* SECCIONES */}
-                                    {apertura}
-                                    {cuerpo}
-                                </div>
-                                <div className="sidebar__aside hlp-tabletlm-none">
-                                    {/* BANNERS, RANKING DE NOTAS */}
-                                    {aside}
-                                </div>
+                        </div>
+                        <div id="content-main" className="lay-sidebar">
+                            {/* Cuerpo */}
+                            <div className="sidebar__main">
+                                {/* SECCIONES */}
+                                {apertura}
+                                {cuerpo}
                             </div>
-                        </main>
-                        <Static id="StaticFooter">
-                            <Footer />
-                        </Static>
-                    </div>
-                    <LoadBanners />
-                </GlobalProviderAcu>
-            </LoginProvider>
+                            <div className="sidebar__aside hlp-tabletlm-none">
+                                {/* BANNERS, RANKING DE NOTAS */}
+                                {aside}
+                            </div>
+                        </div>
+                    </main>
+                    <Static id="StaticFooter">
+                        <Footer />
+                    </Static>
+                </div>
+                <LoadBannersSSR />
+            </GlobalProviderAcu>
         </GlobalProvider>
     );
 };

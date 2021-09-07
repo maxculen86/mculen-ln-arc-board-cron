@@ -243,10 +243,6 @@ const transformContent = (jsonArticle, arcSite, urlQuery) => {
             API_ENV
         );
         if (subtype === RECETA) {
-            // unificar power ups
-            // conseguir el primer indice del power up encontrado
-            // filtrar content elements para sacar los power ups
-            // agregar el unificado en el indice del punto dos
             const powerUps = powerUpsJoin(resp.content_elements);
             const powerUpIndex = resp.content_elements.findIndex(e => {
                 return e.type === 'custom_embed';

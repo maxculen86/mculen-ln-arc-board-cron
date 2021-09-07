@@ -5,7 +5,6 @@ import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
-import LoginProvider from '../private/LN/common/context/loginContext';
 import GlobalProvider from '../private/common/context/globalContext';
 
 // import '../../resources/dist/css/ln/base.css';
@@ -23,7 +22,7 @@ import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContext
 import get from '../private/common/utils/get';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import { formatText } from '../private/common/utils/sectionUtils';
-import LoadBanners from '../private/common/banners/LoadBanners';
+import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 
 const pageBuilderSections = [
     'Banner-Megatop',
@@ -118,63 +117,61 @@ const LNAcumuladoLayout = props => {
 
     return (
         <GlobalProvider>
-            <LoginProvider>
-                <GlobalProviderAcu
-                    acumuladoGeneral={acumuladoGeneral}
-                    acumuladoColor={acumuladoColor}
-                    idCollectionsInPage={idCollectionsInPage}
-                    idCollectionApertura={idCollectionApertura}
+            <GlobalProviderAcu
+                acumuladoGeneral={acumuladoGeneral}
+                acumuladoColor={acumuladoColor}
+                idCollectionsInPage={idCollectionsInPage}
+                idCollectionApertura={idCollectionApertura}
+            >
+                {megatop}
+                <div
+                    id="wrapper"
+                    className={`acumulado ${HEADER_BACKGROUND} ${COLOR_CLASS} ${classRevista} ${sectionClass} ${OPENING_CLASS} ${amp}`}
                 >
-                    {megatop}
-                    <div
-                        id="wrapper"
-                        className={`acumulado ${HEADER_BACKGROUND} ${COLOR_CLASS} ${classRevista} ${sectionClass} ${OPENING_CLASS} ${amp}`}
-                    >
-                        <Header />
-                        <main>
-                            {stickyMobile}
-                            <div
-                                className="row --top"
-                                style={{ backgroundColor: backgroundCategory }}
-                            >
-                                <div className="lay">
-                                    {/* BANNER y ANEXO */}
-                                    {preApertura}
-                                    {/* TITULO/LOGO Y CATEGORIAS */}
-                                    {breadcrumbTitulo}
-                                </div>
-                            </div>
+                    <Header />
+                    <main>
+                        {stickyMobile}
+                        <div
+                            className="row --top"
+                            style={{ backgroundColor: backgroundCategory }}
+                        >
                             <div className="lay">
-                                {/* APERTURA: CAJA DE DOS COLUMNAS */}
-                                {apertura}
-                                {/* LISTA DE TAGS */}
-                                {links}
+                                {/* BANNER y ANEXO */}
+                                {preApertura}
+                                {/* TITULO/LOGO Y CATEGORIAS */}
+                                {breadcrumbTitulo}
                             </div>
-                            <div id="content-main" className="lay-sidebar">
-                                {/* Cuerpo */}
-                                <div className="sidebar__main">
-                                    {/* NOTAS */}
-                                    {notas}
-                                </div>
-                                <div className="sidebar__aside hlp-tabletlm-none">
-                                    {/* BANNERS, RANKING DE NOTAS */}
-                                    {aside}
-                                </div>
+                        </div>
+                        <div className="lay">
+                            {/* APERTURA: CAJA DE DOS COLUMNAS */}
+                            {apertura}
+                            {/* LISTA DE TAGS */}
+                            {links}
+                        </div>
+                        <div id="content-main" className="lay-sidebar">
+                            {/* Cuerpo */}
+                            <div className="sidebar__main">
+                                {/* NOTAS */}
+                                {notas}
                             </div>
-                            <div className="lay-sidebar">
-                                <div className="sidebar__main">
-                                    {/* Bottom */}
-                                    {bottom}
-                                </div>
+                            <div className="sidebar__aside hlp-tabletlm-none">
+                                {/* BANNERS, RANKING DE NOTAS */}
+                                {aside}
                             </div>
-                        </main>
-                        <Static id="StaticFooter">
-                            <Footer />
-                        </Static>
-                    </div>
-                    <LoadBanners />
-                </GlobalProviderAcu>
-            </LoginProvider>
+                        </div>
+                        <div className="lay-sidebar">
+                            <div className="sidebar__main">
+                                {/* Bottom */}
+                                {bottom}
+                            </div>
+                        </div>
+                    </main>
+                    <Static id="StaticFooter">
+                        <Footer />
+                    </Static>
+                </div>
+                <LoadBannersSSR />
+            </GlobalProviderAcu>
         </GlobalProvider>
     );
 };

@@ -2,6 +2,7 @@ import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import logger from '../../components/private/common/utils/logger';
 import { getTodayDateForAcuDolar } from '../../components/private/common/utils/dateAndTimeUtil';
+import force404AMP from './utils/force404AMP';
 
 const resolve = key => {
     const { id, website } = key;
@@ -19,7 +20,7 @@ const resolve = key => {
     return `/site/v3/navigation/${finalWebsite}/?_id=${id}`;
 };
 const fetch = query => {
-    const { url = '' } = query;
+    const { url = '', outputType, redirectUrl } = query;
     const arcSite = query['arc-site'];
     const opt = {
         uri: `${CONTENT_BASE}${resolve(query)}`,
@@ -30,6 +31,9 @@ const fetch = query => {
             bearer: ARC_ACCESS_TOKEN
         };
     }
+
+    force404AMP({ outputType, redirectUrl });
+
     return request(opt)
         .then(response => {
             return transform(response, query);
@@ -41,7 +45,7 @@ const fetch = query => {
 };
 const transform = (data, siteProps) => {
     const { _id: idData } = data;
-    const { id: idQuery } = siteProps;
+    const { id: idQuery, meteringVariant } = siteProps;
     /**
      * Se valida que la sección consultada tenga
      * consistencia con la data respondida en la data
@@ -54,7 +58,11 @@ const transform = (data, siteProps) => {
         err.statusCode = 404;
         throw err;
     }
-    const newData = { ...data, date: getTodayDateForAcuDolar() };
+    const newData = {
+        ...data,
+        date: getTodayDateForAcuDolar(),
+        subscription: meteringVariant
+    };
     return newData;
 };
 
@@ -63,7 +71,10 @@ export default {
     schemaName: 'section-schema',
     params: {
         id: 'text',
-        website: 'text'
+        website: 'text',
+        outputType: 'text',
+        redirectUrl: 'text',
+        meteringVariant: 'text'
     },
     ttl: 300
 };
