@@ -14,7 +14,8 @@ function DataDog({ location = 'head' }) {
         sampleRateRum,
         service,
         env,
-        trackInteractions
+        trackInteractions,
+        trackSessionAcrossSubdomains
     } = DATADOG_CONFIG;
     const { deployment: version } = useAppContext();
 
@@ -48,7 +49,7 @@ function DataDog({ location = 'head' }) {
           service: "${service}",
           env: "${env}",
           version: "${version}",
-          trackInteractions: ${trackInteractions},
+          trackSessionAcrossSubdomains: "${trackSessionAcrossSubdomains}",
         });
         if ("${env}" !== "prod")
           console.log(
@@ -88,6 +89,7 @@ function DataDog({ location = 'head' }) {
           version: "${version}",
           sampleRate: ${sampleRateRum},
           trackInteractions: ${trackInteractions},
+          trackSessionAcrossSubdomains: "${trackSessionAcrossSubdomains}",
         });
         if ("${env}" !== "prod")
             console.log(

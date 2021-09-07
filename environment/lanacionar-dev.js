@@ -27,7 +27,8 @@ export default {
         sampleRateLog: 100,
         sampleRateRum: 100,
         service: 'lanacion-arc',
-        env: 'dev'
+        env: 'dev',
+        trackSessionAcrossSubdomains: 'true'
     },
     ARC_STATIC: 'https://dev.lanacionar.arcpublishing.com/'
 };
