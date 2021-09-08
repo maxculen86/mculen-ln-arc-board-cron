@@ -6,10 +6,6 @@ import addEventListener from '../../../common/hooks/useEventListener';
 import handleScrollForNota from '../dataLayer/handleScrollForNota';
 // TODO: tests
 const index = props => {
-    const {
-        globalContent: { subtype }
-    } = props;
-
     // TODO: Ver si este es el mejor lugar donde poner este script.
     // Setea eventos en el window
     if (typeof window !== 'undefined') {
@@ -19,13 +15,6 @@ const index = props => {
 };
 
 index.propTypes = {
-    // bannerConfig: PropTypes.arrayOf({
-    //     background: PropTypes.bool,
-    //     desktop: PropTypes.string,
-    //     position: PropTypes.number,
-    //     sticky: PropTypes.bool,
-    //     table: PropTypes.string
-    // }).isRequired,
     globalContent: PropTypes.shape({
         subtype: PropTypes.string.isRequired
     }).isRequired

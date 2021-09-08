@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import Consumer from 'fusion:consumer';
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'fusion:prop-types';
@@ -59,7 +60,7 @@ CommentsFeature.propTypes = {
         comments: PropTypes.shape({
             display_comments: PropTypes.bool
         })
-    }).isRequired
+    })
 };
 
 CommentsFeature.label = 'LN-Nota-Comments';

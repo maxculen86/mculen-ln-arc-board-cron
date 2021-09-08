@@ -50,7 +50,6 @@ const Parrafo = ({ data, capital, size, classCondition }) => {
                         {
                             link,
                             target,
-                            //classCondition: '--s',
                             title: string
                         },
                         string
@@ -90,11 +89,15 @@ Parrafo.propTypes = {
         content: PropTypes.string.isRequired,
         type: PropTypes.string
     }),
-    capital: PropTypes.bool
+    capital: PropTypes.bool,
+    size: PropTypes.string,
+    classCondition: PropTypes.string
 };
 
 Parrafo.defaultProps = {
     capital: false,
+    size: '',
+    classCondition: '',
     data: PropTypes.shape({
         type: ''
     })
