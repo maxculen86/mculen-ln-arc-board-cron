@@ -32,10 +32,6 @@ export default {
             props: {},
             location: ['head']
         },
-        Pwa: {
-            props: {},
-            location: ['body-bottom']
-        },
         FacebookSDK: {
             props: {},
             location: ['head']
