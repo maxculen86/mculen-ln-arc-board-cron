@@ -28,8 +28,8 @@ const indexNota = dataNota => {
     );
     const edition = get(dataNota, 'label.edicion.text', null);
     const showBanners = get(dataNota, 'label.mostrar_banners.text', null);
-    const displayComments = get(dataNota, 'comments.display_comments', null);
-    const livefyre = get(dataNota, 'termicas.livefyre', false);
+    const displayComments = get(dataNota, 'comments.display_comments', false);
+    const livefyre = get(dataNota, 'termicas.livefyre', 'false');
     const sentToApps = get(dataNota, 'label.enviar_a_apps.text', null);
     const enviarApps =
         matchObject(dataNota, 'contains') === false
@@ -42,6 +42,8 @@ const indexNota = dataNota => {
         publishDate
     );
 
+    const abiertoComentarios = livefyre === 'true' && displayComments === true;
+
     const {
         date: formatDislplayDate,
         time: formatDislplayTime
@@ -53,7 +55,7 @@ const indexNota = dataNota => {
         url,
         mostrarBanners: !(showBanners && showBanners.toLowerCase() === 'no'),
         paywallStatus: paywallStatus || 'comun',
-        abiertoComentarios: (livefyre && displayComments) || false,
+        abiertoComentarios,
         comentariosId: comentariosId || id,
         categoria: primarySection && getPrincipalCategory(primarySection),
         relacionados: Relacionados(dataNota),
