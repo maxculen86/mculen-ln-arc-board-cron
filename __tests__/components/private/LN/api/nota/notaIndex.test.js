@@ -3,7 +3,7 @@ import QAZ7BVHG5BCNFN7S67XCBP6PA4 from '../../../../../../__mocks__/data/article
 import JMQ44OZHHBC5ZJ5TXTSIIPZMTI from '../../../../../../__mocks__/data/articles/JMQ44OZHHBC5ZJ5TXTSIIPZMTI.json';
 import FUO2YR3EABBAFOMSI2BBS6J7FM from '../../../../../../__mocks__/data/articles/FUO2YR3EABBAFOMSI2BBS6J7FM.json';
 import L47IICAOMVFW5MV343TJIHS4RY from '../../../../../../__mocks__/data/articles/L47IICAOMVFW5MV343TJIHS4RY.json';
-import Q4P5KFEOLVHINB3Y5LIGK26SOU from '../../../../../../__mocks__/data/articles/Q4P5KFEOLVHINB3Y5LIGK26SOU';
+import Q4P5KFEOLVHINB3Y5LIGK26SOU from '../../../../../../__mocks__/data/articles/Q4P5KFEOLVHINB3Y5LIGK26SOU.json';
 import dateAndTimeUtil, {
     dateAndTimeForAppsUtil
 } from '../../../../../../components/private/common/utils/dateAndTimeUtil';

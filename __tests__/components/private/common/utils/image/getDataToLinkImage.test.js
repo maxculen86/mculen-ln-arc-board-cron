@@ -57,6 +57,38 @@ describe('Common - GetDataToLinkImage', () => {
             }
         };
 
+        const articleToExclude = {
+            ...globalContent,
+            promo_items: {
+                ...globalContent.promo_items,
+                storytelling_mobile: {
+                    resized_urls: [
+                        {
+                            option: {
+                                height: 586,
+                                media: '(min-width: 1280px)',
+                                width: 879,
+                                media_preload: '(min-width: 1280.1px)'
+                            },
+                            resizedUrl:
+                                'https://resizer.glanacion.com/resizer/TH-VryessnZukr7fPtHGAp_SeKc=/879x586/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg'
+                        },
+                        {
+                            option: {
+                                height: 746,
+                                media: '(min-width: 1024px)',
+                                width: 1119,
+                                media_preload:
+                                    '(min-width: 1024.1px and max-width: 1280px)'
+                            },
+                            resizedUrl:
+                                'https://resizer.glanacion.com/resizer/Gx0v-uWdmqOZawzhVCa09zILHio=/1119x746/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg'
+                        }
+                    ]
+                }
+            }
+        };
+
         const expected = [
             {
                 media: '(min-width: 1280.1px)',
@@ -83,6 +115,30 @@ describe('Common - GetDataToLinkImage', () => {
 
         it('without resized Media, return empty Array', () => {
             expect(GetDataToLinkImage({}, 'nota')).toEqual([]);
+        });
+
+        it('STORYTELLING or FOTOAL100 without promo_items.storytelling_mobile, return array media data', () => {
+            expect(
+                GetDataToLinkImage({ ...globalContent, subtype: '4' }, 'nota')
+            ).toEqual(expected);
+            expect(
+                GetDataToLinkImage({ ...globalContent, subtype: '8' }, 'nota')
+            ).toEqual(expected);
+        });
+
+        it('STORYTELLING or FOTOAL100 with promo_items.storytelling_mobile, return empty Array', () => {
+            expect(
+                GetDataToLinkImage(
+                    { ...articleToExclude, subtype: '4' },
+                    'nota'
+                )
+            ).toEqual([]);
+            expect(
+                GetDataToLinkImage(
+                    { ...articleToExclude, subtype: '8' },
+                    'nota'
+                )
+            ).toEqual([]);
         });
     });
 
