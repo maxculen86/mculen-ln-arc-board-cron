@@ -62,10 +62,6 @@ const ModArticle = props => {
             ? getAuthorsPhoto(articleData)
             : get(articleData, 'promo_items.basic', null);
     const marquesina = get(articleData, 'marquesina', null);
-    console.log(
-        '🚀 ~ file: mod-article.jsx ~ line 61 ~ imagenDestacada',
-        imagenDestacada
-    );
 
     const type = get(imagenDestacada, 'type', null);
 
