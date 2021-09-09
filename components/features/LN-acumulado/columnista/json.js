@@ -11,6 +11,14 @@ class Columnista {
                 source: 'authorSource',
                 query: {
                     _id: authorSlug
+                },
+                filter: `{
+                    slug name image {url}
+                }`,
+                transform(data) {
+                    return {
+                        autor: [data._id, data.slug, data.name, data.image, 1]
+                    };
                 }
             }
         });
@@ -18,11 +26,8 @@ class Columnista {
 
     render() {
         try {
-            if (this.state) {
-                const { authorSource } = this.state || {};
-                return authorSource;
-            }
-            return '';
+            const { authorSource } = this.state || {};
+            return authorSource;
         } catch (err) {
             return { Success: false, Message: err.message };
         }
