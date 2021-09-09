@@ -14,7 +14,6 @@ const CommentsFeature = props => {
     } = props;
     const displayComments = get(comments, 'display_comments', true);
     const [isReady, setIsReady] = useState(false);
-    // const [isLoading, setIsLoading] = useState(false);
     const showLivefyre = findTermica('livefyre');
 
     useEffect(() => {
@@ -46,10 +45,8 @@ const CommentsFeature = props => {
             window.removeEventListener('scroll', handleScrollForComments);
     });
 
-    const loading = display => (!display ? <></> : <LoadingIcon />);
-    if (!isReady || !showLivefyre || !displayComments)
-        return loading(displayComments);
-    // if (!isReady) return <LoadingIcon />;
+    if (!showLivefyre || !displayComments) return <></>;
+    if (!isReady) return <LoadingIcon />;
 
     return <Comments {...props} />;
 };

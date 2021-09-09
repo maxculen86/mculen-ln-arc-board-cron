@@ -4,6 +4,7 @@ import { LOGIN_URL } from 'fusion:environment';
 import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
 import { loginSetup } from '../../LN/common/utils/loginHelper';
+import startPWASetup from '../../LN/common/utils/register';
 
 export const GlobalContext = React.createContext();
 
@@ -66,7 +67,10 @@ const reducer = (state, action) => {
         : actionType.default(state);
 };
 const GlobalProvider = ({ children }) => {
-    const { arcSite: website = 'la-nacion-ar' } = useAppContext();
+    const {
+        arcSite: website = 'la-nacion-ar',
+        deployment = {}
+    } = useAppContext();
     const [state, dispatch] = React.useReducer(reducer, {
         siteService: useContent({
             source: 'navigationTreeSource',
@@ -139,7 +143,8 @@ const GlobalProvider = ({ children }) => {
 
     useEffect(() => {
         loginSetup(dispatch);
-    }, []);
+        startPWASetup(deployment.value);
+    }, [deployment]);
 
     return (
         <GlobalContext.Provider value={{ state, dispatch }}>
