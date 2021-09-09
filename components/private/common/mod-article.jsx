@@ -11,12 +11,14 @@ import ComImage from './com-image';
 import ModMedia from './mod-media';
 import getAuthorsPhoto from './utils/getAuthorsPhoto';
 import ModVideo from './mod-video';
+import VideoPlayer from '../../private/LN/common/media/videoPlayer';
 
 const ModArticle = props => {
     const {
         frontdemo,
         srcdemo,
         video,
+        powa,
         controls,
         autoplay,
         articleData,
@@ -111,20 +113,31 @@ const ModArticle = props => {
                 <div>
                     <ModMedia>
                         <figure className="mod-figure">
-                            <a href={link}>
+                            {powa ? (
                                 <picture className="mod-picture">
-                                    {video ? (
-                                        <ModVideo
-                                            video={video}
-                                            controls={controls}
-                                            autoplay={autoplay}
-                                        />
-                                    ) : (
-                                        ''
-                                    )}
-                                    <ComImage src={srcdemo} />
+                                    <VideoPlayer
+                                        videoId="76c88e0b-33e7-405f-b6ad-b6a98fef7c77"
+                                        mediaData={powa}
+                                        autoplay=""
+                                    />
                                 </picture>
-                            </a>
+                            ) : (
+                                <a href={link}>
+                                    <picture className="mod-picture">
+                                        {video ? (
+                                            <ModVideo
+                                                video={video}
+                                                controls={controls}
+                                                autoplay={autoplay}
+                                            />
+                                        ) : (
+                                            ''
+                                        )}
+
+                                        <ComImage src={srcdemo} />
+                                    </picture>
+                                </a>
+                            )}
                         </figure>
                     </ModMedia>
                 </div>
