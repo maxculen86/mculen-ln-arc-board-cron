@@ -26,7 +26,9 @@ export default {
         sampleRateLog: 100,
         sampleRateRum: 100,
         service: 'lanacion-arc',
-        env: 'sandbox'
+        env: 'sandbox',
+        trackInteractions: true,
+        trackSessionAcrossSubdomains: true
     },
     ARC_STATIC: 'https://sandbox.lanacion.com.ar'
 };
