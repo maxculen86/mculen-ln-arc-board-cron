@@ -32,7 +32,6 @@ import getSectionName from '../private/LN/common/utils/getSectionName';
 import Syndication from '../private/common/syndication';
 import LinkAmpHTML from '../private/common/linkAmpHTML';
 import { pipe } from '../private/common/utils/functional';
-import Pwa from '../private/common/scriptManager/pwa';
 import PwaModals from '../private/LN/common/pwaModals';
 import ScriptSWG from '../private/common/scriptManager/scriptSWG';
 import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
@@ -53,7 +52,6 @@ const scriptList = [
     { component: { name: 'GTM', function: GTM }, feature: 'none' },
     { component: { name: 'Comscore', function: Comscore }, feature: 'none' },
     { component: { name: 'Microdata', function: Microdata }, feature: 'none' },
-    { component: { name: 'Pwa', function: Pwa }, feature: 'none' },
     {
         component: { name: 'PostBid', function: PostBid },
         feature: 'none'
