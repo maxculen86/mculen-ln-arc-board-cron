@@ -34,6 +34,7 @@ exports[`features - LaNacion - Acumulado - columnista Test de snapshot Columnist
     subheadText={false}
     titleSize="--xs"
     titleTag="h2"
+    titleText="Foto de Joaquín Morales Solá"
     withMedia={true}
   />
 </Fragment>
