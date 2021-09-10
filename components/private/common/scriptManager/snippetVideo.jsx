@@ -18,7 +18,7 @@ const videoPlayerSnippet = ({ mediaData, minStream, parrafo, tituloNota }) => {
     const data = {
         '@context': 'https://schema.org',
         '@type': 'VideoObject',
-        name: `${tituloNota || 'LA NACION - Noticia'}`,
+        name: `${tituloNota.replace(/"/g, '\\"') || 'LA NACION - Noticia'}`,
         description: `${epigrafe || primerParrafo}`,
         thumbnailUrl: [`${promoItems.basic.url}`],
         uploadDate: `${createdDate.replace(/T/g, ' ').replace(/Z/g, '') || ''}`,
