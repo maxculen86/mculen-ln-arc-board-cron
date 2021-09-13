@@ -38,7 +38,15 @@ const seguirLeyendo = ({ globalContent }) => {
 seguirLeyendo.propTypes = {
     globalContent: PropTypes.shape({
         related_content: PropTypes.shape({
-            basic: PropTypes.arrayOf(PropTypes.string)
+            basic: PropTypes.arrayOf(
+                PropTypes.shape({
+                    type: PropTypes.string,
+                    headlines: PropTypes.shape({
+                        basic: PropTypes.string,
+                        mobile: PropTypes.string
+                    })
+                })
+            )
         })
     })
 };

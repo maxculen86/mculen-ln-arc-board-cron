@@ -57,7 +57,7 @@ const ComButton = props => {
 };
 
 ComButton.propTypes = {
-    children: PropTypes.oneOfType(PropTypes.node),
+    children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
     classCondition: PropTypes.string,
     classesNames: PropTypes.string,
     textname: PropTypes.string,
