@@ -1,4 +1,5 @@
 import React from 'react';
+import Consumer from 'fusion:consumer';
 import { mount } from 'enzyme';
 import Metarefresh from '../../../../components/private/common/metarefresh';
 

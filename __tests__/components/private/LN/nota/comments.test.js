@@ -1,4 +1,5 @@
 import React from 'react';
+import Consumer from 'fusion:consumer';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Comments from '../../../../../components/private/LN/nota/comments';

@@ -110,7 +110,8 @@ export const styleConfig = {
         'LN-nota-storytelling':
             'resources/dist/css/ln/amp/amp-storytelling.css',
         'LN-acumulado': 'resources/dist/css/ln/amp/amp-acumulado.css',
-        'LN-nota-video': 'resources/dist/css/ln/amp/amp-video.css'
+        'LN-nota-video': 'resources/dist/css/ln/amp/amp-video.css',
+        Error: 'resources/dist/css/ln/amp/amp-error.css'
     }
 };
 
