@@ -40,7 +40,7 @@ RawHTML.isStatic = true;
 
 RawHTML.propTypes = {
     data: PropTypes.shape({
-        raw_oembed: PropTypes.string,
+        raw_oembed: PropTypes.shape(PropTypes.string),
         classes: PropTypes.string,
         subtype: PropTypes.string
     }).isRequired

@@ -34,7 +34,7 @@ AnexoIframe.propTypes = {
     url: PropTypes.string,
     styles: PropTypes.string,
     extraClass: PropTypes.string,
-    _props: PropTypes.arrayOf(PropTypes.objects)
+    _props: PropTypes.shape()
 };
 
 AnexoIframe.defaultProps = {
