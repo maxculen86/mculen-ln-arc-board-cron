@@ -86,10 +86,6 @@ function Index(props) {
         layout,
         requestUri
     } = props;
-    console.log(
-        '🚀 ~ file: index.jsx ~ line 89 ~ Index ~ globalContent',
-        globalContent
-    );
 
     const { host, title } = siteProperties;
     // if (globalContent.Payload) {
