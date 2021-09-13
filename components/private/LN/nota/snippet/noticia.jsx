@@ -180,11 +180,8 @@ const SnippetNoticia = props => {
     let data = {
         '@context': 'https://schema.org',
         '@type': 'NewsArticle',
-        headline:
-            headlines &&
-            `${headlines.basic.replace(/"/g, '\\"') || 'LA NACION - Noticia'}`,
-        articleBody:
-            getFirstParagraph(contentElements).replace(/"/g, '\\"') || '',
+        headline: headlines && `${headlines.basic || 'LA NACION - Noticia'}`,
+        articleBody: getFirstParagraph(contentElements) || '',
         url: `${siteProperties.host}${canonical_url || ''}`,
         dateCreated: `${new Date(createdDate).toUTCString() || ''}`,
         datePublished: `${new Date(firstPublishDate).toUTCString() || ''}`,

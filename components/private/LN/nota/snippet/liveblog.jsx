@@ -65,13 +65,13 @@ const buildBlogObjects = (globalContent, url, PLACEHOLDER) => {
 
         return {
             '@type': 'BlogPosting',
-            headline: headline.replace(/"/g, '\\"'),
+            headline,
             url: `${url.slice(0, -1)}#parrafo_${i + 1}`,
             '@id': `#parrafo_${i + 1}`,
             mainEntityOfPage: { '@type': 'WebPage' },
             datePublished: formatDateTreeHoursMore(dateModified),
             dateModified: formatDateTreeHoursMore(dateModified),
-            articleBody: elem.content.replace(/"/g, '\\"'),
+            articleBody: elem.content,
             image: {
                 '@type': 'ImageObject',
                 url: PLACEHOLDER
@@ -124,13 +124,13 @@ const SnippetLiveblog = props => {
         },
         url,
         '@id': '#liveBlogPosting',
-        description: subheadlines && subheadlines.basic.replace(/"/g, '\\"'),
+        description: subheadlines && subheadlines.basic,
         coverageStartTime: formatDateTreeHoursMore(new Date(firstPublishDate)),
         coverageEndTime: formatDateTreeHoursMore(new Date(lastUpdatedDate)),
         name:
             headlines &&
-            `${headlines.meta_title.replace(/"/g, '\\"') ||
-                headlines.basic.replace(/"/g, '\\"') ||
+            `${headlines.meta_title ||
+                headlines.basic ||
                 'LA NACION - Noticia'}`,
         liveBlogUpdate: blogObjects
     };
