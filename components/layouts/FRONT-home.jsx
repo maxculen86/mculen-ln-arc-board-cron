@@ -1793,6 +1793,8 @@ LNHome.propTypes = {
     outputType: PropTypes.string.isRequired
 };
 
+LNHome.lazy = true;
+
 LNHome.sections = pageBuilderSections;
 
 export default Consumer(LNHome);
