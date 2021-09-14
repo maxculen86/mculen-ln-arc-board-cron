@@ -1,4 +1,5 @@
 import Consumer from 'fusion:consumer';
+import { authorHomeMobile } from '../../../private/LN/api/common/author';
 
 class Columnista {
     constructor(props) {
@@ -12,13 +13,13 @@ class Columnista {
                 query: {
                     _id: authorSlug
                 },
-                filter: `{
-                    slug name image {url}
-                }`,
                 transform(data) {
-                    return {
-                        autor: [data._id, data.slug, data.name, data.image, 1]
+                    const autor = data;
+                    autor.image = {
+                        ...autor.image,
+                        resized_urls: [{ resizedUrl: autor.image.url }]
                     };
+                    return authorHomeMobile(autor);
                 }
             }
         });
