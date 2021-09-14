@@ -18,7 +18,7 @@ const Banner = props => {
 
     const { desktop, mobile, tablet } = customFields;
 
-    if (!isForAmp(desktop, mobile, tablet)) return <></>;
+    if (!isForAmp(desktop || '', mobile || '', tablet || '')) return <></>;
 
     const bannerConfiguration = getBannerConfiguration(
         globalContent,
