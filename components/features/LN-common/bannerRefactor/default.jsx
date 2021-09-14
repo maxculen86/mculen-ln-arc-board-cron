@@ -20,7 +20,7 @@ import get from '../../../private/common/utils/get';
 const Banner = props => {
     const { isAdmin, customFields, globalContent, globalContentConfig } = props;
 
-    const { sticky, desktop, mobile, tablet } = customFields;
+    const { sticky, desktop = '', mobile = '', tablet = '' } = customFields;
 
     if (isForAmp(desktop, mobile, tablet)) return <></>;
 
