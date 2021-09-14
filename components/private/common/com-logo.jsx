@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import Link from './com-link';
 
 import '../../../resources/dist/css/ln/components/com-logo.css';
@@ -33,9 +33,13 @@ const ComLogo = props => {
 };
 
 ComLogo.propTypes = {
-    logoName: PropTypes.string.isRequired,
+    logoName: PropTypes.string,
     color: PropTypes.bool.isRequired,
     size: PropTypes.string
 };
 
+ComLogo.defaultProps = {
+    logoName: '',
+    size: ''
+};
 export default ComLogo;

@@ -50,7 +50,7 @@ ComLink.propTypes = {
         PropTypes.string,
         PropTypes.node
     ]).isRequired,
-    link: PropTypes.string.isRequired,
+    link: PropTypes.string,
     textname: PropTypes.string,
     title: PropTypes.string,
     target: PropTypes.string,
@@ -69,7 +69,8 @@ ComLink.defaultProps = {
     size: '',
     style: '',
     dataSection: '',
-    dataEvent: ''
+    dataEvent: '',
+    link: null
 };
 
 export default ComLink;

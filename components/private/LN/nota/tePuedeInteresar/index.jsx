@@ -163,7 +163,7 @@ class Index extends Component {
 Index.propTypes = {
     cantidadNotas: PropTypes.number.isRequired,
     userId: PropTypes.string,
-    sessionId: PropTypes.string.isRequired,
+    sessionId: PropTypes.string,
     outputType: PropTypes.string.isRequired,
     idArticle: PropTypes.string,
     url: PropTypes.string.isRequired,
@@ -176,6 +176,7 @@ Index.defaultProps = {
     userId: null,
     excludeItems: null,
     idArticle: null,
+    sessionId: null,
     arcSite: 'la-nacion-ar'
 };
 

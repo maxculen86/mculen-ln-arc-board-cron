@@ -77,9 +77,8 @@ video.propTypes = {
         device: PropTypes.string
     }).isRequired,
     tituloNota: PropTypes.string.isRequired,
-    parrafo: PropTypes.shape({
-        content: PropTypes.string
-    }).isRequired,
+    parrafo: PropTypes.oneOfType([PropTypes.string, PropTypes.shape()])
+        .isRequired,
     autoplay: PropTypes.bool
 };
 

@@ -327,7 +327,7 @@ Cuerpo.propTypes = {
     }).isRequired,
     outputType: PropTypes.string.isRequired,
     globalContent: PropTypes.shape({
-        content_elements: PropTypes.node.isRequired
+        content_elements: PropTypes.arrayOf(PropTypes.shape()).isRequired
     }).isRequired
 };
 

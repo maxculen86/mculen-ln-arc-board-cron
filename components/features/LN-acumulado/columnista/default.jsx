@@ -35,6 +35,7 @@ const Columnista = props => {
                 authorSize="--twoxs"
                 link={author.canonical_url}
                 authors={author.name}
+                titleText={image.url !== '' ? `Foto de ${name}` : ''}
             />
         </>
     );

@@ -41,7 +41,7 @@ image.propTypes = {
         caption: PropTypes.string,
         distributor: PropTypes.string,
         vanity_credits: PropTypes.array,
-        credits: PropTypes.array,
+        credits: PropTypes.shape(),
         type: PropTypes.string.isRequired
     }).isRequired,
     withZoom: PropTypes.string.isRequired,

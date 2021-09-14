@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
@@ -185,21 +186,23 @@ const pageBuilderSections = [
 lnNotaInfografia.sections = pageBuilderSections;
 
 lnNotaInfografia.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.node).isRequired,
-    outputType: PropTypes.string.isRequired,
-    tree: PropTypes.arrayOf(PropTypes.node).isRequired,
-    isAdmin: PropTypes.bool.isRequired,
+    children: PropTypes.arrayOf(PropTypes.node),
+    outputType: PropTypes.string,
+    tree: PropTypes.shape(PropTypes.node),
+    isAdmin: PropTypes.bool,
     globalContent: PropTypes.shape({
         taxonomy: PropTypes.shape({
-            sections: PropTypes.shape({
-                _id: PropTypes.string
-            })
+            sections: PropTypes.arrayOf(
+                PropTypes.shape({
+                    _id: PropTypes.string
+                })
+            )
         }),
         distributor: PropTypes.shape({
             name: PropTypes.string
         })
-    }).isRequired,
-    layout: PropTypes.string.isRequired
+    }),
+    layout: PropTypes.string
 };
 
 export default Consumer(lnNotaInfografia);

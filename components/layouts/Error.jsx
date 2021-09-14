@@ -9,11 +9,14 @@ import '../../resources/dist/css/ln/pages/error.css';
 
 const ErrorPage = props => {
     const {
+        outputType,
         siteProperties: { host },
         children: [MasNotas]
     } = props;
+    const amp = outputType === 'amp' ? 'amp' : '';
+
     return (
-        <div id="wrapper" className="error404">
+        <div id="wrapper" className={`error404 ${amp}`}>
             <header>
                 <div className="lay">
                     <div className="row">
@@ -21,6 +24,7 @@ const ErrorPage = props => {
                             <a
                                 href={host || '/'}
                                 className="header__middle__logo"
+                                title="Ir a la página principal"
                             >
                                 <i className="logo-la-nacion" />
                             </a>
@@ -32,6 +36,7 @@ const ErrorPage = props => {
                                 <a
                                     className="--btn --secondary"
                                     href={host || '/'}
+                                    title="Ir a la página principal"
                                 >
                                     LA NACION
                                 </a>
