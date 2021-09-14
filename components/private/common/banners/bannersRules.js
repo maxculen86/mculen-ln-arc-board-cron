@@ -73,16 +73,24 @@ export default {
                 customScript: () => {
                     return getScriptForComercial('comercial_dsk');
                 }
+            },
+            adhesion_dsk: {
+                validateInclusion: ({ subscription }) => subscription !== 'S'
             }
         },
         mobile: {
-            sticky2_mob: {
+            adhesion_mob: {
                 validateInclusion: ({ subscription }) => subscription !== 'S'
             },
             comercial_mob: {
                 customScript: () => {
                     return getScriptForComercial('comercial_mob');
                 }
+            }
+        },
+        tablet: {
+            adhesion_tab: {
+                validateInclusion: ({ subscription }) => subscription !== 'S'
             }
         }
     },
