@@ -93,11 +93,13 @@ video.propTypes = {
     parrafo: PropTypes.shape({
         content: PropTypes.string
     }).isRequired,
-    autoplay: PropTypes.bool
+    autoplay: PropTypes.bool,
+    isPowa: PropTypes.bool
 };
 
 video.defaultProps = {
-    autoplay: false
+    autoplay: false,
+    isPowa: true
 };
 
 export default WithScreenUtils(video);
