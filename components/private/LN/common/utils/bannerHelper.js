@@ -81,7 +81,7 @@ export const getBannerConfiguration = (
 ) => {
     const { label, taxonomy, type } = globalContent || {};
 
-    const { sections, tags } = taxonomy || { sections: [], tags: [] };
+    const { sections = [], tags = [] } = taxonomy || { sections: [], tags: [] };
 
     const { group: slotGroup } = customFields || {};
     const { device, slotId } = bannerConfig;
@@ -383,16 +383,12 @@ export const queueGoogletagCommand = bannersToLoad => {
             }),
             timeout: 2e3
         };
-        console.log('🚀🚀🚀🚀x ~ file: LoadBanners.jsx slotAPS', {
-            ...slotAPS
-        });
 
         apstag.fetchBids(
             {
                 ...slotAPS
             },
             function(bids) {
-                console.log('🚀 ~ file: LoadBanners.jsx ~ bids APS', bids);
                 // set apstag targeting on googletag, then trigger the first GAM request in googletag's disableInitialLoad integration
                 googletag.cmd.push(function() {
                     if (pbjs.adserverRequestSent) return;

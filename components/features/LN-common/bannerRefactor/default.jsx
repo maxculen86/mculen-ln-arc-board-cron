@@ -22,7 +22,7 @@ const Banner = props => {
 
     const { sticky, desktop, mobile, tablet } = customFields;
 
-    if (isForAmp(desktop, mobile, tablet)) return <></>;
+    if (isForAmp(desktop || '', mobile || '', tablet || '')) return <></>;
 
     const bannersConfiguration = [
         { device: 'desktop', slotId: desktop },

@@ -128,4 +128,6 @@ cuerpo.propTypes = {
     customFields: PropTypes.shape(buildBodyCustomFields())
 };
 
+cuerpo.lazy = true;
+
 export default Consumer(cuerpo);
