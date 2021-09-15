@@ -21,6 +21,9 @@ const setPrerollAdsForPowa = adsURL => {
                 : '';
         };
     })();
+    window.PoWaSettings.advertising.adBar = {
+        skipOffset: 5
+    };
 };
 
 const setEvent = (player, event, eventName, titulo, id) => {
