@@ -115,8 +115,7 @@
             "node_modules",
             "components",
             "mocks",
-            "properties",
-            "src"
+            "properties"
         ],
         "setupFiles": [
             "./setupTests.js"
