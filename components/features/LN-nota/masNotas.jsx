@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
@@ -135,16 +136,16 @@ const filterTypes = {
 };
 
 masNotas.propTypes = {
-    id: PropTypes.string.isRequired,
-    outputType: PropTypes.string.isRequired,
+    id: PropTypes.string,
+    outputType: PropTypes.string,
     customFields: PropTypes.shape({
         cantidadNotas: PropTypes.number.tag({ label: 'Cantidad de Notas' }),
-        filter: PropTypes.oneOf(Object.keys(filterTypes)).tag({
+        filter: PropTypes.oneOf(filterTypes).tag({
             labels: filterTypes,
             label: 'Filtrar por',
             defaultValue: Object.keys(filterTypes)[0]
         })
-    }).isRequired,
+    }),
     globalContent: PropTypes.shape({
         subtype: PropTypes.string,
         _id: PropTypes.string,
@@ -156,7 +157,7 @@ masNotas.propTypes = {
                 path: PropTypes.string
             })
         })
-    }).isRequired
+    })
 };
 
 export default Consumer(masNotas);

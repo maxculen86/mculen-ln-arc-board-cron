@@ -74,8 +74,8 @@ const aperturaNoticia = props => {
 aperturaNoticia.label = 'LN-Nota-AperturaNoticia';
 
 aperturaNoticia.propTypes = {
-    id: PropTypes.string.isRequired,
-    outputType: PropTypes.string.isRequired,
+    id: PropTypes.string,
+    outputType: PropTypes.string,
     globalContent: PropTypes.shape({
         promo_items: PropTypes.shape({
             basic: PropTypes.object
@@ -84,8 +84,8 @@ aperturaNoticia.propTypes = {
             basic: PropTypes.string
         }),
         subtype: PropTypes.string,
-        content_elements: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object))
-    }).isRequired
+        content_elements: PropTypes.arrayOf(PropTypes.shape())
+    })
 };
 
 export default Consumer(aperturaNoticia);

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import ComDate from '../../../../../components/private/common/com-date';
 import ModDate from '../../../../../components/private/common/mod-date';
 import Author from './authorArticle';
@@ -57,21 +57,16 @@ authorAndDate.propTypes = {
     globalContent: PropTypes.shape({
         display_date: PropTypes.string,
         credits: PropTypes.shape({
-            by: PropTypes.shape({
-                authors: PropTypes.arrayOf(
-                    PropTypes.shape({
-                        _id: PropTypes.string,
-                        name: PropTypes.string,
-                        type: PropTypes.string,
-                        slug: PropTypes.string,
-                        url: PropTypes.string
-                    })
-                )
-            })
+            by: PropTypes.arrayOf(PropTypes.shape({}))
         })
     }).isRequired,
-    date: PropTypes.boolean,
-    author: PropTypes.boolean
+    date: PropTypes.bool.isRequired,
+    author: PropTypes.bool,
+    authorDate: PropTypes.string
+};
+authorAndDate.defaultProps = {
+    author: undefined,
+    authorDate: undefined
 };
 
 export default authorAndDate;

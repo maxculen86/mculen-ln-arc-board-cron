@@ -3,7 +3,7 @@ import Consumer from 'fusion:consumer';
 import { useContent } from 'fusion:content';
 import { shallow } from 'enzyme';
 import COLUMNIST_DATA from '../../../../__mocks__/data/columnista/columnista';
-import Columnista from '../../../../components/features/LN-acumulado/columnista';
+import Columnista from '../../../../components/features/LN-acumulado/columnista/default';
 
 describe('features - LaNacion - Acumulado - columnista', () => {
     useContent.mockImplementation(() => COLUMNIST_DATA);

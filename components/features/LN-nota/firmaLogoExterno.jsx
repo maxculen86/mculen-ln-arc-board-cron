@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import { SITE_LANACION } from 'fusion:environment';
 import Context from 'fusion:context';
@@ -39,10 +40,10 @@ FirmaLogoExterno.propTypes = {
             by: PropTypes.array
         }),
         subtype: PropTypes.string
-    }).isRequired,
+    }),
     siteProperties: PropTypes.shape({
         host: PropTypes.string.isRequired
-    }).isRequired
+    })
 };
 
 FirmaLogoExterno.label = 'LN-Nota-FirmaLogoExterno';
