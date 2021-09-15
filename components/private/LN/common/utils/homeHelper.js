@@ -70,6 +70,7 @@ export const sectionsWithBlocks = {
     apertura2: 'bloque1',
     apertura: 'bloque1',
     anexo2: 'bloque2',
+    multimedia: 'bloque2',
     breaking1: 'bloque2',
     breaking2: 'bloque3',
     breaking3: 'bloque3',

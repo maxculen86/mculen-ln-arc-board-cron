@@ -6,7 +6,8 @@ import Static from 'fusion:static';
 import {
     cajaTemasCustomsFields,
     getCommonProps,
-    getChildrenFromAperturaHome
+    getChildrenFromAperturaHome,
+    getChildrenFromMultimediaHome
 } from '../../private/LN/common/utils/cajaTemasHelper';
 import { validateChainManual } from '../../private/LN/common/utils/cajaTemasValidators';
 import CajaTema from '../../private/LN/common/cajaTema';
@@ -40,10 +41,12 @@ const CajaManual = props => {
         sectionName
     } = getCommonProps(props);
     const { layoutsName = {} } = config || {};
-    const aperturasChildren =
-        layoutsName.Home === layoutPageBuilder
-            ? getChildrenFromAperturaHome(renderables)
-            : [];
+
+    const getChildrenHome = method =>
+        layoutsName.Home === layoutPageBuilder ? method(renderables) : [];
+
+    const aperturasChildren = getChildrenHome(getChildrenFromAperturaHome);
+    const multimediaChildren = getChildrenHome(getChildrenFromMultimediaHome);
 
     const isInApertura = aperturasChildren.some(el => {
         return (
@@ -51,7 +54,23 @@ const CajaManual = props => {
             get(el, 'props.id', undefined) === featureId
         );
     });
-    const error = validateChainManual(childProps, layout, isInApertura);
+
+    const isVideoBackground = multimediaChildren.some(
+        el =>
+            el.children.some(art =>
+                get(art, 'props.customFields.video', false)
+            ) &&
+            multimediaChildren.some(
+                cm => get(cm, 'props.id', undefined) === featureId
+            )
+    );
+
+    const error = validateChainManual(
+        childProps,
+        layout,
+        isInApertura,
+        isVideoBackground
+    );
 
     if (isAdmin && error) {
         return (

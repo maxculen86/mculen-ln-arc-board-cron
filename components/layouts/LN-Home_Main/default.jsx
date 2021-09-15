@@ -102,6 +102,7 @@ const LNMainHome = props => {
         apertura1,
         apertura2,
         anexo2,
+        multimedia,
         breaking1,
         breaking2,
         breaking3,
@@ -317,6 +318,8 @@ const LNMainHome = props => {
                                         {anexo2}
                                     </section>
                                 )}
+
+                                <section>{multimedia}</section>
 
                                 <div data-section="breaking1">
                                     {blocksToLoad.bloque2.loaded && breaking1}

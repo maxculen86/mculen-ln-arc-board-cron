@@ -71,6 +71,11 @@ const featureArticleCustomsFields = featuredName => {
             description: 'Ingrese aquí el texto de la chapita',
             default: ''
         }),
+        video: PropTypes.string.tag({
+            name: 'VIDEO',
+            description: 'Ingrese aquí el ID del video de VideoCenter',
+            default: ''
+        }),
         html: PropTypes.string.tag({
             name: 'Tablero / HTML',
             description: 'Ingrese aquí el html del tablero',

@@ -186,6 +186,31 @@
         "children": [
             {
                 "collection": "chains",
+                "type": "Ln_Caja_Manual",
+                "props": {
+                    "collection": "features",
+                    "type": "Ln_Caja_Manual",
+                    "id": "f0fClWak7ebsKa",
+                    "name": null,
+                    "customFields": {
+                        "layout": "grilla1",
+                        "initialPosition": 1,
+                        "hideTitle": false,
+                        "title": "Multimedia"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 7
+        },
+        "children": [
+            {
+                "collection": "chains",
                 "type": "Ln_Caja_Collection",
                 "props": {
                     "collection": "chains",
@@ -210,7 +235,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 7
+            "id": 8
         },
         "children": [
             {
@@ -239,7 +264,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 8
+            "id": 9
         },
         "children": [
             {
@@ -268,7 +293,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 9
+            "id": 10
         },
         "children": [
             {
@@ -287,7 +312,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 10
+            "id": 11
         },
         "children": [
             {
@@ -332,7 +357,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 11
+            "id": 12
         },
         "children": [
             {
@@ -361,7 +386,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 12
+            "id": 13
         },
         "children": [
             {
@@ -390,7 +415,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 13
+            "id": 14
         },
         "children": [
             {
@@ -419,7 +444,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 14
+            "id": 15
         },
         "children": [
             {
@@ -448,7 +473,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 15
+            "id": 16
         },
         "children": [
             {
@@ -477,7 +502,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 16
+            "id": 17
         },
         "children": [
             {
@@ -506,7 +531,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 17
+            "id": 18
         },
         "children": [
             {
@@ -555,7 +580,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 18
+            "id": 19
         },
         "children": [
             {
@@ -604,7 +629,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 19
+            "id": 20
         },
         "children": [
             {
@@ -654,7 +679,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 20
+            "id": 21
         },
         "children": [
             {
@@ -704,7 +729,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 21
+            "id": 22
         },
         "children": [
             {
@@ -754,7 +779,7 @@
         "collection": "sections",
         "props": {
             "collection": "sections",
-            "id": 22
+            "id": 23
         },
         "children": [
             {
