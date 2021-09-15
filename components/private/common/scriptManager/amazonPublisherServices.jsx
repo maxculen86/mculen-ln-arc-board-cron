@@ -37,7 +37,6 @@ function AmazonPublisherServices({ location = 'head' }) {
     );
 
     // initialize the apstag.js library on the page to allow bidding
-    console.log('🚀 ::: start Amazon Pubisher Services ::: 🚀');
     apstag.init({
         pubID: '8670178e-76cd-476d-9c5f-0ed20920dd2a', // enter your pub ID here as shown above, it must within quotes
         adServer: 'googletag'
