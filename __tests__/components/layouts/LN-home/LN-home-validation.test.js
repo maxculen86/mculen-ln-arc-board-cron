@@ -192,47 +192,6 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
         ).toEqual(true);
     });
 
-    it('Validar Seccion Anexo_2 en Home', () => {
-        expect(
-            validateSectionHome(
-                null,
-                'Anexo_2',
-                sectionsValidation.Anexo_2.position,
-                renderables1,
-                'default',
-                true
-            )
-        ).toEqual(null);
-
-        expect(
-            validateSectionHome(
-                null,
-                'Anexo_2',
-                sectionsValidation.Anexo_2.position,
-                renderables2,
-                'default',
-                true
-            )
-        ).toEqual(
-            <PageBuilderMessage
-                id="LN-Home-error"
-                type="warning"
-                message={`La sección Anexo_2 solo permite componentes del tipo LN-common/anexo`}
-            />
-        );
-
-        expect(
-            validateSectionHome(
-                true,
-                'Anexo_2',
-                sectionsValidation.Anexo_2.position,
-                renderablesOk,
-                'default',
-                true
-            )
-        ).toEqual(true);
-    });
-
     it('Validar Seccion Multimedia en Home', () => {
         expect(
             validateSectionHome(
@@ -267,6 +226,47 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
                 true,
                 'Multimedia',
                 sectionsValidation.Multimedia.position,
+                renderablesOk,
+                'default',
+                true
+            )
+        ).toEqual(true);
+    });
+
+    it('Validar Seccion Anexo_2 en Home', () => {
+        expect(
+            validateSectionHome(
+                null,
+                'Anexo_2',
+                sectionsValidation.Anexo_2.position,
+                renderables1,
+                'default',
+                true
+            )
+        ).toEqual(null);
+
+        expect(
+            validateSectionHome(
+                null,
+                'Anexo_2',
+                sectionsValidation.Anexo_2.position,
+                renderables2,
+                'default',
+                true
+            )
+        ).toEqual(
+            <PageBuilderMessage
+                id="LN-Home-error"
+                type="warning"
+                message={`La sección Anexo_2 solo permite componentes del tipo LN-common/anexo`}
+            />
+        );
+
+        expect(
+            validateSectionHome(
+                true,
+                'Anexo_2',
+                sectionsValidation.Anexo_2.position,
                 renderablesOk,
                 'default',
                 true

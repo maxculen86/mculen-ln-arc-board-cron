@@ -166,25 +166,6 @@
         },
         "children": [
             {
-                "collection": "features",
-                "type": "LN-common/anexo",
-                "props": {
-                    "collection": "features",
-                    "type": "LN-common/anexo",
-                    "id": "f0fClWak7ebsKa",
-                    "name": null
-                }
-            }
-        ]
-    },
-    {
-        "collection": "sections",
-        "props": {
-            "collection": "sections",
-            "id": 6
-        },
-        "children": [
-            {
                 "collection": "chains",
                 "type": "Ln_Caja_Manual",
                 "props": {
@@ -198,6 +179,25 @@
                         "hideTitle": false,
                         "title": "Multimedia"
                     }
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 6
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-common/anexo",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/anexo",
+                    "id": "f0fClWak7ebsKa",
+                    "name": null
                 }
             }
         ]

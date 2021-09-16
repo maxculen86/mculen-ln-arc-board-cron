@@ -101,8 +101,8 @@ const LNMainHome = props => {
         bomba,
         apertura1,
         apertura2,
-        anexo2,
         multimedia,
+        anexo2,
         breaking1,
         breaking2,
         breaking3,
@@ -308,6 +308,13 @@ const LNMainHome = props => {
                                         shouldRender={isMobile}
                                     />
                                 )}
+
+                                {blocksToLoad.bloque2.loaded && (
+                                    <section id="multimedia">
+                                        {multimedia}
+                                    </section>
+                                )}
+
                                 {blocksToLoad.bloque2.loaded && (
                                     <section
                                         data-section="anexo2"
@@ -318,8 +325,6 @@ const LNMainHome = props => {
                                         {anexo2}
                                     </section>
                                 )}
-
-                                <section>{multimedia}</section>
 
                                 <div data-section="breaking1">
                                     {blocksToLoad.bloque2.loaded && breaking1}

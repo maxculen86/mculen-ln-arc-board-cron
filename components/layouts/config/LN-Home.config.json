@@ -29,16 +29,16 @@
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 4
     },
-    "Anexo_2": {
-        "quantity": 1,
-        "operatorToUse": "!==",
-        "types": ["LN-common/anexo"],
-        "position": 5
-    },
     "Multimedia": {
         "quantity": 1,
         "operatorToUse": "!==",
         "types": ["Ln_Caja_Manual"],
+        "position": 5
+    },
+    "Anexo_2": {
+        "quantity": 1,
+        "operatorToUse": "!==",
+        "types": ["LN-common/anexo"],
         "position": 6
     },
     "Breaking_1": {

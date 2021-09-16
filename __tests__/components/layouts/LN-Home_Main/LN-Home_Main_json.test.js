@@ -26,8 +26,8 @@ describe('components - layouts - LN-Home_Main - json', () => {
         [], //2 Bomba',
         [], //3 Apertura',
         [], //4 Apertura',
-        [], //5 Anexo',
-        [], //6 Multimedia
+        [], //5 Multimedia',
+        [], //6 Anexo
         [], //7 Tema1',
         [], //8 Tema2',
         [], //9 Tema3',
@@ -238,7 +238,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
     describe('Test Section Multimedia', () => {
         test('Ok', () => {
             const childrenTmp = children;
-            childrenTmp[6] = [
+            childrenTmp[5] = [
                 {
                     information: {
                         layout: 'grilla1',
@@ -256,7 +256,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     collection: 'sections',
                     props: {
                         collection: 'sections',
-                        id: 6
+                        id: 5
                     },
                     children: [
                         {
@@ -270,6 +270,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                 {}
             ];
             const homeSections = LayoutLNMainHome.default(props);
+            console.log(homeSections);
 
             expect(homeSections[2].feature).toBe('Multimedia');
             expect(homeSections[2].information.layout).toBe('grilla1');
