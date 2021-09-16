@@ -20,24 +20,22 @@ const Columnista = props => {
                 {
                     author: name,
                     type: nodeType,
-                    image: { resized_urls: [{ resizedUrl: image.url }] }
+                    image: { resized_urls: [{ resizedUrl: image.url }] },
+                    alt_text: `Foto de ${name}`
                 }
             ]
         }
     };
     return (
-        <>
-            <ModArticle
-                withMedia
-                articleData={data}
-                isRenderAuthor
-                classCondition="--columnista"
-                authorSize="--twoxs"
-                link={author.canonical_url}
-                authors={author.name}
-                titleText={image.url !== '' ? `Foto de ${name}` : ''}
-            />
-        </>
+        <ModArticle
+            withMedia
+            articleData={data}
+            isRenderAuthor
+            classCondition="--columnista"
+            authorSize="--twoxs"
+            link={author.canonical_url}
+            authors={author.name}
+        />
     );
 };
 Columnista.label = 'LN-Columnista-author';
