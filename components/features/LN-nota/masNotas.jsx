@@ -37,7 +37,7 @@ const getTitle = (customFilter, subtype, sectionName, path) => {
 
 const masNotas = props => {
     const {
-        customFields: { cantidadNotas, filter: filterCustomField },
+        customFields: { cantidadNotas, filter: filterCustomField = 0 },
         globalContent: {
             subtype,
             taxonomy: {
