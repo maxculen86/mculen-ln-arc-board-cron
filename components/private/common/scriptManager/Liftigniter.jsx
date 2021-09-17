@@ -38,13 +38,20 @@ class LiftIgniter extends Component {
             _id,
             headlines
         } = globalContent || {};
+        console.log(
+            '🚀 ~ file: Liftigniter.jsx ~ line 41 ~ LiftIgniter ~ render ~ globalContent',
+            globalContent
+        );
 
         const { primary_section: primarySection, tags = [] } = taxonomy || {};
         const { name: tematica } = primarySection || {};
         const { by: authors = [] } = credits || {};
         const recomendar = get(label, 'recomendar.text', 'Si');
-        const title = get(headlines, 'mobile') || get(headlines, 'basic') || '';
-
+        const titleShort = get(headlines, 'mobile', '');
+        const titleLong = get(headlines, 'basic', '');
+        const leadText = label.volanta.text || '';
+        const title =
+            leadText !== '' ? `${leadText} ${titleShort}` : titleShort;
         const scriptRum = `
             window.addEventListener('DOMContentLoaded', (event) => {
                 if (typeof $igniter_var === 'undefined') {
@@ -57,7 +64,7 @@ class LiftIgniter extends Component {
 
         const script = {
             id: _id,
-            title,
+            title: titleShort !== '' ? title : titleLong,
             noShow: recomendar !== 'Si',
             noIndex: false,
             tematica,
