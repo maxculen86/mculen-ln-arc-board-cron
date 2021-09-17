@@ -38,10 +38,6 @@ class LiftIgniter extends Component {
             _id,
             headlines
         } = globalContent || {};
-        console.log(
-            '🚀 ~ file: Liftigniter.jsx ~ line 41 ~ LiftIgniter ~ render ~ globalContent',
-            globalContent
-        );
 
         const { primary_section: primarySection, tags = [] } = taxonomy || {};
         const { name: tematica } = primarySection || {};
