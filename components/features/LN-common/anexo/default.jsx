@@ -44,6 +44,7 @@ const getComponentFromConfig = (_type, _props) => {
                             __html: `
                             window.addEventListener('DOMContentLoaded', (event) => {
                                 const iframeAnexo = document.getElementById('${anexoId}')
+                                iframeAnexo.parentElement.classList.remove('skeleton-box');
                                 iframeAnexo.src= iframeAnexo.dataset.src
                             });
                 `
@@ -76,8 +77,8 @@ const AnexoFeature = props => {
 
     return _type === 'Iframe' ? (
         <div
-            className={`com-anexo ${EXTRA_CLASS}`}
-            style={{ height, overflow: 'hidden' }}
+            className={`com-anexo ${EXTRA_CLASS} skeleton-box`}
+            style={{ height, overflow: 'hidden', width: '100%' }}
         >
             <Static id={id} htmlOnly>
                 {comp()}
