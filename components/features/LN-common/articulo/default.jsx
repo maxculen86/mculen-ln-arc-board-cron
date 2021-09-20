@@ -15,6 +15,7 @@ import PageBuilderMessage from '../../../private/LN/home/common/components/pageB
 import filter from '../../../../content/filters/LN/nota/articleAcu';
 import featureArticleCustomsFields from '../../../private/LN/common/utils/articuloHelper';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
+import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
 
 const ArticleFeature = ({
     id: featureId,
@@ -103,7 +104,8 @@ const ArticleFeature = ({
                 videoBackground={videoBackground}
                 isPowa={videoBackground === undefined}
             />
-        )) || <></>
+        )) ||
+        getPlaceholder(layout, index)
     );
 };
 
