@@ -33,7 +33,7 @@ ModVideo.propTypes = {
 
 ModVideo.defaultProps = {
     image: undefined,
-    autoplay: '',
+    autoplay: true,
     controls: undefined,
     muted: false,
     loop: false
