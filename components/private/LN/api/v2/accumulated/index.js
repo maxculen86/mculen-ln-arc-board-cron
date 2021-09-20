@@ -13,12 +13,19 @@ const index = acuData => {
         titulo: acuData.name
     };
 
-    if (acuData.articles)
-        resp.notas = acuData.articles
-            .filter(e => e)
-            .map(article => {
-                return articleItem(article);
-            });
+    if (acuData.articles) {
+        resp.notas = acuData.articles.reduce((result, f) => {
+            try {
+                if (f) {
+                    const article = articleItem(f);
+                    result.push(article);
+                }
+            } catch (ex) {
+                console.log(ex);
+            }
+            return result;
+        }, []);
+    }
 
     if (acuData.author) {
         resp.autor = authorAcu(acuData.author);

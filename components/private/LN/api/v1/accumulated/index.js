@@ -11,10 +11,19 @@ const index = acuData => {
         paginar: acuData.paginator > 0,
         titulo: acuData.name
     };
+
     if (acuData.articles) {
-        resp.notas = acuData.articles.map(v => {
-            return Article(v);
-        });
+        resp.notas = acuData.articles.reduce((result, f) => {
+            if (f) {
+                try {
+                    const article = Article(f);
+                    result.push(article);
+                } catch (ex) {
+                    console.log(ex);
+                }
+            }
+            return result;
+        }, []);
     }
     if (acuData.author) {
         resp.autor = authorAcu(acuData.author);
