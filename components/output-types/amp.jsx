@@ -19,6 +19,7 @@ import MetasOG from '../private/common/metaTags/metasOG';
 import ScriptLogoBBCAMP from '../private/common/scriptManager/scriptLogoBBCAMP';
 import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
 import getSectionName from '../private/LN/common/utils/getSectionName';
+import FontFace from '../private/common/fontface';
 
 /**
  * TODO: Resolver el tema de las canonicas
@@ -143,6 +144,7 @@ const Amp = props => {
                     as="script"
                     href="https://cdn.ampproject.org/v0/amp-experiment-0.1.js"
                 />
+                <FontFace />
                 {LinkImagePreload()}
                 <script async src="https://cdn.ampproject.org/v0.js" />
                 <script
@@ -162,6 +164,8 @@ const Amp = props => {
                     layout={layout}
                     arcSite={arcSite}
                     Resource={Resource}
+                    contextPath={contextPath}
+                    deployment={deployment}
                 />
                 <style amp-boilerplate="">{_AMPBoilerplate}</style>
                 <noscript

@@ -2,8 +2,8 @@ import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { pipe } from '../../../common/utils/functional';
 import ListMenu from './listMenu';
-//import ComLogo from '../../../common/com-logo';
-import LogoLN from '../../../common/logos/logoLN';
+import ComLogo from '../../../common/com-logo';
+//import LogoLN from '../../../common/logos/logoLN';
 
 // import ComIcon from '../../../common/com-icon';
 import ComButton from '../../../common/com-button';
@@ -55,15 +55,15 @@ const Desplegable = ({ toglleDesplegable, isHome }) => {
             />
             <div className="com-dropdown" ref={comDromdownRef}>
                 <section className="header__dropdown">
-                    {/* <ComLogo
+                    <ComLogo
                         color
                         logoName="la-nacion"
                         classCondition="nacion-home"
                         href={isHome ? '#' : 'https://www.lanacion.com.ar/'}
                         target="_top"
                         title="Ir a la página principal"
-                    /> */}
-                    <LogoLN />
+                    />
+                    {/* <LogoLN /> */}
                     <ComButton
                         iconName="close"
                         title="Cerrar"
