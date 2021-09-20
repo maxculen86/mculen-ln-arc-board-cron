@@ -10,12 +10,13 @@ import {
     config
 } from './utils/scripts/amp/helper';
 import getOembedScripts from './scriptManager/getOembedScripts';
+import { getStyleFontsInLine } from './fontface';
 
 export const _AMPBoilerplate =
     'body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}';
 
 export const AMPCustomStyle = props => {
-    const { arcSite, layout, Resource } = props;
+    const { arcSite, layout, Resource, contextPath, deployment } = props;
     const { [layout]: StylesConfig } = styleConfig[arcSite] || {};
 
     return StylesConfig ? (
@@ -25,7 +26,9 @@ export const AMPCustomStyle = props => {
                     <style
                         amp-custom="amp-custom"
                         dangerouslySetInnerHTML={{
-                            __html: data.replace('@charset "UTF-8";', '')
+                            __html: `
+                            ${getStyleFontsInLine({ contextPath, deployment })}
+                            ${data.replace('@charset "UTF-8";', '')}`
                         }}
                     />
                 ) : null;

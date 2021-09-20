@@ -88,6 +88,11 @@
             .logo-la-nacion {
                 color: $neutral-white;
             }
+            .logoLN {
+                svg g {
+                    fill: $neutral-white;
+                }
+            }
         }
 
         .header__right {

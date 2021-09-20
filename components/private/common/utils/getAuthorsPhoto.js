@@ -9,9 +9,7 @@ const getAuthorsPhoto = article => {
         auth => get(auth, 'image.resized_urls', null) !== null
     );
     const urlsResizes = get(authorWithPhoto, 'image.resized_urls', []);
-    const { alt_text } = authorFiltered.find(
-        auth => get(auth, 'alt_text', null) !== null
-    );
+    const alt_text = get(authorWithPhoto, 'alt_text', '');
     if (urlsResizes.length === 0) return null;
     return {
         height: 80,

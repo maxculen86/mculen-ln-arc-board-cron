@@ -45,11 +45,19 @@ const featureInformation = (information, feature) => {
     return res;
 };
 const articlesMap = articles => {
-    return articles
-        .filter(e => e)
-        .map(article => {
-            return Article(article);
-        });
+    const response = articles.reduce((result, f) => {
+        if (f) {
+            try {
+                const article = Article(f);
+                result.push(article);
+            } catch (ex) {
+                console.log(ex);
+            }
+        }
+        return result;
+    }, []);
+
+    return response;
 };
 
 const storyBox = element => {
@@ -57,21 +65,19 @@ const storyBox = element => {
     const featureInfo = featureInformation(information, feature);
     if (feature === 'Anticipo') return { ...featureInfo };
     const articles = get(element, 'articles', []);
-    if (feature === 'Anticipo') return { ...featureInfo };
-    if (articles && articles.length > 0) {
-        const orderArticlesArray = orderArticles(articles, information.layout);
+    const ordererArticles = orderArticles(articles, information.layout);
+    const resultArticles =
+        feature === 'Anexo'
+            ? Anexo(ordererArticles)
+            : articlesMap(ordererArticles);
+
+    if (Array.isArray(resultArticles) && resultArticles.length > 0) {
         return {
             ...featureInfo,
-            notas:
-                feature !== 'Anexo'
-                    ? orderArticlesArray !== null
-                        ? articlesMap(orderArticlesArray)
-                        : articlesMap(articles)
-                    : orderArticlesArray !== null
-                    ? Anexo(orderArticlesArray)
-                    : Anexo(articles)
+            notas: resultArticles
         };
     }
+
     return null;
 };
 
@@ -97,10 +103,12 @@ const index = children => {
 };
 
 const orderArticles = (articles, diagramacion) => {
-    if (diagramacion === 'focalRight2') {
-        return articles.slice(0, 2).reverse();
+    if (articles && articles.length > 0) {
+        if (diagramacion === 'focalRight2') {
+            return articles.slice(0, 2).reverse();
+        }
     }
-    return null;
+    return articles;
 };
 
 export default index;
