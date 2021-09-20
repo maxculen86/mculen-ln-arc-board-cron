@@ -4,6 +4,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
 import get from 'lodash.get';
+// import get from '../utils/get';
 import getAuthorByline from '../utils/getAuthorByline';
 
 class LiftIgniter extends Component {
@@ -43,11 +44,10 @@ class LiftIgniter extends Component {
         const { name: tematica } = primarySection || {};
         const { by: authors = [] } = credits || {};
         const recomendar = get(label, 'recomendar.text', 'Si');
+        // const title = get(headlines, 'mobile') || get(headlines, 'basic') || '';
         const titleShort = get(headlines, 'mobile', '');
         const titleLong = get(headlines, 'basic', '');
         const leadText = label.volanta.text || '';
-        const title =
-            leadText !== '' ? `${leadText} ${titleShort}` : titleShort;
         const scriptRum = `
             window.addEventListener('DOMContentLoaded', (event) => {
                 if (typeof $igniter_var === 'undefined') {
@@ -60,7 +60,9 @@ class LiftIgniter extends Component {
 
         const script = {
             id: _id,
-            title: titleShort !== '' ? title : titleLong,
+            titleLong,
+            titleShort,
+            leadText,
             noShow: recomendar !== 'Si',
             noIndex: false,
             tematica,
@@ -70,6 +72,10 @@ class LiftIgniter extends Component {
                     ? this.getAuthors(authors)
                     : this.getAuthorsFromContentElements(contentElements)
         };
+        console.log(
+            '🚀 ~ file: Liftigniter.jsx ~ line 75 ~ LiftIgniter ~ render ~ script',
+            script
+        );
 
         return (
             <>

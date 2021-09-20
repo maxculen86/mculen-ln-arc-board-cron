@@ -28,14 +28,20 @@ const transformArticles = (liftigniterArticles = [], cantidadNotas) =>
         )
         .slice(0, cantidadNotas)
         .map(elem => {
-            const { url, id, title, image } = elem;
+            const { url, id, titleLong, titleShort, leadText, image } = elem;
             return {
                 subtype: 1,
                 by: {},
                 website_url: url,
                 _id: id,
                 headlines: {
-                    basic: title
+                    basic: titleLong,
+                    mobile: titleShort
+                },
+                label: {
+                    volanta: {
+                        text: leadText
+                    }
                 },
                 promo_items: {
                     basic: {
