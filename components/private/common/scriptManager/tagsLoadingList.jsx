@@ -12,7 +12,6 @@ const TagsLoadingList = ({
     Tag,
     globalContent
 }) => {
-    // console.log("🚀 ~ file: tagsLoadingList.jsx ~ line 16 ~ globalContent", globalContent)
     if (!Tag) return <></>;
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -63,8 +62,6 @@ const TagsLoadingList = ({
 
             delete scriptData.location;
             delete scriptData.section;
-
-            // console.log('🚀 - final Script', scriptData);
 
             return (
                 section === _section &&

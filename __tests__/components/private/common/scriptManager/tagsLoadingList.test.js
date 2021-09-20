@@ -25,7 +25,6 @@ const scriptsMock = [
 describe('TagsLoadingList', () => {
     it('Returns <></> when Tag is empty', () => {
         const wrapper = shallow(<TagsLoadingList />);
-        // console.log("🚀 ~  ~ wrapper", wrapper.debug())
         expect(wrapper.contains(<></>)).toEqual(true);
     });
     it('Returns <></> when error catch', () => {

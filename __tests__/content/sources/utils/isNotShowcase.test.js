@@ -24,10 +24,10 @@ describe('content - sources - ultils - isShocase', () => {
             }
         }
     };
-    it('should return true, when showcase is "Si"', () => {
+    it('should return falso, when showcase is "Si"', () => {
         expect(isNotShowcase(articleDataShowcaseTrue)).toBeFalsy();
     });
-    it('should return false, when showcase is "No"', () => {
+    it('should return true, when showcase is "No"', () => {
         expect(isNotShowcase(articleDataShowcaseFalse)).toBeTruthy();
     });
     it('should return true, when label showcase is empty', () => {
