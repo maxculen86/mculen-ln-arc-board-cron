@@ -33,7 +33,6 @@ import Syndication from '../private/common/syndication';
 import LinkAmpHTML from '../private/common/linkAmpHTML';
 import { pipe } from '../private/common/utils/functional';
 import PwaModals from '../private/LN/common/pwaModals';
-import ScriptSWG from '../private/common/scriptManager/scriptSWG';
 import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
 import getMetaDescriptionForAcum from '../private/common/utils/getMetaDescriptionForAcum';
 import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
@@ -74,10 +73,6 @@ const scriptList = [
     {
         component: { name: 'Petametrics', function: Petametrics },
         feature: ['LN-nota/tePuedeInteresar']
-    },
-    {
-        component: { name: 'ScriptSWG', function: ScriptSWG },
-        feature: 'none'
     },
     {
         component: { name: 'SocialEmbeds', function: SocialEmbeds },
@@ -269,6 +264,7 @@ const Default = props => {
                     location="head"
                     arcSite={arcSite}
                     Tag="script"
+                    globalContent={globalContent}
                 />
                 <MetasOG
                     {...props}
@@ -350,6 +346,7 @@ const Default = props => {
                     location="body-top"
                     arcSite={arcSite}
                     Tag="script"
+                    globalContent={globalContent}
                 />
                 <div id="fusion-app">
                     <Fusion>{children}</Fusion>
@@ -365,6 +362,7 @@ const Default = props => {
                     location="body-bottom"
                     arcSite={arcSite}
                     Tag="script"
+                    globalContent={globalContent}
                 />
                 <ScriptLogoBBC distributorName={distributorName} />
                 <ScriptLogoEvent />

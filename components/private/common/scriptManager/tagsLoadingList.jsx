@@ -6,13 +6,16 @@ import { useContent } from 'fusion:content';
 import get from '../utils/get';
 
 const TagsLoadingList = ({
-    arcSite: website = 'la-nacion-ar',
-    location = 'body-bottom',
+    arcSite: website,
+    location,
     section,
-    Tag
+    Tag,
+    globalContent
 }) => {
+    // console.log("🚀 ~ file: tagsLoadingList.jsx ~ line 16 ~ globalContent", globalContent)
     if (!Tag) return <></>;
 
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const resp = useContent({
         sourceName: 'navigationTreeSource',
         query: {
@@ -26,7 +29,7 @@ const TagsLoadingList = ({
         transform: data => get(data, `site.${Tag}_loading_list`, [])
     });
 
-    return resp.map(scriptConfig => {
+    return resp.map((scriptConfig, index) => {
         try {
             const scriptData = JSON.parse(scriptConfig);
             const {
@@ -34,26 +37,62 @@ const TagsLoadingList = ({
                 section: _section
             } = scriptData;
 
+            Object.keys(scriptData).forEach(jsonAttr => {
+                const wordValidation = 'validate';
+                if (!jsonAttr.search(wordValidation)) {
+                    const {
+                        defaultValue = '',
+                        propName = `Error propName ${jsonAttr}`
+                    } = scriptData[jsonAttr];
+
+                    const valueInGlobalContent = get(
+                        globalContent,
+                        jsonAttr.substring(wordValidation.length + 1),
+                        ''
+                    );
+
+                    valueInGlobalContent
+                        ? (scriptData[propName] =
+                              String(valueInGlobalContent).toLowerCase() || '')
+                        : (scriptData[propName] =
+                              String(defaultValue).toLowerCase() || '');
+
+                    delete scriptData[jsonAttr];
+                }
+            });
+
             delete scriptData.location;
             delete scriptData.section;
 
+            // console.log('🚀 - final Script', scriptData);
+
             return (
                 section === _section &&
-                location === _location && <Tag {...scriptData} />
+                location === _location && (
+                    // eslint-disable-next-line react/no-array-index-key
+                    <Tag {...scriptData} key={index} />
+                )
             );
         } catch (error) {
-            console.log('🚀 ~ file: tagsLoadingList ~ error', error);
+            // Agregar DataDog
+            console.log('🚀 ~ file: tagsLoadingList ~ error');
             return <></>;
         }
     });
 };
 
 TagsLoadingList.propTypes = {
-    arcSite: PropTypes.string.isRequired,
+    arcSite: PropTypes.string,
+    Tag: PropTypes.string,
     location: PropTypes.string,
     section: PropTypes.string
 };
 
-TagsLoadingList.defaultProps = { section: '' };
+TagsLoadingList.defaultProps = {
+    section: '',
+    arcSite: 'la-nacion-ar',
+    globalContent: {},
+    location: 'body-bottom'
+};
 
 export default TagsLoadingList;
