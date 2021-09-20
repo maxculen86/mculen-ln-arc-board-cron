@@ -294,12 +294,11 @@ const LNMainHome = props => {
                                 </div>
 
                                 {/* BANNER BILLBOARD */}
-                                {blocksToLoad.bloque2.loaded && (
-                                    <DivBanner
-                                        id="billboard_dsk"
-                                        shouldRender={isDesktop}
-                                    />
-                                )}
+                                <DivBanner
+                                    id="billboard_dsk"
+                                    shouldRender={isDesktop}
+                                    withoutHide
+                                />
 
                                 {/* BANNER CAJA 2 MOB */}
                                 {blocksToLoad.bloque2.loaded && (
@@ -352,22 +351,23 @@ const LNMainHome = props => {
                                     </>
                                 )}
                                 {/* BANNER CAJA DSK  */}
-                                {blocksToLoad.bloque2.loaded && (
-                                    <div className="row-gap-tablet-3 --ads">
-                                        <DivBanner
-                                            id="caja1_dsk"
-                                            shouldRender={isDesktop}
-                                        />
-                                        <DivBanner
-                                            id="caja_producto1_dsk"
-                                            shouldRender={isDesktop}
-                                        />
-                                        <DivBanner
-                                            id="caja2_dsk"
-                                            shouldRender={isDesktop}
-                                        />
-                                    </div>
-                                )}
+                                <div className="row-gap-tablet-3 --ads">
+                                    <DivBanner
+                                        id="caja1_dsk"
+                                        shouldRender={isDesktop}
+                                        withoutHide
+                                    />
+                                    <DivBanner
+                                        id="caja_producto1_dsk"
+                                        shouldRender={isDesktop}
+                                        withoutHide
+                                    />
+                                    <DivBanner
+                                        id="caja2_dsk"
+                                        shouldRender={isDesktop}
+                                        withoutHide
+                                    />
+                                </div>
                                 <div data-section="breaking2">
                                     {blocksToLoad.bloque2.loaded && breaking2}
                                 </div>
@@ -385,12 +385,11 @@ const LNMainHome = props => {
                                     </>
                                 )}
                                 {/* BANNER CINTURON 1 */}
-                                {blocksToLoad.bloque2.loaded && (
-                                    <DivBanner
-                                        id="cinturon1_dsk"
-                                        shouldRender={isDesktop}
-                                    />
-                                )}
+                                <DivBanner
+                                    id="cinturon1_dsk"
+                                    shouldRender={isDesktop}
+                                    withoutHide
+                                />
 
                                 <div data-section="breaking3">
                                     {blocksToLoad.bloque2.loaded && breaking3}
