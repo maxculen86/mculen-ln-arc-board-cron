@@ -310,7 +310,10 @@ const LNMainHome = props => {
                                 )}
 
                                 {blocksToLoad.bloque2.loaded && (
-                                    <section id="multimedia">
+                                    <section
+                                        id="multimedia"
+                                        data-section="multimedia"
+                                    >
                                         {multimedia}
                                     </section>
                                 )}

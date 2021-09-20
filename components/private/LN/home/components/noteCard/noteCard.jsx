@@ -54,15 +54,7 @@ const NoteCard = ({
         setLabel(getLabel(content, customFields, withMedia));
         setWithSubhead(getWithSubhead(articleProps, withMedia, customFields));
         setIsRenderAutor(getIsRenderAutor(customFields, layout));
-    }, [
-        articleProps,
-        content,
-        customFields,
-        promoItems,
-        withMedia,
-        layout,
-        device
-    ]);
+    }, [articleProps, content, customFields, promoItems, withMedia, layout]);
 
     return (
         (article && (

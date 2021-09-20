@@ -5,15 +5,7 @@ import PropTypes from 'fusion:prop-types';
 import ComSource from './com-source';
 
 const ModVideo = props => {
-    const {
-        controls,
-        image,
-        video,
-        autoplay,
-        muted,
-        loop,
-        playsinline
-    } = props;
+    const { controls, image, video, autoplay, muted, loop } = props;
     if (!video) return null;
 
     return (
@@ -24,7 +16,6 @@ const ModVideo = props => {
             muted={muted}
             poster={image}
             controls={controls}
-            playsInline={playsinline}
         >
             <ComSource src={video} type="video/mp4" />
         </video>
@@ -37,7 +28,6 @@ ModVideo.propTypes = {
     autoplay: PropTypes.bool,
     controls: PropTypes.bool,
     muted: PropTypes.string,
-    playsinline: PropTypes.bool,
     loop: PropTypes.bool
 };
 
@@ -46,7 +36,6 @@ ModVideo.defaultProps = {
     autoplay: '',
     controls: undefined,
     muted: false,
-    playsinline: false,
     loop: false
 };
 

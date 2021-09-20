@@ -65,7 +65,7 @@ const ModArticle = props => {
     const type = get(imagenDestacada, 'type', null);
 
     const mediaData = (() => {
-        if (videoBackground && device === 'desktop') return videoBackground;
+        if (videoBackground && device !== 'mobile') return videoBackground;
         return type === 'image' ? imagenDestacada : null;
     })();
 
