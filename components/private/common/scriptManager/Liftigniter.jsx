@@ -3,7 +3,8 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
-import get from '../utils/get';
+import get from 'lodash.get';
+
 import getAuthorByline from '../utils/getAuthorByline';
 
 class LiftIgniter extends Component {
@@ -45,7 +46,7 @@ class LiftIgniter extends Component {
         const recomendar = get(label, 'recomendar.text', 'Si');
         // const title = get(headlines, 'mobile') || get(headlines, 'basic') || '';
         const titleShort = get(headlines, 'mobile', '');
-        const titleLong = get(headlines, 'basic', '');
+        const title = get(headlines, 'basic', '') || '';
         const leadText = label.volanta.text || '';
         const scriptRum = `
             window.addEventListener('DOMContentLoaded', (event) => {
@@ -59,7 +60,7 @@ class LiftIgniter extends Component {
 
         const script = {
             id: _id,
-            titleLong,
+            title,
             titleShort,
             leadText,
             noShow: recomendar !== 'Si',

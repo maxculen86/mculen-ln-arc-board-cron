@@ -28,14 +28,21 @@ const transformArticles = (liftigniterArticles = [], cantidadNotas) =>
         )
         .slice(0, cantidadNotas)
         .map(elem => {
-            const { url, id, titleLong, titleShort, leadText, image } = elem;
+            const {
+                url,
+                id,
+                title,
+                titleShort = '',
+                leadText = '',
+                image
+            } = elem;
             return {
                 subtype: 1,
                 by: {},
                 website_url: url,
                 _id: id,
                 headlines: {
-                    basic: titleLong,
+                    basic: title,
                     mobile: titleShort
                 },
                 label: {
@@ -265,6 +272,8 @@ const resolveData = query => {
                 requestFields: [
                     'url',
                     'title',
+                    'titleShort',
+                    'leadText',
                     'image',
                     'id',
                     'published_time'

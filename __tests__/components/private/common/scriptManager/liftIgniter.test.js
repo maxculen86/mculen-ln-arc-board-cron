@@ -231,24 +231,16 @@ describe('Liftigniter', () => {
         type: 'application/json',
         dangerouslySetInnerHTML: {
             __html:
-                '{"id":"IIEEJBWQWNCZNDOUTKP47C4L24","titleLong":"Última prueba syndication 3...","titleShort":"ult mob","leadText":"volanta desde composer","noShow":true,"noIndex":false,"tematica":"Industria","tags":["pruebaNuevoTag","Crónicas","Reformas del Gobierno"],"autor":"Carlos Pagni"}'
+                '{"id":"IIEEJBWQWNCZNDOUTKP47C4L24","title":"Última prueba syndication 3...","titleShort":"ult mob","leadText":"volanta desde composer","noShow":true,"noIndex":false,"tematica":"Industria","tags":["pruebaNuevoTag","Crónicas","Reformas del Gobierno"],"autor":"Carlos Pagni"}'
         }
     };
 
-    it('es una funsion', () => {
+    it('must return a script', () => {
         const wrapper = shallow(
             <LiftIgniter
                 globalContent={globalContentMock}
                 location="body-top"
             />
-        );
-        // const component = mount(<LiftIgniter globalContent={globalContentMock} location="body-top" />)
-        console.log(
-            'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
-            wrapper
-                .find('script')
-                .last()
-                .props()
         );
         expect(
             wrapper
