@@ -3,8 +3,7 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
-import get from 'lodash.get';
-// import get from '../utils/get';
+import get from '../utils/get';
 import getAuthorByline from '../utils/getAuthorByline';
 
 class LiftIgniter extends Component {
@@ -72,10 +71,6 @@ class LiftIgniter extends Component {
                     ? this.getAuthors(authors)
                     : this.getAuthorsFromContentElements(contentElements)
         };
-        console.log(
-            '🚀 ~ file: Liftigniter.jsx ~ line 75 ~ LiftIgniter ~ render ~ script',
-            script
-        );
 
         return (
             <>
