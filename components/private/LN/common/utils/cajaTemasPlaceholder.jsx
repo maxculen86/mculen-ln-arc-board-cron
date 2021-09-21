@@ -1,7 +1,7 @@
 import React from 'react';
 
-const SkeletonSpan = style => (
-    <span className="skeleton-box" {...style}>
+const SkeletonSpan = ({ extraClass, style }) => (
+    <span className={`skeleton-box ${extraClass || ''}`} style={style}>
         &nbsp;
     </span>
 );
@@ -35,9 +35,18 @@ export const placeholderArticles = {
                         className="com-title --threexl"
                         style={{ display: 'block' }}
                     >
-                        <SkeletonSpan style={{ width: '1230px' }} />
-                        <SkeletonSpan style={{ width: '1230px' }} />
-                        <SkeletonSpan style={{ width: '1230px' }} />
+                        <SkeletonSpan
+                            extraClass="--title --line1"
+                            style={{ width: '1230px' }}
+                        />
+                        <SkeletonSpan
+                            extraClass="--title --line2"
+                            style={{ width: '1230px' }}
+                        />
+                        <SkeletonSpan
+                            extraClass="--title --line3"
+                            style={{ width: '1230px' }}
+                        />
                     </h1>
                 </section>
             </article>
