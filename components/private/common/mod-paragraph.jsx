@@ -12,7 +12,7 @@ const ModParagraph = props => {
 };
 
 ModParagraph.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.symbol),
+    children: PropTypes.arrayOf(PropTypes.shape({})),
     classCondition: PropTypes.string
 };
 

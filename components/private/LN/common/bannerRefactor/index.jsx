@@ -23,7 +23,7 @@ const index = props => {
 index.propTypes = {
     outputType: PropTypes.string,
     config: PropTypes.shape({
-        group: PropTypes.oneOf(Object.keys(slotsConfig)).isRequired,
+        group: PropTypes.oneOf(Object.keys(slotsConfig)),
         selectedSlots: PropTypes.shape({
             desktopSlot: PropTypes.string,
             mobileSlot: PropTypes.string,

@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import PropTypes from 'fusion:prop-types';
@@ -54,8 +55,8 @@ Logo.propTypes = {
         taxonomy: PropTypes.shape({
             sections: PropTypes.arrayOf(PropTypes.object)
         }).isRequired
-    }).isRequired,
-    layout: PropTypes.string.isRequired
+    }),
+    layout: PropTypes.string
 };
 
 export default Consumer(Logo);

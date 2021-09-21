@@ -81,7 +81,7 @@ export const getBannerConfiguration = (
 ) => {
     const { label, taxonomy, type } = globalContent || {};
 
-    const { sections, tags } = taxonomy || { sections: [], tags: [] };
+    const { sections = [], tags = [] } = taxonomy || { sections: [], tags: [] };
 
     const { group: slotGroup } = customFields || {};
     const { device, slotId } = bannerConfig;
@@ -371,6 +371,32 @@ export const queueGoogletagCommand = bannersToLoad => {
         googletag.pubads().refresh(nonHeaderBiddingSlots);
 
         naveggSetTargeting();
+
+        const slotAPS = {
+            slots: bannersToLoad.map(slot => {
+                const { adUnitPath, size, opt_div: optDiv } = slot;
+                return {
+                    slotID: optDiv, // example: 'caja1_dsk'
+                    slotName: adUnitPath, // example: '/133919216/la_nacion_desktop/nota/caja1_dsk'
+                    sizes: size // [[300, 250], [300, 600]]
+                };
+            }),
+            timeout: 2e3
+        };
+
+        apstag.fetchBids(
+            {
+                ...slotAPS
+            },
+            function(bids) {
+                // set apstag targeting on googletag, then trigger the first GAM request in googletag's disableInitialLoad integration
+                googletag.cmd.push(function() {
+                    if (pbjs.adserverRequestSent) return;
+                    apstag.setDisplayBids();
+                    // googletag.pubads().refresh(bannerSlotDefined);
+                });
+            }
+        );
 
         // the callback function
         // will be called twice:

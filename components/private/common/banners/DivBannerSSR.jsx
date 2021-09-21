@@ -88,7 +88,11 @@ DivBannerSSR.propTypes = {
                 refresh: PropTypes.bool
             })
         ),
-        bidding: PropTypes.objectOf(PropTypes.string),
+        bidding: PropTypes.shape({
+            prebid: PropTypes.shape({
+                enabled: PropTypes.bool
+            })
+        }),
         closeButton: PropTypes.bool,
         slotGroup: PropTypes.string,
         withoutHide: PropTypes.bool

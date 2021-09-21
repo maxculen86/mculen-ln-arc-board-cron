@@ -55,11 +55,12 @@ export const authorHomeMobile = author => {
     const image = getImageUrl(
         get(author, 'image.resized_urls[0].resizedUrl', null)
     );
-
+    const absoluteUrl = get(author, 'image.resized_urls[0].resizedUrl', null);
     const resp = {
         ...authorData,
         tipo: authorData.slug ? 1 : 2,
         imagen: image ? image[0] : null,
+        absoluteUrl,
         mail: email,
         twitter: twitter ? twitter.trim() : twitter
     };

@@ -1,5 +1,4 @@
 //LN_Caja_Manual
-
 import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
 

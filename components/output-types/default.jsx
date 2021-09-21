@@ -32,13 +32,13 @@ import getSectionName from '../private/LN/common/utils/getSectionName';
 import Syndication from '../private/common/syndication';
 import LinkAmpHTML from '../private/common/linkAmpHTML';
 import { pipe } from '../private/common/utils/functional';
-import Pwa from '../private/common/scriptManager/pwa';
 import PwaModals from '../private/LN/common/pwaModals';
 import ScriptSWG from '../private/common/scriptManager/scriptSWG';
 import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
 import getMetaDescriptionForAcum from '../private/common/utils/getMetaDescriptionForAcum';
 import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 import addForwardSlash from '../private/LN/common/utils/addForwardSlash';
+import AmazonPublisherServices from '../private/common/scriptManager/amazonPublisherServices';
 
 const scriptList = [
     {
@@ -52,7 +52,6 @@ const scriptList = [
     { component: { name: 'GTM', function: GTM }, feature: 'none' },
     { component: { name: 'Comscore', function: Comscore }, feature: 'none' },
     { component: { name: 'Microdata', function: Microdata }, feature: 'none' },
-    { component: { name: 'Pwa', function: Pwa }, feature: 'none' },
     {
         component: { name: 'PostBid', function: PostBid },
         feature: 'none'
@@ -98,6 +97,13 @@ const scriptList = [
             function: LivefyreCommentCount
         },
         feature: ['LN-nota/share']
+    },
+    {
+        component: {
+            name: 'AmazonPublisherServices',
+            function: AmazonPublisherServices
+        },
+        feature: 'none'
     }
 ];
 

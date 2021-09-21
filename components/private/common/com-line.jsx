@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import '../../../resources/dist/css/ln/components/com-line.css';
 
 const ComLine = props => {
@@ -14,7 +14,10 @@ const ComLine = props => {
 };
 
 ComLine.propTypes = {
-    classesNames: PropTypes.string.isRequired
+    classesNames: PropTypes.string
+};
+ComLine.defaultProps = {
+    classesNames: ''
 };
 
 export default ComLine;
