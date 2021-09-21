@@ -8,6 +8,8 @@ import Media from '../LN/common/media';
 import get from './utils/get';
 import ModDescription from './mod-description';
 import getAuthorsPhoto from './utils/getAuthorsPhoto';
+import ComImage from './com-image';
+import ModMedia from './mod-media';
 import ModVideo from './mod-video';
 import VideoPlayer from '../../private/LN/common/media/videoPlayer';
 
@@ -123,7 +125,7 @@ const ModArticle = props => {
                                 <picture className="mod-picture">
                                     <VideoPlayer
                                         videoId="76c88e0b-33e7-405f-b6ad-b6a98fef7c77"
-                                        mediaData={powa}
+                                        mediaData={isPowa}
                                         autoplay=""
                                     />
                                 </picture>
