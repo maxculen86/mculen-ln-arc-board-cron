@@ -192,6 +192,47 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
         ).toEqual(true);
     });
 
+    it('Validar Seccion Multimedia en Home', () => {
+        expect(
+            validateSectionHome(
+                null,
+                'Multimedia',
+                sectionsValidation.Multimedia.position,
+                renderables1,
+                'default',
+                true
+            )
+        ).toEqual(null);
+
+        expect(
+            validateSectionHome(
+                null,
+                'Multimedia',
+                sectionsValidation.Multimedia.position,
+                renderables2,
+                'default',
+                true
+            )
+        ).toEqual(
+            <PageBuilderMessage
+                id="LN-Home-error"
+                type="warning"
+                message={`La sección Multimedia solo permite componentes del tipo Ln_Caja_Manual`}
+            />
+        );
+
+        expect(
+            validateSectionHome(
+                true,
+                'Multimedia',
+                sectionsValidation.Multimedia.position,
+                renderablesOk,
+                'default',
+                true
+            )
+        ).toEqual(true);
+    });
+
     it('Validar Seccion Anexo_2 en Home', () => {
         expect(
             validateSectionHome(

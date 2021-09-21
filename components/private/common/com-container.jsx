@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import '../../../resources/dist/css/ln/components/com-container.css';
 
 const ComContainer = props => {
@@ -8,8 +8,7 @@ const ComContainer = props => {
     return (
         <div
             id={id}
-            className={`com-container ${classesNames || ''} ${classCondition ||
-                ''}`}
+            className={`com-container ${classesNames} ${classCondition}`}
         >
             {children}
         </div>
@@ -19,7 +18,14 @@ const ComContainer = props => {
 ComContainer.propTypes = {
     id: PropTypes.string,
     classesNames: PropTypes.string,
-    children: PropTypes.elementType.isRequired
+    children: PropTypes.node.isRequired,
+    classCondition: PropTypes.string
+};
+
+ComContainer.defaultProps = {
+    classesNames: '',
+    classCondition: '',
+    id: undefined
 };
 
 export default ComContainer;

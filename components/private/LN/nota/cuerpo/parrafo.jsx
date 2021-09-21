@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import ReactDOMServer from 'react-dom/server';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import ComLink from '../../../common/com-link';
@@ -50,7 +50,6 @@ const Parrafo = ({ data, capital, size, classCondition }) => {
                         {
                             link,
                             target,
-                            //classCondition: '--s',
                             title: string
                         },
                         string
@@ -88,13 +87,20 @@ Parrafo.isStatic = true;
 Parrafo.propTypes = {
     data: PropTypes.shape({
         content: PropTypes.string.isRequired,
-        type: PropTypes.string.isRequired
-    }).isRequired,
-    capital: PropTypes.bool
+        type: PropTypes.string
+    }),
+    capital: PropTypes.bool,
+    size: PropTypes.string,
+    classCondition: PropTypes.string
 };
 
 Parrafo.defaultProps = {
-    capital: false
+    capital: false,
+    size: '',
+    classCondition: '',
+    data: PropTypes.shape({
+        type: ''
+    })
 };
 
 export default Parrafo;

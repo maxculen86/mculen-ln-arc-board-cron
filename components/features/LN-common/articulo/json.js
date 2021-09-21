@@ -14,18 +14,19 @@ class ArticleFeature {
                 query: { id: noteId, published: true }
             }
         });
-
-        this.fetchContent({
-            articleImage: {
-                source: 'relatedImageSource',
-                query: {
-                    id: imageId,
-                    published: true,
-                    imageConfig: 'm',
-                    'arc-site': 'la-nacion-ar'
+        if (imageId) {
+            this.fetchContent({
+                articleImage: {
+                    source: 'relatedImageSource',
+                    query: {
+                        id: imageId,
+                        published: true,
+                        imageConfig: 'm',
+                        'arc-site': 'la-nacion-ar'
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
     render() {

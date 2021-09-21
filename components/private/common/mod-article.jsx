@@ -7,18 +7,18 @@ import '../../../resources/dist/css/ln/modules/mod-article.css';
 import Media from '../LN/common/media';
 import get from './utils/get';
 import ModDescription from './mod-description';
-import ComImage from './com-image';
-import ModMedia from './mod-media';
 import getAuthorsPhoto from './utils/getAuthorsPhoto';
 import ModVideo from './mod-video';
 import VideoPlayer from '../../private/LN/common/media/videoPlayer';
 
 const ModArticle = props => {
     const {
+        isPowa,
+        device,
+        videoBackground,
         frontdemo,
         srcdemo,
         video,
-        powa,
         controls,
         autoplay,
         articleData,
@@ -71,6 +71,11 @@ const ModArticle = props => {
 
     const type = get(imagenDestacada, 'type', null);
 
+    const mediaData = (() => {
+        if (videoBackground && device !== 'mobile') return videoBackground;
+        return type === 'image' ? imagenDestacada : null;
+    })();
+
     const onCLick = event => {
         typeof handleClick == 'function' && handleClick(event, websiteUrl);
     };
@@ -100,11 +105,12 @@ const ModArticle = props => {
 
             {withMedia && (
                 <Media
-                    mediaData={type === 'image' ? imagenDestacada : null}
+                    mediaData={mediaData}
                     href={link}
                     outputType={outputType}
                     html={anexo}
                     titleText={titleText}
+                    isPowa={isPowa}
                     // labelArticle="La Chapita solo se tiene que ver con foto o placeholder"
                 />
             )}
@@ -113,7 +119,7 @@ const ModArticle = props => {
                 <div>
                     <ModMedia>
                         <figure className="mod-figure">
-                            {powa ? (
+                            {isPowa ? (
                                 <picture className="mod-picture">
                                     <VideoPlayer
                                         videoId="76c88e0b-33e7-405f-b6ad-b6a98fef7c77"
@@ -193,7 +199,14 @@ ModArticle.propTypes = {
     tags: PropTypes.oneOfType([PropTypes.bool, PropTypes.array]),
     isRenderAuthor: PropTypes.bool,
     isRenderAuthorOpinion: PropTypes.bool,
-    handleClick: PropTypes.func
+    handleClick: PropTypes.func,
+    isPowa: PropTypes.bool,
+    videoBackground: PropTypes.shape({
+        _id: PropTypes.number,
+        streams: PropTypes.array,
+        type: PropTypes.string
+    }),
+    device: PropTypes.string
 };
 
 ModArticle.defaultProps = {
@@ -217,7 +230,10 @@ ModArticle.defaultProps = {
     tags: undefined,
     handleClick: undefined,
     isRenderAuthor: false,
-    isRenderAuthorOpinion: false
+    isRenderAuthorOpinion: false,
+    isPowa: true,
+    videoBackground: undefined,
+    device: 'desktop'
 };
 
 export default ModArticle;

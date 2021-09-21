@@ -25,6 +25,8 @@ exports[`features - LaNacion - Acumulado - columnista Test de snapshot Columnist
     authorSize="--twoxs"
     authors="Joaquín Morales Solá"
     classCondition="--columnista"
+    device="desktop"
+    isPowa={true}
     isRenderAuthor={true}
     isRenderAuthorOpinion={false}
     link="/autor/joaquin-morales-sola-51/"

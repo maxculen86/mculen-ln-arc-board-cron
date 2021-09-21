@@ -23,7 +23,7 @@ const layout = {
     Timeline: 'breaking-news',
     Focal: 'row',
     Opinion: 'row',
-    Editoriales: 'row'
+    Editoriales: 'mod-footersection'
 };
 
 const ModRowGap = props => {

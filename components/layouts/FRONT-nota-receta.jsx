@@ -180,4 +180,6 @@ lnNotaNoticia.propTypes = {
     isAdmin: PropTypes.bool.isRequired
 };
 
+lnNotaNoticia.lazy = true;
+
 export default Consumer(lnNotaNoticia);

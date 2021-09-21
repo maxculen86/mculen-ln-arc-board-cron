@@ -29,112 +29,118 @@
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 4
     },
+    "Multimedia": {
+        "quantity": 1,
+        "operatorToUse": "!==",
+        "types": ["Ln_Caja_Manual"],
+        "position": 5
+    },
     "Anexo_2": {
         "quantity": 1,
         "operatorToUse": "!==",
         "types": ["LN-common/anexo"],
-        "position": 5
+        "position": 6
     },
     "Breaking_1": {
         "quantity": 1,
         "operatorToUse": "!==",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
-        "position": 6
+        "position": 7
     },
     "Breaking_2": {
         "quantity": 1,
         "operatorToUse": "!==",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
-        "position": 7
+        "position": 8
     },
     "Breaking_3": {
         "quantity": 1,
         "operatorToUse": "!==",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
-        "position": 8
+        "position": 9
     },
     "Anexo_3": {
         "quantity": 1,
         "operatorToUse": "!==",
         "types": ["LN-common/anexo"],
-        "position": 9
+        "position": 10
     },
     "Opinion": {
         "quantity": 2,
         "operatorToUse": "!==",
         "types": ["LN-common/opinion", "LN-common/editoriales"],
-        "position": 10
+        "position": 11
     },
     "Breaking_4": {
         "quantity": 1,
         "operatorToUse": "!==",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
-        "position": 11
+        "position": 12
     },
     "Breaking_5": {
         "quantity": 1,
         "operatorToUse": "!==",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
-        "position": 12
+        "position": 13
     },
     "Breaking_6": {
         "quantity": 1,
         "operatorToUse": "!==",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
-        "position": 13
+        "position": 14
     },
     "Comercial_1": {
         "quantity": 1,
         "operatorToUse": "!==",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
-        "position": 14
+        "position": 15
     },
     "Bloque_2": {
         "quantity": 2,
         "operatorToUse": ">",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
-        "position": 15
+        "position": 16
     },
     "Comercial_2": {
         "quantity": 1,
         "operatorToUse": "!==",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
-        "position": 16
+        "position": 17
     },
     "Bloque_3": {
         "quantity": 2,
         "operatorToUse": ">",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
-        "position": 17
+        "position": 18
     },
     "Bloque_4": {
         "quantity": 2,
         "operatorToUse": ">",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
-        "position": 18
+        "position": 19
     },
     "Bloque_5": {
         "quantity": 2,
         "operatorToUse": ">",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
-        "position": 19
+        "position": 20
     },
     "Bloque_6": {
         "quantity": 2,
         "operatorToUse": ">",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
-        "position": 20
+        "position": 21
     },
     "Bloque_7": {
         "quantity": 2,
         "operatorToUse": ">",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
-        "position": 21
+        "position": 22
     },
     "Bloque_8": {
         "quantity": 2,
         "operatorToUse": ">",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
-        "position": 22
+        "position": 23
     }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
@@ -37,13 +38,17 @@ const seguirLeyendo = ({ globalContent }) => {
 seguirLeyendo.propTypes = {
     globalContent: PropTypes.shape({
         related_content: PropTypes.shape({
-            basic: PropTypes.shape({
-                headlines: PropTypes.shape({
-                    basic: PropTypes.string
+            basic: PropTypes.arrayOf(
+                PropTypes.shape({
+                    type: PropTypes.string,
+                    headlines: PropTypes.shape({
+                        basic: PropTypes.string,
+                        mobile: PropTypes.string
+                    })
                 })
-            })
+            )
         })
-    }).isRequired
+    })
 };
 
 seguirLeyendo.label = 'LN-Nota-SeguirLeyendo';

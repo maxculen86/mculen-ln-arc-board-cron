@@ -1,15 +1,15 @@
+/* eslint-disable jsx-a11y/media-has-caption */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import ComSource from './com-source';
-//import '../../../resources/dist/css/ln/modules/mod-video.css';
 
 const ModVideo = props => {
     const {
+        controls,
         image,
         video,
         autoplay,
-        controls,
         muted,
         loop,
         playsinline
@@ -18,13 +18,13 @@ const ModVideo = props => {
 
     return (
         <video
-            className="mod-video"
             loop={loop}
-            autoplay={autoplay}
-            controls={controls}
+            autoPlay={autoplay}
+            className="mod-video"
             muted={muted}
-            playsinline={playsinline}
             poster={image}
+            controls={controls}
+            playsinline={playsinline}
         >
             <ComSource src={video} type="video/mp4" />
         </video>
@@ -37,18 +37,17 @@ ModVideo.propTypes = {
     autoplay: PropTypes.bool,
     controls: PropTypes.bool,
     muted: PropTypes.string,
-    playsinline: PropTypes.bool,
-    loop: PropTypes.bool
+    loop: PropTypes.bool,
+    playsinline: PropTypes.bool
 };
 
 ModVideo.defaultProps = {
     image: undefined,
-    video: undefined,
-    autoplay: '',
+    autoplay: true,
     controls: undefined,
-    muted: 'muted',
-    playsinline: 'true',
-    loop: 'true'
+    muted: true,
+    loop: false,
+    playsinline: true
 };
 
 export default ModVideo;

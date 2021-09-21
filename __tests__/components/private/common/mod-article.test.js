@@ -21,6 +21,7 @@ describe('Private - Common - ModArticle', () => {
     const authors = ['Mariano Grondona'];
 
     const props = {
+        artPosition: undefined,
         articleData: article,
         dataSection: '',
         classCondition: '',
@@ -30,9 +31,13 @@ describe('Private - Common - ModArticle', () => {
         titleSize: '--s',
         titleText: 'Este es el titulo',
         authors: authors,
+        boxPosition: undefined,
         dateText: '2020-06-02T15:28:04.694Z',
+        device: 'desktop',
+        handleClick: undefined,
         dateSize: '',
         subheadText: 'Este es el subtitulo',
+        videoBackground: undefined,
         subheadSize: '',
         subheadTag: '',
         outputType: 'default',
@@ -40,6 +45,7 @@ describe('Private - Common - ModArticle', () => {
         category: '',
         tags: [],
         hour: '',
+        isPowa: true,
         isRenderAuthor: false,
         isRenderAuthorOpinion: false
     };

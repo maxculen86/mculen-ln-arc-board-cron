@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import { useAppContext } from 'fusion:context';
@@ -19,7 +20,7 @@ const ArticleFeature = ({
     id: featureId,
     customFields,
     searchableField,
-    customFields: { noteId: id, imageId },
+    customFields: { noteId: id, imageId, video: videoId },
     isBomba = false
 }) => {
     const {
@@ -43,6 +44,13 @@ const ArticleFeature = ({
         query: { id, published: true, imageConfig },
         filter
     });
+
+    const videoBackground =
+        videoId &&
+        useContent({
+            source: 'videoSource',
+            query: { id: videoId, website: 'la-nacion-ar' }
+        });
 
     const image =
         imageId &&
@@ -92,6 +100,8 @@ const ArticleFeature = ({
                     layoutsName,
                     layoutPageBuilder
                 )}
+                videoBackground={videoBackground}
+                isPowa={videoBackground === undefined}
             />
         )) || <></>
     );

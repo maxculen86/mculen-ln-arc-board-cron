@@ -285,7 +285,7 @@ const LNHome = props => {
                                                 <Article
                                                     frontdemo
                                                     srcdemo="https://source.unsplash.com/460x600"
-                                                    powa={powa}
+                                                    isPowa={powa}
                                                     link="#"
                                                     leadText="Video grilla."
                                                     titleText="La casa Breuer Moreno se prepara para su último remate"
@@ -1870,6 +1870,8 @@ LNHome.propTypes = {
     children: PropTypes.node.isRequired,
     outputType: PropTypes.string.isRequired
 };
+
+LNHome.lazy = true;
 
 LNHome.sections = pageBuilderSections;
 

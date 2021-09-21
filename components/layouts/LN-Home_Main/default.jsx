@@ -101,6 +101,7 @@ const LNMainHome = props => {
         bomba,
         apertura1,
         apertura2,
+        multimedia,
         anexo2,
         breaking1,
         breaking2,
@@ -307,6 +308,16 @@ const LNMainHome = props => {
                                         shouldRender={isMobile}
                                     />
                                 )}
+
+                                {blocksToLoad.bloque2.loaded && (
+                                    <section
+                                        id="multimedia"
+                                        data-section="multimedia"
+                                    >
+                                        {multimedia}
+                                    </section>
+                                )}
+
                                 {blocksToLoad.bloque2.loaded && (
                                     <section
                                         data-section="anexo2"
