@@ -285,7 +285,7 @@ const LNHome = props => {
                                                 <Article
                                                     frontdemo
                                                     srcdemo="https://source.unsplash.com/460x600"
-                                                    isPowa={powa}
+                                                    powa={powa}
                                                     link="#"
                                                     leadText="Video grilla."
                                                     titleText="La casa Breuer Moreno se prepara para su último remate"

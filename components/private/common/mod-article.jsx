@@ -21,6 +21,7 @@ const ModArticle = props => {
         frontdemo,
         srcdemo,
         video,
+        powa,
         controls,
         autoplay,
         articleData,
@@ -121,11 +122,11 @@ const ModArticle = props => {
                 <div>
                     <ModMedia>
                         <figure className="mod-figure">
-                            {isPowa ? (
+                            {powa ? (
                                 <picture className="mod-picture">
                                     <VideoPlayer
                                         videoId="76c88e0b-33e7-405f-b6ad-b6a98fef7c77"
-                                        mediaData={isPowa}
+                                        mediaData={powa}
                                         autoplay=""
                                     />
                                 </picture>
@@ -234,6 +235,7 @@ ModArticle.defaultProps = {
     isRenderAuthor: false,
     isRenderAuthorOpinion: false,
     isPowa: true,
+    video: undefined,
     videoBackground: undefined,
     device: 'desktop'
 };
