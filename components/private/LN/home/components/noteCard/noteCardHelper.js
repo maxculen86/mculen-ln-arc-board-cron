@@ -115,6 +115,7 @@ export const getCajaTemaConfig = (
 
 export const getWithMedia = (customFields, articleProps, article) =>
     get(customFields, 'opinion') ||
+    get(customFields, 'video') ||
     (!get(customFields, 'hideImage') &&
         (get(articleProps, 'withSubheadAndMedia') ||
             (!get(articleProps, 'withSubheadAndMedia') &&

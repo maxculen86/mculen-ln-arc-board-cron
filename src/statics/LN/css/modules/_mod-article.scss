@@ -31,7 +31,8 @@
             align-items: center;
             padding-top: $picture;
 
-            .com-image {
+            .com-image,
+            .mod-video {
                 display: block;
                 position: absolute;
                 object-fit: cover;
