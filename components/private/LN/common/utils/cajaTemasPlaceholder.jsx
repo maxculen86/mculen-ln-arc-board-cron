@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SkeletonSpan = ({ extraClass, style }) => (
-    <span className={`skeleton-box ${extraClass || ''}`} {...style}>
+    <span className={`skeleton-box ${extraClass || ''}`} style={style}>
         &nbsp;
     </span>
 );
