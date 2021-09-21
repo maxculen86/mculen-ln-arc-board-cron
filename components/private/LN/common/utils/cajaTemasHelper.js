@@ -244,6 +244,10 @@ export const getChildrenFromBombaHome = renderables => {
     return getChildrenFromSectionHome(renderables, 'Bomba', 2);
 };
 
+export const getChildrenFromMultimediaHome = renderables => {
+    return getChildrenFromSectionHome(renderables, 'Multimedia', 6);
+};
+
 export const isInApertura = (tree = {}, idFeature) => {
     const sectionApertura = get(tree, 'children[4].children', []);
     return sectionApertura.find(child => child.props.id === idFeature);
