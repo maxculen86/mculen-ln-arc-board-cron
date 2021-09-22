@@ -171,7 +171,6 @@ const fetch = query => {
 
     return resolveData(query);
 };
-
 const duplicateMaxCount = cantidadNotas => cantidadNotas * 2;
 
 const resolveData = query => {

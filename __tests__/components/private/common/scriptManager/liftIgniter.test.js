@@ -61,30 +61,13 @@ const globalContentMock = {
     },
     headlines: {
         basic: 'Última prueba syndication 3...',
-        meta_title: '',
         mobile: 'ult mob'
     },
     label: {
-        chapita: {
-            display: true,
-            text: 'chapita desde composer'
-        },
-        edicion: {
-            display: true,
-            text: 'Impresa'
-        },
-        mostrar_banners: {
-            display: true,
-            text: 'Si',
-            url: ''
-        },
         recomendar: {
             display: true,
             text: 'No',
             url: ''
-        },
-        trust: {
-            text: 'Noticia Original'
         },
         volanta: {
             display: true,
@@ -112,98 +95,6 @@ const globalContentMock = {
             path: '/economia/industria',
             type: 'section'
         },
-        sections: [
-            {
-                _id: '/economia/industria',
-                _website: 'la-nacion-ar',
-                additional_properties: {
-                    original: {
-                        ancestors: {},
-                        migration: {
-                            id_section_ln9: '8002',
-                            migrated_mob: 'false'
-                        }
-                    }
-                },
-                name: 'Industria',
-                parent_id: '/economia',
-                path: '/economia/industria',
-                type: 'section'
-            },
-            {
-                _id: '/economia',
-                _website: 'la-nacion-ar',
-                additional_properties: {
-                    original: {
-                        ancestors: {},
-                        migration: {
-                            id_section_ln9: '272',
-                            migrated_mob: 'false'
-                        },
-                        style: {}
-                    }
-                },
-                name: 'Economía',
-                parent_id: '/',
-                path: '/economia',
-                type: 'section'
-            },
-            {
-                _id: '/revista-jardin',
-                _website: 'la-nacion-ar',
-                additional_properties: {
-                    original: {
-                        ancestors: {},
-                        migration: {
-                            id_section_ln9: '7353',
-                            migrated_mob: 'true'
-                        },
-                        style: {
-                            section_style_name: 'jardin'
-                        }
-                    }
-                },
-                name: 'Revista Jardín',
-                parent_id: '/',
-                path: '/revista-jardin',
-                type: 'section'
-            }
-        ],
-        sites: [
-            {
-                additional_properties: {
-                    original: {
-                        _id: '/economia/industria',
-                        migration: {
-                            id_section_ln9: '8002',
-                            migrated_mob: 'false'
-                        }
-                    }
-                }
-            },
-            {
-                additional_properties: {
-                    original: {
-                        _id: '/economia',
-                        migration: {
-                            id_section_ln9: '272',
-                            migrated_mob: 'false'
-                        }
-                    }
-                }
-            },
-            {
-                additional_properties: {
-                    original: {
-                        _id: '/revista-jardin',
-                        migration: {
-                            id_section_ln9: '7353',
-                            migrated_mob: 'true'
-                        }
-                    }
-                }
-            }
-        ],
         tags: [
             {
                 description: 'un tag de prueba nuevo',
