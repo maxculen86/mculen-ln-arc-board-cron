@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
 import CajaTema from '../../common/cajaTema';
-// import nuevoTePuedeInteresar from '../../../../../__mocks__/data/articles/nuevoTePuedeInteresar';
 
 /**
  * Este componente se mantiene en clase debido a que se necesita hacer uso

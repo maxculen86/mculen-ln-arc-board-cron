@@ -44,7 +44,6 @@ class LiftIgniter extends Component {
         const { name: tematica } = primarySection || {};
         const { by: authors = [] } = credits || {};
         const recomendar = get(label, 'recomendar.text', 'Si');
-        // const title = get(headlines, 'mobile') || get(headlines, 'basic') || '';
         const titleShort = get(headlines, 'mobile', '');
         const title = get(headlines, 'basic', '') || '';
         const leadText = label.volanta.text || '';
