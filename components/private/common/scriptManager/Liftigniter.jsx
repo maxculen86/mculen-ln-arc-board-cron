@@ -3,8 +3,8 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
-import get from 'lodash.get';
-
+// import get from 'lodash.get';
+import get from '../utils/get';
 import getAuthorByline from '../utils/getAuthorByline';
 
 class LiftIgniter extends Component {
