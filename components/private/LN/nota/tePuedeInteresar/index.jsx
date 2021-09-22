@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
 import CajaTema from '../../common/cajaTema';
+// import nuevoTePuedeInteresar from '../../../../../__mocks__/data/articles/nuevoTePuedeInteresar';
 
 /**
  * Este componente se mantiene en clase debido a que se necesita hacer uso
@@ -13,7 +14,6 @@ import CajaTema from '../../common/cajaTema';
  */
 class Index extends Component {
     constructor(props) {
-        // console.log("🚀 ~ file: index.jsx ~ line 16 ~ Index ~ constructor ~ props", props)
         super(props);
         const {
             userId,
@@ -136,7 +136,6 @@ class Index extends Component {
 
     render = () => {
         const { articles, outputType } = this.state;
-
         const { dataLayerSection } = this.props;
         articles &&
             articles.length > 0 &&
@@ -152,7 +151,7 @@ class Index extends Component {
                     position="toi"
                     outputType={outputType}
                     handleClick={this.handleClick}
-                    withVolanta={false}
+                    withVolanta
                 />
             </div>
         ) : (
