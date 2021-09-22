@@ -10,7 +10,8 @@ import Hamburguer from './hamburger';
 // import ComLink from '../../../common/com-link';
 // import ComLogo from '../../../common/com-logo';
 import ComIcon from '../../../common/com-icon';
-import Logo from '../../../common/com-logo';
+//import Logo from '../../../common/com-logo';
+import LogoLN from '../../../common/logos/logoLN';
 
 import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../../../../resources/dist/css/ln/components/usuario.css';
@@ -119,7 +120,7 @@ const HeaderDesktop = ({
             </div>
             <div className="col-7 col-desksm-4 header__middle">
                 <BannerLogoHeader section={section} isAdmin={isAdmin} />
-                <Logo
+                {/* <Logo
                     logoName="la-nacion"
                     classCondition="nacion-home"
                     color
@@ -127,7 +128,8 @@ const HeaderDesktop = ({
                     href={isHome ? '#' : `${host}/`}
                     target="_top"
                     title="Ir a la página principal"
-                />
+                /> */}
+                <LogoLN />
             </div>
             <div className="col-4 header__right">
                 <div

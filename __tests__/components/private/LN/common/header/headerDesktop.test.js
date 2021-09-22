@@ -13,6 +13,14 @@ jest.mock(
     () => 'banner-logo-header'
 );
 
+jest.mock('fusion:context', () => () => ({
+    default: props => {
+        const mockAvailableProps = {};
+        return props.children(mockAvailableProps);
+    }
+}));
+import Context from 'fusion:context';
+
 let component;
 
 const props = {
@@ -36,6 +44,12 @@ afterEach(() => {
 });
 
 describe('HeaderDesktop', () => {
+    Context.useAppContext = jest.fn(() => ({
+        globalContent: { subtype: '1' },
+        deployment: () => {},
+        contextPath: ''
+    }));
+
     it('Renders without crashing', () => {
         expect(component.exists('.header')).toBe(true);
     });

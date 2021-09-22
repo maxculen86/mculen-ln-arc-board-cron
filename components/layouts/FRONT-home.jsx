@@ -73,7 +73,7 @@ const LNHome = props => {
                         data-is-loaded="true"
                     >
                         <section
-                            className="mod-opening --bomba --no-image"
+                            className="mod-opening --bomba"
                             id="tema_00"
                             data-is-block="true"
                             data-block-name="h_tema-00"
@@ -379,107 +379,134 @@ const LNHome = props => {
                                         data-module="tema_06"
                                         data-is-loading="false"
                                         data-is-loaded="true"
+                                        className="container --opinion"
                                     >
-                                        <section
-                                            className="box-articles --opinion"
-                                            id="tema_06"
-                                            data-is-block="true"
-                                            data-block-name="h_tema-06"
-                                            data-diagramacion-id="h_caja-opinion"
-                                        >
-                                            <HeaderSection title="Techo caja opinión" />
+                                        <div>
+                                            <section
+                                                className="box-articles --opinion"
+                                                id="tema_06"
+                                                data-is-block="true"
+                                                data-block-name="h_tema-06"
+                                                data-diagramacion-id="h_caja-opinion"
+                                            >
+                                                <HeaderSection title="Techo caja opinión" />
 
-                                            <section className="row">
-                                                <div className="col-tablet-5">
-                                                    <Article
-                                                        frontdemo
-                                                        srcdemo="https://source.unsplash.com/300x208"
-                                                        link="#"
-                                                        leadText="Opinión 1."
-                                                        titleSize="--l"
-                                                        titleText="Sonrisas arriba del escenario y disputas abajo"
-                                                        authors="Por Maia Jastreblansky"
-                                                        label="Chapita"
-                                                        position="0601"
-                                                    />
-                                                </div>
-                                                <div className="col-tablet-4">
-                                                    <Article
-                                                        frontdemo
-                                                        srcdemo="https://source.unsplash.com/300x300/?face"
-                                                        link="#"
-                                                        leadText="Opinión 2."
-                                                        titleSize="--xs"
-                                                        titleText="Una ventana al bienestar que promete el verano"
-                                                        authors="Nombre Apellido"
-                                                        authorSize="--twoxs"
-                                                        position="0602"
-                                                    />
-                                                    <Article
-                                                        frontdemo
-                                                        srcdemo="https://source.unsplash.com/300x301/?face"
-                                                        link="#"
-                                                        leadText="Opinión 3."
-                                                        titleSize="--xs"
-                                                        titleText="Trumpismo, maoísmo y peronismo"
-                                                        authors="Nombre Apellido"
-                                                        authorSize="--twoxs"
-                                                        position="0603"
-                                                    />
-                                                </div>
-                                                <div className="col-tablet-3">
-                                                    <Article
-                                                        frontdemo
-                                                        srcdemo="https://source.unsplash.com/300x302/?face"
-                                                        link="#"
-                                                        leadText="Opinión 4."
-                                                        titleSize="--l"
-                                                        titleText="Inolvidable declaración de amor a la ciudad de Madrid"
-                                                        authors="Nombre Apellido"
-                                                        authorSize="--twoxs"
-                                                        position="0604"
-                                                    />
+                                                <div className="row">
+                                                    <div className="col-tablet-5">
+                                                        <Article
+                                                            frontdemo
+                                                            srcdemo="https://source.unsplash.com/300x208"
+                                                            link="#"
+                                                            leadText="Opinión 1."
+                                                            titleSize="--l"
+                                                            titleText="Sonrisas arriba del escenario y disputas abajo"
+                                                            authors="Por Maia Jastreblansky"
+                                                            label="Chapita"
+                                                            position="0601"
+                                                        />
+                                                    </div>
+                                                    <div className="col-tablet-4">
+                                                        <Article
+                                                            frontdemo
+                                                            srcdemo="https://source.unsplash.com/300x300/?face"
+                                                            link="#"
+                                                            classCondition="--author"
+                                                            leadText="Opinión 2."
+                                                            titleSize="--xs"
+                                                            titleText="Una ventana al bienestar que promete el verano"
+                                                            authors="Nombre Apellido"
+                                                            authorSize="--twoxs"
+                                                            position="0602"
+                                                        />
+                                                        <Article
+                                                            frontdemo
+                                                            srcdemo="https://source.unsplash.com/300x301/?face"
+                                                            link="#"
+                                                            classCondition="--author"
+                                                            leadText="Opinión 3."
+                                                            titleSize="--xs"
+                                                            titleText="Trumpismo, maoísmo y peronismo"
+                                                            authors="Nombre Apellido"
+                                                            authorSize="--twoxs"
+                                                            position="0603"
+                                                        />
+                                                    </div>
+                                                    <div className="col-tablet-3">
+                                                        <Article
+                                                            frontdemo
+                                                            srcdemo="https://source.unsplash.com/300x302/?face"
+                                                            link="#"
+                                                            classCondition="--author"
+                                                            leadText="Opinión 4."
+                                                            titleSize="--l"
+                                                            titleText="Inolvidable declaración de amor a la ciudad de Madrid"
+                                                            authors="Nombre Apellido"
+                                                            authorSize="--twoxs"
+                                                            position="0604"
+                                                        />
+                                                    </div>
                                                 </div>
                                             </section>
-                                        </section>
-                                        <section
-                                            className="box-articles --editoriales"
-                                            id="tema_06"
-                                            data-is-block="true"
-                                            data-block-name="h_tema-06"
-                                            data-diagramacion-id="h_caja-opinion"
-                                        >
-                                            <section className="mod-footersection">
-                                                <ComTitle
-                                                    content="EDITORIALES"
-                                                    size="--twoxs"
-                                                    link="https://www.lanacion.com.ar/editoriales/"
-                                                />
-                                                <ul className="com-unordered">
-                                                    <li>
-                                                        <a
-                                                            href="/editoriales/mafia-politica-narcotrafico-peor-pandemia-nid2547665"
-                                                            className="com-link --twoxs"
-                                                            title="Mafia política y narcotráfico, la peor pandemia"
-                                                        >
-                                                            Mafia política y
-                                                            narcotráfico, la
-                                                            peor pandemia
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a
-                                                            href="/editoriales/la-remocion-jueces-fiscales-nid2547655"
-                                                            className="com-link --twoxs"
-                                                            title="La remoción de jueces y fiscales"
-                                                        >
-                                                            La remoción de
-                                                            jueces y fiscales
-                                                        </a>
-                                                    </li>
-                                                </ul>
+                                        </div>
+                                        <div>
+                                            <section
+                                                className="box-articles --editoriales"
+                                                id="tema_06"
+                                                data-is-block="true"
+                                                data-block-name="h_tema-06"
+                                                data-diagramacion-id="h_caja-opinion"
+                                            >
+                                                <div className="mod-footersection">
+                                                    <ComTitle
+                                                        content="EDITORIALES"
+                                                        size="--twoxs"
+                                                        link="https://www.lanacion.com.ar/editoriales/"
+                                                    />
+                                                    <div className="col-12">
+                                                        <article className="mod-article">
+                                                            <div className="mod-description">
+                                                                <h2 className="com-title --twoxs">
+                                                                    <a
+                                                                        href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
+                                                                        className="com-link"
+                                                                        title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
+                                                                    >
+                                                                        Elefante
+                                                                        Azul: la
+                                                                        trágica
+                                                                        historia
+                                                                        detrás
+                                                                        del
+                                                                        imponente
+                                                                        edificio
+                                                                        abandonado
+                                                                        en
+                                                                        Saavedra
+                                                                    </a>
+                                                                </h2>
+                                                            </div>
+                                                        </article>
+                                                        <article className="mod-article">
+                                                            <div className="mod-description">
+                                                                <h2 className="com-title --twoxs">
+                                                                    <a
+                                                                        href="/editoriales/la-remocion-jueces-fiscales-nid2547655"
+                                                                        className="com-link"
+                                                                        title="La remoción de jueces y fiscales"
+                                                                    >
+                                                                        La
+                                                                        remoción
+                                                                        de
+                                                                        jueces y
+                                                                        fiscales
+                                                                    </a>
+                                                                </h2>
+                                                            </div>
+                                                        </article>
+                                                    </div>
+                                                </div>
                                             </section>
-                                        </section>
+                                        </div>
                                     </div>
 
                                     <section className="mod-banner">
@@ -1813,8 +1840,6 @@ LNHome.propTypes = {
     children: PropTypes.node.isRequired,
     outputType: PropTypes.string.isRequired
 };
-
-LNHome.lazy = true;
 
 LNHome.sections = pageBuilderSections;
 

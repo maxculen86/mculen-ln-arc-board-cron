@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-nested-ternary */
 import get from './get';
 
@@ -8,11 +9,13 @@ const getAuthorsPhoto = article => {
         auth => get(auth, 'image.resized_urls', null) !== null
     );
     const urlsResizes = get(authorWithPhoto, 'image.resized_urls', []);
+    const alt_text = get(authorWithPhoto, 'alt_text', '');
     if (urlsResizes.length === 0) return null;
     return {
         height: 80,
         resized_urls: get(authorWithPhoto, 'image.resized_urls', []),
         type: 'image',
+        alt_text,
         url: urlsResizes.length > 0 ? urlsResizes[0].resizedUrl : null,
         width: 80
     };
