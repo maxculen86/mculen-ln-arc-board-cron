@@ -2395,6 +2395,10 @@ export default {
                 }
             }
         },
+        grillaVideo1: {
+            className: '--grilla --video',
+            articles: []
+        },
         grilla2: {
             className: '',
             articles: {

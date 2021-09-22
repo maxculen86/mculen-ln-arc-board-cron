@@ -41,7 +41,8 @@ const featuredRules = {
             grilla2: 'Grilla 2',
             grilla3: 'Grilla 3',
             grilla6: 'Grilla 6',
-            grilla9: 'Grilla 9'
+            grilla9: 'Grilla 9',
+            grillaVideo1: 'Grilla 1 - Video'
         },
         defaultLayout: 'focalLeft3'
     },

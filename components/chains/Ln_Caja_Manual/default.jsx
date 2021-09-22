@@ -45,6 +45,17 @@ const CajaManual = props => {
     const getChildrenHome = method =>
         layoutsName.Home === layoutPageBuilder ? method(renderables) : [];
 
+    const containsCustomField = (customField, sectionChildren) =>
+        sectionChildren.some(
+            el =>
+                el.children.some(art =>
+                    get(art, `props.customFields.${customField}`, false)
+                ) &&
+                sectionChildren.some(
+                    cm => get(cm, 'props.id', undefined) === featureId
+                )
+        );
+
     const aperturasChildren = getChildrenHome(getChildrenFromAperturaHome);
     const multimediaChildren = getChildrenHome(getChildrenFromMultimediaHome);
 
@@ -55,21 +66,15 @@ const CajaManual = props => {
         );
     });
 
-    const isVideoBackground = multimediaChildren.some(
-        el =>
-            el.children.some(art =>
-                get(art, 'props.customFields.video', false)
-            ) &&
-            multimediaChildren.some(
-                cm => get(cm, 'props.id', undefined) === featureId
-            )
-    );
+    const isVideoBackground = containsCustomField('video', multimediaChildren);
+    const containsHTML = containsCustomField('html', multimediaChildren);
 
     const error = validateChainManual(
         childProps,
         layout,
         isInApertura,
-        isVideoBackground
+        isVideoBackground,
+        containsHTML
     );
 
     if (isAdmin && error) {
