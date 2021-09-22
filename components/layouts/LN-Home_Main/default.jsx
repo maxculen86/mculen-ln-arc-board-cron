@@ -25,10 +25,12 @@ import AnexoFeature from '../../features/LN-acumulado/anexoIframe';
 import SubHeader from '../../features/LN-common/subHeader';
 import TePuedeInteresar from '../../features/LN-nota/tePuedeInteresar/default';
 import DivBanner from '../../private/common/banners/DivBanner';
-import BannerComercial from '../../private/common/banners/BannerComercial';
+// import BannerComercial from '../../private/common/banners/BannerComercial';
 import pageBuilderSections from '../config/LN-PageBuilder.config.json';
 import TagsListFeature from '../../features/LN-acumulado/tagList';
 import CajaPromo from '../../features/LN-common/cajaPromo/default';
+import DivBannerSSR from '../../private/common/banners/DivBannerSSR';
+import { getScriptForComercial } from '../../private/common/banners/bannersRules';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -71,24 +73,30 @@ const findBlockToLoad = blocksToLoad => {
     return Object.keys(blocksToLoad).find(key => !blocksToLoad[key].loaded);
 };
 
-const BannerCabezal = ({ isDesktop, isTablet }) => {
+const bannerConfiguration = {
+    slotGroup: 'home'
+};
+
+const BannerCabezal = () => {
     return (
-        <div className="container --ads">
-            <DivBanner
-                id="cabezal_dsk"
-                shouldRender={isDesktop}
-                classes="--dark"
-                withoutHide
-                isStatic
-            />
-            <DivBanner
-                id="cabezal_tab"
-                shouldRender={isTablet}
-                classes="--dark"
-                withoutHide
-                isStatic
-            />
-        </div>
+        <Static id="bannersCabezal">
+            <div className="container --ads">
+                <DivBannerSSR
+                    bannerConfiguration={{
+                        ...bannerConfiguration,
+                        slotId: 'cabezal_dsk',
+                        classes: '--dark'
+                    }}
+                />
+                <DivBannerSSR
+                    bannerConfiguration={{
+                        ...bannerConfiguration,
+                        slotId: 'cabezal_tab',
+                        classes: '--dark'
+                    }}
+                />
+            </div>
+        </Static>
     );
 };
 
@@ -132,7 +140,7 @@ const LNMainHome = props => {
 
     const showBomba = isBombaVisible(renderables);
 
-    const { isMobile, isTablet, isDesktop, device } = getViewport();
+    const { isMobile, isTablet, isDesktop } = getViewport();
 
     const [blocksToLoad, dispatch] = useReducer(reducer, {
         bloque1: { loaded: true, loadPercent: 70 },
@@ -223,20 +231,26 @@ const LNMainHome = props => {
                 isStatic
             />
             {/* COMERCIAL */}
-            {isDesktop && (
-                <BannerComercial
-                    id="comercial_dsk"
-                    device={device}
-                    slotGroup="home"
+            <Static id="bannerComercial">
+                <DivBannerSSR
+                    bannerConfiguration={{
+                        ...bannerConfiguration,
+                        slotId: 'comercial_dsk',
+                        classes: '--comercial hlp-none',
+                        closeButton: true
+                    }}
                 />
-            )}
-            {isMobile && (
-                <BannerComercial
-                    id="comercial_mob"
-                    device={device}
-                    slotGroup="home"
+                {getScriptForComercial('comercial_dsk')}
+                <DivBannerSSR
+                    bannerConfiguration={{
+                        ...bannerConfiguration,
+                        slotId: 'comercial_mob',
+                        classes: '--comercial hlp-none',
+                        closeButton: true
+                    }}
                 />
-            )}
+                {getScriptForComercial('comercial_mob')}
+            </Static>
 
             <div id="wrapper" className="home">
                 <Header />
@@ -254,9 +268,7 @@ const LNMainHome = props => {
                 </section>
 
                 {/* BANNER_CABEZAL (BOMBA) */}
-                {showBomba && (
-                    <BannerCabezal isTablet={isTablet} isDesktop={isDesktop} />
-                )}
+                {showBomba && <BannerCabezal />}
 
                 {/* BOMBA */}
                 {bomba}
@@ -273,12 +285,7 @@ const LNMainHome = props => {
                             {/* Cuerpo */}
                             <div className="sidebar__main">
                                 {/* BANNER CABEZAL */}
-                                {!showBomba && (
-                                    <BannerCabezal
-                                        isTablet={isTablet}
-                                        isDesktop={isDesktop}
-                                    />
-                                )}
+                                {!showBomba && <BannerCabezal />}
 
                                 {/* 1er Bloque */}
                                 <div data-section="apertura">

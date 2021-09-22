@@ -129,7 +129,6 @@ export const getBannerConfiguration = (
             globalContent
         );
 
-    // const config = slotsConfig[slotGroup][slotId];
     /* config es esto de abajo para el slotId
     adhesion_dsk: {
             slotName: 'la_nacion_desktop/Nota/adhesion_dsk',
