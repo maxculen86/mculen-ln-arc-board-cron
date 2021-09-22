@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
-import ModArticle from '../../private/common/mod-article';
+import ModArticle from '../../../private/common/mod-article';
 
 const Columnista = props => {
     const { customFields } = props;

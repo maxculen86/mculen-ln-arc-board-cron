@@ -12,13 +12,13 @@ const videoPlayerSnippet = ({ mediaData, minStream, parrafo, tituloNota }) => {
         created_date: createdDate = '',
         duration
     } = mediaData || {};
+    const notaTitle = tituloNota || '';
     const caption = get(promoItems, 'basic.caption', null);
     const epigrafe = get(mediaData, 'headlines.basic', caption);
-
     const data = {
         '@context': 'https://schema.org',
         '@type': 'VideoObject',
-        name: `${tituloNota || 'LA NACION - Noticia'}`,
+        name: notaTitle || 'LA NACION - Noticia',
         description: `${epigrafe || primerParrafo}`,
         thumbnailUrl: [`${promoItems.basic.url}`],
         uploadDate: `${createdDate.replace(/T/g, ' ').replace(/Z/g, '') || ''}`,
@@ -49,9 +49,7 @@ videoPlayerSnippet.propTypes = {
         url: PropTypes.string
     }).isRequired,
     tituloNota: PropTypes.string.isRequired,
-    parrafo: PropTypes.shape({
-        content: PropTypes.string
-    }).isRequired
+    parrafo: PropTypes.string.isRequired
 };
 
 export default videoPlayerSnippet;

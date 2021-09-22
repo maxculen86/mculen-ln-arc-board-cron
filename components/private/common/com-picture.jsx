@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 
 import '../../../resources/dist/css/ln/modules/mod-picture.css';
 
@@ -20,14 +20,15 @@ const ComPicture = props => {
 };
 
 ComPicture.propTypes = {
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node,
     href: PropTypes.string,
     classCondition: PropTypes.string,
-    amp: PropTypes.boolean,
+    amp: PropTypes.bool,
     video: PropTypes.string
 };
 
 ComPicture.defaultProps = {
+    children: undefined,
     href: '',
     classCondition: '',
     amp: false,

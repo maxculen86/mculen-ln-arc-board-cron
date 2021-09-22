@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
 import PropTypes from 'prop-types';
+import { getViewport } from '../../../common/utils/homeHelper';
 
 import ModArticle from '../../../../common/mod-article';
 import get from '../../../../common/utils/get';
@@ -24,7 +24,9 @@ const NoteCard = ({
     index,
     boxPosition,
     layout,
-    isInHomeAperturaOrBomba
+    isInHomeAperturaOrBomba,
+    videoBackground,
+    isPowa
 }) => {
     const [article, setArticle] = useState(
         transform(content, customFields, promoItems)
@@ -41,6 +43,7 @@ const NoteCard = ({
     const [isRenderAutor, setIsRenderAutor] = useState(
         getIsRenderAutor(customFields, layout)
     );
+    const { device } = getViewport();
 
     useEffect(() => {
         setWithMedia(getWithMedia(customFields, articleProps, article));
@@ -95,6 +98,9 @@ const NoteCard = ({
                 }
                 boxPosition={boxPosition}
                 artPosition={`0${Number(index) + 1}`.slice(-2)}
+                videoBackground={videoBackground}
+                isPowa={isPowa}
+                device={device}
             />
         )) || <></>
     );

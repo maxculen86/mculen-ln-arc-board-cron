@@ -28,7 +28,8 @@ const Editoriales = props => {
     });
     const extraOpts = {};
     return (
-        <section className="mod-footersection">
+        // <section className="mod-footersection">
+        <>
             {
                 <ComTitle
                     content={title}
@@ -67,7 +68,8 @@ const Editoriales = props => {
                     {/* </ul> */}
                 </>
             )) || <></>}
-        </section>
+        </>
+        // </section>
     );
 };
 

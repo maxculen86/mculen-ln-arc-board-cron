@@ -26,7 +26,8 @@ const media = ({
     html,
     titleText,
     scriptForZoom,
-    autoplay
+    autoplay,
+    isPowa
 }) => {
     const refContainer = useRef();
     const [zoom, setZoom] = useState(false);
@@ -94,6 +95,8 @@ const media = ({
                             parrafo={parrafo}
                             tituloNota={tituloNota}
                             autoplay={autoplay}
+                            isPowa={isPowa}
+                            href={href}
                         />
                         {children}
                     </figure>
@@ -155,7 +158,8 @@ media.propTypes = {
     html: PropTypes.string,
     titleText: PropTypes.string,
     scriptForZoom: PropTypes.node,
-    autoplay: PropTypes.bool
+    autoplay: PropTypes.bool,
+    isPowa: PropTypes.bool
 };
 
 media.defaultProps = {
@@ -172,6 +176,7 @@ media.defaultProps = {
     parrafo: undefined,
     active: undefined,
     children: undefined,
+    isPowa: true,
     handleClick: () => {}
 };
 

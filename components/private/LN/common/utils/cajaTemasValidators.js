@@ -14,7 +14,12 @@ export const validateFeature = (idCollection, articles, layout) => {
     return message && { type: 'warning', message };
 };
 
-export const validateChainManual = (childrenProps, layout, isInApertura) => {
+export const validateChainManual = (
+    childrenProps,
+    layout,
+    isInApertura,
+    isVideoBackground
+) => {
     const minimun = (layout && Number(layout.slice(-1))) || 3;
 
     const invalidFeature = childrenProps.some(
@@ -25,10 +30,14 @@ export const validateChainManual = (childrenProps, layout, isInApertura) => {
             )
     );
 
+    const invalidVideoBackground = isVideoBackground && layout !== 'grilla1';
+
     const message =
         (!layout && 'Se requiere que seleccione una diagramación') ||
         (invalidFeature &&
             'El Chain Caja Manual sólo admite Features del tipo LN Artículo') ||
+        (invalidVideoBackground &&
+            'Con vídeo background solo se permite la diagramación Grilla 1') ||
         (get(childrenProps, 'length') < minimun &&
             `Se requiere la carga de ${minimun -
                 get(childrenProps, 'length')} artículo${

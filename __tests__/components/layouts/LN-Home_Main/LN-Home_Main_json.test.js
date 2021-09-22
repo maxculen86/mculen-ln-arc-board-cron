@@ -26,25 +26,26 @@ describe('components - layouts - LN-Home_Main - json', () => {
         [], //2 Bomba',
         [], //3 Apertura',
         [], //4 Apertura',
-        [], //5 Anexo',
-        [], //6 Tema1',
-        [], //7 Tema2',
-        [], //8 Tema3',
-        [], //9 Anexo',
-        [], //10 Opinion',
-        [], //11 Tema4',
-        [], //12 Tema5',
-        [], //13 Tema6',
-        [], //14 Comercial',
-        [], //15 Tema7',
-        [], //16 Comercial',
-        [], //17 Tema8',
-        [], //18 Tema9',
-        [], //19 Tema10',
-        [], //20 Tema11',
-        [], //21 Tema12',
-        [], //22 Tema13',
-        [] //23 Tema14'
+        [], //5 Multimedia',
+        [], //6 Anexo
+        [], //7 Tema1',
+        [], //8 Tema2',
+        [], //9 Tema3',
+        [], //10 Anexo',
+        [], //11 Opinion',
+        [], //12 Tema4',
+        [], //13 Tema5',
+        [], //14 Tema6',
+        [], //15 Comercial',
+        [], //16 Tema7',
+        [], //17 Comercial',
+        [], //18 Tema8',
+        [], //19 Tema9',
+        [], //20 Tema10',
+        [], //21 Tema11',
+        [], //22 Tema12',
+        [], //23 Tema13',
+        [] //24 Tema14'
     ];
 
     props.renderables = [];
@@ -182,6 +183,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
             expect(homeSections[0].feature).toBe('Apertura');
         });
     });
+
     describe('Test Section Apertura_2', () => {
         test('Ok', () => {
             const childrenTmp = children;
@@ -233,10 +235,52 @@ describe('components - layouts - LN-Home_Main - json', () => {
         });
     });
 
+    describe('Test Section Multimedia', () => {
+        test('Ok', () => {
+            const childrenTmp = children;
+            childrenTmp[5] = [
+                {
+                    information: {
+                        layout: 'grilla1',
+                        initialPosition: 1,
+                        hideTitle: false,
+                        title: 'Multimedia',
+                        containerImage: undefined
+                    },
+                    articles: []
+                }
+            ];
+            props.children = childrenTmp;
+            props.renderables = [
+                {
+                    collection: 'sections',
+                    props: {
+                        collection: 'sections',
+                        id: 5
+                    },
+                    children: [
+                        {
+                            collection: 'chains',
+                            type: 'Ln_Caja_Manual',
+                            props: {},
+                            children: []
+                        }
+                    ]
+                },
+                {}
+            ];
+            const homeSections = LayoutLNMainHome.default(props);
+            console.log(homeSections);
+
+            expect(homeSections[2].feature).toBe('Multimedia');
+            expect(homeSections[2].information.layout).toBe('grilla1');
+        });
+    });
+
     describe('Test Section Opinion', () => {
         test('Ok', () => {
             const childrenTmp = children;
-            childrenTmp[10] = [
+            childrenTmp[11] = [
                 {
                     id: 406,
                     type: 1,
@@ -278,7 +322,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     collection: 'sections',
                     props: {
                         collection: 'sections',
-                        id: 10
+                        id: 11
                     },
                     children: [
                         {
@@ -374,7 +418,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
     describe('Test Section Comercial', () => {
         test('OK', () => {
             const childrenTmp = children;
-            childrenTmp[14] = [
+            childrenTmp[15] = [
                 {
                     information: {
                         layout: 'grilla3',
@@ -394,7 +438,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     collection: 'sections',
                     props: {
                         collection: 'sections',
-                        id: 14
+                        id: 15
                     },
                     children: [
                         {
@@ -424,7 +468,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
     describe('Test Section Tema', () => {
         test('Ok', () => {
             const childrenTmp = children;
-            childrenTmp[6] = [
+            childrenTmp[7] = [
                 {
                     information: {
                         layout: 'focalLeft3',
@@ -442,7 +486,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     collection: 'sections',
                     props: {
                         collection: 'sections',
-                        id: 6
+                        id: 7
                     },
                     children: [
                         {

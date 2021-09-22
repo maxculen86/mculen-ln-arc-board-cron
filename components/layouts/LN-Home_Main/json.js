@@ -22,6 +22,7 @@ const homeMobileSections = [
     'Bomba',
     'Apertura',
     'Apertura',
+    'Multimedia',
     'Anexo',
     'Tema1',
     'Tema2',

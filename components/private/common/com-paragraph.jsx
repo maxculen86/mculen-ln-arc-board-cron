@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import '../../../resources/dist/css/ln/components/com-paragraph.css';
 
 const ComParagraph = props => {
@@ -7,8 +7,7 @@ const ComParagraph = props => {
     return (
         <>
             <p
-                className={`com-paragraph ${classCondition || ''} ${capital ||
-                    ''} ${size || ''}`}
+                className={`com-paragraph ${classCondition} ${capital} ${size}`}
                 dangerouslySetInnerHTML={{
                     __html: content
                 }}
@@ -18,9 +17,15 @@ const ComParagraph = props => {
 };
 
 ComParagraph.propTypes = {
-    size: PropTypes.string.isRequired,
-    capital: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired
+    size: PropTypes.string,
+    capital: PropTypes.string,
+    content: PropTypes.string.isRequired,
+    classCondition: PropTypes.string
+};
+ComParagraph.defaultProps = {
+    capital: '',
+    size: '',
+    classCondition: ''
 };
 
 export default ComParagraph;

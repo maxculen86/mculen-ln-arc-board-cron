@@ -826,6 +826,16 @@ $rank-dsk: px(400);
             .com-lead {
                 color: $neutral-white;
             }
+            .mod-marquee {
+                color: $dark-neutral-800;
+            }
+        }
+        &.--video {
+            .mod-media {
+                .mod-video {
+                    display: none;
+                }
+            }
         }
     }
 
@@ -936,16 +946,16 @@ $rank-dsk: px(400);
                 }
             }
             .mod-description {
-                max-height: calc(100% - 32px);
+                max-height: calc(100% - 68px);
                 //overflow: hidden;
                 display: inline-flex;
                 flex-direction: column;
 
-                width: 46%;
+                width: 36%;
                 margin: 0;
-                padding: px(16);
-                left: px(16);
-                bottom: px(16);
+                padding: px(32);
+                left: px(32);
+                bottom: px(32);
                 position: absolute;
                 background: $neutral-white;
                 z-index: 3;
@@ -963,6 +973,24 @@ $rank-dsk: px(400);
                 }
                 .com-lead {
                     color: $light-blue-500;
+                }
+                .mod-marquee {
+                    color: $dark-neutral-200;
+                }
+            }
+        }
+    }
+
+    @media ($media-m) {
+        &.--cinema {
+            &.--video {
+                .mod-media {
+                    .mod-video {
+                        display: block;
+                    }
+                    .com-image {
+                        display: none;
+                    }
                 }
             }
         }
