@@ -28,14 +28,27 @@ const transformArticles = (liftigniterArticles = [], cantidadNotas) =>
         )
         .slice(0, cantidadNotas)
         .map(elem => {
-            const { url, id, title, image } = elem;
+            const {
+                url,
+                id,
+                title,
+                titleShort = '',
+                leadText = '',
+                image
+            } = elem;
             return {
                 subtype: 1,
                 by: {},
                 website_url: url,
                 _id: id,
                 headlines: {
-                    basic: title
+                    basic: title,
+                    mobile: titleShort
+                },
+                label: {
+                    volanta: {
+                        text: leadText
+                    }
                 },
                 promo_items: {
                     basic: {
@@ -158,7 +171,6 @@ const fetch = query => {
 
     return resolveData(query);
 };
-
 const duplicateMaxCount = cantidadNotas => cantidadNotas * 2;
 
 const resolveData = query => {
@@ -259,6 +271,8 @@ const resolveData = query => {
                 requestFields: [
                     'url',
                     'title',
+                    'titleShort',
+                    'leadText',
                     'image',
                     'id',
                     'published_time'

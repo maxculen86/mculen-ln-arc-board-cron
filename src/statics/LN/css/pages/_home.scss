@@ -84,6 +84,14 @@
             border: none;
             padding: 0;
             margin-bottom: px(8);
+
+            @media ($media-lm) {
+                //solo para Acu Columnistas
+                .columnistas & {
+                    width: px(96);
+                    height: px(96);
+                }
+            }
         }
         .mod-description {
             height: 100%;
