@@ -3,3 +3,14 @@
 #queryly_advanced_container#queryly_advanced_container {
     width: 100%;
 }
+
+.buscador {
+    main {
+        .lay {
+            min-height: 100vh;
+            @media ($media-l) {
+                min-height: 1800px;
+            }
+        }
+    }
+}

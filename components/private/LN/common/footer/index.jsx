@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import Logo from '../../../common/com-logo';
 import Icon from '../../../common/icon';
 import Text from '../../../common/text';
 import Image from '../../../common/com-image';
 import List from '../../../common/mod-list';
 import Copyright from './copyright';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
+import Logo from '../../../common/com-logo';
+//import LogoLN from '../../../common/logos/logoLN';
 
 import '../../../../../resources/dist/css/ln/modules/mod-footer.css';
 
@@ -262,6 +263,7 @@ const Index = ({
                                 target="_top"
                                 title="Ir a la página principal"
                             />
+                            {/* <LogoLN /> */}
                         </div>
                         <div className="col-desksm-4 --right">
                             <Image
