@@ -184,6 +184,10 @@ const labels = `
             text
             display
         }
+        showcase{
+            text
+            display
+        }
     }
 `;
 const customReceta = `
@@ -281,7 +285,7 @@ export default `
             type
             ${video}
             embed_html
-            content            
+            content
         }
     }
     credits {
@@ -419,5 +423,6 @@ export default `
     content_restrictions {
         content_code
     }
-    subscription
+    subscription,
+    paywallEnabled
 }`;

@@ -29,7 +29,7 @@ export default {
         service: 'lanacion-arc',
         env: 'dev',
         trackInteractions: true,
-        trackSessionAcrossSubdomains: true
+        trackSessionAcrossSubdomains: false
     },
     ARC_STATIC: 'https://dev.lanacionar.arcpublishing.com/'
 };
