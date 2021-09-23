@@ -30,7 +30,8 @@ export const BANNERS_DESKTOP = [
     'middle_teads_dsk',
     'caja1_amp',
     'caja2_amp',
-    'caja3_amp'
+    'caja3_amp',
+    'caja4_amp'
 ];
 
 export const BANNERS_MOBILE = [
@@ -47,7 +48,8 @@ export const BANNERS_MOBILE = [
     'inread_mob',
     'caja1_amp',
     'caja2_amp',
-    'caja3_amp'
+    'caja3_amp',
+    'caja4_amp'
 ];
 
 export const BANNERS_TABLET = [
@@ -63,7 +65,8 @@ export const BANNERS_TABLET = [
     'middle_teads_tab',
     'caja1_amp',
     'caja2_amp',
-    'caja3_amp'
+    'caja3_amp',
+    'caja4_amp'
 ];
 
 export const isForAmp = (desktop = '', mobile = '', tablet = '') => {
