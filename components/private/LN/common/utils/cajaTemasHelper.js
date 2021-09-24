@@ -246,7 +246,7 @@ export const getChildrenFromBombaHome = renderables => {
 };
 
 export const getChildrenFromMultimediaHome = renderables => {
-    return getChildrenFromSectionHome(renderables, 'Multimedia', 6);
+    return getChildrenFromSectionHome(renderables, 'Multimedia', 5);
 };
 
 export const isInApertura = (tree = {}, idFeature) => {

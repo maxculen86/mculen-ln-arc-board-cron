@@ -66,8 +66,16 @@ const CajaManual = props => {
         );
     });
 
-    const isVideoBackground = containsCustomField('video', multimediaChildren);
-    const containsHTML = containsCustomField('html', multimediaChildren);
+    const isVideoBackground = multimediaChildren.some(
+        el =>
+            el.children &&
+            el.children.some(art =>
+                get(art, 'props.customFields.video', false)
+            ) &&
+            multimediaChildren.some(
+                cm => get(cm, 'props.id', undefined) === featureId
+            )
+    );
 
     const error = validateChainManual(
         childProps,
