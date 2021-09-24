@@ -81,8 +81,7 @@ const CajaManual = props => {
         childProps,
         layout,
         isInApertura,
-        isVideoBackground,
-        containsHTML
+        isVideoBackground
     );
 
     if (isAdmin && error) {
