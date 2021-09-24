@@ -232,6 +232,7 @@ const Index = ({
                             <Icon
                                 name="twitter-filled"
                                 href="https://twitter.com/LANACION"
+                                target="_blank"
                                 rel
                                 title="Seguirnos en Twitter"
                             />
@@ -244,7 +245,6 @@ const Index = ({
                             />
                             <Icon
                                 name="rss"
-                                // href="https://servicios.lanacion.com.ar/herramientas/rss/ayuda"
                                 href="https://www.lanacion.com.ar/arc/outboundfeeds/rss/?outputType=xml"
                                 target="_blank"
                                 rel
