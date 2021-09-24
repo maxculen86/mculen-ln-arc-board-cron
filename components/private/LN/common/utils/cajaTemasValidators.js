@@ -24,17 +24,6 @@ export const validateChainManual = (
     const minimun = (layout && Number(layout.slice(-1))) || 3;
     const childrenPropsLength = get(childrenProps, 'length');
 
-    // const invalidFeature = childrenProps.some(
-    //     children =>
-    //         !(
-    //             children.collection === 'features' &&
-    //             children.type === 'LN-common/articulo'
-    //         )
-    // );
-
-    // const invalidVideoBackground =
-    //     isVideoBackground && !['grilla1', 'grillaVideo1'].includes(layout);
-
     const rules = [
         {
             validation: !layout,
@@ -74,25 +63,6 @@ export const validateChainManual = (
             message: 'Esta diagramación no permite iframe HTML'
         }
     ];
-
-    // const message =
-    //     (!layout && 'Se requiere que seleccione una diagramación') ||
-    //     (invalidFeature &&
-    //         'El Chain Caja Manual sólo admite Features del tipo LN Artículo') ||
-    //     (invalidVideoBackground &&
-    //         'Con vídeo background solo se permite la diagramación Grilla 1 o Grilla 1 - Video') ||
-    //     (get(childrenProps, 'length') < minimun &&
-    //         `Se requiere la carga de ${minimun -
-    //             get(childrenProps, 'length')} artículo${
-    //             minimun - get(childrenProps, 'length') > 1 ? 's' : ''
-    //         }`) ||
-    //     ((layout === 'grilla6' || layout === 'grilla9') &&
-    //         isInApertura &&
-    //         'No se permite esta diagramación') ||
-    //     (containsHTML &&
-    //         layout !== 'grillaVideo1' &&
-    //         'Esta diagramación no permite iframe HTML') ||
-    //     null;
 
     const message = get(
         rules.find(x => x.validation),

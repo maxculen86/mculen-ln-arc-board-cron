@@ -228,7 +228,7 @@ export const getChildrenFromSectionHome = (
     const INDEX_SECTION =
         get(sectionsValidation, `${sectionName}.position`, sectionPosition) + 1;
 
-    return get(renderables, `[${INDEX_SECTION}].children`, []);
+    return get(renderables, `[${INDEX_SECTION}].children`, []) || [];
 };
 
 export const getChildrenFromAperturaHome = renderables => {
@@ -239,14 +239,6 @@ export const getChildrenFromAperturaHome = renderables => {
     ).concat(getChildrenFromSectionHome(renderables, 'Apertura_2', 4));
 
     return aperturasChildren;
-};
-
-export const getChildrenFromBombaHome = renderables => {
-    return getChildrenFromSectionHome(renderables, 'Bomba', 2);
-};
-
-export const getChildrenFromMultimediaHome = renderables => {
-    return getChildrenFromSectionHome(renderables, 'Multimedia', 6);
 };
 
 export const isInApertura = (tree = {}, idFeature) => {
