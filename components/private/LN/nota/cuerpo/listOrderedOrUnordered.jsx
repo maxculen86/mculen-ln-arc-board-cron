@@ -9,9 +9,11 @@ const ListOrderedOrUnordered = ({ data }) => {
 
     const setExternalLinks = text => {
         const regex = /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g;
-        return text.replace(regex, match => {
+        const classRegex = /(?:class|className)=(?:["']\W+\s*(?:\w+)\()?["']([^'"]+)['"]/;
+        const filteredText = text.replace(classRegex, `class="com-link"`);
+        return filteredText.replace(regex, match => {
             return match.replace(/href=(["'\\])+(.*?)\1/, match => {
-                return match + ` class="com-link"`;
+                return match;
             });
         });
     };

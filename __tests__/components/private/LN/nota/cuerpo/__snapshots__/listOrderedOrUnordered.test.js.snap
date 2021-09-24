@@ -7,12 +7,24 @@ exports[`features - LaNacion - Nota - unordered Test de snapshot ListOrderedOrUn
   <li
     class="com-item"
   >
-    hola
+    hola 
+    <a
+      class="com-link"
+      href="https://www.lanacion.com.ar/politica/alberto-fernandez-vicentin-nid2376255"
+    >
+      intervenir una compañía
+    </a>
   </li>
   <li
     class="com-item"
   >
-    chau
+    chau 
+    <a
+      class="com-link"
+      href="https://www.lanacion.com.ar/politica/alberto-fernandez-vicentin-nid2376255"
+    >
+      intervenir una compañía
+    </a>
   </li>
 </ul>
 `;
