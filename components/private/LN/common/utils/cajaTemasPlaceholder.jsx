@@ -31,22 +31,9 @@ export const placeholderArticles = {
                     </section>
                 </div>
                 <section className="mod-description">
-                    <h1
-                        className="com-title --threexl"
-                        style={{ display: 'block' }}
-                    >
-                        <SkeletonSpan
-                            extraClass="--title --line1"
-                            style={{ width: '1230px' }}
-                        />
-                        <SkeletonSpan
-                            extraClass="--title --line2"
-                            style={{ width: '1230px' }}
-                        />
-                        <SkeletonSpan
-                            extraClass="--title --line3"
-                            style={{ width: '1230px' }}
-                        />
+                    <h1 className="com-title --threexl">
+                        <SkeletonSpan extraClass="--line1" />
+                        <SkeletonSpan extraClass="--line2" />
                     </h1>
                 </section>
             </article>
@@ -65,15 +52,17 @@ export const placeholderArticles = {
                     </div>
                     <section className="mod-description">
                         <h1 className="com-title --xl">
-                            <SkeletonSpan style={{ width: '550px' }} />
+                            <SkeletonSpan extraClass="--line1" />
+                            <SkeletonSpan extraClass="--line2" />
+                            <SkeletonSpan extraClass="--line3" />
                         </h1>
                         <h2 className=" com-subhead --twoxs">
-                            <SkeletonSpan style={{ width: '480px' }} />
-                            <SkeletonSpan style={{ width: '248px' }} />
+                            <SkeletonSpan extraClass="--line1" />
+                            <SkeletonSpan extraClass="--line2" />
                         </h2>
                         <div>
-                            <strong className=" mod-marquee --fourxs">
-                                <SkeletonSpan style={{ width: '280px' }} />
+                            <strong className="mod-marquee --fourxs">
+                                <SkeletonSpan extraClass="--line1" />
                             </strong>
                         </div>
                     </section>
@@ -88,11 +77,13 @@ export const placeholderArticles = {
                     </div>
                     <section className="mod-description">
                         <h2 className="com-title --xs">
-                            <SkeletonSpan style={{ width: '278px' }} />
+                            <SkeletonSpan extraClass="--line1" />
+                            <SkeletonSpan extraClass="--line2" />
+                            <SkeletonSpan extraClass="--line3" />
                         </h2>
                         <div>
-                            <strong className=" mod-marquee --fourxs">
-                                <SkeletonSpan style={{ width: '280px' }} />
+                            <strong className="mod-marquee --fourxs">
+                                <SkeletonSpan extraClass="--line1" />
                             </strong>
                         </div>
                     </section>
@@ -107,11 +98,13 @@ export const placeholderArticles = {
                     </div>
                     <section className="mod-description">
                         <h2 className="com-title --xs">
-                            <SkeletonSpan style={{ width: '278px' }} />
+                            <SkeletonSpan extraClass="--line1" />
+                            <SkeletonSpan extraClass="--line2" />
+                            <SkeletonSpan extraClass="--line3" />
                         </h2>
                         <div>
-                            <strong className=" mod-marquee --fourxs">
-                                <SkeletonSpan style={{ width: '280px' }} />
+                            <strong className="mod-marquee --fourxs">
+                                <SkeletonSpan extraClass="--line1" />
                             </strong>
                         </div>
                     </section>
@@ -128,15 +121,16 @@ export const placeholderArticles = {
                     </div>
                     <section className="mod-description">
                         <h1 className="com-title --xl">
-                            <SkeletonSpan style={{ width: '550px' }} />
+                            <SkeletonSpan extraClass="--line1" />
+                            <SkeletonSpan extraClass="--line2" />
                         </h1>
-                        <h2 className=" com-subhead --twoxs">
-                            <SkeletonSpan style={{ width: '480px' }} />
-                            <SkeletonSpan style={{ width: '345px' }} />
+                        <h2 className="com-subhead --twoxs">
+                            <SkeletonSpan extraClass="--line1" />
+                            <SkeletonSpan extraClass="--line2" />
                         </h2>
                         <div>
-                            <strong className=" mod-marquee --fourxs">
-                                <SkeletonSpan style={{ width: '280px' }} />
+                            <strong className="mod-marquee --fourxs">
+                                <SkeletonSpan extraClass="--line1" />
                             </strong>
                         </div>
                     </section>
@@ -150,33 +144,20 @@ export const placeholderArticles = {
                         </section>
                     </div>
                     <section className="mod-description">
-                        <h2
-                            className="com-title --xl"
-                            style={{
-                                flexDirection: 'column'
-                            }}
-                        >
-                            <SkeletonSpan
-                                style={{ width: '278px', marginBottom: '6px' }}
-                            />
-                            <SkeletonSpan
-                                style={{ width: '268px', marginBottom: '6px' }}
-                            />
-                            <SkeletonSpan
-                                style={{ width: '125px', marginBottom: '6px' }}
-                            />
+                        <h2 className="com-title --xl">
+                            <SkeletonSpan extraClass="--line1" />
+                            <SkeletonSpan extraClass="--line2" />
+                            <SkeletonSpan extraClass="--line3" />
                         </h2>
                         <h3 className="com-subhead --twoxs">
-                            {new Array(5).fill().map(e => (
-                                <>
-                                    <SkeletonSpan style={{ width: '278px' }} />
-                                    <SkeletonSpan style={{ width: '248px' }} />
-                                </>
-                            ))}
+                            <SkeletonSpan extraClass="--line1" />
+                            <SkeletonSpan extraClass="--line2" />
+                            <SkeletonSpan extraClass="--line3" />
+                            <SkeletonSpan extraClass="--line4" />
                         </h3>
                         <div>
-                            <strong className=" mod-marquee --fourxs">
-                                <SkeletonSpan style={{ width: '280px' }} />
+                            <strong className="mod-marquee --fourxs">
+                                <SkeletonSpan extraClass="--line1" />
                             </strong>
                         </div>
                     </section>
@@ -197,11 +178,13 @@ export const placeholderArticles = {
                 </div>
                 <section className="mod-description">
                     <h1 className="com-title --xs">
-                        <SkeletonSpan style={{ width: '200px' }} />
+                        <SkeletonSpan extraClass="--line1" />
+                        <SkeletonSpan extraClass="--line2" />
+                        <SkeletonSpan extraClass="--line3" />
                     </h1>
                     <div>
-                        <strong className=" mod-marquee --fourxs">
-                            <SkeletonSpan style={{ width: '280px' }} />
+                        <strong className="mod-marquee --fourxs">
+                            <SkeletonSpan extraClass="--line1" />
                         </strong>
                     </div>
                 </section>
@@ -222,18 +205,14 @@ export const placeholderArticles = {
                         </section>
                     </div>
                     <section className="mod-description">
-                        <h2
-                            className="com-title --l"
-                            style={{
-                                display: 'block'
-                            }}
-                        >
-                            <SkeletonSpan style={{ width: '405px' }} />
-                            <SkeletonSpan style={{ width: '445px' }} />
+                        <h2 className="com-title --l">
+                            <SkeletonSpan extraClass="--line1" />
+                            <SkeletonSpan extraClass="--line2" />
+                            <SkeletonSpan extraClass="--line3" />
                         </h2>
                         <div>
-                            <strong className=" mod-marquee --fourxs">
-                                <SkeletonSpan style={{ width: '205px' }} />
+                            <strong className="mod-marquee --fourxs">
+                                <SkeletonSpan extraClass="--line1" />
                             </strong>
                         </div>
                     </section>
@@ -249,18 +228,14 @@ export const placeholderArticles = {
                         </section>
                     </div>
                     <section className="mod-description">
-                        <h2
-                            className="com-title --l"
-                            style={{
-                                display: 'block'
-                            }}
-                        >
-                            <SkeletonSpan style={{ width: '445px' }} />
-                            <SkeletonSpan style={{ width: '405px' }} />
+                        <h2 className="com-title --l">
+                            <SkeletonSpan extraClass="--line1" />
+                            <SkeletonSpan extraClass="--line2" />
+                            <SkeletonSpan extraClass="--line3" />
                         </h2>
                         <div>
-                            <strong className=" mod-marquee --fourxs">
-                                <SkeletonSpan style={{ width: '205px' }} />
+                            <strong className="mod-marquee --fourxs">
+                                <SkeletonSpan extraClass="--line1" />
                             </strong>
                         </div>
                     </section>
@@ -276,18 +251,14 @@ export const placeholderArticles = {
                         </section>
                     </div>
                     <section className="mod-description">
-                        <h2
-                            className="com-title --xs"
-                            style={{
-                                display: 'block'
-                            }}
-                        >
-                            <SkeletonSpan style={{ width: '280px' }} />
-                            <SkeletonSpan style={{ width: '265px' }} />
+                        <h2 className="com-title --xs">
+                            <SkeletonSpan extraClass="--line1" />
+                            <SkeletonSpan extraClass="--line2" />
+                            <SkeletonSpan extraClass="--line3" />
                         </h2>
                         <div>
-                            <strong className=" mod-marquee --fourxs">
-                                <SkeletonSpan style={{ width: '205px' }} />
+                            <strong className="mod-marquee --fourxs">
+                                <SkeletonSpan extraClass="--line1" />
                             </strong>
                         </div>
                     </section>
@@ -301,26 +272,20 @@ export const placeholderArticles = {
             <article className="mod-article --author">
                 <div className="content-media">
                     <section className="mod-media">
-                        <a href="#">
+                        <a href="javascript:void(0);">
                             <picture className="mod-picture " />
                         </a>
                     </section>
                 </div>
                 <section className="mod-description">
-                    <h2
-                        className="com-title --m"
-                        style={{
-                            justifyContent: 'center',
-                            display: 'block'
-                        }}
-                    >
-                        <SkeletonSpan style={{ width: '205px' }} />
-                        <SkeletonSpan style={{ width: '245px' }} />
-                        <SkeletonSpan style={{ width: '225px' }} />
+                    <h2 className="com-title --m">
+                        <SkeletonSpan extraClass="--line1" />
+                        <SkeletonSpan extraClass="--line2" />
+                        <SkeletonSpan extraClass="--line3" />
                     </h2>
                     <div>
-                        <strong className=" mod-marquee --fourxs">
-                            <SkeletonSpan style={{ width: '280px' }} />
+                        <strong className="mod-marquee --fourxs">
+                            <SkeletonSpan extraClass="--line1" />
                         </strong>
                     </div>
                 </section>
@@ -335,14 +300,14 @@ export const placeholderArticles = {
                 </section>
             </div>
             <section className="mod-description">
-                <h2 className="com-title --l" style={{ display: 'block' }}>
-                    <SkeletonSpan style={{ width: '375px' }} />
-                    <SkeletonSpan style={{ width: '355px' }} />
-                    <SkeletonSpan style={{ width: '325px' }} />
+                <h2 className="com-title --l">
+                    <SkeletonSpan extraClass="--line1" />
+                    <SkeletonSpan extraClass="--line2" />
+                    <SkeletonSpan extraClass="--line3" />
                 </h2>
                 <div>
-                    <strong className=" mod-marquee --fourxs">
-                        <SkeletonSpan style={{ width: '115px' }} />
+                    <strong className="mod-marquee --fourxs">
+                        <SkeletonSpan extraClass="--line1" />
                     </strong>
                 </div>
             </section>
@@ -351,20 +316,21 @@ export const placeholderArticles = {
             <div className="content-media">
                 <section className="mod-media">
                     <figure className="mod-figure --horizontal">
-                        <a href="#">
+                        <a href="javascript:void(0);">
                             <picture className="mod-picture" />
                         </a>
                     </figure>
                 </section>
             </div>
             <section className="mod-description">
-                <h2 className="com-title --xs" style={{ display: 'block' }}>
-                    <SkeletonSpan style={{ width: '248px' }} />
-                    <SkeletonSpan style={{ width: '238px' }} />
+                <h2 className="com-title --xs">
+                    <SkeletonSpan extraClass="--line1" />
+                    <SkeletonSpan extraClass="--line2" />
+                    <SkeletonSpan extraClass="--line3" />
                 </h2>
                 <div>
-                    <strong className=" mod-marquee --fourxs">
-                        <SkeletonSpan style={{ width: '115px' }} />
+                    <strong className="mod-marquee --fourxs">
+                        <SkeletonSpan extraClass="--line1" />
                     </strong>
                 </div>
             </section>
@@ -373,21 +339,21 @@ export const placeholderArticles = {
             <div className="content-media">
                 <section className="mod-media">
                     <figure className="mod-figure --horizontal">
-                        <a href="#">
+                        <a href="javascript:void(0);">
                             <picture className="mod-picture" />
                         </a>
                     </figure>
                 </section>
             </div>
             <section className="mod-description">
-                <h2 className="com-title --xs" style={{ display: 'block' }}>
-                    <SkeletonSpan style={{ width: '248px' }} />
-                    <SkeletonSpan style={{ width: '238px' }} />
-                    <SkeletonSpan style={{ width: '248px' }} />
+                <h2 className="com-title --xs">
+                    <SkeletonSpan extraClass="--line1" />
+                    <SkeletonSpan extraClass="--line2" />
+                    <SkeletonSpan extraClass="--line3" />
                 </h2>
                 <div>
-                    <strong className=" mod-marquee --fourxs">
-                        <SkeletonSpan style={{ width: '115px' }} />
+                    <strong className="mod-marquee --fourxs">
+                        <SkeletonSpan extraClass="--line1" />
                     </strong>
                 </div>
             </section>
@@ -396,23 +362,22 @@ export const placeholderArticles = {
             <div className="content-media">
                 <section className="mod-media">
                     <figure className="mod-figure --horizontal">
-                        <a href="#">
+                        <a href="javascript:void(0);">
                             <picture className="mod-picture" />
                         </a>
                     </figure>
                 </section>
             </div>
             <section className="mod-description">
-                <h2 className="com-title --l" style={{ display: 'block' }}>
-                    <SkeletonSpan style={{ width: '196px' }} />
-                    <SkeletonSpan style={{ width: '115px' }} />
-                    <SkeletonSpan style={{ width: '170px' }} />
-                    <SkeletonSpan style={{ width: '130px' }} />
-                    <SkeletonSpan style={{ width: '176px' }} />
+                <h2 className="com-title --l">
+                    <SkeletonSpan extraClass="--line1" />
+                    <SkeletonSpan extraClass="--line2" />
+                    <SkeletonSpan extraClass="--line3" />
+                    <SkeletonSpan extraClass="--line3" />
                 </h2>
                 <div>
-                    <strong className=" mod-marquee --fourxs">
-                        <SkeletonSpan style={{ width: '115px' }} />
+                    <strong className="mod-marquee --fourxs">
+                        <SkeletonSpan extraClass="--line1" />
                     </strong>
                 </div>
             </section>
@@ -420,10 +385,10 @@ export const placeholderArticles = {
     ],
     Editoriales: layout =>
         new Array(2).fill().map(e => (
-            <article className="mod-article" style={{ marginLeft: '5px' }}>
+            <article className="mod-article">
                 <div className="mod-description">
                     <h2 className="com-title --twoxs">
-                        <SkeletonSpan style={{ width: '205px' }} />
+                        <SkeletonSpan />
                     </h2>
                 </div>
             </article>
@@ -437,14 +402,10 @@ export const placeholderLayouts = {
             focalLeft3: (
                 <div>
                     <section className="box-articles --focal --left">
-                        <section className="mod-headersection ">
-                            <h4
-                                className="com-title --l --skeleton-box"
-                                style={{ width: '200px' }}
-                            >
-                                &nbsp;
+                        <section className="mod-headersection --line">
+                            <h4 className="com-title --l">
+                                <SkeletonSpan />
                             </h4>
-                            <div className="com-skeleton" />
                         </section>
                         <div className="row ">
                             <div className="col-tablet-8">{articles[0]}</div>
@@ -459,14 +420,10 @@ export const placeholderLayouts = {
             focalRight2: (
                 <div>
                     <section className="box-articles --focal --right">
-                        <section className="mod-headersection ">
-                            <h4
-                                className="com-title --l --skeleton-box"
-                                style={{ width: '200px' }}
-                            >
-                                &nbsp;
+                        <section className="mod-headersection --line">
+                            <h4 className="com-title --l">
+                                <SkeletonSpan />
                             </h4>
-                            <div className="com-skeleton" />
                         </section>
                         <div className="row ">
                             <div className="col-tablet-8">{articles[0]}</div>
@@ -490,14 +447,10 @@ export const placeholderLayouts = {
                         classes[layout]) ||
                         ''}`}
                 >
-                    <section className="mod-headersection ">
-                        <h4
-                            className="com-title --l --skeleton-box"
-                            style={{ width: '200px' }}
-                        >
-                            &nbsp;
+                    <section className="mod-headersection --line">
+                        <h4 className="com-title --l">
+                            <SkeletonSpan />
                         </h4>
-                        <div className="com-skeleton" />
                     </section>
                     <div className="row-gap-tablet-3 ">{articles}</div>
                 </section>
@@ -520,14 +473,10 @@ export const placeholderLayouts = {
                     className={`box-articles ${sectionClass[quantityNotes] ||
                         ''}`}
                 >
-                    <section className="mod-headersection ">
-                        <h4
-                            className="com-title --l --skeleton-box"
-                            style={{ width: '200px' }}
-                        >
-                            &nbsp;
+                    <section className="mod-headersection --line">
+                        <h4 className="com-title --l">
+                            <SkeletonSpan />
                         </h4>
-                        <div className="com-skeleton" />
                     </section>
                     <div
                         className={`${rowClass[quantityNotes] ||
@@ -542,14 +491,10 @@ export const placeholderLayouts = {
     Author: articles => (
         <div>
             <section className="box-articles">
-                <section className="mod-headersection ">
-                    <h4
-                        className="com-title --l --skeleton-box"
-                        style={{ width: '200px' }}
-                    >
-                        &nbsp;
+                <section className="mod-headersection --line">
+                    <h4 className="com-title --l">
+                        <SkeletonSpan />
                     </h4>
-                    <div className="com-skeleton" />
                 </section>
                 <div className="row-gap-tablet-3 ">{articles}</div>
             </section>
@@ -558,14 +503,10 @@ export const placeholderLayouts = {
     Opinion: articles => (
         <div>
             <section className="box-articles  --opinion">
-                <section className="mod-headersection ">
-                    <h4
-                        className="com-title --l --skeleton-box"
-                        style={{ width: '200px' }}
-                    >
-                        &nbsp;
+                <section className="mod-headersection --line">
+                    <h4 className="com-title --l">
+                        <SkeletonSpan />
                     </h4>
-                    <div className="com-skeleton" />
                 </section>
                 <div className="row">
                     <div className="col-tablet-5">{articles[0]}</div>
@@ -580,17 +521,12 @@ export const placeholderLayouts = {
     ),
     Editoriales: articles => (
         <div>
-            <section className="box-articles  --editoriales">
-                <div className="row">
-                    <section className="mod-footersection">
-                        <h2
-                            className="com-title --twoxs skeleton-box"
-                            style={{ width: '122px' }}
-                        >
-                            &nbsp;
-                        </h2>
-                        <div className="col-12">{articles}</div>
-                    </section>
+            <section className="box-articles --editoriales">
+                <div className="mod-footersection">
+                    <h4 className="com-title --twoxs">
+                        <SkeletonSpan />
+                    </h4>
+                    <div className="col-12">{articles}</div>
                 </div>
             </section>
         </div>

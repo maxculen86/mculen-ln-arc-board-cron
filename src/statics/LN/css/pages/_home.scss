@@ -1,20 +1,50 @@
 @import '../abstracts/variables';
 
 .skeleton-box {
-    display: inline-block;
+    display: block;
     position: relative;
     overflow: hidden;
     background-color: $light-neutral-200;
     border-radius: px(4);
+    margin-bottom: px(6);
+    width: 25%;
 
     &.--line1 {
-        width: 80%;
+        width: 96%;
+        .--com-subhead & {
+            width: 90%;
+        }
+        .mod-marquee & {
+            width: 60%;
+        }
     }
     &.--line2 {
-        width: 90%;
+        width: 86%;
+        .--com-subhead & {
+            width: 90%;
+        }
     }
     &.--line3 {
-        width: 83%;
+        width: 76%;
+    }
+    &.--line4 {
+        width: 80%;
+    }
+
+    .--author & {
+        margin-left: auto;
+        margin-right: auto;
+        .col-tablet-4 & {
+            margin-left: 0;
+        }
+    }
+
+    .mod-footersection & {
+        width: 100%;
+    }
+    .mod-footersection .com-title & {
+        width: px(300);
+        margin-right: px(8);
     }
 
     &::after {

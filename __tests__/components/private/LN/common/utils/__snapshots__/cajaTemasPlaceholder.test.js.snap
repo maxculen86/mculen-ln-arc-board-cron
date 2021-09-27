@@ -6,21 +6,13 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Author snap
     className="box-articles"
   >
     <section
-      className="mod-headersection "
+      className="mod-headersection --line"
     >
       <h4
-        className="com-title --l --skeleton-box"
-        style={
-          Object {
-            "width": "200px",
-          }
-        }
+        className="com-title --l"
       >
-         
+        <SkeletonSpan />
       </h4>
-      <div
-        className="com-skeleton"
-      />
     </section>
     <div
       className="row-gap-tablet-3 "
@@ -35,7 +27,7 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Author snap
             className="mod-media"
           >
             <a
-              href="#"
+              href="javascript:void(0);"
             >
               <picture
                 className="mod-picture "
@@ -48,45 +40,23 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Author snap
         >
           <h2
             className="com-title --m"
-            style={
-              Object {
-                "display": "block",
-                "justifyContent": "center",
-              }
-            }
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "205px",
-                }
-              }
+              extraClass="--line1"
             />
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "245px",
-                }
-              }
+              extraClass="--line2"
             />
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "225px",
-                }
-              }
+              extraClass="--line3"
             />
           </h2>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "280px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -102,7 +72,7 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Author snap
             className="mod-media"
           >
             <a
-              href="#"
+              href="javascript:void(0);"
             >
               <picture
                 className="mod-picture "
@@ -115,45 +85,23 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Author snap
         >
           <h2
             className="com-title --m"
-            style={
-              Object {
-                "display": "block",
-                "justifyContent": "center",
-              }
-            }
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "205px",
-                }
-              }
+              extraClass="--line1"
             />
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "245px",
-                }
-              }
+              extraClass="--line2"
             />
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "225px",
-                }
-              }
+              extraClass="--line3"
             />
           </h2>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "280px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -169,7 +117,7 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Author snap
             className="mod-media"
           >
             <a
-              href="#"
+              href="javascript:void(0);"
             >
               <picture
                 className="mod-picture "
@@ -182,45 +130,23 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Author snap
         >
           <h2
             className="com-title --m"
-            style={
-              Object {
-                "display": "block",
-                "justifyContent": "center",
-              }
-            }
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "205px",
-                }
-              }
+              extraClass="--line1"
             />
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "245px",
-                }
-              }
+              extraClass="--line2"
             />
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "225px",
-                }
-              }
+              extraClass="--line3"
             />
           </h2>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "280px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -237,21 +163,13 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Color snaps
     className="box-articles --highlight --pink"
   >
     <section
-      className="mod-headersection "
+      className="mod-headersection --line"
     >
       <h4
-        className="com-title --l --skeleton-box"
-        style={
-          Object {
-            "width": "200px",
-          }
-        }
+        className="com-title --l"
       >
-         
+        <SkeletonSpan />
       </h4>
-      <div
-        className="com-skeleton"
-      />
     </section>
     <div
       className="row-gap-tablet-3 "
@@ -281,23 +199,21 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Color snaps
             className="com-title --xs"
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "200px",
-                }
-              }
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
             />
           </h1>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "280px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -328,23 +244,21 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Color snaps
             className="com-title --xs"
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "200px",
-                }
-              }
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
             />
           </h1>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "280px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -375,23 +289,21 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Color snaps
             className="com-title --xs"
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "200px",
-                }
-              }
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
             />
           </h1>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "280px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -408,21 +320,13 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Color snaps
     className="box-articles --highlight --teal"
   >
     <section
-      className="mod-headersection "
+      className="mod-headersection --line"
     >
       <h4
-        className="com-title --l --skeleton-box"
-        style={
-          Object {
-            "width": "200px",
-          }
-        }
+        className="com-title --l"
       >
-         
+        <SkeletonSpan />
       </h4>
-      <div
-        className="com-skeleton"
-      />
     </section>
     <div
       className="row-gap-tablet-3 "
@@ -452,23 +356,21 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Color snaps
             className="com-title --xs"
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "200px",
-                }
-              }
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
             />
           </h1>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "280px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -499,23 +401,21 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Color snaps
             className="com-title --xs"
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "200px",
-                }
-              }
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
             />
           </h1>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "280px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -546,23 +446,21 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Color snaps
             className="com-title --xs"
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "200px",
-                }
-              }
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
             />
           </h1>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "280px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -576,7 +474,7 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Color snaps
 exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Editoriales snapshot editoriales2 1`] = `
 <div>
   <section
-    className="box-articles  --editoriales"
+    className="box-articles --editoriales"
   >
     <div
       className="row"
@@ -584,16 +482,11 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Editoriales
       <section
         className="mod-footersection"
       >
-        <h2
-          className="com-title --twoxs skeleton-box"
-          style={
-            Object {
-              "width": "122px",
-            }
-          }
+        <h4
+          className="com-title --twoxs"
         >
-           
-        </h2>
+          <SkeletonSpan />
+        </h4>
         <div
           className="col-12"
         >
@@ -611,13 +504,7 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Editoriales
               <h2
                 className="com-title --twoxs"
               >
-                <SkeletonSpan
-                  style={
-                    Object {
-                      "width": "205px",
-                    }
-                  }
-                />
+                <SkeletonSpan />
               </h2>
             </div>
           </article>
@@ -635,13 +522,7 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Editoriales
               <h2
                 className="com-title --twoxs"
               >
-                <SkeletonSpan
-                  style={
-                    Object {
-                      "width": "205px",
-                    }
-                  }
-                />
+                <SkeletonSpan />
               </h2>
             </div>
           </article>
@@ -658,21 +539,13 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Focal snaps
     className="box-articles --focal --left"
   >
     <section
-      className="mod-headersection "
+      className="mod-headersection --line"
     >
       <h4
-        className="com-title --l --skeleton-box"
-        style={
-          Object {
-            "width": "200px",
-          }
-        }
+        className="com-title --l"
       >
-         
+        <SkeletonSpan />
       </h4>
-      <div
-        className="com-skeleton"
-      />
     </section>
     <div
       className="row "
@@ -705,41 +578,31 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Focal snaps
               className="com-title --xl"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "550px",
-                  }
-                }
+                extraClass="--line1"
+              />
+              <SkeletonSpan
+                extraClass="--line2"
+              />
+              <SkeletonSpan
+                extraClass="--line3"
               />
             </h1>
             <h2
               className=" com-subhead --twoxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "480px",
-                  }
-                }
+                extraClass="--line1"
               />
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "248px",
-                  }
-                }
+                extraClass="--line2"
               />
             </h2>
             <div>
               <strong
-                className=" mod-marquee --fourxs"
+                className="mod-marquee --fourxs"
               >
                 <SkeletonSpan
-                  style={
-                    Object {
-                      "width": "280px",
-                    }
-                  }
+                  extraClass="--line1"
                 />
               </strong>
             </div>
@@ -774,23 +637,21 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Focal snaps
               className="com-title --xs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "278px",
-                  }
-                }
+                extraClass="--line1"
+              />
+              <SkeletonSpan
+                extraClass="--line2"
+              />
+              <SkeletonSpan
+                extraClass="--line3"
               />
             </h2>
             <div>
               <strong
-                className=" mod-marquee --fourxs"
+                className="mod-marquee --fourxs"
               >
                 <SkeletonSpan
-                  style={
-                    Object {
-                      "width": "280px",
-                    }
-                  }
+                  extraClass="--line1"
                 />
               </strong>
             </div>
@@ -821,23 +682,21 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Focal snaps
               className="com-title --xs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "278px",
-                  }
-                }
+                extraClass="--line1"
+              />
+              <SkeletonSpan
+                extraClass="--line2"
+              />
+              <SkeletonSpan
+                extraClass="--line3"
               />
             </h2>
             <div>
               <strong
-                className=" mod-marquee --fourxs"
+                className="mod-marquee --fourxs"
               >
                 <SkeletonSpan
-                  style={
-                    Object {
-                      "width": "280px",
-                    }
-                  }
+                  extraClass="--line1"
                 />
               </strong>
             </div>
@@ -855,21 +714,13 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Focal snaps
     className="box-articles --focal --right"
   >
     <section
-      className="mod-headersection "
+      className="mod-headersection --line"
     >
       <h4
-        className="com-title --l --skeleton-box"
-        style={
-          Object {
-            "width": "200px",
-          }
-        }
+        className="com-title --l"
       >
-         
+        <SkeletonSpan />
       </h4>
-      <div
-        className="com-skeleton"
-      />
     </section>
     <div
       className="row "
@@ -902,41 +753,28 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Focal snaps
               className="com-title --xl"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "550px",
-                  }
-                }
+                extraClass="--line1"
+              />
+              <SkeletonSpan
+                extraClass="--line2"
               />
             </h1>
             <h2
-              className=" com-subhead --twoxs"
+              className="com-subhead --twoxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "480px",
-                  }
-                }
+                extraClass="--line1"
               />
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "345px",
-                  }
-                }
+                extraClass="--line2"
               />
             </h2>
             <div>
               <strong
-                className=" mod-marquee --fourxs"
+                className="mod-marquee --fourxs"
               >
                 <SkeletonSpan
-                  style={
-                    Object {
-                      "width": "280px",
-                    }
-                  }
+                  extraClass="--line1"
                 />
               </strong>
             </div>
@@ -969,131 +807,39 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Focal snaps
           >
             <h2
               className="com-title --xl"
-              style={
-                Object {
-                  "flexDirection": "column",
-                }
-              }
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "marginBottom": "6px",
-                    "width": "278px",
-                  }
-                }
+                extraClass="--line1"
               />
               <SkeletonSpan
-                style={
-                  Object {
-                    "marginBottom": "6px",
-                    "width": "268px",
-                  }
-                }
+                extraClass="--line2"
               />
               <SkeletonSpan
-                style={
-                  Object {
-                    "marginBottom": "6px",
-                    "width": "125px",
-                  }
-                }
+                extraClass="--line3"
               />
             </h2>
             <h3
               className="com-subhead --twoxs"
             >
-              <React.Fragment>
-                <SkeletonSpan
-                  style={
-                    Object {
-                      "width": "278px",
-                    }
-                  }
-                />
-                <SkeletonSpan
-                  style={
-                    Object {
-                      "width": "248px",
-                    }
-                  }
-                />
-              </React.Fragment>
-              <React.Fragment>
-                <SkeletonSpan
-                  style={
-                    Object {
-                      "width": "278px",
-                    }
-                  }
-                />
-                <SkeletonSpan
-                  style={
-                    Object {
-                      "width": "248px",
-                    }
-                  }
-                />
-              </React.Fragment>
-              <React.Fragment>
-                <SkeletonSpan
-                  style={
-                    Object {
-                      "width": "278px",
-                    }
-                  }
-                />
-                <SkeletonSpan
-                  style={
-                    Object {
-                      "width": "248px",
-                    }
-                  }
-                />
-              </React.Fragment>
-              <React.Fragment>
-                <SkeletonSpan
-                  style={
-                    Object {
-                      "width": "278px",
-                    }
-                  }
-                />
-                <SkeletonSpan
-                  style={
-                    Object {
-                      "width": "248px",
-                    }
-                  }
-                />
-              </React.Fragment>
-              <React.Fragment>
-                <SkeletonSpan
-                  style={
-                    Object {
-                      "width": "278px",
-                    }
-                  }
-                />
-                <SkeletonSpan
-                  style={
-                    Object {
-                      "width": "248px",
-                    }
-                  }
-                />
-              </React.Fragment>
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+              <SkeletonSpan
+                extraClass="--line2"
+              />
+              <SkeletonSpan
+                extraClass="--line3"
+              />
+              <SkeletonSpan
+                extraClass="--line4"
+              />
             </h3>
             <div>
               <strong
-                className=" mod-marquee --fourxs"
+                className="mod-marquee --fourxs"
               >
                 <SkeletonSpan
-                  style={
-                    Object {
-                      "width": "280px",
-                    }
-                  }
+                  extraClass="--line1"
                 />
               </strong>
             </div>
@@ -1111,21 +857,13 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
     className="box-articles --cinema"
   >
     <section
-      className="mod-headersection "
+      className="mod-headersection --line"
     >
       <h4
-        className="com-title --l --skeleton-box"
-        style={
-          Object {
-            "width": "200px",
-          }
-        }
+        className="com-title --l"
       >
-         
+        <SkeletonSpan />
       </h4>
-      <div
-        className="com-skeleton"
-      />
     </section>
     <div
       className="row"
@@ -1153,37 +891,23 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
         >
           <h2
             className="com-title --l"
-            style={
-              Object {
-                "display": "block",
-              }
-            }
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "405px",
-                }
-              }
+              extraClass="--line1"
             />
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "445px",
-                }
-              }
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
             />
           </h2>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "205px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -1200,21 +924,13 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
     className="box-articles "
   >
     <section
-      className="mod-headersection "
+      className="mod-headersection --line"
     >
       <h4
-        className="com-title --l --skeleton-box"
-        style={
-          Object {
-            "width": "200px",
-          }
-        }
+        className="com-title --l"
       >
-         
+        <SkeletonSpan />
       </h4>
-      <div
-        className="com-skeleton"
-      />
     </section>
     <div
       className="row-gap-tablet-2"
@@ -1242,37 +958,23 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
         >
           <h2
             className="com-title --l"
-            style={
-              Object {
-                "display": "block",
-              }
-            }
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "445px",
-                }
-              }
+              extraClass="--line1"
             />
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "405px",
-                }
-              }
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
             />
           </h2>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "205px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -1301,37 +1003,23 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
         >
           <h2
             className="com-title --l"
-            style={
-              Object {
-                "display": "block",
-              }
-            }
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "445px",
-                }
-              }
+              extraClass="--line1"
             />
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "405px",
-                }
-              }
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
             />
           </h2>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "205px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -1348,21 +1036,13 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
     className="box-articles "
   >
     <section
-      className="mod-headersection "
+      className="mod-headersection --line"
     >
       <h4
-        className="com-title --l --skeleton-box"
-        style={
-          Object {
-            "width": "200px",
-          }
-        }
+        className="com-title --l"
       >
-         
+        <SkeletonSpan />
       </h4>
-      <div
-        className="com-skeleton"
-      />
     </section>
     <div
       className="row-gap-tablet-3"
@@ -1390,37 +1070,23 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
         >
           <h2
             className="com-title --xs"
-            style={
-              Object {
-                "display": "block",
-              }
-            }
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "280px",
-                }
-              }
+              extraClass="--line1"
             />
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "265px",
-                }
-              }
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
             />
           </h2>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "205px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -1449,37 +1115,23 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
         >
           <h2
             className="com-title --xs"
-            style={
-              Object {
-                "display": "block",
-              }
-            }
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "280px",
-                }
-              }
+              extraClass="--line1"
             />
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "265px",
-                }
-              }
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
             />
           </h2>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "205px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -1508,37 +1160,23 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
         >
           <h2
             className="com-title --xs"
-            style={
-              Object {
-                "display": "block",
-              }
-            }
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "280px",
-                }
-              }
+              extraClass="--line1"
             />
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "265px",
-                }
-              }
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
             />
           </h2>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "205px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -1555,21 +1193,13 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
     className="box-articles "
   >
     <section
-      className="mod-headersection "
+      className="mod-headersection --line"
     >
       <h4
-        className="com-title --l --skeleton-box"
-        style={
-          Object {
-            "width": "200px",
-          }
-        }
+        className="com-title --l"
       >
-         
+        <SkeletonSpan />
       </h4>
-      <div
-        className="com-skeleton"
-      />
     </section>
     <div
       className="row-gap-tablet-3"
@@ -1597,37 +1227,23 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
         >
           <h2
             className="com-title --xs"
-            style={
-              Object {
-                "display": "block",
-              }
-            }
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "280px",
-                }
-              }
+              extraClass="--line1"
             />
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "265px",
-                }
-              }
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
             />
           </h2>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "205px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -1656,37 +1272,23 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
         >
           <h2
             className="com-title --xs"
-            style={
-              Object {
-                "display": "block",
-              }
-            }
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "280px",
-                }
-              }
+              extraClass="--line1"
             />
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "265px",
-                }
-              }
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
             />
           </h2>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "205px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -1715,37 +1317,23 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
         >
           <h2
             className="com-title --xs"
-            style={
-              Object {
-                "display": "block",
-              }
-            }
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "280px",
-                }
-              }
+              extraClass="--line1"
             />
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "265px",
-                }
-              }
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
             />
           </h2>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "205px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -1774,37 +1362,23 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
         >
           <h2
             className="com-title --xs"
-            style={
-              Object {
-                "display": "block",
-              }
-            }
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "280px",
-                }
-              }
+              extraClass="--line1"
             />
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "265px",
-                }
-              }
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
             />
           </h2>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "205px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -1833,37 +1407,23 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
         >
           <h2
             className="com-title --xs"
-            style={
-              Object {
-                "display": "block",
-              }
-            }
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "280px",
-                }
-              }
+              extraClass="--line1"
             />
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "265px",
-                }
-              }
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
             />
           </h2>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "205px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -1892,37 +1452,23 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
         >
           <h2
             className="com-title --xs"
-            style={
-              Object {
-                "display": "block",
-              }
-            }
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "280px",
-                }
-              }
+              extraClass="--line1"
             />
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "265px",
-                }
-              }
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
             />
           </h2>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "205px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -1939,21 +1485,13 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
     className="box-articles "
   >
     <section
-      className="mod-headersection "
+      className="mod-headersection --line"
     >
       <h4
-        className="com-title --l --skeleton-box"
-        style={
-          Object {
-            "width": "200px",
-          }
-        }
+        className="com-title --l"
       >
-         
+        <SkeletonSpan />
       </h4>
-      <div
-        className="com-skeleton"
-      />
     </section>
     <div
       className="row-gap-tablet-3"
@@ -1981,37 +1519,23 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
         >
           <h2
             className="com-title --xs"
-            style={
-              Object {
-                "display": "block",
-              }
-            }
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "280px",
-                }
-              }
+              extraClass="--line1"
             />
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "265px",
-                }
-              }
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
             />
           </h2>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "205px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -2040,37 +1564,23 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
         >
           <h2
             className="com-title --xs"
-            style={
-              Object {
-                "display": "block",
-              }
-            }
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "280px",
-                }
-              }
+              extraClass="--line1"
             />
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "265px",
-                }
-              }
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
             />
           </h2>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "205px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -2099,37 +1609,23 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
         >
           <h2
             className="com-title --xs"
-            style={
-              Object {
-                "display": "block",
-              }
-            }
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "280px",
-                }
-              }
+              extraClass="--line1"
             />
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "265px",
-                }
-              }
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
             />
           </h2>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "205px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -2158,37 +1654,23 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
         >
           <h2
             className="com-title --xs"
-            style={
-              Object {
-                "display": "block",
-              }
-            }
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "280px",
-                }
-              }
+              extraClass="--line1"
             />
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "265px",
-                }
-              }
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
             />
           </h2>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "205px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -2217,37 +1699,23 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
         >
           <h2
             className="com-title --xs"
-            style={
-              Object {
-                "display": "block",
-              }
-            }
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "280px",
-                }
-              }
+              extraClass="--line1"
             />
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "265px",
-                }
-              }
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
             />
           </h2>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "205px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -2276,37 +1744,23 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
         >
           <h2
             className="com-title --xs"
-            style={
-              Object {
-                "display": "block",
-              }
-            }
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "280px",
-                }
-              }
+              extraClass="--line1"
             />
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "265px",
-                }
-              }
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
             />
           </h2>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "205px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -2335,37 +1789,23 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
         >
           <h2
             className="com-title --xs"
-            style={
-              Object {
-                "display": "block",
-              }
-            }
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "280px",
-                }
-              }
+              extraClass="--line1"
             />
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "265px",
-                }
-              }
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
             />
           </h2>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "205px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -2394,37 +1834,23 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
         >
           <h2
             className="com-title --xs"
-            style={
-              Object {
-                "display": "block",
-              }
-            }
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "280px",
-                }
-              }
+              extraClass="--line1"
             />
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "265px",
-                }
-              }
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
             />
           </h2>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "205px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -2453,37 +1879,23 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
         >
           <h2
             className="com-title --xs"
-            style={
-              Object {
-                "display": "block",
-              }
-            }
           >
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "280px",
-                }
-              }
+              extraClass="--line1"
             />
             <SkeletonSpan
-              style={
-                Object {
-                  "width": "265px",
-                }
-              }
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
             />
           </h2>
           <div>
             <strong
-              className=" mod-marquee --fourxs"
+              className="mod-marquee --fourxs"
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "205px",
-                  }
-                }
+                extraClass="--line1"
               />
             </strong>
           </div>
@@ -2500,21 +1912,13 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Opinion sna
     className="box-articles  --opinion"
   >
     <section
-      className="mod-headersection "
+      className="mod-headersection --line"
     >
       <h4
-        className="com-title --l --skeleton-box"
-        style={
-          Object {
-            "width": "200px",
-          }
-        }
+        className="com-title --l"
       >
-         
+        <SkeletonSpan />
       </h4>
-      <div
-        className="com-skeleton"
-      />
     </section>
     <div
       className="row"
@@ -2541,44 +1945,23 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Opinion sna
           >
             <h2
               className="com-title --l"
-              style={
-                Object {
-                  "display": "block",
-                }
-              }
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "375px",
-                  }
-                }
+                extraClass="--line1"
               />
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "355px",
-                  }
-                }
+                extraClass="--line2"
               />
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "325px",
-                  }
-                }
+                extraClass="--line3"
               />
             </h2>
             <div>
               <strong
-                className=" mod-marquee --fourxs"
+                className="mod-marquee --fourxs"
               >
                 <SkeletonSpan
-                  style={
-                    Object {
-                      "width": "115px",
-                    }
-                  }
+                  extraClass="--line1"
                 />
               </strong>
             </div>
@@ -2601,7 +1984,7 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Opinion sna
                 className="mod-figure --horizontal"
               >
                 <a
-                  href="#"
+                  href="javascript:void(0);"
                 >
                   <picture
                     className="mod-picture"
@@ -2615,37 +1998,23 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Opinion sna
           >
             <h2
               className="com-title --xs"
-              style={
-                Object {
-                  "display": "block",
-                }
-              }
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "248px",
-                  }
-                }
+                extraClass="--line1"
               />
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "238px",
-                  }
-                }
+                extraClass="--line2"
+              />
+              <SkeletonSpan
+                extraClass="--line3"
               />
             </h2>
             <div>
               <strong
-                className=" mod-marquee --fourxs"
+                className="mod-marquee --fourxs"
               >
                 <SkeletonSpan
-                  style={
-                    Object {
-                      "width": "115px",
-                    }
-                  }
+                  extraClass="--line1"
                 />
               </strong>
             </div>
@@ -2664,7 +2033,7 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Opinion sna
                 className="mod-figure --horizontal"
               >
                 <a
-                  href="#"
+                  href="javascript:void(0);"
                 >
                   <picture
                     className="mod-picture"
@@ -2678,44 +2047,23 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Opinion sna
           >
             <h2
               className="com-title --xs"
-              style={
-                Object {
-                  "display": "block",
-                }
-              }
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "248px",
-                  }
-                }
+                extraClass="--line1"
               />
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "238px",
-                  }
-                }
+                extraClass="--line2"
               />
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "248px",
-                  }
-                }
+                extraClass="--line3"
               />
             </h2>
             <div>
               <strong
-                className=" mod-marquee --fourxs"
+                className="mod-marquee --fourxs"
               >
                 <SkeletonSpan
-                  style={
-                    Object {
-                      "width": "115px",
-                    }
-                  }
+                  extraClass="--line1"
                 />
               </strong>
             </div>
@@ -2738,7 +2086,7 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Opinion sna
                 className="mod-figure --horizontal"
               >
                 <a
-                  href="#"
+                  href="javascript:void(0);"
                 >
                   <picture
                     className="mod-picture"
@@ -2752,58 +2100,26 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Opinion sna
           >
             <h2
               className="com-title --l"
-              style={
-                Object {
-                  "display": "block",
-                }
-              }
             >
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "196px",
-                  }
-                }
+                extraClass="--line1"
               />
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "115px",
-                  }
-                }
+                extraClass="--line2"
               />
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "170px",
-                  }
-                }
+                extraClass="--line3"
               />
               <SkeletonSpan
-                style={
-                  Object {
-                    "width": "130px",
-                  }
-                }
-              />
-              <SkeletonSpan
-                style={
-                  Object {
-                    "width": "176px",
-                  }
-                }
+                extraClass="--line3"
               />
             </h2>
             <div>
               <strong
-                className=" mod-marquee --fourxs"
+                className="mod-marquee --fourxs"
               >
                 <SkeletonSpan
-                  style={
-                    Object {
-                      "width": "115px",
-                    }
-                  }
+                  extraClass="--line1"
                 />
               </strong>
             </div>
@@ -2841,32 +2157,12 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout and index p
   >
     <h1
       className="com-title --threexl"
-      style={
-        Object {
-          "display": "block",
-        }
-      }
     >
       <SkeletonSpan
-        style={
-          Object {
-            "width": "1230px",
-          }
-        }
+        extraClass="--line1"
       />
       <SkeletonSpan
-        style={
-          Object {
-            "width": "1230px",
-          }
-        }
-      />
-      <SkeletonSpan
-        style={
-          Object {
-            "width": "1230px",
-          }
-        }
+        extraClass="--line2"
       />
     </h1>
   </section>
