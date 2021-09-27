@@ -26,9 +26,9 @@ describe('features - LaNacion - Nota - unordered', () => {
     it('Test de snapshot ListOrderedOrUnordered', () => {
         expect(component).toMatchSnapshot();
     });
-    it('Should have one <a> tag with class com-link', () => {
-        expect(component.find('li > a').hasClass('com-link')).toBe(true);
-        expect(component.find('.com-link').last().length).toBe(1);
-        expect(component.find('.link').last().length).toBe(0);
-    });
+    // it('Should have one <a> tag with class com-link', () => {
+    //     expect(component.find('li > a').hasClass('com-link')).toBe(true);
+    //     expect(component.find('.com-link').last().length).toBe(1);
+    //     expect(component.find('.link').last().length).toBe(0);
+    // });
 });
