@@ -23,6 +23,7 @@ import {
 import logger from '../../components/private/common/utils/logger';
 import paywallUtils from './utils/paywall';
 import removeInvalidUrlTagA from '../../components/private/common/utils/removeInvalidUrlTagA';
+import isNotShowcase from './utils/isNotShowcase';
 
 const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -38,7 +39,12 @@ const resolve = (key, a) => {
 };
 
 const fetch = query => {
-    const { url = '', imageConfig, meteringVariant } = query;
+    const {
+        url = '',
+        imageConfig,
+        meteringVariant,
+        paywallEnabled = ''
+    } = query;
     const arcSite = query['arc-site'];
     const properties = getProperties(arcSite);
     const opt = {
@@ -67,11 +73,12 @@ const fetch = query => {
                 throw new Redirect(forwardUrl, 301);
             }
 
-            paywallUtils.checkPaywall({
-                queryData: query,
-                urlBase: SITE_LANACION,
-                responseData: response
-            });
+            isNotShowcase(response) &&
+                paywallUtils.checkPaywall({
+                    queryData: query,
+                    urlBase: SITE_LANACION,
+                    responseData: response
+                });
 
             return transform(
                 response,
@@ -79,7 +86,8 @@ const fetch = query => {
                 properties,
                 imageConfig,
                 url,
-                meteringVariant
+                meteringVariant,
+                paywallEnabled
             );
         })
         .catch(error => {
@@ -96,7 +104,8 @@ const transform = (
     properties,
     imageConfig,
     urlQuery,
-    meteringVariant
+    meteringVariant,
+    paywallEnabled
 ) => {
     // Data
     const subtype = get(data, `subtype`, null);
@@ -139,6 +148,7 @@ const transform = (
 
     // Data con urls Resizeadas
     const resp = {
+        paywallEnabled,
         ...data,
         subscription: meteringVariant,
         ...addResizedUrls(data, {

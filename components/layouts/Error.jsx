@@ -68,7 +68,7 @@ const ErrorPage = props => {
                     <section className="box-articles">
                         <section className="mod-headersection ">
                             <h4 className="com-title --l">Últimas Noticias</h4>
-                            <div class="com-line  "></div>
+                            <div className="com-line  " />
                         </section>
                         {MasNotas}
                     </section>

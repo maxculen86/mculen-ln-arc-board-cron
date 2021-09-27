@@ -3,6 +3,7 @@ import React from 'react';
 import ComLogo from '../../common/com-logo';
 import ComButton from '../../common/com-button';
 import Text from '../../common/text';
+//import LogoLN from '../../common/logos/logoLN';
 
 import '../../../../resources/dist/css/ln/modules/modal.css';
 
@@ -18,6 +19,7 @@ const PwaModals = () => {
                     href="https://www.lanacion.com.ar/"
                     title="LA NACION"
                 />
+                {/* <LogoLN /> */}
                 <Text tag="p" font="sueca" size="3xs">
                     Descargá la aplicación de LA NACION. Es rápida y liviana.
                 </Text>
