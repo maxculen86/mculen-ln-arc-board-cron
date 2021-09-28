@@ -132,7 +132,6 @@ const Default = props => {
     const {
         canonical_url: canonicalUrl,
         content_elements: contentElements,
-        content_restrictions: { content_code: contentCode } = {},
         headlines,
         description,
         type,
@@ -338,7 +337,6 @@ const Default = props => {
                 <MetasFBNews
                     nodeType={_nodeType}
                     sections={taxonomy && taxonomy.sections}
-                    contentCode={contentCode}
                 />
             </head>
             <body {...getBodyClass(siteProperties)}>
