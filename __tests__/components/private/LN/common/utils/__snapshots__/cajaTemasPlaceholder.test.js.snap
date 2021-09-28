@@ -477,57 +477,43 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Editoriales
     className="box-articles --editoriales"
   >
     <div
-      className="row"
+      className="mod-footersection"
     >
-      <section
-        className="mod-footersection"
+      <h4
+        className="com-title --twoxs"
       >
-        <h4
-          className="com-title --twoxs"
+        <SkeletonSpan />
+      </h4>
+      <div
+        className="col-12"
+      >
+        <article
+          className="mod-article"
         >
-          <SkeletonSpan />
-        </h4>
-        <div
-          className="col-12"
+          <div
+            className="mod-description"
+          >
+            <h2
+              className="com-title --twoxs"
+            >
+              <SkeletonSpan />
+            </h2>
+          </div>
+        </article>
+        <article
+          className="mod-article"
         >
-          <article
-            className="mod-article"
-            style={
-              Object {
-                "marginLeft": "5px",
-              }
-            }
+          <div
+            className="mod-description"
           >
-            <div
-              className="mod-description"
+            <h2
+              className="com-title --twoxs"
             >
-              <h2
-                className="com-title --twoxs"
-              >
-                <SkeletonSpan />
-              </h2>
-            </div>
-          </article>
-          <article
-            className="mod-article"
-            style={
-              Object {
-                "marginLeft": "5px",
-              }
-            }
-          >
-            <div
-              className="mod-description"
-            >
-              <h2
-                className="com-title --twoxs"
-              >
-                <SkeletonSpan />
-              </h2>
-            </div>
-          </article>
-        </div>
-      </section>
+              <SkeletonSpan />
+            </h2>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 </div>
