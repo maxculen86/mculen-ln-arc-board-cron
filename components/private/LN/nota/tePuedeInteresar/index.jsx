@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import React, { Component } from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
 import CajaTema from '../../common/cajaTema';
 
@@ -136,7 +136,6 @@ class Index extends Component {
     render = () => {
         const { articles, outputType } = this.state;
         const { dataLayerSection } = this.props;
-
         articles &&
             articles.length > 0 &&
             !this.isShownRegistred &&
@@ -151,7 +150,7 @@ class Index extends Component {
                     position="toi"
                     outputType={outputType}
                     handleClick={this.handleClick}
-                    withVolanta={false}
+                    withVolanta
                 />
             </div>
         ) : (

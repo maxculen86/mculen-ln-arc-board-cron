@@ -100,10 +100,6 @@ export default {
             props: {},
             location: ['head']
         },
-        ScriptSWG: {
-            props: {},
-            location: ['body-bottom']
-        },
         Queryly: {
             props: {},
             location: ['body-bottom']
@@ -1766,6 +1762,10 @@ export default {
                 },
                 caja3_amp: {
                     slotName: '/133919216/AMP/ROS/caja3_amp',
+                    dimensions: [[300, 250]]
+                },
+                caja4_amp: {
+                    slotName: '/133919216/AMP/ROS/caja4_amp',
                     dimensions: [[300, 250]]
                 }
             }

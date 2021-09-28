@@ -57,6 +57,7 @@ const CajaManual = props => {
 
     const isVideoBackground = multimediaChildren.some(
         el =>
+            el.children &&
             el.children.some(art =>
                 get(art, 'props.customFields.video', false)
             ) &&

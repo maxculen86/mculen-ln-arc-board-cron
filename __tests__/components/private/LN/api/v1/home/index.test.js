@@ -1,5 +1,4 @@
 import index from '../../../../../../../components/private/LN/api/v1/home/index';
-
 describe('components - private - LN - api - v1 - home - index.js', () => {
     const articlesCollections = [
         {
@@ -4201,6 +4200,37 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
                 idSeccion: 305,
                 diagramacion: 'focalLeft3',
                 tituloCaja: 'Mi techo abc'
+            })
+        );
+    });
+
+    it('Testeo Tema Caso Caja Multimedia', () => {
+        const Seccion = [
+            {
+                type: 0,
+                feature: 'Multimedia',
+                information: {
+                    layout: 'focalLeft3',
+                    initialPosition: 1,
+                    hideTitle: false,
+                    containerImage: undefined,
+                    title: 'Multimedia'
+                },
+                articles: articlesCollections,
+                configurations: {
+                    arcSite: 'la-nacion-ar'
+                }
+            }
+        ];
+
+        const home = index(Seccion) || [];
+
+        expect(home[0][0]).toEqual(
+            expect.objectContaining({
+                tipoSeccion: 'tema',
+                idSeccion: 305,
+                diagramacion: 'focalLeft3',
+                tituloCaja: 'Multimedia'
             })
         );
     });
