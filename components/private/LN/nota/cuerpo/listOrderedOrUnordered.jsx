@@ -13,7 +13,7 @@ const ListOrderedOrUnordered = ({ data }) => {
         const filteredText = text.replace(classRegex, `class="com-link"`);
         return filteredText.replace(regex, match => {
             return match.replace(/href=(["'\\])+(.*?)\1/, match => {
-                return match;
+                return `${match} class="com-link"`;
             });
         });
     };
