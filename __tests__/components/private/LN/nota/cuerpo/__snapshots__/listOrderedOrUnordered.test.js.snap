@@ -9,7 +9,7 @@ exports[`features - LaNacion - Nota - unordered Test de snapshot ListOrderedOrUn
   >
     hola 
     <a
-      class="link"
+      class="com-link"
       href="https://www.lanacion.com.ar/politica/alberto-fernandez-vicentin-nid2376255"
     >
       intervenir una compañía
@@ -20,7 +20,7 @@ exports[`features - LaNacion - Nota - unordered Test de snapshot ListOrderedOrUn
   >
     chau 
     <a
-      class="link"
+      class="com-link"
       href="https://www.lanacion.com.ar/politica/alberto-fernandez-vicentin-nid2376255"
     >
       intervenir una compañía
