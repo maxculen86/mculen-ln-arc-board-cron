@@ -8,6 +8,23 @@
     border-radius: px(4);
     margin-bottom: px(6);
     width: 25%;
+    height: px(16);
+
+    .com-title.--xs & {
+        height: px(18);
+    }
+
+    .com-title.--m & {
+        height: px(19);
+    }
+
+    .com-title.--l & {
+        height: px(24);
+    }
+
+    .com-title.--xl & {
+        height: px(29);
+    }
 
     &.--line1 {
         width: 96%;

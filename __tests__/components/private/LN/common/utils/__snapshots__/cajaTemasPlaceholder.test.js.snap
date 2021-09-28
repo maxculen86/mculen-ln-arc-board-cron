@@ -745,16 +745,6 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Focal snaps
                 extraClass="--line2"
               />
             </h1>
-            <h2
-              className="com-subhead --twoxs"
-            >
-              <SkeletonSpan
-                extraClass="--line1"
-              />
-              <SkeletonSpan
-                extraClass="--line2"
-              />
-            </h2>
             <div>
               <strong
                 className="mod-marquee --fourxs"
@@ -884,9 +874,6 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
             <SkeletonSpan
               extraClass="--line2"
             />
-            <SkeletonSpan
-              extraClass="--line3"
-            />
           </h2>
           <div>
             <strong
@@ -951,9 +938,6 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
             <SkeletonSpan
               extraClass="--line2"
             />
-            <SkeletonSpan
-              extraClass="--line3"
-            />
           </h2>
           <div>
             <strong
@@ -995,9 +979,6 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
             />
             <SkeletonSpan
               extraClass="--line2"
-            />
-            <SkeletonSpan
-              extraClass="--line3"
             />
           </h2>
           <div>

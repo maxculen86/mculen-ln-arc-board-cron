@@ -124,10 +124,10 @@ export const placeholderArticles = {
                             <SkeletonSpan extraClass="--line1" />
                             <SkeletonSpan extraClass="--line2" />
                         </h1>
-                        <h2 className="com-subhead --twoxs">
+                        {/* <h2 className="com-subhead --twoxs">
                             <SkeletonSpan extraClass="--line1" />
                             <SkeletonSpan extraClass="--line2" />
-                        </h2>
+                        </h2> */}
                         <div>
                             <strong className="mod-marquee --fourxs">
                                 <SkeletonSpan extraClass="--line1" />
@@ -208,7 +208,6 @@ export const placeholderArticles = {
                         <h2 className="com-title --l">
                             <SkeletonSpan extraClass="--line1" />
                             <SkeletonSpan extraClass="--line2" />
-                            <SkeletonSpan extraClass="--line3" />
                         </h2>
                         <div>
                             <strong className="mod-marquee --fourxs">
@@ -231,7 +230,6 @@ export const placeholderArticles = {
                         <h2 className="com-title --l">
                             <SkeletonSpan extraClass="--line1" />
                             <SkeletonSpan extraClass="--line2" />
-                            <SkeletonSpan extraClass="--line3" />
                         </h2>
                         <div>
                             <strong className="mod-marquee --fourxs">
