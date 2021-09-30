@@ -657,3 +657,70 @@ b,//vienen en las notas
     visibility: visible;
     opacity: 1;
 }
+
+.w-100-mobile {
+    width: calc(100% + 32px);
+    margin-left: px(-16);
+
+    //REVISAR ESTO:
+    // @media screen and (max-width: 47em) {
+    //     border: none;
+    // }
+
+    @media ($media-m) {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+//=======================================
+// IMAGEN QUE SE ESCAPA DE MARGENES al 100%
+//=======================================
+// .w-100 {
+//     //width: calc(100% + 20px);
+//     //margin-left: px(-10);
+//     width: calc(100% + 32px);
+//     margin-left: px(-16);
+//     &.banner {
+//         margin-left: 0;
+//         margin-top: px(-16);
+//         width: 100%;
+//     }
+// }
+
+// @media ($media-s) {
+//     .w-100 {
+//         width: calc(100% + 40px);
+//         margin-left: px(-20);
+//     }
+// }
+// @media ($media-m) {
+//     .w-100 {
+//         width: calc(100% + 60px);
+//         margin-left: px(-30);
+//     }
+// }
+// @media ($media-m) {
+//     .w-100 {
+//         width: 100%;
+//         margin-left: 0;
+//     }
+// }
+// @media ($media-s) {
+//     .w-100-mobile {
+//         width: calc(100% + 40px);
+//         margin-left: px(-20);
+//     }
+// }
+// @media ($media-m) {
+//     .w-100-mobile {
+//         width: 100%;
+//         margin-left: 0;
+//     }
+// }
+// @media ($media-l) {
+//     .w-100-mobile {
+//         width: 100%;
+//         margin-left: 0;
+//     }
+// }
