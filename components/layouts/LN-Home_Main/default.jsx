@@ -198,10 +198,10 @@ const LNMainHome = props => {
         dispatch({ type: 'update', payload: lastBlockSaw });
         // setBlocksToLoad(newStatusBlocks);
 
-        const readyToMove = scrollToSection(lastSectionSaw);
+        // const readyToMove = scrollToSection(lastSectionSaw);
 
         const timer = setTimeout(() => {
-            if (readyToMove) window.scrollTo(0, lastScrollPosition);
+            window.scrollTo(0, lastScrollPosition);
         }, 1000);
         return () => {
             clearTimeout(timer);
