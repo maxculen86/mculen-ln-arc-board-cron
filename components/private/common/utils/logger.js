@@ -26,52 +26,52 @@ const logger = (() => {
                 customErrorType: 'controlado'
             });
         });
-        //     const {
-        //         application = 'ln/arc',
-        //         source = 'ARC',
-        //         user = 'ARC',
-        //         url = null,
-        //         severity = null,
-        //         version = null,
-        //         queryString = []
-        //     } = config || {};
+        // const {
+        //     application = 'ln/arc',
+        //     source = 'ARC',
+        //     user = 'ARC',
+        //     url = null,
+        //     severity = null,
+        //     version = null,
+        //     queryString = []
+        // } = config || {};
 
-        //     const elmahJson = {
-        //         application,
-        //         detail: `${statusCode} - ${message}`,
-        //         hostname: uri,
-        //         title: `${statusCode} - ${message}`,
-        //         titleTemplate: 'StatusCodeError',
-        //         source,
-        //         statusCode,
-        //         dateTime: new Date().toISOString(),
-        //         type: 'Error',
-        //         user,
-        //         severity,
-        //         url: `${SITE_LANACION}${url}`,
-        //         method,
-        //         version,
-        //         queryString
-        //     };
+        // const elmahJson = {
+        //     application,
+        //     detail: `${statusCode} - ${message}`,
+        //     hostname: uri,
+        //     title: `${statusCode} - ${message}`,
+        //     titleTemplate: 'StatusCodeError',
+        //     source,
+        //     statusCode,
+        //     dateTime: new Date().toISOString(),
+        //     type: 'Error',
+        //     user,
+        //     severity,
+        //     url: `${SITE_LANACION}${url}`,
+        //     method,
+        //     version,
+        //     queryString
+        // };
 
-        //     request({
-        //         uri: URI_ELMAH,
-        //         qs: {
-        //             api_key: ELMAH_API_KEY
-        //         },
-        //         method: 'POST',
-        //         headers: {
-        //             accept: 'text/plain',
-        //             'Content-Type': 'application/json-patch+json'
-        //         },
-        //         body: JSON.stringify(elmahJson)
+        // request({
+        //     uri: URI_ELMAH,
+        //     qs: {
+        //         api_key: ELMAH_API_KEY
+        //     },
+        //     method: 'POST',
+        //     headers: {
+        //         accept: 'text/plain',
+        //         'Content-Type': 'application/json-patch+json'
+        //     },
+        //     body: JSON.stringify(elmahJson)
+        // })
+        //     .then(res => {
+        //         console.log('elmah -> res', res);
         //     })
-        //         .then(res => {
-        //             console.log('elmah -> res', res);
-        //         })
-        //         .catch(e => {
-        //             console.log('elmah -> error', e);
-        //         });
+        //     .catch(e => {
+        //         console.log('elmah -> error', e);
+        //     });
     };
 
     return {
