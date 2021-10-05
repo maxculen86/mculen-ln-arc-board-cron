@@ -19,13 +19,17 @@ const logger = (() => {
         const message = get(e || {}, 'error.message', null);
         if (!loggerOn || loggerExcludedErrors.includes(Number(statusCode || 0)))
             return;
-        const promise = Promise.resolve();
-
-        promise.then(() => {
-            throw new LnError(`${statusCode} - ${message}`, {
-                customErrorType: 'controlado'
-            });
+        // Error hardcodeado para prueba en sandbox
+        throw new LnError(`Error custom de prueba para Datadog`, {
+            customErrorType: 'controlado'
         });
+
+        // const promise = Promise.resolve();
+        // promise.then(() => {
+        //     // throw new LnError(`${statusCode} - ${message}`, {
+        //     //     customErrorType: 'controlado'
+        //     // });
+        // });
         // const {
         //     application = 'ln/arc',
         //     source = 'ARC',
