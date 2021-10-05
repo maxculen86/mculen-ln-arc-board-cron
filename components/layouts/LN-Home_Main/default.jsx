@@ -572,7 +572,7 @@ const LNMainHome = props => {
                                 <div data-section="bloque8">
                                     {blocksToLoad.bloque5.loaded && bloque8}
                                 </div>
-                                {isAdmin && (
+                                {(isAdmin || outputType === 'json') && (
                                     <div>
                                         <section data-section="app-anexo-1">
                                             {appAnexo1}

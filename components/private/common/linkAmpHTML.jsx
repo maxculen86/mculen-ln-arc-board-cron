@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import get from './utils/get';
+import { GlobalContext } from './context/globalContext';
 
 const LinkAmpHTML = props => {
     const { subtype, canonicalUrl, arcSite: website, nodeType } = props;
+    const gc = useContext(GlobalContext);
+
+    console.log(gc);
 
     const data = useContent({
         sourceName: 'navigationTreeSource',
