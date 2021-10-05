@@ -8,12 +8,22 @@ import Media from '../LN/common/media';
 import get from './utils/get';
 import ModDescription from './mod-description';
 import getAuthorsPhoto from './utils/getAuthorsPhoto';
+import ComImage from './com-image';
+import ModMedia from './mod-media';
+import ModVideo from './mod-video';
+import VideoPlayer from '../../private/LN/common/media/videoPlayer';
 
 const ModArticle = props => {
     const {
         isPowa,
         device,
         videoBackground,
+        frontdemo,
+        srcdemo,
+        video,
+        powa,
+        controls,
+        autoplay,
         articleData,
         dataSection,
         outputType,
@@ -108,6 +118,40 @@ const ModArticle = props => {
                 />
             )}
 
+            {frontdemo && (
+                <div>
+                    <ModMedia>
+                        <figure className="mod-figure">
+                            {powa ? (
+                                <picture className="mod-picture">
+                                    <VideoPlayer
+                                        videoId="76c88e0b-33e7-405f-b6ad-b6a98fef7c77"
+                                        mediaData={powa}
+                                        autoplay=""
+                                    />
+                                </picture>
+                            ) : (
+                                <a href={link}>
+                                    <picture className="mod-picture">
+                                        {video ? (
+                                            <ModVideo
+                                                video={video}
+                                                controls={controls}
+                                                autoplay={autoplay}
+                                            />
+                                        ) : (
+                                            ''
+                                        )}
+
+                                        <ComImage src={srcdemo} />
+                                    </picture>
+                                </a>
+                            )}
+                        </figure>
+                    </ModMedia>
+                </div>
+            )}
+
             <ModDescription
                 link={link}
                 titleTag={titleTag}
@@ -191,6 +235,7 @@ ModArticle.defaultProps = {
     isRenderAuthor: false,
     isRenderAuthorOpinion: false,
     isPowa: true,
+    video: undefined,
     videoBackground: undefined,
     device: 'desktop'
 };

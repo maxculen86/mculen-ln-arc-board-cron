@@ -1,5 +1,93 @@
 @import '../abstracts/variables';
 
+.skeleton-box {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background-color: $light-neutral-200;
+    border-radius: px(4);
+    margin-bottom: px(6);
+    width: 25%;
+    height: px(16);
+
+    .com-title.--xs & {
+        height: px(18);
+    }
+
+    .com-title.--m & {
+        height: px(19);
+    }
+
+    .com-title.--l & {
+        height: px(24);
+    }
+
+    .com-title.--xl & {
+        height: px(29);
+    }
+
+    &.--line1 {
+        width: 96%;
+        .--com-subhead & {
+            width: 90%;
+        }
+        .mod-marquee & {
+            width: 60%;
+        }
+    }
+    &.--line2 {
+        width: 86%;
+        .--com-subhead & {
+            width: 90%;
+        }
+    }
+    &.--line3 {
+        width: 76%;
+    }
+    &.--line4 {
+        width: 80%;
+    }
+
+    .--author & {
+        margin-left: auto;
+        margin-right: auto;
+        .col-tablet-4 & {
+            margin-left: 0;
+        }
+    }
+
+    .mod-footersection & {
+        width: 100%;
+    }
+    .mod-footersection .com-title & {
+        width: px(300);
+        margin-right: px(8);
+    }
+
+    &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: translateX(-100%);
+        background-image: linear-gradient(
+            90deg,
+            rgba(#fff, 0) 0,
+            rgba(#fff, 0.2) 10%,
+            rgba(#fff, 0.5) 30%,
+            rgba(#fff, 0)
+        );
+        animation: shimmer 2s infinite;
+        content: '';
+    }
+    @keyframes shimmer {
+        100% {
+            transform: translateX(100%);
+        }
+    }
+}
+
 @mixin renderAutor {
     border: 1px solid $light-neutral-400;
     padding: px(16);
@@ -842,6 +930,67 @@ $rank-dsk: px(400);
             .mod-media {
                 .mod-video {
                     display: none;
+                }
+            }
+        }
+    }
+
+    &.--grilla.--video {
+        .row {
+            .mod-article {
+                > div {
+                    .mod-media {
+                        .mod-picture {
+                            border: none;
+                            padding-top: calc((9 / 16) * 100%);
+                            img {
+                                display: none;
+                            }
+                        }
+                        .com-embed {
+                            // margin-bottom: 0;
+                            // overflow: hidden;
+                            // display: flex;
+                            // justify-content: center;
+                            // align-items: center;
+                            padding-top: calc((9 / 16) * 100%);
+                            iframe {
+                                //display: block;
+                                position: absolute;
+                                //object-fit: cover;
+                                width: 100%;
+                                height: 100%;
+                                //margin: 0;
+                                top: 0;
+                            }
+                        }
+                    }
+                }
+                .mod-description {
+                    .com-label {
+                        position: relative;
+                        top: auto;
+                        left: auto;
+                        margin-bottom: px(8);
+                    }
+                }
+
+                @media ($media-m) {
+                    flex-direction: row-reverse;
+                    > div {
+                        flex: 0 0 66.66666%;
+                        max-width: 66.66666%;
+                        padding-left: px(8);
+                        .mod-media,
+                        .mod-video {
+                            margin-bottom: 0;
+                        }
+                    }
+                    .mod-description {
+                        flex: 0 0 33.33333%;
+                        max-width: 33.33333%;
+                        padding-right: px(8);
+                    }
                 }
             }
         }

@@ -4,7 +4,7 @@ import getAuthorsAsString from '../../../../common/utils/getAuthorsAsString';
 import getBajadaOrFirstTextParagraph from '../../../../common/utils/getBajadaOrFirstTextParagraph';
 import {
     getChildrenFromAperturaHome,
-    getChildrenFromBombaHome
+    getChildrenFromSectionHome
 } from '../../../common/utils/cajaTemasHelper';
 import siteConfig from '../../../../../../properties/sites/la-nacion-ar';
 
@@ -147,7 +147,7 @@ export const isInHomeAperturaOrBomba = (
     const aperturasChildren =
         layoutsName.Home === layoutPageBuilder
             ? (getChildrenFromAperturaHome(renderables) || []).concat(
-                  getChildrenFromBombaHome(renderables) || []
+                  getChildrenFromSectionHome(renderables, 'Bomba', 2) || []
               )
             : [];
 

@@ -7,7 +7,6 @@ const DivBanner = props => {
     const {
         id,
         classes = '',
-        shouldRender,
         closeButton,
         fixed,
         validateSuscription = false,
@@ -19,8 +18,7 @@ const DivBanner = props => {
     const isSuscribed = validateSuscription ? subscription : false;
     const ref = useRef();
 
-    if (!isStatic && (!shouldRender || (validateSuscription && isSuscribed)))
-        return <></>;
+    if (!isStatic && validateSuscription && isSuscribed) return <></>;
 
     return isStatic ? (
         <Static id={id} htmlOnly>
@@ -62,7 +60,6 @@ DivBanner.propTypes = {
     fixed: PropTypes.bool,
     validateSuscription: PropTypes.bool,
     withoutHide: PropTypes.bool,
-    shouldRender: PropTypes.bool,
     isStatic: PropTypes.bool
 };
 
@@ -72,8 +69,7 @@ DivBanner.defaultProps = {
     fixed: false,
     validateSuscription: false,
     withoutHide: false,
-    isStatic: false,
-    shouldRender: false
+    isStatic: false
 };
 
 export default DivBanner;

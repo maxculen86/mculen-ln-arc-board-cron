@@ -30,5 +30,8 @@ const fetch = query => {
 
 export default {
     fetch,
+    params: {
+        uri: 'text'
+    },
     ttl: 300
 };

@@ -1,0 +1,2137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Author snapshot author3 1`] = `
+<div>
+  <section
+    className="box-articles"
+  >
+    <section
+      className="mod-headersection --line"
+    >
+      <h4
+        className="com-title --l"
+      >
+        <SkeletonSpan />
+      </h4>
+    </section>
+    <div
+      className="row-gap-tablet-3 "
+    >
+      <article
+        className="mod-article --author"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <a
+              href="javascript:void(0);"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </a>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h2
+            className="com-title --m"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h2>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+      <article
+        className="mod-article --author"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <a
+              href="javascript:void(0);"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </a>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h2
+            className="com-title --m"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h2>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+      <article
+        className="mod-article --author"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <a
+              href="javascript:void(0);"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </a>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h2
+            className="com-title --m"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h2>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Color snapshot notaColorRosa3 1`] = `
+<div>
+  <section
+    className="box-articles --highlight --pink"
+  >
+    <section
+      className="mod-headersection --line"
+    >
+      <h4
+        className="com-title --l"
+      >
+        <SkeletonSpan />
+      </h4>
+    </section>
+    <div
+      className="row-gap-tablet-3 "
+    >
+      <article
+        className="mod-article"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <figure
+              className="mod-figure --horizontal"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </figure>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h1
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h1>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+      <article
+        className="mod-article"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <figure
+              className="mod-figure --horizontal"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </figure>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h1
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h1>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+      <article
+        className="mod-article"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <figure
+              className="mod-figure --horizontal"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </figure>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h1
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h1>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Color snapshot notaColorVerde3 1`] = `
+<div>
+  <section
+    className="box-articles --highlight --teal"
+  >
+    <section
+      className="mod-headersection --line"
+    >
+      <h4
+        className="com-title --l"
+      >
+        <SkeletonSpan />
+      </h4>
+    </section>
+    <div
+      className="row-gap-tablet-3 "
+    >
+      <article
+        className="mod-article"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <figure
+              className="mod-figure --horizontal"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </figure>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h1
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h1>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+      <article
+        className="mod-article"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <figure
+              className="mod-figure --horizontal"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </figure>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h1
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h1>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+      <article
+        className="mod-article"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <figure
+              className="mod-figure --horizontal"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </figure>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h1
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h1>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Editoriales snapshot editoriales2 1`] = `
+<div>
+  <section
+    className="box-articles --editoriales"
+  >
+    <div
+      className="mod-footersection"
+    >
+      <h4
+        className="com-title --twoxs"
+      >
+        <SkeletonSpan />
+      </h4>
+      <div
+        className="col-12"
+      >
+        <article
+          className="mod-article"
+        >
+          <div
+            className="mod-description"
+          >
+            <h2
+              className="com-title --twoxs"
+            >
+              <SkeletonSpan />
+            </h2>
+          </div>
+        </article>
+        <article
+          className="mod-article"
+        >
+          <div
+            className="mod-description"
+          >
+            <h2
+              className="com-title --twoxs"
+            >
+              <SkeletonSpan />
+            </h2>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Focal snapshot focalLeft3 1`] = `
+<div>
+  <section
+    className="box-articles --focal --left"
+  >
+    <section
+      className="mod-headersection --line"
+    >
+      <h4
+        className="com-title --l"
+      >
+        <SkeletonSpan />
+      </h4>
+    </section>
+    <div
+      className="row "
+    >
+      <div
+        className="col-tablet-8"
+      >
+        <article
+          className="mod-article"
+        >
+          <div
+            className="content-media"
+          >
+            <section
+              className="mod-media"
+            >
+              <figure
+                className="mod-figure --horizontal"
+              >
+                <picture
+                  className="mod-picture "
+                />
+              </figure>
+            </section>
+          </div>
+          <section
+            className="mod-description"
+          >
+            <h1
+              className="com-title --xl"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+              <SkeletonSpan
+                extraClass="--line2"
+              />
+              <SkeletonSpan
+                extraClass="--line3"
+              />
+            </h1>
+            <h2
+              className=" com-subhead --twoxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+              <SkeletonSpan
+                extraClass="--line2"
+              />
+            </h2>
+            <div>
+              <strong
+                className="mod-marquee --fourxs"
+              >
+                <SkeletonSpan
+                  extraClass="--line1"
+                />
+              </strong>
+            </div>
+          </section>
+        </article>
+      </div>
+      <div
+        className="col-tablet-4"
+      >
+        <article
+          className="mod-article"
+        >
+          <div
+            className="content-media"
+          >
+            <section
+              className="mod-media"
+            >
+              <figure
+                className="mod-figure --horizontal"
+              >
+                <picture
+                  className="mod-picture "
+                />
+              </figure>
+            </section>
+          </div>
+          <section
+            className="mod-description"
+          >
+            <h2
+              className="com-title --xs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+              <SkeletonSpan
+                extraClass="--line2"
+              />
+              <SkeletonSpan
+                extraClass="--line3"
+              />
+            </h2>
+            <div>
+              <strong
+                className="mod-marquee --fourxs"
+              >
+                <SkeletonSpan
+                  extraClass="--line1"
+                />
+              </strong>
+            </div>
+          </section>
+        </article>
+        <article
+          className="mod-article"
+        >
+          <div
+            className="content-media"
+          >
+            <section
+              className="mod-media"
+            >
+              <figure
+                className="mod-figure --horizontal"
+              >
+                <picture
+                  className="mod-picture "
+                />
+              </figure>
+            </section>
+          </div>
+          <section
+            className="mod-description"
+          >
+            <h2
+              className="com-title --xs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+              <SkeletonSpan
+                extraClass="--line2"
+              />
+              <SkeletonSpan
+                extraClass="--line3"
+              />
+            </h2>
+            <div>
+              <strong
+                className="mod-marquee --fourxs"
+              >
+                <SkeletonSpan
+                  extraClass="--line1"
+                />
+              </strong>
+            </div>
+          </section>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Focal snapshot focalRight2 1`] = `
+<div>
+  <section
+    className="box-articles --focal --right"
+  >
+    <section
+      className="mod-headersection --line"
+    >
+      <h4
+        className="com-title --l"
+      >
+        <SkeletonSpan />
+      </h4>
+    </section>
+    <div
+      className="row "
+    >
+      <div
+        className="col-tablet-8"
+      >
+        <article
+          className="mod-article"
+        >
+          <div
+            className="content-media"
+          >
+            <section
+              className="mod-media"
+            >
+              <figure
+                className="mod-figure --horizontal"
+              >
+                <picture
+                  className="mod-picture "
+                />
+              </figure>
+            </section>
+          </div>
+          <section
+            className="mod-description"
+          >
+            <h1
+              className="com-title --xl"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+              <SkeletonSpan
+                extraClass="--line2"
+              />
+            </h1>
+            <div>
+              <strong
+                className="mod-marquee --fourxs"
+              >
+                <SkeletonSpan
+                  extraClass="--line1"
+                />
+              </strong>
+            </div>
+          </section>
+        </article>
+      </div>
+      <div
+        className="col-tablet-4"
+      >
+        <article
+          className="mod-article"
+        >
+          <div
+            className="content-media"
+          >
+            <section
+              className="mod-media"
+            >
+              <figure
+                className="mod-figure --horizontal"
+              >
+                <picture
+                  className="mod-picture "
+                />
+              </figure>
+            </section>
+          </div>
+          <section
+            className="mod-description"
+          >
+            <h2
+              className="com-title --xl"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+              <SkeletonSpan
+                extraClass="--line2"
+              />
+              <SkeletonSpan
+                extraClass="--line3"
+              />
+            </h2>
+            <h3
+              className="com-subhead --twoxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+              <SkeletonSpan
+                extraClass="--line2"
+              />
+              <SkeletonSpan
+                extraClass="--line3"
+              />
+              <SkeletonSpan
+                extraClass="--line4"
+              />
+            </h3>
+            <div>
+              <strong
+                className="mod-marquee --fourxs"
+              >
+                <SkeletonSpan
+                  extraClass="--line1"
+                />
+              </strong>
+            </div>
+          </section>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snapshot grilla1 1`] = `
+<div>
+  <section
+    className="box-articles --cinema"
+  >
+    <section
+      className="mod-headersection --line"
+    >
+      <h4
+        className="com-title --l"
+      >
+        <SkeletonSpan />
+      </h4>
+    </section>
+    <div
+      className="row"
+    >
+      <article
+        className="mod-article"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <figure
+              className="mod-figure --horizontal"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </figure>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h2
+            className="com-title --l"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+          </h2>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snapshot grilla2 1`] = `
+<div>
+  <section
+    className="box-articles "
+  >
+    <section
+      className="mod-headersection --line"
+    >
+      <h4
+        className="com-title --l"
+      >
+        <SkeletonSpan />
+      </h4>
+    </section>
+    <div
+      className="row-gap-tablet-2"
+    >
+      <article
+        className="mod-article"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <figure
+              className="mod-figure --horizontal"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </figure>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h2
+            className="com-title --l"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+          </h2>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+      <article
+        className="mod-article"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <figure
+              className="mod-figure --horizontal"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </figure>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h2
+            className="com-title --l"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+          </h2>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snapshot grilla3 1`] = `
+<div>
+  <section
+    className="box-articles "
+  >
+    <section
+      className="mod-headersection --line"
+    >
+      <h4
+        className="com-title --l"
+      >
+        <SkeletonSpan />
+      </h4>
+    </section>
+    <div
+      className="row-gap-tablet-3"
+    >
+      <article
+        className="mod-article"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <figure
+              className="mod-figure --horizontal"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </figure>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h2
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h2>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+      <article
+        className="mod-article"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <figure
+              className="mod-figure --horizontal"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </figure>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h2
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h2>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+      <article
+        className="mod-article"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <figure
+              className="mod-figure --horizontal"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </figure>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h2
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h2>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snapshot grilla6 1`] = `
+<div>
+  <section
+    className="box-articles "
+  >
+    <section
+      className="mod-headersection --line"
+    >
+      <h4
+        className="com-title --l"
+      >
+        <SkeletonSpan />
+      </h4>
+    </section>
+    <div
+      className="row-gap-tablet-3"
+    >
+      <article
+        className="mod-article"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <figure
+              className="mod-figure --horizontal"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </figure>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h2
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h2>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+      <article
+        className="mod-article"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <figure
+              className="mod-figure --horizontal"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </figure>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h2
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h2>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+      <article
+        className="mod-article"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <figure
+              className="mod-figure --horizontal"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </figure>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h2
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h2>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+      <article
+        className="mod-article"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <figure
+              className="mod-figure --horizontal"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </figure>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h2
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h2>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+      <article
+        className="mod-article"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <figure
+              className="mod-figure --horizontal"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </figure>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h2
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h2>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+      <article
+        className="mod-article"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <figure
+              className="mod-figure --horizontal"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </figure>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h2
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h2>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snapshot grilla9 1`] = `
+<div>
+  <section
+    className="box-articles "
+  >
+    <section
+      className="mod-headersection --line"
+    >
+      <h4
+        className="com-title --l"
+      >
+        <SkeletonSpan />
+      </h4>
+    </section>
+    <div
+      className="row-gap-tablet-3"
+    >
+      <article
+        className="mod-article"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <figure
+              className="mod-figure --horizontal"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </figure>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h2
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h2>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+      <article
+        className="mod-article"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <figure
+              className="mod-figure --horizontal"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </figure>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h2
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h2>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+      <article
+        className="mod-article"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <figure
+              className="mod-figure --horizontal"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </figure>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h2
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h2>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+      <article
+        className="mod-article"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <figure
+              className="mod-figure --horizontal"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </figure>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h2
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h2>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+      <article
+        className="mod-article"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <figure
+              className="mod-figure --horizontal"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </figure>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h2
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h2>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+      <article
+        className="mod-article"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <figure
+              className="mod-figure --horizontal"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </figure>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h2
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h2>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+      <article
+        className="mod-article"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <figure
+              className="mod-figure --horizontal"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </figure>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h2
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h2>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+      <article
+        className="mod-article"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <figure
+              className="mod-figure --horizontal"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </figure>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h2
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h2>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+      <article
+        className="mod-article"
+      >
+        <div
+          className="content-media"
+        >
+          <section
+            className="mod-media"
+          >
+            <figure
+              className="mod-figure --horizontal"
+            >
+              <picture
+                className="mod-picture "
+              />
+            </figure>
+          </section>
+        </div>
+        <section
+          className="mod-description"
+        >
+          <h2
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h2>
+          <div>
+            <strong
+              className="mod-marquee --fourxs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+            </strong>
+          </div>
+        </section>
+      </article>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Opinion snapshot opinion4 1`] = `
+<div>
+  <section
+    className="box-articles  --opinion"
+  >
+    <section
+      className="mod-headersection --line"
+    >
+      <h4
+        className="com-title --l"
+      >
+        <SkeletonSpan />
+      </h4>
+    </section>
+    <div
+      className="row"
+    >
+      <div
+        className="col-tablet-5"
+      >
+        <article
+          className="mod-article"
+        >
+          <div
+            className="content-media"
+          >
+            <section
+              className="mod-media"
+            >
+              <picture
+                className="mod-picture"
+              />
+            </section>
+          </div>
+          <section
+            className="mod-description"
+          >
+            <h2
+              className="com-title --l"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+              <SkeletonSpan
+                extraClass="--line2"
+              />
+              <SkeletonSpan
+                extraClass="--line3"
+              />
+            </h2>
+            <div>
+              <strong
+                className="mod-marquee --fourxs"
+              >
+                <SkeletonSpan
+                  extraClass="--line1"
+                />
+              </strong>
+            </div>
+          </section>
+        </article>
+      </div>
+      <div
+        className="col-tablet-4"
+      >
+        <article
+          className="mod-article --author"
+        >
+          <div
+            className="content-media"
+          >
+            <section
+              className="mod-media"
+            >
+              <figure
+                className="mod-figure --horizontal"
+              >
+                <a
+                  href="javascript:void(0);"
+                >
+                  <picture
+                    className="mod-picture"
+                  />
+                </a>
+              </figure>
+            </section>
+          </div>
+          <section
+            className="mod-description"
+          >
+            <h2
+              className="com-title --xs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+              <SkeletonSpan
+                extraClass="--line2"
+              />
+              <SkeletonSpan
+                extraClass="--line3"
+              />
+            </h2>
+            <div>
+              <strong
+                className="mod-marquee --fourxs"
+              >
+                <SkeletonSpan
+                  extraClass="--line1"
+                />
+              </strong>
+            </div>
+          </section>
+        </article>
+        <article
+          className="mod-article --author"
+        >
+          <div
+            className="content-media"
+          >
+            <section
+              className="mod-media"
+            >
+              <figure
+                className="mod-figure --horizontal"
+              >
+                <a
+                  href="javascript:void(0);"
+                >
+                  <picture
+                    className="mod-picture"
+                  />
+                </a>
+              </figure>
+            </section>
+          </div>
+          <section
+            className="mod-description"
+          >
+            <h2
+              className="com-title --xs"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+              <SkeletonSpan
+                extraClass="--line2"
+              />
+              <SkeletonSpan
+                extraClass="--line3"
+              />
+            </h2>
+            <div>
+              <strong
+                className="mod-marquee --fourxs"
+              >
+                <SkeletonSpan
+                  extraClass="--line1"
+                />
+              </strong>
+            </div>
+          </section>
+        </article>
+      </div>
+      <div
+        className="col-tablet-3"
+      >
+        <article
+          className="mod-article --author"
+        >
+          <div
+            className="content-media"
+          >
+            <section
+              className="mod-media"
+            >
+              <figure
+                className="mod-figure --horizontal"
+              >
+                <a
+                  href="javascript:void(0);"
+                >
+                  <picture
+                    className="mod-picture"
+                  />
+                </a>
+              </figure>
+            </section>
+          </div>
+          <section
+            className="mod-description"
+          >
+            <h2
+              className="com-title --l"
+            >
+              <SkeletonSpan
+                extraClass="--line1"
+              />
+              <SkeletonSpan
+                extraClass="--line2"
+              />
+              <SkeletonSpan
+                extraClass="--line3"
+              />
+              <SkeletonSpan
+                extraClass="--line3"
+              />
+            </h2>
+            <div>
+              <strong
+                className="mod-marquee --fourxs"
+              >
+                <SkeletonSpan
+                  extraClass="--line1"
+                />
+              </strong>
+            </div>
+          </section>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Unknown snapshot layoutX 1`] = `"Cargando..."`;
+
+exports[`Util cajaTemasPlaceholder function getPlaceholder by layout and index position when layout is bomba1 should return bomba index 0 1`] = `
+<article
+  className="mod-article"
+>
+  <div
+    className="content-media"
+  >
+    <section
+      className="mod-media   "
+    >
+      <figure
+        className="mod-figure --horizontal"
+      >
+        <picture
+          className="mod-picture "
+        />
+      </figure>
+    </section>
+  </div>
+  <section
+    className="mod-description"
+  >
+    <h1
+      className="com-title --threexl"
+    >
+      <SkeletonSpan
+        extraClass="--line1"
+      />
+      <SkeletonSpan
+        extraClass="--line2"
+      />
+    </h1>
+  </section>
+</article>
+`;
