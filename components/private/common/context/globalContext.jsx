@@ -94,8 +94,7 @@ const GlobalProvider = ({ children }) => {
                 const {
                     sitio_adserver: sitioAdserver = {},
                     tooltips = {},
-                    not_recommended_sections: notRecommendedSections = [],
-                    'with-amp': withAmp = {}
+                    not_recommended_sections: notRecommendedSections = []
                 } = site;
                 return {
                     bannerConfig: { dfp_id: bannerConfig.dfp_id },
@@ -115,8 +114,7 @@ const GlobalProvider = ({ children }) => {
                         key,
                         value: termicasConfig[key]
                     })),
-                    notRecommendedSections,
-                    withAmp
+                    notRecommendedSections
                 };
             }
         }),
