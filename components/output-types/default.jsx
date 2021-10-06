@@ -128,13 +128,12 @@ const Default = props => {
         Fusion,
         Libs,
         metaValue,
+        layout = '',
         siteProperties,
         renderables,
         globalContent,
         outputType
     } = props;
-    const { layoutsName = {} } = siteProperties;
-    const layOutColumnista = layoutsName.Columnistas || '';
 
     const {
         canonical_url: canonicalUrl,
@@ -201,7 +200,7 @@ const Default = props => {
                   nodeType,
                   name,
                   arcSite,
-                  layOutColumnista
+                  layout
               )
             : '';
 
