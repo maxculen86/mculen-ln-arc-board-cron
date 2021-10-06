@@ -82,14 +82,16 @@ const GlobalProvider = ({ children }) => {
                     tooltips
                     Termicas
                     bannerConfig
-                    site
+                    site,
+                    migration
                 }
             `,
             transform: response => {
                 const {
                     site = {},
                     Termicas: termicasConfig = {},
-                    bannerConfig = {}
+                    bannerConfig = {},
+                    migration = {}
                 } = response || {};
                 const {
                     sitio_adserver: sitioAdserver = {},
@@ -114,6 +116,7 @@ const GlobalProvider = ({ children }) => {
                         key,
                         value: termicasConfig[key]
                     })),
+                    migration,
                     notRecommendedSections
                 };
             }
