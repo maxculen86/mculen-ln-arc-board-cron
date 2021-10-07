@@ -31,9 +31,10 @@
 
 @media ($media-xl) {
     .sidebar__main {
-        flex-basis: calc(100% - 380px);
+        flex-basis: calc(100% - 340px);
         margin-right: $spacing-xl;
         #wrapper.nota & {
+            flex-basis: calc(100% - 380px);
             margin-right: $spacing-3xl;
         }
     }
