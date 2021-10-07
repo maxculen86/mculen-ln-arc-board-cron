@@ -2,14 +2,14 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
 import React from 'react';
-import { shouldLoadViafouraSSR } from '../../../private/common/utils/commentsHelper';
+//import { shouldLoadViafouraSSR } from '../../../private/common/utils/commentsHelper';
 
 const CommentsViafouraFeature = props => {
     const { id: featureId, outputType } = props;
-    const loadViafoura = shouldLoadViafouraSSR(props);
+    //const loadViafoura = shouldLoadViafouraSSR(props);
 
     return (
-        ((outputType === 'widgets' || loadViafoura) && (
+        (outputType === 'widgets' && (
             <Static id={featureId}>
                 <div className="viafoura">
                     <vf-conversations />

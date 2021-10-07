@@ -2,23 +2,20 @@
 import Consumer from 'fusion:consumer';
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'fusion:prop-types';
+import findTermica from '../../../private/common/utils/findTermica';
+import get from '../../../private/common/utils/get';
 import dynamicallyLoadScript from '../../../private/LN/common/utils/dynamicallyLoadScript';
 import getScrollPercent from '../../../private/LN/common/utils/getScrollPercent';
 import Comments from '../../../private/LN/nota/comments';
 import LoadingIcon from '../../../private/LN/common/loadingIcon';
-import {
-    allowComments,
-    shouldLoadViafoura
-} from '../../../private/common/utils/commentsHelper';
 
 const CommentsFeature = props => {
     const {
-        globalContent: { first_publish_date: firstPublishDate }
+        globalContent: { comments }
     } = props;
-    const displayComments = allowComments(props);
+    const displayComments = get(comments, 'display_comments', true);
     const [isReady, setIsReady] = useState(false);
-    const loadViafoura =
-        shouldLoadViafoura(firstPublishDate) && displayComments;
+    const showLivefyre = findTermica('livefyre');
 
     useEffect(() => {
         const handleScrollForComments = () => {
@@ -43,14 +40,13 @@ const CommentsFeature = props => {
                     });
             }
         };
-        if (!loadViafoura && displayComments)
+        if (showLivefyre && displayComments)
             window.addEventListener('scroll', e => handleScrollForComments());
         return () =>
-            !loadViafoura &&
             window.removeEventListener('scroll', handleScrollForComments);
     });
 
-    if (loadViafoura || !displayComments) return <></>;
+    if (!showLivefyre || !displayComments) return <></>;
     if (!isReady) return <LoadingIcon />;
 
     return <Comments {...props} />;
@@ -58,7 +54,6 @@ const CommentsFeature = props => {
 
 CommentsFeature.propTypes = {
     globalContent: PropTypes.shape({
-        first_publish_date: PropTypes.string,
         comments: PropTypes.shape({
             display_comments: PropTypes.bool
         })
