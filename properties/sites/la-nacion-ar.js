@@ -100,6 +100,10 @@ export default {
         Queryly: {
             props: {},
             location: ['body-bottom']
+        },
+        Viafoura: {
+            props: {},
+            location: ['body-bottom']
         }
     },
     imageConfig: {
