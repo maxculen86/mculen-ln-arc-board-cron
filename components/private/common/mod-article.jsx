@@ -100,7 +100,6 @@ const ModArticle = props => {
             }`}
             {...extraOpts}
             onClick={onCLick}
-            {...(typeof handleClick == 'function' && {})}
         >
             {hour && hour}
 
