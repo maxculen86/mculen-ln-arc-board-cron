@@ -59,40 +59,38 @@ const fetch = query => {
 
     return request(opt)
         .then(response => {
-            if (response.type === 'redirect' && response.redirect_url) {
-                throw new Redirect(response.redirect_url, 301);
-            }
-
-            const forwardUrl = get(
-                response,
-                'related_content.redirect[0].redirect_url'
-            );
-
-            const regExp = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
-            if (forwardUrl && regExp.test(forwardUrl)) {
-                throw new Redirect(forwardUrl, 301);
-            }
-
-            isNotShowcase(response) &&
-                paywallUtils.checkPaywall({
-                    queryData: query,
-                    urlBase: SITE_LANACION,
-                    responseData: response
-                });
-
-            return transform(
-                response,
-                arcSite,
-                properties,
-                imageConfig,
-                url,
-                meteringVariant,
-                paywallEnabled
-            );
+            // ------- ERROR PRUEBA DATADOG-------
+            throw new Error('Error custom');
+            // if (response.type === 'redirect' && response.redirect_url) {
+            //     throw new Redirect(response.redirect_url, 301);
+            // }
+            // const forwardUrl = get(
+            //     response,
+            //     'related_content.redirect[0].redirect_url'
+            // );
+            // const regExp = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
+            // if (forwardUrl && regExp.test(forwardUrl)) {
+            //     throw new Redirect(forwardUrl, 301);
+            // }
+            // isNotShowcase(response) &&
+            //     paywallUtils.checkPaywall({
+            //         queryData: query,
+            //         urlBase: SITE_LANACION,
+            //         responseData: response
+            //     });
+            // return transform(
+            //     response,
+            //     arcSite,
+            //     properties,
+            //     imageConfig,
+            //     url,
+            //     meteringVariant,
+            //     paywallEnabled
+            // );
         })
         .catch(error => {
             logger.push(error, { source: 'content/source', url }, arcSite);
-            throw error;
+            // throw error;
         });
 };
 

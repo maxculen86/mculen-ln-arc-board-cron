@@ -12,13 +12,14 @@ const fetch = ({ arcSite }) => {
 
     const getData = async () => {
         try {
-            const response = await request(endpoint);
+            throw new Error('Error custom');
+            // const response = await request(endpoint);
 
-            return {
-                weather: transform(response),
-                sourceName: endpoint.uri,
-                source: endpoint.uri
-            };
+            // return {
+            //     weather: transform(response),
+            //     sourceName: endpoint.uri,
+            //     source: endpoint.uri
+            // };
         } catch (error) {
             logger.push(
                 error,

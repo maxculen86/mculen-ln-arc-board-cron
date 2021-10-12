@@ -45,11 +45,13 @@ const fetch = query => {
 
     return request(opt)
         .then(response => {
-            return transform(response, query);
+            // ------- ERROR PRUEBA DATADOG-------
+            throw new Error('Error custom');
+            // return transform(response, query);
         })
         .catch(error => {
             logger.push(error, { source: 'content/source', url }, arcSite);
-            throw error;
+            // throw error;
         });
 };
 

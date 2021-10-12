@@ -50,18 +50,20 @@ const fetch = query => {
     }
     return request(opt)
         .then(response => {
-            const objresponse = {};
-            Object.entries(response).map(([key, value]) => {
-                objresponse[key] = value;
-            });
+            // ------------PROBANDO ERROR PARA DATADOG-------------------
+            throw new Error('Error custom');
+            // const objresponse = {};
+            // Object.entries(response).map(([key, value]) => {
+            //     objresponse[key] = value;
+            // });
 
-            objresponse.count = resultsIds.length;
-            objresponse.next = null;
-            return transform(objresponse, query, resultsIds);
+            // objresponse.count = resultsIds.length;
+            // objresponse.next = null;
+            // return transform(objresponse, query, resultsIds);
         })
         .catch(error => {
             logger.push(error, { source: 'content/source', uri }, arcSite);
-            throw error;
+            // throw error;
         });
 };
 
