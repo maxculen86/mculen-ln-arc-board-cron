@@ -48,47 +48,36 @@ const isValidUrlTagA = (contentElements, arcSite, url, API_ENV) => {
     };
 
     return (
-        // contentElements &&
-        // contentElements.reduce((acc, current) => {
-        //     const { content, type } = current;
-        //     if (content && typeElement[type]) {
-        //         const errors = typeElement[type].getErrors(current);
-        //         API_ENV === 'prod' &&
-        //             errors.length &&
-        //             logger.push(
-        //                 {
-        //                     response: { request: { method: 'isValidUrlTagA' } },
-        //                     error: {
-        //                         message: `Error URL mal formato en cuerpo nota: ${errors}`
-        //                     }
-        //                 },
-        //                 { source: 'content/source', url },
-        //                 arcSite
-        //             );
+        contentElements &&
+        contentElements.reduce((acc, current) => {
+            const { content, type } = current;
+            if (content && typeElement[type]) {
+                const errors = typeElement[type].getErrors(current);
+                API_ENV === 'prod' &&
+                    errors.length &&
+                    logger.push(
+                        {
+                            response: { request: { method: 'isValidUrlTagA' } },
+                            error: {
+                                message: `Error URL mal formato en cuerpo nota: ${errors}`
+                            }
+                        },
+                        { source: 'content/source', url },
+                        arcSite
+                    );
 
-        //         const newElement =
-        //             errors.length &&
-        //             typeElement[type].replace &&
-        //             typeElement[type].replace(current, errors, '');
-        //         !errors.length
-        //             ? acc.push(current)
-        //             : newElement && acc.push(newElement);
-        //     } else {
-        //         acc.push(current);
-        //     }
-        //     return acc;
-        // }, [])
-        // ---- ERROR DE PRUEBA PARA DATADOG------
-        logger.push(
-            {
-                response: { request: { method: 'isValidUrlTagA' } },
-                error: {
-                    message: `Error URL mal formato en cuerpo nota: Error de prueba para dataDog`
-                }
-            },
-            { source: 'content/source', url },
-            arcSite
-        )
+                const newElement =
+                    errors.length &&
+                    typeElement[type].replace &&
+                    typeElement[type].replace(current, errors, '');
+                !errors.length
+                    ? acc.push(current)
+                    : newElement && acc.push(newElement);
+            } else {
+                acc.push(current);
+            }
+            return acc;
+        }, [])
     );
 };
 

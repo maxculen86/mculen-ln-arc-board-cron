@@ -104,60 +104,58 @@ const fetch = query => {
         };
         return ArticleSourceNotas.fetch(queryArticles)
             .then(resp => {
-                // ------- ERROR PRUEBA DATADOG-------
-                throw new Error('Error custom');
-                // const queryAdapted = { ...query };
-                // let urlReferer = null;
-                // let nextUrlReferer = nextUrl;
+                const queryAdapted = { ...query };
+                let urlReferer = null;
+                let nextUrlReferer = nextUrl;
 
-                // resp.content_elements.map((item, i) => {
-                //     let itemUrl = get(item, 'canonical_url', null);
+                resp.content_elements.map((item, i) => {
+                    let itemUrl = get(item, 'canonical_url', null);
 
-                //     if (itemUrl && !itemUrl.includes('http')) {
-                //         itemUrl = referrer.concat(itemUrl);
-                //     }
-                //     if (itemUrl && isvalidUrl(itemUrl)) {
-                //         if (
-                //             idArticle &&
-                //             !!idArticle &&
-                //             idArticle?.includes(item?._id)
-                //         ) {
-                //             urlReferer = itemUrl;
-                //         }
+                    if (itemUrl && !itemUrl.includes('http')) {
+                        itemUrl = referrer.concat(itemUrl);
+                    }
+                    if (itemUrl && isvalidUrl(itemUrl)) {
+                        if (
+                            idArticle &&
+                            !!idArticle &&
+                            idArticle?.includes(item?._id)
+                        ) {
+                            urlReferer = itemUrl;
+                        }
 
-                //         if (
-                //             nextIdArticle &&
-                //             !!nextIdArticle &&
-                //             nextIdArticle?.includes(item?._id)
-                //         ) {
-                //             nextUrlReferer = itemUrl;
-                //         }
+                        if (
+                            nextIdArticle &&
+                            !!nextIdArticle &&
+                            nextIdArticle?.includes(item?._id)
+                        ) {
+                            nextUrlReferer = itemUrl;
+                        }
 
-                //         if (
-                //             excludeNotas &&
-                //             !!excludeNotas &&
-                //             excludeNotas?.includes(item?._id)
-                //         ) {
-                //             excludeItems.push(itemUrl);
-                //         }
+                        if (
+                            excludeNotas &&
+                            !!excludeNotas &&
+                            excludeNotas?.includes(item?._id)
+                        ) {
+                            excludeItems.push(itemUrl);
+                        }
 
-                //         if (
-                //             listArticles &&
-                //             !!listArticles &&
-                //             listArticles?.includes(item?._id)
-                //         ) {
-                //             articles.push(itemUrl);
-                //         }
-                //     }
-                // });
+                        if (
+                            listArticles &&
+                            !!listArticles &&
+                            listArticles?.includes(item?._id)
+                        ) {
+                            articles.push(itemUrl);
+                        }
+                    }
+                });
 
-                // queryAdapted.excludeItems = excludeItems;
-                // queryAdapted.urlReferer = urlReferer;
-                // queryAdapted.idArticle = idArticleClean;
-                // queryAdapted.nextUrl = nextUrlReferer;
-                // queryAdapted.articles = articles;
+                queryAdapted.excludeItems = excludeItems;
+                queryAdapted.urlReferer = urlReferer;
+                queryAdapted.idArticle = idArticleClean;
+                queryAdapted.nextUrl = nextUrlReferer;
+                queryAdapted.articles = articles;
 
-                // return resolveData(queryAdapted);
+                return resolveData(queryAdapted);
             })
             .catch(error => {
                 logger.push(

@@ -24,9 +24,7 @@ const fetch = query => {
     }
     return request(opt)
         .then(response => {
-            // ------- ERROR PRUEBA DATADOG-------
-            throw new Error('Error custom');
-            // return transform(response, query);
+            return transform(response, query);
         })
         .catch(error => {
             logger.push(error, { source: 'content/source', query }, query);

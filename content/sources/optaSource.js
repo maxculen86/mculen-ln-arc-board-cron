@@ -40,9 +40,7 @@ const fetch = query => {
 
     return request(opt)
         .then(response => {
-            // ------- ERROR PRUEBA DATADOG-------
-            throw new Error('Error custom');
-            // return transform(response, uri);
+            return transform(response, uri);
         })
         .catch(error => {
             logger.push(error, { source: 'content/source', uri }, arcSite);
