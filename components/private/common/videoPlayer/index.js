@@ -116,6 +116,8 @@ const VideoPlayer = props => {
         return () => window.removeEventListener('powaReady', setVideoEvents);
     }, [adsURL, isAdmin, tituloVideo, videoId]);
 
+    console.log('videoplayer =>', props);
+
     return (
         <div
             className="powa"

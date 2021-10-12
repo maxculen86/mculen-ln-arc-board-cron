@@ -101,7 +101,7 @@ const ArticleFeature = ({
                     layoutPageBuilder
                 )}
                 videoBackground={videoBackground}
-                isPowa={videoBackground === undefined}
+                isPowa={layout !== 'grilla1'}
             />
         )) || <></>
     );
