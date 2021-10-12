@@ -46,7 +46,7 @@ const revistas = [
     'jardin',
     'rolling-stone'
 ];
-const sections = ['economia', 'deportes'];
+const sections = ['economia', 'deportes', 'opinion'];
 
 const acumToSearchAperturaChain = ['tags'];
 

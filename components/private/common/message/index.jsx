@@ -1,0 +1,85 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import Text from '../text';
+import Link from '../com-link';
+import Logo from '../com-logo';
+
+import '../../../../resources/dist/css/ln/modules/message.css';
+
+const Message = props => {
+    const {
+        title,
+        subtitle,
+        special,
+        specialUrl,
+        secondary,
+        secondaryUrl,
+        dark
+    } = props;
+
+    return (
+        <section className={`message row w-100-mobile ${dark ? '--dark' : ''}`}>
+            <div className="col-12 --top">
+                <Text tag="strong" extraClass="subscribers" size="--twoxs">
+                    <Logo logoName="ln" size="--xs" /> Exclusivo suscriptores
+                </Text>
+            </div>
+            <div className="col-tablet-7 --left">
+                <Text extraClass="com-title" tag="h3" size="--s">
+                    {title}
+                </Text>
+                <Text tag="p" size="--twoxs">
+                    {subtitle}
+                </Text>
+            </div>
+            <div className="col-tablet-5 --right">
+                <Link
+                    classCondition="com-button --secondary"
+                    title={secondary}
+                    rel="nofollow"
+                    link={
+                        secondaryUrl ||
+                        `https://ingresar.lanacion.com.ar/ingresar/D/1/?callback=${window.btoa(
+                            location.href
+                        )}`
+                    }
+                >
+                    {secondary}
+                </Link>
+                <Link
+                    classCondition="com-button --special"
+                    title={special}
+                    rel="nofollow"
+                    link={
+                        specialUrl ||
+                        `https://ingresar.lanacion.com.ar/suscribirme?callback=${window.btoa(
+                            location.href
+                        )}`
+                    }
+                >
+                    {special}
+                </Link>
+            </div>
+        </section>
+    );
+};
+Message.propTypes = {
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    special: PropTypes.string,
+    specialUrl: PropTypes.string,
+    secondary: PropTypes.string,
+    secondaryUrl: PropTypes.string,
+    dark: PropTypes.bool
+};
+
+Message.defaultProps = {
+    title: 'Ahora para comentar debés tener Acceso Digital',
+    subtitle: 'Ingresá o suscribite por $225/mes',
+    special: 'Suscribite por $225/mes',
+    secondary: 'Ingresá',
+    dark: undefined
+};
+
+export default Message;

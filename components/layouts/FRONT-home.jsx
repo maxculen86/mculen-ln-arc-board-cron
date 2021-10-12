@@ -29,9 +29,49 @@ const LNHome = props => {
     } = props;
     const amp = outputType === 'amp' ? 'amp' : '';
 
+    const powa = {
+        _id: '76c88e0b-33e7-405f-b6ad-b6a98fef7c77',
+        created_date: '2019-08-22T18:57:32Z',
+        duration: 60053,
+        headlines: { basic: 'FR Cibeles' },
+        promo_items: {
+            basic: {
+                caption: 'FrontRow Cibeles',
+                credits: {},
+                height: 720,
+                type: 'image',
+                url:
+                    'https://d3us6z9haan6vf.cloudfront.net/08-22-2019/t_ed25861f78d440428ed31a92b3f5c720_name_file_1280x720_2000_v3_1_.jpg',
+                width: 1280
+            }
+        },
+        publish_date: '2020-04-27T22:25:08Z',
+        streams: [
+            {
+                height: 360,
+                stream_type: 'mp4',
+                url:
+                    'https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/06/10/5cfe914c46e0fb000981496e/t_520577cda990476baa7a9ecf733e4a97_name_05_30_2019_t_a35f599ee6764026add3d7967f88b000_name_Marilina_Rolling_1920x1080_2/file_1280x720-2000-v3_1.mp4',
+                width: 640
+            },
+            {
+                height: 720,
+                stream_type: 'mp4',
+                url:
+                    'https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/06/10/5cfe914c46e0fb000981496e/t_520577cda990476baa7a9ecf733e4a97_name_05_30_2019_t_a35f599ee6764026add3d7967f88b000_name_Marilina_Rolling_1920x1080_2/file_1280x720-2000-v3_1.mp4',
+                width: 1280
+            }
+        ],
+        type: 'video'
+    };
+
     return (
         <GlobalProvider>
             <GlobalProviderAcu>
+                <script
+                    async
+                    src="https://lanacionar.video-player.arcpublishing.com/prod/powaBoot.js"
+                />
                 {seccion1}
                 {/* <div className="mod-banner --comercial">
                         <ComButton
@@ -240,6 +280,23 @@ const LNHome = props => {
                                             </div>
                                         </section>
 
+                                        <section className="box-articles --grilla --video">
+                                            <div className="row">
+                                                <Article
+                                                    frontdemo
+                                                    srcdemo="https://source.unsplash.com/460x600"
+                                                    powa={powa}
+                                                    link="#"
+                                                    leadText="Video grilla."
+                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                    titleSize="--l"
+                                                    subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
+                                                    authors="Por Nombre Apellido"
+                                                    //label="Chapita más larga"
+                                                />
+                                            </div>
+                                        </section>
+
                                         <section className="box-articles --cinema --video">
                                             <div className="row">
                                                 <Article
@@ -247,7 +304,7 @@ const LNHome = props => {
                                                     srcdemo="https://source.unsplash.com/460x600"
                                                     video="https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/06/10/5cfe914c46e0fb000981496e/t_520577cda990476baa7a9ecf733e4a97_name_05_30_2019_t_a35f599ee6764026add3d7967f88b000_name_Marilina_Rolling_1920x1080_2/file_1280x720-2000-v3_1.mp4"
                                                     link="#"
-                                                    leadText="Volanta de video."
+                                                    leadText="Video background."
                                                     titleText="La casa Breuer Moreno se prepara para su último remate"
                                                     titleSize="--l"
                                                     authors="Por Nombre Apellido"

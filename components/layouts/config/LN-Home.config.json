@@ -142,5 +142,17 @@
         "operatorToUse": ">",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 23
+    },
+    "App_Anexo_1": {
+        "quantity": 1,
+        "operatorToUse": "!==",
+        "types": ["LN-common/anexo"],
+        "position": 24
+    },
+    "App_Anexo_2": {
+        "quantity": 1,
+        "operatorToUse": "!==",
+        "types": ["LN-common/anexo"],
+        "position": 25
     }
 }
