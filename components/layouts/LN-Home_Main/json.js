@@ -139,9 +139,6 @@ const getHomeElements = props => {
                         child.reduce((res, b) => {
                             if (b) {
                                 if (b.information && !b.information.hideCaja) {
-                                    if (e === 'Apertura_1') {
-                                        var xx = 0;
-                                    }
                                     const addedInfo = {
                                         ...b,
                                         configurations,

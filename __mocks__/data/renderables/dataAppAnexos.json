@@ -27,7 +27,7 @@
             "children": [
                 {
                     "collection": "features",
-                    "type": "LN-common/anexo",
+                    "type": "LN-common/anexoMobile",
                     "props": []
                 }
             ]
@@ -38,7 +38,7 @@
             "children": [
                 {
                     "collection": "features",
-                    "type": "LN-common/anexo",
+                    "type": "LN-common/anexoMobile",
                     "props": []
                 }
             ]
@@ -87,10 +87,8 @@
         [
             {
                 "information": {
-                    "hideCaja": null,
-                    "layout": "grilla1",
-                    "hideByUrl": false,
-                    "hideByHtml": true
+                    "hideCaja": false,
+                    "layout": "grilla1"
                 },
                 "articles": [[]]
             }
@@ -98,10 +96,8 @@
         [
             {
                 "information": {
-                    "hideCaja": null,
-                    "layout": "grilla1",
-                    "hideByUrl": "undefined",
-                    "hideByHtml": "undefined"
+                    "hideCaja": false,
+                    "layout": "grilla1"
                 },
                 "articles": [[]]
             }

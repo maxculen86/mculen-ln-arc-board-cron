@@ -14,7 +14,7 @@ const typeSection = {
     Bomba: { tipoSeccion: 'bomba', idSeccion: 102 },
     Apertura: { tipoSeccion: 'apertura', idSeccion: 200 },
     Anexo: { tipoSeccion: 'anexo', idSeccion: 0 },
-    AnexoMobile: { tipoSeccion: 'anexo', idSeccion: 0 },
+    AnexoMobile: { tipoSeccion: 'anexoMobile', idSeccion: 0 },
     Opinion: { tipoSeccion: 'opinion', idSeccion: 1001 },
     Comercial: { tipoSeccion: 'comercial', idSeccion: 1101 },
     Banner: { tipoSeccion: 'banner' },

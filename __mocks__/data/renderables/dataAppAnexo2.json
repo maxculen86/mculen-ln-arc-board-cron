@@ -23,11 +23,22 @@
         },
         {
             "collection": "sections",
-            "props": { "collection": "sections", "id": 25 },
+            "props": { "collection": "sections", "id": 24 },
             "children": [
                 {
                     "collection": "features",
                     "type": "LN-common/anexo",
+                    "props": []
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 25 },
+            "children": [
+                {
+                    "collection": "features",
+                    "type": "LN-common/anexoMobile",
                     "props": []
                 }
             ]
@@ -73,14 +84,20 @@
         [],
         [],
         [],
-        [],
         [
             {
                 "information": {
-                    "hideCaja": null,
-                    "layout": "grilla1",
-                    "hideByUrl": "undefined",
-                    "hideByHtml": "undefined"
+                    "hideCaja": false,
+                    "layout": "grilla1"
+                },
+                "articles": [[]]
+            }
+        ],
+        [
+            {
+                "information": {
+                    "hideCaja": false,
+                    "layout": "grilla1"
                 },
                 "articles": [[]]
             }
