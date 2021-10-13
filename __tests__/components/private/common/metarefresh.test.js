@@ -193,7 +193,7 @@ describe('Metarefresh', () => {
             jest.advanceTimersByTime(1000);
             expect(window.location.reload).not.toBeCalled();
             jest.advanceTimersByTime(30000);
-            expect(window.location.reload).toHaveBeenCalledTimes(1);
+            expect(window.location.reload).toHaveBeenCalledTimes(0);
         });
     });
 });
