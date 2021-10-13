@@ -7,6 +7,7 @@ import LiftIgniter from '../../../../../components/private/common/scriptManager/
 
 const globalContentMock = {
     _id: 'IIEEJBWQWNCZNDOUTKP47C4L24',
+    display_date: '2021-04-29T14:10:00Z',
     content_elements: [
         {
             _id: 'FMKASEOIXNARVBBZ4BHCOAWU5A',
@@ -122,7 +123,7 @@ describe('Liftigniter', () => {
         type: 'application/json',
         dangerouslySetInnerHTML: {
             __html:
-                '{"id":"IIEEJBWQWNCZNDOUTKP47C4L24","title":"Última prueba syndication 3...","titleShort":"ult mob","leadText":"volanta desde composer","noShow":true,"noIndex":false,"tematica":"Industria","tags":["pruebaNuevoTag","Crónicas","Reformas del Gobierno"],"autor":"Carlos Pagni"}'
+                '{"id":"IIEEJBWQWNCZNDOUTKP47C4L24","title":"Última prueba syndication 3...","titleShort":"ult mob","leadText":"volanta desde composer","published_time":"2021-04-29T14:10:00Z","noShow":true,"noIndex":false,"tematica":"Industria","tags":["pruebaNuevoTag","Crónicas","Reformas del Gobierno"],"autor":"Carlos Pagni"}'
         }
     };
 
