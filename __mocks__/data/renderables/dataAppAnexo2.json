@@ -1,0 +1,89 @@
+{
+    "arcSite": "la-nacion-ar",
+    "contextPath": "/pf",
+    "globalContent": "undefined",
+    "globalContentConfig": { "source": "undefined", "query": "undefined" },
+    "isAdmin": false,
+    "layout": "LN-Home_Main",
+    "outputType": "json",
+    "requestUri": "/homepage/?_website=la-nacion-ar&outputType=json",
+    "template": "page/pWucuzZgevMwF3ys",
+    "renderables": [
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 3 },
+            "children": [
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Manual",
+                    "props": [],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 25 },
+            "children": [
+                {
+                    "collection": "features",
+                    "type": "LN-common/anexo",
+                    "props": []
+                }
+            ]
+        }
+    ],
+    "collection": "layouts",
+    "type": "LN-Home_Main",
+    "id": "LN-Home_Main",
+    "children": [
+        [],
+        [],
+        [],
+        [
+            {
+                "information": {
+                    "layout": "focalLeft3",
+                    "initialPosition": 1,
+                    "hideTitle": true,
+                    "hideCaja": false,
+                    "title": "",
+                    "image": "undefined"
+                },
+                "articles": [[], [], []]
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [
+            {
+                "information": {
+                    "hideCaja": null,
+                    "layout": "grilla1",
+                    "hideByUrl": "undefined",
+                    "hideByHtml": "undefined"
+                },
+                "articles": [[]]
+            }
+        ]
+    ]
+}

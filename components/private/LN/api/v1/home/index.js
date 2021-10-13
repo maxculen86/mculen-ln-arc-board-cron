@@ -3,7 +3,8 @@ import Image from '../../common/image';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
 import {
     articleItem as Article,
-    anexoItem as Anexo
+    anexoItem as Anexo,
+    anexoItemMobile as AnexoMobile
 } from '../../common/article/article';
 
 // TODO: Recorrer las notas en un archivo nuevo.
@@ -13,6 +14,7 @@ const typeSection = {
     Bomba: { tipoSeccion: 'bomba', idSeccion: 102 },
     Apertura: { tipoSeccion: 'apertura', idSeccion: 200 },
     Anexo: { tipoSeccion: 'anexo', idSeccion: 0 },
+    AnexoMobile: { tipoSeccion: 'anexo', idSeccion: 0 },
     Opinion: { tipoSeccion: 'opinion', idSeccion: 1001 },
     Comercial: { tipoSeccion: 'comercial', idSeccion: 1101 },
     Banner: { tipoSeccion: 'banner' },
@@ -61,16 +63,26 @@ const articlesMap = articles => {
     return response;
 };
 
+const resultArticlesBySections = (feature, ordererArticles) => {
+    if (feature === 'Anexo') {
+        return Anexo(ordererArticles);
+    }
+
+    if (feature === 'AnexoMobile') {
+        return AnexoMobile(ordererArticles);
+    }
+
+    return articlesMap(ordererArticles);
+};
+
 const storyBox = element => {
     const { information, feature } = element;
     const featureInfo = featureInformation(information, feature);
     if (feature === 'Anticipo') return { ...featureInfo };
     const articles = get(element, 'articles', []);
     const ordererArticles = orderArticles(articles, information.layout);
-    const resultArticles =
-        feature === 'Anexo'
-            ? Anexo(ordererArticles)
-            : articlesMap(ordererArticles);
+
+    const resultArticles = resultArticlesBySections(feature, ordererArticles);
 
     if (Array.isArray(resultArticles) && resultArticles.length > 0) {
         return {

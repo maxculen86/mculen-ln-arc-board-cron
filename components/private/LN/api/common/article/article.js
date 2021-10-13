@@ -121,3 +121,12 @@ export const anexoItem = article => {
     const html = get(article[0], 'html', '');
     return [{ html }];
 };
+
+export const anexoItemMobile = article => {
+    const url = get(article[0], 'url', null);
+    const height = get(article[0], 'height', null);
+    if (url && height) {
+        return [{ url, height }];
+    }
+    return null;
+};
