@@ -123,10 +123,12 @@ export const getWithMedia = (customFields, articleProps, article) =>
                     get(customFields, 'html')))));
 
 export const getWithSubhead = (articleProps, withMedia, customFields) =>
-    !get(customFields, 'opinion') &&
-    !get(customFields, 'hideDescription') &&
-    (get(articleProps, 'withSubheadAndMedia') ||
-        (!get(articleProps, 'withSubheadAndMedia') && !withMedia));
+    (!get(customFields, 'opinion') &&
+        !get(customFields, 'hideDescription') &&
+        (get(articleProps, 'withSubheadAndMedia') ||
+            (!get(articleProps, 'withSubheadAndMedia') && !withMedia))) ||
+    get(customFields, 'video') ||
+    get(customFields, 'html');
 
 export const getLabel = (article, customFields, withMedia) => {
     if (!withMedia || get(customFields, 'opinion') || get(customFields, 'html'))

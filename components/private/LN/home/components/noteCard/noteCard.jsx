@@ -63,6 +63,7 @@ const NoteCard = ({
                 withMedia={withMedia}
                 link={get(article, 'website_url')}
                 titleSize={
+                    (layout === 'grillaVideo1' && '--l') ||
                     (!withMedia && get(articleProps, 'titleSizeNoMedia')) ||
                     get(articleProps, 'titleSize')
                 }
