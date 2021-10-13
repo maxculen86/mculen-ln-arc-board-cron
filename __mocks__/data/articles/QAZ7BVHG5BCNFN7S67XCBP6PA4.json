@@ -1,8 +1,14 @@
 {
-    "termicas": {
-        "banners": "true",
-        "liftigniter": "true",
-        "livefyre": "false"
+    "navigationTreeSource": {
+        "Termicas": {
+            "banners": "true",
+            "liftigniter": "true",
+            "livefyre": "false"
+        },
+        "migration": {
+            "deadline_livefyre": "2020-02-07"
+        },
+        "_id": "/"
     },
     "_id": "QAZ7BVHG5BCNFN7S67XCBP6PA4",
     "canonical_url": "/recetas/platos-de-comida-principal/nota-recetas-para-api-test-nid24042020/",
