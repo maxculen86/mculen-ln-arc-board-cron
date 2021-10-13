@@ -52,8 +52,6 @@ const ArticleFeature = ({
             query: { id: videoId, website: 'la-nacion-ar' }
         });
 
-    console.log(videoBackground);
-
     const image =
         imageId &&
         useContent({

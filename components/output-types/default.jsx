@@ -4,6 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import ScriptManager from '../private/common/scriptManager';
 import ScriptLogoBBC from '../private/common/scriptManager/scriptLogoBBC';
 import ScriptVideoPowa from '../private/common/scriptManager/scriptVideoPowa';
+import ScriptVideoPowaHome from '../private/common/scriptManager/scriptVideoPowaHome';
 import GTM from '../private/common/scriptManager/googleTagManager';
 import Comscore from '../private/common/scriptManager/comscore';
 import Microdata from '../private/common/scriptManager/microdata';
@@ -224,10 +225,6 @@ const Default = props => {
             <head>
                 <meta charset="utf-8" />
                 <title>{title}</title>
-                <script
-                    async
-                    src="https://lanacionar.video-player.arcpublishing.com/prod/powaBoot.js"
-                />
                 <FontFace outputType={outputType} />
                 {arcSite === 'ott' ? (
                     <link
@@ -264,7 +261,7 @@ const Default = props => {
                     arcSite={arcSite}
                     subtype={subtype}
                 />
-                <Scripts location="head" {...props} />
+                <Scripts location="head" {...props} section={_nodeType} />
                 <TagsLoadingList
                     section={_nodeType}
                     location="head"
@@ -343,6 +340,10 @@ const Default = props => {
                     nodeType={_nodeType}
                     sections={taxonomy && taxonomy.sections}
                     contentCode={contentCode}
+                />
+                <ScriptVideoPowaHome
+                    renderables={renderables}
+                    section={_nodeType}
                 />
             </head>
             <body {...getBodyClass(siteProperties)}>
