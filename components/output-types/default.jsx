@@ -224,6 +224,10 @@ const Default = props => {
             <head>
                 <meta charset="utf-8" />
                 <title>{title}</title>
+                <script
+                    async
+                    src="https://lanacionar.video-player.arcpublishing.com/prod/powaBoot.js"
+                />
                 <FontFace outputType={outputType} />
                 {arcSite === 'ott' ? (
                     <link

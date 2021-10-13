@@ -48,14 +48,14 @@ const transform = (data, { sectionId }) => {
     }
 
     const resp = {
-        ...restProps,
-        children: []
+        ...restProps
+        // children: []
     };
 
     return resp;
 };
 
-const getSections = (results, sectionId) => {
+export const getSections = (results, sectionId) => {
     const sections = [];
     const sectionList =
         sectionId &&

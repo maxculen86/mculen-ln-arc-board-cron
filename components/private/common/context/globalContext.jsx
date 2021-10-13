@@ -83,13 +83,18 @@ const GlobalProvider = ({ children }) => {
                     Termicas
                     bannerConfig
                     site
+                    Metarefresh
                 }
             `,
             transform: response => {
                 const {
                     site = {},
                     Termicas: termicasConfig = {},
-                    bannerConfig = {}
+                    bannerConfig = {},
+                    Metarefresh: metarefresh,
+                    _id,
+                    name,
+                    children: _children
                 } = response || {};
                 const {
                     sitio_adserver: sitioAdserver = {},
@@ -114,7 +119,11 @@ const GlobalProvider = ({ children }) => {
                         key,
                         value: termicasConfig[key]
                     })),
-                    notRecommendedSections
+                    notRecommendedSections,
+                    metarefresh,
+                    _id,
+                    name,
+                    children: _children
                 };
             }
         }),

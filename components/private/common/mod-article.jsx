@@ -118,7 +118,7 @@ const ModArticle = props => {
                 />
             )}
 
-            {frontdemo && (
+            {/* {frontdemo && (
                 <div>
                     <ModMedia>
                         <figure className="mod-figure">
@@ -150,7 +150,7 @@ const ModArticle = props => {
                         </figure>
                     </ModMedia>
                 </div>
-            )}
+            )} */}
 
             <ModDescription
                 link={link}
