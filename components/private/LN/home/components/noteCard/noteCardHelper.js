@@ -125,13 +125,16 @@ export const getWithMedia = (customFields, articleProps, article) =>
 export const getWithSubhead = (articleProps, withMedia, customFields) =>
     (!get(customFields, 'opinion') &&
         !get(customFields, 'hideDescription') &&
-        (get(articleProps, 'withSubheadAndMedia') ||
-            (!get(articleProps, 'withSubheadAndMedia') && !withMedia))) ||
-    get(customFields, 'video') ||
-    get(customFields, 'html');
+        (get(customFields, 'video') || get(customFields, 'html'))) ||
+    get(articleProps, 'withSubheadAndMedia') ||
+    (!get(articleProps, 'withSubheadAndMedia') && !withMedia);
 
-export const getLabel = (article, customFields, withMedia) => {
-    if (!withMedia || get(customFields, 'opinion') || get(customFields, 'html'))
+export const getLabel = (article, customFields, withMedia, layout) => {
+    if (
+        !withMedia ||
+        get(customFields, 'opinion') ||
+        (get(customFields, 'html') && layout !== 'grillaVideo1')
+    )
         return undefined;
 
     return get(customFields, 'chapita') || get(article, 'label.chapita.text');

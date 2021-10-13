@@ -55,7 +55,6 @@ const ModArticle = props => {
         handleClick
     } = props;
 
-    console.log(props);
     const { _id, website_url: websiteUrl } = articleData || {};
     const extraOpts = {};
     if (dataSection) {
