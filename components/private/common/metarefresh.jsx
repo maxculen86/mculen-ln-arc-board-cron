@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
@@ -8,7 +8,6 @@ import withScreenUtils from './hocs/withScreenUtils';
 // import loginHelper from '../LN/common/utils/loginHelper';
 import handleCookie from '../LN/common/utils/handleCookie';
 import { isSubscribed } from '../LN/common/utils/contextHelper';
-import { GlobalContext } from './context/globalContext';
 
 const { getCookie } = handleCookie();
 
@@ -41,10 +40,21 @@ const Component = props => {
     const type = get(props, 'globalContent.type', null);
     const _id = get(props, 'globalContent._id', null);
     const subscription = isSubscribed();
+    const website = get(props, 'arcSite', null);
     const resolution = get(props, 'screenUtils.device', null);
     const isAdmin = get(props, 'isAdmin');
     const outputType = get(props, 'outputType');
-    const { metarefresh } = useContext(GlobalContext);
+    const metarefresh = useContent({
+        source: 'navigationTreeSource',
+        query: {
+            website
+        },
+        transform: resp => {
+            return get(resp, 'Metarefresh', undefined);
+        }
+    });
+
+    // const metarefresh = content && content.Metarefresh;
     const interval = getInterval(type || _id, resolution, metarefresh);
     const cookieProductoPremium = getCookie('ProductoPremiumId');
     const template = findTemplate(type);
