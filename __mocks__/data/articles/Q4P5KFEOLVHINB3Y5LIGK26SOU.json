@@ -1,8 +1,14 @@
 {
-    "termicas": {
-        "banners": "true",
-        "liftigniter": "true",
-        "livefyre": "true"
+    "navigationTreeSource": {
+        "Termicas": {
+            "banners": "true",
+            "liftigniter": "true",
+            "livefyre": "true"
+        },
+        "migration": {
+            "deadline_livefyre": "2020-02-07"
+        },
+        "_id": "/"
     },
     "_id": "Q4P5KFEOLVHINB3Y5LIGK26SOU",
     "canonical_url": "/politica/html-libre-test-calculadora-gaston-nid20082020/",

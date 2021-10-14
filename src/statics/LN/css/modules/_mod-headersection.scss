@@ -31,8 +31,13 @@
         }
     }
 
-    .com-line {
-        margin-top: $spacing;
+    // .com-line {
+    //     margin-top: $spacing;
+    // }
+
+    &.--line {
+        border-bottom: 1px solid $light-neutral-400;
+        padding-bottom: $spacing;
     }
 
     .com-image {

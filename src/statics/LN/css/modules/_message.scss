@@ -1,0 +1,82 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.row.message {
+    padding: $spacing-md;
+    margin-bottom: $spacing-lg;
+    align-items: center;
+
+    background: $light-neutral-100;
+    border: 1px solid $light-neutral-300;
+
+    .--top {
+        margin-bottom: $spacing-xs;
+
+        .subscribers {
+            display: inline-flex;
+            align-items: center;
+            background: $light-neutral-800;
+            color: $dark-neutral-800;
+            padding: 0 px(8);
+
+            .com-logo {
+                font-size: px(12);
+                margin-right: $spacing-xs;
+                color: $orange-400;
+            }
+        }
+    }
+
+    .--left {
+        margin-bottom: $spacing-md;
+
+        @media ($media-m) {
+            margin-bottom: 0;
+        }
+    }
+
+    .--right {
+        @media ($media-m) {
+            text-align: right;
+        }
+
+        .com-button {
+            &.--secondary.--secondary {
+                background: none;
+                margin-right: $spacing-md;
+
+                color: $light-blue-500;
+                border-color: $light-blue-500;
+                &:hover {
+                    background-color: $light-blue-500;
+                    //color: $neutral-white;
+                }
+            }
+        }
+    }
+
+    &.--dark {
+        background-color: $light-neutral-800;
+        border: none;
+        color: $dark-neutral-800;
+
+        .--top {
+            .subscribers {
+                padding: 0;
+            }
+        }
+
+        .--right {
+            .com-button {
+                &.--secondary.--secondary {
+                    color: $neutral-white;
+                    border-color: $neutral-white;
+                    &:hover {
+                        background: $neutral-white;
+                        color: $light-neutral-800;
+                    }
+                }
+            }
+        }
+    }
+}

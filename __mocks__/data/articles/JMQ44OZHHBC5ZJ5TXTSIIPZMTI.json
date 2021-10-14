@@ -1,8 +1,14 @@
 {
-    "termicas": {
-        "banners": "true",
-        "liftigniter": "true",
-        "livefyre": "true"
+    "navigationTreeSource": {
+        "Termicas": {
+            "banners": "true",
+            "liftigniter": "true",
+            "livefyre": "true"
+        },
+        "migration": {
+            "deadline_livefyre": "2020-02-07"
+        },
+        "_id": "/"
     },
     "_id": "JMQ44OZHHBC5ZJ5TXTSIIPZMTI",
     "canonical_url": "/deportes/prueba-comentario-ios-nid06072020/",

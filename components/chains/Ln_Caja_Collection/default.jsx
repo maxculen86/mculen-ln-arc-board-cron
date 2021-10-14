@@ -18,6 +18,7 @@ import {
 import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import siteConfig from '../../../properties/sites/la-nacion-ar';
 import get from '../../private/common/utils/get';
+import { getPlaceholder } from '../../private/LN/common/utils/cajaTemasPlaceholder';
 
 const CajaCollection = props => {
     const {
@@ -117,29 +118,31 @@ const CajaCollection = props => {
             </div>
         );
     }
+    const _articles = isInSiteService
+        ? articlesFromCollectionSiteService
+        : articlesToShow;
 
     return (
-        <CajaTema
-            title={title}
-            hideTitle={hideTitle}
-            url={url}
-            imageId={imageId}
-            outputType={outputType}
-            layout={layout}
-            classCondition={`${classCondition}${(isInApertura &&
-                layout.includes('focal') &&
-                ' --apertura') ||
-                ''}`}
-            notesQuantity={notesQuantity}
-            position={position}
-            sectionName={sectionName}
-            articles={
-                isInSiteService
-                    ? articlesFromCollectionSiteService
-                    : articlesToShow
-            }
-            titleSize={titleSize}
-        />
+        (_articles && _articles.length && (
+            <CajaTema
+                title={title}
+                hideTitle={hideTitle}
+                url={url}
+                imageId={imageId}
+                outputType={outputType}
+                layout={layout}
+                classCondition={`${classCondition}${(isInApertura &&
+                    layout.includes('focal') &&
+                    ' --apertura') ||
+                    ''}`}
+                notesQuantity={notesQuantity}
+                position={position}
+                sectionName={sectionName}
+                articles={_articles}
+                titleSize={titleSize}
+            />
+        )) ||
+        getPlaceholder(layout)
     );
 };
 

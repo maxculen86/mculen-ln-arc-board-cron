@@ -1,6 +1,13 @@
 import Consumer from 'fusion:consumer';
 import { removeEmptyItems } from '../../private/LN/api/common/utils/responseCleaner';
 
+const layoutItemsColumnistas = [
+    'Pre-Apertura',
+    'Breadcrumb/Titulo',
+    'Autores',
+    'Aside'
+];
+
 const LNAcumuladoColumnistasLayout = props => {
     const { children } = props;
     const authors = children
@@ -8,5 +15,7 @@ const LNAcumuladoColumnistasLayout = props => {
         .map(c => c);
     return removeEmptyItems(authors);
 };
+
+LNAcumuladoColumnistasLayout.sections = layoutItemsColumnistas;
 
 export default Consumer(LNAcumuladoColumnistasLayout);
