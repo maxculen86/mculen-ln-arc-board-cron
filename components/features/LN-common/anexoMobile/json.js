@@ -14,7 +14,7 @@ class AnexoMobileFeature {
                 hideCaja: hideByUrl,
                 layout: 'grilla1'
             },
-            articles: [{ url, height }]
+            articles: [{ url, alto: height }]
         };
 
         return resp;

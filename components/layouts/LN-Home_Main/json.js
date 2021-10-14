@@ -18,8 +18,8 @@ const boxPosition = {
 };
 
 const boxMovePosition = {
-    App_Anexo_1: { feature: 'Apertura_1', position: 'start' },
-    App_Anexo_2: { feature: 'Apertura_1', position: 'bottom' }
+    App_Anexo_1: { type: 2, feature: 'Apertura_1', position: 'start' },
+    App_Anexo_2: { type: 2, feature: 'Apertura_1', position: 'bottom' }
 };
 
 const homeMobileSections = [
@@ -104,17 +104,19 @@ const moveSections = (sections, name) => {
 
         if (indexSectionFrom > -1 && indexSectionTo > -1) {
             const elementToMove = sections[indexSectionFrom];
-            sections.splice(indexSectionFrom, 1);
-
-            switch (sectionToMove.position) {
-                case 'bottom':
-                    sections.splice(indexSectionTo + 1, 0, elementToMove);
-                    break;
-                case 'start':
-                    sections.splice(indexSectionTo, 0, elementToMove);
-                    break;
-                default:
-                    break;
+            if (elementToMove) {
+                sections.splice(indexSectionFrom, 1);
+                elementToMove.type = sectionToMove.type;
+                switch (sectionToMove.position) {
+                    case 'bottom':
+                        sections.splice(indexSectionTo + 1, 0, elementToMove);
+                        break;
+                    case 'start':
+                        sections.splice(indexSectionTo, 0, elementToMove);
+                        break;
+                    default:
+                        break;
+                }
             }
         } else {
             sections.splice(indexSectionFrom, 1);

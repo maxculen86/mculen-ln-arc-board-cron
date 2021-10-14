@@ -14,7 +14,7 @@ const typeSection = {
     Bomba: { tipoSeccion: 'bomba', idSeccion: 102 },
     Apertura: { tipoSeccion: 'apertura', idSeccion: 200 },
     Anexo: { tipoSeccion: 'anexo', idSeccion: 0 },
-    AnexoMobile: { tipoSeccion: 'anexoMobile', idSeccion: 0 },
+    AnexoMobile: { tipoSeccion: 'anexoMobile', idSeccion: 603 },
     Opinion: { tipoSeccion: 'opinion', idSeccion: 1001 },
     Comercial: { tipoSeccion: 'comercial', idSeccion: 1101 },
     Banner: { tipoSeccion: 'banner' },
@@ -85,6 +85,10 @@ const storyBox = element => {
     const resultArticles = resultArticlesBySections(feature, ordererArticles);
 
     if (Array.isArray(resultArticles) && resultArticles.length > 0) {
+        /*         const validresultArticles =
+            feature === 'AnexoMobile'
+                ? { anexo: resultArticles }
+                : { notas: resultArticles }; */
         return {
             ...featureInfo,
             notas: resultArticles
@@ -102,9 +106,28 @@ const bannerBox = element => {
     };
 };
 
+const anexoMobile = element => {
+    const { information, feature } = element;
+    const featureInfo = featureInformation(information, feature);
+    const articles = get(element, 'articles', []);
+    const ordererArticles = orderArticles(articles, information.layout);
+
+    const resultArticles = resultArticlesBySections(feature, ordererArticles);
+
+    if (Array.isArray(resultArticles) && resultArticles.length > 0) {
+        return {
+            ...featureInfo,
+            anexo: resultArticles[0]
+        };
+    }
+
+    return null;
+};
+
 const typeBox = {
     0: storyBox,
-    1: bannerBox
+    1: bannerBox,
+    2: anexoMobile
 };
 
 const index = children => {
