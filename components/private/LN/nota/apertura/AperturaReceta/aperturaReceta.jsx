@@ -40,7 +40,7 @@ const aperturaReceta = props => {
         <>
             {aperturaVacio ? null : (
                 <div
-                    className={`row aper-receta w-100 ${
+                    className={`row aper-receta w-100-mobile ${
                         hasMultimedia ? '' : 'sin-foto'
                     }`}
                 >

@@ -395,6 +395,14 @@
         }
     }
 
+    &.opinion {
+        .mod-article {
+            .com-label {
+                display: none;
+            }
+        }
+    }
+
     /* Start: Solo para dema maqueta */
     // &.maqueta {
     //     .com-anexo,

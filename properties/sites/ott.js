@@ -17,10 +17,7 @@ export default {
             props: {
                 config: {
                     c1: '2',
-                    c2: '6906398',
-                    c3: 'LANACION.COM.AR',
-                    c4: '*null',
-                    c6: '*null'
+                    c2: '6906398'
                 }
             },
             location: ['head']
