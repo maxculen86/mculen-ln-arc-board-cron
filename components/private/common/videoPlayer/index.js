@@ -94,7 +94,6 @@ const VideoPlayer = props => {
     } = props;
     const siteVars = getProperties(arcSite);
     const { organizationId } = siteVars || {};
-    console.log('API_ENV =>', API_ENV);
     const apiEnv = API_ENV || 'sandbox';
 
     useEffect(() => {
@@ -108,8 +107,6 @@ const VideoPlayer = props => {
             setEvent(player, 'play', 'videoPlay', tituloVideo, videoId);
             setEvent(player, 'complete', 'videoComplete', tituloVideo, videoId);
         };
-
-        console.log('videoPlayer =>', window.powaBoot);
 
         if (!isAdmin && window && window.powaBoot) window.powaBoot();
         setPrerollAdsForPowa(adsURL);

@@ -359,11 +359,7 @@ const Default = props => {
                     <Fusion>{children}</Fusion>
                 </div>
                 {arcSite !== 'ott' && <PwaModals />}
-                <Scripts
-                    location="body-bottom"
-                    section={_nodeType}
-                    {...props}
-                />
+                <Scripts location="body-bottom" {...props} />
                 <TagsLoadingList
                     section={_nodeType}
                     location="body-bottom"

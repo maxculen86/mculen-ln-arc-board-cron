@@ -35,7 +35,7 @@ const video = ({
                     <VideoPlayer
                         videoId={videoId}
                         adsURL={adsURL}
-                        tituloVideo="tituloVideo"
+                        tituloVideo={tituloVideo}
                         autoPlay={autoplay}
                     />
                 </AmpContainer>

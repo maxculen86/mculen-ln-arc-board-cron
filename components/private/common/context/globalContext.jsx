@@ -90,11 +90,7 @@ const GlobalProvider = ({ children }) => {
                 const {
                     site = {},
                     Termicas: termicasConfig = {},
-                    bannerConfig = {},
-                    Metarefresh: metarefresh,
-                    _id,
-                    name,
-                    children: _children
+                    bannerConfig = {}
                 } = response || {};
                 const {
                     sitio_adserver: sitioAdserver = {},
@@ -119,11 +115,7 @@ const GlobalProvider = ({ children }) => {
                         key,
                         value: termicasConfig[key]
                     })),
-                    notRecommendedSections,
-                    metarefresh,
-                    _id,
-                    name,
-                    children: _children
+                    notRecommendedSections
                 };
             }
         }),
