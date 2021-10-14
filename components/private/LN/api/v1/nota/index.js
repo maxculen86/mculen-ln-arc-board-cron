@@ -8,6 +8,56 @@ import { getPrincipalCategory } from '../../common/category';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
 import matchObject from '../../common/utils/matchObject';
 
+const displayComments = dataNota => {
+    const optionDisplayComments = get(
+        dataNota,
+        'comments.display_comments',
+        false
+    );
+    const generalCommentsConfig = get(
+        dataNota,
+        'navigationTreeSource.Termicas.livefyre',
+        'false'
+    );
+
+    return generalCommentsConfig === 'true' && optionDisplayComments === true;
+};
+
+const allowComments = dataNota => {
+    const optionDisplayComments = get(
+        dataNota,
+        'comments.display_comments',
+        false
+    );
+    const generalCommentsConfig = get(
+        dataNota,
+        'navigationTreeSource.Termicas.livefyre',
+        'false'
+    );
+    const deadlineLivefyer = get(
+        dataNota,
+        'navigationTreeSource.migration.deadline_livefyre',
+        ''
+    );
+
+    const firstPublishDate = get(dataNota, 'first_publish_date', '');
+
+    const deadlineDate = deadlineLivefyer && new Date(deadlineLivefyer);
+    const articlePublishDate = firstPublishDate && new Date(firstPublishDate);
+
+    const validDate =
+        deadlineDate &&
+        articlePublishDate &&
+        articlePublishDate.setHours(0, 0, 0, 0) >=
+            deadlineDate.setHours(0, 0, 0, 0);
+
+    return (
+        validDate &&
+        generalCommentsConfig === 'true' &&
+        optionDisplayComments === true
+    );
+};
+
 const indexNota = dataNota => {
     if (!dataNota) throw new Error(`La información de la nota esta vacia`);
 
@@ -28,8 +78,7 @@ const indexNota = dataNota => {
     );
     const edition = get(dataNota, 'label.edicion.text', null);
     const showBanners = get(dataNota, 'label.mostrar_banners.text', null);
-    const displayComments = get(dataNota, 'comments.display_comments', false);
-    const livefyre = get(dataNota, 'termicas.livefyre', 'false');
+
     const sentToApps = get(dataNota, 'label.enviar_a_apps.text', null);
     const enviarApps =
         matchObject(dataNota, 'contains') === false
@@ -42,8 +91,6 @@ const indexNota = dataNota => {
         publishDate
     );
 
-    const abiertoComentarios = livefyre === 'true' && displayComments === true;
-
     const {
         date: formatDislplayDate,
         time: formatDislplayTime
@@ -55,7 +102,8 @@ const indexNota = dataNota => {
         url,
         mostrarBanners: !(showBanners && showBanners.toLowerCase() === 'no'),
         paywallStatus: paywallStatus || 'comun',
-        abiertoComentarios,
+        abiertoComentarios: displayComments(dataNota),
+        permitirComentarios: allowComments(dataNota),
         comentariosId: comentariosId || id,
         categoria: primarySection && getPrincipalCategory(primarySection),
         relacionados: Relacionados(dataNota),

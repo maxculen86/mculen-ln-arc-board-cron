@@ -4,6 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import ScriptManager from '../private/common/scriptManager';
 import ScriptLogoBBC from '../private/common/scriptManager/scriptLogoBBC';
 import ScriptVideoPowa from '../private/common/scriptManager/scriptVideoPowa';
+import ScriptVideoPowaHome from '../private/common/scriptManager/scriptVideoPowaHome';
 import GTM from '../private/common/scriptManager/googleTagManager';
 import Comscore from '../private/common/scriptManager/comscore';
 import Microdata from '../private/common/scriptManager/microdata';
@@ -346,6 +347,10 @@ const Default = props => {
                     nodeType={_nodeType}
                     sections={taxonomy && taxonomy.sections}
                     contentCode={contentCode}
+                />
+                <ScriptVideoPowaHome
+                    renderables={renderables}
+                    section={_nodeType}
                 />
             </head>
             <body {...getBodyClass(siteProperties)}>

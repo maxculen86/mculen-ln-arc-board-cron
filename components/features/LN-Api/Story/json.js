@@ -1,7 +1,6 @@
 import Consumer from 'fusion:consumer';
 import IndexNotaV1 from '../../../private/LN/api/v1/nota';
 import browser from '../../../private/common/utils/browser';
-import get from '../../../private/common/utils/get';
 
 class Story {
     constructor(props) {
@@ -22,6 +21,9 @@ class Story {
                                 liftigniter,
                                 livefyre
                             }
+                            migration {
+                                deadline_livefyre
+                            }
                          }`
             }
         });
@@ -40,7 +42,7 @@ class Story {
         try {
             return indexNota({
                 ...globalContent,
-                termicas: get(navigationTreeSource, 'Termicas', null)
+                navigationTreeSource
             });
         } catch (err) {
             return { Success: false, Message: err.message };

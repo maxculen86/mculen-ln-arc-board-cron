@@ -54,6 +54,7 @@ const ModArticle = props => {
         tags,
         handleClick
     } = props;
+
     const { _id, website_url: websiteUrl } = articleData || {};
     const extraOpts = {};
     if (dataSection) {
@@ -115,7 +116,7 @@ const ModArticle = props => {
                 />
             )}
 
-            {frontdemo && (
+            {/* {frontdemo && (
                 <div>
                     <ModMedia>
                         <figure className="mod-figure">
@@ -147,7 +148,7 @@ const ModArticle = props => {
                         </figure>
                     </ModMedia>
                 </div>
-            )}
+            )} */}
 
             <ModDescription
                 link={link}

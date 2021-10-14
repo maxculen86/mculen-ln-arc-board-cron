@@ -38,7 +38,7 @@ const NoteCard = ({
         getWithSubhead(articleProps, withMedia, customFields)
     );
     const [label, setLabel] = useState(
-        getLabel(content, customFields, withMedia)
+        getLabel(content, customFields, withMedia, layout)
     );
     const [isRenderAutor, setIsRenderAutor] = useState(
         getIsRenderAutor(customFields, layout)
@@ -51,7 +51,7 @@ const NoteCard = ({
 
     useEffect(() => {
         setArticle(transform(content, customFields, promoItems));
-        setLabel(getLabel(content, customFields, withMedia));
+        setLabel(getLabel(content, customFields, withMedia, layout));
         setWithSubhead(getWithSubhead(articleProps, withMedia, customFields));
         setIsRenderAutor(getIsRenderAutor(customFields, layout));
     }, [articleProps, content, customFields, promoItems, withMedia, layout]);
@@ -63,6 +63,7 @@ const NoteCard = ({
                 withMedia={withMedia}
                 link={get(article, 'website_url')}
                 titleSize={
+                    (layout === 'grillaVideo1' && '--l') ||
                     (!withMedia && get(articleProps, 'titleSizeNoMedia')) ||
                     get(articleProps, 'titleSize')
                 }
@@ -90,7 +91,7 @@ const NoteCard = ({
                         ? false
                         : isRenderAutor
                 }
-                label={!get(customFields, 'html') && label}
+                label={label}
                 anexo={
                     get(articleProps, 'skipHtml', false)
                         ? false

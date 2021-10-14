@@ -41,16 +41,13 @@ const homeMobileSections = [
     'Tema11',
     'Tema12',
     'Tema13',
-    'Tema14',
-    'App_Anexo_1',
-    'App_Anexo_2'
+    'Tema14'
 ];
 
 const validateSections = (section, name, position, renderables) => {
     const sectionChildren = findSectionChildren(renderables, position);
     const elements =
         checkIfValid(name, sectionChildren) === true ? section : null;
-
     const banner = boxPosition[name];
     if (elements && elements.length > 0 && banner) {
         switch (banner.position) {
@@ -110,5 +107,7 @@ const LNMainHome = props => {
     const homeSections = getHomeElements(props);
     return home(homeSections) || [];
 };
+
+LNMainHome.sections = pageBuilderSections;
 
 export default Consumer(LNMainHome);

@@ -94,7 +94,7 @@ const VideoPlayer = props => {
     } = props;
     const siteVars = getProperties(arcSite);
     const { organizationId } = siteVars || {};
-    const apiEnv = `${API_ENV}` || 'sandbox';
+    const apiEnv = API_ENV || 'sandbox';
 
     useEffect(() => {
         const setVideoEvents = event => {
