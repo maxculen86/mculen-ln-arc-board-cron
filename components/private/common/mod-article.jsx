@@ -101,9 +101,6 @@ const ModArticle = props => {
             }`}
             {...extraOpts}
             onClick={onCLick}
-            {...(typeof handleClick == 'function'
-                ? { 'aria-hidden': 'true' }
-                : {})}
         >
             {hour && hour}
 

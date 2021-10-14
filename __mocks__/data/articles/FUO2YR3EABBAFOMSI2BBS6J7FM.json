@@ -1,8 +1,14 @@
 {
-    "termicas": {
-        "banners": "true",
-        "liftigniter": "true",
-        "livefyre": "true"
+    "navigationTreeSource": {
+        "Termicas": {
+            "banners": "true",
+            "liftigniter": "true",
+            "livefyre": "true"
+        },
+        "migration": {
+            "deadline_livefyre": "2021-02-07"
+        },
+        "_id": "/"
     },
     "_id": "FUO2YR3EABBAFOMSI2BBS6J7FM",
     "canonical_url": "/comunidad/violencia-economica-deje-de-trabajar-porque-el-me-lo-pidio-y-fue-el-principio-del-fin-para-mi-nid29092020/",

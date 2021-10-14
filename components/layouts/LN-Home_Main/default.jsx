@@ -107,7 +107,9 @@ const LNMainHome = props => {
         bloque5,
         bloque6,
         bloque7,
-        bloque8
+        bloque8,
+        appAnexo1,
+        appAnexo2
     ] = pageBuilderSections.map((section, index) => {
         return validateSectionHome(
             children[index],
@@ -450,6 +452,16 @@ const LNMainHome = props => {
                                 <div data-section="bloque8">
                                     {blocksToLoad.bloque5.loaded && bloque8}
                                 </div>
+                                {(isAdmin || outputType === 'json') && (
+                                    <div>
+                                        <section data-section="app-anexo-1">
+                                            {appAnexo1}
+                                        </section>
+                                        <section data-section="app-anexo-2">
+                                            {appAnexo2}
+                                        </section>
+                                    </div>
+                                )}
                                 {blocksToLoad.bloque5.loaded && (
                                     <TePuedeInteresar
                                         customFields={{ cantidadNotas: 6 }}

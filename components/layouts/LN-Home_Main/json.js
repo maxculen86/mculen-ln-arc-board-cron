@@ -108,4 +108,6 @@ const LNMainHome = props => {
     return home(homeSections) || [];
 };
 
+LNMainHome.sections = pageBuilderSections;
+
 export default Consumer(LNMainHome);

@@ -20,7 +20,7 @@
 @mixin columns($name, $start, $end) {
     @for $i from $start through $end {
         .col-#{$name}#{$i} {
-            -ms-flex: 0 0 $col-width * $i * 1%;
+            //-ms-flex: 0 0 $col-width * $i * 1%;
             flex: 0 0 $col-width * $i * 1%;
             max-width: $col-width * $i * 1%;
         }
@@ -32,7 +32,7 @@
 @mixin orders($name, $start, $end) {
     @for $i from $start through $end {
         .order-#{$name}#{$i} {
-            -ms-flex-order: $i;
+            //-ms-flex-order: $i;
             order: $i;
         }
     }

@@ -1,3 +1,14 @@
+const pageBuilderSections = [
+    'Banner-Megatop',
+    'Sticky-Mobile',
+    'Pre-Apertura',
+    'Breadcrumb/Titulo',
+    'Apertura',
+    'Links',
+    'Notas',
+    'Aside'
+];
+
 const LNHome = ({ children }) => {
     const listItems = [];
     const ArticlesbyBox = [];
@@ -40,15 +51,6 @@ const LNHome = ({ children }) => {
     return Array.isArray(listItems) ? listItems : null;
 };
 
-LNHome.sections = [
-    'Banner-Megatop',
-    'Sticky-Mobile',
-    'Pre-Apertura',
-    'Breadcrumb/Titulo',
-    'Apertura',
-    'Links',
-    'Notas',
-    'Aside'
-];
+LNHome.sections = pageBuilderSections;
 
 export default LNHome;

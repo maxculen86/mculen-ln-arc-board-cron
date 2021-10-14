@@ -40,6 +40,8 @@ import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 import addForwardSlash from '../private/LN/common/utils/addForwardSlash';
 import AmazonPublisherServices from '../private/common/scriptManager/amazonPublisherServices';
 import FontFace from '../private/common/fontface';
+// import Viafoura from '../private/common/scriptManager/viafoura';
+// import MetaViafoura from '../private/common/metaViafoura';
 
 const scriptList = [
     {
@@ -102,6 +104,10 @@ const scriptList = [
         },
         feature: 'none'
     }
+    // {
+    //     component: { name: 'Viafoura', function: Viafoura },
+    //     feature: ['LN-nota/commentsViafoura']
+    // }
 ];
 
 const getBodyClass = props => {
@@ -317,6 +323,7 @@ const Default = props => {
                     defaultDescription={siteProperties.description}
                     metaDescription={metaDescription}
                 />
+                {/* <MetaViafoura {...props} /> */}
                 <Syndication
                     type={type}
                     arcSite={arcSite}
