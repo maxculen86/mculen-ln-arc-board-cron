@@ -261,7 +261,7 @@ const Default = props => {
                     arcSite={arcSite}
                     subtype={subtype}
                 />
-                <Scripts location="head" {...props} section={_nodeType} />
+                <Scripts location="head" {...props} />
                 <TagsLoadingList
                     section={_nodeType}
                     location="head"
@@ -359,7 +359,11 @@ const Default = props => {
                     <Fusion>{children}</Fusion>
                 </div>
                 {arcSite !== 'ott' && <PwaModals />}
-                <Scripts location="body-bottom" {...props} />
+                <Scripts
+                    location="body-bottom"
+                    section={_nodeType}
+                    {...props}
+                />
                 <TagsLoadingList
                     section={_nodeType}
                     location="body-bottom"

@@ -83,7 +83,6 @@ const GlobalProvider = ({ children }) => {
                     Termicas
                     bannerConfig
                     site
-                    Metarefresh
                 }
             `,
             transform: response => {
