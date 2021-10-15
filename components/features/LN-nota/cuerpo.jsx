@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import Consumer from 'fusion:consumer';
@@ -15,8 +16,12 @@ const cuerpo = props => {
         ...props,
         bannerConfig
     };
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    return <Cuerpo {...properties} />;
+
+    return (
+        <>
+            <Cuerpo {...properties} />
+        </>
+    );
 };
 
 // TODO: improve this function's algorithm

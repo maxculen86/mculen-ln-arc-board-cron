@@ -128,7 +128,8 @@ const snippet = props => {
     const date = displayDate;
     const description = subheadLinesBasic;
 
-    const { autores } = extracDataFromCredits(by);
+    const { autores } = extracDataFromCredits(by) || '';
+    console.log('🚀 ~ file: receta.jsx ~ line 132 ~ autores', autores);
 
     const { image, counterTime, counterPortion } = extractDataFromPromoItems(
         promoItems
@@ -145,7 +146,10 @@ const snippet = props => {
     const data = {
         '@context': 'https://schema.org',
         '@type': 'Recipe',
-        author: `${autores || ''}`,
+        author: {
+            '@type': autores === '' ? 'Organization' : 'Person',
+            name: autores === '' ? 'LA NACION recetas' : `${autores}`
+        },
         cookTime: counterTime ? `PT${counterTime}M` : '',
         prepTime: counterTime ? `PT${counterTime}M` : '',
         totalTime: counterTime ? `PT${counterTime}M` : '',
