@@ -85,10 +85,6 @@ const storyBox = element => {
     const resultArticles = resultArticlesBySections(feature, ordererArticles);
 
     if (Array.isArray(resultArticles) && resultArticles.length > 0) {
-        /*         const validresultArticles =
-            feature === 'AnexoMobile'
-                ? { anexo: resultArticles }
-                : { notas: resultArticles }; */
         return {
             ...featureInfo,
             notas: resultArticles

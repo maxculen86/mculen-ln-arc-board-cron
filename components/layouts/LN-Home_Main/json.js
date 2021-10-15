@@ -52,25 +52,8 @@ const homeMobileSections = [
 ];
 
 const validateSections = (section, name, position, renderables) => {
-    const feature = homeMobileSections[position];
     const sectionChildren = findSectionChildren(renderables, position);
 
-    if (
-        feature === 'Anexo' &&
-        sectionChildren[0] &&
-        get(sectionChildren[0], 'props.customFields', null)
-    ) {
-        sectionChildren[0].props.customFields.hideCaja =
-            sectionChildren[0].props.customFields.hideByHtml;
-    }
-    if (
-        feature === 'AnexoMobile' &&
-        sectionChildren[0] &&
-        get(sectionChildren[0], 'props.customFields', null)
-    ) {
-        sectionChildren[0].props.customFields.hideCaja =
-            sectionChildren[0].props.customFields.hideByUrl;
-    }
     const elements =
         checkIfValid(name, sectionChildren) === true ? section : null;
 
