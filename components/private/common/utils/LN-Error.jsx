@@ -1,5 +1,3 @@
-// import React, { Component } from 'react';
-
 class LnError extends Error {
     constructor(message, { customErrorType }) {
         super(message);

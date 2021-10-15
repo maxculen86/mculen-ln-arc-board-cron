@@ -70,7 +70,7 @@ const logger = (() => {
         //         console.log('elmah -> error', e);
         //     });
     };
-
+    // TODO: ELIMINAR CODIGO COMENTADO DE ANTIGUA CONFIGURACION PARA LOGUEO DE ERRORES POR ELMAH
     return {
         push
     };
