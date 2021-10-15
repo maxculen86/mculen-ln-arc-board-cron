@@ -25,7 +25,7 @@ const TAGS_BY_WIDGET = {
     }
 };
 
-const Widget = props => {
+const Widgets = props => {
     const { children, globalContent = {} } = props || {};
     const { widget } = globalContent;
     const widgetScripts = TAGS_BY_WIDGET[widget];
@@ -47,11 +47,11 @@ const Widget = props => {
     );
 };
 
-Widget.propTypes = {
+Widgets.propTypes = {
     children: PropTypes.node.isRequired,
     globalContent: PropTypes.shape({
         _id: PropTypes.string
     }).isRequired
 };
 
-export default Widget;
+export default Widgets;

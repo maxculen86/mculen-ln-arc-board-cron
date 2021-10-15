@@ -56,7 +56,6 @@ const validateSections = (section, name, position, renderables) => {
 
     const elements =
         checkIfValid(name, sectionChildren) === true ? section : null;
-
     const banner = boxPosition[name];
     if (elements && elements.length > 0 && banner) {
         switch (banner.position) {
@@ -159,5 +158,7 @@ const LNMainHome = props => {
 
     return home(homeSections) || [];
 };
+
+LNMainHome.sections = pageBuilderSections;
 
 export default Consumer(LNMainHome);

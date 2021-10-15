@@ -70,19 +70,19 @@
     }
 
     &.--slider {
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
+        // display: -webkit-box;
+        // display: -moz-box;
+        // display: -ms-flexbox;
+        // display: -webkit-flex;
         display: flex;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
+        // -webkit-box-orient: horizontal;
+        // -webkit-box-direction: normal;
+        // -ms-flex-direction: row;
         flex-direction: row;
-        -webkit-box-pack: start;
-        -ms-flex-pack: start;
+        // -webkit-box-pack: start;
+        // -ms-flex-pack: start;
         justify-content: flex-start;
-        -ms-flex-wrap: wrap;
+        //-ms-flex-wrap: wrap;
         flex-wrap: wrap;
         position: relative;
         width: 100%;
@@ -92,21 +92,21 @@
         }
 
         .cont-figure {
-            display: -webkit-box;
-            display: -moz-box;
-            display: -ms-flexbox;
-            display: -webkit-flex;
+            // display: -webkit-box;
+            // display: -moz-box;
+            // display: -ms-flexbox;
+            // display: -webkit-flex;
             display: flex;
-            -webkit-box-orient: horizontal;
-            -webkit-box-direction: normal;
-            -ms-flex-direction: row;
+            // -webkit-box-orient: horizontal;
+            // -webkit-box-direction: normal;
+            // -ms-flex-direction: row;
             flex-direction: row;
-            -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
+            // -webkit-box-pack: justify;
+            // -ms-flex-pack: justify;
             justify-content: space-between;
-            -ms-flex-wrap: wrap;
+            //-ms-flex-wrap: wrap;
             flex-wrap: wrap;
-            -ms-flex-item-align: start;
+            //-ms-flex-item-align: start;
             align-self: flex-start;
             width: 100%;
             background-color: initial;

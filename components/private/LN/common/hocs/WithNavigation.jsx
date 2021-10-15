@@ -1,3 +1,5 @@
+/* eslint-disable react/static-property-placement */
+/* eslint-disable react/sort-comp */
 import React, { PureComponent } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
@@ -20,7 +22,6 @@ export default function WithNavigation(WrappedComponent) {
 
             constructor(props) {
                 super(props);
-
                 const website = get(this, 'props.arcSite', null);
                 const { cached } = this.getContent({
                     sourceName: 'navigationTreeSource',
@@ -114,6 +115,7 @@ export default function WithNavigation(WrappedComponent) {
 
             render() {
                 const { sections, termicas } = this.state;
+
                 return (
                     <WrappedComponent
                         {...this.props}
