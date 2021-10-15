@@ -88,7 +88,6 @@ const fetch = query => {
         })
         .catch(error => {
             logger.push(error, { source: 'content/source', url }, arcSite);
-            // throw error;
         });
 };
 
