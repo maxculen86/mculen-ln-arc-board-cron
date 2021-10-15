@@ -4,6 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import ScriptManager from '../private/common/scriptManager';
 import ScriptLogoBBC from '../private/common/scriptManager/scriptLogoBBC';
 import ScriptVideoPowa from '../private/common/scriptManager/scriptVideoPowa';
+import ScriptVideoPowaHome from '../private/common/scriptManager/scriptVideoPowaHome';
 import GTM from '../private/common/scriptManager/googleTagManager';
 import Comscore from '../private/common/scriptManager/comscore';
 import Microdata from '../private/common/scriptManager/microdata';
@@ -39,6 +40,8 @@ import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 import addForwardSlash from '../private/LN/common/utils/addForwardSlash';
 import AmazonPublisherServices from '../private/common/scriptManager/amazonPublisherServices';
 import FontFace from '../private/common/fontface';
+// import Viafoura from '../private/common/scriptManager/viafoura';
+// import MetaViafoura from '../private/common/metaViafoura';
 
 const scriptList = [
     {
@@ -101,6 +104,10 @@ const scriptList = [
         },
         feature: 'none'
     }
+    // {
+    //     component: { name: 'Viafoura', function: Viafoura },
+    //     feature: ['LN-nota/commentsViafoura']
+    // }
 ];
 
 const getBodyClass = props => {
@@ -121,18 +128,16 @@ const Default = props => {
         Fusion,
         Libs,
         metaValue,
+        layout = '',
         siteProperties,
         renderables,
         globalContent,
         outputType
     } = props;
-    const { layoutsName = {} } = siteProperties;
-    const layOutColumnista = layoutsName.Columnistas || '';
 
     const {
         canonical_url: canonicalUrl,
         content_elements: contentElements,
-        content_restrictions: { content_code: contentCode } = {},
         headlines,
         description,
         type,
@@ -195,7 +200,7 @@ const Default = props => {
                   nodeType,
                   name,
                   arcSite,
-                  layOutColumnista
+                  layout
               )
             : '';
 
@@ -316,6 +321,7 @@ const Default = props => {
                     defaultDescription={siteProperties.description}
                     metaDescription={metaDescription}
                 />
+                {/* <MetaViafoura {...props} /> */}
                 <Syndication
                     type={type}
                     arcSite={arcSite}
@@ -338,7 +344,10 @@ const Default = props => {
                 <MetasFBNews
                     nodeType={_nodeType}
                     sections={taxonomy && taxonomy.sections}
-                    contentCode={contentCode}
+                />
+                <ScriptVideoPowaHome
+                    renderables={renderables}
+                    section={_nodeType}
                 />
             </head>
             <body {...getBodyClass(siteProperties)}>

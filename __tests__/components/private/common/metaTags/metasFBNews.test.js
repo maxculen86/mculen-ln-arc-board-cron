@@ -42,35 +42,4 @@ describe('LN - Common - MetasFBNews', () => {
 
         checkNodeByEntries({ entries, el: "meta[property='article:opinion']" });
     });
-
-    it('MetasFBNews should returns correct meta article:content_tier', () => {
-        const entries = [
-            {
-                props: {
-                    sections: [{ _id: '/opinion' }],
-                    contentCode: 'abierta'
-                },
-                result: 'free'
-            },
-            {
-                props: {
-                    sections: [{ _id: '/deportes' }],
-                    contentCode: 'cerrada'
-                },
-                result: 'locked'
-            },
-            {
-                props: {
-                    sections: [{ _id: '/propiedades' }],
-                    contentCode: 'comun'
-                },
-                result: 'metered'
-            }
-        ];
-
-        checkNodeByEntries({
-            entries,
-            el: "meta[property='article:content_tier']"
-        });
-    });
 });

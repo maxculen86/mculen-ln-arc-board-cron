@@ -35,6 +35,7 @@ class LiftIgniter extends Component {
             label,
             content_elements: contentElements = [],
             credits,
+            display_date: displayDate,
             _id,
             headlines
         } = globalContent || {};
@@ -61,6 +62,7 @@ class LiftIgniter extends Component {
             title,
             titleShort,
             leadText,
+            published_time: displayDate,
             noShow: recomendar !== 'Si',
             noIndex: false,
             tematica,

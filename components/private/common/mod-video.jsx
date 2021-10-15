@@ -46,7 +46,7 @@ ModVideo.defaultProps = {
     autoplay: true,
     controls: undefined,
     muted: true,
-    loop: false,
+    loop: true,
     playsinline: true
 };
 

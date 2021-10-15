@@ -15,6 +15,7 @@ const cuerpo = props => {
         ...props,
         bannerConfig
     };
+
     // eslint-disable-next-line react/jsx-props-no-spreading
     return <Cuerpo {...properties} />;
 };

@@ -16,9 +16,6 @@ export const checkIfValid = (name, children) => {
             get(child, 'props.customFields.hideFeature', false) !== true
     );
     const sectionRule = sectionsValidation[name] || {};
-    console.log(
-        `${childrenWithoutHide.length} ${sectionRule.operatorToUse} ${sectionRule.quantity}`
-    );
     // Validacion por cantidad
     if (
         eval(

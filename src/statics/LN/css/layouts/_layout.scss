@@ -17,7 +17,7 @@
         margin-bottom: $spacing-xl;
     }
     .sidebar__main {
-        flex-basis: 100%;
+        flex-basis: calc(100% - 316px);
         margin-right: $spacing-sm;
         //por slider
         //overflow: hidden;
@@ -31,8 +31,10 @@
 
 @media ($media-xl) {
     .sidebar__main {
+        flex-basis: calc(100% - 340px);
         margin-right: $spacing-xl;
         #wrapper.nota & {
+            flex-basis: calc(100% - 380px);
             margin-right: $spacing-3xl;
         }
     }

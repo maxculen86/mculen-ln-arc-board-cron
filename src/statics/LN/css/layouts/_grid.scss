@@ -9,92 +9,97 @@
 //=======================================
 // iniciamos fila (aca es donde dividimos 12)
 .row {
-    display: -ms-flexbox;
+    //display: -ms-flexbox;
     display: flex;
-    -ms-flex-wrap: wrap;
+    //-ms-flex-wrap: wrap;
     flex-wrap: wrap;
     width: 100%;
 }
 
 // Particion de 12
-.col-1,
-.col-2,
-.col-3,
-.col-4,
-.col-5,
-.col-6,
-.col-7,
-.col-8,
-.col-9,
-.col-10,
-.col-11,
-.col-12,
-.col,
-//.col-auto,
-// .col-mobile-1,
-// .col-mobile-2,
-// .col-mobile-3,
-// .col-mobile-4,
-// .col-mobile-5,
-// .col-mobile-6,
-// .col-mobile-7,
-// .col-mobile-8,
-// .col-mobile-9,
-// .col-mobile-10,
-// .col-mobile-11,
-// .col-mobile-12,
-// .col-mobile,
-// .col-mobile-auto,
-.col-tablet-1,
-.col-tablet-2,
-.col-tablet-3,
-.col-tablet-4,
-.col-tablet-5,
-.col-tablet-6,
-.col-tablet-7,
-.col-tablet-8,
-.col-tablet-9,
-.col-tablet-10,
-.col-tablet-11,
-.col-tablet-12,
-.col-tablet,
-//.col-tablet-auto,
-.col-desksm-1,
-.col-desksm-2,
-.col-desksm-3,
-.col-desksm-4,
-.col-desksm-5,
-.col-desksm-6,
-.col-desksm-7,
-.col-desksm-8,
-.col-desksm-9,
-.col-desksm-10,
-.col-desksm-11,
-.col-desksm-12,
-.col-desksm,
-//.col-desksm-auto,
-.col-deskxl-1,
-.col-deskxl-2,
-.col-deskxl-3,
-.col-deskxl-4,
-.col-deskxl-5,
-.col-deskxl-6,
-.col-deskxl-7,
-.col-deskxl-8,
-.col-deskxl-9,
-.col-deskxl-10,
-.col-deskxl-11,
-.col-deskxl-12,
-.col-deskxl {
-    //.col-deskxl-auto {
-    position: relative;
+// .col-1,
+// .col-2,
+// .col-3,
+// .col-4,
+// .col-5,
+// .col-6,
+// .col-7,
+// .col-8,
+// .col-9,
+// .col-10,
+// .col-11,
+// .col-12,
+// .col,
+// //.col-auto,
+// // .col-mobile-1,
+// // .col-mobile-2,
+// // .col-mobile-3,
+// // .col-mobile-4,
+// // .col-mobile-5,
+// // .col-mobile-6,
+// // .col-mobile-7,
+// // .col-mobile-8,
+// // .col-mobile-9,
+// // .col-mobile-10,
+// // .col-mobile-11,
+// // .col-mobile-12,
+// // .col-mobile,
+// // .col-mobile-auto,
+// .col-tablet-1,
+// .col-tablet-2,
+// .col-tablet-3,
+// .col-tablet-4,
+// .col-tablet-5,
+// .col-tablet-6,
+// .col-tablet-7,
+// .col-tablet-8,
+// .col-tablet-9,
+// .col-tablet-10,
+// .col-tablet-11,
+// .col-tablet-12,
+// .col-tablet,
+// //.col-tablet-auto,
+// .col-desksm-1,
+// .col-desksm-2,
+// .col-desksm-3,
+// .col-desksm-4,
+// .col-desksm-5,
+// .col-desksm-6,
+// .col-desksm-7,
+// .col-desksm-8,
+// .col-desksm-9,
+// .col-desksm-10,
+// .col-desksm-11,
+// .col-desksm-12,
+// .col-desksm,
+// //.col-desksm-auto,
+// .col-deskxl-1,
+// .col-deskxl-2,
+// .col-deskxl-3,
+// .col-deskxl-4,
+// .col-deskxl-5,
+// .col-deskxl-6,
+// .col-deskxl-7,
+// .col-deskxl-8,
+// .col-deskxl-9,
+// .col-deskxl-10,
+// .col-deskxl-11,
+// .col-deskxl-12,
+// .col-deskxl {
+//     //.col-deskxl-auto {
+//     position: relative;
+//     width: 100%;
+// }
+
+[class*='col-'] {
     width: 100%;
+    position: relative;
 }
 
 .col {
-    -ms-flex-preferred-size: 0;
+    // -ms-flex-preferred-size: 0;
     flex-basis: 0;
-    -ms-flex-positive: 1;
+    // -ms-flex-positive: 1;
     flex-grow: 1;
     max-width: 100%;
 }
@@ -129,9 +134,9 @@
 //Valores de tablet para arriba
 @media (min-width: 768px) {
     .col-tablet {
-        -ms-flex-preferred-size: 0;
+        //-ms-flex-preferred-size: 0;
         flex-basis: 0;
-        -ms-flex-positive: 1;
+        //-ms-flex-positive: 1;
         flex-grow: 1;
         max-width: 100%;
     }
@@ -163,9 +168,9 @@
 
 @media ($media-l) {
     .col-desksm {
-        -ms-flex-preferred-size: 0;
+        //-ms-flex-preferred-size: 0;
         flex-basis: 0;
-        -ms-flex-positive: 1;
+        //-ms-flex-positive: 1;
         flex-grow: 1;
         max-width: 100%;
     }
@@ -198,9 +203,9 @@
 //Valores de desk para arriba
 @media ($media-lg) {
     .col-deskxl {
-        -ms-flex-preferred-size: 0;
+        //-ms-flex-preferred-size: 0;
         flex-basis: 0;
-        -ms-flex-positive: 1;
+        //-ms-flex-positive: 1;
         flex-grow: 1;
         max-width: 100%;
     }
