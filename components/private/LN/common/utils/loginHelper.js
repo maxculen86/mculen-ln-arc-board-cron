@@ -35,6 +35,11 @@ export const goToLogout = dispatch => {
     });
 
     if (['undefined'].indexOf(typeof fyre)) fyre.conv.logout();
+
+    window &&
+        window.viafoura &&
+        window.viafoura.session &&
+        window.viafoura.session.logout();
 };
 
 const convertTo24Hour = time => {

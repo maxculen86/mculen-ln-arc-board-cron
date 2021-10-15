@@ -9,7 +9,15 @@ const TAGS_BY_WIDGET = {
             (_id && {
                 head: [
                     <meta name="vf:container_id" content={_id} />,
-                    <meta name="vf:lang" content="es" />
+                    <meta name="vf:lang" content="es" />,
+                    <style
+                        dangerouslySetInnerHTML={{
+                            __html: `
+                            .viafoura .vf-is-logged-out .vf-comment-header, .viafoura .vf-is-logged-out .vf-post-form {
+                                display: none !important;
+                            }`
+                        }}
+                    />
                 ],
                 bodyBottom: [
                     <script
