@@ -28,7 +28,6 @@ const fetch = query => {
         })
         .catch(error => {
             logger.push(error, { source: 'content/source', query }, query);
-            // throw error;
         });
 };
 

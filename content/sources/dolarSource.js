@@ -22,18 +22,14 @@ const fetch = ({ arcSite }) => {
     ];
     const promiseArr = endpoints.map(endpoint =>
         request(endpoint)
-            // .then(response => ({
-            //     ...response,
-            //     sourceName: endpoint.uri
-            //         .split('/')
-            //         .pop()
-            //         .toLowerCase(),
-            //     source: endpoint.uri
-            // }))
-            .then(response => {
-                // ------- ERROR PRUEBA DATADOG-------
-                throw new Error('Error custom');
-            })
+            .then(response => ({
+                ...response,
+                sourceName: endpoint.uri
+                    .split('/')
+                    .pop()
+                    .toLowerCase(),
+                source: endpoint.uri
+            }))
             .catch(error => {
                 logger.push(
                     error,

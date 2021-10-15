@@ -36,12 +36,10 @@ const fetch = query => {
 
     return request(opt)
         .then(response => {
-            // throw new Error('Error custom');
             return transform(response, query);
         })
         .catch(error => {
             logger.push(error, { source: 'content/source', url }, arcSite);
-            // throw error;
         });
 };
 const transform = (data, siteProps) => {

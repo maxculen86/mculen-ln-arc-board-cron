@@ -59,8 +59,6 @@ const fetch = query => {
 
     return request(opt)
         .then(response => {
-            // ------- ERROR PRUEBA DATADOG-------
-            // throw new Error('Error custom');
             if (response.type === 'redirect' && response.redirect_url) {
                 throw new Redirect(response.redirect_url, 301);
             }
