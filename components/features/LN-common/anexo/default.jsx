@@ -62,13 +62,13 @@ const AnexoFeature = props => {
     const { renderables = [], isAdmin } = useAppContext();
     const { height } = customFields;
     // Al estar en la sección 'Anexo_1' del layout necesita tener la clase '--anexo-1'.
+    const errorMessage = getErrorMessage({ customFields });
+    const _type = getComponentType({ ...props, isAdmin, errorMessage });
     const EXTRA_CLASS = (
         (isInSection({ sectionName: 'Anexo1', id, renderables }) &&
             '--anexo-1') ||
         ''
-    ).concat((!isAdmin && 'skeleton-box') || '');
-    const errorMessage = getErrorMessage({ customFields });
-    const _type = getComponentType({ ...props, isAdmin, errorMessage });
+    ).concat((!isAdmin && _type === 'Iframe' && 'skeleton-box') || '');
     const comp = () =>
         getComponentFromConfig(_type, {
             ...props,
