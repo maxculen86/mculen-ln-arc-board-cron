@@ -129,7 +129,6 @@ const snippet = props => {
     const description = subheadLinesBasic;
 
     const { autores } = extracDataFromCredits(by) || '';
-    console.log('🚀 ~ file: receta.jsx ~ line 132 ~ autores', autores);
 
     const { image, counterTime, counterPortion } = extractDataFromPromoItems(
         promoItems
