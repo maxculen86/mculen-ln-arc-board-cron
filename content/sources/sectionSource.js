@@ -40,7 +40,6 @@ const fetch = query => {
         })
         .catch(error => {
             logger.push(error, { source: 'content/source', url }, arcSite);
-            throw error;
         });
 };
 const transform = (data, siteProps) => {
