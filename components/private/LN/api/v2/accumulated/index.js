@@ -31,9 +31,12 @@ const index = acuData => {
             return r;
         }, []);
     };
-    const pagina = Math.floor(acuData.paginator / acuData.articles.length);
-    resp.banners = sections(acuData.articles.length, pagina);
     if (acuData.articles) {
+        let pagina = 1;
+        if (acuData.paginator) {
+            pagina = Math.floor(acuData.paginator / acuData.articles.length);
+        }
+        resp.banners = sections(acuData.articles.length, pagina);
         resp.notas = acuData.articles.reduce((result, f) => {
             try {
                 if (f) {
