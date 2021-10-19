@@ -16,7 +16,7 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
         withoutHide,
         dimensions,
         bidding,
-        // subscription,
+        hideForSubscriptor,
         closeButton,
         classes
     } = bannerConfiguration;
@@ -58,7 +58,7 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
                 className="com-banner"
                 data-slot-group={slotGroup}
                 data-device={device}
-                // data-subscription={subscription || false}
+                data-subscription={hideForSubscriptor || false}
                 data-ad-unit-path={`/${dfpId}/${slotName}`}
                 data-targeting={JSON.stringify(targeting)}
                 data-without-hide={withoutHide || false}
@@ -95,7 +95,8 @@ DivBannerSSR.propTypes = {
         }),
         closeButton: PropTypes.bool,
         slotGroup: PropTypes.string,
-        withoutHide: PropTypes.bool
+        withoutHide: PropTypes.bool,
+        hideForSubscriptor: PropTypes.bool
     }).isRequired
 };
 
