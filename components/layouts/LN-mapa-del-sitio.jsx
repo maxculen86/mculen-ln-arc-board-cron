@@ -239,10 +239,6 @@ const LNMapaDelSitio = ({ children }) => {
             text: 'Fundación LA NACION',
             href: 'https://fundacionlanacion.org.ar/'
         },
-        {
-            text: 'Avisos solidarios',
-            href: 'http://solidarios.lanacion.com.ar/'
-        },
         { text: 'HOP', href: 'https://www.hopenvios.com.ar/' }
     ];
 
