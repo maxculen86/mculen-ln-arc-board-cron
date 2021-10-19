@@ -97,8 +97,7 @@ const LNMapaDelSitio = ({ children }) => {
             text: 'Sociales',
             href:
                 'https://servicios.lanacion.com.ar/edicion-impresa/avisos-sociales'
-        },
-        { text: 'Humor', href: 'https://www.lanacion.com.ar/humor' }
+        }
     ];
 
     const listado6 = [
