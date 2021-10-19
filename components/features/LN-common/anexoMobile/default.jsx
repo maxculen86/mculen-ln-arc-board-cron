@@ -62,13 +62,13 @@ const AnexoFeature = props => {
     const { renderables = [], isAdmin } = useAppContext();
     const { height } = customFields;
     // Al estar en la sección 'Anexo_1' del layout necesita tener la clase '--anexo-1'.
-    const errorMessage = getErrorMessage({ customFields });
-    const _type = getComponentType({ ...props, isAdmin, errorMessage });
     const EXTRA_CLASS = (
         (isInSection({ sectionName: 'Anexo1', id, renderables }) &&
             '--anexo-1') ||
         ''
-    ).concat((!isAdmin && _type === 'Iframe' && 'skeleton-box') || '');
+    ).concat((!isAdmin && 'skeleton-box') || '');
+    const errorMessage = getErrorMessage({ customFields });
+    const _type = getComponentType({ ...props, isAdmin, errorMessage });
     const comp = () =>
         getComponentFromConfig(_type, {
             ...props,
@@ -90,7 +90,7 @@ const AnexoFeature = props => {
     );
 };
 
-AnexoFeature.label = 'LN Anexo';
+AnexoFeature.label = 'LN Anexo Mobile';
 
 AnexoFeature.propTypes = {
     id: PropTypes.string.isRequired,
@@ -107,25 +107,11 @@ AnexoFeature.propTypes = {
             description: 'Marque para ocultar el anexo',
             defaultValue: false
         }),
-        html: PropTypes.richtext.tag({
-            label: 'HTML',
-            group: 'Ajuste por HTML',
-            description: 'Ingrese aquí el HTML del anexo',
-            // formPlugin: 'html-editor',
-            // disabled: true,
-            defaultValue: ''
-        }),
         height: PropTypes.number.tag({
             label: 'Alto',
             group: 'Ajuste por URL',
             description: 'Ingrese aquí el alto fijo del anexo',
             defaultValue: 0
-        }),
-        hideByHtml: PropTypes.bool.tag({
-            label: 'Ocultar',
-            group: 'Ajuste por HTML',
-            description: 'Marque para ocultar el anexo',
-            defaultValue: false
         })
     })
 };

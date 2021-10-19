@@ -22,7 +22,8 @@ const Message = props => {
         <section className={`message row w-100-mobile ${dark ? '--dark' : ''}`}>
             <div className="col-12 --top">
                 <Text tag="strong" extraClass="subscribers" size="--twoxs">
-                    <Logo logoName="ln" size="--xs" /> Exclusivo suscriptores
+                    <Logo logoName="ln" size="--xs" />
+                    Exclusivo suscriptores
                 </Text>
             </div>
             <div className="col-tablet-7 --left">
@@ -38,12 +39,7 @@ const Message = props => {
                     classCondition="com-button --secondary"
                     title={secondary}
                     rel="nofollow"
-                    link={
-                        secondaryUrl ||
-                        `https://ingresar.lanacion.com.ar/ingresar/D/1/?callback=${window.btoa(
-                            location.href
-                        )}`
-                    }
+                    link={secondaryUrl}
                 >
                     {secondary}
                 </Link>
@@ -51,12 +47,7 @@ const Message = props => {
                     classCondition="com-button --special"
                     title={special}
                     rel="nofollow"
-                    link={
-                        specialUrl ||
-                        `https://ingresar.lanacion.com.ar/suscribirme?callback=${window.btoa(
-                            location.href
-                        )}`
-                    }
+                    link={specialUrl}
                 >
                     {special}
                 </Link>
@@ -76,9 +67,11 @@ Message.propTypes = {
 
 Message.defaultProps = {
     title: 'Ahora para comentar debés tener Acceso Digital',
-    subtitle: 'Ingresá o suscribite por $225/mes',
-    special: 'Suscribite por $225/mes',
+    subtitle: 'Ingresá o suscribite',
+    special: 'Suscribite',
     secondary: 'Ingresá',
+    specialUrl: '#',
+    secondaryUrl: '#',
     dark: undefined
 };
 

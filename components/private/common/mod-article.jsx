@@ -11,7 +11,7 @@ import getAuthorsPhoto from './utils/getAuthorsPhoto';
 import ComImage from './com-image';
 import ModMedia from './mod-media';
 import ModVideo from './mod-video';
-import VideoPlayer from '../../private/LN/common/media/videoPlayer';
+import VideoPlayer from '../LN/common/media/videoPlayer';
 
 const ModArticle = props => {
     const {
@@ -52,7 +52,8 @@ const ModArticle = props => {
         hour,
         category,
         tags,
-        handleClick
+        handleClick,
+        layout
     } = props;
 
     const { _id, website_url: websiteUrl } = articleData || {};
@@ -76,7 +77,11 @@ const ModArticle = props => {
     const type = get(imagenDestacada, 'type', null);
 
     const mediaData = (() => {
-        if (videoBackground && device !== 'mobile') return videoBackground;
+        if (
+            videoBackground &&
+            (layout === 'grillaVideo1' || device !== 'mobile')
+        )
+            return videoBackground;
         return type === 'image' ? imagenDestacada : null;
     })();
 

@@ -102,6 +102,7 @@ const NoteCard = ({
                 videoBackground={videoBackground}
                 isPowa={isPowa}
                 device={device}
+                layout={layout}
             />
         )) || <></>
     );
@@ -139,7 +140,8 @@ NoteCard.propTypes = {
         canonical_url: PropTypes.string
     }),
     isOpening: PropTypes.bool,
-    belongsTo: PropTypes.string
+    belongsTo: PropTypes.string,
+    layout: PropTypes.string
 };
 
 NoteCard.defaultProps = {
@@ -151,7 +153,8 @@ NoteCard.defaultProps = {
         authors: undefined
     },
     isOpening: undefined,
-    belongsTo: undefined
+    belongsTo: undefined,
+    layout: ''
 };
 
 export default NoteCard;
