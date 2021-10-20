@@ -41,5 +41,6 @@ export default {
         trackSessionAcrossSubdomains: false
     },
     ARC_STATIC: 'https://arc-static.glanacion.com',
-    LAZY_OFFSETTOP: 500
+    LAZY_OFFSETTOP: 500,
+    ARC_WIDGETS: 'https://arc-widgets.lanacion.com.ar/widgets/'
 };

@@ -31,5 +31,6 @@ export default {
         trackInteractions: true,
         trackSessionAcrossSubdomains: false
     },
-    ARC_STATIC: 'https://dev.lanacionar.arcpublishing.com/'
+    ARC_STATIC: 'https://dev.lanacionar.arcpublishing.com/',
+    ARC_WIDGETS: 'https://dev.lanacionar.arcpublishing.com/widgets/'
 };

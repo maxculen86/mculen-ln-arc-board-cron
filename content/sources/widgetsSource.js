@@ -9,15 +9,19 @@ const WIDGETS = {
             const [_id] = params;
             return { ...data, _id };
         }
+    },
+    meteringamp: {
+        transform: data => data
     }
 };
 
 const fetch = query => {
-    const { uri = '' } = query;
+    const { uri = '', id = '' } = query;
     const [, widget, ...params] = uri.split('/').filter(String);
     const { fetch: fetchWidget, transform } = WIDGETS[widget] || {};
     const data = {
         uri,
+        id,
         params,
         widget
     };
@@ -31,7 +35,8 @@ const fetch = query => {
 export default {
     fetch,
     params: {
-        uri: 'text'
+        uri: 'text',
+        id: 'text'
     },
     ttl: 300
 };

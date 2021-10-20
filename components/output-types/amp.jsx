@@ -20,6 +20,7 @@ import ScriptLogoBBCAMP from '../private/common/scriptManager/scriptLogoBBCAMP';
 import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
 import getSectionName from '../private/LN/common/utils/getSectionName';
 import FontFace from '../private/common/fontface';
+import MeteringAMP from '../private/common/scriptManager/meteringAMP';
 
 /**
  * TODO: Resolver el tema de las canonicas
@@ -63,7 +64,8 @@ const Amp = props => {
         Payload,
         subheadlines,
         _id,
-        taxonomy
+        taxonomy,
+        content_restrictions: { content_code: contentCode } = {}
     } = globalContent || {};
 
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
@@ -205,6 +207,10 @@ const Amp = props => {
                     )}
                 </amp-analytics>
                 <ScriptLogoBBCAMP distributorName={distributorName} />
+                <MeteringAMP
+                    canonicalUrl={canonicalUrl}
+                    contentCode={contentCode}
+                />
                 {children}
             </body>
         </html>

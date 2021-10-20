@@ -30,5 +30,7 @@ export default {
         trackInteractions: true,
         trackSessionAcrossSubdomains: false
     },
-    ARC_STATIC: 'https://sandbox.lanacion.com.ar'
+    ARC_STATIC: 'https://sandbox.lanacion.com.ar',
+    ARC_WIDGETS:
+        'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/widgets/'
 };
