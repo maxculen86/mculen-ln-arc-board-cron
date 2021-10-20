@@ -23,7 +23,7 @@ const displayComments = dataNota => {
     return generalCommentsConfig === 'true' && optionDisplayComments === true;
 };
 
-const allowComments = dataNota => {
+const openComments = dataNota => {
     const optionDisplayComments = get(
         dataNota,
         'comments.display_comments',
@@ -56,6 +56,10 @@ const allowComments = dataNota => {
         generalCommentsConfig === 'true' &&
         optionDisplayComments === true
     );
+};
+
+const allowComments = dataNota => {
+    return get(dataNota, 'comments.allow_comments');
 };
 
 const indexNota = dataNota => {
@@ -103,14 +107,16 @@ const indexNota = dataNota => {
         mostrarBanners: !(showBanners && showBanners.toLowerCase() === 'no'),
         paywallStatus: paywallStatus || 'comun',
         abiertoComentarios: displayComments(dataNota),
-        permitirComentarios: allowComments(dataNota),
+        comentarios: {
+            abiertoComentarios: openComments(dataNota),
+            permitirComentarios: allowComments(dataNota)
+        },
         comentariosId: comentariosId || id,
         categoria: primarySection && getPrincipalCategory(primarySection),
         relacionados: Relacionados(dataNota),
         enviarApps,
         modificadorTemplate: ModificadorTemplate(distributor)
     };
-
     if (dataNota.subtype === '9') {
         resp.HTML = Cuerpo(dataNota);
     } else {
