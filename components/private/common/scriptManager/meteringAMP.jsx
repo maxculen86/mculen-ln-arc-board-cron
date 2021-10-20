@@ -1,5 +1,4 @@
 import React from 'react';
-import { ARC_WIDGETS } from 'fusion:environment';
 const MeteringAMP = ({ canonicalUrl = '', contentCode = 'comun' }) => {
     return (
         <amp-iframe
@@ -9,7 +8,7 @@ const MeteringAMP = ({ canonicalUrl = '', contentCode = 'comun' }) => {
             layout="fixed"
             sandbox="allow-scripts allow-same-origin"
             frameborder="0"
-            src={`${ARC_WIDGETS}meteringamp/${contentCode}/?outputType=widgets&_website=la-nacion-ar&id=${canonicalUrl}`}
+            src={`https://arc-widgets.lanacion.com.ar/widgets/meteringamp/${contentCode}/?outputType=widgets&_website=la-nacion-ar&id=${canonicalUrl}`}
         >
             <amp-img
                 layout="fill"
