@@ -57,11 +57,6 @@ const openComments = dataNota => {
         optionDisplayComments === true
     );
 };
-
-const allowComments = dataNota => {
-    return get(dataNota, 'comments.allow_comments');
-};
-
 const indexNota = dataNota => {
     if (!dataNota) throw new Error(`La información de la nota esta vacia`);
 
@@ -75,6 +70,7 @@ const indexNota = dataNota => {
     } = dataNota;
 
     const comentariosId = get(dataNota, 'label.livefyre_entrada_id.text', null);
+    const allowComments = get(dataNota, 'comments.allow_comments');
     const paywallStatus = get(
         dataNota,
         'content_restrictions.content_code',
@@ -109,7 +105,7 @@ const indexNota = dataNota => {
         abiertoComentarios: displayComments(dataNota),
         comentarios: {
             abiertoComentarios: openComments(dataNota),
-            permitirComentarios: allowComments(dataNota)
+            permitirComentarios: allowComments
         },
         comentariosId: comentariosId || id,
         categoria: primarySection && getPrincipalCategory(primarySection),
