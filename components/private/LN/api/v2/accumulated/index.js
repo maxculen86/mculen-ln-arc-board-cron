@@ -4,7 +4,7 @@ import { removeEmptyItems } from '../../common/utils/responseCleaner';
 import { getTag } from '../../common/tag';
 import { authorAcu } from '../../common/author';
 
-const index = acuData => {
+const banners = acuData => {
     const sectionsElements = [
         { idSeccion: 402, index: 4 },
         { idSeccion: 403, index: 7 },
@@ -12,6 +12,23 @@ const index = acuData => {
         { idSeccion: 405, index: 13 },
         { idSeccion: 406, index: 16 }
     ];
+    const cantNotas = acuData.articles.length;
+    let pagina = 1;
+    if (acuData.paginator) {
+        pagina = Math.floor(acuData.paginator / acuData.articles.length);
+    }
+    return sectionsElements.reduce((r, e) => {
+        if (pagina > 1) {
+            if (e.index > cantNotas) {
+                return r.concat(e);
+            }
+        } else if (e.index <= cantNotas) {
+            return r.concat(e);
+        }
+        return r;
+    }, []);
+};
+const index = acuData => {
     const resp = {
         tipoSeccion: 'acumulado',
         idSeccion: 305,
@@ -19,24 +36,8 @@ const index = acuData => {
         paginar: acuData.paginator > 0,
         titulo: acuData.name
     };
-    const sections = (cantNotas, pagina) => {
-        return sectionsElements.reduce((r, e) => {
-            if (pagina > 1) {
-                if (e.index > cantNotas) {
-                    return r.concat(e);
-                }
-            } else if (e.index <= cantNotas) {
-                return r.concat(e);
-            }
-            return r;
-        }, []);
-    };
     if (acuData.articles) {
-        let pagina = 1;
-        if (acuData.paginator) {
-            pagina = Math.floor(acuData.paginator / acuData.articles.length);
-        }
-        resp.banners = sections(acuData.articles.length, pagina);
+        resp.banners = banners(acuData);
         resp.notas = acuData.articles.reduce((result, f) => {
             try {
                 if (f) {
