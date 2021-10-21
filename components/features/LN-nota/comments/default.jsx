@@ -8,7 +8,7 @@ import dynamicallyLoadScript from '../../../private/LN/common/utils/dynamicallyL
 import getScrollPercent from '../../../private/LN/common/utils/getScrollPercent';
 import Comments from '../../../private/LN/nota/comments';
 import LoadingIcon from '../../../private/LN/common/loadingIcon';
-// import { validateComments } from '../../../private/common/utils/commentsHelper';
+import { validateComments } from '../../../private/common/utils/commentsHelper';
 
 const CommentsFeature = props => {
     const {
@@ -17,9 +17,9 @@ const CommentsFeature = props => {
     const displayComments = get(comments, 'display_comments', true);
     const [isReady, setIsReady] = useState(false);
     const showLivefyre = findTermica('livefyre');
-    // const { shouldLoad: shouldLoadViafoura } = validateComments(props);
+    const { shouldLoad: shouldLoadViafoura } = validateComments(props);
 
-    // if (shouldLoadViafoura) return <></>;
+    if (shouldLoadViafoura) return <></>;
 
     useEffect(() => {
         const handleScrollForComments = () => {
