@@ -87,12 +87,12 @@
     section {
         header.vf-comment-header,
         div.vf-post-form__container {
-            display: none !important;
+            display: none;
         }
     }
 }
 
-.viafoura .vf-is-logged-out .vf-comment-header,
-.viafoura .vf-is-logged-out .vf-post-form {
-    display: none !important;
-}
+// .viafoura .vf-is-logged-out .vf-comment-header,
+// .viafoura .vf-is-logged-out .vf-post-form {
+//     display: none !important;
+// }

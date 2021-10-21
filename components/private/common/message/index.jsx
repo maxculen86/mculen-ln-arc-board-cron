@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Text from '../text';
 import Link from '../com-link';
 import Logo from '../com-logo';
+import Icon from '../com-icon';
 
 import '../../../../resources/dist/css/ln/modules/message.css';
 
@@ -16,23 +17,27 @@ const Message = props => {
         secondary,
         secondaryUrl,
         dark,
-        logoName,
-        logoText
+        isExclusive,
+        icon,
+        text
     } = props;
     const withLinks = secondaryUrl && specialUrl;
     return (
         <section className={`message row w-100-mobile ${dark ? '--dark' : ''}`}>
             <div className="col-12 --top">
-                <Text tag="strong" extraClass="subscribers" size="--twoxs">
-                    <Logo logoName={logoName} size="--xs" />
-                    {logoText}
-                </Text>
+                {isExclusive ? (
+                    <Text tag="strong" extraClass="subscribers" size="--twoxs">
+                        <Logo logoName="ln" size="--xs" />
+                        Exclusivo suscriptores
+                    </Text>
+                ) : (
+                    <Text tag="strong" extraClass="text" size="--twoxs">
+                        <Icon iconName={icon} size="--xs" />
+                        {text}
+                    </Text>
+                )}
             </div>
-            <div
-                className={`${
-                    withLinks ? 'col-tablet-7' : 'col-tablet-12'
-                } --left`}
-            >
+            <div className={`${withLinks ? 'col-tablet-7' : 'col-12'} --left`}>
                 <Text extraClass="com-title" tag="h3" size="--s">
                     {title}
                 </Text>
@@ -71,20 +76,22 @@ Message.propTypes = {
     secondary: PropTypes.string,
     secondaryUrl: PropTypes.string,
     dark: PropTypes.bool,
-    logoName: PropTypes.string,
-    logoText: PropTypes.string
+    isExclusive: PropTypes.bool,
+    icon: PropTypes.string,
+    text: PropTypes.string
 };
 
 Message.defaultProps = {
-    title: 'Ahora para comentar debés tener Acceso Digital',
-    subtitle: 'Ingresá o suscribite',
+    title: '',
+    subtitle: '',
     special: 'Suscribite',
     secondary: 'Ingresá',
     specialUrl: '',
     secondaryUrl: '',
     dark: undefined,
-    logoName: 'ln',
-    logoText: 'Exclusivo suscriptores'
+    isExclusive: undefined,
+    icon: 'comment',
+    text: 'Comentarios'
 };
 
 export default Message;

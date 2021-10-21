@@ -84,15 +84,18 @@ export const getMessageProps = (props, messageType) => {
 
     const MESSAGE_PROPS = {
         CLOSED_COMMENTS: {
-            title: 'Nota cerrada a comentarios',
+            title: 'Nota cerrada a comentarios.',
             subtitle: ' ',
-            logoName: 'comment',
-            logoText: 'Comentarios'
+            icon: 'comment',
+            text: 'Comentarios'
         },
         SUBSCRIPTION: {
+            title: 'Ahora para comentar debés tener Acceso Digital.',
+            subtitle: 'Ingresá o suscribite',
             secondaryUrl: (canonicalUrl && loginUrl) || '',
             specialUrl: (canonicalUrl && registracionUrl) || '',
-            dark: true
+            dark: true,
+            isExclusive: true
         }
     };
     return MESSAGE_PROPS[messageType];

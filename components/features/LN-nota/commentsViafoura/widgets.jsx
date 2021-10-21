@@ -5,6 +5,7 @@ import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 import { getMessageProps } from '../../../private/common/utils/commentsHelper';
 import Message from '../../../private/common/message';
+
 // import '../../../../resources/dist/css/ln/components/viafoura.css';
 
 const CommentsViafouraFeature = props => {
@@ -13,20 +14,23 @@ const CommentsViafouraFeature = props => {
 
     return (
         <Static id={featureId}>
-            {messageProps && <Message {...messageProps} />}
-            <div className={`viafoura${messageProps ? ' not-comment' : ''}`}>
-                <vf-conversations
-                    limit="15"
-                    pagination-limit="30"
-                    reply-limit="3"
-                    pagination-reply-limit="15"
-                    sort="newest"
-                    featured-tab-active-threshold="3"
-                />
-            </div>
-            <script
-                dangerouslySetInnerHTML={{
-                    __html: `
+            <section className="widget">
+                {messageProps && <Message {...messageProps} />}
+                <div
+                    className={`viafoura${messageProps ? ' not-comment' : ''}`}
+                >
+                    <vf-conversations
+                        limit="15"
+                        pagination-limit="30"
+                        reply-limit="3"
+                        pagination-reply-limit="15"
+                        sort="newest"
+                        featured-tab-active-threshold="3"
+                    />
+                </div>
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
                         window.addEventListener('load', (event) => {
                                 
                                 let token = '';
@@ -58,8 +62,9 @@ const CommentsViafouraFeature = props => {
                                 }
                         });
                     `
-                }}
-            />
+                    }}
+                />
+            </section>
         </Static>
     );
 };
