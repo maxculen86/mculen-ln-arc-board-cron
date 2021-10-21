@@ -56,8 +56,10 @@ const Widgets = props => {
                 <CssLinks />
             </head>
             <body>
-                {children}
-                {bodyBottom}
+                <section className="widget">
+                    {children}
+                    {bodyBottom}
+                </section>
             </body>
         </html>
     );

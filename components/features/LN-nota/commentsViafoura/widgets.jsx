@@ -6,65 +6,59 @@ import Static from 'fusion:static';
 import { getMessageProps } from '../../../private/common/utils/commentsHelper';
 import Message from '../../../private/common/message';
 
-// import '../../../../resources/dist/css/ln/components/viafoura.css';
-
 const CommentsViafouraFeature = props => {
     const { id: featureId, globalContent: { messageType = '' } = {} } = props;
     const messageProps = getMessageProps(props, messageType);
 
     return (
         <Static id={featureId}>
-            <section className="widget">
-                {messageProps && <Message {...messageProps} />}
-                <div
-                    className={`viafoura${messageProps ? ' not-comment' : ''}`}
-                >
-                    <vf-conversations
-                        limit="15"
-                        pagination-limit="30"
-                        reply-limit="3"
-                        pagination-reply-limit="15"
-                        sort="newest"
-                        featured-tab-active-threshold="3"
-                    />
-                </div>
-                <script
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                        window.addEventListener('load', (event) => {
-                                
-                                let token = '';
-                                let productoPremium = '';
-                                const value = '; ' + document.cookie;
-                                const parts = value.split('; token=');
-                                const partsPremiumd = value.split('; ProductoPremiumId=');
-
-                                if (parts.length === 2) 
-                                    token = parts.pop().split(';').shift();
-                                
-                                if (partsPremiumd.length === 2) 
-                                    productoPremium = partsPremiumd.pop().split(';').shift();
-
-                                if (productoPremium && productoPremium.includes('2')) {
-                                    window.vfQ = window.vfQ || [];
-                                    window.vfQ.push(() => {
-                                        window.vf &&
-                                        window.vf.session &&
-                                        window.vf.session.login
-                                            .cookie(token)
-                                            .then(successMessage => {
-                                                console.log('Viafoura Login correcto ', successMessage);
-                                            })
-                                            .catch(error => {
-                                                console.log('Viafoura Login incorrecto ', error);
-                                            });  
-                                    });     
-                                }
-                        });
-                    `
-                    }}
+            {messageProps && <Message {...messageProps} />}
+            <div className={`viafoura${messageProps ? ' not-comment' : ''}`}>
+                <vf-conversations
+                    limit="15"
+                    pagination-limit="30"
+                    reply-limit="3"
+                    pagination-reply-limit="15"
+                    sort="newest"
+                    featured-tab-active-threshold="3"
                 />
-            </section>
+            </div>
+            <script
+                dangerouslySetInnerHTML={{
+                    __html: `
+                    window.addEventListener('load', (event) => {
+                            
+                            let token = '';
+                            let productoPremium = '';
+                            const value = '; ' + document.cookie;
+                            const parts = value.split('; token=');
+                            const partsPremiumd = value.split('; ProductoPremiumId=');
+
+                            if (parts.length === 2) 
+                                token = parts.pop().split(';').shift();
+                            
+                            if (partsPremiumd.length === 2) 
+                                productoPremium = partsPremiumd.pop().split(';').shift();
+
+                            if (productoPremium && productoPremium.includes('2')) {
+                                window.vfQ = window.vfQ || [];
+                                window.vfQ.push(() => {
+                                    window.vf &&
+                                    window.vf.session &&
+                                    window.vf.session.login
+                                        .cookie(token)
+                                        .then(successMessage => {
+                                            console.log('Viafoura Login correcto ', successMessage);
+                                        })
+                                        .catch(error => {
+                                            console.log('Viafoura Login incorrecto ', error);
+                                        });  
+                                });     
+                            }
+                    });
+                `
+                }}
+            />
         </Static>
     );
 };
