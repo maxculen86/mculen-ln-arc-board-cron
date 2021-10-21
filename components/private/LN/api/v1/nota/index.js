@@ -70,7 +70,7 @@ const indexNota = dataNota => {
     } = dataNota;
 
     const comentariosId = get(dataNota, 'label.livefyre_entrada_id.text', null);
-    const allowComments = get(dataNota, 'comments.allow_comments');
+    const allowComments = get(dataNota, 'comments.allow_comments', null);
     const paywallStatus = get(
         dataNota,
         'content_restrictions.content_code',
