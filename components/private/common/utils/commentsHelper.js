@@ -1,3 +1,4 @@
+import { LOGIN_URL, SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import { useContext } from 'react';
 import { useContent } from 'fusion:content';
 import { GlobalContext } from '../context/globalContext';
@@ -59,4 +60,47 @@ export const shouldLoadViafouraSSR = props => {
     });
 };
 
-export default { allowComments, shouldLoadViafoura, shouldLoadViafouraSSR };
+export const validateComments = props => {
+    const allow = get(props, 'globalContent.comments.allow_comments', true);
+    const show = get(props, 'globalContent.comments.display_comments', true);
+    const subscription = get(props, 'globalContent.subscription', false);
+    return {
+        shouldLoad: shouldLoadViafouraSSR(props),
+        allowComments: allow,
+        showComments: show,
+        messageType:
+            (!allow && 'CLOSED_COMMENTS') ||
+            (subscription !== 'S' && 'SUBSCRIPTION'),
+        showCounter: show
+    };
+};
+
+export const getMessageProps = (props, messageType) => {
+    const canonicalUrl = get(props, 'globalContent.canonical_url', '');
+    const urlBase64 =
+        Buffer.from(canonicalUrl, 'binary').toString('base64') || '';
+    const loginUrl = `${LOGIN_URL}${urlBase64}`;
+    const registracionUrl = `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${urlBase64}`;
+
+    const MESSAGE_PROPS = {
+        CLOSED_COMMENTS: {
+            title: 'Nota cerrada a comentarios',
+            subtitle: ' ',
+            logoName: 'comment',
+            logoText: 'Comentarios'
+        },
+        SUBSCRIPTION: {
+            secondaryUrl: (canonicalUrl && loginUrl) || '',
+            specialUrl: (canonicalUrl && registracionUrl) || '',
+            dark: true
+        }
+    };
+    return MESSAGE_PROPS[messageType];
+};
+
+export default {
+    allowComments,
+    shouldLoadViafoura,
+    shouldLoadViafouraSSR,
+    validateComments
+};

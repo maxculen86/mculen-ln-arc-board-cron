@@ -10,6 +10,7 @@ const TAGS_BY_WIDGET = {
                 head: [
                     <meta name="vf:container_id" content={_id} />,
                     <meta name="vf:lang" content="es" />,
+                    <meta name="vf:domain" content="lanacion.com.ar" />,
                     <style
                         dangerouslySetInnerHTML={{
                             __html: `
@@ -34,7 +35,7 @@ const TAGS_BY_WIDGET = {
 };
 
 const Widgets = props => {
-    const { children, globalContent = {} } = props || {};
+    const { children, globalContent = {}, CssLinks } = props || {};
     const { widget } = globalContent;
     const widgetScripts = TAGS_BY_WIDGET[widget];
     const { head, bodyBottom } =
@@ -46,6 +47,7 @@ const Widgets = props => {
                 <title>Widgets</title>
                 {head}
                 <noscript>Your browser does not suport javascript</noscript>
+                <CssLinks />
             </head>
             <body>
                 {children}

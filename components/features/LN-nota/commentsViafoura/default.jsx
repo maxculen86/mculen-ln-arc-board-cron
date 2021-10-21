@@ -2,34 +2,26 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import { LOGIN_URL, SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import Static from 'fusion:static';
-import { shouldLoadViafouraSSR } from '../../../private/common/utils/commentsHelper';
+import {
+    validateComments,
+    getMessageProps
+} from '../../../private/common/utils/commentsHelper';
 import Message from '../../../private/common/message';
 // import '../../../../resources/dist/css/ln/components/viafoura.css';
 
 const CommentsViafouraFeature = props => {
-    const { id: featureId, globalContent = {} } = props;
-    const { subscription, canonical_url: canonicalUrl = '' } = globalContent;
-    const loadViafoura = shouldLoadViafouraSSR(props);
+    const { id: featureId, globalContent = {}, outputType } = props;
+    const { subscription } = globalContent;
+    const { messageType, shouldLoad } = validateComments(props);
+    const messageProps = getMessageProps(props, messageType);
 
-    if (!loadViafoura) return <></>;
-
-    const urlBase64 =
-        Buffer.from(canonicalUrl, 'binary').toString('base64') || '';
-    const loginUrl = `${LOGIN_URL}${urlBase64}`;
-    const registracionUrl = `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${urlBase64}`;
+    if (!shouldLoad || outputType !== 'default') return <></>;
 
     return (
         <Static id={featureId}>
-            {subscription !== 'S' && (
-                <Message
-                    secondaryUrl={loginUrl}
-                    specialUrl={registracionUrl}
-                    dark
-                />
-            )}
-            <div className="viafoura">
+            {messageProps && <Message {...messageProps} />}
+            <div className={`viafoura${messageProps ? ' not-comment' : ''}`}>
                 <vf-conversations
                     limit="15"
                     pagination-limit="30"
@@ -73,8 +65,11 @@ CommentsViafouraFeature.propTypes = {
     id: PropTypes.string.isRequired,
     globalContent: PropTypes.shape({
         first_publish_date: PropTypes.string
-    }).isRequired
+    }).isRequired,
+    outputType: PropTypes.string.isRequired
 };
+
+CommentsViafouraFeature.outputType = 'default';
 
 CommentsViafouraFeature.label = 'LN-Nota-Comments-Viafoura';
 

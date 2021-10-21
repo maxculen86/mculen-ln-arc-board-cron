@@ -1,15 +1,20 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
+import { getMessageProps } from '../../../private/common/utils/commentsHelper';
+import Message from '../../../private/common/message';
 // import '../../../../resources/dist/css/ln/components/viafoura.css';
 
 const CommentsViafouraFeature = props => {
-    const { id: featureId } = props;
+    const { id: featureId, globalContent: { messageType = '' } = {} } = props;
+    const messageProps = getMessageProps(props, messageType);
 
     return (
         <Static id={featureId}>
-            <div className="viafoura">
+            {messageProps && <Message {...messageProps} />}
+            <div className={`viafoura${messageProps ? ' not-comment' : ''}`}>
                 <vf-conversations
                     limit="15"
                     pagination-limit="30"
@@ -60,9 +65,12 @@ const CommentsViafouraFeature = props => {
 };
 
 CommentsViafouraFeature.propTypes = {
-    id: PropTypes.string.isRequired
+    id: PropTypes.string.isRequired,
+    globalContent: PropTypes.shape({
+        messageType: PropTypes.string
+    }).isRequired
 };
 
 CommentsViafouraFeature.label = 'LN-Nota-Comments-Viafoura';
 
-export default CommentsViafouraFeature;
+export default Consumer(CommentsViafouraFeature);
