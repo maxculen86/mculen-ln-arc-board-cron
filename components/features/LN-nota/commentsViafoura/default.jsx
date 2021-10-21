@@ -1,26 +1,78 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/no-danger */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import Static from 'fusion:static';
 import {
     validateComments,
     getMessageProps
 } from '../../../private/common/utils/commentsHelper';
 import Message from '../../../private/common/message';
-// import '../../../../resources/dist/css/ln/components/viafoura.css';
+import getScrollPercent from '../../../private/LN/common/utils/getScrollPercent';
+import dynamicallyLoadScript from '../../../private/LN/common/utils/dynamicallyLoadScript';
+import handleCookie from '../../../private/LN/common/utils/handleCookie';
+import LoadingIcon from '../../../private/LN/common/loadingIcon';
 
 const CommentsViafouraFeature = props => {
-    const { id: featureId, globalContent = {}, outputType } = props;
+    const { globalContent = {}, outputType } = props;
     const { subscription } = globalContent;
     const { messageType, shouldLoad } = validateComments(props);
     const messageProps = getMessageProps(props, messageType);
+    const { getCookie } = handleCookie();
+    const [isReady, setIsReady] = useState(false);
+
+    useEffect(() => {
+        const handleScrollForComments = () => {
+            const scrollPercentRounded = getScrollPercent();
+            // TODO: investigar si se puede usar con pixeles en vez de % para mayor exactitud
+            if (scrollPercentRounded > 90) {
+                dynamicallyLoadScript(
+                    'https://cdn.viafoura.net/vf-v2.js',
+                    'body'
+                )
+                    .then(() => {
+                        const token = getCookie('token');
+
+                        window.vfQ = window.vfQ || [];
+                        window.vfQ.push(() => {
+                            setIsReady(true);
+                            subscription === 'S' &&
+                                token &&
+                                window.vf &&
+                                window.vf.session &&
+                                window.vf.session.login
+                                    .cookie(token)
+                                    .then(successMessage => {
+                                        console.log(
+                                            'Viafoura Login correcto ',
+                                            successMessage
+                                        );
+                                    })
+                                    .catch(error => {
+                                        console.log(
+                                            'Viafoura Login incorrecto ',
+                                            error
+                                        );
+                                    });
+                        });
+                    })
+                    .catch(error => {});
+            }
+        };
+
+        shouldLoad &&
+            window.addEventListener('scroll', e => handleScrollForComments());
+        return () =>
+            shouldLoad &&
+            window.removeEventListener('scroll', handleScrollForComments);
+    });
 
     if (!shouldLoad || outputType !== 'default') return <></>;
 
     return (
-        <Static id={featureId}>
+        <>
             {messageProps && <Message {...messageProps} />}
+            {!isReady && <LoadingIcon />}
             <div className={`viafoura${messageProps ? ' not-comment' : ''}`}>
                 <vf-conversations
                     limit="15"
@@ -31,33 +83,7 @@ const CommentsViafouraFeature = props => {
                     featured-tab-active-threshold="3"
                 />
             </div>
-            {subscription === 'S' && (
-                <script
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                            window.addEventListener('load', (event) => {
-                                    let token = '';
-                                    const value = '; ' + document.cookie;
-                                    const parts = value.split('; token=');
-                                    if (parts.length === 2) 
-                                        token = parts.pop().split(';').shift();
-                                    window &&
-                                        window.vf &&
-                                        window.vf.session &&
-                                        window.vf.session.login
-                                            .cookie(token)
-                                            .then(successMessage => {
-                                                console.log('Viafoura Login correcto ', successMessage);
-                                            })
-                                            .catch(error => {
-                                                console.log('Viafoura Login incorrecto ', error);
-                                            });  
-                            });
-                        `
-                    }}
-                />
-            )}
-        </Static>
+        </>
     );
 };
 
@@ -70,7 +96,7 @@ CommentsViafouraFeature.propTypes = {
 };
 
 CommentsViafouraFeature.outputType = 'default';
-
 CommentsViafouraFeature.label = 'LN-Nota-Comments-Viafoura';
+CommentsViafouraFeature.lazy = ['default'];
 
 export default Consumer(CommentsViafouraFeature);
