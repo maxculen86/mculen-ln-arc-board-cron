@@ -17,7 +17,8 @@ describe('Test de index en JSON de nota', () => {
         expect(resp.enviarApps).toBe(true);
         expect(resp.paywallStatus).toBe('comun');
         expect(resp.abiertoComentarios).toBe(true);
-        expect(resp.permitirComentarios).toBe(true);
+        expect(resp.comentarios.abiertoComentarios).toBe(true);
+        expect(resp.comentarios.permitirComentarios).toBe(true);
         expect(resp.fechaActualizacion).toBe(
             '29 de septiembre de 2020 • 06:09'
         );
@@ -36,7 +37,8 @@ describe('Test de index en JSON de nota', () => {
         expect(resp.enviarApps).toBe(false);
         expect(resp.paywallStatus).toBe('abierta');
         expect(resp.abiertoComentarios).toBe(true);
-        expect(resp.permitirComentarios).toBe(false);
+        expect(resp.comentarios.permitirComentarios).toBe(true);
+        expect(resp.comentarios.abiertoComentarios).toBe(false);
         expect(resp.fechaActualizacion).toBe('29 de septiembre de 2020');
         expect(resp.fecha).toBe('29 de septiembre de 2020');
     });
