@@ -19,8 +19,6 @@ const CommentsFeature = props => {
     const showLivefyre = findTermica('livefyre');
     const { shouldLoad: shouldLoadViafoura } = validateComments(props);
 
-    if (shouldLoadViafoura) return <></>;
-
     useEffect(() => {
         const handleScrollForComments = () => {
             const scrollPercentRounded = getScrollPercent();
@@ -44,13 +42,14 @@ const CommentsFeature = props => {
                     });
             }
         };
-        if (showLivefyre && displayComments)
+        if (showLivefyre && displayComments && !shouldLoadViafoura)
             window.addEventListener('scroll', e => handleScrollForComments());
         return () =>
+            !shouldLoadViafoura &&
             window.removeEventListener('scroll', handleScrollForComments);
     });
 
-    if (!showLivefyre || !displayComments) return <></>;
+    if (!showLivefyre || !displayComments || shouldLoadViafoura) return <></>;
     if (!isReady) return <LoadingIcon />;
 
     return <Comments {...props} />;
