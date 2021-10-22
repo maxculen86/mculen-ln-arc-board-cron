@@ -46,9 +46,7 @@ AMPCustomStyle.propTypes = {
 const AMPScripts = props => {
     const scriptsToLoad = [];
     const { arcSite, layout, contentFeatures, globalContent } = props;
-    // console.log("🚀 ~ file: ampIndex.jsx ~ line 49 ~ globalContent", globalContent)
     const { [layout]: ScriptsConfig = [] } = config[arcSite] || {};
-    // console.log("🚀 ~ file: ampIndex.jsx ~ line 51 ~ ScriptsConfig", ScriptsConfig)
 
     ScriptsConfig.concat(
         getOembedScripts(globalContent, embedElements, embedsForNote)

@@ -127,7 +127,7 @@ export const config = {
         'LN-nota-video': customElementForNote
     }
 };
-
+// TODO: EVALUAR SI ESTA FUNCION SIGUE SIENDO UTIL.
 export const evaluateCheckInclusion = (configElement, contentFeatures) => {
     return configElement.checkInclusion
         ? contentFeatures.find(e => e === configElement.checkInclusion)
