@@ -139,19 +139,9 @@ const Amp = props => {
                     as="script"
                     href="https://cdn.ampproject.org/v0.js"
                 />
-                <link
-                    rel="preload"
-                    as="script"
-                    href="https://cdn.ampproject.org/v0/amp-experiment-0.1.js"
-                />
                 <FontFace />
                 {LinkImagePreload()}
                 <script async src="https://cdn.ampproject.org/v0.js" />
-                <script
-                    async
-                    custom-element="amp-experiment"
-                    src="https://cdn.ampproject.org/v0/amp-experiment-0.1.js"
-                />
 
                 <AMPScripts
                     layout={layout}
