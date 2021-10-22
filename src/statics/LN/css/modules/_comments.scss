@@ -83,11 +83,32 @@
     }
 }
 
-.viafoura.not-comment {
+.viafoura {
     section {
-        header.vf-comment-header,
-        div.vf-post-form__container {
+        header.vf-comment-header.vf-comment-header {
             display: none;
+        }
+        div.vf-post-form__container {
+            .vf-button.is-cta {
+                .vf-loader-button__content {
+                    text-indent: -9999999px;
+                    line-height: 0;
+                    display: block;
+                    &::after {
+                        content: 'ENVIAR';
+                        text-indent: 0;
+                        display: block;
+                        line-height: initial;
+                    }
+                }
+            }
+        }
+    }
+    &.not-comment {
+        section {
+            div.vf-post-form__container {
+                display: none;
+            }
         }
     }
 }
