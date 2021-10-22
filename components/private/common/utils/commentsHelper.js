@@ -60,25 +60,26 @@ export const shouldLoadViafouraSSR = props => {
     });
 };
 
-export const validateComments = props => {
+export const validateComments = (props, subscription = false) => {
     const allow = get(props, 'globalContent.comments.allow_comments', true);
     const show = get(props, 'globalContent.comments.display_comments', true);
-    const subscription = get(props, 'globalContent.subscription', false);
+    // const subscription = get(props, 'globalContent.subscription', false);
     return {
         shouldLoad: shouldLoadViafouraSSR(props),
         allowComments: allow,
         showComments: show,
         messageType:
-            (!allow && 'CLOSED_COMMENTS') ||
-            (subscription !== 'S' && 'SUBSCRIPTION'),
+            (!allow && 'CLOSED_COMMENTS') || (!subscription && 'SUBSCRIPTION'),
         showCounter: show
     };
 };
 
 export const getMessageProps = (props, messageType) => {
     const canonicalUrl = get(props, 'globalContent.canonical_url', '');
+    // const urlBase64 =
+    //     Buffer.from(canonicalUrl, 'binary').toString('base64') || '';
     const urlBase64 =
-        Buffer.from(canonicalUrl, 'binary').toString('base64') || '';
+        typeof window !== 'undefined' ? window.btoa(location.href) : '';
     const loginUrl = `${LOGIN_URL}${urlBase64}`;
     const registracionUrl = `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${urlBase64}`;
 

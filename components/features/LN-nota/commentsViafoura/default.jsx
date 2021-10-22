@@ -12,11 +12,13 @@ import getScrollPercent from '../../../private/LN/common/utils/getScrollPercent'
 import dynamicallyLoadScript from '../../../private/LN/common/utils/dynamicallyLoadScript';
 import handleCookie from '../../../private/LN/common/utils/handleCookie';
 import LoadingIcon from '../../../private/LN/common/loadingIcon';
+import { isSubscribed } from '../../../private/LN/common/utils/contextHelper';
 
 const CommentsViafouraFeature = props => {
-    const { globalContent = {}, outputType } = props;
-    const { subscription } = globalContent;
-    const { messageType, shouldLoad } = validateComments(props);
+    const { outputType } = props;
+    // const { subscription } = globalContent;
+    const subscription = isSubscribed();
+    const { messageType, shouldLoad } = validateComments(props, subscription);
     const messageProps = getMessageProps(props, messageType);
     const { getCookie } = handleCookie();
     const [isReady, setIsReady] = useState(false);
@@ -32,11 +34,10 @@ const CommentsViafouraFeature = props => {
                 )
                     .then(() => {
                         const token = getCookie('token');
-
                         window.vfQ = window.vfQ || [];
                         window.vfQ.push(() => {
                             setIsReady(true);
-                            subscription === 'S' &&
+                            subscription &&
                                 token &&
                                 window.vf &&
                                 window.vf.session &&
