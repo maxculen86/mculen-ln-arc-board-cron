@@ -10,7 +10,7 @@ import Hamburguer from './hamburger';
 // import ComLink from '../../../common/com-link';
 // import ComLogo from '../../../common/com-logo';
 import ComIcon from '../../../common/com-icon';
-//import Logo from '../../../common/com-logo';
+// import Logo from '../../../common/com-logo';
 import LogoLN from '../../../common/logos/logoLN';
 
 import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
@@ -134,7 +134,9 @@ const HeaderDesktop = ({
             <div className="col-4 header__right">
                 <div
                     id="user-menu"
-                    className={`com-usuario${active}${loadingUserData}`}
+                    className={`com-usuario${active}${
+                        logueado ? loadingUserData : ''
+                    }`}
                 >
                     {!loginData.subscription && typeof window !== 'undefined' && (
                         // <button

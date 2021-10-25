@@ -16,6 +16,7 @@ const CommentsViafouraFeature = props => {
             <HeaderComments />
             {messageProps && <Message {...messageProps} />}
             <div className={`viafoura${messageProps ? ' not-comment' : ''}`}>
+                <vf-tray />
                 <vf-conversations
                     limit="15"
                     pagination-limit="30"
