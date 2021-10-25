@@ -375,7 +375,6 @@ const Default = props => {
                 />
                 <link
                     rel="apple-touch-icon"
-                    sizes="120x120"
                     href={deployment(
                         `${contextPath}/resources/images/favicon-192.png`
                     )}
