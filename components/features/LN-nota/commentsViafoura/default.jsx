@@ -13,6 +13,7 @@ import dynamicallyLoadScript from '../../../private/LN/common/utils/dynamicallyL
 import handleCookie from '../../../private/LN/common/utils/handleCookie';
 import LoadingIcon from '../../../private/LN/common/loadingIcon';
 import { isSubscribed } from '../../../private/LN/common/utils/contextHelper';
+import HeaderComments from '../../../private/LN/nota/comments/header';
 
 const CommentsViafouraFeature = props => {
     const { outputType } = props;
@@ -73,7 +74,10 @@ const CommentsViafouraFeature = props => {
     return (
         <>
             {messageProps && <Message {...messageProps} />}
+            <HeaderComments />
+
             {!isReady && <LoadingIcon />}
+
             <div className={`viafoura${messageProps ? ' not-comment' : ''}`}>
                 <vf-conversations
                     limit="15"

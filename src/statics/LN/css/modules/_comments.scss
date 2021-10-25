@@ -83,10 +83,14 @@
     }
 }
 
-.viafoura {
+.viafoura.viafoura {
+    margin-bottom: $spacing-2xl;
     section {
         header.vf-comment-header.vf-comment-header {
             display: none;
+        }
+        footer.vf3-conversations-footer {
+            padding-bottom: 0;
         }
         div.vf-post-form__container {
             .vf-button.is-cta {

@@ -5,6 +5,7 @@ import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 import { getMessageProps } from '../../../private/common/utils/commentsHelper';
 import Message from '../../../private/common/message';
+import HeaderComments from '../../../private/LN/nota/comments/header';
 
 const CommentsViafouraFeature = props => {
     const { id: featureId, globalContent: { messageType = '' } = {} } = props;
@@ -12,6 +13,7 @@ const CommentsViafouraFeature = props => {
 
     return (
         <Static id={featureId}>
+            <HeaderComments />
             {messageProps && <Message {...messageProps} />}
             <div className={`viafoura${messageProps ? ' not-comment' : ''}`}>
                 <vf-conversations
