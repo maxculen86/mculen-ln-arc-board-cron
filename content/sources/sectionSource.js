@@ -19,6 +19,7 @@ const resolve = key => {
         );
     return `/site/v3/navigation/${finalWebsite}/?_id=${id}`;
 };
+
 const fetch = query => {
     const { url = '', outputType } = query;
     const arcSite = query['arc-site'];
