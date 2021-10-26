@@ -10,6 +10,8 @@ import ComTag from './com-tag';
 
 import '../../../resources/dist/css/ln/components/mod-description.css';
 
+import Badge from './badge';
+
 const ModDescription = props => {
     const {
         link,
@@ -33,11 +35,11 @@ const ModDescription = props => {
 
     return (
         <section className="mod-description">
-            {/* {label && <ComLabel labelArticle={label} />} */}
+            {/* Dejamos harcodeado el type, tipos: a-fondo , liveblog */}
             {label && (
-                <Text extraClass="com-label" size="6xs">
+                <Badge className="com-label" type="liveblog">
                     {label}
-                </Text>
+                </Badge>
             )}
 
             <ComTitle
