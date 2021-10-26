@@ -4,6 +4,10 @@ import { GlobalContext } from '../context/globalContext';
 import findTermica from './findTermica';
 import get from './get';
 
+export const CLOSED_BY_TERMIC = 'CLOSED_BY_TERMIC';
+export const CLOSED_COMMENTS = 'CLOSED_COMMENTS';
+export const SUBSCRIPTION = 'SUBSCRIPTION';
+
 export const allowComments = props =>
     get(props, 'globalContent.type') === 'story' &&
     get(props, 'globalContent._id') &&
@@ -12,12 +16,12 @@ export const allowComments = props =>
 
 export const shouldLoadViafoura = inputDate => {
     const gc = useContext(GlobalContext);
-    const deadlineLivefyer = get(
+    const deadlineLivefyre = get(
         gc,
         'state.siteService.migration.deadline_livefyre'
     );
 
-    const deadlineDate = deadlineLivefyer && new Date(deadlineLivefyer);
+    const deadlineDate = deadlineLivefyre && new Date(deadlineLivefyre);
     const articlePublishDate = inputDate && new Date(inputDate);
 
     return (
@@ -35,12 +39,15 @@ export const validateComments = (props, subscription = false) => {
     // const subscription = get(props, 'globalContent.subscription', false);
     const shouldLoad =
         allowComments(props) && shouldLoadViafoura(firstPublishDate);
+    const closedByTermica = !findTermica('livefyre');
     return {
         shouldLoad,
         allowComments: allow,
         showComments: show,
         messageType:
-            (!allow && 'CLOSED_COMMENTS') || (!subscription && 'SUBSCRIPTION'),
+            (closedByTermica && CLOSED_BY_TERMIC) ||
+            (!allow && CLOSED_COMMENTS) ||
+            (!subscription && SUBSCRIPTION),
         showCounter: show
     };
 };
@@ -49,12 +56,24 @@ export const getMessageProps = (props, messageType) => {
     const canonicalUrl = get(props, 'globalContent.canonical_url', '');
     // const urlBase64 =
     //     Buffer.from(canonicalUrl, 'binary').toString('base64') || '';
+    const gc = useContext(GlobalContext);
+    const termicas = get(gc, 'state.siteService.termicas', []);
+    const element = termicas.find(
+        ter => ter && ter.key === 'mensaje_para_cierre_de_comentarios'
+    );
+    const customMessage = (element && element.value) || '';
     const urlBase64 =
         typeof window !== 'undefined' ? window.btoa(location.href) : '';
     const loginUrl = `${LOGIN_URL}${urlBase64}`;
     const registracionUrl = `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${urlBase64}`;
 
     const MESSAGE_PROPS = {
+        CLOSED_BY_TERMIC: {
+            title: customMessage,
+            subtitle: ' ',
+            icon: 'comment',
+            text: 'Comentarios'
+        },
         CLOSED_COMMENTS: {
             title: 'Nota cerrada a comentarios.',
             subtitle: ' ',

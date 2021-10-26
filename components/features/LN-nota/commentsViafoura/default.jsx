@@ -5,7 +5,8 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import {
     validateComments,
-    getMessageProps
+    getMessageProps,
+    CLOSED_BY_TERMIC
 } from '../../../private/common/utils/commentsHelper';
 import Message from '../../../private/common/message';
 import getScrollPercent from '../../../private/LN/common/utils/getScrollPercent';
@@ -68,6 +69,9 @@ const CommentsViafouraFeature = props => {
             shouldLoad &&
             window.removeEventListener('scroll', handleScrollForComments);
     });
+
+    if (!shouldLoad && messageType === CLOSED_BY_TERMIC)
+        return <Message {...messageProps} />;
 
     if (!shouldLoad || outputType !== 'default') return <></>;
 
