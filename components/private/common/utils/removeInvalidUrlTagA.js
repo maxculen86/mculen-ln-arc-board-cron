@@ -53,18 +53,24 @@ const isValidUrlTagA = (contentElements, arcSite, url, API_ENV) => {
             const { content, type } = current;
             if (content && typeElement[type]) {
                 const errors = typeElement[type].getErrors(current);
-                API_ENV === 'prod' &&
-                    errors.length &&
-                    logger.push(
-                        {
-                            response: { request: { method: 'isValidUrlTagA' } },
-                            error: {
-                                message: `Error URL mal formato en cuerpo nota: ${errors}`
-                            }
-                        },
-                        { source: 'content/source', url },
-                        arcSite
-                    );
+                try {
+                    if (API_ENV === 'prod' && errors.length) {
+                        logger.push(
+                            {
+                                response: {
+                                    request: { method: 'isValidUrlTagA' }
+                                },
+                                error: {
+                                    message: `Error URL mal formato en cuerpo nota: ${errors}`
+                                }
+                            },
+                            { source: 'content/source/articleSourceNota', url },
+                            arcSite
+                        );
+                    }
+                } catch (e) {
+                    console.log('Error en removeInvalidUrlTagA.js', e.message);
+                }
 
                 const newElement =
                     errors.length &&

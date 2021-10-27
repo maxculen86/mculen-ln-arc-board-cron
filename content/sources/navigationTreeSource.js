@@ -27,8 +27,11 @@ const fetch = query => {
             return transform(response, query);
         })
         .catch(error => {
-            logger.push(error, { source: 'content/source', query }, query);
-            throw error;
+            logger.push(
+                error,
+                { source: 'content/source/navigationTreeSource', query },
+                query
+            );
         });
 };
 

@@ -1,0 +1,3870 @@
+{
+    "arcSite": "la-nacion-ar",
+    "contextPath": "/pf",
+    "globalContent": "undefined",
+    "globalContentConfig": { "source": "undefined", "query": "undefined" },
+    "isAdmin": false,
+    "layout": "LN-Home_Main",
+    "outputType": "json",
+    "requestUri": "/homepage/?_website=la-nacion-ar&outputType=json",
+    "siteProperties": {
+        "organizationId": "lanacionar",
+        "videoBaseUrl": "/",
+        "longTitle": "Últimas noticias de Argentina y el mundo - LA NACION",
+        "title": "LA NACION",
+        "description": "Todas las noticias de Argentina y el mundo: últimas noticias en actualidad, deportes, coronavirus, economía, política, y tecnología. Mantenete informado sobre las novedades de Argentina en LA NACION.",
+        "className": { "body": "ln" },
+        "host": "https://www.lanacion.com.ar",
+        "loggerOn": true,
+        "loggerExcludedErrors": [404, 301, 302],
+        "imageConfig": { "resize": [] },
+        "bannerConfig": {
+            "dfp_id": 133919216,
+            "nota": [],
+            "acumulado": [],
+            "home": [],
+            "common": []
+        },
+        "shareConfig": { "facebook": [] },
+        "livefyre": {
+            "siteId": "356483",
+            "recetas": [],
+            "sharedKey": "Wi9J9hmEtpK9QRp5nY1SSSQ2FKE=",
+            "network": "la-nacion.fyre.co"
+        },
+        "firebase": {
+            "apiKey": "AIzaSyCFxG5eKZiyU1DDlg7yZw4JzblfO6pc0m4",
+            "authDomain": "lanacion-92a91.firebaseapp.com",
+            "databaseURL": "https://lanacion-92a91.firebaseio.com",
+            "messagingSenderId": "221085116662",
+            "projectId": "lanacion-92a91",
+            "storageBucket": "lanacion-92a91.appspot.com"
+        },
+        "loginUrl": "//qa-ingresar.lanacion.com.ar/ingresar/D/1/?callback=",
+        "logoutUrl": "/logout.html",
+        "lifigniter": { "clientId": "8561ps8ov66e7mim" },
+        "sliderConfig": [[]],
+        "optaConfig": {
+            "subscription_id": "2f9d4a3fdc61653e686a4be85a25e1ac",
+            "language": "es_CO",
+            "timezone": "America/Buenos_Aires"
+        },
+        "cajaTemaConfig": {
+            "focalLeft3": [],
+            "focalRight2": [],
+            "notaColorRosa3": [],
+            "notaColorVerde3": [],
+            "author3": [],
+            "grilla1": [],
+            "grillaVideo1": [],
+            "grilla2": [],
+            "grilla3": [],
+            "grilla6": [],
+            "grilla9": [],
+            "bomba1": [],
+            "opinion4": [],
+            "editoriales2": []
+        },
+        "layoutsName": {
+            "Home": "LN-Home_Main",
+            "Columnistas": "LN-acumulado-columnistas"
+        },
+        "notRecommendedSections": ["recetas"]
+    },
+    "template": "page/pWucuzZgevMwF3ys",
+    "renderables": [
+        {
+            "collection": "layouts",
+            "type": "LN-Home_Main",
+            "props": {
+                "collection": "layouts",
+                "type": "LN-Home_Main",
+                "id": "LN-Home_Main"
+            },
+            "children": [
+                {
+                    "collection": "sections",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "sections",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "sections",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "sections",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "sections",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "sections",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "sections",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "sections",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "sections",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "sections",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "sections",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "sections",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "sections",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "sections",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "sections",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "sections",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "sections",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "sections",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "sections",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "sections",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "sections",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "sections",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "sections",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "sections",
+                    "props": [],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 0 },
+            "children": [
+                {
+                    "collection": "features",
+                    "type": "LN-common/cajaAnticipo",
+                    "props": []
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 1 },
+            "children": [
+                {
+                    "collection": "features",
+                    "type": "LN-common/anexo",
+                    "props": []
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 2 },
+            "children": [
+                {
+                    "collection": "features",
+                    "type": "LN-common/bomba",
+                    "props": []
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 3 },
+            "children": [
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Manual",
+                    "props": [],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 4 },
+            "children": [
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Manual",
+                    "props": [],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 5 },
+            "children": [
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Manual",
+                    "props": [],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 6 },
+            "children": [
+                {
+                    "collection": "features",
+                    "type": "LN-common/anexo",
+                    "props": []
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 7 },
+            "children": [
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Manual",
+                    "props": [],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 8 },
+            "children": [
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Manual",
+                    "props": [],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 9 },
+            "children": [
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Manual",
+                    "props": [],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 10 },
+            "children": [
+                {
+                    "collection": "features",
+                    "type": "LN-common/anexo",
+                    "props": []
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 11 },
+            "children": [
+                {
+                    "collection": "features",
+                    "type": "LN-common/opinion",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/editoriales",
+                    "props": []
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 12 },
+            "children": [
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Manual",
+                    "props": [],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 13 },
+            "children": [
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "props": [],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 14 },
+            "children": [
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Manual",
+                    "props": [],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 15 },
+            "children": [
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "props": [],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 16 },
+            "children": [
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "props": [],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 17 },
+            "children": [
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "props": [],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 18 },
+            "children": [
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "props": [],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 19 },
+            "children": [
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "props": [],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 20 },
+            "children": [
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "props": [],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 21 },
+            "children": [
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "props": [],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 22 },
+            "children": [
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "props": [],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 23 },
+            "children": [
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "props": [],
+                    "children": []
+                },
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "props": [],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/cajaAnticipo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/cajaAnticipo",
+                "id": "f0fDTh11879y5mD",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "title": "Sobreseyeron a Cristina Kirchner en la causa por el Pacto con Irán: el tribunal entendió que no hubo delito",
+                    "hide": true,
+                    "link": ""
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/anexo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/anexo",
+                "id": "f0f3KYV3ghQE84H",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "url": "https://especialess3.lanacion.com.ar/21/03/anexo-home-vacunas/",
+                    "height": 200,
+                    "hideByUrl": false,
+                    "html":
+                        "\n" +
+                        "<style>iframe.iframe_elecciones_paso{height: 305px}@media(max-width:640px){iframe.iframe_elecciones_paso{height: 445px}}</style> <iframe class=\"iframe_elecciones_paso\" frameborder=\"0\" width=\"100%\" height=\"305\" scrolling=\"no\" src=\"https://especialess3.lanacion.com.ar/21/08/elecciones2021_anexo_paso/index.html\"></iframe>",
+                    "hideByHtml": true,
+                    "hideCaja": true
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/bomba",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/bomba",
+                "id": "f0fzcWuA9xGx9lQ",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "WHRO2AW7ABG25HWKIWAWUUTW7Q",
+                    "chapita": "",
+                    "hideImage": false,
+                    "hideFeature": true,
+                    "imageId": "",
+                    "title": "Tras las tensiones con el kirchnerismo, Alberto Fernández lleva de viaje a \"Wado\" de Pedro",
+                    "lead": "",
+                    "authors": "",
+                    "html": "",
+                    "description": "El Presidente suma a su almuerzo con gobernadores en La Rioja al ministro del Interior, que desató la crisis con su renuncia pero mantuvo el cargo",
+                    "hideDescription": false
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "chains",
+            "type": "Ln_Caja_Manual",
+            "props": {
+                "collection": "chains",
+                "type": "Ln_Caja_Manual",
+                "id": "c0fVDIkVxasG8tL",
+                "name": null,
+                "customFields": {
+                    "layout": "focalLeft3",
+                    "initialPosition": 1,
+                    "hideTitle": true,
+                    "hideCaja": false,
+                    "title": ""
+                },
+                "displayProperties": {}
+            },
+            "children": [
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                }
+            ]
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fuprR4QH0g90g",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "PRPNOFQS65HMRMXVJZH7GBIVSY",
+                    "pbInternal_cloneId": "f0fuprR4QH0g90g",
+                    "opinion": false,
+                    "lead": "",
+                    "title": "",
+                    "imageId": "",
+                    "authors": "",
+                    "description": "",
+                    "chapita": "",
+                    "hideDescription": false
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fgmBUKnYgr31x",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "OF6L7WGDFRHERGMFITLVOKU3QM",
+                    "pbInternal_cloneId": "f0fgmBUKnYgr31x",
+                    "opinion": false,
+                    "lead": "",
+                    "title": "",
+                    "imageId": "",
+                    "authors": "",
+                    "description": "",
+                    "hideImage": false,
+                    "pbInternal_duplicateId": "f0fVCyjzclmBbI7",
+                    "hideDescription": true
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0f4vOp8SbgQbAX",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "2WCYWBPURBFTLHSGVRSTYUKUJM",
+                    "pbInternal_cloneId": "f0f4vOp8SbgQbAX",
+                    "opinion": false,
+                    "lead": "",
+                    "title": "",
+                    "imageId": "",
+                    "authors": "",
+                    "description": "",
+                    "hideImage": false
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "chains",
+            "type": "Ln_Caja_Manual",
+            "props": {
+                "collection": "chains",
+                "type": "Ln_Caja_Manual",
+                "id": "c0f39lpq2E3l6rf",
+                "name": null,
+                "customFields": {
+                    "layout": "grilla3",
+                    "initialPosition": 1,
+                    "hideTitle": true,
+                    "hideCaja": false,
+                    "title": ""
+                },
+                "displayProperties": {}
+            },
+            "children": [
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                }
+            ]
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fgf7qpsqrq7cG",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "NYOSKXR7MJFGJAVJM6KNWICUBI",
+                    "pbInternal_cloneId": "f0fgf7qpsqrq7cG",
+                    "opinion": false,
+                    "lead": "",
+                    "title": "",
+                    "imageId": "",
+                    "authors": "",
+                    "description": ""
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fdMJxT4zcd7S5",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "7AT727XI6FHZXK6IXNYBZK6O3I",
+                    "pbInternal_cloneId": "f0fdMJxT4zcd7S5",
+                    "lead": "",
+                    "pbInternal_duplicateId": "f0flaP3DDqxXaVc",
+                    "title": "",
+                    "description": "",
+                    "imageId": "",
+                    "opinion": false,
+                    "chapita": "",
+                    "authors": "",
+                    "hideDescription": false,
+                    "html": ""
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0ft6rc4olOU1HJ",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "XYN33HWYZVB35AKY63TCZAOMKM ",
+                    "imageId": "",
+                    "description": "",
+                    "title": "",
+                    "lead": "",
+                    "pbInternal_cloneId": "f0ft6rc4olOU1HJ",
+                    "authors": "",
+                    "chapita": "",
+                    "opinion": false,
+                    "hideDescription": false
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "chains",
+            "type": "Ln_Caja_Manual",
+            "props": {
+                "collection": "chains",
+                "type": "Ln_Caja_Manual",
+                "id": "c0fbFlnwxEAv8b4",
+                "name": null,
+                "customFields": {
+                    "layout": "grilla1",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "hideCaja": false,
+                    "imageId": "6KXD6N3ZOBEDBN4PSTA2LSOTCM"
+                },
+                "displayProperties": {}
+            },
+            "children": [
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                }
+            ]
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fbtSgef6Z74DC",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "QE5XGJWIAJBW5FNBFZBRGL5ARY",
+                    "video": "64c2de33-7f1b-4d69-8c26-00774c2561c4",
+                    "chapita": " "
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/anexo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/anexo",
+                "id": "f0ftmqzRdWiC9n0",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "html":
+                        "<style>.--full { background:#000; display:flex; align-items:center; justify-content:center; width:100%; } .--apertura .--full {align-items:normal;} iframe.video-anexo1 { width:100%; max-width:1260px; }@media screen and (min-width:801px) { iframe.video-anexo1 { height:450px; } .sidebar_main iframe.video-anexo1 { height:520px; }} @media screen and (max-width:800px) { iframe.video-anexo1 { height:440px; } .sidebarmain iframe.video-anexo1 { height:400px; }} @media screen and (max-width:767px) { iframe.video-anexo1 { height: 210px; } .sidebar_main iframe.video-anexo1 { height:210px; }}</style>\n" +
+                        "<div class=\"row w-100-mobile --full\"><iframe class=\"video-anexo1\" src=\"https://www.youtube.com/embed////bFzRQYrV-dc?autoplay=1&amp;mute=1\" frameborder=\"0\" allowfullscreen=\"\"></iframe></div>",
+                    "hideByHtml": true,
+                    "height": null,
+                    "hideByUrl": true,
+                    "url": "",
+                    "hideCaja": true
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "chains",
+            "type": "Ln_Caja_Manual",
+            "props": {
+                "collection": "chains",
+                "type": "Ln_Caja_Manual",
+                "id": "c0fRXFiFpmpQxx",
+                "name": null,
+                "customFields": {
+                    "layout": "grilla9",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "OCZKGYAS4RC57LVPADTY2W74CE",
+                    "title": "Actualidad",
+                    "pbInternal_cloneId": "c0fRXFiFpmpQxx",
+                    "hideCaja": false,
+                    "imageId": "",
+                    "url": ""
+                },
+                "displayProperties": {}
+            },
+            "children": [
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                }
+            ]
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fvE5ZH2HLn3ji",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "ARMB2EGKF5BKHN5JJUO4G5IZPI",
+                    "pbInternal_cloneId": "f0fvE5ZH2HLn3ji",
+                    "opinion": false,
+                    "lead": "",
+                    "title": "",
+                    "imageId": "",
+                    "authors": "",
+                    "description": ""
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0f3hsp8L6fy17V",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "AFTZ5T26PZAN7MWYQQKZDWM7JA",
+                    "pbInternal_cloneId": "f0f3hsp8L6fy17V",
+                    "lead": "",
+                    "pbInternal_duplicateId": "f0flaP3DDqxXaVc",
+                    "title": "",
+                    "description": "",
+                    "imageId": "",
+                    "opinion": false,
+                    "chapita": "",
+                    "authors": "",
+                    "hideDescription": false,
+                    "html": ""
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fVBno8C0443J0",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "LBWES6J4SZBHXO6NXEYDOJLQ4Q",
+                    "pbInternal_cloneId": "f0fVBno8C0443J0",
+                    "title": "",
+                    "authors": "",
+                    "lead": "",
+                    "imageId": "",
+                    "chapita": "",
+                    "opinion": false,
+                    "description": "",
+                    "hideDescription": false
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0f1zXZ9xwRP1By",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "JM3GNR5QFJFYBEN7IVR7DOXRKI",
+                    "imageId": "",
+                    "description": "",
+                    "title": "",
+                    "lead": "",
+                    "pbInternal_cloneId": "f0f1zXZ9xwRP1By",
+                    "authors": "",
+                    "chapita": "",
+                    "opinion": false,
+                    "hideDescription": false
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0ffI0TNo7ZP3yn",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "Q223WXVQPNFYPCKX6W6IWIFD2U",
+                    "pbInternal_cloneId": "f0ffI0TNo7ZP3yn",
+                    "title": "",
+                    "authors": "",
+                    "lead": "",
+                    "imageId": "",
+                    "chapita": "",
+                    "opinion": false,
+                    "description": "",
+                    "hideDescription": false
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fH6ilFJ8Kk6z",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "4YNBP2Y7PJCA5LRKIAABO4B6RU ",
+                    "pbInternal_cloneId": "f0fH6ilFJ8Kk6z",
+                    "opinion": false,
+                    "lead": "",
+                    "title": "",
+                    "imageId": "",
+                    "authors": "",
+                    "description": "",
+                    "hideDescription": false
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fTm0wBvNiQ4L8",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "DWWECMRWPZABPFQYY4TUAKFIAI ",
+                    "pbInternal_cloneId": "f0fTm0wBvNiQ4L8",
+                    "opinion": false,
+                    "lead": "",
+                    "title": "",
+                    "imageId": "",
+                    "authors": "",
+                    "description": "",
+                    "hideDescription": false
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fsdC4zyz2t6YM",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "I5INJJHZYBC55FYGLRQ7SNROTI",
+                    "pbInternal_cloneId": "f0fsdC4zyz2t6YM",
+                    "title": "",
+                    "authors": "",
+                    "lead": "",
+                    "imageId": "",
+                    "chapita": "",
+                    "opinion": false,
+                    "description": "",
+                    "hideDescription": false
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0f8cnYhrrFg7oh",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "EZNUWCNUVFAPTDH3EECVR3WFOQ",
+                    "imageId": "",
+                    "description": "",
+                    "title": "",
+                    "lead": "",
+                    "pbInternal_cloneId": "f0f8cnYhrrFg7oh",
+                    "authors": "",
+                    "chapita": "",
+                    "opinion": false,
+                    "hideDescription": true
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "chains",
+            "type": "Ln_Caja_Manual",
+            "props": {
+                "collection": "chains",
+                "type": "Ln_Caja_Manual",
+                "id": "c0fw0EaO2aEZ8bQ",
+                "name": null,
+                "customFields": {
+                    "layout": "grilla9",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "WPEHFSTQWVASRIKIS7NJTF7QLI",
+                    "title": "",
+                    "hideCaja": false,
+                    "imageId": "",
+                    "url": ""
+                },
+                "displayProperties": {}
+            },
+            "children": [
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                }
+            ]
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fb9bU0W7145sE",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "3LHB7IGCUZEOFJKMATGPDQ7H3Y ",
+                    "imageId": "",
+                    "description": "",
+                    "title": "",
+                    "lead": "",
+                    "pbInternal_cloneId": "f0fb9bU0W7145sE",
+                    "authors": "",
+                    "chapita": "",
+                    "opinion": false,
+                    "hideDescription": false
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fMyUkiUBGnaYC",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "B3FBGRKXXZAQ7HJ6ROOEWQ3GPY ",
+                    "lead": "",
+                    "title": "",
+                    "imageId": "",
+                    "hideDescription": false,
+                    "description": "",
+                    "pbInternal_cloneId": "f0fMyUkiUBGnaYC",
+                    "opinion": false,
+                    "authors": "",
+                    "chapita": ""
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fKa7bke7n7aXv",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "HV7AMUJJCZAE7LFFHNXNFSSPHE",
+                    "lead": "",
+                    "title": "",
+                    "imageId": "",
+                    "hideDescription": false,
+                    "description": "",
+                    "pbInternal_cloneId": "f0fKa7bke7n7aXv",
+                    "opinion": false,
+                    "authors": ""
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fdpcxhzWOjawC",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "MYOERCUJIVCX7DZIBQDYB7RLOA",
+                    "pbInternal_cloneId": "f0fdpcxhzWOjawC",
+                    "opinion": false,
+                    "lead": "",
+                    "title": "",
+                    "imageId": "",
+                    "authors": "",
+                    "description": ""
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fPQHa5yo5G7ls",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "SPCHVJFU4FBLHOLITLMMGBKT2U",
+                    "pbInternal_cloneId": "f0fPQHa5yo5G7ls",
+                    "lead": "",
+                    "pbInternal_duplicateId": "f0flaP3DDqxXaVc",
+                    "title": "",
+                    "description": "",
+                    "imageId": "",
+                    "opinion": false,
+                    "chapita": "",
+                    "authors": "",
+                    "hideDescription": false,
+                    "html": ""
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fTmS3xOU4z9FY",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "FTIWIMHSABFQJOXBY2QVXOGLYM ",
+                    "pbInternal_cloneId": "f0fTmS3xOU4z9FY",
+                    "title": "",
+                    "authors": "",
+                    "lead": "",
+                    "imageId": "",
+                    "chapita": "",
+                    "opinion": false,
+                    "description": "",
+                    "hideDescription": false
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0f2sfJJjPYncqB",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "NVB6JRTEMBFFVMU4M5FIEWGSHM",
+                    "lead": "",
+                    "title": "",
+                    "imageId": "",
+                    "hideDescription": false,
+                    "description": "",
+                    "pbInternal_cloneId": "f0f2sfJJjPYncqB",
+                    "chapita": "",
+                    "authors": ""
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fIBDxh0eLk1eL",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "BC4SWZQUQNARLJEFTZVMFKYWBE ",
+                    "pbInternal_cloneId": "f0fIBDxh0eLk1eL",
+                    "lead": "",
+                    "pbInternal_duplicateId": "f0flaP3DDqxXaVc",
+                    "title": "",
+                    "description": "",
+                    "imageId": "",
+                    "opinion": false,
+                    "chapita": "",
+                    "authors": "",
+                    "hideDescription": false,
+                    "html": ""
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fzFKi6OKmBbjP",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "6TWO4F7HXJCOXCRPADK42RYT7U ",
+                    "imageId": "",
+                    "description": "",
+                    "title": "",
+                    "lead": "",
+                    "pbInternal_cloneId": "f0fInkTsSY9ZNo",
+                    "authors": "",
+                    "chapita": "",
+                    "opinion": false,
+                    "hideDescription": false,
+                    "pbInternal_duplicateId": "f0fzFKi6OKmBbjP"
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "chains",
+            "type": "Ln_Caja_Manual",
+            "props": {
+                "collection": "chains",
+                "type": "Ln_Caja_Manual",
+                "id": "c0fQfMQt8CA98eL",
+                "name": null,
+                "customFields": {
+                    "layout": "grilla9",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "pbInternal_cloneId": "c0fQfMQt8CA98eL",
+                    "title": "Más noticias",
+                    "imageId": "",
+                    "idCollection": "KJWAX6BOF5CK5HNIUP3YHHC46M",
+                    "hideCaja": false
+                },
+                "displayProperties": {}
+            },
+            "children": [
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                }
+            ]
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fd60RSDOh78zF",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "6A4C4N5BLFEH7MMELSXLIJGGXI",
+                    "imageId": "",
+                    "description": "",
+                    "title": "",
+                    "lead": "",
+                    "pbInternal_cloneId": "f0fd60RSDOh78zF",
+                    "authors": "",
+                    "chapita": "",
+                    "opinion": false,
+                    "hideDescription": false,
+                    "pbInternal_duplicateId": "f0fzFKi6OKmBbjP"
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0f57iGBkOwOa7Y",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "7GKMIXDX4BELZDOYATVETYJLPE",
+                    "pbInternal_cloneId": "f0f57iGBkOwOa7Y",
+                    "opinion": false,
+                    "lead": "",
+                    "title": "",
+                    "imageId": "",
+                    "authors": "",
+                    "description": ""
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fuGIt4e8Hkcgv",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "KDWTQD2Y2VBWJA5FD7Y6LBV2YY",
+                    "pbInternal_cloneId": "f0fuGIt4e8Hkcgv",
+                    "lead": "",
+                    "pbInternal_duplicateId": "f0flaP3DDqxXaVc",
+                    "title": "",
+                    "description": "",
+                    "imageId": "",
+                    "opinion": false,
+                    "chapita": "",
+                    "authors": "",
+                    "hideDescription": false,
+                    "html": ""
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fdKKCZpLTN7lo",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "QQJPNGHHO5HBBLATNJQM3FALOQ",
+                    "pbInternal_cloneId": "f0fdKKCZpLTN7lo",
+                    "opinion": false,
+                    "lead": "",
+                    "title": "",
+                    "imageId": "",
+                    "authors": "",
+                    "description": ""
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fEBMvlQGiGcVU",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "L6RY6HXMWNHFZOPFTLTBZZCLI4",
+                    "pbInternal_cloneId": "f0fEBMvlQGiGcVU",
+                    "opinion": false,
+                    "lead": "",
+                    "title": "",
+                    "imageId": "",
+                    "authors": "",
+                    "description": ""
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fCvy6vCsYY1wF",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "DM426YYPJ5DGXOEZX56RANEXJQ",
+                    "imageId": "",
+                    "description": "",
+                    "title": "",
+                    "lead": "",
+                    "pbInternal_cloneId": "f0fCvy6vCsYY1wF",
+                    "authors": "",
+                    "chapita": "",
+                    "opinion": false,
+                    "hideDescription": false,
+                    "pbInternal_duplicateId": "f0fzFKi6OKmBbjP"
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fq3qWrK5eX80O",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "TCD3KPCSTREPXIAGRYRYLRLHVM",
+                    "pbInternal_cloneId": "f0fq3qWrK5eX80O",
+                    "title": "",
+                    "authors": "",
+                    "lead": "",
+                    "imageId": "",
+                    "chapita": "",
+                    "opinion": false,
+                    "description": "",
+                    "hideDescription": false
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fckLvTgbAecV5",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "UFUQQLTZMBEUTABBW6W4SAQPY4",
+                    "pbInternal_cloneId": "f0fckLvTgbAecV5",
+                    "lead": "",
+                    "pbInternal_duplicateId": "f0flaP3DDqxXaVc",
+                    "title": "",
+                    "description": "",
+                    "imageId": "",
+                    "opinion": false,
+                    "chapita": " ",
+                    "authors": "",
+                    "hideDescription": false,
+                    "html": ""
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0f9e82319jUbhd",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "5Z7NJMMTWZDPHGFJTI7NOECQJQ",
+                    "pbInternal_cloneId": "f0f9e82319jUbhd",
+                    "opinion": false,
+                    "lead": "",
+                    "title": "",
+                    "imageId": "",
+                    "authors": "",
+                    "description": "",
+                    "hideImage": false
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/anexo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/anexo",
+                "id": "f0fgs76W1BhhPB",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "hideByHtml": true,
+                    "hideByUrl": true,
+                    "html":
+                        " <article style=\"width: 100%; position:relative;\" class=\"toi9999 nidOHOGASKYX5AYVKSWTCALQE27ZI\" data-pos=\"9999\" data-id=\"OHOGASKYX5AYVKSWTCALQE27ZI\" data-notaid=\"OHOGASKYX5AYVKSWTCALQE27ZI\" data-source=\"editor\">\n" +
+                        "<h2 class=\"content-titulo\" style=\"display:none;\">Da clases a cinco chicos en una escuela con vista al canal de Beagle</h2>\n" +
+                        "<style>#iframe_anexo_afondo_arc{height:305px}@media (max-width: 1139px){#iframe_anexo_afondo_arc{height:255px}}@media (max-width: 1041px){#iframe_anexo_afondo_arc{height:305px}}@media (max-width: 727px){#iframe_anexo_afondo_arc{height:480px}}</style>\n" +
+                        "<iframe id=\"iframe_anexo_afondo_arc\" frameborder=\"0\" width=\"100%\" height=\"305\" scrolling=\"no\" src=\"https://especialess3.lanacion.com.ar/21/06/anexo-a-fondo-arc/index.html\"></iframe>\n" +
+                        "<a style=\"position:absolute;top:0;left:0;bottom:0;right:0;\" href=\"/sociedad/la-ultima-maestra-del-continente-da-clases-a-cinco-chicos-en-una-escuela-con-vista-al-canal-de-nid09092021/\"></a>\n" +
+                        "</article>",
+                    "hideCaja": true
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/opinion",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/opinion",
+                "id": "f0fI9Q32U5Q6aBo",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "layout": "opinion4",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "VVPBSCDUKVCX3ILAF6752UK5PU",
+                    "title": "Opinión",
+                    "url": "https://www.lanacion.com.ar/opinion/"
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/editoriales",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/editoriales",
+                "id": "f0fWh9C5NCli6Oc",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "layout": "editoriales2",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "KPYCGTLLQJBM5FIWYYES4RIDNI",
+                    "title": "Editoriales",
+                    "url": "https://www.lanacion.com.ar/editoriales/"
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "chains",
+            "type": "Ln_Caja_Manual",
+            "props": {
+                "collection": "chains",
+                "type": "Ln_Caja_Manual",
+                "id": "c0f7BZqFDgTR5rG",
+                "name": null,
+                "customFields": {
+                    "layout": "grilla6",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "title": "Te puede interesar",
+                    "url": "",
+                    "hideCaja": false,
+                    "imageId": "",
+                    "idCollection": "WPEHFSTQWVASRIKIS7NJTF7QLI"
+                },
+                "displayProperties": {}
+            },
+            "children": [
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                }
+            ]
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fzaFKXvhaO212",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "64PTZBNWEFBFDL2T466RNBARJU",
+                    "pbInternal_cloneId": "f0fzaFKXvhaO212",
+                    "opinion": false,
+                    "lead": "",
+                    "title": "",
+                    "imageId": "",
+                    "authors": "",
+                    "description": "",
+                    "hideImage": false,
+                    "pbInternal_duplicateId": "f0fVCyjzclmBbI7",
+                    "hideDescription": false
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fvEnNC8t9O9mu",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "KJSTOHEERNFTPB4GM6YPQ5G23U",
+                    "pbInternal_cloneId": "f0fvEnNC8t9O9mu",
+                    "opinion": false,
+                    "lead": "",
+                    "title": "",
+                    "imageId": "",
+                    "authors": "",
+                    "description": "",
+                    "hideImage": false,
+                    "pbInternal_duplicateId": "f0fVCyjzclmBbI7",
+                    "hideDescription": true
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fMeknyIRlE8xX",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "ROO54YLZPBABZAEYC4MIE5B4SE",
+                    "imageId": "",
+                    "description": "",
+                    "title": "",
+                    "lead": "",
+                    "pbInternal_cloneId": "f0fj3AQfdKry34S",
+                    "authors": "",
+                    "chapita": "",
+                    "opinion": false,
+                    "hideDescription": false,
+                    "pbInternal_duplicateId": "f0fMeknyIRlE8xX"
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0f2HiUzyW5U2yc",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "SH2WCY76M5AAVNASE73DZ5GIUQ",
+                    "pbInternal_cloneId": "f0f2HiUzyW5U2yc",
+                    "title": "",
+                    "authors": "",
+                    "lead": "",
+                    "imageId": "",
+                    "chapita": "",
+                    "opinion": false,
+                    "description": "",
+                    "hideDescription": false
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fXGiqnvnmy1g6",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "CEQXFUWGG5GDXFK7H5KYYHD5CM",
+                    "pbInternal_cloneId": "f0fXGiqnvnmy1g6",
+                    "lead": "",
+                    "pbInternal_duplicateId": "f0flaP3DDqxXaVc",
+                    "title": "",
+                    "description": "",
+                    "imageId": "",
+                    "opinion": false,
+                    "chapita": "",
+                    "authors": "",
+                    "hideDescription": false,
+                    "html": ""
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fGEgc23StV3yB",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "PBDDDOSL4JA7XAV33XUZBMYYCQ",
+                    "pbInternal_cloneId": "f0fGEgc23StV3yB",
+                    "title": "",
+                    "authors": "",
+                    "lead": "",
+                    "imageId": "",
+                    "chapita": "",
+                    "opinion": false,
+                    "description": "",
+                    "hideDescription": false
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "props": {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "id": "c0fT3XGnVPso1iF",
+                "name": null,
+                "customFields": {
+                    "layout": "grilla6",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "CUUVQOBRCNCQ5LKWQNYNVDPSKE",
+                    "title": "Hashtag",
+                    "hideCaja": false,
+                    "imageId": "ZZEXVFIL2ZFHBIQVL7GN632OXU",
+                    "url": ""
+                },
+                "displayProperties": {}
+            },
+            "children": [
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                }
+            ]
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0frDA8SOODu5h8",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "TAQY4L4D6BD25OSGGTA5UCCHQI",
+                    "lead": "",
+                    "title": "",
+                    "imageId": "",
+                    "hideDescription": false,
+                    "description": "",
+                    "pbInternal_cloneId": "f0frDA8SOODu5h8",
+                    "chapita": ""
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fN2BbnPb7sWH",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "ZEDGNP5JNNDIVCG6BLVQXCB53I",
+                    "pbInternal_cloneId": "f0fN2BbnPb7sWH",
+                    "authors": "",
+                    "title": "",
+                    "lead": ""
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fLJY7aofXi57q",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "4VSXFZKT3VAJRDUAA64NBCISME",
+                    "lead": "",
+                    "title": "",
+                    "imageId": "",
+                    "hideDescription": false,
+                    "description": "",
+                    "pbInternal_cloneId": "f0fLJY7aofXi57q",
+                    "chapita": ""
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0f8tiWfJA4Z9A",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "G5RJBEW7NVEDLPTM55NQG5FMHA",
+                    "imageId": "",
+                    "description": "",
+                    "title": "",
+                    "lead": "",
+                    "pbInternal_cloneId": "f0f8tiWfJA4Z9A",
+                    "authors": "",
+                    "chapita": "",
+                    "opinion": false,
+                    "hideDescription": false
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fw2eOcAgFh56H",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "7JIHJNEGLNFRRH2C6J3GUHSM4A",
+                    "pbInternal_cloneId": "f0fw2eOcAgFh56H",
+                    "opinion": false,
+                    "lead": "",
+                    "title": "",
+                    "imageId": "",
+                    "authors": "",
+                    "description": ""
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fFHoeRlruWbyz",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "NX2ENOIRRRCZPO3CWZCMKHNHNU",
+                    "pbInternal_cloneId": "f0fFHoeRlruWbyz",
+                    "opinion": false,
+                    "lead": "",
+                    "title": "",
+                    "imageId": "",
+                    "authors": "",
+                    "description": "",
+                    "hideDescription": false
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "chains",
+            "type": "Ln_Caja_Manual",
+            "props": {
+                "collection": "chains",
+                "type": "Ln_Caja_Manual",
+                "id": "c0fQFJRtvSUs6bu",
+                "name": null,
+                "customFields": {
+                    "layout": "grilla3",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "pbInternal_cloneId": "c0fQFJRtvSUs6bu",
+                    "title": "Otros temas",
+                    "hideCaja": false,
+                    "idCollection": "XCTRW4VFZFHWRLWXDYNW3WH5X4",
+                    "imageId": ""
+                },
+                "displayProperties": {}
+            },
+            "children": [
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                }
+            ]
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fVCyjzclmBbI7",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "6UFCFVEERJENBKPUQBFPL5TBTE ",
+                    "pbInternal_cloneId": "f0fxGjkCLHmUbWH",
+                    "opinion": false,
+                    "lead": "",
+                    "title": "",
+                    "imageId": "",
+                    "authors": "",
+                    "description": "",
+                    "hideImage": false,
+                    "pbInternal_duplicateId": "f0fVCyjzclmBbI7",
+                    "hideDescription": true
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fd3Ez5Za2Z1T8",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "NVZNZVWZ5RGFDPUZU3SBBKTXKA",
+                    "imageId": "",
+                    "description": "",
+                    "title": "Magalí Gómez fue estrangulada en su casa y luego arrojada en la zanja donde la encontraron",
+                    "lead": "",
+                    "pbInternal_cloneId": "f0fd3Ez5Za2Z1T8",
+                    "authors": "",
+                    "chapita": "",
+                    "opinion": false,
+                    "hideDescription": false,
+                    "pbInternal_duplicateId": "f0fzFKi6OKmBbjP"
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fNol9b1p1aa32",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "Z5S5ZDVSOZCMDGBDFMD7K4PNC4",
+                    "imageId": "",
+                    "description": "",
+                    "title": "",
+                    "lead": "",
+                    "pbInternal_cloneId": "f0fNol9b1p1aa32",
+                    "authors": "",
+                    "chapita": "",
+                    "opinion": false,
+                    "hideDescription": false,
+                    "hideImage": false
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fmJG8BFCnE5XD",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "O4SBLRAIWFFKVE3SDCTB4MJAB4",
+                    "pbInternal_cloneId": "f0fmJG8BFCnE5XD",
+                    "opinion": false,
+                    "lead": "",
+                    "title": "",
+                    "imageId": "",
+                    "authors": "",
+                    "description": "",
+                    "hideDescription": false,
+                    "chapita": ""
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fwvMglWZgxcBo",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "HURTRP54QRGKVK2GS4TSYD7E2E",
+                    "pbInternal_cloneId": "f0fwvMglWZgxcBo",
+                    "title": "",
+                    "authors": "Por Por Hugo Alconada Mon, Maia Jastreblansky y Ricardo Brom",
+                    "lead": "",
+                    "imageId": "",
+                    "chapita": "",
+                    "opinion": false,
+                    "description": "",
+                    "hideDescription": false
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fe4COHcwPB6d7",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "BN7KZBY6VNCRTEIRZRLMEKPZWU",
+                    "imageId": "",
+                    "description": "",
+                    "title": "",
+                    "lead": "",
+                    "pbInternal_cloneId": "f0fe4COHcwPB6d7",
+                    "authors": "Por Por Hugo Alconada Mon, Maia Jastreblansky y Ricardo Brom",
+                    "chapita": "",
+                    "opinion": false,
+                    "hideDescription": false,
+                    "hideImage": false
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0f8GaPHbc9c2ig",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "FIK3XNARPBCNBASVCZK23L3JQM",
+                    "pbInternal_cloneId": "f0f8GaPHbc9c2ig",
+                    "opinion": false,
+                    "lead": "",
+                    "title": "",
+                    "imageId": "",
+                    "authors": "",
+                    "description": "",
+                    "hideImage": false,
+                    "hideDescription": false
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fYA7YN8AFf9J6",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "UVMXWOV6SZH5BKQCB6U7VWM5WE",
+                    "pbInternal_cloneId": "f0fYA7YN8AFf9J6",
+                    "opinion": false,
+                    "lead": "",
+                    "title": "",
+                    "imageId": "",
+                    "authors": "",
+                    "description": "",
+                    "chapita": ""
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0f8vMvz6jko2VS",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "WGYR2OKPX5BYZH6IJNAPAIAXBQ  ",
+                    "opinion": false,
+                    "imageId": "",
+                    "title": "",
+                    "lead": "",
+                    "authors": "",
+                    "pbInternal_cloneId": "f0f8vMvz6jko2VS",
+                    "hideDescription": false,
+                    "description": "",
+                    "html": ""
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "props": {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "id": "c0fGyXAGxF0z8AH",
+                "name": null,
+                "customFields": {
+                    "layout": "grilla1",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "K63QH2H6TJBXLKQVM256T4NW2E",
+                    "title": "",
+                    "hideCaja": true,
+                    "imageId": "",
+                    "url": ""
+                },
+                "displayProperties": {}
+            },
+            "children": []
+        },
+        {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "props": {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "id": "c0faVFCSBNPB3fp",
+                "name": null,
+                "customFields": {
+                    "layout": "grilla2",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "4634AXOU25CWPLNGMZZTTX5EHU",
+                    "hideCaja": false,
+                    "title": "",
+                    "imageId": "X37YZJSQQBHBJOOTHYHS6TBNXY ",
+                    "url": "https://lnmas.lanacion.com.ar/"
+                },
+                "displayProperties": {}
+            },
+            "children": []
+        },
+        {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "props": {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "id": "c0fJk2LUjoxq7c0",
+                "name": null,
+                "customFields": {
+                    "layout": "grilla2",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "MMXFXAEYGRFDFOVDIUDXTRYQRE",
+                    "title": "Política",
+                    "url": "https://www.lanacion.com.ar/politica/",
+                    "imageId": "XDW3TU62JRDFBPPR3C42T4MRMY",
+                    "hideCaja": false
+                },
+                "displayProperties": {}
+            },
+            "children": []
+        },
+        {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "props": {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "id": "c0fwps8KgQku7du",
+                "name": null,
+                "customFields": {
+                    "layout": "grilla1",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "title": "",
+                    "idCollection": "MYHTCZ4CRBCA3FA7A23JU4IQUE",
+                    "hideCaja": true,
+                    "url": "",
+                    "imageId": ""
+                },
+                "displayProperties": {}
+            },
+            "children": []
+        },
+        {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "props": {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "id": "c0f0wXvP2Z3daiB",
+                "name": null,
+                "customFields": {
+                    "layout": "grilla2",
+                    "initialPosition": 0,
+                    "hideTitle": false,
+                    "idCollection": "O4DKB4BRCVDIJDLRUP5VRZR2RM",
+                    "title": "Smart Data",
+                    "url": "https://www.lanacion.com.ar/tema/el-berlines/",
+                    "imageId": "",
+                    "pbInternal_cloneId": "c0f0wXvP2Z3daiB",
+                    "hideCaja": false
+                },
+                "displayProperties": {}
+            },
+            "children": [
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                }
+            ]
+        },
+        {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "props": {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "id": "c0fcc3gB1HODwR",
+                "name": null,
+                "customFields": {
+                    "layout": "focalLeft3",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "5NYCOODQXBEZPPDDEL62CKU27A",
+                    "title": "Comunidad de Negocios",
+                    "url": "https://www.lanacion.com.ar/economia/",
+                    "hideCaja": false,
+                    "imageId": "ROMIJBK7NBCFLGFU774VAOB3XI           "
+                },
+                "displayProperties": {}
+            },
+            "children": [
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                }
+            ]
+        },
+        {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "props": {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "id": "c0fGHy475koB21J",
+                "name": null,
+                "customFields": {
+                    "layout": "grilla3",
+                    "initialPosition": 4,
+                    "hideTitle": true,
+                    "idCollection": "OQ4WI6SWTBBYFPXHETCFHRXH6I",
+                    "hideCaja": true
+                },
+                "displayProperties": {}
+            },
+            "children": []
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fHSO4JPLDq1VM",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "pbInternal_cloneId": "f0fHSO4JPLDq1VM",
+                    "noteId": "ZQ6MKGW7EJHZ7EKY2OWRE5V2NY"
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fNdo3SyXOBcBk",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": { "noteId": "CTMEHFWTZRDY7EGRLZ7C4UVV2M" },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fTYB4mMyIq1jR",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "pbInternal_cloneId": "f0fTYB4mMyIq1jR",
+                    "noteId": "7Y5ORJF4UJDXJP5TUKSMXIY2B4",
+                    "opinion": false
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fm3ubbOzLa4XO",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": { "noteId": "PH6QLEYMAZGYXIDEFTQLG3IVWM" },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fSDMiiZyvw10k",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": { "noteId": "SAEKLRPBYBC3TCKZHXX5CABKP4" },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fmtGbVBVYj3DO",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "noteId": "VIE6YHCZVVA7VNYO4YG323BOCY",
+                    "imageId": "OMXTCKFHTNGBTBFI7FEJCPVFIM"
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "props": {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "id": "c0fnxXzBRL7tbn7",
+                "name": null,
+                "customFields": {
+                    "layout": "grilla2",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "IV7MQKVP7VBUVDCJYYCIDTXF6M",
+                    "imageId": "WAKT22CV3FDBBJEWLL3MKRGU5M",
+                    "url": "https://www.lanacion.com.ar/propiedades/",
+                    "title": "Propiedades"
+                },
+                "displayProperties": {}
+            },
+            "children": []
+        },
+        {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "props": {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "id": "c0f2zvYJpghtbMD",
+                "name": null,
+                "customFields": {
+                    "layout": "grilla2",
+                    "initialPosition": null,
+                    "hideTitle": false,
+                    "idCollection": "LVSMEZLSKFHA7FSDFWN6VBE4WA",
+                    "hideCaja": false,
+                    "url": "https://www.lanacion.com.ar/economia/campo/",
+                    "imageId": "IFHLSX4PSJDJXKPJJIXX54QSG4"
+                },
+                "displayProperties": {}
+            },
+            "children": []
+        },
+        {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "props": {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "id": "c0fuw1j8lnRl1OP",
+                "name": null,
+                "customFields": {
+                    "layout": "focalLeft3",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "AFNED2VCABCFFL7QULNFBJDPAY",
+                    "url": "https://www.lanacion.com.ar/espectaculos/",
+                    "title": "Espectáculos",
+                    "imageId": "TIT2HNQO7VDC5BT5G4AIVF7TDE",
+                    "hideCaja": false
+                },
+                "displayProperties": {}
+            },
+            "children": []
+        },
+        {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "props": {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "id": "c0fhhBMpMDIxb0E",
+                "name": null,
+                "customFields": {
+                    "layout": "grilla3",
+                    "initialPosition": 4,
+                    "hideTitle": true,
+                    "idCollection": "AFNED2VCABCFFL7QULNFBJDPAY",
+                    "hideCaja": true
+                },
+                "displayProperties": {}
+            },
+            "children": []
+        },
+        {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "props": {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "id": "c0fByyP2KUZybXY",
+                "name": null,
+                "customFields": {
+                    "layout": "focalLeft3",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "AO7S7RK6JNF3ZFXZJU5PU3FQ64",
+                    "title": "Deportes",
+                    "url": "https://www.lanacion.com.ar/deportes/",
+                    "imageId": "PKOHGOEKMVBMZBE4M6NENMEMOQ"
+                },
+                "displayProperties": {}
+            },
+            "children": []
+        },
+        {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "props": {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "id": "c0fe4cLM2L5xbth",
+                "name": null,
+                "customFields": {
+                    "layout": "grilla2",
+                    "initialPosition": 4,
+                    "hideTitle": true,
+                    "idCollection": "AO7S7RK6JNF3ZFXZJU5PU3FQ64",
+                    "hideCaja": true
+                },
+                "displayProperties": {}
+            },
+            "children": []
+        },
+        {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "props": {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "id": "c0fchSg5A5DtaJh",
+                "name": null,
+                "customFields": {
+                    "layout": "focalLeft3",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "6FJOYEPXWFB6ZMGHCONVJZODWA",
+                    "title": "Lifestyle",
+                    "url": "https://www.lanacion.com.ar/lifestyle/",
+                    "imageId": "3IDLCADEO5AYHL3IGKT2OCR7DU",
+                    "hideCaja": false
+                },
+                "displayProperties": {}
+            },
+            "children": []
+        },
+        {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "props": {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "id": "c0fE0n6Cv3Qb402",
+                "name": null,
+                "customFields": {
+                    "layout": "grilla2",
+                    "initialPosition": 4,
+                    "hideTitle": false,
+                    "idCollection": "6FJOYEPXWFB6ZMGHCONVJZODWA",
+                    "hideCaja": false,
+                    "title": ""
+                },
+                "displayProperties": {}
+            },
+            "children": [
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                },
+                {
+                    "collection": "features",
+                    "type": "LN-common/articulo",
+                    "props": []
+                }
+            ]
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fQwBWuLBnk2QW",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "pbInternal_cloneId": "f0fQwBWuLBnk2QW",
+                    "noteId": "EPBOFCJJ4NFFHHH4IBEK5KFEIE ",
+                    "opinion": false
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "features",
+            "type": "LN-common/articulo",
+            "props": {
+                "collection": "features",
+                "type": "LN-common/articulo",
+                "id": "f0fTpgumNwQk2i8",
+                "name": null,
+                "contentConfig": {
+                    "contentService": "",
+                    "contentConfigValues": {},
+                    "inherit": true
+                },
+                "customFields": {
+                    "pbInternal_cloneId": "f0fTpgumNwQk2i8",
+                    "noteId": "EPBOFCJJ4NFFHHH4IBEK5KFEIE ",
+                    "opinion": false
+                },
+                "displayProperties": {},
+                "localEdits": {},
+                "variants": {}
+            }
+        },
+        {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "props": {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "id": "c0fnm4LUuSYvaMF",
+                "name": null,
+                "customFields": {
+                    "layout": "grilla6",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "EUNXJ3BW7NGXFB3ZS7YGPBOYUA",
+                    "title": "Hashtag",
+                    "imageId": "ZZEXVFIL2ZFHBIQVL7GN632OXU",
+                    "hideCaja": false
+                },
+                "displayProperties": {}
+            },
+            "children": []
+        },
+        {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "props": {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "id": "c0f7QIY42I5s1o9",
+                "name": null,
+                "customFields": {
+                    "layout": "grilla1",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "ZWOGJFYWONARTGN4DE2Q4YGB5U",
+                    "hideCaja": true,
+                    "title": "Recetas"
+                },
+                "displayProperties": {}
+            },
+            "children": []
+        }
+    ],
+    "collection": "layouts",
+    "type": "LN-Home_Main",
+    "id": "LN-Home_Main",
+    "children": [
+        [
+            {
+                "information": {
+                    "hideCaja": true,
+                    "title": "Sobreseyeron a Cristina Kirchner en la causa por el Pacto con Irán: el tribunal entendió que no hubo delito",
+                    "url": ""
+                }
+            }
+        ],
+        [
+            {
+                "information": {
+                    "hideCaja": null,
+                    "layout": "grilla1",
+                    "hideByUrl": false,
+                    "hideByHtml": true
+                },
+                "articles": [[]]
+            }
+        ],
+        [
+            {
+                "information": { "hideCaja": true, "layout": "grilla1" },
+                "articles": [[]]
+            }
+        ],
+        [
+            {
+                "information": {
+                    "layout": "focalLeft3",
+                    "initialPosition": 1,
+                    "hideTitle": true,
+                    "hideCaja": false,
+                    "title": "",
+                    "image": "undefined"
+                },
+                "articles": [[], [], []]
+            }
+        ],
+        [
+            {
+                "information": {
+                    "layout": "grilla3",
+                    "initialPosition": 1,
+                    "hideTitle": true,
+                    "hideCaja": false,
+                    "title": "",
+                    "image": "undefined"
+                },
+                "articles": [[], [], []]
+            }
+        ],
+        [
+            {
+                "information": {
+                    "layout": "grilla1",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "hideCaja": false,
+                    "imageId": "6KXD6N3ZOBEDBN4PSTA2LSOTCM",
+                    "image": []
+                },
+                "articles": [[]]
+            }
+        ],
+        [
+            {
+                "information": {
+                    "hideCaja": null,
+                    "layout": "grilla1",
+                    "hideByUrl": true,
+                    "hideByHtml": true
+                },
+                "articles": [[]]
+            }
+        ],
+        [
+            {
+                "information": {
+                    "layout": "grilla9",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "OCZKGYAS4RC57LVPADTY2W74CE",
+                    "title": "Actualidad",
+                    "pbInternal_cloneId": "c0fRXFiFpmpQxx",
+                    "hideCaja": false,
+                    "imageId": "",
+                    "url": "",
+                    "image": "undefined"
+                },
+                "articles": [[], [], [], [], [], [], [], [], []]
+            }
+        ],
+        [
+            {
+                "information": {
+                    "layout": "grilla9",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "WPEHFSTQWVASRIKIS7NJTF7QLI",
+                    "title": "",
+                    "hideCaja": false,
+                    "imageId": "",
+                    "url": "",
+                    "image": "undefined"
+                },
+                "articles": [[], [], [], [], [], [], [], [], []]
+            }
+        ],
+        [
+            {
+                "information": {
+                    "layout": "grilla9",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "pbInternal_cloneId": "c0fQfMQt8CA98eL",
+                    "title": "Más noticias",
+                    "imageId": "",
+                    "idCollection": "KJWAX6BOF5CK5HNIUP3YHHC46M",
+                    "hideCaja": false,
+                    "image": "undefined"
+                },
+                "articles": [[], [], [], [], [], [], [], [], []]
+            }
+        ],
+        [
+            {
+                "information": {
+                    "hideCaja": null,
+                    "layout": "grilla1",
+                    "hideByUrl": true,
+                    "hideByHtml": true
+                },
+                "articles": [[]]
+            }
+        ],
+        [
+            {
+                "information": {
+                    "layout": "opinion4",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "VVPBSCDUKVCX3ILAF6752UK5PU",
+                    "title": "Opinión",
+                    "url": "https://www.lanacion.com.ar/opinion/"
+                },
+                "articles": [[], [], [], []]
+            },
+            {
+                "information": {
+                    "layout": "editoriales2",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "KPYCGTLLQJBM5FIWYYES4RIDNI",
+                    "title": "Editoriales",
+                    "url": "https://www.lanacion.com.ar/editoriales/"
+                },
+                "articles": [[], []]
+            }
+        ],
+        [
+            {
+                "information": {
+                    "layout": "grilla6",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "title": "Te puede interesar",
+                    "url": "",
+                    "hideCaja": false,
+                    "imageId": "",
+                    "idCollection": "WPEHFSTQWVASRIKIS7NJTF7QLI",
+                    "image": "undefined"
+                },
+                "articles": [[], [], [], [], [], []]
+            }
+        ],
+        [
+            {
+                "information": {
+                    "layout": "grilla6",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "CUUVQOBRCNCQ5LKWQNYNVDPSKE",
+                    "title": "Hashtag",
+                    "hideCaja": false,
+                    "imageId": "ZZEXVFIL2ZFHBIQVL7GN632OXU",
+                    "url": "",
+                    "image": []
+                },
+                "articles": [[], [], [], [], [], []]
+            }
+        ],
+        [
+            {
+                "information": {
+                    "layout": "grilla3",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "pbInternal_cloneId": "c0fQFJRtvSUs6bu",
+                    "title": "Otros temas",
+                    "hideCaja": false,
+                    "idCollection": "XCTRW4VFZFHWRLWXDYNW3WH5X4",
+                    "imageId": "",
+                    "image": "undefined"
+                },
+                "articles": [[], [], []]
+            }
+        ],
+        [
+            {
+                "information": {
+                    "layout": "grilla1",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "K63QH2H6TJBXLKQVM256T4NW2E",
+                    "title": "",
+                    "hideCaja": true,
+                    "imageId": "",
+                    "url": "",
+                    "image": "undefined"
+                },
+                "articles": [[]]
+            }
+        ],
+        [
+            {
+                "information": {
+                    "layout": "grilla2",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "4634AXOU25CWPLNGMZZTTX5EHU",
+                    "hideCaja": false,
+                    "title": "",
+                    "imageId": "X37YZJSQQBHBJOOTHYHS6TBNXY ",
+                    "url": "https://lnmas.lanacion.com.ar/",
+                    "image": []
+                },
+                "articles": [[], []]
+            },
+            {
+                "information": {
+                    "layout": "grilla2",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "MMXFXAEYGRFDFOVDIUDXTRYQRE",
+                    "title": "Política",
+                    "url": "https://www.lanacion.com.ar/politica/",
+                    "imageId": "XDW3TU62JRDFBPPR3C42T4MRMY",
+                    "hideCaja": false,
+                    "image": []
+                },
+                "articles": [[], []]
+            }
+        ],
+        [
+            {
+                "information": {
+                    "layout": "grilla1",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "title": "",
+                    "idCollection": "MYHTCZ4CRBCA3FA7A23JU4IQUE",
+                    "hideCaja": true,
+                    "url": "",
+                    "imageId": "",
+                    "image": "undefined"
+                },
+                "articles": [[]]
+            }
+        ],
+        [
+            {
+                "information": {
+                    "layout": "grilla2",
+                    "initialPosition": 0,
+                    "hideTitle": false,
+                    "idCollection": "O4DKB4BRCVDIJDLRUP5VRZR2RM",
+                    "title": "Smart Data",
+                    "url": "https://www.lanacion.com.ar/tema/el-berlines/",
+                    "imageId": "",
+                    "pbInternal_cloneId": "c0f0wXvP2Z3daiB",
+                    "hideCaja": false,
+                    "image": "undefined"
+                },
+                "articles": [[], []]
+            },
+            {
+                "information": {
+                    "layout": "focalLeft3",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "5NYCOODQXBEZPPDDEL62CKU27A",
+                    "title": "Comunidad de Negocios",
+                    "url": "https://www.lanacion.com.ar/economia/",
+                    "hideCaja": false,
+                    "imageId": "ROMIJBK7NBCFLGFU774VAOB3XI           ",
+                    "image": []
+                },
+                "articles": [[], [], []]
+            },
+            {
+                "information": {
+                    "layout": "grilla3",
+                    "initialPosition": 4,
+                    "hideTitle": true,
+                    "idCollection": "OQ4WI6SWTBBYFPXHETCFHRXH6I",
+                    "hideCaja": true,
+                    "image": "undefined"
+                },
+                "articles": []
+            }
+        ],
+        [
+            {
+                "information": {
+                    "layout": "grilla2",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "IV7MQKVP7VBUVDCJYYCIDTXF6M",
+                    "imageId": "WAKT22CV3FDBBJEWLL3MKRGU5M",
+                    "url": "https://www.lanacion.com.ar/propiedades/",
+                    "title": "Propiedades",
+                    "image": []
+                },
+                "articles": [[], []]
+            },
+            {
+                "information": {
+                    "layout": "grilla2",
+                    "initialPosition": null,
+                    "hideTitle": false,
+                    "idCollection": "LVSMEZLSKFHA7FSDFWN6VBE4WA",
+                    "hideCaja": false,
+                    "url": "https://www.lanacion.com.ar/economia/campo/",
+                    "imageId": "IFHLSX4PSJDJXKPJJIXX54QSG4",
+                    "image": []
+                },
+                "articles": [[], []]
+            }
+        ],
+        [
+            {
+                "information": {
+                    "layout": "focalLeft3",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "AFNED2VCABCFFL7QULNFBJDPAY",
+                    "url": "https://www.lanacion.com.ar/espectaculos/",
+                    "title": "Espectáculos",
+                    "imageId": "TIT2HNQO7VDC5BT5G4AIVF7TDE",
+                    "hideCaja": false,
+                    "image": []
+                },
+                "articles": [[], [], []]
+            },
+            {
+                "information": {
+                    "layout": "grilla3",
+                    "initialPosition": 4,
+                    "hideTitle": true,
+                    "idCollection": "AFNED2VCABCFFL7QULNFBJDPAY",
+                    "hideCaja": true,
+                    "image": "undefined"
+                },
+                "articles": [[], [], []]
+            }
+        ],
+        [
+            {
+                "information": {
+                    "layout": "focalLeft3",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "AO7S7RK6JNF3ZFXZJU5PU3FQ64",
+                    "title": "Deportes",
+                    "url": "https://www.lanacion.com.ar/deportes/",
+                    "imageId": "PKOHGOEKMVBMZBE4M6NENMEMOQ",
+                    "image": []
+                },
+                "articles": [[], [], []]
+            },
+            {
+                "information": {
+                    "layout": "grilla2",
+                    "initialPosition": 4,
+                    "hideTitle": true,
+                    "idCollection": "AO7S7RK6JNF3ZFXZJU5PU3FQ64",
+                    "hideCaja": true,
+                    "image": "undefined"
+                },
+                "articles": [[], []]
+            }
+        ],
+        [
+            {
+                "information": {
+                    "layout": "focalLeft3",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "6FJOYEPXWFB6ZMGHCONVJZODWA",
+                    "title": "Lifestyle",
+                    "url": "https://www.lanacion.com.ar/lifestyle/",
+                    "imageId": "3IDLCADEO5AYHL3IGKT2OCR7DU",
+                    "hideCaja": false,
+                    "image": []
+                },
+                "articles": [[], [], []]
+            },
+            {
+                "information": {
+                    "layout": "grilla2",
+                    "initialPosition": 4,
+                    "hideTitle": false,
+                    "idCollection": "6FJOYEPXWFB6ZMGHCONVJZODWA",
+                    "hideCaja": false,
+                    "title": "",
+                    "image": "undefined"
+                },
+                "articles": [[], []]
+            }
+        ],
+        [
+            {
+                "information": {
+                    "layout": "grilla6",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "EUNXJ3BW7NGXFB3ZS7YGPBOYUA",
+                    "title": "Hashtag",
+                    "imageId": "ZZEXVFIL2ZFHBIQVL7GN632OXU",
+                    "hideCaja": false,
+                    "image": []
+                },
+                "articles": [[], [], [], [], [], []]
+            },
+            {
+                "information": {
+                    "layout": "grilla1",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "idCollection": "ZWOGJFYWONARTGN4DE2Q4YGB5U",
+                    "hideCaja": true,
+                    "title": "Recetas",
+                    "image": "undefined"
+                },
+                "articles": []
+            }
+        ]
+    ]
+}

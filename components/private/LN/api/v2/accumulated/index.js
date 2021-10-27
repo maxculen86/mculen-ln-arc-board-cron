@@ -4,6 +4,30 @@ import { removeEmptyItems } from '../../common/utils/responseCleaner';
 import { getTag } from '../../common/tag';
 import { authorAcu } from '../../common/author';
 
+const banners = acuData => {
+    const sectionsElements = [
+        { idSeccion: 402, index: 4 },
+        { idSeccion: 403, index: 7 },
+        { idSeccion: 404, index: 10 },
+        { idSeccion: 405, index: 13 },
+        { idSeccion: 406, index: 16 }
+    ];
+    const cantNotas = acuData.articles.length;
+    let pagina = 1;
+    if (acuData.paginator) {
+        pagina = Math.floor(acuData.paginator / acuData.articles.length);
+    }
+    return sectionsElements.reduce((r, e) => {
+        if (pagina > 1) {
+            if (e.index > cantNotas) {
+                return r.concat(e);
+            }
+        } else if (e.index <= cantNotas) {
+            return r.concat(e);
+        }
+        return r;
+    }, []);
+};
 const index = acuData => {
     const resp = {
         tipoSeccion: 'acumulado',
@@ -12,8 +36,8 @@ const index = acuData => {
         paginar: acuData.paginator > 0,
         titulo: acuData.name
     };
-
     if (acuData.articles) {
+        resp.banners = banners(acuData);
         resp.notas = acuData.articles.reduce((result, f) => {
             try {
                 if (f) {
@@ -38,7 +62,6 @@ const index = acuData => {
     if (acuData.configuration) {
         resp.configuracion = Configuration(acuData.configuration);
     }
-
     return [removeEmptyItems(resp)];
 };
 export default index;
