@@ -3,10 +3,10 @@ import Apertura from './apertura/aperturaArticle';
 import Cuerpo from './cuerpo';
 import ModificadorTemplate from './modificadorTemplate';
 import Relacionados from './relacionados';
-import dateAndTimeUtil from '../../../../common/utils/dateAndTimeUtil';
-import { getPrincipalCategory } from '../../common/category';
-import { removeEmptyItems } from '../../common/utils/responseCleaner';
-import matchObject from '../../common/utils/matchObject';
+import dateAndTimeUtil from '../../../../../common/utils/dateAndTimeUtil';
+import { getPrincipalCategory } from '../../../common/category';
+import { removeEmptyItems } from '../../../common/utils/responseCleaner';
+import matchObject from '../../../common/utils/matchObject';
 
 const displayComments = dataNota => {
     const optionDisplayComments = get(

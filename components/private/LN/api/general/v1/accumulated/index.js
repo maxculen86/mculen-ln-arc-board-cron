@@ -1,8 +1,8 @@
-import Configuration from '../../common/accumulated/configuration';
+import Configuration from '../../../common/accumulated/configuration';
 import Article from './story';
-import { removeEmptyItems } from '../../common/utils/responseCleaner';
-import { getTag } from '../../common/tag';
-import { authorAcu } from '../../common/author';
+import { removeEmptyItems } from '../../../common/utils/responseCleaner';
+import { getTag } from '../../../common/tag';
+import { authorAcu } from '../../../common/author';
 
 const index = acuData => {
     const resp = {

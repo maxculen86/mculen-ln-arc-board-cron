@@ -1,5 +1,5 @@
 import { OPTA_WIDGET_URL } from 'fusion:environment';
-import getEmbedHref from '../../../../../../common/utils/getEmbedHref';
+import getEmbedHref from '../../../../../../../common/utils/getEmbedHref';
 
 const html = (nodo, dataNota) => {
     if (!nodo || !nodo.content) return null;

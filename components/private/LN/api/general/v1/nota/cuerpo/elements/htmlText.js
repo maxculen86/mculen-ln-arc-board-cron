@@ -1,7 +1,7 @@
 import { parse } from 'node-html-parser';
-import walkerBuilder from '../../../../../../common/utils/walker';
-import getEmbedHref from '../../../../../../common/utils/getEmbedHref';
-import unescapeHtml from '../../../../../../common/utils/unescapeHtml';
+import walkerBuilder from '../../../../../../../common/utils/walker';
+import getEmbedHref from '../../../../../../../common/utils/getEmbedHref';
+import unescapeHtml from '../../../../../../../common/utils/unescapeHtml';
 
 const htmlText = (nodo, dataNota) => {
     if (!nodo) return null;

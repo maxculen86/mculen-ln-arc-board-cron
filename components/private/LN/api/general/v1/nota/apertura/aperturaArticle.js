@@ -2,8 +2,8 @@ import get from 'lodash.get';
 import Image from '../image';
 import Video from '../video';
 import AperturaReceta from './aperturaReceta';
-import Author from '../../../common/author';
-import { getFeaturedTag } from '../../../common/tag';
+import Author from '../../../../common/author';
+import { getFeaturedTag } from '../../../../common/tag';
 
 const apertura = article => {
     const {

@@ -3,9 +3,9 @@ import {
     getCommonPropsJson,
     getArticlesFromMyCurrentCollection,
     getIdsArticlesFromOtherCollections
-} from '../../../../common/utils/cajaTemasValidators';
-import get from '../../../../../common/utils/get';
-import filter from '../../../../../../../content/filters/LN/acumulado/articleHomeMobile';
+} from '../../../../../common/utils/cajaTemasValidators';
+import get from '../../../../../../common/utils/get';
+import filter from '../../../../../../../../content/filters/LN/acumulado/articleHomeMobile';
 
 class GetCajaCollection {
     constructor(props) {

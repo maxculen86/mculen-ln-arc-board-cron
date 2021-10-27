@@ -1,4 +1,4 @@
-import { getLinkDomain } from '../../../../../../common/utils/getEmbedHref';
+import { getLinkDomain } from '../../../../../../../common/utils/getEmbedHref';
 
 const button = (nodo, dataNota) => {
     if (!nodo) return null;

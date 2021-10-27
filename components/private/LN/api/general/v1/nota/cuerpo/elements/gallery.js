@@ -1,5 +1,5 @@
 import get from 'lodash.get';
-import { dateAndTimeForAppsUtil } from '../../../../../../common/utils/dateAndTimeUtil';
+import { dateAndTimeForAppsUtil } from '../../../../../../../common/utils/dateAndTimeUtil';
 import Image from '../../image';
 
 const gallery = (nodo, dataNota) => {

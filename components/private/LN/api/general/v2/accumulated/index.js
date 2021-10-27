@@ -1,8 +1,8 @@
-import Configuration from '../../common/accumulated/configuration';
-import { articleItem } from '../../common/article/article';
-import { removeEmptyItems } from '../../common/utils/responseCleaner';
-import { getTag } from '../../common/tag';
-import { authorAcu } from '../../common/author';
+import Configuration from '../../../common/accumulated/configuration';
+import { articleItem } from '../../../common/article/article';
+import { removeEmptyItems } from '../../../common/utils/responseCleaner';
+import { getTag } from '../../../common/tag';
+import { authorAcu } from '../../../common/author';
 
 const banners = acuData => {
     const sectionsElements = [
