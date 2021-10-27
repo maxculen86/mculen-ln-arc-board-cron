@@ -1,5 +1,6 @@
 import Consumer from 'fusion:consumer';
 import IndexNotaV1 from '../../../private/LN/api/general/v1/nota';
+import IndexNotaMobileV1 from '../../../private/LN/api/mobile/v1/nota';
 import browser from '../../../private/common/utils/browser';
 
 class Story {
