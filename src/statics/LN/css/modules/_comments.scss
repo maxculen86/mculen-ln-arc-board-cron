@@ -83,8 +83,20 @@
     }
 }
 
+//AJUSTES VIAFOURA
 .viafoura.viafoura {
+    font-family: Arial;
     margin-bottom: $spacing-2xl;
+
+    .vf-flex .vf-profile-header__button-container {
+        display: none;
+    }
+    .vf-flex-grow {
+        .vf-flex-nav[aria-controls='vf-settings__panel_5'] {
+            display: none;
+        }
+    }
+
     section {
         header.vf-comment-header.vf-comment-header {
             display: none;
@@ -94,6 +106,10 @@
         }
         div.vf-post-form__container {
             .vf-button.is-cta {
+                &.is-accent-color:not([disabled]) {
+                    background-color: $light-blue-500;
+                    border-color: $light-blue-500;
+                }
                 .vf-loader-button__content {
                     text-indent: -9999999px;
                     line-height: 0;
@@ -109,6 +125,12 @@
             .vf-post-form__auth-actions {
                 display: none;
             }
+
+            &.vf-post-form__container--focused {
+                .vf-content-layout__right {
+                    box-shadow: none;
+                }
+            }
         }
     }
     &.not-comment {
@@ -119,8 +141,3 @@
         }
     }
 }
-
-// .viafoura .vf-is-logged-out .vf-comment-header,
-// .viafoura .vf-is-logged-out .vf-post-form {
-//     display: none !important;
-// }
