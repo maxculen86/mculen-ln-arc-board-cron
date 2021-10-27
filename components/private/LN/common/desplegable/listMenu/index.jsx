@@ -106,19 +106,12 @@ const sourceMenu = [
 const ListMenuComponent = props => {
     const { arcSite } = props;
     const [onResizeDeskTop, setOnResizeDesktop] = useState();
-    const menuData = [
-        ...sourceMenu.map(({ hierarchy, initialClass }) =>
-            useContent({
-                source: 'navigationSource',
-                filter,
-                query: {
-                    website: arcSite,
-                    hierarchy
-                },
-                transform: transform(initialClass)
-            })
-        )
-    ];
+    const menuData = useContent({
+        source: 'navigationTestSource',
+        query: {
+            website: arcSite
+        }
+    });
 
     useEffect(() => {
         window &&
