@@ -16,13 +16,21 @@ const logger = (() => {
         const { statusCode } = e || {};
         // const method = get(e || {}, 'response.request.method', null);
         // const uri = get(e || {}, 'options.uri', null);
-        const message = get(e || {}, 'error.message', null);
+        const message = get(e, 'error.message', null);
+
         if (!loggerOn || loggerExcludedErrors.includes(Number(statusCode || 0)))
             return;
-        throw new LnError(`${statusCode} - ${message}`, {
-            customErrorType: 'controlado'
-        });
-        // });
+
+        const { source = 'ARC', url = null, uri = null } = config || {};
+
+        throw new LnError(
+            `Status Code: ${statusCode}. Mensaje: ${message}. Source: ${source}. Url: ${url ||
+                uri}`,
+            {
+                customErrorType: 'controlado'
+            }
+        );
+
         // const {
         //     application = 'ln/arc',
         //     source = 'ARC',
