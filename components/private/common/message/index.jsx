@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Text from '../text';
 import Link from '../com-link';
 import Logo from '../com-logo';
+import Icon from '../com-icon';
 
 import '../../../../resources/dist/css/ln/modules/message.css';
 
@@ -15,18 +16,28 @@ const Message = props => {
         specialUrl,
         secondary,
         secondaryUrl,
-        dark
+        dark,
+        isExclusive,
+        icon,
+        text
     } = props;
-
+    const withLinks = secondaryUrl && specialUrl;
     return (
         <section className={`message row w-100-mobile ${dark ? '--dark' : ''}`}>
             <div className="col-12 --top">
-                <Text tag="strong" extraClass="subscribers" size="--twoxs">
-                    <Logo logoName="ln" size="--xs" />
-                    Exclusivo suscriptores
-                </Text>
+                {isExclusive ? (
+                    <Text tag="strong" extraClass="subscribers" size="--twoxs">
+                        <Logo logoName="ln" size="--xs" />
+                        Exclusivo suscriptores
+                    </Text>
+                ) : (
+                    <Text tag="strong" extraClass="text" size="--twoxs">
+                        <Icon iconName={icon} size="--xs" />
+                        {text}
+                    </Text>
+                )}
             </div>
-            <div className="col-tablet-7 --left">
+            <div className={`${withLinks ? 'col-tablet-7' : 'col-12'} --left`}>
                 <Text extraClass="com-title" tag="h3" size="--s">
                     {title}
                 </Text>
@@ -34,24 +45,26 @@ const Message = props => {
                     {subtitle}
                 </Text>
             </div>
-            <div className="col-tablet-5 --right">
-                <Link
-                    classCondition="com-button --secondary"
-                    title={secondary}
-                    rel="nofollow"
-                    link={secondaryUrl}
-                >
-                    {secondary}
-                </Link>
-                <Link
-                    classCondition="com-button --special"
-                    title={special}
-                    rel="nofollow"
-                    link={specialUrl}
-                >
-                    {special}
-                </Link>
-            </div>
+            {withLinks && (
+                <div className="col-tablet-5 --right">
+                    <Link
+                        classCondition="com-button --secondary"
+                        title={secondary}
+                        rel="nofollow"
+                        link={secondaryUrl}
+                    >
+                        {secondary}
+                    </Link>
+                    <Link
+                        classCondition="com-button --special"
+                        title={special}
+                        rel="nofollow"
+                        link={specialUrl}
+                    >
+                        {special}
+                    </Link>
+                </div>
+            )}
         </section>
     );
 };
@@ -62,17 +75,23 @@ Message.propTypes = {
     specialUrl: PropTypes.string,
     secondary: PropTypes.string,
     secondaryUrl: PropTypes.string,
-    dark: PropTypes.bool
+    dark: PropTypes.bool,
+    isExclusive: PropTypes.bool,
+    icon: PropTypes.string,
+    text: PropTypes.string
 };
 
 Message.defaultProps = {
-    title: 'Ahora para comentar debés tener Acceso Digital',
-    subtitle: 'Ingresá o suscribite',
+    title: '',
+    subtitle: '',
     special: 'Suscribite',
     secondary: 'Ingresá',
-    specialUrl: '#',
-    secondaryUrl: '#',
-    dark: undefined
+    specialUrl: '',
+    secondaryUrl: '',
+    dark: undefined,
+    isExclusive: undefined,
+    icon: 'comment',
+    text: 'Comentarios'
 };
 
 export default Message;
