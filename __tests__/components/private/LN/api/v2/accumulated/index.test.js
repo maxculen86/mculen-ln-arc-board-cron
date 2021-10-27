@@ -17,6 +17,105 @@ describe('Test unitarios para espacio patrocinado y content lab', () => {
         );
     });
 });
+describe('Banners en Json acumulado', () => {
+    test('Si es la pagina 1 y se solicitan 10 notas se enviaran los objetos banners con id 402, 403 y 404', () => {
+        const acuData = {
+            name: 'Recetas',
+            articles: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
+            paginator: 10,
+            total: 2667,
+            configuration: undefined
+        };
+        const resp = AcuIndex(acuData);
+        expect(resp[0].banners.length).toBe(3);
+        expect(resp[0].banners[0].idSeccion).toBe(402);
+        expect(resp[0].banners[1].idSeccion).toBe(403);
+        expect(resp[0].banners[2].idSeccion).toBe(404);
+    });
+    test('Si es la pagina 2 y se solicitan 10 notas se enviara el resto de banners faltantes 13 y 16', () => {
+        const acuData = {
+            name: 'Recetas',
+            articles: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
+            paginator: 20,
+            total: 2667,
+            configuration: undefined
+        };
+        const resp = AcuIndex(acuData);
+        expect(resp[0].banners.length).toBe(2);
+        expect(resp[0].banners[0].idSeccion).toBe(405);
+        expect(resp[0].banners[1].idSeccion).toBe(406);
+    });
+    test('Si es la pagina 1 y se solicitan 30 notas se enviaran todo el objeto completo', () => {
+        const acuData = {
+            name: 'Recetas',
+            articles: [
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
+            ],
+            paginator: 30,
+            total: 2667,
+            configuration: undefined
+        };
+        const resp = AcuIndex(acuData);
+        expect(resp[0].banners.length).toBe(5);
+        expect(resp[0].banners[0].idSeccion).toBe(402);
+        expect(resp[0].banners[1].idSeccion).toBe(403);
+        expect(resp[0].banners[2].idSeccion).toBe(404);
+        expect(resp[0].banners[3].idSeccion).toBe(405);
+        expect(resp[0].banners[4].idSeccion).toBe(406);
+    });
+    test('Se enviaran banners segun notas existan. Si el acumulado solo trae 5 notas entonces solo se enviara el banner idSeccion 402', () => {
+        const acuData = {
+            name: 'Recetas',
+            articles: [{}, {}, {}, {}, {}],
+            paginator: 5,
+            total: 2667,
+            configuration: undefined
+        };
+        const resp = AcuIndex(acuData);
+        expect(resp[0].banners.length).toBe(1);
+        expect(resp[0].banners[0].idSeccion).toBe(402);
+    });
+    test('Se enviaran banners segun notas existan. Si el acumulado retorna 3 notas entonces el objeto banners no debe ser retornado.', () => {
+        const acuData = {
+            name: 'Recetas',
+            articles: [{}, {}, {}],
+            paginator: 3,
+            total: 2667,
+            configuration: undefined
+        };
+        const resp = AcuIndex(acuData);
+        expect(resp[0].banners).toBeUndefined();
+    });
+});
 
 describe('Json Acumulado section. Test de integracion', () => {
     const acuData = {

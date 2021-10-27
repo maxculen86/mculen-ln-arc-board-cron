@@ -330,9 +330,56 @@ const Default = props => {
                     content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
                 <link
-                    rel="icon"
+                    rel="shortcut icon"
                     type="image/x-icon"
-                    href={deployment(`${contextPath}/resources/favicon.ico`)}
+                    href={deployment(
+                        `${contextPath}/resources/images/favicon.ico`
+                    )}
+                />
+                <link
+                    rel="icon"
+                    type="image/png"
+                    sizes="16x16"
+                    href={deployment(
+                        `${contextPath}/resources/images/favicon-16.png`
+                    )}
+                />
+                <link
+                    rel="icon"
+                    type="image/png"
+                    sizes="32x32"
+                    href={deployment(
+                        `${contextPath}/resources/images/favicon-32.png`
+                    )}
+                />
+                <link
+                    rel="shortcut icon"
+                    type="image/png"
+                    sizes="192x192"
+                    href={deployment(
+                        `${contextPath}/resources/images/favicon-192.png`
+                    )}
+                />
+                <link
+                    rel="shortcut icon"
+                    type="image/png"
+                    sizes="512x512"
+                    href={deployment(
+                        `${contextPath}/resources/images/favicon-512.png`
+                    )}
+                />
+                <link
+                    rel="apple-touch-icon"
+                    href={deployment(
+                        `${contextPath}/resources/images/favicon-192.png`
+                    )}
+                />
+                <link
+                    rel="apple-touch-icon"
+                    sizes="512x512"
+                    href={deployment(
+                        `${contextPath}/resources/images/favicon-512.png`
+                    )}
                 />
                 <meta name="theme-color" content="#ffffff" />
                 <link rel="manifest" href="/manifest.json" />
