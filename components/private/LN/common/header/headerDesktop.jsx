@@ -18,6 +18,7 @@ import '../../../../../resources/dist/css/ln/components/usuario.css';
 import '../../../../../resources/dist/css/ln/components/button.css';
 import dynamicallyLoadScript from '../utils/dynamicallyLoadScript';
 import BannerLogoHeader from '../../../common/banners/BannerLogoHeader';
+import handleCookie from '../utils/handleCookie';
 
 const ItemAnchor = ({ url, text, alt }) => {
     const callURL = address => {
@@ -76,6 +77,9 @@ const HeaderDesktop = ({
     isAdmin
 }) => {
     const { loading, goToLoginUrl } = loginData;
+    const { getCookie } = handleCookie();
+
+    const [token, setToken] = useState(getCookie('token'));
     const [active, setActive] = useState('');
     const [loadingUserData, setLoadingUserData] = useState(
         loading ? ' hlp-none' : ''
@@ -86,7 +90,8 @@ const HeaderDesktop = ({
 
     useEffect(() => {
         setLoadingUserData(loading ? ' hlp-none' : '');
-    }, [loading]);
+        setToken(getCookie('token'));
+    }, [loading, getCookie]);
 
     const handleClickBuscar = () => {
         dynamicallyLoadScript('//www.queryly.com/js/queryly.v4.js', 'body')
@@ -134,38 +139,39 @@ const HeaderDesktop = ({
             <div className="col-4 header__right">
                 <div
                     id="user-menu"
-                    className={`com-usuario${active}${
-                        logueado ? loadingUserData : ''
-                    }`}
+                    className={`com-usuario${active} ${!token &&
+                        loadingUserData}`}
                 >
-                    {!loginData.subscription && typeof window !== 'undefined' && (
-                        // <button
-                        //     className="com-button --special"
-                        //     id="btnsuscribite"
-                        //     type="button"
-                        //     title="Suscribite"
-                        //     onClick={() => {
-                        //         location.href =
-                        //             `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
-                        //                 location.href
-                        //             )}` || '/';
-                        //     }}
-                        // >
-                        //     SUSCRIBITE
-                        // </button>
+                    {!loginData.subscription &&
+                        typeof window !== 'undefined' &&
+                        !token && (
+                            // <button
+                            //     className="com-button --special"
+                            //     id="btnsuscribite"
+                            //     type="button"
+                            //     title="Suscribite"
+                            //     onClick={() => {
+                            //         location.href =
+                            //             `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
+                            //                 location.href
+                            //             )}` || '/';
+                            //     }}
+                            // >
+                            //     SUSCRIBITE
+                            // </button>
 
-                        <a
-                            className="com-button --special"
-                            id="btnsuscribite"
-                            title="Suscribite a LA NACION"
-                            href={`${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
-                                location.href
-                            )}`}
-                            rel="nofollow"
-                        >
-                            SUSCRIBITE
-                        </a>
-                    )}
+                            <a
+                                className="com-button --special"
+                                id="btnsuscribite"
+                                title="Suscribite a LA NACION"
+                                href={`${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
+                                    location.href
+                                )}`}
+                                rel="nofollow"
+                            >
+                                SUSCRIBITE
+                            </a>
+                        )}
                     {logueado && (
                         <div
                             onMouseUp={toggleMenu}
@@ -214,7 +220,7 @@ const HeaderDesktop = ({
                             </ul>
                         </div>
                     )}
-                    {!logueado && (
+                    {!token && (
                         <button
                             className="com-button --secondary"
                             id="btningresar"
