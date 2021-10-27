@@ -24,18 +24,8 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
     class="mod-description"
   >
     <span
-      class="badge com-label --liveblog"
+      class="badge --sixxs com-label "
     >
-      <div
-        class="live"
-      >
-        <div
-          class="circle"
-        />
-        <div
-          class="ringring"
-        />
-      </div>
       chapita
     </span>
     <h1
