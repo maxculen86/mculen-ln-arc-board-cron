@@ -25,6 +25,7 @@ const ModDescription = props => {
         subheadTag,
         dateText,
         label,
+        labelType,
         lead,
         marquesina,
         category,
@@ -37,7 +38,7 @@ const ModDescription = props => {
         <section className="mod-description">
             {/* Dejamos harcodeado el type, tipos: a-fondo , liveblog */}
             {label && (
-                <Badge className="com-label" type="liveblog">
+                <Badge className="com-label" type={labelType || ''}>
                     {label}
                 </Badge>
             )}
@@ -127,6 +128,7 @@ ModDescription.propTypes = {
     subheadTag: PropTypes.string,
     dateText: PropTypes.string,
     label: PropTypes.string,
+    labelType: PropTypes.string,
     lead: PropTypes.string,
     authors: PropTypes.string,
     marquesina: PropTypes.string,
@@ -146,6 +148,7 @@ ModDescription.defaultProps = {
     subheadTag: '',
     dateText: undefined,
     label: undefined,
+    labelType: undefined,
     lead: undefined,
     authors: undefined,
     link: undefined,

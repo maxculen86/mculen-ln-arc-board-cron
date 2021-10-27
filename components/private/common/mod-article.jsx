@@ -47,6 +47,7 @@ const ModArticle = props => {
         anexo,
         noMedia,
         label,
+        labelType,
         artPosition,
         boxPosition,
         hour,
@@ -121,7 +122,7 @@ const ModArticle = props => {
                 />
             )}
 
-            {/* {frontdemo && (
+            {frontdemo && (
                 <div>
                     <ModMedia>
                         <figure className="mod-figure">
@@ -153,7 +154,7 @@ const ModArticle = props => {
                         </figure>
                     </ModMedia>
                 </div>
-            )} */}
+            )}
 
             <ModDescription
                 link={link}
@@ -169,6 +170,7 @@ const ModArticle = props => {
                 dateSize={dateSize}
                 lead={leadText}
                 label={label}
+                labelType={labelType}
                 marquesina={marquesina}
                 category={category}
                 tags={tags}

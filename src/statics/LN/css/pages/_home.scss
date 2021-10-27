@@ -1154,79 +1154,79 @@ $rank-dsk: px(400);
     }
 }
 
-//Pruebas en maqueta home
-.demofront {
-    .mod-article.mod-article {
-        background: yellow;
-        a {
-            background: aqua;
-        }
-        .mod-picture {
-            opacity: 0.2;
-        }
-        &:hover {
-            cursor: help;
-        }
-    }
+//Pruebas en maqueta home para que la card linkee completa
+// .demofront {
+//     .mod-article.mod-article {
+//         background: yellow;
+//         a {
+//             background: aqua;
+//         }
+//         .mod-picture {
+//             opacity: 0.2;
+//         }
+//         &:hover {
+//             cursor: help;
+//         }
+//     }
 
-    .mod-article {
-        .mod-media,
-        .mod-description .com-title,
-        .mod-description .com-subhead,
-        .mod-description .mod-marquee {
-            margin-bottom: 0;
-            a {
-                padding-bottom: px(8);
-            }
-        }
-        .mod-description {
-            .mod-marquee,
-            .com-title {
-                display: block;
-            }
-        }
-        a {
-            display: block;
-        }
-        &.--author {
-            .mod-media,
-            .mod-marquee {
-                display: flex;
-                a {
-                    padding: 0;
-                }
-            }
-        }
-    }
-    .--editoriales {
-        a {
-            padding: 0;
-        }
-    }
-    .--highlight,
-    .com-ranking {
-        .mod-media {
-            a {
-                padding: 0;
-            }
-        }
-    }
-    .box-articles.--left {
-        @media ($media-m) {
-            .col-tablet-8 {
-                .mod-article {
-                    > div {
-                        .mod-media {
-                            a {
-                                padding-top: px(16);
-                            }
-                        }
-                    }
-                    .mod-description {
-                        margin-bottom: 0;
-                    }
-                }
-            }
-        }
-    }
-}
+//     .mod-article {
+//         .mod-media,
+//         .mod-description .com-title,
+//         .mod-description .com-subhead,
+//         .mod-description .mod-marquee {
+//             margin-bottom: 0;
+//             a {
+//                 padding-bottom: px(8);
+//             }
+//         }
+//         .mod-description {
+//             .mod-marquee,
+//             .com-title {
+//                 display: block;
+//             }
+//         }
+//         a {
+//             display: block;
+//         }
+//         &.--author {
+//             .mod-media,
+//             .mod-marquee {
+//                 display: flex;
+//                 a {
+//                     padding: 0;
+//                 }
+//             }
+//         }
+//     }
+//     .--editoriales {
+//         a {
+//             padding: 0;
+//         }
+//     }
+//     .--highlight,
+//     .com-ranking {
+//         .mod-media {
+//             a {
+//                 padding: 0;
+//             }
+//         }
+//     }
+//     .box-articles.--left {
+//         @media ($media-m) {
+//             .col-tablet-8 {
+//                 .mod-article {
+//                     > div {
+//                         .mod-media {
+//                             a {
+//                                 padding-top: px(16);
+//                             }
+//                         }
+//                     }
+//                     .mod-description {
+//                         margin-bottom: 0;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }

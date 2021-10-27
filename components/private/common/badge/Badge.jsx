@@ -18,7 +18,7 @@ const propTypes = {
 const Badge = ({ children, className, type, ...r }) => {
     return (
         <span
-            className={`badge ${className} ${type ? `--${type}` : ``}`}
+            className={`badge --sixxs ${className} ${type ? `--${type}` : ``}`}
             {...r}
         >
             {type === 'liveblog' && <Live />}
