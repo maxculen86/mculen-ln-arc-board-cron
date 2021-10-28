@@ -14,6 +14,8 @@ const logger = (() => {
             loggerExcludedErros: []
         };
         const { statusCode } = e || {};
+        if ([301, 302].includes(statusCode)) throw e;
+
         // const method = get(e || {}, 'response.request.method', null);
         // const uri = get(e || {}, 'options.uri', null);
         const message = get(e, 'error.message', null);

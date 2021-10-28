@@ -53,7 +53,10 @@ const isValidUrlTagA = (contentElements, arcSite, url, API_ENV) => {
             const { content, type } = current;
             if (content && typeElement[type]) {
                 const errors = typeElement[type].getErrors(current);
-                try {
+                /**
+                 * TODO: Ver si se necesita enviar warnings por urls mal formadas
+                 */
+                /* try {
                     if (API_ENV === 'prod' && errors.length) {
                         logger.push(
                             {
@@ -70,7 +73,7 @@ const isValidUrlTagA = (contentElements, arcSite, url, API_ENV) => {
                     }
                 } catch (e) {
                     console.log('Error en removeInvalidUrlTagA.js', e.message);
-                }
+                } */
 
                 const newElement =
                     errors.length &&
