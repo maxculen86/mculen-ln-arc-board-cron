@@ -39,8 +39,11 @@ const fetch = query => {
             return transform(response, query);
         })
         .catch(error => {
-            logger.push(error, { source: 'content/source', url }, arcSite);
-            throw error;
+            logger.push(
+                error,
+                { source: 'content/source/sectionSource', url },
+                arcSite
+            );
         });
 };
 const transform = (data, siteProps) => {
