@@ -134,7 +134,7 @@ const LNHome = props => {
                             />
                         </section>
                     </div>
-                    <main>
+                    <main id="content">
                         <div className="">
                             <div className="lay-sidebar">
                                 <div className="sidebar__main">
@@ -221,8 +221,8 @@ const LNHome = props => {
                                                     leadText="Pandemia."
                                                     titleText="La dura respuesta de Bullrich a la acusación de Frederic"
                                                     authors="Por Nombre Apellido"
-                                                    label="SPONSOR"
-                                                    labelType="sponsored"
+                                                    label="CHAPITA LARGA"
+                                                    labelType="chapita"
                                                     position="0201"
                                                 />
                                                 <Article
@@ -311,7 +311,8 @@ const LNHome = props => {
                                                     titleText="La casa Breuer Moreno se prepara para su último remate"
                                                     titleSize="--l"
                                                     authors="Por Nombre Apellido"
-                                                    label="Chapita más larga"
+                                                    label="A FONDO"
+                                                    labelType="a-fondo"
                                                 />
                                             </div>
                                         </section>
@@ -374,7 +375,8 @@ const LNHome = props => {
                                                         titleSize="--l"
                                                         titleText="Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
                                                         authors="Por Maia Jastreblansky"
-                                                        label="Chapita"
+                                                        label="AHORA"
+                                                        labelType="liveblog"
                                                         position="0401"
                                                     />
                                                 </div>

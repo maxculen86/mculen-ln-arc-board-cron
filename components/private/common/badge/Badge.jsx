@@ -12,13 +12,15 @@ const propTypes = {
     /**
      * Tipo del badge.
      */
-    type: PropTypes.oneOf(['sponsored', 'multimedia', 'a-fondo', 'liveblog'])
+    type: PropTypes.oneOf(['sponsored', 'a-fondo', 'liveblog'])
 };
 
 const Badge = ({ children, className, type, ...r }) => {
     return (
         <span
-            className={`badge --sixxs ${className} ${type ? `--${type}` : ``}`}
+            className={`badge --sixxs ${className} ${
+                type === 'liveblog' || 'a-fondo' ? `--${type}` : ``
+            }`}
             {...r}
         >
             {type === 'liveblog' && <Live />}
