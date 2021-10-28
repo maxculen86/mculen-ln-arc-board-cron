@@ -134,7 +134,7 @@ const LNHome = props => {
                             />
                         </section>
                     </div>
-                    <main>
+                    <main id="content">
                         <div className="">
                             <div className="lay-sidebar">
                                 <div className="sidebar__main">

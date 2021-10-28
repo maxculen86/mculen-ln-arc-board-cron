@@ -103,7 +103,7 @@ const LNHome = props => {
                     className={`acumulado ${HEADER_BACKGROUND} ${COLOR_CLASS} ${classRevista} ${sectionClass} ${OPENING_CLASS} ${amp}`}
                 >
                     <Header />
-                    <main>
+                    <main id="content">
                         {stickyMobile}
                         <div
                             className="row --top"

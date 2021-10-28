@@ -64,7 +64,7 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
             {/* Banner MEGATOP */}
             <div id="wrapper" className={`nota noticia ${amp}`}>
                 <Header />
-                <main>
+                <main id="content">
                     {children[1]}
                     <div className="lay --apertura">
                         <div className="row">

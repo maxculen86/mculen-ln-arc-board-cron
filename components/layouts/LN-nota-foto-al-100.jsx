@@ -91,7 +91,7 @@ const lnNotaFotoAl100 = ({
                     className={`nota ${magazine} --photo100 --transparent ${amp}`}
                 >
                     <Header />
-                    <main>
+                    <main id="content">
                         {preTitulo}
                         <AperturaStorytelling />
 

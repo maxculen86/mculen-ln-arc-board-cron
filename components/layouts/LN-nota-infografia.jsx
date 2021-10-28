@@ -84,7 +84,7 @@ const lnNotaInfografia = ({
                     {/* TODO: sacar */}
                     {/* <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" /> */}
                     <Header />
-                    <main>
+                    <main id="content">
                         {children[1]}
                         <div className="lay --apertura">
                             <div className="row">

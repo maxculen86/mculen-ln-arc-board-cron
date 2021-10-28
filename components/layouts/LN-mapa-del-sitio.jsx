@@ -262,7 +262,7 @@ const LNMapaDelSitio = ({ children }) => {
                         />
                     </div>
                 </header>
-                <main>
+                <main id="content">
                     <div className="lay">
                         <Title tag="h1" size="--l" content="Mapa del sitio" />
                         <div className="row">
