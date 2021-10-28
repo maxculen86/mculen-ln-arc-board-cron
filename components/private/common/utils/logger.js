@@ -9,19 +9,15 @@ import LnError from './LN-Error';
 
 const logger = (() => {
     const push = (e, config, site) => {
-        const { loggerOn, loggerExcludedErrors } = getProperties(site) || {
-            loggerOn: true,
-            loggerExcludedErros: []
+        const { loggerExcludedErrors } = getProperties(site) || {
+            loggerExcludedErros: [301, 302, 404]
         };
         const { statusCode } = e || {};
-        if ([301, 302, 404].includes(statusCode)) throw e;
+        if (loggerExcludedErrors.includes(Number(statusCode || 0))) throw e;
 
         // const method = get(e || {}, 'response.request.method', null);
         // const uri = get(e || {}, 'options.uri', null);
         const message = get(e, 'error.message', null);
-
-        if (!loggerOn || loggerExcludedErrors.includes(Number(statusCode || 0)))
-            return;
 
         const { source = 'ARC', url = null, uri = null } = config || {};
 
