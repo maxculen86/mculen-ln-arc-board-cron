@@ -24,7 +24,7 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
     class="mod-description"
   >
     <span
-      class="badge --sixxs com-label "
+      class="badge --sixxs com-label --"
     >
       chapita
     </span>
