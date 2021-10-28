@@ -79,8 +79,6 @@ const getItem = async query => {
         ...query
     });
 
-    console.log(query);
-
     return request(opt)
         .then(response => {
             return transform(response, initialClass);
@@ -88,35 +86,9 @@ const getItem = async query => {
         .catch(error => {
             logger.push(error, { source: 'content/source', url }, arcSite);
         });
-
-    // const menuData = sourceMenu.map(({ hierarchy, initialClass }) => {
-    //     opt.uri = resolveUri({
-    //         ...query,
-    //         hierarchy
-    //     });
-
-    //     return cachedCall('navigation-test-schema',
-
-    // });
-
-    // return Promise.all(menuData);
 };
 
 const fetch = async (query, { cachedCall }) => {
-    // Extraer quien consume
-    // Agregarlo al query para la funcion getMenuItems
-    // Agregar nombre de cache segun quien consuma
-    // const test = {
-    //     ...query,
-    //     hierarchy: sourceMenu[0].hierarchy,
-    //     initialClass: sourceMenu[0].initialClass
-    // };
-    // return getItem({
-    //     ...query,
-    //     hierarchy: sourceMenu[0].hierarchy,
-    //     initialClass: sourceMenu[0].initialClass
-    // });
-
     const firstNav = await cachedCall(
         `navigation-schema-${sourceMenu[0].hierarchy}`,
         getItem,
@@ -149,7 +121,7 @@ const fetch = async (query, { cachedCall }) => {
 export default {
     fetch,
     schemaName: 'navigation-test-schema',
-    ttl: 600,
+    ttl: 200,
     params: {
         website: 'text'
     }
