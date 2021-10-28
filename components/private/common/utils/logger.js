@@ -12,15 +12,18 @@ const logger = (() => {
         const { loggerExcludedErrors } = getProperties(site) || {
             loggerExcludedErros: [301, 302, 404]
         };
-        const { statusCode } = e || {};
-        if (loggerExcludedErrors.includes(Number(statusCode || 0))) throw e;
+        const { statusCode } = e || { statusCode: 500 };
+        if (loggerExcludedErrors.includes(Number(statusCode))) throw e;
 
-        // const method = get(e || {}, 'response.request.method', null);
-        // const uri = get(e || {}, 'options.uri', null);
+        /**
+         * TODO: Revisar si se estan recibiendo correctamente el message y url
+         */
         const message = get(e, 'error.message', null);
-
         const { source = 'ARC', url = null, uri = null } = config || {};
 
+        /**
+         * TODO: Revisar si se llega correctamente el error
+         */
         throw new LnError(
             `Status Code: ${statusCode}. Mensaje: ${message}. Source: ${source}. Url: ${url ||
                 uri}`,
@@ -28,55 +31,8 @@ const logger = (() => {
                 customErrorType: 'controlado'
             }
         );
-
-        // const {
-        //     application = 'ln/arc',
-        //     source = 'ARC',
-        //     user = 'ARC',
-        //     url = null,
-        //     severity = null,
-        //     version = null,
-        //     queryString = []
-        // } = config || {};
-
-        // const elmahJson = {
-        //     application,
-        //     detail: `${statusCode} - ${message}`,
-        //     hostname: uri,
-        //     title: `${statusCode} - ${message}`,
-        //     titleTemplate: 'StatusCodeError',
-        //     source,
-        //     statusCode,
-        //     dateTime: new Date().toISOString(),
-        //     type: 'Error',
-        //     user,
-        //     severity,
-        //     url: `${SITE_LANACION}${url}`,
-        //     method,
-        //     version,
-        //     queryString
-        // };
-
-        // request({
-        //     uri: URI_ELMAH,
-        //     qs: {
-        //         api_key: ELMAH_API_KEY
-        //     },
-        //     method: 'POST',
-        //     headers: {
-        //         accept: 'text/plain',
-        //         'Content-Type': 'application/json-patch+json'
-        //     },
-        //     body: JSON.stringify(elmahJson)
-        // })
-        //     .then(res => {
-        //         console.log('elmah -> res', res);
-        //     })
-        //     .catch(e => {
-        //         console.log('elmah -> error', e);
-        //     });
     };
-    // TODO: ELIMINAR CODIGO COMENTADO DE ANTIGUA CONFIGURACION PARA LOGUEO DE ERRORES POR ELMAH
+
     return {
         push
     };
