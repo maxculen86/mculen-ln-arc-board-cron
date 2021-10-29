@@ -16,14 +16,17 @@ import handleCookie from '../../../private/LN/common/utils/handleCookie';
 import LoadingIcon from '../../../private/LN/common/loadingIcon';
 import { isSubscribed } from '../../../private/LN/common/utils/contextHelper';
 import HeaderComments from '../../../private/LN/nota/comments/header';
+import findTermica from '../../../private/common/utils/findTermica';
 
 const CommentsViafouraFeature = props => {
     const { outputType } = props;
     const subscription = isSubscribed();
     const { messageType, shouldLoad } = validateComments(props, subscription);
     const messageProps = getMessageProps(props, messageType);
+    const termicaLivefyre = findTermica('livefyre');
     const { getCookie } = handleCookie();
     const [isReady, setIsReady] = useState(false);
+    const showComponent = shouldLoad && termicaLivefyre;
 
     useEffect(() => {
         const handleScrollForComments = () => {
@@ -75,17 +78,17 @@ const CommentsViafouraFeature = props => {
             }
         };
 
-        shouldLoad &&
+        showComponent &&
             window.addEventListener('scroll', e => handleScrollForComments());
         return () =>
-            shouldLoad &&
+            showComponent &&
             window.removeEventListener('scroll', handleScrollForComments);
     });
 
-    if (!shouldLoad && messageType === CLOSED_BY_TERMIC)
+    if (shouldLoad && !termicaLivefyre && messageType === CLOSED_BY_TERMIC)
         return <Message {...messageProps} />;
 
-    if (!shouldLoad || outputType !== 'default') return <></>;
+    if (!showComponent || outputType !== 'default') return <></>;
 
     return (
         <>

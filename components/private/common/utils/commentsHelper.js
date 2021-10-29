@@ -11,8 +11,7 @@ export const SUBSCRIPTION = 'SUBSCRIPTION';
 export const allowComments = props =>
     get(props, 'globalContent.type') === 'story' &&
     get(props, 'globalContent._id') &&
-    get(props, 'globalContent.comments.display_comments', true) &&
-    findTermica('livefyre');
+    get(props, 'globalContent.comments.display_comments', true);
 
 export const shouldLoadViafoura = inputDate => {
     const gc = useContext(GlobalContext);
@@ -37,15 +36,15 @@ export const validateComments = (props, subscription = false) => {
     const show = get(props, 'globalContent.comments.display_comments', true);
     const firstPublishDate = get(props, 'globalContent.first_publish_date');
     // const subscription = get(props, 'globalContent.subscription', false);
+    const termicaLivefyre = findTermica('livefyre');
     const shouldLoad =
         allowComments(props) && shouldLoadViafoura(firstPublishDate);
-    const closedByTermica = !findTermica('livefyre');
     return {
         shouldLoad,
         allowComments: allow,
         showComments: show,
         messageType:
-            (closedByTermica && CLOSED_BY_TERMIC) ||
+            (!termicaLivefyre && CLOSED_BY_TERMIC) ||
             (!allow && CLOSED_COMMENTS) ||
             (!subscription && SUBSCRIPTION),
         showCounter: show
