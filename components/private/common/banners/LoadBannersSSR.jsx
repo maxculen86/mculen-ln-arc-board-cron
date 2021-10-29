@@ -10,6 +10,7 @@ import {
     suffixDevice,
     queueGoogletagCommand
 } from '../../LN/common/utils/bannerHelper';
+import { isSubscribed } from '../../LN/common/utils/contextHelper';
 
 let googleCmdPushed = false;
 
@@ -30,7 +31,7 @@ const getBannersInDOM = device => {
                 prebidEnabled: divBanner.dataset.prebidEnabled === 'true',
                 targeting: JSON.parse(divBanner.dataset.targeting),
                 slotGroup: divBanner.dataset.slotGroup,
-                // subscription: divBanner.dataset.subscription === 'true',
+                hideForSubscriptor: divBanner.dataset.subscription === 'true',
                 withoutHide: divBanner.dataset.withoutHide === 'true'
             });
         });
@@ -41,6 +42,7 @@ const LoadBannersSSR = ({ blocksBanners }) => {
     const { renderables = [], outputType, isAdmin } = useAppContext();
     const [suffix, setSuffix] = useState();
     const device = useViewportSize();
+    const subscription = isSubscribed();
     const bannersConfigured = renderables.filter(e =>
         [
             'LN-common/banner',
@@ -181,13 +183,25 @@ const LoadBannersSSR = ({ blocksBanners }) => {
                         finalBannersToLoad
                     );
 
-                    queueGoogletagCommand(finalBannersToLoad);
+                    queueGoogletagCommand(
+                        finalBannersToLoad.filter(
+                            ban => !(ban.hideForSubscriptor && subscription)
+                        )
+                    );
                 }
             }
         } catch (error) {
             console.error('🚀 ~ file: LoadBannersSSR.jsx  ~ error', error);
         }
-    }, [bannersConfigured, blocksBanners, device, isAdmin, suffix, outputType]);
+    }, [
+        bannersConfigured,
+        blocksBanners,
+        device,
+        isAdmin,
+        suffix,
+        outputType,
+        subscription
+    ]);
 
     return <div className="hlp-none">Cargando banners ...</div>;
 };

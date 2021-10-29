@@ -134,7 +134,7 @@ const LNHome = props => {
                             />
                         </section>
                     </div>
-                    <main>
+                    <main id="content">
                         <div className="">
                             <div className="lay-sidebar">
                                 <div className="sidebar__main">
@@ -170,7 +170,8 @@ const LNHome = props => {
                                                         titleSize="--xl"
                                                         subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
                                                         authors="Por Maia Jastreblansky"
-                                                        label="Chapita"
+                                                        label="en vivo"
+                                                        labelType="liveblog"
                                                         position="0101"
                                                     />
                                                 </div>
@@ -191,7 +192,8 @@ const LNHome = props => {
                                                         leadText="Covid."
                                                         titleText='El Gobierno "autoengañado", el incendio y por qué cayó "en la trampa"'
                                                         authors="Por Maia Jastreblansky"
-                                                        label="Chapita"
+                                                        label="A FONDO"
+                                                        labelType="a-fondo"
                                                         position="0103"
                                                     />
                                                 </div>
@@ -219,7 +221,8 @@ const LNHome = props => {
                                                     leadText="Pandemia."
                                                     titleText="La dura respuesta de Bullrich a la acusación de Frederic"
                                                     authors="Por Nombre Apellido"
-                                                    label="Chapita larga muy pero muy larga se corta"
+                                                    label="CHAPITA LARGA"
+                                                    labelType="chapita"
                                                     position="0201"
                                                 />
                                                 <Article
@@ -308,7 +311,8 @@ const LNHome = props => {
                                                     titleText="La casa Breuer Moreno se prepara para su último remate"
                                                     titleSize="--l"
                                                     authors="Por Nombre Apellido"
-                                                    label="Chapita más larga"
+                                                    label="A FONDO"
+                                                    labelType="a-fondo"
                                                 />
                                             </div>
                                         </section>
@@ -371,7 +375,8 @@ const LNHome = props => {
                                                         titleSize="--l"
                                                         titleText="Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
                                                         authors="Por Maia Jastreblansky"
-                                                        label="Chapita"
+                                                        label="AHORA"
+                                                        labelType="liveblog"
                                                         position="0401"
                                                     />
                                                 </div>

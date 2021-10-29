@@ -67,7 +67,7 @@ describe('Private - Common - ModArticle', () => {
         expect(component.find('.com-subhead')).toHaveLength(1);
         expect(component.find('.mod-marquee')).toHaveLength(1);
         expect(component.find('.com-date')).toHaveLength(1);
-        expect(component.find('.com-label')).toHaveLength(1);
+        expect(component.find('.badge')).toHaveLength(1);
         expect(component.find('.com-title').html()).toBe(
             '<h1 class="com-title --s"><a href="http://google.com" title="Este es el titulo" class="com-link">Este es el titulo</a></h1>'
         );
