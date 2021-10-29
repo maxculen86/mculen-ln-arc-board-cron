@@ -40,15 +40,13 @@ const CommentsViafouraFeature = props => {
                         window.vfQ.push(() => {
                             setIsReady(true);
                             window.vf.$prepublish((channel, event, ...args) => {
-                                const {
-                                    specialUrl = SITE_LANACION
-                                } = messageProps;
+                                const { specialUrl = SITE_LANACION } =
+                                    messageProps || {};
                                 if (
                                     channel === 'authentication' &&
                                     event === 'required'
                                 ) {
-                                    debugger;
-                                    window.location.replace(specialUrl);
+                                    window.location.href = specialUrl;
                                     return false;
                                 }
                                 return { channel, event, args };
