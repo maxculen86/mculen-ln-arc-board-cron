@@ -13,7 +13,11 @@ const CommentsViafouraFeature = props => {
 
     return (
         <Static id={featureId}>
-            {messageProps ? <Message {...messageProps} /> : <HeaderComments />}
+            {messageProps ? (
+                <Message {...messageProps} />
+            ) : (
+                <HeaderComments showButton={false} />
+            )}
             <div className={`viafoura${messageProps ? ' not-comment' : ''}`}>
                 <vf-tray />
                 <vf-conversations
