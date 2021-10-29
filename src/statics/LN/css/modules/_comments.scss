@@ -152,7 +152,7 @@
     }
 
     .vf-post-form__container,
-    .vf-content-focus-container--default.vf-content-focus-container--reply-form--is-focused {
+    .vf-content-focus-container--default {
         .vf-button.is-cta {
             &.is-accent-color:not([disabled]) {
                 background-color: $light-blue-500;
