@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import { SITE_LANACION } from 'fusion:environment';
 import {
     validateComments,
     getMessageProps,
@@ -18,7 +19,6 @@ import HeaderComments from '../../../private/LN/nota/comments/header';
 
 const CommentsViafouraFeature = props => {
     const { outputType } = props;
-    // const { subscription } = globalContent;
     const subscription = isSubscribed();
     const { messageType, shouldLoad } = validateComments(props, subscription);
     const messageProps = getMessageProps(props, messageType);
@@ -40,17 +40,18 @@ const CommentsViafouraFeature = props => {
                         window.vfQ.push(() => {
                             setIsReady(true);
                             window.vf.$prepublish((channel, event, ...args) => {
+                                const {
+                                    specialUrl = SITE_LANACION
+                                } = messageProps;
                                 if (
                                     channel === 'authentication' &&
                                     event === 'required'
                                 ) {
-                                    window.location.replace(
-                                        'http://www.google.com'
-                                    );
+                                    debugger;
+                                    window.location.replace(specialUrl);
                                     return false;
-                                } else {
-                                    return { channel, event, args };
                                 }
+                                return { channel, event, args };
                             });
                             subscription &&
                                 token &&
@@ -90,8 +91,7 @@ const CommentsViafouraFeature = props => {
 
     return (
         <>
-            {messageProps && <Message {...messageProps} />}
-            <HeaderComments />
+            {messageProps ? <Message {...messageProps} /> : <HeaderComments />}
 
             {!isReady && <LoadingIcon />}
 
