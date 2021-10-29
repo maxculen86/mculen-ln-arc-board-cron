@@ -13,7 +13,6 @@ const fetch = ({ arcSite }) => {
     const getData = async () => {
         try {
             const response = await request(endpoint);
-
             return {
                 weather: transform(response),
                 sourceName: endpoint.uri,

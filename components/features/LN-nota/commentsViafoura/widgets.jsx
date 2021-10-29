@@ -13,8 +13,7 @@ const CommentsViafouraFeature = props => {
 
     return (
         <Static id={featureId}>
-            <HeaderComments />
-            {messageProps && <Message {...messageProps} />}
+            {messageProps ? <Message {...messageProps} /> : <HeaderComments />}
             <div className={`viafoura${messageProps ? ' not-comment' : ''}`}>
                 <vf-tray />
                 <vf-conversations
@@ -43,21 +42,27 @@ const CommentsViafouraFeature = props => {
                             if (partsPremiumd.length === 2) 
                                 productoPremium = partsPremiumd.pop().split(';').shift();
 
-                            if (productoPremium && productoPremium.includes('2')) {
                                 window.vfQ = window.vfQ || [];
                                 window.vfQ.push(() => {
-                                    window.vf &&
-                                    window.vf.session &&
-                                    window.vf.session.login
-                                        .cookie(token)
-                                        .then(successMessage => {
-                                            console.log('Viafoura Login correcto ', successMessage);
-                                        })
-                                        .catch(error => {
-                                            console.log('Viafoura Login incorrecto ', error);
-                                        });  
+                                    window.vf.$prepublish((channel, event, ...args) => {
+                                        if (channel === 'authentication' && event === 'required') {
+                                            return false;
+                                        }
+                                        return { channel, event, args };
+                                    });
+                                    if (productoPremium && productoPremium.includes('2')) {
+                                        window.vf &&
+                                        window.vf.session &&
+                                        window.vf.session.login
+                                            .cookie(token)
+                                            .then(successMessage => {
+                                                console.log('Viafoura Login correcto ', successMessage);
+                                            })
+                                            .catch(error => {
+                                                console.log('Viafoura Login incorrecto ', error);
+                                            });  
+                                    }
                                 });     
-                            }
                     });
                 `
                 }}

@@ -20,7 +20,6 @@ export default {
         body: 'ln'
     },
     host: 'https://www.lanacion.com.ar',
-    loggerOn: true,
     loggerExcludedErrors: [404, 301, 302],
     scripts: {
         AmazonPublisherServices: {

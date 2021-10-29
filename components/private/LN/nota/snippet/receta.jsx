@@ -122,13 +122,13 @@ const snippet = props => {
 
     const PLACERHOLDER = getAssetsPath(contextPath)(deployment)('bco.png');
     const LOGO_AMP = getAssetsPath(contextPath)(deployment)('logo-ln-amp.png');
-    const { by } = credits || {};
+    const { by = [] } = credits || {};
     const { basic: headLinesBasic } = headlines || {};
     const { basic: subheadLinesBasic } = subheadlines || {};
     const date = displayDate;
     const description = subheadLinesBasic;
 
-    const { autores } = extracDataFromCredits(by);
+    const { autores } = extracDataFromCredits(by) || {};
 
     const { image, counterTime, counterPortion } = extractDataFromPromoItems(
         promoItems
@@ -145,7 +145,10 @@ const snippet = props => {
     const data = {
         '@context': 'https://schema.org',
         '@type': 'Recipe',
-        author: `${autores || ''}`,
+        author: {
+            '@type': autores === '' ? 'Organization' : 'Person',
+            name: autores === '' ? 'LA NACION recetas' : `${autores}`
+        },
         cookTime: counterTime ? `PT${counterTime}M` : '',
         prepTime: counterTime ? `PT${counterTime}M` : '',
         totalTime: counterTime ? `PT${counterTime}M` : '',

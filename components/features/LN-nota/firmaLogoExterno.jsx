@@ -19,7 +19,10 @@ const FirmaLogoExterno = props => {
     const { by = [] } = credits || {};
 
     if (name === 'LA NACION' && by.length > 0) return <></>;
-    if (name === 'LA NACION' || subtype === HTMLLIBRE || subtype === RECETA)
+    if (subtype === RECETA && by.length === 0)
+        return <ComPartner size="--xs">Por LA NACION recetas</ComPartner>;
+    if (subtype === RECETA && by.length > 0) return <></>;
+    if (name === 'LA NACION' || subtype === HTMLLIBRE)
         return <ComPartner size="--xs">{name}</ComPartner>;
 
     const nameFormated = formatDistributorName(name);
