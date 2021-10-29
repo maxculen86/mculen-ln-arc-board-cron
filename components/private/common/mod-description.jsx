@@ -34,9 +34,9 @@ const ModDescription = props => {
     return (
         <section className="mod-description">
             {/* {label && <ComLabel labelArticle={label} />} */}
-            {label && (
-                <Text extraClass="com-label" size="6xs">
-                    {label}
+            {label && label.text && (
+                <Text extraClass={`com-label ${label.style || ''}`} size="6xs">
+                    {label.text}
                 </Text>
             )}
 
@@ -115,41 +115,44 @@ const ModDescription = props => {
 };
 
 ModDescription.propTypes = {
-    link: PropTypes.string,
-    titleTag: PropTypes.string,
-    titleSize: PropTypes.string,
-    titleText: PropTypes.string.isRequired,
+    authors: PropTypes.string,
     authorSize: PropTypes.string,
-    subheadText: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    category: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    dateText: PropTypes.string,
+    label: PropTypes.shape({
+        text: PropTypes.string,
+        style: PropTypes.string
+    }),
+    link: PropTypes.string,
+    lead: PropTypes.string,
+    marquesina: PropTypes.string,
     subheadSize: PropTypes.string,
     subheadTag: PropTypes.string,
-    dateText: PropTypes.string,
-    label: PropTypes.string,
-    lead: PropTypes.string,
-    authors: PropTypes.string,
-    marquesina: PropTypes.string,
-    category: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    subheadText: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     tags: PropTypes.oneOfType([
         PropTypes.bool,
         PropTypes.arrayOf(PropTypes.object)
-    ])
+    ]),
+    titleSize: PropTypes.string,
+    titleTag: PropTypes.string,
+    titleText: PropTypes.string.isRequired
 };
 
 ModDescription.defaultProps = {
-    titleTag: 'h4',
-    titleSize: '--xs',
-    subheadText: false,
-    subheadSize: '',
+    authors: undefined,
     authorSize: '',
-    subheadTag: '',
+    category: undefined,
     dateText: undefined,
     label: undefined,
     lead: undefined,
-    authors: undefined,
     link: undefined,
     marquesina: undefined,
-    category: undefined,
-    tags: undefined
+    subheadSize: '',
+    subheadTag: '',
+    subheadText: false,
+    tags: undefined,
+    titleSize: '--xs',
+    titleTag: 'h4'
 };
 
 export default ModDescription;
