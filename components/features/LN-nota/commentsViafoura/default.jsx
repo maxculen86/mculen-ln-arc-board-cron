@@ -39,6 +39,19 @@ const CommentsViafouraFeature = props => {
                         window.vfQ = window.vfQ || [];
                         window.vfQ.push(() => {
                             setIsReady(true);
+                            window.vf.$prepublish((channel, event, ...args) => {
+                                if (
+                                    channel === 'authentication' &&
+                                    event === 'required'
+                                ) {
+                                    window.location.replace(
+                                        'http://www.google.com'
+                                    );
+                                    return false;
+                                } else {
+                                    return { channel, event, args };
+                                }
+                            });
                             subscription &&
                                 token &&
                                 window.vf &&
