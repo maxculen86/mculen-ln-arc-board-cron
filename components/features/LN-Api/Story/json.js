@@ -28,16 +28,20 @@ class Story {
                          }`
             }
         });
-
-        this.versions = {
-            1: IndexNotaV1
+        this.apiData = {
+            general: {
+                1: IndexNotaV1
+            },
+            mobile: {
+                1: IndexNotaMobileV1
+            }
         };
     }
 
     render() {
-        const indexNota = this.versions[
-            browser.getApiVersion(this.props.requestUri)
-        ];
+        const indexNota = this.apiData[
+            browser.getApiType(this.props.requestUri)
+        ][browser.getApiVersion(this.props.requestUri)];
         const { navigationTreeSource } = this.state || {};
         const { globalContent } = this.props;
         try {
