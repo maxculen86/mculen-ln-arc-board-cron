@@ -140,4 +140,9 @@
             }
         }
     }
+
+    .vf-count-button.vf-content-actions__left-action.vf-content-actions__replies,
+    .vf-reply-to.vf-reply-to--clickable.vf-label-text.vf-label-text--default-case {
+        display: none;
+    }
 }
