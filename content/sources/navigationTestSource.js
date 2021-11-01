@@ -89,33 +89,48 @@ const getItem = async query => {
 };
 
 const fetch = async (query, { cachedCall }) => {
-    const firstNav = await cachedCall(
-        `navigation-schema-${sourceMenu[0].hierarchy}`,
-        getItem,
-        {
+    const resp = sourceMenu.map(({ hierarchy, initialClass }) => {
+        const menu = cachedCall(`navigation-schema-${hierarchy}`, getItem, {
             query: {
                 ...query,
-                hierarchy: sourceMenu[0].hierarchy,
-                initialClass: sourceMenu[0].initialClass
+                hierarchy,
+                initialClass
             },
             ttl: 300
-        }
-    );
+        });
+        return menu;
+    });
 
-    const secondNav = await cachedCall(
-        `navigation-schema-${sourceMenu[1].hierarchy}`,
-        getItem,
-        {
-            query: {
-                ...query,
-                hierarchy: sourceMenu[1].hierarchy,
-                initialClass: sourceMenu[1].initialClass
-            },
-            ttl: 300
-        }
-    );
+    const partialResp = await Promise.all(resp);
+    return partialResp;
 
-    return [firstNav, secondNav];
+    // const firstNav = await cachedCall(
+    //     `navigation-schema-${sourceMenu[0].hierarchy}`,
+    //     getItem,
+    //     {
+    //         query: {
+    //             ...query,
+    //             hierarchy: sourceMenu[0].hierarchy,
+    //             initialClass: sourceMenu[0].initialClass
+    //         },
+    //         ttl: 300
+    //     }
+    // );
+
+    // const secondNav = await cachedCall(
+    //     `navigation-schema-${sourceMenu[1].hierarchy}`,
+    //     getItem,
+    //     {
+    //         query: {
+    //             ...query,
+    //             hierarchy: sourceMenu[1].hierarchy,
+    //             initialClass: sourceMenu[1].initialClass
+    //         },
+    //         ttl: 300
+    //     }
+    // );
+
+    // return [firstNav, secondNav];
 };
 
 export default {
