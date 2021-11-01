@@ -20,14 +20,12 @@ export const shouldLoadViafoura = inputDate => {
         'state.siteService.migration.deadline_livefyre'
     );
 
-    const deadlineDate = deadlineLivefyre && new Date(deadlineLivefyre);
+    const deadlineDate =
+        deadlineLivefyre && new Date(`${deadlineLivefyre}T20:00:00`);
     const articlePublishDate = inputDate && new Date(inputDate);
 
     return (
-        deadlineDate &&
-        articlePublishDate &&
-        articlePublishDate.setHours(0, 0, 0, 0) >=
-            deadlineDate.setHours(0, 0, 0, 0)
+        deadlineDate && articlePublishDate && articlePublishDate >= deadlineDate
     );
 };
 
