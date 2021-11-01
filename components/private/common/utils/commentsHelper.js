@@ -51,6 +51,16 @@ export const validateComments = (props, subscription = false) => {
     };
 };
 
+export const getLoginAndRegistrationURLS = () => {
+    const urlBase64 =
+        typeof window !== 'undefined' ? window.btoa(location.href) : '';
+
+    return {
+        loginUrl: `${LOGIN_URL}${urlBase64}`,
+        registracionUrl: `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${urlBase64}`
+    };
+};
+
 export const getMessageProps = (props, messageType) => {
     const canonicalUrl = get(props, 'globalContent.canonical_url', '');
     // const urlBase64 =
@@ -61,10 +71,7 @@ export const getMessageProps = (props, messageType) => {
         ter => ter && ter.key === 'mensaje_para_cierre_de_comentarios'
     );
     const customMessage = (element && element.value) || '';
-    const urlBase64 =
-        typeof window !== 'undefined' ? window.btoa(location.href) : '';
-    const loginUrl = `${LOGIN_URL}${urlBase64}`;
-    const registracionUrl = `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${urlBase64}`;
+    const { loginUrl, registracionUrl } = getLoginAndRegistrationURLS();
 
     const MESSAGE_PROPS = {
         CLOSED_BY_TERMIC: {

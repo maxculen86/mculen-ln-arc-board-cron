@@ -3,10 +3,10 @@
 import React, { useEffect, useState } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import { SITE_LANACION } from 'fusion:environment';
 import {
     validateComments,
     getMessageProps,
+    getLoginAndRegistrationURLS,
     CLOSED_BY_TERMIC
 } from '../../../private/common/utils/commentsHelper';
 import Message from '../../../private/common/message';
@@ -43,13 +43,14 @@ const CommentsViafouraFeature = props => {
                         window.vfQ.push(() => {
                             setIsReady(true);
                             window.vf.$prepublish((channel, event, ...args) => {
-                                const { specialUrl = SITE_LANACION } =
-                                    messageProps || {};
+                                const {
+                                    registracionUrl
+                                } = getLoginAndRegistrationURLS();
                                 if (
                                     channel === 'authentication' &&
                                     event === 'required'
                                 ) {
-                                    window.location.href = specialUrl;
+                                    window.location.href = registracionUrl;
                                     return false;
                                 }
                                 return { channel, event, args };
