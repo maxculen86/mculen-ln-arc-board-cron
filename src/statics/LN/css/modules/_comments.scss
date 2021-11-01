@@ -96,8 +96,8 @@
         }
     }
 
-    //Oculto botón ajustes
-    .vf-flex .vf-profile-header__button-container {
+    //Oculto botón ajustes/seguir en perfil
+    .vf-is-logged-in .vf-flex .vf-profile-header__button-container {
         display: none;
     }
 
