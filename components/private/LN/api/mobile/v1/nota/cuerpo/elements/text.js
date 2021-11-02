@@ -3,10 +3,10 @@ import htmlText from './htmlText';
 const text = (nodo, dataNota) => {
     if (!nodo) return null;
 
-    const valor = nodo.content;
+    const valor = htmlText(nodo.content);
     if (!valor) return null;
     return {
-        _t: 'text',
+        _t: 'p',
         valor
     };
 };

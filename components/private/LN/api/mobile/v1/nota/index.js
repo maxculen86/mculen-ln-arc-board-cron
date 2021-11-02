@@ -1,8 +1,8 @@
 import get from 'lodash.get';
-import Apertura from './apertura/aperturaArticle';
+import Apertura from '../../../common/nota/apertura/aperturaArticle';
 import Cuerpo from './cuerpo';
 import ModificadorTemplate from './modificadorTemplate';
-import Relacionados from './relacionados';
+import Relacionados from '../../../common/nota/relacionados';
 import dateAndTimeUtil from '../../../../../common/utils/dateAndTimeUtil';
 import { getPrincipalCategory } from '../../../common/category';
 import { removeEmptyItems } from '../../../common/utils/responseCleaner';

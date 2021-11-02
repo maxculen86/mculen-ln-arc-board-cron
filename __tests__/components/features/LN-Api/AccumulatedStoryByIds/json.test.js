@@ -21,7 +21,7 @@ describe('components - features - LN-Api - AccumulatedStoryByIds - json.js', () 
         outputType: 'json',
         globalContent: resultsArticle,
         requestUri:
-            '/api/global/v1/notas/byIds/236DDMMNYVFNFC4PZQPP4AK6XI,2375VFXVGZBNZDLXL5CTHUVTMQ,23CPLUXGMFF2RBADC62EYLXH4M/params=size:12;page:1/?_website=la-nacion-ar&outputType=json'
+            '/api/v1/notas/byIds/236DDMMNYVFNFC4PZQPP4AK6XI,2375VFXVGZBNZDLXL5CTHUVTMQ,23CPLUXGMFF2RBADC62EYLXH4M/params=size:12;page:1/?_website=la-nacion-ar&outputType=json'
     };
     describe('Check props', () => {
         it('When article load props Ok', () => {
