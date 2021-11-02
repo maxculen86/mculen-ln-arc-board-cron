@@ -101,6 +101,13 @@
     //     display: none;
     // }
 
+    //Oculto botón ajustes
+    .vf-flex
+        .vf-profile-header__button-container
+        .vf-button:not(.vf-follow-button) {
+        display: none;
+    }
+
     //Oculto tab Ajustes
     .vf-flex-grow {
         .vf-flex-nav[aria-controls='vf-settings__panel_5'] {
@@ -179,5 +186,17 @@
     }
     .vf3-comments .vf3-comments__tabbed-nav .vf-tabbed-nav {
         position: relative;
+    }
+
+    // para Apps
+    .widget & {
+        .vf-flex .vf-profile-header__button-container {
+            display: none;
+        }
+        footer.vf3-conversations-footer {
+            .vf-branding-container {
+                display: none;
+            }
+        }
     }
 }
