@@ -1812,7 +1812,8 @@ export default {
                         [728, 90]
                     ],
                     targeting: targetingAcumulado,
-                    hideForSubscriptor: true
+                    hideForSubscriptor: true,
+                    closeButton: true
                 },
                 caja1_dsk: {
                     slotName: `la_nacion_desktop/Acumulado/caja1_dsk`,
@@ -1889,7 +1890,8 @@ export default {
                     slotName: `la_nacion_mobile/Acumulado/adhesion_mob`,
                     dimensions: [[320, 50]],
                     targeting: targetingAcumulado,
-                    hideForSubscriptor: true
+                    hideForSubscriptor: true,
+                    closeButton: true
                 },
                 caja1_mob: {
                     slotName: `la_nacion_mobile/Acumulado/caja1_mob`,
@@ -1961,7 +1963,8 @@ export default {
                     slotName: `la_nacion_tablet/Acumulado/adhesion_tab`,
                     dimensions: [[728, 90]],
                     targeting: targetingAcumulado,
-                    hideForSubscriptor: true
+                    hideForSubscriptor: true,
+                    closeButton: true
                 },
                 caja1_tab: {
                     slotName: `la_nacion_tablet/Acumulado/caja1_tab`,
