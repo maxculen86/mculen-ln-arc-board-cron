@@ -82,3 +82,121 @@
         }
     }
 }
+
+//AJUSTES VIAFOURA
+.viafoura.viafoura {
+    font-family: Arial;
+    margin-bottom: $spacing-2xl;
+
+    &.not-comment {
+        section {
+            div.vf-post-form__container {
+                display: none;
+            }
+        }
+    }
+
+    //Oculto botón ajustes/seguir en perfil
+    // .vf-is-logged-in .vf-flex .vf-profile-header__button-container {
+    //     display: none;
+    // }
+
+    //Oculto botón ajustes
+    .vf-flex
+        .vf-profile-header__button-container
+        .vf-button:not(.vf-follow-button) {
+        display: none;
+    }
+
+    //Oculto tab Ajustes
+    .vf-flex-grow {
+        .vf-flex-nav[aria-controls='vf-settings__panel_5'] {
+            display: none;
+        }
+    }
+
+    //Icono like
+    .vf-content-actions__like.vf-content-actions__like,
+    .vf-content-actions__like.vf-content-actions__like:hover,
+    .vf-content-actions__like.vf-content-actions__like:focus {
+        display: flex;
+
+        &::before {
+            position: relative;
+            left: auto;
+            letter-spacing: normal;
+            text-decoration: none;
+            margin-right: px(2);
+            font-family: LNicons;
+            content: '\e944';
+            font-size: px(11);
+        }
+        svg {
+            display: none;
+        }
+    }
+
+    //Oculto header
+    header.vf-comment-header.vf-comment-header {
+        display: none;
+    }
+
+    footer.vf3-conversations-footer {
+        padding-bottom: 0;
+    }
+
+    .vf-post-form__container {
+        //Oculto botón cerrar sesión en el input
+        .vf-post-form__auth-actions {
+            display: none;
+        }
+
+        &.vf-post-form__container--focused {
+            .vf-content-layout__right {
+                box-shadow: none;
+            }
+        }
+    }
+
+    .vf-post-form__container,
+    .vf-content-focus-container--default {
+        .vf-button.is-cta {
+            &.is-accent-color:not([disabled]) {
+                background-color: $light-blue-500;
+                border-color: $light-blue-500;
+            }
+            .vf-loader-button__content {
+                text-indent: -9999999px;
+                line-height: 0;
+                display: block;
+                &::after {
+                    content: 'ENVIAR';
+                    text-indent: 0;
+                    display: block;
+                    line-height: initial;
+                }
+            }
+        }
+    }
+
+    //Oculto "Responder y Responder a"
+    .vf-button.vf-reply-to,
+    .vf-button.vf-content-actions__replies {
+        display: none;
+    }
+    .vf3-comments .vf3-comments__tabbed-nav .vf-tabbed-nav {
+        position: relative;
+    }
+
+    // para Apps
+    .widget & {
+        .vf-share-menu__trigger {
+            display: none;
+        }
+        footer.vf3-conversations-footer {
+            .vf-branding-container {
+                display: none;
+            }
+        }
+    }
+}

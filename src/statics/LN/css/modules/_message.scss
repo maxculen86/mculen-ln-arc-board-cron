@@ -25,11 +25,21 @@
                 color: $orange-400;
             }
         }
+
+        .text {
+            display: inline-flex;
+            align-items: center;
+            .com-icon {
+                margin-right: px(4);
+            }
+        }
     }
 
     .--left {
         margin-bottom: $spacing-md;
-
+        &.col-12 {
+            margin-bottom: 0;
+        }
         @media ($media-m) {
             margin-bottom: 0;
         }

@@ -1,62 +1,103 @@
+import { LOGIN_URL, SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import { useContext } from 'react';
-import { useContent } from 'fusion:content';
 import { GlobalContext } from '../context/globalContext';
 import findTermica from './findTermica';
 import get from './get';
 
+export const CLOSED_BY_TERMIC = 'CLOSED_BY_TERMIC';
+export const CLOSED_COMMENTS = 'CLOSED_COMMENTS';
+export const SUBSCRIPTION = 'SUBSCRIPTION';
+
 export const allowComments = props =>
     get(props, 'globalContent.type') === 'story' &&
     get(props, 'globalContent._id') &&
-    get(props, 'globalContent.comments.display_comments', true) &&
-    findTermica('livefyre');
+    get(props, 'globalContent.comments.display_comments', true);
 
 export const shouldLoadViafoura = inputDate => {
     const gc = useContext(GlobalContext);
-    const deadlineLivefyer = get(
+    const deadlineLivefyre = get(
         gc,
         'state.siteService.migration.deadline_livefyre'
     );
 
-    const deadlineDate = deadlineLivefyer && new Date(deadlineLivefyer);
+    const deadlineDate =
+        deadlineLivefyre && new Date(`${deadlineLivefyre}T20:00:00`);
     const articlePublishDate = inputDate && new Date(inputDate);
 
     return (
-        deadlineDate &&
-        articlePublishDate &&
-        articlePublishDate.setHours(0, 0, 0, 0) >=
-            deadlineDate.setHours(0, 0, 0, 0)
+        deadlineDate && articlePublishDate && articlePublishDate >= deadlineDate
     );
 };
 
-export const shouldLoadViafouraSSR = props => {
-    const {
-        globalContent: { first_publish_date: firstPublishDate } = {},
-        arcSite: website
-    } = props;
-    return useContent({
-        sourceName: 'navigationTreeSource',
-        query: {
-            website
-        },
-        transform: resp => {
-            const showComments =
-                get(props, 'globalContent.type') === 'story' &&
-                get(props, 'globalContent._id') &&
-                get(props, 'globalContent.comments.display_comments', true) &&
-                get(resp, 'Termicas.livefyre', true);
-            const deadlineLivefyre = get(resp, 'migration.deadline_livefyre');
-            const deadlineDate = deadlineLivefyre && new Date(deadlineLivefyre);
-            const articlePublishDate =
-                firstPublishDate && new Date(firstPublishDate);
-            return (
-                showComments &&
-                deadlineDate &&
-                articlePublishDate &&
-                articlePublishDate.setHours(0, 0, 0, 0) >=
-                    deadlineDate.setHours(0, 0, 0, 0)
-            );
-        }
-    });
+export const validateComments = (props, subscription = false) => {
+    const allow = get(props, 'globalContent.comments.allow_comments', true);
+    const show = get(props, 'globalContent.comments.display_comments', true);
+    const firstPublishDate = get(props, 'globalContent.first_publish_date');
+    // const subscription = get(props, 'globalContent.subscription', false);
+    const termicaLivefyre = findTermica('livefyre');
+    const shouldLoad =
+        allowComments(props) && shouldLoadViafoura(firstPublishDate);
+    return {
+        shouldLoad,
+        allowComments: allow,
+        showComments: show,
+        messageType:
+            (!termicaLivefyre && CLOSED_BY_TERMIC) ||
+            (!allow && CLOSED_COMMENTS) ||
+            (!subscription && SUBSCRIPTION),
+        showCounter: show
+    };
 };
 
-export default { allowComments, shouldLoadViafoura, shouldLoadViafouraSSR };
+export const getLoginAndRegistrationURLS = () => {
+    const urlBase64 =
+        typeof window !== 'undefined' ? window.btoa(location.href) : '';
+
+    return {
+        loginUrl: `${LOGIN_URL}${urlBase64}`,
+        registracionUrl: `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${urlBase64}`
+    };
+};
+
+export const getMessageProps = (props, messageType) => {
+    const canonicalUrl = get(props, 'globalContent.canonical_url', '');
+    // const urlBase64 =
+    //     Buffer.from(canonicalUrl, 'binary').toString('base64') || '';
+    const gc = useContext(GlobalContext);
+    const termicas = get(gc, 'state.siteService.termicas', []);
+    const element = termicas.find(
+        ter => ter && ter.key === 'mensaje_para_cierre_de_comentarios'
+    );
+    const customMessage = (element && element.value) || '';
+    const { loginUrl, registracionUrl } = getLoginAndRegistrationURLS();
+
+    const MESSAGE_PROPS = {
+        CLOSED_BY_TERMIC: {
+            title: customMessage,
+            subtitle: ' ',
+            icon: 'comment',
+            text: 'Comentarios'
+        },
+        CLOSED_COMMENTS: {
+            title: 'Nota cerrada a comentarios.',
+            subtitle: ' ',
+            icon: 'comment',
+            text: 'Comentarios'
+        },
+        SUBSCRIPTION: {
+            title: 'Ahora para comentar debés tener Acceso Digital.',
+            subtitle: 'Ingresá o suscribite',
+            secondaryUrl: (canonicalUrl && loginUrl) || '',
+            specialUrl: (canonicalUrl && registracionUrl) || '',
+            dark: true,
+            isExclusive: true
+        }
+    };
+    return MESSAGE_PROPS[messageType];
+};
+
+export default {
+    allowComments,
+    shouldLoadViafoura,
+    validateComments
+};

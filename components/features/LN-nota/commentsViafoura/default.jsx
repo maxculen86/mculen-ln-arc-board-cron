@@ -1,35 +1,116 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/no-danger */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import { LOGIN_URL, SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
-import Static from 'fusion:static';
-import { shouldLoadViafouraSSR } from '../../../private/common/utils/commentsHelper';
+import {
+    validateComments,
+    getMessageProps,
+    getLoginAndRegistrationURLS,
+    CLOSED_BY_TERMIC
+} from '../../../private/common/utils/commentsHelper';
 import Message from '../../../private/common/message';
-// import '../../../../resources/dist/css/ln/components/viafoura.css';
+import getScrollPercent from '../../../private/LN/common/utils/getScrollPercent';
+import dynamicallyLoadScript from '../../../private/LN/common/utils/dynamicallyLoadScript';
+import handleCookie from '../../../private/LN/common/utils/handleCookie';
+import LoadingIcon from '../../../private/LN/common/loadingIcon';
+import { isSubscribed } from '../../../private/LN/common/utils/contextHelper';
+import HeaderComments from '../../../private/LN/nota/comments/header';
+import findTermica from '../../../private/common/utils/findTermica';
 
 const CommentsViafouraFeature = props => {
-    const { id: featureId, globalContent = {} } = props;
-    const { subscription, canonical_url: canonicalUrl = '' } = globalContent;
-    const loadViafoura = shouldLoadViafouraSSR(props);
+    const { outputType } = props;
+    const subscription = isSubscribed();
+    const { messageType, shouldLoad } = validateComments(props, subscription);
+    const termicaLivefyre = findTermica('livefyre');
+    const { getCookie } = handleCookie();
+    const [isReady, setIsReady] = useState(false);
+    const [messageProps, setMessage] = useState(
+        getMessageProps(props, messageType)
+    );
+    const showComponent = shouldLoad && termicaLivefyre;
 
-    if (!loadViafoura) return <></>;
+    useEffect(() => {
+        const handleScrollForComments = () => {
+            const scrollPercentRounded = getScrollPercent();
+            // TODO: investigar si se puede usar con pixeles en vez de % para mayor exactitud
+            if (scrollPercentRounded > 90) {
+                dynamicallyLoadScript(
+                    'https://cdn.viafoura.net/vf-v2.js',
+                    'body'
+                )
+                    .then(() => {
+                        const {
+                            loginUrl,
+                            registracionUrl
+                        } = getLoginAndRegistrationURLS();
+                        const token = getCookie('token');
+                        window.vfQ = window.vfQ || [];
+                        window.vfQ.push(() => {
+                            setIsReady(true);
+                            window.vf.$prepublish((channel, event, ...args) => {
+                                if (
+                                    channel === 'authentication' &&
+                                    event === 'required'
+                                ) {
+                                    window.location.href = registracionUrl;
+                                    return false;
+                                }
+                                return { channel, event, args };
+                            });
+                            subscription &&
+                                token &&
+                                window.vf &&
+                                window.vf.session &&
+                                window.vf.session.login
+                                    .cookie(token)
+                                    .then(successMessage => {
+                                        console.log(
+                                            'Viafoura Login correcto ',
+                                            successMessage
+                                        );
+                                    })
+                                    .catch(error => {
+                                        console.log(
+                                            'Viafoura Login incorrecto ',
+                                            error
+                                        );
+                                        setMessage({
+                                            title:
+                                                'Ahora para comentar debés tener Acceso Digital.',
+                                            subtitle: 'Ingresá o suscribite',
+                                            secondaryUrl: loginUrl,
+                                            specialUrl: registracionUrl,
+                                            dark: true,
+                                            isExclusive: true
+                                        });
+                                    });
+                        });
+                    })
+                    .catch(error => {});
+            }
+        };
 
-    const urlBase64 =
-        Buffer.from(canonicalUrl, 'binary').toString('base64') || '';
-    const loginUrl = `${LOGIN_URL}${urlBase64}`;
-    const registracionUrl = `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${urlBase64}`;
+        showComponent &&
+            window.addEventListener('scroll', e => handleScrollForComments());
+        return () =>
+            showComponent &&
+            window.removeEventListener('scroll', handleScrollForComments);
+    });
+
+    if (shouldLoad && !termicaLivefyre && messageType === CLOSED_BY_TERMIC)
+        return <Message {...messageProps} />;
+
+    if (!showComponent || outputType !== 'default') return <></>;
 
     return (
-        <Static id={featureId}>
-            {subscription !== 'S' && (
-                <Message
-                    secondaryUrl={loginUrl}
-                    specialUrl={registracionUrl}
-                    dark
-                />
-            )}
-            <div className="viafoura">
+        <>
+            {messageProps ? <Message {...messageProps} /> : <HeaderComments />}
+
+            {!isReady && <LoadingIcon />}
+
+            <div className={`viafoura${messageProps ? ' not-comment' : ''}`}>
+                <vf-tray />
                 <vf-conversations
                     limit="15"
                     pagination-limit="30"
@@ -39,33 +120,7 @@ const CommentsViafouraFeature = props => {
                     featured-tab-active-threshold="3"
                 />
             </div>
-            {subscription === 'S' && (
-                <script
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                            window.addEventListener('load', (event) => {
-                                    let token = '';
-                                    const value = '; ' + document.cookie;
-                                    const parts = value.split('; token=');
-                                    if (parts.length === 2) 
-                                        token = parts.pop().split(';').shift();
-                                    window &&
-                                        window.vf &&
-                                        window.vf.session &&
-                                        window.vf.session.login
-                                            .cookie(token)
-                                            .then(successMessage => {
-                                                console.log('Viafoura Login correcto ', successMessage);
-                                            })
-                                            .catch(error => {
-                                                console.log('Viafoura Login incorrecto ', error);
-                                            });  
-                            });
-                        `
-                    }}
-                />
-            )}
-        </Static>
+        </>
     );
 };
 
@@ -73,9 +128,12 @@ CommentsViafouraFeature.propTypes = {
     id: PropTypes.string.isRequired,
     globalContent: PropTypes.shape({
         first_publish_date: PropTypes.string
-    }).isRequired
+    }).isRequired,
+    outputType: PropTypes.string.isRequired
 };
 
+CommentsViafouraFeature.outputType = 'default';
 CommentsViafouraFeature.label = 'LN-Nota-Comments-Viafoura';
+CommentsViafouraFeature.lazy = ['default', 'widgets'];
 
 export default Consumer(CommentsViafouraFeature);
