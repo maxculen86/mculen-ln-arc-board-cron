@@ -22,10 +22,12 @@ const CommentsViafouraFeature = props => {
     const { outputType } = props;
     const subscription = isSubscribed();
     const { messageType, shouldLoad } = validateComments(props, subscription);
-    const messageProps = getMessageProps(props, messageType);
     const termicaLivefyre = findTermica('livefyre');
     const { getCookie } = handleCookie();
     const [isReady, setIsReady] = useState(false);
+    const [messageProps, setMessage] = useState(
+        getMessageProps(props, messageType)
+    );
     const showComponent = shouldLoad && termicaLivefyre;
 
     useEffect(() => {
@@ -38,14 +40,15 @@ const CommentsViafouraFeature = props => {
                     'body'
                 )
                     .then(() => {
+                        const {
+                            loginUrl,
+                            registracionUrl
+                        } = getLoginAndRegistrationURLS();
                         const token = getCookie('token');
                         window.vfQ = window.vfQ || [];
                         window.vfQ.push(() => {
                             setIsReady(true);
                             window.vf.$prepublish((channel, event, ...args) => {
-                                const {
-                                    registracionUrl
-                                } = getLoginAndRegistrationURLS();
                                 if (
                                     channel === 'authentication' &&
                                     event === 'required'
@@ -72,6 +75,15 @@ const CommentsViafouraFeature = props => {
                                             'Viafoura Login incorrecto ',
                                             error
                                         );
+                                        setMessage({
+                                            title:
+                                                'Ahora para comentar debés tener Acceso Digital.',
+                                            subtitle: 'Ingresá o suscribite',
+                                            secondaryUrl: loginUrl,
+                                            specialUrl: registracionUrl,
+                                            dark: true,
+                                            isExclusive: true
+                                        });
                                     });
                         });
                     })
