@@ -1,6 +1,6 @@
 import Consumer from 'fusion:consumer';
-import IndexAcuV1 from '../../../private/LN/api/general/v1/accumulated';
-import IndexAcuV2 from '../../../private/LN/api/general/v2/accumulated';
+import IndexAcuV1 from '../../../private/LN/api/global/v1/accumulated';
+import IndexAcuV2 from '../../../private/LN/api/global/v2/accumulated';
 import browser from '../../../private/common/utils/browser';
 
 // URL de ejemplo: http://localhost/api/v1/notas/mayInterest/model/b4dd939b-0bf3-463b-bdc2-1613736289225/3/?_website=la-nacion-ar&outputType=json

@@ -3,7 +3,7 @@ import ArticleEmptyList from '../../../../../../../../__mocks__/data/nota/cuerpo
 import ArticleOrdenedList from '../../../../../../../../__mocks__/data/nota/cuerpo/list/OrdenedList.json';
 import ArticleNoElementList from '../../../../../../../../__mocks__/data/nota/cuerpo/list/NoElementList.json';
 
-import List from '../../../../../../../../components/private/LN/api/v1/nota/cuerpo/elements/list';
+import List from '../../../../../../../../components/private/LN/api/global/v1/nota/cuerpo/elements/list';
 
 describe('Test de las listas en el cuerpo de una nota', () => {
     it('Test de listas si es null', () => {

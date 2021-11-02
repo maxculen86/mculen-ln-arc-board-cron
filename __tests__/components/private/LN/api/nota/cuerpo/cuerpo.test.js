@@ -1,4 +1,4 @@
-import Cuerpo from '../../../../../../../components/private/LN/api/v1/nota/cuerpo';
+import Cuerpo from '../../../../../../../components/private/LN/api/global/v1/nota/cuerpo';
 import ArticleSinCuerpo from '../../../../../../../__mocks__/data/nota/cuerpo/notaSinCuerpo.json';
 import ArticleInfografia from '../../../../../../../__mocks__/data/nota/cuerpo/notaInfografia.json';
 import ArticleCuerpo from '../../../../../../../__mocks__/data/nota/cuerpo/notaCuerpo.json';

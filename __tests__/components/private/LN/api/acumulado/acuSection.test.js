@@ -1,4 +1,4 @@
-import AcuIndex from '../../../../../../components/private/LN/api/v1/accumulated';
+import AcuIndex from '../../../../../../components/private/LN/api/global/v1/accumulated';
 
 describe('Test de index en Json acumulado', () => {
     const dataMock = {

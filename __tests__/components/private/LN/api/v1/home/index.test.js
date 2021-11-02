@@ -1,4 +1,4 @@
-import index from '../../../../../../../components/private/LN/api/v1/home/index';
+import index from '../../../../../../../components/private/LN/api/global/v1/home/index';
 describe('components - private - LN - api - v1 - home - index.js', () => {
     const articlesCollections = [
         {

@@ -1,6 +1,6 @@
 import env from '../../../../../../../../__mocks__/fusion:environment';
 import ElementButton from '../../../../../../../../__mocks__/data/nota/cuerpo/button/button.json';
-import Button from '../../../../../../../../components/private/LN/api/v1/nota/cuerpo/elements/button';
+import Button from '../../../../../../../../components/private/LN/api/global/v1/nota/cuerpo/elements/button';
 
 describe('Test de los botones en el cuerpo de una nota', () => {
     it('Test de boton si es null', () => {

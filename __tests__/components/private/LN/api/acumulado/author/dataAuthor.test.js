@@ -1,6 +1,6 @@
 import dataAuthor from '../../../../../../../__mocks__/data/author/author.json';
 import articlesAuthor from '../../../../../../../__mocks__/data/author/articlesbyAuthor.json';
-import AcuIndex from '../../../../../../../components/private/LN/api/v1/accumulated';
+import AcuIndex from '../../../../../../../components/private/LN/api/global/v1/accumulated';
 import { authorAcu } from '../../../../../../../components/private/LN/api/common/author/index';
 describe('Json que valida data del Autor', () => {
     it('Test de Autor', () => {

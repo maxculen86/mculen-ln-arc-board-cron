@@ -2,7 +2,7 @@ import articlesRanking from '../../../../../../__mocks__/data/articleRankingColl
 import articlesAcumulado from '../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
 import articlesTPInteresar from '../../../../../../__mocks__/data/articles/tePuedeInteresar.json';
 //import Article from '../../../../../../components/private/LN/api/v1/common/articles/index';
-import Article from '../../../../../../components/private/LN/api/v1/accumulated/story';
+import Article from '../../../../../../components/private/LN/api/global/v1/accumulated/story';
 import dateAndTimeUtil, {
     isOlderThan24HourAgo,
     hasFutureDisplayDate,

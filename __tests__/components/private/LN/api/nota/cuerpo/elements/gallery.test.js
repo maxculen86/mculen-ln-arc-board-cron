@@ -1,7 +1,7 @@
 import ArticleGallery from '../../../../../../../../__mocks__/data/nota/cuerpo/gallery/gallery.json';
 import ArticleGalleryNoImages from '../../../../../../../../__mocks__/data/nota/cuerpo/gallery/galleryNoImages.json';
 
-import Gallery from '../../../../../../../../components/private/LN/api/v1/nota/cuerpo/elements/gallery';
+import Gallery from '../../../../../../../../components/private/LN/api/global/v1/nota/cuerpo/elements/gallery';
 import dateAndTimeUtil, {
     dateAndTimeForAppsUtil
 } from '../../../../../../../../components/private/common/utils/dateAndTimeUtil';

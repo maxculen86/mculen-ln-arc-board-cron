@@ -1,5 +1,5 @@
 import ArticleHeader from '../../../../../../../../__mocks__/data/nota/cuerpo/header/header.json';
-import Header from '../../../../../../../../components/private/LN/api/v1/nota/cuerpo/elements/header';
+import Header from '../../../../../../../../components/private/LN/api/global/v1/nota/cuerpo/elements/header';
 
 describe('Test del header del cuerpo de la nota', () => {
     it('En caso que la información del header null', () => {

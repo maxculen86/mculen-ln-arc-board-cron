@@ -1,5 +1,5 @@
 import ArticleEmbed from '../../../../../../../../__mocks__/data/nota/cuerpo/embed/embed.json';
-import Embed from '../../../../../../../../components/private/LN/api/v1/nota/cuerpo/elements/embed';
+import Embed from '../../../../../../../../components/private/LN/api/global/v1/nota/cuerpo/elements/embed';
 
 describe('Test de las embebidos en el cuerpo de una nota', () => {
     it('Test de embebidos si es null', () => {

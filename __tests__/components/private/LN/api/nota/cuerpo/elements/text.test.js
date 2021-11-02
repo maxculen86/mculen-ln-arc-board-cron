@@ -1,4 +1,4 @@
-import Text from '../../../../../../../../components/private/LN/api/v1/nota/cuerpo/elements/text';
+import Text from '../../../../../../../../components/private/LN/api/global/v1/nota/cuerpo/elements/text';
 import ArticleText from '../../../../../../../../__mocks__/data/nota/cuerpo/text/text.json';
 
 describe('Test Json Text del cuerpo de la nota', () => {

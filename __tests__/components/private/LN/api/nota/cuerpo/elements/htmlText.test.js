@@ -1,4 +1,4 @@
-import htmlText from '../../../../../../../../components/private/LN/api/v1/nota/cuerpo/elements/htmlText';
+import htmlText from '../../../../../../../../components/private/LN/api/global/v1/nota/cuerpo/elements/htmlText';
 
 describe('Test for html render inside text component', () => {
     test('Render base text', () => {

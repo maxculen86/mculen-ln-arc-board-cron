@@ -1,5 +1,5 @@
 import articlesRecetas from '../../../../../../../__mocks__/data/articleCollections/recetas.json';
-import AcuIndex from '../../../../../../../components/private/LN/api/v2/accumulated/index';
+import AcuIndex from '../../../../../../../components/private/LN/api/global/v2/accumulated/index';
 import { getFeaturedTag } from '../../../../../../../components/private/LN/api/common/tag/index';
 import ArticleTagDestacado from '../../../../../../../__mocks__/data/nota/apertura/tagDestacado/tagDestacado.json';
 

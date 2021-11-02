@@ -1,6 +1,6 @@
 import Consumer from 'fusion:consumer';
-import IndexAcuV1 from '../../../private/LN/api/general/v1/accumulated';
-import IndexAcuV2 from '../../../private/LN/api/general/v2/accumulated';
+import IndexAcuV1 from '../../../private/LN/api/global/v1/accumulated';
+import IndexAcuV2 from '../../../private/LN/api/global/v2/accumulated';
 import browser from '../../../private/common/utils/browser';
 import getSizesFrom from '../../../private/common/utils/getSizesFrom';
 // URL de ejemplo: http://localhost/api/v1/notas/byAuthor/Ignacio%20Madrid/params=size:12;page:1/?_website=la-nacion-ar&outputType=json

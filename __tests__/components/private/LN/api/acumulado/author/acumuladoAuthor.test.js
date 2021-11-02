@@ -1,6 +1,6 @@
 import dataAuthor from '../../../../../../../__mocks__/data/author/author.json';
 import articlesAuthor from '../../../../../../../__mocks__/data/author/articlesbyAuthor.json';
-import AcuIndex from '../../../../../../../components/private/LN/api/v1/accumulated';
+import AcuIndex from '../../../../../../../components/private/LN/api/global/v1/accumulated';
 
 describe('Json Acumulado Autor. Test de integracion información Autor y Articulos del Autor', () => {
     it('Test de Acumulado Autor', () => {
