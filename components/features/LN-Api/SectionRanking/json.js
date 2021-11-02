@@ -27,10 +27,14 @@ class SectionRanking {
         }
 
         this.state = { ...this.state };
-
-        this.versions = {
-            1: IndexAcuV1,
-            2: IndexAcuV2
+        this.apiData = {
+            global: {
+                1: IndexAcuV1,
+                2: IndexAcuV2
+            },
+            mobile: {
+                1: IndexAcuV1
+            }
         };
     }
 
@@ -63,8 +67,9 @@ class SectionRanking {
             requestUri
         } = this.props;
 
-        const indexAcu = this.versions[browser.getApiVersion(requestUri)];
-
+        const indexAcu = this.apiData[browser.getApiType(requestUri)][
+            browser.getApiVersion(requestUri)
+        ];
         if (!rankingArticleSource || !rankingArticleSource.content_elements) {
             return null;
         }

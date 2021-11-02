@@ -46,10 +46,14 @@ class AccumulatedTags {
                 }
             }
         });
-
-        this.versions = {
-            1: IndexAcuV1,
-            2: IndexAcuV2
+        this.apiData = {
+            global: {
+                1: IndexAcuV1,
+                2: IndexAcuV2
+            },
+            mobile: {
+                1: IndexAcuV1
+            }
         };
     }
 
@@ -60,8 +64,9 @@ class AccumulatedTags {
 
             const { requestUri } = this.props;
 
-            const indexAcu = this.versions[browser.getApiVersion(requestUri)];
-
+            const indexAcu = this.apiData[browser.getApiType(requestUri)][
+                browser.getApiVersion(requestUri)
+            ];
             if (!acuArticlesSource || !acuArticlesSource.content_elements) {
                 return null;
             }

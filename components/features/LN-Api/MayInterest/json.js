@@ -13,9 +13,14 @@ class MayInterest {
         // this.versions = {
         //     1: IndexMayInterestV1
         // };
-        this.versions = {
-            1: IndexAcuV1,
-            2: IndexAcuV2
+        this.apiData = {
+            global: {
+                1: IndexAcuV1,
+                2: IndexAcuV2
+            },
+            mobile: {
+                1: IndexAcuV1
+            }
         };
     }
 
@@ -25,8 +30,9 @@ class MayInterest {
 
             const { requestUri } = this.props;
 
-            const indexAcu = this.versions[browser.getApiVersion(requestUri)];
-
+            const indexAcu = this.apiData[browser.getApiType(requestUri)][
+                browser.getApiVersion(requestUri)
+            ];
             if (globalContent && globalContent?.status) {
                 return globalContent;
             }

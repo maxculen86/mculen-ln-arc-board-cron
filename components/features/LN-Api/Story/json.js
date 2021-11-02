@@ -29,7 +29,7 @@ class Story {
             }
         });
         this.apiData = {
-            general: {
+            global: {
                 1: IndexNotaV1
             },
             mobile: {
