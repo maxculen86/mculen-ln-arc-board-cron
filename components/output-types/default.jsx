@@ -39,7 +39,7 @@ import getMetaDescriptionForAcum from '../private/common/utils/getMetaDescriptio
 import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 import addForwardSlash from '../private/LN/common/utils/addForwardSlash';
 import AmazonPublisherServices from '../private/common/scriptManager/amazonPublisherServices';
-import FontFaceDefault from '../private/common/fontface';
+import FontFaceDefault from '../private/common/fontfaceDefault';
 import MetaViafoura from '../private/common/metaViafoura';
 
 const scriptList = [

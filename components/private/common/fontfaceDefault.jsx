@@ -64,7 +64,7 @@ const FontFaceDefault = () => {
         });
 `;
 
-    return <script dangerouslySetInnerHTML={{ __html: stringScript }} />;
+    return <script defer dangerouslySetInnerHTML={{ __html: stringScript }} />;
 };
 
 export default FontFaceDefault;
