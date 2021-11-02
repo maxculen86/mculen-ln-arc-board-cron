@@ -63,7 +63,7 @@ const getApiType = urlP => {
 
     const versionRegex = new RegExp('/api/(?:(mobile)/)?v([0-9]+)/');
     const regexResult = versionRegex.exec(url);
-    return regexResult[1] !== undefined ? regexResult[1] : 'general';
+    return regexResult[1] !== undefined ? regexResult[1] : 'global';
 };
 
 export default {
