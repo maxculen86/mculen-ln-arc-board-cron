@@ -157,12 +157,6 @@ const Index = ({
             alt: 'Ir a la Fundación LA NACION',
             href: 'https://fundacionlanacion.org.ar/',
             target: '_blank'
-        },
-        {
-            text: 'Avisos solidarios',
-            alt: 'Ir a los clasificados solidarios',
-            href: 'https://solidarios.lanacion.com.ar/',
-            target: '_blank'
         }
     ];
 
