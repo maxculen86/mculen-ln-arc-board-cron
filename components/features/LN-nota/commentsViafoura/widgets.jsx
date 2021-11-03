@@ -14,32 +14,29 @@ const CommentsViafouraFeature = props => {
 
     return (
         <Static id={featureId}>
-            <div id={featureId}>
-                {messageProps ? (
-                    <Message {...messageProps} />
-                ) : (
-                    <HeaderComments showButton={false} />
-                )}
-                <LoadingIcon />
-                <div
-                    id="comments-viafoura-container"
-                    className={`viafoura hlp-none${
-                        messageProps ? ' not-comment' : ''
-                    }`}
-                >
-                    <vf-tray />
-                    <vf-conversations
-                        limit="15"
-                        pagination-limit="30"
-                        reply-limit="3"
-                        pagination-reply-limit="15"
-                        sort="newest"
-                        featured-tab-active-threshold="3"
-                    />
-                </div>
-                <script
-                    dangerouslySetInnerHTML={{
-                        __html: `
+            {messageProps ? (
+                <Message {...messageProps} />
+            ) : (
+                <HeaderComments showButton={false} />
+            )}
+            <LoadingIcon />
+            <div
+                id="comments-viafoura-container"
+                className={`viafoura${messageProps ? ' not-comment' : ''}`}
+            >
+                <vf-tray />
+                <vf-conversations
+                    limit="15"
+                    pagination-limit="30"
+                    reply-limit="3"
+                    pagination-reply-limit="15"
+                    sort="newest"
+                    featured-tab-active-threshold="3"
+                />
+            </div>
+            <script
+                dangerouslySetInnerHTML={{
+                    __html: `
                     window.addEventListener('load', (event) => {
                             
                             let token = '';
@@ -61,31 +58,8 @@ const CommentsViafouraFeature = props => {
                                             return false;
                                         }
                                         if (channel === 'commenting' && event === 'loaded') {
-                                            const commentsFeature = document.getElementById('${featureId}')
-
-                                            const viafouraElements = 
-                                                commentsFeature && 
-                                                commentsFeature.getElementsByClassName('viafoura');
-                                            
-                                            const commentsContainer = 
-                                                viafouraElements && 
-                                                viafouraElements.length &&
-                                                [...viafouraElements].find(el => el.id === 'comments-viafoura-container');
-                                            
-                                            const loader = 
-                                                commentsFeature &&
-                                                commentsFeature.getElementsByClassName('loader');
-
-                                            if (commentsContainer &&
-                                                commentsContainer.classList &&
-                                                commentsContainer.classList.length &&
-                                                commentsContainer.classList.contains('hlp-none')) {
-                                                    commentsContainer.classList.remove('hlp-none');
-                                            }
-
-                                            if (loader && loader.length) {
-                                                loader[0].classList.add('hlp-none');
-                                            }
+                                            const loader = document.getElementsByClassName('loader');
+                                            loader && loader[0].classList.add('hlp-none');
                                         }
                                         return { channel, event, args };
                                     });
@@ -104,9 +78,8 @@ const CommentsViafouraFeature = props => {
                                 });     
                     });
                 `
-                    }}
-                />
-            </div>
+                }}
+            />
         </Static>
     );
 };

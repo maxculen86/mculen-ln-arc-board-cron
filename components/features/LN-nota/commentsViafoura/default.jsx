@@ -47,7 +47,6 @@ const CommentsViafouraFeature = props => {
                         const token = getCookie('token');
                         window.vfQ = window.vfQ || [];
                         window.vfQ.push(() => {
-                            setIsReady(true);
                             window.vf.$prepublish((channel, event, ...args) => {
                                 if (
                                     channel === 'authentication' &&
@@ -55,6 +54,12 @@ const CommentsViafouraFeature = props => {
                                 ) {
                                     window.location.href = registracionUrl;
                                     return false;
+                                }
+                                if (
+                                    channel === 'commenting' &&
+                                    event === 'loaded'
+                                ) {
+                                    setIsReady(true);
                                 }
                                 return { channel, event, args };
                             });
