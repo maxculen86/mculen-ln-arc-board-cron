@@ -1,4 +1,4 @@
-import Image from '../../image';
+import Image from '../../../../../common/nota/image';
 
 const image = (nodo, dataNota) => {
     if (!nodo) return null;

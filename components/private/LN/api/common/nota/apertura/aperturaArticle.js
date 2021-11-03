@@ -1,6 +1,6 @@
 import get from 'lodash.get';
-import Image from '../../../mobile/v1/nota/image';
-import Video from '../../../mobile/v1/nota/video';
+import Image from '../image';
+import Video from '../video';
 import AperturaReceta from './aperturaReceta';
 import Author from '../../author';
 import { getFeaturedTag } from '../../tag';

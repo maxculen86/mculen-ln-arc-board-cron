@@ -1,7 +1,7 @@
 import get from 'lodash.get';
 import Apertura from '../../../common/nota/apertura/aperturaArticle';
 import Cuerpo from './cuerpo';
-import ModificadorTemplate from './modificadorTemplate';
+import ModificadorTemplate from '../../../common/nota/modificadorTemplate';
 import Relacionados from '../../../common/nota/relacionados';
 import dateAndTimeUtil from '../../../../../common/utils/dateAndTimeUtil';
 import { getPrincipalCategory } from '../../../common/category';
