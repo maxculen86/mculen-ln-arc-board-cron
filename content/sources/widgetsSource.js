@@ -6,8 +6,8 @@ const WIDGETS = {
     viafoura: {
         transform: data => {
             const { params } = data || {};
-            const [_id] = params;
-            return { ...data, _id };
+            const [_id, messageType = ''] = params;
+            return { ...data, _id, messageType };
         }
     }
 };

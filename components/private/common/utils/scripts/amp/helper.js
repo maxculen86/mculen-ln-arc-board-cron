@@ -1,4 +1,5 @@
 import scriptVideoValidator from '../../../scriptManager/scriptVideoValidator';
+import ampCarouselValidation from './ampCarouselValidation';
 
 export const customElements = {
     'amp-sidebar': {
@@ -7,7 +8,8 @@ export const customElements = {
     },
     'amp-carousel': {
         customElement: 'amp-carousel',
-        src: 'https://cdn.ampproject.org/v0/amp-carousel-0.1.js'
+        src: 'https://cdn.ampproject.org/v0/amp-carousel-0.1.js',
+        validateInclusion: globalContent => ampCarouselValidation(globalContent)
     },
     'amp-iframe': {
         customElement: 'amp-iframe',
@@ -97,7 +99,6 @@ export const embedsForNote = [
     'amp-vine'
     // 'amp-tiktok'
 ];
-
 const customElementForNote = elementForNote.map(elem => customElements[elem]);
 
 export const styleConfig = {
@@ -126,7 +127,7 @@ export const config = {
         'LN-nota-video': customElementForNote
     }
 };
-
+// TODO: EVALUAR SI ESTA FUNCION SIGUE SIENDO UTIL.
 export const evaluateCheckInclusion = (configElement, contentFeatures) => {
     return configElement.checkInclusion
         ? contentFeatures.find(e => e === configElement.checkInclusion)

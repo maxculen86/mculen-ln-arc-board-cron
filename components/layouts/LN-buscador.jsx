@@ -24,7 +24,7 @@ const lnBuscador = ({ children }) => {
         <GlobalProvider>
             <div id="wrapper" className="buscador">
                 <Header />
-                <main>
+                <main id="content">
                     <div className="lay">{children[0]}</div>
                 </main>
                 <Static id="StaticFooter">

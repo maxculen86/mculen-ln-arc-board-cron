@@ -41,7 +41,7 @@ const LNNotaReceta = ({ outputType, children }) => {
             <CommentsProvider>
                 <div id="wrapper" className={`nota recetas ${amp}`}>
                     <Header />
-                    <main>
+                    <main id="content">
                         {/* Pre-Titulo: Banners */}
                         {children[0]}
                         <div className="lay --apertura">

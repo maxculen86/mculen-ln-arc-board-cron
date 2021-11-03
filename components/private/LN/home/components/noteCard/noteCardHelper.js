@@ -137,7 +137,11 @@ export const getLabel = (article, customFields, withMedia, layout) => {
     )
         return undefined;
 
-    return get(customFields, 'chapita') || get(article, 'label.chapita.text');
+    return {
+        text:
+            get(customFields, 'chapita') || get(article, 'label.chapita.text'),
+        style: get(customFields, 'chapitaStyle', '')
+    };
 };
 
 export const getIsRenderAutor = (customFields, layout) =>

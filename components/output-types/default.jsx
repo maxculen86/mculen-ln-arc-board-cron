@@ -40,8 +40,7 @@ import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 import addForwardSlash from '../private/LN/common/utils/addForwardSlash';
 import AmazonPublisherServices from '../private/common/scriptManager/amazonPublisherServices';
 import FontFace from '../private/common/fontface';
-// import Viafoura from '../private/common/scriptManager/viafoura';
-// import MetaViafoura from '../private/common/metaViafoura';
+import MetaViafoura from '../private/common/metaViafoura';
 
 const scriptList = [
     {
@@ -104,10 +103,6 @@ const scriptList = [
         },
         feature: 'none'
     }
-    // {
-    //     component: { name: 'Viafoura', function: Viafoura },
-    //     feature: ['LN-nota/commentsViafoura']
-    // }
 ];
 
 const getBodyClass = props => {
@@ -321,7 +316,7 @@ const Default = props => {
                     defaultDescription={siteProperties.description}
                     metaDescription={metaDescription}
                 />
-                {/* <MetaViafoura {...props} /> */}
+                <MetaViafoura {...props} />
                 <Syndication
                     type={type}
                     arcSite={arcSite}
@@ -335,9 +330,56 @@ const Default = props => {
                     content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
                 <link
-                    rel="icon"
+                    rel="shortcut icon"
                     type="image/x-icon"
-                    href={deployment(`${contextPath}/resources/favicon.ico`)}
+                    href={deployment(
+                        `${contextPath}/resources/images/favicon.ico`
+                    )}
+                />
+                <link
+                    rel="icon"
+                    type="image/png"
+                    sizes="16x16"
+                    href={deployment(
+                        `${contextPath}/resources/images/favicon-16.png`
+                    )}
+                />
+                <link
+                    rel="icon"
+                    type="image/png"
+                    sizes="32x32"
+                    href={deployment(
+                        `${contextPath}/resources/images/favicon-32.png`
+                    )}
+                />
+                <link
+                    rel="shortcut icon"
+                    type="image/png"
+                    sizes="192x192"
+                    href={deployment(
+                        `${contextPath}/resources/images/favicon-192.png`
+                    )}
+                />
+                <link
+                    rel="shortcut icon"
+                    type="image/png"
+                    sizes="512x512"
+                    href={deployment(
+                        `${contextPath}/resources/images/favicon-512.png`
+                    )}
+                />
+                <link
+                    rel="apple-touch-icon"
+                    href={deployment(
+                        `${contextPath}/resources/images/favicon-192.png`
+                    )}
+                />
+                <link
+                    rel="apple-touch-icon"
+                    sizes="512x512"
+                    href={deployment(
+                        `${contextPath}/resources/images/favicon-512.png`
+                    )}
                 />
                 <meta name="theme-color" content="#ffffff" />
                 <link rel="manifest" href="/manifest.json" />
