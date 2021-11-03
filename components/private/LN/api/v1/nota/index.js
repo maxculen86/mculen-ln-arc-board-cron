@@ -99,7 +99,7 @@ const indexNota = dataNota => {
         url,
         mostrarBanners: !(showBanners && showBanners.toLowerCase() === 'no'),
         paywallStatus: paywallStatus || 'comun',
-        abiertoComentarios: displayComments(dataNota),
+        abiertoComentarios: false,
         comentarios: {
             abiertoComentarios: openComments(dataNota),
             permitirComentarios: allowComments
