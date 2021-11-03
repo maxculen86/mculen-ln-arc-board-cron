@@ -101,36 +101,7 @@ const fetch = async (query, { cachedCall }) => {
         return menu;
     });
 
-    const partialResp = await Promise.all(resp);
-    return partialResp;
-
-    // const firstNav = await cachedCall(
-    //     `navigation-schema-${sourceMenu[0].hierarchy}`,
-    //     getItem,
-    //     {
-    //         query: {
-    //             ...query,
-    //             hierarchy: sourceMenu[0].hierarchy,
-    //             initialClass: sourceMenu[0].initialClass
-    //         },
-    //         ttl: 300
-    //     }
-    // );
-
-    // const secondNav = await cachedCall(
-    //     `navigation-schema-${sourceMenu[1].hierarchy}`,
-    //     getItem,
-    //     {
-    //         query: {
-    //             ...query,
-    //             hierarchy: sourceMenu[1].hierarchy,
-    //             initialClass: sourceMenu[1].initialClass
-    //         },
-    //         ttl: 300
-    //     }
-    // );
-
-    // return [firstNav, secondNav];
+    return Promise.all(resp);
 };
 
 export default {
