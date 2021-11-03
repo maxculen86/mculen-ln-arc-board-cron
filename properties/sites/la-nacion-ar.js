@@ -103,6 +103,10 @@ export default {
         Viafoura: {
             props: {},
             location: ['body-bottom']
+        },
+        ComscoreVideo: {
+            props: {},
+            location: ['body-top']
         }
     },
     imageConfig: {

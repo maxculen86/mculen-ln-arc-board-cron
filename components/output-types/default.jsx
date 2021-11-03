@@ -42,6 +42,7 @@ import AmazonPublisherServices from '../private/common/scriptManager/amazonPubli
 import FontFace from '../private/common/fontface';
 // import Viafoura from '../private/common/scriptManager/viafoura';
 // import MetaViafoura from '../private/common/metaViafoura';
+import ComscoreVideo from '../private/common/scriptManager/comscoreVideo';
 
 const scriptList = [
     {
@@ -101,6 +102,13 @@ const scriptList = [
         component: {
             name: 'AmazonPublisherServices',
             function: AmazonPublisherServices
+        },
+        feature: 'none'
+    },
+    {
+        component: {
+            name: 'ComscoreVideo',
+            function: ComscoreVideo
         },
         feature: 'none'
     }

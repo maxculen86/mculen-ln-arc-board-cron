@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Context from 'fusion:context';
 import getProperties from 'fusion:properties';
@@ -26,9 +26,43 @@ const setPrerollAdsForPowa = adsURL => {
     };
 };
 
-const setEvent = (player, event, eventName, titulo, id) => {
+const StreamingAnalyticsInit = () => {
+    const analytics = ns_.analytics;
+    analytics.PlatformApi.setPlatformAPI(
+        analytics.PlatformApi.PlatformApis.WebBrowser
+    );
+    analytics.configuration.addClient(
+        new analytics.configuration.PublisherConfiguration({
+            publisherId: '6906398'
+        })
+    );
+    // TODO: BORRAR esta linea para PROD
+    // analytics.configuration.enableImplementationValidationMode();
+    // TODO: BORRAR esta linea para PROD
+    analytics.start();
+
+    const StreamingAnalytics = new analytics.StreamingAnalytics();
+    StreamingAnalytics.createPlaybackSession();
+    return StreamingAnalytics;
+};
+
+const comscorePlayEvent = StreamAnalytic => {
+    // TODO: Borrar este console.log al finalizar pruebas
+    console.log('🚀 PUSH NOTIFYPLAY');
+    StreamAnalytic.notifyPlay();
+};
+
+const setEvent = (
+    player,
+    event,
+    eventName,
+    titulo,
+    id,
+    streamingAnalyticInstance = {}
+) => {
     player.on(event, () => {
         addToDataLayer(eventName, titulo, id);
+        event === 'play' ? comscorePlayEvent(streamingAnalyticInstance) : null;
     });
 };
 
@@ -95,6 +129,12 @@ const VideoPlayer = props => {
     const siteVars = getProperties(arcSite);
     const { organizationId } = siteVars || {};
     const apiEnv = API_ENV || 'sandbox';
+    const [streamingAnalyticInstance] = useState(
+        (typeof window &&
+            typeof ns_ !== 'undefined' &&
+            StreamingAnalyticsInit()) ||
+            {}
+    );
 
     useEffect(() => {
         const setVideoEvents = event => {
@@ -104,8 +144,22 @@ const VideoPlayer = props => {
             if (!playerID.includes(videoId)) return null;
 
             setProgressEvent(player, tituloVideo, videoId);
-            setEvent(player, 'play', 'videoPlay', tituloVideo, videoId);
-            setEvent(player, 'complete', 'videoComplete', tituloVideo, videoId);
+            setEvent(
+                player,
+                'play',
+                'videoPlay',
+                tituloVideo,
+                videoId,
+                streamingAnalyticInstance
+            );
+            setEvent(
+                player,
+                'complete',
+                'videoComplete',
+                tituloVideo,
+                videoId,
+                streamingAnalyticInstance
+            );
         };
 
         if (!isAdmin && window && window.powaBoot) window.powaBoot();
