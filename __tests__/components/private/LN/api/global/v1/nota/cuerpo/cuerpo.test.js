@@ -1,11 +1,11 @@
 import Cuerpo from '../../../../../../../../components/private/LN/api/global/v1/nota/cuerpo';
-import ArticleSinCuerpo from '../../../../../../../__mocks__/data/nota/cuerpo/notaSinCuerpo.json';
-import ArticleInfografia from '../../../../../../../__mocks__/data/nota/cuerpo/notaInfografia.json';
-import ArticleCuerpo from '../../../../../../../__mocks__/data/nota/cuerpo/notaCuerpo.json';
-import ArticleHtml from '../../../../../../../__mocks__/data/nota/cuerpo/notaHtml.json';
-import ArticleFotoAlCien from '../../../../../../../__mocks__/data/nota/cuerpo/notaFotoAlCien.json';
-import ArticleSubtypeInexistente from '../../../../../../../__mocks__/data/nota/cuerpo/notaSubtypeInexistente.json';
-import { removeEmptyItems } from '../../../../../../../components/private/LN/api/common/utils/responseCleaner';
+import ArticleSinCuerpo from '../../../../../../../../__mocks__/data/nota/cuerpo/notaSinCuerpo.json';
+import ArticleInfografia from '../../../../../../../../__mocks__/data/nota/cuerpo/notaInfografia.json';
+import ArticleCuerpo from '../../../../../../../../__mocks__/data/nota/cuerpo/notaCuerpo.json';
+import ArticleHtml from '../../../../../../../../__mocks__/data/nota/cuerpo/notaHtml.json';
+import ArticleFotoAlCien from '../../../../../../../../__mocks__/data/nota/cuerpo/notaFotoAlCien.json';
+import ArticleSubtypeInexistente from '../../../../../../../../__mocks__/data/nota/cuerpo/notaSubtypeInexistente.json';
+import { removeEmptyItems } from '../../../../../../../../components/private/LN/api/common/utils/responseCleaner';
 
 describe('Test Json Text del cuerpo de la nota', () => {
     it('Test para validar si el cuerpo es null', () => {

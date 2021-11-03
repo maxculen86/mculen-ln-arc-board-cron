@@ -1,5 +1,5 @@
-import Text from '../../../../../../../../../components/private/LN/api/global/v1/nota/cuerpo/elements/text';
-import ArticleText from '../../../../../../../../__mocks__/data/nota/cuerpo/text/text.json';
+import Text from '../../../../../../../../../components/private/LN/api/mobile/v1/nota/cuerpo/elements/text';
+import ArticleText from '../../../../../../../../../__mocks__/data/nota/cuerpo/text/text.json';
 
 describe('Test Json Text del cuerpo de la nota', () => {
     it('Test para validar si el campo es null', () => {
@@ -17,8 +17,11 @@ describe('Test Json Text del cuerpo de la nota', () => {
         expect(resp).toBe(null);
     });
     it('Test para validar el contenido del texto', () => {
-        const resp = Text(ArticleText[0]);
+        const resp = Text(ArticleText[3]);
         expect(resp['_t']).toBe('p');
         expect(resp['valor']).toBe('Párrafo 1.');
+        const resp = Text(ArticleText[0]);
+        expect(resp['_t']).toBe('p');
+        expect(resp['valor']).toBe('<b>Tipo de letra negrita</b>');
     });
 });
