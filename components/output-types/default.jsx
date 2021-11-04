@@ -39,9 +39,8 @@ import getMetaDescriptionForAcum from '../private/common/utils/getMetaDescriptio
 import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 import addForwardSlash from '../private/LN/common/utils/addForwardSlash';
 import AmazonPublisherServices from '../private/common/scriptManager/amazonPublisherServices';
-import FontFace from '../private/common/fontface';
-// import Viafoura from '../private/common/scriptManager/viafoura';
-// import MetaViafoura from '../private/common/metaViafoura';
+import FontFaceDefault from '../private/common/fontfaceDefault';
+import MetaViafoura from '../private/common/metaViafoura';
 
 const scriptList = [
     {
@@ -104,10 +103,6 @@ const scriptList = [
         },
         feature: 'none'
     }
-    // {
-    //     component: { name: 'Viafoura', function: Viafoura },
-    //     feature: ['LN-nota/commentsViafoura']
-    // }
 ];
 
 const getBodyClass = props => {
@@ -229,7 +224,7 @@ const Default = props => {
             <head>
                 <meta charset="utf-8" />
                 <title>{title}</title>
-                <FontFace outputType={outputType} />
+                {/* <FontFace outputType={outputType} /> */}
                 {arcSite === 'ott' ? (
                     <link
                         rel="stylesheet"
@@ -321,7 +316,7 @@ const Default = props => {
                     defaultDescription={siteProperties.description}
                     metaDescription={metaDescription}
                 />
-                {/* <MetaViafoura {...props} /> */}
+                <MetaViafoura {...props} />
                 <Syndication
                     type={type}
                     arcSite={arcSite}
@@ -349,6 +344,7 @@ const Default = props => {
                     renderables={renderables}
                     section={_nodeType}
                 />
+                <FontFaceDefault outputType={outputType} />
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />
