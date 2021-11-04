@@ -40,11 +40,13 @@ const ArticleFeature = ({
         imageConfig
     } = getCajaTemaConfig(featureId, renderables, cajaTemaConfig, isBomba);
 
-    const article = useContent({
-        source: 'articleSourceNota',
-        query: { id, published: true, imageConfig },
-        filter
-    });
+    const article =
+        id &&
+        useContent({
+            source: 'articleSourceNota',
+            query: { id, published: true, imageConfig },
+            filter
+        });
 
     const videoBackground =
         videoId &&
