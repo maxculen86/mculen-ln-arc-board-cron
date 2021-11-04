@@ -10,7 +10,7 @@ import propsAppAnexo2 from '../../../../__mocks__/data/renderables/dataAppAnexo2
 import propsAppAnexowithoutApertura from '../../../../__mocks__/data/renderables/dataAppAnexoswithoutApertura';
 import propsApertura from '../../../../__mocks__/data/renderables/dataApertura.json';
 
-jest.mock('.../../../../../../components/private/LN/api/global/v1/home', () => {
+jest.mock('.../../../../../../components/private/LN/api/v1/global/home', () => {
     return function(component) {
         return component;
     };

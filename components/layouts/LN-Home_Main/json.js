@@ -1,6 +1,6 @@
 import { get } from 'lodash';
 import Consumer from 'fusion:consumer';
-import home from '../../private/LN/api/global/v1/home';
+import home from '../../private/LN/api/v1/global/home';
 import pageBuilderSections from '../config/LN-PageBuilder.config.json';
 
 import {

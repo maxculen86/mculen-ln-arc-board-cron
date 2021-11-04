@@ -1,5 +1,5 @@
 import Consumer from 'fusion:consumer';
-import bitacora from '../../private/LN/api/global/v1/bitacora';
+import bitacora from '../../private/LN/api/v1/global/bitacora';
 import pageBuilderSections from '../config/LN-PageBuilder.config.json';
 
 const homeMobileSections = [
