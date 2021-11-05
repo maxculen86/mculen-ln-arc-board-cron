@@ -17,7 +17,8 @@ const CommentsFeature = props => {
     const displayComments = get(comments, 'display_comments', true);
     const [isReady, setIsReady] = useState(false);
     const showLivefyre = findTermica('livefyre');
-    const { shouldLoad: shouldLoadViafoura } = validateComments(props);
+    const { shouldLoad } = validateComments(props);
+    const shouldLoadViafoura = shouldLoad && showLivefyre;
 
     useEffect(() => {
         const handleScrollForComments = () => {

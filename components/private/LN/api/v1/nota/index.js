@@ -41,15 +41,12 @@ const openComments = dataNota => {
     );
 
     const firstPublishDate = get(dataNota, 'first_publish_date', '');
-
     const deadlineDate = deadlineLivefyer && new Date(deadlineLivefyer);
     const articlePublishDate = firstPublishDate && new Date(firstPublishDate);
-
     const validDate =
         deadlineDate &&
         articlePublishDate &&
-        articlePublishDate.setHours(0, 0, 0, 0) >=
-            deadlineDate.setHours(0, 0, 0, 0);
+        articlePublishDate >= deadlineDate.setHours(23, 0, 0, 0);
 
     return (
         validDate &&
@@ -102,7 +99,7 @@ const indexNota = dataNota => {
         url,
         mostrarBanners: !(showBanners && showBanners.toLowerCase() === 'no'),
         paywallStatus: paywallStatus || 'comun',
-        abiertoComentarios: displayComments(dataNota),
+        abiertoComentarios: false,
         comentarios: {
             abiertoComentarios: openComments(dataNota),
             permitirComentarios: allowComments
