@@ -7,56 +7,7 @@ import dateAndTimeUtil from '../../../../../common/utils/dateAndTimeUtil';
 import { getPrincipalCategory } from '../../common/category';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
 import matchObject from '../../common/utils/matchObject';
-
-const displayComments = dataNota => {
-    const optionDisplayComments = get(
-        dataNota,
-        'comments.display_comments',
-        false
-    );
-    const generalCommentsConfig = get(
-        dataNota,
-        'navigationTreeSource.Termicas.livefyre',
-        'false'
-    );
-
-    return generalCommentsConfig === 'true' && optionDisplayComments === true;
-};
-
-const allowComments = dataNota => {
-    const optionDisplayComments = get(
-        dataNota,
-        'comments.display_comments',
-        false
-    );
-    const generalCommentsConfig = get(
-        dataNota,
-        'navigationTreeSource.Termicas.livefyre',
-        'false'
-    );
-    const deadlineLivefyer = get(
-        dataNota,
-        'navigationTreeSource.migration.deadline_livefyre',
-        ''
-    );
-
-    const firstPublishDate = get(dataNota, 'first_publish_date', '');
-
-    const deadlineDate = deadlineLivefyer && new Date(deadlineLivefyer);
-    const articlePublishDate = firstPublishDate && new Date(firstPublishDate);
-
-    const validDate =
-        deadlineDate &&
-        articlePublishDate &&
-        articlePublishDate.setHours(0, 0, 0, 0) >=
-            deadlineDate.setHours(0, 0, 0, 0);
-
-    return (
-        validDate &&
-        generalCommentsConfig === 'true' &&
-        optionDisplayComments === true
-    );
-};
+import { displayComments, openComments } from '../../common/nota/comments';
 
 const indexNota = dataNota => {
     if (!dataNota) throw new Error(`La información de la nota esta vacia`);
@@ -71,6 +22,7 @@ const indexNota = dataNota => {
     } = dataNota;
 
     const comentariosId = get(dataNota, 'label.livefyre_entrada_id.text', null);
+    const allowComments = get(dataNota, 'comments.allow_comments', null);
     const paywallStatus = get(
         dataNota,
         'content_restrictions.content_code',
@@ -103,14 +55,16 @@ const indexNota = dataNota => {
         mostrarBanners: !(showBanners && showBanners.toLowerCase() === 'no'),
         paywallStatus: paywallStatus || 'comun',
         abiertoComentarios: displayComments(dataNota),
-        permitirComentarios: allowComments(dataNota),
+        comentarios: {
+            abiertoComentarios: openComments(dataNota),
+            permitirComentarios: allowComments
+        },
         comentariosId: comentariosId || id,
         categoria: primarySection && getPrincipalCategory(primarySection),
         relacionados: Relacionados(dataNota),
         enviarApps,
         modificadorTemplate: ModificadorTemplate(distributor)
     };
-
     if (dataNota.subtype === '9') {
         resp.HTML = Cuerpo(dataNota);
     } else {
