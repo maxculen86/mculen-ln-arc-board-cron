@@ -1,4 +1,4 @@
-import env from '../../../../../../../../__mocks__/fusion:environment';
+import env from '../../../../../../../../../../__mocks__/fusion:environment';
 import ArticleHtmlContent from '../../../../../../../../../../__mocks__/data/nota/cuerpo/htmlContent/htmlContent.json';
 import HtmlContent from '../../../../../../../../../../components/private/LN/api/v1/global/nota/cuerpo/elements//htmlContent';
 import getEmbedHref from '../../../../../../../../../../components/private/common/utils/getEmbedHref';

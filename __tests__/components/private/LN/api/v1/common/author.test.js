@@ -1,5 +1,5 @@
-import acuAuthor from '../../../../../../components/private/LN/api/v1/common/author/index';
-import article from '../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
+import acuAuthor from '../../../../../../../components/private/LN/api/v1/common/author/index';
+import article from '../../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
 import { getAutorId } from '../../../../../../../components/private/common/utils/getElementId';
 
 describe('Json imagen en acumulado', () => {

@@ -1,11 +1,10 @@
 import { articleItem as Article } from '../../../../../../../../components/private/LN/api/v1/common/article/article';
-import colecction from '../../../../../../../__mocks__/data/collection/OCTOV4V54FCFLJHOVB5IAJKHHM.json';
-import article1 from '../../../../../../../__mocks__/data/articles/2KOBND62KNFVVBFQZOADNN6WNY.json';
-import article2 from '../../../../../../../__mocks__/data/articles/3SHTRO3NKBCN7L3JITCDQYSJLM.json';
-import article3 from '../../../../../../../__mocks__/data/articles/3THDAILWTVHARHBYA5AEVL7OAU.json';
-import article4 from '../../../../../../../__mocks__/data/articles/CTTZRKCCPBE6LNUCEK4TT46DFU.json';
-
-import get from '../../../../../../../components/private/common/utils/get';
+import colecction from '../../../../../../../../__mocks__/data/collection/OCTOV4V54FCFLJHOVB5IAJKHHM.json';
+import article1 from '../../../../../../../../__mocks__/data/articles/2KOBND62KNFVVBFQZOADNN6WNY.json';
+import article2 from '../../../../../../../../__mocks__/data/articles/3SHTRO3NKBCN7L3JITCDQYSJLM.json';
+import article3 from '../../../../../../../../__mocks__/data/articles/3THDAILWTVHARHBYA5AEVL7OAU.json';
+import article4 from '../../../../../../../../__mocks__/data/articles/CTTZRKCCPBE6LNUCEK4TT46DFU.json';
+import get from '../../../../../../../../components/private/common/utils/get';
 describe('components - private - LN - api - v1 - home - article.js', () => {
     let articlesfromCajaManual = [];
     let articlesfromCajaCollections = [];

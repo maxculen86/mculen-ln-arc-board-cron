@@ -1,4 +1,4 @@
-import articlesMayInterest from '../../../../../../../__mocks__/data/articleMayInterestCollections/mayInterest.json';
+import articlesMayInterest from '../../../../../../../../../__mocks__/data/articleMayInterestCollections/mayInterest.json';
 import MayInterestIndex from '../../../../../../../../../components/private/LN/api/v1/global/accumulated';
 
 describe('Test de index en Json MayInterest', () => {

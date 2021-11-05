@@ -1,5 +1,5 @@
 import VideoThumbnail from '../../../../../../../../components/private/LN/api/v1/common/video/thumbnail';
-import VideoArticle from '../../../../../../../__mocks__/data/nota/cuerpo/video/video.json';
+import VideoArticle from '../../../../../../../../__mocks__/data/nota/cuerpo/video/video.json';
 
 describe('Json video common', () => {
     it('Si se envia un valor null', () => {
