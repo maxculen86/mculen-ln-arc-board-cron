@@ -1,5 +1,5 @@
 import Configuration from '../../../v1/common/accumulated/configuration';
-import { articleItem } from '../../../v1/common/article/article';
+import { articleItem } from '../../../v1/common/article';
 import { removeEmptyItems } from '../../../v1/common/utils/responseCleaner';
 import { getTag } from '../../../v1/common/tag';
 import { authorAcu } from '../../../v1/common/author';
