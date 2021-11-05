@@ -4,16 +4,13 @@ const button = (nodo, dataNota) => {
     if (!nodo) return null;
 
     const resp = {
-        _t: 'boton',
-        class: 'linkboton',
-        valor: nodo.content,
+        _t: 'button',
+        subtype: 'linkboton',
+        value: nodo.content,
         href: getLinkDomain(nodo.url)
     };
 
-    return {
-        _t: 'p',
-        valor: resp
-    };
+    return resp;
 };
 
 button.type = 'interstitial_link';
