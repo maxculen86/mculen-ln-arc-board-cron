@@ -23,7 +23,7 @@ const lnNotaVideo = ({ children, outputType, tree, isAdmin }) => {
                 {/* Banner MEGATOP */}
                 <div id="wrapper" className={`nota video --transparent ${amp}`}>
                     <Header />
-                    <main>
+                    <main id="content">
                         <div className="--apertura">
                             {children[1]}
                             <div className="lay">

@@ -80,10 +80,9 @@ const lnNotaNoticia = ({
                 {/* Banner MEGATOP */}
                 {bannerMegatop}
                 {/* Banner MEGATOP */}
-
                 <div id="wrapper" className={`nota noticia ${magazine} ${amp}`}>
                     <Header />
-                    <main>
+                    <main id="content">
                         {children[1]}
                         <div className="lay --apertura">
                             <div className="row">

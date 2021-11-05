@@ -69,7 +69,7 @@ const lnNotaNoticia = ({
 
                 <div id="wrapper" className={`nota html-libre ${amp}`}>
                     <Header />
-                    <main style={{ paddingTop: '0px' }}>
+                    <main id="content">
                         <div
                             className="lay --apertura"
                             style={{ maxWidth: '100%', padding: '0rem' }}

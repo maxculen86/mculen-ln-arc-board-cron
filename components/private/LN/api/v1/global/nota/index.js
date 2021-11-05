@@ -23,7 +23,7 @@ const displayComments = dataNota => {
     return generalCommentsConfig === 'true' && optionDisplayComments === true;
 };
 
-const allowComments = dataNota => {
+const openComments = dataNota => {
     const optionDisplayComments = get(
         dataNota,
         'comments.display_comments',
@@ -57,7 +57,6 @@ const allowComments = dataNota => {
         optionDisplayComments === true
     );
 };
-
 const indexNota = dataNota => {
     if (!dataNota) throw new Error(`La información de la nota esta vacia`);
 
@@ -71,6 +70,7 @@ const indexNota = dataNota => {
     } = dataNota;
 
     const comentariosId = get(dataNota, 'label.livefyre_entrada_id.text', null);
+    const allowComments = get(dataNota, 'comments.allow_comments', null);
     const paywallStatus = get(
         dataNota,
         'content_restrictions.content_code',
@@ -103,14 +103,16 @@ const indexNota = dataNota => {
         mostrarBanners: !(showBanners && showBanners.toLowerCase() === 'no'),
         paywallStatus: paywallStatus || 'comun',
         abiertoComentarios: displayComments(dataNota),
-        permitirComentarios: allowComments(dataNota),
+        comentarios: {
+            abiertoComentarios: openComments(dataNota),
+            permitirComentarios: allowComments
+        },
         comentariosId: comentariosId || id,
         categoria: primarySection && getPrincipalCategory(primarySection),
         relacionados: Relacionados(dataNota),
         enviarApps,
         modificadorTemplate: ModificadorTemplate(distributor)
     };
-
     if (dataNota.subtype === '9') {
         resp.HTML = Cuerpo(dataNota);
     } else {

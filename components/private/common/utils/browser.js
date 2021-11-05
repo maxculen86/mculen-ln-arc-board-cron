@@ -41,6 +41,30 @@ const getSizesFrom = (
     );
 };
 
+const isApiMobileRequest = url => {
+    if (!url) {
+        return false;
+    }
+
+    const apiRegex = new RegExp('/(api/mobile)/');
+    const regexResult = apiRegex.exec(url);
+    if (!regexResult) return false;
+
+    return true;
+};
+
+const isApiRequest = url => {
+    if (!url) {
+        return false;
+    }
+
+    const apiRegex = new RegExp('/(api)/');
+    const regexResult = apiRegex.exec(url);
+    if (!regexResult) return false;
+
+    return true;
+};
+
 const getApiVersion = urlP => {
     let url = urlP;
     if (!url) {
@@ -71,5 +95,7 @@ export default {
     getApiVersion,
     getApiType,
     getParamFrom,
-    getSizesFrom
+    getSizesFrom,
+    isApiRequest,
+    isApiMobileRequest
 };
