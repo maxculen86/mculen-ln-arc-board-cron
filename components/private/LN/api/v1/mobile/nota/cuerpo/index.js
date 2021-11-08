@@ -3,16 +3,16 @@ import DefaultCuerpo from '../../../common/nota/cuerpo/templates/default';
 import RecetaCuerpo from './templates/receta';
 import htmlCuerpo from './templates/htmlLibre';
 import fotoAlCienCuerpo from './templates/fotoAlCien';
-import Header from '../cuerpo/elements/header';
-import Text from '../cuerpo/elements/text';
-import Video from '../cuerpo/elements/video';
-import Image from '../cuerpo/elements/image';
-import List from '../cuerpo/elements/list';
-import Quote from '../cuerpo/elements/quote';
-import Gallery from '../cuerpo/elements/gallery';
-import Embed from '../cuerpo/elements/embed';
-import Html from '../cuerpo/elements/htmlContent';
-import Button from '../cuerpo/elements/button';
+import Header from './elements/header';
+import Text from './elements/text';
+import Video from './elements/video';
+import Image from './elements/image';
+import List from './elements/list';
+import Quote from './elements/quote';
+import Gallery from './elements/gallery';
+import Embed from './elements/embed';
+import Html from './elements/htmlContent';
+import Button from './elements/button';
 
 const cuerpoIndex = dataNota => {
     const components = [
