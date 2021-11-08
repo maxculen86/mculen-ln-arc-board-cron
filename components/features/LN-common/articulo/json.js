@@ -12,7 +12,7 @@ class ArticleFeature {
             this.fetchContent({
                 articleSourceNota: {
                     source: 'articleSourceNota',
-                    query: { id: noteId, published: true }
+                    query: { id: noteId.trim(), published: true }
                 }
             });
         if (imageId) {
