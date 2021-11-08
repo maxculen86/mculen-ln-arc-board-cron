@@ -1,4 +1,4 @@
-import Video from './video';
+import Video from '../../../../../../../../components/private/LN/api/v1/common/nota/video';
 import VideoArticle from '../../../../../../../../__mocks__/data/nota/cuerpo/video/video.json';
 
 describe('Test unitarios de videos en nota', () => {

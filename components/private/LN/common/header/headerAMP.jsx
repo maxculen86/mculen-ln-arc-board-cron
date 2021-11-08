@@ -407,11 +407,11 @@ const headerAMP = props => {
                                             Carta de lectores
                                         </a>
                                     </li>
-                                    <li className="menu_secciones">
+                                    {/* <li className="menu_secciones">
                                         <a href="https://www.lanacion.com.ar/humor">
                                             Humor
                                         </a>
-                                    </li>
+                                    </li> */}
                                     <li className="menu_secciones">
                                         <a href="https://servicios.lanacion.com.ar/edicion-impresa/avisos-funebres">
                                             Avisos fúnebres

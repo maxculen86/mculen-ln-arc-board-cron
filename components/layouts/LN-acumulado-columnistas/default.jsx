@@ -43,7 +43,7 @@ const LNAcumuladoColumnistasLayout = props => {
         <GlobalProvider>
             <div id="wrapper" className="acumulado columnistas">
                 <Header headerDark={headerDark} />
-                <main>
+                <main id="content">
                     {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
                     {children[0]}
                     <div className="lay">

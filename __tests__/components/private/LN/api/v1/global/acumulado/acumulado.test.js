@@ -1,5 +1,5 @@
-import articlesRecetas from '../../../../../../__mocks__/data/articleCollections/recetas.json';
-import articlesDeportes from '../../../../../../__mocks__/data/articleCollections/deportes.json';
+import articlesRecetas from '../../../../../../../../__mocks__/data/articleCollections/recetas.json';
+import articlesDeportes from '../../../../../../../../__mocks__/data/articleCollections/deportes.json';
 import AcuIndex from '../../../../../../../../components/private/LN/api/v1/global/accumulated';
 
 describe('Json Acumulado section. Test de integracion', () => {

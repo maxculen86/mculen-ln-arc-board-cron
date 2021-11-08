@@ -1,4 +1,4 @@
-import AcuTags from '../../../../../../../__mocks__/data/articleTagsCollections/tags.json';
+import AcuTags from '../../../../../../../../../__mocks__/data/articleTagsCollections/tags.json';
 import TagsIndex from '../../../../../../../../../components/private/LN/api/v1/global/accumulated';
 
 describe('Test de index en Json Tags', () => {

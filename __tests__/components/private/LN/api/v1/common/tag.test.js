@@ -1,6 +1,6 @@
 import { getFeaturedTag } from '../../../../../../../components/private/LN/api/v1/common/tag/index';
 
-import ArticleTagDestacado from '../../../../../../__mocks__/data/nota/apertura/tagDestacado/tagDestacado.json';
+import ArticleTagDestacado from '../../../../../../../__mocks__/data/nota/apertura/tagDestacado/tagDestacado.json';
 
 describe('Test unitarios para espacio patrocinado y content lab', () => {
     it('test unitario en caso de enviar un null', () => {

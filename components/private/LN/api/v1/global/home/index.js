@@ -5,7 +5,7 @@ import {
     articleItem as Article,
     anexoItem as Anexo,
     anexoItemMobile as AnexoMobile
-} from '../../common/article/article';
+} from '../../common/article';
 
 // TODO: Recorrer las notas en un archivo nuevo.
 // Recibir el array y validar que tenga notas

@@ -18,7 +18,7 @@ describe('Test Json Text del cuerpo de la nota', () => {
     });
     it('Test para validar el contenido del texto', () => {
         const resp = Text(ArticleText[0]);
-        expect(resp['_t']).toBe('text');
+        expect(resp['_t']).toBe('p');
         expect(resp['valor']).toBe('Párrafo 1.');
     });
 });

@@ -1,8 +1,18 @@
 import get from 'lodash.get';
-import DefaultCuerpo from './templates/default';
+import DefaultCuerpo from '../../../common/nota/cuerpo/templates/default';
 import RecetaCuerpo from './templates/receta';
 import htmlCuerpo from './templates/htmlLibre';
 import fotoAlCienCuerpo from './templates/fotoAlCien';
+import Header from './elements/header';
+import Text from './elements/text';
+import Video from './elements/video';
+import Image from './elements/image';
+import List from './elements/list';
+import Quote from './elements/quote';
+import Gallery from './elements/gallery';
+import Embed from './elements/embed';
+import Html from './elements/htmlContent';
+import Button from './elements/button';
 
 const cuerpoIndex = dataNota => {
     const templates = {
@@ -16,6 +26,18 @@ const cuerpoIndex = dataNota => {
         '9': htmlCuerpo,
         '10': DefaultCuerpo
     };
+    const components = [
+        Text,
+        Header,
+        Image,
+        Video,
+        List,
+        Quote,
+        Gallery,
+        Embed,
+        Html,
+        Button
+    ];
 
     const contentElements = dataNota.content_elements;
     if (!contentElements) throw new Error('Esta nota no posee cuerpo');
@@ -27,7 +49,7 @@ const cuerpoIndex = dataNota => {
     }
 
     if (templates[dataNota.subtype]) {
-        return templates[dataNota.subtype](dataNota);
+        return templates[dataNota.subtype](dataNota, components);
     }
 
     throw new Error(`El ID de template ${dataNota.subtype} no esta declarado`);

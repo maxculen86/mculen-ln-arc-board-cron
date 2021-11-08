@@ -1,4 +1,4 @@
-import env from '../../../../../../../../__mocks__/fusion:environment';
+import env from '../../../../../../../../../../__mocks__/fusion:environment';
 import ElementButton from '../../../../../../../../../../__mocks__/data/nota/cuerpo/button/button.json';
 import Button from '../../../../../../../../../../components/private/LN/api/v1/global/nota/cuerpo/elements/button';
 

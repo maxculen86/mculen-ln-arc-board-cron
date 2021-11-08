@@ -1,5 +1,5 @@
 import CustomRecetaList from '../elements/customRecetaList';
-import DefaultCuerpo from './default';
+import DefaultCuerpo from '../../../../common/nota/cuerpo/templates/default';
 
 const recetaCuerpo = dataNota => {
     const resp = [];

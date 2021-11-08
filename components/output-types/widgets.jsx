@@ -1,6 +1,7 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import FontFace from '../private/common/fontface';
 
 const TAGS_BY_WIDGET = {
     viafoura: globalContent => {
@@ -10,11 +11,17 @@ const TAGS_BY_WIDGET = {
                 head: [
                     <meta name="vf:container_id" content={_id} />,
                     <meta name="vf:lang" content="es" />,
+                    <meta name="vf:domain" content="lanacion.com.ar" />,
+                    <meta
+                        name="viewport"
+                        content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
+                    />,
+                    <FontFace outputType="default" />,
                     <style
                         dangerouslySetInnerHTML={{
                             __html: `
-                            .viafoura .vf-is-logged-out .vf-comment-header, .viafoura .vf-is-logged-out .vf-post-form {
-                                display: none !important;
+                            .widget {
+                                padding: 0 16px;
                             }`
                         }}
                     />
@@ -34,7 +41,7 @@ const TAGS_BY_WIDGET = {
 };
 
 const Widgets = props => {
-    const { children, globalContent = {} } = props || {};
+    const { children, globalContent = {}, CssLinks } = props || {};
     const { widget } = globalContent;
     const widgetScripts = TAGS_BY_WIDGET[widget];
     const { head, bodyBottom } =
@@ -46,10 +53,13 @@ const Widgets = props => {
                 <title>Widgets</title>
                 {head}
                 <noscript>Your browser does not suport javascript</noscript>
+                <CssLinks />
             </head>
             <body>
-                {children}
-                {bodyBottom}
+                <section className="widget">
+                    {children}
+                    {bodyBottom}
+                </section>
             </body>
         </html>
     );

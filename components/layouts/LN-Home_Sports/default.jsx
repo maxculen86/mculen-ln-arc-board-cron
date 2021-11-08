@@ -60,7 +60,7 @@ const LNSportsHome = props => {
                 {megatop}
                 <div id="wrapper" className="acumulado deportes ">
                     <Header />
-                    <main>
+                    <main id="content">
                         {stickyMobile}
                         <div className="row --top">
                             <div className="lay">
