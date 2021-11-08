@@ -44,7 +44,7 @@ const ArticleFeature = ({
         id &&
         useContent({
             source: 'articleSourceNota',
-            query: { id, published: true, imageConfig },
+            query: { id: id.trim(), published: true, imageConfig },
             filter
         });
 
@@ -52,7 +52,7 @@ const ArticleFeature = ({
         videoId &&
         useContent({
             source: 'videoSource',
-            query: { id: videoId, website: 'la-nacion-ar' }
+            query: { id: videoId.trim(), website: 'la-nacion-ar' }
         });
 
     const image =
