@@ -142,36 +142,34 @@ const HeaderDesktop = ({
                     className={`com-usuario${active} ${!token &&
                         loadingUserData}`}
                 >
-                    {!loginData.subscription &&
-                        typeof window !== 'undefined' &&
-                        !token && (
-                            // <button
-                            //     className="com-button --special"
-                            //     id="btnsuscribite"
-                            //     type="button"
-                            //     title="Suscribite"
-                            //     onClick={() => {
-                            //         location.href =
-                            //             `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
-                            //                 location.href
-                            //             )}` || '/';
-                            //     }}
-                            // >
-                            //     SUSCRIBITE
-                            // </button>
+                    {!loginData.subscription && typeof window !== 'undefined' && (
+                        // <button
+                        //     className="com-button --special"
+                        //     id="btnsuscribite"
+                        //     type="button"
+                        //     title="Suscribite"
+                        //     onClick={() => {
+                        //         location.href =
+                        //             `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
+                        //                 location.href
+                        //             )}` || '/';
+                        //     }}
+                        // >
+                        //     SUSCRIBITE
+                        // </button>
 
-                            <a
-                                className="com-button --special"
-                                id="btnsuscribite"
-                                title="Suscribite a LA NACION"
-                                href={`${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
-                                    location.href
-                                )}`}
-                                rel="nofollow"
-                            >
-                                SUSCRIBITE
-                            </a>
-                        )}
+                        <a
+                            className={`com-button --special${loadingUserData}`}
+                            id="btnsuscribite"
+                            title="Suscribite a LA NACION"
+                            href={`${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
+                                location.href
+                            )}`}
+                            rel="nofollow"
+                        >
+                            SUSCRIBITE
+                        </a>
+                    )}
                     {logueado && (
                         <div
                             onMouseUp={toggleMenu}

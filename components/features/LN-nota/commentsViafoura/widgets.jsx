@@ -6,6 +6,7 @@ import Static from 'fusion:static';
 import { getMessageProps } from '../../../private/common/utils/commentsHelper';
 import Message from '../../../private/common/message';
 import HeaderComments from '../../../private/LN/nota/comments/header';
+import LoadingIcon from '../../../private/LN/common/loadingIcon';
 
 const CommentsViafouraFeature = props => {
     const { id: featureId, globalContent: { messageType = '' } = {} } = props;
@@ -18,7 +19,11 @@ const CommentsViafouraFeature = props => {
             ) : (
                 <HeaderComments showButton={false} />
             )}
-            <div className={`viafoura${messageProps ? ' not-comment' : ''}`}>
+            <LoadingIcon />
+            <div
+                id="comments-viafoura-container"
+                className={`viafoura${messageProps ? ' not-comment' : ''}`}
+            >
                 <vf-tray />
                 <vf-conversations
                     limit="15"
@@ -51,6 +56,10 @@ const CommentsViafouraFeature = props => {
                                     window.vf.$prepublish((channel, event, ...args) => {
                                         if (channel === 'authentication' && event === 'required') {
                                             return false;
+                                        }
+                                        if (channel === 'commenting' && event === 'loaded') {
+                                            const loader = document.getElementsByClassName('loader');
+                                            loader && loader[0].classList.add('hlp-none');
                                         }
                                         return { channel, event, args };
                                     });
