@@ -143,6 +143,10 @@
 
     footer.vf3-conversations-footer {
         padding-bottom: 0;
+
+        .vf-branding-container {
+            display: none;
+        }
     }
 
     .vf-post-form__container {
@@ -188,15 +192,26 @@
         position: relative;
     }
 
+    //Botón Cargar más comentarios
+    .vf-button.vf-load-more__buttonton {
+        border-color: $light-blue-500;
+        color: $light-blue-500;
+        transition: all 0.2s ease-in-out;
+        padding: px(12) px(16);
+        font-size: px(12);
+        font-weight: 700;
+        border-radius: px(4);
+        width: auto;
+        &:hover {
+            background-color: $light-blue-500;
+            color: $neutral-white;
+        }
+    }
+
     // para Apps
     .widget & {
         .vf-share-menu__trigger {
             display: none;
-        }
-        footer.vf3-conversations-footer {
-            .vf-branding-container {
-                display: none;
-            }
         }
     }
 }
