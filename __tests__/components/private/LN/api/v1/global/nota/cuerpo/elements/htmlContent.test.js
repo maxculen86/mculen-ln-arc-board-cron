@@ -37,7 +37,7 @@ describe('Test de htmlContent en el cuepo de nota', () => {
     });
 
     it('Verificar los valores cuando el contenido html es un iframe', () => {
-        const resp = HtmlContent(ArticleHtmlContent[3], dataNota);
+        const resp = HtmlContent(ArticleHtmlContent[3], dataNota._id);
         expect(resp['_t']).toBe('p');
         expect(resp['valor']['_t']).toBe('ext');
         expect(resp['valor']['id']).toBe('html');
