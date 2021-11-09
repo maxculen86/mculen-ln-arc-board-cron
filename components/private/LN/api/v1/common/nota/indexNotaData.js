@@ -5,8 +5,7 @@ import ModificadorTemplate from './modificadorTemplate';
 import Relacionados from './relacionados';
 import dateAndTimeUtil from '../../../../../common/utils/dateAndTimeUtil';
 import { getPrincipalCategory } from '../category';
-import { removeEmptyItems } from '../utils/responseCleaner';
-import { displayComments, openComments } from './comments';
+import { displayComments } from './comments';
 
 const indexNotaData = (dataNota, cuerpo) => {
     if (!dataNota) throw new Error(`La información de la nota esta vacia`);
@@ -19,9 +18,6 @@ const indexNotaData = (dataNota, cuerpo) => {
         publish_date: publishDate,
         display_date: displayDate
     } = dataNota;
-
-    const comentariosId = get(dataNota, 'label.livefyre_entrada_id.text', null);
-    const allowComments = get(dataNota, 'comments.allow_comments', null);
     const paywallStatus = get(
         dataNota,
         'content_restrictions.content_code',
@@ -54,11 +50,6 @@ const indexNotaData = (dataNota, cuerpo) => {
         mostrarBanners: !(showBanners && showBanners.toLowerCase() === 'no'),
         paywallStatus: paywallStatus || 'comun',
         abiertoComentarios: displayComments(dataNota),
-        comentarios: {
-            abiertoComentarios: openComments(dataNota),
-            permitirComentarios: allowComments
-        },
-        comentariosId: comentariosId || id,
         categoria: primarySection && getPrincipalCategory(primarySection),
         relacionados: Relacionados(dataNota),
         enviarApps,
@@ -79,6 +70,6 @@ const indexNotaData = (dataNota, cuerpo) => {
         resp.contenido = cuerpo(dataNota);
     }
 
-    return removeEmptyItems(resp);
+    return resp;
 };
 export default indexNotaData;

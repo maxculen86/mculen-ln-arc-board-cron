@@ -19,6 +19,6 @@ describe('Test Json Text del cuerpo de la nota', () => {
     it('Test para validar el contenido del texto', () => {
         const resp = Text(ArticleText[3]);
         expect(resp['_t']).toBe('text');
-        expect(resp['valor']).toBe('<b>Tipo de letra negrita</b>');
+        expect(resp['value']).toBe('<b>Tipo de letra negrita</b>');
     });
 });
