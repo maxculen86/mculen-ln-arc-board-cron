@@ -131,13 +131,15 @@ NoteCard.propTypes = {
         website_url: PropTypes.string
     }).isRequired,
     customFields: PropTypes.shape({
-        imageId: PropTypes.string,
-        lead: PropTypes.string,
-        title: PropTypes.string,
-        description: PropTypes.string,
         authors: PropTypes.string,
+        chapita: PropTypes.string,
+        chapitaStyle: PropTypes.string,
+        canonical_url: PropTypes.string,
+        description: PropTypes.string,
+        imageId: PropTypes.string,
         isOpening: PropTypes.bool,
-        canonical_url: PropTypes.string
+        lead: PropTypes.string,
+        title: PropTypes.string
     }),
     isOpening: PropTypes.bool,
     belongsTo: PropTypes.string,

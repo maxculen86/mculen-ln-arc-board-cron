@@ -8,22 +8,12 @@ import Media from '../LN/common/media';
 import get from './utils/get';
 import ModDescription from './mod-description';
 import getAuthorsPhoto from './utils/getAuthorsPhoto';
-import ComImage from './com-image';
-import ModMedia from './mod-media';
-import ModVideo from './mod-video';
-import VideoPlayer from '../LN/common/media/videoPlayer';
 
 const ModArticle = props => {
     const {
         isPowa,
         device,
         videoBackground,
-        frontdemo,
-        srcdemo,
-        video,
-        powa,
-        controls,
-        autoplay,
         articleData,
         dataSection,
         outputType,
@@ -32,7 +22,6 @@ const ModArticle = props => {
         titleTag,
         titleSize,
         titleText,
-        marqueeSize,
         authors,
         authorSize,
         isRenderAuthor,
@@ -121,40 +110,6 @@ const ModArticle = props => {
                 />
             )}
 
-            {/* {frontdemo && (
-                <div>
-                    <ModMedia>
-                        <figure className="mod-figure">
-                            {powa ? (
-                                <picture className="mod-picture">
-                                    <VideoPlayer
-                                        videoId="76c88e0b-33e7-405f-b6ad-b6a98fef7c77"
-                                        mediaData={powa}
-                                        autoplay=""
-                                    />
-                                </picture>
-                            ) : (
-                                <a href={link}>
-                                    <picture className="mod-picture">
-                                        {video ? (
-                                            <ModVideo
-                                                video={video}
-                                                controls={controls}
-                                                autoplay={autoplay}
-                                            />
-                                        ) : (
-                                            ''
-                                        )}
-
-                                        <ComImage src={srcdemo} />
-                                    </picture>
-                                </a>
-                            )}
-                        </figure>
-                    </ModMedia>
-                </div>
-            )} */}
-
             <ModDescription
                 link={link}
                 titleTag={titleTag}
@@ -178,69 +133,75 @@ const ModArticle = props => {
 };
 
 ModArticle.propTypes = {
-    dataSection: PropTypes.string,
-    artPosition: PropTypes.string,
-    boxPosition: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-    classCondition: PropTypes.string,
-    link: PropTypes.string,
-    titleTag: PropTypes.string,
-    titleSize: PropTypes.string,
-    titleText: PropTypes.string.isRequired,
-    subheadText: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-    subheadSize: PropTypes.string,
-    subheadTag: PropTypes.string,
-    dateText: PropTypes.string,
-    dateSize: PropTypes.string,
-    hour: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-    authors: PropTypes.string,
-    withMedia: PropTypes.bool,
-    outputType: PropTypes.string,
     articleData: PropTypes.shape({
         _id: PropTypes.string,
         promo_items: PropTypes.shape({
             basic: PropTypes.object
         })
     }).isRequired,
+    artPosition: PropTypes.string,
+    authors: PropTypes.string,
+    boxPosition: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     category: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-    tags: PropTypes.oneOfType([PropTypes.bool, PropTypes.array]),
+    classCondition: PropTypes.string,
+    dataSection: PropTypes.string,
+    dateSize: PropTypes.string,
+    dateText: PropTypes.string,
+    device: PropTypes.string,
+    handleClick: PropTypes.func,
+    hour: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+    isPowa: PropTypes.bool,
     isRenderAuthor: PropTypes.bool,
     isRenderAuthorOpinion: PropTypes.bool,
-    handleClick: PropTypes.func,
-    isPowa: PropTypes.bool,
+    label: PropTypes.shape({
+        text: PropTypes.string,
+        style: PropTypes.string
+    }),
+    layout: PropTypes.string,
+    link: PropTypes.string,
+    outputType: PropTypes.string,
+    subheadSize: PropTypes.string,
+    subheadTag: PropTypes.string,
+    subheadText: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    tags: PropTypes.oneOfType([PropTypes.bool, PropTypes.array]),
+    titleSize: PropTypes.string,
+    titleTag: PropTypes.string,
+    titleText: PropTypes.string.isRequired,
     videoBackground: PropTypes.shape({
         _id: PropTypes.number,
         streams: PropTypes.array,
         type: PropTypes.string
     }),
-    device: PropTypes.string
+    withMedia: PropTypes.bool
 };
 
 ModArticle.defaultProps = {
-    dataSection: undefined,
+    authors: '',
     artPosition: undefined,
     boxPosition: undefined,
-    classCondition: undefined,
-    titleTag: 'h2',
-    titleSize: '--xs',
-    subheadText: false,
-    subheadSize: '',
-    subheadTag: '',
-    dateText: undefined,
-    dateSize: undefined,
-    authors: '',
-    withMedia: false,
-    link: undefined,
-    hour: undefined,
-    outputType: 'default',
     category: undefined,
-    tags: undefined,
+    classCondition: undefined,
+    dataSection: undefined,
+    dateSize: undefined,
+    dateText: undefined,
+    device: 'desktop',
     handleClick: undefined,
+    hour: undefined,
     isRenderAuthor: false,
     isRenderAuthorOpinion: false,
     isPowa: true,
-    video: undefined,
+    label: undefined,
+    layout: '',
+    link: undefined,
+    outputType: 'default',
+    subheadText: false,
+    subheadSize: '',
+    subheadTag: '',
+    titleSize: '--xs',
+    titleTag: 'h2',
+    tags: undefined,
     videoBackground: undefined,
-    device: 'desktop'
+    withMedia: false
 };
 
 export default ModArticle;
