@@ -1,58 +1,45 @@
-import get from 'lodash.get';
-import DefaultCuerpo from '../../../common/nota/cuerpo/templates/default';
-import RecetaCuerpo from './templates/receta';
-import htmlCuerpo from './templates/htmlLibre';
-import fotoAlCienCuerpo from './templates/fotoAlCien';
-import Header from './elements/header';
-import Text from './elements/text';
-import Video from './elements/video';
-import Image from './elements/image';
-import List from './elements/list';
-import Quote from './elements/quote';
-import Gallery from './elements/gallery';
-import Embed from './elements/embed';
-import Html from './elements/htmlContent';
-import Button from './elements/button';
+import header from './elements/header';
+import text from './elements/text';
+import video from './elements/video';
+import image from './elements/image';
+import list from './elements/list';
+import quote from './elements/quote';
+import gallery from './elements/gallery';
+import embed from './elements/embed';
+import html from './elements/htmlContent';
+import button from './elements/button';
+import body from '../../../common/nota/cuerpo/index';
 
 const cuerpoIndex = dataNota => {
-    const templates = {
-        '1': DefaultCuerpo,
-        '2': DefaultCuerpo,
-        '4': DefaultCuerpo,
-        '5': DefaultCuerpo,
-        '6': DefaultCuerpo,
-        '7': RecetaCuerpo,
-        '8': fotoAlCienCuerpo,
-        '9': htmlCuerpo,
-        '10': DefaultCuerpo
+    const storyElementBySubtype = {
+        1: {
+            text,
+            header,
+            image,
+            video,
+            list,
+            quote,
+            gallery,
+            embed,
+            html,
+            button
+        },
+        7: {
+            text,
+            header,
+            image,
+            video,
+            list,
+            quote,
+            gallery,
+            embed,
+            html,
+            button
+        },
+        8: { text, image }
     };
-    const components = [
-        Text,
-        Header,
-        Image,
-        Video,
-        List,
-        Quote,
-        Gallery,
-        Embed,
-        Html,
-        Button
-    ];
 
-    const contentElements = dataNota.content_elements;
-    if (!contentElements) throw new Error('Esta nota no posee cuerpo');
-
-    const infographic = get(dataNota, 'promo_items.basic');
-
-    if (dataNota.subtype === '2' && infographic) {
-        contentElements.unshift(infographic);
-    }
-
-    if (templates[dataNota.subtype]) {
-        return templates[dataNota.subtype](dataNota, components);
-    }
-
-    throw new Error(`El ID de template ${dataNota.subtype} no esta declarado`);
+    return body(dataNota, storyElementBySubtype);
 };
 
 export default cuerpoIndex;

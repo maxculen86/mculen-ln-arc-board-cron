@@ -1,17 +1,17 @@
-const defaultCuerpo = (dataNota, components) => {
-    const resp = dataNota.content_elements
+const defaultBody = (storyId, contentElements, components) => {
+    const resp = contentElements
         .filter(v => {
-            const selectedComponent = components.find(c => c.type === v.type);
+            const selectedComponent = components[v.type];
             if (selectedComponent) return true;
             return false;
         })
         .map(v => {
-            const selectedComponent = components.find(c => c.type === v.type);
-            const render = selectedComponent(v, dataNota);
+            const selectedComponent = components[v.type];
+            const render = selectedComponent(v, storyId);
             return render;
         });
 
     return resp;
 };
 
-export default defaultCuerpo;
+export default defaultBody;

@@ -1,9 +1,8 @@
 import { OPTA_WIDGET_URL } from 'fusion:environment';
 import getEmbedHref from '../../../../../../../common/utils/getEmbedHref';
 
-const html = (nodo, dataNota) => {
+const html = (nodo, notaId) => {
     if (!nodo || !nodo.content) return null;
-    const { _id: notaId } = dataNota;
     const { _id: contentId, content } = nodo;
     const hrefRegex = new RegExp('(?<=</?)([^ >/]+)');
     const htmlTag = hrefRegex.exec(nodo.content)[1];

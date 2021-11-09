@@ -1,29 +1,37 @@
 import get from 'lodash.get';
-import DefaultCuerpo from './templates/default';
-import RecetaCuerpo from './templates/receta';
+import defaultCuerpo from './templates/default';
+import recetaCuerpo from './templates/receta';
 import htmlCuerpo from './templates/htmlLibre';
-import fotoAlCienCuerpo from './templates/fotoAlCien';
 
-const body = (dataNota, elementBySubtype) => {
+const getInfographicElement = (infographic, subtype, contentElements) => {
+    if (!contentElements) throw new Error('The story does not have body');
+
+    if (subtype === '2' && infographic)
+        return contentElements.unshift(infographic);
+
+    return contentElements;
+};
+
+const storyBody = (dataNota, elementBySubtype) => {
+    const { id } = dataNota;
     const subtype = get(dataNota, 'subtype', '');
     if (!subtype) throw Error('The story does not have subtype');
 
-    const contentElements = get(dataNota, 'content_elements', '');
-    if (!contentElements) throw new Error('The story does not have body');
-
-    const infographic = get(dataNota, 'promo_items.basic');
-    if (subtype === '2' && infographic) {
-        contentElements.unshift(infographic);
-    }
+    const contentElements = getInfographicElement(
+        get(dataNota, 'promo_items.basic', ''),
+        subtype,
+        get(dataNota, 'content_elements', '')
+    );
 
     const templates = {
-        '7': RecetaCuerpo(dataNota, elementBySubtype[7]),
-        '8': fotoAlCienCuerpo(dataNota, elementBySubtype[8]),
-        '9': htmlCuerpo(dataNota)
-    };
+        '7': recetaCuerpo,
+        '8': defaultCuerpo,
+        '9': htmlCuerpo
+    }[subtype];
 
-    return 'hola';
-    return templates[subtype] || DefaultCuerpo(dataNota, elementBySubtype[1]);
+    return templates
+        ? templates(id, contentElements, elementBySubtype[subtype])
+        : defaultCuerpo(id, contentElements, elementBySubtype[1]);
 };
 
-export default body;
+export default storyBody;
