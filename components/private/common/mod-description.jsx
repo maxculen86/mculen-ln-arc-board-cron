@@ -35,9 +35,9 @@ const ModDescription = props => {
 
     return (
         <section className="mod-description">
-            {label && label.text && (
+            {label && label.text && label.text.trim() && (
                 <Badge className="com-label" type={label.style || ''}>
-                    {label.text}
+                    {label.text.trim()}
                 </Badge>
             )}
 
