@@ -5,7 +5,9 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import {
     validateComments,
-    getMessageProps
+    getMessageProps,
+    getLoginAndRegistrationURLS,
+    CLOSED_BY_TERMIC
 } from '../../../private/common/utils/commentsHelper';
 import Message from '../../../private/common/message';
 import getScrollPercent from '../../../private/LN/common/utils/getScrollPercent';
@@ -14,15 +16,19 @@ import handleCookie from '../../../private/LN/common/utils/handleCookie';
 import LoadingIcon from '../../../private/LN/common/loadingIcon';
 import { isSubscribed } from '../../../private/LN/common/utils/contextHelper';
 import HeaderComments from '../../../private/LN/nota/comments/header';
+import findTermica from '../../../private/common/utils/findTermica';
 
 const CommentsViafouraFeature = props => {
     const { outputType } = props;
-    // const { subscription } = globalContent;
     const subscription = isSubscribed();
     const { messageType, shouldLoad } = validateComments(props, subscription);
-    const messageProps = getMessageProps(props, messageType);
+    const termicaLivefyre = findTermica('livefyre');
     const { getCookie } = handleCookie();
     const [isReady, setIsReady] = useState(false);
+    const [messageProps, setMessage] = useState(
+        getMessageProps(props, messageType)
+    );
+    const showComponent = shouldLoad && termicaLivefyre;
 
     useEffect(() => {
         const handleScrollForComments = () => {
@@ -34,10 +40,29 @@ const CommentsViafouraFeature = props => {
                     'body'
                 )
                     .then(() => {
+                        const {
+                            loginUrl,
+                            registracionUrl
+                        } = getLoginAndRegistrationURLS();
                         const token = getCookie('token');
                         window.vfQ = window.vfQ || [];
                         window.vfQ.push(() => {
-                            setIsReady(true);
+                            window.vf.$prepublish((channel, event, ...args) => {
+                                if (
+                                    channel === 'authentication' &&
+                                    event === 'required'
+                                ) {
+                                    window.location.href = registracionUrl;
+                                    return false;
+                                }
+                                if (
+                                    channel === 'commenting' &&
+                                    event === 'loaded'
+                                ) {
+                                    setIsReady(true);
+                                }
+                                return { channel, event, args };
+                            });
                             subscription &&
                                 token &&
                                 window.vf &&
@@ -55,6 +80,15 @@ const CommentsViafouraFeature = props => {
                                             'Viafoura Login incorrecto ',
                                             error
                                         );
+                                        setMessage({
+                                            title:
+                                                'Ahora para comentar debés tener Acceso Digital.',
+                                            subtitle: 'Ingresá o suscribite',
+                                            secondaryUrl: loginUrl,
+                                            specialUrl: registracionUrl,
+                                            dark: true,
+                                            isExclusive: true
+                                        });
                                     });
                         });
                     })
@@ -62,19 +96,21 @@ const CommentsViafouraFeature = props => {
             }
         };
 
-        shouldLoad &&
+        showComponent &&
             window.addEventListener('scroll', e => handleScrollForComments());
         return () =>
-            shouldLoad &&
+            showComponent &&
             window.removeEventListener('scroll', handleScrollForComments);
     });
 
-    if (!shouldLoad || outputType !== 'default') return <></>;
+    if (shouldLoad && !termicaLivefyre && messageType === CLOSED_BY_TERMIC)
+        return <Message {...messageProps} />;
+
+    if (!showComponent || outputType !== 'default') return <></>;
 
     return (
         <>
-            {messageProps && <Message {...messageProps} />}
-            <HeaderComments />
+            {messageProps ? <Message {...messageProps} /> : <HeaderComments />}
 
             {!isReady && <LoadingIcon />}
 

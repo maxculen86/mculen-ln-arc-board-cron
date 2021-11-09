@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import Text from '../../../common/text';
 
-const HeaderComments = props => {
+const HeaderComments = ({ showButton = true }) => {
     const [showLegal, setShowLegal] = useState(false);
 
     const onShowLegal = () => {
@@ -17,15 +18,17 @@ const HeaderComments = props => {
                     size="--l"
                     text="Enviá tu comentario"
                 />
-                <a
-                    className="com-link --threexs"
-                    onClick={onShowLegal}
-                    title="Ver legales"
-                >
-                    Ver legales
-                </a>
+                {showButton && (
+                    <a
+                        className="com-link --threexs"
+                        onClick={onShowLegal}
+                        title="Ver legales"
+                    >
+                        Ver legales
+                    </a>
+                )}
             </section>
-            {showLegal && (
+            {showLegal && showButton && (
                 <Text tag="p" size="--threexs">
                     Los comentarios publicados son de exclusiva responsabilidad
                     de sus autores y las consecuencias derivadas de ellos pueden
@@ -37,6 +40,14 @@ const HeaderComments = props => {
             )}
         </>
     );
+};
+
+HeaderComments.propTypes = {
+    showButton: PropTypes.bool
+};
+
+HeaderComments.defaultProps = {
+    showButton: true
 };
 
 export default HeaderComments;

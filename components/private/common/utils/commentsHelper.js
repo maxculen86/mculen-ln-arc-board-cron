@@ -4,27 +4,28 @@ import { GlobalContext } from '../context/globalContext';
 import findTermica from './findTermica';
 import get from './get';
 
+export const CLOSED_BY_TERMIC = 'CLOSED_BY_TERMIC';
+export const CLOSED_COMMENTS = 'CLOSED_COMMENTS';
+export const SUBSCRIPTION = 'SUBSCRIPTION';
+
 export const allowComments = props =>
     get(props, 'globalContent.type') === 'story' &&
     get(props, 'globalContent._id') &&
-    get(props, 'globalContent.comments.display_comments', true) &&
-    findTermica('livefyre');
+    get(props, 'globalContent.comments.display_comments', true);
 
 export const shouldLoadViafoura = inputDate => {
     const gc = useContext(GlobalContext);
-    const deadlineLivefyer = get(
+    const deadlineLivefyre = get(
         gc,
         'state.siteService.migration.deadline_livefyre'
     );
 
-    const deadlineDate = deadlineLivefyer && new Date(deadlineLivefyer);
+    const deadlineDate =
+        deadlineLivefyre && new Date(`${deadlineLivefyre}T20:00:00`);
     const articlePublishDate = inputDate && new Date(inputDate);
 
     return (
-        deadlineDate &&
-        articlePublishDate &&
-        articlePublishDate.setHours(0, 0, 0, 0) >=
-            deadlineDate.setHours(0, 0, 0, 0)
+        deadlineDate && articlePublishDate && articlePublishDate >= deadlineDate
     );
 };
 
@@ -33,6 +34,7 @@ export const validateComments = (props, subscription = false) => {
     const show = get(props, 'globalContent.comments.display_comments', true);
     const firstPublishDate = get(props, 'globalContent.first_publish_date');
     // const subscription = get(props, 'globalContent.subscription', false);
+    const termicaLivefyre = findTermica('livefyre');
     const shouldLoad =
         allowComments(props) && shouldLoadViafoura(firstPublishDate);
     return {
@@ -40,8 +42,20 @@ export const validateComments = (props, subscription = false) => {
         allowComments: allow,
         showComments: show,
         messageType:
-            (!allow && 'CLOSED_COMMENTS') || (!subscription && 'SUBSCRIPTION'),
+            (!termicaLivefyre && CLOSED_BY_TERMIC) ||
+            (!allow && CLOSED_COMMENTS) ||
+            (!subscription && SUBSCRIPTION),
         showCounter: show
+    };
+};
+
+export const getLoginAndRegistrationURLS = () => {
+    const urlBase64 =
+        typeof window !== 'undefined' ? window.btoa(location.href) : '';
+
+    return {
+        loginUrl: `${LOGIN_URL}${urlBase64}`,
+        registracionUrl: `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${urlBase64}`
     };
 };
 
@@ -49,12 +63,21 @@ export const getMessageProps = (props, messageType) => {
     const canonicalUrl = get(props, 'globalContent.canonical_url', '');
     // const urlBase64 =
     //     Buffer.from(canonicalUrl, 'binary').toString('base64') || '';
-    const urlBase64 =
-        typeof window !== 'undefined' ? window.btoa(location.href) : '';
-    const loginUrl = `${LOGIN_URL}${urlBase64}`;
-    const registracionUrl = `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${urlBase64}`;
+    const gc = useContext(GlobalContext);
+    const termicas = get(gc, 'state.siteService.termicas', []);
+    const element = termicas.find(
+        ter => ter && ter.key === 'mensaje_para_cierre_de_comentarios'
+    );
+    const customMessage = (element && element.value) || '';
+    const { loginUrl, registracionUrl } = getLoginAndRegistrationURLS();
 
     const MESSAGE_PROPS = {
+        CLOSED_BY_TERMIC: {
+            title: customMessage,
+            subtitle: ' ',
+            icon: 'comment',
+            text: 'Comentarios'
+        },
         CLOSED_COMMENTS: {
             title: 'Nota cerrada a comentarios.',
             subtitle: ' ',
