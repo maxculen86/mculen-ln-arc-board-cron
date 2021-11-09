@@ -26,10 +26,7 @@ const html = (nodo, notaId) => {
             break;
     }
 
-    return {
-        _t: 'p',
-        valor: resp
-    };
+    return resp;
 };
 
 html.type = 'raw_html';
