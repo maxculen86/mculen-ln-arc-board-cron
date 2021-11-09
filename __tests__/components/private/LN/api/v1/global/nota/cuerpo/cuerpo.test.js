@@ -13,7 +13,7 @@ describe('Test Json Text del cuerpo de la nota', () => {
             const resp = Cuerpo(ArticleSinCuerpo);
             expect(resp).toBe(null);
         } catch (err) {
-            expect(err.message).toBe('Esta nota no posee cuerpo');
+            expect(err.message).toBe('The story does not have body');
         }
     });
 
@@ -22,7 +22,7 @@ describe('Test Json Text del cuerpo de la nota', () => {
             const resp = Cuerpo(ArticleSubtypeInexistente);
             expect(resp).toBe(null);
         } catch (err) {
-            expect(err.message).toBe(`El ID de template 100 no esta declarado`);
+            expect(err.message).toBe(`The story does not have subtype`);
         }
     });
 

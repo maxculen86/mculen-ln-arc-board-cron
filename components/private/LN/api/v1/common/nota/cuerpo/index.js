@@ -6,9 +6,9 @@ import htmlCuerpo from './templates/htmlLibre';
 const getInfographicElement = (infographic, subtype, contentElements) => {
     if (!contentElements) throw new Error('The story does not have body');
 
-    if (subtype === '2' && infographic)
-        return contentElements.unshift(infographic);
-
+    if (subtype === '2' && infographic) {
+        contentElements.unshift(infographic);
+    }
     return contentElements;
 };
 
@@ -30,8 +30,8 @@ const storyBody = (dataNota, elementBySubtype) => {
     }[subtype];
 
     return templates
-        ? templates(id, contentElements, elementBySubtype[subtype])
-        : defaultCuerpo(id, contentElements, elementBySubtype[1]);
+        ? templates(contentElements, elementBySubtype[subtype], id)
+        : defaultCuerpo(contentElements, elementBySubtype[1], id);
 };
 
 export default storyBody;

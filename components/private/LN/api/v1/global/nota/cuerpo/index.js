@@ -1,45 +1,45 @@
-import header from './elements/header';
-import text from './elements/text';
-import video from './elements/video';
-import image from './elements/image';
-import list from './elements/list';
-import quote from './elements/quote';
-import gallery from './elements/gallery';
-import embed from './elements/embed';
-import html from './elements/htmlContent';
-import button from './elements/button';
-import body from '../../../common/nota/cuerpo/index';
+import Header from './elements/header';
+import Text from './elements/text';
+import Video from './elements/video';
+import Image from './elements/image';
+import List from './elements/list';
+import Quote from './elements/quote';
+import Gallery from './elements/gallery';
+import Embed from './elements/embed';
+import Html from './elements/htmlContent';
+import Button from './elements/button';
+import StoryBody from '../../../common/nota/cuerpo/index';
 
 const cuerpoIndex = dataNota => {
     const storyElementBySubtype = {
         1: {
-            text,
-            header,
-            image,
-            video,
-            list,
-            quote,
-            gallery,
-            embed,
-            html,
-            button
+            text: Text,
+            header: Header,
+            image: Image,
+            video: Video,
+            list: List,
+            quote: Quote,
+            gallery: Gallery,
+            embed: Embed,
+            raw_html: Html,
+            button: Button
         },
         7: {
-            text,
-            header,
-            image,
-            video,
-            list,
-            quote,
-            gallery,
-            embed,
-            html,
-            button
+            text: Text,
+            header: Header,
+            image: Image,
+            video: Video,
+            list: List,
+            quote: Quote,
+            gallery: Gallery,
+            embed: Embed,
+            raw_html: Html,
+            button: Button
         },
-        8: { text, image }
+        8: { text: Text, image: Image }
     };
 
-    return body(dataNota, storyElementBySubtype);
+    return StoryBody(dataNota, storyElementBySubtype);
 };
 
 export default cuerpoIndex;

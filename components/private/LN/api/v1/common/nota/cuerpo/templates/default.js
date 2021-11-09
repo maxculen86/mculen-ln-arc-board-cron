@@ -1,4 +1,4 @@
-const defaultBody = (storyId, contentElements, components) => {
+const defaultBody = (contentElements, components, storyId) => {
     const resp = contentElements
         .filter(v => {
             const selectedComponent = components[v.type];
