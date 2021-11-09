@@ -9,7 +9,7 @@ const Image = ({ id: featureId, imageId }) => {
     const [imageUrl, setImageUrl] = useState();
     const content = useContent({
         source: 'imageSource',
-        query: { published: true, id: imageId }
+        query: { published: true, id: imageId.trim() }
     });
 
     useEffect(() => {

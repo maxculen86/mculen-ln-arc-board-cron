@@ -24,7 +24,7 @@ function withCollectionsInClass(WrappedComponent, filter, size, imageConfig) {
                 const { fetched } = this.getContent({
                     sourceName: 'collectionsSource',
                     query: {
-                        id: idCollection,
+                        id: idCollection.trim(),
                         size,
                         imageConfig,
                         website
