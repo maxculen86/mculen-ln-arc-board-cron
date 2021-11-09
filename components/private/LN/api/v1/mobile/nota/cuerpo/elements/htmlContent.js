@@ -27,10 +27,7 @@ const html = (nodo, dataNota) => {
             break;
     }
 
-    return {
-        _t: 'p',
-        valor: resp
-    };
+    return resp;
 };
 
 html.type = 'raw_html';
