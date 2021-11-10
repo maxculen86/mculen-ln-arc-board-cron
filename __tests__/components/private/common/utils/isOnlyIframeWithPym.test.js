@@ -11,10 +11,10 @@ describe('common - utils - isOnlyIframeWithPym', () => {
                 '<div style="padding: 20px;background-color:#333;color:white;text-align:center;font-size:2em;"><iframe class="pym" id="LNcreativa" frameborder="0" width="100%" height="1200" scrolling="no" src="https://www.padron.gob.ar/"></iframe></div>';
             expect(isOnlyIframeWithPym(html)).toBeFalsy();
         });
-        test('iframe without pym, return False', () => {
+        test('iframe without pym, return True', () => {
             const html =
                 '<iframe class="anexo" id="LNcreativa" frameborder="0" width="100%" height="1200" scrolling="no" src="https://www.padron.gob.ar/"></iframe>';
-            expect(isOnlyIframeWithPym(html)).toBeFalsy();
+            expect(isOnlyIframeWithPym(html)).toBeTruthy();
         });
         test('iframe with pym, return True', () => {
             const html =
