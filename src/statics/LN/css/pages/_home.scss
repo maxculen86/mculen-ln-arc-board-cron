@@ -855,7 +855,7 @@ $rank-dsk: px(400);
                         color: $light-neutral-700;
                         font-weight: 500;
                         &:before {
-                            font-family: LNicons;
+                            font-family: $font-icons;
                             color: $light-neutral-400;
                             content: $icon-bullet-xs;
                             font-size: px(24);
