@@ -1,31 +1,32 @@
-/* eslint-disable no-underscore-dangle */
-import optaSource from './optaSource';
+import { ARC_ACCESS_TOKEN } from 'fusion:environment';
+import { getAuthForRequest, getDataFromQuery } from './utils/widgets/helper';
+import viafoura from './utils/widgets/viafoura';
+import defaultWidget from './utils/widgets/defaultWidget';
 
-const WIDGETS = {
-    opta: { fetch: optaSource.fetch },
-    viafoura: {
-        transform: data => {
-            const { params } = data || {};
-            const [_id, messageType = ''] = params;
-            return { ...data, _id, messageType };
-        }
-    }
-};
+const WIDGET_LIST = { defaultWidget, viafoura };
 
-const fetch = query => {
-    const { uri = '' } = query;
-    const [, widget, ...params] = uri.split('/').filter(String);
-    const { fetch: fetchWidget, transform } = WIDGETS[widget] || {};
-    const data = {
-        uri,
-        params,
-        widget
-    };
-    return (
-        (typeof fetchWidget === 'function' && fetchWidget(query)) ||
-        (typeof transform === 'function' && transform(data)) ||
-        data
-    );
+const fetch = (query, { cachedCall }) => {
+    const queryData = getDataFromQuery(query);
+    const { widget, uri, arcSite } = queryData;
+    const { request, resolve, reject, transform, getUri } =
+        WIDGET_LIST[widget] || WIDGET_LIST.defaultWidget;
+
+    return request({
+        queryData,
+        getUri,
+        auth: getAuthForRequest(ARC_ACCESS_TOKEN),
+        cachedCall
+    })
+        .then(response =>
+            resolve({
+                response,
+                transform,
+                query: queryData
+            })
+        )
+        .catch(error => {
+            return reject({ error, uri, arcSite });
+        });
 };
 
 export default {
