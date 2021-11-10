@@ -34,17 +34,6 @@ describe('Test de htmlContent en el cuepo de nota', () => {
         );
     });
 
-    it('Verificar los valores cuando el contenido html es un iframe', () => {
-        const resp = HtmlContent(ArticleHtmlContent[3], dataNota);
-        expect(resp['_t']).toBe('ext');
-        expect(resp['id']).toBe('html');
-        expect(resp['src']).toEqual(
-            expect.stringContaining(
-                `opta-embed/${ArticleHtmlContent[3]._id}/${dataNota._id}`
-            )
-        );
-    });
-
     it('Verificar Helper enviando una url no valida', () => {
         const resp = getEmbedHref('href', `<a src='www.google.com'>test</a>`);
         expect(resp).toBe(null);

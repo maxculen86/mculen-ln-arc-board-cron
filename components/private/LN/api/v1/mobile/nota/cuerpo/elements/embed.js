@@ -41,10 +41,7 @@ const embed = (nodo, dataNota) => {
             return null;
     }
 
-    return {
-        _t: 'p',
-        valor: resp
-    };
+    return resp;
 };
 
 embed.type = 'oembed_response';

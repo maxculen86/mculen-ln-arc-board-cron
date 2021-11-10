@@ -20,7 +20,7 @@ const cuerpoIndex = dataNota => {
             list: List,
             quote: Quote,
             gallery: Gallery,
-            embed: Embed,
+            oembed_response: Embed,
             raw_html: Html,
             button: Button
         },
@@ -32,7 +32,7 @@ const cuerpoIndex = dataNota => {
             list: List,
             quote: Quote,
             gallery: Gallery,
-            embed: Embed,
+            oembed_response: Embed,
             raw_html: Html,
             button: Button
         },
