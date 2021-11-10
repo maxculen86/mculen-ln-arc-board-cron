@@ -15,7 +15,6 @@
         "description": "Todas las noticias de Argentina y el mundo: últimas noticias en actualidad, deportes, coronavirus, economía, política, y tecnología. Mantenete informado sobre las novedades de Argentina en LA NACION.",
         "className": { "body": "ln" },
         "host": "https://www.lanacion.com.ar",
-        "loggerOn": true,
         "loggerExcludedErrors": [404, 301, 302],
         "imageConfig": { "resize": [] },
         "bannerConfig": {

@@ -39,7 +39,7 @@ import getMetaDescriptionForAcum from '../private/common/utils/getMetaDescriptio
 import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 import addForwardSlash from '../private/LN/common/utils/addForwardSlash';
 import AmazonPublisherServices from '../private/common/scriptManager/amazonPublisherServices';
-import FontFace from '../private/common/fontface';
+import FontFaceDefault from '../private/common/fontfaceDefault';
 import MetaViafoura from '../private/common/metaViafoura';
 
 const scriptList = [
@@ -224,7 +224,7 @@ const Default = props => {
             <head>
                 <meta charset="utf-8" />
                 <title>{title}</title>
-                <FontFace outputType={outputType} />
+                {/* <FontFace outputType={outputType} /> */}
                 {arcSite === 'ott' ? (
                     <link
                         rel="stylesheet"
@@ -391,6 +391,7 @@ const Default = props => {
                     renderables={renderables}
                     section={_nodeType}
                 />
+                <FontFaceDefault outputType={outputType} />
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />

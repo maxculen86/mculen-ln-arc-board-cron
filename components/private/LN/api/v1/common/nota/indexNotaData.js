@@ -49,7 +49,7 @@ const indexNotaData = (dataNota, cuerpo) => {
         url,
         mostrarBanners: !(showBanners && showBanners.toLowerCase() === 'no'),
         paywallStatus: paywallStatus || 'comun',
-        abiertoComentarios: displayComments(dataNota),
+        abiertoComentarios: false,
         categoria: primarySection && getPrincipalCategory(primarySection),
         relacionados: Relacionados(dataNota),
         enviarApps,

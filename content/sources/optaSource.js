@@ -43,7 +43,11 @@ const fetch = query => {
             return transform(response, uri);
         })
         .catch(error => {
-            logger.push(error, { source: 'content/source', uri }, arcSite);
+            logger.push(
+                error,
+                { source: 'content/source/optaSource', uri },
+                arcSite
+            );
         });
 };
 
