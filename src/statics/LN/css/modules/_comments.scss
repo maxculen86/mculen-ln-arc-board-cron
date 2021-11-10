@@ -85,7 +85,7 @@
 
 //AJUSTES VIAFOURA
 .viafoura.viafoura {
-    font-family: Arial;
+    font-family: $font-arial;
     margin-bottom: $spacing-2xl;
 
     &.not-comment {
@@ -127,7 +127,7 @@
             letter-spacing: normal;
             text-decoration: none;
             margin-right: px(2);
-            font-family: LNicons;
+            font-family: $font-icons;
             content: '\e944';
             font-size: px(11);
         }

@@ -12,7 +12,7 @@
 /* REVISTAS */
 @mixin magazine($logo, $primario) {
     &.nota {
-        main {
+        #content {
             .com-breadcrumb a,
             .mod-autor .com-link,
             // .com-cita .com-link,
@@ -118,7 +118,7 @@
 // }
 
 .nota.nota {
-    main {
+    #content {
         .cuerpo__nota {
             .box-articles {
                 .com-link.com-link {
