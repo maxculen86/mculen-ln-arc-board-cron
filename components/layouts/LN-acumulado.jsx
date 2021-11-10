@@ -6,7 +6,8 @@ import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import GlobalProvider from '../private/common/context/globalContext';
-import AnexoFeature from '../features/LN-acumulado/anexoIframe';
+import getAnexoConfig from '../private/common/utils/anexo/getAnexoConfig';
+import RenderAnexoByConfig from '../private/common/utils/anexo/renderAnexoByConfig';
 
 // import '../../resources/dist/css/ln/base.css';
 // import '../../resources/dist/css/ln/layouts/layout.css';
@@ -79,7 +80,7 @@ const LNAcumuladoLayout = props => {
             : '';
     const sectionClass = sections.find(sec => sec === formatText(name)) || '';
     const acumuladoGeneral = get(globalContent, 'acumuladoGeneral', {});
-    const { anexo = '' } = acumuladoGeneral;
+    const { anexo } = acumuladoGeneral || '';
     const acumuladoColor = get(globalContent, 'acumuladoColor', {});
     const {
         background_color: backgroundCategory,
@@ -116,8 +117,9 @@ const LNAcumuladoLayout = props => {
     )
         ? '--opening'
         : '';
+    const anexos = getAnexoConfig(anexo);
+    const { anexoSuperior, anexoInferior } = anexos;
 
-    const anexoConfig = anexo.split('|', 2) || [];
     return (
         <GlobalProvider>
             <GlobalProviderAcu
@@ -143,14 +145,9 @@ const LNAcumuladoLayout = props => {
                                 {preApertura}
                                 {/* TITULO/LOGO Y CATEGORIAS */}
                                 {breadcrumbTitulo}
-                                {anexoConfig[0] && anexoConfig[1] === 'S' ? (
-                                    <AnexoFeature
-                                        id="anexo-superior"
-                                        customFields={{ url: anexoConfig[0] }}
-                                    />
-                                ) : (
-                                    <></>
-                                )}
+                                <RenderAnexoByConfig
+                                    anexoConfig={anexoSuperior}
+                                />
                             </div>
                         </div>
                         <div className="lay">
@@ -162,14 +159,9 @@ const LNAcumuladoLayout = props => {
                         <div id="content-main" className="lay-sidebar">
                             {/* Cuerpo */}
                             <div className="sidebar__main">
-                                {anexoConfig[0] && anexoConfig[1] === 'I' ? (
-                                    <AnexoFeature
-                                        id="anexo-inferior"
-                                        customFields={{ url: anexoConfig[0] }}
-                                    />
-                                ) : (
-                                    <></>
-                                )}
+                                <RenderAnexoByConfig
+                                    anexoConfig={anexoInferior}
+                                />
                                 {/* NOTAS */}
                                 {notas}
                             </div>
