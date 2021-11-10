@@ -230,6 +230,7 @@ const Default = props => {
                 />
                 <meta name="theme-color" content="#ffffff" />
                 <title>{title}</title>
+                <Libs />
                 {/* <FontFace outputType={outputType} /> */}
                 {arcSite === 'ott' ? (
                     <link
@@ -241,7 +242,6 @@ const Default = props => {
                 ) : (
                     <CssLinks />
                 )}
-                <Libs />
 
                 {LinkImagePreload()}
 
