@@ -40,17 +40,19 @@ const ArticleFeature = ({
         imageConfig
     } = getCajaTemaConfig(featureId, renderables, cajaTemaConfig, isBomba);
 
-    const article = useContent({
-        source: 'articleSourceNota',
-        query: { id, published: true, imageConfig },
-        filter
-    });
+    const article =
+        id &&
+        useContent({
+            source: 'articleSourceNota',
+            query: { id: id.trim(), published: true, imageConfig },
+            filter
+        });
 
     const videoBackground =
         videoId &&
         useContent({
             source: 'videoSource',
-            query: { id: videoId, website: 'la-nacion-ar' }
+            query: { id: videoId.trim(), website: 'la-nacion-ar' }
         });
 
     const image =

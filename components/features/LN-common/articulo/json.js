@@ -8,12 +8,13 @@ class ArticleFeature {
         } = props;
         this.state = {};
 
-        this.fetchContent({
-            articleSourceNota: {
-                source: 'articleSourceNota',
-                query: { id: noteId, published: true }
-            }
-        });
+        noteId &&
+            this.fetchContent({
+                articleSourceNota: {
+                    source: 'articleSourceNota',
+                    query: { id: noteId.trim(), published: true }
+                }
+            });
         if (imageId) {
             this.fetchContent({
                 articleImage: {
