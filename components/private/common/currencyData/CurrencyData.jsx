@@ -1,40 +1,18 @@
 import PropTypes from 'prop-types';
 
-import { ComTitle as Title } from '../com-title';
-import { ComLink as Link } from '../com-link';
-import { ComImage as Image } from '../com-image';
+import ComTitle from '../com-title';
+import ComLink from '../com-link';
+import ComImage from '../com-image';
 
-import './_currencyData.scss';
-import classNames from 'classnames';
+import '../../../resources/dist/css/ln/modules/currency-data.css';
 
 const propTypes = {
-    /**
-     * Clases adicionales.
-     */
     className: PropTypes.string,
-    /**
-     * Titulo.
-     */
     title: PropTypes.string,
-    /**
-     * Valor de compra.
-     */
     purchaseValue: PropTypes.string,
-    /**
-     * Valor de venta.
-     */
     saleValue: PropTypes.string,
-    /**
-     * texto asociado al brands.
-     */
     textBrand: PropTypes.string,
-    /**
-     * Alt de imagen de información.
-     */
     informationAlt: PropTypes.string,
-    /**
-     * Alt de imagen de proveedor.
-     */
     providedAlt: PropTypes.string
 };
 
@@ -55,22 +33,17 @@ const CurrencyData = ({
     providedAlt,
     ...r
 }) => {
-    const classes = classNames(
-        urlBrand ? 'provider-data' : 'currency-data',
-        className
-    );
-
     return (
         <>
             {!urlBrand ? (
-                <div className={classes}>
-                    <Title
+                <div className="currency-data">
+                    <ComTitle
                         tag="h2"
                         size="--xs"
                         classCondition="Arial --font-bold"
                     >
                         {title}
-                    </Title>
+                    </ComTitle>
                     <p className="com-text --sixxs">
                         <span>COMPRA </span>
                         <strong>${purchaseValue}</strong>
@@ -83,24 +56,30 @@ const CurrencyData = ({
                     </p>
                 </div>
             ) : (
-                <Link link={urlBrand} classCondition={classes} type="text/css">
+                <ComLink
+                    link={urlBrand}
+                    classCondition="provider-data"
+                    type="text/css"
+                >
                     <div>
-                        <span className="--sixxs">Información de</span>
-                        <Image
-                            className="logo byma-logo"
-                            alt={informationAlt}
-                            target="_blank"
-                        />
+                        <div>
+                            <span className="--sixxs">Información de</span>
+                            <ComImage
+                                className="logo byma-logo"
+                                alt={informationAlt}
+                                target="_blank"
+                            />
+                        </div>
+                        <div>
+                            <span className="--sixxs">provista por</span>
+                            <ComImage
+                                classCondition="logo invertir-online"
+                                alt={providedAlt}
+                                target="_blank"
+                            />
+                        </div>
                     </div>
-                    <div>
-                        <span className="--sixxs">provista por</span>
-                        <Image
-                            classCondition="logo invertir-online"
-                            alt={providedAlt}
-                            target="_blank"
-                        />
-                    </div>
-                </Link>
+                </ComLink>
             )}
         </>
     );
