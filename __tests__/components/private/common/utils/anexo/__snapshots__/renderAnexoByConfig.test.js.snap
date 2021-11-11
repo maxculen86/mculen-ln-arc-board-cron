@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renderAnexoByConfig would draw if anexo config have data Should render the component 1`] = `
+<AnexoFeature
+  customFields={
+    Object {
+      "url": "https://especialeslntools.lanacion.com.ar/generic-anexo_confianza/index.html",
+    }
+  }
+  id="anexo-superior"
+/>
+`;
+
+exports[`renderAnexoByConfig would draw if anexo config have data Shouldnt render the component 1`] = `<Fragment />`;
