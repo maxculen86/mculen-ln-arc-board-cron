@@ -15,7 +15,4 @@ const button = (nodo, dataNota) => {
         valor: resp
     };
 };
-
-button.type = 'interstitial_link';
-
 export default button;

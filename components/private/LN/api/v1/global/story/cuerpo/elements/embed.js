@@ -6,6 +6,4 @@ const embed = (nodo, dataNota) => {
         valor: embedContent(nodo, dataNota)
     };
 };
-
-embed.type = 'oembed_response';
 export default embed;
