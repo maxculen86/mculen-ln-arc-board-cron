@@ -54,6 +54,19 @@ const openComments = dataNota => {
         optionDisplayComments === true
     );
 };
+
+const getPaywallStatus = dataNota => {
+    const paywallStatus = get(
+        dataNota,
+        'content_restrictions.content_code',
+        null
+    );
+
+    if (!paywallStatus || paywallStatus === 'cerrada') return 'comun';
+
+    return paywallStatus;
+};
+
 const indexNota = dataNota => {
     if (!dataNota) throw new Error(`La información de la nota esta vacia`);
 
@@ -68,11 +81,7 @@ const indexNota = dataNota => {
 
     const comentariosId = get(dataNota, 'label.livefyre_entrada_id.text', null);
     const allowComments = get(dataNota, 'comments.allow_comments', null);
-    const paywallStatus = get(
-        dataNota,
-        'content_restrictions.content_code',
-        null
-    );
+
     const edition = get(dataNota, 'label.edicion.text', null);
     const showBanners = get(dataNota, 'label.mostrar_banners.text', null);
 
@@ -98,7 +107,7 @@ const indexNota = dataNota => {
         template: template === '6' || template === '5' ? '1' : template,
         url,
         mostrarBanners: !(showBanners && showBanners.toLowerCase() === 'no'),
-        paywallStatus: paywallStatus || 'comun',
+        paywallStatus: getPaywallStatus(dataNota),
         abiertoComentarios: false,
         comentarios: {
             abiertoComentarios: openComments(dataNota),

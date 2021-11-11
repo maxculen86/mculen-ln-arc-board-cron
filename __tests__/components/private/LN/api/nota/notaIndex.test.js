@@ -4,6 +4,9 @@ import JMQ44OZHHBC5ZJ5TXTSIIPZMTI from '../../../../../../__mocks__/data/article
 import FUO2YR3EABBAFOMSI2BBS6J7FM from '../../../../../../__mocks__/data/articles/FUO2YR3EABBAFOMSI2BBS6J7FM.json';
 import L47IICAOMVFW5MV343TJIHS4RY from '../../../../../../__mocks__/data/articles/L47IICAOMVFW5MV343TJIHS4RY.json';
 import Q4P5KFEOLVHINB3Y5LIGK26SOU from '../../../../../../__mocks__/data/articles/Q4P5KFEOLVHINB3Y5LIGK26SOU.json';
+import FO4F7BUAJZBDDLPEMSV5QYDCGM from '../../../../../../__mocks__/data/articles/FO4F7BUAJZBDDLPEMSV5QYDCGM.json';
+import M3UNX7ATAZHEFJGPGFZX366ZAQ from '../../../../../../__mocks__/data/articles/M3UNX7ATAZHEFJGPGFZX366ZAQ.json';
+
 import dateAndTimeUtil, {
     dateAndTimeForAppsUtil
 } from '../../../../../../components/private/common/utils/dateAndTimeUtil';
@@ -23,6 +26,16 @@ describe('Test de index en JSON de nota', () => {
             '29 de septiembre de 2020 • 06:09'
         );
         expect(resp.fecha).toBe('29 de septiembre de 2020 • 09:09');
+    });
+
+    it('Test paywallStatus cerrada', () => {
+        const resp = NotaIndex(FO4F7BUAJZBDDLPEMSV5QYDCGM);
+        expect(resp.paywallStatus).toBe('comun');
+    });
+
+    it('Test Paywall inexistente', () => {
+        const resp = NotaIndex(M3UNX7ATAZHEFJGPGFZX366ZAQ);
+        expect(resp.paywallStatus).toBe('comun');
     });
 
     it('Test valores meta con valores y siendo edicion impresa', () => {
