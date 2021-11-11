@@ -8,3 +8,4 @@ const embed = (nodo, dataNota) => {
 };
 
 embed.type = 'oembed_response';
+export default embed;

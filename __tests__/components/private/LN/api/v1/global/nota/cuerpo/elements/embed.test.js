@@ -4,17 +4,17 @@ import Embed from '../../../../../../../../../../components/private/LN/api/v1/gl
 describe('Test de las embebidos en el cuerpo de una nota', () => {
     it('Test de embebidos si es null', () => {
         const resp = Embed(null);
-        expect(resp).toBe(null);
+        expect(resp['valor']).toBe(null);
     });
 
     it('Test de embebidos html null', () => {
         const resp = Embed(ArticleEmbed[8]);
-        expect(resp).toBe(null);
+        expect(resp['valor']).toBe(null);
     });
 
     it('Test de embebidos sin un type valido', () => {
         const resp = Embed(ArticleEmbed[9]);
-        expect(resp).toBe(null);
+        expect(resp['valor']).toBe(null);
     });
 
     it('Valores de embebidos Twitter', () => {

@@ -8,12 +8,12 @@ const dataNota = { _id: 'idnota' };
 describe('Test de htmlContent en el cuepo de nota', () => {
     it('Verificar en caso que el contenido html sea null', () => {
         const resp = HtmlContent(null);
-        expect(resp).toBe(null);
+        expect(resp['valor']).toBe(null);
     });
 
     it('Verificar en caso que el contenido html sea null', () => {
         const resp = HtmlContent(ArticleHtmlContent[1], dataNota);
-        expect(resp).toBe(null);
+        expect(resp['valor']).toBe(null);
     });
 
     it('Verificar los valores del contenido html', () => {
