@@ -1,0 +1,78 @@
+@import '../../abstracts/variables';
+@import '../../abstracts/mixins';
+
+.currency-data {
+    display: flex;
+    background: $light-neutral-200;
+
+    .com-title {
+        margin-right: $spacing;
+    }
+
+    strong {
+        margin-right: $spacing;
+        &:last-child {
+            margin: 0;
+        }
+    }
+
+    @media ($media-xs) {
+        align-items: center;
+        padding: $spacing;
+    }
+
+    @media ($media-lm) {
+        padding: $spacing-sm;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        .com-title {
+            margin-bottom: $spacing;
+        }
+    }
+}
+
+.provider-data {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: $light-neutral-900;
+    background: $light-neutral-200;
+    padding: $spacing-xs 0px $spacing-xs $spacing-xs;
+
+    div {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .logo {
+        margin: 0px px(4);
+    }
+    .byma-logo {
+        content: url('../../../../statics/imgs/byma_logo.svg');
+        width: px(47);
+        height: px(20);
+    }
+
+    .invertir-online {
+        content: url('../../../../statics/imgs/invertir_online_logo.svg');
+        width: px(82);
+        height: px(20);
+    }
+
+    @media ($media-lm) {
+        flex-direction: column;
+        justify-content: center;
+        padding: $spacing-sm;
+
+        .byma-logo {
+            width: px(73);
+            height: px(31);
+        }
+        .invertir-online {
+            width: px(73);
+            height: px(31);
+        }
+    }
+}
