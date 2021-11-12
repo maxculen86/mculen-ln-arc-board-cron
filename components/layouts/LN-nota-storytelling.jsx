@@ -95,7 +95,7 @@ const lnNotaStorytelling = ({
                     className={`nota ${magazine} --storytelling --transparent ${amp}`}
                 >
                     <Header />
-                    <main>
+                    <main id="content">
                         {children[1]}
                         <AperturaStorytelling />
                         <div className="lay-sidebar">

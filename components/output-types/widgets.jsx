@@ -1,17 +1,32 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { SITE_LANACION } from 'fusion:environment';
 import FontFace from '../private/common/fontface';
 
 const TAGS_BY_WIDGET = {
     viafoura: globalContent => {
-        const { _id } = globalContent;
+        const {
+            _id,
+            canonical_url: canonicalUrl = '',
+            headlines: { mobile, basic } = {}
+        } = globalContent;
+        const title = mobile || basic;
+        const domain = SITE_LANACION.replace(
+            /^(?:https?:\/\/)?(?:www\.)?/i,
+            ''
+        );
         return (
             (_id && {
                 head: [
                     <meta name="vf:container_id" content={_id} />,
                     <meta name="vf:lang" content="es" />,
-                    <meta name="vf:domain" content="lanacion.com.ar" />,
+                    <meta name="vf:domain" content={domain} />,
+                    <meta
+                        name="vf:url"
+                        content={`${SITE_LANACION}${canonicalUrl}`}
+                    />,
+                    <meta name="vf:title" content={title} />,
                     <meta
                         name="viewport"
                         content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"

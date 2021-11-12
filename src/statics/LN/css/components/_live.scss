@@ -1,0 +1,39 @@
+@import '../abstracts/variables';
+
+.live {
+    display: flex;
+    .circle {
+        position: relative;
+        align-self: center;
+        width: px(5);
+        height: px(5);
+        left: px(5);
+        background-color: $red-500;
+        border-radius: 50%;
+    }
+
+    .ringring {
+        position: relative;
+        border: px(2) solid $red-500;
+        height: px(15);
+        width: px(15);
+        right: px(5);
+        border-radius: px(30);
+        animation: pulsate 1s ease-out;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes pulsate {
+        0% {
+            -webkit-transform: scale(0.1, 0.1);
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: scale(1.2, 1.2);
+            opacity: 0;
+        }
+    }
+}

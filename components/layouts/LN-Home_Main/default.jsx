@@ -225,7 +225,7 @@ const LNMainHome = props => {
 
                 {/* BOMBA */}
                 {bomba}
-                <main>
+                <main id="content">
                     {/* STICKY MOB */}
                     <DivBanner
                         id="sticky2_mob"

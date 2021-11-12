@@ -2,6 +2,7 @@
 //=====================
 // HEADER Desktop CORE
 //=====================
+
 .header {
     // display: none;
     position: relative;
@@ -260,4 +261,34 @@
     //         grid-template-columns: px(140) 1fr;
     //     }
     // }
+}
+
+// .reader-only {
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     background: red;
+//     color: white;
+//     font-weight: 700;
+//     padding: 4px;
+//     z-index: 1000;
+// }
+
+.reader-only {
+    position: absolute;
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
+    &:focus,
+    &:active {
+        margin: auto;
+        width: auto;
+        height: auto;
+        clip: auto;
+        overflow: visible;
+    }
 }

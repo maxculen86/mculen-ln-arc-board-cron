@@ -1,0 +1,24 @@
+@import '../abstracts/variables';
+
+.badge {
+    background: $neutral-black;
+    color: $neutral-white;
+    padding: px(4) px(8);
+    display: inline-flex;
+    text-transform: uppercase;
+
+    flex-wrap: nowrap;
+    overflow: hidden;
+    max-width: 95%;
+    white-space: nowrap;
+
+    &.--sponsored {
+        background: $neutral-white;
+        border: thin solid $neutral-black;
+        color: $neutral-black;
+        padding: px(3) px(8);
+    }
+    &.--a-fondo {
+        background: $red-400;
+    }
+}

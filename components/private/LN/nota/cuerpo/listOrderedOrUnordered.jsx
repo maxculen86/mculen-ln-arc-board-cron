@@ -9,7 +9,7 @@ const ListOrderedOrUnordered = ({ data }) => {
 
     const setExternalLinks = text => {
         const regex = /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g;
-        const classRegex = /(?<=<a)(?:.(?!<\/a>))*?class="(link)"/g;
+        const classRegex = /(?:<a)(?:.(?!<\/a>))*?class="(link)"/g;
         const filteredText = text.replace(classRegex, (fullMatch, group) => {
             return fullMatch.replace(group, 'com-link');
         });
