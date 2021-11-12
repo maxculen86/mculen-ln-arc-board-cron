@@ -147,6 +147,7 @@ const LNAcumuladoLayout = props => {
                                 {preApertura}
                                 {/* TITULO/LOGO Y CATEGORIAS */}
                                 {breadcrumbTitulo}
+                                {/* ANEXO SUPERIOR */}
                                 {anexoSuperior !== '' ? (
                                     <AnexoFeature
                                         id="superior"
@@ -166,6 +167,7 @@ const LNAcumuladoLayout = props => {
                         <div id="content-main" className="lay-sidebar">
                             {/* Cuerpo */}
                             <div className="sidebar__main">
+                                {/* ANEXO INFERIOR */}
                                 {anexoInferior !== '' ? (
                                     <AnexoFeature
                                         id="inferior"
