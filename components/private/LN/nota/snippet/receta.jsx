@@ -7,102 +7,14 @@ import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
 import getDomain from '../../../common/utils/getDomain';
 import { getFirstParentSection } from '../../../common/utils/sectionUtils';
-import get from '../../../common/utils/get';
 import addForwardSlash from '../../common/utils/addForwardSlash';
-
-const extractDataFromContentElements = contentElements => {
-    let ingredientes = [];
-    const preparaciones = [];
-
-    if (contentElements) {
-        const preparacions = contentElements.filter(
-            preparacion => preparacion.subtype === 'custom-preparacion'
-        );
-
-        preparacions.forEach(pre => {
-            if (get(pre, 'embed.config.items') !== undefined) {
-                pre.embed.config.items.map(item =>
-                    preparaciones.push({ '@type': 'HowToStep', text: item })
-                );
-            }
-        });
-
-        const ingredients = contentElements.filter(
-            ingrediente => ingrediente.subtype === 'custom-ingrediente'
-        );
-
-        ingredients.forEach(pre => {
-            if (get(pre, 'embed.config.items') !== undefined) {
-                ingredientes = ingredientes.concat(pre.embed.config.items);
-            }
-        });
-    }
-
-    return {
-        ingredientes,
-        preparaciones
-    };
-};
-
-const extractDataFromPromoItems = promoItems => {
-    let counterTime = '';
-    let counterPortion = '';
-    let image;
-
-    if (promoItems) {
-        const { basic } = promoItems;
-        const { type, url } = basic || {};
-        if (type === 'image') {
-            image = url;
-        }
-
-        if (promoItems.receta) {
-            if (
-                promoItems.receta.subtype === 'custom-detalle-receta' &&
-                get(promoItems.receta, 'embed.config.title') ===
-                    'detalle-receta'
-            ) {
-                counterTime = get(
-                    promoItems.receta,
-                    'embed.config.counterTime',
-                    ''
-                );
-                counterPortion = get(
-                    promoItems.receta,
-                    'embed.config.counterPortion',
-                    ''
-                );
-            }
-        }
-    }
-
-    return {
-        image,
-        counterTime,
-        counterPortion
-    };
-};
-
-const extractDataFromTags = tags => {
-    let keywords = '';
-    if (tags) {
-        keywords = tags.map(tag => tag.description).join(', ');
-    }
-
-    return { keywords };
-};
-
-const extracDataFromCredits = by => {
-    let autores = [];
-    if (by) {
-        autores = by
-            .filter(v => v.type === 'author')
-            .map(v => v.name.replace(/[^a-zA-Z ]+/g, ''))
-            .join(', ');
-    }
-
-    return { autores };
-};
+import {
+    extractDataFromTaxonomy,
+    extractDataFromContentElements,
+    extractDataFromCredits,
+    extractDataFromPromoItems,
+    extractDataFromTags
+} from './extractData/extractDataReceta';
 
 const snippet = props => {
     const {
@@ -110,7 +22,11 @@ const snippet = props => {
             headlines,
             subheadlines,
             promo_items: promoItems,
-            taxonomy: { tags, primary_section: primarySection },
+            taxonomy: {
+                tags,
+                primary_section: primarySection,
+                sections: taxonomySections
+            },
             credits,
             display_date: displayDate,
             content_elements: contentElements,
@@ -121,18 +37,28 @@ const snippet = props => {
     } = props;
 
     const PLACERHOLDER = getAssetsPath(contextPath)(deployment)('bco.png');
+
     const LOGO_AMP = getAssetsPath(contextPath)(deployment)('logo-ln-amp.png');
+
     const { by = [] } = credits || {};
+
     const { basic: headLinesBasic } = headlines || {};
+
     const { basic: subheadLinesBasic } = subheadlines || {};
+
     const date = displayDate;
+
     const description = subheadLinesBasic;
 
-    const { autores } = extracDataFromCredits(by) || {};
+    const { autores } = extractDataFromCredits(by) || {};
 
     const { image, counterTime, counterPortion } = extractDataFromPromoItems(
         promoItems
     );
+
+    const categoria = primarySection.name;
+
+    const { tipoDeCocina } = extractDataFromTaxonomy(taxonomySections);
 
     const { preparaciones, ingredientes } = extractDataFromContentElements(
         contentElements
@@ -156,6 +82,9 @@ const snippet = props => {
         description: `${description || ''}`,
         image: `${image || PLACERHOLDER}`,
         recipeIngredient: ingredientes,
+        recipeInstructions: preparaciones,
+        recipeCategory: categoria,
+        recipeCuisine: tipoDeCocina,
         name: `${headLinesBasic || 'LA NACION - Recetas'}`,
         recipeInstructions: preparaciones,
         recipeYield: counterPortion ? `${counterPortion} porciones` : '',
