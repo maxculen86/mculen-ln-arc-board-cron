@@ -1,4 +1,4 @@
-import NotaIndex from '../../../../../../../../components/private/LN/api/v1/global/nota';
+import NotaIndex from '../../../../../../../../components/private/LN/api/v1/global/story';
 import QAZ7BVHG5BCNFN7S67XCBP6PA4 from '../../../../../../../../__mocks__/data/articles/QAZ7BVHG5BCNFN7S67XCBP6PA4.json';
 import JMQ44OZHHBC5ZJ5TXTSIIPZMTI from '../../../../../../../../__mocks__/data/articles/JMQ44OZHHBC5ZJ5TXTSIIPZMTI.json';
 import FUO2YR3EABBAFOMSI2BBS6J7FM from '../../../../../../../../__mocks__/data/articles/FUO2YR3EABBAFOMSI2BBS6J7FM.json';

@@ -1,4 +1,4 @@
-import Image from '../../../../../../../../../../components/private/LN/api/v1/global/nota/cuerpo/elements/image';
+import Image from '../../../../../../../../../../components/private/LN/api/v1/global/story/cuerpo/elements/image';
 import ArticleImage from '../../../../../../../../../../__mocks__/data/nota/cuerpo/image/image.json';
 
 describe('Test de json de imagen en el cuerpo de la nota', () => {

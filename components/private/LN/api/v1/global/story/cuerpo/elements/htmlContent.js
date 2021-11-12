@@ -7,6 +7,4 @@ const html = (nodo, notaId) => {
     };
 };
 
-html.type = 'raw_html';
-
 export default html;
