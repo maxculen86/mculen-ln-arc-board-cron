@@ -4,7 +4,7 @@ import ComTitle from '../com-title';
 import ComLink from '../com-link';
 import ComImage from '../com-image';
 
-import '../../../resources/dist/css/ln/modules/currency-data.css';
+import '../../../../src/statics/LN/css/modules/currency-data.scss';
 
 const propTypes = {
     className: PropTypes.string,
