@@ -16,7 +16,7 @@ function withImage(WrappedComponent, filter, published) {
                         sourceName: 'imageSource',
                         query: {
                             published: published,
-                            id: this.props.imageId
+                            id: this.props.imageId.trim()
                         },
                         filter
                     });
