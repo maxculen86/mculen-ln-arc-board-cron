@@ -12,12 +12,16 @@ const TAGS_BY_WIDGET = {
             headlines: { mobile, basic } = {}
         } = globalContent;
         const title = mobile || basic;
+        const domain = SITE_LANACION.replace(
+            /^(?:https?:\/\/)?(?:www\.)?/i,
+            ''
+        );
         return (
             (_id && {
                 head: [
                     <meta name="vf:container_id" content={_id} />,
                     <meta name="vf:lang" content="es" />,
-                    <meta name="vf:domain" content="lanacion.com.ar" />,
+                    <meta name="vf:domain" content={domain} />,
                     <meta
                         name="vf:url"
                         content={`${SITE_LANACION}${canonicalUrl}`}
