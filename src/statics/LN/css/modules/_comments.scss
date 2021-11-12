@@ -184,32 +184,36 @@
     }
 
     //Oculto "Responder y Responder a"
-    .vf-button.vf-reply-to,
-    .vf-button.vf-content-actions__replies {
-        display: none;
+    .vf-button.vf-button {
+        &.vf-tray-trigger--floating,
+        &.vf-reply-to,
+        &.vf-content-actions__replies {
+            display: none;
+        }
+
+        //Botón Cargar más comentarios
+        &.is-cta.is-inverted.is-accent-color.vf-load-more__button {
+            border-color: $light-blue-500;
+            color: $light-blue-500;
+            transition: all 0.2s ease-in-out;
+            padding: px(12) px(16);
+            font-size: px(12);
+            font-weight: 700;
+            border-radius: px(4);
+            width: auto;
+            &:hover {
+                background-color: $light-blue-500;
+                color: $neutral-white;
+            }
+        }
     }
     .vf3-comments .vf3-comments__tabbed-nav .vf-tabbed-nav {
         position: relative;
     }
 
-    //Botón Cargar más comentarios
-    .vf-button.vf-load-more__buttonton {
-        border-color: $light-blue-500;
-        color: $light-blue-500;
-        transition: all 0.2s ease-in-out;
-        padding: px(12) px(16);
-        font-size: px(12);
-        font-weight: 700;
-        border-radius: px(4);
-        width: auto;
-        &:hover {
-            background-color: $light-blue-500;
-            color: $neutral-white;
-        }
-    }
-
     // para Apps
     .widget & {
+        .vf-tray-trigger,
         .vf-share-menu__trigger {
             display: none;
         }
