@@ -11,35 +11,19 @@ import Button from './elements/button';
 import StoryBody from '../../../common/nota/cuerpo/index';
 
 const cuerpoIndex = dataNota => {
-    const storyElementBySubtype = {
-        1: {
-            text: Text,
-            header: Header,
-            image: Image,
-            video: Video,
-            list: List,
-            quote: Quote,
-            gallery: Gallery,
-            oembed_response: Embed,
-            raw_html: Html,
-            interstitial_link: Button
-        },
-        7: {
-            text: Text,
-            header: Header,
-            image: Image,
-            video: Video,
-            list: List,
-            quote: Quote,
-            gallery: Gallery,
-            oembed_response: Embed,
-            raw_html: Html,
-            interstitial_link: Button
-        },
-        8: { text: Text, image: Image }
+    const storyBodyElements = {
+        Text,
+        Header,
+        Image,
+        Video,
+        List,
+        Quote,
+        Gallery,
+        Embed,
+        Html,
+        Button
     };
-
-    return StoryBody(dataNota, storyElementBySubtype);
+    return StoryBody(dataNota, storyBodyElements);
 };
 
 export default cuerpoIndex;
