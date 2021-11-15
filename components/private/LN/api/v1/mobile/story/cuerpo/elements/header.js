@@ -1,15 +1,15 @@
 const header = (nodo, dataNota) => {
     if (!nodo) return null;
 
-    const valor = nodo.content;
+    const value = nodo.content;
 
-    if (!valor) return null;
-    if (!(typeof valor === 'string' || valor instanceof String)) return null;
+    if (!value) return null;
+    if (!(typeof value === 'string' || value instanceof String)) return null;
 
     return {
         _t: 'header',
-        nivel: nodo.level,
-        valor
+        level: nodo.level,
+        value
     };
 };
 
