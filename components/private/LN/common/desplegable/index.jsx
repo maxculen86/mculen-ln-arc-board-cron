@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import { pipe } from '../../../common/utils/functional';
 import ListMenu from './listMenu';
 import ComLogo from '../../../common/com-logo';
-//import LogoLN from '../../../common/logos/logoLN';
-
-// import ComIcon from '../../../common/com-icon';
 import ComButton from '../../../common/com-button';
 
 import '../../../../../resources/dist/css/ln/components/dropdown.css';

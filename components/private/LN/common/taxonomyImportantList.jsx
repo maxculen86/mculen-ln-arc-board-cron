@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import '../../../../resources/dist/css/ln/modules/mod-themes.css';
-//import ComButton from '../../common/com-button';
 import ComLink from '../../common/com-link';
-//import ComContainer from '../../common/com-container';
 
 /**
  * Renderiza elementos relacionados destacados (como categorias o tags)
@@ -53,7 +51,6 @@ TaxonomyImportantList.propTypes = {
         })
     ).isRequired,
     destacado: PropTypes.boolean.isRequired
-    //type: PropTypes.string.isRequired
 };
 
 export default TaxonomyImportantList;

@@ -18,8 +18,6 @@ import SubHeader from '../private/LN/common/header/subHeader';
 import '../../resources/dist/css/ln/pages/home.css';
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
 
-// import withCollections from '../private/LN/acumulado/hocs/withCollections';
-
 const pageBuilderSections = ['Sección 1'];
 
 const LNHome = props => {

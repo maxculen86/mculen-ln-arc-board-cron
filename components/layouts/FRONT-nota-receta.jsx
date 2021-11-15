@@ -24,7 +24,6 @@ import '../../resources/dist/css/ln/components/lead.css';
 import '../../resources/dist/css/ln/components/com-ordered.css';
 import '../../resources/dist/css/ln/components/com-unordered.css';
 import '../../resources/dist/css/ln/components/input.css';
-//import '../../resources/dist/css/ln/modules/newsletter.css';
 import '../../resources/dist/css/ln/components/blockquote.css';
 import '../../resources/dist/css/ln/components/text.css';
 import '../../resources/dist/css/ln/components/link.css';
@@ -38,11 +37,6 @@ import '../../resources/dist/css/ln/modules/mod-banner.css';
 import '../../resources/dist/css/ln/components/com-banner.css';
 import '../../resources/dist/css/ln/components/com-button.css';
 import '../../resources/dist/css/ln/components/com-flia.css';
-// import '../../resources/dist/css/ln/components/colecciones.css';
-// import '../../resources/dist/css/ln/components/carta-lectores.css';
-
-/* Se debe importar para AMP */
-// import '../../resources/dist/css/ln/components/nav-amp.css';
 
 /* Se debe importar por layouts */
 import '../../resources/dist/css/ln/components/banners.css';
