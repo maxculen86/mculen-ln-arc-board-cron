@@ -32,4 +32,17 @@ describe('Test del header del cuerpo de la nota', () => {
         const resp = Header(ArticleHeader[3]);
         expect(resp).toBe(null);
     });
+    it('Valores del header es distinto de texto', () => {
+        const article = [
+            {
+                _id: 'CQTCQCNHQJDNJN7S5BNF5J7ZIM',
+                additional_properties: {},
+                content: 1,
+                level: 2,
+                type: 'header'
+            }
+        ];
+        const resp = Header(article[0]);
+        expect(resp).toBe(null);
+    });
 });

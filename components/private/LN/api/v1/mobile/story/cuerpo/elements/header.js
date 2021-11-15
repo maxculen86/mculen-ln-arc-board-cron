@@ -1,16 +1,10 @@
-const isString = text => {
-    if (typeof text === 'string' || text instanceof String) {
-        return true;
-    }
-    return false;
-};
 const header = (nodo, dataNota) => {
     if (!nodo) return null;
 
-    let valor = nodo.content;
+    const valor = nodo.content;
 
     if (!valor) return null;
-    if (!isString(valor)) valor = null;
+    if (!(typeof valor === 'string' || valor instanceof String)) return null;
 
     return {
         _t: 'header',
