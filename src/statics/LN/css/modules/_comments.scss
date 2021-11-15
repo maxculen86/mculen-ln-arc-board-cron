@@ -192,18 +192,21 @@
         }
 
         //Botón Cargar más comentarios
-        &.is-cta.is-inverted.is-accent-color.vf-load-more__button {
-            border-color: $light-blue-500;
-            color: $light-blue-500;
+        &.is-cta.is-accent-color.is-size-small.vf-load-more__button {
             transition: all 0.2s ease-in-out;
             padding: px(12) px(16);
             font-size: px(12);
             font-weight: 700;
             border-radius: px(4);
             width: auto;
-            &:hover {
-                background-color: $light-blue-500;
-                color: $neutral-white;
+
+            &:hover,
+            &.is-inverted {
+                border-color: $light-blue-500;
+                color: $light-blue-500;
+            }
+            svg {
+                fill: white;
             }
         }
     }
