@@ -211,7 +211,27 @@
         position: relative;
     }
 
-    // para Apps
+    ul li {
+        font-family: $font-arial;
+    }
+
+    //botón Saltar al inicio
+    .vf-button.vf-button.realtime-action-button.realtime-action-button.is-cta.is-cta.is-accent-color.is-accent-color {
+        font-size: px(12);
+        padding-right: px(6);
+        padding-left: px(8);
+    }
+
+    //botones: responder, like, compartir y marcar como...
+    .vf-comment__bottom-actions
+        .vf-button.vf-button.is-link.is-link.is-accent-color.is-accent-color:not(.is-danger-color) {
+        color: rgba(0, 0, 0, 0.6);
+        &:hover {
+            color: rgba(0, 0, 0, 0.6);
+        }
+    }
+
+    // PARA APPS
     .widget & {
         .vf-tray-trigger,
         .vf-share-menu__trigger {
