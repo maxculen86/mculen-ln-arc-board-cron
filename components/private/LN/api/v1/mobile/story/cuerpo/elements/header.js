@@ -8,11 +8,10 @@ const header = (nodo, dataNota) => {
     if (!valor) return null;
 
     return {
-        _t: `sub${nodo.level}`,
+        _t: 'header',
+        nivel: nodo.level,
         valor
     };
 };
-
-header.type = 'header';
 
 export default header;
