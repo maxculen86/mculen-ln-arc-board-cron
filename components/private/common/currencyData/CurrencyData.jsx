@@ -8,8 +8,6 @@ import ComLink from '../com-link';
 import ComImage from '../com-image';
 
 import '../../../../src/statics/LN/css/modules/_currency-data.scss';
-//import { default as BymaLogo } from '../../../../src/statics/LN/img/byma_logo.svg';
-// import '../../../../src/statics/LN/css/modules/_currency-data.scss';
 
 const propTypes = {
     classCondition: PropTypes.string,
@@ -22,7 +20,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-    informationAlt: 'BYMA Bolsas y Mercados Argentinos',
+    informationAlt: 'BYMA',
     providedAlt: 'Invertir Online'
 };
 
@@ -48,7 +46,7 @@ const CurrencyData = ({
                 <div className={`${classCondition} currency-data`}>
                     <ComTitle
                         tag="h2"
-                        size="--xs"
+                        size="--twoxs"
                         classCondition="dolar-title"
                         content={title}
                     />
@@ -65,36 +63,31 @@ const CurrencyData = ({
                 </div>
             ) : (
                 <ComLink
-                    link={urlBrand}
+                    link="https://www.invertironline.com/"
                     classCondition="provider-data"
                     type="text/css"
                 >
-                    <div>
-                        <div>
-                            <span className="--sixxs">Información de</span>
-                            <ComImage
-                                classCondition="logo byma"
-                                alt={providedAlt}
-                                // target="_blank"
-                                amp={outputType === 'amp'}
-                                src={getAssetsPath(contextPath)(deployment)(
-                                    'logo-byma.svg'
-                                )}
-                            />
-                        </div>
-                        <div>
-                            <span className="--sixxs">provista por</span>
-                            <ComImage
-                                classCondition="logo invertir-online"
-                                alt={providedAlt}
-                                // href="https://www.invertironline.com/"
-                                // target="_blank"
-                                amp={outputType === 'amp'}
-                                src={getAssetsPath(contextPath)(deployment)(
-                                    'logo-iol.svg'
-                                )}
-                            />
-                        </div>
+                    <div className="container-logo">
+                        <span className="--sixxs">Información de</span>
+                        <ComImage
+                            classCondition="logo byma"
+                            alt={informationAlt}
+                            amp={outputType === 'amp'}
+                            src={getAssetsPath(contextPath)(deployment)(
+                                'logo-byma.svg'
+                            )}
+                        />
+                    </div>
+                    <div className="container-logo">
+                        <span className="--sixxs">provista por</span>
+                        <ComImage
+                            classCondition="logo invertir-online"
+                            alt={providedAlt}
+                            amp={outputType === 'amp'}
+                            src={getAssetsPath(contextPath)(deployment)(
+                                'logo-iol.svg'
+                            )}
+                        />
                     </div>
                 </ComLink>
             )}

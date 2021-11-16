@@ -39,36 +39,39 @@
 
 .provider-data {
     display: flex;
+    flex-direction: row;
+    align-items: flex-start;
     color: $light-neutral-900;
     background: $light-neutral-200;
-    padding: $spacing-xs 0px $spacing-xs $spacing-xs;
-
-    div {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-    }
-
-    .logo {
-        margin: 0px px(4);
-    }
+    border: px(1) solid $light-neutral-50;
+    padding: $spacing-xs;
 
     .byma-logo {
-        // content: url('/resources/byma_logo.svg');
         width: px(47);
         height: px(20);
     }
 
     .invertir-online {
-        // content: url('../../img/invertir_online_logo.svg');
         width: px(82);
         height: px(20);
     }
 
-    @media ($media-lm) {
+    .container-logo {
+        flex-direction: row;
+    }
+
+    .logo {
+        margin: px(0) $spacing;
+    }
+
+    @media ($media-l) {
         flex-direction: column;
-        justify-content: center;
-        padding: $spacing-sm;
+        align-items: stretch;
+        justify-content: space-around;
+
+        .container-logo {
+            flex-direction: column;
+        }
 
         .byma-logo {
             width: px(73);
