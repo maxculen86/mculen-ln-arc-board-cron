@@ -3,7 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import getAssetsPath from '../../common/utils/getAssetsPath';
 
-import ComTitle from '../com-title';
+import Text from '../text';
 import ComLink from '../com-link';
 import ComImage from '../com-image';
 
@@ -44,19 +44,22 @@ const CurrencyData = ({
         <>
             {!urlBrand ? (
                 <div className={`${classCondition} currency-data`}>
-                    <ComTitle
+                    <Text
                         tag="h2"
                         size="--twoxs"
-                        classCondition="dolar-title"
-                        content={title}
+                        weight="bold"
+                        extraClass="dolar-title"
+                        text={title}
                     />
                     <p className="com-text --sixxs">
                         <span>COMPRA </span>
-                        <strong>${purchaseValue}</strong>
+                        <strong className="--fourxs">${purchaseValue}</strong>
                         {saleValue && (
                             <>
                                 <span>VENTA </span>
-                                <strong>${saleValue}</strong>
+                                <strong className="--fourxs">
+                                    ${saleValue}
+                                </strong>
                             </>
                         )}
                     </p>
