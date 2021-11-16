@@ -12,6 +12,7 @@ const ModDolar = ({ imageUrl, data }) =>
                 const { sourceName, title, compra, venta } = item;
                 return (
                     <CurrencyData
+                        key={index}
                         sourceName={sourceName}
                         title={title}
                         purchaseValue={compra}

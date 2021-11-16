@@ -7,7 +7,7 @@ import Text from '../text';
 import ComLink from '../com-link';
 import ComImage from '../com-image';
 
-import '../../../../src/statics/LN/css/modules/_currency-data.scss';
+import '../../../../resources/dist/css/ln/modules/currency-data.css';
 
 const propTypes = {
     classCondition: PropTypes.string,
