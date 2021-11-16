@@ -175,7 +175,7 @@ const HeaderDesktop = ({
                                     SUSCRIBITE
                                 </a>
                             )}
-                        {logueado && (
+                        {(logueado || token) && (
                             <div
                                 onMouseUp={toggleMenu}
                                 tabIndex="0"
