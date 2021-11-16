@@ -86,6 +86,7 @@
                 //     // background: red;
                 // }
                 .mod-figcaption {
+                    display: none;
                     .--credit {
                         color: $light-neutral-400;
                     }
@@ -93,6 +94,7 @@
                 @media ($media-m) {
                     margin-bottom: 0;
                     .mod-figcaption {
+                        display: block;
                         width: 100%;
                         margin-left: 0;
                         padding: 0 0 0.5rem;
