@@ -507,33 +507,14 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
             "name": "Recetas La Nación",
             "url": "https://www.lanacion.com.ar/recetas/",
           },
-          "recipeIngredient": Array [
-            "Ingrediente 1",
-            "Ingrediente 2",
-            "Ingrediente 3",
+          "recipeCategory": "Platos de comida principal",
+          "recipeCuisine": Array [
+            "Recetas",
+            "Platos de comida principal",
+            "Revista ¡HOLA!",
           ],
-          "recipeInstructions": Array [
-            Object {
-              "@type": "HowToStep",
-              "text": "Paso 1",
-            },
-            Object {
-              "@type": "HowToStep",
-              "text": "Paso 2",
-            },
-            Object {
-              "@type": "HowToStep",
-              "text": "Paso 3",
-            },
-            Object {
-              "@type": "HowToStep",
-              "text": "Paso 4",
-            },
-            Object {
-              "@type": "HowToStep",
-              "text": "Paso 5",
-            },
-          ],
+          "recipeIngredient": Array [],
+          "recipeInstructions": Array [],
           "recipeYield": "4 porciones",
           "totalTime": "PT25M",
         }
@@ -555,34 +536,15 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
   \\"datePublished\\": \\"2020-04-24T14:35:53.021Z\\",
   \\"description\\": \\"Subtitulo de prueba\\",
   \\"image\\": \\"https://resizer.glanacion.com/resizer/KKUwkn3fOAH9RsmFwoJFBFcvh54=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg\\",
-  \\"recipeIngredient\\": [
-    \\"Ingrediente 1\\",
-    \\"Ingrediente 2\\",
-    \\"Ingrediente 3\\"
+  \\"recipeIngredient\\": [],
+  \\"recipeInstructions\\": [],
+  \\"recipeCategory\\": \\"Platos de comida principal\\",
+  \\"recipeCuisine\\": [
+    \\"Recetas\\",
+    \\"Platos de comida principal\\",
+    \\"Revista ¡HOLA!\\"
   ],
   \\"name\\": \\"Nota recetas para Api test\\",
-  \\"recipeInstructions\\": [
-    {
-      \\"@type\\": \\"HowToStep\\",
-      \\"text\\": \\"Paso 1\\"
-    },
-    {
-      \\"@type\\": \\"HowToStep\\",
-      \\"text\\": \\"Paso 2\\"
-    },
-    {
-      \\"@type\\": \\"HowToStep\\",
-      \\"text\\": \\"Paso 3\\"
-    },
-    {
-      \\"@type\\": \\"HowToStep\\",
-      \\"text\\": \\"Paso 4\\"
-    },
-    {
-      \\"@type\\": \\"HowToStep\\",
-      \\"text\\": \\"Paso 5\\"
-    }
-  ],
   \\"recipeYield\\": \\"4 porciones\\",
   \\"keywords\\": \\"ajo, tomate perita\\",
   \\"publisher\\": {
