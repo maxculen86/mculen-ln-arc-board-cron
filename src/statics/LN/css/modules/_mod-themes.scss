@@ -2,12 +2,7 @@
 @import '../abstracts/mixins';
 
 .mod-themes {
-    // @include flex(flex, row, start, start);
-    // flex-wrap: nowrap;
-    // width: 100%;
-    // overflow: scroll;
     margin-bottom: $spacing-sm;
-
     .com-link.com-button {
         margin-right: $spacing-sm;
         margin-bottom: $spacing-sm;
@@ -19,14 +14,20 @@
         }
     }
 
+    .com-link.--tags {
+        text-transform: capitalize;
+        color: $light-blue-500;
+
+        &:not(:last-child):after {
+            position: relative;
+            font-family: 'LNicons';
+            color: #cccccc;
+            content: '\e909';
+            margin: auto 4px;
+        }
+    }
+
     &:last-child {
         margin-right: 0;
     }
 }
-// @media ($media-l) {
-//     .mod-themes {
-//         @include flex(flex, row, start, start);
-//         flex-wrap: wrap;
-//         overflow: initial;
-//     }
-// }
