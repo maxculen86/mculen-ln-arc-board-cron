@@ -7,25 +7,18 @@ const quote = (nodo, dataNota) => {
     if (!textCita || !textCita.length) return null;
 
     const resp = {
-        _t: nodo.subtype === 'pullquote' ? 'textual' : 'des',
-        valor: []
+        _t: nodo.subtype,
+        value: textCita[0].content
     };
-
-    textCita.forEach(e => {
-        resp.valor.push(e.content);
-    });
+    if (!(typeof resp.value === 'string' || resp.value instanceof String))
+        return null;
 
     if (nodo.subtype === 'pullquote') {
         const authorQuote = get(nodo, 'citation.content');
-        if (authorQuote) resp.valor.push({ _t: 'fue', valor: authorQuote });
+        if (authorQuote) resp.author = authorQuote;
     }
 
-    return {
-        _t: 'p',
-        valor: resp
-    };
+    return resp;
 };
-
-quote.type = 'quote';
 
 export default quote;
