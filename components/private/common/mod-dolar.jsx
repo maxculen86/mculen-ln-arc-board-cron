@@ -15,7 +15,7 @@ const ModDolar = ({ imageUrl, data }) =>
                         sourceName={sourceName}
                         title={title}
                         purchaseValue={compra}
-                        saleValue={venta}
+                        saleValue={sourceName !== 'dccl' && venta}
                     />
                 );
             })}

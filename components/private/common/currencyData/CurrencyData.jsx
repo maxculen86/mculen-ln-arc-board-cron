@@ -6,6 +6,8 @@ import ComLink from '../com-link';
 import ComImage from '../com-image';
 
 import '../../../../src/statics/LN/css/modules/_currency-data.scss';
+import { default as BymaLogo } from '../../../../src/statics/LN/img/byma_logo.svg';
+// import '../../../../src/statics/LN/css/modules/_currency-data.scss';
 
 const propTypes = {
     classCondition: PropTypes.string,
@@ -64,8 +66,9 @@ const CurrencyData = ({
                     <div>
                         <div>
                             <span className="--sixxs">Información de</span>
-                            <ComImage
+                            <img
                                 className="logo byma-logo"
+                                src={BymaLogo}
                                 alt={informationAlt}
                                 target="_blank"
                             />
