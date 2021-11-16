@@ -1,4 +1,4 @@
-import Video from '../../../../common/nota/video';
+import Video from '../../../../common/story/video';
 
 const video = nodo => {
     if (!nodo) return null;
@@ -8,7 +8,4 @@ const video = nodo => {
         valor: Video(nodo)
     };
 };
-
-video.type = 'video';
-
 export default video;

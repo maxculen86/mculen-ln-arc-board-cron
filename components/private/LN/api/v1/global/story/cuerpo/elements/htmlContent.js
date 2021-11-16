@@ -1,4 +1,4 @@
-import htmlContent from '../../../../common/nota/cuerpo/elements/htmlContent';
+import htmlContent from '../../../../common/story/cuerpo/elements/htmlContent';
 
 const html = (nodo, notaId) => {
     return {
@@ -6,5 +6,4 @@ const html = (nodo, notaId) => {
         valor: htmlContent(nodo, notaId)
     };
 };
-
 export default html;

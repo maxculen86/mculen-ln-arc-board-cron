@@ -1,5 +1,5 @@
 import ModificadorTemplateArticle from '../../../../../../../../__mocks__/data/nota/modificadorTemplate.json';
-import ModificadorTemplate from '../../../../../../../../components/private/LN/api/v1/common/nota/modificadorTemplate';
+import ModificadorTemplate from '../../../../../../../../components/private/LN/api/v1/common/story/modificadorTemplate';
 import get from 'lodash.get';
 
 describe('Pruebas unitarias para los modificadores template', () => {

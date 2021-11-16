@@ -1,6 +1,6 @@
 import get from 'lodash.get';
-import indexNotaData from '../../common/nota/indexNotaData';
-import { openComments } from '../../common/nota/comments';
+import indexNotaData from '../../common/story/indexNotaData';
+import { openComments } from '../../common/story/comments';
 import cuerpo from './cuerpo/index';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
 

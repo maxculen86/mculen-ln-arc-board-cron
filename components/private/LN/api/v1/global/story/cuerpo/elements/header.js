@@ -13,6 +13,4 @@ const header = (nodo, dataNota) => {
     };
 };
 
-header.type = 'header';
-
 export default header;

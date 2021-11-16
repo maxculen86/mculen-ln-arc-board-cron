@@ -1,6 +1,6 @@
 import get from 'lodash.get';
 import { dateAndTimeForAppsUtil } from '../../../../../../../common/utils/dateAndTimeUtil';
-import Image from '../../../../common/nota/image';
+import Image from '../../../../common/story/image';
 
 const gallery = (nodo, dataNota) => {
     if (!nodo) return null;
@@ -33,7 +33,4 @@ const gallery = (nodo, dataNota) => {
         valor: resp
     };
 };
-
-gallery.type = 'gallery';
-
 export default gallery;

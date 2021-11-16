@@ -9,6 +9,4 @@ const text = (nodo, dataNota) => {
     };
 };
 
-text.type = 'text';
-
 export default text;

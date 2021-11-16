@@ -1,4 +1,4 @@
-import Image from '../../../../../../../../../components/private/LN/api/v1/common/nota/image';
+import Image from '../../../../../../../../../components/private/LN/api/v1/common/story/image';
 import ImageApertura from '../../../../../../../../../__mocks__/data/nota/apertura/image/image.json';
 
 describe('Json de Imagen en Nota', () => {

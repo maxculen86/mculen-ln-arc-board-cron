@@ -8,7 +8,7 @@ import Gallery from './elements/gallery';
 import Embed from './elements/embed';
 import Html from './elements/htmlContent';
 import Button from './elements/button';
-import StoryBody from '../../../common/nota/cuerpo/index';
+import StoryBody from '../../../common/story/cuerpo/index';
 
 const cuerpoIndex = dataNota => {
     const storyBodyElements = {

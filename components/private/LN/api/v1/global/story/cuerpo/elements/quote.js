@@ -25,7 +25,4 @@ const quote = (nodo, dataNota) => {
         valor: resp
     };
 };
-
-quote.type = 'quote';
-
 export default quote;

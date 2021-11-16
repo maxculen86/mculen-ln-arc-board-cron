@@ -29,7 +29,4 @@ const list = (nodo, dataNota) => {
         valor: resp
     };
 };
-
-list.type = 'list';
-
 export default list;

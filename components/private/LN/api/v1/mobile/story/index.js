@@ -1,4 +1,4 @@
-import indexNotaData from '../../common/nota/indexNotaData';
+import indexNotaData from '../../common/story/indexNotaData';
 import cuerpo from './cuerpo/index';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
 

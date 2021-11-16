@@ -1,5 +1,5 @@
-import Video from '../../../../../../../../../components/private/LN/api/v1/common/nota/video';
-import Apertura from '../../../../../../../../../components/private/LN/api/v1/common/nota/apertura/aperturaArticle';
+import Video from '../../../../../../../../../components/private/LN/api/v1/common/story/video';
+import Apertura from '../../../../../../../../../components/private/LN/api/v1/common/story/apertura/aperturaArticle';
 import ArticleApertura from '../../../../../../../../../__mocks__/data/nota/apertura/apertura.json';
 import HistoryTellingArticle from '../../../../../../../../../__mocks__/data/articles/4HFO7YPZBFEYVB6K5XY6IFV3XY.json';
 import HistoryFotoAlCienArticle from '../../../../../../../../../__mocks__/data/articles/PTAOLSGRDBEZLG6A6T43M7A7PU.json';

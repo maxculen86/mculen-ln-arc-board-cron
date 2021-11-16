@@ -10,5 +10,4 @@ const text = (nodo, dataNota) => {
         valor
     };
 };
-
 export default text;

@@ -1,4 +1,4 @@
-import Image from '../../../../common/nota/image';
+import Image from '../../../../common/story/image';
 
 const image = (nodo, dataNota) => {
     if (!nodo) return null;
@@ -8,7 +8,4 @@ const image = (nodo, dataNota) => {
         valor: Image(nodo)
     };
 };
-
-image.type = 'image';
-
 export default image;
