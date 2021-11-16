@@ -7,7 +7,7 @@ import '../../../resources/dist/css/ln/modules/mod-dolar.css';
 
 const ModDolar = ({ imageUrl, data }) =>
     (data && (
-        <ul className="mod-dolar row-gap-2 row-gap-tablet-4">
+        <div className="mod-dolar">
             {data.map((item, index) => {
                 const { sourceName, title, compra, venta } = item;
                 return (
@@ -20,7 +20,7 @@ const ModDolar = ({ imageUrl, data }) =>
                 );
             })}
             {imageUrl && <CurrencyData urlBrand={imageUrl} />}
-        </ul>
+        </div>
     )) ||
     null;
 

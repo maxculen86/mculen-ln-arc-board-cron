@@ -1,13 +1,14 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import ComTitle from '../com-title';
 import ComLink from '../com-link';
 import ComImage from '../com-image';
 
-import '../../../../src/statics/LN/css/modules/currency-data.scss';
+import '../../../../src/statics/LN/css/modules/_currency-data.scss';
 
 const propTypes = {
-    className: PropTypes.string,
+    classCondition: PropTypes.string,
     title: PropTypes.string,
     purchaseValue: PropTypes.string,
     saleValue: PropTypes.string,
@@ -22,7 +23,7 @@ const defaultProps = {
 };
 
 const CurrencyData = ({
-    className,
+    classCondition,
     title,
     purchaseValue,
     saleValue,
@@ -36,14 +37,13 @@ const CurrencyData = ({
     return (
         <>
             {!urlBrand ? (
-                <div className="currency-data">
+                <div className={`${classCondition} currency-data`}>
                     <ComTitle
                         tag="h2"
                         size="--xs"
-                        classCondition="Arial --font-bold"
-                    >
-                        {title}
-                    </ComTitle>
+                        classCondition="dolar-title"
+                        content={title}
+                    />
                     <p className="com-text --sixxs">
                         <span>COMPRA </span>
                         <strong>${purchaseValue}</strong>
