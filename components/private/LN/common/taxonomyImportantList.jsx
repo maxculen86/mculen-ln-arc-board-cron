@@ -8,11 +8,6 @@ import ComLink from '../../common/com-link';
  * Renderiza elementos relacionados destacados (como categorias o tags)
  */
 const TaxonomyImportantList = ({ list, destacado }) => {
-    console.log(
-        '🚀 ~ file: taxonomyImportantList.jsx ~ line 11 ~ TaxonomyImportantList ~ list',
-        list
-    );
-
     return (
         <section className="mod-themes">
             {list.map(v => (
@@ -41,7 +36,6 @@ TaxonomyImportantList.propTypes = {
         })
     ).isRequired,
     destacado: PropTypes.boolean.isRequired
-    //type: PropTypes.string.isRequired
 };
 
 export default TaxonomyImportantList;
