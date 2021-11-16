@@ -1,12 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'fusion:prop-types';
+import Consumer from 'fusion:consumer';
+import getAssetsPath from '../../common/utils/getAssetsPath';
 
 import ComTitle from '../com-title';
 import ComLink from '../com-link';
 import ComImage from '../com-image';
 
 import '../../../../src/statics/LN/css/modules/_currency-data.scss';
-import { default as BymaLogo } from '../../../../src/statics/LN/img/byma_logo.svg';
+//import { default as BymaLogo } from '../../../../src/statics/LN/img/byma_logo.svg';
 // import '../../../../src/statics/LN/css/modules/_currency-data.scss';
 
 const propTypes = {
@@ -20,11 +22,15 @@ const propTypes = {
 };
 
 const defaultProps = {
-    informationAlt: 'byma-logo',
-    providedAlt: 'invertir-online'
+    informationAlt: 'BYMA Bolsas y Mercados Argentinos',
+    providedAlt: 'Invertir Online'
 };
 
 const CurrencyData = ({
+    outputType,
+    siteProperties: { host },
+    contextPath,
+    deployment,
     classCondition,
     title,
     purchaseValue,
@@ -66,11 +72,14 @@ const CurrencyData = ({
                     <div>
                         <div>
                             <span className="--sixxs">Información de</span>
-                            <img
-                                className="logo byma-logo"
-                                src={BymaLogo}
-                                alt={informationAlt}
-                                target="_blank"
+                            <ComImage
+                                classCondition="logo byma"
+                                alt={providedAlt}
+                                // target="_blank"
+                                amp={outputType === 'amp'}
+                                src={getAssetsPath(contextPath)(deployment)(
+                                    'logo-byma.svg'
+                                )}
                             />
                         </div>
                         <div>
@@ -78,7 +87,12 @@ const CurrencyData = ({
                             <ComImage
                                 classCondition="logo invertir-online"
                                 alt={providedAlt}
-                                target="_blank"
+                                // href="https://www.invertironline.com/"
+                                // target="_blank"
+                                amp={outputType === 'amp'}
+                                src={getAssetsPath(contextPath)(deployment)(
+                                    'logo-iol.svg'
+                                )}
                             />
                         </div>
                     </div>
@@ -91,4 +105,4 @@ const CurrencyData = ({
 CurrencyData.propTypes = propTypes;
 CurrencyData.defaultProps = defaultProps;
 
-export default CurrencyData;
+export default Consumer(CurrencyData);
