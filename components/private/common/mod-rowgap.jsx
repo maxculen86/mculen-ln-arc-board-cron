@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-// import '../../../resources/dist/css/ln/modules/mod-rowgap.css';
 
 const layout = {
     Grilla: {
