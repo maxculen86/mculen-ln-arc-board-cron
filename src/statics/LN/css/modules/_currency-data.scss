@@ -8,17 +8,13 @@
     justify-content: flex-start;
     background: $light-neutral-200;
     border: px(1) solid $light-neutral-50;
-    width: 100%;
     padding: $spacing;
 
-    .dolar-title {
-        margin: px(0) $spacing px(0) px(0);
-    }
+    span {
+        margin: px(0) $spacing-2xs;
 
-    strong {
-        margin-right: $spacing;
-        &:last-child {
-            margin: 0;
+        @media ($media-m) {
+            margin: px(0) $spacing-xs;
         }
     }
 
@@ -41,12 +37,12 @@
     border: px(1) solid $light-neutral-50;
     padding: $spacing-xs;
 
-    .byma-logo {
+    .byma {
         width: px(47);
         height: px(20);
     }
 
-    .invertir-online {
+    .iol {
         width: px(82);
         height: px(20);
     }
@@ -76,12 +72,12 @@
         .logo {
             margin: 0px px(4);
             &.byma {
-                width: px(47);
-                height: px(20);
+                width: px(73);
+                height: px(31);
             }
             &.iol {
-                width: px(82);
-                height: px(20);
+                width: px(125);
+                height: px(30);
             }
         }
     }

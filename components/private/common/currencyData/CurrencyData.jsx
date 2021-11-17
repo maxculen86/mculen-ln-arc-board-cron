@@ -21,7 +21,7 @@ const propTypes = {
 
 const defaultProps = {
     informationAlt: 'BYMA',
-    providedAlt: 'Invertir Online'
+    providedAlt: 'InvertirOnline'
 };
 
 const CurrencyData = ({
@@ -52,11 +52,11 @@ const CurrencyData = ({
                         text={title}
                     />
                     <p className="com-text --sixxs">
-                        <span>COMPRA </span>
+                        <span>COMPRA</span>
                         <strong className="--fourxs">${purchaseValue}</strong>
                         {saleValue && (
                             <>
-                                <span>VENTA </span>
+                                <span>VENTA</span>
                                 <strong className="--fourxs">
                                     ${saleValue}
                                 </strong>
