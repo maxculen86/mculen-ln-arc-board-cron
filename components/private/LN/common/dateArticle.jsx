@@ -35,8 +35,4 @@ DateArticle.propTypes = {
     hasTime: PropTypes.bool
 };
 
-// DateArticle.defaultProps = {
-//     hasTime: false
-// };
-
 export default DateArticle;

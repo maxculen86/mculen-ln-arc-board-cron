@@ -1,7 +1,6 @@
 import notaConfig from './nota';
 import homeConfig from './home';
 import acuConfig from './acumulado';
-// import acuHomeConfig from './acumuladoHome';
 
 export const getSlotsOptions = resolution =>
     Object.keys(slotsConfig)

@@ -10,23 +10,25 @@ const getArticlesFromCollection = (
 ) => {
     if (!id) return [];
 
-    const articleList = useContent({
-        source: 'collectionsSource',
-        query: {
-            id,
-            size,
-            imageConfig,
-            website
-        },
-        filter,
-        transform(data) {
-            if (data && data.content_elements) {
-                return { content_elements: [...data.content_elements] };
-            }
+    const articleList =
+        id &&
+        useContent({
+            source: 'collectionsSource',
+            query: {
+                id: id.trim(),
+                size,
+                imageConfig,
+                website
+            },
+            filter,
+            transform(data) {
+                if (data && data.content_elements) {
+                    return { content_elements: [...data.content_elements] };
+                }
 
-            return {};
-        }
-    });
+                return {};
+            }
+        });
     const articles = get(articleList, 'content_elements', []);
     const result =
         articles.length >= size ? articles.splice(0, size) : articles;

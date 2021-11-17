@@ -4,14 +4,6 @@ import PropTypes from 'fusion:prop-types';
 import config from '../../properties/sites/la-nacion-ar';
 
 const OptaLayout = ({ children }) => {
-    /* const script = `
-        var opta_settings = {
-            subscription_id: '${config.optaConfig.subscription_id}',
-            language: '${config.optaConfig.language}',
-            timezone: '${config.optaConfig.timezone}'
-        };
-    `; */
-
     return (
         <>
             <opta-widget

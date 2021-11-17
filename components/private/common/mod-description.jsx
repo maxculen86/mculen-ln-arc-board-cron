@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import Text from './text';
 import ComTitle from './com-title';
 import ComDate from './com-date';
-// import ModBajada from './mod-bajada';
-// import ModMarquesina from './mod-marquee';
-// import ComLabel from './com-labelArticle';
 import ComTag from './com-tag';
 
 import '../../../resources/dist/css/ln/components/mod-description.css';
@@ -50,12 +47,6 @@ const ModDescription = props => {
             />
 
             {subheadText && (
-                // <ModBajada
-                //     link={link}
-                //     subheadSize={subheadSize}
-                //     subheadText={subheadText}
-                //     subheadTag={subheadTag}
-                // />
                 <Text
                     tag={subheadTag || 'h3'}
                     extraClass="com-subhead"
@@ -66,11 +57,6 @@ const ModDescription = props => {
             )}
             <div>
                 {withMarquee && (
-                    // <ModMarquesina
-                    //     text={marquesina || authors}
-                    //     size={authorSize}
-                    //     link={link}
-                    // />
                     <Text
                         tag="strong"
                         extraClass="mod-marquee"

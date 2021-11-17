@@ -97,19 +97,6 @@ const resolve = key => {
     return final;
 };
 
-// const transform = (data, siteProps) => {
-//     const respData = data;
-//     const presets = getPresets(siteProps);
-//     respData.content_elements = data.content_elements.map(v => {
-//         return addResizedUrls(v, {
-//             resizerSecret: RESIZER_KEY,
-//             resizerUrl: RESIZER_URL,
-//             presets
-//         });
-//     });
-//     return respData;
-// };
-
 const transform = data => {
     const dataResp = {
         ...data,

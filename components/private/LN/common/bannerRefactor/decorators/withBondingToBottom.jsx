@@ -55,8 +55,6 @@ export default Component => {
             return () => window.removeEventListener('scroll', onScroll);
         }, [ref]);
 
-        // if (subscription) return null;
-
         return outputType !== 'amp' ? (
             <Component subscription={isSubscribed()} {...props} ref={ref} />
         ) : null;

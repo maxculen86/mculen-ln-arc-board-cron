@@ -7,7 +7,6 @@ import browser from './browser';
 const getArticlesFromElement = values => {
     const { id, isAdmin, sizeCf, pageCf, paramUrlId, requestUri } =
         values || {};
-    // if (!id) return [];
 
     let size = browser.getSizesFrom(
         isAdmin,

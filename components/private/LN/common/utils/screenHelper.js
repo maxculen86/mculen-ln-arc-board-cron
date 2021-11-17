@@ -10,15 +10,6 @@ const getDevice = (isMobile, isTablet) => {
     if (isTablet) return 'tablet';
     return 'desktop';
 };
-// typeof navigator !== 'undefined'
-//     ? navigator.userAgent || navigator.vendor
-//     : isSSR()
-//     ? ''
-//     : window.opera;
-
-// const [viewportSize, setViewportSize] = React.useState(
-//     isSSR() ? 'desktop' : ''
-// );
 
 const isTabletOrMobile = userAgent => {
     const regexUserAgent = new RegExp(
