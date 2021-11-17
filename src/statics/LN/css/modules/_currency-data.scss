@@ -62,6 +62,7 @@
 
     @media ($media-l) {
         flex-direction: column;
+        padding: $spacing-xs $spacing-sm;
 
         .container-logo {
             align-items: center;
