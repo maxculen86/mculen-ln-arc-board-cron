@@ -13,8 +13,11 @@
     span {
         margin: px(0) $spacing-2xs;
 
-        @media ($media-m) {
+        @media ($media-l) {
             margin: px(0) $spacing-xs;
+            &:first-child {
+                margin-left: px(0);
+            }
         }
     }
 
