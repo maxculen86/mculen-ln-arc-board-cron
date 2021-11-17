@@ -271,24 +271,23 @@
 }
 
 //Display según resolución
-//cambio * x $, para termine en _mob x viafoura _mobile
-[class$='_tab'],
-[class$='_dsk'] {
+[class*='_tab'],
+[class*='_dsk'] {
     display: none;
 }
 @media ($media-m) {
-    [class$='_tab'] {
+    [class*='_tab'] {
         display: flex;
     }
-    [class$='_mob'] {
+    [class*='_mob'] {
         display: none;
     }
 }
 @media ($media-l) {
-    [class$='_dsk'] {
+    [class*='_dsk'] {
         display: flex;
     }
-    [class$='_tab'] {
+    [class*='_tab'] {
         display: none;
     }
 }

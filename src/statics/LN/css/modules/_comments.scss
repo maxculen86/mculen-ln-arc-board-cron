@@ -234,6 +234,10 @@
         }
     }
 
+    .vf-content-focus-container__mobile.vf-content-focus-container__mobile {
+        display: block;
+    }
+
     // PARA APPS
     .widget & {
         .vf-tray-trigger,
