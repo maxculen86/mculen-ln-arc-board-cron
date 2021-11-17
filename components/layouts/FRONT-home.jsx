@@ -29,6 +29,13 @@ const LNHome = props => {
     } = props;
     const amp = outputType === 'amp' ? 'amp' : '';
 
+    const urlStreamVideo =
+        'https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/06/10/5cfe914c46e0fb000981496e/' +
+        't_520577cda990476baa7a9ecf733e4a97_name_05_30_2019_t_a35f599ee6764026add3d7967f88b000_name_Marilina_Rolling_1920x1080_2/file_1280x720-2000-v3_1.mp4';
+
+    const subheadMockText =
+        'Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre';
+
     const powa = {
         _id: '76c88e0b-33e7-405f-b6ad-b6a98fef7c77',
         created_date: '2019-08-22T18:57:32Z',
@@ -50,15 +57,13 @@ const LNHome = props => {
             {
                 height: 360,
                 stream_type: 'mp4',
-                url:
-                    'https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/06/10/5cfe914c46e0fb000981496e/t_520577cda990476baa7a9ecf733e4a97_name_05_30_2019_t_a35f599ee6764026add3d7967f88b000_name_Marilina_Rolling_1920x1080_2/file_1280x720-2000-v3_1.mp4',
+                url: `${urlStreamVideo}`,
                 width: 640
             },
             {
                 height: 720,
                 stream_type: 'mp4',
-                url:
-                    'https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/06/10/5cfe914c46e0fb000981496e/t_520577cda990476baa7a9ecf733e4a97_name_05_30_2019_t_a35f599ee6764026add3d7967f88b000_name_Marilina_Rolling_1920x1080_2/file_1280x720-2000-v3_1.mp4',
+                url: `${urlStreamVideo}`,
                 width: 1280
             }
         ],
@@ -99,7 +104,10 @@ const LNHome = props => {
                     {/* <Anticipo title="El Gobierno anticipó al mercado y dio indicios de su nueva estrategia" /> */}
                     <div className="com-anexo --anexo-1">
                         <iframe
-                            src="https://especialess3.lanacion.com.ar/21/03/anexo-home-vacunas/?initialWidth=1905&amp;childId=bloque1-pymnro0&amp;parentTitle=%C3%9Altimas%20noticias%20de%20Argentina%20y%20el%20mundo%20-%20LA%20NACION&amp;parentUrl=https%3A%2F%2Fwww.lanacion.com.ar%2F"
+                            src={
+                                'https://especialess3.lanacion.com.ar/21/03/anexo-home-vacunas/?initialWidth=1905&amp;childId=bloque1-pymnro0&amp;' +
+                                'parentTitle=%C3%9Altimas%20noticias%20de%20Argentina%20y%20el%20mundo%20-%20LA%20NACION&amp;parentUrl=https%3A%2F%2Fwww.lanacion.com.ar%2F'
+                            }
                             width="100%"
                             scrolling="no"
                             marginheight="0"
@@ -168,7 +176,9 @@ const LNHome = props => {
                                                         titleText="Focal izquierdo. Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
                                                         titleTag="h1"
                                                         titleSize="--xl"
-                                                        subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
+                                                        subheadText={
+                                                            subheadText
+                                                        }
                                                         authors="Por Maia Jastreblansky"
                                                         label="en vivo"
                                                         labelType="liveblog"
@@ -293,7 +303,9 @@ const LNHome = props => {
                                                     leadText="Video grilla."
                                                     titleText="La casa Breuer Moreno se prepara para su último remate"
                                                     titleSize="--l"
-                                                    subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
+                                                    subheadText={
+                                                        subheadMockText
+                                                    }
                                                     authors="Por Nombre Apellido"
                                                     //label="Chapita más larga"
                                                 />
@@ -305,7 +317,7 @@ const LNHome = props => {
                                                 <Article
                                                     frontdemo
                                                     srcdemo="https://source.unsplash.com/460x600"
-                                                    video="https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/06/10/5cfe914c46e0fb000981496e/t_520577cda990476baa7a9ecf733e4a97_name_05_30_2019_t_a35f599ee6764026add3d7967f88b000_name_Marilina_Rolling_1920x1080_2/file_1280x720-2000-v3_1.mp4"
+                                                    video={urlStreamVideo}
                                                     link="#"
                                                     leadText="Video background."
                                                     titleText="La casa Breuer Moreno se prepara para su último remate"
@@ -389,7 +401,9 @@ const LNHome = props => {
                                                         titleText="Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
                                                         titleTag="h1"
                                                         titleSize="--xl"
-                                                        subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
+                                                        subheadText={
+                                                            subheadText
+                                                        }
                                                         authors="Por Maia Jastreblansky"
                                                         position="0402"
                                                     />
@@ -529,7 +543,10 @@ const LNHome = props => {
                                                             <div className="mod-description">
                                                                 <h2 className="com-title --twoxs">
                                                                     <a
-                                                                        href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
+                                                                        href={
+                                                                            '/sociedad/comunidad/' +
+                                                                            'elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/'
+                                                                        }
                                                                         className="com-link"
                                                                         title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
                                                                     >
@@ -595,7 +612,7 @@ const LNHome = props => {
                                                 leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 noMedia
-                                                subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
+                                                subheadText={subheadMockText}
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
@@ -1115,7 +1132,10 @@ const LNHome = props => {
                                             srcdemo="https://source.unsplash.com/1260x500"
                                             link="#"
                                             leadText="Volanta."
-                                            titleText="La casa Breuer Moreno se prepara para su último remate a casa Breuer Moreno se prepara para su último remate a casa Breuer Moreno se prepara para su último remate a casa Breuer Moreno se prepara para su último remate"
+                                            titleText={
+                                                'La casa Breuer Moreno se prepara para su último remate a casa Breuer Moreno se prepara para su último remate' +
+                                                'a casa Breuer Moreno se prepara para su último remate a casa Breuer Moreno se prepara para su último remate'
+                                            }
                                             titleSize="--l"
                                             authors="Por Nombre Apellido"
                                             label="Content Lab"
@@ -1155,7 +1175,9 @@ const LNHome = props => {
                                                     titleText="Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
                                                     titleTag="h1"
                                                     titleSize="--xl"
-                                                    subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
+                                                    subheadText={
+                                                        subheadMockText
+                                                    }
                                                     authors="Por Maia Jastreblansky"
                                                 />
                                             </div>
@@ -1167,7 +1189,9 @@ const LNHome = props => {
                                                     titleText="Los nexos ocultos entre los Moyano y la barra brava de Independiente"
                                                     authors="Por Maia Jastreblansky"
                                                     noMedia
-                                                    subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
+                                                    subheadText={
+                                                        subheadMockText
+                                                    }
                                                 />
                                                 <Article
                                                     frontdemo
@@ -1230,7 +1254,9 @@ const LNHome = props => {
                                                     titleText="Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
                                                     titleTag="h1"
                                                     titleSize="--xl"
-                                                    subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
+                                                    subheadText={
+                                                        subheadMockText
+                                                    }
                                                     authors="Por Maia Jastreblansky"
                                                 />
                                             </div>
@@ -1526,7 +1552,7 @@ const LNHome = props => {
                                                 leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 noMedia
-                                                subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
+                                                subheadText={subheadMockText}
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
@@ -1588,7 +1614,7 @@ const LNHome = props => {
                                                 leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 noMedia
-                                                subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
+                                                subheadText={subheadMockText}
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
@@ -1625,7 +1651,7 @@ const LNHome = props => {
                                             leadText="Volanta."
                                             titleText="La casa Breuer Moreno se prepara para su último remate"
                                             noMedia
-                                            subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
+                                            subheadText={subheadMockText}
                                             authors="Por Nombre Apellido"
                                         />
                                         <Article
