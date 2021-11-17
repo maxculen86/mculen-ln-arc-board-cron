@@ -35,6 +35,7 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+
     color: $light-neutral-900;
     background: $light-neutral-200;
     border: px(1) solid $light-neutral-50;
@@ -51,7 +52,8 @@
     }
 
     .container-logo {
-        flex-direction: row;
+        display: flex;
+        align-items: flex-start;
     }
 
     .logo {
@@ -60,16 +62,9 @@
 
     @media ($media-l) {
         flex-direction: column;
-        align-items: stretch;
-        justify-content: space-around;
 
         .container-logo {
-            flex-direction: column;
-        }
-
-        > div {
-            flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
         }
 
         .logo {

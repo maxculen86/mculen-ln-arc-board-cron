@@ -84,7 +84,7 @@ const CurrencyData = ({
                     <div className="container-logo">
                         <span className="--sixxs">provista por</span>
                         <ComImage
-                            classCondition="logo invertir-online"
+                            classCondition="logo iol"
                             alt={providedAlt}
                             amp={outputType === 'amp'}
                             src={getAssetsPath(contextPath)(deployment)(
