@@ -3,7 +3,6 @@ import React from 'react';
 import ComLogo from '../../common/com-logo';
 import ComButton from '../../common/com-button';
 import Text from '../../common/text';
-//import LogoLN from '../../common/logos/logoLN';
 
 import '../../../../resources/dist/css/ln/modules/modal.css';
 

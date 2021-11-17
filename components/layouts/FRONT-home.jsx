@@ -18,8 +18,6 @@ import SubHeader from '../private/LN/common/header/subHeader';
 import '../../resources/dist/css/ln/pages/home.css';
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
 
-// import withCollections from '../private/LN/acumulado/hocs/withCollections';
-
 const pageBuilderSections = ['Sección 1'];
 
 const LNHome = props => {
@@ -73,26 +71,6 @@ const LNHome = props => {
                     src="https://lanacionar.video-player.arcpublishing.com/prod/powaBoot.js"
                 />
                 {seccion1}
-                {/* <div className="mod-banner --comercial">
-                        <ComButton
-                            classCondition="--secondary --compact"
-                            textname="CERRAR"
-                        />
-                        <div
-                            id="comercial_dsk"
-                            className="com-banner"
-                            data-google-query-id="CJa2odea1u8CFeoD0AQd0OQHtA"
-                        >
-                            <div id="google_ads_iframe_">
-                                <iframe
-                                    src="https://source.unsplash.com/800x600"
-                                    width="800"
-                                    height="600"
-                                    scrolling="no"
-                                ></iframe>
-                            </div>
-                        </div>
-                    </div> */}
                 <div id="wrapper" className={`home demofront ${amp}`}>
                     <Header />
                     <SubHeader />
@@ -295,7 +273,6 @@ const LNHome = props => {
                                                     titleSize="--l"
                                                     subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
                                                     authors="Por Nombre Apellido"
-                                                    //label="Chapita más larga"
                                                 />
                                             </div>
                                         </section>
@@ -699,20 +676,6 @@ const LNHome = props => {
                                             />
                                         </div>
                                     </section>
-
-                                    {/* <section className="mod-">
-                                            <ComTitle size="--twoxs" content="Temáticas LA NACION" />
-                                            <div className="row-gap-tablet-2">
-                                                <a href="https://www.lanacion.com.ar/propiedades/">
-                                                    <div className="mod-"><img src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/7AXX6ZVNCRGLBMXP5UPH5SWDIQ.png" loading="lazy" className="com-image " alt="Logo"/></div>
-                                                    Toda la informacion del mercado inmobiliario 
-                                                </a>
-                                                <a href="https://www.lanacion.com.ar/propiedades/">
-                                                    <div className="mod-"><img src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/7AXX6ZVNCRGLBMXP5UPH5SWDIQ.png" loading="lazy" className="com-image " alt="Logo"/></div>
-                                                    Noticias, informes y referentes del campo argentino 
-                                                </a>
-                                            </div>
-                                        </section> */}
 
                                     <section className="box-articles --bgcolor --bgteal">
                                         <HeaderSection
