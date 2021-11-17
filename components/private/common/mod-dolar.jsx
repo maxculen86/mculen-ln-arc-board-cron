@@ -7,21 +7,22 @@ import '../../../resources/dist/css/ln/modules/mod-dolar.css';
 
 const ModDolar = ({ imageUrl, data }) =>
     (data && (
-        <div className="mod-dolar">
+        <ul className="mod-dolar">
             {data.map((item, index) => {
                 const { sourceName, title, compra, venta } = item;
                 return (
-                    <CurrencyData
-                        key={index}
-                        sourceName={sourceName}
-                        title={title}
-                        purchaseValue={compra}
-                        saleValue={sourceName !== 'dccl' && venta}
-                    />
+                    <li key={index}>
+                        <CurrencyData
+                            sourceName={sourceName}
+                            title={title}
+                            purchaseValue={compra}
+                            saleValue={sourceName !== 'dccl' && venta}
+                        />
+                    </li>
                 );
             })}
             {imageUrl && <CurrencyData urlBrand={imageUrl} />}
-        </div>
+        </ul>
     )) ||
     null;
 
