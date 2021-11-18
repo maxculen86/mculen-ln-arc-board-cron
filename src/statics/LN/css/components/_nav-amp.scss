@@ -55,7 +55,7 @@ amp-sidebar {
 
                     &::before {
                         top: calc(50% - 10px);
-                        font-family: 'LNicons';
+                        font-family: $font-icons;
                         content: $icon-arrow-right;
                         font-size: 20px;
                         display: block;
