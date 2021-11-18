@@ -21,7 +21,11 @@ const ModDolar = ({ imageUrl, data }) =>
                     </li>
                 );
             })}
-            {imageUrl && <CurrencyData urlBrand={imageUrl} />}
+            {imageUrl && (
+                <li>
+                    <CurrencyData urlBrand={imageUrl} />
+                </li>
+            )}
         </ul>
     )) ||
     null;

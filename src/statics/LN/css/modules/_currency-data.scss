@@ -10,14 +10,14 @@
     border: px(1) solid $light-neutral-50;
     padding: $spacing;
 
-    span {
-        margin: px(0) $spacing-2xs;
+    .dolar-title {
+        margin-right: $spacing;
+    }
 
-        @media ($media-l) {
-            margin: px(0) $spacing-xs;
-            &:first-child {
-                margin-left: px(0);
-            }
+    span {
+        margin: 0 $spacing-2xs 0 $spacing;
+        &:first-child {
+            margin-left: px(0);
         }
     }
 
@@ -25,8 +25,9 @@
         flex-direction: column;
         align-items: flex-start;
         padding: $spacing-sm;
-        .com-title {
-            margin-bottom: $spacing;
+
+        .dolar-title {
+            margin-bottom: px(6);
         }
     }
 }
@@ -39,7 +40,7 @@
     color: $light-neutral-900;
     background: $light-neutral-200;
     border: px(1) solid $light-neutral-50;
-    padding: $spacing-xs;
+    padding: px(10) $spacing-xs;
 
     .byma {
         width: px(47);
@@ -66,6 +67,9 @@
 
         .container-logo {
             align-items: center;
+            &:first-child {
+                margin-bottom: px(2);
+            }
         }
 
         .logo {
