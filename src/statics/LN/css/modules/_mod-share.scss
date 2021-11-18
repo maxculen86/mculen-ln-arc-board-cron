@@ -83,7 +83,7 @@
             @include flex(flex, row, center, center);
             //margin-bottom: $spacing-sm;
             margin-right: $spacing-sm;
-            font-family: 'LNicons';
+            font-family: $font-icons;
             font-size: px(24);
             padding: px(4);
             /* Better Font Rendering =========== */

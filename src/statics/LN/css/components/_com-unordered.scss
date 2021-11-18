@@ -18,7 +18,7 @@
         }
 
         &:before {
-            font-family: 'LNicons';
+            font-family: $font-icons;
             content: $icon-bullet;
             position: absolute;
             left: 0;

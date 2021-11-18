@@ -33,7 +33,6 @@ export const validateComments = (props, subscription = false) => {
     const allow = get(props, 'globalContent.comments.allow_comments', true);
     const show = get(props, 'globalContent.comments.display_comments', true);
     const firstPublishDate = get(props, 'globalContent.first_publish_date');
-    // const subscription = get(props, 'globalContent.subscription', false);
     const termicaLivefyre = findTermica('livefyre');
     const shouldLoad =
         allowComments(props) && shouldLoadViafoura(firstPublishDate);
@@ -61,6 +60,7 @@ export const getLoginAndRegistrationURLS = () => {
 
 export const getMessageProps = (props, messageType) => {
     const canonicalUrl = get(props, 'globalContent.canonical_url', '');
+    const outputType = get(props, 'outputType', 'default');
     // const urlBase64 =
     //     Buffer.from(canonicalUrl, 'binary').toString('base64') || '';
     const gc = useContext(GlobalContext);
@@ -87,8 +87,11 @@ export const getMessageProps = (props, messageType) => {
         SUBSCRIPTION: {
             title: 'Ahora para comentar debés tener Acceso Digital.',
             subtitle: 'Ingresá o suscribite',
-            secondaryUrl: (canonicalUrl && loginUrl) || '',
-            specialUrl: (canonicalUrl && registracionUrl) || '',
+            secondaryUrl:
+                (outputType !== 'widgets' && canonicalUrl && loginUrl) || '',
+            specialUrl:
+                (outputType !== 'widgets' && canonicalUrl && registracionUrl) ||
+                '',
             dark: true,
             isExclusive: true
         }

@@ -40,7 +40,6 @@ const ModDescriptionList = props => {
             <dt className={`com-subtitle --twoxs ${classCondition || ''}`}>
                 {descriptionTitle}
             </dt>
-            {/* {bullet ? <ComBullet sizeBullet={sizeBullet} color={color} /> : '' } */}
             {listItem}
         </dl>
     );

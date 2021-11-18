@@ -5,7 +5,6 @@ import { useContent } from 'fusion:content';
 import { SITE_LANACION } from 'fusion:environment';
 import get from './utils/get';
 import withScreenUtils from './hocs/withScreenUtils';
-// import loginHelper from '../LN/common/utils/loginHelper';
 import handleCookie from '../LN/common/utils/handleCookie';
 import { isSubscribed } from '../LN/common/utils/contextHelper';
 
@@ -54,7 +53,6 @@ const Component = props => {
         }
     });
 
-    // const metarefresh = content && content.Metarefresh;
     const interval = getInterval(type || _id, resolution, metarefresh);
     const cookieProductoPremium = getCookie('ProductoPremiumId');
     const template = findTemplate(type);

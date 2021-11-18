@@ -18,8 +18,4 @@ HeaderBase.propTypes = {
     children: PropTypes.arrayOf(PropTypes.node).isRequired
 };
 
-// HeaderBase.defaultProps = {
-//     children: `<></>`
-// };
-
 export default HeaderBase;

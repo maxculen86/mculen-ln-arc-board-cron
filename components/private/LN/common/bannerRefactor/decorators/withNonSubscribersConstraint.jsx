@@ -9,7 +9,6 @@ export default Component => {
     if (!Component) return null;
 
     const Enhanced = props => {
-        // if (subscription) return null;
         return <Component noShow subscription={isSubscribed()} {...props} />;
     };
 

@@ -7,7 +7,6 @@ import useSubtype from '../../../common/hooks/useSubtype';
 // quede completo para todos. Si no se puede, crear carpeta.
 const dataLayer = props => {
     const { globalContent } = props;
-    // const { subtype } = globalContent;
 
     const { subtipo } = useSubtype();
     const scriptDataLayer = subtipo.execute('getDataLayer', globalContent);

@@ -10,7 +10,7 @@
 
         &::before {
             //@extend .icon-zoom;
-            font-family: 'LNicons';
+            font-family: $font-icons;
             content: $icon-zoom;
             color: $neutral-white;
             background: rgba(0, 0, 0, 0.7);

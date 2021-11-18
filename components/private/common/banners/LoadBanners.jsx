@@ -61,10 +61,6 @@ const LoadBanners = ({ blocksBanners }) => {
     useEffect(() => {
         try {
             if (blocksBanners.length > 0 && suffix && device && !isAdmin) {
-                // const siteService = get(state, 'siteService', {});
-                // const dfpId = get(siteProperties, 'bannerConfig.dfp_id');
-                // const bannersSiteConfig = get(siteService, 'banners');
-
                 const blocksConfig = blocksBanners
                     .map(el => {
                         const {
@@ -91,30 +87,9 @@ const LoadBanners = ({ blocksBanners }) => {
                             .concat(...bannersConfiguration)
                             .find(ban => ban.slotId === slotId);
 
-                        // const config = slotsConfig.home[slotId];
-
                         if (!config) return {};
 
-                        // const configBuilder = new ConfigBuilder();
-                        // configBuilder.init({
-                        //     ...config,
-                        //     slotId,
-                        //     dfpId,
-                        //     slotGroup,
-                        //     show: {
-                        //         termicas: 'Si',
-                        //         collection: true
-                        //     }
-                        // });
-
-                        // if (bannersSiteConfig)
-                        //     configBuilder.setDimensionsFromSiteService(
-                        //         bannersSiteConfig,
-                        //         slotGroup,
-                        //         slotId
-                        //     );
-
-                        return config; // configBuilder.get();
+                        return config;
                     })
                     .map(
                         ({
