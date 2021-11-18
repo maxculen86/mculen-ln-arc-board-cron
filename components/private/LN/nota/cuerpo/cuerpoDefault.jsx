@@ -5,29 +5,45 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
-import BlockQuote from './blockQuote';
-import Gallery from '../../common/carrousell';
-import Image from './image';
-import PullQuote from './pullQuote';
-import Tags from './tags';
-import ListOrderedOrUnordered from './listOrderedOrUnordered';
-import Subtitle from './subtitle';
+// Body components
 import Paragraph from './parrafo';
+import PullQuote from './pullQuote';
+import BlockQuote from './blockQuote';
+import Tags from './tags';
+import Subtitle from './subtitle';
+import Gallery from '../../common/carrousell';
+import ListOrderedOrUnordered from './listOrderedOrUnordered';
+import Image from './image';
+import Video from './video';
 import RawHTML from '../../common/rawHTML';
 import OembedAMP from './oembedAMP';
 import BotonLink from './botonLink';
 import Html from './html';
 import OptaAMP from './optaAMP';
-import Video from './video';
+import powerUpsReceta from './powerUpsReceta';
+import HtmlAMP from './htmlAMP';
+// Banner
+import DivBannerSSR from '../../../common/banners/DivBannerSSR';
+import DivBannerAMP from '../../../common/banners/DivBannerAMP';
+// Utils
 import { setStorageConfiguration } from '../../../common/utils/storage';
 import { FOTOAL100 } from '../../../common/utils/subtypes/subtypeHelper';
-import powerUpsReceta from './powerUpsReceta';
 import {
     getBannerConfiguration,
     suffixDevice
 } from '../../common/utils/bannerHelper';
-import DivBannerSSR from '../../../common/banners/DivBannerSSR';
-import DivBannerAMP from '../../../common/banners/DivBannerAMP';
+
+// TODO: Borrar importaciones comentadas
+// import useViewportSize from '../../../common/hooks/useViewportSize';
+// import { GlobalContext } from '../../../common/context/globalContext';
+// import Banner from '../../common/bannerRefactor';
+// import ConfigBuilder from '../../common/bannerRefactor/builder';
+// import {
+//     getSlotForDevice,
+//     isPrimarySectionInBannerSegments
+// } from '../../common/bannerRefactor/utils';
+// import { slotsConfig } from '../../common/bannerRefactor/config';
+// import get from '../../../common/utils/get';
 
 const Cuerpo = props => {
     const { bannerConfig: banners, outputType, globalContent } = props;
@@ -54,7 +70,8 @@ const Cuerpo = props => {
         BotonLink,
         Html,
         OptaAMP,
-        powerUpsReceta
+        powerUpsReceta,
+        HtmlAMP
     ];
 
     // TODO: Ver si este es el mejor lugar donde poner este script.
@@ -103,6 +120,14 @@ const Cuerpo = props => {
                 outputType === 'amp'
             ) {
                 return bc.arcType === _type && bc.outputType === 'opta';
+            }
+            if (
+                content &&
+                content.includes('iframe') &&
+                _type === 'raw_html' &&
+                outputType === 'amp'
+            ) {
+                return bc.arcType === _type && bc.outputType === 'amp';
             }
             if (_type === 'oembed_response' || _type === 'raw_html') {
                 return bc.arcType === _type && bc.outputType === outputType;
