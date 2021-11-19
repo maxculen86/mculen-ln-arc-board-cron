@@ -3,16 +3,27 @@ import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
+import ComTitle from '../private/common/com-title';
 
 import '../../resources/dist/css/ln/pages/buscador.css';
 
 import GlobalProvider from '../private/common/context/globalContext';
 
 const lnBuscador = ({ children }) => {
+    let searchResults = '';
+    if (typeof window !== 'undefined') {
+        const urlSerachParams =
+            new URLSearchParams(window.location.search) || {};
+    }
+
     return (
         <GlobalProvider>
             <div id="wrapper" className="buscador">
                 <Header />
+                <ComTitle
+                    tag="h1"
+                    content="Estos son los resultados que encontramos para la búsqueda que realizaste de:"
+                />
                 <main id="content">
                     <div className="lay">{children[0]}</div>
                 </main>
