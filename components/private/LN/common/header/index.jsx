@@ -11,7 +11,6 @@ import debounce from '../../../common/utils/debounce';
 import getSectionName from '../utils/getSectionName';
 import { GlobalContext } from '../../../common/context/globalContext';
 import { getLoginData, isLoggedIn } from '../utils/contextHelper';
-// import { getAndSaveCustomDimension } from '../../../common/utils/storage';
 
 const CLASS_SCROLL_UP = '--scrollUp';
 const CLASS_SCROLL_DOWN = '--scrollDown';
@@ -29,23 +28,9 @@ const Index = props => {
     const { dispatch } = useContext(GlobalContext);
     const { type, node_type: nodeType } = globalContent || {};
     const section = getSectionName({ type, nodeType });
-    // const [isScrollDown, setIsScrollDown] = useState(false);
-    // const [isScrollUp, setIsScrollUp] = useState(false);
-
-    // constructor(props) {
-    //     super(props);
-
-    //     this.state = {
-    //         scrollDirection: {
-    //             isScrollDown: false,
-    //             isScrollUp: false
-    //         }
-    //     };
-    // }
 
     useEffect(() => {
         const header = document.getElementById('header');
-        // const vshare = document.getElementById('v-share');
         const userMenu = document.getElementById('user-menu');
         const fusionApp = document.getElementById('fusion-app');
         const wrapper = fusionApp && fusionApp.querySelector('#wrapper');
@@ -62,44 +47,10 @@ const Index = props => {
                         userMenu,
                         wrapper
                     );
-                    // setIsScrollDown(isScrollDown);
-                    // setIsScrollUp(isScrollUp);
-                    // this.setState({
-                    //     scrollDirection: { isScrollDown, isScrollUp }
-                    // });
                 })
             );
         }
     }, []);
-
-    // componentDidMount() {
-    //     const header = document.getElementById('header');
-    //     // const vshare = document.getElementById('v-share');
-    //     const userMenu = document.getElementById('user-menu');
-    //     const fusionApp = document.getElementById('fusion-app');
-    //     const wrapper = fusionApp && fusionApp.querySelector('#wrapper');
-
-    //     if (header) {
-    //         const headerHeigth = header.clientHeight || header.offsetHeight;
-    //         window.addEventListener(
-    //             'scroll',
-    //             debounce(() => {
-    //                 const { isScrollDown, isScrollUp } = this.onScrollHandler(
-    //                     header,
-    //                     headerHeigth,
-    //                     // vshare,
-    //                     userMenu,
-    //                     wrapper
-    //                 );
-    //                 this.setState({
-    //                     scrollDirection: { isScrollDown, isScrollUp }
-    //                 });
-    //             })
-    //         );
-
-    //         // getAndSaveCustomDimension();
-    //     }
-    // }
 
     const toglleDesplegable = () => {
         document.body.classList.contains('dropdown')
@@ -125,12 +76,6 @@ const Index = props => {
                 }
             }
             if (isScrollUp) {
-                // classList.remove(CLASS_SCROLL_DOWN);
-                // classList.add(CLASS_SCROLL_UP);
-                // if (vshare) {
-                //     vshare.classList.add(CLASS_SCROLL_UP);
-                //     vshare.classList.remove(CLASS_SCROLL_DOWN);
-                // }
                 classList.remove(CLASS_ACTIVE);
                 if (vshare) vshare.classList.remove(CLASS_ACTIVE);
 
@@ -142,11 +87,6 @@ const Index = props => {
                 classList.remove(CLASS_ACTIVE);
                 if (vshare) vshare.classList.remove(CLASS_ACTIVE);
 
-                // classList.remove(CLASS_SCROLL_UP);
-                // if (vshare) {
-                //     vshare.classList.remove(CLASS_SCROLL_UP);
-                //     vshare.classList.add(CLASS_SCROLL_DOWN);
-                // }
                 if (wrapper) {
                     wrapper.classList.remove(CLASS_SCROLL_UP);
                     wrapper.classList.add(CLASS_SCROLL_DOWN);
@@ -156,12 +96,6 @@ const Index = props => {
                 // esta clsae está para el header transparente
                 classList.add(CLASS_ACTIVE);
                 if (vshare) vshare.classList.add(CLASS_ACTIVE);
-                // classList.remove(CLASS_SCROLL_UP);
-                // classList.remove(CLASS_SCROLL_DOWN);
-                // if (wrapper) {
-                //     wrapper.classList.remove(CLASS_SCROLL_UP);
-                //     wrapper.classList.remove(CLASS_SCROLL_DOWN);
-                // }
             }
         }
 
@@ -169,8 +103,6 @@ const Index = props => {
 
         return { isScrollDown, isScrollUp };
     };
-
-    // const { scrollDirection } = this.state;
 
     if (outputType === 'amp')
         return <HeaderAMP toglleDesplegable={toglleDesplegable} />;

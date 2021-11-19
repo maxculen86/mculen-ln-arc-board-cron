@@ -18,7 +18,12 @@ const typeSection = {
     Opinion: { tipoSeccion: 'opinion', idSeccion: 1001 },
     Comercial: { tipoSeccion: 'comercial', idSeccion: 1101 },
     Banner: { tipoSeccion: 'banner' },
-    Dolar: { tipoSeccion: 'dolar', idSeccion: 2000 },
+    Dolar: {
+        tipoSeccion: 'dolar',
+        idSeccion: 2000,
+        tituloCaja: 'Cotización hoy',
+        url: 'https://www.lanacion.com.ar/dolar-hoy/'
+    },
     Multimedia: { tipoSeccion: 'tema', idSeccion: 305 },
     default: { tipoSeccion: 'tema', idSeccion: 305 }
 };

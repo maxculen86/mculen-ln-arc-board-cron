@@ -15,7 +15,7 @@ class GetCajaCollection {
 
         this.state = {};
 
-        if (query.filterRepetead) {
+        if (query.filterRepetead && query.id) {
             this.fetchContent({
                 articleList: {
                     source: 'collectionsSource',
@@ -26,19 +26,19 @@ class GetCajaCollection {
         }
 
         const imageId = get(props, 'customFields.imageId', '');
-        if (imageId) {
+
+        imageId &&
             this.fetchContent({
                 containerImage: {
                     source: 'relatedImageSource',
                     query: {
-                        id: imageId,
+                        id: imageId.trim(),
                         published: true,
                         imageConfig: 'techoImagen',
                         'arc-site': 'la-nacion-ar'
                     }
                 }
             });
-        }
     }
 
     getQueryElement = props => {
@@ -61,7 +61,7 @@ class GetCajaCollection {
             : [];
 
         return {
-            id: idCollection,
+            id: idCollection && idCollection.trim(),
             size: 20,
             website: 'la-nacion-ar',
             from: Number(initialPosition) - 1,

@@ -6,6 +6,18 @@ import Relacionados from './relacionados';
 import dateAndTimeUtil from '../../../../../common/utils/dateAndTimeUtil';
 import { getPrincipalCategory } from '../category';
 
+const getPaywallStatus = dataNota => {
+    const paywallStatus = get(
+        dataNota,
+        'content_restrictions.content_code',
+        null
+    );
+
+    if (!paywallStatus || paywallStatus === 'cerrada') return 'comun';
+
+    return paywallStatus;
+};
+
 const indexNotaData = (dataNota, cuerpo) => {
     if (!dataNota) throw new Error(`La información de la nota esta vacia`);
 
@@ -17,11 +29,6 @@ const indexNotaData = (dataNota, cuerpo) => {
         publish_date: publishDate,
         display_date: displayDate
     } = dataNota;
-    const paywallStatus = get(
-        dataNota,
-        'content_restrictions.content_code',
-        null
-    );
     const edition = get(dataNota, 'label.edicion.text', null);
     const showBanners = get(dataNota, 'label.mostrar_banners.text', null);
 
@@ -47,7 +54,7 @@ const indexNotaData = (dataNota, cuerpo) => {
         template: template === '6' || template === '5' ? '1' : template,
         url,
         mostrarBanners: !(showBanners && showBanners.toLowerCase() === 'no'),
-        paywallStatus: paywallStatus || 'comun',
+        paywallStatus: getPaywallStatus(dataNota),
         abiertoComentarios: false,
         categoria: primarySection && getPrincipalCategory(primarySection),
         relacionados: Relacionados(dataNota),

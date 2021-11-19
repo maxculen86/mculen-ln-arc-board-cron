@@ -1,24 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import getMetaDescription from './utils/getMetaDescription';
-// import MetaDescriptionAcumulado from '../LN/acumulado/metaDescriptionAcumulado';
-
-// const extractDataFromTags = payload => {
-//     const tagId =
-//         payload && payload.items && payload.items.length
-//             ? payload.items[0].slug
-//             : undefined;
-
-//     const tagName =
-//         payload && payload.items && payload.items.length
-//             ? payload.items[0].description
-//             : undefined;
-
-//     return {
-//         tagId,
-//         tagName
-//     };
-// };
 
 const MetaDescription = ({
     subtype,
@@ -40,8 +22,6 @@ const MetaDescription = ({
     const acusWithMeta = ['section', 'author', 'distributor', 'tags'];
     const acuRecetaRegExp = new RegExp(/^\/recetas\/(.+)$/);
     if (acusWithMeta.includes(nodeType)) {
-        // const { tagId } = extractDataFromTags(payload);
-
         return (
             <meta
                 name="description"
@@ -52,16 +32,6 @@ const MetaDescription = ({
                 }
             />
         );
-        // return (
-        //     <MetaDescriptionAcumulado
-        //         size="2"
-        //         title={name}
-        //         sectionId={nodeType === 'section' ? _id : null}
-        //         authorId={nodeType === 'author' ? _id : null}
-        //         distributorId={nodeType === 'distributor' ? name : null}
-        //         tagId={nodeType === 'tags' ? tagId : null}
-        //     />
-        // );
     }
 
     if (!subtype && section !== 'home') return <></>;

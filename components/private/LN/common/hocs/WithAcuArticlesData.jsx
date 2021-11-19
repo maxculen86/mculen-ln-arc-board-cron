@@ -145,15 +145,6 @@ function WithAcuArticlesData(
                     page + 1
                 );
             };
-            /*
-            isRecommend = article => {
-                const { label } = article;
-                const { recomendar } = label || undefined;
-                return (
-                    !recomendar || recomendar === {} || recomendar.text === 'Si'
-                );
-            };
-            */
 
             addShortTitle = (article, filterFeature) => {
                 if (filterFeature === '0' || filterFeature === '1') {
@@ -176,7 +167,6 @@ function WithAcuArticlesData(
                 } = this.props;
 
                 if (type === 'story') {
-                    // const isIdPresent = articles && articles.find(e => e._id === _id);
                     const {
                         size: { originalSize }
                     } = this.props;
