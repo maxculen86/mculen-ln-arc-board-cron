@@ -2,7 +2,7 @@
 
 import * as fusionConsumer from 'fusion:consumer';
 import * as LayoutLNMainHome from '../../../../components/layouts/LN-Home_Main/json';
-import home from '.../../../../../../components/private/LN/api/v1/home';
+import home from '../../../../components/private/LN/api/v1/global/home';
 import pageBuilderSections from '../../../../components/layouts/config/LN-PageBuilder.config.json';
 import propsAppAnexos from '../../../../__mocks__/data/renderables/dataAppAnexos';
 import propsAppAnexo1 from '../../../../__mocks__/data/renderables/dataAppAnexo1';
@@ -10,7 +10,7 @@ import propsAppAnexo2 from '../../../../__mocks__/data/renderables/dataAppAnexo2
 import propsAppAnexowithoutApertura from '../../../../__mocks__/data/renderables/dataAppAnexoswithoutApertura';
 import propsApertura from '../../../../__mocks__/data/renderables/dataApertura.json';
 
-jest.mock('.../../../../../../components/private/LN/api/v1/home', () => {
+jest.mock('.../../../../../../components/private/LN/api/v1/global/home', () => {
     return function(component) {
         return component;
     };
