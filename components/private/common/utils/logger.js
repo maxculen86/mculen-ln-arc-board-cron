@@ -1,11 +1,6 @@
-// import { ELMAH_API_KEY, ELMAH_LOG_ID, SITE_LANACION } from 'fusion:environment';
 import getProperties from 'fusion:properties';
-// import { resolveConfig } from 'prettier';
-// import request from 'request-promise-native';
 import get from './get';
 import LnError from './LN-Error';
-
-// const URI_ELMAH = `https://api.elmah.io/v3/messages/${ELMAH_LOG_ID}`;
 
 const logger = (() => {
     const push = (e, config, site) => {

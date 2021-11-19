@@ -33,7 +33,6 @@ export const validateComments = (props, subscription = false) => {
     const allow = get(props, 'globalContent.comments.allow_comments', true);
     const show = get(props, 'globalContent.comments.display_comments', true);
     const firstPublishDate = get(props, 'globalContent.first_publish_date');
-    // const subscription = get(props, 'globalContent.subscription', false);
     const termicaLivefyre = findTermica('livefyre');
     const shouldLoad =
         allowComments(props) && shouldLoadViafoura(firstPublishDate);

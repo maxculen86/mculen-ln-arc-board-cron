@@ -58,13 +58,4 @@ Index.propTypes = {
     }).isRequired
 };
 
-// Index.defaultProps = {
-//     size: 30,
-//     siteProperties: {
-//         bannerConfig: {
-//             dfp_id: 0
-//         }
-//     }
-// };
-
 export default Consumer(Index);

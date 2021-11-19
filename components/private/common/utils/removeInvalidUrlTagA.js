@@ -15,7 +15,8 @@ const isValidUrlTagA = (contentElements, arcSite, url, API_ENV) => {
                 return linkList.filter(e => {
                     return (
                         !new RegExp(
-                            /(?:href=(["'\\])+((?:(?:https?|http?):\/\/)?((?:[a-z]+)(?:\.(?:[a-z-0-9]-*)*[a-z-0-9]+)*(?:\.(?:[a-z]{2,}))\.?)(?::\d{2,5})?(?:[/?#]\S*)?||\/[a-z-0-9\S]+)\1)/,
+                            `(?:href=(["'\\\\])+((?:(?:https?|http?):\\/\\/)?((?:[a-z]+)(?:\\.(?:[a-z-0-9]-*)*[a-z-0-9]+)*` +
+                                `(?:\\.(?:[a-z]{2,}))\\.?)(?::\\d{2,5})?(?:[/?#]\\S*)?||\\/[a-z-0-9\\S]+)\\1)`,
                             'gim'
                         ).test(e) && e
                     );
@@ -56,25 +57,6 @@ const isValidUrlTagA = (contentElements, arcSite, url, API_ENV) => {
                 /**
                  * TODO: Ver si se necesita enviar warnings por urls mal formadas
                  */
-                /* try {
-                    if (API_ENV === 'prod' && errors.length) {
-                        logger.push(
-                            {
-                                response: {
-                                    request: { method: 'isValidUrlTagA' }
-                                },
-                                error: {
-                                    message: `Error URL mal formato en cuerpo nota: ${errors}`
-                                }
-                            },
-                            { source: 'content/source/articleSourceNota', url },
-                            arcSite
-                        );
-                    }
-                } catch (e) {
-                    console.log('Error en removeInvalidUrlTagA.js', e.message);
-                } */
-
                 const newElement =
                     errors.length &&
                     typeElement[type].replace &&

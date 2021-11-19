@@ -4,9 +4,6 @@ import PropTypes from 'fusion:prop-types';
 import '../../../../../resources/dist/css/ln/modules/wiki-autor.css';
 import '../../../../../resources/dist/css/ln/components/author.css';
 
-// TODO: los siguientes enlaces son para agregar en base
-
-// import '../../../../../resources/dist/css/ln/components/title.css';
 import '../../../../../resources/dist/css/ln/components/link.css';
 import ComTitle from '../../../common/com-title';
 import ComContainer from '../../../common/com-container';
@@ -18,8 +15,6 @@ import ComLink from '../../../common/com-link';
 import ComSubtitle from '../../../common/com-subtitle';
 import getSocialsNetwork from '../../common/utils/getSocialsNetwork';
 import ComAdvance from '../../../common/com-advance';
-// import ModWikiAuthor from '../../../common/mod-wikiAuthor';
-// import '../../../../../resources/dist/css/ln/base/helpers.css';
 
 const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
     const {
