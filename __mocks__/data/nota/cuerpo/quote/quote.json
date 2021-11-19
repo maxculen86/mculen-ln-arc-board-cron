@@ -63,5 +63,23 @@
         ],
         "subtype": "pullquote",
         "type": "quote"
+    },
+    {
+        "_id": "Y5KNQSVAYBEEHNQUNQ3DRZVLVU",
+        "additional_properties": {},
+        "citation": {
+            "content": "Lorem",
+            "type": "text"
+        },
+        "content_elements": [
+            {
+                "_id": "BJVAPUQPQVHVRCXY4FP6IDJ7WU",
+                "additional_properties": {},
+                "content": 1,
+                "type": "text"
+            }
+        ],
+        "subtype": "blockquote",
+        "type": "quote"
     }
 ]

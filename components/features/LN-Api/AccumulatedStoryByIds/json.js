@@ -1,6 +1,6 @@
 import Consumer from 'fusion:consumer';
-import IndexAcuV1 from '../../../private/LN/api/v1/accumulated';
-import IndexAcuV2 from '../../../private/LN/api/v2/accumulated';
+import IndexAcuV1 from '../../../private/LN/api/v1/global/accumulated';
+import IndexAcuV2 from '../../../private/LN/api/v2/global/accumulated';
 import browser from '../../../private/common/utils/browser';
 
 // URL de ejemplo: http://localhost/api/v1/notas/byIds/236DDMMNYVFNFC4PZQPP4AK6XI,2375VFXVGZBNZDLXL5CTHUVTMQ,23CPLUXGMFF2RBADC62EYLXH4M/?_website=la-nacion-ar&outputType=json
@@ -12,9 +12,14 @@ class AccumulatedStoryByIds {
         this.state = { acuArticlesSource: null };
         this.state.acuArticlesSource = this.props.globalContent;
 
-        this.versions = {
-            1: IndexAcuV1,
-            2: IndexAcuV2
+        this.apiData = {
+            global: {
+                1: IndexAcuV1,
+                2: IndexAcuV2
+            },
+            mobile: {
+                1: IndexAcuV1
+            }
         };
     }
 
@@ -23,8 +28,9 @@ class AccumulatedStoryByIds {
             const { acuArticlesSource } = this.state || {};
 
             const { requestUri } = this.props;
-            const indexAcu = this.versions[browser.getApiVersion(requestUri)];
-
+            const indexAcu = this.apiData[browser.getApiType(requestUri)][
+                browser.getApiVersion(requestUri)
+            ];
             if (!acuArticlesSource || !acuArticlesSource.content_elements) {
                 return null;
             }
