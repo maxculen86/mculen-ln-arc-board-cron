@@ -25,18 +25,22 @@ const lnBuscador = ({ children }) => {
     if (typeof window !== 'undefined') {
         const urlSerachParams =
             new URLSearchParams(window.location.search) || {};
+        searchResults = urlSerachParams ? urlSerachParams.get('query') : '';
     }
 
     return (
         <GlobalProvider>
             <div id="wrapper" className="buscador">
                 <Header />
-                <ComTitle
-                    tag="h1"
-                    content="Estos son los resultados que encontramos para la búsqueda que realizaste de:"
-                />
                 <main id="content">
-                    <div className="lay">{children[0]}</div>
+                    <div className="lay">
+                        <ComTitle
+                            tag="h1"
+                            content={`Estos son los resultados que encontramos para la búsqueda que realizaste de: ${searchResults}`}
+                            size="--xl"
+                        />
+                        {children[0]}
+                    </div>
                 </main>
                 <Static id="StaticFooter">
                     <Footer />
