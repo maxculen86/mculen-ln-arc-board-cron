@@ -3,7 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 
 export const getStyleFontsInLine = ({ contextPath, deployment }) => `
-// @font-face {font-family:'LNicons';src:url('${deployment(
+@font-face {font-family:'LNicons';src:url('${deployment(
     `${contextPath}/resources/fonts/lana-icons-v1.woff`
 )}') format('woff');font-weight: normal;font-style: normal;font-display: swap;}
 @font-face {font-family:'SuecaSlab';src:url('${deployment(
@@ -12,7 +12,7 @@ export const getStyleFontsInLine = ({ contextPath, deployment }) => `
 @font-face {font-family:'SuecaSlab';src:url('${deployment(
     `${contextPath}/resources/fonts/suecaslab-bold-webfont.woff2`
 )}') format('woff2');font-weight: 700;font-style: normal;font-display: swap;}
-// @font-face {font-family:'LNlogos';src:url('${deployment(
+@font-face {font-family:'LNlogos';src:url('${deployment(
     `${contextPath}/resources/fonts/lana-logos-v1.woff`
 )}') format('woff');font-weight: normal;font-style: normal;font-display: swap;}
 `;
@@ -31,14 +31,14 @@ const FontFace = props => {
                 as="image"
                 crossorigin="anonymous"
             /> */}
-            {/* <link
+            <link
                 rel="preload"
                 href={deployment(
                     `${contextPath}/resources/fonts/lana-icons-v1.woff`
                 )}
                 as="font"
                 crossorigin="anonymous"
-            /> */}
+            />
             <link
                 rel="preload"
                 href={deployment(
@@ -55,7 +55,7 @@ const FontFace = props => {
                 as="font"
                 crossorigin="anonymous"
             />
-            {/* <link
+            <link
                 rel="preload"
                 href={deployment(
                     `${contextPath}/resources/fonts/lana-logos-v1.woff`
@@ -63,7 +63,7 @@ const FontFace = props => {
                 as="font"
                 onload="this.onload=null;this.rel='stylesheet'"
                 crossorigin="anonymous"
-            /> */}
+            />
             {outputType === 'default' && (
                 <style
                     dangerouslySetInnerHTML={{
