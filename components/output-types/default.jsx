@@ -41,6 +41,7 @@ import addForwardSlash from '../private/LN/common/utils/addForwardSlash';
 import AmazonPublisherServices from '../private/common/scriptManager/amazonPublisherServices';
 import FontFaceDefault from '../private/common/fontfaceDefault';
 import MetaViafoura from '../private/common/metaViafoura';
+import Favicon from '../private/common/favicon';
 
 const scriptList = [
     {
@@ -223,7 +224,13 @@ const Default = props => {
         <html lang="es">
             <head>
                 <meta charset="utf-8" />
+                <meta
+                    name="viewport"
+                    content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
+                />
+                <meta name="theme-color" content="#ffffff" />
                 <title>{title}</title>
+                <Libs />
                 {/* <FontFace outputType={outputType} /> */}
                 {arcSite === 'ott' ? (
                     <link
@@ -235,7 +242,6 @@ const Default = props => {
                 ) : (
                     <CssLinks />
                 )}
-                <Libs />
 
                 {LinkImagePreload()}
 
@@ -325,63 +331,7 @@ const Default = props => {
                     outputType={outputType}
                 />
                 <Schemas section={_nodeType} />
-                <meta
-                    name="viewport"
-                    content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
-                />
-                <link
-                    rel="shortcut icon"
-                    type="image/x-icon"
-                    href={deployment(
-                        `${contextPath}/resources/images/favicon.ico`
-                    )}
-                />
-                <link
-                    rel="icon"
-                    type="image/png"
-                    sizes="16x16"
-                    href={deployment(
-                        `${contextPath}/resources/images/favicon-16.png`
-                    )}
-                />
-                <link
-                    rel="icon"
-                    type="image/png"
-                    sizes="32x32"
-                    href={deployment(
-                        `${contextPath}/resources/images/favicon-32.png`
-                    )}
-                />
-                <link
-                    rel="shortcut icon"
-                    type="image/png"
-                    sizes="192x192"
-                    href={deployment(
-                        `${contextPath}/resources/images/favicon-192.png`
-                    )}
-                />
-                <link
-                    rel="shortcut icon"
-                    type="image/png"
-                    sizes="512x512"
-                    href={deployment(
-                        `${contextPath}/resources/images/favicon-512.png`
-                    )}
-                />
-                <link
-                    rel="apple-touch-icon"
-                    href={deployment(
-                        `${contextPath}/resources/images/favicon-192.png`
-                    )}
-                />
-                <link
-                    rel="apple-touch-icon"
-                    sizes="512x512"
-                    href={deployment(
-                        `${contextPath}/resources/images/favicon-512.png`
-                    )}
-                />
-                <meta name="theme-color" content="#ffffff" />
+                <Favicon />
                 <link rel="manifest" href="/manifest.json" />
                 <MetasFBNews
                     nodeType={_nodeType}

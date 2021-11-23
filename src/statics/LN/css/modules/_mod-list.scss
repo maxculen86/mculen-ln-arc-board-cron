@@ -13,7 +13,7 @@
             padding-left: $spacing-sm;
             &:after {
                 position: absolute;
-                font-family: 'LNicons';
+                font-family: $font-icons;
                 content: $icon-bullet;
                 font-size: px(24);
                 left: px(-7);
@@ -28,7 +28,7 @@
                 padding-right: $spacing-sm;
                 &:after {
                     position: absolute;
-                    font-family: 'LNicons';
+                    font-family: $font-icons;
                     content: $icon-bullet-xs;
                     color: #ccc;
                     font-size: px(24);

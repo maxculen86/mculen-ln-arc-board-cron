@@ -97,7 +97,7 @@ const ArticleAcum = ({
                 boxPosition={boxPosition}
                 category={withCategory && primarySection}
                 tags={withTags && tagList}
-                label={chapita}
+                label={{ text: chapita }}
                 handleClick={handleClick}
             />
             {children}

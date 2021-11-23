@@ -376,7 +376,6 @@ $rank-dsk: px(400);
             left: 0;
             right: 0;
             bottom: 0;
-            margin: auto;
             padding-bottom: 0;
 
             // &:after {
@@ -387,8 +386,8 @@ $rank-dsk: px(400);
             //     z-index: 0;
             //     width: 100%;
             //     height: 100%;
-            //     margin: 0 -3000px;
-            //     padding: 0 3000px;
+            //     margin: 0 px(-3000);
+            //     padding: 0 px(3000);
             // }
 
             // &:before {
@@ -401,8 +400,8 @@ $rank-dsk: px(400);
             //     height: px(120);
             //     width: 100%;
             //     margin-top: px(-120);
-            //     margin: -120px -3000px 0;
-            //     padding: 0 3000px;
+            //     margin: -120px px(-3000) 0;
+            //     padding: 0 px(3000);
             //     position: absolute;
             // }
             .com-link.com-link,
@@ -424,8 +423,8 @@ $rank-dsk: px(400);
                 margin: 0;
                 a {
                     display: block;
-                    margin: 0 -3000px;
-                    padding: 0 3000px px(16);
+                    margin: 0 px(-3000);
+                    padding: 0 px(3000) px(16);
                     background-color: rgba(0, 0, 0, 0.65);
                 }
             }
@@ -439,9 +438,8 @@ $rank-dsk: px(400);
                     content: '';
                     height: px(120);
                     width: 100%;
-                    margin-top: px(-120);
-                    margin: px(-120) -3000px 0;
-                    padding: 0 3000px;
+                    margin: px(-120) px(-3000) 0;
+                    padding: 0 px(3000);
                     position: absolute;
                 }
             }
@@ -857,7 +855,7 @@ $rank-dsk: px(400);
                         color: $light-neutral-700;
                         font-weight: 500;
                         &:before {
-                            font-family: LNicons;
+                            font-family: $font-icons;
                             color: $light-neutral-400;
                             content: $icon-bullet-xs;
                             font-size: px(24);
@@ -999,8 +997,8 @@ $rank-dsk: px(400);
     &.--bgcolor {
         //display: flex;
         background: $light-neutral-100;
-        margin: px(64) -3000px;
-        padding: px(32) 3000px px(24);
+        margin: px(64) px(-3000);
+        padding: px(32) px(3000) px(24);
 
         .mod-headersection {
             margin-top: 0;
