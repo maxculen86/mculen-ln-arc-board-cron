@@ -40,6 +40,7 @@ import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 import addForwardSlash from '../private/LN/common/utils/addForwardSlash';
 import AmazonPublisherServices from '../private/common/scriptManager/amazonPublisherServices';
 import FontFaceDefault from '../private/common/fontfaceDefault';
+import CriticalCss from '../private/common/criticalcss';
 import MetaViafoura from '../private/common/metaViafoura';
 import Favicon from '../private/common/favicon';
 
@@ -231,7 +232,7 @@ const Default = props => {
                 <meta name="theme-color" content="#ffffff" />
                 <title>{title}</title>
                 <Libs />
-                {/* <FontFace outputType={outputType} /> */}
+                <CriticalCss outputType={outputType} />
                 {arcSite === 'ott' ? (
                     <link
                         rel="stylesheet"
