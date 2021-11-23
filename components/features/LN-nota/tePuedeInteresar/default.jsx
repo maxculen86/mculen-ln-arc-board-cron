@@ -2,13 +2,12 @@
 /* eslint-disable no-bitwise */
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState, useEffect } from 'react';
-import Lazy from 'lazy-child';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
-import { LAZY_OFFSETTOP } from 'fusion:environment';
 import TePuedeInteresar from '../../../private/LN/nota/tePuedeInteresar';
 import findTermica from '../../../private/common/utils/findTermica';
 import config from '../../../../properties/sites/la-nacion-ar';
+import getScrollPercent from '../../../private/LN/common/utils/getScrollPercent';
 
 const getVariablesFromLocalStorage = () => {
     const urls = JSON.parse(localStorage.getItem('excludeItems')) || [];
@@ -72,6 +71,7 @@ const tePuedeInteresar = props => {
     const [userId, setUserId] = useState();
     const [sessionId, setSessionId] = useState();
     const [excludeItems, setExcludeItems] = useState([]);
+    const [isReady, setIsReady] = useState(false);
 
     useEffect(() => {
         if (localStorage) {
@@ -84,33 +84,46 @@ const tePuedeInteresar = props => {
         }
     }, [url]);
 
+    useEffect(() => {
+        const handleScrollForComments = () => {
+            console.log('HHHHHHHH');
+            const scrollPercentRounded = getScrollPercent();
+            if (!isReady && scrollPercentRounded > 60) {
+                setIsReady(true);
+                console.log('se cumplio el 60% del scroll', isReady);
+                window.removeEventListener('scroll', handleScrollForComments);
+            }
+        };
+        console.log('xxxxxx', isReady);
+        !isReady && window.addEventListener('scroll', handleScrollForComments);
+        return () => {
+            console.log('QQQQ dentro del Return QQQQ');
+            window.removeEventListener('scroll', handleScrollForComments);
+        };
+    }, []);
+
     // Se valida que el sessionId existe, porque en el 1er render viene nulo
     // y llama a la api de liftIgniter 2 veces (la 1ra sin los datos necesarios)
     // if (!sessionId) return <></>;
 
-    return (
-        <Lazy
-            renderPlaceholder={ref => {
-                return <div ref={ref} />;
-            }}
-            offsetTop={LAZY_OFFSETTOP}
-        >
-            <TePuedeInteresar
-                userId={userId}
-                sessionId={sessionId}
-                cantidadNotas={cantidadNotas}
-                excludeItems={excludeItems}
-                outputType={outputType}
-                url={url}
-                idArticle={_id}
-                arcSite={arcSite}
-                dataLayerSection={
-                    layout === layoutsName.Home
-                        ? 'TePuedeInteresarHome'
-                        : 'TePuedeInteresar'
-                }
-            />
-        </Lazy>
+    return isReady ? (
+        <TePuedeInteresar
+            userId={userId}
+            sessionId={sessionId}
+            cantidadNotas={cantidadNotas}
+            excludeItems={excludeItems}
+            outputType={outputType}
+            url={url}
+            idArticle={_id}
+            arcSite={arcSite}
+            dataLayerSection={
+                layout === layoutsName.Home
+                    ? 'TePuedeInteresarHome'
+                    : 'TePuedeInteresar'
+            }
+        />
+    ) : (
+        <></>
     );
 };
 
