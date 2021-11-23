@@ -67,7 +67,7 @@ function withLastVideosBySection(
                     this.state.hasNext = get(response, 'next', null) != null;
                     if (fetchedVideos) {
                         this.setState(ps => {
-                            let videosarr = ps.videos;
+                            const videosarr = ps.videos;
                             videosarr.splice(
                                 videosarr.length - ps.lastCachedItemsCount
                             );
