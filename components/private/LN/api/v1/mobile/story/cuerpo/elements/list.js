@@ -1,5 +1,6 @@
 import get from 'lodash.get';
 import htmlText from '../../../../common/story/cuerpo/elements/htmlText';
+import Text from './text';
 
 const list = (nodo, dataNota) => {
     if (!nodo) return null;
@@ -17,16 +18,13 @@ const list = (nodo, dataNota) => {
         if (valor && valor.length) {
             return {
                 _t: 'li',
-                valor
+                valor: Text(v)
             };
         }
 
         return null;
     });
 
-    return {
-        _t: 'p',
-        valor: resp
-    };
+    return resp;
 };
 export default list;
