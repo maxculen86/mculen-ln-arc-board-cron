@@ -2,7 +2,7 @@
 @import '../abstracts/mixins';
 
 .--storytelling {
-    main {
+    #content {
         padding-top: 0;
         .mod-opening {
             @include OpeningFull;
