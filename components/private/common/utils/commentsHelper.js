@@ -8,6 +8,46 @@ export const CLOSED_BY_TERMIC = 'CLOSED_BY_TERMIC';
 export const CLOSED_COMMENTS = 'CLOSED_COMMENTS';
 export const SUBSCRIPTION = 'SUBSCRIPTION';
 
+export const CALLBACKS_BY_CHANNEL_AND_EVENT = {
+    authentication: {
+        required: ({ registracionUrl }) => {
+            if (registracionUrl) window.location.href = registracionUrl;
+            return false;
+        }
+    },
+    commenting: {
+        loaded: ({ setIsReady, outputType }) => {
+            outputType === 'default' && setIsReady && setIsReady(true);
+            if (outputType === 'widgets') {
+                const loader = document.getElementsByClassName('loader');
+                loader && loader[0].classList.add('hlp-none');
+            }
+        }
+    },
+    comment: {
+        created: ({ channel, event, args, window }) => {
+            if (window.dataLayer !== 'undefined') {
+                window.dataLayer.push({
+                    event: 'Comentar',
+                    Type: 'Comentar'
+                });
+            }
+            return { channel, event, args };
+        }
+    },
+    'comment-reply': {
+        posted: ({ channel, event, args, window }) => {
+            if (window.dataLayer !== 'undefined') {
+                window.dataLayer.push({
+                    event: 'Comentar',
+                    Type: 'Responder'
+                });
+            }
+            return { channel, event, args };
+        }
+    }
+};
+
 export const allowComments = props =>
     get(props, 'globalContent.type') === 'story' &&
     get(props, 'globalContent._id') &&
