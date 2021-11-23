@@ -256,20 +256,24 @@ const transformContent = (jsonArticle, arcSite, urlQuery) => {
             API_ENV
         );
         if (subtype === RECETA) {
-            const powerUps = powerUpsJoin(resp.content_elements);
-            const powerUpIndex = resp.content_elements.findIndex(e => {
-                return e.type === 'custom_embed';
-            });
-            resp.content_elements = resp.content_elements.filter(e => {
-                return e.type !== 'custom_embed';
-            });
-            resp.content_elements.splice(powerUpIndex, 0, powerUps);
+            resp.content_elements = powerUpFirst(resp.content_elements);
         }
     }
 
     return Promise.all(promiseArr).then(() => {
         return resp;
     });
+};
+
+const powerUpFirst = contentElements => {
+    const powerUps = powerUpsJoin(contentElements);
+    const newContentElements = contentElements.filter(e => {
+        return e.type !== 'custom_embed';
+    });
+    if (powerUps.powerUp.length) {
+        newContentElements.splice(0, 0, powerUps);
+    }
+    return newContentElements;
 };
 
 const powerUpsJoin = contentElements => {
@@ -333,6 +337,8 @@ const addFollowAnotherNoteData = (anotherNoteData, arcSite, i) => {
             return resp;
         });
 };
+
+export { powerUpFirst };
 
 export default {
     fetch,
