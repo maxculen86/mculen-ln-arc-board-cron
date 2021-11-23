@@ -46,7 +46,6 @@ class Index extends Component {
         });
 
         fetched.then((response = []) => {
-            console.warn('############# response ##########', response);
             if (response && response.length) {
                 this.setState({ articles: response });
                 this.registerActivity('widget_shown', response);
@@ -70,8 +69,6 @@ class Index extends Component {
     }
 
     handleClick = (event, nextUrl) => {
-        console.log('Evento CLick fuera del fetch');
-        debugger;
         const { articles } = this.state;
         event.preventDefault();
         const fetched = this.registerActivity(
@@ -79,7 +76,6 @@ class Index extends Component {
             articles.map(article => article.website_url)
         );
         fetched.then(response => {
-            console.log('evento Click', response);
             if (typeof window === 'object') {
                 window.location.href = nextUrl;
             }
@@ -123,13 +119,6 @@ class Index extends Component {
 
         return fetched;
     }
-
-    // registerShown() {
-    //     const { articles } = this.state;
-    //     this.registerActivity('widget_shown', articles);
-    //     this.isShownRegistred = true;
-    //     return fetched;
-    // }
 
     render = () => {
         const { articles, outputType } = this.state;

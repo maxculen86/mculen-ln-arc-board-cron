@@ -86,18 +86,14 @@ const tePuedeInteresar = props => {
 
     useEffect(() => {
         const handleScrollForComments = () => {
-            console.log('HHHHHHHH');
             const scrollPercentRounded = getScrollPercent();
             if (!isReady && scrollPercentRounded > 60) {
                 setIsReady(true);
-                console.log('se cumplio el 60% del scroll', isReady);
                 window.removeEventListener('scroll', handleScrollForComments);
             }
         };
-        console.log('xxxxxx', isReady);
         !isReady && window.addEventListener('scroll', handleScrollForComments);
         return () => {
-            console.log('QQQQ dentro del Return QQQQ');
             window.removeEventListener('scroll', handleScrollForComments);
         };
     }, []);
