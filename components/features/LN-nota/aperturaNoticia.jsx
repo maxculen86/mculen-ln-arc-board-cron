@@ -16,12 +16,18 @@ import { getViewport } from '../../private/LN/common/utils/homeHelper';
 
 const aperturaNoticia = props => {
     const { globalContent, outputType, id: idFeature } = props;
-    const { promo_items: promoItems = {}, subtype } = globalContent || {};
+    const { promo_items: promoItems = {}, subtype, label = {} } =
+        globalContent || {};
     const { basic, apertura_multimedia: aperturaMultimedia } = promoItems;
     const { _id: idMedia, content, type: _type } =
         aperturaMultimedia || basic || {};
     const { isDesktop } = getViewport();
     const isVideo = subtype === VIDEO && _type === 'video';
+
+    const { mostrar_banners: mostrarBanners = {} } = label;
+    const { text } = mostrarBanners;
+    const withPrerolAds = text.toLowerCase() === 'si';
+
     const Component = (
         <section className="mod-opening">
             {(() => {
@@ -51,6 +57,7 @@ const aperturaNoticia = props => {
                         tituloNota={tituloNota}
                         subtype={subtype}
                         html={content}
+                        withPrerolAds={withPrerolAds}
                     >
                         <figcaption className="mod-figcaption">
                             {caption}

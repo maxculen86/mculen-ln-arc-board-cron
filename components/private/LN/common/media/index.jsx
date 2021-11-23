@@ -27,7 +27,8 @@ const media = ({
     titleText,
     scriptForZoom,
     autoplay,
-    isPowa
+    isPowa,
+    withPrerolAds
 }) => {
     const refContainer = useRef();
     const [zoom, setZoom] = useState(false);
@@ -97,6 +98,7 @@ const media = ({
                             autoplay={autoplay}
                             isPowa={isPowa}
                             href={href}
+                            withPrerolAds={withPrerolAds}
                         />
                         {children}
                     </figure>
