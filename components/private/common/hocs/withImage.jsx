@@ -12,7 +12,7 @@ function withImage(WrappedComponent, filter, published) {
 
             getImage() {
                 if (this.props.imageId) {
-                    let { cached, fetched } = this.getContent({
+                    const { cached, fetched } = this.getContent({
                         sourceName: 'imageSource',
                         query: {
                             published: published,

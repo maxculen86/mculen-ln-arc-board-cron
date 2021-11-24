@@ -1,4 +1,6 @@
 import removeInvalidUrlTagA from '../../../../../components/private/common/utils/removeInvalidUrlTagA';
+import powerUp from '../../../../../content/sources/utils/powerUp';
+import contentElementRecipe from '../../../../../__mocks__/data/articles/contentElementsRecipe.json';
 
 describe('Common - utils - removeInvalidUrlTagA.js', () => {
     describe('Content Element with url valid in <a> tag', () => {
@@ -195,6 +197,30 @@ describe('Common - utils - removeInvalidUrlTagA.js', () => {
 
             const wrapper = removeInvalidUrlTagA(contentElementInvalid);
             expect(wrapper).toStrictEqual(expectResul);
+        });
+    });
+});
+
+describe('Content - sources - powerUp (recipes w/ ingredients and preparation)', () => {
+    describe('Original Content Element', () => {
+        test('Should return content_element with correct format and array for recipes PowerUps be first on top.', () => {
+            const wrapper = powerUp(contentElementRecipe.unformatted);
+            expect(wrapper).toStrictEqual(contentElementRecipe.formatted);
+        });
+    });
+    describe('Should return correct content_element format', () => {
+        test('When content_element is empty array, returns empty array', () => {
+            const contentElementEmpty = [];
+            const expectedResult = [];
+
+            const wrapper = powerUp(contentElementEmpty);
+            expect(wrapper).toStrictEqual(expectedResult);
+        });
+        test('When content_element does not have power ups, returns content_element unmodified', () => {
+            const expectedResult = contentElementRecipe.noPowerUps;
+
+            const wrapper = powerUp(contentElementRecipe.noPowerUps);
+            expect(wrapper).toStrictEqual(expectedResult);
         });
     });
 });
