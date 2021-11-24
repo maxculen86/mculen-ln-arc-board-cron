@@ -7,7 +7,8 @@ import {
     validateComments,
     getMessageProps,
     getLoginAndRegistrationURLS,
-    CLOSED_BY_TERMIC
+    CLOSED_BY_TERMIC,
+    CALLBACKS_BY_CHANNEL_AND_EVENT
 } from '../../../private/common/utils/commentsHelper';
 import Message from '../../../private/common/message';
 import getScrollPercent from '../../../private/LN/common/utils/getScrollPercent';
@@ -17,6 +18,7 @@ import LoadingIcon from '../../../private/LN/common/loadingIcon';
 import { isSubscribed } from '../../../private/LN/common/utils/contextHelper';
 import HeaderComments from '../../../private/LN/nota/comments/header';
 import findTermica from '../../../private/common/utils/findTermica';
+import get from '../../../private/common/utils/get';
 
 const CommentsViafouraFeature = props => {
     const { outputType } = props;
@@ -48,20 +50,24 @@ const CommentsViafouraFeature = props => {
                         window.vfQ = window.vfQ || [];
                         window.vfQ.push(() => {
                             window.vf.$prepublish((channel, event, ...args) => {
-                                if (
-                                    channel === 'authentication' &&
-                                    event === 'required'
-                                ) {
-                                    window.location.href = registracionUrl;
-                                    return false;
-                                }
-                                if (
-                                    channel === 'commenting' &&
-                                    event === 'loaded'
-                                ) {
-                                    setIsReady(true);
-                                }
-                                return { channel, event, args };
+                                const _callback = get(
+                                    CALLBACKS_BY_CHANNEL_AND_EVENT,
+                                    `${channel}.${event}`,
+                                    () => ({
+                                        channel,
+                                        event,
+                                        args
+                                    })
+                                );
+                                return _callback({
+                                    channel,
+                                    event,
+                                    args,
+                                    window,
+                                    outputType,
+                                    registracionUrl,
+                                    setIsReady
+                                });
                             });
                             subscription &&
                                 token &&
@@ -139,6 +145,6 @@ CommentsViafouraFeature.propTypes = {
 
 CommentsViafouraFeature.outputType = 'default';
 CommentsViafouraFeature.label = 'LN-Nota-Comments-Viafoura';
-CommentsViafouraFeature.lazy = ['default'];
+CommentsViafouraFeature.lazy = ['default', 'widgets'];
 
 export default Consumer(CommentsViafouraFeature);
