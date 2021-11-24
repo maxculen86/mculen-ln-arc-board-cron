@@ -26,7 +26,7 @@ const aperturaNoticia = props => {
 
     const { mostrar_banners: mostrarBanners = {} } = label;
     const { text } = mostrarBanners;
-    const withPrerolAds = text.toLowerCase() === 'si';
+    const withPrerolAds = text.toLowerCase() === 'si' || false;
 
     const Component = (
         <section className="mod-opening">
