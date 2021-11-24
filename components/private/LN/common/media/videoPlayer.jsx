@@ -21,10 +21,6 @@ const video = ({
     href,
     withPrerolAds
 }) => {
-    console.log(
-        '🚀 ~ file: videoPlayer.jsx ~ line 24 ~ withPrerolAds',
-        withPrerolAds
-    );
     const { streams = [], promo_items: promoItems } = mediaData;
     const tituloVideo = get(mediaData, 'headlines.basic', '');
     if (streams.length === 0) return <div className="mod-video" />;
@@ -32,7 +28,6 @@ const video = ({
     const mainStream = getStreams(streams, isPowa ? '<' : '>');
 
     const adsURL = withPrerolAds ? urlForPrerollAds(screenUtils.device) : '';
-    console.log('🚀 ~ file: videoPlayer.jsx ~ line 31 ~ adsURL', adsURL);
 
     return (
         (isPowa && (
