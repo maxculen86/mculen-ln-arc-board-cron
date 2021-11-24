@@ -24,6 +24,7 @@ import logger from '../../components/private/common/utils/logger';
 import paywallUtils from './utils/paywall';
 import removeInvalidUrlTagA from '../../components/private/common/utils/removeInvalidUrlTagA';
 import isNotShowcase from './utils/isNotShowcase';
+import powerUp from './utils/powerUp';
 
 const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -256,36 +257,13 @@ const transformContent = (jsonArticle, arcSite, urlQuery) => {
             API_ENV
         );
         if (subtype === RECETA) {
-            resp.content_elements = powerUpFirst(resp.content_elements);
+            resp.content_elements = powerUp(resp.content_elements);
         }
     }
 
     return Promise.all(promiseArr).then(() => {
         return resp;
     });
-};
-
-const powerUpFirst = contentElements => {
-    const powerUps = powerUpsJoin(contentElements);
-    const newContentElements = contentElements.filter(e => {
-        return e.type !== 'custom_embed';
-    });
-    if (powerUps.powerUp.length) {
-        newContentElements.splice(0, 0, powerUps);
-    }
-    return newContentElements;
-};
-
-const powerUpsJoin = contentElements => {
-    const powerUps = contentElements.filter(e => {
-        return e.type === 'custom_embed';
-    });
-
-    return {
-        type: 'custom_embed',
-        subtype: 'power-up-receta',
-        powerUp: powerUps
-    };
 };
 
 const addGalleryData = (gallery, arcSite) => {
@@ -337,8 +315,6 @@ const addFollowAnotherNoteData = (anotherNoteData, arcSite, i) => {
             return resp;
         });
 };
-
-export { powerUpFirst };
 
 export default {
     fetch,
