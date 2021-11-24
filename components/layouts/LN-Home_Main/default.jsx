@@ -125,7 +125,7 @@ const LNMainHome = props => {
 
     const [blocksToLoad, dispatch] = useReducer(reducer, {
         bloque1: { loaded: true, loadPercent: 70 },
-        bloque2: { loaded: isAdmin, loadPercent: 40 },
+        bloque2: { loaded: isAdmin, loadPercent: 25 },
         bloque3: { loaded: isAdmin, loadPercent: 70 },
         bloque4: { loaded: isAdmin, loadPercent: 70 },
         bloque5: { loaded: isAdmin, loadPercent: 70 }
