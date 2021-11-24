@@ -232,7 +232,7 @@ const Default = props => {
                 <meta name="theme-color" content="#ffffff" />
                 <title>{title}</title>
                 <Libs />
-                <CriticalCss outputType={outputType} />
+                <CriticalCss />
                 {arcSite === 'ott' ? (
                     <link
                         rel="stylesheet"
