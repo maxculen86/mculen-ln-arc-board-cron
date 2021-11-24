@@ -12,16 +12,16 @@ import StoryBody from '../../../common/story/cuerpo/index';
 
 const cuerpoIndex = dataNota => {
     const storyBodyElements = {
-        //Text,
-        //Header,
-        //Image,
-        //Video,
-        List
-        //Quote,
-        //Gallery,
-        //Embed,
-        //Html,
-        //Button
+        Text,
+        Header,
+        Image,
+        Video,
+        List,
+        Quote,
+        Gallery,
+        Embed,
+        Html,
+        Button
     };
 
     return StoryBody(dataNota, storyBodyElements);
