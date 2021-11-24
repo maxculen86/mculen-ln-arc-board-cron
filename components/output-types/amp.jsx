@@ -21,7 +21,6 @@ import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage
 import getSectionName from '../private/LN/common/utils/getSectionName';
 import FontFace from '../private/common/fontface';
 import Favicon from '../private/common/favicon';
-import CriticalCss from '../private/common/criticalcss';
 
 /**
  * TODO: Resolver el tema de las canonicas
@@ -143,7 +142,6 @@ const Amp = props => {
                     href="https://cdn.ampproject.org/v0.js"
                 />
                 <FontFace />
-                <CriticalCss />
                 {LinkImagePreload()}
                 <script async src="https://cdn.ampproject.org/v0.js" />
 
