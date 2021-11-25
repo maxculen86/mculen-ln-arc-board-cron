@@ -91,8 +91,6 @@ const transform = (data, siteProps) => {
             } =
                 (imageConfig && getPresets({ ...siteProps, imageConfig })) ||
                 {};
-            // const promoItems = get(elem, `promo_items`, null);
-            // const marquesina = get(elem, `description.basic`, null);
             const subtype = get(elem, `subtype`, null);
             const isFotoAl100orStorytelling =
                 subtype === FOTOAL100 || subtype === STORYTELLING;

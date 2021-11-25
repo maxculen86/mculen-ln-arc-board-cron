@@ -6,7 +6,9 @@ import filter from '../../../../../content/filters/OTT/activeProgramsNavigations
 class Container extends PureComponent {
     constructor(props) {
         super(props);
+        const { customFields: { style = '' } = {} } = props || {};
         this.items = this.getActiveProgramsItems(props);
+        this.style = style;
     }
 
     getActiveProgramsItems = props => {
@@ -27,7 +29,7 @@ class Container extends PureComponent {
     }
 
     render() {
-        return <Component items={this.items} />;
+        return <Component items={this.items} type={this.style} />;
     }
 }
 

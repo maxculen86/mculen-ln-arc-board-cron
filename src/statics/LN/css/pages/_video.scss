@@ -4,9 +4,8 @@
     &.--transparent .header {
         border-bottom: 1px solid $light-neutral-300;
     }
-    main {
+    #content {
         padding-top: 0;
-
         .--apertura {
             background: $dark-neutral-50;
             color: $neutral-white;
@@ -14,7 +13,7 @@
             margin-top: px(-50);
             margin-bottom: $spacing-lg;
             @media ($media-l) {
-                padding-top: px(32+72);
+                padding-top: px(104);
                 margin-top: px(-72);
             }
             .com-title,
@@ -86,6 +85,7 @@
                 //     // background: red;
                 // }
                 .mod-figcaption {
+                    display: none;
                     .--credit {
                         color: $light-neutral-400;
                     }
@@ -93,6 +93,7 @@
                 @media ($media-m) {
                     margin-bottom: 0;
                     .mod-figcaption {
+                        display: block;
                         width: 100%;
                         margin-left: 0;
                         padding: 0 0 0.5rem;

@@ -3,7 +3,6 @@ import PropTypes from 'fusion:prop-types';
 import ArticleAcum from './articleAcum';
 import ModRowGap from '../../common/mod-rowgap';
 
-// const CLASS_W_100 = 'w-100-mobile';
 const DATA_SECTION = 'CuerpoAcu';
 const typeAcumRules = {
     Grilla: {

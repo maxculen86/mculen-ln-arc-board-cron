@@ -2,7 +2,7 @@
 import React from 'react';
 import getProperties from 'fusion:properties';
 import { useAppContext } from 'fusion:context';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import '../../../../resources/dist/css/ln/modules/mod-share.css';
 import config from '../../../../properties/sites/la-nacion-ar';
 import {
@@ -16,6 +16,7 @@ import ComButton from '../../common/com-button';
 import ComLine from '../../common/com-line';
 import AmpContainer from '../../common/ampContainer';
 import get from '../../common/utils/get';
+import { shouldLoadViafoura } from '../../common/utils/commentsHelper';
 
 const Share = props => {
     const {
@@ -26,9 +27,11 @@ const Share = props => {
             headlines: { basic: title, mobile: mobileTitle },
             comments: { display_comments: displayComments } = {},
             _id: articleId,
-            subtype
+            subtype,
+            first_publish_date: firstPublishDate
         }
     } = props;
+
     const { arcSite = 'la-nacion-ar' } = useAppContext() || {};
     const siteVars = getProperties(arcSite);
     const twiterTitle =
@@ -50,9 +53,7 @@ const Share = props => {
     return (
         <div
             id="v-share"
-            className={`mod-share ${classesNames ? classesNames : ``} ${
-                classCondition ? classCondition : ``
-            }`}
+            className={`mod-share ${classesNames} ${classCondition}`}
         >
             <AmpContainer isForAmp={false}>
                 <div className="container --left">
@@ -102,18 +103,20 @@ const Share = props => {
                             iconName="comment"
                             title="Ir a los comentarios de la nota"
                         >
-                            <label
-                                id="livefyre-commentcount"
-                                className="livefyre-commentcount"
-                                data-lf-site-id={livefyreSiteId}
-                                data-lf-article-id={articleId}
-                            >
-                                {/* Se necesita tener un número dentro del
+                            {!shouldLoadViafoura(firstPublishDate) && (
+                                <label
+                                    id="livefyre-commentcount"
+                                    className="livefyre-commentcount"
+                                    data-lf-site-id={livefyreSiteId}
+                                    data-lf-article-id={articleId}
+                                >
+                                    {/* Se necesita tener un número dentro del
                                 elemento html para poder reemplazarlo al hacer la
                                 consulta desde la cdn del contador de comentarios de 
                                 Livefyre */}
-                                0
-                            </label>
+                                    0
+                                </label>
+                            )}
                         </ComButton>
                     )}
                 </div>
@@ -151,9 +154,12 @@ const Share = props => {
 
 Share.propTypes = {
     requestUri: PropTypes.string.isRequired,
+    classesNames: PropTypes.string,
+    classCondition: PropTypes.string,
     globalContent: PropTypes.shape({
         _id: PropTypes.string,
         subtype: PropTypes.string,
+        first_publish_date: PropTypes.string,
         headlines: PropTypes.shape({
             basic: PropTypes.string,
             mobile: PropTypes.string
@@ -164,8 +170,9 @@ Share.propTypes = {
     }).isRequired
 };
 
-// Share.defaultProps = {
-//     requestUri: ''
-// };
+Share.defaultProps = {
+    classesNames: '',
+    classCondition: ''
+};
 
 export default Share;

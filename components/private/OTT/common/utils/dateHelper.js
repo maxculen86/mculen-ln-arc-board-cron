@@ -14,11 +14,6 @@ const months = [
 ];
 function getMonthAsText(date) {
     return months[date.getMonth()];
-
-    // var event = new Date(Date.UTC(2012, 11, 20, 3, 0, 0));
-
-    // var options = { year: 'numeric', month: 'short', day: 'numeric', formatMatcher: 'basic' };
-    // var local = event.toLocaleDateString('es-AR', options)
 }
 
 function getVideoDateFormat(dateString) {

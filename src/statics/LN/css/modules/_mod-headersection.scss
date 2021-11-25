@@ -40,6 +40,13 @@
         padding-bottom: $spacing;
     }
 
+    &.--button {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: space-between;
+    }
+
     .com-image {
         //margin-bottom: $spacing-sm;
         max-height: px(24);

@@ -39,9 +39,10 @@ import getMetaDescriptionForAcum from '../private/common/utils/getMetaDescriptio
 import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 import addForwardSlash from '../private/LN/common/utils/addForwardSlash';
 import AmazonPublisherServices from '../private/common/scriptManager/amazonPublisherServices';
-import FontFace from '../private/common/fontface';
-// import Viafoura from '../private/common/scriptManager/viafoura';
-// import MetaViafoura from '../private/common/metaViafoura';
+import FontFaceDefault from '../private/common/fontfaceDefault';
+import CriticalCss from '../private/common/criticalcss';
+import MetaViafoura from '../private/common/metaViafoura';
+import Favicon from '../private/common/favicon';
 import ComscoreVideo from '../private/common/scriptManager/comscoreVideo';
 
 const scriptList = [
@@ -112,10 +113,6 @@ const scriptList = [
         },
         feature: 'none'
     }
-    // {
-    //     component: { name: 'Viafoura', function: Viafoura },
-    //     feature: ['LN-nota/commentsViafoura']
-    // }
 ];
 
 const getBodyClass = props => {
@@ -236,8 +233,14 @@ const Default = props => {
         <html lang="es">
             <head>
                 <meta charset="utf-8" />
+                <meta
+                    name="viewport"
+                    content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
+                />
+                <meta name="theme-color" content="#ffffff" />
                 <title>{title}</title>
-                <FontFace outputType={outputType} />
+                <Libs />
+                <CriticalCss />
                 {arcSite === 'ott' ? (
                     <link
                         rel="stylesheet"
@@ -248,7 +251,6 @@ const Default = props => {
                 ) : (
                     <CssLinks />
                 )}
-                <Libs />
 
                 {LinkImagePreload()}
 
@@ -329,7 +331,7 @@ const Default = props => {
                     defaultDescription={siteProperties.description}
                     metaDescription={metaDescription}
                 />
-                {/* <MetaViafoura {...props} /> */}
+                <MetaViafoura {...props} />
                 <Syndication
                     type={type}
                     arcSite={arcSite}
@@ -338,16 +340,7 @@ const Default = props => {
                     outputType={outputType}
                 />
                 <Schemas section={_nodeType} />
-                <meta
-                    name="viewport"
-                    content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
-                />
-                <link
-                    rel="icon"
-                    type="image/x-icon"
-                    href={deployment(`${contextPath}/resources/favicon.ico`)}
-                />
-                <meta name="theme-color" content="#ffffff" />
+                <Favicon />
                 <link rel="manifest" href="/manifest.json" />
                 <MetasFBNews
                     nodeType={_nodeType}
@@ -357,6 +350,7 @@ const Default = props => {
                     renderables={renderables}
                     section={_nodeType}
                 />
+                <FontFaceDefault outputType={outputType} />
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />

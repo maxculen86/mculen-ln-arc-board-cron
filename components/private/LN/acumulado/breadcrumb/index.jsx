@@ -88,16 +88,6 @@ function Index(props) {
     } = props;
 
     const { host, title } = siteProperties;
-    // if (globalContent.Payload) {
-    //     const tag = globalContent.Payload.items[0];
-    //     return <BreadcrumbTag tag={tag} host={host} />;
-    // }
-
-    // if (globalContent.node_type === 'section') {
-    //     return <BreadcrumbSection sectionId={globalContent._id} host={host} />;
-    // }
-    // if (globalContent.byline)
-    //     return <BreadcrumbAutor author={globalContent} host={host} />;
 
     const colorCategory = get(
         globalContent,

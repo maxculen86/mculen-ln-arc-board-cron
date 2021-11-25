@@ -154,7 +154,6 @@ const LNMainHome = props => {
                     blockToLoad &&
                     scrollPercentRounded > blockToLoad.loadPercent
                 ) {
-                    // const blockToLoad = sectionsWithBlocks[sectionVisible];
                     dispatch({ type: 'updateNextBlock' });
                 }
             } catch (error) {
@@ -182,11 +181,7 @@ const LNMainHome = props => {
 
         if (!lastSectionSaw || !lastScrollPosition) return;
         const lastBlockSaw = sectionsWithBlocks[lastSectionSaw];
-        // const newStatusBlocks = updateBlocks(blocksToLoad, lastBlockSaw);
         dispatch({ type: 'update', payload: lastBlockSaw });
-        // setBlocksToLoad(newStatusBlocks);
-
-        // const readyToMove = scrollToSection(lastSectionSaw);
 
         const timer = setTimeout(() => {
             window.scrollTo(0, lastScrollPosition);
@@ -225,7 +220,7 @@ const LNMainHome = props => {
 
                 {/* BOMBA */}
                 {bomba}
-                <main>
+                <main id="content">
                     {/* STICKY MOB */}
                     <DivBanner
                         id="sticky2_mob"

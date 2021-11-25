@@ -38,9 +38,8 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
 }
 
 .--photo100 {
-    main {
+    #content {
         padding-top: 0;
-
         .mod-opening {
             @include OpeningFull;
 

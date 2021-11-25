@@ -7,17 +7,6 @@ import { CommentsProvider } from '../private/common/context/commentsContext';
 import Header from '../private/LN/common/header';
 import NewFooter from '../private/LN/common/footer';
 
-// import '../../resources/dist/css/ln/base.css';
-// import '../../resources/dist/css/ln/layouts/grid.css';
-// import '../../resources/dist/css/ln/layouts/layout.css';
-// import '../../resources/dist/css/ln/components/com-authormarquee.css';
-// import '../../resources/dist/css/ln/components/com-link-new.css';
-// import '../../resources/dist/css/ln/components/com-paragraph-new.css';
-// import '../../resources/dist/css/ln/components/com-subhead-new.css';
-// import '../../resources/dist/css/ln/components/com-title-new.css';
-// import '../../resources/dist/css/ln/components/com-unordered-new.css';
-// import '../../resources/dist/css/ln/components/com-tip-new.css';
-// import '../../resources/dist/css/ln/modules/mod-banner.css';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 
 const pageBuilderSections = [
@@ -41,7 +30,7 @@ const LNNotaReceta = ({ outputType, children }) => {
             <CommentsProvider>
                 <div id="wrapper" className={`nota recetas ${amp}`}>
                     <Header />
-                    <main>
+                    <main id="content">
                         {/* Pre-Titulo: Banners */}
                         {children[0]}
                         <div className="lay --apertura">
