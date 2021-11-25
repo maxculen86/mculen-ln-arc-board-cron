@@ -5,11 +5,10 @@ section#comments.no-logueado .fyre-comment-reply {
 }
 section#comunidad .recordar-logueo {
     font-size: 14px;
-    font-weight: bold;
     border: none;
     background-color: #ffffbf;
     padding: 20px 15px;
-    font-family: arial;
+    font-family: Arial, sans-serif;
     margin-top: 20px;
     font-weight: normal;
     text-align: center;
@@ -47,7 +46,7 @@ a.fyre-user-profile-link.fyre-user-loggedin {
     text-transform: none;
 }
 .fyre .fyre-login-bar a {
-    font-family: 'Arial';
+    font-family: Arial, sans-serif;
     border-radius: 3px;
     text-transform: uppercase;
     font-size: 11px;
@@ -234,7 +233,7 @@ a.fyre-user-profile-link.fyre-user-loggedin {
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
     border-radius: 0;
-    font: 14px/20px arial, sans-serif;
+    font: 14px/20px Arial, sans-serif;
     background: #636879;
     border: 0;
     color: #fff;
@@ -335,10 +334,10 @@ a.fyre-user-profile-link.fyre-user-loggedin {
 .fyre .fyre-comment-stream {
     font-size: 14px;
     line-height: 20px;
-    font-family: Arial;
+    font-family: Arial, sans-serif;
 }
 .fyre .fyre-comment-wrapper time.fyre-comment-date {
-    font: normal 12px/14px Arial, sans-serif;
+    font: normal 12px/14px Arial, sans-serif, sans-serif;
     color: #8d8d8d;
 }
 .fyre .fyre-comment-divider {
@@ -368,7 +367,7 @@ a.fyre-user-profile-link.fyre-user-loggedin {
 }
 .fyre .fyre-stream-sort a {
     color: #0075c4 !important;
-    font: normal 14px/20px Arial, sans-serif;
+    font: normal 14px/20px Arial, sans-serif, sans-serif;
     padding-right: 20px;
 }
 .fyre-stream-sort-bar {
@@ -391,7 +390,7 @@ a.fyre-user-profile-link.fyre-user-loggedin {
     font-weight: bold;
 }
 .fyre .fyre-comment-actions {
-    font: 12px/14px Arial, sans-serif;
+    font: 12px/14px Arial, sans-serif, sans-serif;
     -webkit-opacity: 1;
     -khtml-opacity: 1;
     -moz-opacity: 1;
@@ -433,7 +432,7 @@ a.fyre-user-profile-link.fyre-user-loggedin {
     .fyre-comment-wrapper:hover
     > .fyre-comment-footer
     > .fyre-comment-actions
-    fyre-share-link
+    .fyre-share-link
     span {
     background-image: none;
     width: 1px;
@@ -466,7 +465,7 @@ a.fyre-user-profile-link.fyre-user-loggedin {
 }
 .fyre .fyre-stream-more .fyre-stream-more-container .fyre-text {
     color: #fff;
-    font: bold 14px/30px Arial, sans-serif;
+    font: bold 14px/30px Arial, sans-serif, sans-serif;
 }
 /* perfil */
 .fyre .fyre-box-list .fyre-edit-profile-link,
@@ -495,7 +494,7 @@ a.fyre-user-profile-link.fyre-user-loggedin {
     border: 1px solid #a42821;
     color: #ffffff;
     display: block;
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif, sans-serif;
     font-size: 12px;
     background-image: none;
     filter: none;
@@ -530,7 +529,7 @@ a.fyre-user-profile-link.fyre-user-loggedin {
         no-repeat 0 5px;
     padding-left: 140px;
     min-height: 75px;
-    font: normal 12px/17px arial, sans-serif;
+    font: normal 12px/17px Arial, sans-serif, sans-serif;
 }
 .encabezado-comments a,
 .encabezado-comments a:hover,
@@ -571,7 +570,6 @@ a.fyre-user-profile-link.fyre-user-loggedin {
     font-size: 14px;
     line-height: 16px;
     font-style: normal;
-    font-weight: normal;
     margin-bottom: 20px;
     color: #000;
     background: #ffffbf;
@@ -675,7 +673,7 @@ a.fyre-user-profile-link.fyre-user-loggedin {
     background-color: #797d8c;
 }
 .fyre-modal .fyre-modal-textfield {
-    font: 12px/16px arial, sans-serif;
+    font: 12px/16px Arial, sans-serif, sans-serif;
     border-radius: 0;
     border: 1px solid #b2b2b2;
     -webkit-box-shadow: none;
@@ -701,7 +699,7 @@ a.fyre-user-profile-link.fyre-user-loggedin {
         no-repeat left top;
     display: block;
     height: 24px;
-    font: 13px 'Helvetica Neue', Helvetica, Arial, Geneva, sans-serif;
+    font: 13px 'Helvetica Neue', Helvetica, Arial, sans-serif, Geneva, sans-serif;
     text-decoration: none;
     color: #404040;
     padding-left: 28px;
@@ -718,7 +716,7 @@ a.fyre-user-profile-link.fyre-user-loggedin {
     float: none;
 }
 .fyre .fyre-login-bar a {
-    font-family: 'Arial';
+    font-family: Arial, sans-serif;
     border-radius: 3px;
     text-transform: uppercase;
     font-size: 11px;
@@ -753,7 +751,7 @@ footer#pie {
 /********************************* celus y tabletas ***********************/
 @media screen and (min-width: 100px) and (max-width: 1000px) {
     .fyre .fyre-login-bar a {
-        font-family: 'Arial';
+        font-family: Arial, sans-serif;
         border-radius: 3px;
         text-transform: uppercase;
         font-size: 11px;

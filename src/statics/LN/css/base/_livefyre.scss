@@ -1,4 +1,5 @@
 /* no logueado */
+$font-arial: 'Arial', 'sans-serif';
 
 section {
     &.comments.no-logueado {
@@ -10,11 +11,10 @@ section {
 
     &#comunidad .recordar-logueo {
         font-size: 14px;
-        font-weight: bold;
         border: none;
         background-color: #ffffbf;
         padding: 20px 15px;
-        font-family: arial;
+        font-family: $font-arial;
         margin-top: 20px;
         font-weight: normal;
         text-align: center;
@@ -70,7 +70,7 @@ a.fyre-user-profile-link.fyre-user-loggedin {
 }
 
 .fyre .fyre-login-bar a {
-    font-family: 'Arial';
+    font-family: $font-arial;
     border-radius: 3px;
     text-transform: uppercase;
     font-size: 11px;
@@ -112,8 +112,6 @@ a.fyre-user-profile-link.fyre-user-loggedin {
     }
 
     .fyre-stream-livecount {
-        color: #000;
-        font-weight: bold;
         margin-top: 10px;
         font-size: 14px;
         color: #9a9a9a;
@@ -551,7 +549,7 @@ a.fyre-user-profile-link.fyre-user-loggedin {
     .fyre-comment-wrapper:hover
         > .fyre-comment-footer
         > .fyre-comment-actions
-        fyre-share-link
+        .fyre-share-link
         span {
         background-image: none;
         width: 1px;
@@ -734,7 +732,6 @@ a.fyre-user-profile-link.fyre-user-loggedin {
         font-size: 14px;
         line-height: 16px;
         font-style: normal;
-        font-weight: normal;
         margin-bottom: 20px;
         color: #000;
         background: #ffffbf;
@@ -911,7 +908,7 @@ a.fyre-user-profile-link.fyre-user-loggedin {
     }
 
     .fyre-login-bar a {
-        font-family: 'Arial';
+        font-family: $font-arial;
         border-radius: 3px;
         text-transform: uppercase;
         font-size: 11px;
@@ -954,7 +951,7 @@ footer#pie {
 /********************************* celus y tabletas ***********************/
 @media screen and (min-width: 100px) and (max-width: 1000px) {
     .fyre .fyre-login-bar a {
-        font-family: 'Arial';
+        font-family: $font-arial;
         border-radius: 3px;
         text-transform: uppercase;
         font-size: 11px;
