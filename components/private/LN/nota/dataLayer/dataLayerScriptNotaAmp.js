@@ -57,8 +57,10 @@ const dataLayerScriptNotaAmp = globalContent => {
             "articlePublicationDate": "${new Date(
                 firstPublishDate
             ).toUTCString() || ''}",
-            "articleAuthor": "${authors}",
-            "articleTags": "${keywords}",
+            "articleAuthor": "${authors.map(author =>
+                author.replace(/"/g, '\\"')
+            )}",
+            "articleTags": "${keywords.map(word => word.replace(/"/g, '\\"'))}",
             "articleTitle": "${title.replace(/"/g, '\\"')}",
             "articleLastUpdate": "${new Date(displayDate).toUTCString() || ''}",
             "credentialType": "N/A",

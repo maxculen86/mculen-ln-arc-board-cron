@@ -4,7 +4,7 @@ import getAuthorsAsString from '../../../../common/utils/getAuthorsAsString';
 import getBajadaOrFirstTextParagraph from '../../../../common/utils/getBajadaOrFirstTextParagraph';
 import {
     getChildrenFromAperturaHome,
-    getChildrenFromBombaHome
+    getChildrenFromSectionHome
 } from '../../../common/utils/cajaTemasHelper';
 import siteConfig from '../../../../../../properties/sites/la-nacion-ar';
 
@@ -115,6 +115,7 @@ export const getCajaTemaConfig = (
 
 export const getWithMedia = (customFields, articleProps, article) =>
     get(customFields, 'opinion') ||
+    get(customFields, 'video') ||
     (!get(customFields, 'hideImage') &&
         (get(articleProps, 'withSubheadAndMedia') ||
             (!get(articleProps, 'withSubheadAndMedia') &&
@@ -122,16 +123,25 @@ export const getWithMedia = (customFields, articleProps, article) =>
                     get(customFields, 'html')))));
 
 export const getWithSubhead = (articleProps, withMedia, customFields) =>
-    !get(customFields, 'opinion') &&
-    !get(customFields, 'hideDescription') &&
-    (get(articleProps, 'withSubheadAndMedia') ||
-        (!get(articleProps, 'withSubheadAndMedia') && !withMedia));
+    (!get(customFields, 'opinion') &&
+        !get(customFields, 'hideDescription') &&
+        (get(customFields, 'video') || get(customFields, 'html'))) ||
+    get(articleProps, 'withSubheadAndMedia') ||
+    (!get(articleProps, 'withSubheadAndMedia') && !withMedia);
 
-export const getLabel = (article, customFields, withMedia) => {
-    if (!withMedia || get(customFields, 'opinion') || get(customFields, 'html'))
+export const getLabel = (article, customFields, withMedia, layout) => {
+    if (
+        !withMedia ||
+        get(customFields, 'opinion') ||
+        (get(customFields, 'html') && layout !== 'grillaVideo1')
+    )
         return undefined;
 
-    return get(customFields, 'chapita') || get(article, 'label.chapita.text');
+    return {
+        text:
+            get(customFields, 'chapita') || get(article, 'label.chapita.text'),
+        style: get(customFields, 'chapitaStyle', '')
+    };
 };
 
 export const getIsRenderAutor = (customFields, layout) =>
@@ -146,7 +156,7 @@ export const isInHomeAperturaOrBomba = (
     const aperturasChildren =
         layoutsName.Home === layoutPageBuilder
             ? (getChildrenFromAperturaHome(renderables) || []).concat(
-                  getChildrenFromBombaHome(renderables) || []
+                  getChildrenFromSectionHome(renderables, 'Bomba', 2) || []
               )
             : [];
 

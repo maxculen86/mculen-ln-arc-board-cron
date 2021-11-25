@@ -14,30 +14,61 @@ export const validateFeature = (idCollection, articles, layout) => {
     return message && { type: 'warning', message };
 };
 
-export const validateChainManual = (childrenProps, layout, isInApertura) => {
+export const validateChainManual = (
+    childrenProps,
+    layout,
+    isInApertura,
+    isVideoBackground,
+    containsHTML
+) => {
     const minimun = (layout && Number(layout.slice(-1))) || 3;
+    const childrenPropsLength = get(childrenProps, 'length');
 
-    const invalidFeature = childrenProps.some(
-        children =>
-            !(
-                children.collection === 'features' &&
-                children.type === 'LN-common/articulo'
-            )
+    const rules = [
+        {
+            validation: !layout,
+            message: 'Se requiere que seleccione una diagramación'
+        },
+        {
+            validation: childrenProps.some(
+                x =>
+                    !(
+                        x.collection === 'features' &&
+                        x.type === 'LN-common/articulo'
+                    )
+            ),
+            message:
+                'El Chain Caja Manual sólo admite Features del tipo LN Artículo'
+        },
+        {
+            validation:
+                isVideoBackground &&
+                !['grilla1', 'grillaVideo1'].includes(layout),
+            message:
+                'Con vídeo background solo se permite la diagramación Grilla 1 o Grilla 1 - Video'
+        },
+        {
+            validation: childrenPropsLength < minimun,
+            message: `Se requiere la carga de ${minimun -
+                childrenPropsLength} artículo${
+                minimun - childrenPropsLength > 1 ? 's' : ''
+            }`
+        },
+        {
+            validation: ['grilla6', 'grilla9'].includes(layout) && isInApertura,
+            message: 'No se permite esta diagramación'
+        },
+        {
+            validation: containsHTML && layout !== 'grillaVideo1',
+            message: 'Esta diagramación no permite iframe HTML'
+        }
+    ];
+
+    const message = get(
+        rules.find(x => x.validation),
+        'message',
+        null
     );
-
-    const message =
-        (!layout && 'Se requiere que seleccione una diagramación') ||
-        (invalidFeature &&
-            'El Chain Caja Manual sólo admite Features del tipo LN Artículo') ||
-        (get(childrenProps, 'length') < minimun &&
-            `Se requiere la carga de ${minimun -
-                get(childrenProps, 'length')} artículo${
-                minimun - get(childrenProps, 'length') > 1 ? 's' : ''
-            }`) ||
-        ((layout === 'grilla6' || layout === 'grilla9') &&
-            isInApertura &&
-            'No se permite esta diagramación') ||
-        null;
 
     return message && { type: 'warning', message };
 };

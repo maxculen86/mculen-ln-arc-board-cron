@@ -82,3 +82,167 @@
         }
     }
 }
+
+//AJUSTES VIAFOURA
+.viafoura.viafoura {
+    font-family: $font-arial;
+    margin-bottom: $spacing-2xl;
+
+    &.not-comment {
+        section {
+            div.vf-post-form__container {
+                display: none;
+            }
+        }
+    }
+
+    //Oculto botón ajustes/seguir en perfil
+    // .vf-is-logged-in .vf-flex .vf-profile-header__button-container {
+    //     display: none;
+    // }
+
+    //Oculto botón ajustes
+    .vf-flex
+        .vf-profile-header__button-container
+        .vf-button:not(.vf-follow-button) {
+        display: none;
+    }
+
+    //Oculto tab Ajustes
+    .vf-flex-grow {
+        .vf-flex-nav[aria-controls='vf-settings__panel_5'] {
+            display: none;
+        }
+    }
+
+    //Icono like
+    .vf-content-actions__like.vf-content-actions__like,
+    .vf-content-actions__like.vf-content-actions__like:hover,
+    .vf-content-actions__like.vf-content-actions__like:focus {
+        display: flex;
+
+        &::before {
+            position: relative;
+            left: auto;
+            letter-spacing: normal;
+            text-decoration: none;
+            margin-right: px(2);
+            font-family: $font-icons;
+            content: '\e944';
+            font-size: px(11);
+        }
+        svg {
+            display: none;
+        }
+    }
+
+    //Oculto header
+    header.vf-comment-header.vf-comment-header {
+        display: none;
+    }
+
+    footer.vf3-conversations-footer {
+        padding-bottom: 0;
+
+        .vf-branding-container {
+            display: none;
+        }
+    }
+
+    .vf-post-form__container {
+        //Oculto botón cerrar sesión en el input
+        .vf-post-form__auth-actions {
+            display: none;
+        }
+
+        &.vf-post-form__container--focused {
+            .vf-content-layout__right {
+                box-shadow: none;
+            }
+        }
+    }
+
+    .vf-post-form__container,
+    .vf-content-focus-container--default {
+        .vf-button.is-cta {
+            &.is-accent-color:not([disabled]) {
+                background-color: $blue-500;
+                border-color: $blue-500;
+            }
+            .vf-loader-button__content {
+                text-indent: -9999999px;
+                line-height: 0;
+                display: block;
+                &::after {
+                    content: 'ENVIAR';
+                    text-indent: 0;
+                    display: block;
+                    line-height: initial;
+                }
+            }
+        }
+    }
+
+    //Oculto "Responder y Responder a"
+    .vf-button.vf-button {
+        &.vf-tray-trigger--floating,
+        &.vf-reply-to,
+        &.vf-content-actions__replies {
+            display: none;
+        }
+
+        //Botón Cargar más comentarios
+        &.is-cta.is-accent-color.is-size-small.vf-load-more__button {
+            transition: all 0.2s ease-in-out;
+            padding: px(12) px(16);
+            font-size: px(12);
+            font-weight: 700;
+            border-radius: px(4);
+            width: auto;
+
+            &:hover,
+            &.is-inverted {
+                border-color: $blue-500;
+                color: $blue-500;
+            }
+            svg {
+                fill: white;
+            }
+        }
+    }
+    .vf3-comments .vf3-comments__tabbed-nav .vf-tabbed-nav {
+        position: relative;
+    }
+
+    ul li {
+        font-family: $font-arial;
+    }
+
+    //botón Saltar al inicio
+    .vf-button.vf-button.realtime-action-button.realtime-action-button.is-cta.is-cta.is-accent-color.is-accent-color {
+        font-size: px(12);
+        padding-right: px(6);
+        padding-left: px(8);
+    }
+
+    //botones: responder, like, compartir y marcar como...
+    .vf-comment__bottom-actions
+        .vf-button.vf-button.is-link.is-link.is-accent-color.is-accent-color:not(.is-danger-color) {
+        color: rgba(0, 0, 0, 0.6);
+        &:hover {
+            color: rgba(0, 0, 0, 0.6);
+        }
+    }
+
+    .vf-content-focus-container__mobile.vf-content-focus-container__mobile {
+        display: block;
+    }
+
+    // PARA APPS
+    .widget & {
+        .vf-tray-trigger,
+        .vf-share-menu__trigger {
+            display: none;
+        }
+    }
+}

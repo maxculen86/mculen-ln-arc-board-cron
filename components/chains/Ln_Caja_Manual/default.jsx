@@ -6,13 +6,16 @@ import Static from 'fusion:static';
 import {
     cajaTemasCustomsFields,
     getCommonProps,
-    getChildrenFromAperturaHome
+    getChildrenFromAperturaHome,
+    getChildrenFromSectionHome
 } from '../../private/LN/common/utils/cajaTemasHelper';
 import { validateChainManual } from '../../private/LN/common/utils/cajaTemasValidators';
 import CajaTema from '../../private/LN/common/cajaTema';
 import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
-import get from '../../private/common/utils/get';
-import config from '../../../properties/sites/la-nacion-ar';
+import {
+    customFieldValidation,
+    childrenValidation
+} from '../utils/contentValidations';
 
 const CajaManual = props => {
     const {
@@ -22,7 +25,6 @@ const CajaManual = props => {
         outputType,
         childProps,
         children,
-        layout: layoutPageBuilder,
         renderables
     } = props;
 
@@ -39,19 +41,38 @@ const CajaManual = props => {
         position,
         sectionName
     } = getCommonProps(props);
-    const { layoutsName = {} } = config || {};
-    const aperturasChildren =
-        layoutsName.Home === layoutPageBuilder
-            ? getChildrenFromAperturaHome(renderables)
-            : [];
 
-    const isInApertura = aperturasChildren.some(el => {
-        return (
-            !get(el, 'props.customFields.hideCaja', false) &&
-            get(el, 'props.id', undefined) === featureId
-        );
+    const aperturasChildren = getChildrenFromAperturaHome(renderables);
+    const multimediaChildren = getChildrenFromSectionHome(
+        renderables,
+        'Multimedia',
+        5
+    );
+
+    const isInApertura = customFieldValidation({
+        featureId,
+        customField: 'hideCaja',
+        sectionChildren: aperturasChildren
     });
-    const error = validateChainManual(childProps, layout, isInApertura);
+
+    const multimediaCustomFields = ['video', 'html'];
+
+    const [isVideoBackground, containsHTML] = multimediaCustomFields.map(
+        customField =>
+            childrenValidation({
+                featureId,
+                customField,
+                sectionChildren: multimediaChildren
+            })
+    );
+
+    const error = validateChainManual(
+        childProps,
+        layout,
+        isInApertura,
+        isVideoBackground,
+        containsHTML
+    );
 
     if (isAdmin && error) {
         return (

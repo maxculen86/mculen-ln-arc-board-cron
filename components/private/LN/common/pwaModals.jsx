@@ -18,6 +18,7 @@ const PwaModals = () => {
                     href="https://www.lanacion.com.ar/"
                     title="LA NACION"
                 />
+                {/* <LogoLN /> */}
                 <Text tag="p" font="sueca" size="3xs">
                     Descargá la aplicación de LA NACION. Es rápida y liviana.
                 </Text>

@@ -7,14 +7,13 @@ import '../../../resources/dist/css/ln/modules/mod-article.css';
 import Media from '../LN/common/media';
 import get from './utils/get';
 import ModDescription from './mod-description';
-import ComImage from './com-image';
-import ModMedia from './mod-media';
 import getAuthorsPhoto from './utils/getAuthorsPhoto';
 
 const ModArticle = props => {
     const {
-        frontdemo,
-        srcdemo,
+        isPowa,
+        device,
+        videoBackground,
         articleData,
         dataSection,
         outputType,
@@ -23,7 +22,6 @@ const ModArticle = props => {
         titleTag,
         titleSize,
         titleText,
-        marqueeSize,
         authors,
         authorSize,
         isRenderAuthor,
@@ -43,8 +41,10 @@ const ModArticle = props => {
         hour,
         category,
         tags,
-        handleClick
+        handleClick,
+        layout
     } = props;
+
     const { _id, website_url: websiteUrl } = articleData || {};
     const extraOpts = {};
     if (dataSection) {
@@ -64,6 +64,15 @@ const ModArticle = props => {
     const marquesina = get(articleData, 'marquesina', null);
 
     const type = get(imagenDestacada, 'type', null);
+
+    const mediaData = (() => {
+        if (
+            videoBackground &&
+            (layout === 'grillaVideo1' || device !== 'mobile')
+        )
+            return videoBackground;
+        return type === 'image' ? imagenDestacada : null;
+    })();
 
     const onCLick = event => {
         typeof handleClick == 'function' && handleClick(event, websiteUrl);
@@ -86,35 +95,19 @@ const ModArticle = props => {
             }`}
             {...extraOpts}
             onClick={onCLick}
-            {...(typeof handleClick == 'function'
-                ? { 'aria-hidden': 'true' }
-                : {})}
         >
             {hour && hour}
 
             {withMedia && (
                 <Media
-                    mediaData={type === 'image' ? imagenDestacada : null}
+                    mediaData={mediaData}
                     href={link}
                     outputType={outputType}
                     html={anexo}
                     titleText={titleText}
+                    isPowa={isPowa}
                     // labelArticle="La Chapita solo se tiene que ver con foto o placeholder"
                 />
-            )}
-
-            {frontdemo && (
-                <div>
-                    <ModMedia>
-                        <figure className="mod-figure">
-                            <a href={link}>
-                                <picture className="mod-picture">
-                                    <ComImage src={srcdemo} />
-                                </picture>
-                            </a>
-                        </figure>
-                    </ModMedia>
-                </div>
             )}
 
             <ModDescription
@@ -140,58 +133,75 @@ const ModArticle = props => {
 };
 
 ModArticle.propTypes = {
-    dataSection: PropTypes.string,
-    artPosition: PropTypes.string,
-    boxPosition: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-    classCondition: PropTypes.string,
-    link: PropTypes.string,
-    titleTag: PropTypes.string,
-    titleSize: PropTypes.string,
-    titleText: PropTypes.string.isRequired,
-    subheadText: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-    subheadSize: PropTypes.string,
-    subheadTag: PropTypes.string,
-    dateText: PropTypes.string,
-    dateSize: PropTypes.string,
-    hour: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-    authors: PropTypes.string,
-    withMedia: PropTypes.bool,
-    outputType: PropTypes.string,
     articleData: PropTypes.shape({
         _id: PropTypes.string,
         promo_items: PropTypes.shape({
             basic: PropTypes.object
         })
     }).isRequired,
+    artPosition: PropTypes.string,
+    authors: PropTypes.string,
+    boxPosition: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     category: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-    tags: PropTypes.oneOfType([PropTypes.bool, PropTypes.array]),
+    classCondition: PropTypes.string,
+    dataSection: PropTypes.string,
+    dateSize: PropTypes.string,
+    dateText: PropTypes.string,
+    device: PropTypes.string,
+    handleClick: PropTypes.func,
+    hour: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+    isPowa: PropTypes.bool,
     isRenderAuthor: PropTypes.bool,
     isRenderAuthorOpinion: PropTypes.bool,
-    handleClick: PropTypes.func
+    label: PropTypes.shape({
+        text: PropTypes.string,
+        style: PropTypes.string
+    }),
+    layout: PropTypes.string,
+    link: PropTypes.string,
+    outputType: PropTypes.string,
+    subheadSize: PropTypes.string,
+    subheadTag: PropTypes.string,
+    subheadText: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    tags: PropTypes.oneOfType([PropTypes.bool, PropTypes.array]),
+    titleSize: PropTypes.string,
+    titleTag: PropTypes.string,
+    titleText: PropTypes.string.isRequired,
+    videoBackground: PropTypes.shape({
+        _id: PropTypes.number,
+        streams: PropTypes.array,
+        type: PropTypes.string
+    }),
+    withMedia: PropTypes.bool
 };
 
 ModArticle.defaultProps = {
-    dataSection: undefined,
+    authors: '',
     artPosition: undefined,
     boxPosition: undefined,
+    category: undefined,
     classCondition: undefined,
-    titleTag: 'h2',
-    titleSize: '--xs',
+    dataSection: undefined,
+    dateSize: undefined,
+    dateText: undefined,
+    device: 'desktop',
+    handleClick: undefined,
+    hour: undefined,
+    isRenderAuthor: false,
+    isRenderAuthorOpinion: false,
+    isPowa: true,
+    label: undefined,
+    layout: '',
+    link: undefined,
+    outputType: 'default',
     subheadText: false,
     subheadSize: '',
     subheadTag: '',
-    dateText: undefined,
-    dateSize: undefined,
-    authors: '',
-    withMedia: false,
-    link: undefined,
-    hour: undefined,
-    outputType: 'default',
-    category: undefined,
+    titleSize: '--xs',
+    titleTag: 'h2',
     tags: undefined,
-    handleClick: undefined,
-    isRenderAuthor: false,
-    isRenderAuthorOpinion: false
+    videoBackground: undefined,
+    withMedia: false
 };
 
 export default ModArticle;

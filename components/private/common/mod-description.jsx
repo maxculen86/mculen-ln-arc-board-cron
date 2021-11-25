@@ -3,12 +3,11 @@ import PropTypes from 'prop-types';
 import Text from './text';
 import ComTitle from './com-title';
 import ComDate from './com-date';
-// import ModBajada from './mod-bajada';
-// import ModMarquesina from './mod-marquee';
-// import ComLabel from './com-labelArticle';
 import ComTag from './com-tag';
 
 import '../../../resources/dist/css/ln/components/mod-description.css';
+
+import Badge from './badge';
 
 const ModDescription = props => {
     const {
@@ -33,11 +32,10 @@ const ModDescription = props => {
 
     return (
         <section className="mod-description">
-            {/* {label && <ComLabel labelArticle={label} />} */}
-            {label && (
-                <Text extraClass="com-label" size="6xs">
-                    {label}
-                </Text>
+            {label && label.text && label.text.trim() && (
+                <Badge className="com-label" type={label.style || ''}>
+                    {label.text.trim()}
+                </Badge>
             )}
 
             <ComTitle
@@ -49,12 +47,6 @@ const ModDescription = props => {
             />
 
             {subheadText && (
-                // <ModBajada
-                //     link={link}
-                //     subheadSize={subheadSize}
-                //     subheadText={subheadText}
-                //     subheadTag={subheadTag}
-                // />
                 <Text
                     tag={subheadTag || 'h3'}
                     extraClass="com-subhead"
@@ -65,11 +57,6 @@ const ModDescription = props => {
             )}
             <div>
                 {withMarquee && (
-                    // <ModMarquesina
-                    //     text={marquesina || authors}
-                    //     size={authorSize}
-                    //     link={link}
-                    // />
                     <Text
                         tag="strong"
                         extraClass="mod-marquee"
@@ -115,41 +102,44 @@ const ModDescription = props => {
 };
 
 ModDescription.propTypes = {
-    link: PropTypes.string,
-    titleTag: PropTypes.string,
-    titleSize: PropTypes.string,
-    titleText: PropTypes.string.isRequired,
+    authors: PropTypes.string,
     authorSize: PropTypes.string,
-    subheadText: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    category: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    dateText: PropTypes.string,
+    label: PropTypes.shape({
+        text: PropTypes.string,
+        style: PropTypes.string
+    }),
+    link: PropTypes.string,
+    lead: PropTypes.string,
+    marquesina: PropTypes.string,
     subheadSize: PropTypes.string,
     subheadTag: PropTypes.string,
-    dateText: PropTypes.string,
-    label: PropTypes.string,
-    lead: PropTypes.string,
-    authors: PropTypes.string,
-    marquesina: PropTypes.string,
-    category: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    subheadText: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     tags: PropTypes.oneOfType([
         PropTypes.bool,
         PropTypes.arrayOf(PropTypes.object)
-    ])
+    ]),
+    titleSize: PropTypes.string,
+    titleTag: PropTypes.string,
+    titleText: PropTypes.string.isRequired
 };
 
 ModDescription.defaultProps = {
-    titleTag: 'h4',
-    titleSize: '--xs',
-    subheadText: false,
-    subheadSize: '',
+    authors: undefined,
     authorSize: '',
-    subheadTag: '',
+    category: undefined,
     dateText: undefined,
     label: undefined,
     lead: undefined,
-    authors: undefined,
     link: undefined,
     marquesina: undefined,
-    category: undefined,
-    tags: undefined
+    subheadSize: '',
+    subheadTag: '',
+    subheadText: false,
+    tags: undefined,
+    titleSize: '--xs',
+    titleTag: 'h4'
 };
 
 export default ModDescription;

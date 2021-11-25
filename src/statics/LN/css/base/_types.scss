@@ -5,23 +5,23 @@
 
 // @include font-face('SuecaSlab', suecaslab-medium-webfont, 500);
 // @include font-face('SuecaSlab', suecaslab-bold-webfont, 700);
-@include font-face('LNicons', lana-icons-v1, normal);
-@include font-face('LNlogos', lana-logos-v1, normal);
+// @include font-face('LNicons', lana-icons-v1, normal);
+// @include font-face('LNlogos', lana-logos-v1, normal);
 
-@font-face {
-    font-family: 'SuecaSlab';
-    src: url('../../fonts/suecaslab-medium-webfont.woff2') format('woff2');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'SuecaSlab';
-    src: url('../../fonts/suecaslab-bold-webfont.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
+// @font-face {
+//     font-family: 'SuecaSlab';
+//     src: url('../../fonts/suecaslab-medium-webfont.woff2') format('woff2');
+//     font-weight: 500;
+//     font-style: normal;
+//     font-display: swap;
+// }
+// @font-face {
+//     font-family: 'SuecaSlab';
+//     src: url('../../fonts/suecaslab-bold-webfont.woff2') format('woff2');
+//     font-weight: 700;
+//     font-style: normal;
+//     font-display: swap;
+// }
 
 [class*='georgia'] {
     font-family: $font-georgia;
@@ -42,7 +42,7 @@ strong,
 
 //[class^='icon-'],
 [class*='icon-'] {
-    font-family: 'LNicons';
+    font-family: $font-icons;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;

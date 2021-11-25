@@ -14,11 +14,13 @@ import MetaSectionParsely from '../private/common/metaSectionParsely';
 import getFirstParagraph from '../private/common/utils/getFirstParagraph';
 import Syndication from '../private/common/syndication';
 import getCollectionsFromRenderables from '../private/common/utils/getCollectionsFromRenderables';
-
-import analytics from '../../resources/json/analytics.json';
 import dataLayerIndexAmp from '../private/common/dataLayerIndexAmp';
 import MetasOG from '../private/common/metaTags/metasOG';
 import ScriptLogoBBCAMP from '../private/common/scriptManager/scriptLogoBBCAMP';
+import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
+import getSectionName from '../private/LN/common/utils/getSectionName';
+import FontFace from '../private/common/fontface';
+import Favicon from '../private/common/favicon';
 
 /**
  * TODO: Resolver el tema de las canonicas
@@ -71,8 +73,6 @@ const Amp = props => {
 
     const metaTitleBasic =
         metaTitle && metaTitle !== '' ? metaTitle : basicTitle;
-    const { external_distribution: externalDistribution, search } =
-        syndication || {};
 
     const contentFeatures = getCollectionsFromRenderables(
         renderables,
@@ -81,49 +81,32 @@ const Amp = props => {
 
     const metaTitleValue = metaValue('title') || title || 'LA NACION';
     const dataLayerAmp = dataLayerIndexAmp(arcSite, layout, globalContent);
+    const _nodeType = getSectionName({ nodeType, type });
+
+    const LinkImagePreload = () =>
+        getDataToLinkImage(globalContent, _nodeType, renderables, arcSite).map(
+            elem => {
+                return (
+                    <link
+                        id="preload-img"
+                        rel="preload"
+                        href={elem.resizedUrl}
+                        as="image"
+                        media={elem.media}
+                    />
+                );
+            }
+        );
 
     return (
         <html amp={String.fromCodePoint(9889)} lang="es">
             <head>
                 <meta charset="utf-8" />
-                <script async src="https://cdn.ampproject.org/v0.js" />
-                <title>{metaTitleValue}</title>
                 <meta
                     name="viewport"
-                    content="width=device-width,minimum-scale=1,initial-scale=1"
+                    content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
-                <AMPScripts
-                    layout={layout}
-                    arcSite={arcSite}
-                    contentFeatures={contentFeatures}
-                    globalContent={globalContent}
-                />
-                <AMPSnippet {...props} />
-                <MetaSectionParsely arcSite={arcSite} taxonomy={taxonomy} />
-                <AMPCustomStyle
-                    layout={layout}
-                    arcSite={arcSite}
-                    Resource={Resource}
-                />
-                <style amp-boilerplate="">{_AMPBoilerplate}</style>
-                <noscript
-                    dangerouslySetInnerHTML={{
-                        __html:
-                            '<style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style>'
-                    }}
-                />
-                <link
-                    rel="icon"
-                    type="image/x-icon"
-                    href={deployment(`${contextPath}/resources/favicon.ico`)}
-                />
-                <MetasOG {...props} />
-                <Robot
-                    subtype={subtype}
-                    canonicalUrl={canonicalUrl || _id}
-                    arcSite={arcSite}
-                    nodeType={nodeType}
-                />
+                <meta name="theme-color" content="#ffffff" />
                 <MetaTitle
                     subtype={subtype}
                     metaTitleBasic={metaTitleBasic}
@@ -146,12 +129,54 @@ const Amp = props => {
                     subheadlines={subheadlines && subheadlines.basic}
                     arcSite={arcSite}
                 />
+                <MetasOG {...props} />
                 <Syndication
                     type={type}
                     arcSite={arcSite}
                     subtype={subtype}
                     syndication={syndication}
                 />
+                <link
+                    rel="preload"
+                    as="script"
+                    href="https://cdn.ampproject.org/v0.js"
+                />
+                <FontFace />
+                {LinkImagePreload()}
+                <script async src="https://cdn.ampproject.org/v0.js" />
+
+                <AMPScripts
+                    layout={layout}
+                    arcSite={arcSite}
+                    contentFeatures={contentFeatures}
+                    globalContent={globalContent}
+                />
+
+                <AMPCustomStyle
+                    layout={layout}
+                    arcSite={arcSite}
+                    Resource={Resource}
+                    contextPath={contextPath}
+                    deployment={deployment}
+                />
+                <style amp-boilerplate="">{_AMPBoilerplate}</style>
+                <noscript
+                    dangerouslySetInnerHTML={{
+                        __html:
+                            '<style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style>'
+                    }}
+                />
+                <Favicon />
+
+                <Robot
+                    subtype={subtype}
+                    canonicalUrl={canonicalUrl || _id}
+                    arcSite={arcSite}
+                    nodeType={nodeType}
+                />
+                <AMPSnippet {...props} />
+                <MetaSectionParsely arcSite={arcSite} taxonomy={taxonomy} />
+                <title>{metaTitleValue}</title>
             </head>
             <body>
                 <amp-analytics

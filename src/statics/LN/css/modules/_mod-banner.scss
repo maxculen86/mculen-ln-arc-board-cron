@@ -64,7 +64,6 @@
         }
         align-items: center;
         position: fixed;
-        top: 0;
         z-index: 1100000;
         background: $neutral-white;
         height: 100vh;
@@ -296,9 +295,6 @@
 [class*='row-gap'] {
     &.--ads {
         margin-bottom: $spacing-2xl;
-        &:empty {
-            display: none;
-        }
         .mod-banner {
             margin: 0;
         }
@@ -311,6 +307,22 @@
 }
 
 .home {
+    .row-gap-tablet-2.--ads {
+        display: none;
+        @media ($media-m) {
+            display: grid;
+        }
+        @media ($media-l) {
+            display: none;
+        }
+    }
+    .row-gap-tablet-3.--ads {
+        display: none;
+        grid-column-gap: $spacing-sm;
+        @media ($media-l) {
+            display: grid;
+        }
+    }
     > .container {
         &.--ads {
             background: $neutral-white;

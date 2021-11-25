@@ -19,6 +19,11 @@ export default {
                     );
                 }
             },
+            comercial_dsk: {
+                customScript: () => {
+                    return getScriptForComercial('comercial_dsk');
+                }
+            },
             adhesion_dsk: {
                 validateInclusion: ({ subscription }) => subscription !== 'S'
             },
@@ -48,6 +53,11 @@ export default {
             }
         },
         mobile: {
+            comercial_mob: {
+                customScript: () => {
+                    return getScriptForComercial('comercial_mob');
+                }
+            },
             adhesion_mob: {
                 validateInclusion: ({ subscription }) => subscription !== 'S'
             },
@@ -96,6 +106,11 @@ export default {
     },
     home: {
         desktop: {
+            comercial_dsk: {
+                customScript: () => {
+                    return getScriptForComercial('comercial_dsk');
+                }
+            },
             adhesion_dsk: {
                 validateInclusion: ({ subscription }) => !subscription
             },
@@ -109,6 +124,11 @@ export default {
             },
             '1x1_mob': {
                 validateInclusion: ({ subscription }) => !subscription
+            },
+            comercial_mob: {
+                customScript: () => {
+                    return getScriptForComercial('comercial_mob');
+                }
             }
         },
         tablet: {

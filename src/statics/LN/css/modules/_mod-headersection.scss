@@ -31,8 +31,20 @@
         }
     }
 
-    .com-line {
-        margin-top: $spacing;
+    // .com-line {
+    //     margin-top: $spacing;
+    // }
+
+    &.--line {
+        border-bottom: 1px solid $light-neutral-400;
+        padding-bottom: $spacing;
+    }
+
+    &.--button {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: space-between;
     }
 
     .com-image {
@@ -59,7 +71,7 @@
         }
 
         &.--blue {
-            background: $light-blue-500;
+            background: $blue-500;
         }
         &.--red {
             background: $red-600;

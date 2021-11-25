@@ -1,7 +1,7 @@
 import Consumer from 'fusion:consumer';
-import IndexNotaV1 from '../../../private/LN/api/v1/nota';
+import IndexNotaV1 from '../../../private/LN/api/v1/global/story';
+import IndexNotaMobileV1 from '../../../private/LN/api/v1/mobile/story';
 import browser from '../../../private/common/utils/browser';
-import get from '../../../private/common/utils/get';
 
 class Story {
     constructor(props) {
@@ -22,25 +22,32 @@ class Story {
                                 liftigniter,
                                 livefyre
                             }
+                            migration {
+                                deadline_livefyre
+                            }
                          }`
             }
         });
-
-        this.versions = {
-            1: IndexNotaV1
+        this.apiData = {
+            global: {
+                1: IndexNotaV1
+            },
+            mobile: {
+                1: IndexNotaMobileV1
+            }
         };
     }
 
     render() {
-        const indexNota = this.versions[
-            browser.getApiVersion(this.props.requestUri)
-        ];
+        const indexNota = this.apiData[
+            browser.getApiType(this.props.requestUri)
+        ][browser.getApiVersion(this.props.requestUri)];
         const { navigationTreeSource } = this.state || {};
         const { globalContent } = this.props;
         try {
             return indexNota({
                 ...globalContent,
-                termicas: get(navigationTreeSource, 'Termicas', null)
+                navigationTreeSource
             });
         } catch (err) {
             return { Success: false, Message: err.message };

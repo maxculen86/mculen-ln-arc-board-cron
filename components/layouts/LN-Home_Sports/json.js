@@ -1,5 +1,5 @@
 import Consumer from 'fusion:consumer';
-import bitacora from '../../private/LN/api/v1/bitacora';
+import bitacora from '../../private/LN/api/v1/global/bitacora';
 import pageBuilderSections from '../config/LN-PageBuilder.config.json';
 
 const homeMobileSections = [
@@ -39,10 +39,11 @@ const getHomeElements = props => {
     }, []);
 };
 
-const LNMainHome = props => {
+const LNSportsHome = props => {
     const homeSections = getHomeElements(props);
-    // return [homeSections];
     return bitacora(homeSections) || null;
 };
 
-export default Consumer(LNMainHome);
+LNSportsHome.sections = homeMobileSections;
+
+export default Consumer(LNSportsHome);

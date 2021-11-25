@@ -20,6 +20,7 @@
 @import '../components/com-container';
 @import '../components/com-logo';
 @import '../components/com-title';
+@import '../components/com-lead';
 //@import '../components/com-banner';
 
 @import '../modules/mod-image';
@@ -79,7 +80,8 @@
 
     &.--caja1_amp,
     &.--caja2_amp,
-    &.--caja3_amp {
+    &.--caja3_amp,
+    &.--caja4_amp {
         height: px(250);
     }
 }

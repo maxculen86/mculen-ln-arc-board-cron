@@ -94,7 +94,7 @@ const VideoPlayer = props => {
     } = props;
     const siteVars = getProperties(arcSite);
     const { organizationId } = siteVars || {};
-    const apiEnv = `${API_ENV}` || 'sandbox';
+    const apiEnv = API_ENV || 'sandbox';
 
     useEffect(() => {
         const setVideoEvents = event => {
@@ -111,7 +111,6 @@ const VideoPlayer = props => {
         if (!isAdmin && window && window.powaBoot) window.powaBoot();
         setPrerollAdsForPowa(adsURL);
         window.addEventListener('powaReady', setVideoEvents);
-        // setVideoEvents(tituloVideo, videoId);
         addToDataLayer('videoDisplay', tituloVideo, videoId);
         return () => window.removeEventListener('powaReady', setVideoEvents);
     }, [adsURL, isAdmin, tituloVideo, videoId]);

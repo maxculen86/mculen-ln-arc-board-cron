@@ -1,8 +1,14 @@
 {
-    "termicas": {
-        "banners": "true",
-        "liftigniter": "true",
-        "livefyre": "true"
+    "navigationTreeSource": {
+        "Termicas": {
+            "banners": "true",
+            "liftigniter": "true",
+            "livefyre": "true"
+        },
+        "migration": {
+            "deadline_livefyre": "2020-02-07"
+        },
+        "_id": "/"
     },
     "_id": "L47IICAOMVFW5MV343TJIHS4RY",
     "canonical_url": "/el-mundo/marcada-por-la-escasez-y-la-inflacion-la-semana-santa-no-escapo-al-calvario-cotidiano-nid2121866/",

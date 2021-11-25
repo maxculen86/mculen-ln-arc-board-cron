@@ -8,6 +8,7 @@ import dynamicallyLoadScript from '../../../private/LN/common/utils/dynamicallyL
 import getScrollPercent from '../../../private/LN/common/utils/getScrollPercent';
 import Comments from '../../../private/LN/nota/comments';
 import LoadingIcon from '../../../private/LN/common/loadingIcon';
+import { validateComments } from '../../../private/common/utils/commentsHelper';
 
 const CommentsFeature = props => {
     const {
@@ -16,37 +17,33 @@ const CommentsFeature = props => {
     const displayComments = get(comments, 'display_comments', true);
     const [isReady, setIsReady] = useState(false);
     const showLivefyre = findTermica('livefyre');
+    const { shouldLoad } = validateComments(props);
+    const shouldLoadViafoura = shouldLoad && showLivefyre;
 
     useEffect(() => {
         const handleScrollForComments = () => {
             const scrollPercentRounded = getScrollPercent();
             if (scrollPercentRounded > 60) {
-                // setIsLoading(true);
                 dynamicallyLoadScript(
                     'https://cdn.livefyre.com/Livefyre.js',
                     'head'
-                )
-                    .then(() => {
-                        setIsReady(true);
-                        // setIsLoading(false);
-                        window.removeEventListener(
-                            'scroll',
-                            handleScrollForComments
-                        );
-                    })
-                    .catch(error => {
-                        // setIsLoading(false);
-                        // console.error('Script loading failed! Handle this error', error);
-                    });
+                ).then(() => {
+                    setIsReady(true);
+                    window.removeEventListener(
+                        'scroll',
+                        handleScrollForComments
+                    );
+                });
             }
         };
-        if (showLivefyre && displayComments)
+        if (showLivefyre && displayComments && !shouldLoadViafoura)
             window.addEventListener('scroll', e => handleScrollForComments());
         return () =>
+            !shouldLoadViafoura &&
             window.removeEventListener('scroll', handleScrollForComments);
     });
 
-    if (!showLivefyre || !displayComments) return <></>;
+    if (!showLivefyre || !displayComments || shouldLoadViafoura) return <></>;
     if (!isReady) return <LoadingIcon />;
 
     return <Comments {...props} />;

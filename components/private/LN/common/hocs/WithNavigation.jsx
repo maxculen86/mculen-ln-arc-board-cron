@@ -1,3 +1,5 @@
+/* eslint-disable react/static-property-placement */
+/* eslint-disable react/sort-comp */
 import React, { PureComponent } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
@@ -20,7 +22,6 @@ export default function WithNavigation(WrappedComponent) {
 
             constructor(props) {
                 super(props);
-
                 const website = get(this, 'props.arcSite', null);
                 const { cached } = this.getContent({
                     sourceName: 'navigationTreeSource',
@@ -41,62 +42,10 @@ export default function WithNavigation(WrappedComponent) {
                     termicas
                 };
             }
-            /* Esta logica se paso del lado del navigationTreeSource
-            getSections = results => {
-                const sections = [];
-                const { sectionId } = this.props;
-                const sectionList =
-                    sectionId &&
-                    sectionId.split('/').map(el => {
-                        return el ? `/${el}` : '';
-                    });
-
-                const { _id: id, name } = results;
-                const base = id &&
-                    name && {
-                        id,
-                        name,
-                        path: id
-                    };
-
-                if (base) {
-                    sections.push(base);
-                    if (sectionList) sectionList.shift();
-                }
-
-                let section = results;
-                if (sectionId && sectionList && sectionList.length) {
-                    do {
-                        const primarySectionId = sectionList[0];
-                        const { children } = section;
-                        [section] =
-                            primarySectionId &&
-                            children &&
-                            children.filter(el => el._id === primarySectionId);
-                        if (section) {
-                            sections.push({
-                                id: section._id,
-                                name: section.name,
-                                path: section._id
-                            });
-                            if (sectionList.length >= 2) {
-                                sectionList[0] = sectionList[0].concat(
-                                    sectionList[1]
-                                );
-                                sectionList.splice(1, 1);
-                            }
-                        }
-                    } while (section);
-                }
-
-                return sections;
-            };
-            */
 
             getSectionTree = results => {
                 const termicas = (results && results.Termicas) || {};
                 const sections = (results && results.sections) || [];
-                // const sections = (results && this.getSections(results)) || [];
                 if (results) this.convertStringToBoolean(termicas);
                 return { sections, termicas };
             };
@@ -114,6 +63,7 @@ export default function WithNavigation(WrappedComponent) {
 
             render() {
                 const { sections, termicas } = this.state;
+
                 return (
                     <WrappedComponent
                         {...this.props}

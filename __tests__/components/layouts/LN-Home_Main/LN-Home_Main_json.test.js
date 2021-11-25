@@ -1,9 +1,16 @@
+7;
+
 import * as fusionConsumer from 'fusion:consumer';
 import * as LayoutLNMainHome from '../../../../components/layouts/LN-Home_Main/json';
-import home from '.../../../../../../components/private/LN/api/v1/home';
+import home from '../../../../components/private/LN/api/v1/global/home';
 import pageBuilderSections from '../../../../components/layouts/config/LN-PageBuilder.config.json';
+import propsAppAnexos from '../../../../__mocks__/data/renderables/dataAppAnexos';
+import propsAppAnexo1 from '../../../../__mocks__/data/renderables/dataAppAnexo1';
+import propsAppAnexo2 from '../../../../__mocks__/data/renderables/dataAppAnexo2';
+import propsAppAnexowithoutApertura from '../../../../__mocks__/data/renderables/dataAppAnexoswithoutApertura';
+import propsApertura from '../../../../__mocks__/data/renderables/dataApertura.json';
 
-jest.mock('.../../../../../../components/private/LN/api/v1/home', () => {
+jest.mock('.../../../../../../components/private/LN/api/v1/global/home', () => {
     return function(component) {
         return component;
     };
@@ -26,29 +33,32 @@ describe('components - layouts - LN-Home_Main - json', () => {
         [], //2 Bomba',
         [], //3 Apertura',
         [], //4 Apertura',
-        [], //5 Anexo',
-        [], //6 Tema1',
-        [], //7 Tema2',
-        [], //8 Tema3',
-        [], //9 Anexo',
-        [], //10 Opinion',
-        [], //11 Tema4',
-        [], //12 Tema5',
-        [], //13 Tema6',
-        [], //14 Comercial',
-        [], //15 Tema7',
-        [], //16 Comercial',
-        [], //17 Tema8',
-        [], //18 Tema9',
-        [], //19 Tema10',
-        [], //20 Tema11',
-        [], //21 Tema12',
-        [], //22 Tema13',
-        [] //23 Tema14'
+        [], //5 Multimedia',
+        [], //6 Anexo
+        [], //7 Tema1',
+        [], //8 Tema2',
+        [], //9 Tema3',
+        [], //10 Anexo',
+        [], //11 Opinion',
+        [], //12 Tema4',
+        [], //13 Tema5',
+        [], //14 Tema6',
+        [], //15 Comercial',
+        [], //16 Tema7',
+        [], //17 Comercial',
+        [], //18 Tema8',
+        [], //19 Tema9',
+        [], //20 Tema10',
+        [], //21 Tema11',
+        [], //22 Tema12',
+        [], //23 Tema13',
+        [], //24 App_Anexo_1',
+        [] //25 App_Anexo_2'
     ];
 
     props.renderables = [];
     props.arcSite = 'la-nacion-ar';
+
     describe('Test Section Anticipo', () => {
         test('OK', () => {
             const childrenTmp = children;
@@ -82,7 +92,13 @@ describe('components - layouts - LN-Home_Main - json', () => {
             ];
             const homeSections = LayoutLNMainHome.default(props);
             expect(Object.keys(homeSections[0]).sort()).toEqual(
-                ['configurations', 'feature', 'information', 'type'].sort()
+                [
+                    'configurations',
+                    'feature',
+                    'information',
+                    'type',
+                    'nameFeature'
+                ].sort()
             );
             expect(homeSections[0].feature).toBe('Anticipo');
         });
@@ -125,7 +141,8 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'configurations',
                     'feature',
                     'information',
-                    'type'
+                    'type',
+                    'nameFeature'
                 ].sort()
             );
             expect(homeSections[0].feature).toBe('Bomba');
@@ -134,54 +151,21 @@ describe('components - layouts - LN-Home_Main - json', () => {
 
     describe('Test Section Apertura', () => {
         test('Ok', () => {
-            const childrenTmp = children;
-            childrenTmp[3] = [
-                {
-                    information: {
-                        layout: 'focalLeft3',
-                        backgroundColor: 'default',
-                        initialPosition: 1,
-                        hideTitle: false,
-                        idCollection: 'QJ3BOEZVQNEYZEVBXHF4C7KAWY',
-                        title: 'Apertura',
-                        pbInternal_cloneId: 'c0ffOCwkYqcA22',
-                        image: undefined
-                    },
-                    articles: []
-                }
-            ];
-            props.children = childrenTmp;
-            props.renderables = [
-                {
-                    collection: 'sections',
-                    props: {
-                        collection: 'sections',
-                        id: 3
-                    },
-                    children: [
-                        {
-                            collection: 'chains',
-                            type: 'Ln_Caja_Collection',
-                            props: {},
-                            children: []
-                        }
-                    ]
-                },
-                {}
-            ];
-            const homeSections = LayoutLNMainHome.default(props);
+            const homeSections = LayoutLNMainHome.default(propsApertura);
             expect(Object.keys(homeSections[0]).sort()).toEqual(
                 [
                     'articles',
                     'configurations',
                     'feature',
                     'information',
-                    'type'
+                    'type',
+                    'nameFeature'
                 ].sort()
             );
             expect(homeSections[0].feature).toBe('Apertura');
         });
     });
+
     describe('Test Section Apertura_2', () => {
         test('Ok', () => {
             const childrenTmp = children;
@@ -206,7 +190,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     collection: 'sections',
                     props: {
                         collection: 'sections',
-                        id: 3
+                        id: 4
                     },
                     children: [
                         {
@@ -220,23 +204,56 @@ describe('components - layouts - LN-Home_Main - json', () => {
                 {}
             ];
             const homeSections = LayoutLNMainHome.default(props);
-            /*expect(Object.keys(homeSections[0]).sort()).toEqual(
-                [
-                    'articles',
-                    'configurations',
-                    'feature',
-                    'information',
-                    'type'
-                ].sort()
-            );*/
-            expect(homeSections[0].feature).toBe('Apertura');
+            expect(homeSections[1].feature).toBe('Apertura');
+        });
+    });
+
+    describe('Test Section Multimedia', () => {
+        test('Ok', () => {
+            const childrenTmp = children;
+            childrenTmp[5] = [
+                {
+                    information: {
+                        layout: 'grilla1',
+                        initialPosition: 1,
+                        hideTitle: false,
+                        title: 'Multimedia',
+                        containerImage: undefined
+                    },
+                    articles: []
+                }
+            ];
+            props.children = childrenTmp;
+            props.renderables = [
+                {
+                    collection: 'sections',
+                    props: {
+                        collection: 'sections',
+                        id: 5
+                    },
+                    children: [
+                        {
+                            collection: 'chains',
+                            type: 'Ln_Caja_Manual',
+                            props: {},
+                            children: []
+                        }
+                    ]
+                },
+                {}
+            ];
+            const homeSections = LayoutLNMainHome.default(props);
+            console.log(homeSections);
+
+            expect(homeSections[2].feature).toBe('Multimedia');
+            expect(homeSections[2].information.layout).toBe('grilla1');
         });
     });
 
     describe('Test Section Opinion', () => {
         test('Ok', () => {
             const childrenTmp = children;
-            childrenTmp[10] = [
+            childrenTmp[11] = [
                 {
                     id: 406,
                     type: 1,
@@ -278,7 +295,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     collection: 'sections',
                     props: {
                         collection: 'sections',
-                        id: 10
+                        id: 11
                     },
                     children: [
                         {
@@ -303,7 +320,8 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'configurations',
                     'feature',
                     'information',
-                    'type'
+                    'type',
+                    'nameFeature'
                 ].sort()
             );
             expect(homeSections[7].feature).toBe('Opinion');
@@ -313,7 +331,8 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'configurations',
                     'feature',
                     'information',
-                    'type'
+                    'type',
+                    'nameFeature'
                 ].sort()
             );
             expect(homeSections[7].feature).toBe('Opinion');
@@ -374,7 +393,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
     describe('Test Section Comercial', () => {
         test('OK', () => {
             const childrenTmp = children;
-            childrenTmp[14] = [
+            childrenTmp[15] = [
                 {
                     information: {
                         layout: 'grilla3',
@@ -394,7 +413,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     collection: 'sections',
                     props: {
                         collection: 'sections',
-                        id: 14
+                        id: 15
                     },
                     children: [
                         {
@@ -414,7 +433,8 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'configurations',
                     'feature',
                     'information',
-                    'type'
+                    'type',
+                    'nameFeature'
                 ].sort()
             );
             expect(homeSections[6].feature).toBe('Comercial');
@@ -424,7 +444,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
     describe('Test Section Tema', () => {
         test('Ok', () => {
             const childrenTmp = children;
-            childrenTmp[6] = [
+            childrenTmp[7] = [
                 {
                     information: {
                         layout: 'focalLeft3',
@@ -442,7 +462,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     collection: 'sections',
                     props: {
                         collection: 'sections',
-                        id: 6
+                        id: 7
                     },
                     children: [
                         {
@@ -461,7 +481,8 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'configurations',
                     'feature',
                     'information',
-                    'type'
+                    'type',
+                    'nameFeature'
                 ].sort()
             );
             expect(homeSections[3].feature).toBe('Tema1');
@@ -475,6 +496,61 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     `Cannot read property 'children' of null`
                 );
             }
+        });
+    });
+
+    describe('Test Section App_Anexo_1 y App_Anexo_2', () => {
+        test('Ok', () => {
+            const homeSections = LayoutLNMainHome.default(propsAppAnexos);
+            expect(homeSections[0]).toEqual(
+                expect.objectContaining({ feature: 'AnexoMobile' })
+            );
+            expect(homeSections[1]).toEqual(
+                expect.objectContaining({ feature: 'Apertura' })
+            );
+            expect(homeSections[2]).toEqual(
+                expect.objectContaining({ feature: 'AnexoMobile' })
+            );
+        });
+
+        test('Ok only App_Anexo_1', () => {
+            const homeSections = LayoutLNMainHome.default(propsAppAnexo1);
+            expect(homeSections[0]).toEqual(
+                expect.objectContaining({ feature: 'AnexoMobile' })
+            );
+            expect(homeSections[1]).toEqual(
+                expect.objectContaining({ feature: 'Apertura' })
+            );
+            expect(homeSections[2]).toEqual(
+                expect.objectContaining({ feature: 'Banner' })
+            );
+        });
+
+        test('Ok only App_Anexo_2', () => {
+            const homeSections = LayoutLNMainHome.default(propsAppAnexo2);
+
+            expect(homeSections[0]).toEqual(
+                expect.objectContaining({ feature: 'Apertura' })
+            );
+            expect(homeSections[1]).toEqual(
+                expect.objectContaining({ feature: 'AnexoMobile' })
+            );
+        });
+
+        test('Error No exists Apertura1', () => {
+            const homeSections = LayoutLNMainHome.default(
+                propsAppAnexowithoutApertura
+            );
+
+            expect(homeSections[0]).toEqual(
+                expect.objectContaining({ feature: 'Banner' })
+            );
+            expect(homeSections[1]).toEqual(
+                expect.objectContaining({ feature: 'Apertura' })
+            );
+            expect(homeSections[2]).toEqual(
+                expect.objectContaining({ feature: 'Dolar' })
+            );
         });
     });
 });

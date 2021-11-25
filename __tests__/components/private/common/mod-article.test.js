@@ -21,6 +21,7 @@ describe('Private - Common - ModArticle', () => {
     const authors = ['Mariano Grondona'];
 
     const props = {
+        artPosition: undefined,
         articleData: article,
         dataSection: '',
         classCondition: '',
@@ -30,16 +31,22 @@ describe('Private - Common - ModArticle', () => {
         titleSize: '--s',
         titleText: 'Este es el titulo',
         authors: authors,
+        boxPosition: undefined,
         dateText: '2020-06-02T15:28:04.694Z',
+        device: 'desktop',
+        handleClick: undefined,
         dateSize: '',
         subheadText: 'Este es el subtitulo',
+        videoBackground: undefined,
         subheadSize: '',
         subheadTag: '',
         outputType: 'default',
         label: 'chapita',
+        layout: '',
         category: '',
         tags: [],
         hour: '',
+        isPowa: true,
         isRenderAuthor: false,
         isRenderAuthorOpinion: false
     };
@@ -61,7 +68,6 @@ describe('Private - Common - ModArticle', () => {
         expect(component.find('.com-subhead')).toHaveLength(1);
         expect(component.find('.mod-marquee')).toHaveLength(1);
         expect(component.find('.com-date')).toHaveLength(1);
-        expect(component.find('.com-label')).toHaveLength(1);
         expect(component.find('.com-title').html()).toBe(
             '<h1 class="com-title --s"><a href="http://google.com" title="Este es el titulo" class="com-link">Este es el titulo</a></h1>'
         );

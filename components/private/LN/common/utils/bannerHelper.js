@@ -30,7 +30,8 @@ export const BANNERS_DESKTOP = [
     'middle_teads_dsk',
     'caja1_amp',
     'caja2_amp',
-    'caja3_amp'
+    'caja3_amp',
+    'caja4_amp'
 ];
 
 export const BANNERS_MOBILE = [
@@ -47,7 +48,8 @@ export const BANNERS_MOBILE = [
     'inread_mob',
     'caja1_amp',
     'caja2_amp',
-    'caja3_amp'
+    'caja3_amp',
+    'caja4_amp'
 ];
 
 export const BANNERS_TABLET = [
@@ -63,7 +65,8 @@ export const BANNERS_TABLET = [
     'middle_teads_tab',
     'caja1_amp',
     'caja2_amp',
-    'caja3_amp'
+    'caja3_amp',
+    'caja4_amp'
 ];
 
 export const isForAmp = (desktop = '', mobile = '', tablet = '') => {
@@ -272,15 +275,6 @@ export const getSlotForDevice = device => slots =>
         ? slots.find(slot => slot.name === device).slot || null
         : null;
 
-/*
-export const changeSlotName = name => {
-    const { slotName } = this._config;
-    this._config = {
-        ...this._config,
-        slotName: slotName.replace(/[^/]+$/g, name)
-    };
-};
-*/
 export const setCustomAdUnit = (slotName, unit) => {
     const slotNameSections = slotName && slotName.split('/').filter(Boolean);
 
@@ -337,8 +331,6 @@ export const naveggSetTargeting = () => {
                     name = name.substring(0, 10);
                     if (typeof googletag == 'object')
                         googletag.pubads().setTargeting(name, persona[col]);
-                    // if (typeof GA_googleAddAttr == "function")
-                    //   GA_googleAddAttr(name, persona[col]);
                 }
             }
         } catch (e) {
@@ -392,7 +384,6 @@ export const queueGoogletagCommand = bannersToLoad => {
                 googletag.cmd.push(function() {
                     if (pbjs.adserverRequestSent) return;
                     apstag.setDisplayBids();
-                    // googletag.pubads().refresh(bannerSlotDefined);
                 });
             }
         );

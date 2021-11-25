@@ -24,7 +24,7 @@
             font-size: px(50);
         }
         &.--color {
-            color: $light-blue-600;
+            color: $blue-600;
         }
     }
     &.logo-brando.logo-brando {
@@ -283,6 +283,28 @@
         }
         &.--color {
             color: $deportes;
+        }
+    }
+}
+
+.logoLN {
+    display: block;
+    height: px(17);
+
+    svg,
+    img {
+        height: 100%;
+    }
+    .modal & {
+        margin-bottom: $spacing-sm;
+    }
+    @media ($media-l) {
+        .header & {
+            height: px(30);
+        }
+
+        .footer-site & {
+            height: px(20);
         }
     }
 }

@@ -19,7 +19,7 @@ const getArticleInCollection = (
         ? useContent({
               source: 'collectionsSource',
               query: {
-                  id: idCollection,
+                  id: idCollection.trim(),
                   size,
                   website,
                   from: initialPosition,

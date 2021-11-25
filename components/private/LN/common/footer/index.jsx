@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import Logo from '../../../common/com-logo';
 import Icon from '../../../common/icon';
 import Text from '../../../common/text';
 import Image from '../../../common/com-image';
 import List from '../../../common/mod-list';
 import Copyright from './copyright';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
+import Logo from '../../../common/com-logo';
 
 import '../../../../../resources/dist/css/ln/modules/mod-footer.css';
 
@@ -156,12 +156,6 @@ const Index = ({
             alt: 'Ir a la Fundación LA NACION',
             href: 'https://fundacionlanacion.org.ar/',
             target: '_blank'
-        },
-        {
-            text: 'Avisos solidarios',
-            alt: 'Ir a los clasificados solidarios',
-            href: 'https://solidarios.lanacion.com.ar/',
-            target: '_blank'
         }
     ];
 
@@ -210,11 +204,6 @@ const Index = ({
         }
     ];
 
-    // const year = new Date().getFullYear();
-    // const copyrightText = `Copyright ${year} SA LA NACION | Todos los derechos reservados`;
-
-    // if (outputType === 'amp')
-    //     return <FooterAMP copyrightText={copyrightText} />;
     return (
         <footer id="footer" className="footer-site --threexs">
             <div className="lay">
@@ -231,6 +220,7 @@ const Index = ({
                             <Icon
                                 name="twitter-filled"
                                 href="https://twitter.com/LANACION"
+                                target="_blank"
                                 rel
                                 title="Seguirnos en Twitter"
                             />
@@ -243,7 +233,6 @@ const Index = ({
                             />
                             <Icon
                                 name="rss"
-                                // href="https://servicios.lanacion.com.ar/herramientas/rss/ayuda"
                                 href="https://www.lanacion.com.ar/arc/outboundfeeds/rss/?outputType=xml"
                                 target="_blank"
                                 rel
@@ -262,6 +251,7 @@ const Index = ({
                                 target="_top"
                                 title="Ir a la página principal"
                             />
+                            {/* <LogoLN /> */}
                         </div>
                         <div className="col-desksm-4 --right">
                             <Image

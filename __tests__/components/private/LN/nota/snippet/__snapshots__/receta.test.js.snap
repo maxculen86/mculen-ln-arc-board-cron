@@ -484,7 +484,10 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
         Object {
           "@context": "https://schema.org",
           "@type": "Recipe",
-          "author": "",
+          "author": Object {
+            "@type": "Organization",
+            "name": "LA NACION recetas",
+          },
           "cookTime": "PT25M",
           "datePublished": "2020-04-24T14:35:53.021Z",
           "description": "Subtitulo de prueba",
@@ -542,7 +545,10 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
             "__html": "{
   \\"@context\\": \\"https://schema.org\\",
   \\"@type\\": \\"Recipe\\",
-  \\"author\\": \\"\\",
+  \\"author\\": {
+    \\"@type\\": \\"Organization\\",
+    \\"name\\": \\"LA NACION recetas\\"
+  },
   \\"cookTime\\": \\"PT25M\\",
   \\"prepTime\\": \\"PT25M\\",
   \\"totalTime\\": \\"PT25M\\",

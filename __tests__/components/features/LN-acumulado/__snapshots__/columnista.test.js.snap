@@ -1,41 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`features - LaNacion - Acumulado - columnista Test de snapshot Columnista 1`] = `
-<Fragment>
-  <ModArticle
-    articleData={
-      Object {
-        "credits": Object {
-          "by": Array [
-            Object {
-              "author": "Joaquín Morales Solá",
-              "image": Object {
-                "resized_urls": Array [
-                  Object {
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/EtZOBsudn8441bPnB-VpXjl06S0=/280x0/filters:quality(80)/s3.amazonaws.com/arc-authors/lanacionar/d672e0d3-65df-44ef-8ea4-cdc8ef590296.png",
-                  },
-                ],
-              },
-              "type": "author",
+<ModArticle
+  articleData={
+    Object {
+      "credits": Object {
+        "by": Array [
+          Object {
+            "alt_text": "Foto de Joaquín Morales Solá",
+            "author": "Joaquín Morales Solá",
+            "image": Object {
+              "resized_urls": Array [
+                Object {
+                  "resizedUrl": "https://resizer.glanacion.com/resizer/EtZOBsudn8441bPnB-VpXjl06S0=/280x0/filters:quality(80)/s3.amazonaws.com/arc-authors/lanacionar/d672e0d3-65df-44ef-8ea4-cdc8ef590296.png",
+                },
+              ],
             },
-          ],
-        },
-      }
+            "type": "author",
+          },
+        ],
+      },
     }
-    authorSize="--twoxs"
-    authors="Joaquín Morales Solá"
-    classCondition="--columnista"
-    isRenderAuthor={true}
-    isRenderAuthorOpinion={false}
-    link="/autor/joaquin-morales-sola-51/"
-    outputType="default"
-    subheadSize=""
-    subheadTag=""
-    subheadText={false}
-    titleSize="--xs"
-    titleTag="h2"
-    titleText="Foto de Joaquín Morales Solá"
-    withMedia={true}
-  />
-</Fragment>
+  }
+  authorSize="--twoxs"
+  authors="Joaquín Morales Solá"
+  classCondition="--columnista"
+  device="desktop"
+  isPowa={true}
+  isRenderAuthor={true}
+  isRenderAuthorOpinion={false}
+  layout=""
+  link="/autor/joaquin-morales-sola-51/"
+  outputType="default"
+  subheadSize=""
+  subheadTag=""
+  subheadText={false}
+  titleSize="--xs"
+  titleTag="h2"
+  withMedia={true}
+/>
 `;

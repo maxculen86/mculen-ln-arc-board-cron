@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
 import PropTypes from 'prop-types';
+import { getViewport } from '../../../common/utils/homeHelper';
 
 import ModArticle from '../../../../common/mod-article';
 import get from '../../../../common/utils/get';
@@ -24,7 +24,9 @@ const NoteCard = ({
     index,
     boxPosition,
     layout,
-    isInHomeAperturaOrBomba
+    isInHomeAperturaOrBomba,
+    videoBackground,
+    isPowa
 }) => {
     const [article, setArticle] = useState(
         transform(content, customFields, promoItems)
@@ -36,11 +38,12 @@ const NoteCard = ({
         getWithSubhead(articleProps, withMedia, customFields)
     );
     const [label, setLabel] = useState(
-        getLabel(content, customFields, withMedia)
+        getLabel(content, customFields, withMedia, layout)
     );
     const [isRenderAutor, setIsRenderAutor] = useState(
         getIsRenderAutor(customFields, layout)
     );
+    const { device } = getViewport();
 
     useEffect(() => {
         setWithMedia(getWithMedia(customFields, articleProps, article));
@@ -48,7 +51,7 @@ const NoteCard = ({
 
     useEffect(() => {
         setArticle(transform(content, customFields, promoItems));
-        setLabel(getLabel(content, customFields, withMedia));
+        setLabel(getLabel(content, customFields, withMedia, layout));
         setWithSubhead(getWithSubhead(articleProps, withMedia, customFields));
         setIsRenderAutor(getIsRenderAutor(customFields, layout));
     }, [articleProps, content, customFields, promoItems, withMedia, layout]);
@@ -60,6 +63,7 @@ const NoteCard = ({
                 withMedia={withMedia}
                 link={get(article, 'website_url')}
                 titleSize={
+                    (layout === 'grillaVideo1' && '--l') ||
                     (!withMedia && get(articleProps, 'titleSizeNoMedia')) ||
                     get(articleProps, 'titleSize')
                 }
@@ -87,7 +91,7 @@ const NoteCard = ({
                         ? false
                         : isRenderAutor
                 }
-                label={!get(customFields, 'html') && label}
+                label={label}
                 anexo={
                     get(articleProps, 'skipHtml', false)
                         ? false
@@ -95,6 +99,10 @@ const NoteCard = ({
                 }
                 boxPosition={boxPosition}
                 artPosition={`0${Number(index) + 1}`.slice(-2)}
+                videoBackground={videoBackground}
+                isPowa={isPowa}
+                device={device}
+                layout={layout}
             />
         )) || <></>
     );
@@ -123,16 +131,19 @@ NoteCard.propTypes = {
         website_url: PropTypes.string
     }).isRequired,
     customFields: PropTypes.shape({
-        imageId: PropTypes.string,
-        lead: PropTypes.string,
-        title: PropTypes.string,
-        description: PropTypes.string,
         authors: PropTypes.string,
+        chapita: PropTypes.string,
+        chapitaStyle: PropTypes.string,
+        canonical_url: PropTypes.string,
+        description: PropTypes.string,
+        imageId: PropTypes.string,
         isOpening: PropTypes.bool,
-        canonical_url: PropTypes.string
+        lead: PropTypes.string,
+        title: PropTypes.string
     }),
     isOpening: PropTypes.bool,
-    belongsTo: PropTypes.string
+    belongsTo: PropTypes.string,
+    layout: PropTypes.string
 };
 
 NoteCard.defaultProps = {
@@ -144,7 +155,8 @@ NoteCard.defaultProps = {
         authors: undefined
     },
     isOpening: undefined,
-    belongsTo: undefined
+    belongsTo: undefined,
+    layout: ''
 };
 
 export default NoteCard;

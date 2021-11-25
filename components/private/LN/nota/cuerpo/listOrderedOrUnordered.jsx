@@ -7,15 +7,29 @@ const ListOrderedOrUnordered = ({ data }) => {
         data.list_type === 'ordered' ? 'com-ordered' : 'com-unordered'
     );
 
-    const setExternalLinks = text => {
+    const setExternalLinks = (text = '') => {
         const regex = /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g;
-        return text.replace(regex, match => {
+        const classRegex = /(?:<a)(?:.(?!<\/a>))*?class="(link)"/g;
+        const filteredText = text.replace(classRegex, (fullMatch, group) => {
+            return fullMatch.replace(group, 'com-link');
+        });
+        return filteredText.replace(regex, match => {
             return match.replace(/href=(["'\\])+(.*?)\1/, match => {
-                return match + ` class="com-link"`;
+                return `${match} class="com-link"`;
             });
         });
     };
 
+    const validateList = list => {
+        if (list.some(e => e.type === 'list' || e.content === undefined)) {
+            return false;
+        }
+        return true;
+    };
+
+    if (!validateList(data.items)) {
+        return <></>;
+    }
     return (
         <ul className={classList}>
             {data.items.map(element => (

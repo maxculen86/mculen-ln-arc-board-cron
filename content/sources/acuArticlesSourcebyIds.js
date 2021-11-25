@@ -55,13 +55,12 @@ const fetch = query => {
                 objresponse[key] = value;
             });
 
-            objresponse.count = resultsIds.length;
+            objresponse.count = resultsIds?.length;
             objresponse.next = null;
             return transform(objresponse, query, resultsIds);
         })
         .catch(error => {
             logger.push(error, { source: 'content/source', uri }, arcSite);
-            throw error;
         });
 };
 

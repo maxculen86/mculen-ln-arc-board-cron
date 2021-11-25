@@ -4,6 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import ScriptManager from '../private/common/scriptManager';
 import ScriptLogoBBC from '../private/common/scriptManager/scriptLogoBBC';
 import ScriptVideoPowa from '../private/common/scriptManager/scriptVideoPowa';
+import ScriptVideoPowaHome from '../private/common/scriptManager/scriptVideoPowaHome';
 import GTM from '../private/common/scriptManager/googleTagManager';
 import Comscore from '../private/common/scriptManager/comscore';
 import Microdata from '../private/common/scriptManager/microdata';
@@ -33,12 +34,15 @@ import Syndication from '../private/common/syndication';
 import LinkAmpHTML from '../private/common/linkAmpHTML';
 import { pipe } from '../private/common/utils/functional';
 import PwaModals from '../private/LN/common/pwaModals';
-import ScriptSWG from '../private/common/scriptManager/scriptSWG';
 import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
 import getMetaDescriptionForAcum from '../private/common/utils/getMetaDescriptionForAcum';
 import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 import addForwardSlash from '../private/LN/common/utils/addForwardSlash';
 import AmazonPublisherServices from '../private/common/scriptManager/amazonPublisherServices';
+import FontFaceDefault from '../private/common/fontfaceDefault';
+import CriticalCss from '../private/common/criticalcss';
+import MetaViafoura from '../private/common/metaViafoura';
+import Favicon from '../private/common/favicon';
 
 const scriptList = [
     {
@@ -74,10 +78,6 @@ const scriptList = [
     {
         component: { name: 'Petametrics', function: Petametrics },
         feature: ['LN-nota/tePuedeInteresar']
-    },
-    {
-        component: { name: 'ScriptSWG', function: ScriptSWG },
-        feature: 'none'
     },
     {
         component: { name: 'SocialEmbeds', function: SocialEmbeds },
@@ -125,18 +125,16 @@ const Default = props => {
         Fusion,
         Libs,
         metaValue,
+        layout = '',
         siteProperties,
         renderables,
         globalContent,
         outputType
     } = props;
-    const { layoutsName } = siteProperties;
-    const layOutColumnista = layoutsName.Columnistas;
 
     const {
         canonical_url: canonicalUrl,
         content_elements: contentElements,
-        content_restrictions: { content_code: contentCode } = {},
         headlines,
         description,
         type,
@@ -199,7 +197,7 @@ const Default = props => {
                   nodeType,
                   name,
                   arcSite,
-                  layOutColumnista
+                  layout
               )
             : '';
 
@@ -227,7 +225,14 @@ const Default = props => {
         <html lang="es">
             <head>
                 <meta charset="utf-8" />
+                <meta
+                    name="viewport"
+                    content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
+                />
+                <meta name="theme-color" content="#ffffff" />
                 <title>{title}</title>
+                <Libs />
+                <CriticalCss />
                 {arcSite === 'ott' ? (
                     <link
                         rel="stylesheet"
@@ -238,7 +243,6 @@ const Default = props => {
                 ) : (
                     <CssLinks />
                 )}
-                <Libs />
 
                 {LinkImagePreload()}
 
@@ -269,6 +273,7 @@ const Default = props => {
                     location="head"
                     arcSite={arcSite}
                     Tag="script"
+                    globalContent={globalContent}
                 />
                 <MetasOG
                     {...props}
@@ -318,6 +323,7 @@ const Default = props => {
                     defaultDescription={siteProperties.description}
                     metaDescription={metaDescription}
                 />
+                <MetaViafoura {...props} />
                 <Syndication
                     type={type}
                     arcSite={arcSite}
@@ -326,22 +332,17 @@ const Default = props => {
                     outputType={outputType}
                 />
                 <Schemas section={_nodeType} />
-                <meta
-                    name="viewport"
-                    content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
-                />
-                <link
-                    rel="icon"
-                    type="image/x-icon"
-                    href={deployment(`${contextPath}/resources/favicon.ico`)}
-                />
-                <meta name="theme-color" content="#ffffff" />
+                <Favicon />
                 <link rel="manifest" href="/manifest.json" />
                 <MetasFBNews
                     nodeType={_nodeType}
                     sections={taxonomy && taxonomy.sections}
-                    contentCode={contentCode}
                 />
+                <ScriptVideoPowaHome
+                    renderables={renderables}
+                    section={_nodeType}
+                />
+                <FontFaceDefault outputType={outputType} />
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />
@@ -350,6 +351,7 @@ const Default = props => {
                     location="body-top"
                     arcSite={arcSite}
                     Tag="script"
+                    globalContent={globalContent}
                 />
                 <div id="fusion-app">
                     <Fusion>{children}</Fusion>
@@ -365,6 +367,7 @@ const Default = props => {
                     location="body-bottom"
                     arcSite={arcSite}
                     Tag="script"
+                    globalContent={globalContent}
                 />
                 <ScriptLogoBBC distributorName={distributorName} />
                 <ScriptLogoEvent />

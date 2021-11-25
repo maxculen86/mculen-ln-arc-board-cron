@@ -1,5 +1,3 @@
-'use strict';
-
 import React, { PureComponent } from 'react';
 import Consumer from 'fusion:consumer';
 import get from 'lodash.get';
@@ -8,6 +6,7 @@ function withNavigation(WrappedComponent, filter, website) {
     return Consumer(
         class extends PureComponent {
             state = { navigations: null };
+
             constructor(props) {
                 super(props);
                 this.getNavigation();
@@ -17,7 +16,7 @@ function withNavigation(WrappedComponent, filter, website) {
                 const { cached, fetched } = this.getContent({
                     sourceName: 'navigationSource',
                     query: {
-                        website: website,
+                        website,
                         hierarchy: this.props.hierarchy
                     },
                     filter

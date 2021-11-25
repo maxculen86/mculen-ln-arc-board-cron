@@ -3,7 +3,6 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-// import BannerComponent from '../../../private/LN/common/bannerRefactor';
 import Placeholder from '../../../private/common/banners/placeholder';
 
 import {

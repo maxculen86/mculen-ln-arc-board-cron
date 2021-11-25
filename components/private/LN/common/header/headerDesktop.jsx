@@ -7,16 +7,15 @@ import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import PropTypes from 'prop-types';
 import Header from './headerBase';
 import Hamburguer from './hamburger';
-// import ComLink from '../../../common/com-link';
-// import ComLogo from '../../../common/com-logo';
 import ComIcon from '../../../common/com-icon';
-import Logo from '../../../common/com-logo';
+import LogoLN from '../../../common/logos/logoLN';
 
 import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../../../../resources/dist/css/ln/components/usuario.css';
 import '../../../../../resources/dist/css/ln/components/button.css';
 import dynamicallyLoadScript from '../utils/dynamicallyLoadScript';
 import BannerLogoHeader from '../../../common/banners/BannerLogoHeader';
+import handleCookie from '../utils/handleCookie';
 
 const ItemAnchor = ({ url, text, alt }) => {
     const callURL = address => {
@@ -75,6 +74,9 @@ const HeaderDesktop = ({
     isAdmin
 }) => {
     const { loading, goToLoginUrl } = loginData;
+    const { getCookie } = handleCookie();
+
+    const [token, setToken] = useState(getCookie('token'));
     const [active, setActive] = useState('');
     const [loadingUserData, setLoadingUserData] = useState(
         loading ? ' hlp-none' : ''
@@ -85,41 +87,45 @@ const HeaderDesktop = ({
 
     useEffect(() => {
         setLoadingUserData(loading ? ' hlp-none' : '');
-    }, [loading]);
+        setToken(getCookie('token'));
+    }, [loading, getCookie]);
 
     const handleClickBuscar = () => {
-        dynamicallyLoadScript('//www.queryly.com/js/queryly.v4.js', 'body')
-            .then(() => {
-                const initScript = document.createElement('script');
-                initScript.innerHTML = `queryly.init('8075c0c1c4c44847', document.querySelectorAll('#fusion-app'));`;
-                document.body.appendChild(initScript);
-                document.getElementById('querylyButton').click();
-            })
-            .catch(() => {
-                // console.error('Script loading failed! Handle this error', error);
-            });
+        dynamicallyLoadScript(
+            '//www.queryly.com/js/queryly.v4.js',
+            'body'
+        ).then(() => {
+            const initScript = document.createElement('script');
+            initScript.innerHTML = `queryly.init('8075c0c1c4c44847', document.querySelectorAll('#fusion-app'));`;
+            document.body.appendChild(initScript);
+            document.getElementById('querylyButton').click();
+        });
     };
 
     return (
-        <Header id="header" className="header">
-            <div className="col-4 header__left">
-                <Hamburguer _onMouseDown={toglleDesplegable} />
-                <label
-                    onClick={handleClickBuscar}
-                    id="querylyButton"
-                    htmlFor="queryly_toggle"
-                    title="Ir al buscador"
-                >
-                    <i className="com-button --tertiary --icon queryly_searchicon">
-                        <ComIcon iconName="search" />
-                        BUSCAR
-                    </i>
-                    {/* <i style={{float:'right', color:'#0074c4',position:'absolute', top: '5px', cursor: 'pointer'}} className="icon-search queryly_searchicon"></i> */}
-                </label>
-            </div>
-            <div className="col-7 col-desksm-4 header__middle">
-                <BannerLogoHeader section={section} isAdmin={isAdmin} />
-                <Logo
+        <>
+            <a href="#content" className="reader-only">
+                Ir al contenido
+            </a>
+            <Header id="header" className="header">
+                <div className="col-4 header__left">
+                    <Hamburguer _onMouseDown={toglleDesplegable} />
+                    <label
+                        onClick={handleClickBuscar}
+                        id="querylyButton"
+                        htmlFor="queryly_toggle"
+                        title="Ir al buscador"
+                    >
+                        <i className="com-button --tertiary --icon queryly_searchicon">
+                            <ComIcon iconName="search" />
+                            BUSCAR
+                        </i>
+                        {/* <i style={{float:'right', color:'#0074c4',position:'absolute', top: '5px', cursor: 'pointer'}} className="icon-search queryly_searchicon"></i> */}
+                    </label>
+                </div>
+                <div className="col-7 col-desksm-4 header__middle">
+                    <BannerLogoHeader section={section} isAdmin={isAdmin} />
+                    {/* <Logo
                     logoName="la-nacion"
                     classCondition="nacion-home"
                     color
@@ -127,108 +133,112 @@ const HeaderDesktop = ({
                     href={isHome ? '#' : `${host}/`}
                     target="_top"
                     title="Ir a la página principal"
-                />
-            </div>
-            <div className="col-4 header__right">
-                <div
-                    id="user-menu"
-                    className={`com-usuario${active}${loadingUserData}`}
-                >
-                    {!loginData.subscription && typeof window !== 'undefined' && (
-                        // <button
-                        //     className="com-button --special"
-                        //     id="btnsuscribite"
-                        //     type="button"
-                        //     title="Suscribite"
-                        //     onClick={() => {
-                        //         location.href =
-                        //             `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
-                        //                 location.href
-                        //             )}` || '/';
-                        //     }}
-                        // >
-                        //     SUSCRIBITE
-                        // </button>
-
-                        <a
-                            className="com-button --special"
-                            id="btnsuscribite"
-                            title="Suscribite a LA NACION"
-                            href={`${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
-                                location.href
-                            )}`}
-                            rel="nofollow"
-                        >
-                            SUSCRIBITE
-                        </a>
-                    )}
-                    {logueado && (
-                        <div
-                            onMouseUp={toggleMenu}
-                            tabIndex="0"
-                            role="button"
-                            id="menuUser"
-                            onBlur={() => setActive('')}
-                            onScroll={() => setActive('')}
-                        >
-                            <p
-                                className="com-usuario__name"
-                                title="Ir al menú de suscriptor o suscriptora digital"
-                            >
-                                {loginData.userName}
-                            </p>
-                            {loginData.subscription ? (
-                                <p className="com-usuario__valueSuscrib">
-                                    Suscriptor digital
-                                </p>
-                            ) : (
-                                <p className="com-usuario__valueSuscrib">
-                                    Sin suscripción digital
-                                </p>
-                            )}
-                            <ul className="com-desplegable">
-                                {enlaces.map(({ url, text }) => (
-                                    <ItemAnchor
-                                        key={text}
-                                        url={url}
-                                        text={text}
-                                    />
-                                ))}
-                                <li>
-                                    <a
-                                        data-event="LinkClick"
-                                        data-section="MenuLN"
-                                        href="javascript:void(0);"
-                                        title="Desloguearse"
-                                        onMouseDown={() => {
-                                            goToLogout();
-                                        }}
-                                    >
-                                        Salir
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    )}
-                    {!logueado && (
-                        <button
-                            className="com-button --secondary"
-                            id="btningresar"
-                            onClick={() => goToLoginUrl()}
-                            type="button"
-                            title="Ingresar"
-                        >
-                            INGRESAR
-                        </button>
-                    )}
+                /> */}
+                    <LogoLN />
                 </div>
-            </div>
-            <div className="col-1 header__search">
-                <label onClick={handleClickBuscar} htmlFor="queryly_toggle">
-                    <i className="com-icon icon-search queryly_searchicon" />
-                </label>
-            </div>
-        </Header>
+                <div className="col-4 header__right">
+                    <div
+                        id="user-menu"
+                        className={`com-usuario${active} ${!token &&
+                            loadingUserData}`}
+                    >
+                        {!loginData.subscription &&
+                            typeof window !== 'undefined' && (
+                                // <button
+                                //     className="com-button --special"
+                                //     id="btnsuscribite"
+                                //     type="button"
+                                //     title="Suscribite"
+                                //     onClick={() => {
+                                //         location.href =
+                                //             `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
+                                //                 location.href
+                                //             )}` || '/';
+                                //     }}
+                                // >
+                                //     SUSCRIBITE
+                                // </button>
+
+                                <a
+                                    className={`com-button --special${loadingUserData}`}
+                                    id="btnsuscribite"
+                                    title="Suscribite a LA NACION"
+                                    href={`${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
+                                        location.href
+                                    )}`}
+                                    rel="nofollow"
+                                >
+                                    SUSCRIBITE
+                                </a>
+                            )}
+                        {(logueado || token) && (
+                            <div
+                                onMouseUp={toggleMenu}
+                                tabIndex="0"
+                                role="button"
+                                id="menuUser"
+                                onBlur={() => setActive('')}
+                                onScroll={() => setActive('')}
+                            >
+                                <p
+                                    className="com-usuario__name"
+                                    title="Ir al menú de suscriptor o suscriptora digital"
+                                >
+                                    {loginData.userName}
+                                </p>
+                                {loginData.subscription ? (
+                                    <p className="com-usuario__valueSuscrib">
+                                        Suscriptor digital
+                                    </p>
+                                ) : (
+                                    <p className="com-usuario__valueSuscrib">
+                                        Sin suscripción digital
+                                    </p>
+                                )}
+                                <ul className="com-desplegable">
+                                    {enlaces.map(({ url, text }) => (
+                                        <ItemAnchor
+                                            key={text}
+                                            url={url}
+                                            text={text}
+                                        />
+                                    ))}
+                                    <li>
+                                        <a
+                                            data-event="LinkClick"
+                                            data-section="MenuLN"
+                                            href="javascript:void(0);"
+                                            title="Desloguearse"
+                                            onMouseDown={() => {
+                                                goToLogout();
+                                            }}
+                                        >
+                                            Salir
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        )}
+                        {!token && (
+                            <button
+                                className="com-button --secondary"
+                                id="btningresar"
+                                onClick={() => goToLoginUrl()}
+                                type="button"
+                                title="Ingresar"
+                            >
+                                INGRESAR
+                            </button>
+                        )}
+                    </div>
+                </div>
+                <div className="col-1 header__search">
+                    <label onClick={handleClickBuscar} htmlFor="queryly_toggle">
+                        <i className="com-icon icon-search queryly_searchicon" />
+                    </label>
+                </div>
+            </Header>
+        </>
     );
 };
 
@@ -248,9 +258,5 @@ HeaderDesktop.propTypes = {
     toglleDesplegable: PropTypes.func.isRequired,
     section: PropTypes.string.isRequired
 };
-
-// HeaderDesktop.defaultProps = {
-//     headerDark: ''
-// };
 
 export default HeaderDesktop;

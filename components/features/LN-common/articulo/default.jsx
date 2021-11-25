@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import { useAppContext } from 'fusion:context';
@@ -14,12 +15,13 @@ import PageBuilderMessage from '../../../private/LN/home/common/components/pageB
 import filter from '../../../../content/filters/LN/nota/articleAcu';
 import featureArticleCustomsFields from '../../../private/LN/common/utils/articuloHelper';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
+import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
 
 const ArticleFeature = ({
     id: featureId,
     customFields,
     searchableField,
-    customFields: { noteId: id, imageId },
+    customFields: { noteId: id, imageId, video: videoId },
     isBomba = false
 }) => {
     const {
@@ -38,17 +40,26 @@ const ArticleFeature = ({
         imageConfig
     } = getCajaTemaConfig(featureId, renderables, cajaTemaConfig, isBomba);
 
-    const article = useContent({
-        source: 'articleSourceNota',
-        query: { id, published: true, imageConfig },
-        filter
-    });
+    const article =
+        id &&
+        useContent({
+            source: 'articleSourceNota',
+            query: { id: id.trim(), published: true, imageConfig },
+            filter
+        });
+
+    const videoBackground =
+        videoId &&
+        useContent({
+            source: 'videoSource',
+            query: { id: videoId.trim(), website: 'la-nacion-ar' }
+        });
 
     const image =
         imageId &&
         useContent({
             source: 'relatedImageSource',
-            query: { id: imageId, published: true, imageConfig }
+            query: { id: imageId.trim(), published: true, imageConfig }
         });
 
     const error = validateArticleFeature(id, article);
@@ -92,8 +103,11 @@ const ArticleFeature = ({
                     layoutsName,
                     layoutPageBuilder
                 )}
+                videoBackground={videoBackground}
+                isPowa={layout !== 'grilla1'}
             />
-        )) || <></>
+        )) ||
+        getPlaceholder(layout, index)
     );
 };
 

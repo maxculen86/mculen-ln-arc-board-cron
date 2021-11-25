@@ -2,10 +2,10 @@
 @import '../abstracts/mixins';
 
 .com-lead {
-    color: $light-blue-500;
-    padding-right: px(6);
+    color: $blue-500;
+    // padding-right: px(6); by Xime
     font-style: normal;
-    display: inline-flex;
+    display: inline;
     .--bomba.--bomba &,
     .--highlight.--highlight & {
         color: $neutral-white;

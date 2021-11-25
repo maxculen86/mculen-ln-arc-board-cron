@@ -4,7 +4,6 @@ const dynamicallyLoadScript = (script, section) => {
         const baseScript = document.createElement('script');
         baseScript.src = script;
         document[section].appendChild(baseScript);
-        // return true;
         return new Promise((res, rej) => {
             baseScript.onload = () => {
                 res();

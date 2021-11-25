@@ -3,7 +3,7 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
-import get from 'lodash.get';
+import get from '../utils/get';
 import getAuthorByline from '../utils/getAuthorByline';
 
 class LiftIgniter extends Component {
@@ -35,6 +35,7 @@ class LiftIgniter extends Component {
             label,
             content_elements: contentElements = [],
             credits,
+            display_date: displayDate,
             _id,
             headlines
         } = globalContent || {};
@@ -43,21 +44,46 @@ class LiftIgniter extends Component {
         const { name: tematica } = primarySection || {};
         const { by: authors = [] } = credits || {};
         const recomendar = get(label, 'recomendar.text', 'Si');
-        const title = get(headlines, 'mobile') || get(headlines, 'basic') || '';
-
+        const titleShort = get(headlines, 'mobile', '');
+        const title = get(headlines, 'basic', '');
+        const leadText = get(label, 'volanta.text', '');
         const scriptRum = `
-            window.addEventListener('DOMContentLoaded', (event) => {
-                if (typeof $igniter_var === 'undefined') {
-                    !function n(t,c,o,r,a,i,e,s,f){f=null!=t[o]&&"function"==typeof t[o].now?t[o].now():null,t.$igniter_var=i,t[i]=t[i]||function(){(t[i].q=t[i].q||[]).push(arguments)},e=c.getElementsByTagName(r)[0],(s=c.createElement(r)).async=1,"//cdn"==a?(t[i].s=f,s.onerror=function(e){t[i].e=e,n(t,c,o,r,a+"-fallback",i)}):t[i].r=f,s.src=a+".petametrics.com/8561ps8ov66e7mim.js?ts="+(new Date/36e5|0),e.parentNode.insertBefore(s,e)}(window,document,"performance","script","//cdn","$p");
-                    $p('init', "8561ps8ov66e7mim");
-                    $p('send', "pageview");
-                  }
+            window.addEventListener("DOMContentLoaded", (event) => {
+                if (typeof $igniter_var === "undefined") {
+                !(function n(t, c, o, r, a, i, e, s, f) {
+                    (f = null != t[o] && "function" == typeof t[o].now ? t[o].now() : null),
+                    (t.$igniter_var = i),
+                    (t[i] =
+                        t[i] ||
+                        function () {
+                        (t[i].q = t[i].q || []).push(arguments);
+                        }),
+                    (e = c.getElementsByTagName(r)[0]),
+                    ((s = c.createElement(r)).async = 1),
+                    "//cdn" == a
+                        ? ((t[i].s = f),
+                        (s.onerror = function (e) {
+                            (t[i].e = e), n(t, c, o, r, a + "-fallback", i);
+                        }))
+                        : (t[i].r = f),
+                    (s.src =
+                        a +
+                        ".petametrics.com/8561ps8ov66e7mim.js?ts=" +
+                        ((new Date() / 36e5) | 0)),
+                    e.parentNode.insertBefore(s, e);
+                })(window, document, "performance", "script", "//cdn", "$p");
+                $p("init", "8561ps8ov66e7mim");
+                $p("send", "pageview");
+                }
             });
         `;
 
         const script = {
             id: _id,
             title,
+            titleShort,
+            leadText,
+            published_time: displayDate,
             noShow: recomendar !== 'Si',
             noIndex: false,
             tematica,

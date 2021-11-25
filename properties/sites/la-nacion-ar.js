@@ -15,12 +15,12 @@ export default {
     longTitle: 'Últimas noticias de Argentina y el mundo - LA NACION',
     title: 'LA NACION',
     description:
-        'Todas las noticias de Argentina y el mundo: últimas noticias en actualidad, deportes, coronavirus, economía, política, y tecnología. Mantenete informado sobre las novedades de Argentina en LA NACION.',
+        'Todas las noticias de Argentina y el mundo: últimas noticias en actualidad, deportes, coronavirus, economía, política, y tecnología.' +
+        ' Mantenete informado sobre las novedades de Argentina en LA NACION.',
     className: {
         body: 'ln'
     },
     host: 'https://www.lanacion.com.ar',
-    loggerOn: true,
     loggerExcludedErrors: [404, 301, 302],
     scripts: {
         AmazonPublisherServices: {
@@ -52,10 +52,7 @@ export default {
             props: {
                 config: {
                     c1: '2',
-                    c2: '6906398',
-                    c3: 'LANACION.COM.AR',
-                    c4: '*null',
-                    c6: '*null'
+                    c2: '6906398'
                 }
             },
             location: ['head']
@@ -100,11 +97,11 @@ export default {
             props: {},
             location: ['head']
         },
-        ScriptSWG: {
+        Queryly: {
             props: {},
             location: ['body-bottom']
         },
-        Queryly: {
+        Viafoura: {
             props: {},
             location: ['body-bottom']
         }
@@ -1327,7 +1324,8 @@ export default {
                         [920, 100]
                     ],
                     targeting: targetingNota,
-                    closeButton: true
+                    closeButton: true,
+                    hideForSubscriptor: true
                 },
                 megatop_dsk: {
                     slotName: 'la_nacion_desktop/Nota/megatop_dsk',
@@ -1337,7 +1335,8 @@ export default {
                 '1x1_dsk': {
                     slotName: 'la_nacion_desktop/Nota/1x1_dsk',
                     dimensions: [[1, 1]],
-                    targeting: targetingNota
+                    targeting: targetingNota,
+                    hideForSubscriptor: true
                 },
                 cabezal_dsk: {
                     slotName: 'la_nacion_desktop/Nota/cabezal_dsk',
@@ -1441,6 +1440,7 @@ export default {
                         [468, 60]
                     ],
                     targeting: targetingNota,
+                    hideForSubscriptor: true,
                     bidding: {
                         prebid: {
                             enabled: true
@@ -1457,6 +1457,7 @@ export default {
                         [1, 1]
                     ],
                     targeting: targetingNota,
+                    hideForSubscriptor: true,
                     bidding: {
                         prebid: {
                             enabled: true
@@ -1473,6 +1474,7 @@ export default {
                         [1, 1]
                     ],
                     targeting: targetingNota,
+                    hideForSubscriptor: true,
                     bidding: {
                         prebid: {
                             enabled: true
@@ -1502,7 +1504,8 @@ export default {
                     slotName: 'la_nacion_mobile/Nota/adhesion_mob',
                     dimensions: [[320, 50]],
                     targeting: targetingNota,
-                    closeButton: true
+                    closeButton: true,
+                    hideForSubscriptor: true
                 },
                 megatop_mob: {
                     slotName: 'la_nacion_mobile/Nota/megatop_mob',
@@ -1512,7 +1515,8 @@ export default {
                 '1x1_mob': {
                     slotName: 'la_nacion_mobile/Nota/1x1_mob',
                     dimensions: [[1, 1]],
-                    targeting: targetingNota
+                    targeting: targetingNota,
+                    hideForSubscriptor: true
                 },
                 sticky1_mob: {
                     slotName: 'la_nacion_mobile/Nota/sticky1_mob',
@@ -1554,6 +1558,7 @@ export default {
                 caja2_mob: {
                     slotName: 'la_nacion_mobile/Nota/caja2_mob',
                     withoutHide: true,
+                    hideForSubscriptor: true,
                     dimensions: [
                         [1, 1],
                         [300, 250],
@@ -1639,7 +1644,8 @@ export default {
                     device: 'tab',
                     slotName: 'la_nacion_tablet/Nota/1x1_tab',
                     dimensions: [[1, 1]],
-                    targeting: targetingNota
+                    targeting: targetingNota,
+                    hideForSubscriptor: true
                 },
                 cabezal_tab: {
                     device: 'tab',
@@ -1658,7 +1664,8 @@ export default {
                     slotName: 'la_nacion_tablet/Nota/adhesion_tab',
                     dimensions: [[728, 90]],
                     targeting: targetingNota,
-                    closeButton: true
+                    closeButton: true,
+                    hideForSubscriptor: true
                 },
                 caja1_tab: {
                     device: 'tab',
@@ -1767,6 +1774,10 @@ export default {
                 caja3_amp: {
                     slotName: '/133919216/AMP/ROS/caja3_amp',
                     dimensions: [[300, 250]]
+                },
+                caja4_amp: {
+                    slotName: '/133919216/AMP/ROS/caja4_amp',
+                    dimensions: [[300, 250]]
                 }
             }
         },
@@ -1800,7 +1811,9 @@ export default {
                         [920, 100],
                         [728, 90]
                     ],
-                    targeting: targetingAcumulado
+                    targeting: targetingAcumulado,
+                    hideForSubscriptor: true,
+                    closeButton: true
                 },
                 caja1_dsk: {
                     slotName: `la_nacion_desktop/Acumulado/caja1_dsk`,
@@ -1876,7 +1889,9 @@ export default {
                 adhesion_mob: {
                     slotName: `la_nacion_mobile/Acumulado/adhesion_mob`,
                     dimensions: [[320, 50]],
-                    targeting: targetingAcumulado
+                    targeting: targetingAcumulado,
+                    hideForSubscriptor: true,
+                    closeButton: true
                 },
                 caja1_mob: {
                     slotName: `la_nacion_mobile/Acumulado/caja1_mob`,
@@ -1947,7 +1962,9 @@ export default {
                 adhesion_tab: {
                     slotName: `la_nacion_tablet/Acumulado/adhesion_tab`,
                     dimensions: [[728, 90]],
-                    targeting: targetingAcumulado
+                    targeting: targetingAcumulado,
+                    hideForSubscriptor: true,
+                    closeButton: true
                 },
                 caja1_tab: {
                     slotName: `la_nacion_tablet/Acumulado/caja1_tab`,
@@ -1982,7 +1999,8 @@ export default {
                 '1x1_dsk': {
                     slotName: `la_nacion_desktop/Home/1x1_dsk`,
                     dimensions: [[1, 1]],
-                    targeting: targetingHome
+                    targeting: targetingHome,
+                    hideForSubscriptor: true
                 },
                 cabezal_dsk: {
                     slotName: `la_nacion_desktop/Home/cabezal_dsk`,
@@ -2003,7 +2021,8 @@ export default {
                         [728, 90],
                         [1, 1]
                     ],
-                    targeting: targetingHome
+                    targeting: targetingHome,
+                    hideForSubscriptor: true
                 },
                 caja1_dsk: {
                     slotName: `la_nacion_desktop/Home/caja1_dsk`,
@@ -2129,7 +2148,8 @@ export default {
                 adhesion_mob: {
                     slotName: `la_nacion_mobile/Home/adhesion_mob`,
                     dimensions: [[320, 50]],
-                    targeting: targetingHome
+                    targeting: targetingHome,
+                    hideForSubscriptor: true
                 },
                 caja1_mob: {
                     slotName: `la_nacion_mobile/Home/caja1_mob`,
@@ -2198,7 +2218,8 @@ export default {
                 '1x1_mob': {
                     slotName: `la_nacion_mobile/Home/1x1_mob`,
                     dimensions: [[1, 1]],
-                    targeting: targetingHome
+                    targeting: targetingHome,
+                    hideForSubscriptor: true
                 }
             },
             tablet: {
@@ -2223,7 +2244,8 @@ export default {
                 adhesion_tab: {
                     slotName: `la_nacion_tablet/Home/adhesion_tab`,
                     dimensions: [[728, 90]],
-                    targeting: targetingHome
+                    targeting: targetingHome,
+                    hideForSubscriptor: true
                 },
                 caja1_tab: {
                     slotName: `la_nacion_tablet/Home/caja1_tab`,
@@ -2394,6 +2416,10 @@ export default {
                     imageConfig: 'boxArticlesSingleArticle'
                 }
             }
+        },
+        grillaVideo1: {
+            className: '--grilla --video',
+            articles: []
         },
         grilla2: {
             className: '',

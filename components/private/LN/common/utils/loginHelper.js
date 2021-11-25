@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-underscore-dangle */
-// import { useContext } from 'react';
 import { RELOGIN_VALIDATION } from 'fusion:environment';
 import handleCookie from './handleCookie';
 import apiIngresar from '../../../common/services/apIngresar';
@@ -35,6 +34,11 @@ export const goToLogout = dispatch => {
     });
 
     if (['undefined'].indexOf(typeof fyre)) fyre.conv.logout();
+
+    window &&
+        window.viafoura &&
+        window.viafoura.session &&
+        window.viafoura.session.logout();
 };
 
 const convertTo24Hour = time => {
@@ -89,9 +93,6 @@ const mustRelogin = () => {
         if (syncValue !== '') {
             const syncDate = new Date(syncValue);
             if (isNaN(syncDate)) {
-                /* 
-                        Logger.Error(`Relogin | SyncDate Invalid Date => ${  syncValue}`, e); 
-                    */
                 return false;
             }
             if (
@@ -103,12 +104,6 @@ const mustRelogin = () => {
 
         return result;
     } catch (e) {
-        // TODO: Se deja la siguiente funcion para futuro looger
-        /* Logger.Error('Relogin | MustRelogin - Error restando fechas', {
-                syncValue: syncValue,
-                Date: new Date()
-            }); */
-
         return false;
     }
 };
@@ -136,8 +131,6 @@ const setUserData = (res, dispatch) => {
         const { UsuarioDetalleEmail, ProductoPremiumId } = tryParseJSON(
             res.response
         );
-        // const ProductoPremiumId = getCookie('ProductoPremiumId');
-        // const UsuarioDetalleEmail = getCookie('usuarioemail');
 
         const subscription = ProductoPremiumId
             ? ProductoPremiumId.includes('2')
@@ -264,8 +257,6 @@ export const loginSetup = dispatch => {
             });
             return;
         }
-
-        // goToLogout(dispatch);
     }
 
     const ProductoPremiumId = getCookie('ProductoPremiumId');

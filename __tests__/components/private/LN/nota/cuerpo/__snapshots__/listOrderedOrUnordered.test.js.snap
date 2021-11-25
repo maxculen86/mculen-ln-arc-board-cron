@@ -7,12 +7,120 @@ exports[`features - LaNacion - Nota - unordered Test de snapshot ListOrderedOrUn
   <li
     class="com-item"
   >
-    hola
+    hola 
+    <a
+      class="com-link"
+      href="https://www.lanacion.com.ar/politica/alberto-fernandez-vicentin-nid2376255"
+    >
+      intervenir una compañía
+    </a>
   </li>
   <li
     class="com-item"
   >
-    chau
+    chau 
+    <a
+      class="com-link"
+      href="https://www.lanacion.com.ar/politica/alberto-fernandez-vicentin-nid2376255"
+    >
+      intervenir una compañía
+    </a>
+  </li>
+  <li
+    class="com-item"
+  >
+    <a
+      class="com-link"
+      href="https://lac.wetlands.org/"
+      target="_blank"
+    >
+      <mark
+        class="hl_yellow"
+      >
+        <b>
+          Fundación Humedales/Wetlands International:
+        </b>
+      </mark>
+    </a>
+    <mark
+      class="hl_yellow"
+    >
+      <b>
+         
+      </b>
+    </mark>
+    <a
+      class="com-link"
+      href="https://twitter.com/fundachumedales?lang=en"
+      target="_blank"
+    >
+      Twitter 
+    </a>
+    / 
+    <a
+      class="com-link"
+      href="https://es-la.facebook.com/fundacion.humedales/"
+      target="_blank"
+    >
+      Facebook
+    </a>
+     / Instagram. Por el Día de los Humedales, junto al Museo Scasso lanzó 
+    <a
+      class="com-link"
+      href="https://www.youtube.com/watch?v=xl0lgozO_HU&feature=youtu.be"
+      target="_blank"
+    >
+      este video
+    </a>
+  </li>
+  <li
+    class="com-item"
+  >
+    <a
+      class="com-link"
+      href="https://lac.wetlands.org/"
+      target="_blank"
+    >
+      <mark
+        class="hl_yellow"
+      >
+        <b>
+          Fundación Humedales/Wetlands International:
+        </b>
+      </mark>
+    </a>
+    <mark
+      class="hl_yellow"
+    >
+      <b>
+         
+      </b>
+    </mark>
+    <a
+      class="com-link"
+      href="https://twitter.com/fundachumedales?lang=en"
+      target="_blank"
+    >
+      Twitter 
+    </a>
+    / 
+    <a
+      class="com-link"
+      href="https://es-la.facebook.com/fundacion.humedales/"
+      target="_blank"
+    >
+      Facebook
+    </a>
+     / Instagram. Por el Día de los Humedales, junto al Museo Scasso lanzó 
+    <a
+      class="com-link"
+      href="https://www.youtube.com/watch?v=xl0lgozO_HU&feature=youtu.be"
+      target="_blank"
+    >
+      este video
+    </a>
   </li>
 </ul>
 `;
+
+exports[`features - LaNacion - Nota - unordered wrong list Should not render wrong lists example: nested lists 1`] = `null`;

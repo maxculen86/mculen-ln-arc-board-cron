@@ -38,6 +38,7 @@ exports[`getBannerConfiguration => Deberia traer la configuracion del adhesion_m
     data-size="[[320,50]]"
     data-sizemap="[]"
     data-slot-group="nota"
+    data-subscription="false"
     data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
     data-without-hide="false"
     id="adhesion_mob"

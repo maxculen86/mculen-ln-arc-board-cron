@@ -97,8 +97,7 @@ const LNMapaDelSitio = ({ children }) => {
             text: 'Sociales',
             href:
                 'https://servicios.lanacion.com.ar/edicion-impresa/avisos-sociales'
-        },
-        { text: 'Humor', href: 'https://www.lanacion.com.ar/humor' }
+        }
     ];
 
     const listado6 = [
@@ -239,10 +238,6 @@ const LNMapaDelSitio = ({ children }) => {
             text: 'Fundación LA NACION',
             href: 'https://fundacionlanacion.org.ar/'
         },
-        {
-            text: 'Avisos solidarios',
-            href: 'http://solidarios.lanacion.com.ar/'
-        },
         { text: 'HOP', href: 'https://www.hopenvios.com.ar/' }
     ];
 
@@ -262,7 +257,7 @@ const LNMapaDelSitio = ({ children }) => {
                         />
                     </div>
                 </header>
-                <main>
+                <main id="content">
                     <div className="lay">
                         <Title tag="h1" size="--l" content="Mapa del sitio" />
                         <div className="row">
