@@ -1,7 +1,13 @@
-jest.mock(
-    '../../../../components/private/common/com-title',
-    () => 'mock-com-title'
-);
+import React from 'react';
+import ModDolar from '../../../../components/private/common/mod-dolar';
+import API_RESPONSE from '../../../../__mocks__/data/apiDolar/apiDolar';
+import { shallow } from 'enzyme';
+
+jest.mock('fusion:consumer', Component => {
+    return function(Component) {
+        return props => <Component {...props} />;
+    };
+});
 
 jest.mock(
     '../../../../components/private/common/com-link',
@@ -13,38 +19,16 @@ jest.mock(
     () => 'mock-com-image'
 );
 
-import React from 'react';
-import ModDolar from '../../../../components/private/common/mod-dolar';
-import ComTitle from '../../../../components/private/common/com-title';
-import ComLink from '../../../../components/private/common/com-link';
-import ComImage from '../../../../components/private/common/com-image';
-import API_RESPONSE from '../../../../__mocks__/data/apiDolar/apiDolar';
-
-import { shallow, mount, render } from 'enzyme';
-
-describe('Private - Common - ModDolar =>', () => {
-    describe('with empty data list ', () => {
-        const wrapper1 = shallow(<ModDolar />);
-        const wrapper2 = shallow(<ModDolar data={[]} />);
-
-        expect(wrapper1.html() && wrapper2.html()).toBeNull();
-    });
-});
-
 describe('with data list', () => {
     const { data, imageUrl } = API_RESPONSE;
     const wrapper = shallow(<ModDolar {...API_RESPONSE} />);
     const result = wrapper.first();
-    const ulTag = result.find('ul');
-    const liTags = result.find('li');
+    const ulTag = result.find('div');
     const strongTag = result.find('strong');
-    const titleComponent = result.find('mock-com-title');
-    const linkComponent = result.find('mock-com-link');
 
-    it('should render ul tag with "mod-dolar" className with 4 li tags', () => {
-        const { className } = ulTag.props();
-        expect(ulTag.exists()).toBeTruthy();
-        expect(liTags.length).toBe(4);
+    it.only('should render div tag with "mod-dolar" className with 4 li tags', () => {
+        const { className } = result.props();
+
         expect(className).toContain('mod-dolar');
     });
 
@@ -86,7 +70,7 @@ describe('with data list', () => {
                     const buyValue = spanTags.at(1).prop('children')[1];
                     expect(titleComponent.exists()).toBeTruthy();
                     expect(titleComponent.prop('content')).toBe(title);
-                    expect(titleComponent.prop('size')).toBe('--xs');
+                    expect(titleComponent.prop('size')).toBe('--twoxs');
                     expect(titleComponent.prop('tag')).toBe('h2');
                     expect(spanTags.length).toBe(2);
                     expect(spanTags.at(0).html()).toContain(saleValue);

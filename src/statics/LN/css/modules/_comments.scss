@@ -166,8 +166,8 @@
     .vf-content-focus-container--default {
         .vf-button.is-cta {
             &.is-accent-color:not([disabled]) {
-                background-color: $light-blue-500;
-                border-color: $light-blue-500;
+                background-color: $blue-500;
+                border-color: $blue-500;
             }
             .vf-loader-button__content {
                 text-indent: -9999999px;
@@ -202,8 +202,8 @@
 
             &:hover,
             &.is-inverted {
-                border-color: $light-blue-500;
-                color: $light-blue-500;
+                border-color: $blue-500;
+                color: $blue-500;
             }
             svg {
                 fill: white;
