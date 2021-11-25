@@ -70,7 +70,7 @@
     color: $blanco;
     text-align: left;
     font-size: 0.8rem;
-    line-height: 1.1.8rem;
+    line-height: 1.8rem;
     max-height: 2.5rem;
     padding: 0;
     overflow: hidden;
@@ -109,7 +109,6 @@ section > article > .figure:before {
 }
 
 .programas .article .figure:after {
-    content: '';
     position: absolute;
     top: 0;
     bottom: 0;
