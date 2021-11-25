@@ -169,6 +169,7 @@
                         flex-wrap: wrap;
                         font-weight: 700;
                         font-size: 16px;
+                        position: relative;
 
                         &.item--active {
                             background: #f2f2f2;
@@ -263,11 +264,7 @@
                                 }
                             }
                         }
-                        position: relative;
 
-                        .link__item {
-                            color: $neutral-black;
-                        }
                         &:hover {
                             background: #f2f2f2;
                             .link__item {
@@ -294,6 +291,7 @@
                             }
                         }
                         .link__item {
+                            color: $neutral-black;
                             border-bottom: 1px solid #d9d9d9;
                             height: 50px;
                             @media (min-width: 769px) {
@@ -345,21 +343,6 @@
                                 width: 100%;
                             }
                         }
-                        &.item--disabled {
-                            .sublist__nav {
-                                display: none;
-                            }
-                        }
-
-                        @media (min-width: 769px) {
-                            &.has--children {
-                                &:hover {
-                                    .sublist__nav {
-                                        display: block;
-                                    }
-                                }
-                            }
-                        }
 
                         &.item--disabled {
                             &:hover {
@@ -379,6 +362,19 @@
                                             rgba(189, 189, 189, 1);
                                         box-shadow: -1px 2px 5px 0px
                                             rgba(189, 189, 189, 1);
+                                    }
+                                }
+                            }
+                            .sublist__nav {
+                                display: none;
+                            }
+                        }
+
+                        @media (min-width: 769px) {
+                            &.has--children {
+                                &:hover {
+                                    .sublist__nav {
+                                        display: block;
                                     }
                                 }
                             }
