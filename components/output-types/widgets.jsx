@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { SITE_LANACION } from 'fusion:environment';
-import FontFace from '../private/common/fontface';
+//import FontFace from '../private/common/fontface';
 
 const TAGS_BY_WIDGET = {
     viafoura: globalContent => {
@@ -31,13 +31,21 @@ const TAGS_BY_WIDGET = {
                         name="viewport"
                         content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                     />,
-                    <FontFace outputType="default" />,
+                    // <FontFace outputType="default" />,
+                    <link
+                        rel="preload"
+                        href="/pf/resources/fonts/suecaslab-bold-webfont.woff2?d=613"
+                        as="font"
+                        crossorigin="anonymous"
+                    />,
                     <style
                         dangerouslySetInnerHTML={{
                             __html: `
                             .widget {
-                                padding: 0 16px;
-                            }`
+                                padding: 32px 16px 0;
+                            }
+                            @font-face {font-family:'SuecaSlab';src:url('/pf/resources/fonts/suecaslab-bold-webfont.woff2?d=613') format('woff2');font-weight: 700;font-style: normal;font-display: swap;}
+                            `
                         }}
                     />
                 ],
