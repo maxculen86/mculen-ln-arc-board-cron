@@ -3,7 +3,7 @@ import urlForPrerollAds from '../../../../../../components/private/LN/common/uti
 
 jest.mock('fusion:context', () => () => ({
     default: props => {
-        const mockAvailableProps = { outputType: 'amp' };
+        const mockAvailableProps = { outputType: 'default' };
 
         return props.children(mockAvailableProps);
     }
