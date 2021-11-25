@@ -1,294 +1,294 @@
-@import '../abstracts/variables';
-//=====================
-// HEADER Desktop CORE
-//=====================
+// @import '../abstracts/variables';
+// //=====================
+// // HEADER Desktop CORE
+// //=====================
 
-.header {
-    // display: none;
-    position: relative;
-    border-bottom: 1px solid $light-neutral-200;
-    padding: px(12) 0;
-    background: $neutral-white;
-    width: 100%;
-    z-index: 102;
-    transition: top 0.2s ease-in-out;
+// .header {
+//     // display: none;
+//     position: relative;
+//     border-bottom: 1px solid $light-neutral-200;
+//     padding: px(12) 0;
+//     background: $neutral-white;
+//     width: 100%;
+//     z-index: 102;
+//     transition: top 0.2s ease-in-out;
 
-    .row {
-        align-items: center;
-    }
+//     .row {
+//         align-items: center;
+//     }
 
-    .com-button.--icon .com-icon {
-        font-size: px(14);
-        margin-right: $spacing;
-    }
+//     .com-button.--icon .com-icon {
+//         font-size: px(14);
+//         margin-right: $spacing;
+//     }
 
-    &__left {
-        display: none;
-    }
+//     &__left {
+//         display: none;
+//     }
 
-    &__middle {
-        //&.col-4 {
-        // -ms-flex: 0 0 66.66667%;
-        // flex: 0 0 66.66667%;
-        // max-width: 66.66667%;
-        // display: flex;
-        //aca logo lanacion
-        // .com-link {
-        //     display: inline-flex;
-        // }
-        .logo-la-nacion {
-            @media ($media-m) {
-                font-size: px(20);
-            }
-            @media ($media-l) {
-                font-size: px(30);
-            }
-        }
-        //}
-    }
+//     &__middle {
+//         //&.col-4 {
+//         // -ms-flex: 0 0 66.66667%;
+//         // flex: 0 0 66.66667%;
+//         // max-width: 66.66667%;
+//         // display: flex;
+//         //aca logo lanacion
+//         // .com-link {
+//         //     display: inline-flex;
+//         // }
+//         .logo-la-nacion {
+//             @media ($media-m) {
+//                 font-size: px(20);
+//             }
+//             @media ($media-l) {
+//                 font-size: px(30);
+//             }
+//         }
+//         //}
+//     }
 
-    &__right {
-        #menuUser {
-            display: none;
-        }
-        .--secondary {
-            display: none;
-        }
-        @media (max-width: 1023px) {
-            .com-usuario {
-                .--special {
-                    background: transparent;
-                    border-color: transparent;
-                    padding: px(3) px(16);
-                    //font-weight: 100;
-                    color: $link;
-                }
-            }
-        }
-    }
+//     &__right {
+//         #menuUser {
+//             display: none;
+//         }
+//         .--secondary {
+//             display: none;
+//         }
+//         @media (max-width: 1023px) {
+//             .com-usuario {
+//                 .--special {
+//                     background: transparent;
+//                     border-color: transparent;
+//                     padding: px(3) px(16);
+//                     //font-weight: 100;
+//                     color: $link;
+//                 }
+//             }
+//         }
+//     }
 
-    @mixin darkHeader {
-        background: rgba(0, 0, 0, 0.5);
-        border: none;
+//     @mixin darkHeader {
+//         background: rgba(0, 0, 0, 0.5);
+//         border: none;
 
-        .header__left {
-            .com-button.--tertiary {
-                background: $light-neutral-800;
-                border-color: $light-neutral-800;
-                color: $light-neutral-200;
-                &:hover {
-                    background: $neutral-black;
-                }
-                .com-icon {
-                    color: $light-neutral-200;
-                }
-            }
-        }
+//         .header__left {
+//             .com-button.--tertiary {
+//                 background: $light-neutral-800;
+//                 border-color: $light-neutral-800;
+//                 color: $light-neutral-200;
+//                 &:hover {
+//                     background: $neutral-black;
+//                 }
+//                 .com-icon {
+//                     color: $light-neutral-200;
+//                 }
+//             }
+//         }
 
-        .header__middle {
-            .logo-la-nacion {
-                color: $neutral-white;
-            }
-            .logoLN {
-                svg g {
-                    fill: $neutral-white;
-                }
-            }
-        }
+//         .header__middle {
+//             .logo-la-nacion {
+//                 color: $neutral-white;
+//             }
+//             .logoLN {
+//                 svg g {
+//                     fill: $neutral-white;
+//                 }
+//             }
+//         }
 
-        .header__right {
-            .com-usuario {
-                .com-button {
-                    &.--special.--special {
-                        color: $neutral-white;
-                    }
-                    @media ($media-l) {
-                        &.--special.--special {
-                            border-color: $highlight;
-                            color: $light-neutral-700;
-                            &:hover {
-                                border-color: $neutral-black;
-                                color: $neutral-white;
-                            }
-                        }
-                        &.--secondary.--secondary {
-                            background: none;
-                            border-color: $neutral-white;
-                            color: $neutral-white;
-                            &:hover {
-                                background: $neutral-white;
-                                border-color: $neutral-white;
-                                color: $light-neutral-700;
-                            }
-                        }
-                    }
-                }
-                .com-usuario__name,
-                .com-usuario__valueSuscrib {
-                    color: $neutral-white;
-                }
-            }
-        }
-        .header__search {
-            .com-icon {
-                color: $neutral-white;
-            }
-        }
-    }
+//         .header__right {
+//             .com-usuario {
+//                 .com-button {
+//                     &.--special.--special {
+//                         color: $neutral-white;
+//                     }
+//                     @media ($media-l) {
+//                         &.--special.--special {
+//                             border-color: $highlight;
+//                             color: $light-neutral-700;
+//                             &:hover {
+//                                 border-color: $neutral-black;
+//                                 color: $neutral-white;
+//                             }
+//                         }
+//                         &.--secondary.--secondary {
+//                             background: none;
+//                             border-color: $neutral-white;
+//                             color: $neutral-white;
+//                             &:hover {
+//                                 background: $neutral-white;
+//                                 border-color: $neutral-white;
+//                                 color: $light-neutral-700;
+//                             }
+//                         }
+//                     }
+//                 }
+//                 .com-usuario__name,
+//                 .com-usuario__valueSuscrib {
+//                     color: $neutral-white;
+//                 }
+//             }
+//         }
+//         .header__search {
+//             .com-icon {
+//                 color: $neutral-white;
+//             }
+//         }
+//     }
 
-    //active modo DARK-------
-    &.--dark, //creo que no lo usamos más
-    //.acu-revista &, //borrar una vez subido acu nuevo
-    //.revistas-layer:not(.--scrollUp) &, //borrar una vez subido acu nuevo
-    //.storytelling:not(.--scrollUp) &,
-    //.--photo100:not(.--scrollUp) &,
-    //.--color:not(.--scrollUp) &,
-    .--transparent:not(.--scrollUp):not(.--scrollDown) & {
-        //&:not(.--scrollUp) {
-        @include darkHeader;
-        //}
-    }
-    &.--active {
-        .--transparent & {
-            @include darkHeader;
-        }
-    }
+//     //active modo DARK-------
+//     &.--dark, //creo que no lo usamos más
+//     //.acu-revista &, //borrar una vez subido acu nuevo
+//     //.revistas-layer:not(.--scrollUp) &, //borrar una vez subido acu nuevo
+//     //.storytelling:not(.--scrollUp) &,
+//     //.--photo100:not(.--scrollUp) &,
+//     //.--color:not(.--scrollUp) &,
+//     .--transparent:not(.--scrollUp):not(.--scrollDown) & {
+//         //&:not(.--scrollUp) {
+//         @include darkHeader;
+//         //}
+//     }
+//     &.--active {
+//         .--transparent & {
+//             @include darkHeader;
+//         }
+//     }
 
-    @media ($media-l) {
-        //height: px(65);
-        padding: px(16) 0;
-        border-bottom: 1px solid $light-neutral-300;
+//     @media ($media-l) {
+//         //height: px(65);
+//         padding: px(16) 0;
+//         border-bottom: 1px solid $light-neutral-300;
 
-        top: 0;
-        position: fixed;
+//         top: 0;
+//         position: fixed;
 
-        &__left {
-            display: block;
+//         &__left {
+//             display: block;
 
-            .com-hamburger {
-                display: inline-flex;
-                margin-right: $spacing-md;
-            }
-        }
+//             .com-hamburger {
+//                 display: inline-flex;
+//                 margin-right: $spacing-md;
+//             }
+//         }
 
-        &__middle {
-            text-align: center;
-            &.col-4 {
-                text-align: center;
-                justify-content: center;
-                align-items: center;
-                //aca logo lanacion
-            }
-        }
+//         &__middle {
+//             text-align: center;
+//             &.col-4 {
+//                 text-align: center;
+//                 justify-content: center;
+//                 align-items: center;
+//                 //aca logo lanacion
+//             }
+//         }
 
-        &__right {
-            //padding-top: 0;
-            margin-left: auto;
-            text-align: right;
+//         &__right {
+//             //padding-top: 0;
+//             margin-left: auto;
+//             text-align: right;
 
-            #menuUser {
-                display: block;
-                margin-right: $spacing-sm;
-            }
-            .com-usuario {
-                .--special {
-                    margin-right: $spacing-md;
-                }
-                .--secondary {
-                    display: flex;
-                }
-            }
-        }
+//             #menuUser {
+//                 display: block;
+//                 margin-right: $spacing-sm;
+//             }
+//             .com-usuario {
+//                 .--special {
+//                     margin-right: $spacing-md;
+//                 }
+//                 .--secondary {
+//                     display: flex;
+//                 }
+//             }
+//         }
 
-        &__search {
-            display: none;
-        }
+//         &__search {
+//             display: none;
+//         }
 
-        //=================================
-        // ------ESTADOS DEL HEADER------
-        //=================================
-        //scrollUp
-        //&.--scrollDown,
-        // .--scrollDown & {
-        // /*transform: translateY(-100%);
-        //     position: absolute;*/
-        //     position: fixed;
-        //     top: -80px;
-        // }
-        //scrollDown
-        //&.--scrollUp,
-        // .--scrollUp & {
-        //     /*transform: translateY(0);*/
-        //     top: 0;
-        //     position: fixed;
-        // }
-        // .dropdown.--scrollUp & {
-        //     padding-right: $scroll-width;
-        // }
-        //active del search-----
-        // &.--active-search {
-        //     .header__left {
-        //         flex-basis: 60%;
-        //         max-width: 60%;
+//         //=================================
+//         // ------ESTADOS DEL HEADER------
+//         //=================================
+//         //scrollUp
+//         //&.--scrollDown,
+//         // .--scrollDown & {
+//         // /*transform: translateY(-100%);
+//         //     position: absolute;*/
+//         //     position: fixed;
+//         //     top: -80px;
+//         // }
+//         //scrollDown
+//         //&.--scrollUp,
+//         // .--scrollUp & {
+//         //     /*transform: translateY(0);*/
+//         //     top: 0;
+//         //     position: fixed;
+//         // }
+//         // .dropdown.--scrollUp & {
+//         //     padding-right: $scroll-width;
+//         // }
+//         //active del search-----
+//         // &.--active-search {
+//         //     .header__left {
+//         //         flex-basis: 60%;
+//         //         max-width: 60%;
 
-        //         // .com-search {
-        //         //     &__submit {
-        //         //         display: inline-block;
-        //         //     }
+//         //         // .com-search {
+//         //         //     &__submit {
+//         //         //         display: inline-block;
+//         //         //     }
 
-        //         //     &__input {
-        //         //         width: 75%;
-        //         //     }
+//         //         //     &__input {
+//         //         //         width: 75%;
+//         //         //     }
 
-        //         //     .icon-search {
-        //         //         display: none;
-        //         //     }
-        //         // }
-        //     }
+//         //         //     .icon-search {
+//         //         //         display: none;
+//         //         //     }
+//         //         // }
+//         //     }
 
-        //     .header__middle {
-        //         display: none;
-        //     }
-        // }
+//         //     .header__middle {
+//         //         display: none;
+//         //     }
+//         // }
 
-        .storytelling:not(.--scrollUp) & {
-            position: absolute;
-        }
-    }
+//         .storytelling:not(.--scrollUp) & {
+//             position: absolute;
+//         }
+//     }
 
-    // @media ($media-lm) {
-    //     &__left {
-    //         grid-template-columns: px(140) 1fr;
-    //     }
-    // }
-}
-
-// .reader-only {
-//     position: fixed;
-//     top: 0;
-//     left: 0;
-//     background: red;
-//     color: white;
-//     font-weight: 700;
-//     padding: 4px;
-//     z-index: 1000;
+//     // @media ($media-lm) {
+//     //     &__left {
+//     //         grid-template-columns: px(140) 1fr;
+//     //     }
+//     // }
 // }
 
-.reader-only {
-    position: absolute;
-    margin: -1px;
-    padding: 0;
-    width: 1px;
-    height: 1px;
-    border: 0;
-    clip: rect(0, 0, 0, 0);
-    overflow: hidden;
-    &:focus,
-    &:active {
-        margin: auto;
-        width: auto;
-        height: auto;
-        clip: auto;
-        overflow: visible;
-    }
-}
+// // .reader-only {
+// //     position: fixed;
+// //     top: 0;
+// //     left: 0;
+// //     background: red;
+// //     color: white;
+// //     font-weight: 700;
+// //     padding: 4px;
+// //     z-index: 1000;
+// // }
+
+// .reader-only {
+//     position: absolute;
+//     margin: -1px;
+//     padding: 0;
+//     width: 1px;
+//     height: 1px;
+//     border: 0;
+//     clip: rect(0, 0, 0, 0);
+//     overflow: hidden;
+//     &:focus,
+//     &:active {
+//         margin: auto;
+//         width: auto;
+//         height: auto;
+//         clip: auto;
+//         overflow: visible;
+//     }
+// }
