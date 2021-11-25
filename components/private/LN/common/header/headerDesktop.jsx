@@ -7,10 +7,7 @@ import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import PropTypes from 'prop-types';
 import Header from './headerBase';
 import Hamburguer from './hamburger';
-// import ComLink from '../../../common/com-link';
-// import ComLogo from '../../../common/com-logo';
 import ComIcon from '../../../common/com-icon';
-// import Logo from '../../../common/com-logo';
 import LogoLN from '../../../common/logos/logoLN';
 
 import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
@@ -94,16 +91,15 @@ const HeaderDesktop = ({
     }, [loading, getCookie]);
 
     const handleClickBuscar = () => {
-        dynamicallyLoadScript('//www.queryly.com/js/queryly.v4.js', 'body')
-            .then(() => {
-                const initScript = document.createElement('script');
-                initScript.innerHTML = `queryly.init('8075c0c1c4c44847', document.querySelectorAll('#fusion-app'));`;
-                document.body.appendChild(initScript);
-                document.getElementById('querylyButton').click();
-            })
-            .catch(() => {
-                // console.error('Script loading failed! Handle this error', error);
-            });
+        dynamicallyLoadScript(
+            '//www.queryly.com/js/queryly.v4.js',
+            'body'
+        ).then(() => {
+            const initScript = document.createElement('script');
+            initScript.innerHTML = `queryly.init('8075c0c1c4c44847', document.querySelectorAll('#fusion-app'));`;
+            document.body.appendChild(initScript);
+            document.getElementById('querylyButton').click();
+        });
     };
 
     return (
@@ -262,9 +258,5 @@ HeaderDesktop.propTypes = {
     toglleDesplegable: PropTypes.func.isRequired,
     section: PropTypes.string.isRequired
 };
-
-// HeaderDesktop.defaultProps = {
-//     headerDark: ''
-// };
 
 export default HeaderDesktop;

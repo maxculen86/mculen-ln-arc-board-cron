@@ -5,17 +5,6 @@ import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import ComTitle from '../private/common/com-title';
 
-// import '../../resources/dist/css/ln/base/reset.css';
-// import '../../resources/dist/css/ln/base/types.css';
-// import '../../resources/dist/css/ln/layouts/grid.css';
-// import '../../resources/dist/css/ln/layouts/layout.css';
-
-// /* Se debe importar por layouts */
-// import '../../resources/dist/css/ln/components/banners.css';
-
-// /* Se debe dejar último los helpers */
-// import '../../resources/dist/css/ln/base/helpers.css';
-
 import '../../resources/dist/css/ln/pages/buscador.css';
 
 import GlobalProvider from '../private/common/context/globalContext';

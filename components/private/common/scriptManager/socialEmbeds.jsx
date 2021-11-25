@@ -49,11 +49,26 @@ const SocialEmbeds = props => {
     const facebookEmbed = hasFacebookEmbed(content);
 
     const processInstaEmbeds = `
-        window.addEventListener("load",function(e){instgrm.Embeds.process();var t=document.querySelector(".cuerpo__nota").getElementsByTagName("script");HTMLCollection.prototype.filter=Array.prototype.filter,t.filter(function(e){return"//www.instagram.com/embed.js"===e.getAttribute("src")}).forEach(function(e){return e.remove()})});
+        window.addEventListener("load", function(e) {
+            instgrm.Embeds.process();
+            var t = document.querySelector(".cuerpo__nota").getElementsByTagName("script");
+            HTMLCollection.prototype.filter = Array.prototype.filter, t.filter(function(e) {
+                return "//www.instagram.com/embed.js" === e.getAttribute("src")
+            }).forEach(function(e) {
+                return e.remove()
+            })
+        });
     `;
 
     const processTwitterEmbeds = `
-        window.addEventListener("load",function(t){var e=document.querySelector(".cuerpo__nota").getElementsByTagName("script");HTMLCollection.prototype.filter=Array.prototype.filter,e.filter(function(t){return"https://platform.twitter.com/widgets.js"===t.getAttribute("src")}).forEach(function(t){return t.remove()})});
+        window.addEventListener("load", function(t) {
+            var e = document.querySelector(".cuerpo__nota").getElementsByTagName("script");
+            HTMLCollection.prototype.filter = Array.prototype.filter, e.filter(function(t) {
+                return "https://platform.twitter.com/widgets.js" === t.getAttribute("src")
+            }).forEach(function(t) {
+                return t.remove()
+            })
+        });
     `;
 
     const facebookScript = `

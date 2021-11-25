@@ -16,7 +16,6 @@ const transform = data => {
         ...data,
         image: { url: data.image || '' }
     };
-    // tranformQuitarSectionsInvalidas(data);
     if (dataResp.image.url.length === 0) return dataResp;
     return {
         ...dataResp,

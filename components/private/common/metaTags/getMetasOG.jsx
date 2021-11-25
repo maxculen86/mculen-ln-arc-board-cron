@@ -19,20 +19,11 @@ const getDescription = ({
     descriptionDefault,
     metaDescription
 }) => {
-    // let description = '';
-
     if (section === 'home') return descriptionDefault;
 
     if (isArticle) return subheadlinesBasic || '';
 
     if (!isArticle) return metaDescription;
-    // {
-    //     const customTitle =
-    //         metaValue('title') === 'Últimas noticias - LA NACION'
-    //             ? 'del día de hoy en Argentina'
-    //             : `de ${metaValue('title')}`;
-    //     description = `Últimas Noticias ${customTitle}` || descriptionDefault;
-    // }
 
     return descriptionDefault;
 };
