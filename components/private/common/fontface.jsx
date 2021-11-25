@@ -17,14 +17,6 @@ const FontFace = props => {
 
     return (
         <>
-            {/* <link 
-                rel="preload"
-                href={deployment(
-                    `${contextPath}/resources/images/logo-lanacion.svg`
-                )}
-                as="image"
-                crossorigin="anonymous"
-            /> */}
             <link
                 rel="preload"
                 href={deployment(
@@ -54,8 +46,7 @@ const FontFace = props => {
 };
 
 FontFace.propTypes = {
-    contextPath: PropTypes.string.isRequired,
-    deployment: PropTypes.func.isRequired
+    outputType: PropTypes.string.isRequired
 };
 
 export default FontFace;
