@@ -1,127 +1,127 @@
-@import '../abstracts/variables';
-@import '../abstracts/mixins';
+// @import '../abstracts/variables';
+// @import '../abstracts/mixins';
 
-//=======================================
-// lay CON ASIDE
-//=======================================
-.lay-sidebar {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
-}
+// //=======================================
+// // lay CON ASIDE
+// //=======================================
+// .lay-sidebar {
+//     display: flex;
+//     flex-wrap: nowrap;
+//     flex-direction: column;
+// }
 
-@media ($media-lm) {
-    //vuelo aside en 1024
-    .lay-sidebar {
-        flex-direction: row;
-        margin-bottom: $spacing-xl;
-    }
-    .sidebar__main {
-        flex-basis: calc(100% - 316px);
-        margin-right: $spacing-sm;
-        //por slider
-        //overflow: hidden;
-    }
-    .sidebar__aside {
-        @include BgDiagonal;
-        flex-basis: px(300);
-        flex-shrink: 0;
-    }
-}
-
-@media ($media-xl) {
-    .sidebar__main {
-        flex-basis: calc(100% - 340px);
-        margin-right: $spacing-xl;
-        #wrapper.nota & {
-            flex-basis: calc(100% - 380px);
-            margin-right: $spacing-3xl;
-        }
-    }
-}
-
-//=======================================
-// lay al 100%
-//=======================================
-[class^='lay'],
-[class*=' lay'] {
-    width: 100%;
-    padding-right: $spacing-sm;
-    padding-left: $spacing-sm;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-// @media ($media-s) {
-//     [class^='lay'],
-//     [class*=' lay'] {
-//         padding-right: px(20);
-//         padding-left: px(20);
+// @media ($media-lm) {
+//     //vuelo aside en 1024
+//     .lay-sidebar {
+//         flex-direction: row;
+//         margin-bottom: $spacing-xl;
+//     }
+//     .sidebar__main {
+//         flex-basis: calc(100% - 316px);
+//         margin-right: $spacing-sm;
+//         //por slider
+//         //overflow: hidden;
+//     }
+//     .sidebar__aside {
+//         @include BgDiagonal;
+//         flex-basis: px(300);
+//         flex-shrink: 0;
 //     }
 // }
 
-// @media ($media-m) {
-//     [class^='lay'],
-//     [class*=' lay'] {
-//         padding-right: px(20);
-//         padding-left: px(20);
+// @media ($media-xl) {
+//     .sidebar__main {
+//         flex-basis: calc(100% - 340px);
+//         margin-right: $spacing-xl;
+//         #wrapper.nota & {
+//             flex-basis: calc(100% - 380px);
+//             margin-right: $spacing-3xl;
+//         }
 //     }
 // }
 
-@media ($media-xl) {
-    [class^='lay'],
-    [class*=' lay'] {
-        max-width: px(1340);
-        padding-right: $spacing-xl;
-        padding-left: $spacing-xl;
-    }
-}
+// //=======================================
+// // lay al 100%
+// //=======================================
+// [class^='lay'],
+// [class*=' lay'] {
+//     width: 100%;
+//     padding-right: $spacing-sm;
+//     padding-left: $spacing-sm;
+//     margin-right: auto;
+//     margin-left: auto;
+// }
 
-//=======================================
-// lay al 100% sin paddings ni margins
-//=======================================
-.lay-full-width {
-    padding-left: 0;
-    padding-right: 0;
-    max-width: 100%;
-}
+// // @media ($media-s) {
+// //     [class^='lay'],
+// //     [class*=' lay'] {
+// //         padding-right: px(20);
+// //         padding-left: px(20);
+// //     }
+// // }
 
-#fusion-app > #wrapper:not(.sitemap) {
-    //fusion-app es por pagebuilder
-    position: relative;
-    overflow-x: clip;
+// // @media ($media-m) {
+// //     [class^='lay'],
+// //     [class*=' lay'] {
+// //         padding-right: px(20);
+// //         padding-left: px(20);
+// //     }
+// // }
 
-    &:before {
-        @include BgDiagonal;
-        content: '';
-        height: px(50);
-        width: 100%;
-        display: block;
+// @media ($media-xl) {
+//     [class^='lay'],
+//     [class*=' lay'] {
+//         max-width: px(1340);
+//         padding-right: $spacing-xl;
+//         padding-left: $spacing-xl;
+//     }
+// }
 
-        @media (min-width: 768px) {
-            display: none;
-        }
-    }
-    &.--transparent {
-        &:before {
-            background: $neutral-black;
-        }
-    }
+// //=======================================
+// // lay al 100% sin paddings ni margins
+// //=======================================
+// .lay-full-width {
+//     padding-left: 0;
+//     padding-right: 0;
+//     max-width: 100%;
+// }
 
-    @media (min-width: 1024px) {
-        margin-top: $header-desktop; //alto header desktop para header fijo
-    }
+// #fusion-app > #wrapper:not(.sitemap) {
+//     //fusion-app es por pagebuilder
+//     position: relative;
+//     overflow-x: clip;
 
-    // @media (max-width: 767px) {
-    //     overflow: hidden;
-    // }
-}
+//     &:before {
+//         @include BgDiagonal;
+//         content: '';
+//         height: px(50);
+//         width: 100%;
+//         display: block;
 
-#content {
-    //main
-    position: relative;
-    padding-top: $spacing-md;
-    .nota.html-libre & {
-        padding-top: 0;
-    }
-}
+//         @media (min-width: 768px) {
+//             display: none;
+//         }
+//     }
+//     &.--transparent {
+//         &:before {
+//             background: $neutral-black;
+//         }
+//     }
+
+//     @media (min-width: 1024px) {
+//         margin-top: $header-desktop; //alto header desktop para header fijo
+//     }
+
+//     // @media (max-width: 767px) {
+//     //     overflow: hidden;
+//     // }
+// }
+
+// #content {
+//     //main
+//     position: relative;
+//     padding-top: $spacing-md;
+//     .nota.html-libre & {
+//         padding-top: 0;
+//     }
+// }
