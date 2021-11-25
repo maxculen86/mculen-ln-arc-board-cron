@@ -18,8 +18,7 @@ const video = ({
     tituloNota,
     autoplay,
     isPowa,
-    href,
-    withPrerolAds
+    href
 }) => {
     const { streams = [], promo_items: promoItems } = mediaData;
     const tituloVideo = get(mediaData, 'headlines.basic', '');
@@ -27,7 +26,7 @@ const video = ({
 
     const mainStream = getStreams(streams, isPowa ? '<' : '>');
 
-    const adsURL = withPrerolAds ? urlForPrerollAds(screenUtils.device) : '';
+    const adsURL = urlForPrerollAds(screenUtils.device);
 
     return (
         (isPowa && (

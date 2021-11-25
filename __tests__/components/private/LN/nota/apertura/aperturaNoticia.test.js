@@ -93,7 +93,7 @@ describe('PRIVATE - LN - Nota - Apertura - Noticia', () => {
         },
         label: {
             mostrar_banners: {
-                text: 'No'
+                text: 'Si'
             }
         }
     };
