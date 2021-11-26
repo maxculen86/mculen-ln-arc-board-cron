@@ -42,3 +42,31 @@ describe('features - LaNacion - Nota - unordered', () => {
         expect(component.find('.link').last().length).toBe(0);
     });
 });
+describe('features - LaNacion - Nota - unordered wrong list', () => {
+    const propsTwo = {
+        data: {
+            type: 'list',
+            list_type: 'unordered',
+            items: [
+                {
+                    type: 'text',
+                    _id: 'UL2IXQ7T6RETZGEL2LQROZSSPE'
+                },
+                {
+                    type: 'list',
+                    content: `chau <a class="link" href="https://www.lanacion.com.ar/politica/alberto-fernandez-vicentin-nid2376255" class="com-link" >intervenir una compañía</a>`,
+                    _id: 'KPDZ2RRIUZE5XOBKXMXYF254JY'
+                },
+                {
+                    type: 'list',
+                    _id: 'KPDZ2RRIUZE5XOBKXMXYF254JY'
+                }
+            ]
+        }
+    };
+    const componentWrong = render(<ListOrderedOrUnordered {...propsTwo} />);
+    it('Should not render wrong lists example: nested lists', () => {
+        expect(componentWrong.find('ul').length).toEqual(0);
+        expect(componentWrong).toMatchSnapshot();
+    });
+});

@@ -1,5 +1,5 @@
 import Consumer from 'fusion:consumer';
-import { authorHomeMobile } from '../../../private/LN/api/common/author';
+import { authorHomeMobile } from '../../../private/LN/api/v1/common/author';
 
 class Columnista {
     constructor(props) {

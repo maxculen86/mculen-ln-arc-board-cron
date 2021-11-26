@@ -15,7 +15,8 @@ export default {
     longTitle: 'Últimas noticias de Argentina y el mundo - LA NACION',
     title: 'LA NACION',
     description:
-        'Todas las noticias de Argentina y el mundo: últimas noticias en actualidad, deportes, coronavirus, economía, política, y tecnología. Mantenete informado sobre las novedades de Argentina en LA NACION.',
+        'Todas las noticias de Argentina y el mundo: últimas noticias en actualidad, deportes, coronavirus, economía, política, y tecnología.' +
+        ' Mantenete informado sobre las novedades de Argentina en LA NACION.',
     className: {
         body: 'ln'
     },

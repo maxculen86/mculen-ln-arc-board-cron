@@ -8,7 +8,7 @@ class Navigation {
     render() {
         try {
             const { globalContent } = this.props;
-            return [globalContent];
+            return globalContent;
         } catch (err) {
             return { Success: false, Message: err.message };
         }

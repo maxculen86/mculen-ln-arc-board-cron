@@ -5,7 +5,6 @@ import '../../../resources/dist/css/ln/components/com-text.css';
 
 const ComText = props => {
     const { children, textname, classCondition, tag, size } = props;
-    // if (!textname) return null;
 
     if (tag === 'h1')
         return (

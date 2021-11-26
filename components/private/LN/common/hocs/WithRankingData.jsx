@@ -1,7 +1,5 @@
 import React, { PureComponent } from 'react';
-// import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-// import { useContent as getContent } from 'fusion:content';
 import filter from '../../../../../content/filters/LN/nota/articleRanking';
 import get from '../../../common/utils/get';
 
@@ -49,16 +47,6 @@ function WithRankingData(WrappedComponent, imageConfig) {
             };
 
             getSectionParent = (primarySection, sectionList, website) => {
-                /*
-                const { cached } = this.getContent({
-                    sourceName: 'navigationTreeSource',
-                    query: {
-                        website
-                    }
-                });
-                
-                const navigation = sectionList || (cached && cached.children);
-                */
                 const sections = primarySection.split('/');
                 const sectionParentId =
                     sections && sections.length > 2 ? `/${sections[1]}` : null;

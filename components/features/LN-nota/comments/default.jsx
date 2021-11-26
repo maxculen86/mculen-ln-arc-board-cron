@@ -24,23 +24,16 @@ const CommentsFeature = props => {
         const handleScrollForComments = () => {
             const scrollPercentRounded = getScrollPercent();
             if (scrollPercentRounded > 60) {
-                // setIsLoading(true);
                 dynamicallyLoadScript(
                     'https://cdn.livefyre.com/Livefyre.js',
                     'head'
-                )
-                    .then(() => {
-                        setIsReady(true);
-                        // setIsLoading(false);
-                        window.removeEventListener(
-                            'scroll',
-                            handleScrollForComments
-                        );
-                    })
-                    .catch(error => {
-                        // setIsLoading(false);
-                        // console.error('Script loading failed! Handle this error', error);
-                    });
+                ).then(() => {
+                    setIsReady(true);
+                    window.removeEventListener(
+                        'scroll',
+                        handleScrollForComments
+                    );
+                });
             }
         };
         if (showLivefyre && displayComments && !shouldLoadViafoura)

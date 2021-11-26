@@ -73,14 +73,27 @@ const getApiVersion = urlP => {
         url = window.location.href;
     }
 
-    const versionRegex = new RegExp('/api/v([0-9]+)/');
+    const versionRegex = new RegExp('/api/(?:mobile/)?v([0-9]+)/');
     const regexResult = versionRegex.exec(url);
     return regexResult[1];
+};
+const getApiType = urlP => {
+    let url = urlP;
+    if (!url) {
+        if (typeof window === 'undefined')
+            throw new Error('El parametro de Url es obligatorio en SSR');
+        url = window.location.href;
+    }
+
+    const versionRegex = new RegExp('/api/(?:(mobile)/)?v([0-9]+)/');
+    const regexResult = versionRegex.exec(url);
+    return regexResult[1] !== undefined ? regexResult[1] : 'global';
 };
 
 export default {
     getParameterByName,
     getApiVersion,
+    getApiType,
     getParamFrom,
     getSizesFrom,
     isApiRequest,

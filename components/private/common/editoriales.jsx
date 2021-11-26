@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import getProperties from 'fusion:properties';
-//import ComLinkList from './com-link-list';
-//import ComLink from './com-link';
 import ComTitle from './com-title';
 import get from './utils/get';
 
@@ -28,7 +26,6 @@ const Editoriales = props => {
     });
     const extraOpts = {};
     return (
-        // <section className="mod-footersection">
         <>
             {
                 <ComTitle
@@ -39,15 +36,12 @@ const Editoriales = props => {
             }
             {(_articles && articles.length && (
                 <>
-                    {/* <ComLinkList isEditoriales list={_articles} /> */}
-                    {/* <ul className="com-unordered"> */}
                     <div class="col-12">
                         {_articles.map((element, i) => {
                             extraOpts['data-pos'] = `990${i + 1}`;
                             extraOpts['data-id'] = element.id;
                             extraOpts['data-notaid'] = element.id;
                             return (
-                                // <li className="item" {...extraOpts}>
                                 <article className="mod-article" {...extraOpts}>
                                     <div className="mod-description">
                                         <h2 className="com-title --twoxs">
@@ -61,15 +55,12 @@ const Editoriales = props => {
                                         </h2>
                                     </div>
                                 </article>
-                                // </li>
                             );
                         })}
                     </div>
-                    {/* </ul> */}
                 </>
             )) || <></>}
         </>
-        // </section>
     );
 };
 
