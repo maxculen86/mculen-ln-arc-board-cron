@@ -5,3 +5,4 @@ export { ReactComponent as WhatsappFilled } from './icon/whatsapp-filled.svg';
 export { ReactComponent as EmailFilled } from './icon/email-filled.svg';
 export { ReactComponent as Rss } from './icon/rss.svg';
 export { ReactComponent as SectionFilled } from './icon/section.svg';
+export { ReactComponent as User } from './icon/user.svg';

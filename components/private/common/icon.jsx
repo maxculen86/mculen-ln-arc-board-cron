@@ -3,6 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import '../../../resources/dist/css/ln/components/com-icon.css';
 import Link from '../common/link';
 import { mapperIcons } from '../LN/common/utils/MapperIcon';
+import { FacebookFilled } from '../../../resources/svg';
 
 const Icon = ({ name, href, title, target, mod, rel, size, children }) => {
     //const className = `com-icon${name ? ` icon-${name}` : ``}${` ${mod}` || ``}${` ${size}` || ``}`;
@@ -21,7 +22,8 @@ const Icon = ({ name, href, title, target, mod, rel, size, children }) => {
                     rel={rel}
                 >
                     <i className={className}>
-                        {mapperIcons(name)}
+                        <FacebookFilled />
+                        {/* {mapperIcons(name)} */}
                         {/* <svg
                             width="20"
                             height="20"
@@ -39,7 +41,7 @@ const Icon = ({ name, href, title, target, mod, rel, size, children }) => {
                 </Link>
             ) : (
                 <i className={className}>
-                    {mapperIcons(name)}
+                    {/* {mapperIcons(name)} */}
                     {/* <svg
                         width="20"
                         height="20"

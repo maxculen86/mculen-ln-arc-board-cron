@@ -6,6 +6,7 @@ import {
     Rss,
     SectionFilled,
     TwitterFilled,
+    User,
     WhatsappFilled
 } from '../../../../../resources/svg';
 
@@ -16,8 +17,8 @@ export const mapperIcons = {
     'whatsapp-filled': <WhatsappFilled />,
     email: <EmailFilled />,
     rss: <Rss />,
-    sections: <SectionFilled />,
+    section: <SectionFilled />,
     club: <SectionFilled />,
-    user: <SectionFilled />,
+    user: <User />,
     home: <SectionFilled />
 };
