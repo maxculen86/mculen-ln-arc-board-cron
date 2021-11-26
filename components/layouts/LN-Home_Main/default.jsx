@@ -22,8 +22,6 @@ import getScrollPercent from '../../private/LN/common/utils/getScrollPercent';
 import AnexoFeature from '../../features/LN-acumulado/anexoIframe';
 import SubHeader from '../../features/LN-common/subHeader';
 import TePuedeInteresar from '../../features/LN-nota/tePuedeInteresar/default';
-import DivBanner from '../../private/common/banners/DivBanner';
-// import BannerComercial from '../../private/common/banners/BannerComercial';
 import pageBuilderSections from '../config/LN-PageBuilder.config.json';
 import TagsListFeature from '../../features/LN-acumulado/tagList';
 import CajaPromo from '../../features/LN-common/cajaPromo/default';
@@ -71,24 +69,18 @@ const findBlockToLoad = blocksToLoad => {
     return Object.keys(blocksToLoad).find(key => !blocksToLoad[key].loaded);
 };
 
-const bannerConfiguration = {
-    slotGroup: 'home'
-};
-
 const BannerCabezal = () => {
     return (
         <Static id="bannersCabezal">
             <div className="container --ads">
                 <DivBannerSSR
                     bannerConfiguration={{
-                        ...bannerConfiguration,
                         slotId: 'cabezal_dsk',
                         classes: '--dark'
                     }}
                 />
                 <DivBannerSSR
                     bannerConfiguration={{
-                        ...bannerConfiguration,
                         slotId: 'cabezal_tab',
                         classes: '--dark'
                     }}
@@ -212,13 +204,24 @@ const LNMainHome = props => {
     return (
         <GlobalProvider>
             {/* 1x1 */}
-            <DivBanner id="1x1_dsk" validateSuscription isStatic />
-            <DivBanner id="1x1_mob" validateSuscription isStatic />
+            <Static id="banner1x1">
+                <DivBannerSSR
+                    bannerConfiguration={{
+                        slotId: '1x1_dsk',
+                        hideForSubscriptor: true
+                    }}
+                />
+                <DivBannerSSR
+                    bannerConfiguration={{
+                        slotId: '1x1_mob',
+                        hideForSubscriptor: true
+                    }}
+                />
+            </Static>
             {/* COMERCIAL */}
             <Static id="bannerComercial">
                 <DivBannerSSR
                     bannerConfiguration={{
-                        ...bannerConfiguration,
                         slotId: 'comercial_dsk',
                         classes: '--comercial hlp-none',
                         closeButton: true
@@ -227,7 +230,6 @@ const LNMainHome = props => {
                 {getScriptForComercial('comercial_dsk')}
                 <DivBannerSSR
                     bannerConfiguration={{
-                        ...bannerConfiguration,
                         slotId: 'comercial_mob',
                         classes: '--comercial hlp-none',
                         closeButton: true
@@ -258,11 +260,15 @@ const LNMainHome = props => {
                 {bomba}
                 <main id="content">
                     {/* STICKY MOB */}
-                    <DivBanner
-                        id="sticky2_mob"
-                        classes="--sticky2_mob --sticky"
-                        isStatic
-                    />
+                    <Static id="sticky2">
+                        <DivBannerSSR
+                            bannerConfiguration={{
+                                slotId: 'sticky2_mob',
+                                classes: '--sticky2_mob --sticky'
+                            }}
+                        />
+                    </Static>
+
                     <div className="">
                         <div id="content-main" className="lay-sidebar">
                             {/* Cuerpo */}
@@ -274,19 +280,33 @@ const LNMainHome = props => {
                                 <div data-section="apertura">
                                     {apertura1}
                                     {/* BANNER CAJA 1 MOB */}
-                                    <DivBanner
-                                        id="caja1_mob"
-                                        isStatic
-                                        withoutHide
-                                    />
+                                    <Static id="sticky2">
+                                        <DivBannerSSR
+                                            bannerConfiguration={{
+                                                slotId: 'caja1_mob',
+                                                withoutHide: true
+                                            }}
+                                        />
+                                    </Static>
+
                                     {apertura2}
                                 </div>
 
                                 {/* BANNER BILLBOARD */}
-                                <DivBanner id="billboard_dsk" withoutHide />
+                                <DivBannerSSR
+                                    bannerConfiguration={{
+                                        slotId: 'billboard_dsk',
+                                        withoutHide: true
+                                    }}
+                                />
 
                                 {/* BANNER CAJA 2 MOB */}
-                                <DivBanner id="caja2_mob" withoutHide />
+                                <DivBannerSSR
+                                    bannerConfiguration={{
+                                        slotId: 'caja2_mob',
+                                        withoutHide: true
+                                    }}
+                                />
 
                                 {blocksToLoad.bloque2.loaded && (
                                     <section
@@ -313,31 +333,73 @@ const LNMainHome = props => {
                                 </div>
                                 {/* BANNER CAJA 3 MOB */}
                                 <>
-                                    <DivBanner id="caja3_mob" withoutHide />
+                                    <DivBannerSSR
+                                        bannerConfiguration={{
+                                            slotId: 'caja3_mob',
+                                            withoutHide: true
+                                        }}
+                                    />
                                     <div className="row-gap-tablet-2 --ads">
-                                        <DivBanner id="caja1_tab" withoutHide />
-                                        <DivBanner id="caja2_tab" withoutHide />
+                                        <DivBannerSSR
+                                            bannerConfiguration={{
+                                                slotId: 'caja1_tab',
+                                                withoutHide: true
+                                            }}
+                                        />
+                                        <DivBannerSSR
+                                            bannerConfiguration={{
+                                                slotId: 'caja2_tab',
+                                                withoutHide: true
+                                            }}
+                                        />
                                     </div>
                                 </>
                                 {/* BANNER CAJA DSK  */}
                                 <div className="row-gap-tablet-3 --ads">
-                                    <DivBanner id="caja1_dsk" withoutHide />
-                                    <DivBanner
-                                        id="caja_producto1_dsk"
-                                        withoutHide
+                                    <DivBannerSSR
+                                        bannerConfiguration={{
+                                            slotId: 'caja1_dsk',
+                                            withoutHide: true
+                                        }}
                                     />
-                                    <DivBanner id="caja2_dsk" withoutHide />
+                                    <DivBannerSSR
+                                        bannerConfiguration={{
+                                            slotId: 'caja_producto1_dsk',
+                                            withoutHide: true
+                                        }}
+                                    />
+                                    <DivBannerSSR
+                                        bannerConfiguration={{
+                                            slotId: 'caja2_dsk',
+                                            withoutHide: true
+                                        }}
+                                    />
                                 </div>
                                 <div data-section="breaking2">
                                     {blocksToLoad.bloque2.loaded && breaking2}
                                 </div>
                                 {/* BANNER CAJA 4 MOB */}
                                 <>
-                                    <DivBanner id="caja4_mob" withoutHide />
-                                    <DivBanner id="middle1_tab" withoutHide />
+                                    <DivBannerSSR
+                                        bannerConfiguration={{
+                                            slotId: 'caja4_mob',
+                                            withoutHide: true
+                                        }}
+                                    />
+                                    <DivBannerSSR
+                                        bannerConfiguration={{
+                                            slotId: 'middle1_tab',
+                                            withoutHide: true
+                                        }}
+                                    />
                                 </>
                                 {/* BANNER CINTURON 1 */}
-                                <DivBanner id="cinturon1_dsk" withoutHide />
+                                <DivBannerSSR
+                                    bannerConfiguration={{
+                                        slotId: 'cinturon1_dsk',
+                                        withoutHide: true
+                                    }}
+                                />
 
                                 <div data-section="breaking3">
                                     {blocksToLoad.bloque2.loaded && breaking3}
@@ -380,9 +442,24 @@ const LNMainHome = props => {
 
                                 {/* BANNER CAJA 5 MOB - BANNER CINTURON 2 - BANNER MIDDLE 2 */}
                                 <>
-                                    <DivBanner id="caja5_mob" withoutHide />
-                                    <DivBanner id="cinturon2_dsk" withoutHide />
-                                    <DivBanner id="middle2_tab" withoutHide />
+                                    <DivBannerSSR
+                                        bannerConfiguration={{
+                                            slotId: 'caja5_mob',
+                                            withoutHide: true
+                                        }}
+                                    />
+                                    <DivBannerSSR
+                                        bannerConfiguration={{
+                                            slotId: 'cinturon2_dsk',
+                                            withoutHide: true
+                                        }}
+                                    />
+                                    <DivBannerSSR
+                                        bannerConfiguration={{
+                                            slotId: 'middle2_tab',
+                                            withoutHide: true
+                                        }}
+                                    />
                                 </>
 
                                 <div
@@ -393,23 +470,51 @@ const LNMainHome = props => {
                                 </div>
                                 {/* BANNER  */}
                                 <div className="row-gap-tablet-3 --ads">
-                                    <DivBanner id="caja3_dsk" withoutHide />
-                                    <DivBanner
-                                        id="caja_producto2_dsk"
-                                        withoutHide
+                                    <DivBannerSSR
+                                        bannerConfiguration={{
+                                            slotId: 'caja3_dsk',
+                                            withoutHide: true
+                                        }}
                                     />
-                                    <DivBanner id="caja4_dsk" withoutHide />
+                                    <DivBannerSSR
+                                        bannerConfiguration={{
+                                            slotId: 'caja_producto2_dsk',
+                                            withoutHide: true
+                                        }}
+                                    />
+                                    <DivBannerSSR
+                                        bannerConfiguration={{
+                                            slotId: 'caja4_dsk',
+                                            withoutHide: true
+                                        }}
+                                    />
                                 </div>
                                 {/* BANNER CAJAS TAB */}
                                 <div className="row-gap-tablet-2 --ads">
-                                    <DivBanner id="caja3_tab" withoutHide />
-                                    <DivBanner id="caja4_tab" withoutHide />
+                                    <DivBannerSSR
+                                        bannerConfiguration={{
+                                            slotId: 'caja3_tab',
+                                            withoutHide: true
+                                        }}
+                                    />
+                                    <DivBannerSSR
+                                        bannerConfiguration={{
+                                            slotId: 'caja4_tab',
+                                            withoutHide: true
+                                        }}
+                                    />
                                 </div>
                                 <div data-section="breaking4">
                                     {blocksToLoad.bloque3.loaded && breaking4}
                                 </div>
                                 {/* BANNER MIDDLE 1 */}
-                                <DivBanner id="middle1_dsk" withoutHide />
+                                <DivBannerSSR
+                                    bannerConfiguration={{
+                                        slotId: 'middle1_dsk',
+                                        withoutHide: true
+                                    }}
+                                />
+
                                 <div data-section="breaking5">
                                     {blocksToLoad.bloque3.loaded && breaking5}
                                 </div>
@@ -419,9 +524,11 @@ const LNMainHome = props => {
                             </div>
                             <div className="sidebar__aside hlp-tabletlm-none">
                                 {/* BANNERS */}
-                                <DivBanner
-                                    id="megalateral_dsk"
-                                    classes="--megalateral --sticky"
+                                <DivBannerSSR
+                                    bannerConfiguration={{
+                                        slotId: 'megalateral_dsk',
+                                        classes: '--megalateral --sticky'
+                                    }}
                                 />
                             </div>
                         </div>
@@ -460,9 +567,11 @@ const LNMainHome = props => {
                             <div className="sidebar__aside hlp-tabletlm-none">
                                 {/* BANNER ASIDE */}
                                 {blocksToLoad.bloque4.loaded && (
-                                    <DivBanner
-                                        id="megalateral2_dsk"
-                                        classes="--megalateral --sticky"
+                                    <DivBannerSSR
+                                        bannerConfiguration={{
+                                            slotId: 'megalateral2_dsk',
+                                            classes: '--megalateral --sticky'
+                                        }}
                                     />
                                 )}
                             </div>
@@ -510,9 +619,11 @@ const LNMainHome = props => {
                             <div className="sidebar__aside hlp-tabletlm-none">
                                 {/* BANNER ASIDE */}
                                 {blocksToLoad.bloque5.loaded && (
-                                    <DivBanner
-                                        id="megalateral3_dsk"
-                                        classes="--megalateral --sticky"
+                                    <DivBannerSSR
+                                        bannerConfiguration={{
+                                            slotId: 'megalateral3_dsk',
+                                            classes: '--megalateral --sticky'
+                                        }}
                                     />
                                 )}
                             </div>
@@ -520,24 +631,26 @@ const LNMainHome = props => {
                         <div className="lay-sidebar">
                             <div className="sidebar__main">
                                 {/* ADHESION */}
-                                <DivBanner
-                                    id="adhesion_dsk"
-                                    classes="--adhesion_dsk --fixed"
-                                    closeButton
-                                    validateSuscription
+                                <DivBannerSSR
+                                    bannerConfiguration={{
+                                        slotId: 'adhesion_dsk',
+                                        classes: '--adhesion_dsk --fixed',
+                                        hideForSubscriptor: true
+                                    }}
                                 />
-
-                                <DivBanner
-                                    id="adhesion_mob"
-                                    classes="--adhesion_mob --fixed"
-                                    closeButton
-                                    validateSuscription
+                                <DivBannerSSR
+                                    bannerConfiguration={{
+                                        slotId: 'adhesion_mob',
+                                        classes: '--adhesion_mob --fixed',
+                                        hideForSubscriptor: true
+                                    }}
                                 />
-                                <DivBanner
-                                    id="adhesion_tab"
-                                    classes="--adhesion_tab --fixed"
-                                    closeButton
-                                    validateSuscription
+                                <DivBannerSSR
+                                    bannerConfiguration={{
+                                        slotId: 'adhesion_tab',
+                                        classes: '--adhesion_tab --fixed',
+                                        hideForSubscriptor: true
+                                    }}
                                 />
                             </div>
                         </div>
