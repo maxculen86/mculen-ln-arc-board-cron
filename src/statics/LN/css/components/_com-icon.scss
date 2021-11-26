@@ -3,6 +3,9 @@
 .com-icon {
     @include flex(flex, row, center, center);
 
+    width: px(24);
+    height: px(24);
+
     .com-button.--icon.--bottom &,
     .com-button.--icon.--right & {
         order: 2;
