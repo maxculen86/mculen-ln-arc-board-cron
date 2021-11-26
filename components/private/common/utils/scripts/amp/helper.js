@@ -1,13 +1,5 @@
 import scriptVideoValidator from '../../../scriptManager/scriptVideoValidator';
 import ampCarouselValidation from './ampCarouselValidation';
-import {
-    EmailFilled,
-    FacebookFilled,
-    InstagramFilled,
-    Rss,
-    TwitterFilled,
-    WhatsappFilled
-} from '../../../../../../resources/svg';
 
 export const customElements = {
     'amp-sidebar': {
@@ -146,13 +138,4 @@ export const evaluateFunctionInclusion = (configElement, globalContent) => {
     return configElement.validateInclusion
         ? configElement.validateInclusion(globalContent)
         : true;
-};
-
-export const mapperIcons = {
-    'facebook-filled': <FacebookFilled />,
-    'twitter-filled': <TwitterFilled />,
-    'instagram-filled': <InstagramFilled />,
-    'whatsapp-filled': <WhatsappFilled />,
-    email: <EmailFilled />,
-    rss: <Rss />
 };

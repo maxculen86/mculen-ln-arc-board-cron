@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import '../../../resources/dist/css/ln/components/com-icon.css';
 import Link from '../common/link';
-import { mapperIcons } from './utils/scripts/amp/helper';
+import { mapperIcons } from '../LN/common/utils/MapperIcon';
 
 const Icon = ({ name, href, title, target, mod, rel, size, children }) => {
     //const className = `com-icon${name ? ` icon-${name}` : ``}${` ${mod}` || ``}${` ${size}` || ``}`;
