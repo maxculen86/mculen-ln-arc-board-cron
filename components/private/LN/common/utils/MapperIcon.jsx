@@ -1,7 +1,10 @@
 import React from 'react';
 import {
+    Club,
     EmailFilled,
     FacebookFilled,
+    Home,
+    Instagram,
     InstagramFilled,
     Rss,
     SectionFilled,
@@ -14,11 +17,12 @@ export const mapperIcons = {
     'facebook-filled': <FacebookFilled />,
     'twitter-filled': <TwitterFilled />,
     'instagram-filled': <InstagramFilled />,
+    instagram: <Instagram />,
     'whatsapp-filled': <WhatsappFilled />,
     email: <EmailFilled />,
     rss: <Rss />,
+    club: <Club />,
     section: <SectionFilled />,
-    club: <SectionFilled />,
     user: <User />,
-    home: <SectionFilled />
+    home: <Home />
 };

@@ -41,6 +41,7 @@ const Icon = ({ name, href, title, target, mod, rel, size, children }) => {
                 </Link>
             ) : (
                 <i className={className}>
+                    <FacebookFilled />
                     {/* {mapperIcons(name)} */}
                     {/* <svg
                         width="20"

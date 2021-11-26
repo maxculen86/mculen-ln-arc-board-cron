@@ -23,7 +23,7 @@ const ListMenu = ({ toglleDesplegable, amp, isHome }) => {
                         className="col-3 item-foo"
                         on="tap:sidebar-left.toggle"
                     >
-                        <Icon name="sections" />
+                        <Icon name="section" />
                         <p>Secciones</p>
                     </button>
                 ) : (
@@ -32,7 +32,7 @@ const ListMenu = ({ toglleDesplegable, amp, isHome }) => {
                         className="col-3 item-foo"
                         onClick={toglleDesplegable}
                     >
-                        <Icon name="sections" />
+                        <Icon name="section" />
                         <p>Secciones</p>
                     </button>
                 )}
