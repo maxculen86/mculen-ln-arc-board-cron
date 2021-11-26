@@ -225,7 +225,7 @@ const Index = ({
                                 title="Seguirnos en Twitter"
                             />
                             <Icon
-                                name="instagram"
+                                name="instagram-filled"
                                 href="https://www.instagram.com/lanacioncom"
                                 target="_blank"
                                 rel
