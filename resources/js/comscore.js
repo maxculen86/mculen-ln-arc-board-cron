@@ -1,4 +1,3 @@
-console.log('xxxx corriendo comscore xxxx');
 !(function(n, t) {
     'object' == typeof exports && 'object' == typeof module
         ? (module.exports = t())
@@ -562,7 +561,8 @@ console.log('xxxx corriendo comscore xxxx');
                     return (
                         null != t &&
                         t + '' != '' &&
-                        null != e && ((n[t + ''] = e + ''), !0)
+                        null != e &&
+                        ((n[t + ''] = e + ''), !0)
                     );
                 },
                 Fn: function(n, t) {
@@ -787,28 +787,26 @@ console.log('xxxx corriendo comscore xxxx');
                         return (
                             !!a &&
                             -1 != i.indexOf(r, a) &&
-                                ((function(n, e) {
-                                    var r = 'cs_dir_' + n,
-                                        s = u[r];
-                                    s.splice(i.indexOf(e, s), 1);
-                                    for (
-                                        var a = [], f = 0, c = s.length;
-                                        f < c;
-                                        f++
-                                    )
-                                        a.push(t(s[f]));
-                                    try {
-                                        'function' == typeof o.setItem
-                                            ? o.setItem(r, a.join('|'))
-                                            : (o[r] = a.join('|')),
-                                            'function' == typeof o.removeItem
-                                                ? o.removeItem(
-                                                      'cs_file_' + n + e
-                                                  )
-                                                : delete o['cs_file_' + n + e];
-                                    } catch (l) {}
-                                })(e, r),
-                                !0)
+                            ((function(n, e) {
+                                var r = 'cs_dir_' + n,
+                                    s = u[r];
+                                s.splice(i.indexOf(e, s), 1);
+                                for (
+                                    var a = [], f = 0, c = s.length;
+                                    f < c;
+                                    f++
+                                )
+                                    a.push(t(s[f]));
+                                try {
+                                    'function' == typeof o.setItem
+                                        ? o.setItem(r, a.join('|'))
+                                        : (o[r] = a.join('|')),
+                                        'function' == typeof o.removeItem
+                                            ? o.removeItem('cs_file_' + n + e)
+                                            : delete o['cs_file_' + n + e];
+                                } catch (l) {}
+                            })(e, r),
+                            !0)
                         );
                     },
                     read: function(t, e) {
@@ -3173,18 +3171,18 @@ console.log('xxxx corriendo comscore xxxx');
                     return (
                         r != u.DISABLED &&
                         !(r == u.MANUAL_FLUSH && !i) &&
-                            (r != u.LAN ||
-                                (o != c.WWAN &&
-                                    o != c.BLUETOOTH &&
-                                    o != c.DISCONNECTED)) &&
-                                !(function(t) {
-                                    var e = 60 * t.xi() * 1e3,
-                                        i = t.Ui();
-                                    +new Date() - n.get(l.Gn, -1) > e &&
-                                        (p = 0);
-                                    return p > i;
-                                })(t) &&
-                                    0 != e.length && !d
+                        (r != u.LAN ||
+                            (o != c.WWAN &&
+                                o != c.BLUETOOTH &&
+                                o != c.DISCONNECTED)) &&
+                        !(function(t) {
+                            var e = 60 * t.xi() * 1e3,
+                                i = t.Ui();
+                            +new Date() - n.get(l.Gn, -1) > e && (p = 0);
+                            return p > i;
+                        })(t) &&
+                        0 != e.length &&
+                        !d
                     );
                 }
                 function m(n) {
@@ -10310,11 +10308,11 @@ console.log('xxxx corriendo comscore xxxx');
                         return (
                             !n ||
                             !!n.Af ||
-                                !n.Cf ||
-                                    (!!n.Lf &&
-                                        !!n.Rf &&
-                                            ((n.Of && n.purposeOneTreatment) ||
-                                                n.consents[1]))
+                            !n.Cf ||
+                            (!!n.Lf &&
+                                !!n.Rf &&
+                                ((n.Of && n.purposeOneTreatment) ||
+                                    n.consents[1]))
                         );
                     },
                     Pf: function() {

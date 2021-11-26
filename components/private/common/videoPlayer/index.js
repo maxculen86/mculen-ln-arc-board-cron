@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import Context from 'fusion:context';
 import getProperties from 'fusion:properties';
 import { API_ENV } from 'fusion:environment';
-
-// TODO: prueba de concepto. Test pendientes para cuando definan que se necesita hacer y que no
-// en un player de video
+import {
+    streamingAnalyticsInit,
+    comscorePlayEvent
+} from './comscoreStreamingTag';
 
 const setPrerollAdsForPowa = adsURL => {
     window.PoWaSettings = window.PoWaSettings || {};
@@ -24,32 +25,6 @@ const setPrerollAdsForPowa = adsURL => {
     window.PoWaSettings.advertising.adBar = {
         skipOffset: 5
     };
-};
-
-const StreamingAnalyticsInit = () => {
-    const analytics = ns_.analytics;
-    analytics.PlatformApi.setPlatformAPI(
-        analytics.PlatformApi.PlatformApis.WebBrowser
-    );
-    analytics.configuration.addClient(
-        new analytics.configuration.PublisherConfiguration({
-            publisherId: '6906398'
-        })
-    );
-    // TODO: BORRAR esta linea para PROD
-    // analytics.configuration.enableImplementationValidationMode();
-    // TODO: BORRAR esta linea para PROD
-    analytics.start();
-
-    const StreamingAnalytics = new analytics.StreamingAnalytics();
-    StreamingAnalytics.createPlaybackSession();
-    return StreamingAnalytics;
-};
-
-const comscorePlayEvent = StreamAnalytic => {
-    // TODO: Borrar este console.log al finalizar pruebas
-    console.log('🚀 PUSH NOTIFYPLAY');
-    StreamAnalytic.notifyPlay();
 };
 
 const setEvent = (
@@ -126,13 +101,14 @@ const VideoPlayer = props => {
         enableControls,
         sticky
     } = props;
+
     const siteVars = getProperties(arcSite);
     const { organizationId } = siteVars || {};
     const apiEnv = API_ENV || 'sandbox';
     const [streamingAnalyticInstance] = useState(
-        (typeof window &&
+        (typeof window !== 'undefined' &&
             typeof ns_ !== 'undefined' &&
-            StreamingAnalyticsInit()) ||
+            streamingAnalyticsInit(arcSite)) ||
             {}
     );
 
