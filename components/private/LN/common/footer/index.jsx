@@ -8,7 +8,6 @@ import List from '../../../common/mod-list';
 import Copyright from './copyright';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
 import Logo from '../../../common/com-logo';
-//import LogoLN from '../../../common/logos/logoLN';
 
 import '../../../../../resources/dist/css/ln/modules/mod-footer.css';
 
@@ -205,11 +204,6 @@ const Index = ({
         }
     ];
 
-    // const year = new Date().getFullYear();
-    // const copyrightText = `Copyright ${year} SA LA NACION | Todos los derechos reservados`;
-
-    // if (outputType === 'amp')
-    //     return <FooterAMP copyrightText={copyrightText} />;
     return (
         <footer id="footer" className="footer-site --threexs">
             <div className="lay">

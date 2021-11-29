@@ -5,7 +5,7 @@ export default function handleScrollForNota() {
     if (typeof window === 'undefined') return;
     if (window.dataLayer === 'undefined') return;
 
-    const scrollPercentRounded = getScrollPercent(); // Math.round(scrollPercent * 100);
+    const scrollPercentRounded = getScrollPercent();
 
     if (scrollPercentRounded > 25) {
         if (!window.dataLayer.some(e => e.quartile === '25')) {

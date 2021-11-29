@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CuerpoDefault from './cuerpoDefault';
-// import CuerpoReceta from './cuerpoReceta';
 import addEventListener from '../../../common/hooks/useEventListener';
 import handleScrollForNota from '../dataLayer/handleScrollForNota';
 // TODO: tests

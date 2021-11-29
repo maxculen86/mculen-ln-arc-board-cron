@@ -4,7 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import get from 'lodash.get';
 
 const buildCurrentProgramsCustomFields = count => {
-    let resp = {};
+    const resp = {};
     for (let i = 1; i <= count; i++) {
         Object.assign(resp, {
             [`description${i}`]: PropTypes.string.tag({
@@ -26,7 +26,7 @@ const buildCurrentProgramsCustomFields = count => {
 };
 
 const getCurrentProgramsCustomFields = (count, props) => {
-    let resp = [];
+    const resp = [];
     for (let i = 1; i <= count; i++) {
         resp.push({
             description: get(props, `customFields.description${i}`, null),

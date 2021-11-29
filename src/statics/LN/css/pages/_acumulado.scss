@@ -15,7 +15,7 @@
                 // .com-link {
                 //     &.--tags {
                 //         font-family: $font-arial;
-                //         //color: $light-blue-500;
+                //         //color: $blue-500;
                 //         font-weight: 100;
                 //         letter-spacing: normal;
                 //         //margin-bottom: $spacing;
@@ -161,7 +161,7 @@
     // }
 
     &.--opening {
-        main {
+        #content {
             .--top.--top {
                 padding-bottom: px(118);
                 margin-bottom: 0;
@@ -177,7 +177,7 @@
         }
     }
     &.--color {
-        main {
+        #content {
             padding-top: 0;
             .--top {
                 padding-top: $spacing-lg;
@@ -197,7 +197,7 @@
         }
     }
     &.--transparent {
-        main {
+        #content {
             padding-top: 0;
             .--top {
                 margin-top: px(-72);
@@ -205,42 +205,42 @@
             }
         }
         &.ohlala {
-            main {
+            #content {
                 .--top {
                     background-color: $ohlala;
                 }
             }
         }
         &.lugares {
-            main {
+            #content {
                 .--top {
                     background-color: $lugares;
                 }
             }
         }
         &.hola {
-            main {
+            #content {
                 .--top {
                     background-color: $hola;
                 }
             }
         }
         &.living {
-            main {
+            #content {
                 .--top {
                     background-color: $living;
                 }
             }
         }
         &.brando {
-            main {
+            #content {
                 .--top {
                     background-color: $brando;
                 }
             }
         }
         &.jardin {
-            main {
+            #content {
                 .--top {
                     background-color: $jardin;
                 }
@@ -248,7 +248,7 @@
         }
         &.rolling,
         &.rolling-stone {
-            main {
+            #content {
                 .--top {
                     background-color: $rolling;
                 }
@@ -257,7 +257,7 @@
     }
 
     &.ohlala {
-        main {
+        #content {
             .com-lead,
             .--tags li .com-link,
             .mod-article .mod-description > div .com-link.--tags {
@@ -266,7 +266,7 @@
         }
     }
     &.lugares {
-        main {
+        #content {
             .com-lead,
             .--tags li .com-link,
             .mod-article .mod-description > div .com-link.--tags {
@@ -275,7 +275,7 @@
         }
     }
     &.hola {
-        main {
+        #content {
             .com-lead,
             .--tags li .com-link,
             .mod-article .mod-description > div .com-link.--tags {
@@ -292,7 +292,7 @@
         .com-breadcrumb .com-link {
             color: $living;
         }
-        main {
+        #content {
             .com-lead,
             .--tags li .com-link,
             .mod-article .mod-description > div .com-link.--tags {
@@ -301,7 +301,7 @@
         }
     }
     &.brando {
-        main {
+        #content {
             .com-lead,
             .--tags li .com-link,
             .mod-article .mod-description > div .com-link.--tags {
@@ -310,7 +310,7 @@
         }
     }
     &.jardin {
-        main {
+        #content {
             .com-lead,
             .--tags li .com-link,
             .mod-article .mod-description > div .com-link.--tags {
@@ -323,7 +323,7 @@
         .com-breadcrumb .com-link {
             color: $rolling;
         }
-        main {
+        #content {
             .com-lead,
             .--tags li .com-link,
             .mod-article .mod-description > div .com-link.--tags {

@@ -26,7 +26,8 @@ const resolve = key => {
         website,
         distributorId,
         sectionsIds,
-        sourceOrigin
+        sourceOrigin,
+        excludeSourceOrigin
     } = key;
 
     const arcSite = key['arc-site'];
@@ -41,7 +42,8 @@ const resolve = key => {
 
     if (sectionsIds) {
         const includeField =
-            '_id,subtype,promo_items,taxonomy.tags,taxonomy.primary_section,credits,headlines.basic,headlines.mobile,subheadlines,content_elements,display_date,publish_date,first_publish_date,website_url,display_date,canonical_url,marquesina,label.recomendar.text,related_content';
+            '_id,subtype,promo_items,taxonomy.tags,taxonomy.primary_section,credits,headlines.basic,headlines.mobile,subheadlines,content_elements,' +
+            'display_date,publish_date,first_publish_date,website_url,display_date,canonical_url,marquesina,label.recomendar.text,related_content';
         return `${basePath}&q=type:story+AND+source.system:${sourceOrigin}+AND+taxonomy.sites._id:${sectionsIds}
             &sort=display_date:desc&size=${cant}&from=${from}&_sourceInclude=${includeField}`;
     }
@@ -52,7 +54,6 @@ const resolve = key => {
             "term": {
                 "source.system":"${sourceOrigin}"
         }`;
-
     const subtypeFilter =
         subtype &&
         `},{
@@ -116,6 +117,14 @@ const resolve = key => {
             }
         ]`;
 
+    const notSourceSystemFiltered =
+        excludeSourceOrigin &&
+        `,"must_not": [
+        {
+          "match": { "source.system": { "query": "${excludeSourceOrigin}" } }
+        }
+      ]`;
+
     const suggestFilter =
         promoItemsOnly &&
         `
@@ -154,6 +163,7 @@ const resolve = key => {
                         ${tagFilter || ''}
                     ]
                     ${notSectionFiltered || ''}
+                    ${notSourceSystemFiltered || ''}
                 }
             }
     }`;
@@ -251,7 +261,8 @@ export default {
         website: 'text',
         imageConfig: 'text',
         sectionsIds: 'text',
-        sourceOrigin: 'text'
+        sourceOrigin: 'text',
+        excludeSourceOrigin: 'text'
     },
     ttl: 120
 };

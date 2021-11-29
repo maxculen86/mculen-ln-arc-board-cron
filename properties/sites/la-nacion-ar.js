@@ -15,7 +15,8 @@ export default {
     longTitle: 'Últimas noticias de Argentina y el mundo - LA NACION',
     title: 'LA NACION',
     description:
-        'Todas las noticias de Argentina y el mundo: últimas noticias en actualidad, deportes, coronavirus, economía, política, y tecnología. Mantenete informado sobre las novedades de Argentina en LA NACION.',
+        'Todas las noticias de Argentina y el mundo: últimas noticias en actualidad, deportes, coronavirus, economía, política, y tecnología.' +
+        ' Mantenete informado sobre las novedades de Argentina en LA NACION.',
     className: {
         body: 'ln'
     },
@@ -2021,7 +2022,8 @@ export default {
                         [1, 1]
                     ],
                     targeting: targetingHome,
-                    hideForSubscriptor: true
+                    hideForSubscriptor: true,
+                    closeButton: true
                 },
                 caja1_dsk: {
                     slotName: `la_nacion_desktop/Home/caja1_dsk`,
@@ -2148,7 +2150,8 @@ export default {
                     slotName: `la_nacion_mobile/Home/adhesion_mob`,
                     dimensions: [[320, 50]],
                     targeting: targetingHome,
-                    hideForSubscriptor: true
+                    hideForSubscriptor: true,
+                    closeButton: true
                 },
                 caja1_mob: {
                     slotName: `la_nacion_mobile/Home/caja1_mob`,
@@ -2244,7 +2247,8 @@ export default {
                     slotName: `la_nacion_tablet/Home/adhesion_tab`,
                     dimensions: [[728, 90]],
                     targeting: targetingHome,
-                    hideForSubscriptor: true
+                    hideForSubscriptor: true,
+                    closeButton: true
                 },
                 caja1_tab: {
                     slotName: `la_nacion_tablet/Home/caja1_tab`,

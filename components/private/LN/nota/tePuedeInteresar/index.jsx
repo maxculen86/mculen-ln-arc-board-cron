@@ -30,30 +30,37 @@ class Index extends Component {
             outputType
         };
 
-        this.fetchContent({
-            articles: {
-                source: 'liftigniterSource',
-                query: {
-                    cantidadNotas,
-                    referrer: url,
-                    imageConfig: 'm',
-                    idArticle,
-                    userId,
-                    sessionId,
-                    excludeItems,
-                    arcSite,
-                    action: 'model'
-                }
+        const { fetched } = this.getContent({
+            sourceName: 'liftigniterSource',
+            query: {
+                cantidadNotas,
+                referrer: url,
+                imageConfig: 'm',
+                idArticle,
+                userId,
+                sessionId,
+                excludeItems,
+                arcSite,
+                action: 'model'
+            }
+        });
+
+        fetched.then((response = []) => {
+            if (response && response.length) {
+                this.setState({ articles: response });
+                this.registerActivity('widget_shown', response);
             }
         });
 
         this.myRef = React.createRef();
         this.handleClick = this.handleClick.bind(this);
         this.handleScroll = this.handleScroll.bind(this);
+        this.isVisible = false;
+    }
+
+    componentDidMount() {
         typeof window === 'object' &&
             window.addEventListener('scroll', this.handleScroll);
-        this.isVisible = false;
-        this.isShownRegistred = false;
     }
 
     componentWillUnmount() {
@@ -64,22 +71,10 @@ class Index extends Component {
     handleClick = (event, nextUrl) => {
         const { articles } = this.state;
         event.preventDefault();
-        const { sessionId, url, idArticle, arcSite } = this.props;
-
-        const { fetched } = this.getContent({
-            source: 'liftigniterSource',
-            query: {
-                referrer: url,
-                idArticle,
-                sessionId,
-                arcSite,
-                nextUrl,
-                action: 'activity',
-                widgetType: 'widget_click',
-                articles: articles.map(article => article.website_url)
-            }
-        });
-
+        const fetched = this.registerActivity(
+            'widget_click',
+            articles.map(article => article.website_url)
+        );
         fetched.then(response => {
             if (typeof window === 'object') {
                 window.location.href = nextUrl;
@@ -122,30 +117,17 @@ class Index extends Component {
             }
         });
 
-        fetched.then(response => {
-            // console.log('response Liftigniter', response);
-        });
-    }
-
-    registerShown() {
-        const { articles } = this.state;
-        this.registerActivity('widget_shown', articles);
-        this.isShownRegistred = true;
+        return fetched;
     }
 
     render = () => {
         const { articles, outputType } = this.state;
-        const { dataLayerSection } = this.props;
-        articles &&
-            articles.length > 0 &&
-            !this.isShownRegistred &&
-            this.registerShown();
 
-        return articles && articles.length > 0 ? (
+        return articles && articles.length ? (
             <div className="row interest" ref={this.myRef}>
                 <CajaTema
                     title="Te puede interesar"
-                    sectionName={dataLayerSection}
+                    sectionName={this.props.dataLayerSection}
                     articles={articles}
                     position="toi"
                     outputType={outputType}

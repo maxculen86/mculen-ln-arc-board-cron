@@ -132,7 +132,6 @@ export const getBannerConfiguration = (
             globalContent
         );
 
-    // const config = slotsConfig[slotGroup][slotId];
     /* config es esto de abajo para el slotId
     adhesion_dsk: {
             slotName: 'la_nacion_desktop/Nota/adhesion_dsk',
@@ -276,15 +275,6 @@ export const getSlotForDevice = device => slots =>
         ? slots.find(slot => slot.name === device).slot || null
         : null;
 
-/*
-export const changeSlotName = name => {
-    const { slotName } = this._config;
-    this._config = {
-        ...this._config,
-        slotName: slotName.replace(/[^/]+$/g, name)
-    };
-};
-*/
 export const setCustomAdUnit = (slotName, unit) => {
     const slotNameSections = slotName && slotName.split('/').filter(Boolean);
 
@@ -341,8 +331,6 @@ export const naveggSetTargeting = () => {
                     name = name.substring(0, 10);
                     if (typeof googletag == 'object')
                         googletag.pubads().setTargeting(name, persona[col]);
-                    // if (typeof GA_googleAddAttr == "function")
-                    //   GA_googleAddAttr(name, persona[col]);
                 }
             }
         } catch (e) {
@@ -396,7 +384,6 @@ export const queueGoogletagCommand = bannersToLoad => {
                 googletag.cmd.push(function() {
                     if (pbjs.adserverRequestSent) return;
                     apstag.setDisplayBids();
-                    // googletag.pubads().refresh(bannerSlotDefined);
                 });
             }
         );

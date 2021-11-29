@@ -20,6 +20,7 @@ import ScriptLogoBBCAMP from '../private/common/scriptManager/scriptLogoBBCAMP';
 import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
 import getSectionName from '../private/LN/common/utils/getSectionName';
 import FontFace from '../private/common/fontface';
+import Favicon from '../private/common/favicon';
 
 /**
  * TODO: Resolver el tema de las canonicas
@@ -103,8 +104,9 @@ const Amp = props => {
                 <meta charset="utf-8" />
                 <meta
                     name="viewport"
-                    content="width=device-width,minimum-scale=1,initial-scale=1"
+                    content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
+                <meta name="theme-color" content="#ffffff" />
                 <MetaTitle
                     subtype={subtype}
                     metaTitleBasic={metaTitleBasic}
@@ -164,11 +166,7 @@ const Amp = props => {
                             '<style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style>'
                     }}
                 />
-                <link
-                    rel="icon"
-                    type="image/x-icon"
-                    href={deployment(`${contextPath}/resources/favicon.ico`)}
-                />
+                <Favicon />
 
                 <Robot
                     subtype={subtype}

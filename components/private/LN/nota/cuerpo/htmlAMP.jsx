@@ -1,9 +1,6 @@
 import React from 'react';
-import { OPTA_WIDGET_URL } from 'fusion:environment';
 import PropTypes from 'fusion:prop-types';
-import { useAppContext } from 'fusion:context';
-
-const hasOptaElements = content => content.includes('opta-widget');
+import isOnlyIframeWithPym from '../../../common/utils/isOnlyIframeWithPym';
 
 const formatContent = content => {
     const DOMElement = content.match(/src="(.*?)"/g);
@@ -14,16 +11,10 @@ const formatContent = content => {
 };
 
 const HtmlAMP = props => {
-    const { data } = props;
-    const { globalContent } = useAppContext();
-    const { _id: idNote } = globalContent;
-    const { content = null, width = '300', height = '360', _id: idRawHtml } =
-        data || {};
+    const { data = '' } = props;
+    const { content = null, width = '300', height = '400' } = data;
 
-    let urlForOpta = null;
-    if (hasOptaElements(content)) {
-        urlForOpta = `${OPTA_WIDGET_URL}/${idRawHtml}/${idNote}/?_website=la-nacion-ar&outputType=opta`;
-    }
+    if (!content || !isOnlyIframeWithPym(content)) return <></>;
 
     const contentSrc = formatContent(content);
 
@@ -34,7 +25,7 @@ const HtmlAMP = props => {
                 height={height}
                 sandbox="allow-scripts allow-same-origin"
                 layout="responsive"
-                src={urlForOpta || contentSrc}
+                src={contentSrc}
             >
                 <amp-img
                     layout="fill"
@@ -51,7 +42,14 @@ HtmlAMP.outputType = 'amp';
 HtmlAMP.propTypes = {
     data: PropTypes.shape({
         content: PropTypes.string
-    }).isRequired
+    })
+};
+
+HtmlAMP.defaultProps = {
+    data: {
+        _id: '',
+        content: ''
+    }
 };
 
 export default HtmlAMP;

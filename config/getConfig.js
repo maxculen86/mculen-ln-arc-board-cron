@@ -85,7 +85,6 @@ const getMode = settings => (settings.isProd ? 'production' : 'development');
 const defaultOptions = {};
 const getEntry = settings => {
     const entry = {};
-    // console.log(settings);
     const { site: siteName, entries, paths } = settings;
 
     entries.forEach(setting => {
@@ -145,7 +144,6 @@ const getPerformance = settings => {
                 ? settings.maxSize
                 : settings.maxSize[settings.env];
         return {
-            // maxAssetSize: settings.maxSize,
             maxEntrypointSize: maxSize,
             assetFilter(assetFilename) {
                 return assetFilename.endsWith('.css');

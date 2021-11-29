@@ -1,6 +1,6 @@
 import Consumer from 'fusion:consumer';
-import IndexAcuV1 from '../../../private/LN/api/v1/accumulated';
-import IndexAcuV2 from '../../../private/LN/api/v2/accumulated';
+import IndexAcuV1 from '../../../private/LN/api/v1/global/accumulated';
+import IndexAcuV2 from '../../../private/LN/api/v2/global/accumulated';
 import browser from '../../../private/common/utils/browser';
 import getSizesFrom from '../../../private/common/utils/getSizesFrom';
 // URL de ejemplo: http://localhost/api/v1/notas/byAuthor/Ignacio%20Madrid/params=size:12;page:1/?_website=la-nacion-ar&outputType=json
@@ -41,9 +41,14 @@ class AccumulatedAuthor {
             }
         });
 
-        this.versions = {
-            1: IndexAcuV1,
-            2: IndexAcuV2
+        this.apiData = {
+            global: {
+                1: IndexAcuV1,
+                2: IndexAcuV2
+            },
+            mobile: {
+                1: IndexAcuV1
+            }
         };
     }
 
@@ -52,7 +57,9 @@ class AccumulatedAuthor {
             const { acuArticlesSource } = this.state || {};
 
             const { globalContent: author, requestUri } = this.props;
-            const indexAcu = this.versions[browser.getApiVersion(requestUri)];
+            const indexAcu = this.apiData[browser.getApiType(requestUri)][
+                browser.getApiVersion(requestUri)
+            ];
 
             if (!acuArticlesSource || !acuArticlesSource.content_elements) {
                 return null;

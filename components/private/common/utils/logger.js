@@ -2,7 +2,6 @@
 /* eslint-disable no-console */
 import getProperties from 'fusion:properties';
 import NotFoundError from '../../../../content/sources/utils/notFoundError';
-
 import LnError from './LN-Error';
 
 const logger = (() => {

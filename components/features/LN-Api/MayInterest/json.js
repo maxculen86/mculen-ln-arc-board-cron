@@ -1,6 +1,6 @@
 import Consumer from 'fusion:consumer';
-import IndexAcuV1 from '../../../private/LN/api/v1/accumulated';
-import IndexAcuV2 from '../../../private/LN/api/v2/accumulated';
+import IndexAcuV1 from '../../../private/LN/api/v1/global/accumulated';
+import IndexAcuV2 from '../../../private/LN/api/v2/global/accumulated';
 import browser from '../../../private/common/utils/browser';
 
 // URL de ejemplo: http://localhost/api/v1/notas/mayInterest/model/b4dd939b-0bf3-463b-bdc2-1613736289225/3/?_website=la-nacion-ar&outputType=json
@@ -13,9 +13,14 @@ class MayInterest {
         // this.versions = {
         //     1: IndexMayInterestV1
         // };
-        this.versions = {
-            1: IndexAcuV1,
-            2: IndexAcuV2
+        this.apiData = {
+            global: {
+                1: IndexAcuV1,
+                2: IndexAcuV2
+            },
+            mobile: {
+                1: IndexAcuV1
+            }
         };
     }
 
@@ -25,8 +30,9 @@ class MayInterest {
 
             const { requestUri } = this.props;
 
-            const indexAcu = this.versions[browser.getApiVersion(requestUri)];
-
+            const indexAcu = this.apiData[browser.getApiType(requestUri)][
+                browser.getApiVersion(requestUri)
+            ];
             if (globalContent && globalContent?.status) {
                 return globalContent;
             }

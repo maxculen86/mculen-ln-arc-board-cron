@@ -22,6 +22,7 @@ const aperturaNoticia = props => {
         aperturaMultimedia || basic || {};
     const { isDesktop } = getViewport();
     const isVideo = subtype === VIDEO && _type === 'video';
+
     const Component = (
         <section className="mod-opening">
             {(() => {

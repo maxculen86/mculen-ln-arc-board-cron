@@ -54,14 +54,4 @@ BreadcrumbSchema.propTypes = {
     host: PropTypes.string.isRequired
 };
 
-// BreadcrumbSchema.defaultProps = {
-//     sections: [
-//         {
-//             name: undefined,
-//             path: undefined
-//         }
-//     ],
-//     host: ''
-// };
-
 export default BreadcrumbSchema;
