@@ -27,5 +27,6 @@ export default {
         trackInteractions: true,
         trackSessionAcrossSubdomains: false
     },
-    ARC_STATIC: 'https://dev.lanacionar.arcpublishing.com/'
+    ARC_STATIC: 'https://dev.lanacionar.arcpublishing.com/',
+    PAYWALL_URL: 'https://suscripciones.lanacion.com.ar/suscripcion/E/1/1/'
 };

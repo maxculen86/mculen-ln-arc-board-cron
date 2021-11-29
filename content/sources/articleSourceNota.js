@@ -5,7 +5,8 @@ import {
     RESIZER_URL,
     ARC_ACCESS_TOKEN,
     SITE_LANACION,
-    API_ENV
+    API_ENV,
+    PAYWALL_URL
 } from 'fusion:environment';
 import getProperties from 'fusion:properties';
 import get from '../../components/private/common/utils/get';
@@ -37,6 +38,11 @@ const resolve = (key, a) => {
     if (url) return `${basePath}&website_url=${url}`;
 
     throw new Error('Debe definir url o id para obtener la nota');
+};
+
+const validateArticleAccess = ({ contentCode, meteringVariant }) => {
+    if (contentCode === 'cerrada' && meteringVariant !== 'S')
+        throw new Redirect(PAYWALL_URL, 301);
 };
 
 const fetch = query => {
@@ -71,12 +77,22 @@ const fetch = query => {
             if (forwardUrl && regExp.test(forwardUrl)) {
                 throw new Redirect(forwardUrl, 301);
             }
+
+            response &&
+                validateArticleAccess({
+                    contentCode:
+                        response.content_restrictions &&
+                        response.content_restrictions.content_code,
+                    meteringVariant: query.meteringVariant
+                });
+
             isNotShowcase(response) &&
                 paywallUtils.checkPaywall({
                     queryData: query,
                     urlBase: SITE_LANACION,
                     responseData: response
                 });
+
             return transform(
                 response,
                 arcSite,

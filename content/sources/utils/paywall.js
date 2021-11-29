@@ -20,6 +20,7 @@ const checkPaywall = ({ queryData, urlBase, responseData }) => {
         (!responseData.content_restrictions ||
             responseData.content_restrictions.content_code !== 'abierta')
     ) {
+        console.log(query);
         const callback = Buffer.from(
             addRandomParam(`${urlBase}${url}`)
         ).toString('base64');
