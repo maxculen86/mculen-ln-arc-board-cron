@@ -198,6 +198,8 @@ const customReceta = `
             title
             typeList
             items
+            prepTime
+            cookTime
             counterTime
             counterPortion
         }
