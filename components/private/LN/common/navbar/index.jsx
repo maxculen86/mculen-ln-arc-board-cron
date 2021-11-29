@@ -23,7 +23,7 @@ const ListMenu = ({ toglleDesplegable, amp, isHome }) => {
                         className="col-3 item-foo"
                         on="tap:sidebar-left.toggle"
                     >
-                        <Icon name="section" />
+                        <Icon name="sections" />
                         <p>Secciones</p>
                     </button>
                 ) : (
@@ -32,13 +32,13 @@ const ListMenu = ({ toglleDesplegable, amp, isHome }) => {
                         className="col-3 item-foo"
                         onClick={toglleDesplegable}
                     >
-                        <Icon name="section" />
+                        <Icon name="sections" />
                         <p>Secciones</p>
                     </button>
                 )}
 
                 <Icon
-                    name="club"
+                    name="club-card"
                     href="https://club.lanacion.com.ar/"
                     mod="col-3 item-foo"
                 >

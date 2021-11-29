@@ -1,18 +1,24 @@
 import React from 'react';
 
-import { FacebookFilled, InstagramFilled } from './index';
+import {
+    FacebookFilled,
+    TwitterFilled,
+    Instagram,
+    Rss,
+    Home,
+    Sections,
+    ClubCard,
+    User
+} from './index';
 
 export const mapperIcon = {
-    facebook: ({ ...r }) => <FacebookFilled {...r} />,
     'facebook-filled': ({ ...r }) => <FacebookFilled {...r} />,
-    'twitter-filled': ({ ...r }) => <InstagramFilled {...r} />,
-    'instagram-filled': ({ ...r }) => <InstagramFilled {...r} />,
-    instagram: ({ ...r }) => <FacebookFilled {...r} />,
-    'whatsapp-filled': ({ ...r }) => <FacebookFilled {...r} />,
-    email: ({ ...r }) => <FacebookFilled {...r} />,
-    rss: ({ ...r }) => <FacebookFilled {...r} />,
-    club: ({ ...r }) => <FacebookFilled {...r} />,
-    section: ({ ...r }) => <FacebookFilled {...r} />,
-    user: ({ ...r }) => <FacebookFilled {...r} />,
-    home: ({ ...r }) => <FacebookFilled {...r} />
+    'twitter-filled': ({ ...r }) => <TwitterFilled {...r} />,
+    instagram: ({ ...r }) => <Instagram {...r} />,
+    rss: ({ ...r }) => <Rss {...r} />,
+
+    home: ({ ...r }) => <Home {...r} />,
+    sections: ({ ...r }) => <Sections {...r} />,
+    'club-card': ({ ...r }) => <ClubCard {...r} />,
+    user: ({ ...r }) => <User {...r} />
 };
