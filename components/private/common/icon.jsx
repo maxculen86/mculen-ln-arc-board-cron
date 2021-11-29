@@ -11,6 +11,8 @@ const Icon = ({ name, href, title, target, mod, rel, size, children }) => {
         href ? `` : ` ${mod || ``}`
     } ${size || ``}`;
 
+    console.log('astrid--------->', FacebookFilled);
+
     return (
         <>
             {href ? (
@@ -22,9 +24,9 @@ const Icon = ({ name, href, title, target, mod, rel, size, children }) => {
                     rel={rel}
                 >
                     <i className={className}>
-                        <FacebookFilled />
+                        {/* <FacebookFilled /> */}
                         {/* {mapperIcons(name)} */}
-                        {/* <svg
+                        <svg
                             width="20"
                             height="20"
                             viewBox="0 0 20 20"
@@ -35,15 +37,15 @@ const Icon = ({ name, href, title, target, mod, rel, size, children }) => {
                                 d="M10 20C4.477 20 0 15.523 0 10C0 4.477 4.477 0 10 0C15.523 0 20 4.477 20 10C20 15.523 15.523 20 10 20ZM9 13V15H11V13H9ZM9 5V11H11V5H9Z"
                                 fill="red"
                             />
-                        </svg> */}
+                        </svg>
                     </i>
                     {children}
                 </Link>
             ) : (
                 <i className={className}>
-                    <FacebookFilled />
+                    {/* <FacebookFilled /> */}
                     {/* {mapperIcons(name)} */}
-                    {/* <svg
+                    <svg
                         width="20"
                         height="20"
                         viewBox="0 0 20 20"
@@ -54,7 +56,7 @@ const Icon = ({ name, href, title, target, mod, rel, size, children }) => {
                             d="M10 20C4.477 20 0 15.523 0 10C0 4.477 4.477 0 10 0C15.523 0 20 4.477 20 10C20 15.523 15.523 20 10 20ZM9 13V15H11V13H9ZM9 5V11H11V5H9Z"
                             fill="red"
                         />
-                    </svg> */}
+                    </svg>
                 </i>
             )}
         </>
