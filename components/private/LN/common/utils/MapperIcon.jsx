@@ -1,16 +1,27 @@
 import React from 'react';
 import {
+    ClearNight,
+    Cloudy,
     Club,
     EmailFilled,
     FacebookFilled,
     Home,
     Instagram,
     InstagramFilled,
+    Rain,
+    RainyCloudy,
     Rss,
     SectionFilled,
+    Snow,
+    SnowCloudy,
+    Storm,
+    StormCloudy,
+    Sun,
+    SunCloudy,
     TwitterFilled,
     User,
-    WhatsappFilled
+    WhatsappFilled,
+    Windy
 } from '../../../../../resources/svg';
 
 export const mapperIcons = {
@@ -24,5 +35,16 @@ export const mapperIcons = {
     club: <Club />,
     section: <SectionFilled />,
     user: <User />,
-    home: <Home />
+    home: <Home />,
+    rain: <Rain />,
+    sun: <Sun />,
+    cloudy: <Cloudy />,
+    Snow: <Snow />,
+    ClearNight: <ClearNight />,
+    Windy: <Windy />,
+    SunCloudy: <SunCloudy />,
+    StormCloudy: <StormCloudy />,
+    SnowCloudy: <SnowCloudy />,
+    RainyCloudy: <RainyCloudy />,
+    Storm: <Storm />
 };
