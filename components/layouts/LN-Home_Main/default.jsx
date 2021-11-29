@@ -280,7 +280,7 @@ const LNMainHome = props => {
                                 <div data-section="apertura">
                                     {apertura1}
                                     {/* BANNER CAJA 1 MOB */}
-                                    <Static id="sticky2">
+                                    <Static id="caja1_mob">
                                         <DivBannerSSR
                                             bannerConfiguration={{
                                                 slotId: 'caja1_mob',
@@ -634,22 +634,28 @@ const LNMainHome = props => {
                                 <DivBannerSSR
                                     bannerConfiguration={{
                                         slotId: 'adhesion_dsk',
-                                        classes: '--adhesion_dsk --fixed',
-                                        hideForSubscriptor: true
+                                        classes:
+                                            '--adhesion_dsk --fixed --close',
+                                        hideForSubscriptor: true,
+                                        closeButton: true
                                     }}
                                 />
                                 <DivBannerSSR
                                     bannerConfiguration={{
                                         slotId: 'adhesion_mob',
-                                        classes: '--adhesion_mob --fixed',
-                                        hideForSubscriptor: true
+                                        classes:
+                                            '--adhesion_mob --fixed --close',
+                                        hideForSubscriptor: true,
+                                        closeButton: true
                                     }}
                                 />
                                 <DivBannerSSR
                                     bannerConfiguration={{
                                         slotId: 'adhesion_tab',
-                                        classes: '--adhesion_tab --fixed',
-                                        hideForSubscriptor: true
+                                        classes:
+                                            '--adhesion_tab --fixed --close',
+                                        hideForSubscriptor: true,
+                                        closeButton: true
                                     }}
                                 />
                             </div>
