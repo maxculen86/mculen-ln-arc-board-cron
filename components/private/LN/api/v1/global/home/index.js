@@ -22,7 +22,7 @@ const typeSection = {
         tipoSeccion: 'dolar',
         idSeccion: 2000,
         tituloCaja: 'Cotización hoy',
-        url: 'https://www.lanacion.com.ar/dolar-hoy/'
+        url: 'https://www.lanacion.com.ar/economia/dolar/'
     },
     Multimedia: { tipoSeccion: 'tema', idSeccion: 305 },
     default: { tipoSeccion: 'tema', idSeccion: 305 }
