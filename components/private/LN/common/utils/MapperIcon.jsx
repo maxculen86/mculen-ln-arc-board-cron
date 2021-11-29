@@ -40,11 +40,11 @@ export const mapperIcons = {
     sun: <Sun />,
     cloudy: <Cloudy />,
     Snow: <Snow />,
-    ClearNight: <ClearNight />,
+    'clear-night': <ClearNight />,
     Windy: <Windy />,
-    SunCloudy: <SunCloudy />,
-    StormCloudy: <StormCloudy />,
-    SnowCloudy: <SnowCloudy />,
-    RainyCloudy: <RainyCloudy />,
+    'sun-cloudy': <SunCloudy />,
+    'storm-cloudy': <StormCloudy />,
+    'snow-cloudy': <SnowCloudy />,
+    'rainy-cloudy': <RainyCloudy />,
     Storm: <Storm />
 };
