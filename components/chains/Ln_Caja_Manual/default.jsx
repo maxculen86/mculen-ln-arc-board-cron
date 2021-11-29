@@ -51,7 +51,6 @@ const CajaManual = props => {
 
     const isInApertura = customFieldValidation({
         featureId,
-        customField: 'hideCaja',
         sectionChildren: aperturasChildren
     });
 
