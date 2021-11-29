@@ -27,8 +27,11 @@ const fetch = query => {
             return transform(response, query);
         })
         .catch(error => {
-            logger.push(error, { source: 'content/source', query }, query);
-            throw error;
+            logger.push(
+                error,
+                { source: 'content/source/navigationTreeSource', query },
+                query
+            );
         });
 };
 
@@ -37,13 +40,10 @@ const transform = (data, { sectionId }) => {
     // Cuando el source es llamado desde WithNavigation no hace falta devolver mas cosas
     if (sectionId) {
         const sections = sectionId ? getSections(restProps, sectionId) : [];
-        // const sectionConfig =
-        // restProps && restProps.children.find(x => x._id === sectionId);
 
         return {
             sections,
             Termicas: restProps && restProps.Termicas
-            // bannerConfig: sectionConfig && sectionConfig.bannerConfig
         };
     }
 

@@ -1,9 +1,16 @@
+7;
+
 import * as fusionConsumer from 'fusion:consumer';
 import * as LayoutLNMainHome from '../../../../components/layouts/LN-Home_Main/json';
-import home from '.../../../../../../components/private/LN/api/v1/home';
+import home from '../../../../components/private/LN/api/v1/global/home';
 import pageBuilderSections from '../../../../components/layouts/config/LN-PageBuilder.config.json';
+import propsAppAnexos from '../../../../__mocks__/data/renderables/dataAppAnexos';
+import propsAppAnexo1 from '../../../../__mocks__/data/renderables/dataAppAnexo1';
+import propsAppAnexo2 from '../../../../__mocks__/data/renderables/dataAppAnexo2';
+import propsAppAnexowithoutApertura from '../../../../__mocks__/data/renderables/dataAppAnexoswithoutApertura';
+import propsApertura from '../../../../__mocks__/data/renderables/dataApertura.json';
 
-jest.mock('.../../../../../../components/private/LN/api/v1/home', () => {
+jest.mock('.../../../../../../components/private/LN/api/v1/global/home', () => {
     return function(component) {
         return component;
     };
@@ -45,11 +52,13 @@ describe('components - layouts - LN-Home_Main - json', () => {
         [], //21 Tema11',
         [], //22 Tema12',
         [], //23 Tema13',
-        [] //24 Tema14'
+        [], //24 App_Anexo_1',
+        [] //25 App_Anexo_2'
     ];
 
     props.renderables = [];
     props.arcSite = 'la-nacion-ar';
+
     describe('Test Section Anticipo', () => {
         test('OK', () => {
             const childrenTmp = children;
@@ -83,7 +92,13 @@ describe('components - layouts - LN-Home_Main - json', () => {
             ];
             const homeSections = LayoutLNMainHome.default(props);
             expect(Object.keys(homeSections[0]).sort()).toEqual(
-                ['configurations', 'feature', 'information', 'type'].sort()
+                [
+                    'configurations',
+                    'feature',
+                    'information',
+                    'type',
+                    'nameFeature'
+                ].sort()
             );
             expect(homeSections[0].feature).toBe('Anticipo');
         });
@@ -126,7 +141,8 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'configurations',
                     'feature',
                     'information',
-                    'type'
+                    'type',
+                    'nameFeature'
                 ].sort()
             );
             expect(homeSections[0].feature).toBe('Bomba');
@@ -135,49 +151,15 @@ describe('components - layouts - LN-Home_Main - json', () => {
 
     describe('Test Section Apertura', () => {
         test('Ok', () => {
-            const childrenTmp = children;
-            childrenTmp[3] = [
-                {
-                    information: {
-                        layout: 'focalLeft3',
-                        backgroundColor: 'default',
-                        initialPosition: 1,
-                        hideTitle: false,
-                        idCollection: 'QJ3BOEZVQNEYZEVBXHF4C7KAWY',
-                        title: 'Apertura',
-                        pbInternal_cloneId: 'c0ffOCwkYqcA22',
-                        image: undefined
-                    },
-                    articles: []
-                }
-            ];
-            props.children = childrenTmp;
-            props.renderables = [
-                {
-                    collection: 'sections',
-                    props: {
-                        collection: 'sections',
-                        id: 3
-                    },
-                    children: [
-                        {
-                            collection: 'chains',
-                            type: 'Ln_Caja_Collection',
-                            props: {},
-                            children: []
-                        }
-                    ]
-                },
-                {}
-            ];
-            const homeSections = LayoutLNMainHome.default(props);
+            const homeSections = LayoutLNMainHome.default(propsApertura);
             expect(Object.keys(homeSections[0]).sort()).toEqual(
                 [
                     'articles',
                     'configurations',
                     'feature',
                     'information',
-                    'type'
+                    'type',
+                    'nameFeature'
                 ].sort()
             );
             expect(homeSections[0].feature).toBe('Apertura');
@@ -208,7 +190,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     collection: 'sections',
                     props: {
                         collection: 'sections',
-                        id: 3
+                        id: 4
                     },
                     children: [
                         {
@@ -222,16 +204,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                 {}
             ];
             const homeSections = LayoutLNMainHome.default(props);
-            /*expect(Object.keys(homeSections[0]).sort()).toEqual(
-                [
-                    'articles',
-                    'configurations',
-                    'feature',
-                    'information',
-                    'type'
-                ].sort()
-            );*/
-            expect(homeSections[0].feature).toBe('Apertura');
+            expect(homeSections[1].feature).toBe('Apertura');
         });
     });
 
@@ -347,7 +320,8 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'configurations',
                     'feature',
                     'information',
-                    'type'
+                    'type',
+                    'nameFeature'
                 ].sort()
             );
             expect(homeSections[7].feature).toBe('Opinion');
@@ -357,7 +331,8 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'configurations',
                     'feature',
                     'information',
-                    'type'
+                    'type',
+                    'nameFeature'
                 ].sort()
             );
             expect(homeSections[7].feature).toBe('Opinion');
@@ -458,7 +433,8 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'configurations',
                     'feature',
                     'information',
-                    'type'
+                    'type',
+                    'nameFeature'
                 ].sort()
             );
             expect(homeSections[6].feature).toBe('Comercial');
@@ -505,7 +481,8 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'configurations',
                     'feature',
                     'information',
-                    'type'
+                    'type',
+                    'nameFeature'
                 ].sort()
             );
             expect(homeSections[3].feature).toBe('Tema1');
@@ -519,6 +496,61 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     `Cannot read property 'children' of null`
                 );
             }
+        });
+    });
+
+    describe('Test Section App_Anexo_1 y App_Anexo_2', () => {
+        test('Ok', () => {
+            const homeSections = LayoutLNMainHome.default(propsAppAnexos);
+            expect(homeSections[0]).toEqual(
+                expect.objectContaining({ feature: 'AnexoMobile' })
+            );
+            expect(homeSections[1]).toEqual(
+                expect.objectContaining({ feature: 'Apertura' })
+            );
+            expect(homeSections[2]).toEqual(
+                expect.objectContaining({ feature: 'AnexoMobile' })
+            );
+        });
+
+        test('Ok only App_Anexo_1', () => {
+            const homeSections = LayoutLNMainHome.default(propsAppAnexo1);
+            expect(homeSections[0]).toEqual(
+                expect.objectContaining({ feature: 'AnexoMobile' })
+            );
+            expect(homeSections[1]).toEqual(
+                expect.objectContaining({ feature: 'Apertura' })
+            );
+            expect(homeSections[2]).toEqual(
+                expect.objectContaining({ feature: 'Banner' })
+            );
+        });
+
+        test('Ok only App_Anexo_2', () => {
+            const homeSections = LayoutLNMainHome.default(propsAppAnexo2);
+
+            expect(homeSections[0]).toEqual(
+                expect.objectContaining({ feature: 'Apertura' })
+            );
+            expect(homeSections[1]).toEqual(
+                expect.objectContaining({ feature: 'AnexoMobile' })
+            );
+        });
+
+        test('Error No exists Apertura1', () => {
+            const homeSections = LayoutLNMainHome.default(
+                propsAppAnexowithoutApertura
+            );
+
+            expect(homeSections[0]).toEqual(
+                expect.objectContaining({ feature: 'Banner' })
+            );
+            expect(homeSections[1]).toEqual(
+                expect.objectContaining({ feature: 'Apertura' })
+            );
+            expect(homeSections[2]).toEqual(
+                expect.objectContaining({ feature: 'Dolar' })
+            );
         });
     });
 });

@@ -16,22 +16,24 @@ const getCollectionsInPage = (idCollectionsInPage = []) => {
     const listOfCollections = [];
     idCollectionsInPage.forEach(id => {
         const collectionsProps = {
-            id,
+            id: id && id.trim(),
             size: 20,
             website: 'la-nacion-ar',
             imageConfig: 'l'
         };
-        const collect = useContent({
-            source: 'collectionsSource',
-            query: collectionsProps,
-            filter,
-            transform: response => {
-                return {
-                    idCollection: id,
-                    articles: response ? response.content_elements : []
-                };
-            }
-        });
+        const collect =
+            id &&
+            useContent({
+                source: 'collectionsSource',
+                query: collectionsProps,
+                filter,
+                transform: response => {
+                    return {
+                        idCollection: id,
+                        articles: response ? response.content_elements : []
+                    };
+                }
+            });
         listOfCollections.push(collect);
     });
     return listOfCollections;
@@ -39,19 +41,22 @@ const getCollectionsInPage = (idCollectionsInPage = []) => {
 
 const getCollectionApertura = id => {
     const collectionsProps = {
-        id,
+        id: id && id.trim(),
         size: 2,
         website: 'la-nacion-ar',
         imageConfig: 'l'
     };
-    return useContent({
-        source: 'collectionsSource',
-        query: collectionsProps,
-        filter,
-        transform: response => {
-            return response ? response.content_elements : [];
-        }
-    });
+    return (
+        id &&
+        useContent({
+            source: 'collectionsSource',
+            query: collectionsProps,
+            filter,
+            transform: response => {
+                return response ? response.content_elements : [];
+            }
+        })
+    );
 };
 
 const GlobalProviderAcu = props => {

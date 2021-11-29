@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Private - LN - nota - cuerpo - HtmlAMP Snapshots - iframe con class "pym match with snapShot" 1`] = `
+<div
+  class="com-embed --html"
+>
+  <amp-iframe
+    height="400"
+    layout="responsive"
+    sandbox="allow-scripts allow-same-origin"
+    src="https://especialess3.lanacion.com.ar/20/03/coronavirus-argentina/#/barras"
+    width="300"
+  >
+    <amp-img
+      layout="fill"
+      placeholder="placeholder"
+      src="https://especialess3.lanacion.com.ar/20/03/coronavirus-argentina/#/barras"
+    />
+  </amp-iframe>
+</div>
+`;
+
+exports[`Private - LN - nota - cuerpo - HtmlAMP Snapshots - return null con iframe anidado dentro de un div 1`] = `null`;

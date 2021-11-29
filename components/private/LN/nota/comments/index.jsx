@@ -32,13 +32,6 @@ const Comments = props => {
     } = props;
 
     const loginData = getLoginData();
-    // return <LoadingIcon />;
-    // const {
-    //     globalContent: { comments }
-    // } = props;
-
-    // const allowComments = get(comments, 'allow_comments', true);
-    // const displayComments = get(comments, 'display_comments', true);
 
     const { setCommentsEnabledAndCount } = useComments();
     const [stylesLoaded, setStylesLoaded] = useState(false);
@@ -291,8 +284,6 @@ const Comments = props => {
         loginData,
         props
     ]);
-
-    // if (!displayComments) return null;
 
     return (
         <>

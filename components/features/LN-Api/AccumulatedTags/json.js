@@ -1,6 +1,6 @@
 import Consumer from 'fusion:consumer';
-import IndexAcuV1 from '../../../private/LN/api/v1/accumulated';
-import IndexAcuV2 from '../../../private/LN/api/v2/accumulated';
+import IndexAcuV1 from '../../../private/LN/api/v1/global/accumulated';
+import IndexAcuV2 from '../../../private/LN/api/v2/global/accumulated';
 import browser from '../../../private/common/utils/browser';
 import getSizesFrom from '../../../private/common/utils/getSizesFrom';
 import get from 'lodash.get';
@@ -46,10 +46,14 @@ class AccumulatedTags {
                 }
             }
         });
-
-        this.versions = {
-            1: IndexAcuV1,
-            2: IndexAcuV2
+        this.apiData = {
+            global: {
+                1: IndexAcuV1,
+                2: IndexAcuV2
+            },
+            mobile: {
+                1: IndexAcuV1
+            }
         };
     }
 
@@ -60,8 +64,9 @@ class AccumulatedTags {
 
             const { requestUri } = this.props;
 
-            const indexAcu = this.versions[browser.getApiVersion(requestUri)];
-
+            const indexAcu = this.apiData[browser.getApiType(requestUri)][
+                browser.getApiVersion(requestUri)
+            ];
             if (!acuArticlesSource || !acuArticlesSource.content_elements) {
                 return null;
             }

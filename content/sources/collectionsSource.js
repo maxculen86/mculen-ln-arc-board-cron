@@ -48,8 +48,11 @@ const fetch = query => {
             return transform(response, query);
         })
         .catch(error => {
-            logger.push(error, { source: 'content/source', url }, arcSite);
-            throw error;
+            logger.push(
+                error,
+                { source: 'content/source/collectionSource', url },
+                arcSite
+            );
         });
 };
 
@@ -88,8 +91,6 @@ const transform = (data, siteProps) => {
             } =
                 (imageConfig && getPresets({ ...siteProps, imageConfig })) ||
                 {};
-            // const promoItems = get(elem, `promo_items`, null);
-            // const marquesina = get(elem, `description.basic`, null);
             const subtype = get(elem, `subtype`, null);
             const isFotoAl100orStorytelling =
                 subtype === FOTOAL100 || subtype === STORYTELLING;

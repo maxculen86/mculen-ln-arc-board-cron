@@ -20,7 +20,6 @@ const ModImage = props => {
         sizes = {},
         sources
     } = props;
-    // if (!src || !srcset) return null;
 
     return (
         <ComPicture

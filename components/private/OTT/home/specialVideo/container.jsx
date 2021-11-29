@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import SpecialVideoComponent from './component';
-// import Consumer from 'fusion:consumer';
-//import get from 'lodash.get';
-//import filter from '../../../../../content/filters/OTT/homeVideoItem';
 import withVideosByIds from '../../../common/hocs/withVideosByIds';
 
 class SpecialVideo extends Component {

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import TaxonomyComponent from '../../common/taxonomyImportantList';
-//import ComTitle from '../../../common/com-title';
 import HeaderSection from '../../../common/mod-headerSection';
 
 const getSectionsAsTags = sections => {

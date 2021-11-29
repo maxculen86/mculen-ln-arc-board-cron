@@ -122,9 +122,7 @@ class Index extends Component {
             }
         });
 
-        fetched.then(response => {
-            // console.log('response Liftigniter', response);
-        });
+        fetched.then(response => {});
     }
 
     registerShown() {

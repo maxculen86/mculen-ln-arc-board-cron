@@ -96,7 +96,6 @@ export function dateAndTimeForAppsUtil(displayDate) {
 
 export function hasFutureDisplayDate(displayDate = '') {
     const dateInJS = new Date(displayDate);
-    // dateInJS.setHours(dateInJS.getHours() + 3);
     return dateInJS > new Date();
 }
 
@@ -104,7 +103,6 @@ export function isOlderThan24HourAgo(date) {
     const oneDay = 1000 * 60 * 60 * 24;
     const aDayAgo = Date.now() - oneDay;
     const dateInJS = new Date(date);
-    // dateInJS.setHours(dateInJS.getHours() + 3);
     return dateInJS < aDayAgo;
 }
 

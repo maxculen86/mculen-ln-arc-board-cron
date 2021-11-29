@@ -20,7 +20,10 @@ export default class Comscore extends Component {
 
         const script = `var _comscore = _comscore || [];_comscore.push(${JSON.stringify(
             this.config
-        )});(function() {var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";el.parentNode.insertBefore(s, el);})();`;
+        )});(function() {
+                var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+                s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";el.parentNode.insertBefore(s, el);
+            })();`;
 
         const urlConfig = Object.keys(this.config)
             .map(k => `${k}=${this.config[k]}`)

@@ -2,12 +2,6 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { RECETA } from './utils/subtypes/subtypeHelper';
 
-// const getPrefix = _id => {
-//     if (_id === '/recetas') return ' ';
-//     if (_id.includes('/recetas')) return ' recetas de ';
-//     return ' noticias de ';
-// };
-
 const MetaTitle = ({
     metaTitleBasic,
     arcSite,
@@ -27,7 +21,6 @@ const MetaTitle = ({
     const acusWithMeta = ['section', 'author', 'distributor', 'tags'];
 
     if (acusWithMeta.includes(nodeType)) {
-        // const prefix = getPrefix(_id);
         const customTitle =
             title === 'Últimas noticias - LA NACION' ? 'LA NACION' : title;
         metaTitleForAcum = customTitle;

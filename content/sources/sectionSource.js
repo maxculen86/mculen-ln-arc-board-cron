@@ -19,6 +19,7 @@ const resolve = key => {
         );
     return `/site/v3/navigation/${finalWebsite}/?_id=${id}`;
 };
+
 const fetch = query => {
     const { url = '', outputType } = query;
     const arcSite = query['arc-site'];
@@ -39,8 +40,11 @@ const fetch = query => {
             return transform(response, query);
         })
         .catch(error => {
-            logger.push(error, { source: 'content/source', url }, arcSite);
-            throw error;
+            logger.push(
+                error,
+                { source: 'content/source/sectionSource', url },
+                arcSite
+            );
         });
 };
 const transform = (data, siteProps) => {

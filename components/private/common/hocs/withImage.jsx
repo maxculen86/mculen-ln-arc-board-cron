@@ -16,7 +16,7 @@ function withImage(WrappedComponent, filter, published) {
                         sourceName: 'imageSource',
                         query: {
                             published: published,
-                            id: this.props.imageId
+                            id: this.props.imageId.trim()
                         },
                         filter
                     });
@@ -25,11 +25,6 @@ function withImage(WrappedComponent, filter, published) {
                     if (cachedImage) this.state.image = cachedImage;
 
                     fetched.then(response => {
-                        // const fetchedImage = get(
-                        //     response,
-                        //     'content_elements',
-                        //     null
-                        // );
                         const fetchedImage = response;
                         if (fetchedImage)
                             this.setState({ image: fetchedImage });
