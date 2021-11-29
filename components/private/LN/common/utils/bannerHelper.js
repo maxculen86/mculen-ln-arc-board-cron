@@ -245,15 +245,15 @@ export const getDimsFromSiteService = (config, slotName, section) => {
 
     const position = config.find(item => item.adunit === slotName);
 
+    if (!position || !position.dimensions || position.dimensions === '')
+        return null;
+
     // TODO: hacerlo dinamico
     if (
         ['propiedades', 'campo'].includes(section) &&
         (slotName === 'nota_caja1_dsk' || slotName === 'acumulado_caja1_dsk')
     )
         position.dimensions = '120x600,160x600,300x600';
-
-    if (!position || !position.dimensions || position.dimensions === '')
-        return null;
 
     const dimensions = position.dimensions.split(',');
     return dimensions.map(dimension =>

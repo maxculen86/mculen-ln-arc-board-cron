@@ -70,7 +70,7 @@ const LNAcumuladoLayout = props => {
         isAdmin,
         renderables
     } = props;
-    const { style, name = '', node_type: nodeType } = globalContent;
+    const { style, name = '', node_type: nodeType } = globalContent || {};
     const sectionStyleName =
         style && style.section_style_name ? style.section_style_name : '';
     const classRevista =

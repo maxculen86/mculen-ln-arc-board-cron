@@ -87,10 +87,6 @@ const fetch = query => {
             );
         })
         .catch(error => {
-            console.log(
-                '🚀 ~ file: articleSourceNota.js ~ line 90 ~ error',
-                error
-            );
             logger.push(
                 error,
                 { source: 'content/source/articleSourceNota', url },
