@@ -30,3 +30,15 @@ export { default as PinterestFilled } from './social/InstagramFilled';
 export { default as SoundcloudFilled } from './social/InstagramFilled';
 export { default as SnapchatFilled } from './social/InstagramFilled';
 export { default as TumblrFilled } from './social/InstagramFilled';
+
+export { default as Sun } from './weather/Sun';
+export { default as Rain } from './weather/Sun';
+export { default as Snow } from './weather/Sun';
+export { default as Cloudy } from './weather/Sun';
+export { default as Storm } from './weather/Sun';
+export { default as SunCloudy } from './weather/Sun';
+export { default as Windy } from './weather/Sun';
+export { default as SnowCloudy } from './weather/Sun';
+export { default as RainyCloudy } from './weather/Sun';
+export { default as StormCloudy } from './weather/Sun';
+export { default as ClearNight } from './weather/Sun';

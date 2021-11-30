@@ -27,7 +27,18 @@ import {
     ArrowLeft,
     Comment,
     Timer,
-    Group
+    Group,
+    Sun,
+    Rain,
+    Snow,
+    Cloudy,
+    Storm,
+    SunCloudy,
+    Windy,
+    SnowCloudy,
+    RainyCloudy,
+    StormCloudy,
+    ClearNight
 } from './index';
 
 export const mapperIcon = {
@@ -58,5 +69,17 @@ export const mapperIcon = {
     'arrow-left': ({ ...r }) => <ArrowLeft {...r} />,
     comment: ({ ...r }) => <Comment {...r} />,
     timer: ({ ...r }) => <Timer {...r} />,
-    group: ({ ...r }) => <Group {...r} />
+    group: ({ ...r }) => <Group {...r} />,
+
+    sun: ({ ...r }) => <Sun {...r} />,
+    rain: ({ ...r }) => <Rain {...r} />,
+    snow: ({ ...r }) => <Snow {...r} />,
+    cloudy: ({ ...r }) => <Cloudy {...r} />,
+    storm: ({ ...r }) => <Storm {...r} />,
+    'sun-cloudy': ({ ...r }) => <SunCloudy {...r} />,
+    windy: ({ ...r }) => <Windy {...r} />,
+    'snow-cloudy': ({ ...r }) => <SnowCloudy {...r} />,
+    'rainy-cloudy': ({ ...r }) => <RainyCloudy {...r} />,
+    'storm-cloudy': ({ ...r }) => <StormCloudy {...r} />,
+    'clear-night': ({ ...r }) => <ClearNight {...r} />
 };
