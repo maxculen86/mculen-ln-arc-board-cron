@@ -2,7 +2,9 @@ import React from 'react';
 
 import {
     FacebookFilled,
+    Facebook,
     TwitterFilled,
+    Twitter,
     Instagram,
     Rss,
     Email,
@@ -39,18 +41,29 @@ import {
     SnowCloudy,
     RainyCloudy,
     StormCloudy,
-    ClearNight
+    ClearNight,
+    Whatsapp,
+    Copy,
+    Download,
+    Filter,
+    Fire,
+    Share,
+    ShareAndroid
 } from './index';
 
 export const mapperIcon = {
     'facebook-filled': ({ ...r }) => <FacebookFilled {...r} />,
+    facebook: ({ ...r }) => <Facebook {...r} />,
     'twitter-filled': ({ ...r }) => <TwitterFilled {...r} />,
+    twitter: ({ ...r }) => <Twitter {...r} />,
     instagram: ({ ...r }) => <Instagram {...r} />,
+    'instagram-filled': ({ ...r }) => <InstagramFilled {...r} />,
     rss: ({ ...r }) => <Rss {...r} />,
     email: ({ ...r }) => <Email {...r} />,
+    'email-filled': ({ ...r }) => <EmailFilled {...r} />,
     'whatsapp-filled': ({ ...r }) => <WhatsappFilled {...r} />,
+    whatsapp: ({ ...r }) => <Whatsapp {...r} />,
     'youtube-filled': ({ ...r }) => <YoutubeFilled {...r} />,
-    'instagram-filled': ({ ...r }) => <InstagramFilled {...r} />,
     'medium-filled': ({ ...r }) => <MediumFilled {...r} />,
     'pinterest-filled': ({ ...r }) => <PinterestFilled {...r} />,
     'soundcloud-filled': ({ ...r }) => <SoundcloudFilled {...r} />,
@@ -71,7 +84,13 @@ export const mapperIcon = {
     comment: ({ ...r }) => <Comment {...r} />,
     timer: ({ ...r }) => <Timer {...r} />,
     group: ({ ...r }) => <Group {...r} />,
-    group: ({ ...r }) => <Zoom {...r} />,
+    zoom: ({ ...r }) => <Zoom {...r} />,
+    copy: ({ ...r }) => <Copy {...r} />,
+    download: ({ ...r }) => <Download {...r} />,
+    fire: ({ ...r }) => <Fire {...r} />,
+    filter: ({ ...r }) => <Filter {...r} />,
+    'share-android': ({ ...r }) => <ShareAndroid {...r} />,
+    share: ({ ...r }) => <Share {...r} />,
 
     sun: ({ ...r }) => <Sun {...r} />,
     rain: ({ ...r }) => <Rain {...r} />,
