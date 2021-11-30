@@ -145,6 +145,9 @@ const snippet = props => {
     const data = {
         '@context': 'https://schema.org',
         '@type': 'Recipe',
+        ...(primarySection.parent_id === '/recetas/cocina' && {
+            recipeCuisine: primarySection.name
+        }),
         author: {
             '@type': autores === '' ? 'Organization' : 'Person',
             name: autores === '' ? 'LA NACION recetas' : `${autores}`

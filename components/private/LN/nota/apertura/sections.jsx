@@ -12,24 +12,35 @@ const Sections = props => {
     let listSections = [];
     if (primary) {
         const parentPrimarySection = getFirstParentSection(primary);
+
         if (parentPrimarySection) {
             listSections = taxonomy.sections.filter(x => {
                 const parentSection = getFirstParentSection(x);
                 return (
                     parentSection &&
                     parentSection === parentPrimarySection &&
-                    x._id !== parentPrimarySection
+                    x._id !== parentPrimarySection &&
+                    x._id !== '/recetas/cocina'
                 );
             });
+            console.log(
+                '🚀 ~ file: sections.jsx ~ line 26 ~ taxonomy',
+                taxonomy
+            );
         }
     }
 
     const listSectionsDespues = listSections.map(x => {
         return {
             path: x.path,
-            text: x.name
+            text: `cocina ${x.name}`
         };
     });
+    console.log(
+        '🚀 ~ file: sections.jsx ~ line 36 ~ listSections',
+        listSections
+    );
+
     return (
         <div className="row">
             <div className="col-12">
