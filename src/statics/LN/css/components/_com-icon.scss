@@ -9,6 +9,14 @@
     svg,
     path {
         fill: red !important;
+        width: 100%;
+        height: 100%;
+    }
+
+    &.icon-search,
+    &.icon-menu {
+        width: px(14);
+        height: px(14);
     }
 
     .com-button.--icon.--bottom &,
