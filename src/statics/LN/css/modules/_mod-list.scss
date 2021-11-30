@@ -13,8 +13,7 @@
             padding-left: $spacing-sm;
             &:after {
                 position: absolute;
-                font-family: $font-icons;
-                content: $icon-bullet;
+                content: '•';
                 font-size: px(24);
                 left: px(-7);
                 bottom: 0;
@@ -28,11 +27,10 @@
                 padding-right: $spacing-sm;
                 &:after {
                     position: absolute;
-                    font-family: $font-icons;
-                    content: $icon-bullet-xs;
+                    content: '•';
                     color: #ccc;
-                    font-size: px(24);
-                    right: px(-12);
+                    font-size: px(14);
+                    right: (-3);
                     bottom: 0;
                 }
             }
