@@ -28,7 +28,7 @@
                 &:after {
                     position: absolute;
                     content: '•';
-                    color: #ccc;
+                    color: $light-neutral-400;
                     font-size: px(14);
                     right: px(-3);
                     bottom: 0;
