@@ -60,6 +60,37 @@ describe('Test de las listas en el cuerpo de una nota', () => {
             type: 'list'
         };
         const resp = List(articles);
-        //expect(resp['items'][0]).toBeNull();
+        expect(resp['items'][0]).toBeNull();
+        expect(resp['items'][1]).toBeNull();
+        expect(resp['items'][2]['value']['value']).toBe(
+            'Tipo de letra negrita'
+        );
+    });
+    it('Test todos los valores del elemento son distintos de texto', () => {
+        const articles = {
+            _id: 'AJAAVYUAYZGSJEZ2E44K4BLEYQ',
+            additional_properties: {},
+            items: [
+                {
+                    _id: 'OACDOMQWK5BRBJ3V6QHJWY7OGE',
+                    content: 4,
+                    type: 'text'
+                },
+                {
+                    _id: 'OACDOMQWK5BRBJ3V6QHJWY7OGE',
+                    content: 5,
+                    type: 'text'
+                },
+                {
+                    _id: '2LT67DUHJVFIBGKY34GXTVSZ7A',
+                    content: 4,
+                    type: 'text'
+                }
+            ],
+            list_type: 'ordered',
+            type: 'list'
+        };
+        const resp = List(articles);
+        expect(resp).toBeNull();
     });
 });

@@ -1,7 +1,10 @@
 import get from 'lodash.get';
 import htmlText from '../../../../common/story/cuerpo/elements/htmlText';
 import Text from './text';
-import validateValueText from '../../../../common/utils/validateValueText';
+import {
+    validateValueText,
+    validateArrayNull
+} from '../../../../common/utils/validateValue';
 
 const list = (nodo, dataNota) => {
     if (!nodo) return null;
@@ -16,8 +19,8 @@ const list = (nodo, dataNota) => {
     };
 
     resp.items = listElements.map(v => {
+        if (validateValueText(v.content)) return null;
         const value = htmlText(v.content);
-        if (!validateValueText(value)) return null;
         if (value && value.length) {
             return {
                 _t: 'li',
@@ -27,12 +30,7 @@ const list = (nodo, dataNota) => {
 
         return null;
     });
-    /* resp.items.forEach(item => {
-        if (item.value == null) {
-            return null;
-        }
-    }); */
-    //if (resp.items.length === 0) return null;
+    if (validateArrayNull(resp.items)) return null;
     return resp;
 };
 export default list;

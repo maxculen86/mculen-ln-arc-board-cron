@@ -1,4 +1,4 @@
-import validateValueText from '../../../../common/utils/validateValueText';
+import { validateValueText } from '../../../../common/utils/validateValue';
 
 const header = (nodo, dataNota) => {
     if (!nodo) return null;
@@ -6,7 +6,7 @@ const header = (nodo, dataNota) => {
     const value = nodo.content;
 
     if (!value) return null;
-    if (!validateValueText(value)) return null;
+    if (validateValueText(value)) return null;
 
     return {
         _t: 'header',

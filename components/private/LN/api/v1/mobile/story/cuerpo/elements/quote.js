@@ -1,5 +1,5 @@
 import get from 'lodash.get';
-import validateValueText from '../../../../common/utils/validateValueText';
+import { validateValueText } from '../../../../common/utils/validateValue';
 
 const quote = (nodo, dataNota) => {
     if (!nodo) return null;
@@ -11,7 +11,7 @@ const quote = (nodo, dataNota) => {
         _t: nodo.subtype,
         value: textCita[0].content
     };
-    if (!validateValueText(resp.value)) return null;
+    if (validateValueText(resp.value)) return null;
     if (nodo.subtype === 'pullquote') {
         const authorQuote = get(nodo, 'citation.content');
         if (authorQuote) resp.author = authorQuote;
