@@ -41,19 +41,19 @@ strong,
 }
 
 //[class^='icon-'],
-[class*='icon-'] {
-    font-family: $font-icons;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    font-size: px(24);
-    //padding: px(4);
-    line-height: 1;
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+// [class*='icon-'] {
+//     font-family: $font-icons;
+//     font-style: normal;
+//     font-weight: normal;
+//     font-variant: normal;
+//     text-transform: none;
+//     font-size: px(24);
+//     //padding: px(4);
+//     line-height: 1;
+//     /* Better Font Rendering =========== */
+//     -webkit-font-smoothing: antialiased;
+//     -moz-osx-font-smoothing: grayscale;
+// }
 
 //Comento los que no estamos usando
 

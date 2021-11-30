@@ -178,6 +178,15 @@
                 background: rgba(0, 0, 0, 0.5);
             }
 
+            .com-icon {
+                width: px(40);
+                height: px(40);
+
+                path {
+                    fill: $neutral-white;
+                }
+            }
+
             @media ($media-m) {
                 //768
                 font-size: px(32);
