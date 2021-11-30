@@ -9,8 +9,13 @@ export { default as WhatsappFilled } from './social/WhatsappFilled';
 export { default as Whatsapp } from './social/Whatsapp';
 export { default as Email } from './social/Email';
 export { default as EmailFilled } from './social/EmailFilled';
+export { default as TumblrFilled } from './social/TumblrFilled';
 export { default as YoutubeFilled } from './social/YoutubeFilled';
 export { default as InstagramFilled } from './social/InstagramFilled';
+export { default as MediumFilled } from './social/MediumFilled';
+export { default as PinterestFilled } from './social/PinterestFilled';
+export { default as SoundcloudFilled } from './social/SoundcloudFilled';
+export { default as SnapchatFilled } from './social/SnapchatFilled';
 
 // System Icons
 export { default as Home } from './system/Home';
@@ -21,6 +26,9 @@ export { default as Search } from './system/Search';
 export { default as Menu } from './system/Menu';
 export { default as Close } from './system/Close';
 export { default as ArrowDown } from './system/ArrowDown';
+export { default as ArrowUp } from './system/ArrowUp';
+export { default as ArrowLeft } from './system/ArrowLeft';
+export { default as ArrowRight } from './system/ArrowRight';
 export { default as Comment } from './system/Comment';
 export { default as Timer } from './system/Timer';
 export { default as Group } from './system/Group';
@@ -45,14 +53,3 @@ export { default as Storm } from './weather/Storm';
 export { default as StormCloudy } from './weather/StormCloudy';
 export { default as SunCloudy } from './weather/SunCloudy';
 export { default as Windy } from './weather/Windy';
-export { default as ArrowUp } from './system/ArrowUp';
-export { default as ArrowLeft } from './system/ArrowLeft';
-export { default as ArrowRight } from './system/ArrowRight';
-
-//FALTAN
-
-export { default as MediumFilled } from './social/InstagramFilled';
-export { default as PinterestFilled } from './social/InstagramFilled';
-export { default as SoundcloudFilled } from './social/InstagramFilled';
-export { default as SnapchatFilled } from './social/InstagramFilled';
-export { default as TumblrFilled } from './social/InstagramFilled';

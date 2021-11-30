@@ -5,12 +5,14 @@ import {
     Facebook,
     TwitterFilled,
     Twitter,
-    Instagram,
     Rss,
     Email,
+    EmailFilled,
+    Whatsapp,
     WhatsappFilled,
     YoutubeFilled,
     InstagramFilled,
+    Instagram,
     MediumFilled,
     PinterestFilled,
     SoundcloudFilled,
@@ -25,12 +27,19 @@ import {
     Close,
     ArrowDown,
     ArrowUp,
-    ArrowRight,
     ArrowLeft,
+    ArrowRight,
     Comment,
     Timer,
     Group,
     Zoom,
+    Copy,
+    Download,
+    Filter,
+    Fire,
+    Knife,
+    ShareAndroid,
+    Share,
     Sun,
     Rain,
     Snow,
@@ -41,17 +50,11 @@ import {
     SnowCloudy,
     RainyCloudy,
     StormCloudy,
-    ClearNight,
-    Whatsapp,
-    Copy,
-    Download,
-    Filter,
-    Fire,
-    Share,
-    ShareAndroid
+    ClearNight
 } from './index';
 
 export const mapperIcon = {
+    // Social icons
     'facebook-filled': ({ ...r }) => <FacebookFilled {...r} />,
     facebook: ({ ...r }) => <Facebook {...r} />,
     'twitter-filled': ({ ...r }) => <TwitterFilled {...r} />,
@@ -70,6 +73,7 @@ export const mapperIcon = {
     'snapchat-filled': ({ ...r }) => <SnapchatFilled {...r} />,
     'tumblr-filled': ({ ...r }) => <TumblrFilled {...r} />,
 
+    // System icons
     home: ({ ...r }) => <Home {...r} />,
     sections: ({ ...r }) => <Sections {...r} />,
     'club-card': ({ ...r }) => <ClubCard {...r} />,
@@ -89,9 +93,11 @@ export const mapperIcon = {
     download: ({ ...r }) => <Download {...r} />,
     fire: ({ ...r }) => <Fire {...r} />,
     filter: ({ ...r }) => <Filter {...r} />,
+    knife: ({ ...r }) => <Knife {...r} />,
     'share-android': ({ ...r }) => <ShareAndroid {...r} />,
     share: ({ ...r }) => <Share {...r} />,
 
+    // Weather Icons
     sun: ({ ...r }) => <Sun {...r} />,
     rain: ({ ...r }) => <Rain {...r} />,
     snow: ({ ...r }) => <Snow {...r} />,
