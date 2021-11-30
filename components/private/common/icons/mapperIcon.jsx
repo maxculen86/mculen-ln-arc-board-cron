@@ -28,6 +28,7 @@ import {
     Comment,
     Timer,
     Group,
+    Zoom,
     Sun,
     Rain,
     Snow,
@@ -70,6 +71,7 @@ export const mapperIcon = {
     comment: ({ ...r }) => <Comment {...r} />,
     timer: ({ ...r }) => <Timer {...r} />,
     group: ({ ...r }) => <Group {...r} />,
+    group: ({ ...r }) => <Zoom {...r} />,
 
     sun: ({ ...r }) => <Sun {...r} />,
     rain: ({ ...r }) => <Rain {...r} />,

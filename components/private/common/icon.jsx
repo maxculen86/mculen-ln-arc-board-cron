@@ -16,7 +16,7 @@ const Icon = ({
     children,
     ...r
 }) => {
-    const className = `com-icon${name ? ` --${name}` : ``}${
+    const className = `com-icon${name ? ` icon-${name}` : ``}${
         href ? `` : ` ${extraClass || ``}`
     } ${size || ``}`;
 

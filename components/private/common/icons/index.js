@@ -18,6 +18,7 @@ export { default as ArrowDown } from './system/ArrowDown';
 export { default as Comment } from './system/Comment';
 export { default as Timer } from './system/Timer';
 export { default as Group } from './system/Group';
+export { default as Zoom } from './system/Zoom';
 
 //FALTAN
 
