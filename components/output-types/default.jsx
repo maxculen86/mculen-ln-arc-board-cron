@@ -43,6 +43,7 @@ import FontFaceDefault from '../private/common/fontfaceDefault';
 import CriticalCss from '../private/common/criticalcss';
 import MetaViafoura from '../private/common/metaViafoura';
 import Favicon from '../private/common/favicon';
+import ComscoreVideo from '../private/common/scriptManager/comscoreVideo';
 
 const scriptList = [
     {
@@ -102,6 +103,13 @@ const scriptList = [
         component: {
             name: 'AmazonPublisherServices',
             function: AmazonPublisherServices
+        },
+        feature: 'none'
+    },
+    {
+        component: {
+            name: 'ComscoreVideo',
+            function: ComscoreVideo
         },
         feature: 'none'
     }
