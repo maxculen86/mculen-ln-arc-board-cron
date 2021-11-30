@@ -5,8 +5,7 @@ import {
     RESIZER_URL,
     ARC_ACCESS_TOKEN,
     SITE_LANACION,
-    API_ENV,
-    PAYWALL_URL
+    API_ENV
 } from 'fusion:environment';
 import getProperties from 'fusion:properties';
 import get from '../../components/private/common/utils/get';
@@ -15,6 +14,7 @@ import filter from '../filters/LN/nota/article';
 import gallerySource from './gallerySource';
 import relatedSource from './relatedSource';
 import Redirect from './utils/redirect';
+import validateArticleAccess from './utils/validateArticleAccess';
 import replaceTagInTextListRaw from './utils/replaceTagInTextListRaw';
 import {
     FOTOAL100,
@@ -38,11 +38,6 @@ const resolve = (key, a) => {
     if (url) return `${basePath}&website_url=${url}`;
 
     throw new Error('Debe definir url o id para obtener la nota');
-};
-
-const validateArticleAccess = ({ contentCode, meteringVariant }) => {
-    if (contentCode === 'cerrada' && meteringVariant !== 'S')
-        throw new Redirect(PAYWALL_URL, 301);
 };
 
 const fetch = query => {
@@ -78,7 +73,8 @@ const fetch = query => {
                 throw new Redirect(forwardUrl, 301);
             }
 
-            response &&
+            const articleAccess =
+                response &&
                 validateArticleAccess({
                     contentCode:
                         response.content_restrictions &&
@@ -100,7 +96,8 @@ const fetch = query => {
                 imageConfig,
                 url,
                 meteringVariant,
-                paywallEnabled
+                paywallEnabled,
+                articleAccess
             );
         })
         .catch(error => {

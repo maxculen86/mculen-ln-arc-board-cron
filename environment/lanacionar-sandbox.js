@@ -26,6 +26,5 @@ export default {
         trackInteractions: true,
         trackSessionAcrossSubdomains: false
     },
-    ARC_STATIC: 'https://sandbox.lanacion.com.ar',
-    PAYWALL_URL: 'https://suscripciones.lanacion.com.ar/suscripcion/E/1/1/'
+    ARC_STATIC: 'https://sandbox.lanacion.com.ar'
 };

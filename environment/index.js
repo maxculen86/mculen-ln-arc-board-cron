@@ -37,6 +37,5 @@ export default {
         trackSessionAcrossSubdomains: false
     },
     ARC_STATIC: 'https://arc-static.glanacion.com',
-    LAZY_OFFSETTOP: 500,
-    PAYWALL_URL: 'https://suscripciones.lanacion.com.ar/suscripcion/E/1/1/'
+    LAZY_OFFSETTOP: 500
 };
