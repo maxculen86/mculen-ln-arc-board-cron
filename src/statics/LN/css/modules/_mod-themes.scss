@@ -3,25 +3,42 @@
 
 .mod-themes {
     margin-bottom: $spacing-sm;
-    .com-link.com-button {
-        margin-right: $spacing-sm;
-        margin-bottom: $spacing-sm;
-        white-space: nowrap;
-        display: inline-block;
-
-        .cuerpo__nota & {
+    .com-link {
+        &.com-button {
+            margin-right: $spacing-sm;
             margin-bottom: $spacing-sm;
+            white-space: nowrap;
+            display: inline-flex;
+
+            .cuerpo__nota & {
+                margin-bottom: $spacing-sm;
+            }
         }
     }
-    .com-link.--tags {
-        color: $blue-500;
 
-        &:not(:last-child):after {
-            position: relative;
-            font-family: $font-icons;
-            color: $light-neutral-400;
-            content: $icon-bullet-xs;
-            margin: auto px(4);
+    .nota.recetas & {
+        .com-link.com-button.--tag {
+            margin: 0;
+            margin-bottom: $spacing;
+            padding: 0;
+            border: none;
+            background: none;
+            text-transform: inherit;
+            font-weight: 100;
+            font-size: 1rem;
+            line-height: 1.5rem;
+
+            &:hover {
+                color: $light-blue-500;
+            }
+
+            &:not(:last-child):after {
+                position: relative;
+                font-family: $font-icons;
+                color: $light-neutral-400;
+                content: $icon-bullet-xs;
+                margin: auto px(4);
+            }
         }
     }
 

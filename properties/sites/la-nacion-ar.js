@@ -57,19 +57,11 @@ export default {
             },
             location: ['head']
         },
-        Livefyre: {
-            props: {},
-            location: ['head']
-        },
         Petametrics: {
             props: {},
             location: ['head']
         },
         NewsMediaOrganization: {
-            props: {},
-            location: ['head']
-        },
-        LivefyreCommentCount: {
             props: {},
             location: ['head']
         },
@@ -104,6 +96,10 @@ export default {
         Viafoura: {
             props: {},
             location: ['body-bottom']
+        },
+        ComscoreVideo: {
+            props: {},
+            location: ['body-top']
         }
     },
     imageConfig: {

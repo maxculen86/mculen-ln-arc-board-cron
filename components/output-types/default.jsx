@@ -10,7 +10,6 @@ import Comscore from '../private/common/scriptManager/comscore';
 import Microdata from '../private/common/scriptManager/microdata';
 import PostBid from '../private/common/scriptManager/postbid';
 import MetasOG from '../private/common/metaTags/metasOG';
-import LivefyreCommentCount from '../private/common/scriptManager/LivefyreCommentCount';
 import LiftIgniter from '../private/common/scriptManager/Liftigniter';
 import Datadog from '../private/common/scriptManager/dataDog';
 import TagsLoadingList from '../private/common/scriptManager/tagsLoadingList';
@@ -43,6 +42,7 @@ import FontFaceDefault from '../private/common/fontfaceDefault';
 import CriticalCss from '../private/common/criticalcss';
 import MetaViafoura from '../private/common/metaViafoura';
 import Favicon from '../private/common/favicon';
+import ComscoreVideo from '../private/common/scriptManager/comscoreVideo';
 
 const scriptList = [
     {
@@ -93,15 +93,15 @@ const scriptList = [
     },
     {
         component: {
-            name: 'LivefyreCommentCount',
-            function: LivefyreCommentCount
+            name: 'AmazonPublisherServices',
+            function: AmazonPublisherServices
         },
-        feature: ['LN-nota/share']
+        feature: 'none'
     },
     {
         component: {
-            name: 'AmazonPublisherServices',
-            function: AmazonPublisherServices
+            name: 'ComscoreVideo',
+            function: ComscoreVideo
         },
         feature: 'none'
     }
