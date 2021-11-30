@@ -6,6 +6,10 @@
     width: px(24);
     height: px(24);
 
+    svg {
+        fill: pink !important;
+    }
+
     .com-button.--icon.--bottom &,
     .com-button.--icon.--right & {
         order: 2;
