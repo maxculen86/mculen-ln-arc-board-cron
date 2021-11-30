@@ -15,7 +15,7 @@ const list = (nodo, dataNota) => {
         type: type === 'unordered' ? 'ul' : 'ol'
     };
 
-    resp.value = listElements.map(v => {
+    resp.items = listElements.map(v => {
         const value = htmlText(v.content);
         if (!validateValueText(value)) return null;
         if (value && value.length) {
@@ -27,6 +27,12 @@ const list = (nodo, dataNota) => {
 
         return null;
     });
+    /* resp.items.forEach(item => {
+        if (item.value == null) {
+            return null;
+        }
+    }); */
+    //if (resp.items.length === 0) return null;
     return resp;
 };
 export default list;

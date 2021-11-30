@@ -20,21 +20,21 @@ describe('Test de las listas en el cuerpo de una nota', () => {
         const resp = List(ArticleOrdenedList);
         expect(resp['_t']).toBe('list');
         expect(resp['type']).toBe('ol');
-        expect(resp['value'][0]['_t']).toBe('li');
-        expect(resp['value'][0]['value']['_t']).toBe('text');
+        expect(resp['items'][0]['_t']).toBe('li');
+        expect(resp['items'][0]['value']['_t']).toBe('text');
     });
 
     it('Test lista desordenada cabecera', () => {
         const resp = List(ArticleDesordenedList);
         expect(resp['_t']).toBe('list');
         expect(resp['type']).toBe('ul');
-        expect(resp['value'][0]['_t']).toBe('li');
-        expect(resp['value'][0]['value']['_t']).toBe('text');
+        expect(resp['items'][0]['_t']).toBe('li');
+        expect(resp['items'][0]['value']['_t']).toBe('text');
     });
 
     it('Test elementos de lista ordenada', () => {
         const resp = List(ArticleNoElementList);
-        expect(resp['value']).toHaveLength(3);
+        expect(resp['items']).toHaveLength(3);
     });
     it('Test valor de elemento distinto de texto', () => {
         const articles = {
@@ -60,6 +60,6 @@ describe('Test de las listas en el cuerpo de una nota', () => {
             type: 'list'
         };
         const resp = List(articles);
-        //expect(resp['value']).toHaveLength(3);
+        //expect(resp['items'][0]).toBeNull();
     });
 });
