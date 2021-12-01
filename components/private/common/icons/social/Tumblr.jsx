@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TumblrFilled = props => {
+const Tumblr = props => {
     const { className, ...r } = props;
 
     return (

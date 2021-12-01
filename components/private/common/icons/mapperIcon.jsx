@@ -17,7 +17,7 @@ import {
     PinterestFilled,
     SoundcloudFilled,
     SnapchatFilled,
-    TumblrFilled,
+    Tumblr,
     Home,
     Sections,
     ClubCard,
@@ -71,7 +71,7 @@ export const mapperIcon = {
     'pinterest-filled': ({ ...r }) => <PinterestFilled {...r} />,
     'soundcloud-filled': ({ ...r }) => <SoundcloudFilled {...r} />,
     'snapchat-filled': ({ ...r }) => <SnapchatFilled {...r} />,
-    'tumblr-filled': ({ ...r }) => <TumblrFilled {...r} />,
+    tumblr: ({ ...r }) => <Tumblr {...r} />,
 
     // System icons
     home: ({ ...r }) => <Home {...r} />,

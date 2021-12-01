@@ -9,7 +9,7 @@ export { default as WhatsappFilled } from './social/WhatsappFilled';
 export { default as Whatsapp } from './social/Whatsapp';
 export { default as Email } from './social/Email';
 export { default as EmailFilled } from './social/EmailFilled';
-export { default as TumblrFilled } from './social/TumblrFilled';
+export { default as Tumblr } from './social/Tumblr';
 export { default as YoutubeFilled } from './social/YoutubeFilled';
 export { default as InstagramFilled } from './social/InstagramFilled';
 export { default as MediumFilled } from './social/MediumFilled';
