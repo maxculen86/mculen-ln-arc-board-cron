@@ -20,14 +20,14 @@
 
         .icon-zoom {
             display: flex;
+            @media ($media-l) {
+                display: none;
+            }
         }
 
-        @media ($media-l) {
-            display: none;
-            &:hover {
-                .icon-zoom {
-                    display: flex;
-                }
+        &:hover {
+            .icon-zoom {
+                display: flex;
             }
         }
 
@@ -87,6 +87,13 @@
             display: flex;
             position: fixed;
         }
+
+        &:hover {
+            .icon-zoom {
+                display: none;
+            }
+        }
+
         // &::before {
         //     content: $icon-close;
         //     display: flex;
