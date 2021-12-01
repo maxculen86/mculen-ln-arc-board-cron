@@ -10,9 +10,20 @@
         margin-bottom: $spacing-xs;
         padding-left: $spacing-sm;
         flex-wrap: wrap;
+
         .--educacion &,
         .--reconocimientos & {
             flex-wrap: nowrap;
+        }
+
+        &:before {
+            content: '•';
+            height: fit-content;
+            display: block;
+            position: absolute;
+            left: px(16);
+            font-size: px(28);
+            line-height: px(21);
         }
     }
 }
@@ -23,7 +34,7 @@
             @include flex(inline, row, center, start);
         }
         .com-itemlist {
-            padding-left: $spacing-lg;
+            padding-left: px(40);
         }
     }
 }

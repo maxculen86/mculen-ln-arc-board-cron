@@ -4,7 +4,7 @@ import ComLi from './com-li';
 import ComLink from './com-link';
 import ComIco from './icon';
 import '../../../resources/dist/css/ln/components/com-unordered.css';
-import ComBullet from './com-bullet';
+//import ComBullet from './com-bullet';
 
 const list = [
     'twitter',
@@ -37,7 +37,7 @@ const ListSocialIcons = props => {
                     target="_blank"
                     classCondition="--sociallist"
                 >
-                    <ComBullet sizeBullet={sizeBullet} />
+                    {/* <ComBullet sizeBullet={sizeBullet} /> */}
                     <ComIco name={`${item}-filled`} />
                     {item}
                 </ComLink>
