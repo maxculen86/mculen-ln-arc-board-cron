@@ -110,7 +110,7 @@ const snippet = props => {
             headlines,
             subheadlines,
             promo_items: promoItems,
-            taxonomy: { tags, primary_section: primarySection },
+            taxonomy: { tags, primary_section: primarySection = {} },
             credits,
             display_date: displayDate,
             content_elements: contentElements,

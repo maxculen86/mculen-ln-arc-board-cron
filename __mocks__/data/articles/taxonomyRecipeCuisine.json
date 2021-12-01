@@ -1,0 +1,99 @@
+{
+    "primary_section": {
+        "_id": "/recetas/cocina/libanesa",
+        "_website": "la-nacion-ar",
+        "additional_properties": {
+            "original": {
+                "ancestors": {
+                    "default": ["/recetas", "/recetas/cocina"]
+                },
+                "site": {}
+            }
+        },
+        "name": "Libanesa",
+        "parent_id": "/recetas/cocina",
+        "path": "/recetas/cocina/libanesa",
+        "type": "section"
+    },
+    "sections": [
+        {
+            "_id": "/recetas/cocina/libanesa",
+            "_website": "la-nacion-ar",
+            "additional_properties": {
+                "original": {
+                    "ancestors": {
+                        "default": ["/recetas", "/recetas/cocina"]
+                    },
+                    "site": {}
+                }
+            },
+            "name": "Libanesa",
+            "parent_id": "/recetas/cocina",
+            "path": "/recetas/cocina/libanesa",
+            "type": "section"
+        },
+        {
+            "_id": "/recetas/cocina",
+            "_website": "la-nacion-ar",
+            "additional_properties": {
+                "original": {
+                    "ancestors": {
+                        "default": ["/recetas"]
+                    },
+                    "site": {}
+                }
+            },
+            "name": "Cocina",
+            "parent_id": "/recetas",
+            "path": "/recetas/cocina",
+            "type": "section"
+        },
+        {
+            "_id": "/recetas",
+            "_website": "la-nacion-ar",
+            "additional_properties": {
+                "original": {
+                    "ancestors": {},
+                    "migration": {
+                        "id_section_ln9": "0",
+                        "migrated_mob": "true"
+                    },
+                    "site": {},
+                    "style": {}
+                }
+            },
+            "name": "Recetas",
+            "parent_id": "/",
+            "path": "/recetas",
+            "type": "section"
+        }
+    ],
+    "sites": [
+        {
+            "additional_properties": {
+                "original": {
+                    "_id": "/recetas/cocina/libanesa"
+                }
+            }
+        },
+        {
+            "additional_properties": {
+                "original": {
+                    "_id": "/recetas/cocina"
+                }
+            }
+        },
+        {
+            "additional_properties": {
+                "original": {
+                    "_id": "/recetas",
+                    "migration": {
+                        "id_section_ln9": "0",
+                        "migrated_mob": "true"
+                    }
+                }
+            }
+        }
+    ],
+    "tags": []
+}

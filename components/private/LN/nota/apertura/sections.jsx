@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import TaxonomyComponent from '../../common/taxonomyImportantList';
 import { getFirstParentSection } from '../../../common/utils/sectionUtils';
-import ComTitle from '../../../common/com-title';
 import HeaderSection from '../../../common/mod-headerSection';
 
 const Sections = props => {
@@ -23,35 +22,28 @@ const Sections = props => {
                     x._id !== '/recetas/cocina'
                 );
             });
-            console.log(
-                '🚀 ~ file: sections.jsx ~ line 26 ~ taxonomy',
-                taxonomy
-            );
         }
     }
+    const modifyRecipesName = x =>
+        x.parent_id === '/recetas/cocina' ? `cocina ${x.name}` : x.name;
 
-    const listSectionsDespues = listSections.map(x => {
+    const listSectionsFormatted = listSections.map(x => {
         return {
             path: x.path,
-            text: `cocina ${x.name}`
+            text: modifyRecipesName(x)
         };
     });
-    console.log(
-        '🚀 ~ file: sections.jsx ~ line 36 ~ listSections',
-        listSections
-    );
 
     return (
         <div className="row">
             <div className="col-12">
                 <>
-                    {temas && listSectionsDespues.length > 0 && (
-                        /* <ComTitle size="--l" tag="h4" content="Temas" /> */
+                    {temas && listSectionsFormatted.length > 0 && (
                         <HeaderSection title="Temas" />
                     )}
-                    {listSectionsDespues && (
+                    {listSectionsFormatted && (
                         <TaxonomyComponent
-                            list={listSectionsDespues}
+                            list={listSectionsFormatted}
                             destacado={destacado}
                             type="section"
                         />
