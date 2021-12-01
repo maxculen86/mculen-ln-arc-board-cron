@@ -20,6 +20,13 @@
         }
     }
 
+    .com-button &,
+    .com-link & {
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
     &.icon-search,
     &.icon-menu {
         width: px(14);
@@ -33,9 +40,9 @@
         font-weight: 700;
     }
 
-    &.icon-bullet-xs {
-        color: $light-neutral-400;
-    }
+    // &.icon-bullet-xs {
+    //     color: $light-neutral-400;
+    // }
 
     .footer .--share & {
         display: inline-flex;
@@ -67,13 +74,13 @@
         top: -5px;
         color: $light-neutral-400;
     }
-    &.icon-bullet {
-        .mod-description & {
-            align-items: flex-start;
-            color: $light-neutral-400;
-            padding: 1px 2px;
-        }
-    }
+    // &.icon-bullet {
+    //     .mod-description & {
+    //         align-items: flex-start;
+    //         color: $light-neutral-400;
+    //         padding: 1px 2px;
+    //     }
+    // }
 }
 @media ($media-l) {
     .com-icon {

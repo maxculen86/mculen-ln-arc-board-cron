@@ -21,4 +21,4 @@ const Tumblr = props => {
     );
 };
 
-export default TumblrFilled;
+export default Tumblr;
