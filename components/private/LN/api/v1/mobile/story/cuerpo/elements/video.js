@@ -1,8 +1,8 @@
-import Video from '../../../../common/story/video';
+import { videoNotaMobile } from '../../../../common/story/video';
 
 const video = nodo => {
     if (!nodo) return null;
 
-    return Video(nodo);
+    return videoNotaMobile(nodo);
 };
 export default video;

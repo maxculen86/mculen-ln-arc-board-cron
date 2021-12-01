@@ -42,4 +42,38 @@ const videoNota = videoData => {
 
 videoNota.type = 'video';
 
+export const videoNotaMobile = videoData => {
+    if (!videoData) return null;
+
+    const {
+        duration,
+        headlines: { basic: title },
+        additional_properties: {
+            advertising: { playAds: showAd }
+        }
+    } = videoData;
+
+    const resp = {
+        _t: 'video',
+        duration,
+        showAd: showAd ? '1' : '0',
+        title
+    };
+
+    const video = VideoCommon(videoData.streams);
+    if (!video) return null;
+
+    resp.multimediaFile = video;
+
+    const thumbail = VideoThumbnail(videoData.promo_items);
+    if (thumbail) {
+        resp.thumbnailImage = {
+            _t: thumbail._t,
+            order: thumbail.orden,
+            src: thumbail.src
+        };
+    }
+    return resp;
+};
+
 export default videoNota;
