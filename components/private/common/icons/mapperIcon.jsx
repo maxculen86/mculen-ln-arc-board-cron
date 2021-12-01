@@ -1,4 +1,6 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
     FacebookFilled,
@@ -55,62 +57,72 @@ import {
     ClearNight
 } from './index';
 
-export const mapperIcon = {
+const listIcons = {
     // Social icons
-    facebook: ({ ...r }) => <Facebook {...r} />,
-    twitter: ({ ...r }) => <Twitter {...r} />,
-    instagram: ({ ...r }) => <Instagram {...r} />,
-    whatsapp: ({ ...r }) => <Whatsapp {...r} />,
-    email: ({ ...r }) => <Email {...r} />,
-    rss: ({ ...r }) => <Rss {...r} />,
-    'rss-filled': ({ ...r }) => <RssFilled {...r} />,
-    'facebook-filled': ({ ...r }) => <FacebookFilled {...r} />,
-    'twitter-filled': ({ ...r }) => <TwitterFilled {...r} />,
-    'instagram-filled': ({ ...r }) => <InstagramFilled {...r} />,
-    'whatsapp-filled': ({ ...r }) => <WhatsappFilled {...r} />,
-    'email-filled': ({ ...r }) => <EmailFilled {...r} />,
-    'youtube-filled': ({ ...r }) => <YoutubeFilled {...r} />,
-    'medium-filled': ({ ...r }) => <MediumFilled {...r} />,
-    'pinterest-filled': ({ ...r }) => <PinterestFilled {...r} />,
-    'soundcloud-filled': ({ ...r }) => <SoundcloudFilled {...r} />,
-    'snapchat-filled': ({ ...r }) => <SnapchatFilled {...r} />,
-    'tumblr-filled': ({ ...r }) => <TumblrFilled {...r} />,
-    'linkedin-filled': ({ ...r }) => <LinkedinFilled {...r} />,
+    facebook: Facebook,
+    twitter: Twitter,
+    instagram: Instagram,
+    whatsapp: Whatsapp,
+    email: Email,
+    rss: Rss,
+    'rss-filled': RssFilled,
+    'facebook-filled': FacebookFilled,
+    'twitter-filled': TwitterFilled,
+    'instagram-filled': InstagramFilled,
+    'whatsapp-filled': WhatsappFilled,
+    'email-filled': EmailFilled,
+    'youtube-filled': YoutubeFilled,
+    'medium-filled': MediumFilled,
+    'pinterest-filled': PinterestFilled,
+    'soundcloud-filled': SoundcloudFilled,
+    'snapchat-filled': SnapchatFilled,
+    'tumblr-filled': TumblrFilled,
+    'linkedin-filled': LinkedinFilled,
 
     // System icons
-    home: ({ ...r }) => <Home {...r} />,
-    sections: ({ ...r }) => <Sections {...r} />,
-    'club-card': ({ ...r }) => <ClubCard {...r} />,
-    user: ({ ...r }) => <User {...r} />,
-    search: ({ ...r }) => <Search {...r} />,
-    menu: ({ ...r }) => <Menu {...r} />,
-    close: ({ ...r }) => <Close {...r} />,
-    'arrow-down': ({ ...r }) => <ArrowDown {...r} />,
-    'arrow-up': ({ ...r }) => <ArrowUp {...r} />,
-    'arrow-right': ({ ...r }) => <ArrowRight {...r} />,
-    'arrow-left': ({ ...r }) => <ArrowLeft {...r} />,
-    comment: ({ ...r }) => <Comment {...r} />,
-    timer: ({ ...r }) => <Timer {...r} />,
-    group: ({ ...r }) => <Group {...r} />,
-    zoom: ({ ...r }) => <Zoom {...r} />,
-    copy: ({ ...r }) => <Copy {...r} />,
-    download: ({ ...r }) => <Download {...r} />,
-    fire: ({ ...r }) => <Fire {...r} />,
-    filter: ({ ...r }) => <Filter {...r} />,
-    knife: ({ ...r }) => <Knife {...r} />,
-    'share-android': ({ ...r }) => <ShareAndroid {...r} />,
-    share: ({ ...r }) => <Share {...r} />,
+    home: Home,
+    sections: Sections,
+    'club-card': ClubCard,
+    user: User,
+    search: Search,
+    menu: Menu,
+    close: Close,
+    'arrow-down': ArrowDown,
+    'arrow-up': ArrowUp,
+    'arrow-right': ArrowRight,
+    'arrow-left': ArrowLeft,
+    comment: Comment,
+    timer: Timer,
+    group: Group,
+    zoom: Zoom,
+    copy: Copy,
+    download: Download,
+    fire: Fire,
+    filter: Filter,
+    knife: Knife,
+    'share-android': ShareAndroid,
+    share: Share,
 
     // Weather Icons
-    sun: ({ ...r }) => <Sun {...r} />,
-    rain: ({ ...r }) => <Rain {...r} />,
-    snow: ({ ...r }) => <Snow {...r} />,
-    cloudy: ({ ...r }) => <Cloudy {...r} />,
-    storm: ({ ...r }) => <Storm {...r} />,
-    'sun-cloudy': ({ ...r }) => <SunCloudy {...r} />,
-    windy: ({ ...r }) => <Windy {...r} />,
-    'snow-cloudy': ({ ...r }) => <SnowCloudy {...r} />,
-    'rainy-cloudy': ({ ...r }) => <RainyCloudy {...r} />,
-    'storm-cloudy': ({ ...r }) => <StormCloudy {...r} />,
-    'clear-night': ({ ...r }) => <ClearNight {...r} />
+    sun: Sun,
+    rain: Rain,
+    snow: Snow,
+    cloudy: Cloudy,
+    storm: Storm,
+    'sun-cloudy': SunCloudy,
+    windy: Windy,
+    'snow-cloudy': SnowCloudy,
+    'rainy-cloudy': RainyCloudy,
+    'storm-cloudy': StormCloudy,
+    'clear-night': ClearNight
 };
+
+const MapperIcon = ({ name, ...r }) => {
+    const Component = listIcons[name];
+
+    return <Component {...r} />;
+};
+
+MapperIcon.propTypes = { name: PropTypes.string.isRequired };
+
+export default MapperIcon;

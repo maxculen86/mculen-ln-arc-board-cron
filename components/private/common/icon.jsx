@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import '../../../resources/dist/css/ln/components/com-icon.css';
-import Link from '../common/link';
-// import { mapperIcons } from '../LN/common/utils/MapperIcon';
-import { mapperIcon } from '../common/icons/mapperIcon';
+import Link from './link';
+import MapperIcon from './icons/mapperIcon';
 
 const Icon = ({
     name,
@@ -31,11 +30,15 @@ const Icon = ({
                     mod={extraClass}
                     rel={rel}
                 >
-                    <i className={className}>{mapperIcon[name]({ ...r })}</i>
+                    <i className={className}>
+                        <MapperIcon name={name} r={{ ...r }} />
+                    </i>
                     {children}
                 </Link>
             ) : (
-                <i className={className}>{mapperIcon[name]({ ...r })}</i>
+                <i className={className}>
+                    <MapperIcon name={name} r={{ ...r }} />
+                </i>
             )}
         </>
     );
