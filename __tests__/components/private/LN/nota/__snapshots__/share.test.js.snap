@@ -130,11 +130,12 @@ exports[`Share Matches snapshot 1`] = `
       </i>
     </button>
     <button
-      class="com-button   --icon comment "
+      class="com-button   --icon "
       data-event=""
       data-section=""
       id=""
       on=""
+      tabindex=""
       title="Ir a los comentarios de la nota"
       type="button"
     >

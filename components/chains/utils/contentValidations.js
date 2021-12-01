@@ -1,22 +1,7 @@
 import get from '../../private/common/utils/get';
 
-export const customFieldValidation = ({
-    featureId,
-    customField,
-    sectionChildren,
-    value = false
-}) =>
-    sectionChildren.some(el => {
-        const customFieldValue = get(
-            el,
-            `props.customFields.${customField}`,
-            false
-        );
-
-        return value
-            ? !customFieldValue
-            : customFieldValue && get(el, 'props.id', undefined) === featureId;
-    });
+export const customFieldValidation = ({ featureId, sectionChildren }) =>
+    sectionChildren.some(el => get(el, 'props.id', undefined) === featureId);
 
 export const childrenValidation = ({
     featureId,
