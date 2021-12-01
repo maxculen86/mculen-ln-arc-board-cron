@@ -14,11 +14,12 @@ const Icon = ({
     rel,
     size,
     children,
+    negative,
     ...r
 }) => {
     const className = `com-icon${name ? ` icon-${name}` : ``}${
-        href ? `` : ` ${extraClass || ``}`
-    } ${size || ``}`;
+        negative ? ` --negative` : ``
+    }${href ? `` : ` ${extraClass || ``}`} ${size || ``}`;
 
     return (
         <>
@@ -47,7 +48,8 @@ Icon.propTypes = {
     title: PropTypes.string,
     extraClass: PropTypes.string,
     rel: PropTypes.string,
-    size: PropTypes.string
+    size: PropTypes.string,
+    negative: PropTypes.bool
 };
 
 export default Icon;

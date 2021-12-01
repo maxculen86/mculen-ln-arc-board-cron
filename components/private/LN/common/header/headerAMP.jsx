@@ -4,6 +4,7 @@ import NavBarMobile from '../navbar';
 import Button from '../../../common/com-button';
 import Link from '../../../common/link';
 import LogoLN from '../../../common/logos/logoLN';
+import Icon from '../../../common/icon';
 
 const headerAMP = props => {
     return (
@@ -85,6 +86,7 @@ const headerAMP = props => {
                                     >
                                         Últimas noticias
                                     </a>
+                                    <Icon name="arrow-right" />
                                 </h2>
 
                                 <ul className="menu">
@@ -122,6 +124,7 @@ const headerAMP = props => {
                                     >
                                         Economía
                                     </a>
+                                    <Icon name="arrow-right" />
                                 </h2>
                                 <ul className="menu">
                                     <li className="menu_secciones">
@@ -183,6 +186,7 @@ const headerAMP = props => {
                                     >
                                         Sociedad
                                     </a>
+                                    <Icon name="arrow-right" />
                                 </h2>
                                 <ul className="menu">
                                     <li className="menu_secciones">
@@ -239,6 +243,7 @@ const headerAMP = props => {
                                     >
                                         Opinión
                                     </a>
+                                    <Icon name="arrow-right" />
                                 </h2>
                                 <ul className="menu">
                                     <li className="menu_secciones">
@@ -260,6 +265,7 @@ const headerAMP = props => {
                                     >
                                         Deportes
                                     </a>
+                                    <Icon name="arrow-right" />
                                 </h2>
                                 <ul className="menu">
                                     <li className="menu_secciones">
@@ -301,6 +307,7 @@ const headerAMP = props => {
                                     >
                                         Lifestyle
                                     </a>
+                                    <Icon name="arrow-right" />
                                 </h2>
                                 <ul className="menu">
                                     <li className="menu_secciones">
@@ -352,6 +359,7 @@ const headerAMP = props => {
                                     >
                                         Espectáculos
                                     </a>
+                                    <Icon name="arrow-right" />
                                 </h2>
                                 <ul className="menu">
                                     <li className="menu_secciones">
@@ -378,6 +386,7 @@ const headerAMP = props => {
                                     >
                                         Edición Impresa
                                     </a>
+                                    <Icon name="arrow-right" />
                                 </h2>
                                 <ul className="menu">
                                     <li className="menu_secciones">
@@ -436,6 +445,7 @@ const headerAMP = props => {
                                     <a href="#" className="url-link">
                                         Revistas
                                     </a>
+                                    <Icon name="arrow-right" />
                                 </h2>
                                 <ul className="menu">
                                     <li className="menu_secciones">

@@ -12,6 +12,14 @@
         height: 100%;
     }
 
+    &.--negative.--negative {
+        background: rgba(0, 0, 0, 0.7);
+
+        path {
+            fill: $neutral-white;
+        }
+    }
+
     &.icon-search,
     &.icon-menu {
         width: px(14);

@@ -69,12 +69,21 @@
     &.--tooltip {
         display: flex;
         padding: 0;
+        padding-left: px(28);
         line-height: px(1);
         &:hover {
             cursor: pointer;
             .com-container {
                 visibility: visible;
             }
+        }
+        &:before {
+            content: '•';
+            height: fit-content;
+            display: block;
+            position: absolute;
+            left: px(12);
+            color: $light-neutral-400;
         }
     }
     &.--profesion {

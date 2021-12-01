@@ -10,6 +10,7 @@ import {
     STORYTELLING
 } from '../../../common/utils/subtypes/subtypeHelper';
 import useSubtype from '../../../common/hooks/useSubtype';
+import Icon from '../../../common/icon';
 
 const media = ({
     mediaData,
@@ -83,6 +84,8 @@ const media = ({
                             zoom={zoom}
                         />
                         {children}
+                        <Icon name="close" negative />
+                        <Icon name="zoom" negative />
                     </ComFigure>
                 );
                 break;
