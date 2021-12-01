@@ -69,8 +69,7 @@
     &.--tooltip {
         display: flex;
         padding: 0;
-        padding-left: px(28);
-        line-height: px(1);
+        padding-left: px(24);
         &:hover {
             cursor: pointer;
             .com-container {
@@ -82,7 +81,7 @@
             height: fit-content;
             display: block;
             position: absolute;
-            left: px(12);
+            left: px(10);
             color: $light-neutral-400;
         }
     }
