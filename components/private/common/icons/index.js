@@ -5,17 +5,19 @@ export { default as TwitterFilled } from './social/TwitterFilled';
 export { default as Twitter } from './social/Twitter';
 export { default as Instagram } from './social/Instagram';
 export { default as Rss } from './social/Rss';
+export { default as RssFilled } from './social/Rss';
 export { default as WhatsappFilled } from './social/WhatsappFilled';
 export { default as Whatsapp } from './social/Whatsapp';
 export { default as Email } from './social/Email';
 export { default as EmailFilled } from './social/EmailFilled';
-export { default as Tumblr } from './social/Tumblr';
+export { default as TumblrFilled } from './social/TumblrFilled';
 export { default as YoutubeFilled } from './social/YoutubeFilled';
 export { default as InstagramFilled } from './social/InstagramFilled';
 export { default as MediumFilled } from './social/MediumFilled';
 export { default as PinterestFilled } from './social/PinterestFilled';
 export { default as SoundcloudFilled } from './social/SoundcloudFilled';
 export { default as SnapchatFilled } from './social/SnapchatFilled';
+export { default as LinkedinFilled } from './social/LinkedinFilled';
 
 // System Icons
 export { default as Home } from './system/Home';

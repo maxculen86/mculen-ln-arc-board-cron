@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ComLi from './com-li';
 import ComLink from './com-link';
-import ComIco from './com-icon';
+import ComIco from './icon';
 import '../../../resources/dist/css/ln/components/com-unordered.css';
 import ComBullet from './com-bullet';
 
@@ -38,12 +38,8 @@ const ListSocialIcons = props => {
                     classCondition="--sociallist"
                 >
                     <ComBullet sizeBullet={sizeBullet} />
-                    <ComIco
-                        sizeText={size}
-                        sizeIcon={sizeIcon}
-                        iconName={`${item}-filled`}
-                        textname={item}
-                    />
+                    <ComIco name={`${item}-filled`} />
+                    {item}
                 </ComLink>
             </ComLi>
         );
