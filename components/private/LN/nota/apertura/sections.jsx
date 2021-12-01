@@ -25,7 +25,9 @@ const Sections = props => {
         }
     }
     const modifyRecipesName = x =>
-        x.parent_id === '/recetas/cocina' ? `cocina ${x.name}` : x.name;
+        x.parent_id === '/recetas/cocina'
+            ? `cocina ${x.name.toLowerCase()}`
+            : x.name;
 
     const listSectionsFormatted = listSections.map(x => {
         return {
