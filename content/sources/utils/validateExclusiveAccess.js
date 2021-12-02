@@ -1,5 +1,5 @@
 import Redirect from './redirect';
-import { addRandomParam } from './paywall';
+import { setCallback } from './paywall';
 
 const validateExclusiveAccess = ({
     contentCode,
@@ -12,11 +12,9 @@ const validateExclusiveAccess = ({
             const PAYWALL_URL =
                 'https://suscripciones.lanacion.com.ar/suscripcion/E/1/1/?callback=';
 
-            const callback = Buffer.from(addRandomParam(host + path)).toString(
-                'base64'
-            );
+            const callback = setCallback(host, path);
 
-            throw new Redirect(PAYWALL_URL + callback, 301);
+            throw new Redirect(`${PAYWALL_URL}${callback}`, 301);
         }
 
         return true;

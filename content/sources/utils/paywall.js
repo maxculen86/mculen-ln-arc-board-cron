@@ -11,6 +11,9 @@ export const addRandomParam = url => {
     return uri.toString();
 };
 
+export const setCallback = (host, path) =>
+    Buffer.from(addRandomParam(`${host}${path}`)).toString('base64');
+
 const checkPaywall = ({ queryData, urlBase, responseData }) => {
     const { paywallEnabled, meteringVariant, paywallUrl, url } = queryData;
     if (
@@ -20,9 +23,7 @@ const checkPaywall = ({ queryData, urlBase, responseData }) => {
         (!responseData.content_restrictions ||
             responseData.content_restrictions.content_code !== 'abierta')
     ) {
-        const callback = Buffer.from(
-            addRandomParam(`${urlBase}${url}`)
-        ).toString('base64');
+        const callback = setCallback(urlBase, url);
         const finalUrl = paywallUrl.replace('{{callback}}', callback);
         throw new Redirect(finalUrl, 302);
     }
