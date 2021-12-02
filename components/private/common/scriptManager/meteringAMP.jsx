@@ -8,7 +8,7 @@ const MeteringAMP = ({ canonicalUrl = '', contentCode = 'comun' }) => {
             layout="fixed"
             sandbox="allow-scripts allow-same-origin"
             frameborder="0"
-            src={`https://arc-widgets.lanacion.com.ar/widgets/meteringamp/${contentCode}/?outputType=widgets&_website=la-nacion-ar&id=${canonicalUrl}`}
+            src={`https://arc-widgets.lanacion.com.ar/widgets/meteringamp/${contentCode}/?id=${canonicalUrl}&outputType=widgets&_website=la-nacion-ar`}
         >
             <amp-img
                 layout="fill"
