@@ -51,12 +51,14 @@ const fetch = query => {
     return request(opt)
         .then(response => {
             const objresponse = {};
-            Object.entries(response).map(([key, value]) => {
+
+            Object.entries(response).forEach(([key, value]) => {
                 objresponse[key] = value;
             });
 
             objresponse.count = resultsIds?.length;
             objresponse.next = null;
+
             return transform(objresponse, query, resultsIds);
         })
         .catch(error => {

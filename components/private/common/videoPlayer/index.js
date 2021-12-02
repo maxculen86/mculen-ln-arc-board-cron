@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Context from 'fusion:context';
 import getProperties from 'fusion:properties';
 import { API_ENV } from 'fusion:environment';
-
-// TODO: prueba de concepto. Test pendientes para cuando definan que se necesita hacer y que no
-// en un player de video
+import {
+    streamingAnalyticsInit,
+    comscorePlayEvent
+} from './comscoreStreamingTag';
 
 const setPrerollAdsForPowa = adsURL => {
     window.PoWaSettings = window.PoWaSettings || {};
@@ -26,9 +27,17 @@ const setPrerollAdsForPowa = adsURL => {
     };
 };
 
-const setEvent = (player, event, eventName, titulo, id) => {
+const setEvent = (
+    player,
+    event,
+    eventName,
+    titulo,
+    id,
+    streamingAnalyticInstance = {}
+) => {
     player.on(event, () => {
         addToDataLayer(eventName, titulo, id);
+        event === 'play' ? comscorePlayEvent(streamingAnalyticInstance) : null;
     });
 };
 
@@ -92,9 +101,16 @@ const VideoPlayer = props => {
         enableControls,
         sticky
     } = props;
+
     const siteVars = getProperties(arcSite);
     const { organizationId } = siteVars || {};
     const apiEnv = API_ENV || 'sandbox';
+    const [streamingAnalyticInstance] = useState(
+        (typeof window !== 'undefined' &&
+            typeof ns_ !== 'undefined' &&
+            streamingAnalyticsInit(arcSite)) ||
+            {}
+    );
 
     useEffect(() => {
         const setVideoEvents = event => {
@@ -104,8 +120,22 @@ const VideoPlayer = props => {
             if (!playerID.includes(videoId)) return null;
 
             setProgressEvent(player, tituloVideo, videoId);
-            setEvent(player, 'play', 'videoPlay', tituloVideo, videoId);
-            setEvent(player, 'complete', 'videoComplete', tituloVideo, videoId);
+            setEvent(
+                player,
+                'play',
+                'videoPlay',
+                tituloVideo,
+                videoId,
+                streamingAnalyticInstance
+            );
+            setEvent(
+                player,
+                'complete',
+                'videoComplete',
+                tituloVideo,
+                videoId,
+                streamingAnalyticInstance
+            );
         };
 
         if (!isAdmin && window && window.powaBoot) window.powaBoot();

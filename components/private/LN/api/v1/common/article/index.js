@@ -1,22 +1,15 @@
 /* eslint-disable eqeqeq */
 import get from 'lodash.get';
 import Image from '../image';
-import { authorHomeMobile } from '../../common/author';
+import { authorHomeMobile } from '../author';
 
 const getArticleImage = article => {
-    const { subtype: templateId } = article;
     const imagedefault =
         get(article, 'additionalProperties.image.promo_items.basic', null) ||
         get(article, 'promo_items.basic', null);
 
-    let image =
-        templateId === '4' || templateId === '8'
-            ? get(article, 'promo_items.storytelling_mobile', null)
-            : imagedefault;
-
-    image = image === null ? imagedefault : image;
-
-    if (image && image.type === 'image') return Image(image);
+    if (imagedefault && imagedefault.type === 'image')
+        return Image(imagedefault);
 
     return null;
 };
@@ -58,25 +51,21 @@ const getArticleSignature = (article, authors) => {
     let authorsValue = [];
     if (authors) {
         const lastAuthor = authors[authors.length - 1];
-        authorsValue = authors.map(author => {
-            return (
-                (lastAuthor == author && authors.length !== 1
-                    ? author.valor[0].toUpperCase() == `I`
-                        ? ` e `
-                        : ` y `
-                    : author == authors[0]
-                    ? ``
-                    : ` `) + author.valor
-            );
-        });
+        authorsValue = `${authors.length > 0 ? 'Por' : ''} ${authors
+            .map(author => {
+                let resp = '';
+                if (lastAuthor == author && authors.length !== 1) {
+                    if (author.valor[0].toUpperCase() == `I`) resp = ` e `;
+                    else resp = ` y `;
+                } else if (author == authors[0]) resp = ``;
+                else resp = ` `;
+
+                return resp + author.valor;
+            })
+            .toString()
+            .replace(/\,(?=[^,][ey])/, '')}`;
     }
-    return (
-        signature ||
-        (authorsValue
-            ? (authorsValue.length > 0 ? `Por ` : ``) +
-              `${authorsValue.toString().replace(/\,(?=[^,][ey])/, '')}`
-            : null)
-    );
+    return signature || authorsValue;
 };
 
 export const articleItem = article => {
@@ -107,7 +96,7 @@ export const articleItem = article => {
         bajada: get(article, 'subheadlines.basic', null),
         chapita: getArticleTag(article),
         autor,
-        // autores,
+        autores,
         marquesina: getArticleSignature(article, autores),
         seccionPadre: getArticleOpinionSubtype(article),
         imagen: getArticleImage(article),
@@ -119,7 +108,7 @@ export const articleItem = article => {
 
 export const anexoItem = article => {
     const html = get(article[0], 'html', '');
-    return [{ html }];
+    if (html) return [{ html }];
 };
 
 export const anexoItemMobile = article => {

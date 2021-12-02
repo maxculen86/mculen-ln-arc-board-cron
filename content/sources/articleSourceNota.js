@@ -103,10 +103,6 @@ const fetch = query => {
             );
         })
         .catch(error => {
-            console.log(
-                '🚀 ~ file: articleSourceNota.js ~ line 90 ~ error',
-                error
-            );
             logger.push(
                 error,
                 { source: 'content/source/articleSourceNota', url },
@@ -328,6 +324,9 @@ const addFollowAnotherNoteData = (anotherNoteData, arcSite, i) => {
             };
 
             return resp;
+        })
+        .catch(e => {
+            // console.log('TCL: addFollowAnotherNoteData -> e', e);
         });
 };
 

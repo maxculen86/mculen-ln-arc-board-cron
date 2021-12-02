@@ -14,7 +14,7 @@ const resolve = key => {
 };
 
 const fetch = query => {
-    const { url = '' } = query;
+    const { uri = '' } = query;
     const arcSite = query['arc-site'];
     const opt = {
         uri: `${CONTENT_BASE}${resolve(query)}`,
@@ -32,7 +32,7 @@ const fetch = query => {
         .catch(error => {
             logger.push(
                 error,
-                { source: 'content/source/distributorSource', url },
+                { source: 'content/source/distributorSource', uri },
                 arcSite
             );
         });

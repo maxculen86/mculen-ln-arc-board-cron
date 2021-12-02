@@ -1,6 +1,5 @@
-/* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 
 const Placeholder = props => {
     const { slotName, targeting, dimensions, missDfpId, error } = props;
@@ -37,6 +36,11 @@ Placeholder.propTypes = {
     dimensions: PropTypes.oneOfType([PropTypes.array]).isRequired,
     missDfpId: PropTypes.bool,
     error: PropTypes.string
+};
+
+Placeholder.defaultProps = {
+    missDfpId: false,
+    error: ''
 };
 
 export default Placeholder;
