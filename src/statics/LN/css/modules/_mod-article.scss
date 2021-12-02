@@ -77,6 +77,8 @@
                 font-family: $font-arial;
                 font-weight: 100;
                 letter-spacing: normal;
+                display: inline-block;
+
                 &:first-letter {
                     text-transform: capitalize;
                 }
@@ -85,6 +87,21 @@
 
         .mod-marquee {
             display: flex;
+        }
+
+        div > .--tags {
+            &.--bullet {
+                position: relative;
+                padding-left: px(24);
+                &:before {
+                    content: '•';
+                    height: fit-content;
+                    display: block;
+                    position: absolute;
+                    left: px(10);
+                    color: $light-neutral-400;
+                }
+            }
         }
     }
 
