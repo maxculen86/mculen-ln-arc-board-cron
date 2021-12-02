@@ -31,13 +31,13 @@ const Icon = ({
                     rel={rel}
                 >
                     <i className={className}>
-                        <MapperIcon name={name} r={{ ...r }} />
+                        <MapperIcon name={name} {...r} />
                     </i>
                     {children}
                 </Link>
             ) : (
                 <i className={className}>
-                    <MapperIcon name={name} r={{ ...r }} />
+                    <MapperIcon name={name} {...r} />
                 </i>
             )}
         </>
