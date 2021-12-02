@@ -5,14 +5,14 @@ exports[`components - private - LN - common - TaxonomyImportantList Test de snap
   class="mod-themes"
 >
   <a
-    class="com-link com-button --secondary --compact"
+    class="com-link com-button --secondary --compact --tag"
     href="/tema/asd-1/"
     title="Ir a notas de asd 1"
   >
     asd 1
   </a>
   <a
-    class="com-link com-button --secondary --compact"
+    class="com-link com-button --secondary --compact --tag"
     href="/tema/asd-2/"
     title="Ir a notas de asd 2"
   >

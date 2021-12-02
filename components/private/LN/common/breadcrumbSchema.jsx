@@ -22,7 +22,7 @@ function BreadcrumbSchema({ sections, host }) {
                 {
                     "@type": "ListItem",
                     "position": ${i + 2},
-                    "name": "${el.name.replace(/"/g, '\\"')}",
+                    "name": "${el.name ? el.name.replace(/"/g, '\\"') : ''}",
                     "item": "${host + el.path + slash}"
                 }
             `;
@@ -53,15 +53,5 @@ BreadcrumbSchema.propTypes = {
     ).isRequired,
     host: PropTypes.string.isRequired
 };
-
-// BreadcrumbSchema.defaultProps = {
-//     sections: [
-//         {
-//             name: undefined,
-//             path: undefined
-//         }
-//     ],
-//     host: ''
-// };
 
 export default BreadcrumbSchema;

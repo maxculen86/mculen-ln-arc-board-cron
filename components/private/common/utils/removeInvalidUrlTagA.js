@@ -15,7 +15,8 @@ const isValidUrlTagA = (contentElements, arcSite, url, API_ENV) => {
                 return linkList.filter(e => {
                     return (
                         !new RegExp(
-                            /(?:href=(["'\\])+((?:(?:https?|http?):\/\/)?((?:[a-z]+)(?:\.(?:[a-z-0-9]-*)*[a-z-0-9]+)*(?:\.(?:[a-z]{2,}))\.?)(?::\d{2,5})?(?:[/?#]\S*)?||\/[a-z-0-9\S]+)\1)/,
+                            `(?:href=(["'\\\\])+((?:(?:https?|http?):\\/\\/)?((?:[a-z]+)(?:\\.(?:[a-z-0-9]-*)*[a-z-0-9]+)*` +
+                                `(?:\\.(?:[a-z]{2,}))\\.?)(?::\\d{2,5})?(?:[/?#]\\S*)?||\\/[a-z-0-9\\S]+)\\1)`,
                             'gim'
                         ).test(e) && e
                     );
@@ -38,7 +39,8 @@ const isValidUrlTagA = (contentElements, arcSite, url, API_ENV) => {
             getErrors: current => {
                 return (
                     (!new RegExp(
-                        /^(http|https|:\/\/|\.|@){2,}(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\S*:\w*@)*([a-zA-Z]|(\d{1,3}|\.){7}){1,}(\w|\.{2,}|\.[a-zA-Z]{2,3}|\/|\?|&|:\d|@|=|\/|\(.*\)|#|-|%)*$/,
+                        '^(http|https|:\\/\\/|\\.|@){2,}(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}|\\S*:\\w*@)*([a-zA-Z]|(\\d{1,3}|\\.){7}){1,}' +
+                            '(\\w|\\.{2,}|\\.[a-zA-Z]{2,3}|\\/|\\?|&|:\\d|@|=|\\/|\\(.*\\)|#|-|%)*$',
                         'gim'
                     ).test(current.url) && [current.url]) ||
                     []
@@ -56,25 +58,6 @@ const isValidUrlTagA = (contentElements, arcSite, url, API_ENV) => {
                 /**
                  * TODO: Ver si se necesita enviar warnings por urls mal formadas
                  */
-                /* try {
-                    if (API_ENV === 'prod' && errors.length) {
-                        logger.push(
-                            {
-                                response: {
-                                    request: { method: 'isValidUrlTagA' }
-                                },
-                                error: {
-                                    message: `Error URL mal formato en cuerpo nota: ${errors}`
-                                }
-                            },
-                            { source: 'content/source/articleSourceNota', url },
-                            arcSite
-                        );
-                    }
-                } catch (e) {
-                    console.log('Error en removeInvalidUrlTagA.js', e.message);
-                } */
-
                 const newElement =
                     errors.length &&
                     typeElement[type].replace &&

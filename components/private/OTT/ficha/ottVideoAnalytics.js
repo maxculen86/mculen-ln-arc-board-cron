@@ -1,5 +1,5 @@
 export default function loadOTTVideoAnalytics(titulo, video_id) {
-    let datalayer = window.dataLayer;
+    const datalayer = window.dataLayer;
     if (datalayer === undefined) return '';
     window.addEventListener('powaRender', event => {
         const powa = event.detail.powa;

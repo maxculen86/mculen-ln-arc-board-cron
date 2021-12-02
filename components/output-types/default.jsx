@@ -10,7 +10,6 @@ import Comscore from '../private/common/scriptManager/comscore';
 import Microdata from '../private/common/scriptManager/microdata';
 import PostBid from '../private/common/scriptManager/postbid';
 import MetasOG from '../private/common/metaTags/metasOG';
-import LivefyreCommentCount from '../private/common/scriptManager/LivefyreCommentCount';
 import LiftIgniter from '../private/common/scriptManager/Liftigniter';
 import Datadog from '../private/common/scriptManager/dataDog';
 import TagsLoadingList from '../private/common/scriptManager/tagsLoadingList';
@@ -40,7 +39,10 @@ import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 import addForwardSlash from '../private/LN/common/utils/addForwardSlash';
 import AmazonPublisherServices from '../private/common/scriptManager/amazonPublisherServices';
 import FontFaceDefault from '../private/common/fontfaceDefault';
+import CriticalCss from '../private/common/criticalcss';
 import MetaViafoura from '../private/common/metaViafoura';
+import Favicon from '../private/common/favicon';
+import ComscoreVideo from '../private/common/scriptManager/comscoreVideo';
 
 const scriptList = [
     {
@@ -91,15 +93,15 @@ const scriptList = [
     },
     {
         component: {
-            name: 'LivefyreCommentCount',
-            function: LivefyreCommentCount
+            name: 'AmazonPublisherServices',
+            function: AmazonPublisherServices
         },
-        feature: ['LN-nota/share']
+        feature: 'none'
     },
     {
         component: {
-            name: 'AmazonPublisherServices',
-            function: AmazonPublisherServices
+            name: 'ComscoreVideo',
+            function: ComscoreVideo
         },
         feature: 'none'
     }
@@ -223,8 +225,14 @@ const Default = props => {
         <html lang="es">
             <head>
                 <meta charset="utf-8" />
+                <meta
+                    name="viewport"
+                    content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
+                />
+                <meta name="theme-color" content="#ffffff" />
                 <title>{title}</title>
-                {/* <FontFace outputType={outputType} /> */}
+                <Libs />
+                <CriticalCss />
                 {arcSite === 'ott' ? (
                     <link
                         rel="stylesheet"
@@ -235,7 +243,6 @@ const Default = props => {
                 ) : (
                     <CssLinks />
                 )}
-                <Libs />
 
                 {LinkImagePreload()}
 
@@ -325,63 +332,7 @@ const Default = props => {
                     outputType={outputType}
                 />
                 <Schemas section={_nodeType} />
-                <meta
-                    name="viewport"
-                    content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
-                />
-                <link
-                    rel="shortcut icon"
-                    type="image/x-icon"
-                    href={deployment(
-                        `${contextPath}/resources/images/favicon.ico`
-                    )}
-                />
-                <link
-                    rel="icon"
-                    type="image/png"
-                    sizes="16x16"
-                    href={deployment(
-                        `${contextPath}/resources/images/favicon-16.png`
-                    )}
-                />
-                <link
-                    rel="icon"
-                    type="image/png"
-                    sizes="32x32"
-                    href={deployment(
-                        `${contextPath}/resources/images/favicon-32.png`
-                    )}
-                />
-                <link
-                    rel="shortcut icon"
-                    type="image/png"
-                    sizes="192x192"
-                    href={deployment(
-                        `${contextPath}/resources/images/favicon-192.png`
-                    )}
-                />
-                <link
-                    rel="shortcut icon"
-                    type="image/png"
-                    sizes="512x512"
-                    href={deployment(
-                        `${contextPath}/resources/images/favicon-512.png`
-                    )}
-                />
-                <link
-                    rel="apple-touch-icon"
-                    href={deployment(
-                        `${contextPath}/resources/images/favicon-192.png`
-                    )}
-                />
-                <link
-                    rel="apple-touch-icon"
-                    sizes="512x512"
-                    href={deployment(
-                        `${contextPath}/resources/images/favicon-512.png`
-                    )}
-                />
-                <meta name="theme-color" content="#ffffff" />
+                <Favicon />
                 <link rel="manifest" href="/manifest.json" />
                 <MetasFBNews
                     nodeType={_nodeType}

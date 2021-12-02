@@ -1,5 +1,7 @@
 import filter from '../filters/LN/acumulado/tag';
 import force404AMP from './utils/force404AMP';
+import logger from '../../components/private/common/utils/logger';
+import NotFoundError from './utils/notFoundError';
 
 const resolve = key => {
     const { slug, outputType } = key;
@@ -12,28 +14,34 @@ const resolve = key => {
 
 const transform = (data, query) => {
     const { uri, slug, meteringVariant } = query || {};
-    if (data.Payload && data.Payload.items && data.Payload.items[0]) {
-        if (data.Payload.items[0].slug !== slug) {
-            const err = new Error('Tag no encontrado');
-            err.statusCode = 404;
-            throw err;
+
+    try {
+        if (data.Payload && data.Payload.items && data.Payload.items[0]) {
+            if (data.Payload.items[0].slug !== slug) {
+                throw new NotFoundError('Tag no encontrado');
+            }
         }
-    }
 
-    if (!data.Payload.items.length) {
-        const err = new Error('Tag no encontrado');
-        err.statusCode = 404;
-        throw err;
-    }
-    const newData = {
-        ...data,
-        node_type: 'tags',
-        name: data.Payload.items[0].name,
-        canonical_url: uri,
-        subscription: meteringVariant
-    };
+        if (!data.Payload.items.length) {
+            throw new NotFoundError('Tag no encontrado');
+        }
 
-    return newData;
+        const newData = {
+            ...data,
+            node_type: 'tags',
+            name: data.Payload.items[0].name,
+            canonical_url: uri,
+            subscription: meteringVariant
+        };
+
+        return newData;
+    } catch (error) {
+        logger.push(
+            error,
+            { source: 'content/source/tagSource', url: uri },
+            query['arc-site']
+        );
+    }
 };
 
 export default {

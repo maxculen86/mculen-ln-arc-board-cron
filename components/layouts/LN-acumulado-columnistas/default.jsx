@@ -7,13 +7,6 @@ import Footer from '../../private/LN/common/footer';
 import Text from '../../private/common/text';
 import GlobalProvider from '../../private/common/context/globalContext';
 import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
-// import '../../resources/dist/css/ln/base.css';
-// import '../../resources/dist/css/ln/layouts/layout.css';
-// import '../../resources/dist/css/ln/layouts/grid.css';
-// import '../../resources/dist/css/ln/pages/acu.css';
-// import '../../resources/dist/css/ln/components/com-ordered.css';
-// import '../../resources/dist/css/ln/components/com-unordered.css';
-// import '../../resources/dist/css/ln/components/hour.css';
 
 const layoutItemsColumnistas = [
     'Pre-Apertura',

@@ -1,52 +1,52 @@
-@import '../abstracts/variables';
-@import '../abstracts/mixins';
+// @import '../abstracts/variables';
+// @import '../abstracts/mixins';
 
-.com-nav-mobile {
-    position: fixed;
-    bottom: 0;
-    padding: px(5) px(10) px(10);
-    background: $neutral-white;
-    z-index: 15000;
-    border-top: 1px solid $light-neutral-300;
-    width: 100%;
-    height: px(56);
+// .com-nav-mobile {
+//     position: fixed;
+//     bottom: 0;
+//     padding: px(5) px(10) px(10);
+//     background: $neutral-white;
+//     z-index: 15000;
+//     border-top: 1px solid $light-neutral-300;
+//     width: 100%;
+//     height: px(56);
 
-    .row {
-        max-width: px(400);
-        margin: 0 auto;
-        justify-content: space-between;
+//     .row {
+//         max-width: px(400);
+//         margin: 0 auto;
+//         justify-content: space-between;
 
-        .item-foo {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: transparent;
-            color: $light-neutral-700;
-            p {
-                font-size: px(9);
-                @media ($media-s) {
-                    font-size: px(11);
-                }
-            }
-            i {
-                margin-bottom: px(4);
-            }
-            &.--active {
-                p {
-                    color: $ln;
-                }
-                i {
-                    color: $ln;
-                }
-            }
-            &:first-child {
-                margin: px(-5);
-            }
-        }
-    }
+//         .item-foo {
+//             display: flex;
+//             flex-direction: column;
+//             justify-content: center;
+//             align-items: center;
+//             background: transparent;
+//             color: $light-neutral-700;
+//             p {
+//                 font-size: px(9);
+//                 @media ($media-s) {
+//                     font-size: px(11);
+//                 }
+//             }
+//             i {
+//                 margin-bottom: px(4);
+//             }
+//             &.--active {
+//                 p {
+//                     color: $ln;
+//                 }
+//                 i {
+//                     color: $ln;
+//                 }
+//             }
+//             &:first-child {
+//                 margin: px(-5);
+//             }
+//         }
+//     }
 
-    @media ($media-l) {
-        display: none;
-    }
-}
+//     @media ($media-l) {
+//         display: none;
+//     }
+// }

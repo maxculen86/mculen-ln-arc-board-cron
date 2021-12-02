@@ -1,4 +1,4 @@
-import matchObject from '../../../../../../../../components/private/LN/api/common/utils/matchObject';
+import matchObject from '../../../../../../../../components/private/LN/api/v1/common/utils/matchObject';
 import article1 from '../../../../../../../../__mocks__/data/articles/2KOBND62KNFVVBFQZOADNN6WNY.json';
 import article2 from '../../../../../../../../__mocks__/data/articles/3SHTRO3NKBCN7L3JITCDQYSJLM.json';
 import article3 from '../../../../../../../../__mocks__/data/articles/EBMQCONMLVB6ZBFFGTBLIWMYFQ.json';

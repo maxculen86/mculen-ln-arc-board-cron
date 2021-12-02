@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import TaxonomyComponent from '../../common/taxonomyImportantList';
-//import ComTitle from '../../../common/com-title';
 import HeaderSection from '../../../common/mod-headerSection';
 
 const getSectionsAsTags = sections => {
@@ -24,7 +23,7 @@ const getSectionsAsTags = sections => {
 };
 
 // TODO: este componente deberia ser el que tiene el titulo de "Recetas con:"
-const Tags = ({ tags, sections, destacado, temas }) => {
+const Tags = ({ tags = [], sections, destacado, temas }) => {
     const categories = getSectionsAsTags(sections);
 
     const listTags = categories.concat(tags).map(x => {

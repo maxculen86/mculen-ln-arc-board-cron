@@ -55,7 +55,7 @@ amp-sidebar {
 
                     &::before {
                         top: calc(50% - 10px);
-                        font-family: 'LNicons';
+                        font-family: $font-icons;
                         content: $icon-arrow-right;
                         font-size: 20px;
                         display: block;
@@ -69,7 +69,7 @@ amp-sidebar {
                         border-bottom: $border-nav;
 
                         a {
-                            color: $light-blue-500;
+                            color: $blue-500;
                         }
 
                         &::before {
@@ -157,12 +157,12 @@ amp-sidebar {
     //     justify-content: flex-end;
     //     padding-right: 0;
     //     background: transparent;
-    //     color: $light-blue-500;
+    //     color: $blue-500;
     //     font-weight: normal;
     //     border: none;
     //     &:hover {
     //         background: transparent;
-    //         color: $light-blue-500;
+    //         color: $blue-500;
     //         border: none;
     //     }
     // }
@@ -209,7 +209,7 @@ amp-sidebar {
         background: transparent;
         border-color: transparent;
         padding: 0.1875rem 1rem;
-        color: $light-blue-500;
+        color: $blue-500;
     }
 }
 

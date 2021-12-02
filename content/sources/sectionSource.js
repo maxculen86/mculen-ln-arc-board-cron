@@ -3,6 +3,7 @@ import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import logger from '../../components/private/common/utils/logger';
 import { getTodayDateForAcuDolar } from '../../components/private/common/utils/dateAndTimeUtil';
 import force404AMP from './utils/force404AMP';
+import NotFoundError from './utils/notFoundError';
 
 const resolve = key => {
     const { id, website } = key;
@@ -21,7 +22,7 @@ const resolve = key => {
 };
 
 const fetch = query => {
-    const { url = '', outputType } = query;
+    const { id = '', outputType } = query;
     const arcSite = query['arc-site'];
     const opt = {
         uri: `${CONTENT_BASE}${resolve(query)}`,
@@ -37,31 +38,29 @@ const fetch = query => {
 
     return request(opt)
         .then(response => {
+            /**
+             * Se valida que la sección consultada tenga
+             * consistencia con la data respondida en la data
+             * de origen
+             */
+            const { _id: idData } = response;
+            const { id: idQuery } = query;
+            if (!idData || !idQuery || idData !== idQuery) {
+                throw new NotFoundError(
+                    `La sección '${idQuery}' que intenta consultar no existe`
+                );
+            }
             return transform(response, query);
         })
         .catch(error => {
             logger.push(
                 error,
-                { source: 'content/source/sectionSource', url },
+                { source: 'content/source/sectionSource', url: id },
                 arcSite
             );
         });
 };
-const transform = (data, siteProps) => {
-    const { _id: idData } = data;
-    const { id: idQuery, meteringVariant } = siteProps;
-    /**
-     * Se valida que la sección consultada tenga
-     * consistencia con la data respondida en la data
-     * de origen
-     */
-    if (!idData || !idQuery || idData !== idQuery) {
-        const err = new Error(
-            `La sección '${idQuery}' que intenta consultar no existe`
-        );
-        err.statusCode = 404;
-        throw err;
-    }
+const transform = (data, { meteringVariant }) => {
     const newData = {
         ...data,
         date: getTodayDateForAcuDolar(),

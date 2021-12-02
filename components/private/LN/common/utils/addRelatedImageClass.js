@@ -36,7 +36,7 @@ class addRelatedImage {
                 imageData: {
                     source: 'relatedImageSource',
                     query: {
-                        id,
+                        id: id.trim(),
                         subtype: get(article, 'subtype'),
                         imageConfig: 'm'
                     },

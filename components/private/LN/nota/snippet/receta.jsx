@@ -9,7 +9,6 @@ import getDomain from '../../../common/utils/getDomain';
 import { getFirstParentSection } from '../../../common/utils/sectionUtils';
 import addForwardSlash from '../../common/utils/addForwardSlash';
 import {
-    extractDataFromTaxonomy,
     extractDataFromContentElements,
     extractDataFromCredits,
     extractDataFromPromoItems,
@@ -22,11 +21,7 @@ const snippet = props => {
             headlines,
             subheadlines,
             promo_items: promoItems,
-            taxonomy: {
-                tags,
-                primary_section: primarySection,
-                sections: taxonomySections
-            },
+            taxonomy: { tags, primary_section: primarySection = {} },
             credits,
             display_date: displayDate,
             content_elements: contentElements,
@@ -35,8 +30,6 @@ const snippet = props => {
         contextPath,
         deployment
     } = props;
-
-    console.log('🚀 ~ file: receta.jsx ~ line 35 ~ promoItems', promoItems);
 
     const PLACERHOLDER = getAssetsPath(contextPath)(deployment)('bco.png');
 
@@ -64,8 +57,6 @@ const snippet = props => {
 
     const categoria = primarySection.name;
 
-    const { tipoDeCocina } = extractDataFromTaxonomy(taxonomySections);
-
     const { preparaciones, ingredientes } = extractDataFromContentElements(
         contentElements
     );
@@ -77,6 +68,9 @@ const snippet = props => {
     const data = {
         '@context': 'https://schema.org',
         '@type': 'Recipe',
+        ...(primarySection.parent_id === '/recetas/cocina' && {
+            recipeCuisine: primarySection.name
+        }),
         author: {
             '@type': autores === '' ? 'Organization' : 'Person',
             name: autores === '' ? 'LA NACION recetas' : `${autores}`
@@ -90,7 +84,6 @@ const snippet = props => {
         recipeIngredient: ingredientes,
         recipeInstructions: preparaciones,
         recipeCategory: categoria,
-        recipeCuisine: tipoDeCocina,
         name: `${headLinesBasic || 'LA NACION - Recetas'}`,
         recipeYield: counterPortion ? `${counterPortion} porciones` : '',
         keywords: `${keywords}`,

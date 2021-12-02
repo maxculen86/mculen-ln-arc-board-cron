@@ -51,10 +51,7 @@ export function popUpCompartirNotaFB(notaId, dominio, titulo) {
             })
             .catch(() => {
                 callFacebookUI(notaId, dominio);
-                // console.error('Script loading failed! Handle this error', error);
             });
-
-        // popUpRedSocial(`//www.facebook.com/sharer.php?m2w&s=100&p[url]=${dominio}${notaId}`);
     } else {
         window.open('https://www.facebook.com/lanacion', '_blank');
     }
@@ -106,16 +103,6 @@ export const shareWhatsAppMobile = (notaId, dominio, title, content) => {
         const texto = `${title} : ...`;
         const whatsappUrl = `whatsapp://send?text=${texto} - ${dominio}${notaId}`;
         window.location.href = whatsappUrl;
-
-        /* Whatsapp */
-        if (
-            /Android|webOS|iPhone|BlackBerry|IEMobile|Opera Mini/i.test(
-                navigator.userAgent
-            )
-        ) {
-            // $(".wapp").css("display", "inline-block");
-            // $("body").addClass("touch");
-        }
     } catch (e) {
         console.warn && console.warn('Initialize: ', e);
     }
@@ -123,6 +110,4 @@ export const shareWhatsAppMobile = (notaId, dominio, title, content) => {
 
 export const scrollToComments = () => {
     window.scrollTo(0, document.body.scrollHeight);
-    // const element = document.querySelector('footer');
-    // element.scrollIntoView({ behavior: 'smooth', block: 'end' });
 };

@@ -569,3 +569,699 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
   </snippet>
 </Component>
 `;
+
+exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta with Recipe Cuisine 1`] = `
+<Component
+  arcSite="la-nacion-ar"
+  globalContent={
+    Object {
+      "_id": "QAZ7BVHG5BCNFN7S67XCBP6PA4",
+      "canonical_url": "/recetas/platos-de-comida-principal/nota-recetas-para-api-test-nid24042020/",
+      "content_elements": Array [
+        Object {
+          "_id": "22R6QLH7DFG7NJ43FDZ5KSLNXY",
+          "additional_properties": Object {},
+          "embed": Object {
+            "config": Object {
+              "items": Array [
+                "Paso 1",
+                "Paso 2",
+                "Paso 3",
+                "Paso 4",
+                "Paso 5",
+              ],
+              "titleList": "Para la carne",
+              "typeList": "preparacion",
+            },
+          },
+          "subtype": "custom-preparacion",
+          "type": "custom_embed",
+        },
+        Object {
+          "_id": "X5EAKEQ6J5BYBOKAQNSGYFMZUE",
+          "additional_properties": Object {},
+          "embed": Object {
+            "config": Object {
+              "items": Array [
+                "Ingrediente 1",
+                "Ingrediente 2",
+                "Ingrediente 3",
+              ],
+              "titleList": "Para la carne",
+              "typeList": "ingredientes",
+            },
+          },
+          "subtype": "custom-ingrediente",
+          "type": "custom_embed",
+        },
+        Object {
+          "_id": "4LVALFON2RG5XKADXLDX5UQYHY",
+          "additional_properties": Object {},
+          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id fermentum lectus, sit amet vulputate turpis. Sed non nibh eget arcu facilisis euismod vitae a ex. Suspendisse potenti. Aliquam euismod eros ac convallis consectetur. Suspendisse vestibulum semper dolor non venenatis. Curabitur cursus vehicula risus. Nam imperdiet ipsum vel lacinia imperdiet. Duis quis pharetra eros. Etiam convallis convallis sapien, eu bibendum mauris maximus a. Cras varius id lectus ac fermentum. Pellentesque eget dapibus dolor, ut pellentesque nibh. Donec tincidunt nisl non volutpat tempus. Sed quis dui eget augue imperdiet tempus et vel nibh. Phasellus lorem diam, cursus dignissim rutrum ac, rutrum eu nunc. In fermentum gravida urna, et luctus turpis venenatis in.",
+          "type": "text",
+        },
+        Object {
+          "_id": "DXVMDKSSC5DE3L2P27NFNJUCLE",
+          "additional_properties": Object {},
+          "credits": Object {
+            "affiliation": Array [],
+          },
+          "height": 980,
+          "resized_urls": Array [
+            Object {
+              "option": Object {
+                "height": 400,
+                "media": "(min-width: 1280px)",
+                "width": 560,
+              },
+              "resizedUrl": "https://resizer.glanacion.com/resizer/CWipbkjvXp2Dcs1_tW7am7dSxX4=/560x400/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg",
+            },
+            Object {
+              "option": Object {
+                "height": 465,
+                "media": "(min-width: 1024px)",
+                "width": 690,
+              },
+              "resizedUrl": "https://resizer.glanacion.com/resizer/QDGXzjfRLeFMhMDt00OIpSOM-eQ=/690x465/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg",
+            },
+            Object {
+              "option": Object {
+                "height": 513,
+                "media": "(min-width: 768px)",
+                "width": 768,
+              },
+              "resizedUrl": "https://resizer.glanacion.com/resizer/kiBk8bJz1DMim47MXzOdTgf8BZQ=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg",
+            },
+            Object {
+              "option": Object {
+                "height": 438,
+                "media": "(min-width: 360px)",
+                "width": 350,
+              },
+              "resizedUrl": "https://resizer.glanacion.com/resizer/BzVLCnK9gEIAVvnlzN4NI0ahjS8=/350x438/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg",
+            },
+            Object {
+              "option": Object {
+                "height": 203,
+                "media": "(min-width: 320px)",
+                "width": 310,
+              },
+              "resizedUrl": "https://resizer.glanacion.com/resizer/K_22ffHgLCV5Q6WkvDVsjpYi0ac=/310x203/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg",
+            },
+          ],
+          "type": "image",
+          "url": "https://resizer.glanacion.com/resizer/kiBk8bJz1DMim47MXzOdTgf8BZQ=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg",
+          "width": 1470,
+        },
+        Object {
+          "_id": "AULPHTAQMFBHHJUV7U4GF4AORE",
+          "additional_properties": Object {},
+          "content": "Vestibulum sed euismod nisi, vitae luctus magna. Etiam interdum mi vehicula mauris porttitor viverra nec ut massa. Nulla tempus nec lectus consequat fringilla. Aliquam non massa viverra, luctus neque sed, porta eros. Suspendisse ut dui dapibus, sagittis libero eu, pellentesque libero. Aenean malesuada urna eget suscipit venenatis. Nulla quam mi, volutpat non tellus in, placerat varius lacus. Etiam efficitur, massa vel sodales maximus, velit risus mollis sem, sit amet tempus risus nisi et ligula. Vivamus laoreet, est eget cursus facilisis, ligula odio egestas ipsum, feugiat congue neque sapien ut orci. Phasellus non ex vel massa pharetra pharetra eu et erat. Mauris vitae leo fermentum, pulvinar erat ut, pulvinar neque. Sed vitae ante scelerisque, viverra velit nec, laoreet sapien. Duis varius arcu egestas, lobortis mauris quis, consectetur dolor.",
+          "type": "text",
+        },
+        Object {
+          "_id": "DM3P2QTGZVE5NLRUHVBF3EZAZE",
+          "additional_properties": Object {},
+          "content": "Pellentesque ut urna quis odio dictum faucibus vitae vitae tortor. Fusce vehicula est vel augue auctor dapibus. Ut ut urna rhoncus, faucibus nisi non, egestas eros. Cras nec tortor quis magna maximus dapibus quis id est. Phasellus euismod venenatis ipsum scelerisque mattis. Nulla efficitur porttitor massa eu hendrerit. Pellentesque tempor condimentum elit, facilisis maximus nunc consectetur in. Suspendisse pulvinar, risus sollicitudin accumsan iaculis, eros metus ullamcorper mauris, eu consequat ex arcu sollicitudin libero. Praesent eu vestibulum dolor. Nam auctor lectus et orci iaculis, nec pretium justo imperdiet. Nulla commodo nulla ac ligula tristique ultrices. Praesent consectetur, nibh sed mollis lacinia, magna velit dapibus tellus, vel tincidunt mi arcu cursus leo. Duis velit lacus, consectetur id convallis sit amet, rutrum at erat. Sed vitae bibendum urna. Nam sodales scelerisque ante, non luctus nunc varius a.",
+          "type": "text",
+        },
+      ],
+      "content_restrictions": Object {
+        "content_code": "premium",
+      },
+      "created_date": "2020-04-24T14:30:41.505Z",
+      "credits": Object {
+        "by": Array [],
+      },
+      "display_date": "2020-04-24T14:35:53.021Z",
+      "first_publish_date": "2020-04-24T14:35:53.021Z",
+      "headlines": Object {
+        "basic": "Nota recetas para Api test",
+      },
+      "label": Object {},
+      "promo_items": Object {
+        "basic": Object {
+          "_id": "BLRC5NG5GZBGLHSASLIQI3NABQ",
+          "additional_properties": Object {},
+          "credits": Object {
+            "affiliation": Array [],
+          },
+          "height": 688,
+          "resized_urls": Array [
+            Object {
+              "option": Object {
+                "height": 513,
+                "media": "(min-width: 768px)",
+                "width": 768,
+              },
+              "resizedUrl": "https://resizer.glanacion.com/resizer/KKUwkn3fOAH9RsmFwoJFBFcvh54=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg",
+            },
+          ],
+          "type": "image",
+          "url": "https://resizer.glanacion.com/resizer/KKUwkn3fOAH9RsmFwoJFBFcvh54=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg",
+          "width": 1033,
+        },
+        "receta": Object {
+          "embed": Object {
+            "config": Object {
+              "counterPortion": "4",
+              "counterTime": "25",
+              "title": "detalle-receta",
+            },
+          },
+          "subtype": "custom-detalle-receta",
+        },
+      },
+      "publish_date": "2020-04-24T14:35:53.021Z",
+      "related_content": Object {
+        "basic": Array [],
+      },
+      "subheadlines": Object {
+        "basic": "Subtitulo de prueba",
+      },
+      "subtype": "7",
+      "taxonomy": Object {
+        "primary_section": Object {
+          "_id": "/recetas/cocina/libanesa",
+          "_website": "la-nacion-ar",
+          "additional_properties": Object {
+            "original": Object {
+              "ancestors": Object {
+                "default": Array [
+                  "/recetas",
+                  "/recetas/cocina",
+                ],
+              },
+              "site": Object {},
+            },
+          },
+          "name": "Libanesa",
+          "parent_id": "/recetas/cocina",
+          "path": "/recetas/cocina/libanesa",
+          "type": "section",
+        },
+        "sections": Array [
+          Object {
+            "_id": "/recetas/cocina/libanesa",
+            "_website": "la-nacion-ar",
+            "additional_properties": Object {
+              "original": Object {
+                "ancestors": Object {
+                  "default": Array [
+                    "/recetas",
+                    "/recetas/cocina",
+                  ],
+                },
+                "site": Object {},
+              },
+            },
+            "name": "Libanesa",
+            "parent_id": "/recetas/cocina",
+            "path": "/recetas/cocina/libanesa",
+            "type": "section",
+          },
+          Object {
+            "_id": "/recetas/cocina",
+            "_website": "la-nacion-ar",
+            "additional_properties": Object {
+              "original": Object {
+                "ancestors": Object {
+                  "default": Array [
+                    "/recetas",
+                  ],
+                },
+                "site": Object {},
+              },
+            },
+            "name": "Cocina",
+            "parent_id": "/recetas",
+            "path": "/recetas/cocina",
+            "type": "section",
+          },
+          Object {
+            "_id": "/recetas",
+            "_website": "la-nacion-ar",
+            "additional_properties": Object {
+              "original": Object {
+                "ancestors": Object {},
+                "migration": Object {
+                  "id_section_ln9": "0",
+                  "migrated_mob": "true",
+                },
+                "site": Object {},
+                "style": Object {},
+              },
+            },
+            "name": "Recetas",
+            "parent_id": "/",
+            "path": "/recetas",
+            "type": "section",
+          },
+        ],
+        "sites": Array [
+          Object {
+            "additional_properties": Object {
+              "original": Object {
+                "_id": "/recetas/cocina/libanesa",
+              },
+            },
+          },
+          Object {
+            "additional_properties": Object {
+              "original": Object {
+                "_id": "/recetas/cocina",
+              },
+            },
+          },
+          Object {
+            "additional_properties": Object {
+              "original": Object {
+                "_id": "/recetas",
+                "migration": Object {
+                  "id_section_ln9": "0",
+                  "migrated_mob": "true",
+                },
+              },
+            },
+          },
+        ],
+        "tags": Array [],
+      },
+      "type": "story",
+      "website_url": "/recetas/platos-de-comida-principal/nota-recetas-para-api-test-nid24042020/",
+    }
+  }
+>
+  <snippet
+    arcSite="la-nacion-ar"
+    contextPath=""
+    deployment={[Function]}
+    globalContent={
+      Object {
+        "_id": "QAZ7BVHG5BCNFN7S67XCBP6PA4",
+        "canonical_url": "/recetas/platos-de-comida-principal/nota-recetas-para-api-test-nid24042020/",
+        "content_elements": Array [
+          Object {
+            "_id": "22R6QLH7DFG7NJ43FDZ5KSLNXY",
+            "additional_properties": Object {},
+            "embed": Object {
+              "config": Object {
+                "items": Array [
+                  "Paso 1",
+                  "Paso 2",
+                  "Paso 3",
+                  "Paso 4",
+                  "Paso 5",
+                ],
+                "titleList": "Para la carne",
+                "typeList": "preparacion",
+              },
+            },
+            "subtype": "custom-preparacion",
+            "type": "custom_embed",
+          },
+          Object {
+            "_id": "X5EAKEQ6J5BYBOKAQNSGYFMZUE",
+            "additional_properties": Object {},
+            "embed": Object {
+              "config": Object {
+                "items": Array [
+                  "Ingrediente 1",
+                  "Ingrediente 2",
+                  "Ingrediente 3",
+                ],
+                "titleList": "Para la carne",
+                "typeList": "ingredientes",
+              },
+            },
+            "subtype": "custom-ingrediente",
+            "type": "custom_embed",
+          },
+          Object {
+            "_id": "4LVALFON2RG5XKADXLDX5UQYHY",
+            "additional_properties": Object {},
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id fermentum lectus, sit amet vulputate turpis. Sed non nibh eget arcu facilisis euismod vitae a ex. Suspendisse potenti. Aliquam euismod eros ac convallis consectetur. Suspendisse vestibulum semper dolor non venenatis. Curabitur cursus vehicula risus. Nam imperdiet ipsum vel lacinia imperdiet. Duis quis pharetra eros. Etiam convallis convallis sapien, eu bibendum mauris maximus a. Cras varius id lectus ac fermentum. Pellentesque eget dapibus dolor, ut pellentesque nibh. Donec tincidunt nisl non volutpat tempus. Sed quis dui eget augue imperdiet tempus et vel nibh. Phasellus lorem diam, cursus dignissim rutrum ac, rutrum eu nunc. In fermentum gravida urna, et luctus turpis venenatis in.",
+            "type": "text",
+          },
+          Object {
+            "_id": "DXVMDKSSC5DE3L2P27NFNJUCLE",
+            "additional_properties": Object {},
+            "credits": Object {
+              "affiliation": Array [],
+            },
+            "height": 980,
+            "resized_urls": Array [
+              Object {
+                "option": Object {
+                  "height": 400,
+                  "media": "(min-width: 1280px)",
+                  "width": 560,
+                },
+                "resizedUrl": "https://resizer.glanacion.com/resizer/CWipbkjvXp2Dcs1_tW7am7dSxX4=/560x400/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg",
+              },
+              Object {
+                "option": Object {
+                  "height": 465,
+                  "media": "(min-width: 1024px)",
+                  "width": 690,
+                },
+                "resizedUrl": "https://resizer.glanacion.com/resizer/QDGXzjfRLeFMhMDt00OIpSOM-eQ=/690x465/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg",
+              },
+              Object {
+                "option": Object {
+                  "height": 513,
+                  "media": "(min-width: 768px)",
+                  "width": 768,
+                },
+                "resizedUrl": "https://resizer.glanacion.com/resizer/kiBk8bJz1DMim47MXzOdTgf8BZQ=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg",
+              },
+              Object {
+                "option": Object {
+                  "height": 438,
+                  "media": "(min-width: 360px)",
+                  "width": 350,
+                },
+                "resizedUrl": "https://resizer.glanacion.com/resizer/BzVLCnK9gEIAVvnlzN4NI0ahjS8=/350x438/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg",
+              },
+              Object {
+                "option": Object {
+                  "height": 203,
+                  "media": "(min-width: 320px)",
+                  "width": 310,
+                },
+                "resizedUrl": "https://resizer.glanacion.com/resizer/K_22ffHgLCV5Q6WkvDVsjpYi0ac=/310x203/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg",
+              },
+            ],
+            "type": "image",
+            "url": "https://resizer.glanacion.com/resizer/kiBk8bJz1DMim47MXzOdTgf8BZQ=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg",
+            "width": 1470,
+          },
+          Object {
+            "_id": "AULPHTAQMFBHHJUV7U4GF4AORE",
+            "additional_properties": Object {},
+            "content": "Vestibulum sed euismod nisi, vitae luctus magna. Etiam interdum mi vehicula mauris porttitor viverra nec ut massa. Nulla tempus nec lectus consequat fringilla. Aliquam non massa viverra, luctus neque sed, porta eros. Suspendisse ut dui dapibus, sagittis libero eu, pellentesque libero. Aenean malesuada urna eget suscipit venenatis. Nulla quam mi, volutpat non tellus in, placerat varius lacus. Etiam efficitur, massa vel sodales maximus, velit risus mollis sem, sit amet tempus risus nisi et ligula. Vivamus laoreet, est eget cursus facilisis, ligula odio egestas ipsum, feugiat congue neque sapien ut orci. Phasellus non ex vel massa pharetra pharetra eu et erat. Mauris vitae leo fermentum, pulvinar erat ut, pulvinar neque. Sed vitae ante scelerisque, viverra velit nec, laoreet sapien. Duis varius arcu egestas, lobortis mauris quis, consectetur dolor.",
+            "type": "text",
+          },
+          Object {
+            "_id": "DM3P2QTGZVE5NLRUHVBF3EZAZE",
+            "additional_properties": Object {},
+            "content": "Pellentesque ut urna quis odio dictum faucibus vitae vitae tortor. Fusce vehicula est vel augue auctor dapibus. Ut ut urna rhoncus, faucibus nisi non, egestas eros. Cras nec tortor quis magna maximus dapibus quis id est. Phasellus euismod venenatis ipsum scelerisque mattis. Nulla efficitur porttitor massa eu hendrerit. Pellentesque tempor condimentum elit, facilisis maximus nunc consectetur in. Suspendisse pulvinar, risus sollicitudin accumsan iaculis, eros metus ullamcorper mauris, eu consequat ex arcu sollicitudin libero. Praesent eu vestibulum dolor. Nam auctor lectus et orci iaculis, nec pretium justo imperdiet. Nulla commodo nulla ac ligula tristique ultrices. Praesent consectetur, nibh sed mollis lacinia, magna velit dapibus tellus, vel tincidunt mi arcu cursus leo. Duis velit lacus, consectetur id convallis sit amet, rutrum at erat. Sed vitae bibendum urna. Nam sodales scelerisque ante, non luctus nunc varius a.",
+            "type": "text",
+          },
+        ],
+        "content_restrictions": Object {
+          "content_code": "premium",
+        },
+        "created_date": "2020-04-24T14:30:41.505Z",
+        "credits": Object {
+          "by": Array [],
+        },
+        "display_date": "2020-04-24T14:35:53.021Z",
+        "first_publish_date": "2020-04-24T14:35:53.021Z",
+        "headlines": Object {
+          "basic": "Nota recetas para Api test",
+        },
+        "label": Object {},
+        "promo_items": Object {
+          "basic": Object {
+            "_id": "BLRC5NG5GZBGLHSASLIQI3NABQ",
+            "additional_properties": Object {},
+            "credits": Object {
+              "affiliation": Array [],
+            },
+            "height": 688,
+            "resized_urls": Array [
+              Object {
+                "option": Object {
+                  "height": 513,
+                  "media": "(min-width: 768px)",
+                  "width": 768,
+                },
+                "resizedUrl": "https://resizer.glanacion.com/resizer/KKUwkn3fOAH9RsmFwoJFBFcvh54=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg",
+              },
+            ],
+            "type": "image",
+            "url": "https://resizer.glanacion.com/resizer/KKUwkn3fOAH9RsmFwoJFBFcvh54=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg",
+            "width": 1033,
+          },
+          "receta": Object {
+            "embed": Object {
+              "config": Object {
+                "counterPortion": "4",
+                "counterTime": "25",
+                "title": "detalle-receta",
+              },
+            },
+            "subtype": "custom-detalle-receta",
+          },
+        },
+        "publish_date": "2020-04-24T14:35:53.021Z",
+        "related_content": Object {
+          "basic": Array [],
+        },
+        "subheadlines": Object {
+          "basic": "Subtitulo de prueba",
+        },
+        "subtype": "7",
+        "taxonomy": Object {
+          "primary_section": Object {
+            "_id": "/recetas/cocina/libanesa",
+            "_website": "la-nacion-ar",
+            "additional_properties": Object {
+              "original": Object {
+                "ancestors": Object {
+                  "default": Array [
+                    "/recetas",
+                    "/recetas/cocina",
+                  ],
+                },
+                "site": Object {},
+              },
+            },
+            "name": "Libanesa",
+            "parent_id": "/recetas/cocina",
+            "path": "/recetas/cocina/libanesa",
+            "type": "section",
+          },
+          "sections": Array [
+            Object {
+              "_id": "/recetas/cocina/libanesa",
+              "_website": "la-nacion-ar",
+              "additional_properties": Object {
+                "original": Object {
+                  "ancestors": Object {
+                    "default": Array [
+                      "/recetas",
+                      "/recetas/cocina",
+                    ],
+                  },
+                  "site": Object {},
+                },
+              },
+              "name": "Libanesa",
+              "parent_id": "/recetas/cocina",
+              "path": "/recetas/cocina/libanesa",
+              "type": "section",
+            },
+            Object {
+              "_id": "/recetas/cocina",
+              "_website": "la-nacion-ar",
+              "additional_properties": Object {
+                "original": Object {
+                  "ancestors": Object {
+                    "default": Array [
+                      "/recetas",
+                    ],
+                  },
+                  "site": Object {},
+                },
+              },
+              "name": "Cocina",
+              "parent_id": "/recetas",
+              "path": "/recetas/cocina",
+              "type": "section",
+            },
+            Object {
+              "_id": "/recetas",
+              "_website": "la-nacion-ar",
+              "additional_properties": Object {
+                "original": Object {
+                  "ancestors": Object {},
+                  "migration": Object {
+                    "id_section_ln9": "0",
+                    "migrated_mob": "true",
+                  },
+                  "site": Object {},
+                  "style": Object {},
+                },
+              },
+              "name": "Recetas",
+              "parent_id": "/",
+              "path": "/recetas",
+              "type": "section",
+            },
+          ],
+          "sites": Array [
+            Object {
+              "additional_properties": Object {
+                "original": Object {
+                  "_id": "/recetas/cocina/libanesa",
+                },
+              },
+            },
+            Object {
+              "additional_properties": Object {
+                "original": Object {
+                  "_id": "/recetas/cocina",
+                },
+              },
+            },
+            Object {
+              "additional_properties": Object {
+                "original": Object {
+                  "_id": "/recetas",
+                  "migration": Object {
+                    "id_section_ln9": "0",
+                    "migrated_mob": "true",
+                  },
+                },
+              },
+            },
+          ],
+          "tags": Array [],
+        },
+        "type": "story",
+        "website_url": "/recetas/platos-de-comida-principal/nota-recetas-para-api-test-nid24042020/",
+      }
+    }
+  >
+    <snippetRender
+      data={
+        Object {
+          "@context": "https://schema.org",
+          "@type": "Recipe",
+          "author": Object {
+            "@type": "Organization",
+            "name": "LA NACION recetas",
+          },
+          "cookTime": "PT25M",
+          "datePublished": "2020-04-24T14:35:53.021Z",
+          "description": "Subtitulo de prueba",
+          "image": "https://resizer.glanacion.com/resizer/KKUwkn3fOAH9RsmFwoJFBFcvh54=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg",
+          "keywords": "",
+          "name": "Nota recetas para Api test",
+          "prepTime": "PT25M",
+          "publisher": Object {
+            "@type": "Organization",
+            "logo": Object {
+              "@context": "http://schema.org",
+              "@type": "ImageObject",
+              "height": 41,
+              "url": "undefinedundefined",
+              "width": 391,
+            },
+            "name": "Recetas La Nación",
+            "url": "https://www.lanacion.com.ar/recetas/",
+          },
+          "recipeCuisine": "Libanesa",
+          "recipeIngredient": Array [
+            "Ingrediente 1",
+            "Ingrediente 2",
+            "Ingrediente 3",
+          ],
+          "recipeInstructions": Array [
+            Object {
+              "@type": "HowToStep",
+              "text": "Paso 1",
+            },
+            Object {
+              "@type": "HowToStep",
+              "text": "Paso 2",
+            },
+            Object {
+              "@type": "HowToStep",
+              "text": "Paso 3",
+            },
+            Object {
+              "@type": "HowToStep",
+              "text": "Paso 4",
+            },
+            Object {
+              "@type": "HowToStep",
+              "text": "Paso 5",
+            },
+          ],
+          "recipeYield": "4 porciones",
+          "totalTime": "PT25M",
+        }
+      }
+    >
+      <script
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "{
+  \\"@context\\": \\"https://schema.org\\",
+  \\"@type\\": \\"Recipe\\",
+  \\"recipeCuisine\\": \\"Libanesa\\",
+  \\"author\\": {
+    \\"@type\\": \\"Organization\\",
+    \\"name\\": \\"LA NACION recetas\\"
+  },
+  \\"cookTime\\": \\"PT25M\\",
+  \\"prepTime\\": \\"PT25M\\",
+  \\"totalTime\\": \\"PT25M\\",
+  \\"datePublished\\": \\"2020-04-24T14:35:53.021Z\\",
+  \\"description\\": \\"Subtitulo de prueba\\",
+  \\"image\\": \\"https://resizer.glanacion.com/resizer/KKUwkn3fOAH9RsmFwoJFBFcvh54=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg\\",
+  \\"recipeIngredient\\": [
+    \\"Ingrediente 1\\",
+    \\"Ingrediente 2\\",
+    \\"Ingrediente 3\\"
+  ],
+  \\"name\\": \\"Nota recetas para Api test\\",
+  \\"recipeInstructions\\": [
+    {
+      \\"@type\\": \\"HowToStep\\",
+      \\"text\\": \\"Paso 1\\"
+    },
+    {
+      \\"@type\\": \\"HowToStep\\",
+      \\"text\\": \\"Paso 2\\"
+    },
+    {
+      \\"@type\\": \\"HowToStep\\",
+      \\"text\\": \\"Paso 3\\"
+    },
+    {
+      \\"@type\\": \\"HowToStep\\",
+      \\"text\\": \\"Paso 4\\"
+    },
+    {
+      \\"@type\\": \\"HowToStep\\",
+      \\"text\\": \\"Paso 5\\"
+    }
+  ],
+  \\"recipeYield\\": \\"4 porciones\\",
+  \\"keywords\\": \\"\\",
+  \\"publisher\\": {
+    \\"@type\\": \\"Organization\\",
+    \\"name\\": \\"Recetas La Nación\\",
+    \\"url\\": \\"https://www.lanacion.com.ar/recetas/\\",
+    \\"logo\\": {
+      \\"@context\\": \\"http://schema.org\\",
+      \\"@type\\": \\"ImageObject\\",
+      \\"url\\": \\"undefinedundefined\\",
+      \\"height\\": 41,
+      \\"width\\": 391
+    }
+  }
+}",
+          }
+        }
+        id={null}
+        type="application/ld+json"
+      />
+    </snippetRender>
+  </snippet>
+</Component>
+`;

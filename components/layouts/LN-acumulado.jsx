@@ -6,15 +6,7 @@ import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import GlobalProvider from '../private/common/context/globalContext';
-
-// import '../../resources/dist/css/ln/base.css';
-// import '../../resources/dist/css/ln/layouts/layout.css';
-// import '../../resources/dist/css/ln/layouts/grid.css';
-// import '../../resources/dist/css/ln/pages/acu.css';
-// import '../../resources/dist/css/ln/components/com-ordered.css';
-// import '../../resources/dist/css/ln/components/com-unordered.css';
-// import '../../resources/dist/css/ln/components/hour.css';
-// import '../../resources/dist/css/ln/components/banners.css';
+import AnexoFeature from '../features/LN-acumulado/anexoIframe';
 
 import '../../resources/dist/css/ln/pages/acumulado.css';
 
@@ -69,7 +61,7 @@ const LNAcumuladoLayout = props => {
         isAdmin,
         renderables
     } = props;
-    const { style, name = '', node_type: nodeType } = globalContent;
+    const { style, name = '', node_type: nodeType } = globalContent || {};
     const sectionStyleName =
         style && style.section_style_name ? style.section_style_name : '';
     const classRevista =
@@ -78,6 +70,12 @@ const LNAcumuladoLayout = props => {
             : '';
     const sectionClass = sections.find(sec => sec === formatText(name)) || '';
     const acumuladoGeneral = get(globalContent, 'acumuladoGeneral', {});
+
+    const {
+        anexosuperior: anexoSuperior = '',
+        anexoinferior: anexoInferior = ''
+    } = acumuladoGeneral;
+
     const acumuladoColor = get(globalContent, 'acumuladoColor', {});
     const {
         background_color: backgroundCategory,
@@ -140,6 +138,15 @@ const LNAcumuladoLayout = props => {
                                 {preApertura}
                                 {/* TITULO/LOGO Y CATEGORIAS */}
                                 {breadcrumbTitulo}
+                                {/* ANEXO SUPERIOR */}
+                                {anexoSuperior !== '' ? (
+                                    <AnexoFeature
+                                        id="superior"
+                                        customFields={{ url: anexoSuperior }}
+                                    />
+                                ) : (
+                                    <></>
+                                )}
                             </div>
                         </div>
                         <div className="lay">
@@ -151,6 +158,15 @@ const LNAcumuladoLayout = props => {
                         <div id="content-main" className="lay-sidebar">
                             {/* Cuerpo */}
                             <div className="sidebar__main">
+                                {/* ANEXO INFERIOR */}
+                                {anexoInferior !== '' ? (
+                                    <AnexoFeature
+                                        id="inferior"
+                                        customFields={{ url: anexoInferior }}
+                                    />
+                                ) : (
+                                    <></>
+                                )}
                                 {/* NOTAS */}
                                 {notas}
                             </div>

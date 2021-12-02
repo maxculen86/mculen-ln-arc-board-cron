@@ -24,6 +24,7 @@ import logger from '../../components/private/common/utils/logger';
 import paywallUtils from './utils/paywall';
 import removeInvalidUrlTagA from '../../components/private/common/utils/removeInvalidUrlTagA';
 import isNotShowcase from './utils/isNotShowcase';
+import powerUp from './utils/powerUp';
 
 const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -87,10 +88,6 @@ const fetch = query => {
             );
         })
         .catch(error => {
-            console.log(
-                '🚀 ~ file: articleSourceNota.js ~ line 90 ~ error',
-                error
-            );
             logger.push(
                 error,
                 { source: 'content/source/articleSourceNota', url },
@@ -256,32 +253,13 @@ const transformContent = (jsonArticle, arcSite, urlQuery) => {
             API_ENV
         );
         if (subtype === RECETA) {
-            const powerUps = powerUpsJoin(resp.content_elements);
-            const powerUpIndex = resp.content_elements.findIndex(e => {
-                return e.type === 'custom_embed';
-            });
-            resp.content_elements = resp.content_elements.filter(e => {
-                return e.type !== 'custom_embed';
-            });
-            resp.content_elements.splice(powerUpIndex, 0, powerUps);
+            resp.content_elements = powerUp(resp.content_elements);
         }
     }
 
     return Promise.all(promiseArr).then(() => {
         return resp;
     });
-};
-
-const powerUpsJoin = contentElements => {
-    const powerUps = contentElements.filter(e => {
-        return e.type === 'custom_embed';
-    });
-
-    return {
-        type: 'custom_embed',
-        subtype: 'power-up-receta',
-        powerUp: powerUps
-    };
 };
 
 const addGalleryData = (gallery, arcSite) => {

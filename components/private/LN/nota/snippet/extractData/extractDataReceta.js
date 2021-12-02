@@ -95,11 +95,3 @@ export const extractDataFromTags = tags => {
 
     return { keywords };
 };
-
-export const extractDataFromTaxonomy = taxonomySections => {
-    const tipoDeCocina = taxonomySections.map(section => section.name);
-
-    return {
-        tipoDeCocina
-    };
-};

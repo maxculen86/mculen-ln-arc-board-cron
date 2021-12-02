@@ -59,7 +59,7 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
                 data-slot-group={slotGroup}
                 data-device={device}
                 data-subscription={hideForSubscriptor || false}
-                data-ad-unit-path={`/${dfpId}/${slotName}`}
+                data-ad-unit-path={dfpId ? `/${dfpId}/${slotName}` : null}
                 data-targeting={JSON.stringify(targeting)}
                 data-without-hide={withoutHide || false}
                 data-size={JSON.stringify(flatArray(dimensions))}
