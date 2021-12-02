@@ -1,6 +1,6 @@
 import Redirect from './redirect';
 
-const addRandomParam = url => {
+export const addRandomParam = url => {
     const uri = new URL(url);
     uri.searchParams.append(
         'R',
@@ -20,7 +20,6 @@ const checkPaywall = ({ queryData, urlBase, responseData }) => {
         (!responseData.content_restrictions ||
             responseData.content_restrictions.content_code !== 'abierta')
     ) {
-        console.log(query);
         const callback = Buffer.from(
             addRandomParam(`${urlBase}${url}`)
         ).toString('base64');

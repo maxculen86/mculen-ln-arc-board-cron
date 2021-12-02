@@ -14,7 +14,7 @@ import filter from '../filters/LN/nota/article';
 import gallerySource from './gallerySource';
 import relatedSource from './relatedSource';
 import Redirect from './utils/redirect';
-import validateArticleAccess from './utils/validateArticleAccess';
+import validateExclusiveAccess from './utils/validateExclusiveAccess';
 import replaceTagInTextListRaw from './utils/replaceTagInTextListRaw';
 import {
     FOTOAL100,
@@ -75,11 +75,13 @@ const fetch = query => {
 
             const articleAccess =
                 response &&
-                validateArticleAccess({
+                validateExclusiveAccess({
                     contentCode:
                         response.content_restrictions &&
                         response.content_restrictions.content_code,
-                    meteringVariant: query.meteringVariant
+                    meteringVariant: query.meteringVariant,
+                    host: SITE_LANACION,
+                    path: query.url
                 });
 
             isNotShowcase(response) &&
