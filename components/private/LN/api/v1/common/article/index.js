@@ -96,7 +96,7 @@ export const articleItem = article => {
         bajada: get(article, 'subheadlines.basic', null),
         chapita: getArticleTag(article),
         autor,
-        // autores,
+        autores,
         marquesina: getArticleSignature(article, autores),
         seccionPadre: getArticleOpinionSubtype(article),
         imagen: getArticleImage(article),
@@ -108,7 +108,7 @@ export const articleItem = article => {
 
 export const anexoItem = article => {
     const html = get(article[0], 'html', '');
-    return [{ html }];
+    if (html) return [{ html }];
 };
 
 export const anexoItemMobile = article => {
