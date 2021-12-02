@@ -488,13 +488,13 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
             "@type": "Organization",
             "name": "LA NACION recetas",
           },
-          "cookTime": "PT25M",
+          "cookTime": "",
           "datePublished": "2020-04-24T14:35:53.021Z",
           "description": "Subtitulo de prueba",
           "image": "https://resizer.glanacion.com/resizer/KKUwkn3fOAH9RsmFwoJFBFcvh54=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg",
           "keywords": "ajo, tomate perita",
           "name": "Nota recetas para Api test",
-          "prepTime": "PT25M",
+          "prepTime": "",
           "publisher": Object {
             "@type": "Organization",
             "logo": Object {
@@ -530,8 +530,8 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
     \\"@type\\": \\"Organization\\",
     \\"name\\": \\"LA NACION recetas\\"
   },
-  \\"cookTime\\": \\"PT25M\\",
-  \\"prepTime\\": \\"PT25M\\",
+  \\"cookTime\\": \\"\\",
+  \\"prepTime\\": \\"\\",
   \\"totalTime\\": \\"PT25M\\",
   \\"datePublished\\": \\"2020-04-24T14:35:53.021Z\\",
   \\"description\\": \\"Subtitulo de prueba\\",

@@ -36,6 +36,8 @@ const snippet = props => {
         deployment
     } = props;
 
+    console.log('🚀 ~ file: receta.jsx ~ line 35 ~ promoItems', promoItems);
+
     const PLACERHOLDER = getAssetsPath(contextPath)(deployment)('bco.png');
 
     const LOGO_AMP = getAssetsPath(contextPath)(deployment)('logo-ln-amp.png');
@@ -52,9 +54,13 @@ const snippet = props => {
 
     const { autores } = extractDataFromCredits(by) || {};
 
-    const { image, counterTime, counterPortion } = extractDataFromPromoItems(
-        promoItems
-    );
+    const {
+        image,
+        counterTime,
+        counterPortion,
+        cookTime,
+        prepTime
+    } = extractDataFromPromoItems(promoItems);
 
     const categoria = primarySection.name;
 
@@ -75,8 +81,8 @@ const snippet = props => {
             '@type': autores === '' ? 'Organization' : 'Person',
             name: autores === '' ? 'LA NACION recetas' : `${autores}`
         },
-        cookTime: counterTime ? `PT${counterTime}M` : '',
-        prepTime: counterTime ? `PT${counterTime}M` : '',
+        cookTime: cookTime ? `PT${cookTime}M` : '',
+        prepTime: prepTime ? `PT${prepTime}M` : '',
         totalTime: counterTime ? `PT${counterTime}M` : '',
         datePublished: `${date || ''}`,
         description: `${description || ''}`,
@@ -86,7 +92,6 @@ const snippet = props => {
         recipeCategory: categoria,
         recipeCuisine: tipoDeCocina,
         name: `${headLinesBasic || 'LA NACION - Recetas'}`,
-        recipeInstructions: preparaciones,
         recipeYield: counterPortion ? `${counterPortion} porciones` : '',
         keywords: `${keywords}`,
         publisher: {

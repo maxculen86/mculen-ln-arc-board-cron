@@ -43,9 +43,11 @@ export const extractDataFromCredits = by => {
 };
 
 export const extractDataFromPromoItems = promoItems => {
-    let counterTime = '';
+    let cookTime = '';
     let counterPortion = '';
+    let counterTime = '';
     let image;
+    let prepTime = '';
 
     if (promoItems) {
         const { basic } = promoItems;
@@ -70,14 +72,18 @@ export const extractDataFromPromoItems = promoItems => {
                     'embed.config.counterPortion',
                     ''
                 );
+                cookTime = get(promoItems.receta, 'embed.config.cookTime', '');
+                prepTime = get(promoItems.receta, 'embed.config.prepTime', '');
             }
         }
     }
 
     return {
-        image,
+        cookTime,
+        counterPortion,
         counterTime,
-        counterPortion
+        image,
+        prepTime
     };
 };
 
