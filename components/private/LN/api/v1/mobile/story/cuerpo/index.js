@@ -7,6 +7,7 @@ import Button from './elements/button';
 import List from './elements/list';
 import Image from './elements/image';
 import Video from './elements/video';
+import Gallery from './elements/gallery';
 import StoryBody from '../../../common/story/cuerpo/index';
 
 const cuerpoIndex = dataNota => {
@@ -19,7 +20,8 @@ const cuerpoIndex = dataNota => {
         Button,
         List,
         Image,
-        Video
+        Video,
+        Gallery
     };
     return StoryBody(dataNota, storyBodyElements);
 };
