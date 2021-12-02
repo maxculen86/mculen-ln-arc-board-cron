@@ -10,7 +10,6 @@ import Comscore from '../private/common/scriptManager/comscore';
 import Microdata from '../private/common/scriptManager/microdata';
 import PostBid from '../private/common/scriptManager/postbid';
 import MetasOG from '../private/common/metaTags/metasOG';
-import LivefyreCommentCount from '../private/common/scriptManager/LivefyreCommentCount';
 import LiftIgniter from '../private/common/scriptManager/Liftigniter';
 import Datadog from '../private/common/scriptManager/dataDog';
 import TagsLoadingList from '../private/common/scriptManager/tagsLoadingList';
@@ -91,13 +90,6 @@ const scriptList = [
     {
         component: { name: 'ScriptHtmlLibre', function: ScriptHtmlLibre },
         feature: 'none'
-    },
-    {
-        component: {
-            name: 'LivefyreCommentCount',
-            function: LivefyreCommentCount
-        },
-        feature: ['LN-nota/share']
     },
     {
         component: {

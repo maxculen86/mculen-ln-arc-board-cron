@@ -16,7 +16,6 @@ import ComButton from '../../common/com-button';
 import ComLine from '../../common/com-line';
 import AmpContainer from '../../common/ampContainer';
 import get from '../../common/utils/get';
-import { shouldLoadViafoura } from '../../common/utils/commentsHelper';
 
 const Share = props => {
     const {
@@ -25,10 +24,7 @@ const Share = props => {
         requestUri,
         globalContent: {
             headlines: { basic: title, mobile: mobileTitle },
-            comments: { display_comments: displayComments } = {},
-            _id: articleId,
-            subtype,
-            first_publish_date: firstPublishDate
+            comments: { display_comments: displayComments } = {}
         }
     } = props;
 
@@ -38,12 +34,6 @@ const Share = props => {
         mobileTitle !== '' && mobileTitle !== undefined ? mobileTitle : title;
 
     const facebookId = get(siteVars, 'shareConfig.facebook.appID', undefined);
-
-    const livefyreSiteId = get(
-        siteVars,
-        `livefyre.${Number(subtype) === 7 ? 'recetas.siteId' : 'siteId'}`,
-        undefined
-    );
 
     // TODO: arreglar el tema de las URL's
     const mystyle = {
@@ -102,22 +92,7 @@ const Share = props => {
                             size="--fourxs"
                             iconName="comment"
                             title="Ir a los comentarios de la nota"
-                        >
-                            {!shouldLoadViafoura(firstPublishDate) && (
-                                <label
-                                    id="livefyre-commentcount"
-                                    className="livefyre-commentcount"
-                                    data-lf-site-id={livefyreSiteId}
-                                    data-lf-article-id={articleId}
-                                >
-                                    {/* Se necesita tener un número dentro del
-                                elemento html para poder reemplazarlo al hacer la
-                                consulta desde la cdn del contador de comentarios de 
-                                Livefyre */}
-                                    0
-                                </label>
-                            )}
-                        </ComButton>
+                        />
                     )}
                 </div>
             </AmpContainer>
