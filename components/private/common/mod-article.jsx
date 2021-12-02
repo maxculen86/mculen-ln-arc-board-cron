@@ -96,7 +96,7 @@ const ModArticle = props => {
             {...extraOpts}
             onClick={onCLick}
         >
-            {hour && hour}
+            {hour}
 
             {withMedia && (
                 <Media

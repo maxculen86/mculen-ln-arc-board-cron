@@ -7,49 +7,41 @@ import dateHelper from '../../common/utils/dateHelper';
 class VideoTab extends PureComponent {
     constructor(props) {
         super(props);
-        this.videoId = get(this.props.globalContent, '_id', null);
-        this.title = get(this.props.globalContent, 'headlines.basic', null);
-        this.description = get(
-            this.props.globalContent,
-            'description.basic',
-            null
-        );
-        this.date = get(this.props.globalContent, 'publish_date', null);
+        const { globalContent } = this.props || {};
+        this.videoId = get(globalContent, '_id', null);
+        this.title = get(globalContent, 'headlines.basic', null);
+        this.description = get(globalContent, 'description.basic', null);
+        this.date = get(globalContent, 'publish_date', null);
         if (this.date) this.date = dateHelper.getVideoDateFormat(this.date);
-        this.props.globalContent.streams;
 
-        this.props.globalContent.streams.sort((a, b) => {
+        globalContent.streams.sort((a, b) => {
             return b.height - a.height;
         });
         try {
             this.analytics = [
                 {
                     itemProp: 'description',
-                    content: this.props.globalContent.description.basic
+                    content: globalContent.description.basic
                 },
                 {
                     itemProp: 'name',
-                    content: this.props.globalContent.headlines.basic
+                    content: globalContent.headlines.basic
                 },
                 {
                     itemProp: 'thumbnailUrl',
-                    content: this.props.globalContent.promo_image.url
+                    content: globalContent.promo_image.url
                 },
                 {
                     itemProp: 'uploadDate',
-                    content: new Date(
-                        this.props.globalContent.publish_date
-                    ).toISOString()
+                    content: new Date(globalContent.publish_date).toISOString()
                 },
                 {
                     itemProp: 'contentUrl',
-                    content: this.props.globalContent.streams[0].url
+                    content: globalContent.streams[0].url
                 },
                 {
                     itemProp: 'duration',
-                    content: dateHelper.timeToIso8601(
-                        this.props.globalContent.duration
-                    )
+                    content: dateHelper.timeToIso8601(globalContent.duration)
                 }
             ];
         } catch (e) {
