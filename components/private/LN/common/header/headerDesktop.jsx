@@ -234,7 +234,10 @@ const HeaderDesktop = ({
                 </div>
                 <div className="col-1 header__search">
                     <label onClick={handleClickBuscar} htmlFor="queryly_toggle">
-                        <i className="com-icon icon-search queryly_searchicon" />
+                        <ComIcon
+                            name="search"
+                            extraClass="queryly_searchicon"
+                        />
                     </label>
                 </div>
             </Header>

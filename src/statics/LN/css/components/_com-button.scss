@@ -31,9 +31,16 @@
         }
     }
 
+    path {
+        fill: $neutral-black;
+    }
+
     &:hover {
         background: transparent;
-        color: $ln;
+        color: $light-blue-500;
+        path {
+            fill: $light-blue-500;
+        }
     }
     &:active {
         background: $ln;
@@ -48,9 +55,14 @@
         background: $light-blue-500;
         border-color: $light-blue-500;
         color: $light-neutral-50;
-
+        path {
+            fill: $light-neutral-50;
+        }
         &:hover {
             background: $light-blue-400;
+            path {
+                fill: $light-blue-400;
+            }
         }
         &:active {
             background: $light-blue-600;
@@ -63,10 +75,16 @@
         background: $neutral-white;
         border-color: $light-blue-500;
         color: $light-blue-500;
+        path {
+            fill: $light-blue-500;
+        }
         &:hover {
             background: $light-blue-400;
             border-color: $light-blue-400;
             color: $light-neutral-50;
+            path {
+                fill: $light-neutral-50;
+            }
         }
         &:active {
             background: $light-blue-600;
@@ -101,9 +119,14 @@
         background: $light-neutral-200;
         border-color: $light-neutral-200;
         color: $light-neutral-800;
-
+        path {
+            fill: $light-neutral-800;
+        }
         &:hover {
             color: $light-blue-400;
+            path {
+                fill: $light-blue-400;
+            }
         }
         &:active {
             background: $light-neutral-400;
@@ -121,11 +144,16 @@
         background: $yellow-500;
         border-color: $light-neutral-400;
         color: $neutral-black;
-
+        path {
+            fill: $neutral-black;
+        }
         &:hover {
             background: $neutral-black;
             border-color: $neutral-black;
             color: $light-neutral-50;
+            path {
+                fill: $light-neutral-50;
+            }
         }
         &:active {
             background: $neutral-black;

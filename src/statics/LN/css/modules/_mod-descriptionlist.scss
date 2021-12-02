@@ -8,7 +8,7 @@
     .com-itemlist {
         @include flex(flex, row, start, start);
         margin-bottom: $spacing-xs;
-        padding-left: $spacing-sm;
+        padding-left: px(40);
         flex-wrap: wrap;
 
         .--educacion &,
@@ -32,9 +32,6 @@
         &.--membresia,
         &.--idiomas {
             @include flex(inline, row, center, start);
-        }
-        .com-itemlist {
-            padding-left: px(40);
         }
     }
 }
