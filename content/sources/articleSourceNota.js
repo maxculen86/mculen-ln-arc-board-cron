@@ -14,6 +14,7 @@ import filter from '../filters/LN/nota/article';
 import gallerySource from './gallerySource';
 import relatedSource from './relatedSource';
 import Redirect from './utils/redirect';
+import validateExclusiveAccess from './utils/validateExclusiveAccess';
 import replaceTagInTextListRaw from './utils/replaceTagInTextListRaw';
 import {
     FOTOAL100,
@@ -71,12 +72,25 @@ const fetch = query => {
             if (forwardUrl && regExp.test(forwardUrl)) {
                 throw new Redirect(forwardUrl, 301);
             }
+
+            const articleAccess =
+                response &&
+                validateExclusiveAccess({
+                    contentCode:
+                        response.content_restrictions &&
+                        response.content_restrictions.content_code,
+                    meteringVariant: query.meteringVariant,
+                    host: SITE_LANACION,
+                    path: query.url
+                });
+
             isNotShowcase(response) &&
                 paywallUtils.checkPaywall({
                     queryData: query,
                     urlBase: SITE_LANACION,
                     responseData: response
                 });
+
             return transform(
                 response,
                 arcSite,
@@ -84,7 +98,8 @@ const fetch = query => {
                 imageConfig,
                 url,
                 meteringVariant,
-                paywallEnabled
+                paywallEnabled,
+                articleAccess
             );
         })
         .catch(error => {

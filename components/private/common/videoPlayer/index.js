@@ -37,7 +37,7 @@ const setEvent = (
 ) => {
     player.on(event, () => {
         addToDataLayer(eventName, titulo, id);
-        event === 'play' ? comscorePlayEvent(streamingAnalyticInstance) : null;
+        event === 'play' && comscorePlayEvent(streamingAnalyticInstance);
     });
 };
 

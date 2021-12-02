@@ -45,9 +45,11 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
                     <script
                         dangerouslySetInnerHTML={{
                             __html: `
-                            document.getElementById('${slotId}_btnCloseAd').onclick = function() {
-                                this.parentNode.classList.add('hlp-none')
-                             };
+                            window.addEventListener('DOMContentLoaded', () => {
+                                document.getElementById('${slotId}_btnCloseAd').onclick = function() {
+                                    this.parentNode.classList.add('hlp-none')
+                                };
+                            });
                             `
                         }}
                     />
