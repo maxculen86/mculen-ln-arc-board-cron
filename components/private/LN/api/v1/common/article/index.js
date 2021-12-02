@@ -4,19 +4,12 @@ import Image from '../image';
 import { authorHomeMobile } from '../author';
 
 const getArticleImage = article => {
-    const { subtype: templateId } = article;
     const imagedefault =
         get(article, 'additionalProperties.image.promo_items.basic', null) ||
         get(article, 'promo_items.basic', null);
 
-    let image =
-        templateId === '4' || templateId === '8'
-            ? get(article, 'promo_items.storytelling_mobile', null)
-            : imagedefault;
-
-    image = image === null ? imagedefault : image;
-
-    if (image && image.type === 'image') return Image(image);
+    if (imagedefault && imagedefault.type === 'image')
+        return Image(imagedefault);
 
     return null;
 };
@@ -103,7 +96,7 @@ export const articleItem = article => {
         bajada: get(article, 'subheadlines.basic', null),
         chapita: getArticleTag(article),
         autor,
-        // autores,
+        autores,
         marquesina: getArticleSignature(article, autores),
         seccionPadre: getArticleOpinionSubtype(article),
         imagen: getArticleImage(article),
@@ -115,7 +108,7 @@ export const articleItem = article => {
 
 export const anexoItem = article => {
     const html = get(article[0], 'html', '');
-    return [{ html }];
+    if (html) return [{ html }];
 };
 
 export const anexoItemMobile = article => {
