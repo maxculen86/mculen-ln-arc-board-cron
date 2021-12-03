@@ -2,6 +2,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/* TODO: Hacer code-split  de los SVG */
+
 import {
     FacebookFilled,
     Facebook,
@@ -117,12 +119,18 @@ const listIcons = {
     'clear-night': ClearNight
 };
 
-const MapperIcon = ({ name, ...r }) => {
+const MapperIcon = ({ name, r }) => {
     const Component = listIcons[name];
 
     return <Component {...r} />;
 };
 
-MapperIcon.propTypes = { name: PropTypes.string.isRequired };
+MapperIcon.propTypes = {
+    name: PropTypes.string.isRequired,
+    r: PropTypes.objectOf(PropTypes.string)
+};
 
+MapperIcon.defaultProps = {
+    r: {}
+};
 export default MapperIcon;
