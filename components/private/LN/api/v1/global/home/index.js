@@ -22,7 +22,7 @@ const typeSection = {
         tipoSeccion: 'dolar',
         idSeccion: 2000,
         tituloCaja: 'Cotización hoy',
-        url: 'https://www.lanacion.com.ar/dolar-hoy/'
+        url: 'https://www.lanacion.com.ar/economia/dolar/'
     },
     Multimedia: { tipoSeccion: 'tema', idSeccion: 305 },
     default: { tipoSeccion: 'tema', idSeccion: 305 }
@@ -56,7 +56,7 @@ const articlesMap = articles => {
     const response = articles.reduce((result, f) => {
         if (f) {
             try {
-                const article = Article(f);
+                const article = Article({ ...f, storyType: 'home' });
                 result.push(article);
             } catch (ex) {
                 console.log(ex);
@@ -88,7 +88,6 @@ const storyBox = element => {
     const ordererArticles = orderArticles(articles, information.layout);
 
     const resultArticles = resultArticlesBySections(feature, ordererArticles);
-
     if (Array.isArray(resultArticles) && resultArticles.length > 0) {
         return {
             ...featureInfo,

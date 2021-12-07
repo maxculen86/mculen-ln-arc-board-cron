@@ -4,6 +4,7 @@ import {
     buildBannerClasses,
     changeSegmentAdUnit,
     getBannerConfiguration,
+    getDimsFromSiteService,
     getTargetingFormat,
     isForAmp,
     isPrimarySectionInBannerSegments,
@@ -590,6 +591,28 @@ describe('getTargetingFormat =>', () => {
     expect(targeting).toEqual(
         '{"tags":["ca_el mundo|ca_ciencia|te_deportes|te_sake"],"tags_nuevos":["ca_el mundo","ca_ciencia","te_deportes","te_sake"]}'
     );
+});
+
+describe('getDimsFromSiteService =>', () => {
+    let dimensions = getDimsFromSiteService(
+        [],
+        `nota_caja1_dsk`,
+        'propiedades'
+    );
+    expect(dimensions).toBeNull();
+
+    dimensions = getDimsFromSiteService(
+        [
+            {
+                adunit: 'nota_caja2_mob',
+                dimensions:
+                    '320x50,320x100,300x250,300x450,1x1,360x270,320x180, 360x450, 380x450'
+            }
+        ],
+        `nota_caja2_mob`,
+        'espectaculos'
+    );
+    expect(dimensions).toHaveLength(9);
 });
 
 describe('changeSegmentAdUnit =>', () => {

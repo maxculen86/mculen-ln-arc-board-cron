@@ -4,6 +4,7 @@ import { render, mount } from 'enzyme';
 import Receta from '../../../../../../components/private/LN/nota/snippet/receta';
 import getDomain from '../../../../../../components/private/common/utils/getDomain';
 import article from '../../../../../../__mocks__/data/articles/ATLC5WVL4NH5HAHU2BWJXTSATY';
+import taxonomyRecipeCuisine from '../../../../../../__mocks__/data/articles/taxonomyRecipeCuisine';
 import toJson from 'enzyme-to-json';
 
 jest.mock('fusion:content', () => ({
@@ -50,6 +51,14 @@ describe('SNIPPET - La Nacion - Nota - Receta ', () => {
         globalContent: article
     };
 
+    const articleRecipeCuisine = JSON.parse(JSON.stringify(article));
+    articleRecipeCuisine.taxonomy = taxonomyRecipeCuisine;
+
+    const propsRecipeCuisine = {
+        arcSite: 'la-nacion-ar',
+        globalContent: articleRecipeCuisine
+    };
+
     it('Test getDomain main site ', () => {
         const domain = getDomain({ _id: '/' });
         expect(domain).toBe('https://www.lanacion.com.ar');
@@ -71,6 +80,12 @@ describe('SNIPPET - La Nacion - Nota - Receta ', () => {
 
     it('Test Recipient Receta', () => {
         const comp = mount(<Receta {...props} />);
+
+        expect(toJson(comp)).toMatchSnapshot();
+    });
+
+    it('Test Recipient Receta with Recipe Cuisine', () => {
+        const comp = mount(<Receta {...propsRecipeCuisine} />);
 
         expect(toJson(comp)).toMatchSnapshot();
     });

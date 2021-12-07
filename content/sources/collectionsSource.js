@@ -59,7 +59,6 @@ const fetch = query => {
 const transform = (data, siteProps) => {
     const respData = data;
     const contentElements = get(data, `content_elements`, []);
-    const isCollectionDinamic = get(data, `dynamic_items`, false);
     const isFocal = get(siteProps, 'isFocal', null);
     const diagramation = get(siteProps, 'diagramation');
 
@@ -68,8 +67,7 @@ const transform = (data, siteProps) => {
 
     const contentElementsFiltered = filterArticlesInCollection(
         siteProps,
-        contentElements,
-        isCollectionDinamic
+        contentElements
     );
 
     respData.content_elements =

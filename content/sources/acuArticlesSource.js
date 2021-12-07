@@ -26,7 +26,8 @@ const resolve = key => {
         website,
         distributorId,
         sectionsIds,
-        sourceOrigin
+        sourceOrigin,
+        excludeSourceOrigin
     } = key;
 
     const arcSite = key['arc-site'];
@@ -53,7 +54,6 @@ const resolve = key => {
             "term": {
                 "source.system":"${sourceOrigin}"
         }`;
-
     const subtypeFilter =
         subtype &&
         `},{
@@ -117,6 +117,14 @@ const resolve = key => {
             }
         ]`;
 
+    const notSourceSystemFiltered =
+        excludeSourceOrigin &&
+        `,"must_not": [
+        {
+          "match": { "source.system": { "query": "${excludeSourceOrigin}" } }
+        }
+      ]`;
+
     const suggestFilter =
         promoItemsOnly &&
         `
@@ -155,6 +163,7 @@ const resolve = key => {
                         ${tagFilter || ''}
                     ]
                     ${notSectionFiltered || ''}
+                    ${notSourceSystemFiltered || ''}
                 }
             }
     }`;
@@ -252,7 +261,8 @@ export default {
         website: 'text',
         imageConfig: 'text',
         sectionsIds: 'text',
-        sourceOrigin: 'text'
+        sourceOrigin: 'text',
+        excludeSourceOrigin: 'text'
     },
     ttl: 120
 };
