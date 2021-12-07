@@ -81,6 +81,7 @@ const media = ({
                             withLazy={itsGallery ? false : !zoom}
                             outputType={outputType}
                             zoom={zoom}
+                            isApertura={isApertura}
                         />
                         {children}
                     </ComFigure>
