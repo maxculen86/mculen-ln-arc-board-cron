@@ -130,20 +130,18 @@ const masNotas = props => {
 
 masNotas.label = 'LN-Nota-masNotas';
 
-const filterTypes = {
-    0: 'Ultimas Noticias',
-    1: 'Por Sección'
-};
-
 masNotas.propTypes = {
     id: PropTypes.string,
     outputType: PropTypes.string,
     customFields: PropTypes.shape({
         cantidadNotas: PropTypes.number.tag({ label: 'Cantidad de Notas' }),
-        filter: PropTypes.oneOf(filterTypes).tag({
-            labels: filterTypes,
+        filter: PropTypes.oneOf(['0', '1']).tag({
+            labels: {
+                0: 'Ultimas Noticias',
+                1: 'Por Sección'
+            },
             label: 'Filtrar por',
-            defaultValue: Object.keys(filterTypes)[0]
+            defaultValue: 0
         })
     }),
     globalContent: PropTypes.shape({
