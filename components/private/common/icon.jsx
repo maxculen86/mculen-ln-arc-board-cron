@@ -1,12 +1,24 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import '../../../resources/dist/css/ln/components/com-icon.css';
-import Link from '../common/link';
+import Link from './link';
+import MapperIcon from './icons/mapperIcon';
 
-const Icon = ({ name, href, title, target, mod, rel, size, children }) => {
+const Icon = ({
+    name,
+    href,
+    title,
+    target,
+    extraClass,
+    rel,
+    size,
+    children,
+    negative,
+    ...r
+}) => {
     const className = `com-icon${name ? ` icon-${name}` : ``}${
-        href ? `` : ` ${mod || ``}`
-    } ${size || ``}`;
+        negative ? ` --negative` : ``
+    }${href ? `` : ` ${extraClass || ``}`} ${size || ``}`;
 
     return (
         <>
@@ -15,14 +27,18 @@ const Icon = ({ name, href, title, target, mod, rel, size, children }) => {
                     href={href}
                     title={title}
                     target={target}
-                    mod={mod}
+                    mod={extraClass}
                     rel={rel}
                 >
-                    <i className={className} />
+                    <i className={className}>
+                        <MapperIcon name={name} {...r} />
+                    </i>
                     {children}
                 </Link>
             ) : (
-                <i className={className} />
+                <i className={className}>
+                    <MapperIcon name={name} {...r} />
+                </i>
             )}
         </>
     );
@@ -33,9 +49,10 @@ Icon.propTypes = {
     href: PropTypes.string,
     target: PropTypes.string,
     title: PropTypes.string,
-    mod: PropTypes.string,
+    extraClass: PropTypes.string,
     rel: PropTypes.string,
-    size: PropTypes.string
+    size: PropTypes.string,
+    negative: PropTypes.bool
 };
 
 export default Icon;

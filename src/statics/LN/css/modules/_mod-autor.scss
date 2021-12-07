@@ -24,11 +24,6 @@
                     color: $neutral-black;
                     font-weight: 100;
                 }
-                &:first-child {
-                    &:before {
-                        content: none;
-                    }
-                }
                 &:not(:only-child):last-child {
                     &:before {
                         content: 'y';
@@ -39,6 +34,8 @@
                 }
                 &:first-child {
                     &:before {
+                        content: none;
+
                         .cuerpo__nota & {
                             content: 'Por';
                             padding-right: px(5);

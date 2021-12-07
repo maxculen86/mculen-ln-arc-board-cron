@@ -31,9 +31,16 @@
         }
     }
 
+    path {
+        fill: $neutral-black;
+    }
+
     &:hover {
         background: transparent;
-        color: $ln;
+        color: $light-blue-500;
+        path {
+            fill: $light-blue-500;
+        }
     }
     &:active {
         background: $ln;
@@ -48,7 +55,9 @@
         background: $blue-500;
         border-color: $blue-500;
         color: $light-neutral-50;
-
+        path {
+            fill: $light-neutral-50;
+        }
         &:hover {
             background: $blue-400;
         }
@@ -67,6 +76,9 @@
             background: $blue-400;
             border-color: $blue-400;
             color: $light-neutral-50;
+            path {
+                fill: $light-neutral-50;
+            }
         }
         &:active {
             background: $blue-600;
@@ -101,7 +113,9 @@
         background: $light-neutral-200;
         border-color: $light-neutral-200;
         color: $light-neutral-800;
-
+        path {
+            fill: $light-neutral-800;
+        }
         &:hover {
             color: $blue-400;
         }
@@ -121,11 +135,16 @@
         background: $yellow-500;
         border-color: $light-neutral-400;
         color: $neutral-black;
-
+        path {
+            fill: $neutral-black;
+        }
         &:hover {
             background: $neutral-black;
             border-color: $neutral-black;
             color: $light-neutral-50;
+            path {
+                fill: $light-neutral-50;
+            }
         }
         &:active {
             background: $neutral-black;
@@ -176,6 +195,15 @@
 
             &:hover {
                 background: rgba(0, 0, 0, 0.5);
+            }
+
+            .com-icon {
+                width: px(40);
+                height: px(40);
+
+                path {
+                    fill: $neutral-white;
+                }
             }
 
             @media ($media-m) {

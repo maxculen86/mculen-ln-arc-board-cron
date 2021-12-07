@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../../../resources/dist/css/ln/components/com-button.css';
-import ComIco from './com-icon';
+import ComIco from './icon';
 import ComText from './text';
 
 const ComButton = props => {
@@ -45,7 +45,7 @@ const ComButton = props => {
             on={on || ''}
             {...conditionalProps}
         >
-            {iconName && <ComIco iconName={iconName} />}
+            {iconName && <ComIco name={iconName} />}
             {(children || textname) && (
                 <ComText size={size || ''}>
                     {children || ``}

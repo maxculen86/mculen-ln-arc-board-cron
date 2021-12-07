@@ -16,6 +16,7 @@ import ComButton from '../../common/com-button';
 import ComLine from '../../common/com-line';
 import AmpContainer from '../../common/ampContainer';
 import get from '../../common/utils/get';
+import Icon from '../../common/icon';
 
 const Share = props => {
     const {
@@ -103,13 +104,21 @@ const Share = props => {
                         style={mystyle}
                         type="facebook"
                         data-param-app_id={facebookId}
-                    />
+                    >
+                        <Icon name="facebook-filled" />
+                    </amp-social-share>
+
                     <amp-social-share
                         style={mystyle}
                         type="twitter"
                         data-param-text={title}
-                    />
-                    <amp-social-share style={mystyle} type="whatsapp" />
+                    >
+                        <Icon name="twitter-filled" />
+                    </amp-social-share>
+
+                    <amp-social-share style={mystyle} type="whatsapp">
+                        <Icon name="whatsapp-filled" />
+                    </amp-social-share>
                 </div>
 
                 <ComLine />
@@ -120,7 +129,9 @@ const Share = props => {
                         type="email"
                         data-param-subject="Te recomiendo esta nota de LA NACION"
                         data-param-body={`Lee esta nota de LA NACION ${config.host}${requestUri}`}
-                    />
+                    >
+                        <Icon name="email" />
+                    </amp-social-share>
                 </div>
             </AmpContainer>
         </div>

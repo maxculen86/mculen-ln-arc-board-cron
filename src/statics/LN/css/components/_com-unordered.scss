@@ -18,11 +18,10 @@
         }
 
         &:before {
-            font-family: $font-icons;
-            content: $icon-bullet;
+            content: '•';
             position: absolute;
-            left: 0;
-            font-size: px(24);
+            left: px(8);
+            font-size: px(30);
         }
 
         &::first-letter {

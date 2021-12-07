@@ -19,9 +19,9 @@ const ModDescriptionList = props => {
         text ||
         list.map(item => (
             <dd className={`com-itemlist ${classCondition} ${size}`}>
-                <div className="com-bullet">
-                    <i className="com-icon bullet icon-bullet --sm" />
-                </div>
+                {/* <div className="com-bullet">
+                    <i className="com-icon bullet icon-bullet --l">•</i>
+                </div> */}
                 {item.url && (
                     <ComLink
                         link={item.url}
