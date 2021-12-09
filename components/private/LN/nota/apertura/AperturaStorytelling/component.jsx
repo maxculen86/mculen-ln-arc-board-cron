@@ -15,10 +15,12 @@ const Component = props => {
     const {
         storytellingData,
         outputType,
-        screenUtils: { device }
+        screenUtils: { device },
+        globalContent: { headlines }
     } = props;
     const isMobile = outputType === 'amp' || device !== 'desktop';
     const [data, setData] = useState(isMobile ? storytellingData : {});
+    const titleNote = headlines.basic;
 
     useEffect(() => {
         setData(storytellingData);
@@ -42,7 +44,7 @@ const Component = props => {
                     classCondition=""
                     srcset={srcset || ''}
                     src={src || ''}
-                    alt={caption || altText || ''}
+                    alt={caption || altText || titleNote || ''}
                     video={video || ''}
                     amp={outputType === 'amp'}
                     sizes={sizes}
