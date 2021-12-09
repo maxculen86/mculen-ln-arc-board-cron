@@ -86,17 +86,23 @@ const transform = (data, siteProps, resultsIds) => {
         contentElements.map(elem => {
             const promoItems = get(elem, `promo_items`, null);
             const subtype = get(elem, `subtype`, null);
+            const presetsCredits = get(presets, 'credits', null);
+            const credits = get(elem, 'credits', null);
             const isFotoAl100orStorytelling =
                 subtype === FOTOAL100 || subtype === STORYTELLING;
             return {
                 ...elem,
                 ...addResizedUrls(
-                    { ...(promoItems && { promo_items: promoItems }) },
+                    {
+                        ...(promoItems && { promo_items: promoItems }),
+                        ...(credits && { credits })
+                    },
                     {
                         resizerSecret: RESIZER_KEY,
                         resizerUrl: RESIZER_URL,
                         presets: {
                             promoItems: presetsPromoItems,
+                            ...(credits && { credits: presetsCredits }),
                             presetsDefault
                         },
                         // Se pasa el subtype para que las notas de foto al 100

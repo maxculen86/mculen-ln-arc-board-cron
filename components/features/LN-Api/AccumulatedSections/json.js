@@ -64,7 +64,8 @@ class AccumulatedSections {
     getQueryElement = (sectionId, size, page, sections, restriction) => {
         const resp = {
             page,
-            imageConfig: 'm'
+            imageConfig: 'm',
+            api: true
         };
 
         if (sectionId.toLowerCase() === '/ultimas-noticias') {
