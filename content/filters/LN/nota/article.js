@@ -382,7 +382,11 @@ export default `
             subtype
             embed{
                 config{
-                    items
+                    items{
+                        text
+                        value
+                        unit
+                    }
                     titleList
                     typeList
                 }

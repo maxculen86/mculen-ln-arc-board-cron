@@ -1,32 +1,28 @@
 import get from '../../../../common/utils/get';
 
 export const extractDataFromContentElements = contentElements => {
-    let ingredientes = [];
-    let preparaciones = [];
+    let ingredients = [];
+    let instructions = [];
+    let nutrition = [];
 
     if (contentElements) {
-        contentElements.forEach(element => {
-            if (element.subtype === 'power-up-receta') {
-                element.powerUp.forEach(powerUpReceta => {
-                    get(powerUpReceta, 'embed.config.typeList') ===
-                        'ingredientes' &&
-                        (ingredientes = ingredientes.concat(
-                            powerUpReceta.embed.config.items
-                        ));
-
-                    get(powerUpReceta, 'embed.config.typeList') ===
-                        'preparacion' &&
-                        (preparaciones = preparaciones.concat(
-                            powerUpReceta.embed.config.items
-                        ));
-                });
-            }
+        const element = contentElements.find(
+            e => e.subtype === 'power-up-receta'
+        );
+        element.powerUp.forEach(e => {
+            get(e, 'embed.config.typeList', '') === 'ingredientes' &&
+                (ingredients = ingredients.concat(e.embed.config.items));
+            get(e, 'embed.config.typeList', '') === 'preparacion' &&
+                (instructions = instructions.concat(e.embed.config.items));
+            get(e, 'embed.config.typeList', '') === 'nutritional-info' &&
+                (nutrition = nutrition.concat(e.embed.config.items));
         });
     }
 
     return {
-        ingredientes,
-        preparaciones
+        ingredients,
+        instructions,
+        nutrition
     };
 };
 
@@ -59,7 +55,7 @@ export const extractDataFromPromoItems = promoItems => {
         if (promoItems.receta) {
             if (
                 promoItems.receta.subtype === 'custom-detalle-receta' &&
-                get(promoItems.receta, 'embed.config.title') ===
+                get(promoItems.receta, 'embed.config.title', '') ===
                     'detalle-receta'
             ) {
                 counterTime = get(

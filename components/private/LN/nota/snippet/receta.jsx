@@ -57,9 +57,7 @@ const snippet = props => {
 
     const categoria = primarySection.name;
 
-    const { preparaciones, ingredientes } = extractDataFromContentElements(
-        contentElements
-    );
+    const { ingredients } = extractDataFromContentElements(contentElements);
 
     const { keywords } = extractDataFromTags(tags);
 
@@ -81,8 +79,7 @@ const snippet = props => {
         datePublished: `${date || ''}`,
         description: `${description || ''}`,
         image: `${image || PLACERHOLDER}`,
-        recipeIngredient: ingredientes,
-        recipeInstructions: preparaciones,
+        recipeIngredient: ingredients,
         recipeCategory: categoria,
         name: `${headLinesBasic || 'LA NACION - Recetas'}`,
         recipeYield: counterPortion ? `${counterPortion} porciones` : '',
