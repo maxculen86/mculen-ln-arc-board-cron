@@ -10,6 +10,7 @@ import WithScreenUtils from '../../../../common/hocs/withScreenUtils';
 import WithStorytellingData from '../../../common/hocs/WithStorytellingData';
 
 import '../../../../../../resources/dist/css/ln/modules/mod-opening.css';
+import get from '../../../../common/utils/get';
 
 const Component = props => {
     const {
@@ -20,7 +21,7 @@ const Component = props => {
     } = props;
     const isMobile = outputType === 'amp' || device !== 'desktop';
     const [data, setData] = useState(isMobile ? storytellingData : {});
-    const titleNote = headlines.basic || '';
+    const titleNote = get(headlines, 'basic', undefined);
 
     useEffect(() => {
         setData(storytellingData);
