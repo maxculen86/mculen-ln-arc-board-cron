@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 
 import ComPicture from './com-picture';
 import ComSource from './com-source';
@@ -18,7 +18,8 @@ const ModImage = props => {
         video,
         amp,
         sizes = {},
-        sources
+        sources,
+        isApertura
     } = props;
 
     return (
@@ -40,7 +41,7 @@ const ModImage = props => {
                         srcset={source.resizedUrl}
                     />
                 ))}
-            <ComImage src={src} alt={alt} amp={amp} {...sizes} />
+            <ComImage src={src} alt={alt} amp={amp} {...sizes} isApertura />
             {video ? <ModVideo image={src} video={video} /> : <></>}
         </ComPicture>
     );
@@ -54,12 +55,17 @@ ModImage.propTypes = {
     classCondition: PropTypes.string,
     video: PropTypes.string,
     amp: PropTypes.bool,
+    isApertura: PropTypes.bool,
     sources: PropTypes.shape({
         option: PropTypes.shape({
             media: PropTypes.string
         }),
         resizedUrl: PropTypes.string
     })
+};
+
+ModImage.defaultProps = {
+    isApertura: false
 };
 
 export default ModImage;
