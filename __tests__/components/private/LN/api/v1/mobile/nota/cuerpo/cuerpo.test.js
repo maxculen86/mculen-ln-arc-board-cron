@@ -28,20 +28,19 @@ describe('Test Json Text del cuerpo de la nota', () => {
 
     it('Test para validar la cantidad de elementos del cuerpo', () => {
         const resp = Cuerpo(ArticleCuerpo);
-        console.log(resp);
-        expect(resp.length).toBe(ArticleCuerpo.content_elements.length - 2);
+        expect(resp.length).toBe(ArticleCuerpo.content_elements.length - 1);
     });
 
     it('Test para validar si es infografia el contenido debe ser igual al contenido + 1', () => {
         const originalLength = ArticleInfografia.content_elements.length;
         const resp = Cuerpo(ArticleInfografia);
 
-        expect(resp.length).toBe(originalLength);
+        expect(resp.length).toBe(originalLength + 1);
     });
 
     it('Test para validar el contenido de una nota con template foto al cien', () => {
         const resp = Cuerpo(ArticleFotoAlCien);
-        expect(removeEmptyItems(resp).length).toBe(6);
+        expect(removeEmptyItems(resp).length).toBe(8);
     });
 
     it('Validacion del cuerpo de una nota HtmlLibre', () => {

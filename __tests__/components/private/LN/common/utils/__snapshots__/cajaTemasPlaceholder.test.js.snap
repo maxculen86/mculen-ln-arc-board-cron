@@ -8,11 +8,11 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Author snap
     <section
       className="mod-headersection --line"
     >
-      <h4
+      <h3
         className="com-title --l"
       >
         <SkeletonSpan />
-      </h4>
+      </h3>
     </section>
     <div
       className="row-gap-tablet-3 "
@@ -165,11 +165,11 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Color snaps
     <section
       className="mod-headersection --line"
     >
-      <h4
+      <h3
         className="com-title --l"
       >
         <SkeletonSpan />
-      </h4>
+      </h3>
     </section>
     <div
       className="row-gap-tablet-3 "
@@ -322,11 +322,11 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Color snaps
     <section
       className="mod-headersection --line"
     >
-      <h4
+      <h3
         className="com-title --l"
       >
         <SkeletonSpan />
-      </h4>
+      </h3>
     </section>
     <div
       className="row-gap-tablet-3 "
@@ -527,11 +527,11 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Focal snaps
     <section
       className="mod-headersection --line"
     >
-      <h4
+      <h3
         className="com-title --l"
       >
         <SkeletonSpan />
-      </h4>
+      </h3>
     </section>
     <div
       className="row "
@@ -702,11 +702,11 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Focal snaps
     <section
       className="mod-headersection --line"
     >
-      <h4
+      <h3
         className="com-title --l"
       >
         <SkeletonSpan />
-      </h4>
+      </h3>
     </section>
     <div
       className="row "
@@ -835,11 +835,11 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
     <section
       className="mod-headersection --line"
     >
-      <h4
+      <h3
         className="com-title --l"
       >
         <SkeletonSpan />
-      </h4>
+      </h3>
     </section>
     <div
       className="row"
@@ -899,11 +899,11 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
     <section
       className="mod-headersection --line"
     >
-      <h4
+      <h3
         className="com-title --l"
       >
         <SkeletonSpan />
-      </h4>
+      </h3>
     </section>
     <div
       className="row-gap-tablet-2"
@@ -1005,11 +1005,11 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
     <section
       className="mod-headersection --line"
     >
-      <h4
+      <h3
         className="com-title --l"
       >
         <SkeletonSpan />
-      </h4>
+      </h3>
     </section>
     <div
       className="row-gap-tablet-3"
@@ -1162,11 +1162,11 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
     <section
       className="mod-headersection --line"
     >
-      <h4
+      <h3
         className="com-title --l"
       >
         <SkeletonSpan />
-      </h4>
+      </h3>
     </section>
     <div
       className="row-gap-tablet-3"
@@ -1454,11 +1454,11 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
     <section
       className="mod-headersection --line"
     >
-      <h4
+      <h3
         className="com-title --l"
       >
         <SkeletonSpan />
-      </h4>
+      </h3>
     </section>
     <div
       className="row-gap-tablet-3"
@@ -1881,11 +1881,11 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Opinion sna
     <section
       className="mod-headersection --line"
     >
-      <h4
+      <h3
         className="com-title --l"
       >
         <SkeletonSpan />
-      </h4>
+      </h3>
     </section>
     <div
       className="row"

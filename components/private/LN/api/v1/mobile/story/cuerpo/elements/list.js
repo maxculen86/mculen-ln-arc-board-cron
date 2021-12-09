@@ -1,5 +1,10 @@
 import get from 'lodash.get';
 import htmlText from '../../../../common/story/cuerpo/elements/htmlText';
+import Text from './text';
+import {
+    validateValueText,
+    validateArrayNull
+} from '../../../../common/utils/validateValue';
 
 const list = (nodo, dataNota) => {
     if (!nodo) return null;
@@ -9,24 +14,23 @@ const list = (nodo, dataNota) => {
 
     const type = get(nodo, 'list_type', null);
     const resp = {
-        _t: type === 'unordered' ? 'ul' : 'ol'
+        _t: 'list',
+        type: type === 'unordered' ? 'ul' : 'ol'
     };
 
-    resp.valor = listElements.map(v => {
-        const valor = htmlText(v.content);
-        if (valor && valor.length) {
+    resp.items = listElements.map(v => {
+        if (validateValueText(v.content)) return null;
+        const value = htmlText(v.content);
+        if (value && value.length) {
             return {
                 _t: 'li',
-                valor
+                value: Text(v)
             };
         }
 
         return null;
     });
-
-    return {
-        _t: 'p',
-        valor: resp
-    };
+    if (validateArrayNull(resp.items)) return null;
+    return resp;
 };
 export default list;

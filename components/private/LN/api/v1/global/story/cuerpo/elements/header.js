@@ -1,4 +1,4 @@
-import htmlText from './htmlText';
+import htmlText from '../../../../common/story/cuerpo/elements/htmlText';
 
 const header = (nodo, dataNota) => {
     if (!nodo) return null;
