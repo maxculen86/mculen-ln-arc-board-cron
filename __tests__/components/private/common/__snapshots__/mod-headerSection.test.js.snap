@@ -4,7 +4,7 @@ exports[`Private - Common - ModheaderSection =>  Snapshot ModheaderSection con l
 <section
   class="mod-headersection  --line"
 >
-  <h4
+  <h3
     class="com-title --l"
   >
     <a
@@ -14,7 +14,7 @@ exports[`Private - Common - ModheaderSection =>  Snapshot ModheaderSection con l
     >
       Titulo Separador
     </a>
-  </h4>
+  </h3>
 </section>
 `;
 
@@ -22,10 +22,10 @@ exports[`Private - Common - ModheaderSection =>  Snapshots ModheaderSection 1`] 
 <section
   class="mod-headersection  --line"
 >
-  <h4
+  <h3
     class="com-title --l"
   >
     Titulo Separador
-  </h4>
+  </h3>
 </section>
 `;
