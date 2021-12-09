@@ -9,14 +9,16 @@ export const extractDataFromContentElements = contentElements => {
         const element = contentElements.find(
             e => e.subtype === 'power-up-receta'
         );
-        element.powerUp.forEach(e => {
-            get(e, 'embed.config.typeList', '') === 'ingredientes' &&
-                (ingredients = ingredients.concat(e.embed.config.items));
-            get(e, 'embed.config.typeList', '') === 'preparacion' &&
-                (instructions = instructions.concat(e.embed.config.items));
-            get(e, 'embed.config.typeList', '') === 'nutritional-info' &&
-                (nutrition = nutrition.concat(e.embed.config.items));
-        });
+        if (element) {
+            element.powerUp.forEach(e => {
+                get(e, 'embed.config.typeList', '') === 'ingredientes' &&
+                    (ingredients = ingredients.concat(e.embed.config.items));
+                get(e, 'embed.config.typeList', '') === 'preparacion' &&
+                    (instructions = instructions.concat(e.embed.config.items));
+                get(e, 'embed.config.typeList', '') === 'nutritional-info' &&
+                    (nutrition = nutrition.concat(e.embed.config.items));
+            });
+        }
     }
 
     return {
