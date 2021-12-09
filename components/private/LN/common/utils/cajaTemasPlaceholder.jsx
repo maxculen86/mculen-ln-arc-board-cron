@@ -401,9 +401,9 @@ export const placeholderLayouts = {
                 <div>
                     <section className="box-articles --focal --left">
                         <section className="mod-headersection --line">
-                            <h4 className="com-title --l">
+                            <h3 className="com-title --l">
                                 <SkeletonSpan />
-                            </h4>
+                            </h3>
                         </section>
                         <div className="row ">
                             <div className="col-tablet-8">{articles[0]}</div>
@@ -419,9 +419,9 @@ export const placeholderLayouts = {
                 <div>
                     <section className="box-articles --focal --right">
                         <section className="mod-headersection --line">
-                            <h4 className="com-title --l">
+                            <h3 className="com-title --l">
                                 <SkeletonSpan />
-                            </h4>
+                            </h3>
                         </section>
                         <div className="row ">
                             <div className="col-tablet-8">{articles[0]}</div>
@@ -446,9 +446,9 @@ export const placeholderLayouts = {
                         ''}`}
                 >
                     <section className="mod-headersection --line">
-                        <h4 className="com-title --l">
+                        <h3 className="com-title --l">
                             <SkeletonSpan />
-                        </h4>
+                        </h3>
                     </section>
                     <div className="row-gap-tablet-3 ">{articles}</div>
                 </section>
@@ -472,9 +472,9 @@ export const placeholderLayouts = {
                         ''}`}
                 >
                     <section className="mod-headersection --line">
-                        <h4 className="com-title --l">
+                        <h3 className="com-title --l">
                             <SkeletonSpan />
-                        </h4>
+                        </h3>
                     </section>
                     <div
                         className={`${rowClass[quantityNotes] ||
@@ -490,9 +490,9 @@ export const placeholderLayouts = {
         <div>
             <section className="box-articles">
                 <section className="mod-headersection --line">
-                    <h4 className="com-title --l">
+                    <h3 className="com-title --l">
                         <SkeletonSpan />
-                    </h4>
+                    </h3>
                 </section>
                 <div className="row-gap-tablet-3 ">{articles}</div>
             </section>
@@ -502,9 +502,9 @@ export const placeholderLayouts = {
         <div>
             <section className="box-articles  --opinion">
                 <section className="mod-headersection --line">
-                    <h4 className="com-title --l">
+                    <h3 className="com-title --l">
                         <SkeletonSpan />
-                    </h4>
+                    </h3>
                 </section>
                 <div className="row">
                     <div className="col-tablet-5">{articles[0]}</div>
