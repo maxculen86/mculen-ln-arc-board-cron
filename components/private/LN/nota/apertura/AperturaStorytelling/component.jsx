@@ -20,7 +20,7 @@ const Component = props => {
     } = props;
     const isMobile = outputType === 'amp' || device !== 'desktop';
     const [data, setData] = useState(isMobile ? storytellingData : {});
-    const titleNote = headlines.basic;
+    const titleNote = headlines.basic || '';
 
     useEffect(() => {
         setData(storytellingData);
