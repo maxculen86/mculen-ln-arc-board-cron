@@ -190,9 +190,10 @@ export const getCommonProps = props => {
             )
             .findIndex(chain => chain.props.id === idFeature) || 0;
 
-    const sectionName = `${formatText(
+    const sectionName = formatText(
         pageBuilderLayout === layoutsName.Home ? '' : `${name}_`
-    )}`;
+    );
+
     const showDatalayerMark =
         pageBuilderLayout === layoutsName.Home
             ? 'true'

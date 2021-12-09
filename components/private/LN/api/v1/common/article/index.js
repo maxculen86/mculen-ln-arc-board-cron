@@ -55,15 +55,15 @@ const getArticleSignature = (article, authors) => {
             .map(author => {
                 let resp = '';
                 if (lastAuthor == author && authors.length !== 1) {
-                    if (author.valor[0].toUpperCase() == `I`) resp = ` e `;
-                    else resp = ` y `;
-                } else if (author == authors[0]) resp = ``;
-                else resp = ` `;
+                    if (author.valor[0].toUpperCase() == 'I') resp = ' e ';
+                    else resp = ' y ';
+                } else if (author == authors[0]) resp = '';
+                else resp = ' ';
 
                 return resp + author.valor;
             })
             .toString()
-            .replace(/\,(?=[^,][ey])/, '')}`;
+            .replace(/(?=[^,][ey])/, '')}`;
     }
     return signature || authorsValue;
 };

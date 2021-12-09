@@ -25,11 +25,19 @@ const ComButton = props => {
         style
     } = props;
 
+    export const setClassName = ({
+        classNames,
+        classCondition,
+        iconName,
+        children,
+        iconPosition
+    }) => {};
+
     const conditionalProps = {
         ...(iconName && !children && { onMouseDown }),
         ...(iconName && !children && { tabIndex }),
         className: `com-button ${classesNames || ''} ${classCondition || ''} ${
-            iconName ? `--icon` : ''
+            iconName ? '--icon' : ''
         } ${iconName && children ? `${iconName} ${iconPosition || ''}` : ''}`
     };
 
