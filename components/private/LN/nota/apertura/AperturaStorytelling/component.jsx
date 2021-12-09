@@ -47,6 +47,7 @@ const Component = props => {
                     amp={outputType === 'amp'}
                     sizes={sizes}
                     sources={resizedUrls}
+                    isApertura
                 />
                 <div className="mod-title">
                     <div className="lay">
