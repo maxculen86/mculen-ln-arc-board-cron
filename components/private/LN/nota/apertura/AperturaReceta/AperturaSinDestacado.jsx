@@ -53,7 +53,7 @@ AperturaSinDestacado.propTypes = {
             text: PropTypes.string
         })
     ).isRequired,
-    receta: PropTypes.object.isRequired
+    receta: PropTypes.node.isRequired
 };
 
 export default AperturaSinDestacado;

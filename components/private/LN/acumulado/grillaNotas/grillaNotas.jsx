@@ -28,15 +28,7 @@ const GrillaNotas = props => {
 
     const getBanner = index => {
         const position = index + 1;
-        const {
-            bannerConfig = [],
-            // hideBanners,
-            globalContentConfig
-            // arcSite,
-            // termicas,
-            // screenUtils: { device },
-            // gc
-        } = props;
+        const { bannerConfig = [], globalContentConfig } = props;
 
         return bannerConfig
             .filter(banner => banner.position === position)

@@ -66,7 +66,7 @@ const transform = data => {
             const { sourceName } = item;
             return {
                 ...item,
-                title: titles[sourceName][0],
+                title: titles[sourceName][1],
                 titleMobile: titles[sourceName][1]
             };
         }),

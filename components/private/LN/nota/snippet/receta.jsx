@@ -110,7 +110,7 @@ const snippet = props => {
             headlines,
             subheadlines,
             promo_items: promoItems,
-            taxonomy: { tags, primary_section: primarySection },
+            taxonomy: { tags, primary_section: primarySection = {} },
             credits,
             display_date: displayDate,
             content_elements: contentElements,
@@ -145,6 +145,9 @@ const snippet = props => {
     const data = {
         '@context': 'https://schema.org',
         '@type': 'Recipe',
+        ...(primarySection.parent_id === '/recetas/cocina' && {
+            recipeCuisine: primarySection.name
+        }),
         author: {
             '@type': autores === '' ? 'Organization' : 'Person',
             name: autores === '' ? 'LA NACION recetas' : `${autores}`

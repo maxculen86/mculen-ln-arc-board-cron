@@ -22,7 +22,7 @@ function BreadcrumbSchema({ sections, host }) {
                 {
                     "@type": "ListItem",
                     "position": ${i + 2},
-                    "name": "${el.name.replace(/"/g, '\\"')}",
+                    "name": "${el.name ? el.name.replace(/"/g, '\\"') : ''}",
                     "item": "${host + el.path + slash}"
                 }
             `;

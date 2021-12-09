@@ -83,8 +83,8 @@ function buildBodyCustomFields() {
         }
     ];
     const result = {};
-    [...Array(15)].map((item, i) => {
-        return attributes.map(attribute => {
+    [...Array(15)].forEach((item, i) => {
+        attributes.forEach(attribute => {
             // eslint-disable-next-line default-case
             switch (attribute.type) {
                 case 'list':

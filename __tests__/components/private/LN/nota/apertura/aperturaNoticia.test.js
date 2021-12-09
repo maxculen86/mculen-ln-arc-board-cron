@@ -90,6 +90,11 @@ describe('PRIVATE - LN - Nota - Apertura - Noticia', () => {
                 type: 'raw_html'
             },
             basic: promoItemImage
+        },
+        label: {
+            mostrar_banners: {
+                text: 'Si'
+            }
         }
     };
 
@@ -142,6 +147,11 @@ describe('PRIVATE - LN - Nota - Apertura - Noticia', () => {
                 width: 1280
             }
         },
+        label: {
+            mostrar_banners: {
+                text: 'No'
+            }
+        },
         publish_date: '2021-06-28T16:01:43Z',
         streams: [
             {
@@ -171,7 +181,12 @@ describe('PRIVATE - LN - Nota - Apertura - Noticia', () => {
                     'Alcoholismo. Señales de alerta y los peligros para la salud'
             },
             type: 'story',
-            promo_items: { basic: promoItemImage }
+            promo_items: { basic: promoItemImage },
+            label: {
+                mostrar_banners: {
+                    text: 'No'
+                }
+            }
         },
         outputType: 'default'
     };
@@ -188,6 +203,11 @@ describe('PRIVATE - LN - Nota - Apertura - Noticia', () => {
             promo_items: {
                 basic: promoItemImage,
                 apertura_multimedia: promoItemAperturaMultimedia
+            },
+            label: {
+                mostrar_banners: {
+                    text: 'No'
+                }
             }
         },
         outputType: 'default'
@@ -226,6 +246,11 @@ describe('PRIVATE - LN - Nota - Apertura - Noticia', () => {
                     content:
                         '<opta-widget widget="match_summary" competition="724" season="2021" match="2206117" template="normal" live="true" show_match_header="true" show_score="true" show_attendance="false" show_date="false" date_format="dddd D MMMM YYYY HH:mm" show_cards="none" show_crests="true" show_team_formation="false" show_goals="true" show_goals_combined="true" show_penalties_missed="false" show_halftime_score="false" show_referee="false" show_subs="false" show_venue="true" show_shootouts="false" show_tooltips="false" show_images="false" show_competition_name="true" competition_naming="full" team_naming="full" player_naming="full" show_live="false" show_logo="true" show_title="true" breakpoints="400, 700" sport="football"></opta-widget>',
                     type: 'raw_html'
+                }
+            },
+            label: {
+                mostrar_banners: {
+                    text: 'No'
                 }
             }
         },

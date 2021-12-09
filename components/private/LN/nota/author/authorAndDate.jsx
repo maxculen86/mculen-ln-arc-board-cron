@@ -1,27 +1,25 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import ComDate from '../../../../../components/private/common/com-date';
-import ModDate from '../../../../../components/private/common/mod-date';
+import ModDate from '../../../common/mod-date';
 import Author from './authorArticle';
-import Date from '../../common/dateHeader';
 
 const authorAndDate = props => {
     const { globalContent, author, date, authorDate } = props;
-    const { display_date, credits, label } = globalContent || {};
+    const { display_date: displayDate, credits, label } = globalContent || {};
     const { edicion: labelEdicionImpresa } = label || {};
     const [visible, setVisible] = useState(false);
 
     if (!visible && 'by' in credits) {
-        const by = credits.by.filter(author => author.type === 'author');
+        const by = credits.by.filter(auth => auth.type === 'author');
         if (by.length > 0) setVisible(true);
     }
 
-    if (!visible && !display_date) return <></>;
+    if (!visible && !displayDate) return <></>;
     return (
         <>
             {date && (
                 <ModDate
-                    display_date={display_date}
+                    display_date={displayDate}
                     labelEdicionImpresa={labelEdicionImpresa}
                 />
             )}
@@ -41,7 +39,7 @@ const authorAndDate = props => {
                         display_date={display_date}
                     /> */}
                     <ModDate
-                        display_date={display_date}
+                        display_date={displayDate}
                         labelEdicionImpresa={labelEdicionImpresa}
                     />
                     <div className="com-author">

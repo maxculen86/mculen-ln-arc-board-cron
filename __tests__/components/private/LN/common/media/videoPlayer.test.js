@@ -15,6 +15,7 @@ jest.mock('fusion:context', () => () => ({
 
 import Context from 'fusion:context';
 import { getCustParamsEnconde } from '../../../../../../components/private/LN/common/utils/getDataFormated';
+import urlForPrerollAds from '../../../../../../components/private/LN/common/utils/urlForPrerollAds';
 
 describe('private - LN - common - media - videoPlayer', () => {
     Context.useAppContext = jest.fn(() => ({ outputType: 'amp' }));
@@ -154,5 +155,73 @@ describe('private - LN - common - media - videoPlayer - urlForPrerollAds', () =>
         ];
         const custParamsEncoded2 = getCustParamsEnconde([], sections2);
         expect(custParamsEncoded2).toEqual('ca_economia');
+    });
+});
+
+describe('urlPrerolAds with mostrar banners si', () => {
+    Context.useAppContext = jest.fn(() => ({
+        globalContent,
+        requestUri,
+        outputType: 'amp'
+    }));
+    const globalContent = {
+        _id: 'ZMIG7KDD7NBUBAIXTNEHJRNFXI',
+        canonical_url: '/arquitectura/videonota-de-prueba-nid15092021/',
+        label: {
+            mostrar_banners: {
+                display: true,
+                text: 'Si',
+                url: ''
+            }
+        },
+        taxonomy: {
+            sections: [
+                {
+                    _id: '/arquitectura',
+                    name: 'Arquitectura',
+                    type: 'section'
+                }
+            ]
+        }
+    };
+    const requestUri =
+        '/arquitectura/videonota-de-prueba-nid15092021/?_website=la-nacion-ar';
+    it('Should throw an url', () => {
+        const adURL = urlForPrerollAds('desktop');
+        expect(adURL.length) > 0;
+    });
+});
+
+describe('urlPrerolAds with mostrar banner no', () => {
+    Context.useAppContext = jest.fn(() => ({
+        globalContent,
+        requestUri,
+        outputType: 'amp'
+    }));
+    const globalContent = {
+        _id: 'ZMIG7KDD7NBUBAIXTNEHJRNFXI',
+        canonical_url: '/arquitectura/videonota-de-prueba-nid15092021/',
+        label: {
+            mostrar_banners: {
+                display: true,
+                text: 'No',
+                url: ''
+            }
+        },
+        taxonomy: {
+            sections: [
+                {
+                    _id: '/arquitectura',
+                    name: 'Arquitectura',
+                    type: 'section'
+                }
+            ]
+        }
+    };
+    const requestUri =
+        '/arquitectura/videonota-de-prueba-nid15092021/?_website=la-nacion-ar';
+    it('Should return an empty string', () => {
+        const adURL = urlForPrerollAds('desktop');
+        expect(adURL).toBe('');
     });
 });

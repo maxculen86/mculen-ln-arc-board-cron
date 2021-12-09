@@ -3,7 +3,7 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import Placeholder from '../../../private/LN/common/bannerRefactor/placeholder';
+import Placeholder from '../../../private/common/banners/placeholder';
 
 import {
     BANNERS_DESKTOP,

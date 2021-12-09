@@ -41,7 +41,10 @@ const index = acuData => {
         resp.notas = acuData.articles.reduce((result, f) => {
             try {
                 if (f) {
-                    const article = articleItem(f);
+                    const article = articleItem({
+                        ...f,
+                        storyType: 'accumulated'
+                    });
                     result.push(article);
                 }
             } catch (ex) {
