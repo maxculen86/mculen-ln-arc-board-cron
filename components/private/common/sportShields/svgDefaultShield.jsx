@@ -1,9 +1,10 @@
 import React from 'react';
+
 const mystyle = {
     color: '#0D880C',
     fill: '#0D880C'
 };
-const style = `color:#0D880C; fill:#0D880C;`;
+
 function SvgDefaultShield() {
     return (
         <svg
