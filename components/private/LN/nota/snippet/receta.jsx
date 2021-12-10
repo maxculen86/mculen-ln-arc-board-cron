@@ -57,7 +57,10 @@ const snippet = props => {
 
     const categoria = primarySection.name;
 
-    const { ingredients } = extractDataFromContentElements(contentElements);
+    const { ingredients, instructions } = extractDataFromContentElements(
+        contentElements
+    );
+    console.log('🚀 ~ file: receta.jsx ~ line 61 ~ instructions', instructions);
 
     const { keywords } = extractDataFromTags(tags);
 
@@ -69,6 +72,7 @@ const snippet = props => {
         ...(primarySection.parent_id === '/recetas/cocina' && {
             recipeCuisine: primarySection.name
         }),
+        recipeInstructions: instructions,
         author: {
             '@type': autores === '' ? 'Organization' : 'Person',
             name: autores === '' ? 'LA NACION recetas' : `${autores}`
