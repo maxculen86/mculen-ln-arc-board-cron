@@ -61,9 +61,11 @@ const snippet = props => {
 
     const categoria = primarySection.name;
 
-    const { ingredients, instructions } = extractDataFromContentElements(
-        contentElements
-    );
+    const {
+        ingredients,
+        instructions,
+        nutrition
+    } = extractDataFromContentElements(contentElements);
 
     const { keywords } = extractDataFromTags(tags);
 
@@ -95,6 +97,10 @@ const snippet = props => {
         datePublished: `${date || ''}`,
         description: `${description || ''}`,
         image: `${image || PLACERHOLDER}`,
+        nutrition: {
+            '@type': 'NutritionInformation',
+            ...nutrition
+        },
         recipeIngredient: ingredients,
         recipeCategory: categoria,
         name: `${headLinesBasic || 'LA NACION - Recetas'}`,
