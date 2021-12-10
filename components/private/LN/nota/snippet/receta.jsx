@@ -21,7 +21,11 @@ const snippet = props => {
             headlines,
             subheadlines,
             promo_items: promoItems,
-            taxonomy: { tags, primary_section: primarySection = {} },
+            taxonomy: {
+                tags,
+                primary_section: primarySection = {},
+                sections = {}
+            },
             credits,
             display_date: displayDate,
             content_elements: contentElements,
@@ -63,12 +67,21 @@ const snippet = props => {
 
     const section = getFirstParentSection(primarySection);
 
+    const getRecipeCuisine = recipeSections => {
+        if (recipeSections.length) {
+            const recipeCuisine =
+                recipeSections.find(e => {
+                    return e.parent_id === '/recetas/cocina';
+                }) || {};
+            return recipeCuisine.name;
+        }
+        return undefined;
+    };
+
     const data = {
         '@context': 'https://schema.org',
         '@type': 'Recipe',
-        ...(primarySection.parent_id === '/recetas/cocina' && {
-            recipeCuisine: primarySection.name
-        }),
+        recipeCuisine: getRecipeCuisine(sections),
         author: {
             '@type': autores === '' ? 'Organization' : 'Person',
             name: autores === '' ? 'LA NACION recetas' : `${autores}`
@@ -117,6 +130,7 @@ snippet.propTypes = {
         content_elements: PropTypes.array.isRequired,
         taxonomy: PropTypes.shape({
             tags: PropTypes.array,
+            sections: PropTypes.array,
             primary_section: PropTypes.object
         }),
         credits: PropTypes.shape({
