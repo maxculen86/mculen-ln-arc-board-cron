@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import ComIco from './com-icon';
+import ComIco from './icon';
 import ComLink from './com-link';
 
 const ComWeather = props => {
@@ -14,7 +14,7 @@ const ComWeather = props => {
         >
             <div className="com-weather">
                 {iconName ? (
-                    <ComIco iconName={iconName} sizeIcon={sizeIcon} />
+                    <ComIco name={iconName} sizeIcon={sizeIcon} />
                 ) : null}
                 <span id="spanTemperatura" className={size}>
                     {temperature ? `${temperature}°` : '0°'}

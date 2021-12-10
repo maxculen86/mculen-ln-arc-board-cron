@@ -1,4 +1,5 @@
 import Consumer from 'fusion:consumer';
+import get from 'lodash.get';
 
 class Services {
     constructor(props) {
@@ -9,7 +10,17 @@ class Services {
     render() {
         const { globalContent } = this.props;
         try {
-            return globalContent;
+            const dolarCotization = globalContent.data.map(value => {
+                const type = get(value, 'sourceName', '');
+                if (type && type === 'dccl')
+                    return {
+                        ...value,
+                        compra: '-'
+                    };
+
+                return value;
+            });
+            return { ...globalContent, data: dolarCotization };
         } catch (err) {
             return { Success: false, Message: err.message };
         }

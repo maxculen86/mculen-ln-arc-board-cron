@@ -4,6 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import NotaSnippet from '../../LN/nota/snippet/receta';
 import NoticiaSnippet from '../../LN/nota/snippet/noticia';
 import LiveblogSnippet from '../../LN/nota/snippet/liveblog';
+import PaywallSnippet from '../../LN/nota/snippet/paywall';
 import SnippetAcumulado from '../../LN/acumulado/snippet';
 import { LIVEBLOG } from '../utils/subtypes/subtypeHelper';
 
@@ -23,7 +24,7 @@ const config = {
 
 const snippetIndex = props => {
     const { arcSite, layout, globalContent } = props;
-    const { subtype } = globalContent || {};
+    const { subtype, type } = globalContent || {};
 
     const sitio = config[arcSite];
     if (!sitio) return null;
@@ -35,6 +36,7 @@ const snippetIndex = props => {
         <>
             <Snippet {...props} />
             {subtype === LIVEBLOG && <LiveblogSnippet {...props} />}
+            {type === 'story' && <PaywallSnippet {...props} />}
         </>
     );
 };

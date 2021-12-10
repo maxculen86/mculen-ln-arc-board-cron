@@ -3,6 +3,30 @@
 .com-icon {
     @include flex(flex, row, center, center);
 
+    width: px(24);
+    height: px(24);
+
+    svg,
+    path {
+        width: 100%;
+        height: 100%;
+    }
+
+    &.--negative.--negative {
+        background: rgba(0, 0, 0, 0.7);
+
+        path {
+            fill: $neutral-white;
+        }
+    }
+
+    .com-button &,
+    .com-link & {
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
     .com-button.--icon.--bottom &,
     .com-button.--icon.--right & {
         order: 2;
@@ -10,9 +34,9 @@
         font-weight: 700;
     }
 
-    &.icon-bullet-xs {
-        color: $light-neutral-400;
-    }
+    // &.icon-bullet-xs {
+    //     color: $light-neutral-400;
+    // }
 
     .footer .--share & {
         display: inline-flex;
@@ -44,13 +68,13 @@
         top: -5px;
         color: $light-neutral-400;
     }
-    &.icon-bullet {
-        .mod-description & {
-            align-items: flex-start;
-            color: $light-neutral-400;
-            padding: 1px 2px;
-        }
-    }
+    // &.icon-bullet {
+    //     .mod-description & {
+    //         align-items: flex-start;
+    //         color: $light-neutral-400;
+    //         padding: 1px 2px;
+    //     }
+    // }
 }
 @media ($media-l) {
     .com-icon {

@@ -67,7 +67,7 @@ const ModDescription = props => {
                 )}
                 {category && (
                     <ComTag
-                        iconName={withMarquee && 'bullet'}
+                        iconName={withMarquee && '--bullet'}
                         content={categoryName}
                         sizeText="--fourxs"
                         sizeBullet={withMarquee && '--fourxs'}
@@ -82,7 +82,7 @@ const ModDescription = props => {
                             <ComTag
                                 key={slug}
                                 iconName={
-                                    (withMarquee || !!category) && 'bullet'
+                                    (withMarquee || !!category) && '--bullet'
                                 }
                                 content={text}
                                 sizeText="--fourxs"

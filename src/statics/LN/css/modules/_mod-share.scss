@@ -83,37 +83,37 @@
             @include flex(flex, row, center, center);
             //margin-bottom: $spacing-sm;
             margin-right: $spacing-sm;
-            font-family: $font-icons;
-            font-size: px(24);
+            // font-family: $font-icons;
+            // font-size: px(24);
             padding: px(4);
             /* Better Font Rendering =========== */
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            &:hover {
-                background: transparent;
-                color: $ln;
-            }
+            // &:hover {
+            //     background: transparent;
+            //     color: $ln;
+            // }
             @media ($media-l) {
                 margin-bottom: $spacing-sm;
                 margin-right: 0;
             }
         }
 
-        &[type='facebook']:before {
-            content: $icon-facebook-filled;
-        }
-        &[type='twitter']:before {
-            content: $icon-twitter-filled;
-        }
-        &[type='whatsapp']:before {
-            content: $icon-whatsapp-filled;
-        }
+        // &[type='facebook']:before {
+        //     content: $icon-facebook-filled;
+        // }
+        // &[type='twitter']:before {
+        //     content: $icon-twitter-filled;
+        // }
+        // &[type='whatsapp']:before {
+        //     content: $icon-whatsapp-filled;
+        // }
 
         &[type='email'] {
             margin-right: 0;
-            &:before {
-                content: $icon-email;
-            }
+            // &:before {
+            //     content: $icon-email;
+            // }
         }
     }
 }

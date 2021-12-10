@@ -12,7 +12,7 @@ const ListMenu = ({ toglleDesplegable, amp, isHome }) => {
                     name="home"
                     href={isHome ? '#' : 'https://www.lanacion.com.ar/'}
                     target="_top"
-                    mod="col-3 item-foo nacion-home"
+                    extraClass="col-3 item-foo nacion-home"
                 >
                     <p>Home</p>
                 </Icon>
@@ -38,9 +38,9 @@ const ListMenu = ({ toglleDesplegable, amp, isHome }) => {
                 )}
 
                 <Icon
-                    name="club"
+                    name="club-card"
                     href="https://club.lanacion.com.ar/"
-                    mod="col-3 item-foo"
+                    extraClass="col-3 item-foo"
                 >
                     <p>Club LA NACION</p>
                 </Icon>
@@ -48,7 +48,7 @@ const ListMenu = ({ toglleDesplegable, amp, isHome }) => {
                 <Icon
                     name="user"
                     href="https://myaccount.lanacion.com.ar/mi-usuario/"
-                    mod="col-3 item-foo"
+                    extraClass="col-3 item-foo"
                 >
                     <p>Mi Cuenta</p>
                 </Icon>

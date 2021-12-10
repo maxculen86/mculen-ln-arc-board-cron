@@ -28,7 +28,7 @@ exports[`Private - Common - ModDescription ModDescription - Snapshots 1`] = `
     <com-tag-mock
       classcondition="--tags"
       content="Comunidad"
-      iconname="bullet"
+      iconname="--bullet"
       link="/comunidad/"
       sizebullet="--fourxs"
       sizetext="--fourxs"
@@ -36,7 +36,7 @@ exports[`Private - Common - ModDescription ModDescription - Snapshots 1`] = `
     <com-tag-mock
       classcondition="--tags"
       content="Educación"
-      iconname="bullet"
+      iconname="--bullet"
       link="/tema/educacion-123/"
       sizebullet="--fourxs"
       sizetext="--fourxs"
@@ -44,7 +44,7 @@ exports[`Private - Common - ModDescription ModDescription - Snapshots 1`] = `
     <com-tag-mock
       classcondition="--tags"
       content="Inclusión"
-      iconname="bullet"
+      iconname="--bullet"
       link="/tema/inclusion-123/"
       sizebullet="--fourxs"
       sizetext="--fourxs"
@@ -52,7 +52,7 @@ exports[`Private - Common - ModDescription ModDescription - Snapshots 1`] = `
     <com-tag-mock
       classcondition="--tags"
       content="Sociedad"
-      iconname="bullet"
+      iconname="--bullet"
       link="/tema/sociedad-123/"
       sizebullet="--fourxs"
       sizetext="--fourxs"
