@@ -32,7 +32,8 @@ const fetch = (query, { cachedCall }) => {
 export default {
     fetch,
     params: {
-        uri: 'text'
+        uri: 'text',
+        id: 'text'
     },
     ttl: 300
 };

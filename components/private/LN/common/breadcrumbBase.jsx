@@ -108,14 +108,14 @@ const BreadcrumbBase = props => {
             {/* Último item */}
             {tooltip && (
                 <span className="com-text --fourxs --tooltip">
-                    <i
+                    {/* <i
                         className="com-icon bullet icon-bullet-xs"
                         style={{
                             ...(colorCategory && {
                                 color: colorCategory
                             })
                         }}
-                    />
+                    /> */}
                     {tooltip.text}
                     {tooltip.label && (
                         <ComContainer>
