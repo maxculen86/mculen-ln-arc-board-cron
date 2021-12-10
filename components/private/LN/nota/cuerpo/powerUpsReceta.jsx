@@ -2,10 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ListItems from '../../../common/listItems';
 import ComTitle from '../../../common/com-title';
+import '../../../../../resources/dist/css/ln/components/table.css';
 
 const powerUpsReceta = ({ data }) => {
     const { powerUp } = data;
-    console.log(powerUp);
+    const nutritionTableData = powerUp.find(
+        e => e.subtype === 'custom-nutrition'
+    );
     return (
         <div className="row --steps">
             <div className="col-tablet-3 --ingredients">
@@ -38,30 +41,41 @@ const powerUpsReceta = ({ data }) => {
                     );
                 })}
             </div>
-            <div className="col-tablet-8">
-                <ComTitle
-                    tag="h3"
-                    size="--l --font-bold"
-                    content="Información nutricional"
-                />
-                <table>
-                    <tr>
-                        <th>Propiedad</th>
-                        <th>Cantidad por porción</th>
-                    </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                    </tr>
-                    <tr>
-                        <td>Jane</td>
-                        <td>Doe</td>
-                    </tr>
-                </table>
-                {powerUp.map(e => {
-                    return e.subtype === 'custom-nutrition' ? <></> : <></>;
-                })}
-            </div>
+            {nutritionTableData ? (
+                <div className="col-tablet-6 --nutrition">
+                    <ComTitle
+                        tag="h3"
+                        size="--l"
+                        content="Información nutricional"
+                    />
+                    <div>
+                        <table className="com-table">
+                            <tr>
+                                <th>Propiedad</th>
+                                <th>Cantidad por porción</th>
+                            </tr>
+                            {powerUp.map(e => {
+                                return e.subtype === 'custom-nutrition' ? (
+                                    <>
+                                        {e.embed.config.items.map(item => {
+                                            return (
+                                                <tr>
+                                                    <td>{item.text}</td>
+                                                    <td>{`${item.value} ${item.unit}`}</td>
+                                                </tr>
+                                            );
+                                        })}
+                                    </>
+                                ) : (
+                                    <></>
+                                );
+                            })}
+                        </table>
+                    </div>
+                </div>
+            ) : (
+                <></>
+            )}
         </div>
     );
 };

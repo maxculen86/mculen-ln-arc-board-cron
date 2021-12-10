@@ -25,21 +25,21 @@ export const extractDataFromContentElements = contentElements => {
     let newProperty;
     nutrition.forEach(item => {
         newProperty = `${item.value} ${item.unit}`;
-        item.text === 'Colesterol' && (obj.cholesterolContent = newProperty);
-        item.text === 'Calorías' && (obj.calories = newProperty);
-        item.text === 'Azúcar' && (obj.sugarContent = newProperty);
+        item.text === 'Tamaño de porcion' && (obj.servingSize = newProperty);
         item.text === 'Carbohidratos' &&
             (obj.carbohydrateContent = newProperty);
-        item.text === 'Tamaño de porcion' && (obj.servingSize = newProperty);
-        item.text === 'Sodio' && (obj.sodiumContent = newProperty);
-        item.text === 'Fibras' && (obj.fiberContent = newProperty);
         item.text === 'Proteínas' && (obj.proteinContent = newProperty);
+        item.text === 'Grasas' && (obj.fatContent = newProperty);
         item.text === 'Grasas saturadas' &&
             (obj.saturatedFatContent = newProperty);
         item.text === 'Grasas insaturadas' &&
             (obj.unsaturatedFatContent = newProperty);
         item.text === 'Grasas trans' && (obj.transFatContent = newProperty);
-        item.text === 'Grasas' && (obj.fatContent = newProperty);
+        item.text === 'Fibras' && (obj.fiberContent = newProperty);
+        item.text === 'Colesterol' && (obj.cholesterolContent = newProperty);
+        item.text === 'Sodio' && (obj.sodiumContent = newProperty);
+        item.text === 'Azúcar' && (obj.sugarContent = newProperty);
+        item.text === 'Calorías' && (obj.calories = newProperty);
     });
 
     return {
