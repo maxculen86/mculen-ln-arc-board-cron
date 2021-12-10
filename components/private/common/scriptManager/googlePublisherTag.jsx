@@ -76,7 +76,15 @@ class GooglePublisherTag extends Component {
 
     getUrl(url) {
         if (!url) return '';
-        return this.decorate('url', /\//g, '_', url.replace(/\/$/g, ''));
+        return `${this.decorate('url', /\//g, '_', url.replace(/\/$/g, ''))},`;
+    }
+
+    getArticleId() {
+        const {
+            globalContent: { _id }
+        } = this.props;
+
+        return `'te_${_id}'`;
     }
 
     render() {
@@ -94,6 +102,7 @@ class GooglePublisherTag extends Component {
 
         const { tags, sections } = taxonomy || [];
         const { by: authors } = credits || {};
+        const articleId = this.getArticleId();
 
         if (
             !sections.length &&
@@ -123,19 +132,10 @@ class GooglePublisherTag extends Component {
                 googletag.pubads().disableInitialLoad();
                 googletag.enableServices();
  
-                
                 console.log('🚀 ::: setTargeting ON ::: 🚀');
-                googletag.pubads().setTargeting('tags_nuevos', [${categories} ${topics} ${authorList} ${url}]);
+                googletag.pubads().setTargeting('tags_nuevos', [${categories} ${topics} ${authorList} ${url} ${articleId}]);
             });
         `;
-
-        /* (() => {
-            window.googletag = window.googletag || { cmd: [] };
-            googletag.cmd.push(function() {
-                console.log('🚀 ::: setTargeting ON ::: 🚀');
-                googletag.pubads().setTargeting('tags_nuevos', [${categories} ${topics} ${authorList} ${url}]);
-            });
-        })(); */
 
         return (
             <>
@@ -158,6 +158,7 @@ class GooglePublisherTag extends Component {
 GooglePublisherTag.propTypes = {
     location: PropTypes.string.isRequired,
     globalContent: PropTypes.shape({
+        _id: PropTypes.string,
         type: PropTypes.string,
         canonical_url: PropTypes.string,
         content_elements: PropTypes.arrayOf(

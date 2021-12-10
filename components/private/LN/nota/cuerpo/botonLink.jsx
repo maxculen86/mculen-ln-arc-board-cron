@@ -14,7 +14,7 @@ const BotonLink = ({ data }) => {
                     <ComButton
                         classesNames="--secondary"
                         //classCondition="--compact"
-                        iconName="right"
+                        iconName="arrow-right"
                         iconPosition="--right"
                         size="--fivexs"
                     >

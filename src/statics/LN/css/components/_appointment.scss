@@ -40,6 +40,8 @@
                     width: px(100);
                     height: px(100);
                     border-radius: 50%;
+                    border: none;
+
                     &::after {
                         display: none;
                     }
@@ -52,9 +54,6 @@
                             filter: none;
                         }
                     }
-                }
-                .content-pic {
-                    border: none;
                 }
             }
         }
