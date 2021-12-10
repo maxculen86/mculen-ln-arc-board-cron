@@ -3,7 +3,7 @@ import get from '../../../../common/utils/get';
 
 export const extractDataFromContentElements = contentElements => {
     let ingredients = [];
-    const instructions = [];
+    let instructions = [];
     let nutrition = [];
 
     if (contentElements) {
