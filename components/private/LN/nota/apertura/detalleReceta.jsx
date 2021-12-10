@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'fusion:prop-types';
+import Icon from '../../../common/icon';
 
 const DetalleReceta = props => {
     const {
@@ -15,7 +16,7 @@ const DetalleReceta = props => {
         return (
             <div className="row">
                 <div className="col-2 col-tablet-1">
-                    <i className="icon-timer" />
+                    <Icon name="timer" />
                 </div>
                 <div className="time-number col-10 col-tablet-11">
                     <span>
@@ -32,7 +33,7 @@ const DetalleReceta = props => {
         return (
             <div className="row">
                 <div className="col-2 col-tablet-1">
-                    <i className="icon-group" />
+                    <Icon name="group" />
                 </div>
                 <div className="portion-number col-10 col-tablet-11">
                     <span>

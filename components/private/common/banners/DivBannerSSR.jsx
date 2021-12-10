@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import get from '../utils/get';
 import flatArray from '../utils/flatArray';
 import ComButton from '../com-button';
+import Icon from '../icon';
 
 const DivBannerSSR = ({ bannerConfiguration }) => {
     const {
@@ -39,7 +40,9 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
                             type="button"
                             aria-label="Close"
                             className="icon-close"
-                        />
+                        >
+                            <Icon name="close" negative />
+                        </button>
                     )}
 
                     <script

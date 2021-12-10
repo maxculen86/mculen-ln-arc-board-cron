@@ -5,7 +5,7 @@ import ComLink from './com-link';
 import '../../../resources/dist/css/ln/modules/mod-newsletter.css';
 import ComTitle from './com-title';
 import ComButton from './com-button';
-import ComIco from './com-icon';
+import ComIco from './icon';
 
 const ModNewsletter = props => {
     const { titulo = '' } = props;
@@ -23,7 +23,7 @@ const ModNewsletter = props => {
         <section className="mod-newsletter">
             <div className="container">
                 <div className="container-text">
-                    <ComIco iconName="email" sizeIcon="--xl" />
+                    <ComIco name="email" sizeIcon="--xl" />
                     <ComTitle size="--l" content={contenido} />
                     <ComLink
                         link="https://newsletter.lanacion.com.ar/#/"

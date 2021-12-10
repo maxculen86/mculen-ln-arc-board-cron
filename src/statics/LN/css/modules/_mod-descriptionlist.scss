@@ -8,11 +8,22 @@
     .com-itemlist {
         @include flex(flex, row, start, start);
         margin-bottom: $spacing-xs;
-        padding-left: $spacing-sm;
+        padding-left: px(40);
         flex-wrap: wrap;
+
         .--educacion &,
         .--reconocimientos & {
             flex-wrap: nowrap;
+        }
+
+        &:before {
+            content: '•';
+            height: fit-content;
+            display: block;
+            position: absolute;
+            left: px(16);
+            font-size: px(28);
+            line-height: px(21);
         }
     }
 }
@@ -21,9 +32,6 @@
         &.--membresia,
         &.--idiomas {
             @include flex(inline, row, center, start);
-        }
-        .com-itemlist {
-            padding-left: $spacing-lg;
         }
     }
 }
