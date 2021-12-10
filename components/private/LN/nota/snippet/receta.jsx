@@ -60,7 +60,6 @@ const snippet = props => {
     const { ingredients, instructions } = extractDataFromContentElements(
         contentElements
     );
-    console.log('🚀 ~ file: receta.jsx ~ line 61 ~ instructions', instructions);
 
     const { keywords } = extractDataFromTags(tags);
 
