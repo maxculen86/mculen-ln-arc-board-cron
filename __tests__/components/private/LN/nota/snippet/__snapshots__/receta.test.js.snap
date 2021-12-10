@@ -510,6 +510,7 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
           "recipeCategory": "Platos de comida principal",
           "recipeCuisine": undefined,
           "recipeIngredient": Array [],
+          "recipeInstructions": Array [],
           "recipeYield": "4 porciones",
           "totalTime": "PT25M",
         }
@@ -521,6 +522,7 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
             "__html": "{
   \\"@context\\": \\"https://schema.org\\",
   \\"@type\\": \\"Recipe\\",
+  \\"recipeInstructions\\": [],
   \\"author\\": {
     \\"@type\\": \\"Organization\\",
     \\"name\\": \\"LA NACION recetas\\"

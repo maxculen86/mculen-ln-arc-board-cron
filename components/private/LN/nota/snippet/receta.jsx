@@ -61,7 +61,9 @@ const snippet = props => {
 
     const categoria = primarySection.name;
 
-    const { ingredients } = extractDataFromContentElements(contentElements);
+    const { ingredients, instructions } = extractDataFromContentElements(
+        contentElements
+    );
 
     const { keywords } = extractDataFromTags(tags);
 
@@ -82,6 +84,7 @@ const snippet = props => {
         '@context': 'https://schema.org',
         '@type': 'Recipe',
         recipeCuisine: getRecipeCuisine(sections),
+        recipeInstructions: instructions,
         author: {
             '@type': autores === '' ? 'Organization' : 'Person',
             name: autores === '' ? 'LA NACION recetas' : `${autores}`
