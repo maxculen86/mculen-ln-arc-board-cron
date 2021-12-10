@@ -232,7 +232,6 @@ const checkSubscription = showError => {
                                         if (token != result.token) {
                                             localStorage.setItem('x-auth4-token', token);
                                         }
-                                        
                                     });
                                 }
                             })

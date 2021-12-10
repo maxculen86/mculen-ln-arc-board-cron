@@ -1,20 +1,35 @@
+/* eslint-disable prettier/prettier */
 import get from '../../../../common/utils/get';
 
 export const extractDataFromContentElements = contentElements => {
     let ingredients = [];
-    let instructions = [];
+    const instructions = [];
     let nutrition = [];
 
     if (contentElements) {
         const element = contentElements.find(
             e => e.subtype === 'power-up-receta'
         );
+
         if (element) {
             element.powerUp.forEach(e => {
                 get(e, 'embed.config.typeList', '') === 'ingredientes' &&
                     (ingredients = ingredients.concat(e.embed.config.items));
+
                 get(e, 'embed.config.typeList', '') === 'preparacion' &&
-                    (instructions = instructions.concat(e.embed.config.items));
+                    instructions.push({
+                        '@type': 'HowToSection',
+
+                        name: e.embed.config.titleList,
+
+                        itemListElement: e.embed.config.items.map(item => {
+                            return {
+                                '@type': 'HowToStep',
+                                text: item
+                            };
+                        })
+                    });
+
                 get(e, 'embed.config.typeList', '') === 'nutritional-info' &&
                     (nutrition = nutrition.concat(e.embed.config.items));
             });
