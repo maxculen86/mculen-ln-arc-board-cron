@@ -198,6 +198,8 @@ const customReceta = `
             title
             typeList
             items
+            prepTime
+            cookTime
             counterTime
             counterPortion
         }
@@ -380,7 +382,11 @@ export default `
             subtype
             embed{
                 config{
-                    items
+                    items{
+                        text
+                        value
+                        unit
+                    }
                     titleList
                     typeList
                 }
