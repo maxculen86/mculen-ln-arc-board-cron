@@ -6,8 +6,8 @@ import React, { useState, useEffect } from 'react';
 import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import PropTypes from 'prop-types';
 import Header from './headerBase';
-import Hamburguer from './hamburger';
-import ComIcon from '../../../common/com-icon';
+import Hamburger from './hamburger';
+import ComIcon from '../../../common/icon';
 import LogoLN from '../../../common/logos/logoLN';
 
 import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
@@ -109,7 +109,7 @@ const HeaderDesktop = ({
             </a>
             <Header id="header" className="header">
                 <div className="col-4 header__left">
-                    <Hamburguer _onMouseDown={toglleDesplegable} />
+                    <Hamburger _onMouseDown={toglleDesplegable} />
                     <label
                         onClick={handleClickBuscar}
                         id="querylyButton"
@@ -117,7 +117,7 @@ const HeaderDesktop = ({
                         title="Ir al buscador"
                     >
                         <i className="com-button --tertiary --icon queryly_searchicon">
-                            <ComIcon iconName="search" />
+                            <ComIcon name="search" />
                             BUSCAR
                         </i>
                         {/* <i style={{float:'right', color:'#0074c4',position:'absolute', top: '5px', cursor: 'pointer'}} className="icon-search queryly_searchicon"></i> */}
@@ -234,7 +234,10 @@ const HeaderDesktop = ({
                 </div>
                 <div className="col-1 header__search">
                     <label onClick={handleClickBuscar} htmlFor="queryly_toggle">
-                        <i className="com-icon icon-search queryly_searchicon" />
+                        <ComIcon
+                            name="search"
+                            extraClass="queryly_searchicon"
+                        />
                     </label>
                 </div>
             </Header>

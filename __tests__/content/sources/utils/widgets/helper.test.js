@@ -9,6 +9,7 @@ describe('content - sources - utils -widgets - helper.js:', () => {
             expect(getDataFromQuery()).toStrictEqual({
                 arcSite: 'la-nacion-ar',
                 params: [],
+                queryParams: {},
                 uri: '',
                 widget: undefined
             });
@@ -17,11 +18,13 @@ describe('content - sources - utils -widgets - helper.js:', () => {
             expect(
                 getDataFromQuery({
                     uri: '/widgets/widgetName/param-1/param-2/',
-                    'arc-site': 'la-nacion-ar'
+                    'arc-site': 'la-nacion-ar',
+                    id: 'HASOASOKPPFRMC'
                 })
             ).toStrictEqual({
                 arcSite: 'la-nacion-ar',
                 params: ['param-1', 'param-2'],
+                queryParams: { id: 'HASOASOKPPFRMC' },
                 uri: '/widgets/widgetName/param-1/param-2/',
                 widget: 'widgetName'
             });

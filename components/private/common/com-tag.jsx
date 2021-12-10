@@ -19,20 +19,21 @@ const ComTag = props => {
     if (!content) return null;
     return (
         <>
-            {iconName === 'bullet' && (
+            {/* {iconName === '--bullet' && (
                 <i
                     className={`com-icon bullet icon-${iconName} ${sizeIcon ||
                         ''} ${sizeBullet || ''} `}
                     style={style}
                 />
-            )}
+            )} */}
             <ComTitle
                 tag="h3"
                 content={content}
                 link={link}
                 preTitle="Noticias de "
                 size={sizeText || ''}
-                classCondition={classCondition}
+                //classCondition={classCondition}
+                classCondition={`${classCondition} ${iconName || ''}`}
             />
         </>
     );

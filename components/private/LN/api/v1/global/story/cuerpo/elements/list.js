@@ -1,5 +1,5 @@
 import get from 'lodash.get';
-import htmlText from './htmlText';
+import htmlText from '../../../../common/story/cuerpo/elements/htmlText';
 
 const list = (nodo, dataNota) => {
     if (!nodo) return null;

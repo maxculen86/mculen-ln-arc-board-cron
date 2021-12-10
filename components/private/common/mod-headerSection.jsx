@@ -73,7 +73,7 @@ ModheaderSection.defaultProps = {
     classCondition: '',
     line: true,
     size: '--l',
-    tag: '',
+    tag: 'h3',
     image: {}
 };
 

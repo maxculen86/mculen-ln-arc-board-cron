@@ -10,15 +10,18 @@ import WithScreenUtils from '../../../../common/hocs/withScreenUtils';
 import WithStorytellingData from '../../../common/hocs/WithStorytellingData';
 
 import '../../../../../../resources/dist/css/ln/modules/mod-opening.css';
+import get from '../../../../common/utils/get';
 
 const Component = props => {
     const {
         storytellingData,
         outputType,
-        screenUtils: { device }
+        screenUtils: { device },
+        globalContent: { headlines }
     } = props;
     const isMobile = outputType === 'amp' || device !== 'desktop';
     const [data, setData] = useState(isMobile ? storytellingData : {});
+    const titleNote = get(headlines, 'basic', undefined);
 
     useEffect(() => {
         setData(storytellingData);
@@ -42,11 +45,12 @@ const Component = props => {
                     classCondition=""
                     srcset={srcset || ''}
                     src={src || ''}
-                    alt={caption || altText || ''}
+                    alt={caption || altText || titleNote || ''}
                     video={video || ''}
                     amp={outputType === 'amp'}
                     sizes={sizes}
                     sources={resizedUrls}
+                    isApertura
                 />
                 <div className="mod-title">
                     <div className="lay">
