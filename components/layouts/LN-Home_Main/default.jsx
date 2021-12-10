@@ -15,9 +15,9 @@ import {
     sectionsWithBlocks,
     getSectionVisible,
     isScrollbarVisible,
-    isBombaVisible,
-    validateSectionHome
+    isBombaVisible
 } from '../../private/LN/common/utils/homeHelper';
+import sectionHelper from '../../private/LN/common/utils/sectionHelper';
 import getScrollPercent from '../../private/LN/common/utils/getScrollPercent';
 import AnexoFeature from '../../features/LN-acumulado/anexoIframe';
 import SubHeader from '../../features/LN-common/subHeader';
@@ -27,6 +27,7 @@ import TagsListFeature from '../../features/LN-acumulado/tagList';
 import CajaPromo from '../../features/LN-common/cajaPromo/default';
 import DivBannerSSR from '../../private/common/banners/DivBannerSSR';
 import { getScriptForComercial } from '../../private/common/banners/bannersRules';
+import PwaModals from '../../private/LN/common/pwaModals';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -121,7 +122,7 @@ const LNMainHome = props => {
         appAnexo1,
         appAnexo2
     ] = pageBuilderSections.map((section, index) => {
-        return validateSectionHome(
+        return sectionHelper(
             children[index],
             section,
             index,
@@ -680,6 +681,7 @@ const LNMainHome = props => {
                 <LoadBanners blocksBanners={blocksBanners.bloque5} />
             )}
             <Metarefresh />
+            <PwaModals />
         </GlobalProvider>
     );
 };

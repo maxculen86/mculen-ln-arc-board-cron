@@ -4,6 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
+import PwaModals from '../private/LN/common/pwaModals';
 
 import '../../resources/dist/css/ln/pages/video.css';
 
@@ -62,6 +63,7 @@ const lnNotaVideo = ({ children, outputType, tree, isAdmin }) => {
                     </Static>
                 </div>
                 <LoadBannersSSR />
+                <PwaModals />
             </CommentsProvider>
         </GlobalProvider>
     );
