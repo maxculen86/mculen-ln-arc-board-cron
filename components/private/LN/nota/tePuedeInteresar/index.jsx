@@ -1,8 +1,10 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-console */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
 import CajaTema from '../../common/cajaTema';
+import LnCLientWarning from '../../../common/utils/LN-logs/LN-client-warning';
 
 /**
  * Este componente se mantiene en clase debido a que se necesita hacer uso
@@ -22,7 +24,10 @@ class Index extends Component {
             outputType,
             url,
             idArticle,
-            arcSite
+            arcSite,
+            type,
+            layout,
+            template
         } = props;
 
         this.state = {
@@ -49,6 +54,29 @@ class Index extends Component {
             if (response && response.length) {
                 this.setState({ articles: response });
                 this.registerActivity('widget_shown', response);
+            }
+
+            if (!response.length) {
+                LnCLientWarning({
+                    message: 'Respuesta de Liftigniter llega sin notas',
+                    customsProps: {
+                        source: 'content/source/liftigniterSource',
+                        type,
+                        layout,
+                        template,
+                        query: {
+                            cantidadNotas,
+                            referrer: url,
+                            imageConfig: 'm',
+                            idArticle,
+                            userId,
+                            sessionId,
+                            excludeItems,
+                            arcSite,
+                            action: 'model'
+                        }
+                    }
+                });
             }
         });
 
