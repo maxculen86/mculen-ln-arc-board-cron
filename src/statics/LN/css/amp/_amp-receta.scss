@@ -1,6 +1,7 @@
 @import '../components/com-ordered';
 @import '../components/com-unordered';
 @import '../components/com-date';
+@import '../components/com-hour';
 @import '../components/com-paragraph';
 @import '../components/author';
 @import '../components/tip';
@@ -13,6 +14,7 @@
 @import '../modules/mod-headersection';
 @import '../modules/mod-commentamp';
 @import '../components/mod-description';
+@import '../components/table';
 
 // MANTENER SIEMPRE AL FINAL
 @import './amp-basic';

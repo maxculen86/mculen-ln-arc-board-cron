@@ -39,18 +39,19 @@ const imageCommon = image => {
 
             orderPattern(mediaA, mediaB);
         })
-        .map(key =>
+        .forEach((element, index) => {
             resp.parametros.push({
                 media: parseInt(
-                    resizedUrls[key].option.media.match(/\d+/)[0],
+                    resizedUrls[index].option.media.match(/\d+/)[0],
                     10
                 ),
-                ancho: resizedUrls[key].option.width,
-                firma: resizedUrls[key].resizedUrl.match(regex)
-                    ? resizedUrls[key].resizedUrl.replace(regex, '$1')
+                ancho: resizedUrls[index].option.width,
+                firma: resizedUrls[index].resizedUrl.match(regex)
+                    ? resizedUrls[index].resizedUrl.replace(regex, '$1')
                     : ''
-            })
-        );
+            });
+        });
+
     return resp;
 };
 

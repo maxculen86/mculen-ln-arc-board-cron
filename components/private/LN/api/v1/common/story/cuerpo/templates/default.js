@@ -1,5 +1,5 @@
 const defaultBody = (contentElements, components, storyId) => {
-    const resp = contentElements
+    return contentElements
         .filter(v => {
             const selectedComponent = components[v.type];
             if (selectedComponent) return true;
@@ -7,11 +7,8 @@ const defaultBody = (contentElements, components, storyId) => {
         })
         .map(v => {
             const selectedComponent = components[v.type];
-            const render = selectedComponent(v, storyId);
-            return render;
+            return selectedComponent(v, storyId);
         });
-
-    return resp;
 };
 
 export default defaultBody;

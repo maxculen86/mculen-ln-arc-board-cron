@@ -3,6 +3,8 @@ import React, { useRef, useState, useEffect, useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { MenuStore } from './store/menuContext';
 
+import Icon from '../../../../common/icon';
+
 const disableItem = _extraClass =>
     _extraClass && _extraClass.search('item--') !== -1 ? ' item--disabled' : '';
 
@@ -96,7 +98,7 @@ const ListMenu = ({
                     className="button__item"
                     onClick={() => showMenu(dispatch)(elRef)}
                 >
-                    <i className="icon-arrow-down" />
+                    <Icon name="arrow-down" />
                 </button>
             )}
             {getChilds(childs, onResizeDeskTop)}

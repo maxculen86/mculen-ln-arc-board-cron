@@ -70,6 +70,17 @@ const fetch = query => {
             if (forwardUrl && regExp.test(forwardUrl)) {
                 throw new Redirect(forwardUrl, 301);
             }
+
+            response &&
+                validateExclusiveAccess({
+                    contentCode:
+                        response.content_restrictions &&
+                        response.content_restrictions.content_code,
+                    meteringVariant: query.meteringVariant,
+                    host: SITE_LANACION,
+                    path: query.uri
+                });
+
             isNotShowcase(response) &&
                 paywallUtils.checkPaywall({
                     queryData: query,
