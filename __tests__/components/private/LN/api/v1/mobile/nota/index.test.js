@@ -21,14 +21,23 @@ describe('Test json integracion Article', () => {
         expect(resp.contenido.length).toBe(10);
         expect(resp.contenido[1]._t).toBe('banner');
         expect(resp.contenido[5]._t).toBe('banner');
-        expect(resp.contenido[8]._t).toBe('banner');
+        expect(resp.contenido[9]._t).toBe('banner');
     });
     it('Luego del 9no elemento/párrafo. Se dibuja si la nota tiene al menos 9 elementos.', () => {
         const resp = IndexNota(ArticleNineElements);
-        expect(resp.contenido.length).toBe(10);
+        expect(resp.contenido.length).toBe(13);
         expect(resp.contenido[1]._t).toBe('banner');
         expect(resp.contenido[5]._t).toBe('banner');
-        expect(resp.contenido[8]._t).toBe('banner');
-        expect(resp.contenido[10]._t).toBe('banner');
+        expect(resp.contenido[9]._t).toBe('banner');
+        expect(resp.contenido[12]._t).toBe('banner');
+    });
+    it('Luego del 11no elemento/párrafo. Se dibuja si la nota tiene al menos 11 elementos.', () => {
+        const resp = IndexNota(ArticleElevenElements);
+        expect(resp.contenido.length).toBe(16);
+        expect(resp.contenido[1]._t).toBe('banner');
+        expect(resp.contenido[5]._t).toBe('banner');
+        expect(resp.contenido[9]._t).toBe('banner');
+        expect(resp.contenido[12]._t).toBe('banner');
+        expect(resp.contenido[15]._t).toBe('banner');
     });
 });
