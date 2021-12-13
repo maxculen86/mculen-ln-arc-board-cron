@@ -4,7 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import get from 'lodash.get';
 
 const buildSpecialVideoCustomFields = count => {
-    let resp = {};
+    const resp = {};
     for (let i = 1; i <= count; i++) {
         Object.assign(resp, {
             [`idVideo${i}`]: PropTypes.string.tag({
@@ -18,7 +18,7 @@ const buildSpecialVideoCustomFields = count => {
 };
 
 const getSpecialVideoCustomFields = (count, props) => {
-    let resp = [];
+    const resp = [];
     for (let i = 1; i <= count; i++) {
         resp.push({
             idVideo: get(props, `customFields.idVideo${i}`, null)

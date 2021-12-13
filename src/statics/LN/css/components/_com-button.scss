@@ -31,9 +31,16 @@
         }
     }
 
+    path {
+        fill: $neutral-black;
+    }
+
     &:hover {
         background: transparent;
-        color: $ln;
+        color: $blue-500;
+        path {
+            fill: $blue-500;
+        }
     }
     &:active {
         background: $ln;
@@ -45,15 +52,17 @@
 
     //variantes
     &.--primary {
-        background: $light-blue-500;
-        border-color: $light-blue-500;
+        background: $blue-500;
+        border-color: $blue-500;
         color: $light-neutral-50;
-
+        path {
+            fill: $light-neutral-50;
+        }
         &:hover {
-            background: $light-blue-400;
+            background: $blue-400;
         }
         &:active {
-            background: $light-blue-600;
+            background: $blue-600;
         }
         &:disabled {
             background: $light-neutral-400;
@@ -61,16 +70,19 @@
     }
     &.--secondary {
         background: $neutral-white;
-        border-color: $light-blue-500;
-        color: $light-blue-500;
+        border-color: $blue-500;
+        color: $blue-500;
         &:hover {
-            background: $light-blue-400;
-            border-color: $light-blue-400;
+            background: $blue-400;
+            border-color: $blue-400;
             color: $light-neutral-50;
+            path {
+                fill: $light-neutral-50;
+            }
         }
         &:active {
-            background: $light-blue-600;
-            border-color: $light-blue-600;
+            background: $blue-600;
+            border-color: $blue-600;
             color: $light-neutral-50;
         }
         &:disabled {
@@ -101,14 +113,16 @@
         background: $light-neutral-200;
         border-color: $light-neutral-200;
         color: $light-neutral-800;
-
+        path {
+            fill: $light-neutral-800;
+        }
         &:hover {
-            color: $light-blue-400;
+            color: $blue-400;
         }
         &:active {
             background: $light-neutral-400;
             border-color: $light-neutral-400;
-            color: $light-blue-400;
+            color: $blue-400;
         }
         &:disabled {
             background: $light-neutral-300;
@@ -121,11 +135,16 @@
         background: $yellow-500;
         border-color: $light-neutral-400;
         color: $neutral-black;
-
+        path {
+            fill: $neutral-black;
+        }
         &:hover {
             background: $neutral-black;
             border-color: $neutral-black;
             color: $light-neutral-50;
+            path {
+                fill: $light-neutral-50;
+            }
         }
         &:active {
             background: $neutral-black;
@@ -176,6 +195,15 @@
 
             &:hover {
                 background: rgba(0, 0, 0, 0.5);
+            }
+
+            .com-icon {
+                width: px(40);
+                height: px(40);
+
+                path {
+                    fill: $neutral-white;
+                }
             }
 
             @media ($media-m) {

@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import Static from 'fusion:static';
 import { isSubscribed } from '../../LN/common/utils/contextHelper';
+import Icon from '../icon';
 
 const DivBanner = props => {
     const {
@@ -46,7 +47,9 @@ const DivBanner = props => {
                     className="icon-close"
                     title="Cerrar publicidad"
                     onClick={() => ref.current.remove()}
-                />
+                >
+                    <Icon name="close" negative />
+                </button>
             )}
             <div id={id} className={`com-banner`} />
         </div>

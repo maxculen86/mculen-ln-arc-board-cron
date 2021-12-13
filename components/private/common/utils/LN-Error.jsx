@@ -1,7 +1,10 @@
 class LnError extends Error {
-    constructor(message, { customErrorType }) {
+    constructor(message, customsProps) {
+        const { customErrorType, url, contentSource } = customsProps;
         super(message);
         this.customErrorType = customErrorType;
+        this.url = url;
+        this.contentSource = contentSource;
     }
 }
 

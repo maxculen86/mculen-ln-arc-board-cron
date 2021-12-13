@@ -7,6 +7,7 @@ import Footer from '../../private/LN/common/footer';
 import Text from '../../private/common/text';
 import GlobalProvider from '../../private/common/context/globalContext';
 import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
+import PwaModals from '../../private/LN/common/pwaModals';
 
 const layoutItemsColumnistas = [
     'Pre-Apertura',
@@ -65,6 +66,7 @@ const LNAcumuladoColumnistasLayout = props => {
                 </Static>
             </div>
             <LoadBannersSSR />
+            <PwaModals />
         </GlobalProvider>
     );
 };

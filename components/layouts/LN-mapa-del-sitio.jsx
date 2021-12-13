@@ -4,6 +4,7 @@ import List from '../private/common/mod-list';
 import Logo from '../private/common/com-logo';
 import Title from '../private/common/com-title';
 import Copyright from '../private/LN/common/footer/copyright';
+import PwaModals from '../private/LN/common/pwaModals';
 
 import '../../resources/dist/css/ln/pages/sitemap.css';
 
@@ -302,6 +303,7 @@ const LNMapaDelSitio = ({ children }) => {
                     </div>
                 </footer>
             </div>
+            <PwaModals />
         </>
     );
 };

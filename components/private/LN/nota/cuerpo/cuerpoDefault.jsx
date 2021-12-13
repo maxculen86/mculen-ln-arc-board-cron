@@ -5,7 +5,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
-// Body components
 import Paragraph from './parrafo';
 import PullQuote from './pullQuote';
 import BlockQuote from './blockQuote';
@@ -22,28 +21,14 @@ import Html from './html';
 import OptaAMP from './optaAMP';
 import powerUpsReceta from './powerUpsReceta';
 import HtmlAMP from './htmlAMP';
-// Banner
 import DivBannerSSR from '../../../common/banners/DivBannerSSR';
 import DivBannerAMP from '../../../common/banners/DivBannerAMP';
-// Utils
 import { setStorageConfiguration } from '../../../common/utils/storage';
 import { FOTOAL100 } from '../../../common/utils/subtypes/subtypeHelper';
 import {
     getBannerConfiguration,
     suffixDevice
 } from '../../common/utils/bannerHelper';
-
-// TODO: Borrar importaciones comentadas
-// import useViewportSize from '../../../common/hooks/useViewportSize';
-// import { GlobalContext } from '../../../common/context/globalContext';
-// import Banner from '../../common/bannerRefactor';
-// import ConfigBuilder from '../../common/bannerRefactor/builder';
-// import {
-//     getSlotForDevice,
-//     isPrimarySectionInBannerSegments
-// } from '../../common/bannerRefactor/utils';
-// import { slotsConfig } from '../../common/bannerRefactor/config';
-// import get from '../../../common/utils/get';
 
 const Cuerpo = props => {
     const { bannerConfig: banners, outputType, globalContent } = props;
@@ -74,8 +59,6 @@ const Cuerpo = props => {
         HtmlAMP
     ];
 
-    // TODO: Ver si este es el mejor lugar donde poner este script.
-    // Setea valores en el Local Storage solo del lado del cliente
     useEffect(() => {
         try {
             setStorageConfiguration(_id);
@@ -173,7 +156,6 @@ const Cuerpo = props => {
                             banners
                                 .filter(banner => banner.position === counter)
                                 .map(value => {
-                                    // TODO: logica para nuevo banner
                                     const slotId =
                                         value.desktop ||
                                         value.mobile ||

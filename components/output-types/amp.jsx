@@ -104,10 +104,7 @@ const Amp = props => {
         <html amp={String.fromCodePoint(9889)} lang="es">
             <head>
                 <meta charset="utf-8" />
-                <meta
-                    name="viewport"
-                    content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
-                />
+                <meta name="viewport" content="width=device-width" />
                 <meta name="theme-color" content="#ffffff" />
                 <MetaTitle
                     subtype={subtype}

@@ -124,12 +124,21 @@
         &::before {
             position: relative;
             left: auto;
-            letter-spacing: normal;
-            text-decoration: none;
-            margin-right: px(2);
-            font-family: $font-icons;
-            content: '\e944';
-            font-size: px(11);
+            // letter-spacing: normal;
+            // text-decoration: none;
+            // margin-right: px(2);
+            // font-family: $font-icons;
+            // content: '\e944';
+            // font-size: px(11);
+
+            display: block;
+            content: '';
+            background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMiAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyLjQxNDIgMTguNTgxNkMxMS42MzM1IDE5LjM2NDYgMTAuMzY1NiAxOS4zNjU2IDkuNTgzNzEgMTguNTgzN0wxLjgwOCAxMC44MDhDLTAuMzcxOTk3IDguMjQwMDEgLTAuMjU3OTk3IDQuMzg4MDEgMi4xNjEgMS45NjgwMUMzLjMyMTAyIDAuODA4MDE4IDQuODc2NzUgMC4xMjk1NTYgNi41MTYxMSAwLjA2ODcyMTdDOC4xNTU0NyAwLjAwNzg4NzggOS43NTcyMSAwLjU2OTE4MiAxMSAxLjY0MDAxQzEyLjI0MTUgMC41NjkxODMgMTMuODQxOSAwLjAwNzA5MzA0IDE1LjQ4MDMgMC4wNjYzNzIzQzE3LjExODggMC4xMjU2NTIgMTguNjc0MyAwLjgwMTkyIDE5LjgzNTMgMS45NTk2NkMyMC45OTYyIDMuMTE3NDEgMjEuNjc2NyA0LjY3MTEgMjEuNzQwNCA2LjMwOTM5QzIxLjgwNDIgNy45NDc2OSAyMS4yNDY0IDkuNTQ5NTYgMjAuMTc5IDEwLjc5NEwxMi40MTQyIDE4LjU4MTZaTTE4LjY2MiA5LjQ5MTAxQzE5LjQwMDggOC42Mjk0MSAxOS43ODY4IDcuNTIwNDUgMTkuNzQyNiA2LjM4NjMxQzE5LjY5ODMgNS4yNTIxNyAxOS4yMjcyIDQuMTc2NjQgMTguNDIzNSAzLjM3NTIxQzE3LjYxOTggMi41NzM3OCAxNi41NDI5IDIuMTA1NjYgMTUuNDA4NiAyLjA2NDY0QzE0LjI3NDQgMi4wMjM2MiAxMy4xNjY1IDIuNDEyNzMgMTIuMzA3IDMuMTU0MDFMMTEgNC4yODIwMUw5LjY5MyAzLjE1NDAxQzguODMzNTEgMi40MTI3MyA3LjcyNTY0IDIuMDIzNjIgNi41OTEzOCAyLjA2NDY0QzUuNDU3MTIgMi4xMDU2NiA0LjM4MDI2IDIuNTczNzggMy41NzY1NSAzLjM3NTIxQzIuNzcyODUgNC4xNzY2NCAyLjMwMTY3IDUuMjUyMTcgMi4yNTc0NCA2LjM4NjMxQzIuMjEzMiA3LjUyMDQ1IDIuNTk5MTcgOC42Mjk0MSAzLjMzOCA5LjQ5MTAxTDMuNDUyIDkuNjIzMDFMMTEgMTcuMTcyTDE4LjU0OCA5LjYyMzAxTDE4LjY2MiA5LjQ5MTAxWiIgZmlsbD0iIzI3MjcyNyIvPgo8L3N2Zz4K);
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: px(11);
+            height: px(11);
+            margin-right: px(3);
         }
         svg {
             display: none;
@@ -166,8 +175,8 @@
     .vf-content-focus-container--default {
         .vf-button.is-cta {
             &.is-accent-color:not([disabled]) {
-                background-color: $light-blue-500;
-                border-color: $light-blue-500;
+                background-color: $blue-500;
+                border-color: $blue-500;
             }
             .vf-loader-button__content {
                 text-indent: -9999999px;
@@ -202,8 +211,8 @@
 
             &:hover,
             &.is-inverted {
-                border-color: $light-blue-500;
-                color: $light-blue-500;
+                border-color: $blue-500;
+                color: $blue-500;
             }
             svg {
                 fill: white;

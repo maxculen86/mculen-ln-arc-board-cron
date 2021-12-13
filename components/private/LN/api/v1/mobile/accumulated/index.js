@@ -28,6 +28,7 @@ const banners = acuData => {
         return r;
     }, []);
 };
+
 const index = acuData => {
     const resp = {
         tipoSeccion: 'acumulado',
@@ -41,7 +42,10 @@ const index = acuData => {
         resp.notas = acuData.articles.reduce((result, f) => {
             try {
                 if (f) {
-                    const article = articleItem(f);
+                    const article = articleItem({
+                        ...f,
+                        storyType: 'accumulated'
+                    });
                     result.push(article);
                 }
             } catch (ex) {

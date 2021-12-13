@@ -100,8 +100,6 @@ const moveSections = (sections, name) => {
                         break;
                 }
             }
-        } else {
-            sections.splice(indexSectionFrom, 1);
         }
     }
 
@@ -123,15 +121,12 @@ const getHomeElements = props => {
                         child.reduce((res, b) => {
                             if (b) {
                                 if (b.information && !b.information.hideCaja) {
-                                    const addedInfo = {
-                                        ...b,
-                                        configurations,
-                                        nameFeature: e
-                                    };
                                     return res.concat({
                                         type: 0,
                                         feature: homeMobileSections[i],
-                                        ...addedInfo
+                                        ...b,
+                                        configurations,
+                                        nameFeature: e
                                     });
                                 }
                                 if (b.feature) {
@@ -155,7 +150,6 @@ const getHomeElements = props => {
 
 const LNMainHome = props => {
     const homeSections = getHomeElements(props);
-
     return home(homeSections) || [];
 };
 

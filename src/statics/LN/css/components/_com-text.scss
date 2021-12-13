@@ -69,11 +69,21 @@
     &.--tooltip {
         display: flex;
         padding: 0;
-        line-height: px(1);
+        padding-left: px(24);
         &:hover {
             cursor: pointer;
             .com-container {
                 visibility: visible;
+            }
+        }
+        .com-breadcrumb & {
+            &:before {
+                content: '•';
+                height: fit-content;
+                display: block;
+                position: absolute;
+                left: px(10);
+                color: $light-neutral-400;
             }
         }
     }

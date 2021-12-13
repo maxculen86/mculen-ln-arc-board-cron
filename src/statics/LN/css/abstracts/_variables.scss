@@ -112,16 +112,6 @@ $icon-zoom: '\e98a';
 //=======================================
 // Colores
 //=======================================
-$light-blue-100: #e8f5ff;
-$light-blue-200: #bee4ff;
-$light-blue-300: #67a3ff;
-$light-blue-400: #126fff;
-$light-blue-500: #0250c9;
-$light-blue-600: #006998;
-$light-blue-700: #00547a;
-$light-blue-800: #003f5b;
-$light-blue-900: #002a3d;
-
 $neutral-white: #fff;
 $light-neutral-50: #fefefe;
 $light-neutral-100: #f7f7f4;
@@ -134,6 +124,16 @@ $light-neutral-700: #333;
 $light-neutral-800: #272727;
 $light-neutral-900: #1c1c1f;
 $neutral-black: #000;
+
+$blue-100: #e7f0ff;
+$blue-200: #bee4ff;
+$blue-300: #41b1ff;
+$blue-400: #126fff;
+$blue-500: #0250c9;
+$blue-600: #006998;
+$blue-700: #00547a;
+$blue-800: #003f5b;
+$blue-900: #002a3d;
 
 $yellow-100: #ffffe5;
 $yellow-200: #ffffb8;
@@ -205,15 +205,6 @@ $green-700: #22b120;
 $green-800: #22b120;
 $green-900: #036002;
 
-//=======================================
-// Colores Dark Mode
-//=======================================
-$dark-blue-100: #d5ffff;
-$dark-blue-200: #d5ffff;
-$dark-blue-300: #b7e9ff;
-$dark-blue-400: #70d3ff;
-$dark-blue-500: #22b8ff;
-
 $dark-neutral-50: #1c1c1f;
 $dark-neutral-100: #272727;
 $dark-neutral-200: #333;
@@ -257,8 +248,8 @@ $exclusivo: #d1c4e9;
 $highlight: #ffff24;
 $highlight-active: #f5cb12;
 $bullet: #42b2ff;
-$link: $light-blue-500;
-$ln: $light-blue-500;
+$link: $blue-500;
+$ln: $blue-500;
 $ln-active: #006998;
 
 $ohlala: $pink-500;
@@ -268,7 +259,7 @@ $hola: #bf0811;
 $jardin: #d46418;
 $lugares: #009c9a;
 $rolling: $red-700;
-$propiedades: $light-blue-500;
+$propiedades: $blue-500;
 $bbc: #bb1919;
 $lnmas: #322d61;
 $deportes: #0d880c;
@@ -281,8 +272,8 @@ $afondo: $red-400;
 $sponsor: #d83e2c;
 $campo: #00c48f;
 
-$info: $light-blue-800;
-$light-info: $dark-blue-300;
+$info: $blue-800;
+$light-info: $blue-200;
 $success: #10703c;
 $light-success: #cfedda;
 $warning: #8a6913;

@@ -15,6 +15,7 @@ import get from '../private/common/utils/get';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import { formatText } from '../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
+import PwaModals from '../private/LN/common/pwaModals';
 
 const pageBuilderSections = [
     'Banner-Megatop',
@@ -61,7 +62,7 @@ const LNAcumuladoLayout = props => {
         isAdmin,
         renderables
     } = props;
-    const { style, name = '', node_type: nodeType } = globalContent;
+    const { style, name = '', node_type: nodeType } = globalContent || {};
     const sectionStyleName =
         style && style.section_style_name ? style.section_style_name : '';
     const classRevista =
@@ -187,6 +188,7 @@ const LNAcumuladoLayout = props => {
                     </Static>
                 </div>
                 <LoadBannersSSR />
+                <PwaModals />
             </GlobalProviderAcu>
         </GlobalProvider>
     );

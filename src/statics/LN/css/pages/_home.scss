@@ -200,7 +200,7 @@
                             left: 0;
                             right: 0;
                             margin: auto;
-                            color: $light-blue-500;
+                            color: $blue-500;
                             font-size: px(12);
                             line-height: px(16);
                         }
@@ -676,7 +676,7 @@ $rank-dsk: px(400);
                 }
             }
             .mod-description {
-                background: $light-blue-500;
+                background: $blue-500;
                 padding: px(8) px(16);
                 width: calc(100% + 2rem);
                 margin-left: -1rem;
@@ -693,7 +693,7 @@ $rank-dsk: px(400);
         }
         &.--blue {
             .mod-description {
-                background: $light-blue-500;
+                background: $blue-500;
             }
         }
 
@@ -854,11 +854,15 @@ $rank-dsk: px(400);
                         display: inline-flex;
                         color: $light-neutral-700;
                         font-weight: 500;
+                        position: relative;
+                        padding-left: px(24);
                         &:before {
-                            font-family: $font-icons;
+                            content: '•';
+                            height: fit-content;
+                            display: block;
+                            position: absolute;
+                            left: px(10);
                             color: $light-neutral-400;
-                            content: $icon-bullet-xs;
-                            font-size: px(24);
                         }
                     }
                 }
@@ -1010,15 +1014,15 @@ $rank-dsk: px(400);
         }
 
         &.--bgblue {
-            background: $light-blue-100;
+            background: $blue-100;
             .mod-headersection.--bg {
-                background: $light-blue-500;
+                background: $blue-500;
             }
             .mod-article {
                 .mod-description {
                     //.com-link.com-link:hover,
                     .com-lead {
-                        color: $light-blue-500;
+                        color: $blue-500;
                     }
                 }
             }
@@ -1127,7 +1131,7 @@ $rank-dsk: px(400);
                     color: $light-neutral-800;
                 }
                 .com-lead {
-                    color: $light-blue-500;
+                    color: $blue-500;
                 }
                 .mod-marquee {
                     color: $dark-neutral-200;

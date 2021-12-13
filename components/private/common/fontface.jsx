@@ -3,12 +3,9 @@ import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 
 export const getStyleFontsInLine = ({ contextPath, deployment }) => `
-@font-face {font-family:'LNicons';src:url('${deployment(
-    `${contextPath}/resources/fonts/lana-icons-v1.woff`
-)}') format('woff');font-weight: normal;font-style: normal;font-display: swap;}
 @font-face {font-family:'LNlogos';src:url('${deployment(
     `${contextPath}/resources/fonts/lana-logos-v1.woff`
-)}') format('woff');font-weight: normal;font-style: normal;font-display: swap;}
+)}') format('woff');font-weight: normal;font-style: normal;font-display: optional;}
 `;
 
 const FontFace = props => {
@@ -17,14 +14,6 @@ const FontFace = props => {
 
     return (
         <>
-            <link
-                rel="preload"
-                href={deployment(
-                    `${contextPath}/resources/fonts/lana-icons-v1.woff`
-                )}
-                as="font"
-                crossorigin="anonymous"
-            />
             <link
                 rel="preload"
                 href={deployment(
@@ -50,3 +39,15 @@ FontFace.propTypes = {
 };
 
 export default FontFace;
+
+// @font-face {font-family:'LNicons';src:url('${deployment(
+//     `${contextPath}/resources/fonts/lana-icons-v1.woff`
+// )}') format('woff');font-weight: normal;font-style: normal;font-display: swap;}
+// <link
+//     rel="preload"
+//     href={deployment(
+//         `${contextPath}/resources/fonts/lana-icons-v1.woff`
+//     )}
+//     as="font"
+//     crossorigin="anonymous"
+// />

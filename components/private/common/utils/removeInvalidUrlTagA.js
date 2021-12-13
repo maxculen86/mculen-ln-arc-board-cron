@@ -39,7 +39,8 @@ const isValidUrlTagA = (contentElements, arcSite, url, API_ENV) => {
             getErrors: current => {
                 return (
                     (!new RegExp(
-                        /^(http|https|:\/\/|\.|@){2,}(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\S*:\w*@)*([a-zA-Z]|(\d{1,3}|\.){7}){1,}(\w|\.{2,}|\.[a-zA-Z]{2,3}|\/|\?|&|:\d|@|=|\/|\(.*\)|#|-|%)*$/,
+                        '^(http|https|:\\/\\/|\\.|@){2,}(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}|\\S*:\\w*@)*([a-zA-Z]|(\\d{1,3}|\\.){7}){1,}' +
+                            '(\\w|\\.{2,}|\\.[a-zA-Z]{2,3}|\\/|\\?|&|:\\d|@|=|\\/|\\(.*\\)|#|-|%)*$',
                         'gim'
                     ).test(current.url) && [current.url]) ||
                     []

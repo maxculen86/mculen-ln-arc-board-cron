@@ -55,7 +55,10 @@ export const authorHomeMobile = author => {
     const image = getImageUrl(
         get(author, 'image.resized_urls[0].resizedUrl', null)
     );
-    const absoluteUrl = get(author, 'image.resized_urls[0].resizedUrl', null);
+    const absoluteUrl =
+        get(author, 'image.resized_urls[0].resizedUrl', null) ||
+        get(author, 'image.url', null);
+
     const resp = {
         ...authorData,
         tipo: authorData.slug ? 1 : 2,

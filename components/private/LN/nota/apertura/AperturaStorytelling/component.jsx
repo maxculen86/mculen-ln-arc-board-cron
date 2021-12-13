@@ -42,7 +42,7 @@ const Component = props => {
                     classCondition=""
                     srcset={srcset || ''}
                     src={src || ''}
-                    alt={altText || ''}
+                    alt={caption || altText || ''}
                     video={video || ''}
                     amp={outputType === 'amp'}
                     sizes={sizes}

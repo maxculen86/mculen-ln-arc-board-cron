@@ -8,6 +8,7 @@ import GlobalProvider from '../private/common/context/globalContext';
 import { CommentsProvider } from '../private/common/context/commentsContext';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
+import PwaModals from '../private/LN/common/pwaModals';
 
 const lnNotaNoticia = ({
     children: [bannerMegatop, bottom, bottomTercera],
@@ -51,6 +52,7 @@ const lnNotaNoticia = ({
                     </main>
                 </div>
                 <LoadBannersSSR />
+                <PwaModals />
             </CommentsProvider>
         </GlobalProvider>
     );
