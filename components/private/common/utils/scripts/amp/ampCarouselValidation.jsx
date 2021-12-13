@@ -5,9 +5,7 @@ const ampCarouselValidator = globalContent => {
 
     const { content_elements: contentElements = [] } = globalContent;
 
-    const loadCarousel = galleryInElements(contentElements) > 0;
-
-    return loadCarousel;
+    return galleryInElements(contentElements) > 0;
 };
 
 export default ampCarouselValidator;

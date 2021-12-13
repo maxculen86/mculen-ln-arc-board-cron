@@ -7,13 +7,11 @@ const videoThumbnail = thumbnail => {
 
     if (!src) return null;
 
-    const resp = {
+    return {
         _t: 'mmi',
         orden: 0,
         src
     };
-
-    return resp;
 };
 
 export default videoThumbnail;

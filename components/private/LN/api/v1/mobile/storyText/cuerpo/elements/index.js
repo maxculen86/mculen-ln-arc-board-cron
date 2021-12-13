@@ -1,7 +1,6 @@
 import get from 'lodash.get';
-import defaultCuerpo from './templates/default';
-import recetaCuerpo from './templates/receta';
-import htmlCuerpo from './templates/htmlLibre';
+import defaultCuerpo from '../../../../common/story/cuerpo/templates/default';
+import recetaCuerpo from '../../../../common/story/cuerpo/templates/receta';
 
 const getStoryElementBySubtype = storyBodyElements => {
     const {
@@ -17,7 +16,7 @@ const getStoryElementBySubtype = storyBodyElements => {
         Button
     } = storyBodyElements;
 
-    return {
+    const storyElementBySubtype = {
         1: {
             text: Text,
             header: Header,
@@ -44,33 +43,21 @@ const getStoryElementBySubtype = storyBodyElements => {
         },
         8: { text: Text, image: Image }
     };
+
+    return storyElementBySubtype;
 };
 
-const getInfographicElement = (infographic, subtype, contentElements) => {
-    if (!contentElements) throw new Error('The story does not have body');
-
-    if (subtype === '2' && infographic) {
-        contentElements.unshift(infographic);
-    }
-    return contentElements;
-};
-
-const storyBody = (dataNota, storyBodyElements) => {
+const storyBodyElements = (dataNota, storyBodyElements) => {
     const { id } = dataNota;
     const subtype = get(dataNota, 'subtype', '');
     if (!subtype) throw Error('The story does not have subtype');
 
     const elementBySubtype = getStoryElementBySubtype(storyBodyElements);
-    const contentElements = getInfographicElement(
-        get(dataNota, 'promo_items.basic', ''),
-        subtype,
-        get(dataNota, 'content_elements', '')
-    );
+    const contentElements = get(dataNota, 'content_elements', '');
 
     const templates = {
         '7': recetaCuerpo,
-        '8': defaultCuerpo,
-        '9': htmlCuerpo
+        '8': defaultCuerpo
     }[subtype];
 
     return templates
@@ -78,4 +65,4 @@ const storyBody = (dataNota, storyBodyElements) => {
         : defaultCuerpo(contentElements, elementBySubtype[1], id);
 };
 
-export default storyBody;
+export default storyBodyElements;
