@@ -25,7 +25,7 @@ const urlForPrerollAds = device => {
     const url = encodeURIComponent(`${SITE_LANACION}${requestUri}`);
     // TODO: por ahora esta hardcodeado "Nota" en la url. Ver si hace falta hacer
     // alguna logica para completar ese campo
-    const adsURL = withPrerolAds
+    return withPrerolAds
         ? `https://pubads.g.doubleclick.net/gampad/ads?slotname=/133919216/la_nacion_${device}/Nota/preroll_${
               deviceResolution[device]
           }&sz=640x480|400x300&ciu_szs=300x250&unviewed_position_start=1&output=vast&impl=s&env=vp&gdfp_req=1&ad_rule=0&vad_type=linear&vpos=preroll&cust_params=section%3D${
@@ -34,8 +34,6 @@ const urlForPrerollAds = device => {
               url // eslint-disable-next-line prettier/prettier
           }&video_doc_id=short_onecue&cmsid=496&kfa=0&tfcd=0&correlator=${new Date().getTime()}`
         : '';
-
-    return adsURL;
 };
 
 export default urlForPrerollAds;
