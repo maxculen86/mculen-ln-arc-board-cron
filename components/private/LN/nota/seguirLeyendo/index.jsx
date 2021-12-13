@@ -12,11 +12,9 @@ const getContent = element => {
               `${element.label.volanta.text}`
             : '';
 
-    const content = element.headlines.mobile
+    return element.headlines.mobile
         ? `${span} ${element.headlines.mobile}`
         : element.headlines.basic;
-
-    return content;
 };
 
 const Index = ({ relatedContent = [] }) => {

@@ -17,7 +17,7 @@ const getStoryElementBySubtype = storyBodyElements => {
         Button
     } = storyBodyElements;
 
-    const storyElementBySubtype = {
+    return {
         1: {
             text: Text,
             header: Header,
@@ -44,8 +44,6 @@ const getStoryElementBySubtype = storyBodyElements => {
         },
         8: { text: Text, image: Image }
     };
-
-    return storyElementBySubtype;
 };
 
 const getInfographicElement = (infographic, subtype, contentElements) => {

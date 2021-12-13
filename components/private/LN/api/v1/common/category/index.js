@@ -1,18 +1,16 @@
 const getPrincipalCategory = section => {
     if (!section) return null;
-    const resp = getCategory(section);
-    return resp;
+    return getCategory(section);
 };
 
 const getSubCategory = section => {
     if (!section || !section._id) return null;
 
     const category = getCategory(section);
-    const resp = {
+    return {
         ...category,
         nivel: section._id.match(new RegExp('/', 'g')).length
     };
-    return resp;
 };
 
 const getCategory = section => {
