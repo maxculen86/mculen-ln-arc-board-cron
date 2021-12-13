@@ -25,9 +25,11 @@ const Share = props => {
         requestUri,
         globalContent: {
             headlines: { basic: title, mobile: mobileTitle },
-            comments: { display_comments: displayComments } = {}
+            comments: { display_comments: displayComments = true } = {}
         }
     } = props;
+
+    console.log('acaaaaaaaaaaa', displayComments);
 
     const { arcSite = 'la-nacion-ar' } = useAppContext() || {};
     const siteVars = getProperties(arcSite);
