@@ -21,7 +21,7 @@ const ComDolar = props => {
                 size={size}
                 title="Ir a notas de Dólar Hoy y Cotización"
             >
-                Dólar:
+                Dólar hoy:
             </ComLink>
             <ComText size={size}>BNA:</ComText>
             <span id="precioCompraBna" className={`precioDolar ${size}`}>
@@ -35,11 +35,11 @@ const ComDolar = props => {
                 classCondition="--blue"
                 dataEvent="LinkClick"
                 dataSection="MenuLN"
-                link="https://www.lanacion.com.ar/dolar-hoy/"
+                link="https://www.lanacion.com.ar/tema/dolar-blue-tid67294/"
                 size={size}
                 title="Ir a notas de Dólar blue"
             >
-                Blue:
+                Dólar Blue:
             </ComLink>
             <span id="precioCompraBlue" className={`precioDolar ${size}`}>
                 {precioCompraBlue ? `$${precioCompraBlue}` : '$00,00'}
