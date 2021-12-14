@@ -1,13 +1,14 @@
 import React from 'react';
-
+import { useFusionContext } from 'fusion:context';
 import ComLogo from '../../common/com-logo';
 import ComButton from '../../common/com-button';
 import Text from '../../common/text';
-
 import '../../../../resources/dist/css/ln/modules/modal.css';
 
 const PwaModals = () => {
-    return (
+    const { outputType } = useFusionContext();
+
+    return outputType === 'default' ? (
         <>
             <div
                 id="notificacion-modal-pwa"
@@ -77,7 +78,7 @@ const PwaModals = () => {
                 </div>
             </div>
         </>
-    );
+    ) : null;
 };
 
 export default PwaModals;

@@ -63,7 +63,7 @@ const Cuerpo = props => {
         try {
             setStorageConfiguration(_id);
         } catch (e) {
-            console.error('Error en setear Local Storage');
+            console.error('Error en setear Local Storage:', e);
         }
     }, [_id]);
 
