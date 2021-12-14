@@ -4,6 +4,11 @@ import getProperties from 'fusion:properties';
 import NotFoundError from '../../../../content/sources/utils/notFoundError';
 import LnError from './LN-Error';
 
+const setLNError = ({ statusCode, message }) => {
+    const code = statusCode ? `${statusCode} - ` : '';
+    return [code, message].join(' ');
+};
+
 const logger = (() => {
     const push = (error, config, site) => {
         const { loggerExcludedErrors } = getProperties(site) || {
@@ -26,10 +31,7 @@ const logger = (() => {
 
         if (loggerExcludedErrors.includes(Number(statusCode))) throw error;
 
-        throw new LnError(
-            `${statusCode ? `${statusCode} - ` : ''}${message}`,
-            customsProps
-        );
+        throw new LnError(setLNError({ statusCode, message }), customsProps);
     };
 
     return {

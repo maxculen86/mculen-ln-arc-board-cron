@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import '../../../resources/dist/css/ln/components/com-icon.css';
-import Link from '../common/link';
+import Link from './link';
+import setIconClassName from './utils/setIconClassname';
 
 const Icon = ({ name, href, title, target, mod, rel, size, children }) => {
-    const className = `com-icon${name ? ` icon-${name}` : ``}${
-        href ? `` : ` ${mod || ``}`
-    } ${size || ``}`;
+    const className = setIconClassName({ name, href, mod, size });
 
     return (
         <>
@@ -28,6 +27,16 @@ const Icon = ({ name, href, title, target, mod, rel, size, children }) => {
     );
 };
 
+Icon.defaultProps = {
+    href: '',
+    target: '',
+    title: '',
+    mod: '',
+    rel: '',
+    size: '',
+    children: ''
+};
+
 Icon.propTypes = {
     name: PropTypes.string.isRequired,
     href: PropTypes.string,
@@ -35,7 +44,8 @@ Icon.propTypes = {
     title: PropTypes.string,
     mod: PropTypes.string,
     rel: PropTypes.string,
-    size: PropTypes.string
+    size: PropTypes.string,
+    children: PropTypes.string
 };
 
 export default Icon;

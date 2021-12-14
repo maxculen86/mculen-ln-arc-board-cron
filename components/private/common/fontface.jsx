@@ -3,13 +3,10 @@ import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 
 export const getStyleFontsInLine = ({ contextPath, deployment }) => `
-@font-face {font-family:'LNicons';src:url('${deployment(
-    `${contextPath}/resources/fonts/lana-icons-v1.woff`
-)}') format('woff');font-weight: normal;font-style: normal;font-display: swap;}
 @font-face {font-family:'LNlogos';src:url('${deployment(
     `${contextPath}/resources/fonts/lana-logos-v1.woff`
-)}') format('woff');font-weight: normal;font-style: normal;font-display: swap;}
-`;
+)}') format('woff');font-weight: normal;font-style: normal;font-display: optional;}
+`; // NOSONAR
 
 const FontFace = props => {
     const { outputType } = props;
@@ -23,7 +20,7 @@ const FontFace = props => {
                     `${contextPath}/resources/fonts/lana-icons-v1.woff`
                 )}
                 as="font"
-                crossorigin="anonymous"
+                crossOrigin="anonymous"
             />
             <link
                 rel="preload"
@@ -31,8 +28,8 @@ const FontFace = props => {
                     `${contextPath}/resources/fonts/lana-logos-v1.woff`
                 )}
                 as="font"
-                onload="this.onload=null;this.rel='stylesheet'"
-                crossorigin="anonymous"
+                onLoad="this.onload=null;this.rel='stylesheet'"
+                crossOrigin="anonymous"
             />
             {outputType === 'default' && (
                 <style
