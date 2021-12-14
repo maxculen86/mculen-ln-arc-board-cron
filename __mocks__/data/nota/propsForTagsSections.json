@@ -1,0 +1,183 @@
+{
+    "nota": {
+        "destacado": true,
+        "temas": true,
+        "tags": [
+            {
+                "description": "cebada",
+                "slug": "cebada-tid48666",
+                "text": "cebada"
+            },
+            {
+                "description": "cebolla",
+                "slug": "cebolla-tid47174",
+                "text": "cebolla"
+            },
+            {
+                "description": "carne de estofado",
+                "slug": "carne-de-estofado-tid48386",
+                "text": "carne de estofado"
+            },
+            {
+                "description": "palta",
+                "slug": "palta-tid47281",
+                "text": "palta"
+            }
+        ],
+        "sections": [
+            {
+                "_id": "/deportes/futbol/boca-juniors",
+                "_website": "la-nacion-ar",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": ["/", "/deportes", "/deportes/futbol"]
+                        },
+                        "migration": {
+                            "id_section_ln9": "7249",
+                            "migrated_mob": "false"
+                        }
+                    }
+                },
+                "name": "Boca Juniors",
+                "parent_id": "/deportes/futbol",
+                "path": "/deportes/futbol/boca-juniors",
+                "type": "section"
+            },
+            {
+                "_id": "/deportes",
+                "_website": "la-nacion-ar",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": ["/"]
+                        },
+                        "migration": {
+                            "id_section_ln9": "131",
+                            "migrated_mob": "false"
+                        }
+                    }
+                },
+                "name": "Deportes",
+                "parent_id": "/",
+                "path": "/deportes",
+                "type": "section"
+            },
+            {
+                "_id": "/deportes/ajedrez",
+                "_website": "la-nacion-ar",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": ["/", "/deportes"]
+                        },
+                        "migration": {
+                            "id_section_ln9": "7372",
+                            "migrated_mob": "false"
+                        }
+                    }
+                },
+                "name": "Ajedrez",
+                "parent_id": "/deportes",
+                "path": "/deportes/ajedrez",
+                "type": "section"
+            },
+            {
+                "_id": "/deportes/boxeo",
+                "_website": "la-nacion-ar",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": ["/", "/deportes"]
+                        },
+                        "migration": {
+                            "id_section_ln9": "217",
+                            "migrated_mob": "false"
+                        }
+                    }
+                },
+                "name": "Boxeo",
+                "parent_id": "/deportes",
+                "path": "/deportes/boxeo",
+                "type": "section"
+            },
+            {
+                "_id": "/deportes/futbol/argentinos-juniors",
+                "_website": "la-nacion-ar",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": ["/", "/deportes", "/deportes/futbol"]
+                        },
+                        "migration": {
+                            "id_section_ln9": "7246",
+                            "migrated_mob": "false"
+                        }
+                    }
+                },
+                "name": "Argentinos Juniors",
+                "parent_id": "/deportes/futbol",
+                "path": "/deportes/futbol/argentinos-juniors",
+                "type": "section"
+            },
+            {
+                "_id": "/deportes/futbol",
+                "_website": "la-nacion-ar",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": ["/", "/deportes"]
+                        },
+                        "migration": {
+                            "id_section_ln9": "140",
+                            "migrated_mob": "true"
+                        }
+                    }
+                },
+                "name": "Fútbol",
+                "parent_id": "/deportes",
+                "path": "/deportes/futbol",
+                "type": "section"
+            },
+            {
+                "_id": "/deportes/futbol/atletico-tucuman",
+                "_website": "la-nacion-ar",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": ["/", "/deportes", "/deportes/futbol"]
+                        },
+                        "migration": {
+                            "id_section_ln9": "7352",
+                            "migrated_mob": "false"
+                        }
+                    }
+                },
+                "name": "Atlético Tucumán",
+                "parent_id": "/deportes/futbol",
+                "path": "/deportes/futbol/atletico-tucuman",
+                "type": "section"
+            }
+        ]
+    },
+    "receta": {
+        "destacado": false,
+        "tags": [
+            {
+                "description": "cous cous",
+                "slug": "cous-cous-tid47203",
+                "text": "cous cous"
+            },
+            {
+                "description": "Soja la que se planta y te pega",
+                "slug": "soja",
+                "text": "Soja"
+            },
+            {
+                "description": "cebolla de verdeo",
+                "slug": "cebolla-de-verdeo-tid47175",
+                "text": "cebolla de verdeo"
+            }
+        ]
+    }
+}
