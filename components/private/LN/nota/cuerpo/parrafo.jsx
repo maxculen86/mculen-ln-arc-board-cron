@@ -29,6 +29,14 @@ const Parrafo = ({ data, capital, size, classCondition }) => {
     const setItalicText = text =>
         text && text.replace(/<i>/g, '<em>').replace(/<\/i>/g, '</em>');
 
+    const deleteTagsForTitle = text =>
+        text &&
+        text
+            .replace(/<em>/g, '')
+            .replace(/<\/em>/g, '')
+            .replace(/<strong>/g, '')
+            .replace(/<\/strong>/g, '');
+
     const setExternalLinks = text =>
         text &&
         text.replace(
@@ -40,11 +48,7 @@ const Parrafo = ({ data, capital, size, classCondition }) => {
                     '#'
                 ];
                 let target = '_self';
-                let title = string
-                    .replace(/<em>/g, '')
-                    .replace(/<\/em>/g, '')
-                    .replace(/<strong>/g, '')
-                    .replace(/<\/strong>/g, '');
+
                 if (!href.includes(config.host)) {
                     target = '_blank';
                 }
@@ -55,7 +59,7 @@ const Parrafo = ({ data, capital, size, classCondition }) => {
                         {
                             link,
                             target,
-                            title: title
+                            title: deleteTagsForTitle(string)
                         },
                         string
                     )
