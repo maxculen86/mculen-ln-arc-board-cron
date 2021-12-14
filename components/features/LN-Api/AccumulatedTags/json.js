@@ -43,7 +43,8 @@ class AccumulatedTags {
                     author: null,
                     imageConfig: 'm',
                     size,
-                    page
+                    page,
+                    api: true
                 }
             }
         });

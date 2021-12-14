@@ -4,7 +4,7 @@ import { getTagId } from '../../../../../common/utils/getElementId';
 const getTag = dataTag => {
     if (!dataTag) return null;
 
-    const resp = {
+    return {
         id: getTagId(dataTag.slug),
         slug: dataTag.slug,
         valor: dataTag.text,
@@ -12,8 +12,6 @@ const getTag = dataTag => {
         formatoId: 1,
         tipoDescripcion: 'Topico'
     };
-
-    return resp;
 };
 
 const getFeaturedTag = dataArticle => {

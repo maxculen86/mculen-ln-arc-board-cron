@@ -55,15 +55,13 @@ const transform = (data, url) => {
     const { idRawHtml } = getRawIdAndNoteId(url);
     const contentElements = get(data, 'content_elements', []);
     const aperturaMultimedia = get(data, 'promo_items.apertura_multimedia', {});
-    const resp = {
+    return {
         content_elements:
             contentElements.find(
                 elem => elem.type === 'raw_html' && elem._id === idRawHtml
             ) ||
             (aperturaMultimedia._id === idRawHtml && aperturaMultimedia)
     };
-
-    return resp;
 };
 
 export default {

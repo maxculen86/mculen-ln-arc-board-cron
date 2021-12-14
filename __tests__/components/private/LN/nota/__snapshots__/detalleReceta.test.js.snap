@@ -67,7 +67,7 @@ exports[`features - LaNacion - Nota - Detalle Receta Test de snapshot Detalle Re
       </i>
     </div>
     <div
-      class="portion-number col-10 col-tablet-11"
+      class="time-number col-10 col-tablet-11"
     >
       <span>
         Porciones:
@@ -76,6 +76,7 @@ exports[`features - LaNacion - Nota - Detalle Receta Test de snapshot Detalle Re
         >
           8
         </span>
+        min.
       </span>
     </div>
   </div>

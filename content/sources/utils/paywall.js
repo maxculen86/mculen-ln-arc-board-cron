@@ -7,7 +7,7 @@ export const addRandomParam = url => {
         Math.random()
             .toString(16)
             .substring(2, 8)
-    );
+    ); //NOSONAR
     return uri.toString();
 };
 

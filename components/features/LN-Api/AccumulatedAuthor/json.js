@@ -37,7 +37,8 @@ class AccumulatedAuthor {
                     tagId: null,
                     imageConfig: 'm',
                     size,
-                    page
+                    page,
+                    api: true
                 }
             }
         });

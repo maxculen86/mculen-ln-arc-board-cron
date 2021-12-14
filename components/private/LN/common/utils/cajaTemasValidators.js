@@ -74,7 +74,7 @@ export const validateChainManual = (
 };
 
 export const validateArticleFeature = (id, content) => {
-    const error =
+    return (
         (!id && {
             type: 'warning',
             message: 'El campo Id de la Nota es obligatorio.'
@@ -83,9 +83,8 @@ export const validateArticleFeature = (id, content) => {
             type: 'info',
             message: 'Cargando...'
         }) ||
-        null;
-
-    return error;
+        null
+    );
 };
 
 export const getCajaTemaConfig = (featureId, renderables, cajaTemaConfig) => {
@@ -170,12 +169,10 @@ export const getArticlesFromMyCurrentCollection = (
 
     if (!currentCollection) return [];
 
-    const articlesFiltered = currentCollection.articles
+    return currentCollection.articles
         ? currentCollection.articles.slice(
               initialPosition,
               initialPosition + notesQuantity
           )
         : [];
-
-    return articlesFiltered;
 };

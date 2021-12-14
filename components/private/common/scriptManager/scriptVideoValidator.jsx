@@ -15,13 +15,12 @@ const scriptVideoValidator = globalContent => {
     const typeBasic = get(basicPromoItems, 'type');
     const typeMultimedia = get(aperturaMultimediaPromoItems, 'type');
 
-    const loadVideo =
+    return (
         (videosBody(contentElements) > 0 ||
             typeMultimedia === 'video' ||
             typeBasic === 'video') &&
-        subtype !== FOTOAL100;
-
-    return loadVideo;
+        subtype !== FOTOAL100
+    );
 };
 
 scriptVideoValidator.propTypes = {

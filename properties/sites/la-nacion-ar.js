@@ -2303,15 +2303,6 @@ export default {
             appID: '205326199490321'
         }
     },
-    livefyre: {
-        siteId: '356483',
-        recetas: {
-            siteId: '362870',
-            sharedKey: 'DsbAQWcjxhc0MSBNnQnlcbs8ZC8='
-        },
-        sharedKey: 'Wi9J9hmEtpK9QRp5nY1SSSQ2FKE=',
-        network: 'la-nacion.fyre.co'
-    },
     firebase: {
         apiKey: 'AIzaSyCFxG5eKZiyU1DDlg7yZw4JzblfO6pc0m4',
         authDomain: 'lanacion-92a91.firebaseapp.com',
