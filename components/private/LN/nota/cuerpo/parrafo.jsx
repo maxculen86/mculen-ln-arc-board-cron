@@ -40,6 +40,11 @@ const Parrafo = ({ data, capital, size, classCondition }) => {
                     '#'
                 ];
                 let target = '_self';
+                let title = string
+                    .replace(/<em>/g, '')
+                    .replace(/<\/em>/g, '')
+                    .replace(/<strong>/g, '')
+                    .replace(/<\/strong>/g, '');
                 if (!href.includes(config.host)) {
                     target = '_blank';
                 }
@@ -50,7 +55,7 @@ const Parrafo = ({ data, capital, size, classCondition }) => {
                         {
                             link,
                             target,
-                            title: string
+                            title: title
                         },
                         string
                     )
