@@ -14,6 +14,7 @@ import filter from '../filters/LN/nota/article';
 import gallerySource from './gallerySource';
 import relatedSource from './relatedSource';
 import Redirect from './utils/redirect';
+import validateExclusiveAccess from './utils/validateExclusiveAccess';
 import replaceTagInTextListRaw from './utils/replaceTagInTextListRaw';
 import {
     FOTOAL100,
