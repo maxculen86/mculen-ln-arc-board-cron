@@ -47,15 +47,23 @@ const CurrencyData = ({
             ? 'https://www.lanacion.com.ar/tema/dolar-blue-tid67294/'
             : '';
 
+    const titleData =
+        sourceName === 'dbna'
+            ? 'Dólar hoy'
+            : '' || sourceName === 'dblue'
+            ? 'Dólar blue'
+            : '';
+
     return (
         <>
             {!urlBrand ? (
-                <ComLink
-                    type="text/css"
-                    classCondition="link-container-currency-data"
-                    link={navigationData}
-                >
-                    <div className={`${classCondition} currency-data`}>
+                <div className={`${classCondition} currency-data`}>
+                    <ComLink
+                        type="text/css"
+                        title={titleData}
+                        classCondition="link-container-currency-data"
+                        link={navigationData}
+                    >
                         <Text
                             tag="h2"
                             size="--twoxs"
@@ -63,22 +71,20 @@ const CurrencyData = ({
                             extraClass="dolar-title"
                             text={title}
                         />
-                        <p className="com-text --sixxs">
-                            <span>COMPRA</span>
-                            <strong className="--fourxs">
-                                ${purchaseValue}
-                            </strong>
-                            {saleValue && (
-                                <>
-                                    <span>VENTA</span>
-                                    <strong className="--fourxs">
-                                        ${saleValue}
-                                    </strong>
-                                </>
-                            )}
-                        </p>
-                    </div>
-                </ComLink>
+                    </ComLink>
+                    <p className="com-text --sixxs">
+                        <span>COMPRA</span>
+                        <strong className="--fourxs">${purchaseValue}</strong>
+                        {saleValue && (
+                            <>
+                                <span>VENTA</span>
+                                <strong className="--fourxs">
+                                    ${saleValue}
+                                </strong>
+                            </>
+                        )}
+                    </p>
+                </div>
             ) : (
                 <ComLink
                     link="https://www.invertironline.com/"
