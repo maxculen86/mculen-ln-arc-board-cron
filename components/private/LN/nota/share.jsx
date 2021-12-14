@@ -29,8 +29,6 @@ const Share = props => {
         }
     } = props;
 
-    console.log('acaaaaaaaaaaa', displayComments);
-
     const { arcSite = 'la-nacion-ar' } = useAppContext() || {};
     const siteVars = getProperties(arcSite);
     const twiterTitle =
