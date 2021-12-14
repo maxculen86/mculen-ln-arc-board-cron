@@ -1,5 +1,8 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-const MeteringAMP = ({ canonicalUrl = '', contentCode = 'comun' }) => {
+const MeteringAMP = ({ canonicalUrl, contentCode, _id }) => {
+    if (contentCode === '' || _id === '' || canonicalUrl === '') return <></>;
+
     return (
         <amp-iframe
             id="metering-iframe"
@@ -8,7 +11,7 @@ const MeteringAMP = ({ canonicalUrl = '', contentCode = 'comun' }) => {
             layout="fixed"
             sandbox="allow-scripts allow-same-origin"
             frameborder="0"
-            src={`https://arc-widgets.lanacion.com.ar/widgets/meteringamp/${contentCode}/?id=${canonicalUrl}&outputType=widgets&_website=la-nacion-ar`}
+            src={`https://arc-widgets.lanacion.com.ar/widgets/meteringamp/${contentCode}/${_id}/?id=${canonicalUrl}&outputType=widgets&_website=la-nacion-ar`}
         >
             <amp-img
                 layout="fill"
@@ -19,4 +22,15 @@ const MeteringAMP = ({ canonicalUrl = '', contentCode = 'comun' }) => {
     );
 };
 
+MeteringAMP.propTypes = {
+    canonicalUrl: PropTypes.string,
+    contentCode: PropTypes.string,
+    _id: PropTypes.string
+};
+
+MeteringAMP.defaultProps = {
+    canonicalUrl: '',
+    contentCode: 'comun',
+    _id: ''
+};
 export default MeteringAMP;

@@ -195,6 +195,7 @@ const Amp = props => {
                 <MeteringAMP
                     canonicalUrl={canonicalUrl}
                     contentCode={contentCode}
+                    _id={_id}
                 />
                 {children}
             </body>

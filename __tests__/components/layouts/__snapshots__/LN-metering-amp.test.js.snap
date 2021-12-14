@@ -1,16 +1,15 @@
-import React from 'react';
-import Consumer from 'fusion:consumer';
-const MeteringAMPLayout = ({ globalContent }) => {
-    const { id: _id = '', params: [articleType] = [] } = globalContent || {};
-    const script = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`layout LN-meteting-amp should return  meteringAMP script 1`] = `
+"<script id=\\"metering-amp\\" type=\\"text/javascript\\">
     function getCookie (name) {
             return document.cookie.replace(
-                new RegExp("(?:(?:^|.*;\\s*)"+name+"\\s*=\\s*([^;]*).*$)|^.*$"),
+                new RegExp(\\"(?:(?:^|.*;\\\\s*)\\"+name+\\"\\\\s*=\\\\s*([^;]*).*$)|^.*$\\"),
                 '$1'
             );
         };
         function findCookies (nameRegex) {
-            const regex = new RegExp("("+nameRegex+")\\s*=\\s*([^;]*)", "g");
+            const regex = new RegExp(\\"(\\"+nameRegex+\\")\\\\s*=\\\\s*([^;]*)\\", \\"g\\");
             const results = [];
             let match = regex.exec(document.cookie);
             const groups = nameRegex.split('(').length - 1;
@@ -22,7 +21,7 @@ const MeteringAMPLayout = ({ globalContent }) => {
         };
         function setCookie (name, value) {
             const { name: _name, expire } = typeof name === 'object' ? name : { name };
-            const cookieValue = ""+_name+"="+value+";domain=.lanacion.com.ar;path=/;expires="+new Date(expire).toUTCString()+";Secure;SameSite=None;";
+            const cookieValue = \\"\\"+_name+\\"=\\"+value+\\";domain=.lanacion.com.ar;path=/;expires=\\"+new Date(expire).toUTCString()+\\";Secure;SameSite=None;\\";
             document.cookie = cookieValue;
         };
         function deleteCookie (name) {
@@ -38,30 +37,21 @@ const MeteringAMPLayout = ({ globalContent }) => {
                 const value = c.value;
                 const obj = JSON.parse(value);
                 if (obj.articleType !== 'abierta' && !auxDbArr.find(v => v.startsWith(obj._id))) {
-                    auxDbArr.push(""+obj._id+","+obj.accessDate+"");
+                    auxDbArr.push(\\"\\"+obj._id+\\",\\"+obj.accessDate+\\"\\");
                 }
                 deleteCookie(c.name);
         }
         // Grabo nota actual
-        const _id = "${_id}";
-        const articleType = "${articleType}";
+        const nid = \\"BL4RTKROKZFUXKO5IJZ25PYG2I\\"
+        const _id = \\"/espectaculos/luz-camara-accion-nid574/\\";
+        const articleType = \\"comun\\";
         if (articleType !== 'abierta' && !auxDbArr.find(v => v.startsWith(_id))) {
-            auxDbArr.push(""+_id+","+Date.now()+"");
+            auxDbArr.push(\\"\\"+_id+\\",\\"+Date.now()+\\"\\");
         }
         const quota = 15;
         if (auxDbArr.length > quota) {
             auxDbArr.splice(0, auxDbArr.length - quota);
         }
         setCookie({name: auxDbName, expire: Date.now()+30*24*3600*1000 }, auxDbArr.join('|'));
-        console.log('\x1b[43mxxxxxxxxxxxxx I am Metering Script! xxxxxxxxxxxx');
-    `;
-    return (
-        <script
-            id="metering-amp"
-            type="text/javascript"
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{ __html: script }}
-        />
-    );
-};
-export default Consumer(MeteringAMPLayout);
+    </script>"
+`;
