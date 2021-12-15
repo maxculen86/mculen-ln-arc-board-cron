@@ -19,16 +19,6 @@ const FontFaceDefault = () => {
         }
 
         loadFont({
-            family: "LNicons",
-            url:"url('${deployFont('lana-icons-v1.woff')}')", 
-            config:{
-                format: 'woff',
-                weight: 'normal',
-                style: 'normal',
-                display: 'swap'
-            }
-        });
-        loadFont({
             family: "SuecaSlab",
             url:"url('${deployFont('suecaslab-bold-webfont.woff2')}')", 
             config:{

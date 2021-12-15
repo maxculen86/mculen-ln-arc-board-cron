@@ -7,7 +7,7 @@ export const getStyleFontsInLine = ({ contextPath, deployment }) => `
 @font-face {font-family:'LNlogos';src:url('${deployment(
     `${contextPath}/resources/fonts/lana-logos-v1.woff`
 )}') format('woff');font-weight: normal;font-style: normal;font-display: optional;}
-`; // NOSONAR
+`; // NOSONAR;
 
 const FontFace = props => {
     const { outputType } = props;
