@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { DATADOG_CONFIG } from 'fusion:environment';
 import { useAppContext } from 'fusion:context';
+import handleCookie from '../../LN/common/utils/handleCookie';
 
 function DataDog({ location = 'head' }) {
     const {
@@ -18,8 +19,18 @@ function DataDog({ location = 'head' }) {
         trackSessionAcrossSubdomains
     } = DATADOG_CONFIG;
     const { deployment: version } = useAppContext();
+    const { getCookie } = handleCookie();
 
     const scriptLog = `
+    const getMyCookie = ${getCookie};
+
+    const gaIdCookie = getMyCookie('_ga');
+    const googleAnalyticsId =  gaIdCookie && gaIdCookie.split('.').splice(2,2).join('.');
+    const usuarioEmail = getMyCookie('usuarioemail');
+    
+    const contextGaId = () => googleAnalyticsId ? "DD_LOGS.addContext('user.gaId', '" + googleAnalyticsId + "');" : "";
+    const contextEmail = () => usuarioEmail ? "DD_LOGS.addContext('user.email', '" + usuarioEmail + "');" : "";
+
     (function (h, o, u, n, d) {
         h = h[d] = h[d] || {
           q: [],
@@ -39,7 +50,6 @@ function DataDog({ location = 'head' }) {
         "https://www.datadoghq-browser-agent.com/datadog-logs.js",
         "DD_LOGS"
       );
-      
       DD_LOGS.onReady(function () {
         DD_LOGS.init({
           clientToken: "${clientToken}",
@@ -51,6 +61,9 @@ function DataDog({ location = 'head' }) {
           version: "${version}",
           trackSessionAcrossSubdomains: ${trackSessionAcrossSubdomains},
         });
+        contextGaId();
+        contextEmail();
+        
         if ("${env}" !== "prod")
           console.log(
             \`Datadog initialized. Version: ${version}, sampleRate: ${sampleRateLog}, env: ${env}\`
@@ -91,6 +104,14 @@ function DataDog({ location = 'head' }) {
           trackInteractions: ${trackInteractions},
           trackSessionAcrossSubdomains: ${trackSessionAcrossSubdomains},
         });
+
+        if (googleAnalyticsId || usuarioEmail) {
+          DD_RUM.setUser({
+            ...(googleAnalyticsId && { gaId: googleAnalyticsId }),
+            ...(usuarioEmail && { email: usuarioEmail })
+          });
+        }
+        
         if ("${env}" !== "prod")
             console.log(
               \`Datadog RUM initialized. Version: ${version}, sampleRate: ${sampleRateRum}, env: ${env}\`
