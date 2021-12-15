@@ -2,66 +2,49 @@ import indexNotaData from '../../common/story/indexNotaData';
 import cuerpo from './cuerpo/index';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
 
+const addBanner = (index, elmentsAdd, contenido, boxElement, length) => {
+    const banner = { _t: 'banner' };
+    if (index === boxElement && length >= boxElement) {
+        contenido.splice(index + elmentsAdd, 0, banner);
+        elmentsAdd++;
+    }
+};
 const indexNota = dataNota => {
-    const banners = [4, 7, 9, 1];
     const resp = indexNotaData(dataNota, cuerpo);
-    /*   resp.contenido.reduce((r, e, i) => {
-        if (e) {
-            const banner = { _t: 'banner' };
-            if (i === 0) {
-                r.splice(i + 1, 0, banner);
-            }
-            return r.concat(e);
-        }
-        return r;
-    }, []); */
     let elmentsAdd = 0;
     const { length } = resp.contenido;
     resp.contenido.forEach((element, index) => {
         const banner = { _t: 'banner' };
-        if (index - elmentsAdd === 1) {
+        if (index === 0) {
             resp.contenido.splice(index + 1, 0, banner);
             elmentsAdd++;
         }
         if (index === 4 && length >= 4) {
-            resp.contenido.splice(index + 1, 0, banner);
+            resp.contenido.splice(index + elmentsAdd, 0, banner);
             elmentsAdd++;
         }
         if (index === 7 && length >= 7) {
-            resp.contenido.splice(index + 1, 0, banner);
+            resp.contenido.splice(index + elmentsAdd, 0, banner);
+            elmentsAdd++;
         }
         if (index === 9 && length >= 9) {
-            resp.contenido.splice(index + 1, 0, banner);
+            resp.contenido.splice(index + elmentsAdd, 0, banner);
             elmentsAdd++;
         }
         if (index === 11 && length >= 11) {
-            resp.contenido.splice(index + 1, 0, banner);
+            resp.contenido.splice(index + elmentsAdd, 0, banner);
             elmentsAdd++;
         }
     });
-    /*     const { length } = resp.contenido;
-    const boxElements = [4, 7, 9, 11];
-    let elmentsAdd = 0;
+    /*  const { length } = resp.contenido;
+    const boxElements = [0, 4, 7, 9, 11];
+    let elmentsAdd = 1;
     for (let index = 0; index <= length; index++) {
-        const banner = { _t: 'banner' };
-        if (index === 0) {
-            resp.contenido.splice(index + elmentsAdd + 1, 0, banner);
-        }
-        if (index === 4 && length >= 4) {
-            resp.contenido.splice(index + elmentsAdd + 1, 0, banner);
-            elmentsAdd++;
-        }
-        if (index === 7 && length >= 7) {
-            resp.contenido.splice(index + elmentsAdd + 1, 0, banner);
-        }
-        if (index === 9 && length >= 9) {
-            resp.contenido.splice(index + elmentsAdd + 2, 0, banner);
-            elmentsAdd++;
-        }
-        if (index === 11 && length >= 11) {
-            resp.contenido.splice(index + elmentsAdd + 3, 0, banner);
-            elmentsAdd++;
-        }
+        addBanner(index, elmentsAdd, resp.contenido, 0, length);
+        addBanner(index, elmentsAdd, resp.contenido, 4, length);
+        addBanner(index, elmentsAdd, resp.contenido, 7, length);
+        addBanner(index, elmentsAdd, resp.contenido, 9, length);
+        addBanner(index, elmentsAdd, resp.contenido, 11, length);
     } */
     return removeEmptyItems(resp);
 };
