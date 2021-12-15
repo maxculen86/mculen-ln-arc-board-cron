@@ -13,7 +13,7 @@ const urlForPrerollAds = device => {
     const { taxonomy, label = {} } = globalContent || {};
     const { mostrar_banners: mostrarBanners = {} } = label;
     const { text = '' } = mostrarBanners;
-    const withPrerolAds = text === 'Si';
+    const withPrerolAds = text !== 'No';
 
     const { sections, tags } = taxonomy || {
         sections: [],
