@@ -8,7 +8,7 @@ const setArticleClassName = ({
     isRenderAuthorOpinion
 }) => {
     const toiClass = boxPosition
-        ? `toi${boxPosition.replace('toi', '')}${artPosition} nid${_id}`
+        ? `toi${boxPosition.replace('toi', '')}${artPosition || ''} nid${_id}`
         : '';
     const noMediaClass = noMedia ? '--no-media' : '';
     const authorClass =
@@ -17,13 +17,9 @@ const setArticleClassName = ({
             ? '--author'
             : '';
 
-    return [
-        'com-button',
-        classCondition,
-        toiClass,
-        noMediaClass,
-        authorClass
-    ].join(' ');
+    return ['mod-article', toiClass, classCondition, noMediaClass, authorClass]
+        .filter(Boolean)
+        .join(' ');
 };
 
 export default setArticleClassName;

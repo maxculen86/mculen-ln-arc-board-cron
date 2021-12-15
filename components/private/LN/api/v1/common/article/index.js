@@ -63,7 +63,7 @@ const getArticleSignature = (article, authors) => {
                 return resp + author.valor;
             })
             .toString()
-            .replace(/(?=[^,][ey])/, '')}`;
+            .replace(/\,(?=[^,][ey])/, '')}`;
     }
     return signature || authorsValue;
 };
@@ -82,7 +82,8 @@ export const articleItem = article => {
     }
     const autores = getArticleAuthor(article);
     const autor = autores ? autores[0] : null;
-    const resp = {
+
+    return {
         id,
         templateId: Number.isInteger(templateId)
             ? templateId.toString()
@@ -102,8 +103,6 @@ export const articleItem = article => {
         imagen: getArticleImage(article),
         opinion: get(article, 'additionalProperties.opinion', false)
     };
-
-    return resp;
 };
 
 export const anexoItem = article => {

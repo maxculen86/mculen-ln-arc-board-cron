@@ -9,7 +9,7 @@ exports[`Share Matches snapshot 1`] = `
     class="container --left"
   >
     <button
-      class="com-button   --icon "
+      class="com-button --icon"
       data-event=""
       data-section=""
       id=""
@@ -23,7 +23,7 @@ exports[`Share Matches snapshot 1`] = `
       />
     </button>
     <button
-      class="com-button   --icon "
+      class="com-button --icon"
       data-event=""
       data-section=""
       id=""
@@ -37,7 +37,7 @@ exports[`Share Matches snapshot 1`] = `
       />
     </button>
     <button
-      class="com-button   --icon "
+      class="com-button --icon"
       data-event=""
       data-section=""
       id="whatsAppShareDesktop"
@@ -58,7 +58,7 @@ exports[`Share Matches snapshot 1`] = `
     class="container --right"
   >
     <button
-      class="com-button   --icon "
+      class="com-button --icon"
       data-event=""
       data-section=""
       id=""
@@ -72,7 +72,7 @@ exports[`Share Matches snapshot 1`] = `
       />
     </button>
     <button
-      class="com-button   --icon "
+      class="com-button --icon"
       data-event=""
       data-section=""
       id=""
@@ -98,7 +98,7 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
     class="container --left"
   >
     <button
-      class="com-button   --icon "
+      class="com-button --icon"
       data-event=""
       data-section=""
       id=""
@@ -112,7 +112,7 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
       />
     </button>
     <button
-      class="com-button   --icon "
+      class="com-button --icon"
       data-event=""
       data-section=""
       id=""
@@ -126,7 +126,7 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
       />
     </button>
     <button
-      class="com-button   --icon "
+      class="com-button --icon"
       data-event=""
       data-section=""
       id="whatsAppShareDesktop"
@@ -147,7 +147,7 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
     class="container --right"
   >
     <button
-      class="com-button   --icon "
+      class="com-button --icon"
       data-event=""
       data-section=""
       id=""

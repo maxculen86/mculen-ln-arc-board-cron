@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../../../resources/dist/css/ln/components/com-icon.css';
 import Link from './link';
-import setIconClassName from './utils/setIconClassname';
+import setIconClassName from './utils/setIconClassName';
 
 const Icon = ({ name, href, title, target, mod, rel, size, children }) => {
     const className = setIconClassName({ name, href, mod, size });

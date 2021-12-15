@@ -10,7 +10,11 @@ const setBtnClassName = ({
     const icon = iconName && '--icon';
     const iconChildren = iconName && children && `${iconName} ${iconPosition}`;
 
-    return ['com-button', mainClasses, icon, iconChildren].join(' ');
+    console.log(restProps);
+
+    return ['com-button', mainClasses, icon, iconChildren]
+        .filter(Boolean)
+        .join(' ');
 };
 
 export default setBtnClassName;

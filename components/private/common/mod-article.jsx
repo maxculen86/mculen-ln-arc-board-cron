@@ -8,7 +8,7 @@ import Media from '../LN/common/media';
 import get from './utils/get';
 import ModDescription from './mod-description';
 import getAuthorsPhoto from './utils/getAuthorsPhoto';
-import setArticleClassName from './utils/setArticleClassname';
+import setArticleClassName from './utils/setArticleClassName';
 
 const ModArticle = props => {
     const {

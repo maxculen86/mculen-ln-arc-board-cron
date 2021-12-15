@@ -5,7 +5,7 @@ exports[`features - LaNacion - Nota - Hamburguer Test de snapshot Hamburguer 1`]
   class="com-hamburger"
 >
   <button
-    class="com-button  --tertiary --icon menu "
+    class="com-button --tertiary --icon menu "
     data-event=""
     data-section=""
     id=""
@@ -17,7 +17,7 @@ exports[`features - LaNacion - Nota - Hamburguer Test de snapshot Hamburguer 1`]
       class="com-icon  icon-menu  "
     />
     <span
-      class=" com-text"
+      class="com-text"
     >
       Secciones
     </span>
