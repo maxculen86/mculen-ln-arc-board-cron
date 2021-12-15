@@ -1,6 +1,7 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'prop-types';
+
 const MeteringAMPLayout = ({ globalContent }) => {
     const {
         queryParams: { id: _id = '' } = {},
@@ -9,12 +10,12 @@ const MeteringAMPLayout = ({ globalContent }) => {
     const script = `
     function getCookie (name) {
             return document.cookie.replace(
-                new RegExp("(?:(?:^|.*;\\s*)"+name+"\\s*=\\s*([^;]*).*$)|^.*$"),
+                new RegExp("(?:(?:^|.*;\\\\s*)"+name+"\\\\s*=\\\\s*([^;]*).*$)|^.*$"),
                 '$1'
             );
         };
         function findCookies (nameRegex) {
-            const regex = new RegExp("("+nameRegex+")\\s*=\\s*([^;]*)", "g");
+            const regex = new RegExp("("+nameRegex+")\\\\s*=\\\\s*([^;]*)", "g");
             const results = [];
             let match = regex.exec(document.cookie);
             const groups = nameRegex.split('(').length - 1;
