@@ -1,5 +1,5 @@
 import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
-import { createResizer } from '../../components/private/common/utils/image/resizer';
+import { createResizer } from '../../../components/private/common/utils/image/resizer';
 
 const transform = data => {
     const dataResp = {
