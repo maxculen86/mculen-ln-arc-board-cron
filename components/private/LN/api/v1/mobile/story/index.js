@@ -3,6 +3,7 @@ import cuerpo from './cuerpo/index';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
 
 const indexNota = dataNota => {
+    const banners = [4, 7, 9, 1];
     const resp = indexNotaData(dataNota, cuerpo);
     /*   resp.contenido.reduce((r, e, i) => {
         if (e) {
@@ -14,7 +15,31 @@ const indexNota = dataNota => {
         }
         return r;
     }, []); */
+    let elmentsAdd = 0;
     const { length } = resp.contenido;
+    resp.contenido.forEach((element, index) => {
+        const banner = { _t: 'banner' };
+        if (index - elmentsAdd === 1) {
+            resp.contenido.splice(index + 1, 0, banner);
+            elmentsAdd++;
+        }
+        if (index === 4 && length >= 4) {
+            resp.contenido.splice(index + 1, 0, banner);
+            elmentsAdd++;
+        }
+        if (index === 7 && length >= 7) {
+            resp.contenido.splice(index + 1, 0, banner);
+        }
+        if (index === 9 && length >= 9) {
+            resp.contenido.splice(index + 1, 0, banner);
+            elmentsAdd++;
+        }
+        if (index === 11 && length >= 11) {
+            resp.contenido.splice(index + 1, 0, banner);
+            elmentsAdd++;
+        }
+    });
+    /*     const { length } = resp.contenido;
     const boxElements = [4, 7, 9, 11];
     let elmentsAdd = 0;
     for (let index = 0; index <= length; index++) {
@@ -37,7 +62,7 @@ const indexNota = dataNota => {
             resp.contenido.splice(index + elmentsAdd + 3, 0, banner);
             elmentsAdd++;
         }
-    }
+    } */
     return removeEmptyItems(resp);
 };
 
