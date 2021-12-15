@@ -1,8 +1,11 @@
-const setIconClassName = ({ name, href, mod, size = '' }) => {
+const setIconClassName = ({ name, href, size = '', negative, extraClass }) => {
     const iconName = name ? `icon-${name}` : '';
-    const iconHrefMod = href ? '' : `${mod || ''}`;
+    const negativeClass = negative ? ' --negative' : '';
+    const iconHrefMod = href ? '' : `${extraClass || ''}`;
 
-    return ['com-icon', iconName, iconHrefMod, size].filter(Boolean).join(' ');
+    return ['com-icon', iconName, negativeClass, iconHrefMod, size]
+        .filter(Boolean)
+        .join(' ');
 };
 
 export default setIconClassName;

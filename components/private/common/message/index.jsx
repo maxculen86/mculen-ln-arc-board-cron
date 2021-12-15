@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Text from '../text';
 import Link from '../com-link';
 import Logo from '../com-logo';
-import Icon from '../com-icon';
+import Icon from '../icon';
 
 import '../../../../resources/dist/css/ln/modules/message.css';
 
@@ -32,7 +32,7 @@ const Message = props => {
                     </Text>
                 ) : (
                     <Text tag="strong" extraClass="text" size="--twoxs">
-                        <Icon iconName={icon} size="--xs" />
+                        <Icon name={icon} size="--xs" />
                         {text}
                     </Text>
                 )}

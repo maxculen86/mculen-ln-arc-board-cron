@@ -4,6 +4,7 @@ import { SITE_LANACION } from 'fusion:environment';
 
 const BASE_URL = 'https://www.lanacion.com.ar';
 const PATH = '/politica/nota-de-prueba-nid20201028';
+const API_PATH = '/api/v1/notas/byId/6WTWFSCNKBGHTPTZUBF7WOPC5M/';
 
 describe('content - sources - ultils - validateArticleAccess', () => {
     const mocks = {
@@ -19,6 +20,12 @@ describe('content - sources - ultils - validateArticleAccess', () => {
             host: BASE_URL,
             path: PATH
         },
+        api: {
+            contentCode: 'cerrada',
+            meteringVariant: 'M',
+            host: BASE_URL,
+            path: API_PATH
+        },
         default: {
             contentCode: 'comun',
             meteringVariant: 'S',
@@ -33,6 +40,10 @@ describe('content - sources - ultils - validateArticleAccess', () => {
 
     it('should be exclusive access', () => {
         expect(validateExclusiveAccess(mocks.exclusive)).toBeTruthy();
+    });
+
+    it('should be default access by api', () => {
+        expect(() => validateExclusiveAccess(mocks.api)).toBeTruthy();
     });
 
     it('should be default access', () => {

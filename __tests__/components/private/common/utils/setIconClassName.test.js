@@ -5,8 +5,8 @@ describe('components - private - common - utils - setIconClassName', () => {
         default: {},
         withName: { name: 'zoom' },
         withHref: { name: 'zoom', href: 'url-example' },
-        withMod: { name: 'zoom', mod: '--negative' },
-        withSize: { name: 'zoom', mod: '--negative', size: '--xs' }
+        withExtraClass: { name: 'zoom', extraClass: '--extra' },
+        withSize: { name: 'zoom', extraClass: '--extra', size: '--xs' }
     };
 
     it('should be com-icon', () => {
@@ -19,14 +19,14 @@ describe('components - private - common - utils - setIconClassName', () => {
     });
 
     it('should be com-icon icon-name with mod class', () => {
-        expect(setIconClassName(mocks.withMod)).toBe(
-            'com-icon icon-zoom --negative'
+        expect(setIconClassName(mocks.withExtraClass)).toBe(
+            'com-icon icon-zoom --extra'
         );
     });
 
     it('should be com-icon icon-name with mod class and size', () => {
         expect(setIconClassName(mocks.withSize)).toBe(
-            'com-icon icon-zoom --negative --xs'
+            'com-icon icon-zoom --extra --xs'
         );
     });
 });

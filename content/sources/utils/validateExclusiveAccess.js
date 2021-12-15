@@ -8,7 +8,12 @@ const validateExclusiveAccess = ({
     path
 }) => {
     if (contentCode === 'cerrada') {
-        if (meteringVariant !== 'S') {
+        if (
+            meteringVariant !== 'S' &&
+            !path.match(
+                /\/api\/v([1-2]+)\/notas\/(byId\/(.+)\/$|byUrl(\/.+\/$))/g
+            )
+        ) {
             const PAYWALL_URL =
                 'https://suscripciones.lanacion.com.ar/suscripcion/E/1/1/?callback=';
 

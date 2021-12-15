@@ -10,8 +10,6 @@ const setBtnClassName = ({
     const icon = iconName && '--icon';
     const iconChildren = iconName && children && `${iconName} ${iconPosition}`;
 
-    console.log(restProps);
-
     return ['com-button', mainClasses, icon, iconChildren]
         .filter(Boolean)
         .join(' ');

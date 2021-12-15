@@ -52,13 +52,13 @@ const getChildren = (
 const transform = (data, initialClass) => {
     const { children } = data || {};
 
-    const dataMenu = !!children && {
-        el: 'ul',
-        extraClass: initialClass,
-        childs: children.map(child => getChildren(child))
-    };
-
-    return dataMenu;
+    return (
+        !!children && {
+            el: 'ul',
+            extraClass: initialClass,
+            childs: children.map(child => getChildren(child))
+        }
+    );
 };
 
 const resolveUri = key => {
@@ -90,7 +90,7 @@ const getItem = async query => {
 
 const fetch = async (query, { cachedCall }) => {
     const resp = sourceMenu.map(({ hierarchy, initialClass }) => {
-        const menu = cachedCall(`navigation-schema-${hierarchy}`, getItem, {
+        return cachedCall(`navigation-schema-${hierarchy}`, getItem, {
             query: {
                 ...query,
                 hierarchy,
@@ -98,7 +98,6 @@ const fetch = async (query, { cachedCall }) => {
             },
             ttl: 300
         });
-        return menu;
     });
 
     return Promise.all(resp);

@@ -31,6 +31,16 @@
                     &:hover {
                         background-color: $primario;
                         color: $neutral-white;
+                        .com-icon {
+                            path {
+                                fill: $neutral-white;
+                            }
+                        }
+                    }
+                    .com-icon {
+                        path {
+                            fill: $primario;
+                        }
                     }
                 }
                 &.--primary {

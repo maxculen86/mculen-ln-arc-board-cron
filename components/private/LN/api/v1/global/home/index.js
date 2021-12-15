@@ -53,7 +53,7 @@ const featureInformation = (information, feature) => {
     return res;
 };
 const articlesMap = articles => {
-    const response = articles.reduce((result, f) => {
+    return articles.reduce((result, f) => {
         if (f) {
             try {
                 const article = Article({ ...f, storyType: 'home' });
@@ -64,8 +64,6 @@ const articlesMap = articles => {
         }
         return result;
     }, []);
-
-    return response;
 };
 
 const resultArticlesBySections = (feature, ordererArticles) => {

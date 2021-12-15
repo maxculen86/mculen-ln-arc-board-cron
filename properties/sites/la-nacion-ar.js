@@ -1616,6 +1616,23 @@ export default {
                         }
                     }
                 },
+                caja6_mob: {
+                    slotName: 'la_nacion_mobile/Nota/caja6_mob',
+                    withoutHide: true,
+                    dimensions: [
+                        [300, 250],
+                        [230, 50],
+                        [300, 450],
+                        [1, 1],
+                        [320, 100]
+                    ],
+                    targeting: targetingNota,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
                 inread_mob: {
                     slotName: 'la_nacion_mobile/Nota/inread_mob',
                     dimensions: [
@@ -2302,15 +2319,6 @@ export default {
         facebook: {
             appID: '205326199490321'
         }
-    },
-    livefyre: {
-        siteId: '356483',
-        recetas: {
-            siteId: '362870',
-            sharedKey: 'DsbAQWcjxhc0MSBNnQnlcbs8ZC8='
-        },
-        sharedKey: 'Wi9J9hmEtpK9QRp5nY1SSSQ2FKE=',
-        network: 'la-nacion.fyre.co'
     },
     firebase: {
         apiKey: 'AIzaSyCFxG5eKZiyU1DDlg7yZw4JzblfO6pc0m4',

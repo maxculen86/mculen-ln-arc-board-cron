@@ -44,7 +44,7 @@ const transform = (data, query) => {
     const { distributor_name: distributor = {} } = site || {};
     const name = distributor[slug];
 
-    const newData = {
+    return {
         distributorId: name,
         name,
         byline: name,
@@ -52,8 +52,6 @@ const transform = (data, query) => {
         canonical_url: uri,
         subscription: meteringVariant
     };
-
-    return newData;
 };
 
 export default {

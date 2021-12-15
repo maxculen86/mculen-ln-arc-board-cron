@@ -30,6 +30,29 @@
             padding: $spacing-lg 0 $spacing-lg 0;
             border-top: 1px solid $gris3;
             border-bottom: 1px solid $gris3;
+
+            .com-li {
+                position: relative;
+                margin-bottom: px(8);
+                &:not(:first-child) {
+                    padding-left: px(32);
+
+                    &:before {
+                        content: '•';
+                        height: fit-content;
+                        display: block;
+                        position: absolute;
+                        left: px(14);
+                        line-height: px(32);
+                        color: $light-neutral-400;
+                    }
+                }
+
+                .com-icon {
+                    width: px(32);
+                    height: px(32);
+                }
+            }
         }
     }
 }

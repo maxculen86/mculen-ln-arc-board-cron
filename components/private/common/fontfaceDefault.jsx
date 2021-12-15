@@ -64,3 +64,16 @@ const FontFaceDefault = () => {
 };
 
 export default FontFaceDefault;
+
+// loadFont({
+//     family: "LNicons",
+//     url:"url('${deployment(
+//         `${contextPath}/resources/fonts/lana-icons-v1.woff`
+//     )}')",
+//     config:{
+//         format: 'woff',
+//         weight: 'normal',
+//         style: 'normal',
+//         display: 'swap'
+//     }
+// });

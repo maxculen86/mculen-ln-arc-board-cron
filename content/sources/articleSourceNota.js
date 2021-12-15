@@ -73,15 +73,14 @@ const fetch = query => {
                 throw new Redirect(forwardUrl, 301);
             }
 
-            const articleAccess =
-                response &&
+            response &&
                 validateExclusiveAccess({
                     contentCode:
                         response.content_restrictions &&
                         response.content_restrictions.content_code,
                     meteringVariant: query.meteringVariant,
                     host: SITE_LANACION,
-                    path: query.url
+                    path: query.uri
                 });
 
             isNotShowcase(response) &&
@@ -90,7 +89,6 @@ const fetch = query => {
                     urlBase: SITE_LANACION,
                     responseData: response
                 });
-
             return transform(
                 response,
                 arcSite,
@@ -98,11 +96,14 @@ const fetch = query => {
                 imageConfig,
                 url,
                 meteringVariant,
-                paywallEnabled,
-                articleAccess
+                paywallEnabled
             );
         })
         .catch(error => {
+            console.log(
+                '🚀 ~ file: articleSourceNota.js ~ line 90 ~ error',
+                error
+            );
             logger.push(
                 error,
                 { source: 'content/source/articleSourceNota', url },

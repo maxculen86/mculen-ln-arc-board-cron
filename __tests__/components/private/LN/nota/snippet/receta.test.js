@@ -2,9 +2,10 @@ import React from 'react';
 import Context from 'fusion:context';
 import { render, mount } from 'enzyme';
 import Receta from '../../../../../../components/private/LN/nota/snippet/receta';
+import SnippetRender from '../../../../../../components/private/common/snippet/snippetRender';
 import getDomain from '../../../../../../components/private/common/utils/getDomain';
 import article from '../../../../../../__mocks__/data/articles/ATLC5WVL4NH5HAHU2BWJXTSATY';
-import taxonomyRecipeCuisine from '../../../../../../__mocks__/data/articles/taxonomyRecipeCuisine';
+import recipeCuisineTaxonomy from '../../../../../../__mocks__/data/articles/recipeCuisineTaxonomy';
 import toJson from 'enzyme-to-json';
 
 jest.mock('fusion:content', () => ({
@@ -52,11 +53,29 @@ describe('SNIPPET - La Nacion - Nota - Receta ', () => {
     };
 
     const articleRecipeCuisine = JSON.parse(JSON.stringify(article));
-    articleRecipeCuisine.taxonomy = taxonomyRecipeCuisine;
 
-    const propsRecipeCuisine = {
+    const propsRecipeCuisinePrimary = {
         arcSite: 'la-nacion-ar',
-        globalContent: articleRecipeCuisine
+        globalContent: {
+            ...articleRecipeCuisine,
+            taxonomy: recipeCuisineTaxonomy.primarySection
+        }
+    };
+
+    const propsRecipeCuisineSecondary = {
+        arcSite: 'la-nacion-ar',
+        globalContent: {
+            ...articleRecipeCuisine,
+            taxonomy: recipeCuisineTaxonomy.secondarySection
+        }
+    };
+
+    const propsRecipeCuisineNone = {
+        arcSite: 'la-nacion-ar',
+        globalContent: {
+            ...articleRecipeCuisine,
+            taxonomy: recipeCuisineTaxonomy.noRecipeCuisine
+        }
     };
 
     it('Test getDomain main site ', () => {
@@ -84,9 +103,36 @@ describe('SNIPPET - La Nacion - Nota - Receta ', () => {
         expect(toJson(comp)).toMatchSnapshot();
     });
 
-    it('Test Recipient Receta with Recipe Cuisine', () => {
-        const comp = mount(<Receta {...propsRecipeCuisine} />);
+    it('Schema Recipe Cuisine should be present when its primary section', () => {
+        const comp = mount(<Receta {...propsRecipeCuisinePrimary} />);
+        const schema = comp.find(SnippetRender).props().data;
 
-        expect(toJson(comp)).toMatchSnapshot();
+        expect(schema).toEqual(
+            expect.objectContaining({
+                recipeCuisine: expect.any(String)
+            })
+        );
+    });
+
+    it('Schema Recipe Cuisine should be present when its NOT primary section', () => {
+        const comp = mount(<Receta {...propsRecipeCuisineSecondary} />);
+        const schema = comp.find(SnippetRender).props().data;
+
+        expect(schema).toEqual(
+            expect.objectContaining({
+                recipeCuisine: expect.any(String)
+            })
+        );
+    });
+
+    it('Schema Recipe Cuisine should NOT be present when its NOT a section', () => {
+        const comp = mount(<Receta {...propsRecipeCuisineNone} />);
+        const schema = comp.find(SnippetRender).props().data;
+
+        expect(schema).not.toEqual(
+            expect.objectContaining({
+                recipeCuisine: expect.any(String)
+            })
+        );
     });
 });

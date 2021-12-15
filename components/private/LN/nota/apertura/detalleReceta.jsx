@@ -1,43 +1,51 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'fusion:prop-types';
+import Icon from '../../../common/icon';
 
 const DetalleReceta = props => {
     const {
         receta: {
             subtype,
             embed: {
-                config: { counterTime, counterPortion }
+                config: { counterTime, counterPortion, cookTime, prepTime }
             }
         }
     } = props;
 
-    const Time = () => {
+    const detailsData = {
+        cook: {
+            title: 'Tiempo de cocción:',
+            time: cookTime,
+            icon: 'fire'
+        },
+        prep: {
+            title: 'Tiempo de preparación:',
+            time: prepTime,
+            icon: 'knife'
+        },
+        total: {
+            title: 'Tiempo total:',
+            time: counterTime,
+            icon: 'timer'
+        },
+        portions: {
+            title: 'Porciones:',
+            time: counterPortion,
+            icon: 'group'
+        }
+    };
+
+    const DetailsTag = ({ detailsData }) => {
         return (
             <div className="row">
                 <div className="col-2 col-tablet-1">
-                    <i className="icon-timer" />
+                    <Icon name={detailsData.icon} />
                 </div>
                 <div className="time-number col-10 col-tablet-11">
                     <span>
-                        Tiempo total:
-                        <span className="num">{counterTime}</span>
+                        {detailsData.title}
+                        <span className="num">{detailsData.time}</span>
                         min.
-                    </span>
-                </div>
-            </div>
-        );
-    };
-
-    const Portion = () => {
-        return (
-            <div className="row">
-                <div className="col-2 col-tablet-1">
-                    <i className="icon-group" />
-                </div>
-                <div className="portion-number col-10 col-tablet-11">
-                    <span>
-                        Porciones:
-                        <span className="num">{counterPortion}</span>
                     </span>
                 </div>
             </div>
@@ -48,8 +56,14 @@ const DetalleReceta = props => {
         <Fragment>
             {subtype === 'custom-detalle-receta' ? (
                 <div className="cont_tags tags">
-                    {counterTime && <Time />}
-                    {counterPortion && <Portion />}
+                    {cookTime && <DetailsTag detailsData={detailsData.cook} />}
+                    {prepTime && <DetailsTag detailsData={detailsData.prep} />}
+                    {counterTime && (
+                        <DetailsTag detailsData={detailsData.total} />
+                    )}
+                    {counterPortion && (
+                        <DetailsTag detailsData={detailsData.portions} />
+                    )}
                 </div>
             ) : null}
         </Fragment>

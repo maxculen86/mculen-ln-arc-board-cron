@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
@@ -14,14 +15,6 @@ const FontFace = props => {
 
     return (
         <>
-            <link
-                rel="preload"
-                href={deployment(
-                    `${contextPath}/resources/fonts/lana-icons-v1.woff`
-                )}
-                as="font"
-                crossOrigin="anonymous"
-            />
             <link
                 rel="preload"
                 href={deployment(
@@ -47,3 +40,15 @@ FontFace.propTypes = {
 };
 
 export default FontFace;
+
+// @font-face {font-family:'LNicons';src:url('${deployment(
+//     `${contextPath}/resources/fonts/lana-icons-v1.woff`
+// )}') format('woff');font-weight: normal;font-style: normal;font-display: swap;}
+// <link
+//     rel="preload"
+//     href={deployment(
+//         `${contextPath}/resources/fonts/lana-icons-v1.woff`
+//     )}
+//     as="font"
+//     crossorigin="anonymous"
+// />

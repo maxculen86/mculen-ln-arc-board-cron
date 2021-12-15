@@ -167,7 +167,10 @@ const LNMainHome = props => {
                     dispatch({ type: 'updateNextBlock' });
                 }
             } catch (error) {
-                console.log('Error en useEffect =>', error);
+                console.error('Error en useEffect LN-Main_Home =>', {
+                    error,
+                    layout: 'LN-Home_Main'
+                });
                 // Si tiene corrupto sessionStorage muestro todo el sitio
                 dispatch({ type: 'update', payload: 'bloque5' });
             }

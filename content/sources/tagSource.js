@@ -26,15 +26,13 @@ const transform = (data, query) => {
             throw new NotFoundError('Tag no encontrado');
         }
 
-        const newData = {
+        return {
             ...data,
             node_type: 'tags',
             name: data.Payload.items[0].name,
             canonical_url: uri,
             subscription: meteringVariant
         };
-
-        return newData;
     } catch (error) {
         logger.push(
             error,

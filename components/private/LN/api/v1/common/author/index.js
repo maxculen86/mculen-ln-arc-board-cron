@@ -9,13 +9,11 @@ const getAuthorData = author => {
         throw new Error('Nombre de Autor Inexistente');
     }
 
-    const resp = {
+    return {
         id: getAutorId(id),
         slug: id,
         valor: name
     };
-
-    return resp;
 };
 
 const authorCommon = author => {
@@ -25,13 +23,11 @@ const authorCommon = author => {
         get(author, 'additional_properties.original.image', null)
     );
 
-    const resp = {
+    return {
         ...authorData,
         tipo: authorData.slug ? 1 : 2,
         imagen: image ? image[0] : null
     };
-
-    return resp;
 };
 
 export const authorAcu = author => {
@@ -39,14 +35,12 @@ export const authorAcu = author => {
     const { email, twitter } = author;
     const image = getImageUrl(get(author, 'image.url', null));
 
-    const resp = {
+    return {
         ...authorData,
         imagen: image ? image[0] : null,
         mail: email,
         twitter: twitter ? twitter.trim() : twitter
     };
-
-    return resp;
 };
 
 export const authorHomeMobile = author => {
@@ -59,7 +53,7 @@ export const authorHomeMobile = author => {
         get(author, 'image.resized_urls[0].resizedUrl', null) ||
         get(author, 'image.url', null);
 
-    const resp = {
+    return {
         ...authorData,
         tipo: authorData.slug ? 1 : 2,
         imagen: image ? image[0] : null,
@@ -67,8 +61,6 @@ export const authorHomeMobile = author => {
         mail: email,
         twitter: twitter ? twitter.trim() : twitter
     };
-
-    return resp;
 };
 
 export default authorCommon;

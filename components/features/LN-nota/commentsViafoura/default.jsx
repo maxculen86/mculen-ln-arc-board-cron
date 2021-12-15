@@ -82,9 +82,12 @@ const CommentsViafouraFeature = props => {
                                         );
                                     })
                                     .catch(error => {
-                                        console.log(
+                                        console.error(
                                             'Viafoura Login incorrecto ',
-                                            error
+                                            {
+                                                error,
+                                                outputType
+                                            }
                                         );
                                         setMessage({
                                             title:
