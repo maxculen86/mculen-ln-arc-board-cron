@@ -4,12 +4,12 @@ exports[`layout LN-meteting-amp should return  meteringAMP script 1`] = `
 "<script id=\\"metering-amp\\" type=\\"text/javascript\\">
     function getCookie (name) {
             return document.cookie.replace(
-                new RegExp(\\"(?:(?:^|.*;\\\\s*)\\"+name+\\"\\\\s*=\\\\s*([^;]*).*$)|^.*$\\"),
+                new RegExp(\\"(?:(?:^|.*;\\\\\\\\s*)\\"+name+\\"\\\\\\\\s*=\\\\\\\\s*([^;]*).*$)|^.*$\\"),
                 '$1'
             );
         };
         function findCookies (nameRegex) {
-            const regex = new RegExp(\\"(\\"+nameRegex+\\")\\\\s*=\\\\s*([^;]*)\\", \\"g\\");
+            const regex = new RegExp(\\"(\\"+nameRegex+\\")\\\\\\\\s*=\\\\\\\\s*([^;]*)\\", \\"g\\");
             const results = [];
             let match = regex.exec(document.cookie);
             const groups = nameRegex.split('(').length - 1;
