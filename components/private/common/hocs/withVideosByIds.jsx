@@ -1,5 +1,3 @@
-'use strict';
-
 import React, { PureComponent } from 'react';
 import Consumer from 'fusion:consumer';
 import get from 'lodash.get';
