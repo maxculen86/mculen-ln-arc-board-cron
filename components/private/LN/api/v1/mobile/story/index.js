@@ -15,7 +15,7 @@ const indexNota = dataNota => {
     const { length } = resp.contenido;
     resp.contenido.forEach((element, index) => {
         const banner = { _t: 'banner' };
-        if (index === 0) {
+        if (index === 0 && length >= 0) {
             resp.contenido.splice(index + 1, 0, banner);
             elmentsAdd++;
         }
