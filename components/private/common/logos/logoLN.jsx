@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Static from 'fusion:static';
 import { ARC_STATIC } from 'fusion:environment';
-// import { useFusionContext } from 'fusion:context';
 import { useAppContext } from 'fusion:context';
 
 import Image from '../com-image';
@@ -10,12 +10,13 @@ import { mapperLogos } from './mapperLogos';
 const LogoLN = props => {
     const { outputType, name, width, height } = props;
     const { contextPath, deployment } = useAppContext();
+    const assets = mapperLogos[name];
     const archivoSVG = `${ARC_STATIC}${deployment(
-        `${contextPath}/resources/images/${mapperLogos[name]}`
+        `${contextPath}/resources/images/${assets}`
     )}`;
 
     return (
-        <>
+        <Static id={assets || 'lnlogo'} htmlOnly>
             {!name ? (
                 <a
                     href="https://www.lanacion.com.ar/"
@@ -103,11 +104,12 @@ const LogoLN = props => {
                     amp={outputType === 'amp'}
                 />
             )}
-        </>
+        </Static>
     );
 };
 
 LogoLN.propTypes = {
+    outputType: PropTypes.string.isRequired,
     name: PropTypes.string,
     href: PropTypes.string,
     width: PropTypes.number,
