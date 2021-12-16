@@ -38,7 +38,9 @@ class addRelatedImage {
                     query: {
                         id: id.trim(),
                         subtype: get(article, 'subtype'),
-                        imageConfig: 'm'
+                        imageConfig: 'm',
+                        nid: get(article, '_id', ''),
+                        boxType: 'addRelatedImage'
                     },
                     filter
                 }
