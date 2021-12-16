@@ -15,6 +15,11 @@ const TAGS_BY_WIDGET = {
             /^(?:https?:\/\/)?(?:www\.)?/i,
             ''
         );
+
+        const webFont = deployment(
+            `${contextPath}/resources/fonts/suecaslab-bold-webfont.woff2`
+        );
+
         return (
             (_id && {
                 head: [
@@ -33,12 +38,16 @@ const TAGS_BY_WIDGET = {
                     <style
                         dangerouslySetInnerHTML={{
                             __html: `
-                            .widget {
-                                padding: 32px 16px 0;
-                            }
-                            @font-face {font-family:'SuecaSlab';src:url('${deployment(
-                                `${contextPath}/resources/fonts/suecaslab-bold-webfont.woff2`
-                            )}') format('woff2');font-weight: 700;font-style: normal;font-display: swap;}
+                                .widget {
+                                    padding: 32px 16px 0;
+                                }
+                                @font-face {
+                                    font-family: 'SuecaSlab';
+                                    src: url('${webFont}') format('woff2');
+                                    font-weight: 700;
+                                    font-style: normal;
+                                    font-display: swap;
+                                }
                             `
                         }}
                     />
@@ -86,7 +95,6 @@ const Widgets = props => {
 };
 
 Widgets.propTypes = {
-    children: PropTypes.node.isRequired,
     globalContent: PropTypes.shape({
         _id: PropTypes.string
     }).isRequired

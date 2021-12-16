@@ -8,6 +8,7 @@ import Media from '../LN/common/media';
 import get from './utils/get';
 import ModDescription from './mod-description';
 import getAuthorsPhoto from './utils/getAuthorsPhoto';
+import setArticleClassName from './utils/setArticleClassName';
 
 const ModArticle = props => {
     const {
@@ -80,19 +81,15 @@ const ModArticle = props => {
 
     return (
         <article
-            className={`mod-article ${classCondition || ''} ${
-                boxPosition
-                    ? `toi${boxPosition.replace(
-                          'toi',
-                          ''
-                      )}${artPosition} nid${_id}`
-                    : ''
-            } ${noMedia ? '--no-media' : ''} ${
-                (isRenderAuthor && classCondition !== '--columnista') ||
+            className={setArticleClassName({
+                classCondition,
+                boxPosition,
+                artPosition,
+                _id,
+                noMedia,
+                isRenderAuthor,
                 isRenderAuthorOpinion
-                    ? '--author'
-                    : ''
-            }`}
+            })}
             {...extraOpts}
             onClick={onCLick}
         >

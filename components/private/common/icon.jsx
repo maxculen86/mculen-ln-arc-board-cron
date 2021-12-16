@@ -1,7 +1,9 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import '../../../resources/dist/css/ln/components/com-icon.css';
 import Link from './link';
+import setIconClassName from './utils/setIconClassName';
 import MapperIcon from './icons/mapperIcon';
 
 const Icon = ({
@@ -9,16 +11,20 @@ const Icon = ({
     href,
     title,
     target,
-    extraClass,
     rel,
     size,
     children,
+    extraClass,
     negative,
     ...r
 }) => {
-    const className = `com-icon${name ? ` icon-${name}` : ``}${
-        negative ? ` --negative` : ``
-    }${href ? `` : ` ${extraClass || ``}`} ${size || ``}`;
+    const className = setIconClassName({
+        name,
+        href,
+        extraClass,
+        negative,
+        size
+    });
 
     return (
         <>
@@ -44,6 +50,17 @@ const Icon = ({
     );
 };
 
+Icon.defaultProps = {
+    href: '',
+    target: '',
+    title: '',
+    rel: '',
+    size: '',
+    children: '',
+    extraClass: '',
+    negative: false
+};
+
 Icon.propTypes = {
     name: PropTypes.string.isRequired,
     href: PropTypes.string,
@@ -52,6 +69,7 @@ Icon.propTypes = {
     extraClass: PropTypes.string,
     rel: PropTypes.string,
     size: PropTypes.string,
+    children: PropTypes.string,
     negative: PropTypes.bool
 };
 
