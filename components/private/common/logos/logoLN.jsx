@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ARC_STATIC } from 'fusion:environment';
-import { useFusionContext } from 'fusion:context';
+// import { useFusionContext } from 'fusion:context';
+import { useAppContext } from 'fusion:context';
 
 import Image from '../com-image';
 import { mapperLogos } from './mapperLogos';
 
 const LogoLN = props => {
     const { outputType, name, width, height } = props;
-    const { contextPath, deployment } = useFusionContext();
+    const { contextPath, deployment } = useAppContext();
     const archivoSVG = `${ARC_STATIC}${deployment(
         `${contextPath}/resources/images/${mapperLogos[name]}`
     )}`;
