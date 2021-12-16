@@ -20,6 +20,7 @@ const ComImage = props => {
         height,
         href,
         target,
+        isApertura,
         withLazy = true
     } = props;
 
@@ -46,6 +47,7 @@ const ComImage = props => {
             {...commonProps}
             class={`com-image ${classCondition || ''}`}
             layout={layout || 'responsive'}
+            data-hero={isApertura ? true : undefined}
         />
     );
 
@@ -74,7 +76,8 @@ ComImage.propTypes = {
     href: PropTypes.string,
     target: PropTypes.string,
     layout: PropTypes.string,
-    withLazy: PropTypes.bool
+    withLazy: PropTypes.bool,
+    isApertura: PropTypes.bool
 };
 
 ComImage.defaultProps = {
@@ -84,7 +87,8 @@ ComImage.defaultProps = {
     href: '',
     target: '',
     withLazy: true,
-    layout: undefined
+    layout: undefined,
+    isApertura: false
 };
 
 export default ComImage;

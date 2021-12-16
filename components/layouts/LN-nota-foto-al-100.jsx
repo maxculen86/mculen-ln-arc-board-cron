@@ -9,7 +9,6 @@ import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelli
 import '../../resources/dist/css/ln/pages/photo100.css';
 
 import GlobalProvider from '../private/common/context/globalContext';
-import { CommentsProvider } from '../private/common/context/commentsContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
@@ -41,57 +40,55 @@ const lnNotaFotoAl100 = ({
     const magazine = logo ? logo.logoName : '';
     return (
         <GlobalProvider>
-            <CommentsProvider>
-                {/* Banner MEGATOP */}
-                {getBannerMegatop(bannerMegatop, amp, tree, isAdmin)}
+            {/* Banner MEGATOP */}
+            {getBannerMegatop(bannerMegatop, amp, tree, isAdmin)}
 
-                <div
-                    id="wrapper"
-                    className={`nota ${magazine} --photo100 --transparent ${amp}`}
-                >
-                    <Header />
-                    <main id="content">
-                        {preTitulo}
-                        <AperturaStorytelling />
+            <div
+                id="wrapper"
+                className={`nota ${magazine} --photo100 --transparent ${amp}`}
+            >
+                <Header />
+                <main id="content">
+                    {preTitulo}
+                    <AperturaStorytelling />
 
-                        {/* Cuerpo al 100% */}
-                        <div className="row">
-                            {leftCuerpo}
-                            {cuerpo}
+                    {/* Cuerpo al 100% */}
+                    <div className="row">
+                        {leftCuerpo}
+                        {cuerpo}
+                    </div>
+
+                    <div className="lay-sidebar">
+                        <div className="sidebar__main">
+                            {/* Post-Cuerpo */}
+                            {postCuerpo}
                         </div>
-
-                        <div className="lay-sidebar">
-                            <div className="sidebar__main">
-                                {/* Post-Cuerpo */}
-                                {postCuerpo}
-                            </div>
-                            <div className="sidebar__aside hlp-tabletlm-none">
-                                {/* Post-Cuerpo-Tercera */}
-                                {postCuerpoTercera}
-                            </div>
+                        <div className="sidebar__aside hlp-tabletlm-none">
+                            {/* Post-Cuerpo-Tercera */}
+                            {postCuerpoTercera}
                         </div>
+                    </div>
 
-                        {/* Newsletter */}
-                        <div className="lay">{newsletter}</div>
+                    {/* Newsletter */}
+                    <div className="lay">{newsletter}</div>
 
-                        <div className="lay-sidebar">
-                            <div className="sidebar__main">
-                                {/* Bottom */}
-                                {bottom}
-                            </div>
-                            <div className="sidebar__aside hlp-tabletlm-none">
-                                {/* Bottom-Tercera */}
-                                {bottomTercera}
-                            </div>
+                    <div className="lay-sidebar">
+                        <div className="sidebar__main">
+                            {/* Bottom */}
+                            {bottom}
                         </div>
-                    </main>
-                    <Static id="StaticFooter">
-                        <Footer />
-                    </Static>
-                </div>
-                <LoadBannersSSR />
-                <PwaModals />
-            </CommentsProvider>
+                        <div className="sidebar__aside hlp-tabletlm-none">
+                            {/* Bottom-Tercera */}
+                            {bottomTercera}
+                        </div>
+                    </div>
+                </main>
+                <Static id="StaticFooter">
+                    <Footer />
+                </Static>
+            </div>
+            <LoadBannersSSR />
+            <PwaModals />
         </GlobalProvider>
     );
 };

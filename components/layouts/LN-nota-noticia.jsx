@@ -9,7 +9,6 @@ import Footer from '../private/LN/common/footer';
 import '../../resources/dist/css/ln/pages/magazine.css';
 
 import GlobalProvider from '../private/common/context/globalContext';
-import { CommentsProvider } from '../private/common/context/commentsContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
@@ -32,30 +31,29 @@ const lnNotaNoticia = ({
     const magazine = logo ? logo.logoName : '';
     return (
         <GlobalProvider>
-            <CommentsProvider>
-                {/* Banner MEGATOP */}
-                {bannerMegatop}
-                {/* Banner MEGATOP */}
-                <div id="wrapper" className={`nota noticia ${magazine} ${amp}`}>
-                    <Header />
-                    <main id="content">
-                        {children[1]}
-                        <div className="lay --apertura">
-                            <div className="row">
-                                <div className="col-12">
-                                    {/* Titulo (breadcrumb, logo+titulo) */}
-                                    {children[2]}
-                                </div>
+            {/* Banner MEGATOP */}
+            {bannerMegatop}
+            {/* Banner MEGATOP */}
+            <div id="wrapper" className={`nota noticia ${magazine} ${amp}`}>
+                <Header />
+                <main id="content">
+                    {children[1]}
+                    <div className="lay --apertura">
+                        <div className="row">
+                            <div className="col-12">
+                                {/* Titulo (breadcrumb, logo+titulo) */}
+                                {children[2]}
                             </div>
                         </div>
-                        <div className="lay-sidebar">
-                            {/* Cuerpo */}
-                            <div className="sidebar__main">
-                                <div className="row">
-                                    <div className="col-12 ">
-                                        {/* Bajada y autor fecha más apertura */}
-                                        {children[3]}
-                                        {/* <div className="opinion-autor row">
+                    </div>
+                    <div className="lay-sidebar">
+                        {/* Cuerpo */}
+                        <div className="sidebar__main">
+                            <div className="row">
+                                <div className="col-12 ">
+                                    {/* Bajada y autor fecha más apertura */}
+                                    {children[3]}
+                                    {/* <div className="opinion-autor row">
                                     <section id="" className="cont-figure">
                                         <div className="figure">
                                             <picture className="content-pic picture">
@@ -74,53 +72,52 @@ const lnNotaNoticia = ({
                                         <label>PARA LA NACION</label>
                                     </div>
                                 </div> */}
-                                    </div>
                                 </div>
-                                <section className="cuerpo__nota">
-                                    <div className="row">
-                                        <div className="col-12 col-desksm-1">
-                                            {/* hlp-mobile-show */}
-                                            {/* Left-Cuerpo Shared */}
-                                            {children[4]}
-                                        </div>
-                                        <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
-                                            <div className="row">
-                                                <div className="col-12">
-                                                    {/* Pos-Apertura */}
-                                                    {children[5]}
-                                                    {/* Logo al pie */}
-                                                </div>
+                            </div>
+                            <section className="cuerpo__nota">
+                                <div className="row">
+                                    <div className="col-12 col-desksm-1">
+                                        {/* hlp-mobile-show */}
+                                        {/* Left-Cuerpo Shared */}
+                                        {children[4]}
+                                    </div>
+                                    <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
+                                        <div className="row">
+                                            <div className="col-12">
+                                                {/* Pos-Apertura */}
+                                                {children[5]}
+                                                {/* Logo al pie */}
                                             </div>
                                         </div>
                                     </div>
-                                </section>
-                            </div>
+                                </div>
+                            </section>
+                        </div>
 
-                            {/* Tercera */}
-                            <div className="sidebar__aside hlp-tabletlm-none">
-                                {children[6]}
-                            </div>
+                        {/* Tercera */}
+                        <div className="sidebar__aside hlp-tabletlm-none">
+                            {children[6]}
                         </div>
-                        {/* Newsletter */}
-                        <div className="lay">{children[8]}</div>
-                        <div className="lay-sidebar">
-                            <div className="sidebar__main">
-                                {/* Bottom */}
-                                {children[9]}
-                            </div>
-                            <div className="sidebar__aside hlp-tabletlm-none">
-                                {/* Bottom-Tercera */}
-                                {children[10]}
-                            </div>
+                    </div>
+                    {/* Newsletter */}
+                    <div className="lay">{children[8]}</div>
+                    <div className="lay-sidebar">
+                        <div className="sidebar__main">
+                            {/* Bottom */}
+                            {children[9]}
                         </div>
-                    </main>
-                    <Static id="StaticFooter">
-                        <Footer />
-                    </Static>
-                </div>
-                <LoadBannersSSR />
-                <PwaModals />
-            </CommentsProvider>
+                        <div className="sidebar__aside hlp-tabletlm-none">
+                            {/* Bottom-Tercera */}
+                            {children[10]}
+                        </div>
+                    </div>
+                </main>
+                <Static id="StaticFooter">
+                    <Footer />
+                </Static>
+            </div>
+            <LoadBannersSSR />
+            <PwaModals />
         </GlobalProvider>
     );
 };
