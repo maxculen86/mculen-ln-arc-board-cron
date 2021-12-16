@@ -10,7 +10,7 @@ const LogoLN = props => {
     const { outputType, name, width, height } = props;
     const { contextPath, deployment } = useFusionContext();
     const archivoSVG = `${ARC_STATIC}${deployment(
-        `${contextPath}/resources/svg/${mapperLogos[name]}`
+        `${contextPath}/resources/images/${mapperLogos[name]}`
     )}`;
 
     return (
