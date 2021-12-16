@@ -134,7 +134,7 @@ const HeaderDesktop = ({
                     target="_top"
                     title="Ir a la página principal"
                 /> */}
-                    <LogoLN name="data-fiscal" />
+                    <LogoLN name="brando" />
                 </div>
                 <div className="col-4 header__right">
                     <div
