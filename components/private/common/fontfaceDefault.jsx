@@ -3,6 +3,10 @@ import { useAppContext } from 'fusion:context';
 
 const FontFaceDefault = () => {
     const { contextPath, deployment } = useAppContext();
+
+    const deployFont = font =>
+        deployment(`${contextPath}/resources/fonts/${font}`);
+
     const stringScript = `
         const loadFont = ({family, url, config}) => {
             var font = new FontFace(family, url, config);
@@ -13,11 +17,10 @@ const FontFaceDefault = () => {
                 document.fonts.add(font);
             });
         }
+
         loadFont({
             family: "SuecaSlab",
-            url:"url('${deployment(
-                `${contextPath}/resources/fonts/suecaslab-bold-webfont.woff2`
-            )}')", 
+            url:"url('${deployFont('suecaslab-bold-webfont.woff2')}')", 
             config:{
                 format: 'woff2',
                 weight: '700',
@@ -27,9 +30,7 @@ const FontFaceDefault = () => {
         });
         loadFont({
             family: "SuecaSlab",
-            url:"url('${deployment(
-                `${contextPath}/resources/fonts/suecaslab-medium-webfont.woff2`
-            )}')", 
+            url:"url('${deployFont('suecaslab-medium-webfont.woff2')}')", 
             config:{
                 format: 'woff2',
                 weight: '500',
@@ -39,9 +40,7 @@ const FontFaceDefault = () => {
         });
         loadFont({
             family: "LNlogos",
-            url:"url('${deployment(
-                `${contextPath}/resources/fonts/lana-logos-v1.woff`
-            )}')", 
+            url:"url('${deployFont('lana-logos-v1.woff')}')", 
             config:{
                 format: 'woff',
                 weight: 'normal',

@@ -27,9 +27,6 @@ function DataDog({ location = 'head' }) {
     const gaIdCookie = getMyCookie('_ga');
     const googleAnalyticsId =  gaIdCookie && gaIdCookie.split('.').splice(2,2).join('.');
     const usuarioEmail = getMyCookie('usuarioemail');
-    
-    const contextGaId = () => googleAnalyticsId ? "DD_LOGS.addContext('user.gaId', '" + googleAnalyticsId + "');" : "";
-    const contextEmail = () => usuarioEmail ? "DD_LOGS.addContext('user.email', '" + usuarioEmail + "');" : "";
 
     (function (h, o, u, n, d) {
         h = h[d] = h[d] || {
@@ -61,8 +58,9 @@ function DataDog({ location = 'head' }) {
           version: "${version}",
           trackSessionAcrossSubdomains: ${trackSessionAcrossSubdomains},
         });
-        contextGaId();
-        contextEmail();
+
+        googleAnalyticsId && DD_LOGS.logger.addContext('user.gaId', googleAnalyticsId);
+        usuarioEmail && DD_LOGS.logger.addContext('user.email', usuarioEmail);
         
         if ("${env}" !== "prod")
           console.log(

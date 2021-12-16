@@ -11,7 +11,7 @@ exports[`features - LaNacion - Nota - Detalle Receta Test de snapshot Detalle Re
       class="col-2 col-tablet-1"
     >
       <i
-        class="com-icon icon-timer  "
+        class="com-icon icon-timer"
       >
         <svg
           fill="none"
@@ -49,7 +49,7 @@ exports[`features - LaNacion - Nota - Detalle Receta Test de snapshot Detalle Re
       class="col-2 col-tablet-1"
     >
       <i
-        class="com-icon icon-group  "
+        class="com-icon icon-group"
       >
         <svg
           fill="none"

@@ -31,7 +31,7 @@ exports[`getBannerConfiguration => Deberia traer la configuracion del adhesion_m
     type="button"
   >
     <i
-      class="com-icon icon-close --negative  "
+      class="com-icon icon-close  --negative"
     >
       <svg
         fill="none"
