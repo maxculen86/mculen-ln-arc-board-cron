@@ -9,5 +9,6 @@ export const mapperLogos = {
     ohlala: 'ohlala.svg',
     propiedades: 'propiedades.svg',
     campo: 'campo.svg',
-    deportes: 'deportes.svg'
+    deportes: 'deportes.svg',
+    'ln-logo': 'logo-lanacion.svg'
 };

@@ -3,7 +3,7 @@ import React from 'react';
 import NavBarMobile from '../navbar';
 import Button from '../../../common/com-button';
 import Link from '../../../common/link';
-import LogoLN from '../../../common/logos/logoLN';
+import LogoComponent from '../../../common/logos/LogoComponent';
 import Icon from '../../../common/icon';
 
 const headerAMP = props => {
@@ -30,7 +30,10 @@ const headerAMP = props => {
                                 target="_top"
                                 title="Ir a la página principal"
                             /> */}
-                            <LogoLN />
+                            <LogoComponent
+                                name="ln-logo"
+                                classCondition={'logoLN'}
+                            />
                         </div>
                         <div className="col-5 col-desksm-4 header__right">
                             <div id="user-menu" className="com-usuario">
@@ -72,7 +75,8 @@ const headerAMP = props => {
                         href="https://www.lanacion.com.ar/"
                         title="Ir a la página principal"
                     /> */}
-                    <LogoLN />
+                    <LogoComponent name="ln-logo" classCondition={'logoLN'} />
+
                     <Button on="tap:sidebar-left.close" iconName="close" />
                 </section>
                 <ul className="menu-nav">

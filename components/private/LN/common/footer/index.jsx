@@ -10,6 +10,7 @@ import getAssetsPath from '../../../common/utils/getAssetsPath';
 import Logo from '../../../common/com-logo';
 
 import '../../../../../resources/dist/css/ln/modules/mod-footer.css';
+import LogoComponent from '../../../common/logos/LogoComponent';
 
 const Index = ({
     outputType,
@@ -240,7 +241,7 @@ const Index = ({
                             />
                         </div>
                         <div className="col-desksm-4 --center">
-                            <Logo
+                            {/* <Logo
                                 logoName="la-nacion"
                                 classCondition="nacion-home"
                                 color
@@ -250,7 +251,12 @@ const Index = ({
                                 }`}
                                 target="_top"
                                 title="Ir a la página principal"
+                            /> */}
+                            <LogoComponent
+                                name="ln-logo"
+                                classCondition={'nacion-home'}
                             />
+
                             {/* <LogoLN /> */}
                         </div>
                         <div className="col-desksm-4 --right">
