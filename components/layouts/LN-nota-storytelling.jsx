@@ -1,23 +1,16 @@
-// React
 import React from 'react';
-
-// Fusion
 import Consumer from 'fusion:consumer';
-import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
-
-// Private Components
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelling';
-
 import '../../resources/dist/css/ln/pages/storytelling.css';
-
 import GlobalProvider from '../private/common/context/globalContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import PwaModals from '../private/LN/common/pwaModals';
+import { notaFotoAl100AndNotaStorytellingPropTypes } from '../private/common/utils/propTypesHelper';
 
 const lnNotaStorytelling = ({
     children,
@@ -36,9 +29,7 @@ const lnNotaStorytelling = ({
     const magazine = logo ? logo.logoName : '';
     return (
         <GlobalProvider>
-            {/* Banner MEGATOP */}
             {bannerMegatop}
-
             <div
                 id="wrapper"
                 className={`nota ${magazine} --storytelling --transparent ${amp}`}
@@ -61,7 +52,6 @@ const lnNotaStorytelling = ({
                                     <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
                                         <div className="row">
                                             <div className="col-12">
-                                                {/* Cuerpo */}
                                                 {children[3]}
                                             </div>
                                         </div>
@@ -69,20 +59,14 @@ const lnNotaStorytelling = ({
                                 </div>
                             </section>
                         </div>
-                        {/* Tercera */}
                         <div className="sidebar__aside hlp-tabletlm-none">
                             {children[4]}
                         </div>
                     </div>
-                    {/* Newsletter */}
                     <div className="lay">{children[5]}</div>
                     <div className="lay-sidebar">
-                        <div className="sidebar__main">
-                            {/* Bottom */}
-                            {children[6]}
-                        </div>
+                        <div className="sidebar__main">{children[6]}</div>
                         <div className="sidebar__aside hlp-tabletlm-none">
-                            {/* Bottom-Tercera */}
                             {children[7]}
                         </div>
                     </div>
@@ -110,22 +94,6 @@ const pageBuilderSections = [
 
 lnNotaStorytelling.sections = pageBuilderSections;
 
-lnNotaStorytelling.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.node).isRequired,
-    outputType: PropTypes.string.isRequired,
-    tree: PropTypes.arrayOf(PropTypes.node).isRequired,
-    isAdmin: PropTypes.bool.isRequired,
-    globalContent: PropTypes.shape({
-        taxonomy: PropTypes.shape({
-            sections: PropTypes.shape({
-                _id: PropTypes.string
-            })
-        }),
-        distributor: PropTypes.shape({
-            name: PropTypes.string
-        })
-    }).isRequired,
-    layout: PropTypes.string.isRequired
-};
+lnNotaStorytelling.propTypes = notaFotoAl100AndNotaStorytellingPropTypes;
 
 export default Consumer(lnNotaStorytelling);
