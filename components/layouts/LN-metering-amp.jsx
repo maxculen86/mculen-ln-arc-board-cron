@@ -1,17 +1,21 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
+import PropTypes from 'prop-types';
+
 const MeteringAMPLayout = ({ globalContent }) => {
-    const { queryParams: { id: _id = '' } = {}, params: [articleType] = [] } =
-        globalContent || {};
+    const {
+        queryParams: { id: _id = '' } = {},
+        params: [articleType, nid] = []
+    } = globalContent || {};
     const script = `
     function getCookie (name) {
             return document.cookie.replace(
-                new RegExp("(?:(?:^|.*;\\s*)"+name+"\\s*=\\s*([^;]*).*$)|^.*$"),
+                new RegExp("(?:(?:^|.*;\\\\s*)"+name+"\\\\s*=\\\\s*([^;]*).*$)|^.*$"),
                 '$1'
             );
         };
         function findCookies (nameRegex) {
-            const regex = new RegExp("("+nameRegex+")\\s*=\\s*([^;]*)", "g");
+            const regex = new RegExp("("+nameRegex+")\\\\s*=\\\\s*([^;]*)", "g");
             const results = [];
             let match = regex.exec(document.cookie);
             const groups = nameRegex.split('(').length - 1;
@@ -44,6 +48,7 @@ const MeteringAMPLayout = ({ globalContent }) => {
                 deleteCookie(c.name);
         }
         // Grabo nota actual
+        const nid = "${nid}"
         const _id = "${_id}";
         const articleType = "${articleType}";
         if (articleType !== 'abierta' && !auxDbArr.find(v => v.startsWith(_id))) {
@@ -55,6 +60,9 @@ const MeteringAMPLayout = ({ globalContent }) => {
         }
         setCookie({name: auxDbName, expire: Date.now()+30*24*3600*1000 }, auxDbArr.join('|'));
     `;
+
+    if (_id === '' || articleType === '') return <></>;
+
     return (
         <script
             id="metering-amp"
@@ -65,3 +73,11 @@ const MeteringAMPLayout = ({ globalContent }) => {
     );
 };
 export default Consumer(MeteringAMPLayout);
+
+MeteringAMPLayout.propTypes = {
+    globalContent: PropTypes.shape
+};
+
+MeteringAMPLayout.defaultProps = {
+    globalContent: {}
+};

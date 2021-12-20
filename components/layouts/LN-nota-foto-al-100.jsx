@@ -12,6 +12,7 @@ import GlobalProvider from '../private/common/context/globalContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
+import PwaModals from '../private/LN/common/pwaModals';
 
 const lnNotaFotoAl100 = ({
     children: [
@@ -87,6 +88,7 @@ const lnNotaFotoAl100 = ({
                 </Static>
             </div>
             <LoadBannersSSR />
+            <PwaModals />
         </GlobalProvider>
     );
 };

@@ -23,7 +23,9 @@ class ArticleFeature {
                         id: imageId,
                         published: true,
                         imageConfig: 'm',
-                        'arc-site': 'la-nacion-ar'
+                        'arc-site': 'la-nacion-ar',
+                        nid: noteId,
+                        boxType: 'ArticleFeature'
                     }
                 }
             });

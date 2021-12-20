@@ -1,4 +1,4 @@
-import NotaIndex from '../../../../../../../../components/private/LN/api/v1/global/story';
+import NotaIndex from '../../../../../../../../components/private/LN/api/v1/mobile/story';
 import QAZ7BVHG5BCNFN7S67XCBP6PA4 from '../../../../../../../../__mocks__/data/articles/QAZ7BVHG5BCNFN7S67XCBP6PA4.json';
 import JMQ44OZHHBC5ZJ5TXTSIIPZMTI from '../../../../../../../../__mocks__/data/articles/JMQ44OZHHBC5ZJ5TXTSIIPZMTI.json';
 import FUO2YR3EABBAFOMSI2BBS6J7FM from '../../../../../../../../__mocks__/data/articles/FUO2YR3EABBAFOMSI2BBS6J7FM.json';
@@ -18,7 +18,6 @@ describe('Test de index en JSON de nota', () => {
         expect(resp.mostrarBanners).toBe(true);
         expect(resp.enviarApps).toBe(true);
         expect(resp.paywallStatus).toBe('comun');
-        expect(resp.abiertoComentarios).toBe(false);
         expect(resp.comentarios.abiertoComentarios).toBe(true);
         expect(resp.comentarios.permitirComentarios).toBe(true);
         expect(resp.fechaActualizacion).toBe(
@@ -44,11 +43,9 @@ describe('Test de index en JSON de nota', () => {
         expect(resp.url).toBe(
             '/comunidad/violencia-economica-deje-de-trabajar-porque-el-me-lo-pidio-y-fue-el-principio-del-fin-para-mi-nid29092020/'
         );
-        expect(resp.comentariosId).toBe('FUO2YR3EABBAFOMSI2BBS6J7FM');
         expect(resp.mostrarBanners).toBe(false);
         expect(resp.enviarApps).toBe(false);
         expect(resp.paywallStatus).toBe('abierta');
-        expect(resp.abiertoComentarios).toBe(false);
         expect(resp.comentarios.abiertoComentarios).toBe(false);
         expect(resp.comentarios.permitirComentarios).toBe(true);
         expect(resp.fechaActualizacion).toBe('29 de septiembre de 2020');
@@ -62,11 +59,9 @@ describe('Test de index en JSON de nota', () => {
         expect(resp.url).toBe(
             '/el-mundo/marcada-por-la-escasez-y-la-inflacion-la-semana-santa-no-escapo-al-calvario-cotidiano-nid2121866/'
         );
-        expect(resp.comentariosId).toBe('1289892');
         expect(resp.mostrarBanners).toBe(true);
         expect(resp.enviarApps).toBe(true);
         expect(resp.paywallStatus).toBe('comun');
-        expect(resp.abiertoComentarios).toBe(false);
         expect(resp.fechaActualizacion).toBe('29 de septiembre de 2020');
         expect(resp.fecha).toBe('29 de septiembre de 2020');
         expect(resp.HTML).toBeUndefined();
@@ -76,7 +71,6 @@ describe('Test de index en JSON de nota', () => {
         const resp = NotaIndex(Q4P5KFEOLVHINB3Y5LIGK26SOU);
         expect(resp.id).toBe('Q4P5KFEOLVHINB3Y5LIGK26SOU');
         expect(resp.template).toBe('9');
-        expect(resp.abiertoComentarios).toBe(false);
         expect(resp.paywallStatus).toBe('comun');
         expect(resp.fechaActualizacion).toBeUndefined();
         expect(resp.fecha).toBeUndefined();
@@ -94,8 +88,6 @@ describe('Test de index en JSON de nota', () => {
         );
         expect(resp.mostrarBanners).toBe(true);
         expect(resp.paywallStatus).toBe('premium');
-        expect(resp.abiertoComentarios).toBe(false);
-        expect(resp.comentariosId).toBe('841900');
         expect(resp.fechaActualizacion).toBe('24 de abril de 2020 • 08:35');
         expect(resp.fecha).toBe('24 de abril de 2020 • 08:35');
         expect(resp.enviarApps).toBe(true);

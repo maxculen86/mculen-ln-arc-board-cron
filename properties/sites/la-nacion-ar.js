@@ -1616,6 +1616,23 @@ export default {
                         }
                     }
                 },
+                caja6_mob: {
+                    slotName: 'la_nacion_mobile/Nota/caja6_mob',
+                    withoutHide: true,
+                    dimensions: [
+                        [300, 250],
+                        [230, 50],
+                        [300, 450],
+                        [1, 1],
+                        [320, 100]
+                    ],
+                    targeting: targetingNota,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
                 inread_mob: {
                     slotName: 'la_nacion_mobile/Nota/inread_mob',
                     dimensions: [

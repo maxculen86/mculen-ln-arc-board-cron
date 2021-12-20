@@ -7,6 +7,7 @@ import Header from '../private/LN/common/header';
 import NewFooter from '../private/LN/common/footer';
 
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
+import PwaModals from '../private/LN/common/pwaModals';
 
 const pageBuilderSections = [
     'Pre-Titulo',
@@ -84,6 +85,7 @@ const LNNotaReceta = ({ outputType, children }) => {
                 </Static>
             </div>
             <LoadBannersSSR />
+            <PwaModals />
         </GlobalProvider>
     );
 };

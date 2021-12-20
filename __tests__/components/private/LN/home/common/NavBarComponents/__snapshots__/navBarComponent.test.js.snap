@@ -13,7 +13,7 @@ exports[`private - LN - common - Navbar - listMenu Test de snapshot NavBar 1`] =
       target="_top"
     >
       <i
-        class="com-icon icon-home "
+        class="com-icon icon-home"
       >
         <svg
           fill="none"
@@ -40,7 +40,7 @@ exports[`private - LN - common - Navbar - listMenu Test de snapshot NavBar 1`] =
       type="button"
     >
       <i
-        class="com-icon icon-sections  "
+        class="com-icon icon-sections"
       >
         <svg
           fill="none"
@@ -64,9 +64,10 @@ exports[`private - LN - common - Navbar - listMenu Test de snapshot NavBar 1`] =
     <a
       class="com-link col-3 item-foo"
       href="https://club.lanacion.com.ar/"
+      target=""
     >
       <i
-        class="com-icon icon-club-card "
+        class="com-icon icon-club-card"
       >
         <svg
           fill="none"
@@ -90,9 +91,10 @@ exports[`private - LN - common - Navbar - listMenu Test de snapshot NavBar 1`] =
     <a
       class="com-link col-3 item-foo"
       href="https://myaccount.lanacion.com.ar/mi-usuario/"
+      target=""
     >
       <i
-        class="com-icon icon-user "
+        class="com-icon icon-user"
       >
         <svg
           fill="none"

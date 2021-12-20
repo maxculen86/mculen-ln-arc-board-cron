@@ -4,9 +4,18 @@ import TaxonomyComponent from '../../common/taxonomyImportantList';
 import HeaderSection from '../../../common/mod-headerSection';
 
 const getSectionsAsTags = sections => {
-    return sections
+    return sections && sections.length > 0
         ? sections
-              .filter(section => section.name !== '')
+              .filter(
+                  section =>
+                      section.name !== '' &&
+                      section.name !== sections[0].name &&
+                      sections[0].parent_id !== section.path &&
+                      !sections[0].parent_id
+                          .split('/')
+                          .filter(v => v !== '')
+                          .includes(section.path.replace('/', ''))
+              )
               .reduce((accumulator, section, index) => {
                   return [
                       ...accumulator,
@@ -68,6 +77,11 @@ Tags.propTypes = {
     destacado: PropTypes.boolean.isRequired,
     temas: PropTypes.boolean,
     sections: PropTypes.arrayOf(PropTypes.shape)
+};
+
+Tags.defaultProps = {
+    temas: false,
+    sections: []
 };
 
 export default Tags;
