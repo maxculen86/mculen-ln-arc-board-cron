@@ -5,7 +5,6 @@ import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
-
 import GlobalProvider from '../private/common/context/globalContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
@@ -29,13 +28,8 @@ const lnNotaInfografia = ({
     const magazine = logo ? logo.logoName : '';
     return (
         <GlobalProvider>
-            {/* Banner MEGATOP */}
             {bannerMegatop}
-            {/* Banner MEGATOP */}
-
             <div id="wrapper" className={`nota --info ${magazine} ${amp}`}>
-                {/* TODO: sacar */}
-                {/* <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" /> */}
                 <Header />
                 <main id="content">
                     {children[1]}
@@ -54,26 +48,6 @@ const lnNotaInfografia = ({
                                 <div className="col-12 ">
                                     {/* Bajada y autor fecha más apertura */}
                                     {children[3]}
-
-                                    {/* <div className="opinion-autor row">
-                                    <section id="" className="cont-figure">
-                                        <div className="figure">
-                                            <picture className="content-pic picture">
-                                                <img
-                                                    src="https://bucket1.glanacion.com/anexos/fotos/12/2089212w82.png"
-                                                    alt=""
-                                                    className="content-img"
-                                                />
-                                            </picture>
-                                        </div>
-                                    </section>
-                                    <div className="opinion-calc">
-                                        <h1 className="link hlp-bold">
-                                            <a href="">Bruno Pittón</a>
-                                        </h1>
-                                        <label>PARA LA NACION</label>
-                                    </div>
-                                </div> */}
                                 </div>
                             </div>
                             <section className="cuerpo__nota">
