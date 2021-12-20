@@ -44,4 +44,69 @@ const bannerPropTypes = {
     }).isRequired
 };
 
-export default bannerPropTypes;
+const googlePublisherAndLiftIgniterPropTypes = {
+    content_elements: PropTypes.arrayOf(
+        PropTypes.shape({
+            _id: PropTypes.string,
+            type: PropTypes.string,
+            additional_properties: PropTypes.shape({
+                nodeType: PropTypes.string
+            }),
+            content: PropTypes.string
+        })
+    ),
+    credits: PropTypes.shape({
+        by: PropTypes.arrayOf(
+            PropTypes.shape({
+                name: PropTypes.string
+            })
+        )
+    }),
+    label: PropTypes.shape({
+        recomendar: PropTypes.shape({
+            text: PropTypes.string
+        })
+    })
+};
+
+const wikiAuthorPropTypes = {
+    byline: PropTypes.string,
+    email: PropTypes.string,
+    role: PropTypes.string,
+    longBio: PropTypes.string,
+    image: PropTypes.shape({
+        url: PropTypes.string
+    }),
+    books: PropTypes.arrayOf(
+        PropTypes.shape({
+            title: PropTypes.string,
+            publisher: PropTypes.string,
+            url: PropTypes.string
+        })
+    ),
+    podcasts: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.string,
+            url: PropTypes.string
+        })
+    ),
+    education: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.string
+        })
+    ),
+    awards: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.string
+        })
+    ),
+    personal_website: PropTypes.string,
+    languages: PropTypes.string,
+    affiliations: PropTypes.string
+};
+
+export {
+    googlePublisherAndLiftIgniterPropTypes,
+    bannerPropTypes,
+    wikiAuthorPropTypes
+};

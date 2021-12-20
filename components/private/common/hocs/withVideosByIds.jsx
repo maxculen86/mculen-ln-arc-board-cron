@@ -1,50 +1,38 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { PureComponent } from 'react';
 import Consumer from 'fusion:consumer';
-import get from 'lodash.get';
+import getVideosHelper from '../utils/hocVideosHelper';
 
 function withVideosByIds(WrappedComponent, filter, website, published) {
     return Consumer(
         class extends PureComponent {
-            state = {
-                videos: []
-            };
-
             constructor(props) {
                 super(props);
                 this.getVideos();
+                this.state = {
+                    videos: []
+                };
             }
 
             getVideos() {
+                const { videoIds } = this.props;
                 const { cached, fetched } = this.getContent({
                     sourceName: 'ottVideosSource',
                     query: {
-                        website: website,
-                        published: published,
-                        ids: this.props.videoIds
+                        website,
+                        published,
+                        ids: videoIds
                     },
                     filter
                 });
-                const cachedVideos = get(cached, 'content_elements', null);
-
-                if (cachedVideos) this.state.videos = cachedVideos;
-
-                fetched.then(response => {
-                    const fetchedVideos = get(
-                        response,
-                        'content_elements',
-                        null
-                    );
-                    if (fetchedVideos) this.setState({ videos: fetchedVideos });
-                });
+                getVideosHelper(cached, fetched);
             }
 
             render() {
-                return (
-                    <WrappedComponent
-                        videos={this.state.videos}
-                        {...this.props}
-                    />
-                );
+                const { videos } = this.state;
+
+                return <WrappedComponent videos={videos} {...this.props} />;
             }
         }
     );

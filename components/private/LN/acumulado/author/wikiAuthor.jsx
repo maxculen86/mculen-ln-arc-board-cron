@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-
 import '../../../../../resources/dist/css/ln/modules/wiki-autor.css';
 import '../../../../../resources/dist/css/ln/components/author.css';
-
 import '../../../../../resources/dist/css/ln/components/link.css';
 import ComTitle from '../../../common/com-title';
 import ComContainer from '../../../common/com-container';
@@ -14,7 +12,7 @@ import ImageAuthor from './imageAuthor';
 import ComLink from '../../../common/com-link';
 import ComSubtitle from '../../../common/com-subtitle';
 import getSocialsNetwork from '../../common/utils/getSocialsNetwork';
-import ComAdvance from '../../../common/com-advance';
+import { wikiAuthorPropTypes } from '../../../common/utils/propTypesHelper';
 
 const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
     const {
@@ -54,7 +52,6 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                     <ComContainer classCondition="--info">
                         <ComTitle tag="h1" content={byline} size="--l" />
                         <ComText
-                            //textname={role}
                             extraClass="com-text --profesion"
                             size="--twoxs"
                             text={role}
@@ -171,39 +168,7 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
 
 WikiAuthor.propTypes = {
     data: PropTypes.shape({
-        byline: PropTypes.string,
-        email: PropTypes.string,
-        role: PropTypes.string,
-        longBio: PropTypes.string,
-        image: PropTypes.shape({
-            url: PropTypes.string
-        }),
-        books: PropTypes.arrayOf(
-            PropTypes.shape({
-                title: PropTypes.string,
-                publisher: PropTypes.string,
-                url: PropTypes.string
-            })
-        ),
-        podcasts: PropTypes.arrayOf(
-            PropTypes.shape({
-                name: PropTypes.string,
-                url: PropTypes.string
-            })
-        ),
-        education: PropTypes.arrayOf(
-            PropTypes.shape({
-                name: PropTypes.string
-            })
-        ),
-        awards: PropTypes.arrayOf(
-            PropTypes.shape({
-                name: PropTypes.string
-            })
-        ),
-        personal_website: PropTypes.string,
-        languages: PropTypes.string,
-        affiliations: PropTypes.string
+        ...wikiAuthorPropTypes
     }).isRequired,
     classesNames: PropTypes.string,
     classCondition: PropTypes.string,
