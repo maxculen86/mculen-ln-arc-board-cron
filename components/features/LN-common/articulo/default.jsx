@@ -59,7 +59,13 @@ const ArticleFeature = ({
         imageId &&
         useContent({
             source: 'relatedImageSource',
-            query: { id: imageId.trim(), published: true, imageConfig }
+            query: {
+                id: imageId.trim(),
+                published: true,
+                imageConfig,
+                nid: id,
+                boxType: 'ArticleFeature'
+            }
         });
 
     const error = validateArticleFeature(id, article);
