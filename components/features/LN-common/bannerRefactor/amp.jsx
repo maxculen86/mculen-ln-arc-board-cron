@@ -8,7 +8,7 @@ import {
     isForAmp
 } from '../../../private/LN/common/utils/bannerHelper';
 import DivBannerAMP from '../../../private/common/banners/DivBannerAMP';
-import bannerPropTypes from '../../../private/common/utils/propTypesHelper';
+import { bannerPropTypes } from '../../../private/common/utils/propTypesHelper';
 
 const Banner = props => {
     const { isAdmin, customFields, globalContent, globalContentConfig } = props;
