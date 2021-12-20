@@ -1,3 +1,5 @@
+/* eslint-disable no-return-assign */
+/* eslint-disable react/no-direct-mutation-state */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { PureComponent } from 'react';
 import Consumer from 'fusion:consumer';
@@ -12,13 +14,13 @@ function withLastVideos(WrappedComponent, filter, website, published) {
         class extends PureComponent {
             constructor(props) {
                 super(props);
-                this.getVideos();
                 this.state = {
                     from: 0,
                     videos: [],
                     lastCachedItemsCount: 0,
                     hasNext: false
                 };
+                this.getVideos();
             }
 
             getVideos() {
@@ -31,12 +33,13 @@ function withLastVideos(WrappedComponent, filter, website, published) {
                     },
                     filter
                 });
-                getVideosHelper(cached, fetched);
+                getVideosHelper(cached, fetched, this.handleGetVideos);
             }
+
+            handleGetVideos = value => (this.state.videos = value);
 
             render() {
                 const { videos } = this.state;
-
                 return <WrappedComponent videos={videos} {...this.props} />;
             }
         }

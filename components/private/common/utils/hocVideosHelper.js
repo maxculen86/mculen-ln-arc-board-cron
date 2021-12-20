@@ -1,12 +1,12 @@
-import get from 'lodash.get';
+import get from './get';
 
-export default function getVideosHelper(cached, fetched) {
+export default function getVideosHelper(cached, fetched, handleVideosChange) {
     const cachedVideos = get(cached, 'content_elements', null);
 
-    if (cachedVideos) this.setState({ videos: cachedVideos });
+    if (cachedVideos) handleVideosChange(cachedVideos);
 
     fetched.then(response => {
         const fetchedVideos = get(response, 'content_elements', null);
-        if (fetchedVideos) this.setState({ videos: fetchedVideos });
+        if (fetchedVideos) handleVideosChange(fetchedVideos);
     });
 }
