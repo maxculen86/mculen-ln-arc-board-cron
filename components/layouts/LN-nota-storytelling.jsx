@@ -17,6 +17,7 @@ import GlobalProvider from '../private/common/context/globalContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
+import PwaModals from '../private/LN/common/pwaModals';
 
 const lnNotaStorytelling = ({
     children,
@@ -91,6 +92,7 @@ const lnNotaStorytelling = ({
                 </Static>
             </div>
             <LoadBannersSSR />
+            <PwaModals />
         </GlobalProvider>
     );
 };
