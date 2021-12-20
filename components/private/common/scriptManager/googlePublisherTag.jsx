@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
 import getAuthorByline from '../utils/getAuthorByline';
+import { googlePublisherAndLiftIgniterPropTypes } from '../utils/propTypesHelper';
 
 class GooglePublisherTag extends Component {
     static decorate(prefix, regex, replace, string) {
@@ -161,23 +162,6 @@ GooglePublisherTag.propTypes = {
         _id: PropTypes.string,
         type: PropTypes.string,
         canonical_url: PropTypes.string,
-        content_elements: PropTypes.arrayOf(
-            PropTypes.shape({
-                _id: PropTypes.string,
-                type: PropTypes.string,
-                additional_properties: PropTypes.shape({
-                    nodeType: PropTypes.string
-                }),
-                content: PropTypes.string
-            })
-        ),
-        credits: PropTypes.shape({
-            by: PropTypes.arrayOf(
-                PropTypes.shape({
-                    name: PropTypes.string
-                })
-            )
-        }),
         taxonomy: PropTypes.shape({
             primary_section: PropTypes.shape({
                 name: PropTypes.string
@@ -195,11 +179,11 @@ GooglePublisherTag.propTypes = {
                 })
             )
         }),
-        label: PropTypes.shape({
-            recomendar: PropTypes.shape({
-                text: PropTypes.string
-            })
-        })
+        content_elements:
+            googlePublisherAndLiftIgniterPropTypes.content_elements,
+        credits: googlePublisherAndLiftIgniterPropTypes.credits,
+        googlePublisherAndLiftIgniterPropTypes:
+            googlePublisherAndLiftIgniterPropTypes.label
     }).isRequired
 };
 

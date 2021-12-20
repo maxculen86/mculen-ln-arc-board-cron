@@ -5,6 +5,7 @@ import Static from 'fusion:static';
 import Header from '../../private/LN/common/header';
 import Footer from '../../private/LN/common/footer';
 import GlobalProvider from '../../private/common/context/globalContext';
+import PwaModals from '../../private/LN/common/pwaModals';
 
 import '../../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../../private/LN/acumulado/context/globalContextAcu';
@@ -132,6 +133,7 @@ const LNHome = props => {
                     </Static>
                 </div>
                 <LoadBanners />
+                <PwaModals />
             </GlobalProviderAcu>
         </GlobalProvider>
     );
