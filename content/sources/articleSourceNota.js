@@ -188,6 +188,7 @@ const transform = (
             subtype
         })
     };
+    console.log('🚀 ~ file: articleSourceNota.js ~ line 167 ~ resp', resp);
     return transformContent(resp, arcSite, urlQuery);
 };
 

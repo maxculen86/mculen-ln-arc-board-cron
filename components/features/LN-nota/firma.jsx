@@ -13,6 +13,8 @@ import ModAutor from '../../private/common/mod-autor';
 
 import { compose } from '../../private/common/utils/functional';
 
+import { getSectionLogo } from '../../private/common/utils/sectionUtils';
+
 const place = Object.freeze({ Top: 'Top', Bottom: 'Bottom' });
 
 const filterByAuthor = authors =>
@@ -101,9 +103,19 @@ const FirmaFeature = props => {
         customFields: { position },
         globalContent: {
             content_elements: contentElements,
-            credits: { by }
-        }
+            credits: { by },
+            distributor,
+            taxonomy: { sections = [] },
+            owner: sponsored
+        },
+        layout
     } = props;
+
+    const { name } = distributor || {};
+
+    const isBrand = getSectionLogo(sections, layout, name);
+
+    console.log('🚀 ~ file: firma.jsx ~ line 118 ~ isBrand', isBrand);
 
     const constructProps =
         by && by.length
