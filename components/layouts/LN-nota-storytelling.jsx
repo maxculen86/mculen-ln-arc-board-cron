@@ -10,7 +10,7 @@ import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import PwaModals from '../private/LN/common/pwaModals';
-import { notaFotoAl100AndNotaStorytellingPropTypes } from '../private/common/utils/propTypesHelper';
+import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/utils/propTypesHelper';
 
 const lnNotaStorytelling = ({
     children,
@@ -94,6 +94,6 @@ const pageBuilderSections = [
 
 lnNotaStorytelling.sections = pageBuilderSections;
 
-lnNotaStorytelling.propTypes = notaFotoAl100AndNotaStorytellingPropTypes;
+lnNotaStorytelling.propTypes = notaAl100andStorytellingLayoutsPropTypes;
 
 export default Consumer(lnNotaStorytelling);
