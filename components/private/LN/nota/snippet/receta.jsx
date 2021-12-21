@@ -82,25 +82,17 @@ const snippet = props => {
         return undefined;
     };
 
-    const data = {
+    let data = {
         '@context': 'https://schema.org',
         '@type': 'Recipe',
         recipeCuisine: getRecipeCuisine(sections),
-        recipeInstructions: instructions,
+        recipeInstructions:
+            instructions.length > 0 ? instructions : 'Preparación',
         author: {
             '@type': autores === '' ? 'Organization' : 'Person',
             name: autores === '' ? 'LA NACION recetas' : `${autores}`
         },
-        cookTime: cookTime ? `PT${cookTime}M` : '',
-        prepTime: prepTime ? `PT${prepTime}M` : '',
-        totalTime: counterTime ? `PT${counterTime}M` : '',
-        datePublished: `${date || ''}`,
-        description: `${description || ''}`,
         image: `${image || PLACERHOLDER}`,
-        nutrition: {
-            '@type': 'NutritionInformation',
-            ...nutrition
-        },
         recipeIngredient: ingredients,
         recipeCategory: categoria,
         name: `${headLinesBasic || 'LA NACION - Recetas'}`,
@@ -119,6 +111,19 @@ const snippet = props => {
             }
         }
     };
+
+    // Propiedades agregadas solamente si recibimos el dato.
+
+    cookTime && (data.cookTime = `PT${cookTime}M`);
+    prepTime && (data.prepTime = `PT${prepTime}M`);
+    counterTime && (data.counterTime = `PT${counterTime}M`);
+    date && (data.datePublished = date);
+    description && (data.description = description);
+    Object.entries(nutrition).length !== 0 &&
+        (data.nutrition = {
+            '@type': 'NutritionalInformation',
+            ...nutrition
+        });
 
     return <SnippetRender data={data} />;
 };
