@@ -488,16 +488,12 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
             "@type": "Organization",
             "name": "LA NACION recetas",
           },
-          "cookTime": "",
+          "counterTime": "PT25M",
           "datePublished": "2020-04-24T14:35:53.021Z",
           "description": "Subtitulo de prueba",
           "image": "https://resizer.glanacion.com/resizer/KKUwkn3fOAH9RsmFwoJFBFcvh54=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg",
           "keywords": "ajo, tomate perita",
           "name": "Nota recetas para Api test",
-          "nutrition": Object {
-            "@type": "NutritionInformation",
-          },
-          "prepTime": "",
           "publisher": Object {
             "@type": "Organization",
             "logo": Object {
@@ -513,9 +509,8 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
           "recipeCategory": "Platos de comida principal",
           "recipeCuisine": undefined,
           "recipeIngredient": Array [],
-          "recipeInstructions": Array [],
+          "recipeInstructions": "Preparación",
           "recipeYield": "4 porciones",
-          "totalTime": "PT25M",
         }
       }
     >
@@ -525,20 +520,12 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
             "__html": "{
   \\"@context\\": \\"https://schema.org\\",
   \\"@type\\": \\"Recipe\\",
-  \\"recipeInstructions\\": [],
+  \\"recipeInstructions\\": \\"Preparación\\",
   \\"author\\": {
     \\"@type\\": \\"Organization\\",
     \\"name\\": \\"LA NACION recetas\\"
   },
-  \\"cookTime\\": \\"\\",
-  \\"prepTime\\": \\"\\",
-  \\"totalTime\\": \\"PT25M\\",
-  \\"datePublished\\": \\"2020-04-24T14:35:53.021Z\\",
-  \\"description\\": \\"Subtitulo de prueba\\",
   \\"image\\": \\"https://resizer.glanacion.com/resizer/KKUwkn3fOAH9RsmFwoJFBFcvh54=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg\\",
-  \\"nutrition\\": {
-    \\"@type\\": \\"NutritionInformation\\"
-  },
   \\"recipeIngredient\\": [],
   \\"recipeCategory\\": \\"Platos de comida principal\\",
   \\"name\\": \\"Nota recetas para Api test\\",
@@ -555,7 +542,10 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
       \\"height\\": 41,
       \\"width\\": 391
     }
-  }
+  },
+  \\"counterTime\\": \\"PT25M\\",
+  \\"datePublished\\": \\"2020-04-24T14:35:53.021Z\\",
+  \\"description\\": \\"Subtitulo de prueba\\"
 }",
           }
         }
