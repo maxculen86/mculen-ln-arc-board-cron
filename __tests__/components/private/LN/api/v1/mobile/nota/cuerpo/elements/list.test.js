@@ -21,7 +21,7 @@ describe('Test de las listas en el cuerpo de una nota', () => {
         expect(resp['_t']).toBe('list');
         expect(resp['type']).toBe('ol');
         expect(resp['items'][0]['_t']).toBe('li');
-        expect(resp['items'][0]['value']['_t']).toBe('text');
+        expect(resp['items'][0]['value']).toBe('Tipo de letra normal');
     });
 
     it('Test lista desordenada cabecera', () => {
@@ -29,7 +29,7 @@ describe('Test de las listas en el cuerpo de una nota', () => {
         expect(resp['_t']).toBe('list');
         expect(resp['type']).toBe('ul');
         expect(resp['items'][0]['_t']).toBe('li');
-        expect(resp['items'][0]['value']['_t']).toBe('text');
+        expect(resp['items'][0]['value']).toBe('Tipo de letra normal');
     });
 
     it('Test elementos de lista ordenada', () => {
@@ -62,9 +62,7 @@ describe('Test de las listas en el cuerpo de una nota', () => {
         const resp = List(articles);
         expect(resp['items'][0]).toBeNull();
         expect(resp['items'][1]).toBeNull();
-        expect(resp['items'][2]['value']['value']).toBe(
-            'Tipo de letra negrita'
-        );
+        expect(resp['items'][2]['value']).toBe('Tipo de letra negrita');
     });
     it('Test todos los valores del elemento son distintos de texto', () => {
         const articles = {

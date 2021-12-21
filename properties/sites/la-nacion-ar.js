@@ -2022,6 +2022,7 @@ export default {
                 megalateral2_dsk: {
                     slotName: `la_nacion_desktop/Home/megalateral2_dsk`,
                     dimensions: [
+                        [300, 250],
                         [120, 600],
                         [250, 600],
                         [160, 600],
@@ -2032,6 +2033,7 @@ export default {
                 megalateral3_dsk: {
                     slotName: `la_nacion_desktop/Home/megalateral3_dsk`,
                     dimensions: [
+                        [300, 250],
                         [120, 600],
                         [250, 600],
                         [160, 600],
@@ -2105,6 +2107,7 @@ export default {
                         [300, 250],
                         [300, 450],
                         [320, 100],
+                        [320, 450],
                         [1, 1]
                     ],
                     targeting: targetingHome
@@ -2116,6 +2119,7 @@ export default {
                         [300, 250],
                         [300, 450],
                         [320, 100],
+                        [320, 450],
                         [1, 1]
                     ],
                     targeting: targetingHome
@@ -2127,6 +2131,7 @@ export default {
                         [300, 250],
                         [300, 450],
                         [320, 100],
+                        [320, 450],
                         [1, 1]
                     ],
                     targeting: targetingHome
@@ -2138,6 +2143,7 @@ export default {
                         [300, 250],
                         [300, 450],
                         [320, 100],
+                        [320, 450],
                         [1, 1]
                     ],
                     targeting: targetingHome
@@ -2149,6 +2155,7 @@ export default {
                         [300, 250],
                         [300, 450],
                         [320, 100],
+                        [320, 450],
                         [1, 1]
                     ],
                     targeting: targetingHome
