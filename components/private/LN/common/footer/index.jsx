@@ -252,7 +252,11 @@ const Index = ({
                                 target="_top"
                                 title="Ir a la página principal"
                             /> */}
-                            <LogoComponent name="ln-logo" size="--md" />
+                            <LogoComponent
+                                href="http://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"
+                                name="ln-logo"
+                                size="--md"
+                            />
 
                             {/* <LogoLN /> */}
                         </div>

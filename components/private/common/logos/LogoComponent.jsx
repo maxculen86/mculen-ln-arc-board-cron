@@ -4,12 +4,10 @@ import Static from 'fusion:static';
 import { ARC_STATIC } from 'fusion:environment';
 import { useAppContext } from 'fusion:context';
 
-import '../../../../src/statics/LN/css/components/com-logo.scss';
-
 import { mapperLogos } from './mapperLogos';
 
 const LogoComponent = props => {
-    const { outputType, name, classCondition, size } = props;
+    const { outputType, name, classCondition, size, href } = props;
     const { contextPath, deployment } = useAppContext();
     const assets = mapperLogos[name];
     const archivoSVG = `${ARC_STATIC}${deployment(
@@ -17,16 +15,13 @@ const LogoComponent = props => {
     )}`;
     const sizeLogo = size ? size : '';
     const extraClass = classCondition ? classCondition : `${assets}${sizeLogo}`;
+    const hrefProps = href ? href : '';
 
     return (
         <Static id={assets || `logo-${name}`} htmlOnly>
             <img
-                href={
-                    href
-                        ? href
-                        : 'http://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,'
-                }
-                className={extraClass}
+                href={hrefProps}
+                classCondition={extraClass}
                 target="_blank"
                 src={archivoSVG}
                 alt={name}
@@ -41,7 +36,7 @@ LogoComponent.propTypes = {
     name: PropTypes.string,
     classCondition: PropTypes.string,
     href: PropTypes.string,
-    size: PropTypes.number,
+    size: PropTypes.string,
     alt: PropTypes.string
 };
 

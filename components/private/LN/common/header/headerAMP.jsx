@@ -31,6 +31,7 @@ const headerAMP = props => {
                                 title="Ir a la página principal"
                             /> */}
                             <LogoComponent
+                                href="http://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"
                                 name="ln-logo"
                                 classCondition={'logoLN'}
                             />
@@ -75,7 +76,11 @@ const headerAMP = props => {
                         href="https://www.lanacion.com.ar/"
                         title="Ir a la página principal"
                     /> */}
-                    <LogoComponent name="ln-logo" classCondition={'logoLN'} />
+                    <LogoComponent
+                        href="http://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"
+                        name="ln-logo"
+                        classCondition={'logoLN'}
+                    />
 
                     <Button on="tap:sidebar-left.close" iconName="close" />
                 </section>
