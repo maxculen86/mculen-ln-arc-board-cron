@@ -309,3 +309,22 @@
         }
     }
 }
+
+.ln-logo {
+    &.--xs {
+        width: px(164);
+        height: px(16);
+    }
+    &.--sm {
+        width: px(215);
+        height: px(21);
+    }
+    &.--md {
+        width: px(307);
+        height: px(30);
+    }
+    &.--lg {
+        width: px(511);
+        height: px(50);
+    }
+}

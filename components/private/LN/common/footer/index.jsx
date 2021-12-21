@@ -252,10 +252,7 @@ const Index = ({
                                 target="_top"
                                 title="Ir a la página principal"
                             /> */}
-                            <LogoComponent
-                                name="ln-logo"
-                                classCondition={'nacion-home'}
-                            />
+                            <LogoComponent name="ln-logo" size="--md" />
 
                             {/* <LogoLN /> */}
                         </div>

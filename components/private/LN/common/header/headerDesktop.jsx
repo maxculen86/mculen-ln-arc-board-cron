@@ -137,7 +137,7 @@ const HeaderDesktop = ({
                     <LogoComponent
                         href="http://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"
                         name="ln-logo"
-                        classCondition={'logoLN'}
+                        classCondition="logoLN"
                     />
                 </div>
                 <div className="col-4 header__right">
