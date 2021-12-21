@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import Text from '../../../common/text';
 const HeaderComments = () => {
@@ -48,10 +47,5 @@ const HeaderComments = () => {
         </>
     );
 };
-HeaderComments.propTypes = {
-    showButton: PropTypes.bool
-};
-HeaderComments.defaultProps = {
-    showButton: true
-};
+
 export default HeaderComments;
