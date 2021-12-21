@@ -44,7 +44,7 @@ function DataDog({ location = 'head' }) {
         window,
         document,
         "script",
-        "https://www.datadoghq-browser-agent.com/datadog-logs.js",
+        "https://www.datadoghq-browser-agent.com/datadog-logs-v3.js",
         "DD_LOGS"
       );
       DD_LOGS.onReady(function () {
@@ -86,7 +86,7 @@ function DataDog({ location = 'head' }) {
         window,
         document,
         "script",
-        "https://www.datadoghq-browser-agent.com/datadog-rum.js",
+        "https://www.datadoghq-browser-agent.com/datadog-rum-v3.js",
         "DD_RUM"
       );
       
