@@ -14,11 +14,7 @@ const CommentsViafouraFeature = props => {
 
     return (
         <Static id={featureId}>
-            {messageProps ? (
-                <Message {...messageProps} />
-            ) : (
-                <HeaderComments showButton={false} />
-            )}
+            {messageProps ? <Message {...messageProps} /> : <HeaderComments />}
             <LoadingIcon />
             <div
                 id="comments-viafoura-container"
