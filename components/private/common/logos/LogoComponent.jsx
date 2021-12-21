@@ -15,12 +15,18 @@ const LogoComponent = props => {
     const archivoSVG = `${ARC_STATIC}${deployment(
         `${contextPath}/resources/images/${assets}`
     )}`;
+    const sizeLogo = size ? size : '';
+    const extraClass = classCondition ? classCondition : `${assets}${sizeLogo}`;
 
     return (
         <Static id={assets || `logo-${name}`} htmlOnly>
             <img
-                href="http://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"
-                className={classCondition ? classCondition : `${assets}${size}`}
+                href={
+                    href
+                        ? href
+                        : 'http://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,'
+                }
+                className={extraClass}
                 target="_blank"
                 src={archivoSVG}
                 alt={name}
