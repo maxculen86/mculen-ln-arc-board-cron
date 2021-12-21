@@ -53,6 +53,7 @@ describe('Private - LN - nota - snippet - noticia ', () => {
             dangerouslySetInnerHTML: { __html: data }
         } = component.find('script').props();
 
+        console.log('🚀 ~ file: noticia.test.js ~ line 54 ~ it ~ data', data);
         const {
             requestUri,
             siteProperties: { host, titleSite },
@@ -91,7 +92,7 @@ describe('Private - LN - nota - snippet - noticia ', () => {
                 cssSelector
             },
             isPartOf: { '@type': isPartType, name: isPartOfName, productID },
-            author,
+            author: { '@type': authorType, name: authorName },
             creator,
             keywords,
             publisher: {
@@ -128,8 +129,9 @@ describe('Private - LN - nota - snippet - noticia ', () => {
         expect(isPartType).toStrictEqual(['CreativeWork', 'Product']);
         expect(isPartOfName).toBe('Acceso Digital Monthly Test');
         expect(productID).toBe('lanacion.com.ar:acceso_digital');
-        expect(author).toStrictEqual(['Redacción LA NACION']);
-        expect(creator).toStrictEqual(['Redacción LA NACION']);
+        expect(authorType).toStrictEqual('Organization');
+        expect(authorName).toStrictEqual('The New York Times');
+        expect(creator).toStrictEqual([]);
         expect(keywords).toStrictEqual([]);
         expect(publisherType).toBe('Organization');
         expect(publisherName).toBe('');
