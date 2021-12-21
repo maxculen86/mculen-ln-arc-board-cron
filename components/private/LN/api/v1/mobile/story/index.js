@@ -3,11 +3,11 @@ import cuerpo from './cuerpo/index';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
 
 const indexNota = dataNota => {
-    const resp = indexNotaData({ ...dataNota, apiMobile: true }, cuerpo);
+    const resp = indexNotaData(dataNota, cuerpo);
     let elmentsAdd = 1;
-    const { length } = resp.contenido;
     const boxElements = [0, 4, 7, 9, 11];
     if (resp.contenido) {
+        const { length } = resp.contenido;
         boxElements.forEach((boxElement, index) => {
             resp.contenido.forEach((element, i) => {
                 const banner = { _t: 'banner' };
