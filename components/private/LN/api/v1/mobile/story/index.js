@@ -2,16 +2,17 @@ import indexNotaData from '../../common/story/indexNotaData';
 import cuerpo from './cuerpo/index';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
 
-const addBanner = (index, elmentsAdd, contenido, boxElement, length) => {
+let elmentsAdd = 0;
+const addBanner = (index, contenido, boxElement, length) => {
     const banner = { _t: 'banner' };
-    if (index === boxElement && length >= boxElement) {
+    if ((index === boxElement && length >= boxElement) || index === 1) {
         contenido.splice(index + elmentsAdd, 0, banner);
-        elmentsAdd++;
+        elmentsAdd += 1;
     }
 };
 const indexNota = dataNota => {
     const resp = indexNotaData(dataNota, cuerpo);
-    let elmentsAdd = 0;
+    /*    let elmentsAdd = 0;
     const { length } = resp.contenido;
     resp.contenido.forEach((element, index) => {
         const banner = { _t: 'banner' };
@@ -35,17 +36,16 @@ const indexNota = dataNota => {
             resp.contenido.splice(index + elmentsAdd, 0, banner);
             elmentsAdd++;
         }
-    });
-    /*  const { length } = resp.contenido;
+    }); */
+    const { length } = resp.contenido;
     const boxElements = [0, 4, 7, 9, 11];
-    let elmentsAdd = 1;
     for (let index = 0; index <= length; index++) {
-        addBanner(index, elmentsAdd, resp.contenido, 0, length);
-        addBanner(index, elmentsAdd, resp.contenido, 4, length);
-        addBanner(index, elmentsAdd, resp.contenido, 7, length);
-        addBanner(index, elmentsAdd, resp.contenido, 9, length);
-        addBanner(index, elmentsAdd, resp.contenido, 11, length);
-    } */
+        addBanner(index, resp.contenido, 0, length);
+        addBanner(index, resp.contenido, 4, length);
+        addBanner(index, resp.contenido, 7, length);
+        addBanner(index, resp.contenido, 9, length);
+        addBanner(index, resp.contenido, 11, length);
+    }
     return removeEmptyItems(resp);
 };
 
