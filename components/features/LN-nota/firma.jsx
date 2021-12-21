@@ -8,12 +8,14 @@ import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
 import get from 'lodash.get';
+import { SITE_LANACION } from 'fusion:environment';
 
 import ModAutor from '../../private/common/mod-autor';
+import ComPartner from '../../private/common/com-partner';
+import ComLink from '../../private/common/com-link';
 
 import { compose } from '../../private/common/utils/functional';
-
-import { getSectionLogo } from '../../private/common/utils/sectionUtils';
+import formatDistributorName from '../../private/LN/common/utils/formatDistributorName';
 
 const place = Object.freeze({ Top: 'Top', Bottom: 'Bottom' });
 
@@ -104,18 +106,10 @@ const FirmaFeature = props => {
         globalContent: {
             content_elements: contentElements,
             credits: { by },
-            distributor,
-            taxonomy: { sections = [] },
-            owner: sponsored
-        },
-        layout
+            distributor: { name = '' },
+            withFirmaDistributor
+        }
     } = props;
-
-    const { name } = distributor || {};
-
-    const isBrand = getSectionLogo(sections, layout, name);
-
-    console.log('🚀 ~ file: firma.jsx ~ line 118 ~ isBrand', isBrand);
 
     const constructProps =
         by && by.length
@@ -127,8 +121,19 @@ const FirmaFeature = props => {
             ? compose(constructProps, filterByAuthor)(by)
             : compose(constructProps)(contentElements);
 
-    if (!authors || !authors.length) return null;
+    const nameFormated = formatDistributorName(name);
 
+    if (!authors || !authors.length) {
+        if (withFirmaDistributor)
+            return name === 'LA NACION' ? (
+                <ComPartner size="--xs">{name}</ComPartner>
+            ) : (
+                <ComLink link={`${SITE_LANACION}/distributor/${nameFormated}/`}>
+                    <ComPartner size="--twoxs">{name}</ComPartner>
+                </ComLink>
+            );
+        return null;
+    }
     return (
         <Static id={featureId} htmlOnly persistent>
             <div className="row FirmaAutor">
@@ -178,7 +183,11 @@ FirmaFeature.propTypes = {
                     _id: PropTypes.string
                 })
             )
-        })
+        }),
+        distributor: PropTypes.shape({
+            name: PropTypes.string
+        }),
+        withFirmaDistributor: PropTypes.bool
     })
 };
 

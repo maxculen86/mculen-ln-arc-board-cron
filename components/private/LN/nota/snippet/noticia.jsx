@@ -28,7 +28,7 @@ const extracDataFromCredits = by => {
             .filter(v => v.type === 'author')
             .map(author => getAuthorByline(author));
     }
-    return { authors: authors.length ? authors : ['Redacción LA NACION'] };
+    return { authors: authors.length ? authors : [] };
 };
 
 const getBiggestImage = basic => {
@@ -146,13 +146,15 @@ const SnippetNoticia = props => {
             content_elements: contentElements,
             taxonomy: { primary_section: primarySection, tags },
             credits: { by },
+            distributor: { name: distributorName },
             created_date: createdDate,
             first_publish_date: firstPublishDate,
             display_date: displayDate,
             content_restrictions: { content_code: contentCode } = {},
             label,
             owner: { sponsored },
-            subtype
+            subtype,
+            withFirmaDistributor
         },
         contextPath,
         deployment
@@ -167,6 +169,11 @@ const SnippetNoticia = props => {
     );
 
     const { path, name } = primarySection || {};
+
+    const distributorAuthor = {
+        '@type': 'Organization',
+        name: distributorName
+    };
 
     const { authors } = extracDataFromCredits(by);
     const { keywords } = extractDataFromTags(tags);
@@ -201,7 +208,7 @@ const SnippetNoticia = props => {
             name: 'Acceso Digital Monthly Test',
             productID: 'lanacion.com.ar:acceso_digital'
         },
-        author: authors,
+        author: !authors.length ? distributorAuthor : authors,
         creator: authors,
         keywords,
         publisher: {
