@@ -26,7 +26,7 @@ export const extractDataFromContentElements = contentElements => {
                         name:
                             e.embed.config.titleList !== ''
                                 ? e.embed.config.titleList
-                                : 'Preparación',
+                                : 'Preparación de la receta',
 
                         itemListElement: e.embed.config.items.map(item => {
                             return {
