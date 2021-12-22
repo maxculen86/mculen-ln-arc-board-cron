@@ -64,7 +64,6 @@ exports[`private - LN - common - Navbar - listMenu Test de snapshot NavBar 1`] =
     <a
       class="com-link col-3 item-foo"
       href="https://club.lanacion.com.ar/"
-      target=""
     >
       <i
         class="com-icon icon-club-card"
@@ -91,7 +90,6 @@ exports[`private - LN - common - Navbar - listMenu Test de snapshot NavBar 1`] =
     <a
       class="com-link col-3 item-foo"
       href="https://myaccount.lanacion.com.ar/mi-usuario/"
-      target=""
     >
       <i
         class="com-icon icon-user"
