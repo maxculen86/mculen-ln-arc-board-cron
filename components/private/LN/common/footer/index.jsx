@@ -3,22 +3,13 @@ import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import Icon from '../../../common/icon';
 import Text from '../../../common/text';
-import Image from '../../../common/com-image';
 import List from '../../../common/mod-list';
 import Copyright from './copyright';
-import getAssetsPath from '../../../common/utils/getAssetsPath';
-import Logo from '../../../common/com-logo';
 
 import '../../../../../resources/dist/css/ln/modules/mod-footer.css';
 import LogoComponent from '../../../common/logos/LogoComponent';
 
-const Index = ({
-    outputType,
-    siteProperties: { host },
-    contextPath,
-    home,
-    deployment
-}) => {
+const Index = ({ home }) => {
     const listText = [
         {
             text: 'Últimas noticias',
@@ -241,47 +232,26 @@ const Index = ({
                             />
                         </div>
                         <div className="col-desksm-4 --center">
-                            {/* <Logo
-                                logoName="la-nacion"
-                                classCondition="nacion-home"
-                                color
-                                size="--sm"
-                                href={`${
-                                    home ? '#' : 'https://www.lanacion.com.ar/'
-                                }`}
-                                target="_top"
-                                title="Ir a la página principal"
-                            /> */}
                             <LogoComponent
                                 href="http://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"
                                 name="ln-logo"
-                                size="--md"
+                                size="--sm"
                             />
-
-                            {/* <LogoLN /> */}
                         </div>
                         <div className="col-desksm-4 --right">
-                            <Image
-                                src={getAssetsPath(contextPath)(deployment)(
-                                    'google-play.svg'
-                                )}
+                            <LogoComponent
+                                name={'android-store'}
                                 alt="Descargar nuestra app en Google Play"
-                                width="120"
-                                height="35"
+                                width={120}
+                                height={35}
                                 href="https://play.google.com/store/apps/details?id=app.lanacion.activity&hl=es_419"
-                                target="_blank"
-                                amp={outputType === 'amp'}
                             />
-                            <Image
-                                src={getAssetsPath(contextPath)(deployment)(
-                                    'app-store.svg'
-                                )}
+                            <LogoComponent
+                                name={'ios-store'}
                                 alt="Descargar nuestra app en el App Store"
-                                width="120"
-                                height="35"
+                                width={120}
+                                height={35}
                                 href="https://apps.apple.com/ar/app/la-nacion/id410689702"
-                                target="_blank"
-                                amp={outputType === 'amp'}
                             />
                         </div>
                     </div>
@@ -330,32 +300,22 @@ const Index = ({
 
                     <div className="row">
                         <div className="col-desksm-6 --right">
-                            <Image
-                                href="http://gda.com/"
-                                target="_blank"
-                                src={getAssetsPath(contextPath)(deployment)(
-                                    'gda.svg'
-                                )}
+                            <LogoComponent
+                                name={'gda'}
                                 alt="gda"
-                                classCondition="--gda"
-                                width="36"
-                                height="20"
-                                amp={outputType === 'amp'}
+                                width={36}
+                                height={20}
+                                href="http://gda.com/"
                             />
                             <Text>
                                 Miembro de GDA. Grupo de Diarios América
                             </Text>
-                            <Image
-                                href="http://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"
-                                target="_blank"
-                                src={getAssetsPath(contextPath)(deployment)(
-                                    'data-fiscal.svg'
-                                )}
+                            <LogoComponent
+                                name={'data-fiscal'}
                                 alt="Data fiscal"
-                                classCondition="--data"
-                                width="28"
-                                height="38"
-                                amp={outputType === 'amp'}
+                                width={28}
+                                height={38}
+                                href="http://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"
                             />
                         </div>
                         <div className="col-desksm-6 --left">

@@ -6,25 +6,40 @@ import { useAppContext } from 'fusion:context';
 
 import { mapperLogos } from './mapperLogos';
 
+import '../../../../resources/dist/css/ln/components/com-logo.css';
+
 const LogoComponent = props => {
-    const { outputType, name, classCondition, size, href } = props;
+    const {
+        outputType,
+        name,
+        classCondition,
+        size,
+        href,
+        width,
+        height,
+        alt
+    } = props;
     const { contextPath, deployment } = useAppContext();
     const assets = mapperLogos[name];
     const archivoSVG = `${ARC_STATIC}${deployment(
         `${contextPath}/resources/images/${assets}`
     )}`;
     const sizeLogo = size ? size : '';
-    const extraClass = classCondition ? classCondition : `${assets}${sizeLogo}`;
+    const extraClass = `${name}${' '}${sizeLogo}`;
     const hrefProps = href ? href : '';
+    const classes = classCondition ? classCondition : extraClass;
+    const altProps = alt ? alt : name;
 
     return (
         <Static id={assets || `logo-${name}`} htmlOnly>
             <img
                 href={hrefProps}
-                classCondition={extraClass}
+                className={classes}
                 target="_blank"
+                width={width}
+                height={height}
                 src={archivoSVG}
-                alt={name}
+                alt={altProps}
                 amp={outputType === 'amp'}
             />
         </Static>
@@ -32,8 +47,10 @@ const LogoComponent = props => {
 };
 
 LogoComponent.propTypes = {
-    outputType: PropTypes.string.isRequired,
+    outputType: PropTypes.string,
     name: PropTypes.string,
+    width: PropTypes.number,
+    height: PropTypes.number,
     classCondition: PropTypes.string,
     href: PropTypes.string,
     size: PropTypes.string,
