@@ -53,7 +53,6 @@ describe('Private - LN - nota - snippet - noticia ', () => {
             dangerouslySetInnerHTML: { __html: data }
         } = component.find('script').props();
 
-        console.log('🚀 ~ file: noticia.test.js ~ line 54 ~ it ~ data', data);
         const {
             requestUri,
             siteProperties: { host, titleSite },
