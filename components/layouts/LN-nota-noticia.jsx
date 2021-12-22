@@ -21,10 +21,11 @@ const lnNotaNoticia = ({
     isAdmin,
     globalContent: {
         taxonomy: { sections },
-        distributor: { name }
+        distributor = { name: 'LA NACION' }
     },
     layout
 }) => {
+    const { name = 'LA NACION' } = distributor;
     const amp = outputType === 'amp' ? 'amp' : '';
     const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
     const logo = getSectionLogo(sections, layout, name);

@@ -128,9 +128,10 @@ const transform = (
     const subtype = get(data, `subtype`, null);
 
     // With firma distributor data
-    const name = get(data, 'distributor.name', '');
+    const name = get(data, 'distributor.name', 'LA NACION');
     const sponsored = get(data, 'owner.sponsored', false);
     const sections = get(data, 'taxonomy.sections', []);
+    const authors = get(data, 'credits.by', []);
     const layout = 'LN-nota-noticia';
 
     const withFirmaDistributor = firmaDistributorValidation(
@@ -138,6 +139,7 @@ const transform = (
         layout,
         name,
         subtype,
+        authors,
         sponsored
     );
 

@@ -106,11 +106,13 @@ const FirmaFeature = props => {
         globalContent: {
             content_elements: contentElements,
             credits: { by },
-            distributor: { name = '' },
+            distributor = { name: 'LA NACION' },
             withFirmaDistributor
         }
     } = props;
 
+    const { name } = distributor;
+    console.log('🚀 ~ file: firma.jsx ~ line 115 ~ name', name);
     const constructProps =
         by && by.length
             ? getPropsBuilder(position)
@@ -123,17 +125,16 @@ const FirmaFeature = props => {
 
     const nameFormated = formatDistributorName(name);
 
-    if (!authors || !authors.length) {
-        if (withFirmaDistributor)
-            return name === 'LA NACION' ? (
-                <ComPartner size="--xs">{name}</ComPartner>
-            ) : (
-                <ComLink link={`${SITE_LANACION}/distributor/${nameFormated}/`}>
-                    <ComPartner size="--twoxs">{name}</ComPartner>
-                </ComLink>
-            );
-        return null;
+    if (withFirmaDistributor) {
+        return name === 'LA NACION' ? (
+            <ComPartner size="--xs">{name}</ComPartner>
+        ) : (
+            <ComLink link={`${SITE_LANACION}/distributor/${nameFormated}/`}>
+                <ComPartner size="--twoxs">{name}</ComPartner>
+            </ComLink>
+        );
     }
+
     return (
         <Static id={featureId} htmlOnly persistent>
             <div className="row FirmaAutor">

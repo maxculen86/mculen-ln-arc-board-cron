@@ -146,19 +146,20 @@ const SnippetNoticia = props => {
             content_elements: contentElements,
             taxonomy: { primary_section: primarySection, tags },
             credits: { by },
-            distributor: { name: distributorName },
+            distributor = { name: 'LA NACION' },
             created_date: createdDate,
             first_publish_date: firstPublishDate,
             display_date: displayDate,
             content_restrictions: { content_code: contentCode } = {},
             label,
             owner: { sponsored },
-            subtype,
-            withFirmaDistributor
+            subtype
         },
         contextPath,
         deployment
     } = props;
+
+    const { name: distributorName } = distributor;
 
     const { promo_items: promoItems } = addRelatedImage(props.globalContent);
     const LOGO_LN = getAssetsPath(contextPath)(deployment)(
