@@ -86,8 +86,7 @@ const snippet = props => {
         '@context': 'https://schema.org',
         '@type': 'Recipe',
         recipeCuisine: getRecipeCuisine(sections),
-        recipeInstructions:
-            instructions.length > 0 ? instructions : 'Preparación',
+        recipeInstructions: instructions,
         author: {
             '@type': autores === '' ? 'Organization' : 'Person',
             name: autores === '' ? 'LA NACION recetas' : `${autores}`
