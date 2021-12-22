@@ -12,41 +12,14 @@ const DetalleReceta = props => {
         }
     } = props;
 
-    const detailsData = {
-        cook: {
-            title: 'Tiempo de cocción:',
-            time: cookTime,
-            icon: 'fire'
-        },
-        prep: {
-            title: 'Tiempo de preparación:',
-            time: prepTime,
-            icon: 'knife'
-        },
-        total: {
-            title: 'Tiempo total:',
-            time: counterTime,
-            icon: 'timer'
-        },
-        portions: {
-            title: 'Porciones:',
-            time: counterPortion,
-            icon: 'group'
-        }
-    };
-
-    const DetailsTag = ({ detailsData }) => {
+    const DetailsTag = ({ icon, children }) => {
         return (
-            <div className="row">
+            <div className="row tag">
                 <div className="col-2 col-tablet-1">
-                    <Icon name={detailsData.icon} />
+                    <Icon name={icon} />
                 </div>
                 <div className="time-number col-10 col-tablet-11">
-                    <span>
-                        {detailsData.title}
-                        <span className="num">{detailsData.time}</span>
-                        min.
-                    </span>
+                    <span>{children}</span>
                 </div>
             </div>
         );
@@ -56,13 +29,33 @@ const DetalleReceta = props => {
         <Fragment>
             {subtype === 'custom-detalle-receta' ? (
                 <div className="cont_tags tags">
-                    {cookTime && <DetailsTag detailsData={detailsData.cook} />}
-                    {prepTime && <DetailsTag detailsData={detailsData.prep} />}
+                    {cookTime && (
+                        <DetailsTag icon="fire">
+                            <span className="--font-bold">
+                                Tiempo de cocción:
+                            </span>{' '}
+                            {cookTime} min.
+                        </DetailsTag>
+                    )}
+                    {prepTime && (
+                        <DetailsTag icon="knife">
+                            <span className="--font-bold">
+                                Tiempo de preparación:
+                            </span>{' '}
+                            {prepTime} min.
+                        </DetailsTag>
+                    )}
                     {counterTime && (
-                        <DetailsTag detailsData={detailsData.total} />
+                        <DetailsTag icon="timer">
+                            <span className="--font-bold">Tiempo total:</span>{' '}
+                            {counterTime} min.
+                        </DetailsTag>
                     )}
                     {counterPortion && (
-                        <DetailsTag detailsData={detailsData.portions} />
+                        <DetailsTag icon="group">
+                            <span className="--font-bold">Porciones:</span>{' '}
+                            {counterPortion}
+                        </DetailsTag>
                     )}
                 </div>
             ) : null}

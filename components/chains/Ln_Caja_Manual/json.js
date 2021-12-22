@@ -7,6 +7,7 @@ class CajaManual {
         this.props = props;
 
         const imageId = get(props, 'customFields.imageId', '');
+        const idCollection = get(props, 'customFields.idCollection', '');
 
         imageId &&
             this.fetchContent({
@@ -16,7 +17,9 @@ class CajaManual {
                         id: imageId.trim(),
                         published: true,
                         imageConfig: 'techoImagen',
-                        'arc-site': 'la-nacion-ar'
+                        'arc-site': 'la-nacion-ar',
+                        nid: `idCollection: ${idCollection}`,
+                        boxType: 'CajaManual'
                     }
                 }
             });

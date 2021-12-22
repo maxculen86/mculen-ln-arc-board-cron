@@ -21,9 +21,12 @@ const Text = ({
     const _size = getFontSize(size);
     const _weight = getFontWeight(weight);
 
-    const _className = `${extraClass ? ` ${extraClass}` : ''}${
-        font ? ` ${_font}` : ''
-    }${size ? ` ${_size}` : ''}${weight ? ` ${_weight}` : ''}`;
+    const setTextClassName = props =>
+        Object.values(props)
+            .filter(Boolean)
+            .join(' ');
+
+    const _className = setTextClassName({ extraClass, _font, _weight, _size });
 
     if (!_content) return null;
 
@@ -32,8 +35,6 @@ const Text = ({
             {link ? (
                 <a
                     href={link}
-                    //aria-label={_content}
-                    //className="link"
                     title={_content}
                     dangerouslySetInnerHTML={{ __html: _content }}
                 />

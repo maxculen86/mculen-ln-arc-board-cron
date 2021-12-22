@@ -4,11 +4,43 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import Static from 'fusion:static';
-// Utils
-import { isInSection, getErrorMessage, getComponentType } from './anexoHelper';
-
-// Components
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
+import get from '../../../private/common/utils/get';
+import { getChildsFromSections } from '../../../private/LN/common/utils/homeHelper';
+import sectionsValidation from '../../../layouts/config/LN-Home.config.json';
+
+const AnexoFeature = props => {
+    const { id, customFields } = props;
+    const { renderables = [], isAdmin } = useAppContext();
+    const { height } = customFields;
+    // Al estar en la sección 'Anexo_1' del layout necesita tener la clase '--anexo-1'.
+    const errorMessage = getErrorMessage({ customFields });
+    const _type = getComponentType({ ...props, isAdmin, errorMessage });
+    const EXTRA_CLASS = (
+        (isInSection({ sectionName: 'Anexo1', id, renderables }) &&
+            '--anexo-1') ||
+        ''
+    ).concat((!isAdmin && _type === 'Iframe' && 'skeleton-box') || '');
+    const comp = () =>
+        getComponentFromConfig(_type, {
+            ...props,
+            errorMessage,
+            extraClass: EXTRA_CLASS
+        });
+
+    return _type === 'Iframe' ? (
+        <div
+            className={`com-anexo ${EXTRA_CLASS}`}
+            style={{ height, overflow: 'hidden', width: '100%' }}
+        >
+            <Static id={id} htmlOnly>
+                {comp()}
+            </Static>
+        </div>
+    ) : (
+        comp()
+    );
+};
 
 const getComponentFromConfig = (_type, _props) => {
     const components = {
@@ -57,36 +89,35 @@ const getComponentFromConfig = (_type, _props) => {
     return (components[_type] && components[_type](_props)) || <></>;
 };
 
-const AnexoFeature = props => {
-    const { id, customFields } = props;
-    const { renderables = [], isAdmin } = useAppContext();
-    const { height } = customFields;
-    // Al estar en la sección 'Anexo_1' del layout necesita tener la clase '--anexo-1'.
-    const errorMessage = getErrorMessage({ customFields });
-    const _type = getComponentType({ ...props, isAdmin, errorMessage });
-    const EXTRA_CLASS = (
-        (isInSection({ sectionName: 'Anexo1', id, renderables }) &&
-            '--anexo-1') ||
-        ''
-    ).concat((!isAdmin && _type === 'Iframe' && 'skeleton-box') || '');
-    const comp = () =>
-        getComponentFromConfig(_type, {
-            ...props,
-            errorMessage,
-            extraClass: EXTRA_CLASS
-        });
+const getComponentType = ({
+    isAdmin,
+    errorMessage,
+    customFields: { url, hideByUrl, html, height, hideByHtml }
+}) =>
+    (isAdmin && errorMessage && 'Error') ||
+    (!errorMessage && !hideByHtml && html && 'Html') ||
+    (!errorMessage && !hideByUrl && url && height && 'Iframe');
 
-    return _type === 'Iframe' ? (
-        <div
-            className={`com-anexo ${EXTRA_CLASS}`}
-            style={{ height, overflow: 'hidden', width: '100%' }}
-        >
-            <Static id={id} htmlOnly>
-                {comp()}
-            </Static>
-        </div>
-    ) : (
-        comp()
+const getErrorMessage = ({
+    customFields: { url, hideByUrl, html, height, hideByHtml } = {}
+}) =>
+    (!url &&
+        !hideByUrl &&
+        !html &&
+        !hideByHtml &&
+        'Se requiere agregue la URL o HTML del anexo') ||
+    (!html &&
+        url &&
+        !hideByUrl &&
+        !height &&
+        'El alto fijo del anexo es un campo requerido para los anexos con URL') ||
+    '';
+
+const isInSection = ({ sectionName, id, renderables = [] }) => {
+    const sectionPosition =
+        get(sectionsValidation, `${sectionName}.position`, 1) + 1;
+    return getChildsFromSections(renderables, sectionPosition + 1).some(
+        el => get(el, 'props.id', '') === id
     );
 };
 

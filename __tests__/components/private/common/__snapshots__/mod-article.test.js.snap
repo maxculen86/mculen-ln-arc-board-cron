@@ -2,7 +2,7 @@
 
 exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
 <article
-  class="mod-article    "
+  class="mod-article"
 >
   <div
     class="content-media"
@@ -35,7 +35,7 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
       </a>
     </h1>
     <h3
-      class=" com-subhead --twoxs"
+      class="com-subhead --twoxs"
     >
       <a
         href="http://google.com"
@@ -46,7 +46,7 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
     </h3>
     <div>
       <strong
-        class=" mod-marquee --fourxs"
+        class="mod-marquee --fourxs"
       >
         <a
           href="http://google.com"
