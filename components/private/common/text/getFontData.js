@@ -1,4 +1,4 @@
-//Familia, tamaño y peso de fuentes
+// Familia, tamaño y peso de fuentes
 
 // Font family
 export const getFontFamily = font => {

@@ -1,59 +1,46 @@
-'use strict';
-
+/* eslint-disable no-return-assign */
+/* eslint-disable react/no-direct-mutation-state */
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { PureComponent } from 'react';
 import Consumer from 'fusion:consumer';
-import get from 'lodash.get';
 import {
     sourceName,
     lastVideosQuery
 } from '../../../../content/queries/videosSearchSource';
+import getVideosHelper from '../utils/hocVideosHelper';
 
 function withLastVideos(WrappedComponent, filter, website, published) {
     return Consumer(
         class extends PureComponent {
-            state = {
-                from: 0,
-                videos: [],
-                lastCachedItemsCount: 0,
-                hasNext: false
-            };
-
             constructor(props) {
                 super(props);
+                this.state = {
+                    from: 0,
+                    videos: [],
+                    lastCachedItemsCount: 0,
+                    hasNext: false
+                };
                 this.getVideos();
             }
 
             getVideos() {
                 const { cached, fetched } = this.getContent({
-                    sourceName: sourceName,
+                    sourceName,
                     query: {
-                        website: website,
-                        published: published,
+                        website,
+                        published,
                         query: lastVideosQuery()
                     },
                     filter
                 });
-                const cachedVideos = get(cached, 'content_elements', null);
-
-                if (cachedVideos) this.state.videos = cachedVideos;
-
-                fetched.then(response => {
-                    const fetchedVideos = get(
-                        response,
-                        'content_elements',
-                        null
-                    );
-                    if (fetchedVideos) this.setState({ videos: fetchedVideos });
-                });
+                getVideosHelper(cached, fetched, this.handleGetVideos);
             }
 
+            handleGetVideos = value => (this.state.videos = value);
+
             render() {
-                return (
-                    <WrappedComponent
-                        videos={this.state.videos}
-                        {...this.props}
-                    />
-                );
+                const { videos } = this.state;
+                return <WrappedComponent videos={videos} {...this.props} />;
             }
         }
     );
