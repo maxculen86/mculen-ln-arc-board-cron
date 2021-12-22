@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Static from 'fusion:static';
-import Header from '../LN/header';
-import Footer from '../LN/footer';
+import Header from '../../LN/common/header';
+import Footer from '../../LN/common/footer';
 
 const NotaMain = ({ children }) => {
     return (
