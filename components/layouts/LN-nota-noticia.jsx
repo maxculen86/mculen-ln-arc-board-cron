@@ -30,7 +30,6 @@ const lnNotaNoticia = ({
     const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
     const logo = getSectionLogo(sections, layout, name);
     const magazine = logo ? logo.logoName : '';
-
     return (
         <GlobalProvider>
             {/* Banner MEGATOP */}
