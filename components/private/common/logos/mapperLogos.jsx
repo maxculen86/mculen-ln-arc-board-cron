@@ -17,5 +17,6 @@ export const mapperLogos = {
     'ln-mas': 'ln-mas.svg',
     bbc: 'bbc.svg',
     club: 'club.svg',
-    'club-la-nacion': 'club-la-nacion.svg'
+    'club-la-nacion': 'club-la-nacion.svg',
+    gda: 'gda.svg'
 };

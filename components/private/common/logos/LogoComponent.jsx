@@ -25,7 +25,7 @@ const LogoComponent = props => {
         `${contextPath}/resources/images/${assets}`
     )}`;
     const sizeLogo = size ? size : '';
-    const extraClass = `${name}${' '}${sizeLogo}`;
+    const extraClass = `com-logo${' '}${name}${' '}${sizeLogo}`;
     const hrefProps = href ? href : '';
     const classes = classCondition ? classCondition : extraClass;
     const altProps = alt ? alt : name;
