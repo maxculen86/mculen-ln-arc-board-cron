@@ -8,7 +8,6 @@ import PropTypes from 'prop-types';
 import Header from './headerBase';
 import Hamburger from './hamburger';
 import ComIcon from '../../../common/icon';
-// import LogoComponent from '../../../common/logos/LogoComponent';
 
 import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../../../../resources/dist/css/ln/components/usuario.css';
