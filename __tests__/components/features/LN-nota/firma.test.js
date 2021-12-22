@@ -51,7 +51,7 @@ jest.mock('fusion:context', Component => {
                 globalContent={{
                     credits,
                     distributor,
-                    withFirmaDistributor: true
+                    withFirmaDistributor: false
                 }}
             />
         );

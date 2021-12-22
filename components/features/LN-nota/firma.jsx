@@ -110,9 +110,7 @@ const FirmaFeature = props => {
             withFirmaDistributor
         }
     } = props;
-
     const { name } = distributor;
-    console.log('🚀 ~ file: firma.jsx ~ line 115 ~ name', name);
     const constructProps =
         by && by.length
             ? getPropsBuilder(position)
