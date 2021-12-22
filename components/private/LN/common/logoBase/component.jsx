@@ -5,7 +5,9 @@ import ComLink from '../../../common/com-link';
 
 const LogoBaseComponent = ({ path, logoName, color }) => {
     if (!logoName) return null;
-    const Logo = <ComLogo logoName={logoName} color={color} size="--sm" />;
+    const Logo = (
+        <ComLogo logoName={logoName} color={color} size="--sm" href={path} />
+    );
     const Link = <ComLink link={path}>{Logo}</ComLink>;
     return <>{path ? Link : Logo}</>;
 };

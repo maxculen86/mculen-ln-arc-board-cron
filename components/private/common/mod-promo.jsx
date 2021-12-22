@@ -24,6 +24,7 @@ const ModPromo = ({
                             logoName={logoName}
                             size={logoSize || '--md'}
                             color
+                            href={link}
                         />
                     ) : (
                         ''

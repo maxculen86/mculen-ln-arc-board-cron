@@ -5,12 +5,17 @@ export const mapperLogos = {
     'data-fiscal': 'data-fiscal.svg',
     living: 'living.svg',
     lugares: 'lugares.svg',
-    'rolling-stone': 'rolling.svg',
+    rolling: 'rolling.svg',
     ohlala: 'ohlala.svg',
     propiedades: 'propiedades.svg',
     campo: 'campo.svg',
     deportes: 'deportes.svg',
     'ln-logo': 'logo-lanacion.svg',
+    'la-nacion': 'logo-lanacion.svg',
     'ios-store': 'ios-store.svg',
-    'android-store': 'android-store.svg'
+    'android-store': 'android-store.svg',
+    'ln-mas': 'ln-mas.svg',
+    bbc: 'bbc.svg',
+    club: 'club.svg',
+    'club-la-nacion': 'club-la-nacion.svg'
 };

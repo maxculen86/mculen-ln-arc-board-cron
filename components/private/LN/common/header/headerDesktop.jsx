@@ -128,18 +128,10 @@ const HeaderDesktop = ({
                     <BannerLogoHeader section={section} isAdmin={isAdmin} />
                     <ComLogo
                         logoName="la-nacion"
-                        classCondition="nacion-home"
-                        color
-                        // size="--md"
+                        classCondition="logoLN"
                         href={isHome ? '#' : `${host}/`}
-                        target="_top"
                         title="Ir a la página principal"
                     />
-                    {/* <LogoComponent
-                        href="http://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"
-                        name="ln-logo"
-                        classCondition={'nacion-home'}
-                    /> */}
                 </div>
                 <div className="col-4 header__right">
                     <div
