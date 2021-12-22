@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`features - LaNacion - Nota - TituloNota Test de snapshot Titulo e Icono en Nota 1`] = `
+Array [
+  <a
+    class="com-link"
+    href="/revista-brando/"
+    title=""
+  >
+    <com-logo
+      color="true"
+      href="/revista-brando/"
+      logoname="brando"
+      size="--sm"
+    />
+  </a>,
+  <h1
+    class="com-title --threexl"
+  >
+    Tras el 0-0 con Independiente: cómo le fue a River en la era Marcelo Gallardo cuando tuvo que definir una serie como local
+  </h1>,
+]
+`;

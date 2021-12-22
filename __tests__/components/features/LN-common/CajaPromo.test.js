@@ -1,13 +1,24 @@
-// jest.mock(
-//     '../../../../components/private/common/com-advance',
-//     () => 'ComAdvance'
-// );
-
 import React from 'react';
 import CajaPromo from '../../../../components/features/LN-common/cajaPromo/default';
 import { shallow, mount } from 'enzyme';
 
+import Context from 'fusion:context';
+
+jest.mock('../../../../components/private/common/com-logo', () => 'com-logo');
+
+jest.mock('fusion:context', () => () => ({
+    default: props => {
+        const mockAvailableProps = {};
+        return props.children(mockAvailableProps);
+    }
+}));
+
 describe('Private - Feature - CajaAnticipo =>', () => {
+    Context.useAppContext = jest.fn(() => ({
+        globalContent: { subtype: '1' },
+        deployment: () => {},
+        contextPath: ''
+    }));
     const mock = {
         text:
             'La información más completa del mercado inmobiliario minuto a minuto.',
@@ -16,6 +27,11 @@ describe('Private - Feature - CajaAnticipo =>', () => {
     };
 
     describe('with a valid response', () => {
+        Context.useAppContext = jest.fn(() => ({
+            globalContent: { subtype: '1' },
+            deployment: () => {},
+            contextPath: ''
+        }));
         const wrapper = shallow(<CajaPromo customFields={{ ...mock }} />);
 
         const result = wrapper.first();
