@@ -430,5 +430,6 @@ export default `
         content_code
     }
     subscription,
-    paywallEnabled
+    paywallEnabled,
+    withFirmaDistributor
 }`;

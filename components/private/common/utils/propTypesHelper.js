@@ -105,8 +105,53 @@ const wikiAuthorPropTypes = {
     affiliations: PropTypes.string
 };
 
+const notaAl100andStorytellingLayoutsPropTypes = {
+    children: PropTypes.arrayOf(PropTypes.node).isRequired,
+    outputType: PropTypes.string.isRequired,
+    tree: PropTypes.arrayOf(PropTypes.node).isRequired,
+    isAdmin: PropTypes.bool.isRequired,
+    globalContent: PropTypes.shape({
+        taxonomy: PropTypes.shape({
+            sections: PropTypes.shape({
+                _id: PropTypes.string
+            })
+        }),
+        distributor: PropTypes.shape({
+            name: PropTypes.string
+        })
+    }).isRequired,
+    layout: PropTypes.string.isRequired
+};
+
+const homeLayoutsPropTypes = {
+    children: PropTypes.node.isRequired,
+    globalContent: PropTypes.shape({
+        style: PropTypes.shape({
+            section_style_name: PropTypes.string,
+            headerdark: PropTypes.string
+        }),
+        name: PropTypes.string,
+        acumuladoGeneral: PropTypes.shape({
+            tipo_acumulado: PropTypes.string,
+            hierarchy_navigation: PropTypes.string,
+            hide_banner: PropTypes.string,
+            cantidad_notas: PropTypes.string,
+            id_collection_promo_items: PropTypes.string
+        }),
+        acumuladoColor: PropTypes.shape({
+            header_class_name: PropTypes.string,
+            background_color: PropTypes.string,
+            navigation_color: PropTypes.string,
+            navigation_color_tags: PropTypes.string,
+            id_logo_image: PropTypes.string
+        })
+    }).isRequired
+};
+
 export {
     googlePublisherAndLiftIgniterPropTypes,
     bannerPropTypes,
-    wikiAuthorPropTypes
+    wikiAuthorPropTypes,
+    notaAl100andStorytellingLayoutsPropTypes,
+    homeLayoutsPropTypes
 };
