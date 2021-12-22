@@ -71,8 +71,10 @@ describe('ModSponsor', () => {
         const distributorFormated1 = formatDistributorName('El País (Uruguay)');
         const distributorFormated2 = formatDistributorName('Agencia CyTA');
         const distributorFormated3 = formatDistributorName('chequeado.com');
+        const distributorFormated4 = formatDistributorName('tiempo/gda');
         expect(distributorFormated1).toEqual('el-pais-uruguay');
         expect(distributorFormated2).toEqual('agencia-cyta');
         expect(distributorFormated3).toEqual('chequeado-com');
+        expect(distributorFormated4).toEqual('tiempo-gda');
     });
 });
