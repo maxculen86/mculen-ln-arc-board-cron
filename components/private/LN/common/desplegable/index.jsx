@@ -53,14 +53,11 @@ const Desplegable = ({ toglleDesplegable, isHome }) => {
             <div className="com-dropdown" ref={comDromdownRef}>
                 <section className="header__dropdown">
                     <ComLogo
-                        color
-                        logoName="la-nacion"
-                        classCondition="nacion-home"
+                        logoName="ln-logo"
+                        size="--xs"
                         href={isHome ? '#' : 'https://www.lanacion.com.ar/'}
-                        target="_top"
                         title="Ir a la página principal"
                     />
-                    {/* <LogoLN /> */}
                     <ComButton
                         iconName="close"
                         title="Cerrar"

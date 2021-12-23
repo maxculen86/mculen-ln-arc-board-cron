@@ -10,7 +10,7 @@ export const mapperLogos = {
     propiedades: 'propiedades.svg',
     campo: 'campo.svg',
     deportes: 'deportes.svg',
-    'ln-logo': 'logo-lanacion.svg',
+    'ln-logo': 'ln-logo.svg',
     'la-nacion': 'logo-lanacion.svg',
     'ios-store': 'ios-store.svg',
     'android-store': 'android-store.svg',
@@ -18,5 +18,6 @@ export const mapperLogos = {
     bbc: 'bbc.svg',
     club: 'club.svg',
     'club-la-nacion': 'club-la-nacion.svg',
-    gda: 'gda.svg'
+    gda: 'gda.svg',
+    ln: 'ln-exclusive.svg'
 };

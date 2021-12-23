@@ -8,8 +8,6 @@ Array [
     title=""
   >
     <com-logo
-      color="true"
-      href="/revista-brando/"
       logoname="brando"
       size="--sm"
     />

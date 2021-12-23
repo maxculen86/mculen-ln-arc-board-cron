@@ -52,11 +52,7 @@ const ModSubheader = props => {
                         size="--fourxs"
                         title="Ir a Club LA NACION"
                     >
-                        <ComLogo
-                            logoName="club"
-                            size="--xs"
-                            href="https://club.lanacion.com.ar/"
-                        />
+                        <ComLogo logoName="club" size="--xs" />
                         Descubrí tus beneficios
                     </ComLink>
                 </nav>

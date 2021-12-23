@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import LogoComponent from '../common/logos/LogoComponent';
 
 import '../../../resources/dist/css/ln/components/com-logo.css';
+import ComLink from './com-link';
 
 const ComLogo = props => {
     const { logoName, size, classCondition, href, title } = props;
@@ -10,13 +11,21 @@ const ComLogo = props => {
     if (!logoName) return null;
     return (
         <>
-            <LogoComponent
-                name={logoName}
-                alt={title}
-                size={size}
-                href={href || title}
-                classCondition={classCondition}
-            />
+            {href ? (
+                <ComLink link={href} alt={title}>
+                    <LogoComponent
+                        name={logoName}
+                        size={size}
+                        classCondition={classCondition}
+                    />
+                </ComLink>
+            ) : (
+                <LogoComponent
+                    name={logoName}
+                    size={size}
+                    classCondition={classCondition}
+                />
+            )}
         </>
     );
 };
@@ -30,6 +39,7 @@ ComLogo.propTypes = {
 };
 
 ComLogo.defaultProps = {
+    classCondition: '',
     logoName: '',
     title: '',
     href: '',

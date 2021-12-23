@@ -14,7 +14,6 @@ const LogoComponent = props => {
         name,
         classCondition,
         size,
-        href,
         width,
         height,
         alt
@@ -26,14 +25,12 @@ const LogoComponent = props => {
     )}`;
     const sizeLogo = size ? size : '';
     const extraClass = `com-logo${' '}${name}${' '}${sizeLogo}`;
-    const hrefProps = href ? href : '';
     const classes = classCondition ? classCondition : extraClass;
     const altProps = alt ? alt : name;
 
     return (
         <Static id={assets || `logo-${name}`} htmlOnly>
             <img
-                href={hrefProps}
                 className={classes}
                 target="_blank"
                 width={width}
@@ -52,7 +49,6 @@ LogoComponent.propTypes = {
     width: PropTypes.number,
     height: PropTypes.number,
     classCondition: PropTypes.string,
-    href: PropTypes.string,
     size: PropTypes.string,
     alt: PropTypes.string
 };

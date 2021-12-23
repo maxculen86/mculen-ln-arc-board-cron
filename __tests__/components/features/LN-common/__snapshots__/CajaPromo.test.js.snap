@@ -30,7 +30,6 @@ exports[`Private - Feature - CajaAnticipo => with a valid response Snapshot Caja
         <div>
           <com-logo
             color={true}
-            href="https://www.lanacion.com.ar/"
             logoName="propiedades"
             size="--md"
           />

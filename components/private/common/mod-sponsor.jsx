@@ -16,12 +16,7 @@ const ModSponsor = props => {
         <div className={`mod-sponsor ${type} ${sponsor}`}>
             {sponsor && (
                 <ComLink link={link}>
-                    <ComLogo
-                        color="true"
-                        logoName={sponsor}
-                        size="--sm"
-                        href={link}
-                    />
+                    <ComLogo logoName={sponsor} size="--sm" />
                 </ComLink>
             )}
 

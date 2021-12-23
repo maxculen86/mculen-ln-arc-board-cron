@@ -234,7 +234,7 @@ const Index = ({ home }) => {
                         <div className="col-desksm-4 --center">
                             <LogoComponent
                                 href="http://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"
-                                name="ln-logo"
+                                name="la-nacion"
                                 size="--sm"
                             />
                         </div>
