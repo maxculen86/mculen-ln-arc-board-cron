@@ -53,7 +53,7 @@ const Desplegable = ({ toglleDesplegable, isHome }) => {
             <div className="com-dropdown" ref={comDromdownRef}>
                 <section className="header__dropdown">
                     <ComLogo
-                        logoName="ln-logo"
+                        logoName="la-nacion"
                         size="--xs"
                         href={isHome ? '#' : 'https://www.lanacion.com.ar/'}
                         title="Ir a la página principal"

@@ -5,6 +5,7 @@ import Button from '../../../common/com-button';
 import Link from '../../../common/link';
 import LogoComponent from '../../../common/logos/LogoComponent';
 import Icon from '../../../common/icon';
+import ComLogo from '../../../common/com-logo';
 
 const headerAMP = props => {
     return (
@@ -76,12 +77,11 @@ const headerAMP = props => {
                         href="https://www.lanacion.com.ar/"
                         title="Ir a la página principal"
                     /> */}
-                    <LogoComponent
-                        href="http://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"
-                        name="ln-logo"
-                        classCondition={'logoLN'}
+                    <ComLogo
+                        logoName="la-nacion"
+                        href={isHome ? '#' : 'https://www.lanacion.com.ar/'}
+                        title="Ir a la página principal"
                     />
-
                     <Button on="tap:sidebar-left.close" iconName="close" />
                 </section>
                 <ul className="menu-nav">

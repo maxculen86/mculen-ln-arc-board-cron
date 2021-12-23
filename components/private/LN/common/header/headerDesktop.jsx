@@ -127,7 +127,6 @@ const HeaderDesktop = ({
                     <BannerLogoHeader section={section} isAdmin={isAdmin} />
                     <ComLogo
                         logoName="la-nacion"
-                        classCondition="logoLN"
                         href={isHome ? '#' : `${host}/`}
                         title="Ir a la página principal"
                     />

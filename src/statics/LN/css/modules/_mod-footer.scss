@@ -41,7 +41,9 @@
         }
 
         .--center {
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             order: 1;
             padding-bottom: $spacing-lg;
             border-bottom: 1px solid #ccc;
