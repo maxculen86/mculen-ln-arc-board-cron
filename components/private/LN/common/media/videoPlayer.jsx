@@ -27,6 +27,17 @@ const video = ({
     const mainStream = getStreams(streams, isPowa ? '<' : '>');
 
     const adsURL = urlForPrerollAds(screenUtils.device);
+    const videoSource = (
+        <>
+            <source
+                src={mainStream.url}
+                type={`video/${mainStream.stream_type}`}
+            />
+            <div fallback="fallback">
+                <p>Este navegador no soporta elementos de video.</p>
+            </div>
+        </>
+    );
 
     return (
         (isPowa && (
@@ -40,21 +51,27 @@ const video = ({
                     />
                 </AmpContainer>
                 <AmpContainer isForAmp>
-                    <amp-ima-video
-                        width={mainStream.width}
-                        height={mainStream.height}
-                        layout="responsive"
-                        data-poster={promoItems.basic.url}
-                        data-tag={adsURL}
-                    >
-                        <source
-                            src={mainStream.url}
-                            type={`video/${mainStream.stream_type}`}
-                        />
-                        <div fallback="fallback">
-                            <p>Este navegador no soporta elementos de video.</p>
-                        </div>
-                    </amp-ima-video>
+                    {adsURL === '' ? (
+                        <amp-video
+                            controls
+                            width={mainStream.width}
+                            height={mainStream.height}
+                            layout="responsive"
+                            poster={promoItems.basic.url}
+                        >
+                            {videoSource}
+                        </amp-video>
+                    ) : (
+                        <amp-ima-video
+                            width={mainStream.width}
+                            height={mainStream.height}
+                            layout="responsive"
+                            data-poster={promoItems.basic.url}
+                            data-tag={adsURL}
+                        >
+                            {videoSource}
+                        </amp-ima-video>
+                    )}
                 </AmpContainer>
                 <VideoPlayerSnippet
                     parrafo={parrafo}

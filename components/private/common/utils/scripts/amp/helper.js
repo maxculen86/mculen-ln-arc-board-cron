@@ -39,6 +39,11 @@ export const customElements = {
         customElement: 'amp-ima-video',
         src: 'https://cdn.ampproject.org/v0/amp-ima-video-0.1.js',
         validateInclusion: globalContent => scriptVideoValidator(globalContent)
+    },
+    'amp-video': {
+        customElement: 'amp-video',
+        src: 'https://cdn.ampproject.org/v0/amp-video-0.1.js',
+        validateInclusion: globalContent => scriptVideoValidator(globalContent)
     }
 };
 
