@@ -32,6 +32,7 @@ class addRelatedImage {
 
         id &&
             withoutPromoItems &&
+            id.trim() &&
             (await this.fetchContent({
                 imageData: {
                     source: 'relatedImageSource',
