@@ -9,15 +9,7 @@ import { mapperLogos } from './mapperLogos';
 import '../../../../resources/dist/css/ln/components/com-logo.css';
 
 const LogoComponent = props => {
-    const {
-        outputType,
-        name,
-        classCondition,
-        size,
-        width,
-        height,
-        alt
-    } = props;
+    const { outputType, name, classCondition, size, width, height } = props;
     const { contextPath, deployment } = useAppContext();
     const assets = mapperLogos[name];
     const archivoSVG = `${ARC_STATIC}${deployment(
@@ -26,7 +18,6 @@ const LogoComponent = props => {
     const sizeLogo = size ? size : '';
     const extraClass = `com-logo${' '}${name}${' '}${sizeLogo}`;
     const classes = classCondition ? classCondition : extraClass;
-    const altProps = alt ? alt : name;
 
     return (
         <Static id={assets || `logo-${name}`} htmlOnly>
@@ -36,7 +27,6 @@ const LogoComponent = props => {
                 width={width}
                 height={height}
                 src={archivoSVG}
-                alt={altProps}
                 amp={outputType === 'amp'}
             />
         </Static>
@@ -49,8 +39,7 @@ LogoComponent.propTypes = {
     width: PropTypes.number,
     height: PropTypes.number,
     classCondition: PropTypes.string,
-    size: PropTypes.string,
-    alt: PropTypes.string
+    size: PropTypes.string
 };
 
 export default LogoComponent;
