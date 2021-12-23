@@ -16,8 +16,8 @@ export const mapperLogos = {
     'android-store': 'android-store.svg',
     'ln-mas': 'ln-mas.svg',
     bbc: 'bbc.svg',
-    club: 'club.svg',
+    'logo-club': 'club.svg',
     'club-la-nacion': 'club-la-nacion.svg',
     gda: 'gda.svg',
-    ln: 'ln-exclusive.svg'
+    'ln-exclusive': 'ln-exclusive.svg'
 };
