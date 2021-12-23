@@ -37,6 +37,7 @@ const video = ({
                         adsURL={adsURL}
                         tituloVideo={tituloVideo}
                         autoPlay={autoplay}
+                        device={screenUtils.device}
                     />
                 </AmpContainer>
                 <AmpContainer isForAmp>
