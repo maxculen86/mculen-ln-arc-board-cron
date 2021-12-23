@@ -6,6 +6,10 @@ export const customElements = {
         customElement: 'amp-sidebar',
         src: 'https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'
     },
+    'amp-video': {
+        customElement: 'amp-video',
+        src: 'https://cdn.ampproject.org/v0/amp-video-0.1.js'
+    },
     'amp-carousel': {
         customElement: 'amp-carousel',
         src: 'https://cdn.ampproject.org/v0/amp-carousel-0.1.js',
@@ -38,11 +42,6 @@ export const customElements = {
     'amp-ima-video': {
         customElement: 'amp-ima-video',
         src: 'https://cdn.ampproject.org/v0/amp-ima-video-0.1.js',
-        validateInclusion: globalContent => scriptVideoValidator(globalContent)
-    },
-    'amp-video': {
-        customElement: 'amp-video',
-        src: 'https://cdn.ampproject.org/v0/amp-video-0.1.js',
         validateInclusion: globalContent => scriptVideoValidator(globalContent)
     }
 };
@@ -91,7 +90,8 @@ export const elementForNote = [
     'amp-iframe',
     'amp-analytics',
     'amp-social-share',
-    'amp-ima-video'
+    'amp-ima-video',
+    'amp-video'
 ];
 
 export const embedsForNote = [

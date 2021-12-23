@@ -53,7 +53,7 @@ const video = ({
                 <AmpContainer isForAmp>
                     {adsURL === '' ? (
                         <amp-video
-                            controls
+                            controls="controls"
                             width={mainStream.width}
                             height={mainStream.height}
                             layout="responsive"
