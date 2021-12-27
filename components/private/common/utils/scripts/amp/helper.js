@@ -38,13 +38,14 @@ export const customElements = {
     'amp-ima-video': {
         customElement: 'amp-ima-video',
         src: 'https://cdn.ampproject.org/v0/amp-ima-video-0.1.js',
-        validateInclusion: globalContent => scriptVideoValidator(globalContent),
-        hasBanners: 'Si'
+        validateInclusion: globalContent =>
+            scriptVideoValidator(globalContent, 'Si')
     },
     'amp-video': {
         customElement: 'amp-video',
         src: 'https://cdn.ampproject.org/v0/amp-video-0.1.js',
-        hasBanners: 'No'
+        validateInclusion: globalContent =>
+            scriptVideoValidator(globalContent, 'No')
     }
 };
 
@@ -135,11 +136,4 @@ export const evaluateFunctionInclusion = (configElement, globalContent) => {
     return configElement.validateInclusion
         ? configElement.validateInclusion(globalContent)
         : true;
-};
-
-export const evaluateVideoBanners = (configElement, globalContent) => {
-    return (
-        configElement.hasBanners === globalContent.label.mostrar_banners.text ||
-        configElement.hasBanners === undefined
-    );
 };
