@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable no-eval */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -27,6 +28,7 @@ const video = ({
     const mainStream = getStreams(streams, isPowa ? '<' : '>');
 
     const adsURL = urlForPrerollAds(screenUtils.device);
+
     const videoSource = (
         <>
             <source
@@ -38,6 +40,12 @@ const video = ({
             </div>
         </>
     );
+
+    const videoProps = {
+        width: mainStream.width,
+        height: mainStream.height,
+        layout: 'responsive'
+    };
 
     return (
         (isPowa && (
@@ -54,20 +62,16 @@ const video = ({
                     {adsURL === '' ? (
                         <amp-video
                             controls="controls"
-                            width={mainStream.width}
-                            height={mainStream.height}
-                            layout="responsive"
                             poster={promoItems.basic.url}
+                            {...videoProps}
                         >
                             {videoSource}
                         </amp-video>
                     ) : (
                         <amp-ima-video
-                            width={mainStream.width}
-                            height={mainStream.height}
-                            layout="responsive"
                             data-poster={promoItems.basic.url}
                             data-tag={adsURL}
+                            {...videoProps}
                         >
                             {videoSource}
                         </amp-ima-video>
