@@ -52,9 +52,9 @@ const Icon = ({
 
 Icon.defaultProps = {
     href: '',
-    target: '',
-    title: '',
-    rel: '',
+    target: undefined,
+    title: undefined,
+    rel: undefined,
     size: '',
     children: '',
     extraClass: '',

@@ -57,8 +57,8 @@ const transform = data => {
     );
 
     const titles = {
-        dbna: ['Dólar Banco Nación', 'Dólar BNA'],
-        dblue: ['Dólar Blue', 'Dólar Blue'],
+        dbna: ['Dólar Banco Nación', 'Dólar hoy'],
+        dblue: ['Dólar blue', 'Dólar blue'],
         dccl: ['Dólar Contado con Liqui', 'Dólar CCL']
     };
     return {

@@ -19,7 +19,7 @@ const ComDolar = props => {
                 dataSection="MenuLN"
                 link="https://www.lanacion.com.ar/dolar-hoy/"
                 size={size}
-                title="Dólar Hoy"
+                title="Dólar hoy"
             >
                 Dólar hoy:
             </ComLink>
@@ -39,7 +39,7 @@ const ComDolar = props => {
                 size={size}
                 title="Dólar blue"
             >
-                Dólar Blue:
+                Dólar blue:
             </ComLink>
             <span id="precioCompraBlue" className={`precioDolar ${size}`}>
                 {precioCompraBlue ? `$${precioCompraBlue}` : '$00,00'}
