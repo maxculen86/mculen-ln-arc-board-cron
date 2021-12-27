@@ -1,0 +1,52 @@
+@import '../abstracts/variables';
+
+.daily-horoscope {
+    display: flex;
+    flex-direction: column;
+    padding: $spacing-sm;
+    max-width: px(1024);
+    border: 1px solid $light-neutral-400;
+    border-radius: px(4);
+    margin-bottom: $spacing-lg;
+
+    @media ($media-m) {
+        padding: $spacing-md;
+    }
+    .falso-svg {
+        width: px(72);
+        height: px(72);
+        border-radius: 50%;
+        background-color: $light-neutral-200;
+    }
+
+    .daily-horoscope-header {
+        display: flex;
+        margin-bottom: $spacing-sm;
+
+        .title,
+        .periodo {
+            color: $light-neutral-800;
+            font-family: $font-SuecaSlab;
+        }
+        .text,
+        .title {
+            margin: px(0) px(0) px(8) px(16);
+        }
+        .periodo {
+            display: block;
+        }
+        .--author {
+            color: $blue-500;
+            font-weight: 700;
+        }
+        .falso-svg {
+            width: px(72);
+            height: px(72);
+        }
+    }
+    .daily-horoscope-main {
+        .com-text:not(:last-child) {
+            margin-bottom: $spacing-sm;
+        }
+    }
+}

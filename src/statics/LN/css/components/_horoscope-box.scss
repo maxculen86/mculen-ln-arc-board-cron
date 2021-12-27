@@ -1,0 +1,44 @@
+@import '../abstracts/variables';
+
+.horoscope-box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $spacing-lg;
+
+    > .com-title {
+        font-family: $font-SuecaSlab;
+        color: $light-neutral-800;
+        margin-bottom: $spacing-sm;
+    }
+    .row-gap-2 {
+        grid-gap: $spacing-xs;
+    }
+    .row-gap-tablet-3 {
+        margin-bottom: 0;
+    }
+
+    @media ($media-m) {
+        display: flex;
+        width: 100%;
+        .--items {
+            display: flex;
+            flex-direction: row;
+        }
+        .zodiaco {
+            width: 85%;
+        }
+        .chino {
+            display: flex;
+            width: 15%;
+            margin: 0px 0px 0px $spacing-xs;
+        }
+    }
+    @media ($media-lg) {
+        .zodiaco {
+            width: 90%;
+        }
+        .chino {
+            width: 10%;
+        }
+    }
+}
