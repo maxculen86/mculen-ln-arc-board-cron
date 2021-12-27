@@ -32,11 +32,9 @@ exports[`features - LaNacion - Nota - Detalle Receta Test de snapshot Detalle Re
       class="time-number col-10 col-tablet-11"
     >
       <span>
-        <span
-          class="--font-bold"
-        >
+        <strong>
           Tiempo total:
-        </span>
+        </strong>
          45 min.
       </span>
     </div>
@@ -69,11 +67,9 @@ exports[`features - LaNacion - Nota - Detalle Receta Test de snapshot Detalle Re
       class="time-number col-10 col-tablet-11"
     >
       <span>
-        <span
-          class="--font-bold"
-        >
+        <strong>
           Porciones:
-        </span>
+        </strong>
          8
       </span>
     </div>

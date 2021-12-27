@@ -167,7 +167,9 @@ const VideoPlayer = props => {
                 data-autoplay-muted={autoPlay}
                 data-controls={enableControls}
                 data-muted={
-                    videoId === firstVideo?._id && device === 'desktop'
+                    firstVideo &&
+                    videoId === firstVideo._id &&
+                    device === 'desktop'
                         ? true
                         : muted
                 }
@@ -175,7 +177,7 @@ const VideoPlayer = props => {
                 data-api={apiEnv}
                 data-env="prod"
             />
-            {videoId === firstVideo?._id && device === 'desktop' && (
+            {firstVideo && videoId === firstVideo._id && device === 'desktop' && (
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `
