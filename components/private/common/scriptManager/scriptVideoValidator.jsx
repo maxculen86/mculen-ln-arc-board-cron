@@ -10,13 +10,11 @@ const scriptVideoValidator = (globalContent, hasBanner) => {
     const contentElements = get(globalContent, 'content_elements');
     const subtype = get(globalContent, 'subtype');
     const promoItems = get(globalContent, 'promo_items');
-    const label = get(globalContent, 'label');
     const basicPromoItems = get(promoItems, 'basic');
     const aperturaMultimediaPromoItems = get(promoItems, 'apertura_multimedia');
     const typeBasic = get(basicPromoItems, 'type');
     const typeMultimedia = get(aperturaMultimediaPromoItems, 'type');
-    const showBanners = get(label, 'mostrar_banners');
-    const text = get(showBanners, 'text');
+    const text = get(globalContent, 'label.mostrar_banners.text');
 
     return (
         (videosBody(contentElements) > 0 ||
