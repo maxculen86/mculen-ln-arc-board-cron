@@ -7,8 +7,7 @@ import {
     embedsForNote,
     styleConfig,
     evaluateFunctionInclusion,
-    config,
-    evaluateVideoBanners
+    config
 } from './utils/scripts/amp/helper';
 import getOembedScripts from './scriptManager/getOembedScripts';
 import { getStyleFontsInLine } from './fontface';
@@ -93,9 +92,10 @@ const AMPScripts = props => {
     ScriptsConfig.concat(
         getOembedScripts(globalContent, embedElements, embedsForNote)
     ).forEach(configElement => {
-        const loadScript =
-            evaluateFunctionInclusion(configElement, globalContent) &&
-            evaluateVideoBanners(configElement, globalContent);
+        const loadScript = evaluateFunctionInclusion(
+            configElement,
+            globalContent
+        );
 
         loadScript &&
             scriptsToLoad.push(
