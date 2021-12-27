@@ -240,6 +240,7 @@ const LNAcumuladoLayout = props => {
                                 )}
                                 {/* NOTAS */}
                                 {notas}
+                                <HoroscopeBox signos={signos} />
                             </div>
                             <div className="sidebar__aside hlp-tabletlm-none">
                                 {/* BANNERS, RANKING DE NOTAS */}
