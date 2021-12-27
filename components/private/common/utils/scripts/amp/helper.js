@@ -6,10 +6,6 @@ export const customElements = {
         customElement: 'amp-sidebar',
         src: 'https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'
     },
-    'amp-video': {
-        customElement: 'amp-video',
-        src: 'https://cdn.ampproject.org/v0/amp-video-0.1.js'
-    },
     'amp-carousel': {
         customElement: 'amp-carousel',
         src: 'https://cdn.ampproject.org/v0/amp-carousel-0.1.js',
@@ -42,7 +38,13 @@ export const customElements = {
     'amp-ima-video': {
         customElement: 'amp-ima-video',
         src: 'https://cdn.ampproject.org/v0/amp-ima-video-0.1.js',
-        validateInclusion: globalContent => scriptVideoValidator(globalContent)
+        validateInclusion: globalContent => scriptVideoValidator(globalContent),
+        hasBanners: 'Si'
+    },
+    'amp-video': {
+        customElement: 'amp-video',
+        src: 'https://cdn.ampproject.org/v0/amp-video-0.1.js',
+        hasBanners: 'No'
     }
 };
 
@@ -75,10 +77,6 @@ export const embedElements = {
         customElement: 'amp-vine',
         src: 'https://cdn.ampproject.org/v0/amp-vine-0.1.js'
     }
-    // 'amp-tiktok': {
-    //     customElement: 'amp-tiktok',
-    //     src: 'https://cdn.ampproject.org/v0/amp-tiktok-0.1.js'
-    // }
 };
 
 export const elementForNote = [
@@ -102,8 +100,8 @@ export const embedsForNote = [
     'amp-vimeo',
     'amp-dailymotion',
     'amp-vine'
-    // 'amp-tiktok'
 ];
+
 const customElementForNote = elementForNote.map(elem => customElements[elem]);
 
 export const styleConfig = {
@@ -132,15 +130,16 @@ export const config = {
         'LN-nota-video': customElementForNote
     }
 };
-// TODO: EVALUAR SI ESTA FUNCION SIGUE SIENDO UTIL.
-export const evaluateCheckInclusion = (configElement, contentFeatures) => {
-    return configElement.checkInclusion
-        ? contentFeatures.find(e => e === configElement.checkInclusion)
-        : true;
-};
 
 export const evaluateFunctionInclusion = (configElement, globalContent) => {
     return configElement.validateInclusion
         ? configElement.validateInclusion(globalContent)
         : true;
+};
+
+export const evaluateVideoBanners = (configElement, globalContent) => {
+    return (
+        configElement.hasBanners === globalContent.label.mostrar_banners.text ||
+        configElement.hasBanners === undefined
+    );
 };
