@@ -107,9 +107,9 @@ const VideoPlayer = props => {
         device
     } = props;
 
-    const firstVideo = globalContent.content_elements.find(
-        x => x.type === 'video'
-    );
+    const firstVideo = globalContent.content_elements
+        ? globalContent.content_elements.find(x => x.type === 'video')
+        : null;
 
     const siteVars = getProperties(arcSite);
     const { organizationId } = siteVars || {};
