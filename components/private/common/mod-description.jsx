@@ -99,7 +99,10 @@ const ModDescription = props => {
 ModDescription.propTypes = {
     authors: PropTypes.string,
     authorSize: PropTypes.string,
-    category: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    category: PropTypes.shape({
+        name: PropTypes.string,
+        path: PropTypes.string
+    }),
     dateText: PropTypes.string,
     label: PropTypes.shape({
         text: PropTypes.string,
