@@ -19,7 +19,6 @@ let lastScrollPosition = 0;
 const Index = props => {
     const {
         outputType,
-        // headerDark,
         siteProperties: { host, layoutsName = {} },
         layout,
         globalContent,
@@ -40,69 +39,11 @@ const Index = props => {
             window.addEventListener(
                 'scroll',
                 debounce(() => {
-                    onScrollHandler(
-                        header,
-                        headerHeigth,
-                        // vshare,
-                        userMenu,
-                        wrapper
-                    );
+                    onScrollHandler(header, headerHeigth, userMenu, wrapper);
                 })
             );
         }
     }, []);
-
-    const toglleDesplegable = () => {
-        document.body.classList.contains('dropdown')
-            ? document.body.classList.remove('dropdown')
-            : document.body.classList.add('dropdown');
-    };
-
-    // TODO: Hacer refactor del siguiente metodo
-    const onScrollHandler = (header, height, userMenu, wrapper) => {
-        const { isScrollUp, isScrollDown } = Scroll.getScrollDirection(
-            lastScrollPosition
-        );
-        const scrollPos = window.scrollY;
-        const { classList } = header;
-        const vshare = document.getElementById('v-share');
-
-        if (userMenu) userMenu.classList.remove(CLASS_ACTIVE);
-        if (scrollPos) {
-            if (scrollPos > height) {
-                // classList.add(CLASS_SCROLL_DOWN);
-                if (wrapper) {
-                    wrapper.classList.add(CLASS_SCROLL_DOWN);
-                }
-            }
-            if (isScrollUp) {
-                classList.remove(CLASS_ACTIVE);
-                if (vshare) vshare.classList.remove(CLASS_ACTIVE);
-
-                if (wrapper) {
-                    wrapper.classList.remove(CLASS_SCROLL_DOWN);
-                    wrapper.classList.add(CLASS_SCROLL_UP);
-                }
-            } else {
-                classList.remove(CLASS_ACTIVE);
-                if (vshare) vshare.classList.remove(CLASS_ACTIVE);
-
-                if (wrapper) {
-                    wrapper.classList.remove(CLASS_SCROLL_UP);
-                    wrapper.classList.add(CLASS_SCROLL_DOWN);
-                }
-            }
-            if (scrollPos < 65) {
-                // esta clsae está para el header transparente
-                classList.add(CLASS_ACTIVE);
-                if (vshare) vshare.classList.add(CLASS_ACTIVE);
-            }
-        }
-
-        lastScrollPosition = scrollPos;
-
-        return { isScrollDown, isScrollUp };
-    };
 
     if (outputType === 'amp')
         return <HeaderAMP toglleDesplegable={toglleDesplegable} />;
@@ -119,17 +60,11 @@ const Index = props => {
                 isHome={layoutsName.Home === layout}
                 section={section}
                 isAdmin={isAdmin}
-                // headerDark={headerDark}
             />
 
             <NavBarMobile
                 isHome={layoutsName.Home === layout}
                 toglleDesplegable={toglleDesplegable}
-                // showNav={
-                //     scrollDirection.isScrollDown
-                //         ? ` ${CLASS_SCROLL_DOWN}`
-                //         : ''
-                // }
             />
 
             <Desplegable
@@ -155,6 +90,57 @@ Index.propTypes = {
         node_type: PropTypes.string
     }).isRequired
     // headerDark: PropTypes.string
+};
+
+const toglleDesplegable = () => {
+    document.body.classList.contains('dropdown')
+        ? document.body.classList.remove('dropdown')
+        : document.body.classList.add('dropdown');
+};
+
+const onScrollHandler = (header, height, userMenu, wrapper) => {
+    const { isScrollUp, isScrollDown } = Scroll.getScrollDirection(
+        lastScrollPosition
+    );
+    const scrollPos = window.scrollY;
+    const { classList } = header;
+    const vshare = document.getElementById('v-share');
+
+    if (userMenu) userMenu.classList.remove(CLASS_ACTIVE);
+    if (scrollPos) {
+        if (scrollPos > height) {
+            // classList.add(CLASS_SCROLL_DOWN);
+            if (wrapper) {
+                wrapper.classList.add(CLASS_SCROLL_DOWN);
+            }
+        }
+        if (isScrollUp) {
+            classList.remove(CLASS_ACTIVE);
+            if (vshare) vshare.classList.remove(CLASS_ACTIVE);
+
+            if (wrapper) {
+                wrapper.classList.remove(CLASS_SCROLL_DOWN);
+                wrapper.classList.add(CLASS_SCROLL_UP);
+            }
+        } else {
+            classList.remove(CLASS_ACTIVE);
+            if (vshare) vshare.classList.remove(CLASS_ACTIVE);
+
+            if (wrapper) {
+                wrapper.classList.remove(CLASS_SCROLL_UP);
+                wrapper.classList.add(CLASS_SCROLL_DOWN);
+            }
+        }
+        if (scrollPos < 65) {
+            // esta clsae está para el header transparente
+            classList.add(CLASS_ACTIVE);
+            if (vshare) vshare.classList.add(CLASS_ACTIVE);
+        }
+    }
+
+    lastScrollPosition = scrollPos;
+
+    return { isScrollDown, isScrollUp };
 };
 
 export default Consumer(Index);
