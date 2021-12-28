@@ -286,6 +286,9 @@
         "livefyre_entrada_id": {
             "text": "841900",
             "display": true
+        },
+        "trust": {
+            "text": "No mostrar trust"
         }
     },
     "promo_items": {
