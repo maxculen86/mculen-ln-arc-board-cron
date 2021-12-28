@@ -92,10 +92,11 @@ const AMPScripts = props => {
     ScriptsConfig.concat(
         getOembedScripts(globalContent, embedElements, embedsForNote)
     ).forEach(configElement => {
-        const loadScript = evaluateFunctionInclusion(
-            configElement,
-            globalContent
-        );
+        const loadScript =
+            (evaluateFunctionInclusion(configElement, globalContent) &&
+                configElement.hasBanners ===
+                    globalContent.label.mostrar_banners.text) ||
+            configElement.hasBanners === undefined;
 
         loadScript &&
             scriptsToLoad.push(

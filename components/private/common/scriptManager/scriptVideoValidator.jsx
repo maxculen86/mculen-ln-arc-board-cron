@@ -6,7 +6,7 @@ const videosBody = contentElements =>
     contentElements &&
     contentElements.filter(element => element.type === 'video').length;
 
-const scriptVideoValidator = (globalContent, hasBanner) => {
+const scriptVideoValidator = globalContent => {
     const contentElements = get(globalContent, 'content_elements');
     const subtype = get(globalContent, 'subtype');
     const promoItems = get(globalContent, 'promo_items');
@@ -14,14 +14,12 @@ const scriptVideoValidator = (globalContent, hasBanner) => {
     const aperturaMultimediaPromoItems = get(promoItems, 'apertura_multimedia');
     const typeBasic = get(basicPromoItems, 'type');
     const typeMultimedia = get(aperturaMultimediaPromoItems, 'type');
-    const text = get(globalContent, 'label.mostrar_banners.text');
 
     return (
         (videosBody(contentElements) > 0 ||
             typeMultimedia === 'video' ||
             typeBasic === 'video') &&
-        subtype !== FOTOAL100 &&
-        text === hasBanner
+        subtype !== FOTOAL100
     );
 };
 
