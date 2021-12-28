@@ -13,6 +13,9 @@ jest.mock('fusion:context', () => () => ({
     }
 }));
 
+const requestUri =
+    '/arquitectura/videonota-de-prueba-nid15092021/?_website=la-nacion-ar';
+
 import Context from 'fusion:context';
 import { getCustParamsEnconde } from '../../../../../../components/private/LN/common/utils/getDataFormated';
 import urlForPrerollAds from '../../../../../../components/private/LN/common/utils/urlForPrerollAds';
@@ -65,21 +68,71 @@ describe('private - LN - common - media - videoPlayer', () => {
         screenUtils: { device: 'desktop' }
     };
 
-    it('Renderear amp-video si el outputtype es amp', () => {
+    it('Renderear amp-ima-video si el outputtype es amp y hay url', () => {
+        Context.useAppContext = jest.fn(() => ({
+            globalContent,
+            requestUri,
+            outputType: 'amp'
+        }));
+        const globalContent = {
+            _id: 'ZMIG7KDD7NBUBAIXTNEHJRNFXI',
+            canonical_url: '/arquitectura/videonota-de-prueba-nid15092021/',
+            label: {
+                mostrar_banners: {
+                    display: true,
+                    text: 'Si',
+                    url: ''
+                }
+            }
+        };
         let component = mount(<VideoPlayer {...props} />);
         expect(component.find('amp-ima-video').length).toBe(1);
     });
 
+    it('Should render amp-video component', () => {
+        Context.useAppContext = jest.fn(() => ({
+            globalContent,
+            requestUri,
+            outputType: 'amp'
+        }));
+        const globalContent = {
+            _id: 'ZMIG7KDD7NBUBAIXTNEHJRNFXI',
+            canonical_url: '/arquitectura/videonota-de-prueba-nid15092021/',
+            label: {
+                mostrar_banners: {
+                    display: true,
+                    text: 'No',
+                    url: ''
+                }
+            }
+        };
+        let component = mount(<VideoPlayer {...props} />);
+        expect(component.find('amp-video').length).toBe(1);
+    });
+
     it('Atributos y nodo del DOM correcto', () => {
+        Context.useAppContext = jest.fn(() => ({
+            globalContent,
+            requestUri,
+            outputType: 'amp'
+        }));
+        const globalContent = {
+            _id: 'ZMIG7KDD7NBUBAIXTNEHJRNFXI',
+            canonical_url: '/arquitectura/videonota-de-prueba-nid15092021/',
+            label: {
+                mostrar_banners: {
+                    display: true,
+                    text: 'Si',
+                    url: ''
+                }
+            }
+        };
         let component = mount(<VideoPlayer {...props} />);
         expect(component.find('amp-ima-video')).toHaveLength(1);
         expect(component.find('amp-ima-video').props().width).toEqual(640);
         expect(component.find('amp-ima-video').prop('data-poster')).toEqual(
             'https://d3us6z9haan6vf.cloudfront.net/10-18-2019/t_7b9e5b6b2186491989b2fc9a10d6d92d_name_file_1280x720_2000_v3_1_.jpg'
         );
-        /*expect(component.find('amp-ima-video').props().data-poster).toEqual(
-            'https://d3us6z9haan6vf.cloudfront.net/10-18-2019/t_7b9e5b6b2186491989b2fc9a10d6d92d_name_file_1280x720_2000_v3_1_.jpg'
-        );*/
         expect(component.find('source').props().src).toEqual(
             'https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/06/04/5cf6c7cb4cedfd0009715c2f/t_88ba2084a3fe4cf6b47b63a9ba3292d6_name_DREAM_THEATER___Untethered_Angel__OFFICIAL_VIDEO__cropped_cropped/file_640x360-600.mp4'
         );
@@ -159,33 +212,6 @@ describe('private - LN - common - media - videoPlayer - urlForPrerollAds', () =>
 });
 
 describe('urlPrerolAds with mostrar banners si', () => {
-    Context.useAppContext = jest.fn(() => ({
-        globalContent,
-        requestUri,
-        outputType: 'amp'
-    }));
-    const globalContent = {
-        _id: 'ZMIG7KDD7NBUBAIXTNEHJRNFXI',
-        canonical_url: '/arquitectura/videonota-de-prueba-nid15092021/',
-        label: {
-            mostrar_banners: {
-                display: true,
-                text: 'Si',
-                url: ''
-            }
-        },
-        taxonomy: {
-            sections: [
-                {
-                    _id: '/arquitectura',
-                    name: 'Arquitectura',
-                    type: 'section'
-                }
-            ]
-        }
-    };
-    const requestUri =
-        '/arquitectura/videonota-de-prueba-nid15092021/?_website=la-nacion-ar';
     it('Should throw an url', () => {
         const adURL = urlForPrerollAds('desktop');
         expect(adURL.length) > 0;
@@ -193,34 +219,18 @@ describe('urlPrerolAds with mostrar banners si', () => {
 });
 
 describe('urlPrerolAds with mostrar banner no', () => {
-    Context.useAppContext = jest.fn(() => ({
-        globalContent,
-        requestUri,
-        outputType: 'amp'
-    }));
-    const globalContent = {
-        _id: 'ZMIG7KDD7NBUBAIXTNEHJRNFXI',
-        canonical_url: '/arquitectura/videonota-de-prueba-nid15092021/',
-        label: {
-            mostrar_banners: {
-                display: true,
-                text: 'No',
-                url: ''
-            }
-        },
-        taxonomy: {
-            sections: [
-                {
-                    _id: '/arquitectura',
-                    name: 'Arquitectura',
-                    type: 'section'
-                }
-            ]
-        }
-    };
-    const requestUri =
-        '/arquitectura/videonota-de-prueba-nid15092021/?_website=la-nacion-ar';
     it('Should return an empty string', () => {
+        Context.useAppContext = jest.fn(() => ({
+            globalContent,
+            outputType: 'amp'
+        }));
+        const globalContent = {
+            label: {
+                mostrar_banners: {
+                    text: 'No'
+                }
+            }
+        };
         const adURL = urlForPrerollAds('desktop');
         expect(adURL).toBe('');
     });

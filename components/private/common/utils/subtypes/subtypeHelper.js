@@ -6,6 +6,7 @@ export const LIVEBLOG = '6';
 export const RECETA = '7';
 export const FOTOAL100 = '8';
 export const HTMLLIBRE = '9';
+export const AGENCIA = '10';
 
 export const Subtypes = [
     { id: '1', nombre: 'Noticia' },

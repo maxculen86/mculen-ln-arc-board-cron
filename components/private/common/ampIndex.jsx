@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -5,7 +6,6 @@ import {
     embedElements,
     embedsForNote,
     styleConfig,
-    evaluateCheckInclusion,
     evaluateFunctionInclusion,
     config
 } from './utils/scripts/amp/helper';
@@ -84,23 +84,19 @@ export const AMPCustomStyle = props => {
     ) : null;
 };
 
-AMPCustomStyle.propTypes = {
-    arcSite: PropTypes.string.isRequired,
-    layout: PropTypes.string.isRequired,
-    Resource: PropTypes.func.isRequired
-};
-
 const AMPScripts = props => {
     const scriptsToLoad = [];
-    const { arcSite, layout, contentFeatures, globalContent } = props;
+    const { arcSite, layout, globalContent } = props;
     const { [layout]: ScriptsConfig = [] } = config[arcSite] || {};
 
     ScriptsConfig.concat(
         getOembedScripts(globalContent, embedElements, embedsForNote)
     ).forEach(configElement => {
         const loadScript =
-            evaluateCheckInclusion(configElement, contentFeatures) &&
-            evaluateFunctionInclusion(configElement, globalContent);
+            (evaluateFunctionInclusion(configElement, globalContent) &&
+                configElement.hasBanners ===
+                    globalContent.label.mostrar_banners.text) ||
+            configElement.hasBanners === undefined;
 
         loadScript &&
             scriptsToLoad.push(
@@ -119,6 +115,12 @@ const AMPScripts = props => {
 AMPScripts.propTypes = {
     arcSite: PropTypes.string.isRequired,
     layout: PropTypes.string.isRequired
+};
+
+AMPCustomStyle.propTypes = {
+    arcSite: PropTypes.string.isRequired,
+    layout: PropTypes.string.isRequired,
+    Resource: PropTypes.func.isRequired
 };
 
 export default AMPScripts;
