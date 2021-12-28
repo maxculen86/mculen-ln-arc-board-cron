@@ -5,12 +5,15 @@ import { removeEmptyItems } from '../../common/utils/responseCleaner';
 
 const indexNota = dataNota => {
     const trust = get(dataNota, 'label.trust.text', null);
-    const isTrust = /nomostrartrust/.test(
-        trust
-            .toLowerCase()
-            .replace(/ /g, '')
-            .trim()
-    );
+    let isTrust;
+    if (trust) {
+        isTrust = /nomostrartrust/.test(
+            trust
+                .toLowerCase()
+                .replace(/ /g, '')
+                .trim()
+        );
+    }
     const resp = {
         ...indexNotaData(dataNota, cuerpo),
         trust: !isTrust

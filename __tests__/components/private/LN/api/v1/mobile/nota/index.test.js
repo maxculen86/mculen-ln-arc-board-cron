@@ -49,4 +49,8 @@ describe('Test json integracion Article', () => {
         const resp = IndexNota(ArticleSevenElements);
         expect(resp.trust).toBe(false);
     });
+    it('the trust project es null', () => {
+        const resp = IndexNota(ArticleNineElements);
+        expect(resp.trust).toBe(true);
+    });
 });
