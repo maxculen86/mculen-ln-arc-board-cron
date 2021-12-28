@@ -100,8 +100,11 @@ const Share = props => {
                                 size="--fourxs"
                                 iconName="comment"
                                 title="Ir a los comentarios de la nota"
+                                classCondition="comment-btn"
                             />
-                            <label>{totalVisibleContent}</label>
+                            <label className="counterComments --fourxs">
+                                {totalVisibleContent}
+                            </label>
                         </>
                     )}
                 </div>
