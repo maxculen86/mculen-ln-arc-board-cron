@@ -16,6 +16,7 @@ const CLASS_SCROLL_UP = '--scrollUp';
 const CLASS_SCROLL_DOWN = '--scrollDown';
 const CLASS_ACTIVE = '--active';
 let lastScrollPosition = 0;
+
 const Index = props => {
     const {
         outputType,
