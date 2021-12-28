@@ -9,6 +9,97 @@ import findTermica from '../../../private/common/utils/findTermica';
 import config from '../../../../properties/sites/la-nacion-ar';
 import getScrollPercent from '../../../private/LN/common/utils/getScrollPercent';
 
+const tePuedeInteresar = props => {
+    const showLiftigniter = findTermica('liftigniter');
+    if (!showLiftigniter) return <></>;
+
+    const {
+        customFields: { cantidadNotas = 6 },
+        outputType,
+        siteProperties
+    } = props;
+
+    const { requestUri, globalContent, arcSite, layout } = useAppContext();
+    const { host = 'https://www.lanacion.com.ar' } = siteProperties;
+    const { layoutsName = {} } = config;
+    const url = `${host}${requestUri}`;
+    const { _id = {} } = globalContent;
+    const [userId, setUserId] = useState();
+    const [sessionId, setSessionId] = useState();
+    const [excludeItems, setExcludeItems] = useState([]);
+    const [isReady, setIsReady] = useState(false);
+
+    useEffect(() => {
+        checkLocalStorage(url, setSessionId, setUserId, setExcludeItems);
+    }, [url]);
+
+    useEffect(() => {
+        handleScrollForComments(isReady, setIsReady);
+        !isReady && window.addEventListener('scroll', handleScrollForComments);
+        return () => {
+            window.removeEventListener('scroll', handleScrollForComments);
+        };
+    }, [isReady]);
+
+    // Se valida que el sessionId existe, porque en el 1er render viene nulo
+    // y llama a la api de liftIgniter 2 veces (la 1ra sin los datos necesarios)
+    // if (!sessionId) return <></>;
+
+    return (
+        isReady && (
+            <TePuedeInteresar
+                userId={userId}
+                sessionId={sessionId}
+                cantidadNotas={cantidadNotas}
+                excludeItems={excludeItems}
+                outputType={outputType}
+                url={url}
+                idArticle={_id}
+                arcSite={arcSite}
+                dataLayerSection={
+                    layout === layoutsName.Home
+                        ? 'TePuedeInteresarHome'
+                        : 'TePuedeInteresar'
+                }
+            />
+        )
+    );
+};
+
+tePuedeInteresar.label = 'LN-Nota-tePuedeInteresar';
+
+tePuedeInteresar.propTypes = {
+    customFields: PropTypes.shape({
+        cantidadNotas: PropTypes.number.tag({
+            defaultValue: 6,
+            min: 3,
+            label: 'Cantidad de Notas'
+        }).isRequired
+    }).isRequired,
+    outputType: PropTypes.string,
+    siteProperties: PropTypes.shape({
+        host: PropTypes.string
+    })
+};
+
+tePuedeInteresar.defaultProps = {
+    outputType: 'default',
+    siteProperties: {}
+};
+
+export default tePuedeInteresar;
+
+const checkLocalStorage = (url, setSessionId, setUserId, setExcludeItems) => {
+    if (localStorage) {
+        const { urls, sid, uid } = getVariablesFromLocalStorage();
+        const newUrlsToExclude = saveUrlToExclude(urls, url);
+        setLocalStorage(newUrlsToExclude, sid);
+        setSessionId(sid);
+        if (uid !== 'N/A') setUserId(uid);
+        setExcludeItems(urls);
+    }
+};
+
 const getVariablesFromLocalStorage = () => {
     const urls = JSON.parse(localStorage.getItem('excludeItems')) || [];
     const uid = localStorage.getItem('CDuserId') || 'N/A';
@@ -53,95 +144,10 @@ const saveUrlToExclude = (urls, currentUrl) => {
     return urls;
 };
 
-const tePuedeInteresar = props => {
-    const showLiftigniter = findTermica('liftigniter');
-    if (!showLiftigniter) return <></>;
-
-    const {
-        customFields: { cantidadNotas = 6 },
-        outputType,
-        siteProperties
-    } = props;
-
-    const { requestUri, globalContent, arcSite, layout } = useAppContext();
-    const { host = 'https://www.lanacion.com.ar' } = siteProperties || {};
-    const { layoutsName = {} } = config || {};
-    const url = `${host}${requestUri}`;
-    const { _id } = globalContent || {};
-    const [userId, setUserId] = useState();
-    const [sessionId, setSessionId] = useState();
-    const [excludeItems, setExcludeItems] = useState([]);
-    const [isReady, setIsReady] = useState(false);
-
-    useEffect(() => {
-        if (localStorage) {
-            const { urls, sid, uid } = getVariablesFromLocalStorage();
-            const newUrlsToExclude = saveUrlToExclude(urls, url);
-            setLocalStorage(newUrlsToExclude, sid);
-            setSessionId(sid);
-            if (uid !== 'N/A') setUserId(uid);
-            setExcludeItems(urls);
-        }
-    }, [url]);
-
-    useEffect(() => {
-        const handleScrollForComments = () => {
-            const scrollPercentRounded = getScrollPercent();
-            if (!isReady && scrollPercentRounded > 60) {
-                setIsReady(true);
-                window.removeEventListener('scroll', handleScrollForComments);
-            }
-        };
-        !isReady && window.addEventListener('scroll', handleScrollForComments);
-        return () => {
-            window.removeEventListener('scroll', handleScrollForComments);
-        };
-    }, []);
-
-    // Se valida que el sessionId existe, porque en el 1er render viene nulo
-    // y llama a la api de liftIgniter 2 veces (la 1ra sin los datos necesarios)
-    // if (!sessionId) return <></>;
-
-    return isReady ? (
-        <TePuedeInteresar
-            userId={userId}
-            sessionId={sessionId}
-            cantidadNotas={cantidadNotas}
-            excludeItems={excludeItems}
-            outputType={outputType}
-            url={url}
-            idArticle={_id}
-            arcSite={arcSite}
-            dataLayerSection={
-                layout === layoutsName.Home
-                    ? 'TePuedeInteresarHome'
-                    : 'TePuedeInteresar'
-            }
-        />
-    ) : (
-        <></>
-    );
+const handleScrollForComments = (isReady, setIsReady) => {
+    const scrollPercentRounded = getScrollPercent();
+    if (!isReady && scrollPercentRounded > 60) {
+        setIsReady(true);
+        window.removeEventListener('scroll', handleScrollForComments);
+    }
 };
-
-tePuedeInteresar.label = 'LN-Nota-tePuedeInteresar';
-
-tePuedeInteresar.propTypes = {
-    customFields: PropTypes.shape({
-        cantidadNotas: PropTypes.number.tag({
-            defaultValue: 6,
-            min: 3,
-            label: 'Cantidad de Notas'
-        }).isRequired
-    }).isRequired,
-    outputType: PropTypes.string,
-    siteProperties: PropTypes.shape({
-        host: PropTypes.string
-    })
-};
-
-tePuedeInteresar.defaultProps = {
-    outputType: 'default',
-    siteProperties: {}
-};
-
-export default tePuedeInteresar;
