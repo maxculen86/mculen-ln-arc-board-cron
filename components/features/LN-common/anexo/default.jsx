@@ -8,6 +8,7 @@ import PageBuilderMessage from '../../../private/LN/home/common/components/pageB
 import get from '../../../private/common/utils/get';
 import { getChildsFromSections } from '../../../private/LN/common/utils/homeHelper';
 import sectionsValidation from '../../../layouts/config/LN-Home.config.json';
+import { adjustByURL } from '../../../private/common/utils/propTypesHelper';
 
 const AnexoFeature = props => {
     const { id, customFields } = props;
@@ -121,7 +122,6 @@ const isInSection = ({ sectionName, id, renderables = [] }) => {
     );
 };
 
-const adjustByURL = 'Ajuste por URL';
 const adjustByHTML = 'Ajuste por HTML';
 
 AnexoFeature.label = 'LN Anexo';

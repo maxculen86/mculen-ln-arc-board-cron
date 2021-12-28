@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ComAdvance from '../../../private/common/com-advance';
+import { groupCustomFields } from '../../../private/common/utils/propTypesHelper';
 
 const CajaAnticipo = ({ customFields: { hide, title, link } }) => {
     return !hide && title ? (
@@ -10,7 +11,6 @@ const CajaAnticipo = ({ customFields: { hide, title, link } }) => {
     );
 };
 
-const groupCustomFields = 'Custom Fields';
 CajaAnticipo.label = 'LN Caja Anticipo';
 
 CajaAnticipo.propTypes = {

@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { adjustByURL } from '../../../private/common/utils/propTypesHelper';
 
 const AnexoFeature = () => {
     return <></>;
 };
 
-const adjustByURL = 'Ajuste por URL';
 AnexoFeature.label = 'LN Anexo Mobile';
 
 AnexoFeature.propTypes = {

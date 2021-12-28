@@ -3,8 +3,7 @@
 import config from '../../../../properties/sites/la-nacion-ar';
 
 const liftigniter = (() => {
-    const idClient = config.lifigniter.clientId;
-    return idClient;
+    return config.lifigniter.clientId;
 })();
 
 export default liftigniter;

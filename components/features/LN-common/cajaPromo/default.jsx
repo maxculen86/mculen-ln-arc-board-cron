@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ModPromo from '../../../private/common/mod-promo';
+import { groupCustomFields } from '../../../private/common/utils/propTypesHelper';
 
 const CajaPromo = ({ customFields }) => {
     const { text, link, logoName } = customFields;
     return <ModPromo text={text} link={link} logoName={logoName} />;
 };
 
-const groupCustomFields = 'Custom Fields';
 CajaPromo.label = 'LN Caja Promo';
 
 CajaPromo.propTypes = {
