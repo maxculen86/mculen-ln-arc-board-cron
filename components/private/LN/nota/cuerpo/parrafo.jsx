@@ -7,13 +7,12 @@ import ComParagraph from '../../../common/com-paragraph';
 import { compose } from '../../../common/utils/functional';
 
 const Parrafo = ({ data, capital, size, classCondition }) => {
-    const isLetter = text => text && text.match(/^[A-Za-z]/);
+    const isLetter = text => text.match(/^[A-Za-z]/);
 
     const setOtherChar = text =>
-        text && text.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+        text.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 
     const replaceClassForMark = text =>
-        text &&
         text
             .replace(/hl_yellow/g, 'hl_underline')
             .replace(/hl_pink/g, 'hl_underline')
@@ -22,13 +21,12 @@ const Parrafo = ({ data, capital, size, classCondition }) => {
             .replace(/hl_green/g, 'hl_underline');
 
     const setBoldText = text =>
-        text && text.replace(/<b>/g, '<strong>').replace(/<\/b>/g, '</strong>');
+        text.replace(/<b>/g, '<strong>').replace(/<\/b>/g, '</strong>');
 
     const setItalicText = text =>
-        text && text.replace(/<i>/g, '<em>').replace(/<\/i>/g, '</em>');
+        text.replace(/<i>/g, '<em>').replace(/<\/i>/g, '</em>');
 
     const deleteTagsForTitle = text =>
-        text &&
         text
             .replace(/<em>/g, '')
             .replace(/<\/em>/g, '')
@@ -36,10 +34,9 @@ const Parrafo = ({ data, capital, size, classCondition }) => {
             .replace(/<\/strong>/g, '');
 
     const setExternalLinks = text =>
-        text &&
         text.replace(
             /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g,
-            (match, href, string) => {
+            (href, string) => {
                 const [, , link] = href.match(/href=(["'\\])+(.*?)\1/) || [
                     null,
                     null,
@@ -77,14 +74,12 @@ const Parrafo = ({ data, capital, size, classCondition }) => {
     if (content === '<br/>') return <></>;
 
     return (
-        <>
-            <ComParagraph
-                capital={capital && isLetter(content) ? `--capital` : ''}
-                classCondition={classCondition || ''}
-                size={size || '--s'}
-                content={content}
-            />
-        </>
+        <ComParagraph
+            capital={capital && isLetter(content) ? `--capital` : ''}
+            classCondition={classCondition}
+            size={size}
+            content={content}
+        />
     );
 };
 
@@ -103,7 +98,7 @@ Parrafo.propTypes = {
 
 Parrafo.defaultProps = {
     capital: false,
-    size: '',
+    size: '--s',
     classCondition: '',
     data: PropTypes.shape({
         type: ''
