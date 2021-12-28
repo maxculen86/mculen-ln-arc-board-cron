@@ -1,9 +1,10 @@
 import React from 'react';
-const crypto = require('crypto');
 import { render, shallow, mount } from 'enzyme';
 import TePuedeInteresar from '../../../../components/features/LN-nota/tePuedeInteresar/default';
 import Consumer from 'fusion:consumer';
 import Context from 'fusion:context';
+
+const crypto = require('crypto');
 
 Object.defineProperty(global.self, 'crypto', {
     value: {
