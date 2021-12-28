@@ -4,8 +4,11 @@ import get from '../../../../common/utils/get';
 export const extractDataFromContentElements = contentElements => {
     let ingredients = [];
     let instructions = [];
-    let nutrition = [];
+    let nutritionItems = [];
     const embedConfigTypeList = 'embed.config.typeList';
+
+    let nutrition = new Object();
+    let newProperty;
 
     if (contentElements) {
         const element = contentElements.find(
@@ -21,7 +24,10 @@ export const extractDataFromContentElements = contentElements => {
                     instructions.push({
                         '@type': 'HowToSection',
 
-                        name: e.embed.config.titleList,
+                        name:
+                            e.embed.config.titleList !== ''
+                                ? e.embed.config.titleList
+                                : 'Preparación de la receta',
 
                         itemListElement: e.embed.config.items.map(item => {
                             return {
@@ -33,35 +39,45 @@ export const extractDataFromContentElements = contentElements => {
 
                 get(e, `${embedConfigTypeList}`, '') === 'nutritional-info' &&
                     (nutrition = nutrition.concat(e.embed.config.items));
+                get(e, `${embedConfigTypeList}`, '') === 'nutritional-info' &&
+                    (nutritionItems = nutritionItems.concat(
+                        e.embed.config.items
+                    ));
+                nutritionItems.forEach(item => {
+                    newProperty = `${item.value} ${item.unit}`;
+                    item.text === 'Tamaño de porcion' &&
+                        (nutrition.servingSize = newProperty);
+                    item.text === 'Carbohidratos' &&
+                        (nutrition.carbohydrateContent = newProperty);
+                    item.text === 'Proteínas' &&
+                        (nutrition.proteinContent = newProperty);
+                    item.text === 'Grasas' &&
+                        (nutrition.fatContent = newProperty);
+                    item.text === 'Grasas saturadas' &&
+                        (nutrition.saturatedFatContent = newProperty);
+                    item.text === 'Grasas insaturadas' &&
+                        (nutrition.unsaturatedFatContent = newProperty);
+                    item.text === 'Grasas trans' &&
+                        (nutrition.transFatContent = newProperty);
+                    item.text === 'Fibras' &&
+                        (nutrition.fiberContent = newProperty);
+                    item.text === 'Colesterol' &&
+                        (nutrition.cholesterolContent = newProperty);
+                    item.text === 'Sodio' &&
+                        (nutrition.sodiumContent = newProperty);
+                    item.text === 'Azúcar' &&
+                        (nutrition.sugarContent = newProperty);
+                    item.text === 'Calorías' &&
+                        (nutrition.calories = newProperty);
+                });
             });
         }
     }
 
-    let obj = new Object();
-    let newProperty;
-    nutrition.forEach(item => {
-        newProperty = `${item.value} ${item.unit}`;
-        item.text === 'Tamaño de porcion' && (obj.servingSize = newProperty);
-        item.text === 'Carbohidratos' &&
-            (obj.carbohydrateContent = newProperty);
-        item.text === 'Proteínas' && (obj.proteinContent = newProperty);
-        item.text === 'Grasas' && (obj.fatContent = newProperty);
-        item.text === 'Grasas saturadas' &&
-            (obj.saturatedFatContent = newProperty);
-        item.text === 'Grasas insaturadas' &&
-            (obj.unsaturatedFatContent = newProperty);
-        item.text === 'Grasas trans' && (obj.transFatContent = newProperty);
-        item.text === 'Fibras' && (obj.fiberContent = newProperty);
-        item.text === 'Colesterol' && (obj.cholesterolContent = newProperty);
-        item.text === 'Sodio' && (obj.sodiumContent = newProperty);
-        item.text === 'Azúcar' && (obj.sugarContent = newProperty);
-        item.text === 'Calorías' && (obj.calories = newProperty);
-    });
-
     return {
         ingredients,
         instructions,
-        nutrition: obj
+        nutrition
     };
 };
 
