@@ -144,6 +144,8 @@ const LNMainHome = props => {
         bloque5: { loaded: isAdmin, loadPercent: 70 }
     });
 
+    const megaLateralSticky = '--megalateral --sticky';
+
     useEffect(() => {
         const handleScroll = throttle((e, dataSections) => {
             try {
@@ -533,7 +535,7 @@ const LNMainHome = props => {
                                 <DivBannerSSR
                                     bannerConfiguration={{
                                         slotId: 'megalateral_dsk',
-                                        classes: '--megalateral --sticky'
+                                        classes: megaLateralSticky
                                     }}
                                 />
                             </div>
@@ -576,7 +578,7 @@ const LNMainHome = props => {
                                     <DivBannerSSR
                                         bannerConfiguration={{
                                             slotId: 'megalateral2_dsk',
-                                            classes: '--megalateral --sticky'
+                                            classes: megaLateralSticky
                                         }}
                                     />
                                 )}
@@ -628,7 +630,7 @@ const LNMainHome = props => {
                                     <DivBannerSSR
                                         bannerConfiguration={{
                                             slotId: 'megalateral3_dsk',
-                                            classes: '--megalateral --sticky'
+                                            classes: megaLateralSticky
                                         }}
                                     />
                                 )}

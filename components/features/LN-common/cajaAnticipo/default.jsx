@@ -10,6 +10,7 @@ const CajaAnticipo = ({ customFields: { hide, title, link } }) => {
     );
 };
 
+const groupCustomFields = 'Custom Fields';
 CajaAnticipo.label = 'LN Caja Anticipo';
 
 CajaAnticipo.propTypes = {
@@ -18,19 +19,19 @@ CajaAnticipo.propTypes = {
             name: 'Título',
             description: 'Ingrese aquí el título del anticipo',
             default: '',
-            group: 'Custom Fields'
+            group: groupCustomFields
         }),
         link: PropTypes.string.tag({
             name: 'URL',
             description: 'Ingrese aquí la url del anticipo',
             default: '',
-            group: 'Custom Fields'
+            group: groupCustomFields
         }),
         hide: PropTypes.bool.tag({
             name: 'Ocultar',
             description: 'Definí la visibilidad del anticipo',
             default: true,
-            group: 'Custom Fields'
+            group: groupCustomFields
         })
     })
 };

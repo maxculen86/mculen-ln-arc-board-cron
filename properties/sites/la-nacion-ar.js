@@ -11,32 +11,45 @@ const targetingHome = {
     seccion: 'home'
 };
 
+const media0 = '(min-width: 1920px)';
+const media1 = '(min-width: 1280px)';
+const media2 = '(min-width: 1024px)';
+const media3 = '(min-width: 768px)';
+const media4 = '(min-width: 360px)';
+const media5 = '(min-width: 320px)';
+const media6 = '(min-width: 375px)';
+const mediaPreload0 = '(min-width: 1280.1px)';
+const mediaPreload1 = '(min-width: 1024.1px and max-width: 1280px)';
+const mediaPreload2 = '(min-width: 768.1px and max-width: 1024px)';
+const mediaPreload3 = '(min-width: 375.1px and max-width: 768px)';
+const mediaPreload4 = '(max-width: 375px)';
+
 const contentElementSizes = {
     sizes: [
         {
             width: 278,
             height: 186,
-            media: '(min-width: 1280px)'
+            media: media1
         },
         {
             width: 344,
             height: 230,
-            media: '(min-width: 1024px)'
+            media: media2
         },
         {
             width: 768,
             height: 513,
-            media: '(min-width: 768px)'
+            media: media3
         },
         {
             width: 350,
             height: 234,
-            media: '(min-width: 360px)'
+            media: media4
         },
         {
             width: 360,
             height: 234,
-            media: '(min-width: 320px)'
+            media: media5
         }
     ]
 };
@@ -46,37 +59,37 @@ const promoItemsSizes = {
         {
             width: 879,
             height: 586,
-            media: '(min-width: 1280px)',
+            media: media1,
             proportion: '3:2',
-            media_preload: '(min-width: 1280.1px)'
+            media_preload: mediaPreload0
         },
         {
             width: 1119,
             height: 746,
-            media: '(min-width: 1024px)',
+            media: media2,
             proportion: '3:2',
             media_preload: '(min-width: 1024.1px and max-width: 1280px'
         },
         {
             width: 768,
             height: 512,
-            media: '(min-width: 768px)',
+            media: media3,
             proportion: '3:2',
-            media_preload: '(min-width: 768.1px and max-width: 1024px)'
+            media_preload: mediaPreload2
         },
         {
             width: 351,
             height: 234,
-            media: '(min-width: 375px)',
+            media: media6,
             proportion: '3:2',
-            media_preload: '(min-width: 375.1px and max-width: 768px)'
+            media_preload: mediaPreload3
         },
         {
             width: 309,
             height: 206,
-            media: '(min-width: 320px)',
+            media: media5,
             proportion: '3:2',
-            media_preload: '(max-width: 375px)'
+            media_preload: mediaPreload4
         }
     ]
 };
@@ -180,7 +193,7 @@ export default {
                         {
                             width: 1920,
                             height: 1280,
-                            media: '(min-width: 1920px)',
+                            media: media0,
                             useFullSize: true,
                             proportion: '3:2',
                             media_preload: '(min-width: 1920.1px)'
@@ -188,7 +201,7 @@ export default {
                         {
                             width: 1280,
                             height: 854,
-                            media: '(min-width: 1280px)',
+                            media: media1,
                             useFullSize: true,
                             proportion: '3:2',
                             media_preload:
@@ -197,37 +210,34 @@ export default {
                         {
                             width: 1024,
                             height: 682,
-                            media: '(min-width: 1024px)',
+                            media: media2,
                             useFullSize: true,
                             proportion: '3:2',
-                            media_preload:
-                                '(min-width: 1024.1px and max-width: 1280px)'
+                            media_preload: mediaPreload1
                         },
                         {
                             width: 768,
                             height: 512,
-                            media: '(min-width: 768px)',
+                            media: media3,
                             useFullSize: true,
                             proportion: '3:2',
-                            media_preload:
-                                '(min-width: 768.1px and max-width: 1024px)'
+                            media_preload: mediaPreload2
                         },
                         {
                             width: 375,
                             height: 562,
-                            media: '(min-width: 375px)',
+                            media: media6,
                             useFullSize: true,
                             proportion: '2:3',
-                            media_preload:
-                                '(min-width: 375.1px and max-width: 768px)'
+                            media_preload: mediaPreload3
                         },
                         {
                             width: 320,
                             height: 480,
-                            media: '(min-width: 320px)',
+                            media: media5,
                             useFullSize: true,
                             proportion: '2:3',
-                            media_preload: '(max-width: 375px)'
+                            media_preload: mediaPreload4
                         }
                     ]
                 },
@@ -236,32 +246,32 @@ export default {
                         {
                             width: 1920,
                             height: 1280,
-                            media: '(min-width: 1920px)'
+                            media: media0
                         },
                         {
                             width: 1280,
                             height: 854,
-                            media: '(min-width: 1280px)'
+                            media: media1
                         },
                         {
                             width: 1024,
                             height: 682,
-                            media: '(min-width: 1024px)'
+                            media: media2
                         },
                         {
                             width: 768,
                             height: 512,
-                            media: '(min-width: 768px)'
+                            media: media3
                         },
                         {
                             width: 375,
                             height: 562,
-                            media: '(min-width: 375px)'
+                            media: media6
                         },
                         {
                             width: 320,
                             height: 480,
-                            media: '(min-width: 320px)'
+                            media: media5
                         }
                     ]
                 }
@@ -272,45 +282,42 @@ export default {
                         {
                             width: 560,
                             height: 373,
-                            media: '(min-width: 1280px)',
+                            media: media1,
                             useFullSize: true,
                             proportion: '3:2',
-                            media_preload: '(min-width: 1280.1px)'
+                            media_preload: mediaPreload0
                         },
                         {
                             width: 637,
                             height: 424,
-                            media: '(min-width: 1024px)',
+                            media: media2,
                             useFullSize: true,
                             proportion: '3:2',
-                            media_preload:
-                                '(min-width: 1024.1px and max-width: 1280px)'
+                            media_preload: mediaPreload1
                         },
                         {
                             width: 465,
                             height: 310,
-                            media: '(min-width: 768px)',
+                            media: media3,
                             useFullSize: true,
                             proportion: '3:2',
-                            media_preload:
-                                '(min-width: 768.1px and max-width: 1024px)'
+                            media_preload: mediaPreload2
                         },
                         {
                             width: 375,
                             height: 250,
-                            media: '(min-width: 375px)',
+                            media: media6,
                             useFullSize: true,
                             proportion: '2:3',
-                            media_preload:
-                                '(min-width: 375.1px and max-width: 768px)'
+                            media_preload: mediaPreload3
                         },
                         {
                             width: 320,
                             height: 213,
-                            media: '(min-width: 320px)',
+                            media: media5,
                             useFullSize: true,
                             proportion: '2:3',
-                            media_preload: '(max-width: 375px)'
+                            media_preload: mediaPreload4
                         }
                     ]
                 },
@@ -319,27 +326,27 @@ export default {
                         {
                             width: 560,
                             height: 373,
-                            media: '(min-width: 1280px)'
+                            media: media1
                         },
                         {
                             width: 637,
                             height: 424,
-                            media: '(min-width: 1024px)'
+                            media: media2
                         },
                         {
                             width: 465,
                             height: 310,
-                            media: '(min-width: 768px)'
+                            media: media3
                         },
                         {
                             width: 375,
                             height: 250,
-                            media: '(min-width: 375px)'
+                            media: media6
                         },
                         {
                             width: 320,
                             height: 213,
-                            media: '(min-width: 320px)'
+                            media: media5
                         }
                     ]
                 }
@@ -350,35 +357,35 @@ export default {
                         {
                             width: 292,
                             height: 194,
-                            media: '(min-width: 1280px)',
+                            media: media1,
                             useFullSize: true,
                             proportion: '3:2'
                         },
                         {
                             width: 316,
                             height: 210,
-                            media: '(min-width: 1024px)',
+                            media: media2,
                             useFullSize: true,
                             proportion: '3:2'
                         },
                         {
                             width: 231,
                             height: 154,
-                            media: '(min-width: 768px)',
+                            media: media3,
                             useFullSize: true,
                             proportion: '3:2'
                         },
                         {
                             width: 375,
                             height: 229,
-                            media: '(min-width: 375px)',
+                            media: media6,
                             useFullSize: true,
                             proportion: '2:3'
                         },
                         {
                             width: 320,
                             height: 192,
-                            media: '(min-width: 320px)',
+                            media: media5,
                             useFullSize: true,
                             proportion: '2:3'
                         }
@@ -389,27 +396,27 @@ export default {
                         {
                             width: 292,
                             height: 194,
-                            media: '(min-width: 1280px)'
+                            media: media1
                         },
                         {
                             width: 316,
                             height: 210,
-                            media: '(min-width: 1024px)'
+                            media: media2
                         },
                         {
                             width: 231,
                             height: 154,
-                            media: '(min-width: 768px)'
+                            media: media3
                         },
                         {
                             width: 375,
                             height: 229,
-                            media: '(min-width: 375px)'
+                            media: media6
                         },
                         {
                             width: 320,
                             height: 192,
-                            media: '(min-width: 320px)'
+                            media: media5
                         }
                     ]
                 }
@@ -420,45 +427,42 @@ export default {
                         {
                             width: 595,
                             height: 399,
-                            media: '(min-width: 1280px)',
+                            media: media1,
                             useFullSize: true,
                             proportion: '3:2',
-                            media_preload: '(min-width: 1280.1px)'
+                            media_preload: mediaPreload0
                         },
                         {
                             width: 635,
                             height: 424,
-                            media: '(min-width: 1024px)',
+                            media: media2,
                             useFullSize: true,
                             proportion: '3:2',
-                            media_preload:
-                                '(min-width: 1024.1px and max-width: 1280px)'
+                            media_preload: mediaPreload1
                         },
                         {
                             width: 465,
                             height: 311,
-                            media: '(min-width: 768px)',
+                            media: media3,
                             useFullSize: true,
                             proportion: '3:2',
-                            media_preload:
-                                '(min-width: 768.1px and max-width: 1024px)'
+                            media_preload: mediaPreload2
                         },
                         {
                             width: 375,
                             height: 229,
-                            media: '(min-width: 375px)',
+                            media: media6,
                             useFullSize: true,
                             proportion: '2:3',
-                            media_preload:
-                                '(min-width: 375.1px and max-width: 768px)'
+                            media_preload: mediaPreload3
                         },
                         {
                             width: 320,
                             height: 192,
-                            media: '(min-width: 320px)',
+                            media: media5,
                             useFullSize: true,
                             proportion: '2:3',
-                            media_preload: '(max-width: 375px)'
+                            media_preload: mediaPreload4
                         }
                     ]
                 },
@@ -467,27 +471,27 @@ export default {
                         {
                             width: 292,
                             height: 194,
-                            media: '(min-width: 1280px)'
+                            media: media1
                         },
                         {
                             width: 316,
                             height: 210,
-                            media: '(min-width: 1024px)'
+                            media: media2
                         },
                         {
                             width: 231,
                             height: 154,
-                            media: '(min-width: 768px)'
+                            media: media3
                         },
                         {
                             width: 375,
                             height: 229,
-                            media: '(min-width: 375px)'
+                            media: media6
                         },
                         {
                             width: 320,
                             height: 192,
-                            media: '(min-width: 320px)'
+                            media: media5
                         }
                     ]
                 }
@@ -499,14 +503,14 @@ export default {
                         {
                             width: 375,
                             height: 229,
-                            media: '(min-width: 375px)',
+                            media: media6,
                             useFullSize: true,
                             proportion: '2:3'
                         },
                         {
                             width: 320,
                             height: 192,
-                            media: '(min-width: 320px)',
+                            media: media5,
                             useFullSize: true,
                             proportion: '2:3'
                         }
@@ -517,12 +521,12 @@ export default {
                         {
                             width: 375,
                             height: 229,
-                            media: '(min-width: 375px)'
+                            media: media6
                         },
                         {
                             width: 320,
                             height: 192,
-                            media: '(min-width: 320px)'
+                            media: media5
                         }
                     ]
                 }
@@ -533,35 +537,35 @@ export default {
                         {
                             width: 373,
                             height: 250,
-                            media: '(min-width: 1280px)',
+                            media: media1,
                             useFullSize: true,
                             proportion: '3:2'
                         },
                         {
                             width: 403,
                             height: 270,
-                            media: '(min-width: 1024px)',
+                            media: media2,
                             useFullSize: true,
                             proportion: '3:2'
                         },
                         {
                             width: 297,
                             height: 200,
-                            media: '(min-width: 768px)',
+                            media: media3,
                             useFullSize: true,
                             proportion: '3:2'
                         },
                         {
                             width: 375,
                             height: 229,
-                            media: '(min-width: 375px)',
+                            media: media6,
                             useFullSize: true,
                             proportion: '3:2'
                         },
                         {
                             width: 320,
                             height: 192,
-                            media: '(min-width: 320px)',
+                            media: media5,
                             useFullSize: true,
                             proportion: '3:4'
                         }
@@ -572,27 +576,27 @@ export default {
                         {
                             width: 373,
                             height: 250,
-                            media: '(min-width: 1280px)'
+                            media: media1
                         },
                         {
                             width: 403,
                             height: 270,
-                            media: '(min-width: 1024px)'
+                            media: media2
                         },
                         {
                             width: 297,
                             height: 200,
-                            media: '(min-width: 768px)'
+                            media: media3
                         },
                         {
                             width: 375,
                             height: 229,
-                            media: '(min-width: 375px)'
+                            media: media6
                         },
                         {
                             width: 320,
                             height: 192,
-                            media: '(min-width: 320px)'
+                            media: media5
                         }
                     ]
                 },
@@ -601,7 +605,7 @@ export default {
                         {
                             width: 80,
                             height: 80,
-                            media: '(min-width: 320px)'
+                            media: media5
                         }
                     ]
                 }
@@ -612,35 +616,35 @@ export default {
                         {
                             width: 1250,
                             height: 500,
-                            media: '(min-width: 1280px)',
+                            media: media1,
                             useFullSize: true,
                             proportion: '5:2'
                         },
                         {
                             width: 1024,
                             height: 682,
-                            media: '(min-width: 1024px)',
+                            media: media2,
                             useFullSize: true,
                             proportion: '5:2'
                         },
                         {
                             width: 736,
                             height: 294,
-                            media: '(min-width: 768px)',
+                            media: media3,
                             useFullSize: true,
                             proportion: '5:2'
                         },
                         {
                             width: 375,
                             height: 429,
-                            media: '(min-width: 375px)',
+                            media: media6,
                             useFullSize: true,
                             proportion: '3:4'
                         },
                         {
                             width: 320,
                             height: 360,
-                            media: '(min-width: 320px)',
+                            media: media5,
                             useFullSize: true,
                             proportion: '3:4'
                         }
@@ -651,27 +655,27 @@ export default {
                         {
                             width: 1250,
                             height: 500,
-                            media: '(min-width: 1280px)'
+                            media: media1
                         },
                         {
                             width: 1024,
                             height: 682,
-                            media: '(min-width: 1024px)'
+                            media: media2
                         },
                         {
                             width: 736,
                             height: 294,
-                            media: '(min-width: 768px)'
+                            media: media3
                         },
                         {
                             width: 375,
                             height: 429,
-                            media: '(min-width: 375px)'
+                            media: media6
                         },
                         {
                             width: 320,
                             height: 360,
-                            media: '(min-width: 320px)'
+                            media: media5
                         }
                     ]
                 }
@@ -682,35 +686,35 @@ export default {
                         {
                             width: 449,
                             height: 300,
-                            media: '(min-width: 1280px)',
+                            media: media1,
                             useFullSize: true,
                             proportion: '3:2'
                         },
                         {
                             width: 486,
                             height: 325,
-                            media: '(min-width: 1024px)',
+                            media: media2,
                             useFullSize: true,
                             proportion: '3:2'
                         },
                         {
                             width: 358,
                             height: 240,
-                            media: '(min-width: 768px)',
+                            media: media3,
                             useFullSize: true,
                             proportion: '3:2'
                         },
                         {
                             width: 375,
                             height: 250,
-                            media: '(min-width: 375px)',
+                            media: media6,
                             useFullSize: true,
                             proportion: '3:2'
                         },
                         {
                             width: 320,
                             height: 213,
-                            media: '(min-width: 320px)',
+                            media: media5,
                             useFullSize: true,
                             proportion: '3:2'
                         }
@@ -721,27 +725,27 @@ export default {
                         {
                             width: 449,
                             height: 300,
-                            media: '(min-width: 1280px)'
+                            media: media1
                         },
                         {
                             width: 486,
                             height: 325,
-                            media: '(min-width: 1024px)'
+                            media: media2
                         },
                         {
                             width: 358,
                             height: 240,
-                            media: '(min-width: 768px)'
+                            media: media3
                         },
                         {
                             width: 375,
                             height: 250,
-                            media: '(min-width: 375px)'
+                            media: media6
                         },
                         {
                             width: 320,
                             height: 213,
-                            media: '(min-width: 320px)'
+                            media: media5
                         }
                     ]
                 }
@@ -752,35 +756,35 @@ export default {
                         {
                             width: 298,
                             height: 200,
-                            media: '(min-width: 1280px)',
+                            media: media1,
                             useFullSize: true,
                             proportion: '3:2'
                         },
                         {
                             width: 318,
                             height: 213,
-                            media: '(min-width: 1024px)',
+                            media: media2,
                             useFullSize: true,
                             proportion: '3:2'
                         },
                         {
                             width: 233,
                             height: 159,
-                            media: '(min-width: 768px)',
+                            media: media3,
                             useFullSize: true,
                             proportion: '3:2'
                         },
                         {
                             width: 375,
                             height: 250,
-                            media: '(min-width: 375px)',
+                            media: media6,
                             useFullSize: true,
                             proportion: '3:2'
                         },
                         {
                             width: 320,
                             height: 213,
-                            media: '(min-width: 320px)',
+                            media: media5,
                             useFullSize: true,
                             proportion: '3:2'
                         }
@@ -791,27 +795,27 @@ export default {
                         {
                             width: 298,
                             height: 200,
-                            media: '(min-width: 1280px)'
+                            media: media1
                         },
                         {
                             width: 318,
                             height: 213,
-                            media: '(min-width: 1024px)'
+                            media: media2
                         },
                         {
                             width: 233,
                             height: 159,
-                            media: '(min-width: 768px)'
+                            media: media3
                         },
                         {
                             width: 375,
                             height: 250,
-                            media: '(min-width: 375px)'
+                            media: media6
                         },
                         {
                             width: 320,
                             height: 213,
-                            media: '(min-width: 320px)'
+                            media: media5
                         }
                     ]
                 }
@@ -822,35 +826,35 @@ export default {
                         {
                             width: 300,
                             height: 375,
-                            media: '(min-width: 1280px)',
+                            media: media1,
                             useFullSize: true,
                             proportion: '3:4'
                         },
                         {
                             width: 320,
                             height: 400,
-                            media: '(min-width: 1024px)',
+                            media: media2,
                             useFullSize: true,
                             proportion: '3:4'
                         },
                         {
                             width: 245,
                             height: 293,
-                            media: '(min-width: 768px)',
+                            media: media3,
                             useFullSize: true,
                             proportion: '3:4'
                         },
                         {
                             width: 375,
                             height: 229,
-                            media: '(min-width: 375px)',
+                            media: media6,
                             useFullSize: true,
                             proportion: '3:4'
                         },
                         {
                             width: 320,
                             height: 192,
-                            media: '(min-width: 320px)',
+                            media: media5,
                             useFullSize: true,
                             proportion: '3:4'
                         }
@@ -861,27 +865,27 @@ export default {
                         {
                             width: 300,
                             height: 375,
-                            media: '(min-width: 1280px)'
+                            media: media1
                         },
                         {
                             width: 320,
                             height: 400,
-                            media: '(min-width: 1024px)'
+                            media: media2
                         },
                         {
                             width: 245,
                             height: 293,
-                            media: '(min-width: 768px)'
+                            media: media3
                         },
                         {
                             width: 375,
                             height: 229,
-                            media: '(min-width: 375px)'
+                            media: media6
                         },
                         {
                             width: 320,
                             height: 192,
-                            media: '(min-width: 320px)'
+                            media: media5
                         }
                     ]
                 }
@@ -892,27 +896,27 @@ export default {
                         {
                             width: 1920,
                             height: 1280,
-                            media: '(min-width: 1280px)'
+                            media: media1
                         },
                         {
                             width: 1200,
                             height: 800,
-                            media: '(min-width: 1024px)'
+                            media: media2
                         },
                         {
                             width: 1023,
                             height: 682,
-                            media: '(min-width: 768px)'
+                            media: media3
                         },
                         {
                             width: 768,
                             height: 512,
-                            media: '(min-width: 360px)'
+                            media: media4
                         },
                         {
                             width: 360,
                             height: 240,
-                            media: '(min-width: 320px)'
+                            media: media5
                         }
                     ]
                 }
@@ -923,7 +927,7 @@ export default {
                         {
                             width: 222,
                             height: 160,
-                            media: '(min-width: 1024px)'
+                            media: media2
                         }
                     ]
                 },
@@ -933,7 +937,7 @@ export default {
                         {
                             width: 80,
                             height: 80,
-                            media: '(min-width: 320px)'
+                            media: media5
                         }
                     ]
                 }
@@ -944,45 +948,42 @@ export default {
                         {
                             width: 1920,
                             height: 1280,
-                            media: '(min-width: 1280px)',
+                            media: media1,
                             useFullSize: true,
                             proportion: '3:2',
-                            media_preload: '(min-width: 1280.1px)'
+                            media_preload: mediaPreload0
                         },
                         {
                             width: 1200,
                             height: 800,
-                            media: '(min-width: 1024px)',
+                            media: media2,
                             useFullSize: true,
                             proportion: '3:2',
-                            media_preload:
-                                '(min-width: 1024.1px and max-width: 1280px)'
+                            media_preload: mediaPreload1
                         },
                         {
                             width: 1023,
                             height: 682,
-                            media: '(min-width: 768px)',
+                            media: media3,
                             useFullSize: true,
                             proportion: '3:2',
-                            media_preload:
-                                '(min-width: 768.1px and max-width: 1024px)'
+                            media_preload: mediaPreload2
                         },
                         {
                             width: 768,
                             height: 1152,
-                            media: '(min-width: 360px)',
+                            media: media4,
                             useFullSize: true,
                             proportion: '2:3',
-                            media_preload:
-                                '(min-width: 375.1px and max-width: 768px)'
+                            media_preload: mediaPreload3
                         },
                         {
                             width: 360,
                             height: 540,
-                            media: '(min-width: 320px)',
+                            media: media5,
                             useFullSize: true,
                             proportion: '2:3',
-                            media_preload: '(max-width: 375px)'
+                            media_preload: mediaPreload4
                         }
                     ]
                 },
@@ -991,35 +992,35 @@ export default {
                         {
                             width: 1920,
                             height: 1280,
-                            media: '(min-width: 1280px)',
+                            media: media1,
                             useFullSize: true,
                             proportion: '3:2'
                         },
                         {
                             width: 1200,
                             height: 800,
-                            media: '(min-width: 1024px)',
+                            media: media2,
                             useFullSize: true,
                             proportion: '3:2'
                         },
                         {
                             width: 1023,
                             height: 682,
-                            media: '(min-width: 768px)',
+                            media: media3,
                             useFullSize: true,
                             proportion: '3:2'
                         },
                         {
                             width: 768,
                             height: 1152,
-                            media: '(min-width: 360px)',
+                            media: media4,
                             useFullSize: true,
                             proportion: '2:3'
                         },
                         {
                             width: 360,
                             height: 540,
-                            media: '(min-width: 320px)',
+                            media: media5,
                             useFullSize: true,
                             proportion: '2:3'
                         }
@@ -1032,40 +1033,37 @@ export default {
                         {
                             width: 1920,
                             height: 1280,
-                            media: '(min-width: 1280px)',
+                            media: media1,
                             proportion: '3:2',
-                            media_preload: '(min-width: 1280.1px)'
+                            media_preload: mediaPreload0
                         },
                         {
                             width: 1200,
                             height: 800,
-                            media: '(min-width: 1024px)',
+                            media: media2,
                             proportion: '3:2',
-                            media_preload:
-                                '(min-width: 1024.1px and max-width: 1280px)'
+                            media_preload: mediaPreload1
                         },
                         {
                             width: 1023,
                             height: 682,
-                            media: '(min-width: 768px)',
+                            media: media3,
                             proportion: '3:2',
-                            media_preload:
-                                '(min-width: 768.1px and max-width: 1024px)'
+                            media_preload: mediaPreload2
                         },
                         {
                             width: 768,
                             height: 512,
-                            media: '(min-width: 375px)',
+                            media: media6,
                             proportion: '3:2',
-                            media_preload:
-                                '(min-width: 375.1px and max-width: 768px)'
+                            media_preload: mediaPreload3
                         },
                         {
                             width: 360,
                             height: 240,
-                            media: '(min-width: 320px)',
+                            media: media5,
                             proportion: '3:2',
-                            media_preload: '(max-width: 375px)'
+                            media_preload: mediaPreload4
                         }
                     ]
                 },
@@ -1074,27 +1072,27 @@ export default {
                         {
                             width: 1920,
                             height: 850,
-                            media: '(min-width: 1280px)'
+                            media: media1
                         },
                         {
                             width: 1200,
                             height: 515,
-                            media: '(min-width: 1024px)'
+                            media: media2
                         },
                         {
                             width: 1024,
                             height: 579,
-                            media: '(min-width: 768px)'
+                            media: media3
                         },
                         {
                             width: 768,
                             height: 432,
-                            media: '(min-width: 360px)'
+                            media: media4
                         },
                         {
                             width: 360,
                             height: 203,
-                            media: '(min-width: 320px)'
+                            media: media5
                         }
                     ]
                 },
@@ -1103,7 +1101,7 @@ export default {
                         {
                             width: 80,
                             height: 80,
-                            media: '(min-width: 320px)'
+                            media: media5
                         }
                     ]
                 }
@@ -1115,22 +1113,22 @@ export default {
                         {
                             width: 878,
                             height: 585,
-                            media: '(min-width: 1280px)'
+                            media: media1
                         },
                         {
                             width: 1120,
                             height: 400,
-                            media: '(min-width: 1024px)'
+                            media: media2
                         },
                         {
                             width: 768,
                             height: 961,
-                            media: '(min-width: 768px)'
+                            media: media3
                         },
                         {
                             width: 350,
                             height: 438,
-                            media: '(min-width: 360px)'
+                            media: media4
                         },
                         {
                             width: 310,
@@ -1144,7 +1142,7 @@ export default {
                         {
                             width: 80,
                             height: 80,
-                            media: '(min-width: 320px)'
+                            media: media5
                         }
                     ]
                 }
@@ -1156,27 +1154,27 @@ export default {
                         {
                             width: 879,
                             height: 586,
-                            media: '(min-width: 1280px)'
+                            media: media1
                         },
                         {
                             width: 690,
                             height: 465,
-                            media: '(min-width: 1024px)'
+                            media: media2
                         },
                         {
                             width: 768,
                             height: 513,
-                            media: '(min-width: 768px)'
+                            media: media3
                         },
                         {
                             width: 350,
                             height: 438,
-                            media: '(min-width: 360px)'
+                            media: media4
                         },
                         {
                             width: 310,
                             height: 203,
-                            media: '(min-width: 320px)'
+                            media: media5
                         }
                     ]
                 },
@@ -1185,7 +1183,7 @@ export default {
                         {
                             width: 80,
                             height: 80,
-                            media: '(min-width: 320px)'
+                            media: media5
                         }
                     ]
                 }
@@ -1196,25 +1194,25 @@ export default {
                         {
                             width: 360,
                             height: 240,
-                            media: '(min-width: 1024px)',
+                            media: media2,
                             proportion: '3:2'
                         },
                         {
                             width: 768,
                             height: 512,
-                            media: '(min-width: 768px)',
+                            media: media3,
                             proportion: '3:2'
                         },
                         {
                             width: 351,
                             height: 234,
-                            media: '(min-width: 360px)',
+                            media: media4,
                             proportion: '3:2'
                         },
                         {
                             width: 360,
                             height: 240,
-                            media: '(min-width: 320px)',
+                            media: media5,
                             proportion: '3:2'
                         }
                     ]
@@ -1225,7 +1223,7 @@ export default {
                         {
                             width: 80,
                             height: 80,
-                            media: '(min-width: 320px)'
+                            media: media5
                         }
                     ]
                 }
@@ -1234,9 +1232,9 @@ export default {
                 {
                     width: 1033,
                     height: 768,
-                    media: '(min-width: 768px)',
+                    media: media3,
                     class: 'img-desktop',
-                    media_preload: '(min-width: 768px)'
+                    media_preload: media3
                 }
             ]
         }

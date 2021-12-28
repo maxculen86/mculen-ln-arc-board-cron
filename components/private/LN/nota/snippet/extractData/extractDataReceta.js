@@ -5,6 +5,7 @@ export const extractDataFromContentElements = contentElements => {
     let ingredients = [];
     let instructions = [];
     let nutrition = [];
+    const embedConfigTypeList = 'embed.config.typeList';
 
     if (contentElements) {
         const element = contentElements.find(
@@ -13,10 +14,10 @@ export const extractDataFromContentElements = contentElements => {
 
         if (element) {
             element.powerUp.forEach(e => {
-                get(e, 'embed.config.typeList', '') === 'ingredientes' &&
+                get(e, `${embedConfigTypeList}`, '') === 'ingredientes' &&
                     (ingredients = ingredients.concat(e.embed.config.items));
 
-                get(e, 'embed.config.typeList', '') === 'preparacion' &&
+                get(e, `${embedConfigTypeList}`, '') === 'preparacion' &&
                     instructions.push({
                         '@type': 'HowToSection',
 
@@ -30,7 +31,7 @@ export const extractDataFromContentElements = contentElements => {
                         })
                     });
 
-                get(e, 'embed.config.typeList', '') === 'nutritional-info' &&
+                get(e, `${embedConfigTypeList}`, '') === 'nutritional-info' &&
                     (nutrition = nutrition.concat(e.embed.config.items));
             });
         }

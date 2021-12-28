@@ -5,7 +5,7 @@ import '../../../../../resources/dist/css/ln/components/tip.css';
 import ComTitle from '../../../common/com-title';
 
 const Tips = props => {
-    const { size, title, paragraphs } = props;
+    const { title, paragraphs } = props;
     let len = 0;
     if (paragraphs) {
         len = paragraphs.filter(p => p.element.content.trim() !== '<br/>')
@@ -41,7 +41,6 @@ const Tips = props => {
 };
 
 Tips.propTypes = {
-    size: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     paragraphs: PropTypes.arrayOf(
         PropTypes.shape({

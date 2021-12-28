@@ -30,6 +30,9 @@ const Opinion = props => {
         {}
     );
     const [art1, art2, art3, art4] = transform(articles) || [];
+    const labelVolantaText = 'label.volanta.text';
+    const headlinesMobile = 'headlines.mobile';
+    const headlinesBasic = 'headlines.basic';
 
     return (
         (art1 && art2 && art3 && art4 && (
@@ -38,11 +41,11 @@ const Opinion = props => {
                     <Article
                         articleData={art1}
                         link={get(art1, 'website_url')}
-                        leadText={get(art1, 'label.volanta.text', '')}
+                        leadText={get(art1, `${labelVolantaText}`, '')}
                         titleSize={get(configArt1, 'titleSize', '')}
                         titleText={
-                            get(art1, 'headlines.mobile') ||
-                            get(art1, 'headlines.basic')
+                            get(art1, `${headlinesMobile}`) ||
+                            get(art1, `${headlinesBasic}`)
                         }
                         withMedia="true"
                         authors={getFirstAuthorAsString(art1)}
@@ -59,11 +62,11 @@ const Opinion = props => {
                     <Article
                         articleData={art2}
                         link={get(art2, 'website_url')}
-                        leadText={get(art2, 'label.volanta.text', '')}
+                        leadText={get(art2, `${labelVolantaText}`, '')}
                         titleSize={get(configArt2, 'titleSize', '')}
                         titleText={
-                            get(art2, 'headlines.mobile') ||
-                            get(art2, 'headlines.basic')
+                            get(art2, `${headlinesMobile}`) ||
+                            get(art2, `${headlinesBasic}`)
                         }
                         withMedia="true"
                         authors={getFirstAuthorAsString(art2)}
@@ -79,11 +82,11 @@ const Opinion = props => {
                     <Article
                         articleData={art3}
                         link={get(art3, 'website_url')}
-                        leadText={get(art3, 'label.volanta.text', '')}
+                        leadText={get(art3, `${labelVolantaText}`, '')}
                         titleSize={get(configArt3, 'titleSize', '')}
                         titleText={
-                            get(art3, 'headlines.mobile') ||
-                            get(art3, 'headlines.basic')
+                            get(art3, `${headlinesMobile}`) ||
+                            get(art3, `${headlinesBasic}`)
                         }
                         withMedia="true"
                         authors={getFirstAuthorAsString(art3)}
@@ -101,11 +104,11 @@ const Opinion = props => {
                     <Article
                         articleData={art4}
                         link={get(art4, 'website_url')}
-                        leadText={get(art4, 'label.volanta.text', '')}
+                        leadText={get(art4, `${labelVolantaText}`, '')}
                         titleSize={get(configArt4, 'titleSize', '')}
                         titleText={
-                            get(art4, 'headlines.mobile') ||
-                            get(art4, 'headlines.basic')
+                            get(art4, `${headlinesMobile}`) ||
+                            get(art4, `${headlinesBasic}`)
                         }
                         withMedia="true"
                         authors={getFirstAuthorAsString(art4)}

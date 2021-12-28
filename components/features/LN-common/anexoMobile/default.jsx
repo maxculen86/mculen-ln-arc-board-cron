@@ -5,25 +5,26 @@ const AnexoFeature = () => {
     return <></>;
 };
 
+const adjustByURL = 'Ajuste por URL';
 AnexoFeature.label = 'LN Anexo Mobile';
 
 AnexoFeature.propTypes = {
     customFields: PropTypes.shape({
         url: PropTypes.url.tag({
             label: 'Url',
-            group: 'Ajuste por URL',
+            group: adjustByURL,
             description: 'Ingrese aquí la URL del anexo',
             defaultValue: ''
         }),
         hideByUrl: PropTypes.bool.tag({
             label: 'Ocultar',
-            group: 'Ajuste por URL',
+            group: adjustByURL,
             description: 'Marque para ocultar el anexo',
             defaultValue: false
         }),
         height: PropTypes.number.tag({
             label: 'Alto',
-            group: 'Ajuste por URL',
+            group: adjustByURL,
             description: 'Ingrese aquí el alto fijo del anexo',
             defaultValue: 0
         })

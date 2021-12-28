@@ -121,6 +121,9 @@ const isInSection = ({ sectionName, id, renderables = [] }) => {
     );
 };
 
+const adjustByURL = 'Ajuste por URL';
+const adjustByHTML = 'Ajuste por HTML';
+
 AnexoFeature.label = 'LN Anexo';
 
 AnexoFeature.propTypes = {
@@ -128,19 +131,19 @@ AnexoFeature.propTypes = {
     customFields: PropTypes.shape({
         url: PropTypes.url.tag({
             label: 'Url',
-            group: 'Ajuste por URL',
+            group: adjustByURL,
             description: 'Ingrese aquí la URL del anexo',
             defaultValue: ''
         }),
         hideByUrl: PropTypes.bool.tag({
             label: 'Ocultar',
-            group: 'Ajuste por URL',
+            group: adjustByURL,
             description: 'Marque para ocultar el anexo',
             defaultValue: false
         }),
         html: PropTypes.richtext.tag({
             label: 'HTML',
-            group: 'Ajuste por HTML',
+            group: adjustByHTML,
             description: 'Ingrese aquí el HTML del anexo',
             // formPlugin: 'html-editor',
             // disabled: true,
@@ -148,13 +151,13 @@ AnexoFeature.propTypes = {
         }),
         height: PropTypes.number.tag({
             label: 'Alto',
-            group: 'Ajuste por URL',
+            group: adjustByURL,
             description: 'Ingrese aquí el alto fijo del anexo',
             defaultValue: 0
         }),
         hideByHtml: PropTypes.bool.tag({
             label: 'Ocultar',
-            group: 'Ajuste por HTML',
+            group: adjustByHTML,
             description: 'Marque para ocultar el anexo',
             defaultValue: false
         })
