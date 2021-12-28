@@ -27,7 +27,7 @@ export default {
         trackSessionAcrossSubdomains: false
     },
     ARC_STATIC: 'https://sandbox.lanacion.com.ar',
-    VIAFOURA_UUID: '00000000-0000-4000-8000-5f9c7a4aa083',
+    VIAFOURA_UUID: '00000000-0000-4000-8000-0236bd0ff826',
     VIAFOURA_XREQUEST:
         '+A5uYQkKRlUYelDeXhW0I88A7/UVYGFtIugKIur9dtQE9dx7srvdJiI+ZSJZ2YsE'
 };

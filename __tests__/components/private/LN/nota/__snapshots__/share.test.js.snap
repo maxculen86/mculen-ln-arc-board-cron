@@ -162,6 +162,9 @@ exports[`Share Matches snapshot 1`] = `
         </svg>
       </i>
     </button>
+    <label>
+      64
+    </label>
   </div>
 </div>
 `;

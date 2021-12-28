@@ -15,6 +15,18 @@ jest.mock('fusion:context', () => () => ({
     }
 }));
 
+jest.mock('fusion:content', () => () => ({
+    default: props => {
+        const mockAvailableProps = {
+            comments: {
+                total_visible_content: 64
+            }
+        };
+
+        return props.children(mockAvailableProps);
+    }
+}));
+
 jest.mock('fusion:properties', () => () => ({
     default: props => {
         const mockAvailableProps = { arcSite: 'la-nacion-ar' };
@@ -24,6 +36,7 @@ jest.mock('fusion:properties', () => () => ({
 }));
 
 import Context from 'fusion:context';
+import Content from 'fusion:content';
 import getProperties from 'fusion:properties';
 
 describe('Share', () => {
@@ -31,6 +44,13 @@ describe('Share', () => {
         outputType: 'default',
         arcSite: 'la-nacion-ar'
     }));
+
+    Content.useContent = jest.fn(() => ({
+        comments: {
+            total_visible_content: 64
+        }
+    }));
+
     delete global.window.open;
     global.window = Object.create(window);
     global.window.open = jest.fn();
