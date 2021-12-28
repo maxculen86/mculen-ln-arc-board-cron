@@ -2,6 +2,7 @@
 import React from 'react';
 import getProperties from 'fusion:properties';
 import { useAppContext } from 'fusion:context';
+import { useContent } from 'fusion:content';
 import PropTypes from 'prop-types';
 import '../../../../resources/dist/css/ln/modules/mod-share.css';
 import config from '../../../../properties/sites/la-nacion-ar';
@@ -24,10 +25,15 @@ const Share = props => {
         classesNames,
         requestUri,
         globalContent: {
+            _id: id,
             headlines: { basic: title, mobile: mobileTitle },
             comments: { display_comments: displayComments = true } = {}
         }
     } = props;
+    const { comments } =
+        useContent({ source: 'viafouraSource', query: { id } }) || {};
+
+    const { total_visible_content: totalVisibleContent } = comments;
 
     const { arcSite = 'la-nacion-ar' } = useAppContext() || {};
     const siteVars = getProperties(arcSite);
@@ -88,12 +94,15 @@ const Share = props => {
                     />
                     {/* Se oculta temporalmente para luego refactorizar */}
                     {displayComments && (
-                        <ComButton
-                            onClick={() => scrollToComments()}
-                            size="--fourxs"
-                            iconName="comment"
-                            title="Ir a los comentarios de la nota"
-                        />
+                        <>
+                            <ComButton
+                                onClick={() => scrollToComments()}
+                                size="--fourxs"
+                                iconName="comment"
+                                title="Ir a los comentarios de la nota"
+                            />
+                            <label>{totalVisibleContent}</label>
+                        </>
                     )}
                 </div>
             </AmpContainer>
