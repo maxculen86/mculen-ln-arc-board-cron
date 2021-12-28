@@ -151,20 +151,21 @@ class Index extends Component {
     render = () => {
         const { articles, outputType } = this.state;
 
-        return articles && articles.length ? (
-            <div className="row interest" ref={this.myRef}>
-                <CajaTema
-                    title="Te puede interesar"
-                    sectionName={this.props.dataLayerSection}
-                    articles={articles}
-                    position="toi"
-                    outputType={outputType}
-                    handleClick={this.handleClick}
-                    withVolanta
-                />
-            </div>
-        ) : (
-            <></>
+        return (
+            articles &&
+            articles.length && (
+                <div className="row interest" ref={this.myRef}>
+                    <CajaTema
+                        title="Te puede interesar"
+                        sectionName={this.props.dataLayerSection}
+                        articles={articles}
+                        position="toi"
+                        outputType={outputType}
+                        handleClick={this.handleClick}
+                        withVolanta
+                    />
+                </div>
+            )
         );
     };
 }

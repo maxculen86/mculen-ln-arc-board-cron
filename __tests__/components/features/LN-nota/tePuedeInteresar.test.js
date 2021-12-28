@@ -1,8 +1,15 @@
 import React from 'react';
-import { render, shallow } from 'enzyme';
+const crypto = require('crypto');
+import { render, shallow, mount } from 'enzyme';
 import TePuedeInteresar from '../../../../components/features/LN-nota/tePuedeInteresar/default';
 import Consumer from 'fusion:consumer';
 import Context from 'fusion:context';
+
+Object.defineProperty(global.self, 'crypto', {
+    value: {
+        getRandomValues: arr => crypto.randomBytes(arr.length)
+    }
+});
 
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
@@ -21,16 +28,30 @@ const requestUri = '';
 const globalContent = {};
 
 describe('Te puede interesar default test', () => {
+    Context.useAppContext = jest.fn(() => ({
+        globalContent,
+        requestUri
+    }));
+
     const props = {
-        customFields: {}
+        customFields: {},
+        outputType: 'default',
+        siteProperties: {}
     };
 
+    const component = mount(<TePuedeInteresar {...props} />);
+
+    it('Validates props', () => {
+        expect(component.props().outputType).toEqual('default');
+        expect(component.props().customFields).toEqual({});
+        expect(component.props().siteProperties).toEqual({});
+    });
+
+    it('Renders component', () => {
+        expect(component).toBeDefined;
+    });
+
     it('Matches Snapshot', () => {
-        Context.useAppContext = jest.fn(() => ({
-            globalContent,
-            requestUri
-        }));
-        const component = shallow(<TePuedeInteresar {...props} />);
         expect(component).toMatchSnapshot();
     });
 });
