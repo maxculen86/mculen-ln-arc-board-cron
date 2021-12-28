@@ -8,10 +8,14 @@ import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
 import get from 'lodash.get';
+import { SITE_LANACION } from 'fusion:environment';
 
 import ModAutor from '../../private/common/mod-autor';
+import ComPartner from '../../private/common/com-partner';
+import ComLink from '../../private/common/com-link';
 
 import { compose } from '../../private/common/utils/functional';
+import formatDistributorName from '../../private/LN/common/utils/formatDistributorName';
 
 const place = Object.freeze({ Top: 'Top', Bottom: 'Bottom' });
 
@@ -101,10 +105,12 @@ const FirmaFeature = props => {
         customFields: { position },
         globalContent: {
             content_elements: contentElements,
-            credits: { by }
+            credits: { by },
+            distributor = { name: 'LA NACION' },
+            withFirmaDistributor
         }
     } = props;
-
+    const { name } = distributor;
     const constructProps =
         by && by.length
             ? getPropsBuilder(position)
@@ -115,7 +121,17 @@ const FirmaFeature = props => {
             ? compose(constructProps, filterByAuthor)(by)
             : compose(constructProps)(contentElements);
 
-    if (!authors || !authors.length) return null;
+    const nameFormated = formatDistributorName(name);
+
+    if (withFirmaDistributor) {
+        return name === 'LA NACION' ? (
+            <ComPartner size="--xs">{name}</ComPartner>
+        ) : (
+            <ComLink link={`${SITE_LANACION}/distributor/${nameFormated}/`}>
+                <ComPartner size="--twoxs">{name}</ComPartner>
+            </ComLink>
+        );
+    }
 
     return (
         <Static id={featureId} htmlOnly persistent>
@@ -166,7 +182,11 @@ FirmaFeature.propTypes = {
                     _id: PropTypes.string
                 })
             )
-        })
+        }),
+        distributor: PropTypes.shape({
+            name: PropTypes.string
+        }),
+        withFirmaDistributor: PropTypes.bool
     })
 };
 

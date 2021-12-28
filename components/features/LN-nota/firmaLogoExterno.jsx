@@ -14,22 +14,29 @@ import {
 
 const FirmaLogoExterno = props => {
     const { globalContent } = props;
-    const { distributor, subtype, credits } = globalContent || {};
-    const { name } = distributor || {};
+    const {
+        distributor = { name: 'LA NACION' },
+        subtype,
+        credits,
+        withFirmaDistributor
+    } = globalContent || {};
+    const { name } = distributor;
     const { by = [] } = credits || {};
 
     if (name === 'LA NACION' && by.length > 0) return <></>;
     if (subtype === RECETA && by.length === 0)
         return <ComPartner size="--xs">Por LA NACION recetas</ComPartner>;
     if (subtype === RECETA && by.length > 0) return <></>;
-    if (name === 'LA NACION' || subtype === HTMLLIBRE)
+    if (subtype === HTMLLIBRE)
         return <ComPartner size="--xs">{name}</ComPartner>;
 
     const nameFormated = formatDistributorName(name);
-    return (
+    return !withFirmaDistributor ? (
         <ComLink link={`${SITE_LANACION}/distributor/${nameFormated}/`}>
             <ComPartner size="--twoxs">{name}</ComPartner>
         </ComLink>
+    ) : (
+        <></>
     );
 };
 

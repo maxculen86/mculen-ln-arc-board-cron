@@ -15,7 +15,7 @@ const TitleAndIconArticle = ({
         taxonomy: { sections },
         headlines,
         label,
-        distributor,
+        distributor = { name: 'LA NACION' },
         owner,
         subtype
     },

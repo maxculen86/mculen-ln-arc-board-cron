@@ -7,6 +7,7 @@ import { getMessageProps } from '../../../private/common/utils/commentsHelper';
 import Message from '../../../private/common/message';
 import HeaderComments from '../../../private/LN/nota/comments/header';
 import LoadingIcon from '../../../private/LN/common/loadingIcon';
+import '../../../../resources/dist/css/ln/modules/comments.css';
 
 const CommentsViafouraFeature = props => {
     const { id: featureId, globalContent: { messageType = '' } = {} } = props;

@@ -19,6 +19,7 @@ import { isSubscribed } from '../../../private/LN/common/utils/contextHelper';
 import HeaderComments from '../../../private/LN/nota/comments/header';
 import findTermica from '../../../private/common/utils/findTermica';
 import get from '../../../private/common/utils/get';
+import '../../../../resources/dist/css/ln/modules/comments.css';
 
 const CommentsViafouraFeature = props => {
     const { outputType } = props;
