@@ -4,10 +4,8 @@ import ReactDOMServer from 'react-dom/server';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import ComLink from '../../../common/com-link';
 import ComParagraph from '../../../common/com-paragraph';
-
 import { compose } from '../../../common/utils/functional';
 
-// TODO: cambiar parrafo por paragraph
 const Parrafo = ({ data, capital, size, classCondition }) => {
     const isLetter = text => text && text.match(/^[A-Za-z]/);
 
