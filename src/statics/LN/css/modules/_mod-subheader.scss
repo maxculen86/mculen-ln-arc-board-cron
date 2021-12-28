@@ -1,9 +1,6 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 .mod-subheader {
-    // display: flex;
-    // justify-content: center;
-    // background: $blanco;
     padding: $spacing-xs 0;
     .row {
         .com-club,
@@ -13,15 +10,17 @@
         }
         .com-dolar {
             display: flex;
+            width: 100%;
+            justify-content: space-around;
+            font-size: px(12);
+            line-height: px(16);
+
             .--dolar {
-                display: none;
-                font-weight: bold;
                 margin-right: $spacing-xs;
             }
             .--blue {
                 margin-left: $spacing-sm;
                 margin-right: $spacing-3xs;
-                font-weight: bold;
             }
             i {
                 padding: 0 $spacing-3xs;
@@ -35,26 +34,23 @@
         }
     }
 }
-@media ($media-s) {
+
+@media (min-width: 400px) {
     .mod-subheader {
         .row {
             .com-dolar {
-                .--dolar {
-                    display: inline;
-                }
+                width: auto;
+                font-size: px(14);
             }
         }
     }
 }
+
 @media ($media-m) {
     .mod-subheader {
         .row {
             justify-content: space-between;
             align-items: center;
-
-            // .precioDolar {
-            //     font-weight: bold;
-            // }
             .--newsletter,
             .com-weather {
                 display: none;
@@ -68,14 +64,6 @@
                 margin-right: $spacing-xs;
             }
             .com-dolar {
-                //.--dolar {
-                //margin-right: $spacing-xs;
-                //font-weight: bold;
-                //}
-                //.--blue {
-                //margin-left: $spacing-xs;
-                //margin-right: $spacing-3xs;
-                //}
                 .com-text {
                     margin-right: $spacing-3xs;
                 }
