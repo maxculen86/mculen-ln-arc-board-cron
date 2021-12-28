@@ -248,7 +248,7 @@
             "text": "841900",
             "display": true
         },
-        "trust": "Noticia"
+        "trust": { "text": "Noticia" }
     },
     "promo_items": {
         "basic": {
