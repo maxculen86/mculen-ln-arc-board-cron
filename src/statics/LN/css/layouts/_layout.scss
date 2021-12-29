@@ -86,7 +86,7 @@
 //     max-width: 100%;
 // }
 
-// #fusion-app > #wrapper:not(.sitemap) {
+// #fusion-app > #wrapper:not(.sitemap):not(.--transparent) {
 //     //fusion-app es por pagebuilder
 //     position: relative;
 //     overflow-x: clip;
