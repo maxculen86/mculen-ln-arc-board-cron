@@ -42,10 +42,10 @@
             fill: $blue-500;
         }
     }
-    &:active {
-        background: $ln;
-        color: $neutral-white;
-    }
+    // &:active {
+    //     background: $ln;
+    //     color: $neutral-white;
+    // }
     &:disabled {
         background: $light-neutral-400;
     }
