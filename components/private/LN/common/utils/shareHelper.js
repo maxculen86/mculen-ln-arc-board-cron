@@ -4,21 +4,9 @@ import get from '../../../common/utils/get';
 
 export function popUpCompartirNotaTW(notaId, dominio, titulo) {
     if (notaId.length > 0) {
-        const result =
-            '//twitter.com/share?text=' +
-            titulo +
-            '&url=' +
-            dominio +
-            notaId +
-            '&via=LANACION';
         popUpRedSocial(
-            '//twitter.com/share?text=' +
-                titulo +
-                '&url=' +
-                dominio +
-                notaId +
-                '&via=LANACION'
-        ); //$("#hs-twitter").val());
+            `//twitter.com/share?text=${titulo}&url=${dominio}${notaId}&via=LANACION`
+        ); // $("#hs-twitter").val());
     } else {
         window.open('//twitter.lanacion.com.ar/', '_blank');
     }

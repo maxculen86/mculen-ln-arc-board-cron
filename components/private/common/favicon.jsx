@@ -3,7 +3,6 @@ import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 
 const Favicon = props => {
-    const { outputType } = props;
     const { contextPath, deployment } = useAppContext();
 
     return (

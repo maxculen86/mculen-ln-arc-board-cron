@@ -40,4 +40,17 @@ describe('Test json integracion Article', () => {
         expect(resp.contenido[12]._t).toBe('banner');
         expect(resp.contenido[15]._t).toBe('banner');
     });
+
+    it('Mostrar the trust project', () => {
+        const resp = IndexNota(ArticleFourElements);
+        expect(resp.trust).toBe(true);
+    });
+    it('No Mostrar the trust project', () => {
+        const resp = IndexNota(ArticleSevenElements);
+        expect(resp.trust).toBe(false);
+    });
+    it('the trust project es null', () => {
+        const resp = IndexNota(ArticleNineElements);
+        expect(resp.trust).toBe(true);
+    });
 });

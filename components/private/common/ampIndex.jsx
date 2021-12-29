@@ -12,6 +12,7 @@ import {
 import getOembedScripts from './scriptManager/getOembedScripts';
 import { getStyleFontsInLine } from './fontface';
 import { CriticalCSSString } from './criticalcss';
+import get from './utils/get';
 
 export const _AMPBoilerplate = `
     body {
@@ -88,16 +89,18 @@ const AMPScripts = props => {
     const scriptsToLoad = [];
     const { arcSite, layout, globalContent } = props;
     const { [layout]: ScriptsConfig = [] } = config[arcSite] || {};
-
+    const mostrarBanners = get(
+        globalContent,
+        'label.mostrar_banners.text',
+        'Si'
+    );
     ScriptsConfig.concat(
         getOembedScripts(globalContent, embedElements, embedsForNote)
     ).forEach(configElement => {
         const loadScript =
             (evaluateFunctionInclusion(configElement, globalContent) &&
-                configElement.hasBanners ===
-                    globalContent.label.mostrar_banners.text) ||
+                configElement.hasBanners === mostrarBanners) ||
             configElement.hasBanners === undefined;
-
         loadScript &&
             scriptsToLoad.push(
                 <script
@@ -108,7 +111,6 @@ const AMPScripts = props => {
                 />
             );
     });
-
     return scriptsToLoad;
 };
 

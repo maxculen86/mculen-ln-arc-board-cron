@@ -17,7 +17,6 @@ const getAuthorData = author => {
 };
 
 const authorCommon = author => {
-    const { type } = author;
     const authorData = getAuthorData(author);
     const image = getImageUrl(
         get(author, 'additional_properties.original.image', null)
