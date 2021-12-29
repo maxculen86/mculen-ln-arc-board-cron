@@ -10,20 +10,12 @@ import LoadingIcon from '../../../private/LN/common/loadingIcon';
 import '../../../../resources/dist/css/ln/modules/comments.css';
 
 const CommentsViafouraFeature = props => {
-    const {
-        id: featureId,
-        globalContent: { messageType = '' } = {},
-        outputType
-    } = props;
+    const { id: featureId, globalContent: { messageType = '' } = {} } = props;
     const messageProps = getMessageProps(props, messageType);
 
     return (
         <Static id={featureId}>
-            {messageProps ? (
-                <Message {...messageProps} />
-            ) : (
-                <HeaderComments outputType={outputType} />
-            )}
+            {messageProps ? <Message {...messageProps} /> : <HeaderComments />}
             <LoadingIcon />
             <div
                 id="comments-viafoura-container"
@@ -92,8 +84,7 @@ CommentsViafouraFeature.propTypes = {
     id: PropTypes.string.isRequired,
     globalContent: PropTypes.shape({
         messageType: PropTypes.string
-    }).isRequired,
-    outputType: PropTypes.string.isRequired
+    }).isRequired
 };
 
 CommentsViafouraFeature.label = 'LN-Nota-Comments-Viafoura';
