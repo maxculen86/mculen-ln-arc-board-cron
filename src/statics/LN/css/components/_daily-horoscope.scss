@@ -4,7 +4,6 @@
     display: flex;
     flex-direction: column;
     padding: $spacing-sm;
-    //max-width: px(1024);
     border: 1px solid $light-neutral-400;
     border-radius: px(4);
     margin-bottom: $spacing-lg;
@@ -12,11 +11,14 @@
     @media ($media-m) {
         padding: $spacing-md;
     }
-    .falso-svg {
-        width: px(72);
+    .container-svg {
+        min-width: px(72);
         height: px(72);
         border-radius: 50%;
         background-color: $light-neutral-200;
+        .com-image[alt] {
+            color: transparent;
+        }
     }
 
     .daily-horoscope-header {
@@ -38,10 +40,6 @@
         .--author {
             color: $blue-500;
             font-weight: 700;
-        }
-        .falso-svg {
-            width: px(72);
-            height: px(72);
         }
     }
     .daily-horoscope-main {

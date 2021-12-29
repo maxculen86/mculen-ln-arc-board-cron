@@ -48,7 +48,7 @@
             @include flex(flex, row-reverse, space-between);
             width: 100%;
         }
-        .falso-svg {
+        .container-svg {
             margin: 0;
         }
 
@@ -57,7 +57,7 @@
             .com-link {
                 @include flex(flex, column, center, center);
             }
-            .falso-svg {
+            .container-svg {
                 margin-bottom: $spacing-xs;
             }
             .title {
@@ -66,16 +66,19 @@
         }
     }
 
-    .falso-svg {
+    .container-svg {
         width: px(40);
         height: px(40);
         border-radius: 50%;
         background-color: $light-neutral-200;
         margin-bottom: $spacing-xs;
+        .com-image[alt] {
+            color: transparent;
+        }
     }
 
     @media ($media-m) {
-        .falso-svg {
+        .container-svg {
             margin: 0px;
         }
     }

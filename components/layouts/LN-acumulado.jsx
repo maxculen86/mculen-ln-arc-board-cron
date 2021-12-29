@@ -160,6 +160,7 @@ const LNAcumuladoLayout = props => {
         }
     ];
     const dataDailyHoroscope = {
+        autor: 'Renata Rossi',
         nombre: 'Libra',
         periodo: '24/9 al 23/10',
         detalle:
@@ -223,7 +224,7 @@ const LNAcumuladoLayout = props => {
                             {apertura}
                             {/* LISTA DE TAGS */}
                             {links}
-                            <HoroscopeBox signos={signos} />
+                            <HoroscopeBox signos={signos} showTitle={true} />
                             <DailyHoroscope data={dataDailyHoroscope} />
                         </div>
                         <div id="content-main" className="lay-sidebar">
@@ -240,7 +241,10 @@ const LNAcumuladoLayout = props => {
                                 )}
                                 {/* NOTAS */}
                                 {notas}
-                                <HoroscopeBox signos={signos} />
+                                <HoroscopeBox
+                                    signos={signos}
+                                    showTitle={false}
+                                />
                             </div>
                             <div className="sidebar__aside hlp-tabletlm-none">
                                 {/* BANNERS, RANKING DE NOTAS */}
