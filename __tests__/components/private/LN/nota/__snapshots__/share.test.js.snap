@@ -133,7 +133,7 @@ exports[`Share Matches snapshot 1`] = `
       </i>
     </button>
     <button
-      class="com-button --icon"
+      class="com-button comment-btn --icon"
       data-event=""
       data-section=""
       id=""
@@ -162,7 +162,9 @@ exports[`Share Matches snapshot 1`] = `
         </svg>
       </i>
     </button>
-    <label>
+    <label
+      class="counterComments --fourxs"
+    >
       64
     </label>
   </div>

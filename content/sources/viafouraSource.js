@@ -4,15 +4,6 @@ import request from 'request-promise-native';
 import logger from '../../components/private/common/utils/logger';
 
 const fetch = ({ arcSite, id }) => {
-    console.log(
-        '🚀 ~ file: viafouraSource.js ~ line 7 ~ fetch ~ VIAFOURA_XREQUEST',
-        VIAFOURA_XREQUEST
-    );
-    console.log(
-        '🚀 ~ file: viafouraSource.js ~ line 7 ~ fetch ~ VIAFOURA_UUID',
-        VIAFOURA_UUID
-    );
-
     const options = {
         method: 'GET',
         headers: {
@@ -21,7 +12,7 @@ const fetch = ({ arcSite, id }) => {
         }
     };
     const endpoint = {
-        uri: `https://livecomments.viafoura.co/v4/livecomments/${VIAFOURA_UUID}/contentcontainer/id?container_id=7ZDIHMQHDRDNNMJDSUWQXWPWZU`,
+        uri: `https://livecomments.viafoura.co/v4/livecomments/${VIAFOURA_UUID}/contentcontainer/id?container_id=${id}`,
         options,
         json: true
     };
