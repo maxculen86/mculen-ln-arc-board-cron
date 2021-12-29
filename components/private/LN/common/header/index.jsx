@@ -90,7 +90,6 @@ Index.propTypes = {
         type: PropTypes.string,
         node_type: PropTypes.string
     }).isRequired
-    // headerDark: PropTypes.string
 };
 
 const toglleDesplegable = () => {
@@ -110,7 +109,6 @@ const onScrollHandler = (header, height, userMenu, wrapper) => {
     if (userMenu) userMenu.classList.remove(CLASS_ACTIVE);
     if (scrollPos) {
         if (scrollPos > height) {
-            // classList.add(CLASS_SCROLL_DOWN);
             if (wrapper) {
                 wrapper.classList.add(CLASS_SCROLL_DOWN);
             }
@@ -133,7 +131,6 @@ const onScrollHandler = (header, height, userMenu, wrapper) => {
             }
         }
         if (scrollPos < 65) {
-            // esta clsae está para el header transparente
             classList.add(CLASS_ACTIVE);
             if (vshare) vshare.classList.add(CLASS_ACTIVE);
         }
