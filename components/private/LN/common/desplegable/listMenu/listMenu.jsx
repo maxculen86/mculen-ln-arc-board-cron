@@ -5,8 +5,10 @@ import { MenuStore } from './store/menuContext';
 
 import Icon from '../../../../common/icon';
 
+const itemDisabled = ' item--disabled';
+
 const disableItem = _extraClass =>
-    _extraClass && _extraClass.search('item--') !== -1 ? ' item--disabled' : '';
+    _extraClass && _extraClass.search('item--') !== -1 ? itemDisabled : '';
 
 const getClasses = el => extraClass => hasChildren =>
     el === 'li'
@@ -14,7 +16,7 @@ const getClasses = el => extraClass => hasChildren =>
         : `${extraClass || ''}`;
 
 const toggleItem = itemActive =>
-    itemActive === ' item--disabled' ? ' item--active' : ' item--disabled';
+    itemActive === itemDisabled ? ' item--active' : itemDisabled;
 
 const showMenu = dispatch => elRef => {
     dispatch({ type: 'OFF_MENUS', elRef });

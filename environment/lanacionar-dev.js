@@ -1,15 +1,15 @@
+const urlSandboxArcPublishing =
+    'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com';
+
 export default {
     IS_DEV: 'true',
     IS_SANDBOX: 'true',
     API_ENV: 'sandbox',
     RANKING_URL: 'https://api.lanacionar.arcpublishing.com',
-    LANACIONAR_URLASSETS:
-        'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com',
+    LANACIONAR_URLASSETS: urlSandboxArcPublishing,
     OPTA_WIDGET_URL: 'https://sandbox.lanacion.com.ar/opta-embed',
-    SITE_LANACION:
-        'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com',
-    SITE_RECETAS:
-        'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com',
+    SITE_LANACION: urlSandboxArcPublishing,
+    SITE_RECETAS: urlSandboxArcPublishing,
     WIDGETS: 'li-nacion-recommended-item-template-1',
     LIFTIGNITER_X_API_KEY:
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygHbKwh8sDdbr5fnLbVosC8eAAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDDiYpapEfqjsBI2jYAIBEIA/nTts/bkXZTMJLnSuQ0haU3hS9mDU/pcq/cnjX4Yumbkbp6Ggk4ceDxDajfYMGuyBCeupJtT7CqrJBUDnWx47}', //NOSONAR

@@ -1,27 +1,32 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
+const row = 'row';
+const rowTablet2 = 'row-gap-tablet-2';
+const rowTablet3 = 'row-gap-tablet-3';
+const rowTablet4 = 'row-gap-tablet-4';
+
 const layout = {
     Grilla: {
-        1: 'row',
-        2: 'row-gap-tablet-2',
-        3: 'row-gap-tablet-3',
-        4: 'row-gap-tablet-4',
-        6: 'row-gap-tablet-3',
-        9: 'row-gap-tablet-3'
+        1: row,
+        2: rowTablet2,
+        3: rowTablet3,
+        4: rowTablet4,
+        6: rowTablet3,
+        9: rowTablet3
     },
     ArticleFeature: {
-        1: 'row',
-        2: 'row-gap-tablet-2',
-        3: 'row-gap-tablet-3',
-        4: 'row-gap-tablet-4',
-        6: 'row-gap-tablet-3',
-        9: 'row-gap-tablet-3'
+        1: row,
+        2: rowTablet2,
+        3: rowTablet3,
+        4: rowTablet4,
+        6: rowTablet3,
+        9: rowTablet3
     },
-    Listado: 'row',
+    Listado: row,
     Timeline: 'breaking-news',
-    Focal: 'row',
-    Opinion: 'row',
+    Focal: row,
+    Opinion: row,
     Editoriales: 'mod-footersection'
 };
 

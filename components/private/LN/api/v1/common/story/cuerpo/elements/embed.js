@@ -12,6 +12,8 @@ const embed = (nodo, dataNota) => {
         _t: 'ext'
     };
 
+    const facebookPost = 'facebook-post';
+
     switch (valor.type) {
         case 'tiktok':
         case 'instagram':
@@ -23,11 +25,11 @@ const embed = (nodo, dataNota) => {
             resp.src = `<blockquote class="twitter-tweet" style="min-height: 130px;"><a href = "${valor.url}"></a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset ="utf-8"></script>`;
             break;
         case 'facebook-video':
-            resp.id = 'facebook-post';
+            resp.id = facebookPost;
             resp.src = getEmbedHref('href', valor.html);
             break;
-        case 'facebook-post':
-            resp.id = 'facebook-post';
+        case facebookPost:
+            resp.id = facebookPost;
             resp.src = getEmbedHref('href', valor.html);
             break;
         case 'youtube':
