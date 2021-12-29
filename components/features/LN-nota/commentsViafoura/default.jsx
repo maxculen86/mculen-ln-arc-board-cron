@@ -120,7 +120,11 @@ const CommentsViafouraFeature = props => {
 
     return (
         <>
-            {messageProps ? <Message {...messageProps} /> : <HeaderComments />}
+            {messageProps ? (
+                <Message {...messageProps} />
+            ) : (
+                <HeaderComments outputType={outputType} />
+            )}
 
             {!isReady && <LoadingIcon />}
 

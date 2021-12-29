@@ -1,6 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import ComButton from '../../../common/com-button';
 import Text from '../../../common/text';
-const HeaderComments = () => {
+
+const HeaderComments = ({ outputType }) => {
+    const script = `
+    window.addEventListener('load', (event) => {
+        const verLegalesBtn = document.getElementById(
+            'ver-legales-btn'
+        );
+        if (verLegalesBtn) {
+            verLegalesBtn.onclick = () => {
+                const verLegalesText = document.getElementById(
+                    'ver-legales-text'
+                );
+                verLegalesText.classList.toggle('hlp-none');
+            }
+        }
+    });`;
+
     return (
         <>
             <section className="mod-headersection --line --button">
@@ -10,13 +28,18 @@ const HeaderComments = () => {
                     size="--l"
                     text="Enviá tu comentario"
                 />
-                <a
-                    className="com-link --threexs"
-                    title="Ver legales"
+                <ComButton
+                    classesNames="com-link --threexs"
                     id="ver-legales-btn"
-                >
-                    Ver legales
-                </a>
+                    title="Ver legales"
+                    textname="Ver legales"
+                    onClick={() => {
+                        const verLegalesText = document.getElementById(
+                            'ver-legales-text'
+                        );
+                        verLegalesText.classList.toggle('hlp-none');
+                    }}
+                />
             </section>
             <Text
                 tag="p"
@@ -31,21 +54,21 @@ const HeaderComments = () => {
                 eliminado e inhabilitado para volver a comentar. Enviar
                 comentario implica la aceptación del Reglamento.
             </Text>
-            <script
-                dangerouslySetInnerHTML={{
-                    __html: `
-                    window.addEventListener('load', (event) => {
-                        const verLegalesBtn = document.querySelector('#ver-legales-btn');
-                        verLegalesBtn.onclick = () =>{
-                            const verLegalesText = document.querySelector('#ver-legales-text');
-                            verLegalesText.classList.toggle('hlp-none')
-                        };
-                    });
-                `
-                }}
-            />
+            {outputType === 'widgets' && (
+                <script
+                    id="HEADER-SCRIPT"
+                    // eslint-disable-next-line react/no-danger
+                    dangerouslySetInnerHTML={{
+                        __html: script
+                    }}
+                />
+            )}
         </>
     );
+};
+
+HeaderComments.propTypes = {
+    outputType: PropTypes.string.isRequired
 };
 
 export default HeaderComments;
