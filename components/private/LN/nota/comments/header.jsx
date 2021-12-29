@@ -4,21 +4,6 @@ import ComButton from '../../../common/com-button';
 import Text from '../../../common/text';
 
 const HeaderComments = ({ outputType }) => {
-    const script = `
-    window.addEventListener('load', (event) => {
-        const verLegalesBtn = document.getElementById(
-            'ver-legales-btn'
-        );
-        if (verLegalesBtn) {
-            verLegalesBtn.onclick = () => {
-                const verLegalesText = document.getElementById(
-                    'ver-legales-text'
-                );
-                verLegalesText.classList.toggle('hlp-none');
-            }
-        }
-    });`;
-
     return (
         <>
             <section className="mod-headersection --line --button">
@@ -59,7 +44,20 @@ const HeaderComments = ({ outputType }) => {
                     id="HEADER-SCRIPT"
                     // eslint-disable-next-line react/no-danger
                     dangerouslySetInnerHTML={{
-                        __html: script
+                        __html: `
+                        window.addEventListener('load', (event) => {
+                            const verLegalesBtn = document.getElementById(
+                                'ver-legales-btn'
+                            );
+                            if (verLegalesBtn) {
+                                verLegalesBtn.onclick = () => {
+                                    const verLegalesText = document.getElementById(
+                                        'ver-legales-text'
+                                    );
+                                    verLegalesText.classList.toggle('hlp-none');
+                                }
+                            }
+                        });`
                     }}
                 />
             )}
