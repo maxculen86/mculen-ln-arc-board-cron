@@ -20,7 +20,7 @@ exports[`AmpImage Matches snapshot 1`] = `
     class="mod-figcaption"
   >
     <span
-      class=" --caption --twoxs"
+      class="--caption --twoxs"
     >
       Test image
     </span>

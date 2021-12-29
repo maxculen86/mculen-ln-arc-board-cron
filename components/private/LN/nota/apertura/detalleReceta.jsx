@@ -14,7 +14,7 @@ const DetalleReceta = props => {
 
     const DetailsTag = ({ icon, children }) => {
         return (
-            <div className="row">
+            <div className="row tag">
                 <div className="col-2 col-tablet-1">
                     <Icon name={icon} />
                 </div>
@@ -31,22 +31,23 @@ const DetalleReceta = props => {
                 <div className="cont_tags tags">
                     {cookTime && (
                         <DetailsTag icon="fire">
-                            Tiempo de cocción: {cookTime} min
+                            <strong>Tiempo de cocción:</strong> {cookTime} min.
                         </DetailsTag>
                     )}
                     {prepTime && (
                         <DetailsTag icon="knife">
-                            Tiempo de preparación: {prepTime} min
+                            <strong>Tiempo de preparación:</strong> {prepTime}{' '}
+                            min.
                         </DetailsTag>
                     )}
                     {counterTime && (
                         <DetailsTag icon="timer">
-                            Tiempo total: {counterTime} min
+                            <strong>Tiempo total:</strong> {counterTime} min.
                         </DetailsTag>
                     )}
                     {counterPortion && (
                         <DetailsTag icon="group">
-                            Porciones: {counterPortion}
+                            <strong>Porciones:</strong> {counterPortion}
                         </DetailsTag>
                     )}
                 </div>

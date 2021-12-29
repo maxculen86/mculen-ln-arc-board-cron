@@ -51,7 +51,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           </a>
         </div>
         <p
-          class=" com-text --bio --twoxs"
+          class="com-text --bio --twoxs"
         >
           Ejerce el periodismo desde los 16 años cuando ingresó al
                 diario La Gaceta de Tucumán. En 1975, Clarín lo convocó para
@@ -247,7 +247,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
               title=""
             >
               <i
-                class="com-icon icon-twitter-filled  "
+                class="com-icon icon-twitter-filled"
               >
                 <svg
                   fill="none"
@@ -279,7 +279,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
               title=""
             >
               <i
-                class="com-icon icon-facebook-filled  "
+                class="com-icon icon-facebook-filled"
               >
                 <svg
                   fill="none"
@@ -309,7 +309,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
               title=""
             >
               <i
-                class="com-icon icon-youtube-filled  "
+                class="com-icon icon-youtube-filled"
               >
                 <svg
                   fill="none"
@@ -339,7 +339,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
               title=""
             >
               <i
-                class="com-icon icon-instagram-filled  "
+                class="com-icon icon-instagram-filled"
               >
                 <svg
                   fill="none"
@@ -368,7 +368,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
               title=""
             >
               <i
-                class="com-icon icon-linkedin-filled  "
+                class="com-icon icon-linkedin-filled"
               >
                 <svg
                   fill="none"
@@ -397,7 +397,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
               title=""
             >
               <i
-                class="com-icon icon-rss-filled  "
+                class="com-icon icon-rss-filled"
               >
                 <svg
                   fill="none"
@@ -429,7 +429,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
               title=""
             >
               <i
-                class="com-icon icon-medium-filled  "
+                class="com-icon icon-medium-filled"
               >
                 <svg
                   fill="none"
@@ -458,7 +458,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
               title=""
             >
               <i
-                class="com-icon icon-pinterest-filled  "
+                class="com-icon icon-pinterest-filled"
               >
                 <svg
                   fill="none"
@@ -487,7 +487,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
               title=""
             >
               <i
-                class="com-icon icon-soundcloud-filled  "
+                class="com-icon icon-soundcloud-filled"
               >
                 <svg
                   fill="none"
@@ -516,7 +516,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
               title=""
             >
               <i
-                class="com-icon icon-snapchat-filled  "
+                class="com-icon icon-snapchat-filled"
               >
                 <svg
                   fill="none"
@@ -545,7 +545,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
               title=""
             >
               <i
-                class="com-icon icon-whatsapp-filled  "
+                class="com-icon icon-whatsapp-filled"
               >
                 <svg
                   fill="none"
@@ -576,7 +576,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
               title=""
             >
               <i
-                class="com-icon icon-tumblr-filled  "
+                class="com-icon icon-tumblr-filled"
               >
                 <svg
                   fill="none"
@@ -631,7 +631,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           </a>
         </div>
         <p
-          class=" com-text --bio --twoxs"
+          class="com-text --bio --twoxs"
         >
           Ejerce el periodismo desde los 16 años cuando ingresó al
                 diario La Gaceta de Tucumán. En 1975, Clarín lo convocó para
@@ -704,7 +704,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
               title=""
             >
               <i
-                class="com-icon icon-twitter-filled  "
+                class="com-icon icon-twitter-filled"
               >
                 <svg
                   fill="none"

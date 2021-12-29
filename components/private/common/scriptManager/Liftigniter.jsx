@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
 import get from '../utils/get';
 import getAuthorByline from '../utils/getAuthorByline';
+import { googlePublisherAndLiftIgniterPropTypes } from '../utils/propTypesHelper';
 
 class LiftIgniter extends Component {
     constructor(props) {
@@ -119,25 +120,7 @@ class LiftIgniter extends Component {
 
 LiftIgniter.propTypes = {
     location: PropTypes.string,
-    name: PropTypes.string,
     globalContent: PropTypes.shape({
-        content_elements: PropTypes.arrayOf(
-            PropTypes.shape({
-                _id: PropTypes.string,
-                type: PropTypes.string,
-                additional_properties: PropTypes.shape({
-                    nodeType: PropTypes.string
-                }),
-                content: PropTypes.string
-            })
-        ),
-        credits: PropTypes.shape({
-            by: PropTypes.arrayOf(
-                PropTypes.shape({
-                    name: PropTypes.string
-                })
-            )
-        }),
         taxonomy: PropTypes.shape({
             primary_section: PropTypes.shape({
                 name: PropTypes.string
@@ -150,11 +133,11 @@ LiftIgniter.propTypes = {
                 })
             )
         }),
-        label: PropTypes.shape({
-            recomendar: PropTypes.shape({
-                text: PropTypes.string
-            })
-        })
+        content_elements:
+            googlePublisherAndLiftIgniterPropTypes.content_elements,
+        credits: googlePublisherAndLiftIgniterPropTypes.credits,
+        googlePublisherAndLiftIgniterPropTypes:
+            googlePublisherAndLiftIgniterPropTypes.label
     })
 };
 

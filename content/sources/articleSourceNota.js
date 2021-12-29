@@ -26,6 +26,7 @@ import paywallUtils from './utils/paywall';
 import removeInvalidUrlTagA from '../../components/private/common/utils/removeInvalidUrlTagA';
 import isNotShowcase from './utils/isNotShowcase';
 import powerUp from './utils/powerUp';
+import firmaDistributorValidation from './utils/firmaDistributorValidator';
 
 const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -89,7 +90,6 @@ const fetch = query => {
                     urlBase: SITE_LANACION,
                     responseData: response
                 });
-
             return transform(
                 response,
                 arcSite,
@@ -101,6 +101,10 @@ const fetch = query => {
             );
         })
         .catch(error => {
+            console.log(
+                '🚀 ~ file: articleSourceNota.js ~ line 90 ~ error',
+                error
+            );
             logger.push(
                 error,
                 { source: 'content/source/articleSourceNota', url },
@@ -122,6 +126,22 @@ const transform = (
 ) => {
     // Data
     const subtype = get(data, `subtype`, null);
+
+    // With firma distributor data
+    const name = get(data, 'distributor.name', 'LA NACION');
+    const sponsored = get(data, 'owner.sponsored', false);
+    const sections = get(data, 'taxonomy.sections', []);
+    const authors = get(data, 'credits.by', []);
+    const layout = 'LN-nota-noticia';
+
+    const withFirmaDistributor = firmaDistributorValidation(
+        sections,
+        layout,
+        name,
+        subtype,
+        authors,
+        sponsored
+    );
 
     // Presets
     const presetsDefault = get(properties, `imageConfig.resize.default`, null);
@@ -164,6 +184,7 @@ const transform = (
         paywallEnabled,
         ...data,
         subscription: meteringVariant,
+        withFirmaDistributor,
         ...addResizedUrls(data, {
             resizerSecret: RESIZER_KEY,
             resizerUrl: RESIZER_URL,

@@ -11,6 +11,76 @@ const targetingHome = {
     seccion: 'home'
 };
 
+const contentElementSizes = {
+    sizes: [
+        {
+            width: 278,
+            height: 186,
+            media: '(min-width: 1280px)'
+        },
+        {
+            width: 344,
+            height: 230,
+            media: '(min-width: 1024px)'
+        },
+        {
+            width: 768,
+            height: 513,
+            media: '(min-width: 768px)'
+        },
+        {
+            width: 350,
+            height: 234,
+            media: '(min-width: 360px)'
+        },
+        {
+            width: 360,
+            height: 234,
+            media: '(min-width: 320px)'
+        }
+    ]
+};
+
+const promoItemsSizes = {
+    sizes: [
+        {
+            width: 879,
+            height: 586,
+            media: '(min-width: 1280px)',
+            proportion: '3:2',
+            media_preload: '(min-width: 1280.1px)'
+        },
+        {
+            width: 1119,
+            height: 746,
+            media: '(min-width: 1024px)',
+            proportion: '3:2',
+            media_preload: '(min-width: 1024.1px and max-width: 1280px'
+        },
+        {
+            width: 768,
+            height: 512,
+            media: '(min-width: 768px)',
+            proportion: '3:2',
+            media_preload: '(min-width: 768.1px and max-width: 1024px)'
+        },
+        {
+            width: 351,
+            height: 234,
+            media: '(min-width: 375px)',
+            proportion: '3:2',
+            media_preload: '(min-width: 375.1px and max-width: 768px)'
+        },
+        {
+            width: 309,
+            height: 206,
+            media: '(min-width: 320px)',
+            proportion: '3:2',
+            media_preload: '(max-width: 375px)'
+        }
+    ]
+};
+
 export default {
     longTitle: 'Últimas noticias de Argentina y el mundo - LA NACION',
     title: 'LA NACION',
@@ -857,35 +927,7 @@ export default {
                         }
                     ]
                 },
-                content_elements: {
-                    sizes: [
-                        {
-                            width: 278,
-                            height: 186,
-                            media: '(min-width: 1280px)'
-                        },
-                        {
-                            width: 344,
-                            height: 230,
-                            media: '(min-width: 1024px)'
-                        },
-                        {
-                            width: 768,
-                            height: 513,
-                            media: '(min-width: 768px)'
-                        },
-                        {
-                            width: 350,
-                            height: 234,
-                            media: '(min-width: 360px)'
-                        },
-                        {
-                            width: 360,
-                            height: 234,
-                            media: '(min-width: 320px)'
-                        }
-                    ]
-                },
+                content_elements: contentElementSizes,
                 credits: {
                     sizes: [
                         {
@@ -1067,48 +1109,7 @@ export default {
                 }
             },
             xl: {
-                promo_items: {
-                    sizes: [
-                        {
-                            width: 879,
-                            height: 586,
-                            media: '(min-width: 1280px)',
-                            proportion: '3:2',
-                            media_preload: '(min-width: 1280.1px)'
-                        },
-                        {
-                            width: 1119,
-                            height: 746,
-                            media: '(min-width: 1024px)',
-                            proportion: '3:2',
-                            media_preload:
-                                '(min-width: 1024.1px and max-width: 1280px'
-                        },
-                        {
-                            width: 768,
-                            height: 512,
-                            media: '(min-width: 768px)',
-                            proportion: '3:2',
-                            media_preload:
-                                '(min-width: 768.1px and max-width: 1024px)'
-                        },
-                        {
-                            width: 351,
-                            height: 234,
-                            media: '(min-width: 375px)',
-                            proportion: '3:2',
-                            media_preload:
-                                '(min-width: 375.1px and max-width: 768px)'
-                        },
-                        {
-                            width: 309,
-                            height: 206,
-                            media: '(min-width: 320px)',
-                            proportion: '3:2',
-                            media_preload: '(max-width: 375px)'
-                        }
-                    ]
-                },
+                promo_items: promoItemsSizes,
                 content_elements: {
                     sizes: [
                         {
@@ -1149,48 +1150,7 @@ export default {
                 }
             },
             l: {
-                promo_items: {
-                    sizes: [
-                        {
-                            width: 879,
-                            height: 586,
-                            media: '(min-width: 1280px)',
-                            proportion: '3:2',
-                            media_preload: '(min-width: 1280.1px)'
-                        },
-                        {
-                            width: 1119,
-                            height: 746,
-                            media: '(min-width: 1024px)',
-                            proportion: '3:2',
-                            media_preload:
-                                '(min-width: 1024.1px and max-width: 1280px)'
-                        },
-                        {
-                            width: 768,
-                            height: 512,
-                            media: '(min-width: 768px)',
-                            proportion: '3:2',
-                            media_preload:
-                                '(min-width: 768.1px and max-width: 1024px)'
-                        },
-                        {
-                            width: 351,
-                            height: 234,
-                            media: '(min-width: 375px)',
-                            proportion: '3:2',
-                            media_preload:
-                                '(min-width: 375.1px and max-width: 768px)'
-                        },
-                        {
-                            width: 309,
-                            height: 206,
-                            media: '(min-width: 320px)',
-                            proportion: '3:2',
-                            media_preload: '(max-width: 375px)'
-                        }
-                    ]
-                },
+                promo_items: promoItemsSizes,
                 content_elements: {
                     sizes: [
                         {
@@ -1259,35 +1219,7 @@ export default {
                         }
                     ]
                 },
-                content_elements: {
-                    sizes: [
-                        {
-                            width: 278,
-                            height: 186,
-                            media: '(min-width: 1280px)'
-                        },
-                        {
-                            width: 344,
-                            height: 230,
-                            media: '(min-width: 1024px)'
-                        },
-                        {
-                            width: 768,
-                            height: 513,
-                            media: '(min-width: 768px)'
-                        },
-                        {
-                            width: 350,
-                            height: 234,
-                            media: '(min-width: 360px)'
-                        },
-                        {
-                            width: 360,
-                            height: 234,
-                            media: '(min-width: 320px)'
-                        }
-                    ]
-                },
+                content_elements: contentElementSizes,
                 credits: {
                     sizes: [
                         {
@@ -1608,6 +1540,23 @@ export default {
                         [300, 250],
                         [320, 100],
                         [1, 1]
+                    ],
+                    targeting: targetingNota,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
+                caja6_mob: {
+                    slotName: 'la_nacion_mobile/Nota/caja6_mob',
+                    withoutHide: true,
+                    dimensions: [
+                        [300, 250],
+                        [230, 50],
+                        [300, 450],
+                        [1, 1],
+                        [320, 100]
                     ],
                     targeting: targetingNota,
                     bidding: {
@@ -2073,6 +2022,7 @@ export default {
                 megalateral2_dsk: {
                     slotName: `la_nacion_desktop/Home/megalateral2_dsk`,
                     dimensions: [
+                        [300, 250],
                         [120, 600],
                         [250, 600],
                         [160, 600],
@@ -2083,6 +2033,7 @@ export default {
                 megalateral3_dsk: {
                     slotName: `la_nacion_desktop/Home/megalateral3_dsk`,
                     dimensions: [
+                        [300, 250],
                         [120, 600],
                         [250, 600],
                         [160, 600],
@@ -2156,6 +2107,7 @@ export default {
                         [300, 250],
                         [300, 450],
                         [320, 100],
+                        [320, 450],
                         [1, 1]
                     ],
                     targeting: targetingHome
@@ -2167,6 +2119,7 @@ export default {
                         [300, 250],
                         [300, 450],
                         [320, 100],
+                        [320, 450],
                         [1, 1]
                     ],
                     targeting: targetingHome
@@ -2178,6 +2131,7 @@ export default {
                         [300, 250],
                         [300, 450],
                         [320, 100],
+                        [320, 450],
                         [1, 1]
                     ],
                     targeting: targetingHome
@@ -2189,6 +2143,7 @@ export default {
                         [300, 250],
                         [300, 450],
                         [320, 100],
+                        [320, 450],
                         [1, 1]
                     ],
                     targeting: targetingHome
@@ -2200,6 +2155,7 @@ export default {
                         [300, 250],
                         [300, 450],
                         [320, 100],
+                        [320, 450],
                         [1, 1]
                     ],
                     targeting: targetingHome

@@ -77,6 +77,12 @@
         }
         .cont_tags {
             margin-bottom: px(20);
+            .tag {
+                margin-bottom: $spacing-xs;
+            }
+            .tag:nth-child(3) {
+                margin-bottom: $spacing-lg;
+            }
             &:last-child {
                 margin-bottom: 0;
             }
@@ -123,6 +129,31 @@
     .--preparation {
         @media ($media-m) {
             margin-bottom: $spacing-lg;
+        }
+    }
+    .--nutrition {
+        .com-table {
+            border: 1px solid $light-neutral-300;
+            width: 100%;
+            tr {
+                th {
+                    text-align: start;
+                    padding: $spacing-sm;
+                    color: $neutral-black;
+                    font-weight: 700;
+                }
+                td {
+                    padding: $spacing-sm;
+                }
+                th,
+                td {
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+            }
+            tr:not(:last-child) {
+                border-bottom: 1px solid $light-neutral-300;
+            }
         }
     }
 }

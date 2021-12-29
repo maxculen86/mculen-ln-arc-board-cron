@@ -1,6 +1,10 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 
+.link-container-currency-data {
+    color: $light-neutral-900;
+}
+
 .currency-data {
     display: flex;
     flex-direction: row;
