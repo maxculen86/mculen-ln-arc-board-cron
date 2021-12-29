@@ -1,6 +1,5 @@
 import { VIAFOURA_UUID, VIAFOURA_XREQUEST } from 'fusion:environment';
 import request from 'request-promise-native';
-
 import logger from '../../components/private/common/utils/logger';
 
 const fetch = ({ arcSite, id }) => {
@@ -21,7 +20,7 @@ const fetch = ({ arcSite, id }) => {
         try {
             const response = await request(endpoint);
             return {
-                comments: transform(response)
+                comments: response
             };
         } catch (error) {
             logger.push(
@@ -33,10 +32,6 @@ const fetch = ({ arcSite, id }) => {
     };
 
     return Promise.resolve(getData());
-};
-
-const transform = data => {
-    return { ...data };
 };
 
 export default {
