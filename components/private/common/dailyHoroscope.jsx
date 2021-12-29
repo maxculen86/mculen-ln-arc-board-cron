@@ -1,13 +1,30 @@
+import PropTypes from 'prop-types';
+
 import Text from './text/index';
 import Link from './com-link';
+import Image from './com-image';
+
 import '../../../resources/dist/css/ln/components/daily-horoscope.css';
 
-const DailyHoroscope = ({ data, ...r }) => {
+const DailyHoroscope = ({ classCondition, data }) => {
+    const quitarTildes = string => {
+        return string
+            .toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '');
+    };
     return (
-        <article className="daily-horoscope" {...r}>
+        <article className={`daily-horoscope ${classCondition}`}>
             <header className="daily-horoscope-header">
-                <div>
-                    <div className="falso-svg"></div>
+                <div className="container-svg">
+                    <Image
+                        src={`http://arc.lanacion.com.ar/pf/resources/images/horoscope-logos/${quitarTildes(
+                            data.nombre
+                        )}.svg?d=%24LATEST`}
+                        alt={data.nombre}
+                        width="100%"
+                        height="100%"
+                    />
                 </div>
                 <div>
                     <Text tag="h2" extraClass="title" size="--m">
@@ -23,7 +40,7 @@ const DailyHoroscope = ({ data, ...r }) => {
                             title=""
                             classCondition="--author"
                         >
-                            Renata Dossi
+                            {data.autor}
                         </Link>
                     </Text>
                 </div>
@@ -47,6 +64,10 @@ const DailyHoroscope = ({ data, ...r }) => {
             </main>
         </article>
     );
+};
+
+DailyHoroscope.propTypes = {
+    data: PropTypes.object
 };
 
 export default DailyHoroscope;
