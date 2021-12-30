@@ -30,10 +30,10 @@ const Share = props => {
             comments: { display_comments: displayComments = true } = {}
         }
     } = props;
-    const { comments } =
-        useContent({ source: 'viafouraSource', query: { id } }) || {};
+    const { comments } = {};
+    // useContent({ source: 'viafouraSource', query: { id } }) || {};
 
-    const { total_visible_content: totalVisibleContent } = comments;
+    const { total_visible_content: totalVisibleContent } = comments || '';
 
     const { arcSite = 'la-nacion-ar' } = useAppContext() || {};
     const siteVars = getProperties(arcSite);
