@@ -30,11 +30,24 @@ const tePuedeInteresar = props => {
     const [isReady, setIsReady] = useState(false);
 
     useEffect(() => {
-        checkLocalStorage(url, setSessionId, setUserId, setExcludeItems);
+        if (localStorage) {
+            const { urls, sid, uid } = getVariablesFromLocalStorage();
+            const newUrlsToExclude = saveUrlToExclude(urls, url);
+            setLocalStorage(newUrlsToExclude, sid);
+            setSessionId(sid);
+            if (uid !== 'N/A') setUserId(uid);
+            setExcludeItems(urls);
+        }
     }, [url]);
 
     useEffect(() => {
-        handleScrollForComments(isReady, setIsReady);
+        const handleScrollForComments = () => {
+            const scrollPercentRounded = getScrollPercent();
+            if (!isReady && scrollPercentRounded > 60) {
+                setIsReady(true);
+                window.removeEventListener('scroll', handleScrollForComments);
+            }
+        };
         !isReady && window.addEventListener('scroll', handleScrollForComments);
         return () => {
             window.removeEventListener('scroll', handleScrollForComments);
@@ -90,17 +103,6 @@ tePuedeInteresar.defaultProps = {
 
 export default tePuedeInteresar;
 
-const checkLocalStorage = (url, setSessionId, setUserId, setExcludeItems) => {
-    if (localStorage) {
-        const { urls, sid, uid } = getVariablesFromLocalStorage();
-        const newUrlsToExclude = saveUrlToExclude(urls, url);
-        setLocalStorage(newUrlsToExclude, sid);
-        setSessionId(sid);
-        if (uid !== 'N/A') setUserId(uid);
-        setExcludeItems(urls);
-    }
-};
-
 const getVariablesFromLocalStorage = () => {
     const urls = JSON.parse(localStorage.getItem('excludeItems')) || [];
     const uid = localStorage.getItem('CDuserId') || 'N/A';
@@ -143,12 +145,4 @@ const saveUrlToExclude = (urls, currentUrl) => {
     }
     urls.push(currentUrl);
     return urls;
-};
-
-const handleScrollForComments = (isReady, setIsReady) => {
-    const scrollPercentRounded = getScrollPercent();
-    if (!isReady && scrollPercentRounded > 60) {
-        setIsReady(true);
-        window.removeEventListener('scroll', handleScrollForComments);
-    }
 };

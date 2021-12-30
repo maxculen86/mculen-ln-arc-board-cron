@@ -7,15 +7,13 @@ import ComParagraph from '../../../common/com-paragraph';
 import { compose } from '../../../common/utils/functional';
 
 const Parrafo = ({ data, capital, size, classCondition }) => {
-    const content =
-        data.content &&
-        compose(
-            replaceClassForMark,
-            setOtherChar,
-            setExternalLinks,
-            setItalicText,
-            setBoldText
-        )(data.content);
+    const content = compose(
+        replaceClassForMark,
+        setOtherChar,
+        setExternalLinks,
+        setItalicText,
+        setBoldText
+    )(data.content);
 
     // Si el redactor hace enter varias veces ignoramos los <br/>
     if (content === '<br/>') return <></>;
@@ -82,7 +80,7 @@ const deleteTagsForTitle = text =>
 const setExternalLinks = text =>
     text.replace(
         /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g,
-        (href, string) => {
+        (match, href, string) => {
             const [, , link] = href.match(/href=(["'\\])+(.*?)\1/) || [
                 null,
                 null,

@@ -4,8 +4,8 @@ import Text from './text';
 import ComTitle from './com-title';
 import ComDate from './com-date';
 import ComTag from './com-tag';
-import '../../../resources/dist/css/ln/components/mod-description.css';
 import Badge from './badge';
+import '../../../resources/dist/css/ln/components/mod-description.css';
 
 const ModDescription = props => {
     const {
@@ -30,23 +30,23 @@ const ModDescription = props => {
 
     return (
         <section className="mod-description">
-            {label.text && label.text.trim() && (
-                <Badge className="com-label" type={label.style}>
+            {label && label.text && label.text.trim() && (
+                <Badge className="com-label" type={label.style || ''}>
                     {label.text.trim()}
                 </Badge>
             )}
             <ComTitle
-                tag={titleTag}
-                size={titleSize}
+                tag={titleTag || 'h2'}
+                size={titleSize || '--xs'}
                 link={link}
                 content={titleText}
                 lead={lead}
             />
             {subheadText && (
                 <Text
-                    tag={subheadTag}
+                    tag={subheadTag || 'h3'}
                     extraClass="com-subhead"
-                    size={subheadSize}
+                    size={subheadSize || '2xs'}
                     text={subheadText}
                     link={link}
                 />
@@ -56,7 +56,7 @@ const ModDescription = props => {
                     <Text
                         tag="strong"
                         extraClass="mod-marquee"
-                        size={authorSize}
+                        size={authorSize || '4xs'}
                         text={marquesina || authors}
                         link={link}
                     />
@@ -99,10 +99,7 @@ const ModDescription = props => {
 ModDescription.propTypes = {
     authors: PropTypes.string,
     authorSize: PropTypes.string,
-    category: PropTypes.shape({
-        name: PropTypes.string,
-        path: PropTypes.string
-    }),
+    category: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     dateText: PropTypes.string,
     label: PropTypes.shape({
         text: PropTypes.string,
@@ -125,19 +122,19 @@ ModDescription.propTypes = {
 
 ModDescription.defaultProps = {
     authors: undefined,
-    authorSize: '4xs',
+    authorSize: '',
     category: undefined,
     dateText: undefined,
-    label: { text: '', style: '' },
+    label: undefined,
     lead: undefined,
     link: undefined,
     marquesina: undefined,
-    subheadSize: '2xs',
-    subheadTag: 'h3',
+    subheadSize: '',
+    subheadTag: '',
     subheadText: false,
     tags: undefined,
     titleSize: '--xs',
-    titleTag: 'h2'
+    titleTag: 'h4'
 };
 
 export default ModDescription;
