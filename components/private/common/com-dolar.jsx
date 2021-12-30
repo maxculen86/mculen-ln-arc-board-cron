@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ComLink from './com-link';
-import ComText from './text';
 
 const ComDolar = props => {
     const {
@@ -12,7 +11,7 @@ const ComDolar = props => {
         size
     } = props;
     return (
-        <ul className={`com-dolar`}>
+        <ul className="com-dolar">
             <li>
                 <ComLink
                     classCondition="--dolar"
@@ -23,12 +22,11 @@ const ComDolar = props => {
                 >
                     Dólar hoy:
                 </ComLink>
-                {/* <ComText size={size}>BNA:</ComText> */}
-                <span id="precioCompraBna" className={`precioDolar`}>
+                <span id="precioCompraBna" className="precioDolar">
                     {precioCompraBna ? `$${precioCompraBna}` : '$00,00'}
                 </span>
                 <i>/</i>
-                <span id="precioVentaBna" className={`precioDolar`}>
+                <span id="precioVentaBna" className="precioDolar">
                     {precioVentaBna ? `$${precioVentaBna}` : '$00,00'}
                 </span>
             </li>
@@ -42,11 +40,11 @@ const ComDolar = props => {
                 >
                     Dólar blue:
                 </ComLink>
-                <span id="precioCompraBlue" className={`precioDolar`}>
+                <span id="precioCompraBlue" className="precioDolar">
                     {precioCompraBlue ? `$${precioCompraBlue}` : '$00,00'}
                 </span>
                 <i>/</i>
-                <span id="precioVentaBlue" className={`precioDolar`}>
+                <span id="precioVentaBlue" className="precioDolar">
                     {precioVentaBlue ? `$${precioVentaBlue}` : '$00,00'}
                 </span>
             </li>
