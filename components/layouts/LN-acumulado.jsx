@@ -17,8 +17,7 @@ import { formatText } from '../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import PwaModals from '../private/LN/common/pwaModals';
 
-import HoroscopeBox from '../private/common/horoscopeBox';
-import DailyHoroscope from '../private/common/dailyHoroscope';
+// import DailyHoroscope from '../private/common/dailyHoroscope';
 
 const pageBuilderSections = [
     'Banner-Megatop',
@@ -109,56 +108,7 @@ const LNAcumuladoLayout = props => {
         'acumuladoGeneral.colecciones',
         []
     );
-    const signos = [
-        {
-            nombre: 'Aries',
-            periodo: '21/3 al 20/4'
-        },
-        {
-            nombre: 'Tauro',
-            periodo: '21/4 al 21/5'
-        },
-        {
-            nombre: 'Géminis',
-            periodo: '22/5 al 21/6'
-        },
-        {
-            nombre: 'Cáncer',
-            periodo: '22/6 al 23/7'
-        },
-        {
-            nombre: 'Leo',
-            periodo: '24/7 al 23/8'
-        },
-        {
-            nombre: 'Virgo',
-            periodo: '24/8 al 23/9'
-        },
-        {
-            nombre: 'Libra',
-            periodo: '24/9 al 23/10'
-        },
-        {
-            nombre: 'Escorpio',
-            periodo: '24/10 al 22/11'
-        },
-        {
-            nombre: 'Sagitario',
-            periodo: '23/11 al 22/12'
-        },
-        {
-            nombre: 'Capricornio',
-            periodo: '23/12 al 20/1'
-        },
-        {
-            nombre: 'Acuario',
-            periodo: '21/1 al 19/2'
-        },
-        {
-            nombre: 'Piscis',
-            periodo: '20/2 al 20/3'
-        }
-    ];
+
     const dataDailyHoroscope = {
         autor: 'Renata Rossi',
         nombre: 'Libra',
@@ -224,8 +174,7 @@ const LNAcumuladoLayout = props => {
                             {apertura}
                             {/* LISTA DE TAGS */}
                             {links}
-                            <HoroscopeBox signos={signos} showTitle />
-                            <DailyHoroscope data={dataDailyHoroscope} />
+                            {/* <DailyHoroscope data={dataDailyHoroscope} /> */}
                         </div>
                         <div id="content-main" className="lay-sidebar">
                             {/* Cuerpo */}
@@ -241,10 +190,6 @@ const LNAcumuladoLayout = props => {
                                 )}
                                 {/* NOTAS */}
                                 {notas}
-                                <HoroscopeBox
-                                    signos={signos}
-                                    showTitle={false}
-                                />
                             </div>
                             <div className="sidebar__aside hlp-tabletlm-none">
                                 {/* BANNERS, RANKING DE NOTAS */}
