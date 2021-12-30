@@ -82,7 +82,7 @@ const snippet = props => {
         return undefined;
     };
 
-    let data = {
+    const data = {
         '@context': 'https://schema.org',
         '@type': 'Recipe',
         recipeCuisine: getRecipeCuisine(sections),

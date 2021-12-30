@@ -30,7 +30,6 @@ function WithRankingData(WrappedComponent, imageConfig) {
             getRankingContent = (index, props, sectionId) => {
                 const daysAgo = get(props, `customFields.daysAgo${index}`, 1);
                 const size = get(props, `customFields.size${index}`, 3);
-                // const website = get(props, 'website', null);
 
                 this.fetchContent({
                     articles: {

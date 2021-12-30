@@ -1,5 +1,4 @@
 import React from 'react';
-//import Logo from '../../../common/com-logo';
 import NavBarMobile from '../navbar';
 import Button from '../../../common/com-button';
 import Link from '../../../common/link';
@@ -22,14 +21,6 @@ const headerAMP = props => {
                             </Button>
                         </div>
                         <div className="col-7 col-desksm-4 header__middle">
-                            {/* <Logo
-                                logoName="la-nacion"
-                                color
-                                //size="--md"
-                                href="https://www.lanacion.com.ar/"
-                                target="_top"
-                                title="Ir a la página principal"
-                            /> */}
                             <LogoLN />
                         </div>
                         <div className="col-5 col-desksm-4 header__right">
@@ -56,7 +47,7 @@ const headerAMP = props => {
             </header>
 
             <NavBarMobile amp />
-            <div id="target-element-left"></div>
+            <div id="target-element-left" />
 
             <amp-sidebar
                 id="sidebar-left"
@@ -66,12 +57,6 @@ const headerAMP = props => {
             >
                 {' '}
                 <section className="header_sidebar">
-                    {/* <Logo
-                        color
-                        logoName="la-nacion"
-                        href="https://www.lanacion.com.ar/"
-                        title="Ir a la página principal"
-                    /> */}
                     <LogoLN />
                     <Button on="tap:sidebar-left.close" iconName="close" />
                 </section>

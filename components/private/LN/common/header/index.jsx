@@ -70,7 +70,6 @@ const Index = props => {
         if (userMenu) userMenu.classList.remove(CLASS_ACTIVE);
         if (scrollPos) {
             if (scrollPos > height) {
-                // classList.add(CLASS_SCROLL_DOWN);
                 if (wrapper) {
                     wrapper.classList.add(CLASS_SCROLL_DOWN);
                 }

@@ -25,9 +25,6 @@ const embed = (nodo, dataNota) => {
             resp.src = `<blockquote class="twitter-tweet" style="min-height: 130px;"><a href = "${valor.url}"></a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset ="utf-8"></script>`;
             break;
         case 'facebook-video':
-            resp.id = facebookPost;
-            resp.src = getEmbedHref('href', valor.html);
-            break;
         case facebookPost:
             resp.id = facebookPost;
             resp.src = getEmbedHref('href', valor.html);
