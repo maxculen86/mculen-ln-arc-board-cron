@@ -12,15 +12,14 @@
             display: flex;
             width: 100%;
             justify-content: space-around;
-            font-size: px(12);
+            font-size: px(11);
             line-height: px(16);
 
             .--dolar {
-                margin-right: $spacing-xs;
+                margin-right: $spacing-2xs;
             }
             .--blue {
-                margin-left: $spacing-sm;
-                margin-right: $spacing-3xs;
+                margin-right: $spacing-2xs;
             }
             i {
                 padding: 0 $spacing-3xs;
@@ -31,16 +30,19 @@
             .precioDolar {
                 font-weight: bold;
             }
-        }
-    }
-}
 
-@media (min-width: 400px) {
-    .mod-subheader {
-        .row {
-            .com-dolar {
-                width: auto;
+            @media (min-width: 360px) {
+                font-size: px(12);
+            }
+            @media (min-width: 370px) {
+                font-size: px(13);
+            }
+            @media (min-width: 400px) {
                 font-size: px(14);
+                width: auto;
+                .--blue {
+                    margin-left: $spacing-sm;
+                }
             }
         }
     }
