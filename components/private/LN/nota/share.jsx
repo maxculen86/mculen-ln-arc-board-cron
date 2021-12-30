@@ -30,8 +30,8 @@ const Share = props => {
             comments: { display_comments: displayComments = true } = {}
         }
     } = props;
-    const { comments } = {};
-    // useContent({ source: 'viafouraSource', query: { id } }) || {};
+    const { comments } =
+        useContent({ source: 'viafouraSource', query: { id } }) || {};
 
     const { total_visible_content: totalVisibleContent } = comments || '';
 
