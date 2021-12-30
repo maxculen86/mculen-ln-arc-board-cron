@@ -26,7 +26,8 @@ const AnexoFeature = props => {
         getComponentFromConfig(_type, {
             ...props,
             errorMessage,
-            extraClass: EXTRA_CLASS
+            extraClass: EXTRA_CLASS,
+            isAdmin
         });
 
     return _type === 'Iframe' ? (
@@ -67,7 +68,8 @@ const getComponentFromConfig = (_type, _props) => {
                     <iframe
                         id={anexoId}
                         title={`anexo-${id}`}
-                        data-src={url}
+                        data-src={!_props.isAdmin ? url : undefined}
+                        src={_props.isAdmin ? url : undefined}
                         frameBorder="0"
                         width="100%"
                         height="100%"
