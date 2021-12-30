@@ -1,8 +1,9 @@
+const infoErrorUrl = 'El parametro de Url es obligatorio en SSR';
+
 const getParameterByName = (parameter, urlP) => {
     let url = urlP;
     if (!url) {
-        if (typeof window === 'undefined')
-            throw new Error('El parametro de Url es obligatorio en SSR');
+        if (typeof window === 'undefined') throw new Error(infoErrorUrl);
         url = window.location.href;
     }
     const name = parameter && parameter.replace(/[\[\]]/g, '\\$&');
@@ -68,8 +69,7 @@ const isApiRequest = url => {
 const getApiVersion = urlP => {
     let url = urlP;
     if (!url) {
-        if (typeof window === 'undefined')
-            throw new Error('El parametro de Url es obligatorio en SSR');
+        if (typeof window === 'undefined') throw new Error(infoErrorUrl);
         url = window.location.href;
     }
 
@@ -80,8 +80,7 @@ const getApiVersion = urlP => {
 const getApiType = urlP => {
     let url = urlP;
     if (!url) {
-        if (typeof window === 'undefined')
-            throw new Error('El parametro de Url es obligatorio en SSR');
+        if (typeof window === 'undefined') throw new Error(infoErrorUrl);
         url = window.location.href;
     }
 

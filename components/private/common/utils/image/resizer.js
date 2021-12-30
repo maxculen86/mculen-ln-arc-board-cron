@@ -129,6 +129,8 @@ export const resizeArcGallery = (
     };
 };
 
+const mediaMinWidth = '(min-width: 768px)';
+
 export const resizeArcImage = (
     arcImage,
     resizeOptions,
@@ -138,7 +140,7 @@ export const resizeArcImage = (
     defaultResize = {
         width: 768,
         height: 513,
-        media: '(min-width: 768px)'
+        media: mediaMinWidth
     }
 ) => {
     if (arcImage.type !== 'image' || !arcImage.url)
@@ -228,7 +230,7 @@ const resizeCredits = (credits, resizeOptions, resizer) => {
         {
             width: 768,
             height: 513,
-            media: '(min-width: 768px)'
+            media: mediaMinWidth
         }
     ]);
 
@@ -299,7 +301,7 @@ const getDefaultSize = subtype => {
                   height: 850,
                   media: '(min-width: 1280px)'
               }
-            : { width: 768, height: 513, media: '(min-width: 768px)' };
+            : { width: 768, height: 513, media: mediaMinWidth };
 
     const shouldExcludeCrop =
         subtype === FOTOAL100 || subtype === STORYTELLING || subtype === RECETA;

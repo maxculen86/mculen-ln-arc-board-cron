@@ -11,7 +11,6 @@ const AmpImage = props => {
         alt,
         width,
         height,
-        href,
         layout,
         sourcesZoom,
         active,
@@ -45,7 +44,6 @@ const AmpImage = props => {
             className={`mod-figure figure ${
                 isVertical ? 'contain-vertical' : 'contain-horizontal'
             }`}
-            //href={href}
         >
             <div className="mod-picture content-pic picture">
                 <amp-img
@@ -101,7 +99,6 @@ AmpImage.propTypes = {
     ).isRequired,
     url: PropTypes.string.isRequired,
     alt: PropTypes.string.isRequired,
-    href: PropTypes.string.isRequired,
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
     layout: PropTypes.string,
