@@ -7,68 +7,15 @@ import ComParagraph from '../../../common/com-paragraph';
 import { compose } from '../../../common/utils/functional';
 
 const Parrafo = ({ data, capital, size, classCondition }) => {
-    const isLetter = text => text.match(/^[A-Za-z]/);
-
-    const setOtherChar = text =>
-        text.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
-
-    const replaceClassForMark = text =>
-        text
-            .replace(/hl_yellow/g, 'hl_underline')
-            .replace(/hl_pink/g, 'hl_underline')
-            .replace(/hl_purple/g, 'hl_underline')
-            .replace(/hl_orange/g, 'hl_underline')
-            .replace(/hl_green/g, 'hl_underline');
-
-    const setBoldText = text =>
-        text.replace(/<b>/g, '<strong>').replace(/<\/b>/g, '</strong>');
-
-    const setItalicText = text =>
-        text.replace(/<i>/g, '<em>').replace(/<\/i>/g, '</em>');
-
-    const deleteTagsForTitle = text =>
-        text
-            .replace(/<em>/g, '')
-            .replace(/<\/em>/g, '')
-            .replace(/<strong>/g, '')
-            .replace(/<\/strong>/g, '');
-
-    const setExternalLinks = text =>
-        text.replace(
-            /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g,
-            (href, string) => {
-                const [, , link] = href.match(/href=(["'\\])+(.*?)\1/) || [
-                    null,
-                    null,
-                    '#'
-                ];
-                let target = '_self';
-
-                if (!href.includes(config.host)) {
-                    target = '_blank';
-                }
-
-                return ReactDOMServer.renderToString(
-                    React.createElement(
-                        ComLink,
-                        {
-                            link,
-                            target,
-                            title: deleteTagsForTitle(string)
-                        },
-                        string
-                    )
-                );
-            }
-        );
-
-    const content = compose(
-        replaceClassForMark,
-        setOtherChar,
-        setExternalLinks,
-        setItalicText,
-        setBoldText
-    )(data.content);
+    const content =
+        data.content &&
+        compose(
+            replaceClassForMark,
+            setOtherChar,
+            setExternalLinks,
+            setItalicText,
+            setBoldText
+        )(data.content);
 
     // Si el redactor hace enter varias veces ignoramos los <br/>
     if (content === '<br/>') return <></>;
@@ -106,3 +53,57 @@ Parrafo.defaultProps = {
 };
 
 export default Parrafo;
+
+const isLetter = text => text.match(/^[A-Za-z]/);
+
+const setOtherChar = text => text.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+
+const replaceClassForMark = text =>
+    text
+        .replace(/hl_yellow/g, 'hl_underline')
+        .replace(/hl_pink/g, 'hl_underline')
+        .replace(/hl_purple/g, 'hl_underline')
+        .replace(/hl_orange/g, 'hl_underline')
+        .replace(/hl_green/g, 'hl_underline');
+
+const setBoldText = text =>
+    text.replace(/<b>/g, '<strong>').replace(/<\/b>/g, '</strong>');
+
+const setItalicText = text =>
+    text.replace(/<i>/g, '<em>').replace(/<\/i>/g, '</em>');
+
+const deleteTagsForTitle = text =>
+    text
+        .replace(/<em>/g, '')
+        .replace(/<\/em>/g, '')
+        .replace(/<strong>/g, '')
+        .replace(/<\/strong>/g, '');
+
+const setExternalLinks = text =>
+    text.replace(
+        /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g,
+        (href, string) => {
+            const [, , link] = href.match(/href=(["'\\])+(.*?)\1/) || [
+                null,
+                null,
+                '#'
+            ];
+            let target = '_self';
+
+            if (!href.includes(config.host)) {
+                target = '_blank';
+            }
+
+            return ReactDOMServer.renderToString(
+                React.createElement(
+                    ComLink,
+                    {
+                        link,
+                        target,
+                        title: deleteTagsForTitle(string)
+                    },
+                    string
+                )
+            );
+        }
+    );
