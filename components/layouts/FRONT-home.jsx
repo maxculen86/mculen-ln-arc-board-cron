@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { API_ENV } from 'fusion:environment';
 import Consumer from 'fusion:consumer';
 import Header from '../private/LN/common/header';
 import ComTitle from '../private/common/com-title';
@@ -70,7 +71,7 @@ const LNHome = props => {
             <GlobalProviderAcu>
                 <script
                     async
-                    src="https://lanacionar.video-player.arcpublishing.com/prod/powaBoot.js"
+                    src={`https://lanacionar.video-player.arcpublishing.com/${API_ENV}/powaBoot.js`}
                 />
                 {seccion1}
                 <div id="wrapper" className={`home demofront ${amp}`}>
