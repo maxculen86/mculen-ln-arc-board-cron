@@ -20,17 +20,16 @@ const CollectionsNotes = (idCollection, type) => {
 
     if (content) {
         const { content_elements: contentElements } = content;
-        const elements =
-            content && contentElements
-                ? contentElements.map((_content, index) =>
-                      getNoteCard(
-                          `${idCollection}${index}`,
-                          _content,
-                          index === 0,
-                          type
-                      )
+        const elements = contentElements
+            ? contentElements.map((_content, index) =>
+                  getNoteCard(
+                      `${idCollection}${index}`,
+                      _content,
+                      index === 0,
+                      type
                   )
-                : [];
+              )
+            : [];
         return elements;
     }
     return null;

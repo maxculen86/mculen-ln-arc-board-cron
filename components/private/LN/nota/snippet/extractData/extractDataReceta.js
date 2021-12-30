@@ -2,12 +2,11 @@
 import get from '../../../../common/utils/get';
 
 export const extractDataFromContentElements = contentElements => {
-    let ingredients = [];
-    let instructions = [];
-    let nutritionItems = [];
+    const instructions = [];
     const embedConfigTypeList = 'embed.config.typeList';
-
-    let nutrition = new Object();
+    let ingredients = [];
+    let nutritionItems = [];
+    let nutrition = {};
     let newProperty;
 
     if (contentElements) {
