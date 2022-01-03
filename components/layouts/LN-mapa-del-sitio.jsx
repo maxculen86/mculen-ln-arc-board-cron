@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import List from '../private/common/mod-list';
-import Logo from '../private/common/com-logo';
 import Title from '../private/common/com-title';
 import Copyright from '../private/LN/common/footer/copyright';
 import PwaModals from '../private/LN/common/pwaModals';
 
 import '../../resources/dist/css/ln/pages/sitemap.css';
+import ComLogo from '../private/common/com-logo';
 
 const LNMapaDelSitio = ({ children }) => {
     const listado1 = [
@@ -249,9 +249,7 @@ const LNMapaDelSitio = ({ children }) => {
                 {/* <Header /> */}
                 <header>
                     <div className="lay">
-                        <Logo
-                            color
-                            size="--sm"
+                        <ComLogo
                             logoName="la-nacion"
                             href="https://www.lanacion.com.ar/"
                             title="LA NACION"

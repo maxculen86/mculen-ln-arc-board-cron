@@ -7,7 +7,7 @@ import List from '../../../common/mod-list';
 import Copyright from './copyright';
 
 import '../../../../../resources/dist/css/ln/modules/mod-footer.css';
-import LogoComponent from '../../../common/logos/LogoComponent';
+import ComLogo from '../../../common/com-logo';
 
 const Index = ({ home }) => {
     const listText = [
@@ -232,23 +232,23 @@ const Index = ({ home }) => {
                             />
                         </div>
                         <div className="col-desksm-4 --center">
-                            <LogoComponent
+                            <ComLogo
                                 href="http://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"
-                                name="la-nacion"
+                                logoName="la-nacion"
                                 size="--sm"
                             />
                         </div>
                         <div className="col-desksm-4 --right">
-                            <LogoComponent
-                                name={'android-store'}
-                                alt="Descargar nuestra app en Google Play"
+                            <ComLogo
+                                logoName={'android-store'}
+                                title="Descargar nuestra app en Google Play"
                                 width={120}
                                 height={35}
                                 href="https://play.google.com/store/apps/details?id=app.lanacion.activity&hl=es_419"
                             />
-                            <LogoComponent
-                                name={'ios-store'}
-                                alt="Descargar nuestra app en el App Store"
+                            <ComLogo
+                                logoName={'ios-store'}
+                                title="Descargar nuestra app en el App Store"
                                 width={120}
                                 height={35}
                                 href="https://apps.apple.com/ar/app/la-nacion/id410689702"
@@ -300,9 +300,9 @@ const Index = ({ home }) => {
 
                     <div className="row">
                         <div className="col-desksm-6 --right">
-                            <LogoComponent
-                                name={'gda'}
-                                alt="gda"
+                            <ComLogo
+                                logoName={'gda'}
+                                title="gda"
                                 width={36}
                                 height={20}
                                 href="http://gda.com/"
@@ -310,9 +310,9 @@ const Index = ({ home }) => {
                             <Text>
                                 Miembro de GDA. Grupo de Diarios América
                             </Text>
-                            <LogoComponent
-                                name={'data-fiscal'}
-                                alt="Data fiscal"
+                            <ComLogo
+                                logoName={'data-fiscal'}
+                                title="Data fiscal"
                                 width={28}
                                 height={38}
                                 href="http://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"

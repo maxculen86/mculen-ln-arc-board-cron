@@ -6,7 +6,9 @@
 
     .--right {
         @media ($media-l) {
-            text-align: right;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
         }
     }
 
@@ -62,7 +64,6 @@
             margin-bottom: $spacing-sm;
 
             .com-link {
-                margin-right: $spacing-lg;
                 display: inline-block;
                 .com-image {
                     border-radius: px(4);

@@ -11,9 +11,13 @@
         }
     }
     &.la-nacion {
-        display: block;
-        height: px(17);
-        width: px(172);
+        width: px(215);
+        height: px(21);
+
+        @media ($media-l) {
+            height: px(30);
+            width: 100%;
+        }
 
         &.--xs {
             width: px(164);
@@ -31,23 +35,8 @@
             width: px(511);
             height: px(50);
         }
-
-        svg,
-        img {
-            height: 100%;
-        }
         .modal & {
             margin-bottom: $spacing-sm;
-        }
-        @media ($media-l) {
-            .header & {
-                height: px(30);
-                width: 100%;
-            }
-
-            .footer-site & {
-                height: px(20);
-            }
         }
     }
     &.brando {

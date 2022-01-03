@@ -1,9 +1,7 @@
 import React from 'react';
-//import Logo from '../../../common/com-logo';
 import NavBarMobile from '../navbar';
 import Button from '../../../common/com-button';
 import Link from '../../../common/link';
-import LogoComponent from '../../../common/logos/LogoComponent';
 import Icon from '../../../common/icon';
 import ComLogo from '../../../common/com-logo';
 
@@ -23,18 +21,10 @@ const headerAMP = props => {
                             </Button>
                         </div>
                         <div className="col-7 col-desksm-4 header__middle">
-                            {/* <Logo
-                                logoName="la-nacion"
-                                color
-                                //size="--md"
+                            <ComLogo
                                 href="https://www.lanacion.com.ar/"
-                                target="_top"
                                 title="Ir a la página principal"
-                            /> */}
-                            <LogoComponent
-                                href="http://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"
-                                name="ln-logo"
-                                classCondition={'logoLN'}
+                                logoName="la-nacion"
                             />
                         </div>
                         <div className="col-5 col-desksm-4 header__right">
@@ -71,14 +61,8 @@ const headerAMP = props => {
             >
                 {' '}
                 <section className="header_sidebar">
-                    {/* <Logo
-                        color
-                        logoName="la-nacion"
-                        href="https://www.lanacion.com.ar/"
-                        title="Ir a la página principal"
-                    /> */}
                     <ComLogo
-                        logoName="la-nacion"
+                        logoName="la-nacion-desktop"
                         href={isHome ? '#' : 'https://www.lanacion.com.ar/'}
                         title="Ir a la página principal"
                     />
