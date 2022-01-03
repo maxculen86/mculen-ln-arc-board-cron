@@ -61,7 +61,6 @@ const tePuedeInteresar = props => {
     return (
         isReady && (
             <TePuedeInteresar
-                data-testid="te-puede-interesar-test"
                 userId={userId}
                 sessionId={sessionId}
                 cantidadNotas={cantidadNotas}
