@@ -33,9 +33,11 @@ const HoroscopeItem = ({ classCondition, periodo, nombre, filenameLogo }) => {
                     <Text tag="h2" extraClass="title" size="--twoxs">
                         {nombre}
                     </Text>
-                    <Text tag="time" extraClass="text" size="--fivexs">
-                        {periodo}
-                    </Text>
+                    {periodo && (
+                        <Text tag="time" extraClass="text" size="--fivexs">
+                            {periodo}
+                        </Text>
+                    )}
                 </div>
             </Link>
         </article>
