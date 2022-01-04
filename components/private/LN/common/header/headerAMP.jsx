@@ -22,7 +22,6 @@ const headerAMP = props => {
                         </div>
                         <div className="col-7 col-desksm-4 header__middle">
                             <ComLogo
-                                id="logolanacion"
                                 href="https://www.lanacion.com.ar/"
                                 title="Ir a la página principal"
                                 logoName="la-nacion"
@@ -63,9 +62,8 @@ const headerAMP = props => {
                 {' '}
                 <section className="header_sidebar">
                     <ComLogo
-                        id="logolanacion"
-                        logoName="la-nacion-desktop"
-                        href={isHome ? '#' : 'https://www.lanacion.com.ar/'}
+                        logoName="la-nacion"
+                        href={'https://www.lanacion.com.ar/'}
                         title="Ir a la página principal"
                     />
                     <Button on="tap:sidebar-left.close" iconName="close" />

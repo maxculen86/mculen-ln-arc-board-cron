@@ -12,6 +12,7 @@ export const mapperLogos = {
     deportes: 'deportes.svg',
     'ln-logo': 'ln-logo.svg',
     'la-nacion': 'logo-lanacion.svg',
+    'ln-desplegable': 'desplegable-ln.svg',
     'ios-store': 'ios-store.svg',
     'android-store': 'android-store.svg',
     'ln-mas': 'ln-mas.svg',

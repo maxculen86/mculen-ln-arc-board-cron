@@ -39,6 +39,10 @@
             margin-bottom: $spacing-sm;
         }
     }
+    &.ln-desplegable {
+        width: px(164);
+        height: px(16);
+    }
     &.brando {
         &.--xs {
             width: px(83);
