@@ -51,7 +51,7 @@ const headerAMP = props => {
             </header>
 
             <NavBarMobile amp />
-            <div id="target-element-left"></div>
+            <div id="target-element-left" />
 
             <amp-sidebar
                 id="sidebar-left"

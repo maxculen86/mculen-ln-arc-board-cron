@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable no-eval */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -28,6 +29,24 @@ const video = ({
 
     const adsURL = urlForPrerollAds(screenUtils.device);
 
+    const videoSource = (
+        <>
+            <source
+                src={mainStream.url}
+                type={`video/${mainStream.stream_type}`}
+            />
+            <div fallback="fallback">
+                <p>Este navegador no soporta elementos de video.</p>
+            </div>
+        </>
+    );
+
+    const videoProps = {
+        width: mainStream.width,
+        height: mainStream.height,
+        layout: 'responsive'
+    };
+
     return (
         (isPowa && (
             <div className="mod-video">
@@ -37,24 +56,27 @@ const video = ({
                         adsURL={adsURL}
                         tituloVideo={tituloVideo}
                         autoPlay={autoplay}
+                        device={screenUtils.device}
                     />
                 </AmpContainer>
                 <AmpContainer isForAmp>
-                    <amp-ima-video
-                        width={mainStream.width}
-                        height={mainStream.height}
-                        layout="responsive"
-                        data-poster={promoItems.basic.url}
-                        data-tag={adsURL}
-                    >
-                        <source
-                            src={mainStream.url}
-                            type={`video/${mainStream.stream_type}`}
-                        />
-                        <div fallback="fallback">
-                            <p>Este navegador no soporta elementos de video.</p>
-                        </div>
-                    </amp-ima-video>
+                    {adsURL === '' ? (
+                        <amp-video
+                            controls="controls"
+                            poster={promoItems.basic.url}
+                            {...videoProps}
+                        >
+                            {videoSource}
+                        </amp-video>
+                    ) : (
+                        <amp-ima-video
+                            data-poster={promoItems.basic.url}
+                            data-tag={adsURL}
+                            {...videoProps}
+                        >
+                            {videoSource}
+                        </amp-ima-video>
+                    )}
                 </AmpContainer>
                 <VideoPlayerSnippet
                     parrafo={parrafo}

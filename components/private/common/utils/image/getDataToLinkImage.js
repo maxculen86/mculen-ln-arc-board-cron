@@ -25,7 +25,6 @@ const getDataToLinkImage = (
                 return [];
             },
             home: () => {
-                ///////////// BOMBA //////////////
                 const bomba =
                     (renderables.length &&
                         getChildsFromSections(
@@ -67,7 +66,6 @@ const getDataToLinkImage = (
                     );
                 };
 
-                //////////////// APERTURA1 ////////////////////
                 const getMediaApertura = () => {
                     const apertura =
                         (renderables.length &&

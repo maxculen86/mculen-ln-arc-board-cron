@@ -113,7 +113,7 @@ const tryParseJSON = jsonString => {
     try {
         const user = JSON.parse(jsonString);
         if (user && typeof user === 'object') {
-            const { Usuario } = user || {};
+            const { Usuario } = user;
             const { UsuarioDetalleEmail, ProductoPremiumId } = Usuario || {};
             return { UsuarioDetalleEmail, ProductoPremiumId };
         }

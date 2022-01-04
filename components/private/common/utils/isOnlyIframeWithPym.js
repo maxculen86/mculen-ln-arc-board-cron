@@ -16,7 +16,6 @@ export const hasPym = (_content = '') => {
     );
 };
 const isOnlyIframeWithPym = (_content = '') => {
-    // return isOnlyIframe(_content) && hasPym(_content);
     return isOnlyIframe(_content);
 };
 export default isOnlyIframeWithPym;

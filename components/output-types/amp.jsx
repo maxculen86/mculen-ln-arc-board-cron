@@ -46,13 +46,11 @@ const Amp = props => {
         renderables,
         deployment,
         contextPath,
-        globalContent,
-        outputType
+        globalContent
     } = props;
     const {
         canonical_url: canonicalUrl,
         content_elements: contentElements,
-        promo_items: promoItems,
         headlines,
         description,
         type,

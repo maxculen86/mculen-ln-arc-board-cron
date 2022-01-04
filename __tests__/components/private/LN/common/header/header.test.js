@@ -1,9 +1,8 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
-import { mount, render, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import TestHelper from '../../../../../utils/testHelper';
 import Header from '../../../../../../components/private/LN/common/header/index';
-// import Header from '../../../../../../components/private/LN/common/header';
 
 const getUserLogout = () => ({
     logueado: false,
@@ -30,7 +29,7 @@ jest.mock('react', () => {
     const ActualReact = require.requireActual('react');
     return {
         ...ActualReact,
-        useContext: () => ({}) // what you want to return when useContext get fired goes here
+        useContext: () => ({})
     };
 });
 
@@ -48,22 +47,6 @@ jest.mock(
     () => 'mocked-desplegable'
 );
 
-/* const getUserLoginWithoutSubscription = () => ({
-    logueado: true,
-    loginData: {
-        subscription: true,
-        userName: 'Pedro Perez'
-    }
-});
-
-const getUserLoginWithSubscription = () => ({
-    logueado: true,
-    loginData: {
-        subscription: false,
-        userName: 'Pedro Perez'
-    }
-}); */
-
 describe('components - private - LN - common - header', () => {
     const child = <div>Soy un child</div>;
     const desktopSU = {
@@ -80,30 +63,9 @@ describe('components - private - LN - common - header', () => {
         </Header>
     );
 
-    //TestHelper.testDoNotRenderChildren(componentDesktop, 'child');
-
     it('Testeo que muestre el header desktop', () => {
-        // expect(componentDesktop.find('mocked-desktop-header')).toHaveLength(1);
         TestHelper.expectHTML(componentDesktop, 'mocked-desktop-header');
     });
-
-    /* const mobileSU = {
-        device: 'desktop'
-    };
-    const componentMobile = mount(
-        <Header
-            screenUtils={mobileSU}
-            mockApi={getUserLogout()}
-            {...siteProperties}
-        >
-            {child}
-        </Header>
-    );
-    TestHelper.testDoNotRenderChildren(componentMobile, 'child');
-    it('Testeo que muestre el header mobile', () => {
-        expect(componentMobile.find('mocked-mobile-header')).toBeTruthy();
-        expect(componentMobile.find('mocked-mobile-navbar')).toBeTruthy();
-    }); */
 
     it('Shows user menu on the top right corner when logged in', () => {
         const componentDesktop = mount(
@@ -165,5 +127,14 @@ describe('components - private - LN - common - header', () => {
         expect(componentDesktop.props().loginData.userName).toEqual(
             'Pedro Perez'
         );
+    });
+
+    it('renders amp component', () => {
+        const component = mount(
+            <Header {...siteProperties} outputType="amp">
+                {child}
+            </Header>
+        );
+        expect(component.props().showNav).toBeUndefined;
     });
 });

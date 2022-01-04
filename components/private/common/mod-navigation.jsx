@@ -7,7 +7,7 @@ import ComLinkList from './com-link-list';
 const ModNavigation = props => {
     const categoryEl = useRef();
     const [showBtnScrollLeft, setShowBtnScrollLeft] = useState('hlp-none');
-    const [showBtnScrollRight, setShowBtnScrollRight] = useState('hlp-none');
+    const [showBtnScrollRight, setShowBtnScrollRight] = useState('');
     const { navigation, classCondition, style } = props;
     const EXTRA_CLASS = classCondition ? ` ${classCondition}` : '';
 
@@ -29,7 +29,7 @@ const ModNavigation = props => {
             );
         } else {
             setShowBtnScrollLeft('hlp-none');
-            setShowBtnScrollRight('hlp-none');
+            setShowBtnScrollRight('');
         }
     };
 

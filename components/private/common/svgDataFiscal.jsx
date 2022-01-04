@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SvgFiscal = props => {
-    const { app, amprel } = props;
+    const { app } = props;
 
     return (
         <a
