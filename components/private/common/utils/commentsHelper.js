@@ -101,8 +101,6 @@ export const getLoginAndRegistrationURLS = () => {
 export const getMessageProps = (props, messageType) => {
     const canonicalUrl = get(props, 'globalContent.canonical_url', '');
     const outputType = get(props, 'outputType', 'default');
-    // const urlBase64 =
-    //     Buffer.from(canonicalUrl, 'binary').toString('base64') || '';
     const gc = useContext(GlobalContext);
     const termicas = get(gc, 'state.siteService.termicas', []);
     const element = termicas.find(

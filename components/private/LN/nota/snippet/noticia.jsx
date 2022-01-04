@@ -28,7 +28,7 @@ const extracDataFromCredits = by => {
             .filter(v => v.type === 'author')
             .map(author => getAuthorByline(author));
     }
-    return { authors: authors.length ? authors : ['Redacción LA NACION'] };
+    return { authors: authors.length ? authors : [] };
 };
 
 const getBiggestImage = basic => {
@@ -45,13 +45,15 @@ const getBiggestImage = basic => {
     return { resizedUrl, bigWidth, bigHeight };
 };
 
+const urlShema = 'https://schema.org';
+
 const extractDataFromPromoItems = (promoItems, PLACEHOLDER) => {
     const { basic } = promoItems || {};
     const { url, type, height, width } = basic || {};
     const isImage = basic && type === 'image';
     let thumbnailUrl = PLACEHOLDER;
     let image = {
-        '@context': 'https://schema.org',
+        '@context': urlShema,
         '@type': 'ImageObject',
         url: PLACEHOLDER,
         height: '800',
@@ -63,7 +65,7 @@ const extractDataFromPromoItems = (promoItems, PLACEHOLDER) => {
         const pathImagen = url;
         thumbnailUrl = `${pathImagen}`;
         image = {
-            '@context': 'https://schema.org',
+            '@context': urlShema,
             '@type': 'ImageObject',
             url: resizedUrl ? `${resizedUrl}` : `${pathImagen}`,
             height: bigHeight ? `${bigHeight}` : `${height}`,
@@ -146,6 +148,7 @@ const SnippetNoticia = props => {
             content_elements: contentElements,
             taxonomy: { primary_section: primarySection, tags },
             credits: { by },
+            distributor = { name: 'LA NACION' },
             created_date: createdDate,
             first_publish_date: firstPublishDate,
             display_date: displayDate,
@@ -158,6 +161,8 @@ const SnippetNoticia = props => {
         deployment
     } = props;
 
+    const { name: distributorName } = distributor;
+
     const { promo_items: promoItems } = addRelatedImage(props.globalContent);
     const LOGO_LN = getAssetsPath(contextPath)(deployment)(
         'placeholderLN-600_amp.jpg'
@@ -167,6 +172,11 @@ const SnippetNoticia = props => {
     );
 
     const { path, name } = primarySection || {};
+
+    const distributorAuthor = {
+        '@type': 'Organization',
+        name: distributorName
+    };
 
     const { authors } = extracDataFromCredits(by);
     const { keywords } = extractDataFromTags(tags);
@@ -178,7 +188,7 @@ const SnippetNoticia = props => {
     const trust = get(label, 'trust.text', 'Noticia Original');
 
     let data = {
-        '@context': 'https://schema.org',
+        '@context': urlShema,
         '@type': 'NewsArticle',
         headline: headlines && `${headlines.basic || 'LA NACION - Noticia'}`,
         articleBody: getFirstParagraph(contentElements) || '',
@@ -201,7 +211,7 @@ const SnippetNoticia = props => {
             name: 'Acceso Digital Monthly Test',
             productID: 'lanacion.com.ar:acceso_digital'
         },
-        author: authors,
+        author: !authors.length ? distributorAuthor : authors,
         creator: authors,
         keywords,
         publisher: {
@@ -209,7 +219,7 @@ const SnippetNoticia = props => {
             name: `${siteProperties.title || ''}`,
             url: `${siteProperties.host || ''}`,
             logo: {
-                '@context': 'https://schema.org',
+                '@context': urlShema,
                 '@type': 'ImageObject',
                 url: `${LOGO_LN}`,
                 height: 60,

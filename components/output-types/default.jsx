@@ -140,7 +140,7 @@ const Default = props => {
         subtype,
         subheadlines = {},
         syndication,
-        distributor,
+        distributor = { name: 'LA NACION' },
         node_type: nodeType,
         name,
         Payload,

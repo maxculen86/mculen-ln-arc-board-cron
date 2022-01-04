@@ -7,15 +7,18 @@ import ComButton from '../../../common/com-button';
 
 import '../../../../../resources/dist/css/ln/components/dropdown.css';
 
+const scrollActive = 'scroll--active';
+const scrollPasive = 'scroll--pasive';
+
 const handleScroll = comDromdownRef => {
     comDromdownRef && comDromdownRef.current.scrollTop === 0
         ? pipe(
-              comDromdownRef.current.classList.add('scroll--pasive'),
-              comDromdownRef.current.classList.remove('scroll--active')
+              comDromdownRef.current.classList.add(scrollPasive),
+              comDromdownRef.current.classList.remove(scrollActive)
           )
         : pipe(
-              comDromdownRef.current.classList.add('scroll--active'),
-              comDromdownRef.current.classList.remove('scroll--pasive')
+              comDromdownRef.current.classList.add(scrollActive),
+              comDromdownRef.current.classList.remove(scrollPasive)
           );
 };
 
@@ -27,8 +30,8 @@ const Desplegable = ({ toglleDesplegable, isHome }) => {
         window &&
             window.addEventListener('resize', e => {
                 if (window.outerWidth >= 768 && comDromdownRef.current) {
-                    comDromdownRef.current.classList.remove('scroll--pasive');
-                    comDromdownRef.current.classList.remove('scroll--active');
+                    comDromdownRef.current.classList.remove(scrollPasive);
+                    comDromdownRef.current.classList.remove(scrollActive);
                 }
             });
     });

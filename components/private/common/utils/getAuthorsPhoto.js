@@ -5,15 +5,16 @@ import get from './get';
 const getAuthorsPhoto = article => {
     const authors = get(article, 'credits.by', []);
     const authorFiltered = authors.filter(auth => auth.type === 'author');
+    const imageResizedUrl = 'image.resized_urls';
     const authorWithPhoto = authorFiltered.find(
-        auth => get(auth, 'image.resized_urls', null) !== null
+        auth => get(auth, `${imageResizedUrl}`, null) !== null
     );
-    const urlsResizes = get(authorWithPhoto, 'image.resized_urls', []);
+    const urlsResizes = get(authorWithPhoto, `${imageResizedUrl}`, []);
     const alt_text = get(authorWithPhoto, 'alt_text', '');
     if (urlsResizes.length === 0) return null;
     return {
         height: 80,
-        resized_urls: get(authorWithPhoto, 'image.resized_urls', []),
+        resized_urls: get(authorWithPhoto, `${imageResizedUrl}`, []),
         type: 'image',
         alt_text,
         url: urlsResizes.length > 0 ? urlsResizes[0].resizedUrl : null,

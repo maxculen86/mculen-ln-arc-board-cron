@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ListItems from '../../../common/listItems';
 import ComTitle from '../../../common/com-title';
-import '../../../../../resources/dist/css/ln/components/table.css';
 
 const powerUpsReceta = ({ data }) => {
     const { powerUp } = data;

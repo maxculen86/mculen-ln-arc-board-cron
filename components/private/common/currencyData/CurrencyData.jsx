@@ -40,17 +40,38 @@ const CurrencyData = ({
     providedAlt,
     ...r
 }) => {
+    const navigationData =
+        sourceName === 'dbna'
+            ? 'https://www.lanacion.com.ar/dolar-hoy/'
+            : '' || sourceName === 'dblue'
+            ? 'https://www.lanacion.com.ar/tema/dolar-blue-tid67294/'
+            : '';
+
+    const titleData =
+        sourceName === 'dbna'
+            ? 'Dólar hoy'
+            : '' || sourceName === 'dblue'
+            ? 'Dólar blue'
+            : '';
+
     return (
         <>
             {!urlBrand ? (
                 <div className={`${classCondition} currency-data`}>
-                    <Text
-                        tag="h2"
-                        size="--twoxs"
-                        weight="bold"
-                        extraClass="dolar-title"
-                        text={title}
-                    />
+                    <ComLink
+                        type="text/css"
+                        title={titleData}
+                        classCondition="link-container-currency-data"
+                        link={navigationData}
+                    >
+                        <Text
+                            tag="h2"
+                            size="--twoxs"
+                            weight="bold"
+                            extraClass="dolar-title"
+                            text={title}
+                        />
+                    </ComLink>
                     <p className="com-text --sixxs">
                         <span>COMPRA</span>
                         <strong className="--fourxs">${purchaseValue}</strong>

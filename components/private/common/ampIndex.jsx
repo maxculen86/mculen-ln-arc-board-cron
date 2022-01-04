@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -5,13 +6,13 @@ import {
     embedElements,
     embedsForNote,
     styleConfig,
-    evaluateCheckInclusion,
     evaluateFunctionInclusion,
     config
 } from './utils/scripts/amp/helper';
 import getOembedScripts from './scriptManager/getOembedScripts';
 import { getStyleFontsInLine } from './fontface';
 import { CriticalCSSString } from './criticalcss';
+import get from './utils/get';
 
 export const _AMPBoilerplate = `
     body {
@@ -84,24 +85,22 @@ export const AMPCustomStyle = props => {
     ) : null;
 };
 
-AMPCustomStyle.propTypes = {
-    arcSite: PropTypes.string.isRequired,
-    layout: PropTypes.string.isRequired,
-    Resource: PropTypes.func.isRequired
-};
-
 const AMPScripts = props => {
     const scriptsToLoad = [];
-    const { arcSite, layout, contentFeatures, globalContent } = props;
+    const { arcSite, layout, globalContent } = props;
     const { [layout]: ScriptsConfig = [] } = config[arcSite] || {};
-
+    const mostrarBanners = get(
+        globalContent,
+        'label.mostrar_banners.text',
+        'Si'
+    );
     ScriptsConfig.concat(
         getOembedScripts(globalContent, embedElements, embedsForNote)
     ).forEach(configElement => {
         const loadScript =
-            evaluateCheckInclusion(configElement, contentFeatures) &&
-            evaluateFunctionInclusion(configElement, globalContent);
-
+            (evaluateFunctionInclusion(configElement, globalContent) &&
+                configElement.hasBanners === mostrarBanners) ||
+            configElement.hasBanners === undefined;
         loadScript &&
             scriptsToLoad.push(
                 <script
@@ -112,13 +111,18 @@ const AMPScripts = props => {
                 />
             );
     });
-
     return scriptsToLoad;
 };
 
 AMPScripts.propTypes = {
     arcSite: PropTypes.string.isRequired,
     layout: PropTypes.string.isRequired
+};
+
+AMPCustomStyle.propTypes = {
+    arcSite: PropTypes.string.isRequired,
+    layout: PropTypes.string.isRequired,
+    Resource: PropTypes.func.isRequired
 };
 
 export default AMPScripts;

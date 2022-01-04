@@ -5,7 +5,7 @@ exports[`features - LaNacion - Nota - Detalle Receta Test de snapshot Detalle Re
   class="cont_tags tags"
 >
   <div
-    class="row"
+    class="row tag"
   >
     <div
       class="col-2 col-tablet-1"
@@ -32,12 +32,15 @@ exports[`features - LaNacion - Nota - Detalle Receta Test de snapshot Detalle Re
       class="time-number col-10 col-tablet-11"
     >
       <span>
-        Tiempo total: 45 min
+        <strong>
+          Tiempo total:
+        </strong>
+         45 min.
       </span>
     </div>
   </div>
   <div
-    class="row"
+    class="row tag"
   >
     <div
       class="col-2 col-tablet-1"
@@ -64,7 +67,10 @@ exports[`features - LaNacion - Nota - Detalle Receta Test de snapshot Detalle Re
       class="time-number col-10 col-tablet-11"
     >
       <span>
-        Porciones: 8
+        <strong>
+          Porciones:
+        </strong>
+         8
       </span>
     </div>
   </div>

@@ -39,6 +39,9 @@ jest.mock('fusion:context', Component => {
                 }
             ]
         };
+        const distributor = {
+            name: 'LA NACION'
+        };
 
         return props => (
             <Component
@@ -46,7 +49,9 @@ jest.mock('fusion:context', Component => {
                 outputType={outputType}
                 customFields={{ position: 'Top' }}
                 globalContent={{
-                    credits
+                    credits,
+                    distributor,
+                    withFirmaDistributor: false
                 }}
             />
         );

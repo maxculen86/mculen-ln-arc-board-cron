@@ -79,7 +79,7 @@ const CajaCollection = props => {
     const titleSize =
         ((isInsideApertura || layout === 'grilla1' || layout === 'grilla2') &&
             '--l') ||
-        '';
+        undefined;
 
     const articlesToShow = !isInSiteService
         ? getArticleInCollection(

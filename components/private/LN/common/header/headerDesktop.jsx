@@ -144,21 +144,6 @@ const HeaderDesktop = ({
                     >
                         {!loginData.subscription &&
                             typeof window !== 'undefined' && (
-                                // <button
-                                //     className="com-button --special"
-                                //     id="btnsuscribite"
-                                //     type="button"
-                                //     title="Suscribite"
-                                //     onClick={() => {
-                                //         location.href =
-                                //             `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
-                                //                 location.href
-                                //             )}` || '/';
-                                //     }}
-                                // >
-                                //     SUSCRIBITE
-                                // </button>
-
                                 <a
                                     className={`com-button --special${loadingUserData}`}
                                     id="btnsuscribite"

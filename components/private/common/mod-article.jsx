@@ -130,6 +130,8 @@ const ModArticle = props => {
 };
 
 ModArticle.propTypes = {
+    anexo: PropTypes.string,
+    authorSize: PropTypes.string,
     articleData: PropTypes.shape({
         _id: PropTypes.string,
         promo_items: PropTypes.shape({
@@ -155,7 +157,9 @@ ModArticle.propTypes = {
         style: PropTypes.string
     }),
     layout: PropTypes.string,
+    leadText: PropTypes.string,
     link: PropTypes.string,
+    noMedia: PropTypes.string,
     outputType: PropTypes.string,
     subheadSize: PropTypes.string,
     subheadTag: PropTypes.string,
@@ -173,6 +177,8 @@ ModArticle.propTypes = {
 };
 
 ModArticle.defaultProps = {
+    anexo: undefined,
+    authorSize: undefined,
     authors: '',
     artPosition: undefined,
     boxPosition: undefined,
@@ -189,13 +195,15 @@ ModArticle.defaultProps = {
     isPowa: true,
     label: undefined,
     layout: '',
+    leadText: undefined,
     link: undefined,
+    noMedia: undefined,
     outputType: 'default',
     subheadText: false,
-    subheadSize: '',
-    subheadTag: '',
-    titleSize: '--xs',
-    titleTag: 'h2',
+    subheadSize: undefined,
+    subheadTag: undefined,
+    titleSize: undefined,
+    titleTag: undefined,
     tags: undefined,
     videoBackground: undefined,
     withMedia: false

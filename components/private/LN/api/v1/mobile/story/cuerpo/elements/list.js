@@ -24,7 +24,7 @@ const list = (nodo, dataNota) => {
         if (value && value.length) {
             return {
                 _t: 'li',
-                value: Text(v)
+                value: v.content
             };
         }
 
