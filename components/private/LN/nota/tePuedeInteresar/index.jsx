@@ -153,7 +153,7 @@ class Index extends Component {
 
         return (
             articles &&
-            articles.length && (
+            articles.length > 0 && (
                 <div className="row interest" ref={this.myRef}>
                     <CajaTema
                         title="Te puede interesar"
