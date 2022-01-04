@@ -62,7 +62,8 @@ const headerAMP = props => {
                 {' '}
                 <section className="header_sidebar">
                     <ComLogo
-                        logoName="la-nacion"
+                        logoName="ln-desplegable"
+                        size="--xs"
                         href={'https://www.lanacion.com.ar/'}
                         title="Ir a la página principal"
                     />
