@@ -1,3 +1,6 @@
+import get from 'lodash.get';
+import epigrafeAndCreditsData from '../../../../../common/utils/epigrafeAndCreditsData';
+
 const imageCommon = image => {
     if (!image) return null;
     const { _id: id, resized_urls: resizedUrls } = image;
@@ -36,18 +39,19 @@ const imageCommon = image => {
 
             orderPattern(mediaA, mediaB);
         })
-        .map(key =>
+        .forEach((element, index) => {
             resp.parametros.push({
                 media: parseInt(
-                    resizedUrls[key].option.media.match(/\d+/)[0],
+                    resizedUrls[index].option.media.match(/\d+/)[0],
                     10
                 ),
-                ancho: resizedUrls[key].option.width,
-                firma: resizedUrls[key].resizedUrl.match(regex)
-                    ? resizedUrls[key].resizedUrl.replace(regex, '$1')
+                ancho: resizedUrls[index].option.width,
+                firma: resizedUrls[index].resizedUrl.match(regex)
+                    ? resizedUrls[index].resizedUrl.replace(regex, '$1')
                     : ''
-            })
-        );
+            });
+        });
+
     return resp;
 };
 
@@ -56,6 +60,30 @@ export const getImageUrl = url => {
         /\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/
     );
     return hrefRegex.exec(url);
+};
+
+export const imageMobile = imageData => {
+    const image = imageCommon(imageData);
+    const resp = {
+        _t: 'image',
+        url: image.absoluteUrl,
+        parameters: image.parametros.map(e => {
+            return {
+                media: e.media,
+                width: e.ancho,
+                signature: e.firma
+            };
+        })
+    };
+    const credits = epigrafeAndCreditsData(imageData);
+    if (credits) resp.credits = credits;
+    if (imageData.distributor && imageData.distributor.name) {
+        resp.source = get(imageData, 'distributor.name');
+    }
+    if (imageData.caption) {
+        resp.epigraph = imageData.caption;
+    }
+    return resp;
 };
 
 const orderPattern = (a, b) => {

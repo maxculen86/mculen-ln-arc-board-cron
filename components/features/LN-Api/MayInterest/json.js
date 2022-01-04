@@ -1,6 +1,7 @@
 import Consumer from 'fusion:consumer';
 import IndexAcuV1 from '../../../private/LN/api/v1/global/accumulated';
 import IndexAcuV2 from '../../../private/LN/api/v2/global/accumulated';
+import IndexAcuV1Mobile from '../../../private/LN/api/v1/mobile/accumulated';
 import browser from '../../../private/common/utils/browser';
 
 // URL de ejemplo: http://localhost/api/v1/notas/mayInterest/model/b4dd939b-0bf3-463b-bdc2-1613736289225/3/?_website=la-nacion-ar&outputType=json
@@ -19,7 +20,7 @@ class MayInterest {
                 2: IndexAcuV2
             },
             mobile: {
-                1: IndexAcuV1
+                1: IndexAcuV1Mobile
             }
         };
     }

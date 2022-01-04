@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import '../../../resources/dist/css/ln/components/com-button.css';
 import ComIco from './icon';
 import ComText from './text';
+import setBtnClassName from './utils/setBtnClassName';
 
 const ComButton = props => {
     const {
@@ -28,9 +29,13 @@ const ComButton = props => {
     const conditionalProps = {
         ...(iconName && !children && { onMouseDown }),
         ...(iconName && !children && { tabIndex }),
-        className: `com-button ${classesNames || ''} ${classCondition || ''} ${
-            iconName ? `--icon` : ''
-        } ${iconName && children ? `${iconName} ${iconPosition || ''}` : ''}`
+        className: setBtnClassName({
+            children,
+            iconName,
+            iconPosition,
+            classesNames,
+            classCondition
+        })
     };
 
     return (
@@ -48,8 +53,8 @@ const ComButton = props => {
             {iconName && <ComIco name={iconName} />}
             {(children || textname) && (
                 <ComText size={size || ''}>
-                    {children || ``}
-                    {textname || ``}
+                    {children || ''}
+                    {textname || ''}
                 </ComText>
             )}
         </button>

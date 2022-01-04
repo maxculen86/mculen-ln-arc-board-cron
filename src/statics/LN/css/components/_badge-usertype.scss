@@ -1,0 +1,45 @@
+@import '../abstracts/variables';
+
+.usertype {
+    display: inline-flex;
+    align-items: center;
+    padding: px(5);
+    border-radius: 50px;
+    border: 1px solid $light-neutral-300;
+    margin-bottom: $spacing-md;
+    cursor: default;
+
+    .com-icon {
+        width: px(28);
+        height: px(28);
+        background: $light-neutral-700;
+        border-radius: 100%;
+        svg {
+            width: 20px;
+            height: 20px;
+            path {
+                fill: $orange-400;
+            }
+        }
+    }
+    .com-text {
+        margin: 0 px(8);
+    }
+
+    &.--small {
+        padding: px(3);
+
+        .com-icon {
+            width: px(20);
+            height: px(20);
+        }
+    }
+
+    &.--dark {
+        border: none;
+        background: $light-neutral-700;
+        .com-text {
+            color: $neutral-white;
+        }
+    }
+}

@@ -1,6 +1,7 @@
 import Consumer from 'fusion:consumer';
 import IndexAcuV1 from '../../../private/LN/api/v1/global/accumulated';
 import IndexAcuV2 from '../../../private/LN/api/v2/global/accumulated';
+import IndexAcuV1Mobile from '../../../private/LN/api/v1/mobile/accumulated';
 import browser from '../../../private/common/utils/browser';
 import getSizesFrom from '../../../private/common/utils/getSizesFrom';
 import get from 'lodash.get';
@@ -46,7 +47,7 @@ class AccumulatedSections {
                 2: IndexAcuV2
             },
             mobile: {
-                1: IndexAcuV1
+                1: IndexAcuV1Mobile
             }
         };
     }
@@ -63,7 +64,8 @@ class AccumulatedSections {
     getQueryElement = (sectionId, size, page, sections, restriction) => {
         const resp = {
             page,
-            imageConfig: 'm'
+            imageConfig: 'm',
+            api: true
         };
 
         if (sectionId.toLowerCase() === '/ultimas-noticias') {

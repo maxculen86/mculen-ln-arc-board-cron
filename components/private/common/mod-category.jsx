@@ -76,6 +76,3 @@ ModCategory.defaultProps = {
 };
 
 export default withImage(ModCategory, null, true);
-/* 
-<i className={`com-logo logo-${revista} --large`} />
-*/

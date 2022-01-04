@@ -61,12 +61,11 @@ const fetch = query => {
         });
 };
 const transform = (data, { meteringVariant }) => {
-    const newData = {
+    return {
         ...data,
         date: getTodayDateForAcuDolar(),
         subscription: meteringVariant
     };
-    return newData;
 };
 
 export default {

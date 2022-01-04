@@ -44,7 +44,6 @@ const lnBuscador = ({ children }) => {
 const pageBuilderSections = ['Cuerpo'];
 
 lnBuscador.sections = pageBuilderSections;
-
 lnBuscador.propTypes = {
     children: PropTypes.arrayOf(PropTypes.node).isRequired
 };

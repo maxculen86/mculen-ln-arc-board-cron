@@ -1,88 +1,5 @@
 @import '../abstracts/variables';
 
-.comments {
-    margin-top: px(20);
-    padding-top: px(50);
-    border-top: 1px solid $light-neutral-400;
-
-    .comment-title {
-        position: relative;
-        text-transform: uppercase;
-        margin-bottom: px(10);
-        font-family: $font-SuecaSlab;
-        font-size: px(17);
-
-        b {
-            font-weight: 700;
-        }
-    }
-    .comment-legal {
-        line-height: px(21);
-        font-size: px(14);
-    }
-    .comment-reminder {
-        background: #ffffbf;
-        font-size: px(14);
-        text-align: center;
-        color: $light-neutral-600;
-        margin: px(20) 0;
-        padding: px(25) 0;
-    }
-    .item_link {
-        font-size: px(15);
-        line-height: px(30);
-        color: $link;
-        background: none;
-        margin-left: px(15);
-    }
-    &.arrow-down {
-        .ver-legales {
-            position: relative;
-            &:after {
-                font-family: $font-icons;
-                content: '\e906';
-                font-size: px(18);
-                position: absolute;
-                top: px(2);
-                right: -1.25rem;
-            }
-        }
-    }
-    &.arrow-up {
-        .ver-legales {
-            position: relative;
-            &:after {
-                transform: rotate(180deg);
-                font-family: $font-icons;
-                content: '\e906';
-                font-size: px(18);
-                position: absolute;
-                top: px(2);
-                right: -1.25rem;
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .comments {
-        .comment-title {
-            text-transform: uppercase;
-            margin-bottom: px(10);
-            font-family: $font-SuecaSlab;
-            font-size: px(14);
-        }
-    }
-}
-
-@media screen and (max-width: 320px) {
-    .comments {
-        .item_link {
-            margin-left: 0;
-        }
-    }
-}
-
 //AJUSTES VIAFOURA
 .viafoura.viafoura {
     font-family: $font-arial;
@@ -95,11 +12,6 @@
             }
         }
     }
-
-    //Oculto botón ajustes/seguir en perfil
-    // .vf-is-logged-in .vf-flex .vf-profile-header__button-container {
-    //     display: none;
-    // }
 
     //Oculto botón ajustes
     .vf-flex
@@ -124,13 +36,6 @@
         &::before {
             position: relative;
             left: auto;
-            // letter-spacing: normal;
-            // text-decoration: none;
-            // margin-right: px(2);
-            // font-family: $font-icons;
-            // content: '\e944';
-            // font-size: px(11);
-
             display: block;
             content: '';
             background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMiAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyLjQxNDIgMTguNTgxNkMxMS42MzM1IDE5LjM2NDYgMTAuMzY1NiAxOS4zNjU2IDkuNTgzNzEgMTguNTgzN0wxLjgwOCAxMC44MDhDLTAuMzcxOTk3IDguMjQwMDEgLTAuMjU3OTk3IDQuMzg4MDEgMi4xNjEgMS45NjgwMUMzLjMyMTAyIDAuODA4MDE4IDQuODc2NzUgMC4xMjk1NTYgNi41MTYxMSAwLjA2ODcyMTdDOC4xNTU0NyAwLjAwNzg4NzggOS43NTcyMSAwLjU2OTE4MiAxMSAxLjY0MDAxQzEyLjI0MTUgMC41NjkxODMgMTMuODQxOSAwLjAwNzA5MzA0IDE1LjQ4MDMgMC4wNjYzNzIzQzE3LjExODggMC4xMjU2NTIgMTguNjc0MyAwLjgwMTkyIDE5LjgzNTMgMS45NTk2NkMyMC45OTYyIDMuMTE3NDEgMjEuNjc2NyA0LjY3MTEgMjEuNzQwNCA2LjMwOTM5QzIxLjgwNDIgNy45NDc2OSAyMS4yNDY0IDkuNTQ5NTYgMjAuMTc5IDEwLjc5NEwxMi40MTQyIDE4LjU4MTZaTTE4LjY2MiA5LjQ5MTAxQzE5LjQwMDggOC42Mjk0MSAxOS43ODY4IDcuNTIwNDUgMTkuNzQyNiA2LjM4NjMxQzE5LjY5ODMgNS4yNTIxNyAxOS4yMjcyIDQuMTc2NjQgMTguNDIzNSAzLjM3NTIxQzE3LjYxOTggMi41NzM3OCAxNi41NDI5IDIuMTA1NjYgMTUuNDA4NiAyLjA2NDY0QzE0LjI3NDQgMi4wMjM2MiAxMy4xNjY1IDIuNDEyNzMgMTIuMzA3IDMuMTU0MDFMMTEgNC4yODIwMUw5LjY5MyAzLjE1NDAxQzguODMzNTEgMi40MTI3MyA3LjcyNTY0IDIuMDIzNjIgNi41OTEzOCAyLjA2NDY0QzUuNDU3MTIgMi4xMDU2NiA0LjM4MDI2IDIuNTczNzggMy41NzY1NSAzLjM3NTIxQzIuNzcyODUgNC4xNzY2NCAyLjMwMTY3IDUuMjUyMTcgMi4yNTc0NCA2LjM4NjMxQzIuMjEzMiA3LjUyMDQ1IDIuNTk5MTcgOC42Mjk0MSAzLjMzOCA5LjQ5MTAxTDMuNDUyIDkuNjIzMDFMMTEgMTcuMTcyTDE4LjU0OCA5LjYyMzAxTDE4LjY2MiA5LjQ5MTAxWiIgZmlsbD0iIzI3MjcyNyIvPgo8L3N2Zz4K);
@@ -216,6 +121,24 @@
             }
             svg {
                 fill: white;
+            }
+        }
+
+        //Icono campanita
+        &.comment-nav-right__icon.comment-nav-right__icon.vf-no-outline.is-size-large.vf-tray-trigger {
+            svg {
+                display: none;
+            }
+            &:before {
+                position: relative;
+                left: auto;
+                display: block;
+                content: '';
+                background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIwIDE3SDIyVjE5SDJWMTdINFYxMEM0IDcuODc4MjcgNC44NDI4NSA1Ljg0MzQ0IDYuMzQzMTUgNC4zNDMxNUM3Ljg0MzQ0IDIuODQyODUgOS44NzgyNyAyIDEyIDJDMTQuMTIxNyAyIDE2LjE1NjYgMi44NDI4NSAxNy42NTY5IDQuMzQzMTVDMTkuMTU3MSA1Ljg0MzQ0IDIwIDcuODc4MjcgMjAgMTBWMTdaTTkgMjFIMTVWMjNIOVYyMVoiIGZpbGw9IiMyNzI3MjciLz4KPC9zdmc+Cg==);
+                background-repeat: no-repeat;
+                background-size: contain;
+                width: px(14);
+                height: px(14);
             }
         }
     }

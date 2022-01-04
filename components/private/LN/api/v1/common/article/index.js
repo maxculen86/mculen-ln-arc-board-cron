@@ -55,10 +55,10 @@ const getArticleSignature = (article, authors) => {
             .map(author => {
                 let resp = '';
                 if (lastAuthor == author && authors.length !== 1) {
-                    if (author.valor[0].toUpperCase() == `I`) resp = ` e `;
-                    else resp = ` y `;
-                } else if (author == authors[0]) resp = ``;
-                else resp = ` `;
+                    if (author.valor[0].toUpperCase() == 'I') resp = ' e ';
+                    else resp = ' y ';
+                } else if (author == authors[0]) resp = '';
+                else resp = ' ';
 
                 return resp + author.valor;
             })
@@ -82,7 +82,8 @@ export const articleItem = article => {
     }
     const autores = getArticleAuthor(article);
     const autor = autores ? autores[0] : null;
-    const resp = {
+
+    return {
         id,
         templateId: Number.isInteger(templateId)
             ? templateId.toString()
@@ -102,8 +103,6 @@ export const articleItem = article => {
         imagen: getArticleImage(article),
         opinion: get(article, 'additionalProperties.opinion', false)
     };
-
-    return resp;
 };
 
 export const anexoItem = article => {

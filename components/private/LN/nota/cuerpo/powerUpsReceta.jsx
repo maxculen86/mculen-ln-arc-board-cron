@@ -5,6 +5,9 @@ import ComTitle from '../../../common/com-title';
 
 const powerUpsReceta = ({ data }) => {
     const { powerUp } = data;
+    const nutritionTableData = powerUp.find(
+        e => e.subtype === 'custom-nutrition'
+    );
     return (
         <div className="row --steps">
             <div className="col-tablet-3 --ingredients">
@@ -37,6 +40,41 @@ const powerUpsReceta = ({ data }) => {
                     );
                 })}
             </div>
+            {nutritionTableData ? (
+                <div className="col-tablet-6 --nutrition">
+                    <ComTitle
+                        tag="h3"
+                        size="--l"
+                        content="Información nutricional"
+                    />
+                    <div>
+                        <table className="com-table">
+                            <tr>
+                                <th>Propiedad</th>
+                                <th>Cantidad por porción</th>
+                            </tr>
+                            {powerUp.map(e => {
+                                return e.subtype === 'custom-nutrition' ? (
+                                    <>
+                                        {e.embed.config.items.map(item => {
+                                            return (
+                                                <tr>
+                                                    <td>{item.text}</td>
+                                                    <td>{`${item.value} ${item.unit}`}</td>
+                                                </tr>
+                                            );
+                                        })}
+                                    </>
+                                ) : (
+                                    <></>
+                                );
+                            })}
+                        </table>
+                    </div>
+                </div>
+            ) : (
+                <></>
+            )}
         </div>
     );
 };

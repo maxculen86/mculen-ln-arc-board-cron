@@ -1,5 +1,4 @@
-import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
-import { createResizer } from '../../components/private/common/utils/image/resizer';
+import transform from './utils/transform';
 
 const resolve = key => {
     const {
@@ -95,33 +94,6 @@ const resolve = key => {
     const final = `${basePath}${query}&size=${cant}&from=${from}
             &sort=display_date:desc`;
     return final;
-};
-
-const transform = data => {
-    const dataResp = {
-        ...data,
-        image: { url: data.image || '' }
-    };
-
-    if (dataResp.image.url.length === 0) return dataResp;
-
-    return {
-        ...dataResp,
-        image: {
-            url: createResizer(RESIZER_KEY, RESIZER_URL).resizeUrl(
-                data.image,
-                80,
-                80,
-                {
-                    width: 80,
-                    height: 80,
-                    media: '(min-width: 320px)',
-                    class: '',
-                    type: 'image'
-                }
-            )
-        }
-    };
 };
 
 export default {

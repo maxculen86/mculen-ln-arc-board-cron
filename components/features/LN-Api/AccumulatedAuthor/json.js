@@ -1,6 +1,7 @@
 import Consumer from 'fusion:consumer';
 import IndexAcuV1 from '../../../private/LN/api/v1/global/accumulated';
 import IndexAcuV2 from '../../../private/LN/api/v2/global/accumulated';
+import IndexAcuV1Mobile from '../../../private/LN/api/v1/mobile/accumulated';
 import browser from '../../../private/common/utils/browser';
 import getSizesFrom from '../../../private/common/utils/getSizesFrom';
 // URL de ejemplo: http://localhost/api/v1/notas/byAuthor/Ignacio%20Madrid/params=size:12;page:1/?_website=la-nacion-ar&outputType=json
@@ -36,7 +37,8 @@ class AccumulatedAuthor {
                     tagId: null,
                     imageConfig: 'm',
                     size,
-                    page
+                    page,
+                    api: true
                 }
             }
         });
@@ -47,7 +49,7 @@ class AccumulatedAuthor {
                 2: IndexAcuV2
             },
             mobile: {
-                1: IndexAcuV1
+                1: IndexAcuV1Mobile
             }
         };
     }

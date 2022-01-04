@@ -18,6 +18,7 @@ const getImage = (
             (id &&
                 sourceType &&
                 isHideImage === false &&
+                id.trim() &&
                 useContent({
                     source: sourceType,
                     query: { id: id.trim(), published: true, imageConfig },

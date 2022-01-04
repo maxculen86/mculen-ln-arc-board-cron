@@ -56,7 +56,8 @@ import {
     SnowCloudy,
     RainyCloudy,
     StormCloudy,
-    ClearNight
+    ClearNight,
+    Ln
 } from './index';
 
 const listIcons = {
@@ -104,6 +105,7 @@ const listIcons = {
     knife: Knife,
     'share-android': ShareAndroid,
     share: Share,
+    ln: Ln,
 
     // Weather Icons
     sun: Sun,

@@ -7,39 +7,19 @@ const DetalleReceta = props => {
         receta: {
             subtype,
             embed: {
-                config: { counterTime, counterPortion }
+                config: { counterTime, counterPortion, cookTime, prepTime }
             }
         }
     } = props;
 
-    const Time = () => {
+    const DetailsTag = ({ icon, children }) => {
         return (
-            <div className="row">
+            <div className="row tag">
                 <div className="col-2 col-tablet-1">
-                    <Icon name="timer" />
+                    <Icon name={icon} />
                 </div>
                 <div className="time-number col-10 col-tablet-11">
-                    <span>
-                        Tiempo total:
-                        <span className="num">{counterTime}</span>
-                        min.
-                    </span>
-                </div>
-            </div>
-        );
-    };
-
-    const Portion = () => {
-        return (
-            <div className="row">
-                <div className="col-2 col-tablet-1">
-                    <Icon name="group" />
-                </div>
-                <div className="portion-number col-10 col-tablet-11">
-                    <span>
-                        Porciones:
-                        <span className="num">{counterPortion}</span>
-                    </span>
+                    <span>{children}</span>
                 </div>
             </div>
         );
@@ -49,8 +29,27 @@ const DetalleReceta = props => {
         <Fragment>
             {subtype === 'custom-detalle-receta' ? (
                 <div className="cont_tags tags">
-                    {counterTime && <Time />}
-                    {counterPortion && <Portion />}
+                    {cookTime && (
+                        <DetailsTag icon="fire">
+                            <strong>Tiempo de cocción:</strong> {cookTime} min.
+                        </DetailsTag>
+                    )}
+                    {prepTime && (
+                        <DetailsTag icon="knife">
+                            <strong>Tiempo de preparación:</strong> {prepTime}{' '}
+                            min.
+                        </DetailsTag>
+                    )}
+                    {counterTime && (
+                        <DetailsTag icon="timer">
+                            <strong>Tiempo total:</strong> {counterTime} min.
+                        </DetailsTag>
+                    )}
+                    {counterPortion && (
+                        <DetailsTag icon="group">
+                            <strong>Porciones:</strong> {counterPortion}
+                        </DetailsTag>
+                    )}
                 </div>
             ) : null}
         </Fragment>

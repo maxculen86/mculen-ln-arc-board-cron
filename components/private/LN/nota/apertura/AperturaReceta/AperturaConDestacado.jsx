@@ -25,6 +25,7 @@ const AperturaConDestacado = props => {
                     mediaData={promoItems.basic}
                     outputType={outputType}
                     colNumber={8}
+                    isApertura
                 />
             </div>
             <div className="col-desksm-4 cont-aper">

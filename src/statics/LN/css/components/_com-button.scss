@@ -42,10 +42,10 @@
             fill: $blue-500;
         }
     }
-    &:active {
-        background: $ln;
-        color: $neutral-white;
-    }
+    // &:active {
+    //     background: $ln;
+    //     color: $neutral-white;
+    // }
     &:disabled {
         background: $light-neutral-400;
     }
@@ -172,6 +172,9 @@
     }
     &.--compact {
         padding: px(8) px(16);
+    }
+    &.--transparent {
+        background-color: transparent;
     }
     .--slider & {
         background: $neutral-black;

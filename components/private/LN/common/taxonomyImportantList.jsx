@@ -16,8 +16,8 @@ const TaxonomyImportantList = ({ list, destacado }) => {
                     keytext={v.text}
                     classCondition={
                         v.type === 'tag'
-                            ? 'com-button --secondary --compact --tag'
-                            : 'com-button --secondary --compact'
+                            ? 'com-button --secondary --compact --transparent --tag'
+                            : 'com-button --secondary --compact --transparent'
                     }
                     title={`Ir a notas de ${v.text}`}
                 >

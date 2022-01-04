@@ -1,10 +1,5 @@
 import React from 'react';
-
-const SkeletonSpan = ({ extraClass, style }) => (
-    <span className={`skeleton-box ${extraClass || ''}`} style={style}>
-        &nbsp;
-    </span>
-);
+import PropTypes from 'prop-types';
 
 export const getLayoutType = layout => {
     return (
@@ -23,13 +18,7 @@ export const placeholderArticles = {
     Bomba: layout => {
         return [
             <article className="mod-article">
-                <div className="content-media">
-                    <section className="mod-media   ">
-                        <figure className="mod-figure --horizontal">
-                            <picture className="mod-picture " />
-                        </figure>
-                    </section>
-                </div>
+                <SkeletonContentMedia />
                 <section className="mod-description">
                     <h1 className="com-title --threexl">
                         <SkeletonSpan extraClass="--line1" />
@@ -43,106 +32,36 @@ export const placeholderArticles = {
         const articles = {
             focalLeft3: [
                 <article className="mod-article">
-                    <div className="content-media">
-                        <section className="mod-media">
-                            <figure className="mod-figure --horizontal">
-                                <picture className="mod-picture " />
-                            </figure>
-                        </section>
-                    </div>
+                    <SkeletonContentMedia />
                     <section className="mod-description">
                         <h1 className="com-title --xl">
                             <SkeletonSpan extraClass="--line1" />
                             <SkeletonSpan extraClass="--line2" />
                             <SkeletonSpan extraClass="--line3" />
                         </h1>
-                        <h2 className=" com-subhead --twoxs">
+                        <h2 className="com-subhead --twoxs">
                             <SkeletonSpan extraClass="--line1" />
                             <SkeletonSpan extraClass="--line2" />
                         </h2>
-                        <div>
-                            <strong className="mod-marquee --fourxs">
-                                <SkeletonSpan extraClass="--line1" />
-                            </strong>
-                        </div>
+                        <SkeletonAuthorName />
                     </section>
                 </article>,
-                <article className="mod-article">
-                    <div className="content-media">
-                        <section className="mod-media">
-                            <figure className="mod-figure --horizontal">
-                                <picture className="mod-picture " />
-                            </figure>
-                        </section>
-                    </div>
-                    <section className="mod-description">
-                        <h2 className="com-title --xs">
-                            <SkeletonSpan extraClass="--line1" />
-                            <SkeletonSpan extraClass="--line2" />
-                            <SkeletonSpan extraClass="--line3" />
-                        </h2>
-                        <div>
-                            <strong className="mod-marquee --fourxs">
-                                <SkeletonSpan extraClass="--line1" />
-                            </strong>
-                        </div>
-                    </section>
-                </article>,
-                <article className="mod-article">
-                    <div className="content-media">
-                        <section className="mod-media">
-                            <figure className="mod-figure --horizontal">
-                                <picture className="mod-picture " />
-                            </figure>
-                        </section>
-                    </div>
-                    <section className="mod-description">
-                        <h2 className="com-title --xs">
-                            <SkeletonSpan extraClass="--line1" />
-                            <SkeletonSpan extraClass="--line2" />
-                            <SkeletonSpan extraClass="--line3" />
-                        </h2>
-                        <div>
-                            <strong className="mod-marquee --fourxs">
-                                <SkeletonSpan extraClass="--line1" />
-                            </strong>
-                        </div>
-                    </section>
-                </article>
+                <SkeletonDefaultArticle />,
+                <SkeletonDefaultArticle />
             ],
             focalRight2: [
                 <article className="mod-article">
-                    <div className="content-media">
-                        <section className="mod-media">
-                            <figure className="mod-figure --horizontal">
-                                <picture className="mod-picture " />
-                            </figure>
-                        </section>
-                    </div>
+                    <SkeletonContentMedia />
                     <section className="mod-description">
                         <h1 className="com-title --xl">
                             <SkeletonSpan extraClass="--line1" />
                             <SkeletonSpan extraClass="--line2" />
                         </h1>
-                        {/* <h2 className="com-subhead --twoxs">
-                            <SkeletonSpan extraClass="--line1" />
-                            <SkeletonSpan extraClass="--line2" />
-                        </h2> */}
-                        <div>
-                            <strong className="mod-marquee --fourxs">
-                                <SkeletonSpan extraClass="--line1" />
-                            </strong>
-                        </div>
+                        <SkeletonAuthorName />
                     </section>
                 </article>,
                 <article className="mod-article">
-                    <div className="content-media">
-                        <section className="mod-media">
-                            <figure className="mod-figure --horizontal">
-                                <picture className="mod-picture " />
-                            </figure>
-                        </section>
-                    </div>
+                    <SkeletonContentMedia />
                     <section className="mod-description">
                         <h2 className="com-title --xl">
                             <SkeletonSpan extraClass="--line1" />
@@ -155,11 +74,7 @@ export const placeholderArticles = {
                             <SkeletonSpan extraClass="--line3" />
                             <SkeletonSpan extraClass="--line4" />
                         </h3>
-                        <div>
-                            <strong className="mod-marquee --fourxs">
-                                <SkeletonSpan extraClass="--line1" />
-                            </strong>
-                        </div>
+                        <SkeletonAuthorName />
                     </section>
                 </article>
             ]
@@ -169,24 +84,14 @@ export const placeholderArticles = {
     Color: layout => {
         return new Array(3).fill().map(e => (
             <article className="mod-article">
-                <div className="content-media">
-                    <section className="mod-media">
-                        <figure className="mod-figure --horizontal">
-                            <picture className="mod-picture " />
-                        </figure>
-                    </section>
-                </div>
+                <SkeletonContentMedia />
                 <section className="mod-description">
                     <h1 className="com-title --xs">
                         <SkeletonSpan extraClass="--line1" />
                         <SkeletonSpan extraClass="--line2" />
                         <SkeletonSpan extraClass="--line3" />
                     </h1>
-                    <div>
-                        <strong className="mod-marquee --fourxs">
-                            <SkeletonSpan extraClass="--line1" />
-                        </strong>
-                    </div>
+                    <SkeletonAuthorName />
                 </section>
             </article>
         ));
@@ -195,177 +100,47 @@ export const placeholderArticles = {
         const quantityNotes = Math.abs(layout.slice(-1));
         if (!quantityNotes) return [];
         const articles = {
-            1: [
-                <article className="mod-article">
-                    <div className="content-media">
-                        <section className="mod-media">
-                            <figure className="mod-figure --horizontal">
-                                <picture className="mod-picture " />
-                            </figure>
-                        </section>
-                    </div>
-                    <section className="mod-description">
-                        <h2 className="com-title --l">
-                            <SkeletonSpan extraClass="--line1" />
-                            <SkeletonSpan extraClass="--line2" />
-                        </h2>
-                        <div>
-                            <strong className="mod-marquee --fourxs">
-                                <SkeletonSpan extraClass="--line1" />
-                            </strong>
-                        </div>
-                    </section>
-                </article>
-            ],
-            2: new Array(quantityNotes).fill().map(e => (
-                <article className="mod-article">
-                    <div className="content-media">
-                        <section className="mod-media">
-                            <figure className="mod-figure --horizontal">
-                                <picture className="mod-picture " />
-                            </figure>
-                        </section>
-                    </div>
-                    <section className="mod-description">
-                        <h2 className="com-title --l">
-                            <SkeletonSpan extraClass="--line1" />
-                            <SkeletonSpan extraClass="--line2" />
-                        </h2>
-                        <div>
-                            <strong className="mod-marquee --fourxs">
-                                <SkeletonSpan extraClass="--line1" />
-                            </strong>
-                        </div>
-                    </section>
-                </article>
-            )),
-            Default: new Array(quantityNotes).fill().map(e => (
-                <article className="mod-article">
-                    <div className="content-media">
-                        <section className="mod-media">
-                            <figure className="mod-figure --horizontal">
-                                <picture className="mod-picture " />
-                            </figure>
-                        </section>
-                    </div>
-                    <section className="mod-description">
-                        <h2 className="com-title --xs">
-                            <SkeletonSpan extraClass="--line1" />
-                            <SkeletonSpan extraClass="--line2" />
-                            <SkeletonSpan extraClass="--line3" />
-                        </h2>
-                        <div>
-                            <strong className="mod-marquee --fourxs">
-                                <SkeletonSpan extraClass="--line1" />
-                            </strong>
-                        </div>
-                    </section>
-                </article>
-            ))
+            1: [<SkeletonGrillaArticle />],
+            2: new Array(quantityNotes)
+                .fill()
+                .map(e => <SkeletonGrillaArticle />),
+            Default: new Array(quantityNotes)
+                .fill()
+                .map(e => <SkeletonDefaultArticle />)
         };
         return articles[quantityNotes] || articles.Default;
     },
     Author: layout => {
         return new Array(3).fill().map(e => (
             <article className="mod-article --author">
-                <div className="content-media">
-                    <section className="mod-media">
-                        <a href="javascript:void(0);">
-                            <picture className="mod-picture " />
-                        </a>
-                    </section>
-                </div>
+                <SkeletonContentMediaWithoutFigure />
                 <section className="mod-description">
                     <h2 className="com-title --m">
                         <SkeletonSpan extraClass="--line1" />
                         <SkeletonSpan extraClass="--line2" />
                         <SkeletonSpan extraClass="--line3" />
                     </h2>
-                    <div>
-                        <strong className="mod-marquee --fourxs">
-                            <SkeletonSpan extraClass="--line1" />
-                        </strong>
-                    </div>
+                    <SkeletonAuthorName />
                 </section>
             </article>
         ));
     },
     Opinion: layout => [
         <article className="mod-article">
-            <div className="content-media">
-                <section className="mod-media">
-                    <picture className="mod-picture" />
-                </section>
-            </div>
+            <SkeletonContentMediaWithoutFigure />
             <section className="mod-description">
                 <h2 className="com-title --l">
                     <SkeletonSpan extraClass="--line1" />
                     <SkeletonSpan extraClass="--line2" />
                     <SkeletonSpan extraClass="--line3" />
                 </h2>
-                <div>
-                    <strong className="mod-marquee --fourxs">
-                        <SkeletonSpan extraClass="--line1" />
-                    </strong>
-                </div>
+                <SkeletonAuthorName />
             </section>
         </article>,
+        <SkeletonOpinionArticle />,
+        <SkeletonOpinionArticle />,
         <article className="mod-article --author">
-            <div className="content-media">
-                <section className="mod-media">
-                    <figure className="mod-figure --horizontal">
-                        <a href="javascript:void(0);">
-                            <picture className="mod-picture" />
-                        </a>
-                    </figure>
-                </section>
-            </div>
-            <section className="mod-description">
-                <h2 className="com-title --xs">
-                    <SkeletonSpan extraClass="--line1" />
-                    <SkeletonSpan extraClass="--line2" />
-                    <SkeletonSpan extraClass="--line3" />
-                </h2>
-                <div>
-                    <strong className="mod-marquee --fourxs">
-                        <SkeletonSpan extraClass="--line1" />
-                    </strong>
-                </div>
-            </section>
-        </article>,
-        <article className="mod-article --author">
-            <div className="content-media">
-                <section className="mod-media">
-                    <figure className="mod-figure --horizontal">
-                        <a href="javascript:void(0);">
-                            <picture className="mod-picture" />
-                        </a>
-                    </figure>
-                </section>
-            </div>
-            <section className="mod-description">
-                <h2 className="com-title --xs">
-                    <SkeletonSpan extraClass="--line1" />
-                    <SkeletonSpan extraClass="--line2" />
-                    <SkeletonSpan extraClass="--line3" />
-                </h2>
-                <div>
-                    <strong className="mod-marquee --fourxs">
-                        <SkeletonSpan extraClass="--line1" />
-                    </strong>
-                </div>
-            </section>
-        </article>,
-        <article className="mod-article --author">
-            <div className="content-media">
-                <section className="mod-media">
-                    <figure className="mod-figure --horizontal">
-                        <a href="javascript:void(0);">
-                            <picture className="mod-picture" />
-                        </a>
-                    </figure>
-                </section>
-            </div>
+            <SkeletonContentMedia />
             <section className="mod-description">
                 <h2 className="com-title --l">
                     <SkeletonSpan extraClass="--line1" />
@@ -373,11 +148,7 @@ export const placeholderArticles = {
                     <SkeletonSpan extraClass="--line3" />
                     <SkeletonSpan extraClass="--line3" />
                 </h2>
-                <div>
-                    <strong className="mod-marquee --fourxs">
-                        <SkeletonSpan extraClass="--line1" />
-                    </strong>
-                </div>
+                <SkeletonAuthorName />
             </section>
         </article>
     ],
@@ -401,9 +172,9 @@ export const placeholderLayouts = {
                 <div>
                     <section className="box-articles --focal --left">
                         <section className="mod-headersection --line">
-                            <h4 className="com-title --l">
+                            <h3 className="com-title --l">
                                 <SkeletonSpan />
-                            </h4>
+                            </h3>
                         </section>
                         <div className="row ">
                             <div className="col-tablet-8">{articles[0]}</div>
@@ -419,9 +190,9 @@ export const placeholderLayouts = {
                 <div>
                     <section className="box-articles --focal --right">
                         <section className="mod-headersection --line">
-                            <h4 className="com-title --l">
+                            <h3 className="com-title --l">
                                 <SkeletonSpan />
-                            </h4>
+                            </h3>
                         </section>
                         <div className="row ">
                             <div className="col-tablet-8">{articles[0]}</div>
@@ -446,9 +217,9 @@ export const placeholderLayouts = {
                         ''}`}
                 >
                     <section className="mod-headersection --line">
-                        <h4 className="com-title --l">
+                        <h3 className="com-title --l">
                             <SkeletonSpan />
-                        </h4>
+                        </h3>
                     </section>
                     <div className="row-gap-tablet-3 ">{articles}</div>
                 </section>
@@ -472,9 +243,9 @@ export const placeholderLayouts = {
                         ''}`}
                 >
                     <section className="mod-headersection --line">
-                        <h4 className="com-title --l">
+                        <h3 className="com-title --l">
                             <SkeletonSpan />
-                        </h4>
+                        </h3>
                     </section>
                     <div
                         className={`${rowClass[quantityNotes] ||
@@ -490,9 +261,9 @@ export const placeholderLayouts = {
         <div>
             <section className="box-articles">
                 <section className="mod-headersection --line">
-                    <h4 className="com-title --l">
+                    <h3 className="com-title --l">
                         <SkeletonSpan />
-                    </h4>
+                    </h3>
                 </section>
                 <div className="row-gap-tablet-3 ">{articles}</div>
             </section>
@@ -502,9 +273,9 @@ export const placeholderLayouts = {
         <div>
             <section className="box-articles  --opinion">
                 <section className="mod-headersection --line">
-                    <h4 className="com-title --l">
+                    <h3 className="com-title --l">
                         <SkeletonSpan />
-                    </h4>
+                    </h3>
                 </section>
                 <div className="row">
                     <div className="col-tablet-5">{articles[0]}</div>
@@ -541,4 +312,80 @@ export const getPlaceholder = (layout, index) => {
     const _layout = (placeholderLayouts[layoutName] &&
         placeholderLayouts[layoutName](_articles, layout)) || <></>;
     return (typeof index !== 'undefined' && _articles[index]) || _layout;
+};
+
+const SkeletonSpan = ({ extraClass }) => (
+    <span className={`skeleton-box ${extraClass || ''}`}>&nbsp;</span>
+);
+
+const SkeletonDefaultArticle = () => (
+    <article className="mod-article">
+        <SkeletonContentMedia />
+        <SkeletonDescriptionSection />
+    </article>
+);
+
+const SkeletonOpinionArticle = () => (
+    <article className="mod-article --author">
+        <SkeletonContentMedia />
+        <SkeletonDescriptionSection />
+    </article>
+);
+
+const SkeletonGrillaArticle = () => (
+    <article className="mod-article">
+        <SkeletonContentMedia />
+        <section className="mod-description">
+            <h2 className="com-title --l">
+                <SkeletonSpan extraClass="--line1" />
+                <SkeletonSpan extraClass="--line2" />
+            </h2>
+            <SkeletonAuthorName />
+        </section>
+    </article>
+);
+
+const SkeletonContentMedia = () => (
+    <div className="content-media">
+        <section className="mod-media">
+            <figure className="mod-figure --horizontal">
+                <picture className="mod-picture" />
+            </figure>
+        </section>
+    </div>
+);
+
+const SkeletonContentMediaWithoutFigure = () => (
+    <div className="content-media">
+        <section className="mod-media">
+            <picture className="mod-picture" />
+        </section>
+    </div>
+);
+
+const SkeletonDescriptionSection = () => (
+    <section className="mod-description">
+        <h2 className="com-title --xs">
+            <SkeletonSpan extraClass="--line1" />
+            <SkeletonSpan extraClass="--line2" />
+            <SkeletonSpan extraClass="--line3" />
+        </h2>
+        <SkeletonAuthorName />
+    </section>
+);
+
+const SkeletonAuthorName = () => (
+    <div>
+        <strong className="mod-marquee --fourxs">
+            <SkeletonSpan extraClass="--line1" />
+        </strong>
+    </div>
+);
+
+SkeletonSpan.propTypes = {
+    extraClass: PropTypes.string
+};
+
+SkeletonSpan.defaultProps = {
+    extraClass: ''
 };

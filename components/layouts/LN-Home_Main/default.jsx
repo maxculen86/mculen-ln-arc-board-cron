@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable consistent-return */
 import React, { useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types';
@@ -28,6 +29,7 @@ import CajaPromo from '../../features/LN-common/cajaPromo/default';
 import DivBannerSSR from '../../private/common/banners/DivBannerSSR';
 import { getScriptForComercial } from '../../private/common/banners/bannersRules';
 import PwaModals from '../../private/LN/common/pwaModals';
+import { homeLayoutsPropTypes } from '../../private/common/utils/propTypesHelper';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -168,7 +170,10 @@ const LNMainHome = props => {
                     dispatch({ type: 'updateNextBlock' });
                 }
             } catch (error) {
-                console.log('Error en useEffect =>', error);
+                console.error('Error en useEffect LN-Main_Home =>', {
+                    error,
+                    layout: 'LN-Home_Main'
+                });
                 // Si tiene corrupto sessionStorage muestro todo el sitio
                 dispatch({ type: 'update', payload: 'bloque5' });
             }
@@ -687,36 +692,10 @@ const LNMainHome = props => {
 };
 
 LNMainHome.propTypes = {
-    children: PropTypes.node.isRequired,
     renderables: PropTypes.node.isRequired,
     outputType: PropTypes.string,
     isAdmin: PropTypes.bool.isRequired,
-    globalContent: PropTypes.shape({
-        style: PropTypes.shape({
-            section_style_name: PropTypes.string,
-            headerdark: PropTypes.string
-        }),
-        name: PropTypes.string,
-        acumuladoGeneral: PropTypes.shape({
-            tipo_acumulado: PropTypes.string,
-            hierarchy_navigation: PropTypes.string,
-            hide_banner: PropTypes.string,
-            cantidad_notas: PropTypes.string,
-            id_collection_promo_items: PropTypes.string
-        }),
-        acumuladoColor: PropTypes.shape({
-            header_class_name: PropTypes.string,
-            background_color: PropTypes.string,
-            navigation_color: PropTypes.string,
-            navigation_color_tags: PropTypes.string,
-            id_logo_image: PropTypes.string
-        }),
-        articlesInCollection: PropTypes.arrayOf(
-            PropTypes.shape({
-                _id: PropTypes.string
-            })
-        )
-    }).isRequired
+    ...homeLayoutsPropTypes
 };
 
 LNMainHome.defaultProps = {

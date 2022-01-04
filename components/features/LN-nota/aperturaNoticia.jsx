@@ -86,7 +86,12 @@ aperturaNoticia.propTypes = {
         }),
         subtype: PropTypes.string,
         content_elements: PropTypes.arrayOf(PropTypes.shape())
-    })
+    }),
+    isApertura: PropTypes.bool
+};
+
+aperturaNoticia.defaultProps = {
+    isApertura: true
 };
 
 export default Consumer(aperturaNoticia);

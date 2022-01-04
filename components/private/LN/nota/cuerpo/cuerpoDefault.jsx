@@ -37,7 +37,8 @@ const Cuerpo = props => {
         _id,
         headlines: { basic: tituloNota },
         content_elements: contentElements,
-        subtype
+        subtype,
+        website_url: websiteUrl
     } = globalContent || {};
 
     const bodyComponents = [
@@ -63,7 +64,12 @@ const Cuerpo = props => {
         try {
             setStorageConfiguration(_id);
         } catch (e) {
-            console.error('Error en setear Local Storage:', e);
+            console.error('Error en setear Local Storage, CuerpoDefault', {
+                error: e,
+                outputType,
+                IdNota: _id,
+                websiteUrl
+            });
         }
     }, [_id]);
 

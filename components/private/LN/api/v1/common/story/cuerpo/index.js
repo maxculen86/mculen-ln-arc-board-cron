@@ -17,7 +17,7 @@ const getStoryElementBySubtype = storyBodyElements => {
         Button
     } = storyBodyElements;
 
-    const storyElementBySubtype = {
+    return {
         1: {
             text: Text,
             header: Header,
@@ -44,8 +44,6 @@ const getStoryElementBySubtype = storyBodyElements => {
         },
         8: { text: Text, image: Image }
     };
-
-    return storyElementBySubtype;
 };
 
 const getInfographicElement = (infographic, subtype, contentElements) => {
@@ -58,7 +56,7 @@ const getInfographicElement = (infographic, subtype, contentElements) => {
 };
 
 const storyBody = (dataNota, storyBodyElements) => {
-    const { id } = dataNota;
+    const { _id } = dataNota;
     const subtype = get(dataNota, 'subtype', '');
     if (!subtype) throw Error('The story does not have subtype');
 
@@ -74,10 +72,9 @@ const storyBody = (dataNota, storyBodyElements) => {
         '8': defaultCuerpo,
         '9': htmlCuerpo
     }[subtype];
-
     return templates
-        ? templates(contentElements, elementBySubtype[subtype], id)
-        : defaultCuerpo(contentElements, elementBySubtype[1], id);
+        ? templates(contentElements, elementBySubtype[subtype], _id)
+        : defaultCuerpo(contentElements, elementBySubtype[1], _id);
 };
 
 export default storyBody;

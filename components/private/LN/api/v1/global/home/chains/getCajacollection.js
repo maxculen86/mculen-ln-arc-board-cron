@@ -26,8 +26,10 @@ class GetCajaCollection {
         }
 
         const imageId = get(props, 'customFields.imageId', '');
+        const idCollection = get(props, 'idCollection', '');
 
         imageId &&
+            imageId.trim() &&
             this.fetchContent({
                 containerImage: {
                     source: 'relatedImageSource',
@@ -35,7 +37,9 @@ class GetCajaCollection {
                         id: imageId.trim(),
                         published: true,
                         imageConfig: 'techoImagen',
-                        'arc-site': 'la-nacion-ar'
+                        'arc-site': 'la-nacion-ar',
+                        nid: `IdCollection ${idCollection}`,
+                        boxType: 'GetCajaCollection'
                     }
                 }
             });

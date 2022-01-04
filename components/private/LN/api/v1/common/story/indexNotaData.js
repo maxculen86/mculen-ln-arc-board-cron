@@ -5,6 +5,7 @@ import ModificadorTemplate from './modificadorTemplate';
 import Relacionados from './relacionados';
 import dateAndTimeUtil from '../../../../../common/utils/dateAndTimeUtil';
 import { getPrincipalCategory } from '../category';
+import { openComments } from './comments';
 
 const getPaywallStatus = dataNota => {
     const paywallStatus = get(
@@ -49,13 +50,18 @@ const indexNotaData = (dataNota, cuerpo) => {
         time: formatDislplayTime
     } = dateAndTimeUtil(displayDate);
 
+    const allowComments = get(dataNota, 'comments.allow_comments', null);
+
     const resp = {
         id,
         template: template === '6' || template === '5' ? '1' : template,
         url,
         mostrarBanners: !(showBanners && showBanners.toLowerCase() === 'no'),
         paywallStatus: getPaywallStatus(dataNota),
-        abiertoComentarios: false,
+        comentarios: {
+            abiertoComentarios: openComments(dataNota),
+            permitirComentarios: allowComments
+        },
         categoria: primarySection && getPrincipalCategory(primarySection),
         relacionados: Relacionados(dataNota),
         enviarApps,

@@ -1677,7 +1677,6 @@ const LNHome = props => {
                                             <i className="com-icon icon-sun-cloudy"></i>
                                             <i className="com-icon icon-windy"></i>
                                         </section>
-                                        
                                         <section className="demofonts">
                                             <div>
                                                 <h1 className="--threexl">
