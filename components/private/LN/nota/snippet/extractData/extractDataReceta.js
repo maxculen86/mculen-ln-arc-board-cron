@@ -6,7 +6,7 @@ export const extractDataFromContentElements = contentElements => {
     const embedConfigTypeList = 'embed.config.typeList';
     let ingredients = [];
     let nutritionItems = [];
-    let nutrition = {};
+    const nutrition = {};
     let newProperty;
 
     if (contentElements) {
@@ -37,11 +37,9 @@ export const extractDataFromContentElements = contentElements => {
                     });
 
                 get(e, `${embedConfigTypeList}`, '') === 'nutritional-info' &&
-                    (nutrition = nutrition.concat(e.embed.config.items));
-                get(e, `${embedConfigTypeList}`, '') === 'nutritional-info' &&
-                    (nutritionItems = nutritionItems.concat(
-                        e.embed.config.items
-                    ));
+                    (nutritionItems =
+                        nutritionItems.concat(e.embed.config.items) || {});
+
                 nutritionItems.forEach(item => {
                     newProperty = `${item.value} ${item.unit}`;
                     item.text === 'Tamaño de porcion' &&

@@ -29,6 +29,7 @@ const snippet = props => {
             credits,
             display_date: displayDate,
             content_elements: contentElements,
+            // eslint-disable-next-line camelcase
             website_url
         },
         contextPath,
@@ -87,6 +88,17 @@ const snippet = props => {
         '@type': 'Recipe',
         recipeCuisine: getRecipeCuisine(sections),
         recipeInstructions: instructions,
+        cookTime: cookTime ? `PT${cookTime}M` : undefined,
+        prepTime: prepTime ? `PT${prepTime}M` : undefined,
+        totalTime: counterTime ? `PT${counterTime}M` : undefined,
+        datePublished: date || undefined,
+        description: description || undefined,
+        nutrition: Object.entries(nutrition).length
+            ? {
+                  '@type': 'NutritionInformation',
+                  ...nutrition
+              }
+            : undefined,
         author: {
             '@type': autores === '' ? 'Organization' : 'Person',
             name: autores === '' ? 'LA NACION recetas' : `${autores}`
@@ -95,7 +107,7 @@ const snippet = props => {
         recipeIngredient: ingredients,
         recipeCategory: categoria,
         name: `${headLinesBasic || 'LA NACION - Recetas'}`,
-        recipeYield: counterPortion ? `${counterPortion} porciones` : '',
+        recipeYield: counterPortion || undefined,
         keywords: `${keywords}`,
         publisher: {
             '@type': 'Organization',
@@ -110,20 +122,6 @@ const snippet = props => {
             }
         }
     };
-
-    // Propiedades agregadas solamente si recibimos el dato.
-
-    cookTime && (data.cookTime = `PT${cookTime}M`);
-    prepTime && (data.prepTime = `PT${prepTime}M`);
-    counterTime && (data.counterTime = `PT${counterTime}M`);
-    date && (data.datePublished = date);
-    description && (data.description = description);
-    Object.entries(nutrition).length !== 0 &&
-        (data.nutrition = {
-            '@type': 'NutritionalInformation',
-            ...nutrition
-        });
-
     return <SnippetRender data={data} />;
 };
 

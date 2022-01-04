@@ -488,12 +488,14 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
             "@type": "Organization",
             "name": "LA NACION recetas",
           },
-          "counterTime": "PT25M",
+          "cookTime": undefined,
           "datePublished": "2020-04-24T14:35:53.021Z",
           "description": "Subtitulo de prueba",
           "image": "https://resizer.glanacion.com/resizer/KKUwkn3fOAH9RsmFwoJFBFcvh54=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg",
           "keywords": "ajo, tomate perita",
           "name": "Nota recetas para Api test",
+          "nutrition": undefined,
+          "prepTime": undefined,
           "publisher": Object {
             "@type": "Organization",
             "logo": Object {
@@ -510,7 +512,8 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
           "recipeCuisine": undefined,
           "recipeIngredient": Array [],
           "recipeInstructions": Array [],
-          "recipeYield": "4 porciones",
+          "recipeYield": "4",
+          "totalTime": "PT25M",
         }
       }
     >
@@ -521,6 +524,9 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
   \\"@context\\": \\"https://schema.org\\",
   \\"@type\\": \\"Recipe\\",
   \\"recipeInstructions\\": [],
+  \\"totalTime\\": \\"PT25M\\",
+  \\"datePublished\\": \\"2020-04-24T14:35:53.021Z\\",
+  \\"description\\": \\"Subtitulo de prueba\\",
   \\"author\\": {
     \\"@type\\": \\"Organization\\",
     \\"name\\": \\"LA NACION recetas\\"
@@ -529,7 +535,7 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
   \\"recipeIngredient\\": [],
   \\"recipeCategory\\": \\"Platos de comida principal\\",
   \\"name\\": \\"Nota recetas para Api test\\",
-  \\"recipeYield\\": \\"4 porciones\\",
+  \\"recipeYield\\": \\"4\\",
   \\"keywords\\": \\"ajo, tomate perita\\",
   \\"publisher\\": {
     \\"@type\\": \\"Organization\\",
@@ -542,10 +548,7 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
       \\"height\\": 41,
       \\"width\\": 391
     }
-  },
-  \\"counterTime\\": \\"PT25M\\",
-  \\"datePublished\\": \\"2020-04-24T14:35:53.021Z\\",
-  \\"description\\": \\"Subtitulo de prueba\\"
+  }
 }",
           }
         }
