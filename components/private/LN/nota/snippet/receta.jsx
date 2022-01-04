@@ -29,8 +29,7 @@ const snippet = props => {
             credits,
             display_date: displayDate,
             content_elements: contentElements,
-            // eslint-disable-next-line camelcase
-            website_url
+            website_url: websiteUrl
         },
         contextPath,
         deployment
@@ -112,7 +111,7 @@ const snippet = props => {
         publisher: {
             '@type': 'Organization',
             name: 'Recetas La Nación',
-            url: addForwardSlash(`${getDomain({ website_url })}${section}`),
+            url: addForwardSlash(`${getDomain({ websiteUrl })}${section}`),
             logo: {
                 '@context': 'http://schema.org',
                 '@type': 'ImageObject',
