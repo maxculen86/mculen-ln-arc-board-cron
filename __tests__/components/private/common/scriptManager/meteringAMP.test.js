@@ -16,13 +16,11 @@ describe('Private - Common - MeteringAMP', () => {
                 _id={globalContent._id}
             />
         );
-        console.log(wrapper.debug({ verbose: true }));
         expect(wrapper.html()).toMatchSnapshot();
     });
 
     it('Should return empty string when props is empty', () => {
         const wrapper = shallow(<MeteringAMP />);
-        // console.log(wrapper.debug({ verbose: true }));
         expect(wrapper.html()).toEqual('');
     });
 });
