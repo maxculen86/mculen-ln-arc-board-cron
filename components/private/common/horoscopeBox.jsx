@@ -5,12 +5,12 @@ import Text from './com-text';
 import HoroscopeItem from './horoscopeItem';
 import '../../../resources/dist/css/ln/components/horoscope-box.css';
 
-const HoroscopeBox = ({ classCondition, signos, showTitle }) => {
+const HoroscopeBox = ({ classCondition, signos, title }) => {
     return (
         <article className={`horoscope-box ${classCondition}`}>
-            {showTitle && (
+            {title && (
                 <Text tag="h2" size="--m">
-                    Seleccioná tu signo...
+                    {title}
                 </Text>
             )}
             <div className="--items">
@@ -41,13 +41,13 @@ const HoroscopeBox = ({ classCondition, signos, showTitle }) => {
 HoroscopeBox.propTypes = {
     classCondition: PropTypes.string,
     signos: PropTypes.arrayOf(PropTypes.object),
-    showTitle: PropTypes.bool
+    title: PropTypes.string
 };
 
 HoroscopeBox.defaultProps = {
     classCondition: '',
     signos: [],
-    showTitle: true
+    title: ''
 };
 
 export default HoroscopeBox;

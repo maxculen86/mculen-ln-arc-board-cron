@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import Text from './text/index';
@@ -67,7 +68,22 @@ const DailyHoroscope = ({ classCondition, data }) => {
 };
 
 DailyHoroscope.propTypes = {
-    data: PropTypes.object
+    classCondition: PropTypes.string,
+    data: PropTypes.shape({
+        nombre: PropTypes.string,
+        detalle: PropTypes.string,
+        periodo: PropTypes.string,
+        autor: PropTypes.string,
+        elementos: PropTypes.shape({
+            Amor: PropTypes.string,
+            Riqueza: PropTypes.string,
+            Bienestar: PropTypes.string
+        })
+    }).isRequired
+};
+
+DailyHoroscope.defaultProps = {
+    classCondition: ''
 };
 
 export default DailyHoroscope;
