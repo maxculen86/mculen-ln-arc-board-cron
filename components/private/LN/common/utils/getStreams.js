@@ -1,9 +1,9 @@
-/* eslint-disable no-eval */
+import compare from '../../../common/utils/compare';
 
-const getStreams = (streams = [], quality = '<') =>
+const getStreams = (streams = [], operator = '<') =>
     (streams.length &&
         streams.reduce((prev, curr) =>
-            eval(`${prev.height} ${quality} ${curr.height}`) ? prev : curr
+            compare(prev.height, curr.height, operator) ? prev : curr
         )) ||
     null;
 

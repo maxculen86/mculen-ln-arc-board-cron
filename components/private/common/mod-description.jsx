@@ -36,17 +36,17 @@ const ModDescription = props => {
                 </Badge>
             )}
             <ComTitle
-                tag={titleTag || 'h2'}
-                size={titleSize || '--xs'}
+                tag={titleTag}
+                size={titleSize}
                 link={link}
                 content={titleText}
                 lead={lead}
             />
             {subheadText && (
                 <Text
-                    tag={subheadTag || 'h3'}
+                    tag={subheadTag}
                     extraClass="com-subhead"
-                    size={subheadSize || '2xs'}
+                    size={subheadSize}
                     text={subheadText}
                     link={link}
                 />
@@ -56,7 +56,7 @@ const ModDescription = props => {
                     <Text
                         tag="strong"
                         extraClass="mod-marquee"
-                        size={authorSize || '4xs'}
+                        size={authorSize}
                         text={marquesina || authors}
                         link={link}
                     />
@@ -122,19 +122,19 @@ ModDescription.propTypes = {
 
 ModDescription.defaultProps = {
     authors: undefined,
-    authorSize: '',
+    authorSize: '4xs',
     category: undefined,
     dateText: undefined,
     label: undefined,
     lead: undefined,
     link: undefined,
     marquesina: undefined,
-    subheadSize: '',
-    subheadTag: '',
+    subheadSize: '2xs',
+    subheadTag: 'h3',
     subheadText: false,
     tags: undefined,
     titleSize: '--xs',
-    titleTag: 'h4'
+    titleTag: 'h2'
 };
 
 export default ModDescription;

@@ -148,8 +148,8 @@ ArticleAcum.propTypes = {
 
 ArticleAcum.defaultProps = {
     dataSection: '',
-    titleSize: '',
-    titleTag: '',
+    titleSize: undefined,
+    titleTag: undefined,
     artPosition: '',
     typeArticle: 'Grilla',
     outputType: 'default',

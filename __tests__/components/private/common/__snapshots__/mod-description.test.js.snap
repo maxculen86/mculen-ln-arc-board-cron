@@ -13,15 +13,15 @@ exports[`Private - Common - ModDescription ModDescription - Snapshots 1`] = `
   <text-mock
     extraclass="com-subhead"
     link="http://google.com"
-    size="2xs"
-    tag="h3"
+    size=""
+    tag=""
     text="Este es el subtitulo"
   />
   <div>
     <text-mock
       extraclass="mod-marquee"
       link="http://google.com"
-      size="4xs"
+      size=""
       tag="strong"
       text="Por Carlos Pagni"
     />

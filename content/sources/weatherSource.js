@@ -1,3 +1,4 @@
+/* eslint-disable no-eval */
 import request from 'request-promise-native';
 import logger from '../../components/private/common/utils/logger';
 import compose from '../../components/private/common/utils/composeFunctions';
@@ -64,7 +65,7 @@ const setIconName = description => {
 
 const transform = data => {
     const cleaned = data.trim();
-    const result = eval(cleaned);
+    const result = eval(cleaned); // NOSONAR
     return { ...result, icon_name: setIconName(result.icono_descripcion) };
 };
 

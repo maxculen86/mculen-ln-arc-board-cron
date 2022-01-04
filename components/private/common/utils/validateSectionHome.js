@@ -1,5 +1,5 @@
-/* eslint-disable no-eval */
 import sectionsValidation from '../../../layouts/config/LN-Home.config';
+import compare from './compare';
 import get from './get';
 
 export const findSectionChildren = (renderables, position) => {
@@ -18,8 +18,10 @@ export const checkIfValid = (name, children) => {
     const sectionRule = sectionsValidation[name] || {};
     // Validacion por cantidad
     if (
-        eval(
-            `${childrenWithoutHide.length} ${sectionRule.operatorToUse} ${sectionRule.quantity}`
+        compare(
+            childrenWithoutHide.length,
+            sectionRule.quantity,
+            sectionRule.operatorToUse
         )
     )
         return false;

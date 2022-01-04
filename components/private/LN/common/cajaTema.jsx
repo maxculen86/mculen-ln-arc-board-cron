@@ -177,7 +177,7 @@ CajaTema.defaultProps = {
     title: null,
     url: null,
     imageId: null,
-    titleSize: null,
+    titleSize: undefined,
     withSubhead: false,
     hideTitle: false,
     notesQuantity: 3,
