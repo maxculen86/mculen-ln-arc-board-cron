@@ -6,10 +6,6 @@ import Static from 'fusion:static';
 import HoroscopeBox from '../../private/common/horoscopeBox';
 
 const CajaHoroscopos = ({ id: featureId, customFields }) => {
-    console.log(
-        '🚀 ~ file: cajaHoroscopos.jsx ~ line 9 ~ CajaHoroscopos ~ customFields',
-        customFields
-    );
     const { globalContent } = useAppContext();
     const { _id = '' } = globalContent || {};
     const path = _id.split('/').slice(1);
