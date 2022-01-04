@@ -38,7 +38,7 @@ export const extractDataFromContentElements = contentElements => {
 
                 get(e, `${embedConfigTypeList}`, '') === 'nutritional-info' &&
                     (nutritionItems =
-                        nutritionItems.concat(e.embed.config.items) || {});
+                        nutritionItems.concat(e.embed.config.items) || []);
 
                 nutritionItems.forEach(item => {
                     newProperty = `${item.value} ${item.unit}`;
