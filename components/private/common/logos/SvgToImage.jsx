@@ -8,7 +8,7 @@ import { mapperLogos } from './mapperLogos';
 
 import '../../../../resources/dist/css/ln/components/com-logo.css';
 
-const LogoComponent = props => {
+const SvgToImage = props => {
     const {
         outputType,
         name,
@@ -42,7 +42,7 @@ const LogoComponent = props => {
     );
 };
 
-LogoComponent.propTypes = {
+SvgToImage.propTypes = {
     outputType: PropTypes.string,
     folder: PropTypes.string,
     name: PropTypes.string,
@@ -52,4 +52,4 @@ LogoComponent.propTypes = {
     size: PropTypes.string
 };
 
-export default LogoComponent;
+export default SvgToImage;

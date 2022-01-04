@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import LogoComponent from '../common/logos/LogoComponent';
+import SvgToImage from '../common/logos/SvgToImage';
 
 import '../../../resources/dist/css/ln/components/com-logo.css';
 import ComLink from './com-link';
 
 const ComLogo = props => {
     const {
+        id,
         logoName,
         size,
         width,
@@ -19,7 +20,7 @@ const ComLogo = props => {
     if (!logoName) return null;
 
     const Logo = (
-        <LogoComponent
+        <SvgToImage
             width={width}
             height={height}
             name={logoName}
@@ -28,7 +29,7 @@ const ComLogo = props => {
         />
     );
     const Link = (
-        <ComLink link={href} title={title}>
+        <ComLink link={href} title={title} id={id}>
             {Logo}
         </ComLink>
     );
