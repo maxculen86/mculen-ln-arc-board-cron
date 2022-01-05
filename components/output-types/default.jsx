@@ -42,6 +42,7 @@ import CriticalCss from '../private/common/criticalcss';
 import MetaViafoura from '../private/common/metaViafoura';
 import Favicon from '../private/common/favicon';
 import ComscoreVideo from '../private/common/scriptManager/comscoreVideo';
+import hasQueryParams from '../private/common/utils/hasQueryParams';
 
 const scriptList = [
     {
@@ -128,7 +129,8 @@ const Default = props => {
         siteProperties,
         renderables,
         globalContent,
-        outputType
+        outputType,
+        requestUri
     } = props;
 
     const {
@@ -151,6 +153,7 @@ const Default = props => {
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
     const { basic: descriptionBasic } = description || {};
     const { name: distributorName } = distributor || {};
+    const { host, description: defaultDescription } = siteProperties;
 
     const metaTitleBasic = metaTitle || basicTitle;
 
@@ -199,11 +202,15 @@ const Default = props => {
                   layout
               )
             : '';
-
     const title =
         _nodeType === 'home'
             ? siteProperties.longTitle
             : metaValue('title') || siteProperties.title;
+
+    const query = hasQueryParams(`${host}${requestUri}`, 'query');
+    const descriptionForSearcher = `Resultados de búsqueda para las últimas noticias de ${query} en LA NACION.  Noticias de Argentina y el mundo`;
+    const metaDescriptionDefault =
+        layout === 'LN-buscador' ? descriptionForSearcher : defaultDescription;
 
     const LinkImagePreload = () =>
         getDataToLinkImage(globalContent, _nodeType, renderables, arcSite).map(
@@ -229,7 +236,9 @@ const Default = props => {
                     content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
                 <meta name="theme-color" content="#ffffff" />
-                <title>{title}</title>
+                <title>
+                    {layout === 'LN-buscador' ? `${query}: ${title}` : title}
+                </title>
                 <Libs />
                 <CriticalCss />
                 {arcSite === 'ott' ? (
@@ -319,7 +328,7 @@ const Default = props => {
                     }
                     arcSite={arcSite}
                     section={_nodeType}
-                    defaultDescription={siteProperties.description}
+                    defaultDescription={metaDescriptionDefault}
                     metaDescription={metaDescription}
                 />
                 <MetaViafoura {...props} />
@@ -387,7 +396,8 @@ Default.propTypes = {
     globalContent: PropTypes.objectOf(PropTypes.any).isRequired,
     outputType: PropTypes.string.isRequired,
     siteProperties: PropTypes.isRequired,
-    layout: PropTypes.string.isRequired
+    layout: PropTypes.string.isRequired,
+    requestUri: PropTypes.string.isRequired
 };
 
 export default Default;
