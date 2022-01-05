@@ -233,9 +233,10 @@ const Index = ({ home }) => {
                         </div>
                         <div className="col-desksm-4 --center">
                             <ComLogo
-                                href="http://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"
+                                href="https://www.lanacion.com.ar/"
                                 logoName="la-nacion"
                                 size="--sm"
+                                title="Ir a la página principal"
                             />
                         </div>
                         <div className="col-desksm-4 --right">
@@ -306,6 +307,7 @@ const Index = ({ home }) => {
                                 width={36}
                                 height={20}
                                 href="http://gda.com/"
+                                rel="nofollow"
                             />
                             <Text>
                                 Miembro de GDA. Grupo de Diarios América
@@ -316,6 +318,7 @@ const Index = ({ home }) => {
                                 width={28}
                                 height={38}
                                 href="http://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"
+                                rel="nofollow"
                             />
                         </div>
                         <div className="col-desksm-6 --left">

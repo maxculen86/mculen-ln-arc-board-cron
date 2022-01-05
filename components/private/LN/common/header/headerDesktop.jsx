@@ -15,7 +15,7 @@ import '../../../../../resources/dist/css/ln/components/button.css';
 import dynamicallyLoadScript from '../utils/dynamicallyLoadScript';
 import BannerLogoHeader from '../../../common/banners/BannerLogoHeader';
 import handleCookie from '../utils/handleCookie';
-import ComLogo from '../../../common/com-logo';
+import LnLogoHeader from '../../../common/logos/LnLogoHeader';
 
 const ItemAnchor = ({ url, text, alt }) => {
     const callURL = address => {
@@ -125,11 +125,7 @@ const HeaderDesktop = ({
                 </div>
                 <div className="col-7 col-desksm-4 header__middle">
                     <BannerLogoHeader section={section} isAdmin={isAdmin} />
-                    <ComLogo
-                        logoName="la-nacion"
-                        href={isHome ? '#' : `${host}/`}
-                        title="Ir a la página principal"
-                    />
+                    <LnLogoHeader />
                 </div>
                 <div className="col-4 header__right">
                     <div

@@ -11,14 +11,8 @@
         }
     }
     &.la-nacion {
-        width: px(215);
-        height: px(21);
-
-        @media ($media-l) {
-            height: px(30);
-            width: 100%;
-        }
-
+        width: px(164);
+        height: px(16);
         &.--xs {
             width: px(164);
             height: px(16);
@@ -35,13 +29,6 @@
             width: px(511);
             height: px(50);
         }
-        .modal & {
-            margin-bottom: $spacing-sm;
-        }
-    }
-    &.ln-desplegable {
-        width: px(164);
-        height: px(16);
     }
     &.brando {
         &.--xs {
@@ -338,6 +325,29 @@
         &.--xs {
             width: px(28);
             height: px(28);
+        }
+    }
+}
+
+
+.logoLN {
+    display: block;
+    height: px(17);
+
+    svg,
+    img {
+        height: 100%;
+    }
+    .modal & {
+        margin-bottom: $spacing-sm;
+    }
+    @media ($media-l) {
+        .header & {
+            height: px(30);
+        }
+
+        .footer-site & {
+            height: px(20);
         }
     }
 }
