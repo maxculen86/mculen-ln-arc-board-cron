@@ -42,7 +42,7 @@ import CriticalCss from '../private/common/criticalcss';
 import MetaViafoura from '../private/common/metaViafoura';
 import Favicon from '../private/common/favicon';
 import ComscoreVideo from '../private/common/scriptManager/comscoreVideo';
-import hasQueryParams from '../private/common/utils/hasQueryParams';
+import getQueryParamValue from '../private/common/utils/getQueryParamValue';
 
 const scriptList = [
     {
@@ -207,7 +207,7 @@ const Default = props => {
             ? siteProperties.longTitle
             : metaValue('title') || siteProperties.title;
 
-    const query = hasQueryParams(`${host}${requestUri}`, 'query');
+    const query = getQueryParamValue(`${host}${requestUri}`, 'query');
     const descriptionForSearcher = `Resultados de búsqueda para las últimas noticias de ${query} en LA NACION.  Noticias de Argentina y el mundo`;
     const metaDescriptionDefault =
         layout === 'LN-buscador' ? descriptionForSearcher : defaultDescription;
