@@ -44,7 +44,11 @@ const DailyHoroscope = ({ classCondition, data, deployment, contextPath }) => {
                     </Text>
                     <Text tag="p" extraClass="text" size="--fourxs">
                         Por{' '}
-                        <Link link="" title="" classCondition="--author">
+                        <Link
+                            link="https://www.lanacion.com.ar/autor/renata-dossi-11743/"
+                            title=""
+                            classCondition="--author"
+                        >
                             {autor}
                         </Link>
                     </Text>
