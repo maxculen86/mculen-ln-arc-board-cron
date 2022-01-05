@@ -1,11 +1,21 @@
 import React from 'react';
+import { SITE_LANACION } from 'fusion:environment';
 import PropTypes from 'prop-types';
+import getAssetsPath from './utils/getAssetsPath';
 import '../../../resources/dist/css/ln/components/horoscope-item.css';
 import Link from './link';
 import Text from './text';
 import Image from './com-image';
 
-const HoroscopeItem = ({ classCondition, periodo, nombre, filenameLogo }) => {
+const HoroscopeItem = ({
+    classCondition,
+    periodo,
+    nombre,
+    filenameLogo,
+    deployment,
+    contextPath
+}) => {
+    const baseUrl = `${SITE_LANACION || 'https://www.lanacion.com.ar'}`;
     const quitarTildes = string => {
         return string
             .toLowerCase()
@@ -19,15 +29,15 @@ const HoroscopeItem = ({ classCondition, periodo, nombre, filenameLogo }) => {
                 href={
                     nombre === 'Horóscopo Chino'
                         ? 'https://www.lanacion.com.ar/horoscopo-chino-2021'
-                        : `https://www.lanacion.com.ar/horoscopo/${nombre}`
+                        : `${baseUrl}/horoscopo/${quitarTildes(nombre)}`
                 }
                 title={`Ir al detalle de ${nombre}`}
             >
                 <div className="container-svg">
                     <Image
-                        src={`http://arc.lanacion.com.ar/pf/resources/images/horoscope-logos/${quitarTildes(
-                            filenameLogo
-                        )}.svg?d=%24LATEST`}
+                        src={getAssetsPath(contextPath)(deployment)(
+                            `horoscope-logos/${quitarTildes(filenameLogo)}.svg`
+                        )}
                         alt={nombre}
                         width="100%"
                         height="100%"
@@ -52,7 +62,9 @@ HoroscopeItem.propTypes = {
     classCondition: PropTypes.string,
     filenameLogo: PropTypes.string,
     nombre: PropTypes.string,
-    periodo: PropTypes.string
+    periodo: PropTypes.string,
+    contextPath: PropTypes.string.isRequired,
+    deployment: PropTypes.func.isRequired
 };
 
 HoroscopeItem.defaultProps = {

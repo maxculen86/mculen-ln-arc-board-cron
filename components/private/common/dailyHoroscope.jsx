@@ -1,13 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import getAssetsPath from './utils/getAssetsPath';
 import Text from './text/index';
 import Link from './com-link';
 import Image from './com-image';
 
 import '../../../resources/dist/css/ln/components/daily-horoscope.css';
 
-const DailyHoroscope = ({ classCondition, data }) => {
+const DailyHoroscope = ({ classCondition, data, deployment, contextPath }) => {
+    const {
+        nombre = '',
+        periodo = '',
+        autor = '',
+        detalle = '',
+        elementos = {}
+    } = data;
     const quitarTildes = string => {
         return string
             .toLowerCase()
@@ -19,48 +26,45 @@ const DailyHoroscope = ({ classCondition, data }) => {
             <header className="daily-horoscope-header">
                 <div className="container-svg">
                     <Image
-                        src={`http://arc.lanacion.com.ar/pf/resources/images/horoscope-logos/${quitarTildes(
-                            data.nombre
-                        )}.svg?d=%24LATEST`}
-                        alt={data.nombre}
+                        src={getAssetsPath(contextPath)(deployment)(
+                            `horoscope-logos/${quitarTildes(nombre)}.svg`
+                        )}
+                        alt={nombre}
                         width="100%"
                         height="100%"
                     />
                 </div>
                 <div>
                     <Text tag="h2" extraClass="title" size="--m">
-                        Horóscopo de <strong>{data.nombre} HOY</strong>
+                        Horóscopo de
+                        <strong> {nombre} HOY</strong>
                     </Text>
                     <Text tag="time" extraClass="text periodo" size="--twoxs">
-                        {data.periodo}
+                        {periodo}
                     </Text>
                     <Text tag="p" extraClass="text" size="--fourxs">
                         Por{' '}
-                        <Link
-                            link="https:www.lanacion.com.ar/autores/RenataDossi"
-                            title=""
-                            classCondition="--author"
-                        >
-                            {data.autor}
+                        <Link link="" title="" classCondition="--author">
+                            {autor}
                         </Link>
                     </Text>
                 </div>
             </header>
             <main className="daily-horoscope-main">
                 <Text tag="p" size="--twoxs">
-                    {data.detalle}
+                    {detalle}
                 </Text>
                 <Text tag="p" size="--twoxs">
                     <strong>Amor: </strong>
-                    {data.elementos.Amor}
+                    {elementos.Amor}
                 </Text>
                 <Text tag="p" size="--twoxs">
                     <strong>Riqueza: </strong>
-                    {data.elementos.Riqueza}
+                    {elementos.Riqueza}
                 </Text>
                 <Text tag="p" size="--twoxs">
                     <strong>Bienestar: </strong>
-                    {data.elementos.Bienestar}
+                    {elementos.Bienestar}
                 </Text>
             </main>
         </article>
@@ -79,7 +83,9 @@ DailyHoroscope.propTypes = {
             Riqueza: PropTypes.string,
             Bienestar: PropTypes.string
         })
-    }).isRequired
+    }).isRequired,
+    contextPath: PropTypes.string.isRequired,
+    deployment: PropTypes.func.isRequired
 };
 
 DailyHoroscope.defaultProps = {

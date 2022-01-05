@@ -5,7 +5,13 @@ import Text from './com-text';
 import HoroscopeItem from './horoscopeItem';
 import '../../../resources/dist/css/ln/components/horoscope-box.css';
 
-const HoroscopeBox = ({ classCondition, signos, title }) => {
+const HoroscopeBox = ({
+    classCondition,
+    signos,
+    title,
+    deployment,
+    contextPath
+}) => {
     return (
         <article className={`horoscope-box ${classCondition}`}>
             {title && (
@@ -22,6 +28,8 @@ const HoroscopeBox = ({ classCondition, signos, title }) => {
                                 filenameLogo={signo.nombre}
                                 nombre={signo.nombre}
                                 periodo={signo.periodo}
+                                deployment={deployment}
+                                contextPath={contextPath}
                             />
                         );
                     })}
@@ -31,6 +39,8 @@ const HoroscopeBox = ({ classCondition, signos, title }) => {
                         classCondition="--chino"
                         filenameLogo="rata"
                         nombre="Horóscopo Chino"
+                        deployment={deployment}
+                        contextPath={contextPath}
                     />
                 </div>
             </div>
@@ -41,7 +51,9 @@ const HoroscopeBox = ({ classCondition, signos, title }) => {
 HoroscopeBox.propTypes = {
     classCondition: PropTypes.string,
     signos: PropTypes.arrayOf(PropTypes.object),
-    title: PropTypes.string
+    title: PropTypes.string,
+    contextPath: PropTypes.string.isRequired,
+    deployment: PropTypes.func.isRequired
 };
 
 HoroscopeBox.defaultProps = {

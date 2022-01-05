@@ -6,7 +6,7 @@ import Static from 'fusion:static';
 import DailyHoroscope from '../../private/common/dailyHoroscope';
 
 const CajaDetalleSigno = ({ id: featureId }) => {
-    const { globalContent } = useAppContext();
+    const { globalContent, deployment, contextPath } = useAppContext();
     const { _id = '' } = globalContent || {};
     const path = _id.split('/').slice(1);
 
@@ -21,7 +21,11 @@ const CajaDetalleSigno = ({ id: featureId }) => {
 
     return response && response.data ? (
         <Static id={featureId}>
-            <DailyHoroscope data={response.data} />
+            <DailyHoroscope
+                data={response.data}
+                deployment={deployment}
+                contextPath={contextPath}
+            />
         </Static>
     ) : (
         <></>
