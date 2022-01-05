@@ -304,7 +304,7 @@ const resolveData = query => {
         }
     };
     const queryRequest = {
-        uri: REQUESTS[action].uri,
+        uri: REQUESTS[action]?.uri,
         method: REQUESTS[action].method,
         headers: REQUESTS[action].headers,
         body: REQUESTS[action].body
