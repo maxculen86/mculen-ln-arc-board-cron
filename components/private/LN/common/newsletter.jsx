@@ -16,8 +16,8 @@ const NewsLetter = () => {
                     (data &&
                         data.filter(
                             subscription => subscription.suscripto === 0
-                        )[Math.floor(Math.random() * data.length)]) ||
-                    {}; //NOSONAR
+                        )[Math.floor(Math.random() * data.length)]) || // NOSONAR
+                    {};
                 setSuggestion({ title: titulo, show: true });
             })
             .catch(error => {

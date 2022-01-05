@@ -1,17 +1,15 @@
 import Consumer from 'fusion:consumer';
 import React from 'react';
 import { mount, render } from 'enzyme';
+import Context from 'fusion:context';
+import ModArticle from '../../../../components/private/common/mod-article';
+import article from '../../../../__mocks__/data/articles/articleAcum.json';
 
 jest.mock('fusion:context', Component => {
     return function(Component) {
         return props => <Component {...props} />;
     };
 });
-
-import Context from 'fusion:context';
-
-import ModArticle from '../../../../components/private/common/mod-article';
-import article from '../../../../__mocks__/data/articles/articleAcum.json';
 
 describe('Private - Common - ModArticle', () => {
     Context.useAppContext = jest.fn(() => ({
@@ -38,8 +36,8 @@ describe('Private - Common - ModArticle', () => {
         dateSize: '',
         subheadText: 'Este es el subtitulo',
         videoBackground: undefined,
-        subheadSize: '',
-        subheadTag: '',
+        subheadSize: '2xs',
+        subheadTag: 'h3',
         outputType: 'default',
         label: 'chapita',
         layout: '',

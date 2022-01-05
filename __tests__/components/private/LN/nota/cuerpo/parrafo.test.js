@@ -65,4 +65,13 @@ describe('Paragraph', () => {
             new RegExp('<[/]?(em)>')
         );
     });
+
+    it('Tests if content is br', () => {
+        const data = {
+            type: 'text',
+            content: '<br/>'
+        };
+        component = mount(<Paragraph data={data} />);
+        expect(component).toBeEmptyRender;
+    });
 });
