@@ -27,7 +27,7 @@ const LogoBaseContainer = ({
         return (
             <ModSponsor
                 type={`${advertiser ? '--contentlab' : ''}`}
-                sponsor={logoName}
+                sponsor={`${logoName}${color ? `-blanco` : ''}`}
                 textName={advertiser}
                 link={`${path}/`} //agrego barra al final
                 tooltip={tooltip}
