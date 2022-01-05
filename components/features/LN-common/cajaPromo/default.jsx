@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ModPromo from '../../../private/common/mod-promo';
+import { groupCustomFields } from '../../../private/common/utils/propTypesHelper';
 
 const CajaPromo = ({ customFields }) => {
     const { text, link, logoName } = customFields;
@@ -15,19 +16,19 @@ CajaPromo.propTypes = {
             name: 'Texto',
             description: 'Ingrese aquí el texto de la caja',
             default: '',
-            group: 'Custom Fields'
+            group: groupCustomFields
         }),
         link: PropTypes.string.tag({
             name: 'URL',
             description: 'Ingrese aquí la url de la caja promo',
             default: '',
-            group: 'Custom Fields'
+            group: groupCustomFields
         }),
         logoName: PropTypes.string.tag({
             name: 'Logo',
             description: 'Ingrese aquí el nombre del logo',
             default: '',
-            group: 'Custom Fields'
+            group: groupCustomFields
         })
     }).isRequired
 };

@@ -148,10 +148,15 @@ const homeLayoutsPropTypes = {
     }).isRequired
 };
 
+const groupCustomFields = 'Custom Fields';
+const adjustByURL = 'Ajuste por URL';
+
 export {
     googlePublisherAndLiftIgniterPropTypes,
     bannerPropTypes,
     wikiAuthorPropTypes,
     notaAl100andStorytellingLayoutsPropTypes,
-    homeLayoutsPropTypes
+    homeLayoutsPropTypes,
+    groupCustomFields,
+    adjustByURL
 };

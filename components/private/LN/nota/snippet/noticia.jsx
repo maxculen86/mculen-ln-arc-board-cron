@@ -45,13 +45,15 @@ const getBiggestImage = basic => {
     return { resizedUrl, bigWidth, bigHeight };
 };
 
+const urlShema = 'https://schema.org';
+
 const extractDataFromPromoItems = (promoItems, PLACEHOLDER) => {
     const { basic } = promoItems || {};
     const { url, type, height, width } = basic || {};
     const isImage = basic && type === 'image';
     let thumbnailUrl = PLACEHOLDER;
     let image = {
-        '@context': 'https://schema.org',
+        '@context': urlShema,
         '@type': 'ImageObject',
         url: PLACEHOLDER,
         height: '800',
@@ -63,7 +65,7 @@ const extractDataFromPromoItems = (promoItems, PLACEHOLDER) => {
         const pathImagen = url;
         thumbnailUrl = `${pathImagen}`;
         image = {
-            '@context': 'https://schema.org',
+            '@context': urlShema,
             '@type': 'ImageObject',
             url: resizedUrl ? `${resizedUrl}` : `${pathImagen}`,
             height: bigHeight ? `${bigHeight}` : `${height}`,
@@ -186,7 +188,7 @@ const SnippetNoticia = props => {
     const trust = get(label, 'trust.text', 'Noticia Original');
 
     let data = {
-        '@context': 'https://schema.org',
+        '@context': urlShema,
         '@type': 'NewsArticle',
         headline: headlines && `${headlines.basic || 'LA NACION - Noticia'}`,
         articleBody: getFirstParagraph(contentElements) || '',
@@ -217,7 +219,7 @@ const SnippetNoticia = props => {
             name: `${siteProperties.title || ''}`,
             url: `${siteProperties.host || ''}`,
             logo: {
-                '@context': 'https://schema.org',
+                '@context': urlShema,
                 '@type': 'ImageObject',
                 url: `${LOGO_LN}`,
                 height: 60,

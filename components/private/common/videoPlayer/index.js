@@ -1,3 +1,5 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable react/no-danger */
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Context from 'fusion:context';
@@ -7,6 +9,7 @@ import {
     streamingAnalyticsInit,
     comscorePlayEvent
 } from './comscoreStreamingTag';
+import deviceType from '../../LN/common/utils/deviceType';
 
 const setPrerollAdsForPowa = adsURL => {
     window.PoWaSettings = window.PoWaSettings || {};
@@ -99,8 +102,14 @@ const VideoPlayer = props => {
         loadVideoOnInit,
         autoPlay,
         enableControls,
-        sticky
+        sticky,
+        globalContent,
+        device
     } = props;
+
+    const firstVideo = globalContent.content_elements
+        ? globalContent.content_elements.find(x => x.type === 'video')
+        : null;
 
     const siteVars = getProperties(arcSite);
     const { organizationId } = siteVars || {};
@@ -146,21 +155,53 @@ const VideoPlayer = props => {
     }, [adsURL, isAdmin, tituloVideo, videoId]);
 
     return (
-        <div
-            className="powa"
-            data-org={organizationId}
-            data-uuid={videoId}
-            data-ads={enableAds}
-            data-ad-bar={enableAdBar}
-            data-autoinit={loadVideoOnInit ? 'native-hls' : 'false'}
-            data-autoplay={autoPlay}
-            data-autoplay-muted={autoPlay}
-            data-controls={enableControls}
-            data-muted={muted}
-            data-sticky={sticky}
-            data-api={apiEnv}
-            data-env="prod"
-        />
+        <>
+            <div
+                className="powa"
+                data-org={organizationId}
+                data-uuid={videoId}
+                data-ads={enableAds}
+                data-ad-bar={enableAdBar}
+                data-autoinit={loadVideoOnInit ? 'native-hls' : 'false'}
+                data-autoplay={autoPlay}
+                data-autoplay-muted={autoPlay}
+                data-controls={enableControls}
+                data-muted={
+                    firstVideo &&
+                    videoId === firstVideo._id &&
+                    device === 'desktop'
+                        ? true
+                        : muted
+                }
+                data-sticky={sticky}
+                data-api={apiEnv}
+                data-env="prod"
+            />
+            {firstVideo && videoId === firstVideo._id && device === 'desktop' && (
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                        ${deviceType}
+                        deviceType() === 'desktop' &&
+                            window.addEventListener('load', (event) => {
+                                const divsPowaShadows = document.querySelectorAll('.cuerpo__nota .powa-shadow');
+                                const divFirstPowa =
+                                    divsPowaShadows &&
+                                    divsPowaShadows.length > 0 &&
+                                    divsPowaShadows[0].shadowRoot.querySelector('[data-uuid="${firstVideo._id}"]');
+                                if (divFirstPowa) {
+                                    if (window.powas) {
+                                        window.powas[divFirstPowa.id].powa.on('viewable', () => {
+                                            window.powas[divFirstPowa.id].powa.play();
+                                        })
+                                    }
+                                }
+                            });
+            `
+                    }}
+                />
+            )}
+        </>
     );
 };
 
@@ -176,7 +217,11 @@ VideoPlayer.propTypes = {
     muted: PropTypes.bool,
     sticky: PropTypes.bool,
     isAdmin: PropTypes.bool,
-    adsURL: PropTypes.string.isRequired
+    adsURL: PropTypes.string.isRequired,
+    globalContent: PropTypes.shape({
+        content_elements: PropTypes.arrayOf(PropTypes.object)
+    }).isRequired,
+    device: PropTypes.string.isRequired
 };
 
 VideoPlayer.defaultProps = {

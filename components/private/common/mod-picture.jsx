@@ -41,7 +41,13 @@ const ModImage = props => {
                         srcset={source.resizedUrl}
                     />
                 ))}
-            <ComImage src={src} alt={alt} amp={amp} {...sizes} isApertura />
+            <ComImage
+                src={src}
+                alt={alt}
+                amp={amp}
+                {...sizes}
+                isApertura={isApertura}
+            />
             {video ? <ModVideo image={src} video={video} /> : <></>}
         </ComPicture>
     );

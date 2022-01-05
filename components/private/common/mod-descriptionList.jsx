@@ -2,15 +2,12 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ComLink from './com-link';
 import '../../../resources/dist/css/ln/modules/mod-descriptionlist.css';
-import ComBullet from './com-bullet';
 
 const ModDescriptionList = props => {
     const {
         classCondition = '',
         size,
         descriptionTitle,
-        sizeBullet,
-        color,
         list = [],
         text
     } = props;
@@ -19,9 +16,6 @@ const ModDescriptionList = props => {
         text ||
         list.map(item => (
             <dd className={`com-itemlist ${classCondition} ${size}`}>
-                {/* <div className="com-bullet">
-                    <i className="com-icon bullet icon-bullet --l">•</i>
-                </div> */}
                 {item.url && (
                     <ComLink
                         link={item.url}

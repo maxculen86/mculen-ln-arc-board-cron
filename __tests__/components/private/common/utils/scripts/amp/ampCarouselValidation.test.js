@@ -1,8 +1,5 @@
 import ampCarouselValidation from '../../../../../../../components/private/common/utils/scripts/amp/ampCarouselValidation';
-import {
-    evaluateCheckInclusion,
-    evaluateFunctionInclusion
-} from '../../../../../../../components/private/common/utils/scripts/amp/helper';
+import { evaluateFunctionInclusion } from '../../../../../../../components/private/common/utils/scripts/amp/helper';
 import articleWithGallery from '../../../../../../../__mocks__/data/articles/ICFK2KOK4JGCPMURVDYAT4RFLU.json';
 import articleWithoutGallery from '../../../../../../../__mocks__/data/articles/2CIOHVMKJBHKDMMHH2WBIZGJWE.json';
 
@@ -55,34 +52,31 @@ describe('evaluateFunctionInclusion and evaluateFunctionInclusion test', () => {
     it('Should have a lenght of 7 and amp-carrousel must load', () => {
         let scriptsToLoad = [];
         scripsConfig.forEach(configElement => {
-            const loadScript =
-                evaluateCheckInclusion(configElement, contentFeatures) &&
-                evaluateFunctionInclusion(configElement, articleWithGallery);
+            const loadScript = evaluateFunctionInclusion(
+                configElement,
+                articleWithGallery
+            );
 
             loadScript && scriptsToLoad.push(configElement);
         });
         expect(scriptsToLoad.length).toBe(7);
         expect(
-            evaluateCheckInclusion(scripsConfig[1], contentFeatures) &&
-                evaluateFunctionInclusion(scripsConfig[1], articleWithGallery)
+            evaluateFunctionInclusion(scripsConfig[1], articleWithGallery)
         ).toBe(true);
     });
     it('Should have a lenght of 6 and amp-carrousel mustnt load', () => {
         let scriptsToLoad = [];
         scripsConfig.forEach(configElement => {
-            const loadScript =
-                evaluateCheckInclusion(configElement, contentFeatures) &&
-                evaluateFunctionInclusion(configElement, articleWithoutGallery);
+            const loadScript = evaluateFunctionInclusion(
+                configElement,
+                articleWithoutGallery
+            );
 
             loadScript && scriptsToLoad.push(configElement);
         });
         expect(scriptsToLoad.length).toBe(6);
         expect(
-            evaluateCheckInclusion(scripsConfig[1], contentFeatures) &&
-                evaluateFunctionInclusion(
-                    scripsConfig[1],
-                    articleWithoutGallery
-                )
+            evaluateFunctionInclusion(scripsConfig[1], articleWithoutGallery)
         ).toBe(false);
     });
 });

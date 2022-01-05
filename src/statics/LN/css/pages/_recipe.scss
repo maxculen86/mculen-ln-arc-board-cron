@@ -135,6 +135,9 @@
         .com-table {
             border: 1px solid $light-neutral-300;
             width: 100%;
+            thead {
+                border-bottom: 1px solid $light-neutral-300;
+            }
             tr {
                 th {
                     text-align: start;

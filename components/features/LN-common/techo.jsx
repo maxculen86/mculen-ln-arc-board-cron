@@ -27,6 +27,7 @@ const TechoFeatured = props => {
     );
 };
 
+const groupCustomFields = 'Custom Fields';
 TechoFeatured.label = 'LN-Common-Techo-Grilla';
 
 TechoFeatured.propTypes = {
@@ -36,19 +37,19 @@ TechoFeatured.propTypes = {
             description:
                 'Ingrese la url que redirige al hacer click al titulo. El formato debe empezar con https://',
             defaultValue: '',
-            group: 'Custom Fields'
+            group: groupCustomFields
         }),
         title: PropTypes.string.tag({
             name: 'Título / Techo',
             description: 'Ingrese aquí el título separador',
             defaultValue: '',
-            group: 'Custom Fields'
+            group: groupCustomFields
         }),
         imageId: PropTypes.string.tag({
             name: 'Foto / Logo',
             description: 'Ingrese aquí el id de Photo Center de la imagen',
             defaultValue: '',
-            group: 'Custom Fields'
+            group: groupCustomFields
         }),
         color: PropTypes.oneOf([
             'default',
@@ -59,7 +60,7 @@ TechoFeatured.propTypes = {
         ]).tag({
             defaultValue: 'default',
             description: 'Cambiar color de fondo',
-            group: 'Custom Fields',
+            group: groupCustomFields,
             labels: {
                 default: 'Sin Color',
                 '--pink': 'Rosa',

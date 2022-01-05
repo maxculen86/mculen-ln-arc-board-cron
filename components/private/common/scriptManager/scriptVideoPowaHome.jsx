@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { API_ENV } from 'fusion:environment';
 
 const ScriptVideoPowaHome = ({ renderables, section }) => {
     const loadVideo =
@@ -14,7 +15,7 @@ const ScriptVideoPowaHome = ({ renderables, section }) => {
     return loadVideo ? (
         <script
             async
-            src="https://lanacionar.video-player.arcpublishing.com/prod/powaBoot.js"
+            src={`https://lanacionar.video-player.arcpublishing.com/${API_ENV}/powaBoot.js`}
         />
     ) : (
         <></>

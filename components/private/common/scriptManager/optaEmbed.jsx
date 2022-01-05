@@ -5,9 +5,11 @@ import PropTypes from 'fusion:prop-types';
 import config from '../../../../properties/sites/la-nacion-ar';
 import get from '../utils/get';
 
+const optaWidget = 'opta-widget';
+
 const childrenHasOpta = (children = []) => {
     return children.some(elem =>
-        get(elem, 'props.customFields.html', '').includes('opta-widget')
+        get(elem, 'props.customFields.html', '').includes(optaWidget)
     );
 };
 
@@ -16,7 +18,7 @@ const hasOptaElements = (contentElements, renderables, promoItems) =>
         contentElements.some(
             contentElement =>
                 get(contentElement, 'type') === 'raw_html' &&
-                get(contentElement, 'content', '').includes('opta-widget')
+                get(contentElement, 'content', '').includes(optaWidget)
         )) ||
     (renderables &&
         renderables.some(
@@ -29,7 +31,7 @@ const hasOptaElements = (contentElements, renderables, promoItems) =>
     (promoItems &&
         get(promoItems, 'apertura_multimedia.type') === 'raw_html' &&
         get(promoItems, 'apertura_multimedia.content', '').includes(
-            'opta-widget'
+            optaWidget
         ));
 
 const OptaEmbed = props => {

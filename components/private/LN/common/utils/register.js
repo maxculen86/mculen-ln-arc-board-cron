@@ -12,6 +12,8 @@ let deferredPrompt;
 // TODO: refactor de todo este archivo o_O
 const apiNotification = 'https://notificaciones.lanacion.com.ar/api/';
 const topicName = 'Alertas_LA_NACION'; // 'pwatemp';
+const notificationModal = '#notificacion-modal';
+const aplicationJson = 'application/json';
 
 const validatePopupPwa = () => {
     const pwaInit = localStorage.getItem('pwaNotificationInit');
@@ -56,6 +58,7 @@ const unregister = () => {
 };
 
 const register = deployment => {
+    const notificationModalPwa = '#notificacion-modal-pwa';
     return new Promise((resolve, reject) => {
         // TODO: pasar beforeinstallprompt a sw?
         window.addEventListener('beforeinstallprompt', e => {
@@ -70,7 +73,7 @@ const register = deployment => {
             );
             if (notificacionPwaSi && notificacionPwaNo) {
                 notificacionPwaSi.addEventListener('click', () => {
-                    showNoShowModal('#notificacion-modal-pwa', 'none');
+                    showNoShowModal(notificationModalPwa, 'none');
                     e.prompt();
                     setDataLayer('notificationPrompt');
 
@@ -101,7 +104,7 @@ const register = deployment => {
                 notificacionPwaNo.addEventListener('click', () => {
                     try {
                         localStorage.setItem('pwaNotificationInit', new Date());
-                        showNoShowModal('#notificacion-modal-pwa', 'none');
+                        showNoShowModal(notificationModalPwa, 'none');
                     } catch (err) {
                         console.log(
                             'Error al intentar guardar pwaNotificationInit en localStorage'
@@ -112,7 +115,7 @@ const register = deployment => {
 
             const { isMobile } = getViewport();
             if (validatePopupPwa() && isMobile) {
-                showNoShowModal('#notificacion-modal-pwa', 'block');
+                showNoShowModal(notificationModalPwa, 'block');
             }
 
             return false;
@@ -156,8 +159,8 @@ const initialize = () => {
 
         messaging = firebase.messaging();
     }
-
-    const ls = getCookie('ln-notification');
+    const lnNotification = 'ln-notification';
+    const ls = getCookie(lnNotification);
 
     document.addEventListener('freeze', e => {
         console.log('freeze');
@@ -177,15 +180,15 @@ const initialize = () => {
         notifButtonNo.addEventListener('click', e => {
             e.preventDefault();
             setDataLayer('PushNoficationDismiss');
-            setCookie('ln-notification', 'false', 43200);
-            showNoShowModal('#notificacion-modal', 'none');
+            setCookie(lnNotification, 'false', 43200);
+            showNoShowModal(notificationModal, 'none');
         });
 
         notifButtonYes.addEventListener('click', e => {
             e.preventDefault();
             setDataLayer('PushNoficationConsent');
-            setCookie('ln-notification', 'true', 43200);
-            showNoShowModal('#notificacion-modal', 'none');
+            setCookie(lnNotification, 'true', 43200);
+            showNoShowModal(notificationModal, 'none');
             checkSubscription(true);
         });
     }
@@ -194,7 +197,7 @@ const initialize = () => {
 const displayNotificacion = () => {
     if (isNotificationDefault()) {
         setDataLayer('PushNoficationPrompt');
-        showNoShowModal('#notificacion-modal', 'block');
+        showNoShowModal(notificationModal, 'block');
     }
 };
 
@@ -206,6 +209,7 @@ const isNotificationDefault = () => {
 };
 
 const checkSubscription = showError => {
+    const authToken = 'x-auth2-token';
     navigator.serviceWorker.ready.then(registration => {
         console.log(`[Service Worker] on ready = ${registration}`);
         registration.pushManager.getSubscription().then(subscription => {
@@ -239,11 +243,11 @@ const checkSubscription = showError => {
                     */
 
                     if (
-                        token !== localStorage.getItem('x-auth2-token') ||
-                        localStorage.getItem('x-auth2-token') === null
+                        token !== localStorage.getItem(authToken) ||
+                        localStorage.getItem(authToken) === null
                     ) {
                         try {
-                            localStorage.setItem('x-auth2-token', token);
+                            localStorage.setItem(authToken, token);
                             registerSuscription(token, showError);
                         } catch (e) {
                             console.log(
@@ -267,7 +271,7 @@ const savePushTokenCache = token => {
     caches
         .open('sw')
         .then(cache => {
-            const options = { headers: { 'Content-Type': 'application/json' } };
+            const options = { headers: { 'Content-Type': aplicationJson } };
             const response = JSON.stringify({
                 token
             });
@@ -288,8 +292,8 @@ const registerSuscription = (token, showError) => {
     const apiUrl = `${apiNotification}notification/register/`;
 
     const headers = {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
+        Accept: aplicationJson,
+        'Content-Type': aplicationJson,
         'x-token': getCookie('token')
     };
     fetch(apiUrl, {
@@ -316,8 +320,8 @@ const registerTopic = (topic, token, showError) => {
 
     const apiUrl = `${apiNotification}notification/subscriptions/`;
     const headers = {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
+        Accept: aplicationJson,
+        'Content-Type': aplicationJson
     };
 
     fetch(apiUrl, {

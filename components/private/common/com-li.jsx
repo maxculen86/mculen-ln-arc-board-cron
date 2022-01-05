@@ -2,15 +2,7 @@ import React from 'react';
 import '../../../resources/dist/css/ln/components/com-li.css';
 
 const ComLi = props => {
-    const {
-        link,
-        textname,
-        blank,
-        classesNames,
-        classCondition,
-        size,
-        children
-    } = props;
+    const { classesNames, classCondition, children } = props;
 
     return (
         <li

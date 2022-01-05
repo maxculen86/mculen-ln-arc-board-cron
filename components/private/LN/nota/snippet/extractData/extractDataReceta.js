@@ -2,11 +2,11 @@
 import get from '../../../../common/utils/get';
 
 export const extractDataFromContentElements = contentElements => {
+    const instructions = [];
+    const embedConfigTypeList = 'embed.config.typeList';
     let ingredients = [];
-    let instructions = [];
     let nutritionItems = [];
-
-    let nutrition = new Object();
+    const nutrition = {};
     let newProperty;
 
     if (contentElements) {
@@ -16,10 +16,10 @@ export const extractDataFromContentElements = contentElements => {
 
         if (element) {
             element.powerUp.forEach(e => {
-                get(e, 'embed.config.typeList', '') === 'ingredientes' &&
+                get(e, `${embedConfigTypeList}`, '') === 'ingredientes' &&
                     (ingredients = ingredients.concat(e.embed.config.items));
 
-                get(e, 'embed.config.typeList', '') === 'preparacion' &&
+                get(e, `${embedConfigTypeList}`, '') === 'preparacion' &&
                     instructions.push({
                         '@type': 'HowToSection',
 
@@ -36,10 +36,10 @@ export const extractDataFromContentElements = contentElements => {
                         })
                     });
 
-                get(e, 'embed.config.typeList', '') === 'nutritional-info' &&
-                    (nutritionItems = nutritionItems.concat(
-                        e.embed.config.items
-                    ));
+                get(e, `${embedConfigTypeList}`, '') === 'nutritional-info' &&
+                    (nutritionItems =
+                        nutritionItems.concat(e.embed.config.items) || []);
+
                 nutritionItems.forEach(item => {
                     newProperty = `${item.value} ${item.unit}`;
                     item.text === 'Tamaño de porcion' &&
