@@ -16,7 +16,11 @@ const HoroscopeItem = ({ classCondition, periodo, nombre, filenameLogo }) => {
     return (
         <article className={`horoscope-item ${classCondition}`}>
             <Link
-                href={`https://www.lanacion.com.ar/horoscopo/${nombre}`}
+                href={
+                    nombre === 'Horóscopo Chino'
+                        ? 'https://www.lanacion.com.ar/horoscopo-chino-2021'
+                        : `https://www.lanacion.com.ar/horoscopo/${nombre}`
+                }
                 title={`Ir al detalle de ${nombre}`}
             >
                 <div className="container-svg">
