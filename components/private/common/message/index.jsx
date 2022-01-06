@@ -27,7 +27,7 @@ const Message = props => {
             <div className="col-12 --top">
                 {isExclusive ? (
                     <Text tag="strong" extraClass="subscribers" size="--twoxs">
-                        <Logo logoName="ln" size="--xs" />
+                        <Icon name="ln" size="--xs" />
                         Exclusivo suscriptores
                     </Text>
                 ) : (
