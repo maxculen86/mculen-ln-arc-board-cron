@@ -30,7 +30,8 @@
             height: px(50);
         }
     }
-    &.brando {
+    &.brando,
+    &.brando-blanco {
         &.--xs {
             width: px(83);
             height: px(17);
@@ -48,7 +49,8 @@
             height: px(50);
         }
     }
-    &.hola {
+    &.hola,
+    &.hola-blanco {
         &.--xs {
             width: px(45);
             height: px(22);
@@ -66,7 +68,8 @@
             height: px(80);
         }
     }
-    &.jardin {
+    &.jardin,
+    &.jardin-blanco {
         &.--xs {
             width: px(62);
             height: px(20);
@@ -84,7 +87,8 @@
             height: px(62);
         }
     }
-    &.living {
+    &.living,
+    &.living-blanco {
         &.--xs {
             width: px(60);
             height: px(20);
@@ -102,7 +106,8 @@
             height: px(62);
         }
     }
-    &.lugares {
+    &.lugares,
+    &.lugares-blanco {
         &.--xs {
             width: px(86);
             height: px(16);
@@ -120,7 +125,8 @@
             height: px(50);
         }
     }
-    &.rolling {
+    &.rolling,
+    &.rolling-blanco {
         &.--xs {
             width: px(129);
             height: px(23);
@@ -138,7 +144,8 @@
             height: px(62);
         }
     }
-    &.ohlala {
+    &.ohlala,
+    &.ohlala-blanco {
         &.--xs {
             width: px(64);
             height: px(18);
@@ -156,7 +163,8 @@
             height: px(62);
         }
     }
-    &.ln-mas {
+    &.ln-mas,
+    &.lnmas-blanco {
         &.--xs {
             width: px(34);
             height: px(20);
@@ -174,7 +182,8 @@
             height: px(62);
         }
     }
-    &.negocios {
+    &.negocios,
+    &.negocios-blanco {
         &.--xs {
             width: px(95);
             height: px(30);
@@ -328,7 +337,6 @@
         }
     }
 }
-
 
 .logoLN {
     display: block;
