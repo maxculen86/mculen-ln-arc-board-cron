@@ -22,7 +22,7 @@ class SectionRanking {
 
         if (
             !this.state.rankingArticleSource ||
-            this.state.rankingArticleSource.content_elements.length === 0
+            this.state.rankingArticleSource.content_elements?.length === 0
         ) {
             this.fetch(sectionId, customFields, 2);
         }
@@ -78,7 +78,7 @@ class SectionRanking {
         const acuData = {
             name,
             articles: rankingArticleSource.content_elements,
-            total: rankingArticleSource.content_elements.length,
+            total: rankingArticleSource.content_elements?.length,
             configuration
         };
 
