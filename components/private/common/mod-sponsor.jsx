@@ -12,11 +12,32 @@ import ModTooltip from './mod-tooltip';
 const ModSponsor = props => {
     const { type, sponsor, textName, link, tooltip = {} } = props;
 
+    const dictionaryAlt = {
+        hola: 'Revista Hola',
+        jardin: 'Revista Jardin',
+        brando: 'Revista Brando',
+        living: 'Revista Living',
+        lugares: 'Revista Lugares',
+        rolling: 'Revista Rolling Stone',
+        ohlala: 'Revista Ohlalá',
+        'hola-blanco': 'Revista Hola',
+        'jardin-blanco': 'Revista Jardin',
+        'brando-blanco': 'Revista Brando',
+        'living-blanco': 'Revista Living',
+        'lugares-blanco': 'Revista Lugares',
+        'rolling-blanco': 'Revista Rolling Stone',
+        'ohlala-blanco': 'Revista Ohlalá'
+    };
+
     return (
         <div className={`mod-sponsor ${type} ${sponsor}`}>
             {sponsor && (
                 <ComLink link={link}>
-                    <ComLogo logoName={sponsor} size="--sm" />
+                    <ComLogo
+                        logoName={sponsor}
+                        size="--sm"
+                        alt={dictionaryAlt[sponsor]}
+                    />
                 </ComLink>
             )}
 
