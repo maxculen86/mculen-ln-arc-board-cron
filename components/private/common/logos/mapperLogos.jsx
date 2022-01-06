@@ -24,7 +24,8 @@ export const mapperLogos = {
     'la-nacion': 'logo-lanacion.svg',
     'ios-store': 'ios-store.svg',
     'android-store': 'android-store.svg',
-    'ln-mas': 'ln-mas.svg',
+    'ln-mas': 'lnmas.svg',
+    'lnmas-blanco': 'lnmas-blanco.svg',
     'logo-club': 'club.svg',
     'club-la-nacion': 'club-la-nacion.svg'
 };
