@@ -40,5 +40,6 @@ export default {
     LAZY_OFFSETTOP: 500,
     VIAFOURA_UUID: '00000000-0000-4000-8000-5611d514abb3',
     VIAFOURA_XREQUEST:
-        'QA+b2NU5+pJLVNVOQ2ahGn3bZOAcJKVKVey+ZreIMqYHg2ei2uOcbiKxU4TAsg4X'
+        'QA+b2NU5+pJLVNVOQ2ahGn3bZOAcJKVKVey+ZreIMqYHg2ei2uOcbiKxU4TAsg4X',
+    ARC_WIDGETS: 'https://arc-widgets.lanacion.com.ar/widgets/'
 };

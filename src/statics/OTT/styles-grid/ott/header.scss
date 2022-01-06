@@ -5,12 +5,12 @@ header {
     max-width: 1140px;
     padding: 1rem 0;
     position: sticky;
-    position: -webkit-sticky;
     top: 0;
     z-index: 3;
     transition: padding 0.2s ease;
     margin: auto;
     min-width: 1140px;
+    background: none;
 }
 
 .header-wrapper {

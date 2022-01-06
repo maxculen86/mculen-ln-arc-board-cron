@@ -42,14 +42,14 @@
                         .content-media {
                             .mod-media {
                                 margin-bottom: 0;
-                                .mod-figure {
-                                    &.--horizontal {
-                                        .mod-picture {
-                                            padding-top: $box;
-                                            width: px(120);
-                                        }
-                                    }
+                                //.mod-figure {
+                                //&.--horizontal {
+                                .mod-picture {
+                                    padding-top: $box;
+                                    width: px(120);
                                 }
+                                //}
+                                //}
                             }
                         }
                         .mod-description {

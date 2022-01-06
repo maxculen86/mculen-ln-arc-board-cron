@@ -22,6 +22,7 @@ const AddRelatedImage = article => {
     const imageData =
         id &&
         withoutPromoItems &&
+        id.trim() &&
         getContent({
             source: 'relatedImageSource',
             query: {

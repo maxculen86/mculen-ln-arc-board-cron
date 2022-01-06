@@ -36,6 +36,29 @@
             "type": "custom_embed"
         },
         {
+            "_id": "X5EAKEQ6J5BYBOKAQNSGYFMZUE",
+            "additional_properties": {},
+            "embed": {
+                "config": {
+                    "items": [
+                        {
+                            "text": "Calorías",
+                            "unit": "kcal",
+                            "value": 2
+                        },
+                        {
+                            "text": "Carbohidratos",
+                            "unit": "g",
+                            "value": 3
+                        }
+                    ],
+                    "typeList": "nutritional-info"
+                }
+            },
+            "subtype": "custom-nutrition",
+            "type": "custom_embed"
+        },
+        {
             "_id": "4LVALFON2RG5XKADXLDX5UQYHY",
             "additional_properties": {},
             "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id fermentum lectus, sit amet vulputate turpis. Sed non nibh eget arcu facilisis euismod vitae a ex. Suspendisse potenti. Aliquam euismod eros ac convallis consectetur. Suspendisse vestibulum semper dolor non venenatis. Curabitur cursus vehicula risus. Nam imperdiet ipsum vel lacinia imperdiet. Duis quis pharetra eros. Etiam convallis convallis sapien, eu bibendum mauris maximus a. Cras varius id lectus ac fermentum. Pellentesque eget dapibus dolor, ut pellentesque nibh. Donec tincidunt nisl non volutpat tempus. Sed quis dui eget augue imperdiet tempus et vel nibh. Phasellus lorem diam, cursus dignissim rutrum ac, rutrum eu nunc. In fermentum gravida urna, et luctus turpis venenatis in.",
@@ -143,7 +166,9 @@
             "embed": {
                 "config": {
                     "counterPortion": "4",
-                    "counterTime": "25",
+                    "cookTime": "25",
+                    "prepTime": "25",
+                    "counterTime": "50",
                     "title": "detalle-receta"
                 }
             },

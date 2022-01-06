@@ -30,5 +30,6 @@ export default {
     ARC_STATIC: 'https://dev.lanacionar.arcpublishing.com/',
     VIAFOURA_UUID: '00000000-0000-4000-8000-43ce53965c44',
     VIAFOURA_XREQUEST:
-        'cq4Xr6peiyYAhuLxRBq/ozZD+TOR0BiHnofsJWLLbi59gsFl9mRE6Xdzi/eBGed+'
+        'cq4Xr6peiyYAhuLxRBq/ozZD+TOR0BiHnofsJWLLbi59gsFl9mRE6Xdzi/eBGed+',
+    ARC_WIDGETS: 'https://dev.lanacionar.arcpublishing.com/widgets/'
 };

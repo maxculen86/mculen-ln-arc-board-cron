@@ -49,13 +49,15 @@ const powerUpsReceta = ({ data }) => {
                     />
                     <div>
                         <table className="com-table">
-                            <tr>
-                                <th>Propiedad</th>
-                                <th>Cantidad por porción</th>
-                            </tr>
+                            <thead>
+                                <tr>
+                                    <th>Propiedad</th>
+                                    <th>Cantidad por porción</th>
+                                </tr>
+                            </thead>
                             {powerUp.map(e => {
                                 return e.subtype === 'custom-nutrition' ? (
-                                    <>
+                                    <tbody>
                                         {e.embed.config.items.map(item => {
                                             return (
                                                 <tr>
@@ -64,7 +66,7 @@ const powerUpsReceta = ({ data }) => {
                                                 </tr>
                                             );
                                         })}
-                                    </>
+                                    </tbody>
                                 ) : (
                                     <></>
                                 );

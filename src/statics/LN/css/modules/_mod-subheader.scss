@@ -1,9 +1,6 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 .mod-subheader {
-    // display: flex;
-    // justify-content: center;
-    // background: $blanco;
     padding: $spacing-xs 0;
     .row {
         .com-club,
@@ -13,48 +10,48 @@
         }
         .com-dolar {
             display: flex;
+            width: 100%;
+            justify-content: space-between;
+            font-size: px(11);
+            line-height: px(16);
+
             .--dolar {
-                display: none;
-                font-weight: bold;
-                margin-right: $spacing-xs;
+                margin-right: $spacing-2xs;
             }
             .--blue {
-                margin-left: $spacing-sm;
-                margin-right: $spacing-3xs;
-                font-weight: bold;
+                margin-right: $spacing-2xs;
             }
             i {
                 padding: 0 $spacing-3xs;
             }
-            .com-text {
-                margin-right: $spacing-3xs;
-            }
             .precioDolar {
                 font-weight: bold;
             }
-        }
-    }
-}
-@media ($media-s) {
-    .mod-subheader {
-        .row {
-            .com-dolar {
-                .--dolar {
-                    display: inline;
+
+            @media ($media-s) {
+                font-size: px(12);
+            }
+            @media (min-width: 370px) {
+                font-size: px(13);
+            }
+            @media (min-width: 400px) {
+                font-size: px(14);
+                .--blue {
+                    margin-left: $spacing-sm;
                 }
+            }
+            @media (min-width: 500px) {
+                width: auto;
             }
         }
     }
 }
+
 @media ($media-m) {
     .mod-subheader {
         .row {
             justify-content: space-between;
             align-items: center;
-
-            // .precioDolar {
-            //     font-weight: bold;
-            // }
             .--newsletter,
             .com-weather {
                 display: none;
@@ -66,19 +63,6 @@
             }
             .club {
                 margin-right: $spacing-xs;
-            }
-            .com-dolar {
-                //.--dolar {
-                //margin-right: $spacing-xs;
-                //font-weight: bold;
-                //}
-                //.--blue {
-                //margin-left: $spacing-xs;
-                //margin-right: $spacing-3xs;
-                //}
-                .com-text {
-                    margin-right: $spacing-3xs;
-                }
             }
         }
     }
