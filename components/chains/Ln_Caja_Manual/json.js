@@ -1,4 +1,4 @@
-//LN_Caja_Manual
+// LN_Caja_Manual
 import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
 
@@ -10,6 +10,7 @@ class CajaManual {
         const idCollection = get(props, 'customFields.idCollection', '');
 
         imageId &&
+            imageId.trim() &&
             this.fetchContent({
                 containerImage: {
                     source: 'relatedImageSource',

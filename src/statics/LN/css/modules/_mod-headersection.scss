@@ -45,6 +45,12 @@
         flex-direction: row;
         align-items: baseline;
         justify-content: space-between;
+        .com-button {
+            text-transform: initial;
+            font-weight: 100;
+            color: $blue-500;
+            padding: 0;
+        }
     }
 
     .com-image {

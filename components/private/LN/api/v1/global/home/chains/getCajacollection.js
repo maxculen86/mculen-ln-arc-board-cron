@@ -29,6 +29,7 @@ class GetCajaCollection {
         const idCollection = get(props, 'idCollection', '');
 
         imageId &&
+            imageId.trim() &&
             this.fetchContent({
                 containerImage: {
                     source: 'relatedImageSource',
