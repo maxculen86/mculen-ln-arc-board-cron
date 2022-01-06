@@ -10,4 +10,7 @@ export default `
     name
     node_type
     canonical_url
+    anexoSuperiorForTag
+    anexoInferiorForTag
+    collectionForTag
 }`;

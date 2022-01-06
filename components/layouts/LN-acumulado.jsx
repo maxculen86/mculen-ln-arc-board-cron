@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
+import { useContent } from 'fusion:content';
 import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
@@ -57,25 +58,36 @@ const LNAcumuladoLayout = props => {
             bottom
         ],
         globalContent,
+        globalContentConfig,
         outputType,
         tree,
         isAdmin,
         renderables
     } = props;
+    console.log('🚀 ~ file: LN-acumulado.jsx ~ line 67 ~ props', props);
     const { style, name = '', node_type: nodeType } = globalContent || {};
+
     const sectionStyleName =
         style && style.section_style_name ? style.section_style_name : '';
+
     const classRevista =
         revistas.indexOf(sectionStyleName || '') !== -1
             ? `${CLASS_ACU_REVISTA} ${sectionStyleName}`
             : '';
+
     const sectionClass = sections.find(sec => sec === formatText(name)) || '';
     const acumuladoGeneral = get(globalContent, 'acumuladoGeneral', {});
+
+    const { query } = globalContentConfig;
 
     const {
         anexosuperior: anexoSuperior = '',
         anexoinferior: anexoInferior = ''
     } = acumuladoGeneral;
+
+    const datitos = useContent({ source: 'tagSource', query }) || {};
+
+    console.log('🚀 ~ file: LN-acumulado.jsx ~ line 88 ~ datitos', datitos);
 
     const acumuladoColor = get(globalContent, 'acumuladoColor', {});
     const {
