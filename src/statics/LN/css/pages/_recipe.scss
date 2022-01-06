@@ -79,9 +79,9 @@
             margin-bottom: px(20);
             .tag {
                 margin-bottom: $spacing-xs;
-            }
-            .tag:nth-child(3) {
-                margin-bottom: $spacing-lg;
+                &:last-child:not(:first-child) {
+                    margin-top: $spacing-md;
+                }
             }
             &:last-child {
                 margin-bottom: 0;
@@ -90,22 +90,22 @@
                 font-size: px(14);
                 margin-bottom: px(12);
             }
-            i:before {
-                text-indent: -8px;
-                display: inline-block;
-            }
-            .icon-time {
-                //Se cambia tamaño de 2.3 por pedido de bug y a las apuradas
-                font-size: 1.8em;
-                @media (min-width: 768px) {
-                    font-size: 2.3em;
-                }
-            }
-            .icon-portions {
-                //Se cambia tamaño de 2.3 por pedido de bug y a las apuradas
-                font-size: 1.8em;
-                padding-left: px(6);
-            }
+            // i:before {
+            //     text-indent: -8px;
+            //     display: inline-block;
+            // }
+            // .icon-time {
+            //     //Se cambia tamaño de 2.3 por pedido de bug y a las apuradas
+            //     font-size: 1.8em;
+            //     @media (min-width: 768px) {
+            //         font-size: 2.3em;
+            //     }
+            // }
+            // .icon-portions {
+            //     //Se cambia tamaño de 2.3 por pedido de bug y a las apuradas
+            //     font-size: 1.8em;
+            //     padding-left: px(6);
+            // }
         }
     }
 }

@@ -106,6 +106,7 @@ const LNAcumuladoLayout = props => {
         'acumuladoGeneral.colecciones',
         []
     );
+
     const OPENING_CLASS = get(
         globalContent,
         'acumuladoGeneral.id_collection_promo_items',

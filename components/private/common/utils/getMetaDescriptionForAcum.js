@@ -50,7 +50,10 @@ const getMetaDescriptionForAcum = (
     const articlesTitles = articles.map(
         art => ` ${getTitleText(art.headlines)}`
     );
-    return _id === '/recetas' || layout === 'LN-acumulado-columnistas'
+
+    return _id === '/recetas' ||
+        layout === 'LN-acumulado-columnistas' ||
+        _id.includes('/horoscopo')
         ? description
         : `${description}${articlesTitles.join(',')}`;
 };

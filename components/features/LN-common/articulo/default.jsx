@@ -57,6 +57,7 @@ const ArticleFeature = ({
 
     const image =
         imageId &&
+        imageId.trim() &&
         useContent({
             source: 'relatedImageSource',
             query: {
