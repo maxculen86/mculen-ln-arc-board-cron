@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-import { getSectionLogo } from '../../../common/utils/sectionUtils';
-import LogoComponent from './component';
+import {
+    dictionaryAlt,
+    getSectionLogo
+} from '../../../common/utils/sectionUtils';
 import ModSponsor from '../../../common/mod-sponsor';
+import ComLogo from '../../../common/com-logo';
 
 const LogoBaseContainer = ({
     sections,
@@ -11,7 +14,6 @@ const LogoBaseContainer = ({
     distributor,
     sponsored,
     advertiser,
-    subtype,
     tooltip
 }) => {
     const { name: distributorName } = distributor || {};
@@ -22,6 +24,10 @@ const LogoBaseContainer = ({
         logoName: null,
         color: null
     };
+
+    const altLogo = dictionaryAlt[logoName]
+        ? dictionaryAlt[logoName]
+        : logoName;
 
     const sponsor = !color ? `${logoName}${'-blanco'}` : logoName;
 
@@ -38,11 +44,12 @@ const LogoBaseContainer = ({
     }
 
     return (
-        <LogoComponent
-            path={`${path}/`} //agrego barra al final
+        <ComLogo
+            href={`${path}/`} //agrego barra al final
+            title={altLogo}
             logoName={sponsor}
-            color={color}
-            subtype={subtype}
+            alt={altLogo}
+            size="--sm"
         />
     );
 };

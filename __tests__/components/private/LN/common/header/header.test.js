@@ -25,6 +25,11 @@ jest.mock('fusion:consumer', component => {
     };
 });
 
+jest.mock(
+    '../../../../../../components/private/common/com-logo',
+    () => 'com-logo'
+);
+
 jest.mock('react', () => {
     const ActualReact = require.requireActual('react');
     return {
@@ -47,7 +52,21 @@ jest.mock(
     () => 'mocked-desplegable'
 );
 
+jest.mock('fusion:context', () => () => ({
+    default: props => {
+        const mockAvailableProps = {};
+        return props.children(mockAvailableProps);
+    }
+}));
+import Context from 'fusion:context';
+
 describe('components - private - LN - common - header', () => {
+    Context.useAppContext = jest.fn(() => ({
+        globalContent: { subtype: '1' },
+        deployment: () => {},
+        contextPath: ''
+    }));
+
     const child = <div>Soy un child</div>;
     const desktopSU = {
         device: 'desktop'
