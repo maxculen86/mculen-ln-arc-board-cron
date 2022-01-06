@@ -23,11 +23,13 @@ const LogoBaseContainer = ({
         color: null
     };
 
+    const sponsor = !color ? `${logoName}${'-blanco'}` : logoName;
+
     if (sponsored) {
         return (
             <ModSponsor
                 type={`${advertiser ? '--contentlab' : ''}`}
-                sponsor={`${logoName}${color ? `-blanco` : ''}`}
+                sponsor={sponsor}
                 textName={advertiser}
                 link={`${path}/`} //agrego barra al final
                 tooltip={tooltip}
@@ -38,7 +40,7 @@ const LogoBaseContainer = ({
     return (
         <LogoComponent
             path={`${path}/`} //agrego barra al final
-            logoName={logoName}
+            logoName={sponsor}
             color={color}
             subtype={subtype}
         />

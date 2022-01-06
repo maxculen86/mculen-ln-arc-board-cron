@@ -12,6 +12,8 @@ import ModTooltip from './mod-tooltip';
 const ModSponsor = props => {
     const { type, sponsor, textName, link, tooltip = {} } = props;
 
+    console.log('astrid.........', sponsor);
+
     const dictionaryAlt = {
         hola: 'Revista Hola',
         jardin: 'Revista Jardin',

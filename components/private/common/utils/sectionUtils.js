@@ -92,8 +92,9 @@ const getLogoData = sections => {
 };
 
 export const getSectionLogo = (sections, layout, distributorName) => {
-    const color =
-        layout === 'LN-nota-storytelling' || layout === 'LN-nota-foto-al-100';
+    const color = !(
+        layout === 'LN-nota-storytelling' || layout === 'LN-nota-foto-al-100'
+    );
 
     const isBBC = distributorName === 'BBC Mundo';
 
