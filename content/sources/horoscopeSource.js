@@ -1,39 +1,37 @@
 import request from 'request-promise-native';
 import logger from '../../components/private/common/utils/logger';
 
+export const resolve = (horoscopo, signo, anio) => {
+    return `https://api-contenidos.lanacion.com.ar/json/v2/${horoscopo}`
+        .concat(anio ? `-${anio}` : '')
+        .concat(signo ? `/${signo}` : '');
+};
+
 const fetch = ({ arcSite, horoscope, sign, year }) => {
-    const baseUrl = 'https://dp-api-contenidos.lanacion.com.ar/json/v2';
+    const generatedEndpoint = resolve(horoscope, sign, year);
 
-    if (!horoscope) throw new Error('El tipo de horoscopo es necesario. ');
-
-    const endpoint = {
-        json: true,
-        ...(!sign && !year && { uri: `${baseUrl}/${horoscope}` }),
-        ...(!sign && year && { uri: `${baseUrl}/${horoscope}-${year}` }),
-        ...(sign && !year && { uri: `${baseUrl}/${horoscope}/${sign}` }),
-        ...(sign && year && { uri: `${baseUrl}/${horoscope}-${year}/${sign}` })
-    };
+    if (!horoscope) throw new Error('El tipo de horoscopo es necesario.');
 
     const getData = async () => {
         try {
-            const response = await request(endpoint);
+            const response = await request({
+                json: true,
+                uri: generatedEndpoint
+            });
             return {
-                data: response,
-                sourceName: endpoint.uri,
-                source: endpoint.uri
+                data: response
             };
         } catch (error) {
-            logger.push(
+            return logger.push(
                 error,
                 {
                     source: 'content/sources/horoscopeSource',
-                    url: endpoint.uri
+                    url: generatedEndpoint
                 },
                 arcSite
             );
         }
     };
-
     return Promise.resolve(getData());
 };
 

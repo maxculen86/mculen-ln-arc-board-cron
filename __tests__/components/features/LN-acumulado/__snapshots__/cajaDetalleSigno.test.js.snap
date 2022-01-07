@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Features - LN-acumulado - Caja Detalle Signo Feature => Render feature CajaDetalleSigno and child components - snapshot Should match snapshot 1`] = `
+<mock-static
+  id="f0fe94FFTrEC80O"
+>
+  <article
+    class="daily-horoscope "
+  >
+    <header
+      class="daily-horoscope-header"
+    >
+      <div
+        class="container-svg"
+      >
+        <img
+          alt="Tauro"
+          class="com-image "
+          height="100%"
+          loading="lazy"
+          src="undefined/pf/resources/images/horoscope-logos/tauro.svg"
+          srcset=""
+          width="100%"
+        />
+      </div>
+      <div>
+        <h2
+          class="title --m"
+        >
+          Horóscopo de
+          <strong>
+             Tauro HOY
+          </strong>
+        </h2>
+        <time
+          class="text periodo --twoxs"
+        >
+          21/4 al 21/5
+        </time>
+        <p
+          class="text --fourxs"
+        >
+          Por 
+          <a
+            class="com-link --author"
+            href="https://www.lanacion.com.ar/autor/renata-dossi-11743/"
+            title=""
+          >
+            Renata Dossi
+          </a>
+        </p>
+      </div>
+    </header>
+    <main
+      class="daily-horoscope-main"
+    >
+      <p
+        class="com-text --twoxs"
+      >
+        Empiece confiar más en usted. De lo contrario, los esfuerzos y metas se verán limitados por la inseguridad que lo invade naturalmente en su vida.
+      </p>
+      <p
+        class="com-text --twoxs"
+      >
+        <strong>
+          Amor: 
+        </strong>
+        Hoy su alma gemela se sentirá encantada con usted y sepa que no podrá liberarse de su magnetismo. Aproveche para proponerle eso que tanto desea.
+      </p>
+      <p
+        class="com-text --twoxs"
+      >
+        <strong>
+          Riqueza: 
+        </strong>
+        Si alguna persona se acerca usted a pedirle un consejo, bríndele su ayuda sin pedirle nada a cambio, ya que en otro momento usted podría necesitar de su ayuda.
+      </p>
+      <p
+        class="com-text --twoxs"
+      >
+        <strong>
+          Bienestar: 
+        </strong>
+        Haga lo posible por sostener su energía vital. Así podrá enfrentar esos nuevos desafíos sin ningún inconveniente. Evite caer en el agotamiento intelectual.
+      </p>
+    </main>
+  </article>
+</mock-static>
+`;

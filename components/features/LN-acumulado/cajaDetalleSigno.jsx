@@ -6,30 +6,29 @@ import Static from 'fusion:static';
 import DailyHoroscope from '../../private/common/dailyHoroscope';
 
 const CajaDetalleSigno = ({ id: featureId }) => {
-    const { globalContent, deployment, contextPath } = useAppContext();
+    const { globalContent, deployment, contextPath, arcSite } = useAppContext();
     const { _id = '' } = globalContent || {};
     const path = _id.split('/').slice(1);
 
-    const response =
+    const { data } =
         useContent({
             source: 'horoscopeSource',
             query: {
+                arcSite,
                 horoscope: path.length ? path[0] : '',
                 sign: path.length > 1 ? path[1] : ''
             }
         }) || {};
 
-    return response && response.data ? (
+    return data ? (
         <Static id={featureId}>
             <DailyHoroscope
-                data={response.data}
+                data={data}
                 deployment={deployment}
                 contextPath={contextPath}
             />
         </Static>
-    ) : (
-        <></>
-    );
+    ) : null;
 };
 
 CajaDetalleSigno.label = 'LN Acumulado Caja Detalle Signo';

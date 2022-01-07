@@ -6,30 +6,27 @@ import Static from 'fusion:static';
 import HoroscopeBox from '../../private/common/horoscopeBox';
 
 const CajaHoroscopos = ({ id: featureId, customFields }) => {
-    const { globalContent, deployment, contextPath } = useAppContext();
+    const { globalContent, deployment, contextPath, arcSite } = useAppContext();
+    const { title } = customFields;
     const { _id = '' } = globalContent || {};
     const path = _id.split('/').slice(1);
 
-    const response =
+    const { data } =
         useContent({
             source: 'horoscopeSource',
-            query: { horoscope: path.length ? path[0] : '' }
+            query: { arcSite, horoscope: path.length ? path[0] : '' }
         }) || {};
 
-    const { title } = customFields;
-
-    return response && response.data ? (
+    return data ? (
         <Static id={featureId}>
             <HoroscopeBox
-                signos={response.data.signos}
+                signos={data.signos}
                 title={title}
                 deployment={deployment}
                 contextPath={contextPath}
             />
         </Static>
-    ) : (
-        <></>
-    );
+    ) : null;
 };
 
 CajaHoroscopos.label = 'LN Acumulado Caja Horoscopos';
