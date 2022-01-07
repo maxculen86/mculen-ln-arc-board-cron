@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import ComLink from './com-link';
+import Image from './com-image';
 import Static from 'fusion:static';
 import { ARC_STATIC } from 'fusion:environment';
 import { useAppContext } from 'fusion:context';
@@ -19,40 +21,40 @@ const ComLogo = props => {
         title,
         alt,
         folder,
-        amp,
         target,
         rel
     } = props;
 
-    const { contextPath, deployment } = useAppContext();
-    const folderRoute = folder ? folder : '/resources/images/';
+    const { contextPath, deployment, outputType } = useAppContext();
+    const folderRoute = folder ? folder : '';
     const assets = mapperLogos[logoName];
     const archivoSVG = `${ARC_STATIC}${deployment(
-        `${contextPath}${folderRoute}${assets}`
+        `${contextPath}/resources/images/${folderRoute}${assets}`
     )}`;
     const sizeLogo = size ? size : '';
     const extraClass = `com-logo${' '}${logoName}${' '}${sizeLogo}`;
     const classes = `${classCondition}${' '}${extraClass}`;
-    const targetProp = target ? target : '_blank';
     const altProp = alt ? alt : title;
+
+    const amp = outputType === 'amp' ? 'amp' : '';
 
     if (!logoName) return null;
 
     const Logo = (
         <Static id={assets || `logo-${logoName}`} htmlOnly>
-            <img
-                className={classes}
+            <Image
+                classCondition={classes}
                 width={width}
                 height={height}
                 src={archivoSVG}
-                amp={amp}
                 alt={altProp}
-                loading="lazy"
+                amp={amp}
+                svg
             />
         </Static>
     );
     const Link = (
-        <ComLink link={href} title={title} rel={rel} target={targetProp}>
+        <ComLink link={href} title={title} rel={rel} target={target}>
             {Logo}
         </ComLink>
     );
@@ -60,21 +62,30 @@ const ComLogo = props => {
 };
 
 ComLogo.propTypes = {
+    logoName: PropTypes.string,
+    size: PropTypes.string,
     width: PropTypes.number,
     height: PropTypes.number,
+    classCondition: PropTypes.string,
     href: PropTypes.string,
     title: PropTypes.string,
-    logoName: PropTypes.string,
-    classCondition: PropTypes.string,
-    size: PropTypes.string,
-    amp: PropTypes.string
+    alt: PropTypes.string,
+    folder: PropTypes.string,
+    target: PropTypes.string,
+    rel: PropTypes.bool
 };
 
 ComLogo.defaultProps = {
-    title: '',
-    href: '',
-    classCondition: '',
     logoName: '',
-    size: ''
+    size: '',
+    width: '50',
+    height: '50',
+    classCondition: '',
+    href: '',
+    title: '',
+    alt: '',
+    folder: '',
+    target: undefined,
+    rel: undefined
 };
 export default ComLogo;

@@ -241,18 +241,20 @@ const Index = ({ home }) => {
                         </div>
                         <div className="col-desksm-4 --right">
                             <ComLogo
-                                logoName={'android-store'}
+                                logoName="android-store"
                                 title="Descargar nuestra app en Google Play"
-                                width={120}
-                                height={35}
+                                width="120"
+                                height="35"
                                 href="https://play.google.com/store/apps/details?id=app.lanacion.activity&hl=es_419"
+                                target="_blank"
                             />
                             <ComLogo
-                                logoName={'ios-store'}
+                                logoName="ios-store"
                                 title="Descargar nuestra app en el App Store"
-                                width={120}
-                                height={35}
+                                width="120"
+                                height="35"
                                 href="https://apps.apple.com/ar/app/la-nacion/id410689702"
+                                target="_blank"
                             />
                         </div>
                     </div>
@@ -302,23 +304,23 @@ const Index = ({ home }) => {
                     <div className="row">
                         <div className="col-desksm-6 --right">
                             <ComLogo
-                                logoName={'gda'}
+                                logoName="gda"
                                 title="gda"
-                                width={36}
-                                height={20}
+                                width="36"
+                                height="20"
                                 href="http://gda.com/"
-                                rel="nofollow"
+                                target="_blank"
                             />
                             <Text>
                                 Miembro de GDA. Grupo de Diarios América
                             </Text>
                             <ComLogo
-                                logoName={'data-fiscal'}
+                                logoName="data-fiscal"
                                 title="Data fiscal"
-                                width={28}
-                                height={38}
+                                width="28"
+                                height="38"
                                 href="http://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"
-                                rel="nofollow"
+                                target="_blank"
                             />
                         </div>
                         <div className="col-desksm-6 --left">
