@@ -32,8 +32,8 @@ const ComLogo = props => {
         `${contextPath}/resources/images/${folderRoute}${assets}`
     )}`;
     const sizeLogo = size ? size : '';
-    const extraClass = `com-logo${' '}${logoName}${' '}${sizeLogo}`;
-    const classes = `${classCondition}${' '}${extraClass}`;
+    const extraClass = `com-logo ${logoName} ${sizeLogo}`;
+    const classes = `${classCondition} ${extraClass}`;
     const altProp = alt ? alt : title;
 
     const amp = outputType === 'amp' ? 'amp' : '';
