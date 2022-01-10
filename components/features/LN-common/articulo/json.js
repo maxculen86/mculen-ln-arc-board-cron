@@ -15,19 +15,22 @@ class ArticleFeature {
                     query: { id: noteId.trim(), published: true }
                 }
             });
-        if (imageId) {
+
+        imageId &&
+            imageId.trim() &&
             this.fetchContent({
                 articleImage: {
                     source: 'relatedImageSource',
                     query: {
-                        id: imageId,
+                        id: imageId.trim(),
                         published: true,
                         imageConfig: 'm',
-                        'arc-site': 'la-nacion-ar'
+                        'arc-site': 'la-nacion-ar',
+                        nid: noteId,
+                        boxType: 'ArticleFeature'
                     }
                 }
             });
-        }
     }
 
     render() {

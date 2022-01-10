@@ -45,6 +45,7 @@ export const BANNERS_MOBILE = [
     'caja3_mob',
     'caja4_mob',
     'caja5_mob',
+    'caja6_mob',
     'inread_mob',
     'caja1_amp',
     'caja2_amp',

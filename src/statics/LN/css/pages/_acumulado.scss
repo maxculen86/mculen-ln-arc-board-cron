@@ -108,7 +108,27 @@
             margin-bottom: 0;
         }
     }
-
+    .lay {
+        @media ($media-lg) {
+            .horoscope-box {
+                .zodiaco {
+                    width: 90%;
+                }
+                .chino {
+                    width: 10%;
+                }
+                .row-gap-deskxl-6 {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+                }
+            }
+        }
+    }
+    .horoscope-box {
+        .row-gap-tablet-3 {
+            margin-bottom: 0;
+        }
+    }
     .row-gap-tablet-3 {
         margin-bottom: $spacing-lg;
         .mod-article {

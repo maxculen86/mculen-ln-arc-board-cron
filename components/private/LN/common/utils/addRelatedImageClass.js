@@ -32,13 +32,16 @@ class addRelatedImage {
 
         id &&
             withoutPromoItems &&
+            id.trim() &&
             (await this.fetchContent({
                 imageData: {
                     source: 'relatedImageSource',
                     query: {
                         id: id.trim(),
                         subtype: get(article, 'subtype'),
-                        imageConfig: 'm'
+                        imageConfig: 'm',
+                        nid: get(article, '_id', ''),
+                        boxType: 'addRelatedImage'
                     },
                     filter
                 }

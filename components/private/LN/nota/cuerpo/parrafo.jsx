@@ -4,60 +4,9 @@ import ReactDOMServer from 'react-dom/server';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import ComLink from '../../../common/com-link';
 import ComParagraph from '../../../common/com-paragraph';
-
 import { compose } from '../../../common/utils/functional';
 
-// TODO: cambiar parrafo por paragraph
 const Parrafo = ({ data, capital, size, classCondition }) => {
-    const isLetter = text => text && text.match(/^[A-Za-z]/);
-
-    const setOtherChar = text =>
-        text && text.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
-
-    const replaceClassForMark = text =>
-        text &&
-        text
-            .replace(/hl_yellow/g, 'hl_underline')
-            .replace(/hl_pink/g, 'hl_underline')
-            .replace(/hl_purple/g, 'hl_underline')
-            .replace(/hl_orange/g, 'hl_underline')
-            .replace(/hl_green/g, 'hl_underline');
-
-    const setBoldText = text =>
-        text && text.replace(/<b>/g, '<strong>').replace(/<\/b>/g, '</strong>');
-
-    const setItalicText = text =>
-        text && text.replace(/<i>/g, '<em>').replace(/<\/i>/g, '</em>');
-
-    const setExternalLinks = text =>
-        text &&
-        text.replace(
-            /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g,
-            (match, href, string) => {
-                const [, , link] = href.match(/href=(["'\\])+(.*?)\1/) || [
-                    null,
-                    null,
-                    '#'
-                ];
-                let target = '_self';
-                if (!href.includes(config.host)) {
-                    target = '_blank';
-                }
-
-                return ReactDOMServer.renderToString(
-                    React.createElement(
-                        ComLink,
-                        {
-                            link,
-                            target,
-                            title: string
-                        },
-                        string
-                    )
-                );
-            }
-        );
-
     const content = compose(
         replaceClassForMark,
         setOtherChar,
@@ -70,14 +19,12 @@ const Parrafo = ({ data, capital, size, classCondition }) => {
     if (content === '<br/>') return <></>;
 
     return (
-        <>
-            <ComParagraph
-                capital={capital && isLetter(content) ? `--capital` : ''}
-                classCondition={classCondition || ''}
-                size={size || '--s'}
-                content={content}
-            />
-        </>
+        <ComParagraph
+            capital={capital && isLetter(content) ? `--capital` : ''}
+            classCondition={classCondition}
+            size={size}
+            content={content}
+        />
     );
 };
 
@@ -96,7 +43,7 @@ Parrafo.propTypes = {
 
 Parrafo.defaultProps = {
     capital: false,
-    size: '',
+    size: '--s',
     classCondition: '',
     data: PropTypes.shape({
         type: ''
@@ -104,3 +51,57 @@ Parrafo.defaultProps = {
 };
 
 export default Parrafo;
+
+const isLetter = text => text.match(/^[A-Za-z]/);
+
+const setOtherChar = text => text.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+
+const replaceClassForMark = text =>
+    text
+        .replace(/hl_yellow/g, 'hl_underline')
+        .replace(/hl_pink/g, 'hl_underline')
+        .replace(/hl_purple/g, 'hl_underline')
+        .replace(/hl_orange/g, 'hl_underline')
+        .replace(/hl_green/g, 'hl_underline');
+
+const setBoldText = text =>
+    text.replace(/<b>/g, '<strong>').replace(/<\/b>/g, '</strong>');
+
+const setItalicText = text =>
+    text.replace(/<i>/g, '<em>').replace(/<\/i>/g, '</em>');
+
+const deleteTagsForTitle = text =>
+    text
+        .replace(/<em>/g, '')
+        .replace(/<\/em>/g, '')
+        .replace(/<strong>/g, '')
+        .replace(/<\/strong>/g, '');
+
+const setExternalLinks = text =>
+    text.replace(
+        /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g,
+        (match, href, string) => {
+            const [, , link] = href.match(/href=(["'\\])+(.*?)\1/) || [
+                null,
+                null,
+                '#'
+            ];
+            let target = '_self';
+
+            if (!href.includes(config.host)) {
+                target = '_blank';
+            }
+
+            return ReactDOMServer.renderToString(
+                React.createElement(
+                    ComLink,
+                    {
+                        link,
+                        target,
+                        title: deleteTagsForTitle(string)
+                    },
+                    string
+                )
+            );
+        }
+    );

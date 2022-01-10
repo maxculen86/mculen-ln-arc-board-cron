@@ -8,6 +8,7 @@ import ComTitle from '../private/common/com-title';
 import '../../resources/dist/css/ln/pages/buscador.css';
 
 import GlobalProvider from '../private/common/context/globalContext';
+import PwaModals from '../private/LN/common/pwaModals';
 
 const lnBuscador = ({ children }) => {
     let searchResults = '';
@@ -35,6 +36,7 @@ const lnBuscador = ({ children }) => {
                     <Footer />
                 </Static>
             </div>
+            <PwaModals />
         </GlobalProvider>
     );
 };
@@ -42,7 +44,6 @@ const lnBuscador = ({ children }) => {
 const pageBuilderSections = ['Cuerpo'];
 
 lnBuscador.sections = pageBuilderSections;
-
 lnBuscador.propTypes = {
     children: PropTypes.arrayOf(PropTypes.node).isRequired
 };

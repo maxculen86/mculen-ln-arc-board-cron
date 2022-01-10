@@ -10,7 +10,7 @@ import ModImage from './mod-image';
 import '../../../resources/dist/css/ln/modules/mod-autor.css';
 
 const ModAutor = props => {
-    const { autor, medio, foto, classCondition, amp } = props;
+    const { autor = [], medio, foto, classCondition, amp } = props;
     const author =
         autor.length === 1
             ? autor.reduce((acc, val) => ({ name: val.name, link: val.link }))

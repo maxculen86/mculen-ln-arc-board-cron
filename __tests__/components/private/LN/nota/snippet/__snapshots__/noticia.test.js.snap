@@ -29,12 +29,11 @@ exports[`Private - LN - nota - snippet - noticia  Snapshot Snippet Noticia 1`] =
     \\"name\\": \\"Acceso Digital Monthly Test\\",
     \\"productID\\": \\"lanacion.com.ar:acceso_digital\\"
   },
-  \\"author\\": [
-    \\"Redacción LA NACION\\"
-  ],
-  \\"creator\\": [
-    \\"Redacción LA NACION\\"
-  ],
+  \\"author\\": {
+    \\"@type\\": \\"Organization\\",
+    \\"name\\": \\"The New York Times\\"
+  },
+  \\"creator\\": [],
   \\"keywords\\": [],
   \\"publisher\\": {
     \\"@type\\": \\"Organization\\",

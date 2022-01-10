@@ -7,12 +7,14 @@ import { formatText } from '../../../common/utils/sectionUtils';
 import useGlobalProviderAcu from '../../acumulado/hooks/useGlobalProviderAcu';
 import sectionsValidation from '../../../../layouts/config/LN-Home.config.json';
 
+const ajustCollection = 'Ajuste Collection';
+
 const featuredRules = {
     cajaCollection: {
         hideInitialPosition: false,
         hideIdCollection: false,
         hideHideCaja: false,
-        groupName: 'Ajuste Collection',
+        groupName: ajustCollection,
         layouts: {
             focalLeft3: 'Focal Izquierdo',
             focalRight2: 'Focal Derecho',
@@ -51,7 +53,7 @@ const featuredRules = {
         hideInitialPosition: true,
         hideIdCollection: false,
         hideHideCaja: false,
-        groupName: 'Ajuste Collection',
+        groupName: ajustCollection,
         layouts: {
             opinion4: 'Home Opinion'
         },
@@ -61,7 +63,7 @@ const featuredRules = {
         hideInitialPosition: true,
         hideIdCollection: false,
         hideHideCaja: false,
-        groupName: 'Ajuste Collection',
+        groupName: ajustCollection,
         layouts: {
             editoriales2: 'Home Editoriales'
         },
@@ -190,9 +192,10 @@ export const getCommonProps = props => {
             )
             .findIndex(chain => chain.props.id === idFeature) || 0;
 
-    const sectionName = `${formatText(
+    const sectionName = formatText(
         pageBuilderLayout === layoutsName.Home ? '' : `${name}_`
-    )}`;
+    );
+
     const showDatalayerMark =
         pageBuilderLayout === layoutsName.Home
             ? 'true'

@@ -1,4 +1,4 @@
-//LN_Caja_Manual
+// LN_Caja_Manual
 import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
 
@@ -7,8 +7,10 @@ class CajaManual {
         this.props = props;
 
         const imageId = get(props, 'customFields.imageId', '');
+        const idCollection = get(props, 'customFields.idCollection', '');
 
         imageId &&
+            imageId.trim() &&
             this.fetchContent({
                 containerImage: {
                     source: 'relatedImageSource',
@@ -16,7 +18,9 @@ class CajaManual {
                         id: imageId.trim(),
                         published: true,
                         imageConfig: 'techoImagen',
-                        'arc-site': 'la-nacion-ar'
+                        'arc-site': 'la-nacion-ar',
+                        nid: `idCollection: ${idCollection}`,
+                        boxType: 'CajaManual'
                     }
                 }
             });

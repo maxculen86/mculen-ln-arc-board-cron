@@ -5,12 +5,13 @@ import Static from 'fusion:static';
 import Header from '../../private/LN/common/header';
 import Footer from '../../private/LN/common/footer';
 import GlobalProvider from '../../private/common/context/globalContext';
-
+import PwaModals from '../../private/LN/common/pwaModals';
 import '../../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../../private/LN/acumulado/context/globalContextAcu';
 import get from '../../private/common/utils/get';
 import getBannerMegatop from '../../private/common/utils/getBannerMegatop';
 import LoadBanners from '../../private/common/banners/LoadBanners';
+import { homeLayoutsPropTypes } from '../../private/common/utils/propTypesHelper';
 
 const pageBuilderSections = [
     'Banner-Megatop',
@@ -132,42 +133,19 @@ const LNHome = props => {
                     </Static>
                 </div>
                 <LoadBanners />
+                <PwaModals />
             </GlobalProviderAcu>
         </GlobalProvider>
     );
 };
 
 LNHome.propTypes = {
-    children: PropTypes.node.isRequired,
     outputType: PropTypes.string.isRequired,
+    // eslint-disable-next-line react/require-default-props
     tree: PropTypes.shape(PropTypes.arrayOf(PropTypes.node)),
+    // eslint-disable-next-line react/require-default-props
     isAdmin: PropTypes.bool,
-    globalContent: PropTypes.shape({
-        style: PropTypes.shape({
-            section_style_name: PropTypes.string,
-            headerdark: PropTypes.string
-        }),
-        name: PropTypes.string,
-        acumuladoGeneral: PropTypes.shape({
-            tipo_acumulado: PropTypes.string,
-            hierarchy_navigation: PropTypes.string,
-            hide_banner: PropTypes.string,
-            cantidad_notas: PropTypes.string,
-            id_collection_promo_items: PropTypes.string
-        }),
-        acumuladoColor: PropTypes.shape({
-            header_class_name: PropTypes.string,
-            background_color: PropTypes.string,
-            navigation_color: PropTypes.string,
-            navigation_color_tags: PropTypes.string,
-            id_logo_image: PropTypes.string
-        }),
-        articlesInCollection: PropTypes.arrayOf(
-            PropTypes.shape({
-                _id: PropTypes.string
-            })
-        ).isRequired
-    }).isRequired
+    ...homeLayoutsPropTypes
 };
 
 LNHome.sections = pageBuilderSections;

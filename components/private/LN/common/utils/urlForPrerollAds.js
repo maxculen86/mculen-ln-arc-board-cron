@@ -3,6 +3,7 @@ import { SITE_LANACION } from 'fusion:environment';
 import { getCustParamsEnconde } from './getDataFormated';
 
 const urlForPrerollAds = device => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const { requestUri, globalContent } = useAppContext();
     const deviceResolution = {
         desktop: 'dsk',
@@ -13,7 +14,8 @@ const urlForPrerollAds = device => {
     const { taxonomy, label = {} } = globalContent || {};
     const { mostrar_banners: mostrarBanners = {} } = label;
     const { text = '' } = mostrarBanners;
-    const withPrerolAds = text === 'Si';
+
+    const withPrerolAds = text !== 'No';
 
     const { sections, tags } = taxonomy || {
         sections: [],

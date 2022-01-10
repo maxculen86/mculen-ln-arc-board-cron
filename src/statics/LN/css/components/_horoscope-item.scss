@@ -1,0 +1,85 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.horoscope-item {
+    border: 1px solid $light-neutral-400;
+    border-radius: px(4);
+    .com-link {
+        @include flex(flex, column, center, center);
+        padding: px(12) $spacing-sm;
+        width: 100%;
+        @media ($media-m) {
+            flex-direction: row-reverse;
+            justify-content: space-between;
+        }
+    }
+
+    .container-text {
+        text-align: center;
+        .title {
+            display: block;
+            color: $violet-900;
+            font-weight: 700;
+            @media ($media-m) {
+                text-align: start;
+            }
+        }
+        .text {
+            color: $light-neutral-600;
+        }
+        > time {
+            display: block;
+        }
+        @media ($media-m) {
+            > time {
+                text-align: start;
+            }
+        }
+    }
+
+    &.--chino {
+        display: flex;
+        width: 100%;
+        margin-top: $spacing-xs;
+        .title {
+            margin-bottom: 0;
+        }
+        .com-link {
+            @include flex(flex, row-reverse, space-between);
+            width: 100%;
+        }
+        .container-svg {
+            margin: 0;
+        }
+
+        @media ($media-m) {
+            margin: 0px;
+            .com-link {
+                @include flex(flex, column, center, center);
+            }
+            .container-svg {
+                margin-bottom: $spacing-xs;
+            }
+            .title {
+                text-align: center;
+            }
+        }
+    }
+
+    .container-svg {
+        width: px(40);
+        height: px(40);
+        border-radius: 50%;
+        background-color: $light-neutral-200;
+        margin-bottom: $spacing-xs;
+        .com-image[alt] {
+            color: transparent;
+        }
+    }
+
+    @media ($media-m) {
+        .container-svg {
+            margin: 0px;
+        }
+    }
+}

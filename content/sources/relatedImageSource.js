@@ -8,8 +8,16 @@ import getPresets from './utils/presets';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 
 const resolve = key => {
-    const { id } = key;
-    if (!id) throw new Error('Debe definir id para obtener la imagen');
+    const { id, nid, boxType, subtype, imageConfig, isAddRelated } = key;
+    if (!id)
+        throw new Error('Debe definir id para obtener la imagen', {
+            id,
+            subtype,
+            imageConfig,
+            isAddRelated,
+            nid,
+            boxType
+        });
     return `/photo/api/v2/photos/${id}`;
 };
 
@@ -45,7 +53,9 @@ export default {
         id: 'text',
         subtype: 'text',
         imageConfig: 'text',
-        isAddRelated: 'text'
+        isAddRelated: 'text',
+        nid: 'text',
+        boxType: 'text'
     },
     transform,
     ttl: 600

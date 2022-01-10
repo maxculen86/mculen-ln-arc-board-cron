@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable consistent-return */
 import React, { useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types';
@@ -15,9 +16,9 @@ import {
     sectionsWithBlocks,
     getSectionVisible,
     isScrollbarVisible,
-    isBombaVisible,
-    validateSectionHome
+    isBombaVisible
 } from '../../private/LN/common/utils/homeHelper';
+import sectionHelper from '../../private/LN/common/utils/sectionHelper';
 import getScrollPercent from '../../private/LN/common/utils/getScrollPercent';
 import AnexoFeature from '../../features/LN-acumulado/anexoIframe';
 import SubHeader from '../../features/LN-common/subHeader';
@@ -27,6 +28,8 @@ import TagsListFeature from '../../features/LN-acumulado/tagList';
 import CajaPromo from '../../features/LN-common/cajaPromo/default';
 import DivBannerSSR from '../../private/common/banners/DivBannerSSR';
 import { getScriptForComercial } from '../../private/common/banners/bannersRules';
+import PwaModals from '../../private/LN/common/pwaModals';
+import { homeLayoutsPropTypes } from '../../private/common/utils/propTypesHelper';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -121,7 +124,7 @@ const LNMainHome = props => {
         appAnexo1,
         appAnexo2
     ] = pageBuilderSections.map((section, index) => {
-        return validateSectionHome(
+        return sectionHelper(
             children[index],
             section,
             index,
@@ -140,6 +143,8 @@ const LNMainHome = props => {
         bloque4: { loaded: isAdmin, loadPercent: 70 },
         bloque5: { loaded: isAdmin, loadPercent: 70 }
     });
+
+    const megaLateralSticky = '--megalateral --sticky';
 
     useEffect(() => {
         const handleScroll = throttle((e, dataSections) => {
@@ -530,7 +535,7 @@ const LNMainHome = props => {
                                 <DivBannerSSR
                                     bannerConfiguration={{
                                         slotId: 'megalateral_dsk',
-                                        classes: '--megalateral --sticky'
+                                        classes: megaLateralSticky
                                     }}
                                 />
                             </div>
@@ -573,7 +578,7 @@ const LNMainHome = props => {
                                     <DivBannerSSR
                                         bannerConfiguration={{
                                             slotId: 'megalateral2_dsk',
-                                            classes: '--megalateral --sticky'
+                                            classes: megaLateralSticky
                                         }}
                                     />
                                 )}
@@ -625,7 +630,7 @@ const LNMainHome = props => {
                                     <DivBannerSSR
                                         bannerConfiguration={{
                                             slotId: 'megalateral3_dsk',
-                                            classes: '--megalateral --sticky'
+                                            classes: megaLateralSticky
                                         }}
                                     />
                                 )}
@@ -683,41 +688,16 @@ const LNMainHome = props => {
                 <LoadBanners blocksBanners={blocksBanners.bloque5} />
             )}
             <Metarefresh />
+            <PwaModals />
         </GlobalProvider>
     );
 };
 
 LNMainHome.propTypes = {
-    children: PropTypes.node.isRequired,
     renderables: PropTypes.node.isRequired,
     outputType: PropTypes.string,
     isAdmin: PropTypes.bool.isRequired,
-    globalContent: PropTypes.shape({
-        style: PropTypes.shape({
-            section_style_name: PropTypes.string,
-            headerdark: PropTypes.string
-        }),
-        name: PropTypes.string,
-        acumuladoGeneral: PropTypes.shape({
-            tipo_acumulado: PropTypes.string,
-            hierarchy_navigation: PropTypes.string,
-            hide_banner: PropTypes.string,
-            cantidad_notas: PropTypes.string,
-            id_collection_promo_items: PropTypes.string
-        }),
-        acumuladoColor: PropTypes.shape({
-            header_class_name: PropTypes.string,
-            background_color: PropTypes.string,
-            navigation_color: PropTypes.string,
-            navigation_color_tags: PropTypes.string,
-            id_logo_image: PropTypes.string
-        }),
-        articlesInCollection: PropTypes.arrayOf(
-            PropTypes.shape({
-                _id: PropTypes.string
-            })
-        )
-    }).isRequired
+    ...homeLayoutsPropTypes
 };
 
 LNMainHome.defaultProps = {

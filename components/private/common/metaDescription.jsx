@@ -26,7 +26,9 @@ const MetaDescription = ({
             <meta
                 name="description"
                 content={
-                    _id === '/recetas' || acuRecetaRegExp.test(_id)
+                    _id === '/recetas' ||
+                    acuRecetaRegExp.test(_id) ||
+                    _id.includes('/horoscopo')
                         ? metaDescription
                         : `${metaDescription} - LA NACION`
                 }

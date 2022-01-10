@@ -4,6 +4,8 @@ import get from '../../../common/utils/get';
 
 const AddRelatedImage = article => {
     const relatedContent = get(article, 'related_content.basic', []);
+    const canonicalUrl = get(article, 'canonical_url', '');
+    const articleId = get(article, '_id', '');
     const { _id: id } =
         (relatedContent &&
             relatedContent.find(
@@ -20,12 +22,15 @@ const AddRelatedImage = article => {
     const imageData =
         id &&
         withoutPromoItems &&
+        id.trim() &&
         getContent({
             source: 'relatedImageSource',
             query: {
                 id: id.trim(),
                 subtype: get(article, 'subtype'),
-                imageConfig: 'm'
+                imageConfig: 'm',
+                nid: `articleId: ${articleId}, canonical Url: ${canonicalUrl}`,
+                boxType: 'AddRelatedImage'
             },
             filter
         });

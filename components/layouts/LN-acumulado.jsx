@@ -15,6 +15,7 @@ import get from '../private/common/utils/get';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import { formatText } from '../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
+import PwaModals from '../private/LN/common/pwaModals';
 
 const pageBuilderSections = [
     'Banner-Megatop',
@@ -105,6 +106,7 @@ const LNAcumuladoLayout = props => {
         'acumuladoGeneral.colecciones',
         []
     );
+
     const OPENING_CLASS = get(
         globalContent,
         'acumuladoGeneral.id_collection_promo_items',
@@ -187,6 +189,7 @@ const LNAcumuladoLayout = props => {
                     </Static>
                 </div>
                 <LoadBannersSSR />
+                <PwaModals />
             </GlobalProviderAcu>
         </GlobalProvider>
     );

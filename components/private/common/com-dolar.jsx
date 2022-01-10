@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ComLink from './com-link';
-import ComText from './text';
 
 const ComDolar = props => {
     const {
@@ -12,43 +11,44 @@ const ComDolar = props => {
         size
     } = props;
     return (
-        <div className="com-dolar">
-            <ComLink
-                classCondition="--dolar"
-                dataEvent="LinkClick"
-                dataSection="MenuLN"
-                link="https://www.lanacion.com.ar/dolar-hoy/"
-                size={size}
-                title="Ir a notas de Dólar Hoy y Cotización"
-            >
-                Dólar:
-            </ComLink>
-            <ComText size={size}>BNA:</ComText>
-            <span id="precioCompraBna" className={`precioDolar ${size}`}>
-                {precioCompraBna ? `$${precioCompraBna}` : '$00,00'}
-            </span>
-            <i>/</i>
-            <span id="precioVentaBna" className={`precioDolar ${size}`}>
-                {precioVentaBna ? `$${precioVentaBna}` : '$00,00'}
-            </span>
-            <ComLink
-                classCondition="--blue"
-                dataEvent="LinkClick"
-                dataSection="MenuLN"
-                link="https://www.lanacion.com.ar/dolar-hoy/"
-                size={size}
-                title="Ir a notas de Dólar blue"
-            >
-                Blue:
-            </ComLink>
-            <span id="precioCompraBlue" className={`precioDolar ${size}`}>
-                {precioCompraBlue ? `$${precioCompraBlue}` : '$00,00'}
-            </span>
-            <i>/</i>
-            <span id="precioVentaBlue" className={`precioDolar ${size}`}>
-                {precioVentaBlue ? `$${precioVentaBlue}` : '$00,00'}
-            </span>
-        </div>
+        <ul className="com-dolar">
+            <li>
+                <ComLink
+                    classCondition="--dolar"
+                    dataEvent="LinkClick"
+                    dataSection="MenuLN"
+                    link="https://www.lanacion.com.ar/dolar-hoy/"
+                    title="Dólar hoy"
+                >
+                    Dólar hoy:
+                </ComLink>
+                <span id="precioCompraBna" className="precioDolar">
+                    {precioCompraBna ? `$${precioCompraBna}` : '$00,00'}
+                </span>
+                <i>/</i>
+                <span id="precioVentaBna" className="precioDolar">
+                    {precioVentaBna ? `$${precioVentaBna}` : '$00,00'}
+                </span>
+            </li>
+            <li>
+                <ComLink
+                    classCondition="--blue"
+                    dataEvent="LinkClick"
+                    dataSection="MenuLN"
+                    link="https://www.lanacion.com.ar/tema/dolar-blue-tid67294/"
+                    title="Dólar blue"
+                >
+                    Dólar blue:
+                </ComLink>
+                <span id="precioCompraBlue" className="precioDolar">
+                    {precioCompraBlue ? `$${precioCompraBlue}` : '$00,00'}
+                </span>
+                <i>/</i>
+                <span id="precioVentaBlue" className="precioDolar">
+                    {precioVentaBlue ? `$${precioVentaBlue}` : '$00,00'}
+                </span>
+            </li>
+        </ul>
     );
 };
 

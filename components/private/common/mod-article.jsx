@@ -8,6 +8,7 @@ import Media from '../LN/common/media';
 import get from './utils/get';
 import ModDescription from './mod-description';
 import getAuthorsPhoto from './utils/getAuthorsPhoto';
+import setArticleClassName from './utils/setArticleClassName';
 
 const ModArticle = props => {
     const {
@@ -80,19 +81,15 @@ const ModArticle = props => {
 
     return (
         <article
-            className={`mod-article ${classCondition || ''} ${
-                boxPosition
-                    ? `toi${boxPosition.replace(
-                          'toi',
-                          ''
-                      )}${artPosition} nid${_id}`
-                    : ''
-            } ${noMedia ? '--no-media' : ''} ${
-                (isRenderAuthor && classCondition !== '--columnista') ||
+            className={setArticleClassName({
+                classCondition,
+                boxPosition,
+                artPosition,
+                _id,
+                noMedia,
+                isRenderAuthor,
                 isRenderAuthorOpinion
-                    ? '--author'
-                    : ''
-            }`}
+            })}
             {...extraOpts}
             onClick={onCLick}
         >
@@ -133,6 +130,8 @@ const ModArticle = props => {
 };
 
 ModArticle.propTypes = {
+    anexo: PropTypes.string,
+    authorSize: PropTypes.string,
     articleData: PropTypes.shape({
         _id: PropTypes.string,
         promo_items: PropTypes.shape({
@@ -158,7 +157,9 @@ ModArticle.propTypes = {
         style: PropTypes.string
     }),
     layout: PropTypes.string,
+    leadText: PropTypes.string,
     link: PropTypes.string,
+    noMedia: PropTypes.string,
     outputType: PropTypes.string,
     subheadSize: PropTypes.string,
     subheadTag: PropTypes.string,
@@ -176,6 +177,8 @@ ModArticle.propTypes = {
 };
 
 ModArticle.defaultProps = {
+    anexo: undefined,
+    authorSize: undefined,
     authors: '',
     artPosition: undefined,
     boxPosition: undefined,
@@ -192,13 +195,15 @@ ModArticle.defaultProps = {
     isPowa: true,
     label: undefined,
     layout: '',
+    leadText: undefined,
     link: undefined,
+    noMedia: undefined,
     outputType: 'default',
     subheadText: false,
-    subheadSize: '',
-    subheadTag: '',
-    titleSize: '--xs',
-    titleTag: 'h2',
+    subheadSize: undefined,
+    subheadTag: undefined,
+    titleSize: undefined,
+    titleTag: undefined,
     tags: undefined,
     videoBackground: undefined,
     withMedia: false

@@ -5,7 +5,7 @@ exports[`features - LaNacion - Nota - Hamburguer Test de snapshot Hamburguer 1`]
   class="com-hamburger"
 >
   <button
-    class="com-button  --tertiary --icon menu "
+    class="com-button --tertiary --icon menu "
     data-event=""
     data-section=""
     id=""
@@ -14,7 +14,7 @@ exports[`features - LaNacion - Nota - Hamburguer Test de snapshot Hamburguer 1`]
     type="button"
   >
     <i
-      class="com-icon icon-menu  "
+      class="com-icon icon-menu"
     >
       <svg
         fill="none"
@@ -32,7 +32,7 @@ exports[`features - LaNacion - Nota - Hamburguer Test de snapshot Hamburguer 1`]
       </svg>
     </i>
     <span
-      class=" com-text"
+      class="com-text"
     >
       Secciones
     </span>

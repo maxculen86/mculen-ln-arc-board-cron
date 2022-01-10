@@ -55,7 +55,7 @@ const apertura = article => {
     }
 
     if (autoresFixed && autoresFixed.length > 0) {
-        resp.autores = autoresFixed && autoresFixed.map(a => Author(a));
+        resp.autores = autoresFixed.map(a => Author(a));
     }
 
     const tagDestacado = getFeaturedTag(article);

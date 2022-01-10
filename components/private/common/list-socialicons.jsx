@@ -4,7 +4,6 @@ import ComLi from './com-li';
 import ComLink from './com-link';
 import ComIco from './icon';
 import '../../../resources/dist/css/ln/components/com-unordered.css';
-//import ComBullet from './com-bullet';
 
 const list = [
     'twitter',
@@ -22,7 +21,7 @@ const list = [
 ];
 
 const ListSocialIcons = props => {
-    const { vertical, size, data, sizeIcon, sizeBullet } = props;
+    const { vertical, data } = props;
     const listItem = list.map(item => {
         if (!data[item]) return null;
         const linkSocialNetwork =
@@ -37,7 +36,6 @@ const ListSocialIcons = props => {
                     target="_blank"
                     classCondition="--sociallist"
                 >
-                    {/* <ComBullet sizeBullet={sizeBullet} /> */}
                     <ComIco name={`${item}-filled`} />
                     {item}
                 </ComLink>
@@ -64,15 +62,11 @@ ListSocialIcons.propTypes = {
         whatsapp: PropTypes.string,
         tumblr: PropTypes.string
     }).isRequired,
-    size: PropTypes.string.isRequired,
-    sizeIcon: PropTypes.string.isRequired,
-    vertical: PropTypes.string,
-    sizeBullet: PropTypes.string
+    vertical: PropTypes.string
 };
 
 ListSocialIcons.defaultProps = {
-    vertical: '',
-    sizeBullet: ''
+    vertical: ''
 };
 
 export default ListSocialIcons;

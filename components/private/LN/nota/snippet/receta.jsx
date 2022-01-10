@@ -29,7 +29,7 @@ const snippet = props => {
             credits,
             display_date: displayDate,
             content_elements: contentElements,
-            website_url
+            website_url: websiteUrl
         },
         contextPath,
         deployment
@@ -87,29 +87,31 @@ const snippet = props => {
         '@type': 'Recipe',
         recipeCuisine: getRecipeCuisine(sections),
         recipeInstructions: instructions,
+        cookTime: cookTime ? `PT${cookTime}M` : undefined,
+        prepTime: prepTime ? `PT${prepTime}M` : undefined,
+        totalTime: counterTime ? `PT${counterTime}M` : undefined,
+        datePublished: date || undefined,
+        description: description || undefined,
+        nutrition: Object.entries(nutrition).length
+            ? {
+                  '@type': 'NutritionInformation',
+                  ...nutrition
+              }
+            : undefined,
         author: {
             '@type': autores === '' ? 'Organization' : 'Person',
             name: autores === '' ? 'LA NACION recetas' : `${autores}`
         },
-        cookTime: cookTime ? `PT${cookTime}M` : '',
-        prepTime: prepTime ? `PT${prepTime}M` : '',
-        totalTime: counterTime ? `PT${counterTime}M` : '',
-        datePublished: `${date || ''}`,
-        description: `${description || ''}`,
         image: `${image || PLACERHOLDER}`,
-        nutrition: {
-            '@type': 'NutritionInformation',
-            ...nutrition
-        },
         recipeIngredient: ingredients,
         recipeCategory: categoria,
         name: `${headLinesBasic || 'LA NACION - Recetas'}`,
-        recipeYield: counterPortion ? `${counterPortion} porciones` : '',
+        recipeYield: counterPortion || undefined,
         keywords: `${keywords}`,
         publisher: {
             '@type': 'Organization',
             name: 'Recetas La Nación',
-            url: addForwardSlash(`${getDomain({ website_url })}${section}`),
+            url: addForwardSlash(`${getDomain({ websiteUrl })}${section}`),
             logo: {
                 '@context': 'http://schema.org',
                 '@type': 'ImageObject',
@@ -119,7 +121,6 @@ const snippet = props => {
             }
         }
     };
-
     return <SnippetRender data={data} />;
 };
 

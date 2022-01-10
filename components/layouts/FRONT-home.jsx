@@ -1,17 +1,15 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { API_ENV } from 'fusion:environment';
 import Consumer from 'fusion:consumer';
 import Header from '../private/LN/common/header';
-import Footer from '../private/LN/common/footer';
 import ComTitle from '../private/common/com-title';
 import Article from '../private/common/mod-article';
 import HeaderSection from '../private/common/mod-headerSection';
 import Dolar from '../private/common/mod-dolar';
 import GlobalProvider from '../private/common/context/globalContext';
 import ModPromo from '../private/common/mod-promo';
-import ComButton from '../private/common/com-button';
 import NewFooter from '../private/LN/common/footer';
-import Anticipo from '../private/common/com-advance';
 import Escudos from '../../components/features/LN-acumulado/cajaEscudo';
 import SubHeader from '../private/LN/common/header/subHeader';
 
@@ -73,7 +71,7 @@ const LNHome = props => {
             <GlobalProviderAcu>
                 <script
                     async
-                    src="https://lanacionar.video-player.arcpublishing.com/prod/powaBoot.js"
+                    src={`https://lanacionar.video-player.arcpublishing.com/${API_ENV}/powaBoot.js`}
                 />
                 {seccion1}
                 <div id="wrapper" className={`home demofront ${amp}`}>

@@ -1,6 +1,7 @@
 import React from 'react';
 import getProperties from 'fusion:properties';
-import { validateSectionHome } from '../../../../components/private/LN/common/utils/homeHelper';
+import sectionHelper from '../../../../components/private/LN/common/utils/sectionHelper';
+
 import sectionsValidation from '../../../../components/layouts/config/LN-Home.config';
 import PageBuilderMessage from '../../../../components/private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage.jsx';
 import renderables1 from '../../../../__mocks__/data/renderables/data1';
@@ -30,7 +31,7 @@ import Consumer from 'fusion:consumer';
 describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />', () => {
     it('Validar Seccion Anticipo en Home', () => {
         expect(
-            validateSectionHome(
+            sectionHelper(
                 null,
                 'Anticipo',
                 sectionsValidation.Anticipo.position,
@@ -41,7 +42,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
         ).toEqual(null);
 
         expect(
-            validateSectionHome(
+            sectionHelper(
                 null,
                 'Anticipo',
                 sectionsValidation.Anticipo.position,
@@ -58,7 +59,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
         );
 
         expect(
-            validateSectionHome(
+            sectionHelper(
                 true,
                 'Anticipo',
                 sectionsValidation.Anticipo.position,
@@ -71,7 +72,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
 
     it('Validar Seccion Anexo1 en Home', () => {
         expect(
-            validateSectionHome(
+            sectionHelper(
                 null,
                 'Anexo_1',
                 sectionsValidation.Anexo_1.position,
@@ -82,7 +83,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
         ).toEqual(null);
 
         expect(
-            validateSectionHome(
+            sectionHelper(
                 null,
                 'Anexo_1',
                 sectionsValidation.Anexo_1.position,
@@ -99,7 +100,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
         );
 
         expect(
-            validateSectionHome(
+            sectionHelper(
                 true,
                 'Anexo_1',
                 sectionsValidation.Anexo_1.position,
@@ -112,7 +113,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
 
     it('Validar Seccion Bomba en Home', () => {
         expect(
-            validateSectionHome(
+            sectionHelper(
                 null,
                 'Bomba',
                 sectionsValidation.Bomba.position,
@@ -123,7 +124,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
         ).toEqual(null);
 
         expect(
-            validateSectionHome(
+            sectionHelper(
                 null,
                 'Bomba',
                 sectionsValidation.Bomba.position,
@@ -140,7 +141,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
         );
 
         expect(
-            validateSectionHome(
+            sectionHelper(
                 true,
                 'Bomba',
                 sectionsValidation.Bomba.position,
@@ -153,7 +154,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
 
     it('Validar Seccion Apertura 1 en Home', () => {
         expect(
-            validateSectionHome(
+            sectionHelper(
                 null,
                 'Apertura_1',
                 sectionsValidation.Apertura_1.position,
@@ -164,7 +165,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
         ).toEqual(null);
 
         expect(
-            validateSectionHome(
+            sectionHelper(
                 null,
                 'Apertura_1',
                 sectionsValidation.Apertura_1.position,
@@ -181,7 +182,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
         );
 
         expect(
-            validateSectionHome(
+            sectionHelper(
                 true,
                 'Apertura_1',
                 sectionsValidation.Apertura_1.position,
@@ -194,7 +195,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
 
     it('Validar Seccion Multimedia en Home', () => {
         expect(
-            validateSectionHome(
+            sectionHelper(
                 null,
                 'Multimedia',
                 sectionsValidation.Multimedia.position,
@@ -205,7 +206,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
         ).toEqual(null);
 
         expect(
-            validateSectionHome(
+            sectionHelper(
                 null,
                 'Multimedia',
                 sectionsValidation.Multimedia.position,
@@ -222,7 +223,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
         );
 
         expect(
-            validateSectionHome(
+            sectionHelper(
                 true,
                 'Multimedia',
                 sectionsValidation.Multimedia.position,
@@ -235,7 +236,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
 
     it('Validar Seccion Anexo_2 en Home', () => {
         expect(
-            validateSectionHome(
+            sectionHelper(
                 null,
                 'Anexo_2',
                 sectionsValidation.Anexo_2.position,
@@ -246,7 +247,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
         ).toEqual(null);
 
         expect(
-            validateSectionHome(
+            sectionHelper(
                 null,
                 'Anexo_2',
                 sectionsValidation.Anexo_2.position,
@@ -263,7 +264,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
         );
 
         expect(
-            validateSectionHome(
+            sectionHelper(
                 true,
                 'Anexo_2',
                 sectionsValidation.Anexo_2.position,
@@ -276,7 +277,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
 
     it('Validar Seccion Breaking_1 en Home', () => {
         expect(
-            validateSectionHome(
+            sectionHelper(
                 null,
                 'Breaking_1',
                 sectionsValidation.Breaking_1.position,
@@ -287,7 +288,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
         ).toEqual(null);
 
         expect(
-            validateSectionHome(
+            sectionHelper(
                 null,
                 'Breaking_1',
                 sectionsValidation.Breaking_1.position,
@@ -304,7 +305,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
         );
 
         expect(
-            validateSectionHome(
+            sectionHelper(
                 true,
                 'Breaking_1',
                 sectionsValidation.Breaking_1.position,
@@ -317,7 +318,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
 
     it('Validar Seccion Opinion en Home', () => {
         expect(
-            validateSectionHome(
+            sectionHelper(
                 null,
                 'Opinion',
                 sectionsValidation.Opinion.position,
@@ -328,7 +329,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
         ).toEqual(null);
 
         expect(
-            validateSectionHome(
+            sectionHelper(
                 null,
                 'Opinion',
                 sectionsValidation.Opinion.position,
@@ -345,7 +346,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
         );
 
         expect(
-            validateSectionHome(
+            sectionHelper(
                 true,
                 'Opinion',
                 sectionsValidation.Opinion.position,
@@ -358,7 +359,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
 
     it('Validar Seccion Comercial_1 en Home', () => {
         expect(
-            validateSectionHome(
+            sectionHelper(
                 null,
                 'Comercial_1',
                 sectionsValidation.Comercial_1.position,
@@ -369,7 +370,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
         ).toEqual(null);
 
         expect(
-            validateSectionHome(
+            sectionHelper(
                 null,
                 'Comercial_1',
                 sectionsValidation.Comercial_1.position,
@@ -386,7 +387,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
         );
 
         expect(
-            validateSectionHome(
+            sectionHelper(
                 true,
                 'Comercial_1',
                 sectionsValidation.Comercial_1.position,
@@ -399,7 +400,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
 
     it('Validar Seccion Bloque_2 en Home', () => {
         expect(
-            validateSectionHome(
+            sectionHelper(
                 null,
                 'Bloque_2',
                 sectionsValidation.Bloque_2.position,
@@ -410,7 +411,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
         ).toEqual(null);
 
         expect(
-            validateSectionHome(
+            sectionHelper(
                 null,
                 'Bloque_2',
                 sectionsValidation.Bloque_2.position,
@@ -427,7 +428,7 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
         );
 
         expect(
-            validateSectionHome(
+            sectionHelper(
                 true,
                 'Bloque_2',
                 sectionsValidation.Bloque_2.position,

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ListItems from '../../../common/listItems';
 import ComTitle from '../../../common/com-title';
-import '../../../../../resources/dist/css/ln/components/table.css';
 
 const powerUpsReceta = ({ data }) => {
     const { powerUp } = data;
@@ -50,13 +49,15 @@ const powerUpsReceta = ({ data }) => {
                     />
                     <div>
                         <table className="com-table">
-                            <tr>
-                                <th>Propiedad</th>
-                                <th>Cantidad por porción</th>
-                            </tr>
+                            <thead>
+                                <tr>
+                                    <th>Propiedad</th>
+                                    <th>Cantidad por porción</th>
+                                </tr>
+                            </thead>
                             {powerUp.map(e => {
                                 return e.subtype === 'custom-nutrition' ? (
-                                    <>
+                                    <tbody>
                                         {e.embed.config.items.map(item => {
                                             return (
                                                 <tr>
@@ -65,7 +66,7 @@ const powerUpsReceta = ({ data }) => {
                                                 </tr>
                                             );
                                         })}
-                                    </>
+                                    </tbody>
                                 ) : (
                                     <></>
                                 );

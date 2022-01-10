@@ -9,7 +9,7 @@ exports[`Share Matches snapshot 1`] = `
     class="container --left"
   >
     <button
-      class="com-button   --icon "
+      class="com-button --icon"
       data-event=""
       data-section=""
       id=""
@@ -19,7 +19,7 @@ exports[`Share Matches snapshot 1`] = `
       type="button"
     >
       <i
-        class="com-icon icon-facebook-filled  "
+        class="com-icon icon-facebook-filled"
       >
         <svg
           fill="none"
@@ -37,7 +37,7 @@ exports[`Share Matches snapshot 1`] = `
       </i>
     </button>
     <button
-      class="com-button   --icon "
+      class="com-button --icon"
       data-event=""
       data-section=""
       id=""
@@ -47,7 +47,7 @@ exports[`Share Matches snapshot 1`] = `
       type="button"
     >
       <i
-        class="com-icon icon-twitter-filled  "
+        class="com-icon icon-twitter-filled"
       >
         <svg
           fill="none"
@@ -67,7 +67,7 @@ exports[`Share Matches snapshot 1`] = `
       </i>
     </button>
     <button
-      class="com-button   --icon "
+      class="com-button --icon"
       data-event=""
       data-section=""
       id="whatsAppShareDesktop"
@@ -77,7 +77,7 @@ exports[`Share Matches snapshot 1`] = `
       type="button"
     >
       <i
-        class="com-icon icon-whatsapp-filled  "
+        class="com-icon icon-whatsapp-filled"
       >
         <svg
           fill="none"
@@ -103,7 +103,7 @@ exports[`Share Matches snapshot 1`] = `
     class="container --right"
   >
     <button
-      class="com-button   --icon "
+      class="com-button --icon"
       data-event=""
       data-section=""
       id=""
@@ -113,7 +113,7 @@ exports[`Share Matches snapshot 1`] = `
       type="button"
     >
       <i
-        class="com-icon icon-email  "
+        class="com-icon icon-email"
       >
         <svg
           fill="none"
@@ -133,7 +133,7 @@ exports[`Share Matches snapshot 1`] = `
       </i>
     </button>
     <button
-      class="com-button   --icon "
+      class="com-button comment-btn --icon"
       data-event=""
       data-section=""
       id=""
@@ -143,7 +143,7 @@ exports[`Share Matches snapshot 1`] = `
       type="button"
     >
       <i
-        class="com-icon icon-comment  "
+        class="com-icon icon-comment"
       >
         <svg
           fill="none"
@@ -162,6 +162,11 @@ exports[`Share Matches snapshot 1`] = `
         </svg>
       </i>
     </button>
+    <label
+      class="counterComments --fourxs"
+    >
+      64
+    </label>
   </div>
 </div>
 `;
@@ -175,7 +180,7 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
     class="container --left"
   >
     <button
-      class="com-button   --icon "
+      class="com-button --icon"
       data-event=""
       data-section=""
       id=""
@@ -185,7 +190,7 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
       type="button"
     >
       <i
-        class="com-icon icon-facebook-filled  "
+        class="com-icon icon-facebook-filled"
       >
         <svg
           fill="none"
@@ -203,7 +208,7 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
       </i>
     </button>
     <button
-      class="com-button   --icon "
+      class="com-button --icon"
       data-event=""
       data-section=""
       id=""
@@ -213,7 +218,7 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
       type="button"
     >
       <i
-        class="com-icon icon-twitter-filled  "
+        class="com-icon icon-twitter-filled"
       >
         <svg
           fill="none"
@@ -233,7 +238,7 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
       </i>
     </button>
     <button
-      class="com-button   --icon "
+      class="com-button --icon"
       data-event=""
       data-section=""
       id="whatsAppShareDesktop"
@@ -243,7 +248,7 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
       type="button"
     >
       <i
-        class="com-icon icon-whatsapp-filled  "
+        class="com-icon icon-whatsapp-filled"
       >
         <svg
           fill="none"
@@ -269,7 +274,7 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
     class="container --right"
   >
     <button
-      class="com-button   --icon "
+      class="com-button --icon"
       data-event=""
       data-section=""
       id=""
@@ -279,7 +284,7 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
       type="button"
     >
       <i
-        class="com-icon icon-email  "
+        class="com-icon icon-email"
       >
         <svg
           fill="none"

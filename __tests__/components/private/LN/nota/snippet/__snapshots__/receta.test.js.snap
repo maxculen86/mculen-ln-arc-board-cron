@@ -45,6 +45,29 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
           "type": "custom_embed",
         },
         Object {
+          "_id": "X5EAKEQ6J5BYBOKAQNSGYFMZUE",
+          "additional_properties": Object {},
+          "embed": Object {
+            "config": Object {
+              "items": Array [
+                Object {
+                  "text": "Calorías",
+                  "unit": "kcal",
+                  "value": 2,
+                },
+                Object {
+                  "text": "Carbohidratos",
+                  "unit": "g",
+                  "value": 3,
+                },
+              ],
+              "typeList": "nutritional-info",
+            },
+          },
+          "subtype": "custom-nutrition",
+          "type": "custom_embed",
+        },
+        Object {
           "_id": "4LVALFON2RG5XKADXLDX5UQYHY",
           "additional_properties": Object {},
           "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id fermentum lectus, sit amet vulputate turpis. Sed non nibh eget arcu facilisis euismod vitae a ex. Suspendisse potenti. Aliquam euismod eros ac convallis consectetur. Suspendisse vestibulum semper dolor non venenatis. Curabitur cursus vehicula risus. Nam imperdiet ipsum vel lacinia imperdiet. Duis quis pharetra eros. Etiam convallis convallis sapien, eu bibendum mauris maximus a. Cras varius id lectus ac fermentum. Pellentesque eget dapibus dolor, ut pellentesque nibh. Donec tincidunt nisl non volutpat tempus. Sed quis dui eget augue imperdiet tempus et vel nibh. Phasellus lorem diam, cursus dignissim rutrum ac, rutrum eu nunc. In fermentum gravida urna, et luctus turpis venenatis in.",
@@ -154,8 +177,10 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
         "receta": Object {
           "embed": Object {
             "config": Object {
+              "cookTime": "25",
               "counterPortion": "4",
-              "counterTime": "25",
+              "counterTime": "50",
+              "prepTime": "25",
               "title": "detalle-receta",
             },
           },
@@ -285,6 +310,29 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
             "type": "custom_embed",
           },
           Object {
+            "_id": "X5EAKEQ6J5BYBOKAQNSGYFMZUE",
+            "additional_properties": Object {},
+            "embed": Object {
+              "config": Object {
+                "items": Array [
+                  Object {
+                    "text": "Calorías",
+                    "unit": "kcal",
+                    "value": 2,
+                  },
+                  Object {
+                    "text": "Carbohidratos",
+                    "unit": "g",
+                    "value": 3,
+                  },
+                ],
+                "typeList": "nutritional-info",
+              },
+            },
+            "subtype": "custom-nutrition",
+            "type": "custom_embed",
+          },
+          Object {
             "_id": "4LVALFON2RG5XKADXLDX5UQYHY",
             "additional_properties": Object {},
             "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id fermentum lectus, sit amet vulputate turpis. Sed non nibh eget arcu facilisis euismod vitae a ex. Suspendisse potenti. Aliquam euismod eros ac convallis consectetur. Suspendisse vestibulum semper dolor non venenatis. Curabitur cursus vehicula risus. Nam imperdiet ipsum vel lacinia imperdiet. Duis quis pharetra eros. Etiam convallis convallis sapien, eu bibendum mauris maximus a. Cras varius id lectus ac fermentum. Pellentesque eget dapibus dolor, ut pellentesque nibh. Donec tincidunt nisl non volutpat tempus. Sed quis dui eget augue imperdiet tempus et vel nibh. Phasellus lorem diam, cursus dignissim rutrum ac, rutrum eu nunc. In fermentum gravida urna, et luctus turpis venenatis in.",
@@ -394,8 +442,10 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
           "receta": Object {
             "embed": Object {
               "config": Object {
+                "cookTime": "25",
                 "counterPortion": "4",
-                "counterTime": "25",
+                "counterTime": "50",
+                "prepTime": "25",
                 "title": "detalle-receta",
               },
             },
@@ -488,16 +538,14 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
             "@type": "Organization",
             "name": "LA NACION recetas",
           },
-          "cookTime": "",
+          "cookTime": "PT25M",
           "datePublished": "2020-04-24T14:35:53.021Z",
           "description": "Subtitulo de prueba",
           "image": "https://resizer.glanacion.com/resizer/KKUwkn3fOAH9RsmFwoJFBFcvh54=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg",
           "keywords": "ajo, tomate perita",
           "name": "Nota recetas para Api test",
-          "nutrition": Object {
-            "@type": "NutritionInformation",
-          },
-          "prepTime": "",
+          "nutrition": undefined,
+          "prepTime": "PT25M",
           "publisher": Object {
             "@type": "Organization",
             "logo": Object {
@@ -514,8 +562,8 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
           "recipeCuisine": undefined,
           "recipeIngredient": Array [],
           "recipeInstructions": Array [],
-          "recipeYield": "4 porciones",
-          "totalTime": "PT25M",
+          "recipeYield": "4",
+          "totalTime": "PT50M",
         }
       }
     >
@@ -526,23 +574,20 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
   \\"@context\\": \\"https://schema.org\\",
   \\"@type\\": \\"Recipe\\",
   \\"recipeInstructions\\": [],
+  \\"cookTime\\": \\"PT25M\\",
+  \\"prepTime\\": \\"PT25M\\",
+  \\"totalTime\\": \\"PT50M\\",
+  \\"datePublished\\": \\"2020-04-24T14:35:53.021Z\\",
+  \\"description\\": \\"Subtitulo de prueba\\",
   \\"author\\": {
     \\"@type\\": \\"Organization\\",
     \\"name\\": \\"LA NACION recetas\\"
   },
-  \\"cookTime\\": \\"\\",
-  \\"prepTime\\": \\"\\",
-  \\"totalTime\\": \\"PT25M\\",
-  \\"datePublished\\": \\"2020-04-24T14:35:53.021Z\\",
-  \\"description\\": \\"Subtitulo de prueba\\",
   \\"image\\": \\"https://resizer.glanacion.com/resizer/KKUwkn3fOAH9RsmFwoJFBFcvh54=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg\\",
-  \\"nutrition\\": {
-    \\"@type\\": \\"NutritionInformation\\"
-  },
   \\"recipeIngredient\\": [],
   \\"recipeCategory\\": \\"Platos de comida principal\\",
   \\"name\\": \\"Nota recetas para Api test\\",
-  \\"recipeYield\\": \\"4 porciones\\",
+  \\"recipeYield\\": \\"4\\",
   \\"keywords\\": \\"ajo, tomate perita\\",
   \\"publisher\\": {
     \\"@type\\": \\"Organization\\",

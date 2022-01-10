@@ -4,10 +4,10 @@ export const addRandomParam = url => {
     const uri = new URL(url);
     uri.searchParams.append(
         'R',
-        Math.random()
+        Math.random() // NOSONAR
             .toString(16)
             .substring(2, 8)
-    ); //NOSONAR
+    );
     return uri.toString();
 };
 
