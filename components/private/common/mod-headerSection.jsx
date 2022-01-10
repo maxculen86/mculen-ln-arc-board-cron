@@ -27,7 +27,7 @@ const ModheaderSection = props => {
             width={width}
             height={height}
             src={url}
-            alt="Logo"
+            alt={title}
             amp={outputType === 'amp'}
         />
     );
