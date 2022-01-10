@@ -75,7 +75,7 @@ const fetch = query => {
     if (nextIdArticleClean && !!nextIdArticleClean) {
         allArticles = nextIdArticleClean.concat(',', allArticles);
     }
-    const idArticleClean = idArticle?.replace('/', '');
+    const idArticleClean = idArticle && idArticle.replace('/', '');
     if (idArticle && !!idArticle) {
         allArticles = idArticleClean.concat(',', allArticles);
     }
