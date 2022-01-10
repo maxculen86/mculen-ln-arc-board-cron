@@ -60,29 +60,36 @@ class SectionRanking {
     }
 
     render() {
-        const { rankingArticleSource, globalContent: configuration } =
-            this.state || {};
+        try {
+            const { rankingArticleSource, globalContent: configuration } =
+                this.state || {};
 
-        const {
-            globalContent: { name },
-            requestUri
-        } = this.props;
+            const {
+                globalContent: { name },
+                requestUri
+            } = this.props;
 
-        const indexAcu = this.apiData[browser.getApiType(requestUri)][
-            browser.getApiVersion(requestUri)
-        ];
-        if (!rankingArticleSource || !rankingArticleSource.content_elements) {
-            return null;
+            const indexAcu = this.apiData[browser.getApiType(requestUri)][
+                browser.getApiVersion(requestUri)
+            ];
+            if (
+                !rankingArticleSource ||
+                !rankingArticleSource.content_elements
+            ) {
+                return null;
+            }
+
+            const acuData = {
+                name,
+                articles: rankingArticleSource.content_elements,
+                total: rankingArticleSource.content_elements.length,
+                configuration
+            };
+
+            return indexAcu(acuData);
+        } catch (err) {
+            return { Success: false, Message: err.message };
         }
-
-        const acuData = {
-            name,
-            articles: rankingArticleSource.content_elements,
-            total: rankingArticleSource.content_elements?.length,
-            configuration
-        };
-
-        return indexAcu(acuData);
     }
 }
 
