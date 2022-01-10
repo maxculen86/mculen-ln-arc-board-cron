@@ -29,7 +29,7 @@ const ComImage = props => {
 
     const commonProps = {
         src,
-        alt: alt || undefined,
+        alt: alt,
         width,
         height,
         ...(amp && srcsetAMP && { srcSet: srcsetAMP })
@@ -57,7 +57,7 @@ const ComImage = props => {
     return (
         <>
             {href ? (
-                <ComLink link={href} target={target || ''} title={alt || ''}>
+                <ComLink link={href} target={target || ''} title={alt}>
                     {amp ? imageAmp : image}
                 </ComLink>
             ) : (
@@ -71,7 +71,7 @@ ComImage.propTypes = {
     src: PropTypes.string.isRequired,
     srcset: PropTypes.string,
     srcsetAMP: PropTypes.string,
-    alt: PropTypes.string.isRequired,
+    alt: PropTypes.string,
     classCondition: PropTypes.string,
     amp: PropTypes.bool.isRequired,
     width: PropTypes.number.isRequired,
@@ -89,6 +89,7 @@ ComImage.defaultProps = {
     srcsetAMP: '',
     classCondition: '',
     href: '',
+    alt: undefined,
     target: '',
     withLazy: true,
     layout: undefined,
