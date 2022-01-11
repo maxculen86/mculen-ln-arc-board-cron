@@ -42,7 +42,7 @@ const fetch = query => {
     }
 
     return request(opt).then((response = {}) => {
-        if (response.type === 'redirect' && response.redirect_url) {
+        if (response && response.type === 'redirect' && response.redirect_url) {
             throw new Redirect(response.redirect_url, 301);
         }
 

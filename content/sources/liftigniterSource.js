@@ -20,44 +20,30 @@ import ArticleSourceNotas from './acuArticlesSourcebyIds';
 
 const transformArticles = (liftigniterArticles = [], cantidadNotas) =>
     liftigniterArticles &&
-    liftigniterArticles
-        .filter(
-            e =>
-                e.image &&
-                !(e.image && e.image.includes('/images/placeholderLN.jpg'))
-        )
-        .slice(0, cantidadNotas)
-        .map(elem => {
-            const {
-                url,
-                id,
-                title,
-                titleShort = '',
-                leadText = '',
-                image
-            } = elem;
-            return {
-                subtype: 1,
-                by: {},
-                website_url: url,
-                _id: id,
-                headlines: {
-                    basic: title,
-                    mobile: titleShort
-                },
-                label: {
-                    volanta: {
-                        text: leadText
-                    }
-                },
-                promo_items: {
-                    basic: {
-                        type: 'image',
-                        url: image
-                    }
+    liftigniterArticles.slice(0, cantidadNotas).map(elem => {
+        const { url, id, title, titleShort = '', leadText = '', image } = elem;
+        return {
+            subtype: 1,
+            by: {},
+            website_url: url,
+            _id: id,
+            headlines: {
+                basic: title,
+                mobile: titleShort
+            },
+            label: {
+                volanta: {
+                    text: leadText
                 }
-            };
-        });
+            },
+            promo_items: {
+                basic: {
+                    type: 'image',
+                    url: image
+                }
+            }
+        };
+    });
 
 /**
  * TODO: Por completar de tarea
@@ -89,7 +75,7 @@ const fetch = query => {
     if (nextIdArticleClean && !!nextIdArticleClean) {
         allArticles = nextIdArticleClean.concat(',', allArticles);
     }
-    const idArticleClean = idArticle?.replace('/', '');
+    const idArticleClean = idArticle && idArticle.replace('/', '');
     if (idArticle && !!idArticle) {
         allArticles = idArticleClean.concat(',', allArticles);
     }
@@ -171,7 +157,6 @@ const fetch = query => {
 
     return resolveData(query);
 };
-const duplicateMaxCount = cantidadNotas => cantidadNotas * 2;
 
 const resolveData = query => {
     const {
@@ -267,7 +252,7 @@ const resolveData = query => {
             headers,
             body: JSON.stringify({
                 widgetName: WIDGETS,
-                maxCount: duplicateMaxCount(cantidadNotas),
+                maxCount: cantidadNotas,
                 requestFields: [
                     'url',
                     'title',
@@ -304,10 +289,10 @@ const resolveData = query => {
         }
     };
     const queryRequest = {
-        uri: REQUESTS[action].uri,
-        method: REQUESTS[action].method,
-        headers: REQUESTS[action].headers,
-        body: REQUESTS[action].body
+        uri: REQUESTS[action] && REQUESTS[action].uri,
+        method: REQUESTS[action] && REQUESTS[action].method,
+        headers: REQUESTS[action] && REQUESTS[action].headers,
+        body: REQUESTS[action] && REQUESTS[action].body
     };
     return request(queryRequest)
         .then(response => REQUESTS[action].resolve(response))
