@@ -6,6 +6,7 @@ import L47IICAOMVFW5MV343TJIHS4RY from '../../../../../../../../__mocks__/data/a
 import Q4P5KFEOLVHINB3Y5LIGK26SOU from '../../../../../../../../__mocks__/data/articles/Q4P5KFEOLVHINB3Y5LIGK26SOU.json';
 import FO4F7BUAJZBDDLPEMSV5QYDCGM from '../../../../../../../../__mocks__/data/articles/FO4F7BUAJZBDDLPEMSV5QYDCGM.json';
 import M3UNX7ATAZHEFJGPGFZX366ZAQ from '../../../../../../../../__mocks__/data/articles/M3UNX7ATAZHEFJGPGFZX366ZAQ.json';
+import QAZ7BVHG5BCNFN7S67XCBP6PA2 from '../../../../../../../../__mocks__/data/articles/QAZ7BVHG5BCNFN7S67XCBP6PA2.json';
 import ArticleFourElements from '../../../../../../../../__mocks__/data/articles/QAZ7BVHG5BCNFN7S67XCBP6PA5.json';
 import ArticleSevenElements from '../../../../../../../../__mocks__/data/articles/QAZ7BVHG5BCNFN7S67XCBP6PA7.json';
 import ArticleNineElements from '../../../../../../../../__mocks__/data/articles/QAZ7BVHG5BCNFN7S67XCBP6PA9.json';
@@ -172,5 +173,9 @@ describe('Test json integracion Article', () => {
     it('the trust project es null', () => {
         const resp = NotaIndex(ArticleNineElements);
         expect(resp.trust).toBe(true);
+    });
+    it('apertura_multimedia', () => {
+        const resp = NotaIndex(QAZ7BVHG5BCNFN7S67XCBP6PA2);
+        expect(resp.contenido[0]._t).toBe('ext');
     });
 });
