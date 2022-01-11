@@ -289,10 +289,10 @@ const resolveData = query => {
         }
     };
     const queryRequest = {
-        uri: REQUESTS[action].uri,
-        method: REQUESTS[action].method,
-        headers: REQUESTS[action].headers,
-        body: REQUESTS[action].body
+        uri: REQUESTS[action] && REQUESTS[action].uri,
+        method: REQUESTS[action] && REQUESTS[action].method,
+        headers: REQUESTS[action] && REQUESTS[action].headers,
+        body: REQUESTS[action] && REQUESTS[action].body
     };
     return request(queryRequest)
         .then(response => REQUESTS[action].resolve(response))
