@@ -46,11 +46,19 @@ const getStoryElementBySubtype = storyBodyElements => {
     };
 };
 
-const getInfographicElement = (infographic, subtype, contentElements) => {
+const getInfographicElement = (
+    infographic,
+    subtype,
+    contentElements,
+    aperturaMultimedia
+) => {
     if (!contentElements) throw new Error('The story does not have body');
 
     if (subtype === '2' && infographic) {
         contentElements.unshift(infographic);
+    }
+    if (aperturaMultimedia) {
+        contentElements.unshift(aperturaMultimedia);
     }
     return contentElements;
 };
@@ -64,7 +72,8 @@ const storyBody = (dataNota, storyBodyElements) => {
     const contentElements = getInfographicElement(
         get(dataNota, 'promo_items.basic', ''),
         subtype,
-        get(dataNota, 'content_elements', '')
+        get(dataNota, 'content_elements', ''),
+        get(dataNota, 'promo_items.apertura_multimedia', null)
     );
 
     const templates = {
