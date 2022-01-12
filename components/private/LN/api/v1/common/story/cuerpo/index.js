@@ -48,16 +48,16 @@ const getStoryElementBySubtype = storyBodyElements => {
 
 const getInfographicElement = (
     infographic,
-    subtype,
+    subtypeInfographic,
     contentElements,
     aperturaMultimedia
 ) => {
     if (!contentElements) throw new Error('The story does not have body');
 
-    if (subtype === '2' && infographic) {
+    if (subtypeInfographic && infographic) {
         contentElements.unshift(infographic);
     }
-    if (aperturaMultimedia) {
+    if (subtypeInfographic && aperturaMultimedia) {
         contentElements.unshift(aperturaMultimedia);
     }
     return contentElements;
@@ -71,7 +71,7 @@ const storyBody = (dataNota, storyBodyElements) => {
     const elementBySubtype = getStoryElementBySubtype(storyBodyElements);
     const contentElements = getInfographicElement(
         get(dataNota, 'promo_items.basic', ''),
-        subtype,
+        subtype === '2',
         get(dataNota, 'content_elements', ''),
         get(dataNota, 'promo_items.apertura_multimedia', null)
     );
