@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-danger */
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import Static from 'fusion:static';
@@ -19,9 +20,10 @@ const AnexoFeature = props => {
     const _type = getComponentType({ ...props, isAdmin, errorMessage });
     const EXTRA_CLASS = (
         (isInSection({ sectionName: 'Anexo1', id, renderables }) &&
-            '--anexo-1') ||
+            '--anexo-1 ') ||
         ''
     ).concat((!isAdmin && _type === 'Iframe' && 'skeleton-box') || '');
+
     const comp = () =>
         getComponentFromConfig(_type, {
             ...props,
@@ -30,14 +32,22 @@ const AnexoFeature = props => {
             isAdmin
         });
 
+    useEffect(() => {
+        handleIframeProps(id);
+    }, [id, comp]);
+
     return _type === 'Iframe' ? (
         <div
             className={`com-anexo ${EXTRA_CLASS}`}
             style={{ height, overflow: 'hidden', width: '100%' }}
         >
-            <Static id={id} htmlOnly>
-                {comp()}
-            </Static>
+            {isInSection({ sectionName: 'Anexo1', id, renderables }) ? (
+                <Static id={id} htmlOnly>
+                    {comp()}
+                </Static>
+            ) : (
+                comp()
+            )}
         </div>
     ) : (
         comp()
@@ -74,17 +84,6 @@ const getComponentFromConfig = (_type, _props) => {
                         width="100%"
                         height="100%"
                     />
-                    <script
-                        dangerouslySetInnerHTML={{
-                            __html: `
-                            window.addEventListener('DOMContentLoaded', (event) => {
-                                const iframeAnexo = document.getElementById('${anexoId}')
-                                iframeAnexo.parentElement.classList.remove('skeleton-box');
-                                iframeAnexo.src= iframeAnexo.dataset.src
-                            });
-                `
-                        }}
-                    />
                 </>
             );
         }
@@ -119,7 +118,7 @@ const getErrorMessage = ({
 const isInSection = ({ sectionName, id, renderables = [] }) => {
     const sectionPosition =
         get(sectionsValidation, `${sectionName}.position`, 1) + 1;
-    return getChildsFromSections(renderables, sectionPosition + 1).some(
+    return getChildsFromSections(renderables, sectionPosition).some(
         el => get(el, 'props.id', '') === id
     );
 };
@@ -177,3 +176,11 @@ AnexoFeature.defaultProps = {
 };
 
 export default AnexoFeature;
+
+const handleIframeProps = id => {
+    const iframeAnexo = document.getElementById(`anexo-${id}`);
+    if (iframeAnexo) {
+        iframeAnexo.parentElement.classList.remove('skeleton-box');
+        iframeAnexo.src = iframeAnexo.dataset.src;
+    }
+};
