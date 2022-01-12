@@ -1,14 +1,14 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import { renderToString } from 'react-dom/server';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 
-import { getSectionLogo } from '../../private/common/utils/sectionUtils';
+import {
+    dictionaryAlt,
+    getSectionLogo
+} from '../../private/common/utils/sectionUtils';
 
-import ComLink from '../../private/common/com-link';
 import ComLogo from '../../private/common/com-logo';
-import ComParagraph from '../../private/common/com-paragraph';
 
 const Logo = props => {
     const {
@@ -27,19 +27,20 @@ const Logo = props => {
         logoName: null
     };
 
+    const link = path ? `${path}/` : null;
+
+    const altLogo = dictionaryAlt[logoName]
+        ? dictionaryAlt[logoName]
+        : logoName;
+
     return (
-        <ComParagraph
-            content={renderToString(
-                React.createElement(
-                    ComLink,
-                    { link: path ? `${path}/` : null }, //agrego barra al final
-                    React.createElement(ComLogo, {
-                        color: true,
-                        size: '--xs',
-                        logoName
-                    })
-                )
-            )}
+        <ComLogo
+            size="--xs"
+            logoName={logoName}
+            href={link}
+            alt={altLogo}
+            title={altLogo}
+            classCondition="ln-nota-logo"
         />
     );
 };

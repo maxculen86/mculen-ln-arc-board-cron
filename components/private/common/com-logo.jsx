@@ -1,45 +1,91 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from './com-link';
+
+import ComLink from './com-link';
+import Image from './com-image';
+import Static from 'fusion:static';
+import { ARC_STATIC } from 'fusion:environment';
+import { useAppContext } from 'fusion:context';
+import { mapperLogos } from './logos/mapperLogos';
 
 import '../../../resources/dist/css/ln/components/com-logo.css';
 
 const ComLogo = props => {
     const {
         logoName,
-        color,
         size,
+        width,
+        height,
         classCondition,
         href,
+        title,
+        alt,
+        folder,
         target,
-        title
+        rel
     } = props;
-    const className = `com-logo${logoName ? ` logo-${logoName}` : ``}${
-        classCondition ? ` ${classCondition}` : ``
-    }${color ? ` --color` : ``}${size ? ` ${size}` : ``}`;
+
+    const { contextPath, deployment, outputType } = useAppContext();
+    const folderRoute = folder ? folder : '';
+    const assets = mapperLogos[logoName];
+    const archivoSVG = `${ARC_STATIC}${deployment(
+        `${contextPath}/resources/images/${folderRoute}${assets}`
+    )}`;
+    const sizeLogo = size ? size : '';
+    const extraClass = `com-logo ${logoName} ${sizeLogo}`;
+    const classes = `${classCondition} ${extraClass}`;
+    const altProp = alt ? alt : title;
+
+    const amp = outputType === 'amp' ? 'amp' : '';
 
     if (!logoName) return null;
-    return (
-        <>
-            {href ? (
-                <Link link={href} title={title} target={target}>
-                    <i className={className} />
-                </Link>
-            ) : (
-                <i className={className} />
-            )}
-        </>
+
+    const Logo = (
+        <Static id={assets || `logo-${logoName}`} htmlOnly>
+            <Image
+                classCondition={classes}
+                width={width}
+                height={height}
+                src={archivoSVG}
+                alt={altProp}
+                amp={amp}
+                svg
+            />
+        </Static>
     );
+    const Link = (
+        <ComLink link={href} title={title} rel={rel} target={target}>
+            {Logo}
+        </ComLink>
+    );
+    return <>{href ? Link : Logo}</>;
 };
 
 ComLogo.propTypes = {
     logoName: PropTypes.string,
-    color: PropTypes.bool.isRequired,
-    size: PropTypes.string
+    size: PropTypes.string,
+    width: PropTypes.number,
+    height: PropTypes.number,
+    classCondition: PropTypes.string,
+    href: PropTypes.string,
+    title: PropTypes.string,
+    alt: PropTypes.string,
+    folder: PropTypes.string,
+    target: PropTypes.string,
+    rel: PropTypes.bool
 };
 
 ComLogo.defaultProps = {
     logoName: '',
-    size: ''
+    size: '',
+    width: '50',
+    height: '50',
+    classCondition: '',
+    href: '',
+    title: '',
+    alt: '',
+    folder: '',
+    target: undefined,
+    rel: undefined
 };
 export default ComLogo;

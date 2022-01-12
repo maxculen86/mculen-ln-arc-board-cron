@@ -3,21 +3,13 @@ import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import Icon from '../../../common/icon';
 import Text from '../../../common/text';
-import Image from '../../../common/com-image';
 import List from '../../../common/mod-list';
 import Copyright from './copyright';
-import getAssetsPath from '../../../common/utils/getAssetsPath';
-import Logo from '../../../common/com-logo';
 
 import '../../../../../resources/dist/css/ln/modules/mod-footer.css';
+import ComLogo from '../../../common/com-logo';
 
-const Index = ({
-    outputType,
-    siteProperties: { host },
-    contextPath,
-    home,
-    deployment
-}) => {
+const Index = ({ home }) => {
     const listText = [
         {
             text: 'Últimas noticias',
@@ -240,41 +232,29 @@ const Index = ({
                             />
                         </div>
                         <div className="col-desksm-4 --center">
-                            <Logo
+                            <ComLogo
+                                href="https://www.lanacion.com.ar/"
                                 logoName="la-nacion"
-                                classCondition="nacion-home"
-                                color
                                 size="--sm"
-                                href={`${
-                                    home ? '#' : 'https://www.lanacion.com.ar/'
-                                }`}
-                                target="_top"
                                 title="Ir a la página principal"
                             />
-                            {/* <LogoLN /> */}
                         </div>
                         <div className="col-desksm-4 --right">
-                            <Image
-                                src={getAssetsPath(contextPath)(deployment)(
-                                    'google-play.svg'
-                                )}
-                                alt="Descargar nuestra app en Google Play"
+                            <ComLogo
+                                logoName="android-store"
+                                title="Descargar nuestra app en Google Play"
                                 width="120"
                                 height="35"
                                 href="https://play.google.com/store/apps/details?id=app.lanacion.activity&hl=es_419"
                                 target="_blank"
-                                amp={outputType === 'amp'}
                             />
-                            <Image
-                                src={getAssetsPath(contextPath)(deployment)(
-                                    'app-store.svg'
-                                )}
-                                alt="Descargar nuestra app en el App Store"
+                            <ComLogo
+                                logoName="ios-store"
+                                title="Descargar nuestra app en el App Store"
                                 width="120"
                                 height="35"
                                 href="https://apps.apple.com/ar/app/la-nacion/id410689702"
                                 target="_blank"
-                                amp={outputType === 'amp'}
                             />
                         </div>
                     </div>
@@ -323,32 +303,24 @@ const Index = ({
 
                     <div className="row">
                         <div className="col-desksm-6 --right">
-                            <Image
-                                href="http://gda.com/"
-                                target="_blank"
-                                src={getAssetsPath(contextPath)(deployment)(
-                                    'gda.svg'
-                                )}
-                                alt="gda"
-                                classCondition="--gda"
+                            <ComLogo
+                                logoName="gda"
+                                title="gda"
                                 width="36"
                                 height="20"
-                                amp={outputType === 'amp'}
+                                href="http://gda.com/"
+                                target="_blank"
                             />
                             <Text>
                                 Miembro de GDA. Grupo de Diarios América
                             </Text>
-                            <Image
-                                href="http://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"
-                                target="_blank"
-                                src={getAssetsPath(contextPath)(deployment)(
-                                    'data-fiscal.svg'
-                                )}
-                                alt="Data fiscal"
-                                classCondition="--data"
+                            <ComLogo
+                                logoName="data-fiscal"
+                                title="Data fiscal"
                                 width="28"
                                 height="38"
-                                amp={outputType === 'amp'}
+                                href="http://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"
+                                target="_blank"
                             />
                         </div>
                         <div className="col-desksm-6 --left">

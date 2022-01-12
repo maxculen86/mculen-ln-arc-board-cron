@@ -6,7 +6,7 @@ import '../../../../../resources/dist/css/ln/modules/mod-subheader.css';
 import ComWeather from '../../../common/com-weather';
 import ComDolar from '../../../common/com-dolar';
 import ComLink from '../../../common/com-link';
-import ComLogo from '../../../common/com-logo';
+import Club from '../../../common/icons/system/Club';
 
 const ModSubheader = props => {
     const { data: dolar } = useContent({ source: 'dolarSource' }) || {};
@@ -52,7 +52,7 @@ const ModSubheader = props => {
                         size="--fourxs"
                         title="Ir a Club LA NACION"
                     >
-                        <ComLogo logoName="club" size="--xs" />
+                        <Club className="club" />
                         Descubrí tus beneficios
                     </ComLink>
                 </nav>

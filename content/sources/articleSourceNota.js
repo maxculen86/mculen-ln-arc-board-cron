@@ -62,7 +62,11 @@ const fetch = query => {
 
     return request(opt)
         .then(response => {
-            if (response.type === 'redirect' && response.redirect_url) {
+            if (
+                response &&
+                response.type === 'redirect' &&
+                response.redirect_url
+            ) {
                 throw new Redirect(response.redirect_url, 301);
             }
             const forwardUrl = get(
@@ -101,6 +105,7 @@ const fetch = query => {
             );
         })
         .catch(error => {
+            // eslint-disable-next-line no-console
             console.log(
                 '🚀 ~ file: articleSourceNota.js ~ line 90 ~ error',
                 error
