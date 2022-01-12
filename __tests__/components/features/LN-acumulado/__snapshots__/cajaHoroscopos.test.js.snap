@@ -35,7 +35,6 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
                 height="100%"
                 loading="lazy"
                 src="undefined/pf/resources/images/horoscope-logos/aries.svg"
-                srcset=""
                 width="100%"
               />
             </div>
@@ -72,7 +71,6 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
                 height="100%"
                 loading="lazy"
                 src="undefined/pf/resources/images/horoscope-logos/tauro.svg"
-                srcset=""
                 width="100%"
               />
             </div>
@@ -109,7 +107,6 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
                 height="100%"
                 loading="lazy"
                 src="undefined/pf/resources/images/horoscope-logos/geminis.svg"
-                srcset=""
                 width="100%"
               />
             </div>
@@ -146,7 +143,6 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
                 height="100%"
                 loading="lazy"
                 src="undefined/pf/resources/images/horoscope-logos/cancer.svg"
-                srcset=""
                 width="100%"
               />
             </div>
@@ -183,7 +179,6 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
                 height="100%"
                 loading="lazy"
                 src="undefined/pf/resources/images/horoscope-logos/leo.svg"
-                srcset=""
                 width="100%"
               />
             </div>
@@ -220,7 +215,6 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
                 height="100%"
                 loading="lazy"
                 src="undefined/pf/resources/images/horoscope-logos/virgo.svg"
-                srcset=""
                 width="100%"
               />
             </div>
@@ -257,7 +251,6 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
                 height="100%"
                 loading="lazy"
                 src="undefined/pf/resources/images/horoscope-logos/libra.svg"
-                srcset=""
                 width="100%"
               />
             </div>
@@ -294,7 +287,6 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
                 height="100%"
                 loading="lazy"
                 src="undefined/pf/resources/images/horoscope-logos/escorpio.svg"
-                srcset=""
                 width="100%"
               />
             </div>
@@ -331,7 +323,6 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
                 height="100%"
                 loading="lazy"
                 src="undefined/pf/resources/images/horoscope-logos/sagitario.svg"
-                srcset=""
                 width="100%"
               />
             </div>
@@ -368,7 +359,6 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
                 height="100%"
                 loading="lazy"
                 src="undefined/pf/resources/images/horoscope-logos/capricornio.svg"
-                srcset=""
                 width="100%"
               />
             </div>
@@ -405,7 +395,6 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
                 height="100%"
                 loading="lazy"
                 src="undefined/pf/resources/images/horoscope-logos/acuario.svg"
-                srcset=""
                 width="100%"
               />
             </div>
@@ -442,7 +431,6 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
                 height="100%"
                 loading="lazy"
                 src="undefined/pf/resources/images/horoscope-logos/piscis.svg"
-                srcset=""
                 width="100%"
               />
             </div>
@@ -483,7 +471,6 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
                 height="100%"
                 loading="lazy"
                 src="undefined/pf/resources/images/horoscope-logos/rata.svg"
-                srcset=""
                 width="100%"
               />
             </div>
