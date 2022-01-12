@@ -30,6 +30,7 @@ const CajaHoroscopos = ({ id: featureId, customFields }) => {
 };
 
 CajaHoroscopos.label = 'LN Acumulado Caja Horoscopos';
+CajaHoroscopos.lazy = true;
 
 CajaHoroscopos.propTypes = {
     id: PropTypes.string.isRequired,

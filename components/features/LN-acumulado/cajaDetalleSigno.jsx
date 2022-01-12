@@ -32,6 +32,7 @@ const CajaDetalleSigno = ({ id: featureId }) => {
 };
 
 CajaDetalleSigno.label = 'LN Acumulado Caja Detalle Signo';
+CajaDetalleSigno.lazy = true;
 
 CajaDetalleSigno.propTypes = {
     id: PropTypes.string.isRequired
