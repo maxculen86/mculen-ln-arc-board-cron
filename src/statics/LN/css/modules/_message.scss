@@ -19,10 +19,11 @@
             color: $dark-neutral-800;
             padding: 0 px(8);
 
-            .com-logo {
-                font-size: px(12);
-                margin-right: $spacing-xs;
-                color: $orange-400;
+            .icon-ln {
+                margin: px(-2) px(8) 0 0;
+                path {
+                    fill: $orange-400;
+                }
             }
         }
 

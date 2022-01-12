@@ -2,8 +2,9 @@ import React from 'react';
 import NavBarMobile from '../navbar';
 import Button from '../../../common/com-button';
 import Link from '../../../common/link';
-import LogoLN from '../../../common/logos/logoLN';
 import Icon from '../../../common/icon';
+import ComLogo from '../../../common/com-logo';
+import LnLogoHeader from '../../../common/logos/LnLogoHeader';
 
 const headerAMP = props => {
     return (
@@ -21,7 +22,7 @@ const headerAMP = props => {
                             </Button>
                         </div>
                         <div className="col-7 col-desksm-4 header__middle">
-                            <LogoLN />
+                            <LnLogoHeader />
                         </div>
                         <div className="col-5 col-desksm-4 header__right">
                             <div id="user-menu" className="com-usuario">
@@ -57,7 +58,13 @@ const headerAMP = props => {
             >
                 {' '}
                 <section className="header_sidebar">
-                    <LogoLN />
+                    <ComLogo
+                        logoName="la-nacion"
+                        size="--xs"
+                        href={'https://www.lanacion.com.ar/'}
+                        title="Ir a la página principal"
+                        alt="LA NACION"
+                    />
                     <Button on="tap:sidebar-left.close" iconName="close" />
                 </section>
                 <ul className="menu-nav">

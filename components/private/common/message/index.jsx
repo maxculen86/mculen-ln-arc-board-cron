@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import Text from '../text';
 import Link from '../com-link';
-import Logo from '../com-logo';
 import Icon from '../icon';
 
 import '../../../../resources/dist/css/ln/modules/message.css';
@@ -27,7 +26,7 @@ const Message = props => {
             <div className="col-12 --top">
                 {isExclusive ? (
                     <Text tag="strong" extraClass="subscribers" size="--twoxs">
-                        <Logo logoName="ln" size="--xs" />
+                        <Icon name="ln" size="--xs" />
                         Exclusivo suscriptores
                     </Text>
                 ) : (
