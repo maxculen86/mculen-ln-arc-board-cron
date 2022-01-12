@@ -29,11 +29,11 @@ const Share = props => {
             _id: id,
             headlines: { basic: title, mobile: mobileTitle },
             comments: { display_comments: displayComments = true } = {},
-            first_publish_date: fistPublishDate
+            first_publish_date: firstPublishDate
         }
     } = props;
 
-    const conditionallyCallSource = shouldLoadViafoura(fistPublishDate)
+    const conditionallyCallSource = shouldLoadViafoura(firstPublishDate)
         ? 'viafouraSource'
         : null;
 
