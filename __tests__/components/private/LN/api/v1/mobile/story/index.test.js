@@ -174,8 +174,12 @@ describe('Test json integracion Article', () => {
         const resp = NotaIndex(ArticleNineElements);
         expect(resp.trust).toBe(true);
     });
-    it('apertura_multimedia', () => {
+    it('test apertura_multimedia', () => {
         const resp = NotaIndex(QAZ7BVHG5BCNFN7S67XCBP6PA2);
         expect(resp.contenido[0]._t).toBe('ext');
+        expect(resp.contenido[0].src).toBe(
+            'https://especialeslntools.lanacion.com.ar/generic-precios-temporada-2021/index.html'
+        );
+        expect(resp.contenido[0].id).toBe('ifrme');
     });
 });
