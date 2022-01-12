@@ -21,6 +21,7 @@ const ComImage = props => {
         href,
         target,
         isApertura,
+        svg,
         withLazy = true
     } = props;
 
@@ -28,16 +29,18 @@ const ComImage = props => {
 
     const commonProps = {
         src,
-        alt: alt || '',
+        alt: alt,
         width,
         height,
         ...(amp && srcsetAMP && { srcSet: srcsetAMP })
     };
 
+    const classes = `${svg ? '' : 'com-image'} ${classCondition || ''}`;
+
     const image = (
         <img
             {...commonProps}
-            className={`com-image ${classCondition || ''}`}
+            className={classes}
             srcSet={srcset}
             loading={withLazy ? 'lazy' : undefined}
         />
@@ -45,7 +48,7 @@ const ComImage = props => {
     const imageAmp = (
         <amp-img
             {...commonProps}
-            class={`com-image ${classCondition || ''}`}
+            class={classes}
             layout={layout || 'responsive'}
             data-hero={isApertura ? true : undefined}
         />
@@ -54,7 +57,7 @@ const ComImage = props => {
     return (
         <>
             {href ? (
-                <ComLink link={href} target={target || ''} title={alt || ''}>
+                <ComLink link={href} target={target || ''} title={alt}>
                     {amp ? imageAmp : image}
                 </ComLink>
             ) : (
@@ -68,7 +71,7 @@ ComImage.propTypes = {
     src: PropTypes.string.isRequired,
     srcset: PropTypes.string,
     srcsetAMP: PropTypes.string,
-    alt: PropTypes.string.isRequired,
+    alt: PropTypes.string,
     classCondition: PropTypes.string,
     amp: PropTypes.bool.isRequired,
     width: PropTypes.number.isRequired,
@@ -77,18 +80,21 @@ ComImage.propTypes = {
     target: PropTypes.string,
     layout: PropTypes.string,
     withLazy: PropTypes.bool,
-    isApertura: PropTypes.bool
+    isApertura: PropTypes.bool,
+    svg: PropTypes.bool
 };
 
 ComImage.defaultProps = {
-    srcset: '',
+    srcset: undefined,
     srcsetAMP: '',
     classCondition: '',
     href: '',
+    alt: undefined,
     target: '',
     withLazy: true,
     layout: undefined,
-    isApertura: false
+    isApertura: false,
+    svg: false
 };
 
 export default ComImage;

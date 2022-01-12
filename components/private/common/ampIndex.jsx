@@ -10,7 +10,6 @@ import {
     config
 } from './utils/scripts/amp/helper';
 import getOembedScripts from './scriptManager/getOembedScripts';
-import { getStyleFontsInLine } from './fontface';
 import { CriticalCSSString } from './criticalcss';
 import get from './utils/get';
 
@@ -75,7 +74,6 @@ export const AMPCustomStyle = props => {
                         dangerouslySetInnerHTML={{
                             __html: `
                             ${CriticalCSSString}
-                            ${getStyleFontsInLine({ contextPath, deployment })}
                             ${data.replace('@charset "UTF-8";', '')}`
                         }}
                     />

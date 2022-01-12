@@ -2,15 +2,13 @@
 
 exports[`features - LaNacion - Nota - TituloNota Test de snapshot Titulo e Icono en Nota 1`] = `
 Array [
-  <a
-    class="com-link"
+  <com-logo
+    alt="Revista Brando"
     href="/revista-brando/"
-    title=""
-  >
-    <i
-      class="com-logo logo-brando --color --sm"
-    />
-  </a>,
+    logoname="brando"
+    size="--sm"
+    title="Revista Brando"
+  />,
   <h1
     class="com-title --threexl"
   >
