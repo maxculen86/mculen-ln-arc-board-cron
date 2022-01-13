@@ -10,7 +10,6 @@ const html = (nodo, notaId) => {
     const resp = {
         _t: 'ext'
     };
-
     switch (htmlTag) {
         case 'iframe':
             resp.src = getEmbedHref('src', content).trim();
