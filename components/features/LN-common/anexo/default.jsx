@@ -15,9 +15,10 @@ const AnexoFeature = props => {
     const { id, customFields } = props;
     const { renderables = [], isAdmin } = useAppContext();
     const { height } = customFields;
-    // Al estar en la sección 'Anexo_1' del layout necesita tener la clase '--anexo-1'.
     const errorMessage = getErrorMessage({ customFields });
     const _type = getComponentType({ ...props, isAdmin, errorMessage });
+
+    // Al estar en la sección 'Anexo_1' del layout necesita tener la clase '--anexo-1'.
     const EXTRA_CLASS = (
         (isInSection({ sectionName: 'Anexo1', id, renderables }) &&
             '--anexo-1 ') ||
@@ -74,17 +75,15 @@ const getComponentFromConfig = (_type, _props) => {
         Iframe: ({ id, customFields: { url } }) => {
             const anexoId = `anexo-${id}`;
             return (
-                <>
-                    <iframe
-                        id={anexoId}
-                        title={`anexo-${id}`}
-                        data-src={!_props.isAdmin ? url : undefined}
-                        src={_props.isAdmin ? url : undefined}
-                        frameBorder="0"
-                        width="100%"
-                        height="100%"
-                    />
-                </>
+                <iframe
+                    id={anexoId}
+                    title={`anexo-${id}`}
+                    data-src={!_props.isAdmin ? url : undefined}
+                    src={_props.isAdmin ? url : undefined}
+                    frameBorder="0"
+                    width="100%"
+                    height="100%"
+                />
             );
         }
     };
