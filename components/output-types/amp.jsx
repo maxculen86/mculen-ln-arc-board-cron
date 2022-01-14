@@ -19,7 +19,6 @@ import MetasOG from '../private/common/metaTags/metasOG';
 import ScriptLogoBBCAMP from '../private/common/scriptManager/scriptLogoBBCAMP';
 import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
 import getSectionName from '../private/LN/common/utils/getSectionName';
-import FontFace from '../private/common/fontface';
 import MeteringAMP from '../private/common/scriptManager/meteringAMP';
 import Favicon from '../private/common/favicon';
 
@@ -138,7 +137,6 @@ const Amp = props => {
                     as="script"
                     href="https://cdn.ampproject.org/v0.js"
                 />
-                <FontFace />
                 {LinkImagePreload()}
                 <script async src="https://cdn.ampproject.org/v0.js" />
 

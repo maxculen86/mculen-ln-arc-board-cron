@@ -13,6 +13,11 @@ jest.mock(
     () => 'banner-logo-header'
 );
 
+jest.mock(
+    '../../../../../../components/private/common/com-logo',
+    () => 'com-logo'
+);
+
 jest.mock('fusion:context', () => () => ({
     default: props => {
         const mockAvailableProps = {};

@@ -478,93 +478,93 @@ strong,
 /*LOGOS*/
 
 //[class^='logo-'],
-[class*='logo-'] {
-    font-family: $font-logos;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    font-size: px(17);
-    display: inline-block;
-    line-height: 1;
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+// [class*='logo-'] {
+//     font-family: $font-logos;
+//     font-style: normal;
+//     font-weight: normal;
+//     font-variant: normal;
+//     text-transform: none;
+//     font-size: px(17);
+//     display: inline-block;
+//     line-height: 1;
+//     /* Better Font Rendering =========== */
+//     -webkit-font-smoothing: antialiased;
+//     -moz-osx-font-smoothing: grayscale;
+// }
 
-.logo-brando:before {
-    content: $logo-brando;
-}
+// .logo-brando:before {
+//     content: $logo-brando;
+// }
 
-.logo-club:before {
-    content: $logo-club;
-}
+// .logo-club:before {
+//     content: $logo-club;
+// }
 
-.logo-club-lanacion:before {
-    content: $logo-club-lanacion;
-}
+// .logo-club-lanacion:before {
+//     content: $logo-club-lanacion;
+// }
 
-.logo-hola:before {
-    content: $logo-hola;
-}
+// .logo-hola:before {
+//     content: $logo-hola;
+// }
 
-.logo-hola-argentina:before {
-    content: $logo-hola-argentina;
-}
+// .logo-hola-argentina:before {
+//     content: $logo-hola-argentina;
+// }
 
-.logo-jardin:before {
-    content: $logo-jardin;
-}
+// .logo-jardin:before {
+//     content: $logo-jardin;
+// }
 
-.logo-la-nacion:before {
-    content: $logo-la-nacion;
-}
+// .logo-la-nacion:before {
+//     content: $logo-la-nacion;
+// }
 
-.logo-living:before {
-    content: $logo-living;
-}
+// .logo-living:before {
+//     content: $logo-living;
+// }
 
-.logo-ln:before {
-    content: $logo-ln;
-}
+// .logo-ln:before {
+//     content: $logo-ln;
+// }
 
-.logo-ln-mas:before {
-    content: $logo-ln-mas;
-}
+// .logo-ln-mas:before {
+//     content: $logo-ln-mas;
+// }
 
-.logo-ln-placeholder:before {
-    content: $logo-ln-placeholder;
-}
+// .logo-ln-placeholder:before {
+//     content: $logo-ln-placeholder;
+// }
 
-.logo-lugares:before {
-    content: $logo-lugares;
-}
+// .logo-lugares:before {
+//     content: $logo-lugares;
+// }
 
-.logo-negocios:before {
-    content: $logo-negocios;
-}
+// .logo-negocios:before {
+//     content: $logo-negocios;
+// }
 
-.logo-ohlala:before {
-    content: $logo-ohlala;
-}
+// .logo-ohlala:before {
+//     content: $logo-ohlala;
+// }
 
-.logo-rolling:before,
-.logo-rolling-stone:before {
-    content: $logo-rolling;
-}
+// .logo-rolling:before,
+// .logo-rolling-stone:before {
+//     content: $logo-rolling;
+// }
 
-.logo-bbc:before {
-    content: $logo-bbc;
-}
+// .logo-bbc:before {
+//     content: $logo-bbc;
+// }
 
-.logo-propiedades:before {
-    content: $logo-propiedades;
-}
+// .logo-propiedades:before {
+//     content: $logo-propiedades;
+// }
 
-.logo-campo:before {
-    content: $logo-campo;
-}
+// .logo-campo:before {
+//     content: $logo-campo;
+// }
 
-.logo-deportes:before {
-    content: $logo-deportes;
-}
+// .logo-deportes:before {
+//     content: $logo-deportes;
+// }
