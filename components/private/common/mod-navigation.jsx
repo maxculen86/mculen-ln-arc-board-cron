@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'fusion:prop-types';
-
 import ComButton from './com-button';
 import ComLinkList from './com-link-list';
 
@@ -8,8 +7,8 @@ const ModNavigation = props => {
     const categoryEl = useRef();
     const [showBtnScrollLeft, setShowBtnScrollLeft] = useState('hlp-none');
     const [showBtnScrollRight, setShowBtnScrollRight] = useState('');
-    const { navigation, classCondition, style } = props;
-    const EXTRA_CLASS = classCondition ? ` ${classCondition}` : '';
+    const { navigation, classCondition = '', style } = props;
+    const EXTRA_CLASS = ` ${classCondition}`;
 
     const moveScroll = (ref, direction, firstTime = false) => {
         if (ref && ref.current) {

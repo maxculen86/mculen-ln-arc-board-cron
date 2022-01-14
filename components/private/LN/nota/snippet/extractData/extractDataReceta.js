@@ -40,32 +40,33 @@ export const extractDataFromContentElements = contentElements => {
                     (nutritionItems =
                         nutritionItems.concat(e.embed.config.items) || []);
 
+                const nutritionInfo = [
+                    { name: 'Tamaño de porcion', property: 'servingSize' },
+                    { name: 'Carbohidratos', property: 'carbohydrateContent' },
+                    { name: 'Proteínas', property: 'proteinContent' },
+                    { name: 'Grasas', property: 'fatContent' },
+                    {
+                        name: 'Grasas saturadas',
+                        property: 'saturatedFatContent'
+                    },
+                    {
+                        name: 'Grasas insaturadas',
+                        property: 'unsaturatedFatContent'
+                    },
+                    { name: 'Grasas trans', property: 'transFatContent' },
+                    { name: 'Fibras', property: 'fiberContent' },
+                    { name: 'Colesterol', property: 'cholesterolContent' },
+                    { name: 'Sodio', property: 'sodiumContent' },
+                    { name: 'Azúcar', property: 'sugarContent' },
+                    { name: 'Calorías', property: 'calories' }
+                ];
+
                 nutritionItems.forEach(item => {
                     newProperty = `${item.value} ${item.unit}`;
-                    item.text === 'Tamaño de porcion' &&
-                        (nutrition.servingSize = newProperty);
-                    item.text === 'Carbohidratos' &&
-                        (nutrition.carbohydrateContent = newProperty);
-                    item.text === 'Proteínas' &&
-                        (nutrition.proteinContent = newProperty);
-                    item.text === 'Grasas' &&
-                        (nutrition.fatContent = newProperty);
-                    item.text === 'Grasas saturadas' &&
-                        (nutrition.saturatedFatContent = newProperty);
-                    item.text === 'Grasas insaturadas' &&
-                        (nutrition.unsaturatedFatContent = newProperty);
-                    item.text === 'Grasas trans' &&
-                        (nutrition.transFatContent = newProperty);
-                    item.text === 'Fibras' &&
-                        (nutrition.fiberContent = newProperty);
-                    item.text === 'Colesterol' &&
-                        (nutrition.cholesterolContent = newProperty);
-                    item.text === 'Sodio' &&
-                        (nutrition.sodiumContent = newProperty);
-                    item.text === 'Azúcar' &&
-                        (nutrition.sugarContent = newProperty);
-                    item.text === 'Calorías' &&
-                        (nutrition.calories = newProperty);
+                    nutritionInfo.forEach(i => {
+                        item.text === i.name &&
+                            (nutrition[i.property] = newProperty);
+                    });
                 });
             });
         }

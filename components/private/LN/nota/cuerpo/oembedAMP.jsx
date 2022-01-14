@@ -19,8 +19,8 @@ const getValue = (
 };
 
 const OembedAMP = ({ data }) => {
-    const { subtype, raw_oembed: rawOembed } = data;
-    const { width, height, url } = rawOembed || {};
+    const { subtype, raw_oembed: rawOembed = {} } = data;
+    const { width, height, url } = rawOembed;
 
     switch (subtype) {
         case 'facebook':
