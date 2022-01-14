@@ -40,27 +40,6 @@ export const extractDataFromContentElements = contentElements => {
                     (nutritionItems =
                         nutritionItems.concat(e.embed.config.items) || []);
 
-                const nutritionInfo = [
-                    { name: 'Tamaño de porcion', property: 'servingSize' },
-                    { name: 'Carbohidratos', property: 'carbohydrateContent' },
-                    { name: 'Proteínas', property: 'proteinContent' },
-                    { name: 'Grasas', property: 'fatContent' },
-                    {
-                        name: 'Grasas saturadas',
-                        property: 'saturatedFatContent'
-                    },
-                    {
-                        name: 'Grasas insaturadas',
-                        property: 'unsaturatedFatContent'
-                    },
-                    { name: 'Grasas trans', property: 'transFatContent' },
-                    { name: 'Fibras', property: 'fiberContent' },
-                    { name: 'Colesterol', property: 'cholesterolContent' },
-                    { name: 'Sodio', property: 'sodiumContent' },
-                    { name: 'Azúcar', property: 'sugarContent' },
-                    { name: 'Calorías', property: 'calories' }
-                ];
-
                 nutritionItems.forEach(item => {
                     newProperty = `${item.value} ${item.unit}`;
                     nutritionInfo.forEach(i => {
@@ -144,3 +123,24 @@ export const extractDataFromTags = tags => {
 
     return { keywords };
 };
+
+const nutritionInfo = [
+    { name: 'Tamaño de porcion', property: 'servingSize' },
+    { name: 'Carbohidratos', property: 'carbohydrateContent' },
+    { name: 'Proteínas', property: 'proteinContent' },
+    { name: 'Grasas', property: 'fatContent' },
+    {
+        name: 'Grasas saturadas',
+        property: 'saturatedFatContent'
+    },
+    {
+        name: 'Grasas insaturadas',
+        property: 'unsaturatedFatContent'
+    },
+    { name: 'Grasas trans', property: 'transFatContent' },
+    { name: 'Fibras', property: 'fiberContent' },
+    { name: 'Colesterol', property: 'cholesterolContent' },
+    { name: 'Sodio', property: 'sodiumContent' },
+    { name: 'Azúcar', property: 'sugarContent' },
+    { name: 'Calorías', property: 'calories' }
+];
