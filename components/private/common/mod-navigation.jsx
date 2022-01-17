@@ -6,7 +6,7 @@ import ComLinkList from './com-link-list';
 const ModNavigation = props => {
     const categoryEl = useRef();
     const [showBtnScrollLeft, setShowBtnScrollLeft] = useState('hlp-none');
-    const [showBtnScrollRight, setShowBtnScrollRight] = useState('');
+    const [showBtnScrollRight, setShowBtnScrollRight] = useState('hlp-none');
     const { navigation, classCondition = '', style } = props;
     const EXTRA_CLASS = ` ${classCondition}`;
 
@@ -17,6 +17,7 @@ const ModNavigation = props => {
                 direction === 'right'
                     ? cEl.scrollLeft + 150
                     : cEl.scrollLeft - 150;
+
             if (!firstTime) {
                 cEl.scrollTo({ left, behavior: 'smooth' });
                 setShowBtnScrollLeft(left > 0 ? '' : 'hlp-none');
@@ -28,7 +29,7 @@ const ModNavigation = props => {
             );
         } else {
             setShowBtnScrollLeft('hlp-none');
-            setShowBtnScrollRight('');
+            setShowBtnScrollRight('hlp-none');
         }
     };
 
