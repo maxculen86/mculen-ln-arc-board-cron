@@ -2,7 +2,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import { useContent } from 'fusion:content';
 import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
@@ -58,14 +57,20 @@ const LNAcumuladoLayout = props => {
             bottom
         ],
         globalContent,
-        globalContentConfig,
         outputType,
         tree,
         isAdmin,
         renderables
     } = props;
-    console.log('🚀 ~ file: LN-acumulado.jsx ~ line 67 ~ props', props);
-    const { style, name = '', node_type: nodeType } = globalContent || {};
+
+    const {
+        style,
+        name = '',
+        node_type: nodeType,
+        anexoSuperiorForTag,
+        anexoInferiorForTag,
+        collectionForTag
+    } = globalContent || {};
 
     const sectionStyleName =
         style && style.section_style_name ? style.section_style_name : '';
@@ -78,23 +83,19 @@ const LNAcumuladoLayout = props => {
     const sectionClass = sections.find(sec => sec === formatText(name)) || '';
     const acumuladoGeneral = get(globalContent, 'acumuladoGeneral', {});
 
-    const { query } = globalContentConfig;
-
     const {
         anexosuperior: anexoSuperior = '',
         anexoinferior: anexoInferior = ''
     } = acumuladoGeneral;
 
-    const datitos = useContent({ source: 'tagSource', query }) || {};
-
-    console.log('🚀 ~ file: LN-acumulado.jsx ~ line 88 ~ datitos', datitos);
-
     const acumuladoColor = get(globalContent, 'acumuladoColor', {});
+
     const {
         background_color: backgroundCategory,
         navigation_color_tags: colorTags,
         header_class_name: headerDark
     } = acumuladoColor;
+
     const amp = outputType === 'amp' ? 'amp' : '';
     const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
     // TODO: agregar todas las validaciones de acu color
@@ -108,11 +109,15 @@ const LNAcumuladoLayout = props => {
                 ren.collection === 'chains' && ren.type === 'Ln_Caja_Collection'
         );
 
-    const idCollectionApertura = get(
-        globalContent,
-        'acumuladoGeneral.id_collection_promo_items',
-        get(chainCollection, 'props.customFields.idCollection')
-    );
+    const idCollectionApertura =
+        nodeType === 'tags'
+            ? collectionForTag
+            : get(
+                  globalContent,
+                  'acumuladoGeneral.id_collection_promo_items',
+                  get(chainCollection, 'props.customFields.idCollection')
+              );
+
     const idCollectionsInPage = get(
         globalContent,
         'acumuladoGeneral.colecciones',
@@ -153,10 +158,16 @@ const LNAcumuladoLayout = props => {
                                 {/* TITULO/LOGO Y CATEGORIAS */}
                                 {breadcrumbTitulo}
                                 {/* ANEXO SUPERIOR */}
-                                {anexoSuperior !== '' ? (
+                                {anexoSuperior !== '' ||
+                                anexoSuperiorForTag !== '' ? (
                                     <AnexoFeature
                                         id="superior"
-                                        customFields={{ url: anexoSuperior }}
+                                        customFields={{
+                                            url:
+                                                nodeType === 'tags'
+                                                    ? anexoSuperiorForTag
+                                                    : anexoSuperior
+                                        }}
                                     />
                                 ) : (
                                     <></>
@@ -173,10 +184,16 @@ const LNAcumuladoLayout = props => {
                             {/* Cuerpo */}
                             <div className="sidebar__main">
                                 {/* ANEXO INFERIOR */}
-                                {anexoInferior !== '' ? (
+                                {anexoInferior !== '' ||
+                                anexoInferiorForTag !== '' ? (
                                     <AnexoFeature
                                         id="inferior"
-                                        customFields={{ url: anexoInferior }}
+                                        customFields={{
+                                            url:
+                                                nodeType === 'tags'
+                                                    ? anexoInferiorForTag
+                                                    : anexoInferior
+                                        }}
                                     />
                                 ) : (
                                     <></>
