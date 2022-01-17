@@ -6,13 +6,13 @@ import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import GlobalProvider from '../private/common/context/globalContext';
-import AnexoFeature from '../features/LN-acumulado/anexoIframe';
 import AnexoDefault from '../features/LN-common/anexo/default';
 
 import '../../resources/dist/css/ln/pages/acumulado.css';
 
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
 import get from '../private/common/utils/get';
+import getConfigForAnexo from '../private/common/utils/getConfigForAnexo';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import { formatText } from '../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
@@ -72,10 +72,6 @@ const LNAcumuladoLayout = props => {
         anexoInferiorForTag,
         collectionForTag
     } = globalContent || {};
-    console.log(
-        '🚀 ~ file: LN-acumulado.jsx ~ line 74 ~ anexoSuperiorForTag',
-        anexoSuperiorForTag
-    );
 
     const sectionStyleName =
         style && style.section_style_name ? style.section_style_name : '';
@@ -92,6 +88,14 @@ const LNAcumuladoLayout = props => {
         anexosuperior: anexoSuperior = '',
         anexoinferior: anexoInferior = ''
     } = acumuladoGeneral;
+
+    const anexoSuperiorConfig = getConfigForAnexo(anexoSuperior);
+
+    const anexoInferiorConfig = getConfigForAnexo(anexoInferior);
+
+    const anexoSuperiorTagConfig = getConfigForAnexo(anexoSuperiorForTag);
+
+    const anexoInferiorTagConfig = getConfigForAnexo(anexoInferiorForTag);
 
     const acumuladoColor = get(globalContent, 'acumuladoColor', {});
 
@@ -163,16 +167,19 @@ const LNAcumuladoLayout = props => {
                                 {/* TITULO/LOGO Y CATEGORIAS */}
                                 {breadcrumbTitulo}
                                 {/* ANEXO SUPERIOR */}
-                                {anexoSuperior !== '' ||
-                                anexoSuperiorForTag !== '' ? (
+                                {anexoSuperiorConfig.url !== '' ||
+                                anexoSuperiorTagConfig.url !== '' ? (
                                     <AnexoDefault
                                         id="superior"
                                         customFields={{
-                                            height: '450px',
+                                            height:
+                                                nodeType === 'tags'
+                                                    ? anexoSuperiorTagConfig.anexoHeight
+                                                    : anexoSuperiorConfig.anexoHeight,
                                             url:
                                                 nodeType === 'tags'
-                                                    ? anexoSuperiorForTag
-                                                    : anexoSuperior
+                                                    ? anexoSuperiorTagConfig.anexoUrl
+                                                    : anexoSuperiorConfig.anexoUrl
                                         }}
                                     />
                                 ) : (
@@ -190,16 +197,19 @@ const LNAcumuladoLayout = props => {
                             {/* Cuerpo */}
                             <div className="sidebar__main">
                                 {/* ANEXO INFERIOR */}
-                                {anexoInferior !== '' ||
-                                anexoInferiorForTag !== '' ? (
+                                {anexoInferiorConfig.url !== '' ||
+                                anexoInferiorTagConfig.url !== '' ? (
                                     <AnexoDefault
                                         id="inferior"
                                         customFields={{
-                                            height: '450px',
+                                            height:
+                                                nodeType === 'tags'
+                                                    ? anexoInferiorTagConfig.anexoHeight
+                                                    : anexoInferiorConfig.anexoHeight,
                                             url:
                                                 nodeType === 'tags'
-                                                    ? anexoInferiorForTag
-                                                    : anexoInferior
+                                                    ? anexoInferiorTagConfig.anexoUrl
+                                                    : anexoInferiorConfig.anexoUrl
                                         }}
                                     />
                                 ) : (
