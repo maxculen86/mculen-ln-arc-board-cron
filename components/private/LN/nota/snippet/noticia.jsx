@@ -83,7 +83,7 @@ const extractDataFromPromoItems = (promoItems, PLACEHOLDER) => {
 const publishingPrinciples =
     'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/';
 
-const getTrustProject = trust => data => sponsored => {
+export const getTrustProject = trust => data => sponsored => {
     if (!trust && !sponsored) return { ...data };
     if (sponsored)
         return {
