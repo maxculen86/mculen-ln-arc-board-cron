@@ -68,9 +68,9 @@ const LNAcumuladoLayout = props => {
         style,
         name = '',
         node_type: nodeType,
-        anexoSuperiorForTag,
-        anexoInferiorForTag,
-        collectionForTag
+        anexoSuperiorForTag = '',
+        anexoInferiorForTag = '',
+        collectionForTag = ''
     } = globalContent || {};
 
     const sectionStyleName =
