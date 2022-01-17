@@ -24,6 +24,7 @@ export const isBombaVisible = (renderable = []) => {
 };
 
 export const getViewport = () => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const device = useViewportSize();
     return {
         isMobile: device === 'mobile',

@@ -27,7 +27,7 @@ export default {
         trackInteractions: true,
         trackSessionAcrossSubdomains: false
     },
-    ARC_STATIC: 'https://dev.lanacionar.arcpublishing.com/',
+    ARC_STATIC: '',
     VIAFOURA_UUID: '00000000-0000-4000-8000-43ce53965c44',
     VIAFOURA_XREQUEST:
         'cq4Xr6peiyYAhuLxRBq/ozZD+TOR0BiHnofsJWLLbi59gsFl9mRE6Xdzi/eBGed+',
