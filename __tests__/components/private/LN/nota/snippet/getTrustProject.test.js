@@ -1,12 +1,13 @@
 import { getTrustProject } from '../../../../../../components/private/LN/nota/snippet/noticia';
 
-describe('Tests trust project function', () => {    
+describe('Tests getTrustProject() function', () => {
     const data = {
         ...data,
-        '@type': "AdvertiserContentArticle",
-        publishingPrinciples: "https://www.lanacion.com.ar/tema/the-trust-project-tid68036/",
-    }
-    
+        '@type': 'AdvertiserContentArticle',
+        publishingPrinciples:
+            'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/'
+    };
+
     const trust = [
         'Noticia Original',
         'Noticia',
@@ -18,9 +19,9 @@ describe('Tests trust project function', () => {
         'No mostrar Trust'
     ];
 
-    const sponsored = 'LN'
+    const sponsored = 'LN';
 
-    it('returns the same data if trust and sponsored are undefined', () => {
+    it('should return the same data if trust and sponsored args are undefined', () => {
         const _data = { url: '/any' };
         const _trust = undefined;
         const _sponsored = undefined;

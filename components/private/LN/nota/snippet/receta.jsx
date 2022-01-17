@@ -68,7 +68,10 @@ const snippet = props => {
     } = extractDataFromContentElements(contentElements);
 
     const { keywords } = extractDataFromTags(tags);
-
+    console.log(
+        '*************************',
+        contentElements[0].powerUp[1].embed.config
+    );
     const section = getFirstParentSection(primarySection);
 
     const getRecipeCuisine = recipeSections => {
