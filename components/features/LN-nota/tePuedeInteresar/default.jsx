@@ -19,11 +19,11 @@ const tePuedeInteresar = props => {
         siteProperties
     } = props;
 
-    const { requestUri, globalContent, arcSite, layout } = useAppContext();
+    const { requestUri, globalContent = {}, arcSite, layout } = useAppContext();
     const { host = 'https://www.lanacion.com.ar' } = siteProperties;
     const { layoutsName = {} } = config;
     const url = `${host}${requestUri}`;
-    const { _id = {} } = globalContent;
+    const { _id } = globalContent;
     const [userId, setUserId] = useState();
     const [sessionId, setSessionId] = useState();
     const [excludeItems, setExcludeItems] = useState([]);

@@ -91,6 +91,23 @@ const getLogoData = sections => {
     return resp;
 };
 
+export const dictionaryAlt = {
+    hola: 'Revista Hola',
+    jardin: 'Revista Jardin',
+    brando: 'Revista Brando',
+    living: 'Revista Living',
+    lugares: 'Revista Lugares',
+    rolling: 'Revista Rolling Stone',
+    ohlala: 'Revista Ohlalá',
+    'hola-blanco': 'Revista Hola',
+    'jardin-blanco': 'Revista Jardin',
+    'brando-blanco': 'Revista Brando',
+    'living-blanco': 'Revista Living',
+    'lugares-blanco': 'Revista Lugares',
+    'rolling-blanco': 'Revista Rolling Stone',
+    'ohlala-blanco': 'Revista Ohlalá'
+};
+
 export const getSectionLogo = (sections, layout, distributorName) => {
     const color = !(
         layout === 'LN-nota-storytelling' || layout === 'LN-nota-foto-al-100'

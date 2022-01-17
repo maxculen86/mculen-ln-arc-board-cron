@@ -8,7 +8,6 @@ import PropTypes from 'prop-types';
 import Header from './headerBase';
 import Hamburger from './hamburger';
 import ComIcon from '../../../common/icon';
-import LogoLN from '../../../common/logos/logoLN';
 
 import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../../../../resources/dist/css/ln/components/usuario.css';
@@ -16,6 +15,7 @@ import '../../../../../resources/dist/css/ln/components/button.css';
 import dynamicallyLoadScript from '../utils/dynamicallyLoadScript';
 import BannerLogoHeader from '../../../common/banners/BannerLogoHeader';
 import handleCookie from '../utils/handleCookie';
+import LnLogoHeader from '../../../common/logos/LnLogoHeader';
 
 const ItemAnchor = ({ url, text, alt }) => {
     const callURL = address => {
@@ -125,16 +125,7 @@ const HeaderDesktop = ({
                 </div>
                 <div className="col-7 col-desksm-4 header__middle">
                     <BannerLogoHeader section={section} isAdmin={isAdmin} />
-                    {/* <Logo
-                    logoName="la-nacion"
-                    classCondition="nacion-home"
-                    color
-                    // size="--md"
-                    href={isHome ? '#' : `${host}/`}
-                    target="_top"
-                    title="Ir a la página principal"
-                /> */}
-                    <LogoLN />
+                    <LnLogoHeader />
                 </div>
                 <div className="col-4 header__right">
                     <div

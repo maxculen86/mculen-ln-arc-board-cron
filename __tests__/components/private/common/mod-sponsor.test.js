@@ -4,7 +4,23 @@ import { mount, render } from 'enzyme';
 import ModSponsor from '../../../../components/private/common/mod-sponsor';
 import formatDistributorName from '../../../../components/private/LN/common/utils/formatDistributorName';
 
+jest.mock('../../../../components/private/common/com-logo', () => 'com-logo');
+
+import Context from 'fusion:context';
+
+jest.mock('fusion:context', () => () => ({
+    default: props => {
+        const mockAvailableProps = {};
+        return props.children(mockAvailableProps);
+    }
+}));
+
 describe('ModSponsor', () => {
+    Context.useAppContext = jest.fn(() => ({
+        globalContent: { subtype: '1' },
+        deployment: () => {},
+        contextPath: ''
+    }));
     it('Matches Snapshot', () => {
         const props = {
             type: '',
@@ -24,7 +40,7 @@ describe('ModSponsor', () => {
             link: '/revista-jardin'
         };
         const component = mount(<ModSponsor {...props} />);
-        expect(component.find('.com-logo')).toHaveLength(1);
+        expect(component.find('com-logo')).toHaveLength(1);
     });
 
     it('Sets Content Lab', () => {
