@@ -27,6 +27,24 @@ describe('Common - utils - getTitle', () => {
             'holanda: Últimas noticias de Argentina y el mundo - LA NACION'
         );
     });
+
+    test('Test de retorno para el caso de que no exista el metaValue("title") en pageBuilder', () => {
+        const metaValue = undefined;
+        const requestUri = undefined;
+
+        const title = getTitle(
+            _nodeType,
+            metaValue,
+            layout,
+            requestUri,
+            siteProperties
+        );
+
+        expect(title).toStrictEqual(
+            'Últimas noticias de Argentina y el mundo - LA NACION'
+        );
+    });
+
     test('Test de retorno para el caso de que no se reciba una requestUri valida', () => {
         const requestUri = undefined;
         const title = getTitle(
@@ -109,6 +127,28 @@ describe('Common Util getMetaDescriptionDefault', () => {
 
         expect(metaDescription).toStrictEqual(
             'Resultados de búsuqeda para las últimas noticias de holanda en LA NACION.  Noticias de Argentina y el mundo'
+        );
+    });
+
+    test('Test de retorno para el caso de que no exista el metaValue("description") en pageBuilder', () => {
+        const metaValue = undefined;
+
+        const metaDescription = getMetaDescriptionDefault(
+            metaValue,
+            layout,
+            defaultDescription,
+            host,
+            requestUri,
+            _nodeType,
+            _id,
+            Payload,
+            nodeType,
+            name,
+            arcSite
+        );
+
+        expect(metaDescription).toStrictEqual(
+            'Últimas noticias de Argentina y el mundo - LA NACION'
         );
     });
 

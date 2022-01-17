@@ -49,7 +49,7 @@ export const getMetaDescriptionDefault = (
         );
     }
 
-    return layout === 'LN-buscador' && query
+    return layout === 'LN-buscador' && query && metaValue
         ? metaValue.replace(/[+]/, query)
         : defaultDescription;
 };
