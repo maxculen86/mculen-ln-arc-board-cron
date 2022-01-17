@@ -195,7 +195,7 @@ const LNAcumuladoLayout = props => {
                                     <AnexoDefault
                                         id="inferior"
                                         customFields={{
-                                            height: '250px',
+                                            height: '450px',
                                             url:
                                                 nodeType === 'tags'
                                                     ? anexoInferiorForTag

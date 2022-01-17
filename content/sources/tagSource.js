@@ -42,7 +42,7 @@ const fetch = async (query, { cachedCall }) => {
 
     const tagConfigData = await cachedCall('navigationTreeSource', getRequest, {
         query: `${CONTENT_BASE}/site/v3/navigation/${website}/`,
-        independent: true
+        ttl: 120
     });
 
     return request(opt)
