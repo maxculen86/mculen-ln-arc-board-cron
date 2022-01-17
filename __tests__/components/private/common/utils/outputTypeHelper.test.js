@@ -98,7 +98,7 @@ describe('Common - utils - getTitle', () => {
 
 describe('Common Util getMetaDescriptionDefault', () => {
     const metaValue =
-        'Resultados de búsuqeda para las últimas noticias de + en LA NACION.  Noticias de Argentina y el mundo';
+        'Resultados de búsqueda para las últimas noticias de + en LA NACION.  Noticias de Argentina y el mundo';
     const layout = 'LN-buscador';
     const defaultDescription =
         'Últimas noticias de Argentina y el mundo - LA NACION';
@@ -126,7 +126,7 @@ describe('Common Util getMetaDescriptionDefault', () => {
         );
 
         expect(metaDescription).toStrictEqual(
-            'Resultados de búsuqeda para las últimas noticias de holanda en LA NACION.  Noticias de Argentina y el mundo'
+            'Resultados de búsqueda para las últimas noticias de holanda en LA NACION.  Noticias de Argentina y el mundo'
         );
     });
 

@@ -27,7 +27,6 @@ import MetaTitle from '../private/common/metaTitle';
 import MetaDescription from '../private/common/metaDescription';
 import MetaSectionParsely from '../private/common/metaSectionParsely';
 import MetasFBNews from '../private/common/metaTags/metasFBNews';
-// import getFirstParagraph from '../private/common/utils/getFirstParagraph';
 import getSectionName from '../private/LN/common/utils/getSectionName';
 import Syndication from '../private/common/syndication';
 import LinkAmpHTML from '../private/common/linkAmpHTML';
