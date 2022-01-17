@@ -7,6 +7,7 @@ import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import GlobalProvider from '../private/common/context/globalContext';
 import AnexoFeature from '../features/LN-acumulado/anexoIframe';
+import AnexoDefault from '../features/LN-common/anexo/default';
 
 import '../../resources/dist/css/ln/pages/acumulado.css';
 
@@ -71,6 +72,10 @@ const LNAcumuladoLayout = props => {
         anexoInferiorForTag,
         collectionForTag
     } = globalContent || {};
+    console.log(
+        '🚀 ~ file: LN-acumulado.jsx ~ line 74 ~ anexoSuperiorForTag',
+        anexoSuperiorForTag
+    );
 
     const sectionStyleName =
         style && style.section_style_name ? style.section_style_name : '';
@@ -160,9 +165,10 @@ const LNAcumuladoLayout = props => {
                                 {/* ANEXO SUPERIOR */}
                                 {anexoSuperior !== '' ||
                                 anexoSuperiorForTag !== '' ? (
-                                    <AnexoFeature
+                                    <AnexoDefault
                                         id="superior"
                                         customFields={{
+                                            height: '450px',
                                             url:
                                                 nodeType === 'tags'
                                                     ? anexoSuperiorForTag
@@ -186,9 +192,10 @@ const LNAcumuladoLayout = props => {
                                 {/* ANEXO INFERIOR */}
                                 {anexoInferior !== '' ||
                                 anexoInferiorForTag !== '' ? (
-                                    <AnexoFeature
+                                    <AnexoDefault
                                         id="inferior"
                                         customFields={{
+                                            height: '250px',
                                             url:
                                                 nodeType === 'tags'
                                                     ? anexoInferiorForTag
