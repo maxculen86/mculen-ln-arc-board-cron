@@ -9,6 +9,7 @@ const ModNavigation = props => {
     const [showBtnScrollRight, setShowBtnScrollRight] = useState('hlp-none');
     const { navigation, classCondition = '', style } = props;
     const EXTRA_CLASS = ` ${classCondition}`;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const moveScroll = (ref, direction, firstTime = false) => {
         if (ref && ref.current) {
             const cEl = ref.current;
@@ -36,7 +37,7 @@ const ModNavigation = props => {
             moveScroll(categoryEl, 'right', true);
         }, 500);
         return () => clearTimeout(timer);
-    }, []);
+    }, [moveScroll]);
 
     if (!navigation || !navigation.length) return null;
 
