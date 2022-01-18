@@ -2,7 +2,12 @@ import { VIAFOURA_UUID, VIAFOURA_XREQUEST } from 'fusion:environment';
 import request from 'request-promise-native';
 import logger from '../../components/private/common/utils/logger';
 
-const fetch = ({ arcSite, id }) => {
+const fetch = ({ arcSite, id, firstPublishDate }) => {
+    const abortLog = firstTime => {
+        const differenceInMins = (new Date() - new Date(firstTime)) / 60000;
+        return differenceInMins < 10;
+    };
+
     const options = {
         method: 'GET',
         headers: {
@@ -23,11 +28,15 @@ const fetch = ({ arcSite, id }) => {
                 comments: response
             };
         } catch (error) {
-            logger.push(
-                error,
-                { source: 'content/sources/viafouraSource', url: endpoint.uri },
-                arcSite
-            );
+            !abortLog(firstPublishDate) &&
+                logger.push(
+                    error,
+                    {
+                        source: 'content/sources/viafouraSource',
+                        url: endpoint.uri
+                    },
+                    arcSite
+                );
         }
     };
 

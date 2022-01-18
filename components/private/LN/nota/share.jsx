@@ -33,16 +33,20 @@ const Share = props => {
         }
     } = props;
 
+    const { arcSite = 'la-nacion-ar' } = useAppContext() || {};
+
     const conditionallyCallSource = shouldLoadViafoura(firstPublishDate)
         ? 'viafouraSource'
         : null;
 
     const { comments } =
-        useContent({ source: conditionallyCallSource, query: { id } }) || {};
+        useContent({
+            source: conditionallyCallSource,
+            query: { arcSite, id, firstPublishDate }
+        }) || {};
 
     const { total_visible_content: totalVisibleContent } = comments || '';
 
-    const { arcSite = 'la-nacion-ar' } = useAppContext() || {};
     const siteVars = getProperties(arcSite);
     const twiterTitle =
         mobileTitle !== '' && mobileTitle !== undefined ? mobileTitle : title;
