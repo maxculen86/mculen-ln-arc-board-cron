@@ -5,7 +5,7 @@ import Static from 'fusion:static';
 import { useAppContext } from 'fusion:context';
 import get from '../utils/get';
 import { getViewport } from '../../LN/common/utils/homeHelper';
-import hasAdsTestParam from '../../LN/common/utils/hasAdsTesParam';
+import getQueryParamValue from '../utils/getQueryParamValue';
 import {
     queueGoogletagCommand,
     suffixDevice
@@ -32,7 +32,7 @@ const BannerLogoHeader = ({ section, isAdmin }) => {
                     slotGroup,
                     targeting: {
                         sitio: 'lanacion',
-                        adstest: hasAdsTestParam()
+                        adstest: getQueryParamValue(window.location, 'adstest')
                     }
                 }
             ];
