@@ -72,21 +72,25 @@ const transform = (data, query, tagConfigData) => {
     const { uri, meteringVariant, slug } = query || {};
 
     const { tagConfigGroup } = tagConfigData;
+
     const {
         anexosuperiortag: anexoSuperiorTag,
         anexoinferiortag: anexoInferiorTag,
         collectiontag: collectionTag
     } = tagConfigGroup;
 
+    const acumuladoGeneral = {
+        anexosuperior: getDataForTag(anexoSuperiorTag, slug),
+        anexoinferior: getDataForTag(anexoInferiorTag, slug),
+        collectionForTag: getDataForTag(collectionTag, slug)
+    };
     return {
         ...data,
         node_type: 'tags',
         name: data.Payload.items[0].name,
         canonical_url: uri,
         subscription: meteringVariant,
-        anexoSuperiorForTag: getDataForTag(anexoSuperiorTag, slug),
-        anexoInferiorForTag: getDataForTag(anexoInferiorTag, slug),
-        collectionForTag: getDataForTag(collectionTag, slug)
+        acumuladoGeneral
     };
 };
 
@@ -94,7 +98,7 @@ const getDataForTag = (allTagsData, slug) => {
     let config = '';
 
     for (const prop in allTagsData) {
-        if (prop === slug) {
+        if (prop.replace(/ /g, '') === slug) {
             config = allTagsData[prop];
         }
     }
