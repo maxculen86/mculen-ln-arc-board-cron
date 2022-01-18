@@ -9,7 +9,6 @@ const ModNavigation = props => {
     const [showBtnScrollRight, setShowBtnScrollRight] = useState('hlp-none');
     const { navigation, classCondition = '', style } = props;
     const EXTRA_CLASS = ` ${classCondition}`;
-
     const moveScroll = (ref, direction, firstTime = false) => {
         if (ref && ref.current) {
             const cEl = ref.current;
@@ -17,7 +16,6 @@ const ModNavigation = props => {
                 direction === 'right'
                     ? cEl.scrollLeft + 150
                     : cEl.scrollLeft - 150;
-
             if (!firstTime) {
                 cEl.scrollTo({ left, behavior: 'smooth' });
                 setShowBtnScrollLeft(left > 0 ? '' : 'hlp-none');
@@ -34,7 +32,10 @@ const ModNavigation = props => {
     };
 
     useEffect(() => {
-        moveScroll(categoryEl, 'right', true);
+        const timer = setTimeout(() => {
+            moveScroll(categoryEl, 'right', true);
+        }, 500);
+        return () => clearTimeout(timer);
     }, []);
 
     if (!navigation || !navigation.length) return null;
