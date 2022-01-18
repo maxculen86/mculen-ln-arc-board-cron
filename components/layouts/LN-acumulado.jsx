@@ -90,6 +90,10 @@ const LNAcumuladoLayout = props => {
     } = acumuladoGeneral;
 
     const anexoSuperiorConfig = getConfigForAnexo(anexoSuperior);
+    console.log(
+        '🚀 ~ file: LN-acumulado.jsx ~ line 93 ~ anexoSuperiorConfig',
+        anexoSuperiorConfig
+    );
 
     const anexoInferiorConfig = getConfigForAnexo(anexoInferior);
 
