@@ -2,13 +2,16 @@ import React from 'react';
 import { useAppContext } from 'fusion:context';
 import { SITE_LANACION } from 'fusion:environment';
 import ComLink from '../../../private/common/com-link';
+import get from '../../../private/common/utils/get';
 
 const CommentsFeature = () => {
     const { globalContent } = useAppContext();
-    const toUrl = `${SITE_LANACION}${globalContent.canonical_url}`;
+    const canonicalUrl = get(globalContent, 'canonical_url', '');
+
+    const toUrl = `${SITE_LANACION}${canonicalUrl}`;
 
     return (
-        (toUrl && (
+        (!!canonicalUrl && (
             <section className="mod-commentamp">
                 <ComLink
                     textname="VER COMENTARIOS"
