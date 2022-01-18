@@ -97,11 +97,11 @@ const transform = (data, query, tagConfigData) => {
 const getDataForTag = (allTagsData, slug) => {
     let config = '';
 
-    for (const prop in allTagsData) {
-        if (prop.replace(/ /g, '') === slug) {
-            config = allTagsData[prop];
+    Object.keys(allTagsData).forEach(tag => {
+        if (tag.replace(/ /g, '') === slug) {
+            config = allTagsData[tag];
         }
-    }
+    });
 
     return config;
 };
