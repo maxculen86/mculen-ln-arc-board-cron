@@ -36,7 +36,7 @@ class Index extends Component {
             query: {
                 cantidadNotas,
                 referrer: url,
-                imageConfig: 'm',
+                imageConfig: 'boxArticles',
                 idArticle,
                 userId,
                 sessionId,
