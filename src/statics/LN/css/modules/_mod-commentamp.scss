@@ -2,6 +2,7 @@
 @import '../abstracts/mixins';
 .mod-commentamp {
     @include flex(flex, column, center, center);
+    padding-bottom: px(16);
     .com-button {
         margin-bottom: $spacing-lg;
     }

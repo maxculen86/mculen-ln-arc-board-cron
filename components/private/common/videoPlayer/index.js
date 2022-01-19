@@ -117,7 +117,7 @@ const VideoPlayer = props => {
     const [streamingAnalyticInstance] = useState(
         (typeof window !== 'undefined' &&
             typeof ns_ !== 'undefined' &&
-            streamingAnalyticsInit(arcSite)) ||
+            streamingAnalyticsInit(arcSite, tituloVideo)) ||
             {}
     );
 
