@@ -77,9 +77,9 @@ describe('Test de index en JSON de nota', () => {
         expect(resp.id).toBe('Q4P5KFEOLVHINB3Y5LIGK26SOU');
         expect(resp.template).toBe('9');
         expect(resp.paywallStatus).toBe('comun');
-        expect(resp.fechaActualizacion).toBeUndefined();
-        expect(resp.fecha).toBeUndefined();
-        expect(resp.apertura).toBeUndefined();
+        expect(resp.fechaActualizacion).toBe('20 de agosto de 2020 • 12:43');
+        expect(resp.fecha).toBe('25 de septiembre de 2020 • 15:54');
+        expect(resp.apertura).not.toBe(undefined);
         expect(resp.contenido).toBeUndefined();
     });
 

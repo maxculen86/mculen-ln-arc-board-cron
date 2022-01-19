@@ -1,5 +1,5 @@
 import get from 'lodash.get';
-import indexNotaData from '../../common/story/indexNotaData';
+import { storyCommon, storyHeadline } from '../../common/story/storyCommon';
 import cuerpo from './cuerpo/index';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
 
@@ -14,10 +14,13 @@ const indexNota = dataNota => {
                 .trim()
         );
     }
+
     const resp = {
-        ...indexNotaData(dataNota, cuerpo),
+        ...storyCommon(dataNota, cuerpo),
+        ...storyHeadline(dataNota, 'mobile'),
         trust: !isTrust
     };
+
     let elmentsAdd = 1;
     const boxElements = [0, 4, 7, 9, 11];
     if (resp.contenido) {
