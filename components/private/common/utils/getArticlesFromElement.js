@@ -1,9 +1,5 @@
-import { useContent } from 'fusion:content';
-import get from './get';
-import Consumer from 'fusion:consumer';
-
-import filter from '../../../../content/filters/LN/acumulado/articleAcu';
 import browser from './browser';
+
 const getArticlesFromElement = values => {
     const { id, isAdmin, sizeCf, pageCf, paramUrlId, requestUri } =
         values || {};
