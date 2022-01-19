@@ -64,8 +64,7 @@ const LNAcumuladoLayout = props => {
         renderables
     } = props;
 
-    const { style, name = '', node_type: nodeType, collectionForTag = '' } =
-        globalContent || {};
+    const { style, name = '', node_type: nodeType } = globalContent || {};
 
     const sectionStyleName =
         style && style.section_style_name ? style.section_style_name : '';
@@ -80,7 +79,8 @@ const LNAcumuladoLayout = props => {
 
     const {
         anexosuperior: anexoSuperior = '',
-        anexoinferior: anexoInferior = ''
+        anexoinferior: anexoInferior = '',
+        collectionForTag = ''
     } = acumuladoGeneral;
 
     const anexoSuperiorConfig = getConfigForAnexo(anexoSuperior);

@@ -41,8 +41,7 @@ const fetch = async (query, { cachedCall }) => {
     }
 
     const tagConfigData = await cachedCall('navigationTreeSource', getRequest, {
-        query: `${CONTENT_BASE}/site/v3/navigation/${website}/`,
-        ttl: 120
+        query: `${CONTENT_BASE}/site/v3/navigation/${website}/`
     });
 
     return request(opt)
@@ -71,12 +70,12 @@ const fetch = async (query, { cachedCall }) => {
 const transform = (data, query, tagConfigData) => {
     const { uri, meteringVariant, slug } = query || {};
 
-    const { tagConfigGroup } = tagConfigData;
+    const { tagConfigGroup } = tagConfigData || {};
 
     const {
-        anexosuperiortag: anexoSuperiorTag,
-        anexoinferiortag: anexoInferiorTag,
-        collectiontag: collectionTag
+        anexosuperiortag: anexoSuperiorTag = '',
+        anexoinferiortag: anexoInferiorTag = '',
+        collectiontag: collectionTag = ''
     } = tagConfigGroup;
 
     const acumuladoGeneral = {
