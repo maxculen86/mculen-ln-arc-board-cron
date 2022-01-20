@@ -1,7 +1,6 @@
 const getTooltip = (key, siteService) => {
     const { tooltips = [] } = siteService || {};
-    const tooltipFinded = tooltips.find(t => t.text === key);
-    return tooltipFinded;
+    return tooltips.find(t => t.text === key);
 };
 
 export default getTooltip;

@@ -30,10 +30,7 @@ const getArticlesFromCollection = (
             }
         });
     const articles = get(articleList, 'content_elements', []);
-    const result =
-        articles.length >= size ? articles.splice(0, size) : articles;
-
-    return result;
+    return articles.length >= size ? articles.splice(0, size) : articles;
 };
 
 export default getArticlesFromCollection;

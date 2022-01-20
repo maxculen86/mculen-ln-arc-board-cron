@@ -108,8 +108,7 @@ export function isOlderThan24HourAgo(date) {
 
 export function addHoursAndFormat(hours, originalDate) {
     const dateInJS = addHours(hours, originalDate);
-    const dateFormated = convertToFormat(dateInJS);
-    return dateFormated;
+    return convertToFormat(dateInJS);
 }
 
 export function addHours(hours, originalDate) {
@@ -119,7 +118,7 @@ export function addHours(hours, originalDate) {
 }
 
 export function convertToFormat(dateInJS) {
-    const dateFormated = `${dateInJS
+    return `${dateInJS
         .getFullYear()
         .toString()
         .padStart(4, '0')}-${(dateInJS.getMonth() + 1)
@@ -137,7 +136,6 @@ export function convertToFormat(dateInJS) {
         .getSeconds()
         .toString()
         .padStart(2, '0')}`;
-    return dateFormated;
 }
 
 export function differenceInMinutes(firstDate, secondDate) {
