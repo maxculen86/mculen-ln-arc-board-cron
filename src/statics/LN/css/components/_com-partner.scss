@@ -2,8 +2,6 @@
 @import '../abstracts/mixins';
 .com-partner {
     @include flex(flex);
-    //font-family: $font-arial;
-    //color: $neutral-black;
     margin-bottom: $spacing-lg;
     font-weight: 700;
 }

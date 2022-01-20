@@ -8,7 +8,6 @@
     border: 1px solid $light-neutral-300;
     margin-bottom: $spacing-md;
     cursor: default;
-
     .com-icon {
         width: px(28);
         height: px(28);
@@ -25,7 +24,6 @@
     .com-text {
         margin: 0 px(8);
     }
-
     &.--small {
         padding: px(3);
 
@@ -34,7 +32,6 @@
             height: px(20);
         }
     }
-
     &.--dark {
         border: none;
         background: $light-neutral-700;

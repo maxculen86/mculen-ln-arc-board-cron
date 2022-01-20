@@ -1,41 +1,17 @@
 @import '../abstracts/variables';
-
-// .com-title_list {
-//     font-family: SuecaSlab, Georgia; //ARREGLAR con el componente nuevo
-//     font-size: px(24);
-//     line-height: px(35);
-//     color: $neutral-black;
-//     &.--bold {
-//         font-weight: bold;
-//     }
-// }
-
-// .com-subtitle_list {
-//     font-family: Arial; //ARREGLAR con el componente nuevo
-//     font-size: px(16);
-//     line-height: px(29);
-//     font-weight: bold;
-//     color: $neutral-black;
-// }
-
 .com-ordered {
-    //padding-left: 0;
     counter-reset: item;
     width: 100%;
     margin-bottom: $spacing-lg;
     .com-item {
-        //list-style-type: none;
         padding-left: 2em;
         margin: 1.5em 0;
         font-family: $font-georgia;
         font-size: px(19);
         line-height: px(30);
         margin-bottom: px(25);
-        //color: $neutral-black;
         position: relative;
-
         i {
-            //vienen en las notas
             font-style: italic;
         }
 
