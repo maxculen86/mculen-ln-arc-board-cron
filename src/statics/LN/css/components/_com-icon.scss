@@ -51,10 +51,6 @@
     }
     .mod-nav & {
         @include flex(flex, column, center, center);
-        font-size: px(11);
-        color: $neutral-black;
-        text-align: center;
-        text-transform: initial;
     }
     .mod-wikiauthor & {
         &:not(.icon-bullet-xs) {

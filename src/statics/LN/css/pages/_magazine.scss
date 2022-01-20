@@ -1,5 +1,6 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
+
 .nota.noticia {
     .--apertura {
         .com-title {
@@ -7,8 +8,9 @@
         }
     }
 }
+
 /* REVISTAS */
-@mixin magazine($primario) {
+@mixin magazine($logo, $primario) {
     &.nota {
         #content {
             .com-breadcrumb a,
@@ -57,43 +59,74 @@
         }
     }
 }
+
 .propiedades {
     $primario: $propiedades;
-    @include magazine($primario);
+    $logo: $logo-propiedades;
+    @include magazine($logo, $primario);
 }
+
 .brando {
     $primario: $brando;
-    @include magazine($primario);
+    $logo: $logo-brando;
+    @include magazine($logo, $primario);
 }
+
 .ohlala {
     $primario: $ohlala;
-    @include magazine($primario);
+    $logo: $logo-ohlala;
+    @include magazine($logo, $primario);
 }
+
 .lugares {
     $primario: $lugares;
-    @include magazine($primario);
+    $logo: $logo-lugares;
+    @include magazine($logo, $primario);
 }
+
 .living {
     $primario: $ln;
-    @include magazine($primario);
+    $logo: $logo-living;
+    @include magazine($logo, $primario);
 }
+
 .hola {
     $primario: $hola;
-    @include magazine($primario);
+    $logo: $logo-hola;
+    @include magazine($logo, $primario);
 }
+
 .jardin {
     $primario: $jardin;
-    @include magazine($primario);
+    $logo: $logo-jardin;
+    @include magazine($logo, $primario);
 }
+
 //.rolling-stone,
 .rolling {
     $primario: $rolling;
-    @include magazine($primario);
+    $logo: $logo-rolling;
+    @include magazine($logo, $primario);
 }
+
 .campo {
     $primario: $teal-700;
-    @include magazine($primario);
+    $logo: $logo-campo;
+    @include magazine($logo, $primario);
 }
+
+// .nota.noticia {
+//     .mod-banner.--cabezal_dsk {
+//         position: absolute;
+//         width: 100%;
+//     }
+//     main {
+//         .--apertura {
+//             margin-top: px(202);
+//         }
+//     }
+// }
+
 .nota.nota {
     #content {
         .cuerpo__nota {
