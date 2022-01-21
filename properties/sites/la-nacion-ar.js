@@ -610,6 +610,15 @@ export default {
                     ]
                 }
             },
+            columnistas: {
+                credits: {
+                    sizes: {
+                        width: 80,
+                        height: 80,
+                        media: minWidth320
+                    }
+                }
+            },
             boxArticlesSingleArticle: {
                 promo_items: {
                     sizes: [

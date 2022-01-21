@@ -21,17 +21,13 @@ const layoutItemsColumnistas = [
  */
 const LNAcumuladoColumnistasLayout = props => {
     const { children, globalContent } = props;
-    const [headerDark, setHeaderDark] = useState('');
 
-    useEffect(() => {
-        const { style } = globalContent;
+    const { style } = globalContent;
 
-        setHeaderDark(
-            style && style.headerdark && style.headerdark === 'true'
-                ? ' --dark'
-                : ''
-        );
-    }, [globalContent]);
+    const headerDark =
+        style && style.headerdark && style.headerdark === 'true'
+            ? ' --dark'
+            : '';
 
     return (
         <GlobalProvider>
@@ -46,12 +42,14 @@ const LNAcumuladoColumnistasLayout = props => {
                             <div className="row">
                                 <div className="col-12">
                                     {children[1]}
-                                    <Text
-                                        tag="h1"
-                                        size="--l"
-                                        extraClass="com-title"
-                                        text="Todos los columnistas"
-                                    />
+                                    <Static>
+                                        <Text
+                                            tag="h1"
+                                            size="--l"
+                                            extraClass="com-title"
+                                            text="Todos los columnistas"
+                                        />
+                                    </Static>
                                 </div>
                             </div>
                         }
