@@ -25,14 +25,6 @@
             width: px(215);
             height: px(21);
         }
-        &.--md {
-            width: px(307);
-            height: px(30);
-        }
-        &.--lg {
-            width: px(511);
-            height: px(50);
-        }
     }
     &.brando,
     &.brando-blanco {
@@ -43,14 +35,6 @@
         &.--sm {
             width: px(107);
             height: px(22);
-        }
-        &.--md {
-            width: px(152);
-            height: px(30);
-        }
-        &.--lg {
-            width: px(247);
-            height: px(50);
         }
     }
     &.hola,
@@ -63,14 +47,6 @@
             width: px(62);
             height: px(30);
         }
-        &.--md {
-            width: px(99);
-            height: px(48);
-        }
-        &.--lg {
-            width: px(165);
-            height: px(80);
-        }
     }
     &.jardin,
     &.jardin-blanco {
@@ -81,14 +57,6 @@
         &.--sm {
             width: px(88);
             height: px(28);
-        }
-        &.--md {
-            width: px(130);
-            height: px(40);
-        }
-        &.--lg {
-            width: px(193);
-            height: px(62);
         }
     }
     &.living,
@@ -101,14 +69,6 @@
             width: px(84);
             height: px(28);
         }
-        &.--md {
-            width: px(130);
-            height: px(43);
-        }
-        &.--lg {
-            width: px(185);
-            height: px(62);
-        }
     }
     &.lugares,
     &.lugares-blanco {
@@ -119,14 +79,6 @@
         &.--sm {
             width: px(118);
             height: px(22);
-        }
-        &.--md {
-            width: px(158);
-            height: px(30);
-        }
-        &.--lg {
-            width: px(276);
-            height: px(50);
         }
     }
     &.rolling,
@@ -139,14 +91,6 @@
             width: px(168);
             height: px(30);
         }
-        &.--md {
-            width: px(224);
-            height: px(40);
-        }
-        &.--lg {
-            width: px(347);
-            height: px(62);
-        }
     }
     &.ohlala,
     &.ohlala-blanco {
@@ -157,14 +101,6 @@
         &.--sm {
             width: px(106);
             height: px(30);
-        }
-        &.--md {
-            width: px(149);
-            height: px(42);
-        }
-        &.--lg {
-            width: px(219);
-            height: px(62);
         }
     }
     &.ln-mas,
@@ -177,61 +113,6 @@
             width: px(44);
             height: px(26);
         }
-        &.--md {
-            width: px(62);
-            height: px(37);
-        }
-        &.--lg {
-            width: px(104);
-            height: px(62);
-        }
-    }
-    &.negocios,
-    &.negocios-blanco {
-        &.--xs {
-            width: px(95);
-            height: px(30);
-        }
-        &.--sm {
-            width: px(127);
-            height: px(40);
-        }
-        &.--md {
-            width: px(190);
-            height: px(60);
-        }
-        &.--lg {
-            width: px(285);
-            height: px(90);
-        }
-    }
-    &.club {
-        &.--sm {
-            width: px(48);
-            height: px(40);
-        }
-        &.--md {
-            width: px(97);
-            height: px(80);
-        }
-        &.--lg {
-            width: px(145);
-            height: px(120);
-        }
-    }
-    &.club-lanacion {
-        &.--sm {
-            width: px(69);
-            height: px(40);
-        }
-        &.--md {
-            width: px(152);
-            height: px(88);
-        }
-        &.--lg {
-            width: px(207);
-            height: px(120);
-        }
     }
     &.bbc {
         &.--xs {
@@ -242,70 +123,7 @@
             width: px(167);
             height: px(26);
         }
-        &.--md {
-            width: px(288);
-            height: px(45);
-        }
-        &.--lg {
-            width: px(410);
-            height: px(64);
-        }
     }
-    &.propiedades {
-        &.--xs {
-            width: px(166);
-            height: px(22);
-        }
-        &.--sm {
-            width: px(241);
-            height: px(32);
-        }
-        &.--md {
-            width: px(361);
-            height: px(48);
-        }
-        &.--lg {
-            width: px(467);
-            height: px(62);
-        }
-    }
-    &.campo {
-        &.--xs {
-            width: px(121);
-            height: px(22);
-        }
-        &.--sm {
-            width: px(176);
-            height: px(32);
-        }
-        &.--md {
-            width: px(264);
-            height: px(48);
-        }
-        &.--lg {
-            width: px(340);
-            height: px(62);
-        }
-    }
-    &.deportes {
-        &.--xs {
-            width: px(94);
-            height: px(22);
-        }
-        &.--sm {
-            width: px(128);
-            height: px(30);
-        }
-        &.--md {
-            width: px(170);
-            height: px(40);
-        }
-        &.--lg {
-            width: px(264);
-            height: px(62);
-        }
-    }
-
     .ln-logo {
         &.--xs {
             width: px(34);
@@ -314,22 +132,6 @@
         &.--sm {
             width: px(44);
             height: px(21);
-        }
-        &.--md {
-            width: px(84);
-            height: px(40);
-        }
-        &.--lg {
-            width: px(131);
-            height: px(62);
-        }
-    }
-
-    .ln {
-        //exclusivo subscriptores
-        &.--xs {
-            width: px(28);
-            height: px(28);
         }
     }
 }
