@@ -14,11 +14,15 @@ const apertura = article => {
         throw new Error('Titulo de la nota es null o undefined');
     }
     let promoItem = get(article, 'promo_items.apertura_multimedia', null);
+    let acuImage = null;
+
     promoItem =
         promoItem == null ? get(article, 'promo_items.basic', null) : promoItem;
 
-    if (template === '4' || template === '8')
+    if (template === '4' || template === '8') {
         promoItem = get(article, 'promo_items.storytelling_mobile', null);
+        acuImage = get(article, 'promo_items.basic', null);
+    }
 
     const recetaPromoItem = get(article, 'promo_items.receta', null);
     const bajada = get(article, 'subheadlines.basic', null);
@@ -30,6 +34,12 @@ const apertura = article => {
         tituloMobile,
         bajada
     };
+
+    if (acuImage) {
+        const images = [];
+        images.push(Image(acuImage));
+        resp.imagenesAcumulado = images;
+    }
 
     if (promoItem) {
         // eslint-disable-next-line default-case
