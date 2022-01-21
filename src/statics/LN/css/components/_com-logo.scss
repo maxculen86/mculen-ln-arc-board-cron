@@ -114,6 +114,17 @@
             height: px(26);
         }
     }
+    &.negocios,
+    &.negocios-blanco {
+        &.--xs {
+            width: px(95);
+            height: px(30);
+        }
+        &.--sm {
+            width: px(127);
+            height: px(40);
+        }
+    }
     &.bbc {
         &.--xs {
             width: px(128);
@@ -124,6 +135,37 @@
             height: px(26);
         }
     }
+    &.propiedades {
+        &.--xs {
+            width: px(166);
+            height: px(22);
+        }
+        &.--sm {
+            width: px(241);
+            height: px(32);
+        }
+    }
+    &.campo {
+        &.--xs {
+            width: px(121);
+            height: px(22);
+        }
+        &.--sm {
+            width: px(176);
+            height: px(32);
+        }
+    }
+    &.deportes {
+        &.--xs {
+            width: px(94);
+            height: px(22);
+        }
+        &.--sm {
+            width: px(128);
+            height: px(30);
+        }
+    }
+
     .ln-logo {
         &.--xs {
             width: px(34);
