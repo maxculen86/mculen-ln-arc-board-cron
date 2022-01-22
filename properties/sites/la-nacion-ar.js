@@ -615,7 +615,9 @@ export default {
                     sizes: {
                         width: 80,
                         height: 80,
-                        media: minWidth320
+                        media: minWidth320,
+                        class: '',
+                        type: 'image'
                     }
                 }
             },

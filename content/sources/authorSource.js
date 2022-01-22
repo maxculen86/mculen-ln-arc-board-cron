@@ -18,28 +18,20 @@ const resolve = key => {
 };
 
 const transform = (data, query) => {
-    const { meteringVariant, imageConfig } = query || {};
+    const { meteringVariant, imageConfig = '' } = query || {};
 
     const arcSite = query['arc-site'];
     const properties = getProperties(arcSite);
     const imagePreset = get(
         properties,
         `imageConfig.resize.${imageConfig}.credits.sizes`,
-        {}
-    );
-    const defaultPreset = {
-        width: 280,
-        height: 280,
-        media: '(min-width: 320px)',
-        class: '',
-        type: 'image'
-    };
-
-    const resizeOptions = imagePreset !== {} ? imagePreset : defaultPreset;
-
-    console.log(
-        '🚀 ~ file: authorSource.js ~ line 40 ~ transform ~ resizeOption',
-        resizeOptions
+        {
+            width: 280,
+            height: 280,
+            media: '(min-width: 320px)',
+            class: '',
+            type: 'image'
+        }
     );
 
     const dataResp = {
@@ -60,7 +52,7 @@ const transform = (data, query) => {
                 data.image,
                 280,
                 280,
-                resizeOptions
+                imagePreset
             )
         },
         node_type: 'author'
