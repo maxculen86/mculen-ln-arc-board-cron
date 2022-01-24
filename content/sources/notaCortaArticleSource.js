@@ -28,8 +28,7 @@ const resolve = key => {
     const id = new RegExp('/([0-9]+)').exec(url)[1];
 
     const arcSite = key['arc-site'];
-    const basePath = `/content/v4/search/published/?website=${arcSite}&q=type:story+AND+source.source_id:${id}&_sourceInclude=canonical_url`;
-    return basePath;
+    return `/content/v4/search/published/?website=${arcSite}&q=type:story+AND+source.source_id:${id}&_sourceInclude=canonical_url`;
 };
 
 export default {

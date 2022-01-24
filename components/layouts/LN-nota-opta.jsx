@@ -1,7 +1,4 @@
-import React, { useState } from 'react';
-import PropTypes from 'fusion:prop-types';
-
-import config from '../../properties/sites/la-nacion-ar';
+import React from 'react';
 
 const OptaLayout = ({ children }) => {
     return (

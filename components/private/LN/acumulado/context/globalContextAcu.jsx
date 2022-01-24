@@ -44,7 +44,7 @@ const getCollectionApertura = id => {
         id: id && id.trim(),
         size: 2,
         website: 'la-nacion-ar',
-        imageConfig: 'l'
+        imageConfig: 'aperturaAcu'
     };
     return (
         id &&
@@ -67,7 +67,6 @@ const GlobalProviderAcu = props => {
         idCollectionApertura,
         children
     } = props;
-
     const articlesInCollection = idCollectionApertura
         ? getCollectionApertura(idCollectionApertura)
         : [];

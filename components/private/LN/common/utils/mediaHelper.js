@@ -4,8 +4,7 @@ import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData
 import get from '../../../common/utils/get';
 import {
     FOTOAL100,
-    STORYTELLING,
-    VIDEO
+    STORYTELLING
 } from '../../../common/utils/subtypes/subtypeHelper';
 
 export const getEpigrafe = basic => {

@@ -18,7 +18,6 @@ const ModCategory = props => {
     } = props;
 
     const { width, height, url: imageUrl } = image || {};
-
     return (
         <div className="mod-categories">
             {revista ? (
@@ -41,7 +40,6 @@ const ModCategory = props => {
                     </a>
                 </h1>
             )}
-
             <ModNavigation
                 navigation={navigation}
                 classCondition="--category"

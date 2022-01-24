@@ -219,8 +219,10 @@ const reMeHandler = (res, token, xvalue, dispatch) => {
         case '0002':
             /**
                  * TODO: manejo de Logger
-                 Logger.Error("ReMe | Token inválido ", JSON.stringify(res)); //{ 'response' : res ,  'tokens': { 'X-Token': Cookie.LeerCookie("token") || '', 'X-Value': Cookie.LeerCookie("xvalue") || '' }});
-                 */
+                 Logger.Error("ReMe | Token inválido ", JSON.stringify(res)); 
+                 //{ 'response' : res ,  'tokens': { 'X-Token': Cookie.LeerCookie("token") 
+                 || '', 'X-Value': Cookie.LeerCookie("xvalue") || '' }});
+            */
             goToLogout(dispatch);
             break;
         default:

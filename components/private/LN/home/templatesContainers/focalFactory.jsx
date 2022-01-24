@@ -32,17 +32,18 @@ const FocalFactory = ({
                 `${directionFocal}.articles[${index}]`,
                 null
             );
-            const comp = (_children && _children.length && art) || (
-                <ArticleAcum
-                    article={art}
-                    outputType={outputType}
-                    label="Chapita"
-                    artPosition={`0${index + 1}`}
-                    boxPosition={boxPosition}
-                    {...(articleProps || {})}
-                />
+            return (
+                (_children && _children.length && art) || (
+                    <ArticleAcum
+                        article={art}
+                        outputType={outputType}
+                        label="Chapita"
+                        artPosition={`0${index + 1}`}
+                        boxPosition={boxPosition}
+                        {...(articleProps || {})}
+                    />
+                )
             );
-            return comp;
         });
 
     return (
