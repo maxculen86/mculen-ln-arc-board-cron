@@ -34,13 +34,11 @@ import { homeLayoutsPropTypes } from '../../private/common/utils/propTypesHelper
 const reducer = (state, action) => {
     switch (action.type) {
         case 'update': {
-            const newState = updateBlocks(state, action.payload);
-            return newState;
+            return updateBlocks(state, action.payload);
         }
         case 'updateNextBlock': {
             if (!findBlockToLoad(state)) return state;
-            const newState2 = updateNextBlock(state);
-            return newState2;
+            return updateNextBlock(state);
         }
         default:
             throw new Error();

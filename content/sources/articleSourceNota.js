@@ -339,15 +339,13 @@ const addFollowAnotherNoteData = (anotherNoteData, arcSite, i) => {
                 website_url: websiteUrl,
                 type
             } = fetchedRelated;
-            const resp = {
+            return {
                 ...anotherNoteData,
                 headlines,
                 label,
                 website_url: websiteUrl,
                 type
             };
-
-            return resp;
         })
         .catch(e => {
             // console.log('TCL: addFollowAnotherNoteData -> e', e);
