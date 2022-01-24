@@ -157,7 +157,7 @@ const LNAcumuladoLayout = props => {
                                 {/* TITULO/LOGO Y CATEGORIAS */}
                                 {breadcrumbTitulo}
                                 {/* ANEXO SUPERIOR */}
-                                {anexoSuperiorConfig.url !== '' ? (
+                                {anexoSuperiorConfig.anexoUrl !== '' ? (
                                     <AnexoDefault
                                         id="superior"
                                         customFields={{
@@ -181,7 +181,7 @@ const LNAcumuladoLayout = props => {
                             {/* Cuerpo */}
                             <div className="sidebar__main">
                                 {/* ANEXO INFERIOR */}
-                                {anexoInferiorConfig.url !== '' ? (
+                                {anexoInferiorConfig.anexoUrl !== '' ? (
                                     <AnexoDefault
                                         id="inferior"
                                         customFields={{
