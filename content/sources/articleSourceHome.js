@@ -53,7 +53,7 @@ const transform = (data, siteProps) => {
     const presetsXL = get(properties, `imageConfig.resize.xl`, null);
     const presetsL = get(properties, `imageConfig.resize.l`, null);
 
-    const resp = addResizedUrls(data, {
+    return addResizedUrls(data, {
         resizerSecret: RESIZER_KEY,
         resizerUrl: RESIZER_URL,
         presets: {
@@ -62,8 +62,6 @@ const transform = (data, siteProps) => {
             presetsDefault
         }
     });
-
-    return resp;
 };
 
 export default {

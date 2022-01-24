@@ -26,9 +26,7 @@ const transform = (data, siteProps) => {
     }
 
     const resizer = createResizer(RESIZER_KEY, RESIZER_URL);
-    const resizedUrls = resizer.resizeUrls(data.url, 0, 0, preset.sizes);
-
-    return resizedUrls;
+    return resizer.resizeUrls(data.url, 0, 0, preset.sizes);
 };
 
 export default {

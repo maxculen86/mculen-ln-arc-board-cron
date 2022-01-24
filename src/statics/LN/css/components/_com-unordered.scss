@@ -1,9 +1,6 @@
 @import '../abstracts/variables';
 
 .com-unordered {
-    //padding-left: 0;
-    //list-style: none;
-    //width: 100%;
     margin-bottom: $spacing-lg;
     .com-item {
         padding-left: $spacing-lg;
@@ -13,7 +10,6 @@
         position: relative;
 
         i {
-            //vienen en las notas
             font-style: italic;
         }
 
@@ -32,14 +28,6 @@
             padding-left: 0;
         }
     }
-    // .noticia & {
-    //     .com-item {
-    //         line-height: px(30);
-    //         &:before {
-    //             top: px(10);
-    //         }
-    //     }
-    // }
 }
 @media ($media-l) {
     .com-unordered {

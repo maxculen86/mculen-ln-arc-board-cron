@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import Static from 'fusion:static';
 import { useContent } from 'fusion:content';
 
 const Image = ({ id: featureId, imageId }) => {
@@ -17,11 +16,9 @@ const Image = ({ id: featureId, imageId }) => {
     }, [content]);
 
     return (
-        // <Static id={featureId}>
         <picture>
             {imageUrl && <img alt="imagen-destacada" srcSet={imageUrl} />}
         </picture>
-        // </Static>
     );
 };
 

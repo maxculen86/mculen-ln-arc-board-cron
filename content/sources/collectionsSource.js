@@ -135,15 +135,13 @@ const filterArticlesInCollection = (siteProps, originalArticles) => {
           )
         : articlesRecomended;
 
-    const contentElementsFiltered = filterRepetead
+    return filterRepetead
         ? getArticlesToShow(
               articlesNoFuture,
               idsArticlesToExclude,
               notesQuantity
           )
         : articlesNoFuture;
-
-    return contentElementsFiltered;
 };
 
 export default {

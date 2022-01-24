@@ -1,8 +1,7 @@
 const addAspectRatioUsingCalcHeight = (width = 1) => {
     const widthResult = width / 3;
     const heightResult = widthResult * 2;
-    const height = parseInt(Math.round(heightResult * 100) / 100, 10);
-    return height;
+    return parseInt(Math.round(heightResult * 100) / 100, 10);
 };
 
 // Calcule greatest common divisor
