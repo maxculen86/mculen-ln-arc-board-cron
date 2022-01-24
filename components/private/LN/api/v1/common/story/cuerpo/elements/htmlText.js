@@ -34,12 +34,11 @@ const htmlText = (nodo, dataNota) => {
         node => node.nodeType === 1 && node.tagName === 'a',
         (data, next) => {
             const attrs = getEmbedHref('href', data.rawAttrs.toLowerCase());
-            const resp = {
+            return {
                 _t: data.tagName,
                 href: attrs,
                 valor: next(data.childNodes)
             };
-            return resp;
         }
     );
 
@@ -48,23 +47,21 @@ const htmlText = (nodo, dataNota) => {
         (data, next) => {
             const classRegex = new RegExp('class="hl_(.*)"');
             const attrs = classRegex.exec(data.rawAttrs);
-            const resp = {
+            return {
                 _t: 'mark',
                 color: attrs[1],
                 valor: next(data.childNodes)
             };
-            return resp;
         }
     );
 
     walker.addCondition(
         node => node.nodeType === 1 && node.tagName !== 'br',
         (data, next) => {
-            const resp = {
+            return {
                 _t: data.tagName,
                 valor: next(data.childNodes)
             };
-            return resp;
         }
     );
 
@@ -75,8 +72,7 @@ const htmlText = (nodo, dataNota) => {
         }
     );
 
-    const walkerResp = walker.parse(html.childNodes);
-    return walkerResp;
+    return walker.parse(html.childNodes);
 };
 
 export default htmlText;

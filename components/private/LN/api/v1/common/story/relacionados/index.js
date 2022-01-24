@@ -12,8 +12,7 @@ const relacionadosIndex = dataArticle => {
 
     if (dataCategories && dataCategories.length > 0) {
         resp.categorias = dataCategories.map(v => {
-            const category = getSubCategory(v);
-            return category;
+            return getSubCategory(v);
         });
     }
 

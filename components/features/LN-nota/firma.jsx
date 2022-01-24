@@ -69,7 +69,7 @@ const getPropsBuilder = position => authors =>
         })
         .reduce(
             (accumulator, value) => {
-                const props = {
+                return {
                     ...accumulator,
                     ...{
                         authors: [
@@ -93,7 +93,6 @@ const getPropsBuilder = position => authors =>
                             : value.medio
                     }
                 };
-                return props;
             },
             { authors: [], photo: null, medio: null, smth: 'credits' }
         );
