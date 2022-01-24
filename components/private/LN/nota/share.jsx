@@ -35,17 +35,22 @@ const Share = props => {
 
     const { arcSite = 'la-nacion-ar' } = useAppContext() || {};
 
-    const conditionallyCallSource = shouldLoadViafoura(firstPublishDate)
-        ? 'viafouraSource'
-        : null;
+    const newNoteAbortFetch = firstTime => {
+        const differenceInMins = (new Date() - new Date(firstTime)) / 60000;
+        return differenceInMins < 10;
+    };
 
-    const { comments } =
+    const conditionallyCallSource =
+        shouldLoadViafoura(firstPublishDate) &&
+        !newNoteAbortFetch(firstPublishDate)
+            ? 'viafouraSource'
+            : null;
+
+    const { totalVisibleContent = '' } =
         useContent({
             source: conditionallyCallSource,
             query: { arcSite, id, firstPublishDate }
         }) || {};
-
-    const { total_visible_content: totalVisibleContent } = comments || '';
 
     const siteVars = getProperties(arcSite);
     const twiterTitle =

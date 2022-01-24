@@ -3,11 +3,6 @@ import request from 'request-promise-native';
 import logger from '../../components/private/common/utils/logger';
 
 const fetch = ({ arcSite, id, firstPublishDate }) => {
-    const abortLog = firstTime => {
-        const differenceInMins = (new Date() - new Date(firstTime)) / 60000;
-        return differenceInMins < 10;
-    };
-
     const options = {
         method: 'GET',
         headers: {
@@ -25,18 +20,17 @@ const fetch = ({ arcSite, id, firstPublishDate }) => {
         try {
             const response = await request(endpoint);
             return {
-                comments: response
+                totalVisibleContent: response.total_visible_content
             };
         } catch (error) {
-            !abortLog(firstPublishDate) &&
-                logger.push(
-                    error,
-                    {
-                        source: 'content/sources/viafouraSource',
-                        url: endpoint.uri
-                    },
-                    arcSite
-                );
+            logger.push(
+                error,
+                {
+                    source: 'content/sources/viafouraSource',
+                    url: endpoint.uri
+                },
+                arcSite
+            );
         }
     };
 
