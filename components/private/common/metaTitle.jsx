@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import { RECETA } from './utils/subtypes/subtypeHelper';
 
 const MetaTitle = ({
     metaTitleBasic,

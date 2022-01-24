@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import Proptypes from 'fusion:prop-types';
+import React from 'react';
 import { useContent } from 'fusion:content';
 
 import '../../../../../resources/dist/css/ln/components/author.css';
