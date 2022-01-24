@@ -20,19 +20,12 @@ const layoutItemsColumnistas = [
  * TODO: Consultar con daro para integrar un solo acumulado
  */
 const LNAcumuladoColumnistasLayout = props => {
-    const { children, globalContent } = props;
-
-    const { style } = globalContent;
-
-    const headerDark =
-        style && style.headerdark && style.headerdark === 'true'
-            ? ' --dark'
-            : '';
+    const { children } = props;
 
     return (
         <GlobalProvider>
             <div id="wrapper" className="acumulado columnistas">
-                <Header headerDark={headerDark} />
+                <Header />
                 <main id="content">
                     {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
                     {children[0]}
