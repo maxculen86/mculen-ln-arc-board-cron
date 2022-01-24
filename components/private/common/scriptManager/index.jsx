@@ -23,7 +23,7 @@ export default (globalContent = {}, components, settings = {}) => {
 
         if (!(location || name)) throw new Error(ERRORS.PROPS);
 
-        const scripts = componentsName
+        return componentsName
             .filter(
                 type =>
                     name === type ||
@@ -45,6 +45,5 @@ export default (globalContent = {}, components, settings = {}) => {
                 );
             })
             .filter(Boolean);
-        return scripts;
     };
 };

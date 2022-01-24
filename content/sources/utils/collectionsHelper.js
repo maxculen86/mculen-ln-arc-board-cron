@@ -13,8 +13,5 @@ export const getArticlesToShow = (
         art => idsArticlesToExclude.some(id => art._id === id) === false
     );
 
-    const articlesToShow = articlesFiltered
-        ? articlesFiltered.slice(0, notesQuantity)
-        : [];
-    return articlesToShow;
+    return articlesFiltered ? articlesFiltered.slice(0, notesQuantity) : [];
 };

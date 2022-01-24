@@ -1,5 +1,3 @@
-import logger from './logger';
-
 const isValidUrlTagA = (contentElements, arcSite, url, API_ENV) => {
     const typeElement = {
         text: {

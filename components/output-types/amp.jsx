@@ -188,12 +188,12 @@ const Amp = props => {
                     )}
                 </amp-analytics>
                 <ScriptLogoBBCAMP distributorName={distributorName} />
+                {children}
                 <MeteringAMP
                     canonicalUrl={canonicalUrl}
                     contentCode={contentCode}
                     _id={_id}
                 />
-                {children}
             </body>
         </html>
     );

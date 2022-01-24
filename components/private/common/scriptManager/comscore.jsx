@@ -30,7 +30,7 @@ export default class Comscore extends Component {
             .join('&');
         const urlNoScript = `https://sb.scorecardresearch.com/p?${urlConfig}&cv=2.0&cj=1`;
 
-        const nodes = [
+        return [
             <script
                 defer
                 type="text/javascript"
@@ -42,8 +42,6 @@ export default class Comscore extends Component {
                 }}
             />
         ];
-
-        return nodes;
     }
 }
 

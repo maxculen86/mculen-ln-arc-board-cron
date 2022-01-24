@@ -19,7 +19,9 @@ export default class PostBid extends Component {
             IS_DEV === 'true' && IS_SANDBOX === 'true' ? '_test' : '';
 
         return (
-            ['nota'].includes(getSectionName({ nodeType, type })) && (
+            ['nota', 'acumulado'].includes(
+                getSectionName({ nodeType, type })
+            ) && (
                 <script
                     async
                     src={`https://ads.rubiconproject.com/prebid/20148_LaNacion_Desktop${isTest}.js`}

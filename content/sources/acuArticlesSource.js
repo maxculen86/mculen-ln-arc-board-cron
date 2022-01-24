@@ -167,10 +167,8 @@ const resolve = key => {
                 }
             }
     }`;
-    const final = `${basePath}${query}&size=${cant}&from=${from}
+    return `${basePath}${query}&size=${cant}&from=${from}
             &sort=display_date:desc`;
-
-    return final;
 };
 
 const transform = (data, siteProps) => {
