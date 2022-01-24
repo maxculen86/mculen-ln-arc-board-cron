@@ -24,8 +24,7 @@ const resolve = (key, a) => {
     const basePath = `?website=${website || arcSite}`;
     const sectionFilter = sectionId ? `category${sectionId}` : '';
     const offsetFilter = daysAgo ? `&offset=${daysAgo}` : '';
-    const finalPath = `/feeds/most-read/${sectionFilter}/${basePath}&size=${sizeNumber}${offsetFilter}`;
-    return finalPath;
+    return `/feeds/most-read/${sectionFilter}/${basePath}&size=${sizeNumber}${offsetFilter}`;
 };
 
 const fetch = query => {
@@ -64,7 +63,7 @@ const transform = (data, siteProps) => {
     const { presets, presetsDefault } = getPresets(siteProps);
     const presetsPromoItems = get(presets, 'promo_items', null);
 
-    const resp = {
+    return {
         content_elements:
             data.content_elements &&
             data.content_elements
@@ -107,7 +106,6 @@ const transform = (data, siteProps) => {
                     };
                 })
     };
-    return resp;
 };
 
 export default {

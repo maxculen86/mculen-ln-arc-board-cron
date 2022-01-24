@@ -31,7 +31,7 @@ import {
 } from '../../common/utils/bannerHelper';
 
 const Cuerpo = props => {
-    const { bannerConfig: banners, outputType, globalContent } = props;
+    const { bannerConfig: banners, outputType, globalContent = {} } = props;
 
     const {
         _id,
@@ -39,7 +39,7 @@ const Cuerpo = props => {
         content_elements: contentElements,
         subtype,
         website_url: websiteUrl
-    } = globalContent || {};
+    } = globalContent;
 
     const bodyComponents = [
         Paragraph,

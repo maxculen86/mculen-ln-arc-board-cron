@@ -1,5 +1,4 @@
 import React from 'react';
-import Carousell from '../../../common/carousell';
 import Program from '../program';
 import Title from '../../../common/title';
 

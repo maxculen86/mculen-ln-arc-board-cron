@@ -67,7 +67,6 @@ const GlobalProviderAcu = props => {
         idCollectionApertura,
         children
     } = props;
-
     const articlesInCollection = idCollectionApertura
         ? getCollectionApertura(idCollectionApertura)
         : [];

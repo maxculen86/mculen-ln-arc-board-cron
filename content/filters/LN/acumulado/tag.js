@@ -10,4 +10,9 @@ export default `
     name
     node_type
     canonical_url
+    acumuladoGeneral {
+        anexosuperior
+        anexoinferior
+        collectionForTag
+    }
 }`;

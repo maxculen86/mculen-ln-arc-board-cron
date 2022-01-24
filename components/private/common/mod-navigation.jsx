@@ -1,16 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'fusion:prop-types';
-
 import ComButton from './com-button';
 import ComLinkList from './com-link-list';
 
 const ModNavigation = props => {
     const categoryEl = useRef();
     const [showBtnScrollLeft, setShowBtnScrollLeft] = useState('hlp-none');
-    const [showBtnScrollRight, setShowBtnScrollRight] = useState('');
-    const { navigation, classCondition, style } = props;
-    const EXTRA_CLASS = classCondition ? ` ${classCondition}` : '';
-
+    const [showBtnScrollRight, setShowBtnScrollRight] = useState('hlp-none');
+    const { navigation, classCondition = '', style } = props;
+    const EXTRA_CLASS = ` ${classCondition}`;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const moveScroll = (ref, direction, firstTime = false) => {
         if (ref && ref.current) {
             const cEl = ref.current;
@@ -29,13 +28,16 @@ const ModNavigation = props => {
             );
         } else {
             setShowBtnScrollLeft('hlp-none');
-            setShowBtnScrollRight('');
+            setShowBtnScrollRight('hlp-none');
         }
     };
 
     useEffect(() => {
-        moveScroll(categoryEl, 'right', true);
-    }, []);
+        const timer = setTimeout(() => {
+            moveScroll(categoryEl, 'right', true);
+        }, 500);
+        return () => clearTimeout(timer);
+    }, [moveScroll]);
 
     if (!navigation || !navigation.length) return null;
 

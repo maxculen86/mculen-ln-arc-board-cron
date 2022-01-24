@@ -94,8 +94,7 @@ export const getDefaultAuthors = authorList => {
               })
               .join('')
         : authorList;
-    const message = authorMessage ? authorMessage.concat('.') : '';
-    return message;
+    return authorMessage ? authorMessage.concat('.') : '';
 };
 
 export const getUrl = defaultData => defaultData && defaultData.canonical_url;

@@ -4,7 +4,7 @@ import Consumer from 'fusion:consumer';
 function withImage(WrappedComponent, filter, published) {
     return Consumer(
         class extends PureComponent {
-            state = { image: null };
+            state = { image: undefined };
             constructor(props) {
                 super(props);
                 this.getImage();
@@ -29,7 +29,7 @@ function withImage(WrappedComponent, filter, published) {
                         if (fetchedImage)
                             this.setState({ image: fetchedImage });
                     });
-                } else this.state.image = null;
+                } else this.state.image = undefined;
             }
 
             render() {
