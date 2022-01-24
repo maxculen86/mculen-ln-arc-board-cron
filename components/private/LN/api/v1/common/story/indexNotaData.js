@@ -44,7 +44,16 @@ const indexNotaData = (dataNota, cuerpo) => {
     const { date: formatPublishDate, time: formatUpdateTime } = dateAndTimeUtil(
         publishDate
     );
-
+    const trust = get(dataNota, 'label.trust.text', null);
+    let isTrust;
+    if (trust) {
+        isTrust = /nomostrartrust/.test(
+            trust
+                .toLowerCase()
+                .replace(/ /g, '')
+                .trim()
+        );
+    }
     const {
         date: formatDislplayDate,
         time: formatDislplayTime
@@ -65,7 +74,8 @@ const indexNotaData = (dataNota, cuerpo) => {
         categoria: primarySection && getPrincipalCategory(primarySection),
         relacionados: Relacionados(dataNota),
         enviarApps,
-        modificadorTemplate: ModificadorTemplate(distributor)
+        modificadorTemplate: ModificadorTemplate(distributor),
+        trust: !isTrust
     };
     if (dataNota.subtype === '9') {
         resp.HTML = cuerpo(dataNota);

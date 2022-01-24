@@ -2,8 +2,6 @@ import React from 'react';
 
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import Static from 'fusion:static';
-
 import Image from './image';
 
 const Article = ({
