@@ -69,6 +69,17 @@ export const shouldLoadViafoura = inputDate => {
     );
 };
 
+export const conditionallyCallViafoura = time => {
+    const newNoteAbortFetch = t => {
+        const differenceInMins = (new Date() - new Date(t)) / 60000;
+        return differenceInMins < 10;
+    };
+
+    return shouldLoadViafoura(time) && !newNoteAbortFetch(time)
+        ? 'viafouraSource'
+        : null;
+};
+
 export const validateComments = (props, subscription = false) => {
     const allow = get(props, 'globalContent.comments.allow_comments', true);
     const show = get(props, 'globalContent.comments.display_comments', true);

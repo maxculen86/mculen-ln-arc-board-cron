@@ -94,7 +94,7 @@ function WithAcuArticlesData(
                         authorId,
                         tagId,
                         size: size.tripleSize || size,
-                        imageConfig,
+                        imageConfig: sectionsIds ? 'latestNews' : imageConfig,
                         page,
                         excludeSectionId,
                         promoItemsOnly,

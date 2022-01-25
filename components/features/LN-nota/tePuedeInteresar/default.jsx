@@ -132,9 +132,7 @@ const generateSessionId = () => {
         ).toString(16)
     );
 
-    const uuid = `${cryptoNumber}-${Date.now()}`;
-
-    return uuid;
+    return `${cryptoNumber}-${Date.now()}`;
 };
 
 const saveUrlToExclude = (urls, currentUrl) => {

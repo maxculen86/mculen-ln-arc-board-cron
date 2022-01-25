@@ -18,7 +18,7 @@ import ComLine from '../../common/com-line';
 import AmpContainer from '../../common/ampContainer';
 import get from '../../common/utils/get';
 import Icon from '../../common/icon';
-import { shouldLoadViafoura } from '../../common/utils/commentsHelper';
+import { conditionallyCallViafoura } from '../../common/utils/commentsHelper';
 
 const Share = props => {
     const {
@@ -33,16 +33,14 @@ const Share = props => {
         }
     } = props;
 
-    const conditionallyCallSource = shouldLoadViafoura(firstPublishDate)
-        ? 'viafouraSource'
-        : null;
-
-    const { comments } =
-        useContent({ source: conditionallyCallSource, query: { id } }) || {};
-
-    const { total_visible_content: totalVisibleContent } = comments || '';
-
     const { arcSite = 'la-nacion-ar' } = useAppContext() || {};
+
+    const { totalVisibleContent = '' } =
+        useContent({
+            source: conditionallyCallViafoura(firstPublishDate),
+            query: { arcSite, id, firstPublishDate }
+        }) || {};
+
     const siteVars = getProperties(arcSite);
     const twiterTitle =
         mobileTitle !== '' && mobileTitle !== undefined ? mobileTitle : title;

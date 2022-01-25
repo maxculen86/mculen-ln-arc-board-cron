@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import ComIco from './icon';
 import ComLink from './com-link';
 
