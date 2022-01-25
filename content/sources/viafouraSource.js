@@ -20,12 +20,15 @@ const fetch = ({ arcSite, id }) => {
         try {
             const response = await request(endpoint);
             return {
-                comments: response
+                totalVisibleContent: response.total_visible_content
             };
         } catch (error) {
             logger.push(
                 error,
-                { source: 'content/sources/viafouraSource', url: endpoint.uri },
+                {
+                    source: 'content/sources/viafouraSource',
+                    url: endpoint.uri
+                },
                 arcSite
             );
         }

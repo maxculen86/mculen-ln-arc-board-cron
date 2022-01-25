@@ -18,9 +18,7 @@ jest.mock('fusion:context', () => () => ({
 jest.mock('fusion:content', () => () => ({
     default: props => {
         const mockAvailableProps = {
-            comments: {
-                total_visible_content: 64
-            }
+            totalVisibleContent: '64'
         };
 
         return props.children(mockAvailableProps);
@@ -46,9 +44,7 @@ describe('Share', () => {
     }));
 
     Content.useContent = jest.fn(() => ({
-        comments: {
-            total_visible_content: 64
-        }
+        totalVisibleContent: '64'
     }));
 
     delete global.window.open;
