@@ -44,7 +44,7 @@ export const getWidthForZoomEvaluation = (subtype, width) => {
     return width;
 };
 
-export const getSourceSet = (sourceActive = [], isVertical, image) => {
+export const getSourceSet = (isVertical, image, sourceActive = []) => {
     const seenWidthOrPixelDensity = [];
     let srcset = sourceActive.map(src => {
         const {

@@ -245,7 +245,7 @@ export const loginSetup = dispatch => {
                 const newXvalue = getTokenBodyHelper(res.response, 2);
                 if (res.code === '0000') {
                     apiIngresar
-                        .getMe(true, newToken, newXvalue)
+                        .getMe(newToken, newXvalue, true)
                         .then(userData => {
                             setUserData(userData, dispatch);
                             reMeHandler(

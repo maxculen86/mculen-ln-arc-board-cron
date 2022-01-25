@@ -28,8 +28,8 @@ const getDataToLinkImage = (
                 const bomba =
                     (renderables.length &&
                         getChildsFromSections(
-                            renderables,
-                            get(sectionsValidation, 'Bomba.position', 2) + 1
+                            get(sectionsValidation, 'Bomba.position', 2) + 1,
+                            renderables
                         ).filter(
                             element =>
                                 get(
@@ -70,12 +70,12 @@ const getDataToLinkImage = (
                     const apertura =
                         (renderables.length &&
                             getChildsFromSections(
-                                renderables,
                                 get(
                                     sectionsValidation,
                                     'Apertura_1.position',
                                     3
-                                ) + 1
+                                ) + 1,
+                                renderables
                             ).filter(
                                 element =>
                                     get(

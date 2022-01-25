@@ -22,7 +22,7 @@ const apiIngresar = () => {
             return res.json();
         });
 
-    const getMe = (isRelogin = false, token, xvalue) => {
+    const getMe = (token, xvalue, isRelogin = false) => {
         const ProductoPremiumId = getCookie('ProductoPremiumId') || '';
         const UsuarioDetalleEmail = getCookie('usuarioemail') || '';
 

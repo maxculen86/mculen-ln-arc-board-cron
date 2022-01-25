@@ -4,14 +4,14 @@ import useViewportSize from '../../../common/hooks/useViewportSize';
 import get from '../../../common/utils/get';
 import sectionsValidation from '../../../../layouts/config/LN-Home.config';
 
-export const getChildsFromSections = (renderable = [], sectionPosition) => {
+export const getChildsFromSections = (sectionPosition, renderable = []) => {
     return get(renderable, `[${sectionPosition}].children`, []);
 };
 
 export const isBombaVisible = (renderable = []) => {
     const features = getChildsFromSections(
-        renderable,
-        get(sectionsValidation, 'Bomba.position', 2) + 1
+        get(sectionsValidation, 'Bomba.position', 2) + 1,
+        renderable
     );
 
     const bombaFiltered = features.filter(
