@@ -18,6 +18,7 @@ const ModCategory = props => {
     } = props;
 
     const { width, height, url: imageUrl } = image || {};
+
     return (
         <div className="mod-categories">
             {revista ? (
