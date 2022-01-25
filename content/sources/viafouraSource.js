@@ -2,7 +2,7 @@ import { VIAFOURA_UUID, VIAFOURA_XREQUEST } from 'fusion:environment';
 import request from 'request-promise-native';
 import logger from '../../components/private/common/utils/logger';
 
-const fetch = ({ arcSite, id, firstPublishDate }) => {
+const fetch = ({ arcSite, id }) => {
     const options = {
         method: 'GET',
         headers: {

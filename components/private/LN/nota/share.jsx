@@ -35,8 +35,8 @@ const Share = props => {
 
     const { arcSite = 'la-nacion-ar' } = useAppContext() || {};
 
-    const newNoteAbortFetch = firstTime => {
-        const differenceInMins = (new Date() - new Date(firstTime)) / 60000;
+    const newNoteAbortFetch = time => {
+        const differenceInMins = (new Date() - new Date(time)) / 60000;
         return differenceInMins < 10;
     };
 
