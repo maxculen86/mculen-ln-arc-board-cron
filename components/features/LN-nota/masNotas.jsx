@@ -95,7 +95,7 @@ const masNotas = props => {
     const articles = getArticlesFromAcumSource(
         typesOfQuery,
         filter,
-        'm',
+        'boxArticles',
         size,
         'composer',
         excludeSectionId,

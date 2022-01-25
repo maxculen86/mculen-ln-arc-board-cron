@@ -28,6 +28,12 @@ jest.mock('fusion:consumer', Component => {
 });
 
 import Consumer from 'fusion:consumer';
+import {
+    sectionWith2ItemToShow,
+    sectionWithAnexoHide,
+    sectionWithNoCollectionAndAnexoShow,
+    sectionWithNoCollectionAndNoAnexo
+} from '../../../../__mocks__/data/renderables/sectionsComercialData';
 describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />', () => {
     it('Validar Seccion Anticipo en Home', () => {
         expect(
@@ -364,6 +370,50 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
                 'Comercial_1',
                 sectionsValidation.Comercial_1.position,
                 renderables1,
+                'default',
+                true
+            )
+        ).toEqual(null);
+
+        expect(
+            sectionHelper(
+                sectionWithAnexoHide,
+                'Comercial_1',
+                sectionsValidation.Comercial_1.position,
+                sectionWithAnexoHide,
+                'default',
+                true
+            )
+        ).toEqual(sectionWithAnexoHide);
+
+        expect(
+            sectionHelper(
+                sectionWith2ItemToShow,
+                'Comercial_1',
+                sectionsValidation.Comercial_1.position,
+                sectionWith2ItemToShow,
+                'default',
+                true
+            )
+        ).toEqual(null);
+
+        expect(
+            sectionHelper(
+                sectionWithNoCollectionAndAnexoShow,
+                'Comercial_1',
+                sectionsValidation.Comercial_1.position,
+                sectionWithNoCollectionAndAnexoShow,
+                'default',
+                true
+            )
+        ).toEqual(sectionWithNoCollectionAndAnexoShow);
+
+        expect(
+            sectionHelper(
+                sectionWithNoCollectionAndNoAnexo,
+                'Comercial_1',
+                sectionsValidation.Comercial_1.position,
+                sectionWithNoCollectionAndNoAnexo,
                 'default',
                 true
             )

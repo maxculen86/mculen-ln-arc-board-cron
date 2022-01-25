@@ -125,4 +125,8 @@ GrillaNotas.propTypes = {
     ).isRequired
 };
 
-export default WithAcuArticlesData(Consumer(GrillaNotas), filter, 'm');
+export default WithAcuArticlesData(
+    Consumer(GrillaNotas),
+    filter,
+    'boxArticles'
+);
