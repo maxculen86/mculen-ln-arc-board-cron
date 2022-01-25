@@ -35,7 +35,11 @@ const LNAcumuladoColumnistasLayout = props => {
                             <div className="row">
                                 <div className="col-12">
                                     {children[1]}
-                                    <Static>
+                                    <Static
+                                        id="columnistas-layout"
+                                        htmlOnly
+                                        persistent
+                                    >
                                         <Text
                                             tag="h1"
                                             size="--l"
