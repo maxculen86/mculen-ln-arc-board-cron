@@ -18,7 +18,7 @@ import ComLine from '../../common/com-line';
 import AmpContainer from '../../common/ampContainer';
 import get from '../../common/utils/get';
 import Icon from '../../common/icon';
-import { shouldLoadViafoura } from '../../common/utils/commentsHelper';
+import { conditionallyCallViafoura } from '../../common/utils/commentsHelper';
 
 const Share = props => {
     const {
@@ -35,20 +35,9 @@ const Share = props => {
 
     const { arcSite = 'la-nacion-ar' } = useAppContext() || {};
 
-    const newNoteAbortFetch = time => {
-        const differenceInMins = (new Date() - new Date(time)) / 60000;
-        return differenceInMins < 10;
-    };
-
-    const conditionallyCallSource =
-        shouldLoadViafoura(firstPublishDate) &&
-        !newNoteAbortFetch(firstPublishDate)
-            ? 'viafouraSource'
-            : null;
-
     const { totalVisibleContent = '' } =
         useContent({
-            source: conditionallyCallSource,
+            source: conditionallyCallViafoura(firstPublishDate),
             query: { arcSite, id, firstPublishDate }
         }) || {};
 
