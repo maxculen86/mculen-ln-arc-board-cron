@@ -1,6 +1,6 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-
 import NotaSnippet from '../../LN/nota/snippet/receta';
 import NoticiaSnippet from '../../LN/nota/snippet/noticia';
 import LiveblogSnippet from '../../LN/nota/snippet/liveblog';
@@ -23,8 +23,8 @@ const config = {
 };
 
 const snippetIndex = props => {
-    const { arcSite, layout, globalContent } = props;
-    const { subtype, type } = globalContent || {};
+    const { arcSite, layout, globalContent = {} } = props;
+    const { subtype, type } = globalContent;
 
     const sitio = config[arcSite];
     if (!sitio) return null;

@@ -13,9 +13,13 @@ export const checkIfValid = (name, children) => {
     const childrenWithoutHide = children.filter(
         child =>
             get(child, 'props.customFields.hideCaja', false) !== true &&
+            (get(child, 'props.customFields.hideByUrl', false) !== true ||
+                get(child, 'props.customFields.hideByHtml', false) !== true) &&
             get(child, 'props.customFields.hideFeature', false) !== true
     );
+
     const sectionRule = sectionsValidation[name] || {};
+
     // Validacion por cantidad
     if (
         compare(
