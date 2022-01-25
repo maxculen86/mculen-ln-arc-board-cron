@@ -618,9 +618,9 @@ describe('getDimsFromSiteService =>', () => {
 describe('changeSegmentAdUnit =>', () => {
     it('Deberia cambiar el nombre de slot si uno de los segmentos del adserver esta en el path', () => {
         const slotName = changeSegmentAdUnit(
-            'la_nacion_desktop/Nota/middle_1_dsk',
             'campo',
-            'desktop'
+            'desktop',
+            'la_nacion_desktop/Nota/middle_1_dsk'
         );
         expect(slotName).toEqual('campo_desktop/Nota/middle_1_dsk');
     });
@@ -886,24 +886,30 @@ describe('getBannerConfiguration =>', () => {
     it('Validar que el banner no se muestra si recibe por termicas, por section o por composer el valor', () => {
         expect(shouldShow(undefined, undefined, undefined)).toEqual(true);
         expect(
+            shouldShow(undefined, undefined, [
+                { key: 'banners', value: 'false' }
+            ])
+        ).toEqual(false);
+        expect(
+            shouldShow('true', undefined, [{ key: 'banners', value: 'true' }])
+        ).toEqual(false);
+        expect(
             shouldShow(
-                [{ key: 'banners', value: 'false' }],
-                undefined,
-                undefined
+                'false',
+                {
+                    mostrar_banners: { text: 'No' }
+                },
+                [{ key: 'banners', value: 'true' }]
             )
         ).toEqual(false);
         expect(
-            shouldShow([{ key: 'banners', value: 'true' }], 'true', undefined)
-        ).toEqual(false);
-        expect(
-            shouldShow([{ key: 'banners', value: 'true' }], 'false', {
-                mostrar_banners: { text: 'No' }
-            })
-        ).toEqual(false);
-        expect(
-            shouldShow([{ key: 'banners', value: 'true' }], 'false', {
-                mostrar_banners: { text: 'Si' }
-            })
+            shouldShow(
+                'false',
+                {
+                    mostrar_banners: { text: 'Si' }
+                },
+                [{ key: 'banners', value: 'true' }]
+            )
         ).toEqual(true);
 
         const banner = shallow(

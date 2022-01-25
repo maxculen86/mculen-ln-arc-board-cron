@@ -1,4 +1,4 @@
-const searchInTree = (sections = [], id) => {
+const searchInTree = (id, sections = []) => {
     for (const section of sections) {
         if (section._id === id) return section.site && section.site.site_url;
         if (section.children) {

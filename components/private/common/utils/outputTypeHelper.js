@@ -11,7 +11,7 @@ export const getTitle = (
     const title = _nodeType === 'home' ? longTitle : metaValue || defaultTitle;
     const query =
         host && requestUri
-            ? getQueryParamValue(`${host}${requestUri}`, 'query')
+            ? getQueryParamValue('query', `${host}${requestUri}`)
             : null;
 
     return layout === 'LN-buscador' && query ? `${query}: ${title}` : title;
@@ -32,7 +32,7 @@ export const getMetaDescriptionDefault = (
 ) => {
     const query =
         host && requestUri
-            ? getQueryParamValue(`${host}${requestUri}`, 'query')
+            ? getQueryParamValue('query', `${host}${requestUri}`)
             : null;
 
     if (_nodeType === 'acumulado') {

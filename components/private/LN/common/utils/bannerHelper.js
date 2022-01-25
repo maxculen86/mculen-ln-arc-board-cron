@@ -151,7 +151,7 @@ export const getBannerConfiguration = (
         !config ||
         !dfpId ||
         noValidate ||
-        !shouldShow(termicas, hideBanners, label)
+        !shouldShow(hideBanners, label, termicas)
     )
         return null;
 
@@ -176,9 +176,9 @@ export const getBannerConfiguration = (
         bannerConfiguration = {
             ...bannerConfiguration,
             slotName: changeSegmentAdUnit(
-                bannerConfiguration.slotName,
                 section,
-                slotId.includes('_amp') ? 'amp' : device
+                slotId.includes('_amp') ? 'amp' : device,
+                bannerConfiguration.slotName
             )
         };
     }
@@ -209,7 +209,7 @@ export const getBannerConfiguration = (
     return bannerConfiguration;
 };
 
-export const shouldShow = (termicas = [], hideBanners, label) => {
+export const shouldShow = (hideBanners, label, termicas = []) => {
     // Si la termica banner esta en false o si en la seccion esta tildado hideBanner o en composer tiene no mostrar, no se muestra
     const element = termicas.find(ter => ter.key === 'banners') || {
         value: 'true'
@@ -288,7 +288,7 @@ export const setCustomAdUnit = (slotName, unit) => {
     return slotName.replace(stringToReplace, unit);
 };
 
-export const changeSegmentAdUnit = (slotName = '', section, device) => {
+export const changeSegmentAdUnit = (section, device, slotName = '') => {
     const stringToReplace = slotName
         ? slotName
               .split('/')

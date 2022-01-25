@@ -7,7 +7,7 @@ export const ERRORS = {
     PROPS: 'Debe especificar props: location o name'
 };
 
-export default (globalContent = {}, components, settings = {}) => {
+export default (components, settings = {}, globalContent = {}) => {
     if (
         !components ||
         typeof components !== 'object' ||

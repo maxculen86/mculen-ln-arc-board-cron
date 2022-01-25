@@ -4,15 +4,15 @@ import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import filterEditoriales from '../../../../../content/filters/LN/acumulado/articleEditoriales';
 
 const getArticleInCollection = (
+    notesQuantity,
+    diagramation,
     idCollection = null,
     size = 2,
     initialPosition = 0,
     idsArticlesToExclude = [],
     filterRecomendar = false,
     filterRepetead = false,
-    notesQuantity,
     layout = '',
-    diagramation,
     website = 'la-nacion-ar'
 ) => {
     const articleList = idCollection

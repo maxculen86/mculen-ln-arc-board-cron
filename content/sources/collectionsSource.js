@@ -137,9 +137,9 @@ const filterArticlesInCollection = (siteProps, originalArticles) => {
 
     return filterRepetead
         ? getArticlesToShow(
+              notesQuantity,
               articlesNoFuture,
-              idsArticlesToExclude,
-              notesQuantity
+              idsArticlesToExclude
           )
         : articlesNoFuture;
 };

@@ -100,9 +100,9 @@ const masNotas = props => {
         'composer',
         excludeSectionId,
         'story',
+        shouldNotFilter,
         _website,
-        true,
-        shouldNotFilter
+        true
     );
 
     const articlesFiltered = articles

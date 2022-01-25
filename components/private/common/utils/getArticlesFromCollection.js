@@ -4,8 +4,8 @@ import filter from '../../../../content/filters/LN/acumulado/articleAcu';
 
 const getArticlesFromCollection = (
     id,
-    size = 2,
     imageConfig,
+    size = 2,
     website = 'la-nacion-ar'
 ) => {
     if (!id) return [];

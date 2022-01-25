@@ -32,7 +32,7 @@ const BannerLogoHeader = ({ section, isAdmin }) => {
                     slotGroup,
                     targeting: {
                         sitio: 'lanacion',
-                        adstest: getQueryParamValue(window.location, 'adstest')
+                        adstest: getQueryParamValue('adstest', window.location)
                     }
                 }
             ];
