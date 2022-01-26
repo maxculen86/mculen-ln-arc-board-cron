@@ -5,16 +5,12 @@ import getMetaDescription from './utils/getMetaDescription';
 const MetaDescription = ({
     subtype,
     description,
-    firstParagraphContentElements,
     metaTitleBasic,
     arcSite,
     nodeType,
-    name,
     subheadlines,
     _id,
-    payload,
     section,
-    defaultDescription,
     metaDescription
 }) => {
     if (arcSite !== 'la-nacion-ar') return <></>;
@@ -49,19 +45,21 @@ const MetaDescription = ({
                         subheadlines,
                         subtype
                     )}`) ||
-                defaultDescription
+                metaDescription
             }
         />
     );
 };
 
 MetaDescription.propTypes = {
-    subtype: PropTypes.string,
-    description: PropTypes.string,
-    firstParagraphContentElements: PropTypes.string,
+    metaDescription: PropTypes.string.isRequired,
+    section: PropTypes.string.isRequired,
+    arcSite: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
+    subtype: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
     metaTitleBasic: PropTypes.string.isRequired,
     nodeType: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
     subheadlines: PropTypes.object
 };
 

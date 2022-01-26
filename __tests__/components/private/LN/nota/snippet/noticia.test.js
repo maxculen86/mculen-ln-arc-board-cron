@@ -1,8 +1,7 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
+import { render, mount, shallow } from 'enzyme';
 import SnippetNoticia from '../../../../../../components/private/LN/nota/snippet/noticia';
 import article from '../../../../../../__mocks__/data/articles/YODTB72QWJCR7AAC3AHCCV46CM';
-import toJson from 'enzyme-to-json';
 
 jest.mock('fusion:environment', () => {
     return {
@@ -109,7 +108,6 @@ describe('Private - LN - nota - snippet - noticia ', () => {
             thumbnailUrl,
             image
         } = JSON.parse(data);
-
         expect(context).toBe('https://schema.org');
         expect(type).toBe('NewsArticle');
         expect(headline).toBe(title);

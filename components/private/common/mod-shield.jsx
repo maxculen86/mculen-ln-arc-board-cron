@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import ComShield from './com-shield';
 import ModheaderSection from './mod-headerSection';
 import '../../../resources/dist/css/ln/modules/mod-shields.css';

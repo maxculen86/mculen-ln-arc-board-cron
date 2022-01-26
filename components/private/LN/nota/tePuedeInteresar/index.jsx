@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
 import CajaTema from '../../common/cajaTema';
-import LnCLientWarning from '../../../common/utils/LN-logs/LN-client-warning';
 
 /**
  * Este componente se mantiene en clase debido a que se necesita hacer uso
@@ -24,10 +23,7 @@ class Index extends Component {
             outputType,
             url,
             idArticle,
-            arcSite,
-            type,
-            layout,
-            template
+            arcSite
         } = props;
 
         this.state = {
@@ -40,7 +36,7 @@ class Index extends Component {
             query: {
                 cantidadNotas,
                 referrer: url,
-                imageConfig: 'm',
+                imageConfig: 'boxArticles',
                 idArticle,
                 userId,
                 sessionId,
@@ -54,29 +50,6 @@ class Index extends Component {
             if (response && response.length) {
                 this.setState({ articles: response });
                 this.registerActivity('widget_shown', response);
-            }
-
-            if (!response.length) {
-                LnCLientWarning({
-                    message: 'Respuesta de Liftigniter llega sin notas',
-                    customsProps: {
-                        source: 'content/source/liftigniterSource',
-                        type,
-                        layout,
-                        template,
-                        query: {
-                            cantidadNotas,
-                            referrer: url,
-                            imageConfig: 'm',
-                            idArticle,
-                            userId,
-                            sessionId,
-                            excludeItems,
-                            arcSite,
-                            action: 'model'
-                        }
-                    }
-                });
             }
         });
 
@@ -99,10 +72,7 @@ class Index extends Component {
     handleClick = (event, nextUrl) => {
         const { articles } = this.state;
         event.preventDefault();
-        const fetched = this.registerActivity(
-            'widget_click',
-            articles.map(article => article.website_url)
-        );
+        const fetched = this.registerActivity('widget_click', articles);
         fetched.then(response => {
             if (typeof window === 'object') {
                 window.location.href = nextUrl;
@@ -129,7 +99,7 @@ class Index extends Component {
         }
     }
 
-    registerActivity(widgetType, articles) {
+    registerActivity(widgetType, articles = []) {
         const { sessionId, url, idArticle, arcSite } = this.props;
 
         const { fetched } = this.getContent({
@@ -150,6 +120,7 @@ class Index extends Component {
 
     render = () => {
         const { articles, outputType } = this.state;
+        const { dataLayerSection } = this.props;
 
         return (
             articles &&
@@ -157,7 +128,7 @@ class Index extends Component {
                 <div className="row interest" ref={this.myRef}>
                     <CajaTema
                         title="Te puede interesar"
-                        sectionName={this.props.dataLayerSection}
+                        sectionName={dataLayerSection}
                         articles={articles}
                         position="toi"
                         outputType={outputType}
@@ -184,7 +155,7 @@ Index.propTypes = {
 
 Index.defaultProps = {
     userId: null,
-    excludeItems: null,
+    excludeItems: [],
     idArticle: null,
     sessionId: null,
     arcSite: 'la-nacion-ar'

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import get from '../utils/get';
 import useViewportSize from '../hooks/useViewportSize';
-import hasAdsTestParam from '../../LN/common/utils/hasAdsTesParam';
+import getQueryParamValue from '../utils/getQueryParamValue';
 import {
     suffixDevice,
     queueGoogletagCommand
@@ -53,7 +53,7 @@ const LoadBannersSSR = ({ blocksBanners }) => {
     );
 
     useEffect(() => {
-        if (hasAdsTestParam() === 'true') {
+        if (getQueryParamValue('adstest', window.location) === 'true') {
             googletag.cmd.push(() => {
                 googletag.pubads().setTargeting('adstest', ['true']);
             });

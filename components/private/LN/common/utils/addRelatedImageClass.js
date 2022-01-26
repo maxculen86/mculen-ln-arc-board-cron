@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import filter from '../../../../../content/filters/LN/acumulado/promoItemsRelatedImage';
 import get from '../../../common/utils/get';

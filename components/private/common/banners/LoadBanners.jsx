@@ -6,7 +6,7 @@ import { useAppContext } from 'fusion:context';
 import get from '../utils/get';
 import useViewportSize from '../hooks/useViewportSize';
 import flatArray from '../utils/flatArray';
-import hasAdsTestParam from '../../LN/common/utils/hasAdsTesParam';
+import getQueryParamValue from '../utils/getQueryParamValue';
 import { isSubscribed } from '../../LN/common/utils/contextHelper';
 import {
     getBannerConfiguration,
@@ -44,7 +44,7 @@ const LoadBanners = ({ blocksBanners }) => {
             .filter(item => item !== null);
     });
     useEffect(() => {
-        if (hasAdsTestParam() === 'true') {
+        if (getQueryParamValue('adstest', window.location) === 'true') {
             googletag.cmd.push(() => {
                 googletag.pubads().setTargeting('adstest', ['true']);
             });
@@ -111,7 +111,10 @@ const LoadBanners = ({ blocksBanners }) => {
                             ),
                             targeting: {
                                 ...targeting,
-                                adstest: hasAdsTestParam()
+                                adstest: getQueryParamValue(
+                                    'adstest',
+                                    window.location
+                                )
                             },
                             slotGroup
                         })

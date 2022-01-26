@@ -1,6 +1,5 @@
 import get from 'lodash.get';
 import htmlText from '../../../../common/story/cuerpo/elements/htmlText';
-import Text from './text';
 import {
     validateValueText,
     validateArrayNull

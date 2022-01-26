@@ -47,12 +47,10 @@ const transform = (data, { sectionId }) => {
         };
     }
 
-    const resp = {
+    return {
         ...restProps,
         children: []
     };
-
-    return resp;
 };
 
 const getSections = (results, sectionId) => {

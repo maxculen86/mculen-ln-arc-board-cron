@@ -2,7 +2,7 @@
 @import '../abstracts/mixins';
 
 .mod-tooltip {
-    @include flex(flex);
+    display: flex;
     margin-bottom: $spacing-sm;
     padding: $spacing-xs;
     background: $neutral-white;

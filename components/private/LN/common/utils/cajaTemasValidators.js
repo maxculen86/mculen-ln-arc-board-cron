@@ -1,5 +1,4 @@
 /* eslint-disable no-underscore-dangle */
-import PropTypes from 'fusion:prop-types';
 import get from '../../../common/utils/get';
 
 export const validateFeature = (idCollection, articles, layout) => {

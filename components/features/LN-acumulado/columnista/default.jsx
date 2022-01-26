@@ -9,7 +9,7 @@ const Columnista = props => {
     const { id: Id } = customFields;
     const author = useContent({
         source: 'authorSource',
-        query: { _id: Id }
+        query: { _id: Id, imageConfig: 'columnistas' }
     });
     const { name, node_type: nodeType, image } = author || {
         image: { url: '' }

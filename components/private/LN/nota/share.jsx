@@ -18,6 +18,7 @@ import ComLine from '../../common/com-line';
 import AmpContainer from '../../common/ampContainer';
 import get from '../../common/utils/get';
 import Icon from '../../common/icon';
+import { conditionallyCallViafoura } from '../../common/utils/commentsHelper';
 
 const Share = props => {
     const {
@@ -27,15 +28,19 @@ const Share = props => {
         globalContent: {
             _id: id,
             headlines: { basic: title, mobile: mobileTitle },
-            comments: { display_comments: displayComments = true } = {}
+            comments: { display_comments: displayComments = true } = {},
+            first_publish_date: firstPublishDate
         }
     } = props;
-    const { comments } =
-        useContent({ source: 'viafouraSource', query: { id } }) || {};
-
-    const { total_visible_content: totalVisibleContent } = comments || '';
 
     const { arcSite = 'la-nacion-ar' } = useAppContext() || {};
+
+    const { totalVisibleContent = '' } =
+        useContent({
+            source: conditionallyCallViafoura(firstPublishDate),
+            query: { arcSite, id, firstPublishDate }
+        }) || {};
+
     const siteVars = getProperties(arcSite);
     const twiterTitle =
         mobileTitle !== '' && mobileTitle !== undefined ? mobileTitle : title;
