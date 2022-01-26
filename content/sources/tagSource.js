@@ -13,7 +13,8 @@ const resolve = key => {
 };
 
 const transform = (data, query) => {
-    const { uri, slug, meteringVariant } = query || {};
+    const { slug, meteringVariant } = query || {};
+    const uri = `/tema/${slug}/`;
 
     try {
         if (data.Payload && data.Payload.items && data.Payload.items[0]) {
