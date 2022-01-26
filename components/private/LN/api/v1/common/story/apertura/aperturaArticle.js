@@ -8,14 +8,25 @@ import {
 } from '../../author';
 import { getFeaturedTag } from '../../tag';
 
-const apertura = article => {
+export const storyTitleAndResume = article => {
     const {
-        headlines: { basic: titulo, mobile: tituloMobile },
-        subtype: template
+        headlines: { basic: titulo, mobile: tituloMobile }
     } = article;
     if (!titulo) {
         throw new Error('Titulo de la nota es null o undefined');
     }
+
+    const bajada = get(article, 'subheadlines.basic', null);
+    return {
+        titulo: titulo || tituloMobile,
+        tituloMobile,
+        bajada
+    };
+};
+
+const apertura = article => {
+    const { subtype: template } = article;
+
     let promoItem = get(article, 'promo_items.apertura_multimedia', null);
     let acuImage = null;
 
@@ -28,14 +39,11 @@ const apertura = article => {
     }
 
     const recetaPromoItem = get(article, 'promo_items.receta', null);
-    const bajada = get(article, 'subheadlines.basic', null);
     const authors = get(article, 'credits.by', null);
     const authorsFixed = authors && authors.filter(a => a.type === 'author');
 
     const resp = {
-        titulo: titulo || tituloMobile,
-        tituloMobile,
-        bajada
+        ...storyTitleAndResume(article)
     };
 
     if (acuImage) {
