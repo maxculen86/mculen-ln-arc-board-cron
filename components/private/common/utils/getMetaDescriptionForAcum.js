@@ -51,7 +51,7 @@ const getMetaDescriptionForAcum = (
         art => ` ${getTitleText(art.headlines)}`
     );
 
-    const descriptionWithOrWithoutArticles = description
+    const articlesWithOrWithoutdescription = description
         ? `${description}${articlesTitles.join(',')}`
         : articlesTitles;
 
@@ -59,7 +59,7 @@ const getMetaDescriptionForAcum = (
         layout === 'LN-acumulado-columnistas' ||
         _id.includes('/horoscopo')
         ? description
-        : descriptionWithOrWithoutArticles;
+        : articlesWithOrWithoutdescription;
 };
 
 export default getMetaDescriptionForAcum;
