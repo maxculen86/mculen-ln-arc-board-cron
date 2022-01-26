@@ -20,7 +20,12 @@ const ModNavigation = props => {
                 style={style}
             />
             <ComLinkList list={navigation} extraClass={EXTRA_CLASS} />
-            <ComButton id="right-arrow" iconName="arrow-right" style={style} />
+            <ComButton
+                id="right-arrow"
+                iconName="arrow-right"
+                style={style}
+                classCondition="hlp-none"
+            />
             <script
                 type="text/javascript"
                 dangerouslySetInnerHTML={{
@@ -30,8 +35,8 @@ const ModNavigation = props => {
                     const rightArrow = document.querySelector("#right-arrow");
                     const leftArrow = document.querySelector("#left-arrow");
                     const left = categories.scrollLeft + 160
-                    if (categories.scrollLeft + categories.offsetWidth >= categories.scrollWidth) {
-                        rightArrow.classList.add('hlp-none')
+                    if (categories.scrollLeft + categories.offsetWidth < categories.scrollWidth) {
+                        rightArrow.classList.remove('hlp-none')
                     }
                     document.querySelector("#right-arrow").addEventListener('click', () => {
                         categories.scrollTo({ left, behavior: 'smooth' })
