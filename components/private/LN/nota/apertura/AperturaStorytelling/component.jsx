@@ -9,6 +9,8 @@ import TitleAndIconArticle from '../titleAndIconArticle';
 import WithScreenUtils from '../../../../common/hocs/withScreenUtils';
 import WithStorytellingData from '../../../common/hocs/WithStorytellingData';
 
+import { FOTOAL100 } from '../../../../common/utils/subtypes/subtypeHelper';
+
 import '../../../../../../resources/dist/css/ln/modules/mod-opening.css';
 import get from '../../../../common/utils/get';
 
@@ -17,10 +19,13 @@ const Component = props => {
         storytellingData,
         outputType,
         screenUtils: { device },
-        globalContent: { headlines }
+        globalContent: { headlines, subtype }
     } = props;
+
     const isMobile = outputType === 'amp' || device !== 'desktop';
-    const [data, setData] = useState(isMobile ? storytellingData : {});
+    const [data, setData] = useState(
+        isMobile || subtype === FOTOAL100 ? storytellingData : {}
+    );
     const titleNote = get(headlines, 'basic', undefined);
 
     useEffect(() => {

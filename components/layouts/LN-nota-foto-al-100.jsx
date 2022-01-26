@@ -47,7 +47,13 @@ const lnNotaFotoAl100 = ({
                 <Header />
                 <main id="content">
                     {preTitulo}
-                    <AperturaStorytelling />
+                    {amp ? (
+                        <AperturaStorytelling />
+                    ) : (
+                        <Static id="aperturaFotoAl100">
+                            <AperturaStorytelling />
+                        </Static>
+                    )}
                     <div className="row">
                         {leftCuerpo}
                         {cuerpo}
