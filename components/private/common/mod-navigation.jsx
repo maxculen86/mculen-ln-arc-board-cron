@@ -34,19 +34,22 @@ const ModNavigation = props => {
                     const categories = document.querySelector(".com-unordered");
                     const rightArrow = document.querySelector("#right-arrow");
                     const leftArrow = document.querySelector("#left-arrow");
-                    const left = categories.scrollLeft + 160
                     if (categories.scrollLeft + categories.offsetWidth < categories.scrollWidth) {
                         rightArrow.classList.remove('hlp-none')
                     }
+                    console.log(categories.offsetWidth, categories.scrollWidth)
                     document.querySelector("#right-arrow").addEventListener('click', () => {
-                        categories.scrollTo({ left, behavior: 'smooth' })
+                        const scrollPixel = categories.scrollLeft + 150
+                        categories.scroll({ left: scrollPixel, behavior: 'smooth' })
+                        console.log(categories.offsetWidth, categories.scrollWidth)
                         if (categories.scrollLeft + categories.offsetWidth >= categories.scrollWidth) {
                             rightArrow.classList.add('hlp-none')
                         }
                         leftArrow.classList.remove('hlp-none')
                     })
                     document.querySelector("#left-arrow").addEventListener('click', () => {
-                        categories.scrollTo({ left: -160, behavior: 'smooth' })
+                        const scrollPixel = categories.scrollLeft - 150
+                        categories.scroll({ left: scrollPixel, behavior: 'smooth' })
                         if (categories.scrollLeft === 0) {
                             leftArrow.classList.add('hlp-none')
                         }
