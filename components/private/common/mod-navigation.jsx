@@ -37,11 +37,9 @@ const ModNavigation = props => {
                     if (categories.scrollLeft + categories.offsetWidth < categories.scrollWidth) {
                         rightArrow.classList.remove('hlp-none')
                     }
-                    console.log(categories.offsetWidth, categories.scrollWidth)
                     document.querySelector("#right-arrow").addEventListener('click', () => {
                         const scrollPixel = categories.scrollLeft + 150
                         categories.scroll({ left: scrollPixel, behavior: 'smooth' })
-                        console.log(categories.offsetWidth, categories.scrollWidth)
                         if (categories.scrollLeft + categories.offsetWidth >= categories.scrollWidth) {
                             rightArrow.classList.add('hlp-none')
                         }
