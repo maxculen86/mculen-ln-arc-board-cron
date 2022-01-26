@@ -53,7 +53,7 @@ const getMetaDescriptionForAcum = (
 
     const articlesWithOrWithoutDescription = description
         ? `${description}${articlesTitles.join(',')}`
-        : articlesTitles;
+        : articlesTitles.join(',');
 
     return _id === '/recetas' ||
         layout === 'LN-acumulado-columnistas' ||
