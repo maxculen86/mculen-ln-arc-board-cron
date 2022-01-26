@@ -1,4 +1,6 @@
 import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
+import getProperties from 'fusion:properties';
+import get from '../../components/private/common/utils/get';
 import { createResizer } from '../../components/private/common/utils/image/resizer';
 import filter from '../filters/LN/acumulado/author';
 import force404AMP from './utils/force404AMP';
@@ -14,7 +16,22 @@ const resolve = key => {
 };
 
 const transform = (data, query) => {
-    const { meteringVariant } = query || {};
+    const { meteringVariant, imageConfig = '' } = query || {};
+
+    const arcSite = query['arc-site'];
+    const properties = getProperties(arcSite);
+    const imagePreset = get(
+        properties,
+        `imageConfig.resize.${imageConfig}.credits.sizes`,
+        {
+            width: 280,
+            height: 280,
+            media: '(min-width: 320px)',
+            class: '',
+            type: 'image'
+        }
+    );
+
     const dataResp = {
         ...data,
         image: { url: data.image || '' },
@@ -33,13 +50,7 @@ const transform = (data, query) => {
                 data.image,
                 280,
                 280,
-                {
-                    width: 280,
-                    height: 280,
-                    media: '(min-width: 320px)',
-                    class: '',
-                    type: 'image'
-                }
+                imagePreset
             )
         },
         node_type: 'author'

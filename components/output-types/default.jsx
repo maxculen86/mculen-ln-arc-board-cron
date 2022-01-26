@@ -184,9 +184,9 @@ const Default = props => {
     )(renderables);
 
     const Scripts = ScriptManager(
-        globalContent,
         scripts,
-        siteProperties.scripts
+        siteProperties.scripts,
+        globalContent
     );
     const _nodeType = getSectionName({ nodeType, type });
 

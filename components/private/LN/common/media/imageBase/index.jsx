@@ -29,7 +29,7 @@ const ImageArticle = props => {
     const sourceActive = active ? sourcesZoom : sources;
 
     // TODO: ver este tema de source sets con maquetacion
-    const srcsetAMP = getSourceSet(sourceActive, isVertical, image);
+    const srcsetAMP = getSourceSet(isVertical, image, sourceActive);
 
     return (
         <ComPicture href={href} amp={outputType === 'amp'}>
