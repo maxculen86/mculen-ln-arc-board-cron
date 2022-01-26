@@ -2,7 +2,10 @@ import get from 'lodash.get';
 import Image from '../image';
 import Video from '../video';
 import AperturaReceta from './aperturaReceta';
-import Author from '../../author';
+import {
+    authorCommon as Author,
+    articleSignature as Signature
+} from '../../author';
 import { getFeaturedTag } from '../../tag';
 
 const apertura = article => {
@@ -26,8 +29,8 @@ const apertura = article => {
 
     const recetaPromoItem = get(article, 'promo_items.receta', null);
     const bajada = get(article, 'subheadlines.basic', null);
-    const autores = get(article, 'credits.by', null);
-    const autoresFixed = autores && autores.filter(a => a.type === 'author');
+    const authors = get(article, 'credits.by', null);
+    const authorsFixed = authors && authors.filter(a => a.type === 'author');
 
     const resp = {
         titulo: titulo || tituloMobile,
@@ -64,8 +67,10 @@ const apertura = article => {
         resp.receta = AperturaReceta(recetaPromoItem);
     }
 
-    if (autoresFixed && autoresFixed.length > 0) {
-        resp.autores = autoresFixed.map(a => Author(a));
+    if (authorsFixed && authorsFixed.length > 0) {
+        const articleAuthors = authorsFixed.map(a => Author(a));
+        resp.autores = articleAuthors;
+        resp.marquesina = Signature(articleAuthors);
     }
 
     const tagDestacado = getFeaturedTag(article);
