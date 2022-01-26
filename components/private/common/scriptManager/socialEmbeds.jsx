@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
@@ -61,13 +62,19 @@ const SocialEmbeds = props => {
     `;
 
     const processTwitterEmbeds = `
-        window.addEventListener("load", function(t) {
-            var e = document.querySelector(".cuerpo__nota").getElementsByTagName("script");
-            HTMLCollection.prototype.filter = Array.prototype.filter, e.filter(function(t) {
-                return "https://platform.twitter.com/widgets.js" === t.getAttribute("src")
-            }).forEach(function(t) {
-                return t.remove()
-            })
+        window.addEventListener('load', () => {
+            const twttr = window.twttr;
+            const WIDGET_URL = 'https://platform.twitter.com/widgets.js';
+            const scripts = document.querySelector(".cuerpo__nota").getElementsByTagName("script");
+            
+            const isTwitterUrl = e => WIDGET_URL === e.getAttribute('src');
+            const removeElements = e => e.remove();
+            
+            twttr.widgets.load();
+            
+            HTMLCollection.prototype.filter = 
+                Array.prototype.filter, 
+                scripts.filter(isTwitterUrl).forEach(removeElements)
         });
     `;
 
