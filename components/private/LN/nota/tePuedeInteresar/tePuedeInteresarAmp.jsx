@@ -21,7 +21,7 @@ const TePuedeInteresarAmp = props => {
         query: {
             cantidadNotas,
             referrer: url,
-            imageConfig: 'm',
+            imageConfig: 'boxArticles',
             idArticle,
             userId,
             sessionId,

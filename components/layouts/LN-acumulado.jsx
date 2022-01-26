@@ -6,12 +6,13 @@ import Static from 'fusion:static';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import GlobalProvider from '../private/common/context/globalContext';
-import AnexoFeature from '../features/LN-acumulado/anexoIframe';
+import AnexoDefault from '../features/LN-common/anexo/default';
 
 import '../../resources/dist/css/ln/pages/acumulado.css';
 
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
 import get from '../private/common/utils/get';
+import getConfigForAnexo from '../private/common/utils/getConfigForAnexo';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import { formatText } from '../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
@@ -62,27 +63,38 @@ const LNAcumuladoLayout = props => {
         isAdmin,
         renderables
     } = props;
+
     const { style, name = '', node_type: nodeType } = globalContent || {};
+
     const sectionStyleName =
         style && style.section_style_name ? style.section_style_name : '';
+
     const classRevista =
         revistas.indexOf(sectionStyleName || '') !== -1
             ? `${CLASS_ACU_REVISTA} ${sectionStyleName}`
             : '';
+
     const sectionClass = sections.find(sec => sec === formatText(name)) || '';
     const acumuladoGeneral = get(globalContent, 'acumuladoGeneral', {});
 
     const {
         anexosuperior: anexoSuperior = '',
-        anexoinferior: anexoInferior = ''
+        anexoinferior: anexoInferior = '',
+        collectionForTag = ''
     } = acumuladoGeneral;
 
+    const anexoSuperiorConfig = getConfigForAnexo(anexoSuperior);
+
+    const anexoInferiorConfig = getConfigForAnexo(anexoInferior);
+
     const acumuladoColor = get(globalContent, 'acumuladoColor', {});
+
     const {
         background_color: backgroundCategory,
         navigation_color_tags: colorTags,
         header_class_name: headerDark
     } = acumuladoColor;
+
     const amp = outputType === 'amp' ? 'amp' : '';
     const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
     // TODO: agregar todas las validaciones de acu color
@@ -96,11 +108,15 @@ const LNAcumuladoLayout = props => {
                 ren.collection === 'chains' && ren.type === 'Ln_Caja_Collection'
         );
 
-    const idCollectionApertura = get(
-        globalContent,
-        'acumuladoGeneral.id_collection_promo_items',
-        get(chainCollection, 'props.customFields.idCollection')
-    );
+    const idCollectionApertura =
+        nodeType === 'tags'
+            ? collectionForTag
+            : get(
+                  globalContent,
+                  'acumuladoGeneral.id_collection_promo_items',
+                  get(chainCollection, 'props.customFields.idCollection')
+              );
+
     const idCollectionsInPage = get(
         globalContent,
         'acumuladoGeneral.colecciones',
@@ -141,10 +157,14 @@ const LNAcumuladoLayout = props => {
                                 {/* TITULO/LOGO Y CATEGORIAS */}
                                 {breadcrumbTitulo}
                                 {/* ANEXO SUPERIOR */}
-                                {anexoSuperior !== '' ? (
-                                    <AnexoFeature
+                                {anexoSuperiorConfig.anexoUrl !== '' ? (
+                                    <AnexoDefault
                                         id="superior"
-                                        customFields={{ url: anexoSuperior }}
+                                        customFields={{
+                                            height:
+                                                anexoSuperiorConfig.anexoHeight,
+                                            url: anexoSuperiorConfig.anexoUrl
+                                        }}
                                     />
                                 ) : (
                                     <></>
@@ -161,10 +181,14 @@ const LNAcumuladoLayout = props => {
                             {/* Cuerpo */}
                             <div className="sidebar__main">
                                 {/* ANEXO INFERIOR */}
-                                {anexoInferior !== '' ? (
-                                    <AnexoFeature
+                                {anexoInferiorConfig.anexoUrl !== '' ? (
+                                    <AnexoDefault
                                         id="inferior"
-                                        customFields={{ url: anexoInferior }}
+                                        customFields={{
+                                            height:
+                                                anexoInferiorConfig.anexoHeight,
+                                            url: anexoInferiorConfig.anexoUrl
+                                        }}
                                     />
                                 ) : (
                                     <></>

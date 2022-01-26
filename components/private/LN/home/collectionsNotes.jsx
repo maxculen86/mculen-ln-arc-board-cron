@@ -20,7 +20,7 @@ const CollectionsNotes = (idCollection, type) => {
 
     if (content) {
         const { content_elements: contentElements } = content;
-        const elements = contentElements
+        return contentElements
             ? contentElements.map((_content, index) =>
                   getNoteCard(
                       `${idCollection}${index}`,
@@ -30,7 +30,6 @@ const CollectionsNotes = (idCollection, type) => {
                   )
               )
             : [];
-        return elements;
     }
     return null;
 };

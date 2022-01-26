@@ -44,7 +44,7 @@ const LoadBanners = ({ blocksBanners }) => {
             .filter(item => item !== null);
     });
     useEffect(() => {
-        if (getQueryParamValue(window.location, 'adstest') === 'true') {
+        if (getQueryParamValue('adstest', window.location) === 'true') {
             googletag.cmd.push(() => {
                 googletag.pubads().setTargeting('adstest', ['true']);
             });
@@ -112,8 +112,8 @@ const LoadBanners = ({ blocksBanners }) => {
                             targeting: {
                                 ...targeting,
                                 adstest: getQueryParamValue(
-                                    window.location,
-                                    'adstest'
+                                    'adstest',
+                                    window.location
                                 )
                             },
                             slotGroup

@@ -117,7 +117,7 @@ const getErrorMessage = ({
 const isInSection = ({ sectionName, id, renderables = [] }) => {
     const sectionPosition =
         get(sectionsValidation, `${sectionName}.position`, 1) + 1;
-    return getChildsFromSections(renderables, sectionPosition).some(
+    return getChildsFromSections(sectionPosition, renderables).some(
         el => get(el, 'props.id', '') === id
     );
 };

@@ -4,23 +4,7 @@ import cuerpo from './cuerpo/index';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
 
 const indexNota = dataNota => {
-    const trust = get(dataNota, 'label.trust.text', null);
-    let isTrust;
-    if (trust) {
-        isTrust = /nomostrartrust/.test(
-            trust
-                .toLowerCase()
-                .replace(/ /g, '')
-                .trim()
-        );
-    }
-
-    const resp = {
-        ...storyCommon(dataNota, cuerpo),
-        ...storyHeadline(dataNota, 'mobile'),
-        trust: !isTrust
-    };
-
+    const resp = indexNotaData(dataNota, cuerpo);
     let elmentsAdd = 1;
     const boxElements = [0, 4, 7, 9, 11];
     if (resp.contenido) {

@@ -1,6 +1,6 @@
 import getFirstParagraph from './getFirstParagraph';
 
-const truncate = (text = '', maxChar) => {
+const truncate = (maxChar, text = '') => {
     return text.length > maxChar ? `${text.substr(0, maxChar - 1)}...` : text;
 };
 
@@ -9,7 +9,7 @@ const getBajadaOrFirstTextParagraph = data => {
         data || {};
     const firstParagraph = getFirstParagraph(contentElements) || '';
 
-    return subheadlines.basic || truncate(firstParagraph, 160);
+    return subheadlines.basic || truncate(160, firstParagraph);
 };
 
 export default getBajadaOrFirstTextParagraph;

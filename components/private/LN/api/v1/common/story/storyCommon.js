@@ -67,6 +67,17 @@ export const storyCommon = (dataNota, cuerpo) => {
 
     const distributor = get(dataNota, 'distributor', null);
 
+    const trust = get(dataNota, 'label.trust.text', null);
+    let isTrust;
+    if (trust) {
+        isTrust = /nomostrartrust/.test(
+            trust
+                .toLowerCase()
+                .replace(/ /g, '')
+                .trim()
+        );
+    }
+
     const allowComments = get(dataNota, 'comments.allow_comments', null);
 
     const resp = {
@@ -82,7 +93,8 @@ export const storyCommon = (dataNota, cuerpo) => {
         categoria: primarySection && getPrincipalCategory(primarySection),
         relacionados: Relacionados(dataNota),
         enviarApps,
-        modificadorTemplate: ModificadorTemplate(distributor)
+        modificadorTemplate: ModificadorTemplate(distributor),
+        trust: !isTrust
     };
 
     if (dataNota.subtype === '9') resp.HTML = cuerpo(dataNota);

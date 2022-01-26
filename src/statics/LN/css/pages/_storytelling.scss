@@ -6,15 +6,9 @@
         padding-top: 0;
         .mod-opening {
             @include OpeningFull;
-
-            .com-logo.com-logo {
-                color: $neutral-white;
-            }
         }
         .mod-sponsor {
-            .com-texto,
-            .com-logo,
-            .com-logo::after {
+            .com-texto {
                 color: $neutral-white;
             }
         }

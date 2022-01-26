@@ -16,7 +16,7 @@ const LNHome = ({ children }) => {
     let cajanum = 0;
 
     children.map(element => {
-        const itemBoxes = element.map(elem => {
+        return element.map(elem => {
             if (elem && elem.diagramacion_caja) {
                 cajanum += 1;
                 posnum = 0;
@@ -38,8 +38,6 @@ const LNHome = ({ children }) => {
             }
             return elem;
         });
-
-        return itemBoxes;
     });
 
     listItems.push({

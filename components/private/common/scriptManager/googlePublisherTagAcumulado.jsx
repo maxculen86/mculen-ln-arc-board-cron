@@ -29,13 +29,11 @@ const getCategories = (name, parent, ancestors) => {
         });
 
     // eslint-disable-next-line no-nested-ternary
-    const categories = ancestorsCategorys
+    return ancestorsCategorys
         ? actualCategory.concat(ancestorsCategorys)
         : parentCategory
         ? actualCategory.concat(parentCategory)
         : actualCategory;
-
-    return categories;
 };
 
 const getTopic = content =>

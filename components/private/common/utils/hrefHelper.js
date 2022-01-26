@@ -38,8 +38,6 @@ function createCorrectHref(href, arcSite, contextPath = '') {
         .join('/')
         .replace(RE_REMOVE_SLASH, '');
 
-    const finalUrl = `/${url}${isOriginURL ? `?_website=${arcSite}` : ''}`;
-
-    return finalUrl;
+    return `/${url}${isOriginURL ? `?_website=${arcSite}` : ''}`;
 }
 export default { createCorrectHref };

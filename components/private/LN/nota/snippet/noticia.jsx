@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
@@ -82,7 +83,7 @@ const extractDataFromPromoItems = (promoItems, PLACEHOLDER) => {
 const publishingPrinciples =
     'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/';
 
-const getTrustProject = trust => data => sponsored => {
+export const getTrustProject = trust => data => sponsored => {
     if (!trust && !sponsored) return { ...data };
     if (sponsored)
         return {
@@ -142,16 +143,16 @@ const SnippetNoticia = props => {
     const {
         siteProperties,
         globalContent: {
-            canonical_url,
+            canonical_url = '',
             type,
             headlines,
-            content_elements: contentElements,
-            taxonomy: { primary_section: primarySection, tags },
+            content_elements: contentElements = '',
+            taxonomy: { primary_section: primarySection = {}, tags },
             credits: { by },
             distributor = { name: 'LA NACION' },
-            created_date: createdDate,
-            first_publish_date: firstPublishDate,
-            display_date: displayDate,
+            created_date: createdDate = '',
+            first_publish_date: firstPublishDate = '',
+            display_date: displayDate = '',
             content_restrictions: { content_code: contentCode } = {},
             label,
             owner: { sponsored },
@@ -171,7 +172,7 @@ const SnippetNoticia = props => {
         'placeholderLN-1080.jpg'
     );
 
-    const { path, name } = primarySection || {};
+    const { path, name } = primarySection;
 
     const distributorAuthor = {
         '@type': 'Organization',
@@ -191,15 +192,13 @@ const SnippetNoticia = props => {
         '@context': urlShema,
         '@type': 'NewsArticle',
         headline: headlines && `${headlines.basic || 'LA NACION - Noticia'}`,
-        articleBody: getFirstParagraph(contentElements) || '',
-        url: `${siteProperties.host}${canonical_url || ''}`,
-        dateCreated: `${new Date(createdDate).toUTCString() || ''}`,
-        datePublished: `${new Date(firstPublishDate).toUTCString() || ''}`,
-        dateModified: `${new Date(displayDate).toUTCString() || ''}`,
-        mainEntityOfPage: `${addForwardSlash(
-            `${siteProperties.host}${path || ''}`
-        )}`,
-        articleSection: `${name || ''}`,
+        articleBody: getFirstParagraph(contentElements),
+        url: `${siteProperties.host}${canonical_url}`,
+        dateCreated: `${new Date(createdDate).toUTCString()}`,
+        datePublished: `${new Date(firstPublishDate).toUTCString()}`,
+        dateModified: `${new Date(displayDate).toUTCString()}`,
+        mainEntityOfPage: `${addForwardSlash(`${siteProperties.host}${path}`)}`,
+        articleSection: `${name}`,
         isAccessibleForFree: `${contentCode === 'abierta'}`,
         hasPart: {
             '@type': 'WebPageElement',

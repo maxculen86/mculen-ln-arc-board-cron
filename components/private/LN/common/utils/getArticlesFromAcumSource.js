@@ -9,9 +9,9 @@ const getArticlesFromAcumSource = (
     sourceOrigin,
     excludeSectionId,
     type,
+    shouldNotFilter,
     website = 'la-nacion-ar',
-    promoItemsOnly = false,
-    shouldNotFilter
+    promoItemsOnly = false
 ) => {
     const { sectionId, tagId, authorId, distributorId, sectionsIds, subtype } =
         typesOfQuery || {};

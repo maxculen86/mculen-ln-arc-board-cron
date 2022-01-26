@@ -219,8 +219,10 @@ const reMeHandler = (res, token, xvalue, dispatch) => {
         case '0002':
             /**
                  * TODO: manejo de Logger
-                 Logger.Error("ReMe | Token inválido ", JSON.stringify(res)); //{ 'response' : res ,  'tokens': { 'X-Token': Cookie.LeerCookie("token") || '', 'X-Value': Cookie.LeerCookie("xvalue") || '' }});
-                 */
+                 Logger.Error("ReMe | Token inválido ", JSON.stringify(res)); 
+                 //{ 'response' : res ,  'tokens': { 'X-Token': Cookie.LeerCookie("token") 
+                 || '', 'X-Value': Cookie.LeerCookie("xvalue") || '' }});
+            */
             goToLogout(dispatch);
             break;
         default:
@@ -243,7 +245,7 @@ export const loginSetup = dispatch => {
                 const newXvalue = getTokenBodyHelper(res.response, 2);
                 if (res.code === '0000') {
                     apiIngresar
-                        .getMe(true, newToken, newXvalue)
+                        .getMe(newToken, newXvalue, true)
                         .then(userData => {
                             setUserData(userData, dispatch);
                             reMeHandler(
