@@ -1,9 +1,12 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import Static from 'fusion:static';
 import Title from '../../private/LN/acumulado/acumuladoTitle';
 import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
 
 const TitleFeature = props => {
+    const { id } = props;
     const { acumuladoColor, acumuladoGeneral } = useGlobalProviderAcu();
     const {
         hidesectionslist = 'false',
@@ -13,20 +16,23 @@ const TitleFeature = props => {
         acumuladoColor || {};
 
     return (
-        <Title
-            hideCategories={hidesectionslist}
-            hierarchyManual={hierarchyManual}
-            colorCategory={navigationColor}
-            colorTags={navigationColor}
-            idLogoImage={idLogoImage}
-            {...props}
-        />
+        <Static id={id} htmlOnly persistent>
+            <Title
+                hideCategories={hidesectionslist}
+                hierarchyManual={hierarchyManual}
+                colorCategory={navigationColor}
+                colorTags={navigationColor}
+                idLogoImage={idLogoImage}
+                {...props}
+            />
+        </Static>
     );
 };
 
 TitleFeature.label = 'LN-Acumulado-Titulo';
 
 TitleFeature.propTypes = {
+    id: PropTypes.string.isRequired,
     customFields: PropTypes.shape({
         prefixTitle: PropTypes.string.tag({ label: 'Prefijo del titulo' }),
         replaceTitle: PropTypes.string.tag({

@@ -46,7 +46,9 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
             const objArticle = new storyText.default(props);
 
             const result = objArticle.render();
-            expect(Object.keys(result).sort()).toEqual(['contenido'].sort());
+            expect(Object.keys(result).sort()).toEqual(
+                ['bajada', 'contenido', 'titulo', 'tituloMobile'].sort()
+            );
             expect(result.contenido).toMatch(
                 /(Lorem ipsum dolor sit amet consectetur adipiscing elit nostra sapien sociosqu|Esto es otro párrafo.\n\n)/i
             );

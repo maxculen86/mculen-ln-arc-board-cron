@@ -1,7 +1,7 @@
 /* eslint-disable eqeqeq */
 import get from 'lodash.get';
 import Image from '../image';
-import { authorHomeMobile } from '../author';
+import { authorHomeMobile, articleSignature } from '../author';
 
 const getArticleImage = article => {
     const imagedefault =
@@ -46,28 +46,6 @@ const getArticleOpinionSubtype = article => {
     return get(article, 'additionalProperties.subtype', null);
 };
 
-const getArticleSignature = (article, authors) => {
-    const signature = get(article, 'additionalProperties.authors', null);
-    let authorsValue = [];
-    if (authors) {
-        const lastAuthor = authors[authors.length - 1];
-        authorsValue = `${authors.length > 0 ? 'Por' : ''} ${authors
-            .map(author => {
-                let resp = '';
-                if (lastAuthor == author && authors.length !== 1) {
-                    if (author.valor[0].toUpperCase() == 'I') resp = ' e ';
-                    else resp = ' y ';
-                } else if (author == authors[0]) resp = '';
-                else resp = ' ';
-
-                return resp + author.valor;
-            })
-            .toString()
-            .replace(/\,(?=[^,][ey])/, '')}`;
-    }
-    return signature || authorsValue;
-};
-
 export const articleItem = article => {
     const { subtype: templateId, website_url: url, label } = article;
 
@@ -82,7 +60,7 @@ export const articleItem = article => {
     }
     const autores = getArticleAuthor(article);
     const autor = autores ? autores[0] : null;
-
+    const signature = get(article, 'additionalProperties.authors', null);
     return {
         id,
         templateId: Number.isInteger(templateId)
@@ -98,7 +76,7 @@ export const articleItem = article => {
         chapita: getArticleTag(article),
         autor,
         autores,
-        marquesina: getArticleSignature(article, autores),
+        marquesina: articleSignature(autores, signature),
         seccionPadre: getArticleOpinionSubtype(article),
         imagen: getArticleImage(article),
         opinion: get(article, 'additionalProperties.opinion', false)
@@ -107,7 +85,9 @@ export const articleItem = article => {
 
 export const anexoItem = article => {
     const html = get(article[0], 'html', '');
-    if (html) return [{ html }];
+    if (!html) return null;
+
+    return [{ html }];
 };
 
 export const anexoItemMobile = article => {
