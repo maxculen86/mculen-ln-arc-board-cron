@@ -130,7 +130,6 @@ const LNAcumuladoLayout = props => {
     )
         ? '--opening'
         : '';
-
     return (
         <GlobalProvider>
             <GlobalProviderAcu
