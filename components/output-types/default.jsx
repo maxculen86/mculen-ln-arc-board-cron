@@ -27,13 +27,11 @@ import MetaTitle from '../private/common/metaTitle';
 import MetaDescription from '../private/common/metaDescription';
 import MetaSectionParsely from '../private/common/metaSectionParsely';
 import MetasFBNews from '../private/common/metaTags/metasFBNews';
-import getFirstParagraph from '../private/common/utils/getFirstParagraph';
 import getSectionName from '../private/LN/common/utils/getSectionName';
 import Syndication from '../private/common/syndication';
 import LinkAmpHTML from '../private/common/linkAmpHTML';
 import { pipe } from '../private/common/utils/functional';
 import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
-import getMetaDescriptionForAcum from '../private/common/utils/getMetaDescriptionForAcum';
 import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 import addForwardSlash from '../private/LN/common/utils/addForwardSlash';
 import AmazonPublisherServices from '../private/common/scriptManager/amazonPublisherServices';
@@ -42,7 +40,10 @@ import CriticalCss from '../private/common/criticalcss';
 import MetaViafoura from '../private/common/metaViafoura';
 import Favicon from '../private/common/favicon';
 import ComscoreVideo from '../private/common/scriptManager/comscoreVideo';
-import getQueryParamValue from '../private/common/utils/getQueryParamValue';
+import {
+    getTitle,
+    getMetaDescriptionDefault
+} from '../private/common/utils/outputTypeHelper';
 
 const scriptList = [
     {
@@ -135,7 +136,6 @@ const Default = props => {
 
     const {
         canonical_url: canonicalUrl,
-        content_elements: contentElements,
         headlines,
         description,
         type,
@@ -149,7 +149,6 @@ const Default = props => {
         _id,
         taxonomy
     } = globalContent || {};
-
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
     const { basic: descriptionBasic } = description || {};
     const { name: distributorName } = distributor || {};
@@ -190,27 +189,28 @@ const Default = props => {
         siteProperties.scripts
     );
     const _nodeType = getSectionName({ nodeType, type });
-    const metaDescription =
-        _nodeType === 'acumulado'
-            ? getMetaDescriptionForAcum(
-                  metaValue('description'),
-                  _id,
-                  Payload,
-                  nodeType,
-                  name,
-                  arcSite,
-                  layout
-              )
-            : '';
-    const title =
-        _nodeType === 'home'
-            ? siteProperties.longTitle
-            : metaValue('title') || siteProperties.title;
 
-    const query = getQueryParamValue(`${host}${requestUri}`, 'query');
-    const descriptionForSearcher = `Resultados de búsqueda para las últimas noticias de ${query} en LA NACION.  Noticias de Argentina y el mundo`;
-    const metaDescriptionDefault =
-        layout === 'LN-buscador' ? descriptionForSearcher : defaultDescription;
+    const title = getTitle(
+        _nodeType,
+        metaValue('title'),
+        layout,
+        requestUri,
+        siteProperties
+    );
+
+    const metaDescription = getMetaDescriptionDefault(
+        metaValue('description'),
+        layout,
+        defaultDescription,
+        host,
+        requestUri,
+        _nodeType,
+        _id,
+        Payload,
+        nodeType,
+        name,
+        arcSite
+    );
 
     const LinkImagePreload = () =>
         getDataToLinkImage(globalContent, _nodeType, renderables, arcSite).map(
@@ -236,9 +236,7 @@ const Default = props => {
                     content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
                 <meta name="theme-color" content="#ffffff" />
-                <title>
-                    {layout === 'LN-buscador' ? `${query}: ${title}` : title}
-                </title>
+                <title>{title}</title>
                 <Libs />
                 <CriticalCss />
                 {arcSite === 'ott' ? (
@@ -317,18 +315,12 @@ const Default = props => {
                 <MetaDescription
                     subtype={subtype}
                     nodeType={nodeType}
-                    name={name || title}
                     _id={_id}
-                    payload={Payload}
                     description={descriptionBasic}
                     metaTitleBasic={metaTitleBasic}
                     subheadlines={subheadlines && subheadlines.basic}
-                    firstParagraphContentElements={
-                        getFirstParagraph(contentElements) || ''
-                    }
                     arcSite={arcSite}
                     section={_nodeType}
-                    defaultDescription={metaDescriptionDefault}
                     metaDescription={metaDescription}
                 />
                 <MetaViafoura {...props} />

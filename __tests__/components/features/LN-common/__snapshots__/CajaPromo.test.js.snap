@@ -28,15 +28,11 @@ exports[`Private - Feature - CajaAnticipo => with a valid response Snapshot Caja
         title="La información más completa del mercado inmobiliario minuto a minuto."
       >
         <div>
-          <ComLogo
+          <com-logo
             color={true}
             logoName="propiedades"
             size="--md"
-          >
-            <i
-              className="com-logo logo-propiedades --color --md"
-            />
-          </ComLogo>
+          />
           <p
             className="com-text --twoxs"
           >

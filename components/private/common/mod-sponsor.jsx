@@ -8,6 +8,7 @@ import ComLink from './com-link';
 import '../../../resources/dist/css/ln/modules/mod-sponsor.css';
 import ComContainer from './com-container';
 import ModTooltip from './mod-tooltip';
+import { dictionaryAlt } from './utils/sectionUtils';
 
 const ModSponsor = props => {
     const { type, sponsor, textName, link, tooltip = {} } = props;
@@ -16,7 +17,11 @@ const ModSponsor = props => {
         <div className={`mod-sponsor ${type} ${sponsor}`}>
             {sponsor && (
                 <ComLink link={link}>
-                    <ComLogo color="true" logoName={sponsor} size="--sm" />
+                    <ComLogo
+                        logoName={sponsor}
+                        size="--sm"
+                        alt={dictionaryAlt[sponsor]}
+                    />
                 </ComLink>
             )}
 

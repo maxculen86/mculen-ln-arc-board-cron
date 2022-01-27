@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
 import { useAppContext } from 'fusion:context';
-import TePuedeInteresar from '../../../private/LN/nota/tePuedeInteresar';
+import TePuedeInteresarAmp from '../../../private/LN/nota/tePuedeInteresar/tePuedeInteresarAmp';
 import findTermica from '../../../private/common/utils/findTermica';
 import config from '../../../../properties/sites/la-nacion-ar';
 
@@ -25,8 +25,8 @@ const tePuedeInteresar = props => {
     const { _id } = globalContent || {};
 
     return (
-        <Static id={id}>
-            <TePuedeInteresar
+        <Static id={id} htmlOnly persistent>
+            <TePuedeInteresarAmp
                 cantidadNotas={cantidadNotas}
                 excludeItems={[url]}
                 outputType={outputType}
