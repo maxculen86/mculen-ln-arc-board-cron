@@ -31,21 +31,20 @@ const TePuedeInteresarAmp = props => {
         }
     });
 
-    return (
-        articles &&
-        articles.length > 0 && (
-            <div className="row interest">
-                <CajaTema
-                    title="Te puede interesar"
-                    sectionName={dataLayerSection}
-                    articles={articles}
-                    position="toi"
-                    outputType={outputType}
-                    handleClick={null}
-                    withVolanta
-                />
-            </div>
-        )
+    return articles && articles.length ? (
+        <div className="row interest">
+            <CajaTema
+                title="Te puede interesar"
+                sectionName={dataLayerSection}
+                articles={articles}
+                position="toi"
+                outputType={outputType}
+                handleClick={null}
+                withVolanta
+            />
+        </div>
+    ) : (
+        <></>
     );
 };
 
