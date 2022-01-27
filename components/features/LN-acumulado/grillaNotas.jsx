@@ -139,6 +139,7 @@ function GrillaNotasFeature(props) {
 }
 
 GrillaNotasFeature.label = 'LN-Acumulado-Grilla-Notas';
+
 GrillaNotasFeature.propTypes = {
     customFields: PropTypes.shape({
         ...buildCustomFieldsForBanners()

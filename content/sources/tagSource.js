@@ -76,7 +76,7 @@ const transform = (data, query, tagConfigData) => {
         anexosuperiortag: anexoSuperiorTag = '',
         anexoinferiortag: anexoInferiorTag = '',
         collectiontag: collectionTag = ''
-    } = tagConfigGroup;
+    } = tagConfigGroup || {};
 
     const acumuladoGeneral = {
         anexosuperior: getDataForTag(anexoSuperiorTag, slug),
