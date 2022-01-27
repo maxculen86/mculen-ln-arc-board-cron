@@ -63,18 +63,19 @@ const SocialEmbeds = props => {
 
     const processTwitterEmbeds = `
         window.addEventListener('load', () => {
-            const twttr = window.twttr;
             const WIDGET_URL = 'https://platform.twitter.com/widgets.js';
-            const scripts = document.querySelector(".cuerpo__nota").getElementsByTagName("script");
+            const twttr = window.twttr || {};
+            const cuerpoNota = document.querySelector(".cuerpo__nota"); 
+            const scripts = cuerpoNota.getElementsByTagName("script");
             
             const isTwitterUrl = e => WIDGET_URL === e.getAttribute('src');
             const removeElements = e => e.remove();
             
-            twttr.widgets.load();
-            
             HTMLCollection.prototype.filter = 
                 Array.prototype.filter, 
                 scripts.filter(isTwitterUrl).forEach(removeElements)
+
+            twttr.widgets && twttr.widgets.load();
         });
     `;
 
