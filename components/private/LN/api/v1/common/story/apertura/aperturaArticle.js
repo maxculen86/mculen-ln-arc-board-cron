@@ -2,34 +2,55 @@ import get from 'lodash.get';
 import Image from '../image';
 import Video from '../video';
 import AperturaReceta from './aperturaReceta';
-import Author from '../../author';
+import {
+    authorCommon as Author,
+    articleSignature as Signature
+} from '../../author';
 import { getFeaturedTag } from '../../tag';
 
-const apertura = article => {
+export const storyTitleAndResume = article => {
     const {
-        headlines: { basic: titulo, mobile: tituloMobile },
-        subtype: template
+        headlines: { basic: titulo, mobile: tituloMobile }
     } = article;
     if (!titulo) {
         throw new Error('Titulo de la nota es null o undefined');
     }
-    let promoItem = get(article, 'promo_items.apertura_multimedia', null);
-    promoItem =
-        promoItem == null ? get(article, 'promo_items.basic', null) : promoItem;
 
-    if (template === '4' || template === '8')
-        promoItem = get(article, 'promo_items.storytelling_mobile', null);
-
-    const recetaPromoItem = get(article, 'promo_items.receta', null);
     const bajada = get(article, 'subheadlines.basic', null);
-    const autores = get(article, 'credits.by', null);
-    const autoresFixed = autores && autores.filter(a => a.type === 'author');
-
-    const resp = {
+    return {
         titulo: titulo || tituloMobile,
         tituloMobile,
         bajada
     };
+};
+
+const apertura = article => {
+    const { subtype: template } = article;
+
+    let promoItem = get(article, 'promo_items.apertura_multimedia', null);
+    let acuImage = null;
+
+    promoItem =
+        promoItem == null ? get(article, 'promo_items.basic', null) : promoItem;
+
+    if (template === '4' || template === '8') {
+        promoItem = get(article, 'promo_items.storytelling_mobile', null);
+        acuImage = get(article, 'promo_items.basic', null);
+    }
+
+    const recetaPromoItem = get(article, 'promo_items.receta', null);
+    const authors = get(article, 'credits.by', null);
+    const authorsFixed = authors && authors.filter(a => a.type === 'author');
+
+    const resp = {
+        ...storyTitleAndResume(article)
+    };
+
+    if (acuImage) {
+        const images = [];
+        images.push(Image(acuImage));
+        resp.imagenesAcumulado = images;
+    }
 
     if (promoItem) {
         // eslint-disable-next-line default-case
@@ -54,8 +75,10 @@ const apertura = article => {
         resp.receta = AperturaReceta(recetaPromoItem);
     }
 
-    if (autoresFixed && autoresFixed.length > 0) {
-        resp.autores = autoresFixed.map(a => Author(a));
+    if (authorsFixed && authorsFixed.length > 0) {
+        const articleAuthors = authorsFixed.map(a => Author(a));
+        resp.autores = articleAuthors;
+        resp.marquesina = Signature(articleAuthors);
     }
 
     const tagDestacado = getFeaturedTag(article);

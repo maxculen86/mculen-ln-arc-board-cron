@@ -16,7 +16,7 @@ const getAuthorData = author => {
     };
 };
 
-const authorCommon = author => {
+export const authorCommon = author => {
     const authorData = getAuthorData(author);
     const image = getImageUrl(
         get(author, 'additional_properties.original.image', null)
@@ -62,4 +62,23 @@ export const authorHomeMobile = author => {
     };
 };
 
-export default authorCommon;
+export const articleSignature = (authors, signature = null) => {
+    let authorsValue = [];
+    if (authors && !signature) {
+        const lastAuthor = authors[authors.length - 1];
+        authorsValue = `${authors.length > 0 ? 'Por' : ''} ${authors
+            .map(author => {
+                let resp = '';
+                if (lastAuthor == author && authors.length !== 1) {
+                    if (author.valor[0].toUpperCase() == 'I') resp = ' e ';
+                    else resp = ' y ';
+                } else if (author == authors[0]) resp = '';
+                else resp = ' ';
+
+                return resp + author.valor;
+            })
+            .toString()
+            .replace(/\,(?=[^,][ey])/, '')}`;
+    }
+    return signature || authorsValue;
+};
