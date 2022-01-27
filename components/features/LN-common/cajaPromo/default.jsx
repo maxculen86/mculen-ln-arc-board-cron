@@ -5,7 +5,15 @@ import { groupCustomFields } from '../../../private/common/utils/propTypesHelper
 
 const CajaPromo = ({ customFields }) => {
     const { text, link, logoName } = customFields;
-    return <ModPromo text={text} link={link} logoName={logoName} />;
+    return (
+        <ModPromo
+            text={text}
+            link={link}
+            logoName={logoName}
+            logoSize="--xs"
+            isStatic={false}
+        />
+    );
 };
 
 CajaPromo.label = 'LN Caja Promo';
