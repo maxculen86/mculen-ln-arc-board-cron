@@ -31,8 +31,6 @@ const LogoBaseContainer = ({
 
     const sponsor = !color ? `${logoName}${'-blanco'}` : logoName;
 
-    if (!logoName) return null;
-
     if (sponsored) {
         return (
             <ModSponsor
@@ -44,6 +42,8 @@ const LogoBaseContainer = ({
             />
         );
     }
+
+    if (!logoName) return null;
 
     return (
         <ComLogo
