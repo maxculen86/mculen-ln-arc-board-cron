@@ -11,11 +11,11 @@ import ModTooltip from './mod-tooltip';
 import { dictionaryAlt } from './utils/sectionUtils';
 
 const ModSponsor = props => {
-    const { type, sponsor, textName, link, tooltip = {} } = props;
+    const { type, sponsor, textName, link, logoName, tooltip = {} } = props;
 
     return (
         <div className={`mod-sponsor ${type} ${sponsor}`}>
-            {sponsor && (
+            {logoName && (
                 <ComLink link={link}>
                     <ComLogo
                         logoName={sponsor}
@@ -62,7 +62,8 @@ ModSponsor.propTypes = {
     tooltip: PropTypes.shape({
         text: PropTypes.string,
         label: PropTypes.string
-    })
+    }),
+    logoName: PropTypes.string
 };
 
 ModSponsor.defaultProps = {
@@ -70,7 +71,8 @@ ModSponsor.defaultProps = {
     sponsor: undefined,
     tooltip: undefined,
     textName: undefined,
-    link: undefined
+    link: undefined,
+    logoName: undefined
 };
 
 export default ModSponsor;

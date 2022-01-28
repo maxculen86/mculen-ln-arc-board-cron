@@ -26,7 +26,8 @@ describe('ModSponsor', () => {
             type: '',
             sponsor: 'jardin',
             textName: null,
-            link: '/revista-jardin'
+            link: '/revista-jardin',
+            logoName: 'jardin'
         };
         const component = render(<ModSponsor {...props} />);
         expect(component).toMatchSnapshot();
@@ -37,7 +38,8 @@ describe('ModSponsor', () => {
             type: '',
             sponsor: 'jardin',
             textName: '',
-            link: '/revista-jardin'
+            link: '/revista-jardin',
+            logoName: 'jardin'
         };
         const component = mount(<ModSponsor {...props} />);
         expect(component.find('com-logo')).toHaveLength(1);
