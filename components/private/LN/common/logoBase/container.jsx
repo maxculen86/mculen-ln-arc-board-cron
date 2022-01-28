@@ -29,7 +29,7 @@ const LogoBaseContainer = ({
         ? dictionaryAlt[logoName]
         : logoName;
 
-    const sponsor = !color ? `${logoName}${'-blanco'}` : logoName;
+    const sponsor = color && logoName ? `${logoName}${'-blanco'}` : logoName;
 
     if (sponsored) {
         return (
@@ -42,8 +42,6 @@ const LogoBaseContainer = ({
             />
         );
     }
-
-    if (!logoName) return null;
 
     return (
         <ComLogo
