@@ -247,17 +247,23 @@ const transformContent = (jsonArticle, arcSite, urlQuery) => {
     if (resp && resp.related_content && resp.related_content.basic) {
         resp.related_content.basic.forEach((element, i) => {
             if (element.type === 'reference') {
-                const referentImage = get(element, 'referent.type', '');
+                const referentType = get(element, 'referent.type', '');
+                console.log(
+                    '🚀 ~ file: articleSourceNota.js ~ line 251 ~ resp.related_content.basic.forEach ~ referentType',
+                    referentType
+                );
 
-                referentImage === 'image'
-                    ? (resp.related_content.basic[i] = element)
-                    : promiseArr.push(
-                          addFollowAnotherNoteData(element, arcSite, i).then(
-                              newContent => {
-                                  resp.related_content.basic[i] = newContent;
-                              }
-                          )
-                      );
+                referentType === 'image' &&
+                    (resp.related_content.basic[i] = element);
+
+                referentType === 'story' &&
+                    promiseArr.push(
+                        addFollowAnotherNoteData(element, arcSite, i).then(
+                            newContent => {
+                                resp.related_content.basic[i] = newContent;
+                            }
+                        )
+                    );
             }
         });
     }
@@ -349,6 +355,15 @@ const addFollowAnotherNoteData = (anotherNoteData, arcSite, i) => {
         })
         .catch(e => {
             // console.log('TCL: addFollowAnotherNoteData -> e', e);
+            logger.push(
+                e,
+                {
+                    source:
+                        'content/source/articleSourceNota/addFollowAnotherNoteData',
+                    url: id
+                },
+                arcSite
+            );
         });
 };
 
