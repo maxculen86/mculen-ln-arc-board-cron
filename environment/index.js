@@ -13,7 +13,7 @@ export default {
     COOKIE_EXPIRATION: '8640000000',
     DOMINIO_COOKIE: '.lanacion.com.ar',
     RANKING_URL:
-        'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/arcio/ans/most-read/',
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygEvVtWN/N+5GpAPlrm4TREvAAAA9DCB8QYJKoZIhvcNAQcGoIHjMIHgAgEAMIHaBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDNmt+JpSIOcOFmOzZAIBEICBrLsDCDh1UoBoXtAJWTqpeiqOMFJj821gGFwtbNsuqAshpm/UcBJaF6fGBv1XoDsTRDdayM6pJTVBml+vnRZRaXM361RMuG5PkRHXH0m2p0hxkNyg/QYtTBMfJahKdYuNfCXtj1n+WPQA/YZ+QReY2c8ZZ0ADJ8SxLjTpUboaQtZgjDQ+j5rf+XWg7mVPb9wqzmueNMQa7RHUWNXMBg6Pxz+2NPUo+ZmLjrUfuKE=}', //NOSONAR
     OPTA_WIDGET_URL: 'https://arc-widgets.lanacion.com.ar/opta-embed',
     LANACIONAR_URLASSETS:
         'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com',
@@ -41,5 +41,6 @@ export default {
     VIAFOURA_UUID: '00000000-0000-4000-8000-5611d514abb3',
     VIAFOURA_XREQUEST:
         'QA+b2NU5+pJLVNVOQ2ahGn3bZOAcJKVKVey+ZreIMqYHg2ei2uOcbiKxU4TAsg4X',
-    ARC_WIDGETS: 'https://arc-widgets.lanacion.com.ar/widgets/'
+    ARC_WIDGETS: 'https://arc-widgets.lanacion.com.ar/widgets/',
+    LANACION_SERVICES_URL: 'https://arcservices.lanacion.com.ar'
 };
