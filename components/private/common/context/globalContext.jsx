@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { LOGIN_URL } from 'fusion:environment';
@@ -5,6 +6,7 @@ import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
 import { loginSetup } from '../../LN/common/utils/loginHelper';
 import startPWASetup from '../../LN/common/utils/register';
+import setContextDatadog from '../utils/setContextDatadog';
 
 export const GlobalContext = React.createContext();
 
@@ -143,6 +145,7 @@ const GlobalProvider = ({ children }) => {
             loading: true
         }
     });
+    setContextDatadog();
 
     useEffect(() => {
         loginSetup(dispatch);

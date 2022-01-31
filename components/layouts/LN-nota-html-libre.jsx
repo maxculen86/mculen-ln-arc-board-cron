@@ -16,7 +16,6 @@ const lnNotaNoticia = ({
     isAdmin
 }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
-
     return (
         <GlobalProvider>
             {/* Banner Megatop */}
