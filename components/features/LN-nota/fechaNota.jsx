@@ -1,16 +1,20 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import Static from 'fusion:static';
-
+import StaticValidation from '../../private/common/staticValidation';
 import AuthorAndDate from '../../private/LN/nota/author/authorAndDate';
 
 const dateNota = props => {
     const { id: featureId } = props;
     return (
-        <Static id={featureId}>
+        <StaticValidation id={featureId}>
             <AuthorAndDate {...props} date />
-        </Static>
+        </StaticValidation>
     );
+};
+
+dateNota.propTypes = {
+    id: PropTypes.string.isRequired
 };
 
 dateNota.label = 'LN-Nota-FechaNota';

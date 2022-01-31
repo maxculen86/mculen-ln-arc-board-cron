@@ -1,8 +1,8 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import Consumer from 'fusion:consumer';
-import Static from 'fusion:static';
 import PropTypes from 'fusion:prop-types';
+import StaticValidation from '../../private/common/staticValidation';
 import SeguirLeyendo from '../../private/LN/nota/seguirLeyendo';
 import get from '../../private/common/utils/get';
 import HeaderSection from '../../private/common/mod-headerSection';
@@ -17,7 +17,7 @@ const seguirLeyendo = ({ globalContent }) => {
     if (relatedContent.every(con => con && con.type !== 'story')) return null;
 
     return (
-        <Static id="LN-Nota-SeguirLeyendo">
+        <StaticValidation id="LN-Nota-SeguirLeyendo">
             <div className="row">
                 <div className="col-12">
                     <section
@@ -31,7 +31,7 @@ const seguirLeyendo = ({ globalContent }) => {
                     </section>
                 </div>
             </div>
-        </Static>
+        </StaticValidation>
     );
 };
 

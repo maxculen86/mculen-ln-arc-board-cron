@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import Static from 'fusion:static';
+import StaticValidation from '../private/common/staticValidation';
 import GlobalProvider from '../private/common/context/globalContext';
 import Header from '../private/LN/common/header';
-import NewFooter from '../private/LN/common/footer';
+import Footer from '../private/LN/common/footer';
 
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import PwaModals from '../private/LN/common/pwaModals';
@@ -80,9 +80,9 @@ const LNNotaReceta = ({ outputType, children }) => {
                         </div>
                     </div>
                 </main>
-                <Static id="StaticFooter">
-                    <NewFooter />
-                </Static>
+                <StaticValidation id="StaticFooter">
+                    <Footer />
+                </StaticValidation>
             </div>
             <LoadBannersSSR />
             <PwaModals />

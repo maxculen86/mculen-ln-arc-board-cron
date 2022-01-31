@@ -2,8 +2,8 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import Static from 'fusion:static';
 import getProperties from 'fusion:properties';
+import StaticValidation from '../../private/common/staticValidation';
 import getArticlesFromAcumSource from '../../private/LN/common/utils/getArticlesFromAcumSource';
 import filter from '../../../content/filters/LN/acumulado/articleMasNotas';
 import addForwardSlash from '../../private/LN/common/utils/addForwardSlash';
@@ -110,7 +110,7 @@ const masNotas = props => {
         .slice(0, Number(size.originalSize));
 
     return (
-        <Static id={featureId}>
+        <StaticValidation id={featureId}>
             <CajaTema
                 title={title}
                 notesQuantity={size.originalSize}
@@ -124,7 +124,7 @@ const masNotas = props => {
                 outputType={outputType}
                 withVolanta
             />
-        </Static>
+        </StaticValidation>
     );
 };
 

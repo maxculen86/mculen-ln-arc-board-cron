@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Static from 'fusion:static';
+import StaticValidation from '../staticValidation';
 import Header from '../../LN/common/header';
 import Footer from '../../LN/common/footer';
 
@@ -63,9 +63,9 @@ const NotaMain = ({ children }) => {
                     </div>
                 </div>
             </main>
-            <Static id="StaticFooter">
+            <StaticValidation id="StaticFooter">
                 <Footer />
-            </Static>
+            </StaticValidation>
         </>
     );
 };

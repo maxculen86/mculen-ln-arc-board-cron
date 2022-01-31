@@ -6,9 +6,9 @@
 import React from 'react';
 import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
-import Static from 'fusion:static';
 import get from 'lodash.get';
 import { SITE_LANACION } from 'fusion:environment';
+import StaticValidation from '../../private/common/staticValidation';
 
 import ModAutor from '../../private/common/mod-autor';
 import ComPartner from '../../private/common/com-partner';
@@ -133,7 +133,7 @@ const FirmaFeature = props => {
     }
 
     return (
-        <Static id={featureId} htmlOnly persistent>
+        <StaticValidation id={featureId} htmlOnly persistent>
             <div className="row FirmaAutor">
                 <div className="col-12">
                     <ModAutor
@@ -145,7 +145,7 @@ const FirmaFeature = props => {
                     />
                 </div>
             </div>
-        </Static>
+        </StaticValidation>
     );
 };
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ARC_STATIC } from 'fusion:environment';
+import { useAppContext } from 'fusion:context';
+import StaticValidation from './staticValidation';
 
 import ComLink from './com-link';
 import Image from './com-image';
-import Static from 'fusion:static';
-import { ARC_STATIC } from 'fusion:environment';
-import { useAppContext } from 'fusion:context';
 import { mapperLogos } from './logos/mapperLogos';
 
 import '../../../resources/dist/css/ln/components/com-logo.css';
@@ -41,7 +41,7 @@ const ComLogo = props => {
     if (!logoName) return null;
 
     const Logo = (
-        <Static id={assets || `logo-${logoName}`} htmlOnly>
+        <StaticValidation id={assets || `logo-${logoName}`} htmlOnly>
             <Image
                 classCondition={classes}
                 width={width}
@@ -51,7 +51,7 @@ const ComLogo = props => {
                 amp={amp}
                 svg
             />
-        </Static>
+        </StaticValidation>
     );
     const Link = (
         <ComLink link={href} title={title} rel={rel} target={target}>

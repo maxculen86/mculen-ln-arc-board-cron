@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import Static from 'fusion:static';
+import StaticValidation from '../private/common/staticValidation';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import ComTitle from '../private/common/com-title';
@@ -32,9 +32,9 @@ const lnBuscador = ({ children }) => {
                         {children[0]}
                     </div>
                 </main>
-                <Static id="StaticFooter">
+                <StaticValidation id="StaticFooter">
                     <Footer />
-                </Static>
+                </StaticValidation>
             </div>
             <PwaModals />
         </GlobalProvider>

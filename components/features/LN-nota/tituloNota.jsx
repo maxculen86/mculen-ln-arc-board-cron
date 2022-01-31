@@ -1,15 +1,22 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import withStatic from '../../private/common/hocs/withStatic';
-
+import StaticValidation from '../../private/common/staticValidation';
 import TituloNota from '../../private/LN/nota/apertura/titleAndIconArticle';
 
-const tituloNota = props => <TituloNota {...props} />;
+const tituloNota = props => {
+    const { id: featureId = 'StaticTitle' } = props;
+    return (
+        <StaticValidation id={featureId}>
+            <TituloNota {...props} />
+        </StaticValidation>
+    );
+};
 
 tituloNota.label = 'LN-Nota-Titulo';
 
 tituloNota.propTypes = {
+    id: PropTypes.string.isRequired,
     customFields: PropTypes.shape({
         prefix: PropTypes.string.tag({
             label: 'Prefijo',
@@ -18,4 +25,4 @@ tituloNota.propTypes = {
     }).isRequired
 };
 
-export default withStatic(Consumer(tituloNota));
+export default Consumer(tituloNota);

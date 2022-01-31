@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
+import StaticValidation from '../../private/common/staticValidation';
 import Header from '../../private/LN/common/header';
 import Footer from '../../private/LN/common/footer';
 import Text from '../../private/common/text';
@@ -56,9 +57,9 @@ const LNAcumuladoColumnistasLayout = props => {
                         </section>
                     </div>
                 </main>
-                <Static id="StaticFooter">
+                <StaticValidation id="StaticFooter">
                     <Footer />
-                </Static>
+                </StaticValidation>
             </div>
             <LoadBannersSSR />
             <PwaModals />
