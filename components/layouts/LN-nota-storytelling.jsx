@@ -17,11 +17,11 @@ const lnNotaStorytelling = ({
     outputType,
     tree,
     isAdmin,
+    layout,
     globalContent: {
         taxonomy: { sections },
         distributor: { name }
-    },
-    layout
+    }
 }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
     const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
