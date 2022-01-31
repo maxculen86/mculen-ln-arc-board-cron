@@ -28,7 +28,7 @@ const HoroscopeItem = ({
             <Link
                 href={
                     nombre === 'Horóscopo Chino'
-                        ? 'https://www.lanacion.com.ar/horoscopo-chino-2021/'
+                        ? 'https://www.lanacion.com.ar/horoscopo/horoscopo-chino-2022/'
                         : `${baseUrl}/horoscopo/${quitarTildes(nombre)}/`
                 }
                 title={`Ir al detalle de ${nombre}`}
