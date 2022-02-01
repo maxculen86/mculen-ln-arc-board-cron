@@ -8,7 +8,7 @@ import AperturaRecetaComponent from '../../private/LN/nota/apertura/AperturaRece
 const aperturaReceta = props => {
     const { id: featureId } = props;
     return (
-        <StaticValidation id={featureId}>
+        <StaticValidation id={featureId} htmlOnly persistent>
             <AperturaRecetaComponent {...props} />
         </StaticValidation>
     );

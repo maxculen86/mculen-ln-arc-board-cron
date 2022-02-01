@@ -18,7 +18,7 @@ const bajadaNota = props => {
     } = props;
 
     return (
-        <StaticValidation id={featureId}>
+        <StaticValidation id={featureId} htmlOnly persistent>
             <BajadaNota {...props} />
             {contentCode === 'cerrada' && (
                 <BadgeUsertype dark={VIDEO === subtype} />

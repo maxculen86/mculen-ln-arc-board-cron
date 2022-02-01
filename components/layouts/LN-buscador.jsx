@@ -32,7 +32,7 @@ const lnBuscador = ({ children }) => {
                         {children[0]}
                     </div>
                 </main>
-                <StaticValidation id="StaticFooter">
+                <StaticValidation id="StaticFooter" htmlOnly persistent>
                     <Footer />
                 </StaticValidation>
             </div>

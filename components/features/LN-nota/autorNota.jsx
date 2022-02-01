@@ -8,7 +8,7 @@ import AuthorAndDate from '../../private/LN/nota/author/authorAndDate';
 const authorNota = props => {
     const { id: featureId } = props;
     return (
-        <StaticValidation id={featureId}>
+        <StaticValidation id={featureId} htmlOnly persistent>
             <AuthorAndDate {...props} author />
         </StaticValidation>
     );

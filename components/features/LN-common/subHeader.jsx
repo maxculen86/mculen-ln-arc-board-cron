@@ -14,7 +14,6 @@ const SubHeader = () => {
     );
 };
 
-SubHeader.static = true;
 SubHeader.label = 'LN Subheader Home';
 
 export default SubHeader;

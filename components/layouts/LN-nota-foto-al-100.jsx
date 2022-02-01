@@ -47,7 +47,11 @@ const lnNotaFotoAl100 = ({
                 <Header />
                 <main id="content">
                     {preTitulo}
-                    <StaticValidation id="aperturaFotoAl100">
+                    <StaticValidation
+                        id="aperturaFotoAl100"
+                        htmlOnly
+                        persistent
+                    >
                         <AperturaStorytelling />
                     </StaticValidation>
                     <div className="row">
@@ -70,7 +74,7 @@ const lnNotaFotoAl100 = ({
                         </div>
                     </div>
                 </main>
-                <StaticValidation id="StaticFooter">
+                <StaticValidation id="StaticFooter" htmlOnly persistent>
                     <Footer />
                 </StaticValidation>
             </div>

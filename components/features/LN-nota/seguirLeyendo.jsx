@@ -17,7 +17,7 @@ const seguirLeyendo = ({ globalContent }) => {
     if (relatedContent.every(con => con && con.type !== 'story')) return null;
 
     return (
-        <StaticValidation id="LN-Nota-SeguirLeyendo">
+        <StaticValidation id="LN-Nota-SeguirLeyendo" htmlOnly persistent>
             <div className="row">
                 <div className="col-12">
                     <section

@@ -128,7 +128,7 @@ const LNHome = props => {
                             </div>
                         </div>
                     </main>
-                    <StaticValidation id="StaticFooter">
+                    <StaticValidation id="StaticFooter" htmlOnly persistent>
                         <Footer />
                     </StaticValidation>
                 </div>

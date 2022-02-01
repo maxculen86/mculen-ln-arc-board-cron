@@ -41,7 +41,7 @@ const ComLogo = props => {
     if (!logoName) return null;
 
     const Logo = (
-        <StaticValidation id={assets || `logo-${logoName}`} htmlOnly>
+        <StaticValidation id={assets || `logo-${logoName}`} htmlOnly persistent>
             <Image
                 classCondition={classes}
                 width={width}

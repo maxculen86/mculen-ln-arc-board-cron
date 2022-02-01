@@ -79,7 +79,7 @@ const LNNotaReceta = ({ outputType, children }) => {
                         </div>
                     </div>
                 </main>
-                <StaticValidation id="StaticFooter">
+                <StaticValidation id="StaticFooter" htmlOnly persistent>
                     <Footer />
                 </StaticValidation>
             </div>

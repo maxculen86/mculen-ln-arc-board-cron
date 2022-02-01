@@ -7,7 +7,7 @@ import TituloNota from '../../private/LN/nota/apertura/titleAndIconArticle';
 const tituloNota = props => {
     const { id: featureId = 'StaticTitle' } = props;
     return (
-        <StaticValidation id={featureId}>
+        <StaticValidation id={featureId} htmlOnly persistent>
             <TituloNota {...props} />
         </StaticValidation>
     );

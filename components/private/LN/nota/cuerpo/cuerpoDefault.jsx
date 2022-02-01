@@ -193,7 +193,11 @@ const Cuerpo = props => {
 
                                     return (
                                         elementsCount > counter && (
-                                            <StaticValidation id={slotId}>
+                                            <StaticValidation
+                                                id={slotId}
+                                                htmlOnly
+                                                persistent
+                                            >
                                                 {outputType === 'amp' &&
                                                 slotId.includes('_amp') ? (
                                                     <DivBannerAMP

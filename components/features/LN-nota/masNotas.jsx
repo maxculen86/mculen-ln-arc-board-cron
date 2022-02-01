@@ -110,7 +110,7 @@ const masNotas = props => {
         .slice(0, Number(size.originalSize));
 
     return (
-        <StaticValidation id={featureId}>
+        <StaticValidation id={featureId} htmlOnly persistent>
             <CajaTema
                 title={title}
                 notesQuantity={size.originalSize}

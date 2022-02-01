@@ -142,7 +142,7 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                         <div className="hijo3 parrafos"></div>
                     </div>
                 </main>
-                <StaticValidation id="StaticFooter">
+                <StaticValidation id="StaticFooter" htmlOnly persistent>
                     <Footer />
                 </StaticValidation>
             </div>

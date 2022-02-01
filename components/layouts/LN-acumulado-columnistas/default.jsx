@@ -57,7 +57,7 @@ const LNAcumuladoColumnistasLayout = props => {
                         </section>
                     </div>
                 </main>
-                <StaticValidation id="StaticFooter">
+                <StaticValidation id="StaticFooter" htmlOnly persistent>
                     <Footer />
                 </StaticValidation>
             </div>

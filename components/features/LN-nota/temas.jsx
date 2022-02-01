@@ -14,7 +14,7 @@ const temas = props => {
     const { tags, sections } = taxonomy || {};
 
     return (
-        <StaticValidation id={featureId}>
+        <StaticValidation id={featureId} htmlOnly persistent>
             <Temas tags={tags} sections={sections} destacado temas />
         </StaticValidation>
     );

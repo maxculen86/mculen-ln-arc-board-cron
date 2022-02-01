@@ -7,7 +7,7 @@ import StaticValidation from '../../private/common/staticValidation';
 const breadCrumbArticle = props => {
     const { id: featureId } = props;
     return (
-        <StaticValidation id={featureId}>
+        <StaticValidation id={featureId} htmlOnly persistent>
             <BreadCrumbArticle {...props} />
         </StaticValidation>
     );

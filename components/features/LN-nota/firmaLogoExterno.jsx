@@ -32,14 +32,21 @@ const FirmaLogoExterno = props => {
                 <ComPartner size="--twoxs">{name}</ComPartner>
             </ComLink>
         );
-    if (name === 'LA NACION' && by.length > 0) content = <></>;
+    if (
+        (subtype === RECETA && by.length > 0) ||
+        (name === 'LA NACION' && by.length > 0)
+    )
+        return <></>;
     if (subtype === RECETA && by.length === 0)
         content = <ComPartner size="--xs">Por LA NACION recetas</ComPartner>;
-    if (subtype === RECETA && by.length > 0) content = <></>;
     if (subtype === HTMLLIBRE)
         content = <ComPartner size="--xs">{name}</ComPartner>;
 
-    return <StaticValidation id={featureId}>{content}</StaticValidation>;
+    return (
+        <StaticValidation id={featureId} htmlOnly persistent>
+            {content}
+        </StaticValidation>
+    );
 };
 
 FirmaLogoExterno.propTypes = {

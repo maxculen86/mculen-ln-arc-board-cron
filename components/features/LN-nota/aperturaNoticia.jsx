@@ -65,7 +65,7 @@ const aperturaNoticia = props => {
 
     return (
         ((isVideo || subtype === INFOGRAFIA) && Component) || (
-            <StaticValidation id={idFeature} persistent>
+            <StaticValidation id={idFeature} htmlOnly persistent>
                 {Component}
             </StaticValidation>
         )

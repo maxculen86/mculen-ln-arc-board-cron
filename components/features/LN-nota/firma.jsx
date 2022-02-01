@@ -120,31 +120,38 @@ const FirmaFeature = props => {
             ? compose(constructProps, filterByAuthor)(by)
             : compose(constructProps)(contentElements);
 
-    const nameFormated = formatDistributorName(name);
-
-    if (withFirmaDistributor) {
-        return name === 'LA NACION' ? (
-            <ComPartner size="--xs">{name}</ComPartner>
+    const firmaDistributorHtml = nombre =>
+        nombre === 'LA NACION' ? (
+            <ComPartner size="--xs">{nombre}</ComPartner>
         ) : (
-            <ComLink link={`${SITE_LANACION}/distributor/${nameFormated}/`}>
-                <ComPartner size="--twoxs">{name}</ComPartner>
+            <ComLink
+                link={`${SITE_LANACION}/distributor/${formatDistributorName(
+                    nombre
+                )}/`}
+            >
+                <ComPartner size="--twoxs">{nombre}</ComPartner>
             </ComLink>
         );
-    }
+
+    const content = withFirmaDistributor ? (
+        firmaDistributorHtml(name)
+    ) : (
+        <div className="row FirmaAutor">
+            <div className="col-12">
+                <ModAutor
+                    autor={authors}
+                    foto={photo}
+                    classCondition="--autor"
+                    medio={medio}
+                    amp={outputType === 'amp'}
+                />
+            </div>
+        </div>
+    );
 
     return (
         <StaticValidation id={featureId} htmlOnly persistent>
-            <div className="row FirmaAutor">
-                <div className="col-12">
-                    <ModAutor
-                        autor={authors}
-                        foto={photo}
-                        classCondition="--autor"
-                        medio={medio}
-                        amp={outputType === 'amp'}
-                    />
-                </div>
-            </div>
+            {content}
         </StaticValidation>
     );
 };
