@@ -12,9 +12,10 @@ exports[`Private - Feature - CajaAnticipo => with a valid response Snapshot Caja
 >
   <ModPromo
     classCondition={null}
+    isStatic={false}
     link="https://www.lanacion.com.ar/"
     logoName="propiedades"
-    logoSize={null}
+    logoSize="--xs"
     tag={null}
     text="La información más completa del mercado inmobiliario minuto a minuto."
     textButton={null}
@@ -30,8 +31,9 @@ exports[`Private - Feature - CajaAnticipo => with a valid response Snapshot Caja
         <div>
           <com-logo
             color={true}
+            isStatic={false}
             logoName="propiedades"
-            size="--md"
+            size="--xs"
           />
           <p
             className="com-text --twoxs"

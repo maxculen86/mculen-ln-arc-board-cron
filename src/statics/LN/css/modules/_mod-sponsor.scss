@@ -26,7 +26,8 @@
             margin: 0 px(8);
         }
     }
-    &.null > .com-text:before {
+    &.null > .com-text:before,
+    &.null-blanco > .com-text:before {
         display: none;
     }
     &.ohlala {

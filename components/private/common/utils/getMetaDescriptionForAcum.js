@@ -51,11 +51,15 @@ const getMetaDescriptionForAcum = (
         art => ` ${getTitleText(art.headlines)}`
     );
 
+    const articlesWithOrWithoutDescription = description
+        ? `${description}${articlesTitles.join(',')}`
+        : articlesTitles.join(',');
+
     return _id === '/recetas' ||
         layout === 'LN-acumulado-columnistas' ||
         _id.includes('/horoscopo')
         ? description
-        : `${description}${articlesTitles.join(',')}`;
+        : articlesWithOrWithoutDescription;
 };
 
 export default getMetaDescriptionForAcum;
