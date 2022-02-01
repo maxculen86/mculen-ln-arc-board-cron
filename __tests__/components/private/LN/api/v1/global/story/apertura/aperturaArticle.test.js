@@ -13,8 +13,9 @@ describe('Test de JSON de apertura en article', () => {
             ArticleApertura[0].headlines.mobile
         );
 
-        const respTitulo = Apertura(ArticleApertura[1]);
-        expect(respTitulo.titulo).toBe(ArticleApertura[1].headlines.basic);
+        const resp = Apertura(ArticleApertura[1]);
+        expect(resp.titulo).toBe(ArticleApertura[1].headlines.basic);
+        expect(resp.marquesina).toBe('Por Max Fisher');
     });
 
     it('Render de atributos de apertura Titulo Nulo', () => {

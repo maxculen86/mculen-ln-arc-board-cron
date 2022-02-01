@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
@@ -20,23 +20,12 @@ const layoutItemsColumnistas = [
  * TODO: Consultar con daro para integrar un solo acumulado
  */
 const LNAcumuladoColumnistasLayout = props => {
-    const { children, globalContent } = props;
-    const [headerDark, setHeaderDark] = useState('');
-
-    useEffect(() => {
-        const { style } = globalContent;
-
-        setHeaderDark(
-            style && style.headerdark && style.headerdark === 'true'
-                ? ' --dark'
-                : ''
-        );
-    }, [globalContent]);
+    const { children } = props;
 
     return (
         <GlobalProvider>
             <div id="wrapper" className="acumulado columnistas">
-                <Header headerDark={headerDark} />
+                <Header />
                 <main id="content">
                     {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
                     {children[0]}
@@ -46,12 +35,18 @@ const LNAcumuladoColumnistasLayout = props => {
                             <div className="row">
                                 <div className="col-12">
                                     {children[1]}
-                                    <Text
-                                        tag="h1"
-                                        size="--l"
-                                        extraClass="com-title"
-                                        text="Todos los columnistas"
-                                    />
+                                    <Static
+                                        id="columnistas-layout"
+                                        htmlOnly
+                                        persistent
+                                    >
+                                        <Text
+                                            tag="h1"
+                                            size="--l"
+                                            extraClass="com-title"
+                                            text="Todos los columnistas"
+                                        />
+                                    </Static>
                                 </div>
                             </div>
                         }

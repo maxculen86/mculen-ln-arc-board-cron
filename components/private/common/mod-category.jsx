@@ -41,7 +41,6 @@ const ModCategory = props => {
                     </a>
                 </h1>
             )}
-
             <ModNavigation
                 navigation={navigation}
                 classCondition="--category"

@@ -6,11 +6,9 @@ const epigrafeAndCreditsData = data => {
         credits && credits.by !== undefined
             ? credits.by.map(credito => {
                   const creditName = credito.name !== '' ? credito.name : '';
-                  const totalCredits =
-                      credito.type === 'author'
-                          ? creditName
-                          : credito.referent.id;
-                  return totalCredits;
+                  return credito.type === 'author'
+                      ? creditName
+                      : credito.referent.id;
               })
             : null;
     const cred = (creditos && creditos.filter(el => el !== '')) || [];
@@ -21,8 +19,7 @@ const epigrafeAndCreditsData = data => {
             : '';
     const fuente =
         iptcSource !== undefined && iptcSource !== '' ? iptcSource : '';
-    const fuenteCredito = `${cred || ''}${semicolon}${fuente}`;
-    return fuenteCredito;
+    return `${cred || ''}${semicolon}${fuente}`;
 };
 
 export default epigrafeAndCreditsData;

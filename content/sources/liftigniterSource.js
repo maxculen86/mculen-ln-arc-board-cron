@@ -18,7 +18,7 @@ import { addResizedUrls } from '../../components/private/common/utils/image/resi
 import getPresets from './utils/presets';
 import ArticleSourceNotas from './acuArticlesSourcebyIds';
 
-const transformArticles = (liftigniterArticles = [], cantidadNotas) =>
+const transformArticles = (cantidadNotas, liftigniterArticles = []) =>
     liftigniterArticles &&
     liftigniterArticles.slice(0, cantidadNotas).map(elem => {
         const { url, id, title, titleShort = '', leadText = '', image } = elem;
@@ -272,7 +272,7 @@ const resolveData = query => {
             resolve: response => {
                 const { items } = JSON.parse(response);
                 return transform(
-                    transformArticles(items, cantidadNotas),
+                    transformArticles(cantidadNotas, items),
                     query
                 );
             },

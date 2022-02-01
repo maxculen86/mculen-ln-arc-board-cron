@@ -18,15 +18,15 @@ import {
 const snippet = props => {
     const {
         globalContent: {
-            headlines,
-            subheadlines,
+            headlines = {},
+            subheadlines = {},
             promo_items: promoItems,
             taxonomy: {
                 tags,
                 primary_section: primarySection = {},
                 sections = {}
             },
-            credits,
+            credits = {},
             display_date: displayDate,
             content_elements: contentElements,
             website_url: websiteUrl
@@ -39,17 +39,17 @@ const snippet = props => {
 
     const LOGO_AMP = getAssetsPath(contextPath)(deployment)('logo-ln-amp.png');
 
-    const { by = [] } = credits || {};
+    const { by = [] } = credits;
 
-    const { basic: headLinesBasic } = headlines || {};
+    const { basic: headLinesBasic } = headlines;
 
-    const { basic: subheadLinesBasic } = subheadlines || {};
+    const { basic: subheadLinesBasic } = subheadlines;
 
     const date = displayDate;
 
     const description = subheadLinesBasic;
 
-    const { autores } = extractDataFromCredits(by) || {};
+    const { autores } = extractDataFromCredits(by);
 
     const {
         image,

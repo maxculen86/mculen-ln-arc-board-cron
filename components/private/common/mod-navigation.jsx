@@ -1,62 +1,61 @@
-import React, { useEffect, useRef, useState } from 'react';
+/* eslint-disable react/no-danger */
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
-
 import ComButton from './com-button';
 import ComLinkList from './com-link-list';
 
 const ModNavigation = props => {
-    const categoryEl = useRef();
-    const [showBtnScrollLeft, setShowBtnScrollLeft] = useState('hlp-none');
-    const [showBtnScrollRight, setShowBtnScrollRight] = useState('');
-    const { navigation, classCondition, style } = props;
-    const EXTRA_CLASS = classCondition ? ` ${classCondition}` : '';
-
-    const moveScroll = (ref, direction, firstTime = false) => {
-        if (ref && ref.current) {
-            const cEl = ref.current;
-            const left =
-                direction === 'right'
-                    ? cEl.scrollLeft + 150
-                    : cEl.scrollLeft - 150;
-            if (!firstTime) {
-                cEl.scrollTo({ left, behavior: 'smooth' });
-                setShowBtnScrollLeft(left > 0 ? '' : 'hlp-none');
-            }
-            setShowBtnScrollRight(
-                cEl.scrollLeft + cEl.offsetWidth < cEl.scrollWidth
-                    ? ''
-                    : 'hlp-none'
-            );
-        } else {
-            setShowBtnScrollLeft('hlp-none');
-            setShowBtnScrollRight('');
-        }
-    };
-
-    useEffect(() => {
-        moveScroll(categoryEl, 'right', true);
-    }, []);
+    const { navigation, classCondition = '', style } = props;
+    const EXTRA_CLASS = ` ${classCondition}`;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
 
     if (!navigation || !navigation.length) return null;
 
     return (
         <>
             <ComButton
-                classCondition={`--left ${showBtnScrollLeft}`}
+                id="left-arrow"
+                classCondition="--left hlp-none"
                 iconName="arrow-left"
-                onMouseDown={() => moveScroll(categoryEl, 'left')}
                 style={style}
             />
-            <ComLinkList
-                list={navigation}
-                extraClass={EXTRA_CLASS}
-                _ref={categoryEl}
-            />
+            <ComLinkList list={navigation} extraClass={EXTRA_CLASS} />
             <ComButton
-                classCondition={`${showBtnScrollRight}`}
+                id="right-arrow"
                 iconName="arrow-right"
-                onMouseDown={() => moveScroll(categoryEl, 'right')}
                 style={style}
+                classCondition="hlp-none"
+            />
+            <script
+                type="text/javascript"
+                dangerouslySetInnerHTML={{
+                    __html: `
+                window.addEventListener('load', () => {
+                    const categories = document.querySelector(".com-unordered");
+                    const rightArrow = document.querySelector("#right-arrow");
+                    const leftArrow = document.querySelector("#left-arrow");
+                    if (categories.scrollLeft + categories.offsetWidth < categories.scrollWidth) {
+                        rightArrow.classList.remove('hlp-none')
+                    }
+                    document.querySelector("#right-arrow").addEventListener('click', () => {
+                        const scrollPixel = categories.scrollLeft + 150
+                        categories.scroll({ left: scrollPixel, behavior: 'smooth' })
+                        if (categories.scrollLeft + categories.offsetWidth >= categories.scrollWidth) {
+                            rightArrow.classList.add('hlp-none')
+                        }
+                        leftArrow.classList.remove('hlp-none')
+                    })
+                    document.querySelector("#left-arrow").addEventListener('click', () => {
+                        const scrollPixel = categories.scrollLeft - 150
+                        categories.scroll({ left: scrollPixel, behavior: 'smooth' })
+                        if (categories.scrollLeft === 0) {
+                            leftArrow.classList.add('hlp-none')
+                        }
+                        rightArrow.classList.remove('hlp-none')
+                    })
+                })
+            `
+                }}
             />
         </>
     );

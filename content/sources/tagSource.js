@@ -1,3 +1,5 @@
+import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
+import request from 'request-promise-native';
 import filter from '../filters/LN/acumulado/tag';
 import force404AMP from './utils/force404AMP';
 import logger from '../../components/private/common/utils/logger';
@@ -12,40 +14,99 @@ const resolve = key => {
     return `/tags/v2/search?prefix=${slug}`;
 };
 
-const transform = (data, query) => {
-    const { slug, meteringVariant } = query || {};
-    const uri = `/tema/${slug}/`;
+const getRequest = query => {
+    const opt = {
+        uri: query,
+        json: true
+    };
+    if (ARC_ACCESS_TOKEN) {
+        opt.auth = {
+            bearer: ARC_ACCESS_TOKEN
+        };
+    }
+    return request(opt).then(data => data);
+};
 
-    try {
-        if (data.Payload && data.Payload.items && data.Payload.items[0]) {
-            if (data.Payload.items[0].slug !== slug) {
+const fetch = async (query, { cachedCall }) => {
+    const { slug, website = 'la-nacion-ar' } = query || {};
+
+    const opt = {
+        uri: `${CONTENT_BASE}${resolve(query)}`,
+        json: true
+    };
+    if (ARC_ACCESS_TOKEN) {
+        opt.auth = {
+            bearer: ARC_ACCESS_TOKEN
+        };
+    }
+
+    const tagConfigData = await cachedCall('navigationTreeSource', getRequest, {
+        query: `${CONTENT_BASE}/site/v3/navigation/${website}/`
+    });
+
+    return request(opt)
+        .then(resp => {
+            if (resp.Payload && resp.Payload.items && resp.Payload.items[0]) {
+                if (resp.Payload.items[0].slug !== slug) {
+                    throw new NotFoundError('Tag no encontrado');
+                }
+            }
+
+            if (!resp.Payload.items.length) {
                 throw new NotFoundError('Tag no encontrado');
             }
-        }
 
-        if (!data.Payload.items.length) {
-            throw new NotFoundError('Tag no encontrado');
-        }
+            return transform(resp, query, tagConfigData);
+        })
+        .catch(error => {
+            logger.push(
+                error,
+                { source: 'content/source/tagSource', url: `/tema/${slug}/` },
+                query['arc-site']
+            );
+        });
+};
 
-        return {
-            ...data,
-            node_type: 'tags',
-            name: data.Payload.items[0].name,
-            canonical_url: uri,
-            subscription: meteringVariant
-        };
-    } catch (error) {
-        logger.push(
-            error,
-            { source: 'content/source/tagSource', url: uri },
-            query['arc-site']
-        );
-    }
+const transform = (data, query, tagConfigData) => {
+    const { meteringVariant, slug } = query || {};
+
+    const { tagConfigGroup } = tagConfigData || {};
+
+    const {
+        anexosuperiortag: anexoSuperiorTag = '',
+        anexoinferiortag: anexoInferiorTag = '',
+        collectiontag: collectionTag = ''
+    } = tagConfigGroup || {};
+
+    const acumuladoGeneral = {
+        anexosuperior: getDataForTag(anexoSuperiorTag, slug),
+        anexoinferior: getDataForTag(anexoInferiorTag, slug),
+        collectionForTag: getDataForTag(collectionTag, slug)
+    };
+    return {
+        ...data,
+        node_type: 'tags',
+        name: data.Payload.items[0].name,
+        canonical_url: `/tema/${slug}/`,
+        subscription: meteringVariant,
+        acumuladoGeneral
+    };
+};
+
+const getDataForTag = (allTagsData, slug) => {
+    let config = '';
+
+    Object.keys(allTagsData).forEach(tag => {
+        if (tag.replace(/ /g, '') === slug) {
+            config = allTagsData[tag];
+        }
+    });
+
+    return config;
 };
 
 export default {
-    resolve,
-    transform,
+    fetch,
     schemaName: 'tag-schema',
     params: {
         slug: 'text',

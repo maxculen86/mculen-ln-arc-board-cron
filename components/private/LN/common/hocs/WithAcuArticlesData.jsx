@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { PureComponent } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
@@ -94,7 +95,7 @@ function WithAcuArticlesData(
                         authorId,
                         tagId,
                         size: size.tripleSize || size,
-                        imageConfig,
+                        imageConfig: sectionsIds ? 'latestNews' : imageConfig,
                         page,
                         excludeSectionId,
                         promoItemsOnly,

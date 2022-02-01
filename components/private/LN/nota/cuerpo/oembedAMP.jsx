@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../../../../../resources/dist/css/ln/components/com-embed.css';
+import get from '../../../common/utils/get';
 
 const getValue = (
     valueFromProps,
@@ -19,8 +20,8 @@ const getValue = (
 };
 
 const OembedAMP = ({ data }) => {
-    const { subtype, raw_oembed: rawOembed } = data;
-    const { width, height, url } = rawOembed || {};
+    const { subtype, raw_oembed: rawOembed = {} } = data;
+    const { width, height, url } = rawOembed;
 
     switch (subtype) {
         case 'facebook':
@@ -102,8 +103,8 @@ const OembedAMP = ({ data }) => {
         }
         case 'instagram': {
             const instaRegex = /(https?:\/\/(www\.)?)?instagram\.com\/p\/(\w*([-'])?(\w*)?)/;
-            const instaId =
-                rawOembed && rawOembed.html && rawOembed.html.match(instaRegex);
+            const instaId = get(rawOembed, 'html', '').match(instaRegex);
+
             if (instaId && instaId[3]) {
                 return (
                     <div className={`com-embed --${subtype}`}>
@@ -121,8 +122,8 @@ const OembedAMP = ({ data }) => {
         }
         case 'vimeo': {
             const vimeoRegex = /(https?:\/\/(www\.)?)?player\.vimeo\.com\/video\/([0-9]*)?/;
-            const vimeoId =
-                rawOembed && rawOembed.html && rawOembed.html.match(vimeoRegex);
+            const vimeoId = get(rawOembed, 'html', '').match(vimeoRegex);
+
             if (vimeoId && vimeoId[3]) {
                 return (
                     <div className={`com-embed --${subtype}`}>
@@ -139,10 +140,10 @@ const OembedAMP = ({ data }) => {
         }
         case 'dailymotion': {
             const dailyMotionRegex = /\/embed\/video\/(\w*?[^"]+)/;
-            const dailyMotionId =
-                rawOembed &&
-                rawOembed.html &&
-                rawOembed.html.match(dailyMotionRegex);
+            const dailyMotionId = get(rawOembed, 'html', '').match(
+                dailyMotionRegex
+            );
+
             if (dailyMotionId && dailyMotionId[1]) {
                 return (
                     <div className={`com-embed --${subtype}`}>
@@ -160,8 +161,8 @@ const OembedAMP = ({ data }) => {
 
         case 'vine': {
             const vineRegex = /\/vine\.co\/v\/(\w*)\//;
-            const vineId =
-                rawOembed && rawOembed.html && rawOembed.html.match(vineRegex);
+            const vineId = get(rawOembed, 'html', '').match(vineRegex);
+
             if (vineId && vineId[1]) {
                 return (
                     <div className={`com-embed --${subtype}`}>

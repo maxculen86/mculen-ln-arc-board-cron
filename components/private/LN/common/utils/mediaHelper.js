@@ -4,8 +4,7 @@ import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData
 import get from '../../../common/utils/get';
 import {
     FOTOAL100,
-    STORYTELLING,
-    VIDEO
+    STORYTELLING
 } from '../../../common/utils/subtypes/subtypeHelper';
 
 export const getEpigrafe = basic => {
@@ -45,7 +44,7 @@ export const getWidthForZoomEvaluation = (subtype, width) => {
     return width;
 };
 
-export const getSourceSet = (sourceActive = [], isVertical, image) => {
+export const getSourceSet = (isVertical, image, sourceActive = []) => {
     const seenWidthOrPixelDensity = [];
     let srcset = sourceActive.map(src => {
         const {

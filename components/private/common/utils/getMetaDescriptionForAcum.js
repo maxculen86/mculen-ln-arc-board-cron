@@ -42,8 +42,8 @@ const getMetaDescriptionForAcum = (
         '',
         false,
         'acumulado',
-        arcSite,
         false,
+        arcSite,
         false
     );
 

@@ -15,11 +15,11 @@ const lnNotaNoticia = ({
     outputType,
     tree,
     isAdmin,
+    layout,
     globalContent: {
         taxonomy: { sections },
         distributor = { name: 'LA NACION' }
-    },
-    layout
+    }
 }) => {
     const { name = 'LA NACION' } = distributor;
     const amp = outputType === 'amp' ? 'amp' : '';

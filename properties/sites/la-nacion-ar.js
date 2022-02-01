@@ -610,6 +610,17 @@ export default {
                     ]
                 }
             },
+            columnistas: {
+                credits: {
+                    sizes: {
+                        width: 80,
+                        height: 80,
+                        media: minWidth320,
+                        class: '',
+                        type: 'image'
+                    }
+                }
+            },
             boxArticlesSingleArticle: {
                 promo_items: {
                     sizes: [
@@ -886,6 +897,74 @@ export default {
                             width: 320,
                             height: 192,
                             media: minWidth320
+                        }
+                    ]
+                }
+            },
+            latestNews: {
+                promo_items: {
+                    sizes: [
+                        {
+                            width: 150,
+                            height: 100,
+                            media: minWidth768,
+                            useFullSize: true,
+                            proportion: '3:2'
+                        },
+                        {
+                            width: 375,
+                            height: 250,
+                            media: minWidth375,
+                            useFullSize: true,
+                            proportion: '2:3'
+                        },
+                        {
+                            width: 278,
+                            height: 187,
+                            media: minWidth320,
+                            useFullSize: true,
+                            proportion: '2:3'
+                        }
+                    ]
+                }
+            },
+            aperturaAcu: {
+                promo_items: {
+                    sizes: [
+                        {
+                            width: 608,
+                            height: 407,
+                            media: minWidth1280,
+                            useFullSize: true,
+                            proportion: '3:2'
+                        },
+                        {
+                            width: 486,
+                            height: 325,
+                            media: minWidth1024,
+                            useFullSize: true,
+                            proportion: '3:2'
+                        },
+                        {
+                            width: 358,
+                            height: 240,
+                            media: minWidth768,
+                            useFullSize: true,
+                            proportion: '3:2'
+                        },
+                        {
+                            width: 375,
+                            height: 250,
+                            media: minWidth375,
+                            useFullSize: true,
+                            proportion: '3:2'
+                        },
+                        {
+                            width: 320,
+                            height: 213,
+                            media: minWidth320,
+                            useFullSize: true,
+                            proportion: '3:2'
                         }
                     ]
                 }

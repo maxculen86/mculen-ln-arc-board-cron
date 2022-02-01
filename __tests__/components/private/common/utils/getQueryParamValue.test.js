@@ -12,17 +12,17 @@ describe('Common - utils - getQueryParamValue', () => {
     const nameQueryParam2 = 'adstest';
 
     test('Test del return de getQueryParamValue', () => {
-        const query = getQueryParamValue(siteUrl, nameQueryParam);
+        const query = getQueryParamValue(nameQueryParam, siteUrl);
         expect(query).toStrictEqual('cristina');
     });
 
     test('Test para el caso del query param: adstest', () => {
-        const query = getQueryParamValue(siteUrl2, nameQueryParam2);
+        const query = getQueryParamValue(nameQueryParam2, siteUrl2);
         expect(query).toStrictEqual('true');
     });
 
     test('Test para el caso de que el query param adstest sea null', () => {
-        const query = getQueryParamValue(siteUrl3, nameQueryParam2);
+        const query = getQueryParamValue(nameQueryParam2, siteUrl3);
         expect(query).toStrictEqual('false');
     });
 });

@@ -1,6 +1,6 @@
 import get from 'lodash.get';
 import Image from '../../common/image';
-import Author from '../../common/author';
+import { authorCommon as Author } from '../../common/author';
 import { getTag } from '../../common/tag';
 import { dateAndTimeForAppsUtil } from '../../../../../common/utils/dateAndTimeUtil';
 import { getPrincipalCategory } from '../../common/category';

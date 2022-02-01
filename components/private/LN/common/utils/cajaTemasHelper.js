@@ -241,7 +241,7 @@ export const getChildrenFromAperturaHome = renderables => {
     );
 };
 
-export const isInApertura = (tree = {}, idFeature) => {
+export const isInApertura = (idFeature, tree = {}) => {
     const sectionApertura = get(tree, 'children[4].children', []);
     return sectionApertura.find(child => child.props.id === idFeature);
 };

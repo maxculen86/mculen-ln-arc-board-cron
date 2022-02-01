@@ -220,9 +220,9 @@ describe('Test del Chain - <Ln_Caja_Collection />', () => {
         );
 
         const articles1 = getArticlesToShow(
+            2,
             articlesFromAutomatic,
-            idsArticlesToExclude,
-            2
+            idsArticlesToExclude
         );
         expect(articles1.length).toBe(2);
         expect(articles1[0]._id).toBe('C5FCAISVEBE5BH5SLWSAWB2VKI');
@@ -235,9 +235,9 @@ describe('Test del Chain - <Ln_Caja_Collection />', () => {
         );
 
         const articles2 = getArticlesToShow(
+            3,
             articlesFromAutomatic,
-            idsArticlesToExclude,
-            3
+            idsArticlesToExclude
         );
         expect(articles2.length).toBe(3);
         expect(articles2[0]._id).toBe('C5FCAISVEBE5BH5SLWSAWB2VKI');
@@ -246,7 +246,7 @@ describe('Test del Chain - <Ln_Caja_Collection />', () => {
     });
 
     it('Deberia traer 5 articulos a pesar que pedi 10', () => {
-        const articles2 = getArticlesToShow(articlesFromAutomatic, [], 10);
+        const articles2 = getArticlesToShow(10, articlesFromAutomatic, []);
         expect(articles2.length).toBe(5);
     });
 
@@ -262,12 +262,12 @@ describe('Test del Chain - <Ln_Caja_Collection />', () => {
     };
 
     it('Deberia decirme que la caja esta en Apertura', () => {
-        const result = isInApertura(tree, 'aaa');
+        const result = isInApertura('aaa', tree);
         expect(result).toBeDefined();
     });
 
     it('Deberia decirme que la caja NO esta en Apertura', () => {
-        const result = isInApertura(tree, 'bbb');
+        const result = isInApertura('bbb', tree);
         expect(result).toBeUndefined();
     });
 

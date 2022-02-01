@@ -95,14 +95,14 @@ const masNotas = props => {
     const articles = getArticlesFromAcumSource(
         typesOfQuery,
         filter,
-        'm',
+        'boxArticles',
         size,
         'composer',
         excludeSectionId,
         'story',
+        shouldNotFilter,
         _website,
-        true,
-        shouldNotFilter
+        true
     );
 
     const articlesFiltered = articles
