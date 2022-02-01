@@ -1,4 +1,5 @@
 import React from 'react';
+import Context from 'fusion:context';
 import { mount } from 'enzyme';
 
 jest.mock('fusion:context', Component => {
@@ -59,6 +60,9 @@ jest.mock('fusion:context', Component => {
 });
 
 jest.mock('fusion:static', () => 'mock-static');
+Context.useAppContext = jest.fn(() => ({
+    outputType: 'default'
+}));
 
 import FirmaFeature from '../../../../components/features/LN-nota/firma';
 import ModAutor from '../../../../components/private/common/mod-autor';
