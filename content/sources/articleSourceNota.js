@@ -351,8 +351,6 @@ const addFollowAnotherNoteData = async (anotherNoteData, arcSite, i) => {
             type
         };
     } catch (error) {
-        const JUST_WARNING = true;
-
         logger.push(
             error,
             {
@@ -361,7 +359,7 @@ const addFollowAnotherNoteData = async (anotherNoteData, arcSite, i) => {
                 url: id
             },
             arcSite,
-            JUST_WARNING
+            true
         );
     }
 };
