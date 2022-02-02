@@ -99,7 +99,7 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
                 //&:hover::before {
                 //    display: none;
                 //}
-                .mod-picture {
+                .placeholder {
                     height: 100vh;
                     width: 100%;
                     margin-left: 0;
@@ -107,7 +107,7 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
                 }
             }
             .--active.--active {
-                .mod-figure .mod-picture {
+                .mod-figure .placeholder {
                     height: auto;
                 }
             }

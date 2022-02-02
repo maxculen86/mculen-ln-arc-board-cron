@@ -14,7 +14,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
         class="mod-figure --horizontal"
       >
         <div
-          class="mod-picture "
+          class="placeholder "
         >
           <img
             alt="Joaquín Morales Solá"

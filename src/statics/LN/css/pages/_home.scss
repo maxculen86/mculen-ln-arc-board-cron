@@ -111,7 +111,7 @@
                 overflow: hidden;
                 border: 1px solid $light-neutral-400;
 
-                .mod-picture.mod-picture {
+                .placeholder.placeholder {
                     padding-top: 100%;
                     border: none;
                     .com-image {
@@ -345,7 +345,7 @@ $rank-dsk: px(400);
             .mod-figure {
                 height: calc(100vh - 105px);
 
-                .mod-picture {
+                .placeholder {
                     height: 100%;
                     border: none;
                     padding-top: calc((3 / 2) * 100%);
@@ -354,7 +354,7 @@ $rank-dsk: px(400);
                 @media ($media-l) {
                     height: calc(100vh - 73px);
 
-                    .mod-picture {
+                    .placeholder {
                         padding-top: $video;
                     }
                 }
@@ -671,7 +671,7 @@ $rank-dsk: px(400);
         .mod-article {
             .mod-media {
                 margin-bottom: 0;
-                .mod-picture {
+                .placeholder {
                     border: none;
                 }
             }
@@ -904,7 +904,7 @@ $rank-dsk: px(400);
 
         .mod-media {
             margin-bottom: 0;
-            .mod-picture {
+            .placeholder {
                 border: none;
                 padding-top: calc((5 / 4) * 100%);
             }
@@ -942,7 +942,7 @@ $rank-dsk: px(400);
             .mod-article {
                 > div {
                     .mod-media {
-                        .mod-picture {
+                        .placeholder {
                             border: none;
                             padding-top: calc((9 / 16) * 100%);
                             img {
@@ -1086,7 +1086,7 @@ $rank-dsk: px(400);
         &.--highlight.--highlight {
             .mod-article {
                 .mod-media {
-                    .mod-picture {
+                    .placeholder {
                         padding-top: calc((5 / 4) * 100%);
                     }
                 }
@@ -1100,7 +1100,7 @@ $rank-dsk: px(400);
         &.--cinema {
             //margin-top: px(32);
             .mod-media {
-                .mod-picture {
+                .placeholder {
                     padding-top: calc((2 / 5) * 100%);
                 }
             }
@@ -1163,7 +1163,7 @@ $rank-dsk: px(400);
 //         a {
 //             background: aqua;
 //         }
-//         .mod-picture {
+//         .placeholder {
 //             opacity: 0.2;
 //         }
 //         &:hover {

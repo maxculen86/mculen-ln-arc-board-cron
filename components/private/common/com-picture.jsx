@@ -9,12 +9,8 @@ const trim = string => {
 
 const ComPicture = props => {
     const { href, classCondition, children, video, amp } = props;
-    const className = trim(`mod-picture ${video} ${classCondition}`);
-    const picture = amp ? (
-        <div className={className}>{children}</div>
-    ) : (
-        <picture className={className}>{children}</picture>
-    );
+    const className = trim(`placeholder ${video} ${classCondition}`);
+    const picture = <div className={className}>{children}</div>;
 
     return <>{href ? <a href={href}>{picture}</a> : picture}</>;
 };
