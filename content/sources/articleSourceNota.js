@@ -248,10 +248,6 @@ const transformContent = (jsonArticle, arcSite, urlQuery) => {
         resp.related_content.basic.forEach((element, i) => {
             if (element.type === 'reference') {
                 const referentType = get(element, 'referent.type', '');
-                console.log(
-                    '🚀 ~ file: articleSourceNota.js ~ line 251 ~ resp.related_content.basic.forEach ~ referentType',
-                    referentType
-                );
 
                 referentType === 'image' &&
                     (resp.related_content.basic[i] = element);
@@ -330,41 +326,44 @@ const addGalleryData = (gallery, arcSite) => {
         });
 };
 
-const addFollowAnotherNoteData = (anotherNoteData, arcSite, i) => {
+const addFollowAnotherNoteData = async (anotherNoteData, arcSite, i) => {
     const { _id: id } = anotherNoteData;
-    return relatedSource
-        .fetch({
+
+    try {
+        const fetchedRelated = await relatedSource.fetch({
             id,
             'arc-site': arcSite,
             includedFields: 'headlines,label,website_url,type'
-        })
-        .then(fetchedRelated => {
-            const {
-                headlines,
-                label,
-                website_url: websiteUrl,
-                type
-            } = fetchedRelated;
-            return {
-                ...anotherNoteData,
-                headlines,
-                label,
-                website_url: websiteUrl,
-                type
-            };
-        })
-        .catch(e => {
-            // console.log('TCL: addFollowAnotherNoteData -> e', e);
-            logger.push(
-                e,
-                {
-                    source:
-                        'content/source/articleSourceNota/addFollowAnotherNoteData',
-                    url: id
-                },
-                arcSite
-            );
         });
+
+        const {
+            headlines,
+            label,
+            website_url: websiteUrl,
+            type
+        } = fetchedRelated;
+
+        return {
+            ...anotherNoteData,
+            headlines,
+            label,
+            website_url: websiteUrl,
+            type
+        };
+    } catch (error) {
+        const JUST_WARNING = true;
+
+        logger.push(
+            error,
+            {
+                source:
+                    'content/source/articleSourceNota/addFollowAnotherNoteData',
+                url: id
+            },
+            arcSite,
+            JUST_WARNING
+        );
+    }
 };
 
 export default {
