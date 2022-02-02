@@ -41,45 +41,6 @@ exports[`Common private currencyData CurrencyData snapshot 1`] = `
 </div>
 `;
 
-exports[`Currency data with urlBrand  1`] = `
-<mock-com-link
-  classcondition="provider-data"
-  link="https://www.invertironline.com/"
-  type="text/css"
->
-  <div
-    class="container-logo"
-  >
-    <span
-      class="--sixxs"
-    >
-      Información de
-    </span>
-    <mock-com-image
-      alt="BYMA"
-      amp="false"
-      classcondition="logo byma"
-      src="undefinedundefined"
-    />
-  </div>
-  <div
-    class="container-logo"
-  >
-    <span
-      class="--sixxs"
-    >
-      provista por
-    </span>
-    <mock-com-image
-      alt="InvertirOnline"
-      amp="false"
-      classcondition="logo iol"
-      src="undefinedundefined"
-    />
-  </div>
-</mock-com-link>
-`;
-
 exports[`Currency data with urlBrand Snapshot de component con urlBrand 1`] = `
 <mock-com-link
   classcondition="provider-data"
