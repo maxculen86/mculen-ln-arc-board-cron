@@ -45,7 +45,7 @@ const AmpImage = props => {
                 isVertical ? 'contain-vertical' : 'contain-horizontal'
             }`}
         >
-            <div className="mod-picture content-pic picture">
+            <div className="placeholder content-pic picture">
                 <amp-img
                     alt={alt}
                     height={height}
