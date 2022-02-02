@@ -247,17 +247,19 @@ const transformContent = (jsonArticle, arcSite, urlQuery) => {
     if (resp && resp.related_content && resp.related_content.basic) {
         resp.related_content.basic.forEach((element, i) => {
             if (element.type === 'reference') {
-                const referentImage = get(element, 'referent.type', '');
+                const referentType = get(element, 'referent.type', '');
 
-                referentImage === 'image'
-                    ? (resp.related_content.basic[i] = element)
-                    : promiseArr.push(
-                          addFollowAnotherNoteData(element, arcSite, i).then(
-                              newContent => {
-                                  resp.related_content.basic[i] = newContent;
-                              }
-                          )
-                      );
+                referentType === 'image' &&
+                    (resp.related_content.basic[i] = element);
+
+                referentType === 'story' &&
+                    promiseArr.push(
+                        addFollowAnotherNoteData(element, arcSite, i).then(
+                            newContent => {
+                                resp.related_content.basic[i] = newContent;
+                            }
+                        )
+                    );
             }
         });
     }
@@ -324,32 +326,42 @@ const addGalleryData = (gallery, arcSite) => {
         });
 };
 
-const addFollowAnotherNoteData = (anotherNoteData, arcSite, i) => {
+const addFollowAnotherNoteData = async (anotherNoteData, arcSite, i) => {
     const { _id: id } = anotherNoteData;
-    return relatedSource
-        .fetch({
+
+    try {
+        const fetchedRelated = await relatedSource.fetch({
             id,
             'arc-site': arcSite,
             includedFields: 'headlines,label,website_url,type'
-        })
-        .then(fetchedRelated => {
-            const {
-                headlines,
-                label,
-                website_url: websiteUrl,
-                type
-            } = fetchedRelated;
-            return {
-                ...anotherNoteData,
-                headlines,
-                label,
-                website_url: websiteUrl,
-                type
-            };
-        })
-        .catch(e => {
-            // console.log('TCL: addFollowAnotherNoteData -> e', e);
         });
+
+        const {
+            headlines,
+            label,
+            website_url: websiteUrl,
+            type
+        } = fetchedRelated;
+
+        return {
+            ...anotherNoteData,
+            headlines,
+            label,
+            website_url: websiteUrl,
+            type
+        };
+    } catch (error) {
+        logger.push(
+            error,
+            {
+                source:
+                    'content/source/articleSourceNota/addFollowAnotherNoteData',
+                url: id
+            },
+            arcSite,
+            true
+        );
+    }
 };
 
 export default {
