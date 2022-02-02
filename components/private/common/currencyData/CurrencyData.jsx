@@ -26,7 +26,6 @@ const defaultProps = {
 
 const CurrencyData = ({
     outputType,
-    siteProperties: { host },
     contextPath,
     deployment,
     classCondition,

@@ -4,7 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import '../../../../../resources/dist/css/ln/components/com-embed.css';
 import AnexoIframe from '../../acumulado/anexoIframe';
 
-const parseStyles = styles => {
+export const parseStyles = styles => {
     return styles
         .split(';')
         .filter(item => item !== '')
@@ -14,7 +14,7 @@ const parseStyles = styles => {
         }, {});
 };
 
-const getPropsFromNode = node => {
+export const getPropsFromNode = node => {
     return node && node.nodeType === 1 && node.attributes
         ? [...node.attributes].reduce((obj, attr) => {
               let { name, value } = attr;
@@ -28,7 +28,12 @@ const getPropsFromNode = node => {
         : null;
 };
 
-const convertNodeToComponent = (node, id) => {
+export const convertNodeToComponent = (node, id) => {
+    // console.log("🚀 ~ file: htmlPym.jsx ~ line 34 ~ convertNodeToComponent ~ id", id)
+    console.log(
+        '🚀 ~ file: htmlPym.jsx ~ line 34 ~ convertNodeToComponent ~ node',
+        node
+    );
     if (!node) return null;
     const {
         tagName,
@@ -44,22 +49,26 @@ const convertNodeToComponent = (node, id) => {
 
     if (node.nodeType !== 1) return null;
 
-    const __props = getPropsFromNode(node);
+    const _props = getPropsFromNode(node);
+    console.log(
+        '🚀 ~ file: htmlPym.jsx ~ line 53 ~ convertNodeToComponent ~ _props',
+        _props
+    );
 
     if (tag === 'iframe' && classList && classList.contains('pym'))
         return (
             <div className="contenido-externo">
                 <AnexoIframe
-                    url={__props.src}
+                    url={_props.src}
                     id={id}
-                    styles={__props.styles}
-                    _props={__props}
+                    styles={_props.styles}
+                    _props={_props}
                 />
             </div>
         );
 
     if (!Object.keys(node.childNodes).length)
-        return React.createElement(tag, __props);
+        return React.createElement(tag, _props);
 
     if (
         node.querySelectorAll('iframe.pym').length &&
@@ -68,27 +77,27 @@ const convertNodeToComponent = (node, id) => {
     ) {
         return React.createElement(
             tag,
-            __props,
+            _props,
             getComponentsFromNodeList(childNodes, id)
         );
     }
 
     return React.createElement(tag, {
-        ...__props,
+        ..._props,
         dangerouslySetInnerHTML: {
             __html: tag === 'style' ? outerText : innerHTML || nodeValue || ''
         }
     });
 };
 
-const getComponentsFromNodeList = (nodeList, id) => {
+export const getComponentsFromNodeList = (nodeList, id) => {
     if (!nodeList) return null;
     return [...nodeList]
         .map((node, index) => convertNodeToComponent(node, `${id}-${index}`))
         .filter(item => item != null);
 };
 
-const getChildren = (nodes, id) => {
+export const getChildren = (nodes, id) => {
     const {
         head: { childNodes: headElements = [] },
         childNodes = null,
@@ -121,13 +130,13 @@ const HtmlPym = props => {
     )
         return null;
 
-    const __children = getChildren(
+    const _children = getChildren(
         parser.current.parseFromString(content, 'text/html'),
         id
     );
 
-    if (!__children.length) return null;
-    return <div className="com-embed --html">{__children}</div>;
+    if (!_children.length) return null;
+    return <div className="com-embed --html">{_children}</div>;
 };
 
 HtmlPym.arcType = 'raw_html';

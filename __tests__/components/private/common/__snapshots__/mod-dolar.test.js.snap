@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`with data list snapshot 1`] = `
+<ul
+  class="mod-dolar"
+>
+  <li>
+    <mock-currencydata
+      purchasevalue="86,25"
+      salevalue="92,25"
+      sourcename="dbna"
+      title="Dólar Banco Nación"
+    />
+  </li>
+  <li>
+    <mock-currencydata
+      purchasevalue="148,00"
+      salevalue="153,00"
+      sourcename="dblue"
+      title="Dólar Blue"
+    />
+  </li>
+  <li>
+    <mock-currencydata
+      purchasevalue="118,18"
+      salevalue="false"
+      sourcename="dccl"
+      title="Dólar Contado con Liqui"
+    />
+  </li>
+  <li>
+    <mock-currencydata
+      urlbrand="https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/Lzu3CsxaJkufzPN4fOxQjod_yik=/314x0/filters:quality(100)/especiales.lanacion.com.ar/LN/dolar/anexo-dolar/logo-invertir.png"
+    />
+  </li>
+</ul>
+`;

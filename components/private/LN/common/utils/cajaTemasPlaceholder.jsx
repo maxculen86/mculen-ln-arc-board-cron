@@ -82,48 +82,52 @@ export const placeholderArticles = {
         return articles[layout] || [];
     },
     Color: layout => {
-        return new Array(3).fill().map(e => (
-            <article className="mod-article">
-                <SkeletonContentMedia />
-                <section className="mod-description">
-                    <h1 className="com-title --xs">
-                        <SkeletonSpan extraClass="--line1" />
-                        <SkeletonSpan extraClass="--line2" />
-                        <SkeletonSpan extraClass="--line3" />
-                    </h1>
-                    <SkeletonAuthorName />
-                </section>
-            </article>
-        ));
+        return Array.from(3)
+            .fill()
+            .map(e => (
+                <article className="mod-article">
+                    <SkeletonContentMedia />
+                    <section className="mod-description">
+                        <h1 className="com-title --xs">
+                            <SkeletonSpan extraClass="--line1" />
+                            <SkeletonSpan extraClass="--line2" />
+                            <SkeletonSpan extraClass="--line3" />
+                        </h1>
+                        <SkeletonAuthorName />
+                    </section>
+                </article>
+            ));
     },
     Grilla: layout => {
         const quantityNotes = Math.abs(layout.slice(-1));
         if (!quantityNotes) return [];
         const articles = {
             1: [<SkeletonGrillaArticle />],
-            2: new Array(quantityNotes)
+            2: Array.from(quantityNotes)
                 .fill()
                 .map(e => <SkeletonGrillaArticle />),
-            Default: new Array(quantityNotes)
+            Default: Array.from(quantityNotes)
                 .fill()
                 .map(e => <SkeletonDefaultArticle />)
         };
         return articles[quantityNotes] || articles.Default;
     },
     Author: layout => {
-        return new Array(3).fill().map(e => (
-            <article className="mod-article --author">
-                <SkeletonContentMediaWithoutFigure />
-                <section className="mod-description">
-                    <h2 className="com-title --m">
-                        <SkeletonSpan extraClass="--line1" />
-                        <SkeletonSpan extraClass="--line2" />
-                        <SkeletonSpan extraClass="--line3" />
-                    </h2>
-                    <SkeletonAuthorName />
-                </section>
-            </article>
-        ));
+        return Array.from(3)
+            .fill()
+            .map(e => (
+                <article className="mod-article --author">
+                    <SkeletonContentMediaWithoutFigure />
+                    <section className="mod-description">
+                        <h2 className="com-title --m">
+                            <SkeletonSpan extraClass="--line1" />
+                            <SkeletonSpan extraClass="--line2" />
+                            <SkeletonSpan extraClass="--line3" />
+                        </h2>
+                        <SkeletonAuthorName />
+                    </section>
+                </article>
+            ));
     },
     Opinion: layout => [
         <article className="mod-article">
@@ -153,15 +157,17 @@ export const placeholderArticles = {
         </article>
     ],
     Editoriales: layout =>
-        new Array(2).fill().map(e => (
-            <article className="mod-article">
-                <div className="mod-description">
-                    <h2 className="com-title --twoxs">
-                        <SkeletonSpan />
-                    </h2>
-                </div>
-            </article>
-        ))
+        Array.from(2)
+            .fill()
+            .map(e => (
+                <article className="mod-article">
+                    <div className="mod-description">
+                        <h2 className="com-title --twoxs">
+                            <SkeletonSpan />
+                        </h2>
+                    </div>
+                </article>
+            ))
 };
 
 export const placeholderLayouts = {

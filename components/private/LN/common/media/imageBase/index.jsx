@@ -4,6 +4,18 @@ import ComImage from '../../../../common/com-image';
 import ComPicture from '../../../../common/com-picture';
 import { getSourceSet } from '../../utils/mediaHelper';
 
+const sourceMapper = source => {
+    return source.map(e => {
+        return (
+            <source
+                key={e.option.media}
+                media={e.option.media}
+                srcSet={e.resizedUrl}
+            />
+        );
+    });
+};
+
 const ImageArticle = props => {
     const {
         image,
@@ -36,26 +48,8 @@ const ImageArticle = props => {
             {!active &&
                 outputType !== 'amp' &&
                 sources &&
-                sources.map(x => {
-                    return (
-                        <source
-                            key={x.option.media}
-                            media={x.option.media}
-                            srcSet={x.resizedUrl}
-                        />
-                    );
-                })}
-            {active &&
-                sourcesZoom &&
-                sourcesZoom.map(x => {
-                    return (
-                        <source
-                            key={x.option.media}
-                            media={x.option.media}
-                            srcSet={x.resizedUrl}
-                        />
-                    );
-                })}
+                sourceMapper(sources)}
+            {active && sourcesZoom && sourceMapper(sourcesZoom)}
             <ComImage
                 srcsetAMP={srcsetAMP}
                 src={url}

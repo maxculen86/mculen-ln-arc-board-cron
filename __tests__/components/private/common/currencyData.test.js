@@ -1,0 +1,90 @@
+import React from 'react';
+import Consumer from 'fusion:consumer';
+import CurrencyData from '../../../../components/private/common/currencyData/CurrencyData';
+import Text from '../../../../components/private/common/text';
+import ComLink from '../../../../components/private/common/com-link';
+import ComImage from '../../../../components/private/common/com-image';
+import getAssetsPath from '../../../../components/private/common/utils/getAssetsPath';
+import { shallow, render } from 'enzyme';
+
+jest.mock('fusion:consumer', Component => {
+    return function(Component) {
+        return props => <Component {...props} />;
+    };
+});
+
+jest.mock(
+    '../../../../components/private/common/com-link',
+    () => 'mock-com-link'
+);
+
+jest.mock(
+    '../../../../components/private/common/com-image',
+    () => 'mock-com-image'
+);
+jest.mock('../../../../components/private/common/text', () => 'mock-Text');
+
+const props = {
+    outputType: 'default',
+    contextPath: '/pf',
+    title: 'Dólar hoy',
+    purchaseValue: '104,25',
+    saleValue: '110,25',
+    sourceName: 'dbna',
+    informationAlt: 'BYMA',
+    providedAlt: 'InvertirOnline'
+};
+
+describe('Common private currencyData', () => {
+    const wrapper = render(<CurrencyData {...props} />);
+    const result = wrapper.first();
+    const children = result.children();
+    const linkComponent = children[0];
+    const paragraph = children[1];
+    const textComponent = linkComponent.children[0];
+    it('Check com-link component', () => {
+        expect(linkComponent).toBeTruthy();
+        expect(linkComponent.attribs.link).toBe(
+            'https://www.lanacion.com.ar/dolar-hoy/'
+        );
+        expect(linkComponent.attribs.classcondition).toBe(
+            'link-container-currency-data'
+        );
+        expect(linkComponent.attribs.title).toBe('Dólar hoy');
+    });
+    it('Check text component', () => {
+        expect(textComponent).toBeTruthy;
+        expect(textComponent.name).toBe('mock-text');
+        expect(textComponent.attribs.size).toBe('--twoxs');
+        expect(textComponent.attribs.text).toBe('Dólar hoy');
+        expect(textComponent.attribs.extraclass).toBe('dolar-title');
+    });
+    it('Check paragraph', () => {
+        expect(paragraph.children.length).toBe(4);
+        expect(paragraph.children[1].children[0].data).toBe('$104,25');
+    });
+    it('CurrencyData snapshot', () => {
+        expect(result).toMatchSnapshot();
+    });
+});
+
+describe('Currency data with urlBrand', () => {
+    const propsWIthUrlBrand = {
+        outputType: 'default',
+        contextPath: '/pf',
+        title: 'Dólar hoy',
+        purchaseValue: '104,25',
+        saleValue: '110,25',
+        sourceName: 'dbna',
+        informationAlt: 'BYMA',
+        deployment: () => {},
+        providedAlt: 'InvertirOnline',
+        urlBrand:
+            'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/Lzu3CsxaJkufzPN4fOxQjod_yik=/314x0/filters:quality(100)/especiales.lanacion.com.ar/LN/dolar/anexo-dolar/logo-invertir.png'
+    };
+    const wrapper = render(<CurrencyData {...propsWIthUrlBrand} />);
+    const result = wrapper.first();
+    it('Snapshot de component con urlBrand', () => {
+        expect(result).toMatchSnapshot();
+    });
+});
