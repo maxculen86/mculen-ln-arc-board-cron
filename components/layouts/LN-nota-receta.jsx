@@ -24,7 +24,6 @@ const pageBuilderSections = [
 
 const LNNotaReceta = ({ outputType, children }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
-
     return (
         <GlobalProvider>
             <div id="wrapper" className={`nota recetas ${amp}`}>

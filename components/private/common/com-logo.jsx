@@ -22,7 +22,8 @@ const ComLogo = props => {
         alt,
         folder,
         target,
-        rel
+        rel,
+        isStatic
     } = props;
 
     const { contextPath, deployment, outputType } = useAppContext();
@@ -40,24 +41,31 @@ const ComLogo = props => {
 
     if (!logoName) return null;
 
-    const Logo = (
+    const Img = (
+        <Image
+            classCondition={classes}
+            width={width}
+            height={height}
+            src={archivoSVG}
+            alt={altProp}
+            amp={amp}
+            svg
+        />
+    );
+
+    const Logo = isStatic ? (
         <Static id={assets || `logo-${logoName}`} htmlOnly>
-            <Image
-                classCondition={classes}
-                width={width}
-                height={height}
-                src={archivoSVG}
-                alt={altProp}
-                amp={amp}
-                svg
-            />
+            {Img}
         </Static>
+    ) : (
+        Img
     );
     const Link = (
         <ComLink link={href} title={title} rel={rel} target={target}>
             {Logo}
         </ComLink>
     );
+
     return <>{href ? Link : Logo}</>;
 };
 
@@ -72,7 +80,8 @@ ComLogo.propTypes = {
     alt: PropTypes.string,
     folder: PropTypes.string,
     target: PropTypes.string,
-    rel: PropTypes.bool
+    rel: PropTypes.bool,
+    isStatic: PropTypes.bool
 };
 
 ComLogo.defaultProps = {
@@ -86,6 +95,8 @@ ComLogo.defaultProps = {
     alt: '',
     folder: '',
     target: undefined,
-    rel: undefined
+    rel: undefined,
+    isStatic: true
 };
+
 export default ComLogo;

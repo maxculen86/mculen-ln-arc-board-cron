@@ -49,7 +49,6 @@ const LNSportsHome = props => {
         'acumuladoGeneral.colecciones',
         []
     );
-
     return (
         <GlobalProvider>
             <GlobalProviderAcu

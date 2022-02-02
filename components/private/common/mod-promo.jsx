@@ -11,7 +11,8 @@ const ModPromo = ({
     logoSize,
     text,
     textButton,
-    classCondition
+    classCondition,
+    isStatic
 }) => {
     const CustomTag = tag || 'section';
 
@@ -19,16 +20,13 @@ const ModPromo = ({
         <CustomTag className={`mod-promo ${classCondition || ''}`}>
             <a href={link} title={text} className="link">
                 <div>
-                    {logoName ? (
-                        <ComLogo
-                            logoName={logoName}
-                            size={logoSize || '--md'}
-                            color
-                        />
-                    ) : (
-                        ''
-                    )}
-                    {text ? <p className="com-text --twoxs">{text}</p> : ''}
+                    <ComLogo
+                        logoName={logoName}
+                        size={logoSize || '--md'}
+                        color
+                        isStatic={isStatic}
+                    />
+                    {text && <p className="com-text --twoxs">{text}</p>}
                 </div>
                 <span className="com-button --secondary">
                     {textButton || 'INGRESAR'}
@@ -45,7 +43,8 @@ ModPromo.propTypes = {
     logoSize: PropTypes.string,
     text: PropTypes.string,
     textButton: PropTypes.string,
-    classCondition: PropTypes.string
+    classCondition: PropTypes.string,
+    isStatic: PropTypes.bool
 };
 
 ModPromo.defaultProps = {
@@ -54,7 +53,8 @@ ModPromo.defaultProps = {
     logoSize: null,
     text: null,
     textButton: null,
-    classCondition: null
+    classCondition: null,
+    isStatic: true
 };
 
 export default ModPromo;

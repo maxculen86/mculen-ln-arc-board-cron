@@ -6,13 +6,14 @@ import Paragraph from './parrafo';
 const pullQuote = props => {
     const {
         data: {
-            citation: { content: author },
+            citation: { content: author = '' } = {},
             content_elements: {
                 0: { content }
             },
             subtype
         }
     } = props;
+
     return (
         subtype === 'pullquote' && (
             <section className="com-cita autor">

@@ -17,6 +17,7 @@ export const mapperLogos = {
     campo: 'campo.svg',
     deportes: 'deportes.svg',
     bbc: 'bbc.svg',
+    'bbc-blanco': 'bbc-blanco.svg',
     gda: 'gda.svg',
     ln: 'ln-exclusive.svg',
     'data-fiscal': 'data-fiscal.svg',
