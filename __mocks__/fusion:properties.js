@@ -22,8 +22,7 @@ jest.mock('fusion:properties', () => {
                             topRange: null,
                             pageSize: 4
                         }
-                    ],
-                    getProperties: size => [301, 302, 404]
+                    ]
                 };
         }
     };
