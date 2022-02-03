@@ -82,7 +82,7 @@ export const placeholderArticles = {
         return articles[layout] || [];
     },
     Color: layout => {
-        return Array.from(3)
+        return Array.from({ length: 3 })
             .fill()
             .map(e => (
                 <article className="mod-article">
@@ -103,17 +103,17 @@ export const placeholderArticles = {
         if (!quantityNotes) return [];
         const articles = {
             1: [<SkeletonGrillaArticle />],
-            2: Array.from(quantityNotes)
+            2: Array.from({ length: quantityNotes })
                 .fill()
                 .map(e => <SkeletonGrillaArticle />),
-            Default: Array.from(quantityNotes)
+            Default: Array.from({ length: quantityNotes })
                 .fill()
                 .map(e => <SkeletonDefaultArticle />)
         };
         return articles[quantityNotes] || articles.Default;
     },
     Author: layout => {
-        return Array.from(3)
+        return Array.from({ length: 3 })
             .fill()
             .map(e => (
                 <article className="mod-article --author">
@@ -157,7 +157,7 @@ export const placeholderArticles = {
         </article>
     ],
     Editoriales: layout =>
-        Array.from(2)
+        Array.from({ length: 2 })
             .fill()
             .map(e => (
                 <article className="mod-article">

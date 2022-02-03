@@ -18,7 +18,77 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Author snap
     </section>
     <div
       className="row-gap-tablet-3 "
-    />
+    >
+      <article
+        className="mod-article --author"
+      >
+        <SkeletonContentMediaWithoutFigure />
+        <section
+          className="mod-description"
+        >
+          <h2
+            className="com-title --m"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h2>
+          <SkeletonAuthorName />
+        </section>
+      </article>
+      <article
+        className="mod-article --author"
+      >
+        <SkeletonContentMediaWithoutFigure />
+        <section
+          className="mod-description"
+        >
+          <h2
+            className="com-title --m"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h2>
+          <SkeletonAuthorName />
+        </section>
+      </article>
+      <article
+        className="mod-article --author"
+      >
+        <SkeletonContentMediaWithoutFigure />
+        <section
+          className="mod-description"
+        >
+          <h2
+            className="com-title --m"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h2>
+          <SkeletonAuthorName />
+        </section>
+      </article>
+    </div>
   </section>
 </div>
 `;
@@ -41,7 +111,77 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Color snaps
     </section>
     <div
       className="row-gap-tablet-3 "
-    />
+    >
+      <article
+        className="mod-article"
+      >
+        <SkeletonContentMedia />
+        <section
+          className="mod-description"
+        >
+          <h1
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h1>
+          <SkeletonAuthorName />
+        </section>
+      </article>
+      <article
+        className="mod-article"
+      >
+        <SkeletonContentMedia />
+        <section
+          className="mod-description"
+        >
+          <h1
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h1>
+          <SkeletonAuthorName />
+        </section>
+      </article>
+      <article
+        className="mod-article"
+      >
+        <SkeletonContentMedia />
+        <section
+          className="mod-description"
+        >
+          <h1
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h1>
+          <SkeletonAuthorName />
+        </section>
+      </article>
+    </div>
   </section>
 </div>
 `;
@@ -64,7 +204,77 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Color snaps
     </section>
     <div
       className="row-gap-tablet-3 "
-    />
+    >
+      <article
+        className="mod-article"
+      >
+        <SkeletonContentMedia />
+        <section
+          className="mod-description"
+        >
+          <h1
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h1>
+          <SkeletonAuthorName />
+        </section>
+      </article>
+      <article
+        className="mod-article"
+      >
+        <SkeletonContentMedia />
+        <section
+          className="mod-description"
+        >
+          <h1
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h1>
+          <SkeletonAuthorName />
+        </section>
+      </article>
+      <article
+        className="mod-article"
+      >
+        <SkeletonContentMedia />
+        <section
+          className="mod-description"
+        >
+          <h1
+            className="com-title --xs"
+          >
+            <SkeletonSpan
+              extraClass="--line1"
+            />
+            <SkeletonSpan
+              extraClass="--line2"
+            />
+            <SkeletonSpan
+              extraClass="--line3"
+            />
+          </h1>
+          <SkeletonAuthorName />
+        </section>
+      </article>
+    </div>
   </section>
 </div>
 `;
@@ -86,7 +296,38 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Editoriales
       </h4>
       <div
         className="col-12"
-      />
+      >
+        <article
+          className="mod-article"
+        >
+          <div
+            className="mod-description"
+          >
+            <h2
+              className="com-title --twoxs"
+            >
+              <SkeletonSpan
+                extraClass=""
+              />
+            </h2>
+          </div>
+        </article>
+        <article
+          className="mod-article"
+        >
+          <div
+            className="mod-description"
+          >
+            <h2
+              className="com-title --twoxs"
+            >
+              <SkeletonSpan
+                extraClass=""
+              />
+            </h2>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 </div>
@@ -293,7 +534,10 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
     </section>
     <div
       className="row-gap-tablet-2"
-    />
+    >
+      <SkeletonGrillaArticle />
+      <SkeletonGrillaArticle />
+    </div>
   </section>
 </div>
 `;
@@ -316,7 +560,11 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
     </section>
     <div
       className="row-gap-tablet-3"
-    />
+    >
+      <SkeletonDefaultArticle />
+      <SkeletonDefaultArticle />
+      <SkeletonDefaultArticle />
+    </div>
   </section>
 </div>
 `;
@@ -339,7 +587,14 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
     </section>
     <div
       className="row-gap-tablet-3"
-    />
+    >
+      <SkeletonDefaultArticle />
+      <SkeletonDefaultArticle />
+      <SkeletonDefaultArticle />
+      <SkeletonDefaultArticle />
+      <SkeletonDefaultArticle />
+      <SkeletonDefaultArticle />
+    </div>
   </section>
 </div>
 `;
@@ -362,7 +617,17 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Grilla snap
     </section>
     <div
       className="row-gap-tablet-3"
-    />
+    >
+      <SkeletonDefaultArticle />
+      <SkeletonDefaultArticle />
+      <SkeletonDefaultArticle />
+      <SkeletonDefaultArticle />
+      <SkeletonDefaultArticle />
+      <SkeletonDefaultArticle />
+      <SkeletonDefaultArticle />
+      <SkeletonDefaultArticle />
+      <SkeletonDefaultArticle />
+    </div>
   </section>
 </div>
 `;
