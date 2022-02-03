@@ -15,7 +15,7 @@ export const getLayoutType = layout => {
 };
 
 export const placeholderArticles = {
-    Bomba: layout => {
+    Bomba: () => {
         return [
             <article className="mod-article">
                 <SkeletonContentMedia />
@@ -81,7 +81,7 @@ export const placeholderArticles = {
         };
         return articles[layout] || [];
     },
-    Color: layout => {
+    Color: () => {
         return Array.from({ length: 3 })
             .fill()
             .map(e => (
@@ -112,7 +112,7 @@ export const placeholderArticles = {
         };
         return articles[quantityNotes] || articles.Default;
     },
-    Author: layout => {
+    Author: () => {
         return Array.from({ length: 3 })
             .fill()
             .map(e => (
@@ -129,7 +129,7 @@ export const placeholderArticles = {
                 </article>
             ));
     },
-    Opinion: layout => [
+    Opinion: () => [
         <article className="mod-article">
             <SkeletonContentMediaWithoutFigure />
             <section className="mod-description">
@@ -156,7 +156,7 @@ export const placeholderArticles = {
             </section>
         </article>
     ],
-    Editoriales: layout =>
+    Editoriales: () =>
         Array.from({ length: 2 })
             .fill()
             .map(e => (
