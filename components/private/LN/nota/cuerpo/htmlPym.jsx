@@ -29,11 +29,6 @@ export const getPropsFromNode = node => {
 };
 
 export const convertNodeToComponent = (node, id) => {
-    // console.log("🚀 ~ file: htmlPym.jsx ~ line 34 ~ convertNodeToComponent ~ id", id)
-    console.log(
-        '🚀 ~ file: htmlPym.jsx ~ line 34 ~ convertNodeToComponent ~ node',
-        node
-    );
     if (!node) return null;
     const {
         tagName,
@@ -50,10 +45,6 @@ export const convertNodeToComponent = (node, id) => {
     if (node.nodeType !== 1) return null;
 
     const _props = getPropsFromNode(node);
-    console.log(
-        '🚀 ~ file: htmlPym.jsx ~ line 53 ~ convertNodeToComponent ~ _props',
-        _props
-    );
 
     if (tag === 'iframe' && classList && classList.contains('pym'))
         return (

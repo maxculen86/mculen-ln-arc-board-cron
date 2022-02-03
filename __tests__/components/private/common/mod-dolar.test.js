@@ -28,10 +28,6 @@ describe('Private - Common - ModDolar =>', () => {
 
 describe('with data list', () => {
     const wrapper = shallow(<ModDolar {...API_RESPONSE} />);
-    console.log(
-        '🚀 ~ file: mod-dolar.test.js ~ line 32 ~ describe ~ API_RESPONSE',
-        API_RESPONSE
-    );
     const result = wrapper.first();
     const ulTag = result.find('ul');
     const liTags = result.find('li');
