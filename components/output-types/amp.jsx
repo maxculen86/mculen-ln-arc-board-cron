@@ -137,7 +137,6 @@ const Amp = props => {
                     as="script"
                     href="https://cdn.ampproject.org/v0.js"
                 />
-                {LinkImagePreload()}
                 <script async src="https://cdn.ampproject.org/v0.js" />
 
                 <AMPScripts
