@@ -84,7 +84,7 @@ const Amp = props => {
     const dataLayerAmp = dataLayerIndexAmp(arcSite, layout, globalContent);
     const _nodeType = getSectionName({ nodeType, type });
 
-    const LinkImagePreload = (outputType = 'default') => {
+    const LinkImagePreload = () => {
         const biggestImage = get(
             globalContent,
             'promo_items.basic.resized_urls',
@@ -160,12 +160,12 @@ const Amp = props => {
                     subtype={subtype}
                     syndication={syndication}
                 />
-                {LinkImagePreload('amp')}
                 <link
                     rel="preload"
                     as="script"
                     href="https://cdn.ampproject.org/v0.js"
                 />
+                {LinkImagePreload()}
                 <script async src="https://cdn.ampproject.org/v0.js" />
 
                 <AMPScripts
