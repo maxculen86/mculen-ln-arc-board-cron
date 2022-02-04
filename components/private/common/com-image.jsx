@@ -51,6 +51,7 @@ const ComImage = props => {
             class={classes}
             layout={layout || 'responsive'}
             data-hero={isApertura ? true : undefined}
+            data-amp-auto-lightbox-disable={isApertura ? true : undefined}
         />
     );
 
