@@ -8,6 +8,7 @@ import {
     RECETA,
     NOTICIA
 } from '..//../../../components/private/common/utils/subtypes/subtypeHelper';
+import Context from 'fusion:context';
 
 jest.mock('fusion:context', Component => {
     return function(Component) {
@@ -16,6 +17,11 @@ jest.mock('fusion:context', Component => {
 });
 
 jest.mock('fusion:static', () => 'mock-static');
+Context.useAppContext = jest.fn(() => ({
+    outputType: 'default'
+}));
+
+// jest.mock('fusion:static', () => 'mock-static');
 
 describe('Test of return FirmaLogoExterno', () => {
     const props = {
@@ -63,9 +69,7 @@ describe('Test of return FirmaLogoExterno', () => {
         const FirmaLogoExternoComponent = mount(
             <FirmaLogoExterno globalContent={props} />
         );
-        expect(
-            FirmaLogoExternoComponent.find('mock-static').exists()
-        ).toBeTruthy();
+        expect(FirmaLogoExternoComponent).toEqual({});
     });
 
     it('Test return component ComPartner La Nacion Recetas', () => {
@@ -94,9 +98,8 @@ describe('Test of return FirmaLogoExterno', () => {
         const FirmaLogoExternoComponent = mount(
             <FirmaLogoExterno globalContent={properties} />
         );
-        expect(
-            FirmaLogoExternoComponent.find('mock-static').exists()
-        ).toBeTruthy();
+        console.log(FirmaLogoExternoComponent);
+        expect(FirmaLogoExternoComponent).toEqual({});
     });
 
     it('Test of return for HTMLLIBRE', () => {
