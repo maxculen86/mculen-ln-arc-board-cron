@@ -29,7 +29,7 @@ const ComImage = props => {
 
     const commonProps = {
         src,
-        alt: alt,
+        alt,
         width,
         height,
         ...(amp && srcsetAMP && { srcSet: srcsetAMP })
@@ -51,7 +51,7 @@ const ComImage = props => {
             class={classes}
             layout={layout || 'responsive'}
             data-hero={isApertura ? true : undefined}
-            data-amp-auto-lightbox-disable={isApertura ? true : undefined}
+            data-amp-auto-lightbox-disable="true"
         />
     );
 

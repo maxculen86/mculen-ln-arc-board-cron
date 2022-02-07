@@ -105,25 +105,6 @@ const Amp = props => {
                 as="image"
             />
         );
-
-        /* const dataToLinkImage = getDataToLinkImage(
-            globalContent,
-            _nodeType,
-            renderables,
-            arcSite
-        );
-
-        dataToLinkImage.map(elem => {
-            return (
-                <link
-                    id="preload-img"
-                    rel="preload"
-                    href={elem.resizedUrl}
-                    as="image"
-                    media={elem.media}
-                />
-            );
-        }); */
     };
     return (
         <html amp={String.fromCodePoint(9889)} lang="es">
@@ -201,7 +182,7 @@ const Amp = props => {
                 <MetaSectionParsely arcSite={arcSite} taxonomy={taxonomy} />
                 <title>{metaTitleValue}</title>
             </head>
-            <body>
+            <body data-amp-auto-lightbox-disable>
                 <amp-analytics
                     config={`https://www.googletagmanager.com/amp.json?id=${idAMP}`}
                     data-credentials="include"
