@@ -8,6 +8,12 @@ const authorArticle = ({
         credits: { by }
     }
 }) => {
+    const concatAuthors = (index, authors) => {
+        if (index < authors.length - 2) return ',';
+        if (index === authors.length - 2) return ' y';
+        return '';
+    };
+
     if (!by) return null;
     by = by.filter(author => author.type === 'author');
     return (
@@ -21,11 +27,7 @@ const authorArticle = ({
                         ) : (
                             <span> {authorNota.name} </span>
                         )}
-                        {i < by.length - 2 ? (
-                            <>{','}</>
-                        ) : (
-                            <>{i === by.length - 2 && ' y'}</>
-                        )}
+                        {concatAuthors(i, by)}
                     </span>
                 ))}
         </>
@@ -33,9 +35,9 @@ const authorArticle = ({
 };
 
 authorArticle.propTypes = {
-    credits: PropTypes.shape({
-        by: PropTypes.shape({
-            authors: PropTypes.arrayOf(
+    globalContent: PropTypes.shape({
+        credits: PropTypes.shape({
+            by: PropTypes.arrayOf(
                 PropTypes.shape({
                     _id: PropTypes.string,
                     name: PropTypes.string,
@@ -45,7 +47,7 @@ authorArticle.propTypes = {
                 })
             )
         })
-    })
+    }).isRequired
 };
 
 export default authorArticle;

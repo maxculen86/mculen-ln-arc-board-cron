@@ -22,7 +22,7 @@ const ComImage = props => {
         target,
         isApertura,
         svg,
-        withLazy = true
+        withLazy
     } = props;
 
     if (!src) return null;
@@ -51,6 +51,7 @@ const ComImage = props => {
             class={classes}
             layout={layout || 'responsive'}
             data-hero={isApertura ? true : undefined}
+            data-amp-auto-lightbox-disable="true"
         />
     );
 

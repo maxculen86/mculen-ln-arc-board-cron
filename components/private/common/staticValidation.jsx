@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Static from 'fusion:static';
@@ -8,7 +9,7 @@ export default function StaticValidation({ children, id, isStatic, ...props }) {
 
     if (outputType === 'amp' || !isStatic) return children;
 
-    if (outputType !== 'amp' && isStatic)
+    if (outputType && outputType !== 'amp' && isStatic)
         return (
             <Static id={id} {...props}>
                 {children}

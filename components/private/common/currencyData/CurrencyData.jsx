@@ -11,7 +11,6 @@ import '../../../../resources/dist/css/ln/modules/currency-data.css';
 
 const CurrencyData = ({
     outputType,
-    siteProperties: { host },
     contextPath,
     deployment,
     classCondition,

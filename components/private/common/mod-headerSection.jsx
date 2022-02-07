@@ -31,8 +31,8 @@ const ModheaderSection = props => {
             amp={outputType === 'amp'}
         />
     );
-    const ImageWithLink = link && <ComLink link={link}>{Image}</ComLink>;
-    const modLogo = link ? ImageWithLink : Image;
+
+    const modLogoImage = link ? <ComLink link={link}>{Image}</ComLink> : Image;
 
     return (
         <section
@@ -47,7 +47,7 @@ const ModheaderSection = props => {
                     link={addForwardSLash(link)}
                 />
             ) : (
-                <div className="mod-logo">{modLogo}</div>
+                <div className="mod-logo">{modLogoImage}</div>
             )}
         </section>
     );

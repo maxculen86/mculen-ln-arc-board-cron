@@ -162,7 +162,6 @@ const resolveData = query => {
     const {
         cantidadNotas = 9,
         referrer = SITE_LANACION,
-        imageConfig = 'm',
         idArticle,
         userId = '',
         sessionId,
