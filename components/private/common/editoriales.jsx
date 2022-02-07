@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
 import getProperties from 'fusion:properties';
@@ -36,11 +37,12 @@ const Editoriales = props => {
             }
             {(_articles && articles.length && (
                 <>
-                    <div class="col-12">
+                    <div className="col-12">
                         {_articles.map((element, i) => {
                             extraOpts['data-pos'] = `990${i + 1}`;
                             extraOpts['data-id'] = element.id;
                             extraOpts['data-notaid'] = element.id;
+                            extraOpts['data-source'] = 'editor';
                             return (
                                 <article className="mod-article" {...extraOpts}>
                                     <div className="mod-description">
