@@ -1,10 +1,24 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import FirmaFeature from '../../../../components/features/LN-nota/firma';
+import ModAutor from '../../../../components/private/common/mod-autor';
+import getAuthorByline from '../../../../components/private/common/utils/getAuthorByline';
+import { getPropsBuilderFromContentElements } from '../../../../components/private/common/utils/firmaHelper';
+import { compose } from '../../../../components/private/common/utils/functional';
+import ComPartner from '../../../../components/private/common/com-partner';
+import ComLink from '../../../../components/private/common/com-link';
 
 jest.mock('fusion:context', Component => {
     return function(Component) {
-        const outputType = 'default';
-        const credits = {
+        return props => <Component {...props} />;
+    };
+});
+
+jest.mock('fusion:static', () => 'mock-static');
+
+describe('Firma Feature', () => {
+    const globalContent = {
+        credits: {
             by: [
                 {
                     type: 'author',
@@ -38,34 +52,19 @@ jest.mock('fusion:context', Component => {
                     }
                 }
             ]
-        };
-        const distributor = {
+        },
+        distributor: {
             name: 'LA NACION'
-        };
-
-        return props => (
-            <Component
-                {...props}
-                outputType={outputType}
-                customFields={{ position: 'Top' }}
-                globalContent={{
-                    credits,
-                    distributor,
-                    withFirmaDistributor: false
-                }}
-            />
-        );
+        },
+        withFirmaDistributor: false
     };
-});
-
-jest.mock('fusion:static', () => 'mock-static');
-
-import FirmaFeature from '../../../../components/features/LN-nota/firma';
-import ModAutor from '../../../../components/private/common/mod-autor';
-import getAuthorByline from '../../../../components/private/common/utils/getAuthorByline';
-
-describe('Firma Feature', () => {
-    const wrapper = mount(<FirmaFeature />);
+    const wrapper = mount(
+        <FirmaFeature
+            outputType={'default'}
+            customFields={{ position: 'Top' }}
+            globalContent={globalContent}
+        />
+    );
     const authorComponent = wrapper.find(ModAutor);
     const staticComponent = wrapper.find('mock-static');
 
@@ -106,5 +105,73 @@ describe('Funcion Get Author Byline', () => {
 
         author = {};
         expect(getAuthorByline(author)).toEqual('');
+    });
+});
+
+describe('Prueba de retorno funcion getPropsBuilderFromContentElements', () => {
+    const contentElements = [
+        {
+            _id: 'X4X7HVRVOVGFVAWILZ7YUPKG6A',
+            additional_properties: {},
+            content: 'Cuerpo de infografía.',
+            type: 'text'
+        },
+        {
+            _id: '6EHKP25ACZCJZADQIZRHK6ERAM',
+            additional_properties: {},
+            content: '1',
+            type: 'text'
+        },
+        {
+            _id: 'L5GYSB2AOJHOLHOUS4UCJOWUUU',
+            additional_properties: {},
+            content: '2',
+            type: 'text'
+        },
+        {
+            _id: 'BJIQZVIOQ5BLBANA45GNJSP3JY',
+            additional_properties: {},
+            content: '3',
+            type: 'text'
+        }
+    ];
+
+    it('Retorno para position Top', () => {
+        expect(
+            getPropsBuilderFromContentElements('Top')(contentElements)
+        ).toStrictEqual({ authors: [], photo: null, medio: null });
+    });
+
+    it('Test de retorno para position Bottom', () => {
+        const construcProps = getPropsBuilderFromContentElements('Bottom');
+        expect(compose(construcProps)(contentElements)).toStrictEqual({});
+    });
+});
+
+describe('Test de renderizado condicional en FirmaFeature', () => {
+    const props = {
+        customFields: { position: 'Top' },
+        globalContent: {
+            content_elements: [],
+            credits: { by: [] },
+            distributor: undefined,
+            withFirmaDistributor: true
+        }
+    };
+    it('Test return de ComPartner', () => {
+        const FirmaFeatureComponent = mount(<FirmaFeature {...props} />);
+        expect(FirmaFeatureComponent.find(ComPartner).exists()).toBeTruthy();
+    });
+
+    it('Test return de ComLink', () => {
+        const properties = {
+            ...props,
+            globalContent: {
+                ...props.globalContent,
+                distributor: { name: 'lanacionar' }
+            }
+        };
+        const FirmaFeatureComponent = mount(<FirmaFeature {...properties} />);
+        expect(FirmaFeatureComponent.find(ComLink).exists()).toBeTruthy();
     });
 });

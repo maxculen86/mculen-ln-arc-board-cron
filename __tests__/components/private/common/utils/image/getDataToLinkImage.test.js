@@ -6,8 +6,8 @@ import getImage from '../../../../../../components/private/common/utils/image/ge
 // Data
 import bombaOculta from '../../../../../../__mocks__/data/renderables/bomba/bombaOculta.json';
 import bombaVisible from '../../../../../../__mocks__/data/renderables/bomba/bombaVisible.json';
+import dataApertura from '../../../../../../__mocks__/data/renderables/dataApertura2.json';
 import bombaVisibleOnlyNoteId from '../../../../../../__mocks__/data/renderables/bomba/bombaVisibleOnlyNoteId.json';
-import renderablesWithTwoBomba from '../../../../../../__mocks__/data/renderables/data3.json';
 
 jest.mock(
     '../../../../../../components/private/common/utils/image/getImage',
@@ -292,8 +292,15 @@ describe('Common - GetDataToLinkImage', () => {
                 expect(GetDataToLinkImage({}, 'home', renderables)).toEqual([]);
             });
         });
-
-        describe('with Apertura', () => {});
+        describe('with Apertura', () => {
+            it('Return Array with imageResizedUrls', () => {
+                const renderables = dataApertura;
+                getImage.mockImplementation(() => responseRelatedImageSource);
+                expect(GetDataToLinkImage({}, 'home', renderables)).toEqual(
+                    resizedUrls
+                );
+            });
+        });
     });
 
     /////////// ACUMULADOS ///////////
@@ -315,6 +322,12 @@ describe('Common - GetDataToLinkImage', () => {
             expect(
                 GetDataToLinkImage(globalContent, 'nuevaSeccion', renderables)
             ).toEqual([]);
+        });
+    });
+
+    describe('When the params is undefined', () => {
+        it('without defined parameters, return empty Array', () => {
+            expect(GetDataToLinkImage()).toEqual([]);
         });
     });
 });
