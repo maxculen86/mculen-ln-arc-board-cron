@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import Static from 'fusion:static';
+import StaticValidation from '../../private/common/staticValidation';
 import Media from '../../private/LN/common/media';
 import {
     INFOGRAFIA,
@@ -65,9 +65,9 @@ const aperturaNoticia = props => {
 
     return (
         ((isVideo || subtype === INFOGRAFIA) && Component) || (
-            <Static id={idFeature} persistent>
+            <StaticValidation id={idFeature} htmlOnly persistent>
                 {Component}
-            </Static>
+            </StaticValidation>
         )
     );
 };

@@ -7,12 +7,17 @@ import { getPropsBuilderFromContentElements } from '../../../../components/priva
 import { compose } from '../../../../components/private/common/utils/functional';
 import ComPartner from '../../../../components/private/common/com-partner';
 import ComLink from '../../../../components/private/common/com-link';
+import Context from 'fusion:context';
 
 jest.mock('fusion:context', Component => {
     return function(Component) {
         return props => <Component {...props} />;
     };
 });
+
+Context.useAppContext = jest.fn(() => ({
+    outputType: 'default'
+}));
 
 jest.mock('fusion:static', () => 'mock-static');
 

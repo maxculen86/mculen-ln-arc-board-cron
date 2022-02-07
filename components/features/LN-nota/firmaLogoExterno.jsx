@@ -3,17 +3,17 @@ import React from 'react';
 import { SITE_LANACION } from 'fusion:environment';
 import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
-import withStatic from '../../private/common/hocs/withStatic';
 import ComPartner from '../../private/common/com-partner';
 import ComLink from '../../private/common/com-link';
 import formatDistributorName from '../../private/LN/common/utils/formatDistributorName';
+import StaticValidation from '../../private/common/staticValidation';
 import {
     HTMLLIBRE,
     RECETA
 } from '../../private/common/utils/subtypes/subtypeHelper';
 
 const FirmaLogoExterno = props => {
-    const { globalContent } = props;
+    const { id: featureId, globalContent } = props;
     const {
         distributor = { name: 'LA NACION' },
         subtype,
@@ -23,24 +23,34 @@ const FirmaLogoExterno = props => {
     const { name } = distributor;
     const { by = [] } = credits || {};
 
-    if (name === 'LA NACION' && by.length > 0) return <></>;
-    if (subtype === RECETA && by.length === 0)
-        return <ComPartner size="--xs">Por LA NACION recetas</ComPartner>;
-    if (subtype === RECETA && by.length > 0) return <></>;
-    if (subtype === HTMLLIBRE)
-        return <ComPartner size="--xs">{name}</ComPartner>;
+    let content = <></>;
 
     const nameFormated = formatDistributorName(name);
-    return !withFirmaDistributor ? (
-        <ComLink link={`${SITE_LANACION}/distributor/${nameFormated}/`}>
-            <ComPartner size="--twoxs">{name}</ComPartner>
-        </ComLink>
-    ) : (
-        <></>
+    if (!withFirmaDistributor)
+        content = (
+            <ComLink link={`${SITE_LANACION}/distributor/${nameFormated}/`}>
+                <ComPartner size="--twoxs">{name}</ComPartner>
+            </ComLink>
+        );
+    if (
+        (subtype === RECETA && by.length > 0) ||
+        (name === 'LA NACION' && by.length > 0)
+    )
+        return <></>;
+    if (subtype === RECETA && by.length === 0)
+        content = <ComPartner size="--xs">Por LA NACION recetas</ComPartner>;
+    if (subtype === HTMLLIBRE)
+        content = <ComPartner size="--xs">{name}</ComPartner>;
+
+    return (
+        <StaticValidation id={featureId} htmlOnly persistent>
+            {content}
+        </StaticValidation>
     );
 };
 
 FirmaLogoExterno.propTypes = {
+    id: PropTypes.string.isRequired,
     globalContent: PropTypes.shape({
         distributor: PropTypes.shape({
             name: PropTypes.string,
@@ -58,4 +68,4 @@ FirmaLogoExterno.propTypes = {
 
 FirmaLogoExterno.label = 'LN-Nota-FirmaLogoExterno';
 
-export default withStatic(Context(FirmaLogoExterno));
+export default Context(FirmaLogoExterno);

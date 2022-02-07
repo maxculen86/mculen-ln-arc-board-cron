@@ -1,7 +1,7 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import Static from 'fusion:static';
+import StaticValidation from '../private/common/staticValidation';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import '../../resources/dist/css/ln/base.css'; // chequear para sacar base porque se repite estilo
@@ -142,9 +142,9 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                         <div className="hijo3 parrafos"></div>
                     </div>
                 </main>
-                <Static id="StaticFooter">
+                <StaticValidation id="StaticFooter" htmlOnly persistent>
                     <Footer />
-                </Static>
+                </StaticValidation>
             </div>
         </GlobalProvider>
     );

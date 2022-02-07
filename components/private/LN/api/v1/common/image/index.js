@@ -22,7 +22,7 @@ const imageCommon = image => {
         baseUrl: regexResult
             ? regexResult[0].replace(regexResult[1], '{{param}}')
             : resizedUrls[0].resizedUrl,
-        absoluteUrl: absoluteUrl,
+        absoluteUrl,
         parametros: []
     };
     const regex = /.*\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/;

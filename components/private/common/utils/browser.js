@@ -77,6 +77,7 @@ const getApiVersion = urlP => {
     const regexResult = versionRegex.exec(url);
     return regexResult[1];
 };
+
 const getApiType = urlP => {
     let url = urlP;
     if (!url) {

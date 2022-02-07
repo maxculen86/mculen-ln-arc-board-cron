@@ -1,9 +1,13 @@
-import indexNotaData from '../../common/story/indexNotaData';
+import { storyCommon, storyHeadline } from '../../common/story/storyCommon';
 import cuerpo from './cuerpo/index';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
 
 const indexNota = dataNota => {
-    const resp = indexNotaData(dataNota, cuerpo);
+    const resp = {
+        ...storyCommon(dataNota, cuerpo),
+        ...storyHeadline(dataNota, 'mobile')
+    };
+
     let elmentsAdd = 1;
     const boxElements = [0, 4, 7, 9, 11];
     if (resp.contenido) {

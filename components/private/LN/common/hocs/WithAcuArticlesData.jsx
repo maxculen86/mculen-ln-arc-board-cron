@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { PureComponent } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';

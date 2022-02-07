@@ -28,7 +28,7 @@ const getRequest = query => {
 };
 
 const fetch = async (query, { cachedCall }) => {
-    const { uri, slug, website = 'la-nacion-ar' } = query || {};
+    const { slug, website = 'la-nacion-ar' } = query || {};
 
     const opt = {
         uri: `${CONTENT_BASE}${resolve(query)}`,
@@ -61,14 +61,14 @@ const fetch = async (query, { cachedCall }) => {
         .catch(error => {
             logger.push(
                 error,
-                { source: 'content/source/tagSource', url: uri },
+                { source: 'content/source/tagSource', url: `/tema/${slug}/` },
                 query['arc-site']
             );
         });
 };
 
 const transform = (data, query, tagConfigData) => {
-    const { uri, meteringVariant, slug } = query || {};
+    const { meteringVariant, slug } = query || {};
 
     const { tagConfigGroup } = tagConfigData || {};
 
@@ -76,7 +76,7 @@ const transform = (data, query, tagConfigData) => {
         anexosuperiortag: anexoSuperiorTag = '',
         anexoinferiortag: anexoInferiorTag = '',
         collectiontag: collectionTag = ''
-    } = tagConfigGroup;
+    } = tagConfigGroup || {};
 
     const acumuladoGeneral = {
         anexosuperior: getDataForTag(anexoSuperiorTag, slug),
@@ -87,7 +87,7 @@ const transform = (data, query, tagConfigData) => {
         ...data,
         node_type: 'tags',
         name: data.Payload.items[0].name,
-        canonical_url: uri,
+        canonical_url: `/tema/${slug}/`,
         subscription: meteringVariant,
         acumuladoGeneral
     };

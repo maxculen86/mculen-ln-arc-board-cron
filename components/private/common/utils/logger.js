@@ -9,29 +9,41 @@ const setLNError = ({ statusCode, message }) => {
     return [code, message].join(' ');
 };
 
+const flow404 = ({ customsProps, error, justWarning }) => {
+    const { message = '' } = error;
+    const pushError = () => {
+        if (typeof error === 'NotFoundError') throw error;
+        throw new NotFoundError(message);
+    };
+
+    console.warn(`LnWarn: ${message}`, customsProps);
+
+    return justWarning ? false : pushError();
+};
+
+const regularFlow = ({ loggerExcludedErrors, error, customsProps }) => {
+    const { statusCode, message = '' } = error;
+
+    if (loggerExcludedErrors.includes(Number(statusCode))) throw error;
+    throw new LnError(setLNError({ statusCode, message }), customsProps);
+};
+
 const logger = (() => {
-    const push = (error, config, site) => {
+    const push = (error = {}, config, site, justWarning) => {
         const { loggerExcludedErrors } = getProperties(site) || {
-            loggerExcludedErros: [301, 302, 404]
+            loggerExcludedErrors: [301, 302, 404]
         };
-        const { statusCode, message = '' } = error || {};
         const { source = 'ARC', url = null, uri = null } = config || {};
         const customsProps = {
             customErrorType: 'controlado',
             contentSource: source,
-            statusCode,
+            statusCode: error.statusCode,
             url: url || uri
         };
 
-        if (statusCode === 404) {
-            console.warn(`LnWarn: ${message}`, customsProps);
-            if (typeof error === 'NotFoundError') throw error;
-            throw new NotFoundError(message);
-        }
-
-        if (loggerExcludedErrors.includes(Number(statusCode))) throw error;
-
-        throw new LnError(setLNError({ statusCode, message }), customsProps);
+        error.statusCode === 404
+            ? flow404({ customsProps, error, justWarning })
+            : regularFlow({ customsProps, error, loggerExcludedErrors });
     };
 
     return {
