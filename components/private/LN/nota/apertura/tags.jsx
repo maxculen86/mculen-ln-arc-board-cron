@@ -51,12 +51,12 @@ const Tags = ({ tags = [], sections, destacado, temas }) => {
                         {listTags.length > 0 && (
                             <HeaderSection tag="h3" title="Temas" />
                         )}
-                        {listTags ? (
+                        {listTags && (
                             <TaxonomyComponent
                                 list={listTags}
                                 destacado={destacado}
                             />
-                        ) : null}
+                        )}
                     </div>
                 </div>
             ) : (

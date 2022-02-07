@@ -24,7 +24,7 @@ const authorArticle = ({
                         {i < by.length - 2 ? (
                             <>{','}</>
                         ) : (
-                            <>{i === by.length - 2 ? ' y' : ''}</>
+                            <>{i === by.length - 2 && ' y'}</>
                         )}
                     </span>
                 ))}

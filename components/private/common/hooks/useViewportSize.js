@@ -1,16 +1,14 @@
-/* eslint-disable no-nested-ternary */
-
 import React from 'react';
 
 const isSSR = () => typeof window === 'undefined';
 
 export default function useViewportSize() {
-    const userAgent =
-        typeof navigator !== 'undefined'
-            ? navigator.userAgent || navigator.vendor
-            : isSSR()
-            ? ''
-            : window.opera;
+    const getUserAgent = () => {
+        if (typeof navigator !== 'undefined')
+            return navigator.userAgent || navigator.vendor;
+        if (isSSR()) return '';
+        return window.opera;
+    };
 
     const [viewportSize, setViewportSize] = React.useState(
         isSSR() ? 'desktop' : ''
@@ -45,7 +43,7 @@ export default function useViewportSize() {
     }
 
     function getViewportSize() {
-        const mobileOrTablet = isTabletOrMobile(userAgent);
+        const mobileOrTablet = isTabletOrMobile(getUserAgent());
         const isTablet = screen.width >= 768 && screen.width < 1024;
         const isMobile = screen.width < 768;
         if (mobileOrTablet) {

@@ -1,19 +1,14 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import Static from 'fusion:static';
 import { useAppContext } from 'fusion:context';
 
-export default function StaticValidation({
-    children,
-    id,
-    notStatic,
-    ...props
-}) {
+export default function StaticValidation({ children, id, isStatic, ...props }) {
     const { outputType } = useAppContext();
 
-    if (outputType === 'amp' || notStatic) return children;
+    if (outputType === 'amp' || !isStatic) return children;
 
-    if (outputType !== 'amp' && !notStatic)
+    if (outputType !== 'amp' && isStatic)
         return (
             <Static id={id} {...props}>
                 {children}
@@ -26,9 +21,9 @@ export default function StaticValidation({
 StaticValidation.propTypes = {
     children: PropTypes.arrayOf(PropTypes.node).isRequired,
     id: PropTypes.string.isRequired,
-    notStatic: PropTypes.boolean
+    isStatic: PropTypes.boolean
 };
 
 StaticValidation.defaultProps = {
-    notStatic: false
+    isStatic: true
 };

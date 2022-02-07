@@ -15,19 +15,15 @@ const ComIco = props => {
             style={style}
         />
     );
+    if (iconName === 'bullet') return icon;
+
     return (
         <>
-            {iconName === 'bullet' ? (
-                icon
+            {icon}
+            {textname ? (
+                <ComText size={sizeText || ''}>{textname}</ComText>
             ) : (
-                <>
-                    {icon}
-                    {textname ? (
-                        <ComText size={sizeText || ''}>{textname}</ComText>
-                    ) : (
-                        ''
-                    )}
-                </>
+                ''
             )}
         </>
     );

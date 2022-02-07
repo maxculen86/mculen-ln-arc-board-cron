@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`private - common - currencyData Currency data render with dblue props Should return dblue data 1`] = `
+<div
+  class=" currency-data"
+>
+  <a
+    class="com-link link-container-currency-data"
+    href="https://www.lanacion.com.ar/tema/dolar-blue-tid67294/"
+    title="Dólar blue"
+  >
+    <h2
+      class="dolar-title --font-bold --twoxs"
+    >
+      Dólar hoy
+    </h2>
+  </a>
+  <p
+    class="com-text --sixxs"
+  >
+    <span>
+      COMPRA
+    </span>
+    <strong
+      class="--fourxs"
+    >
+      $104,75
+    </strong>
+    <span>
+      VENTA
+    </span>
+    <strong
+      class="--fourxs"
+    >
+      $110,75
+    </strong>
+  </p>
+</div>
+`;
+
+exports[`private - common - currencyData Currency data render with dbna props Should return dbna data 1`] = `
+<div
+  class=" currency-data"
+>
+  <a
+    class="com-link link-container-currency-data"
+    href="https://www.lanacion.com.ar/dolar-hoy/"
+    title="Dólar hoy"
+  >
+    <h2
+      class="dolar-title --font-bold --twoxs"
+    >
+      Dólar hoy
+    </h2>
+  </a>
+  <p
+    class="com-text --sixxs"
+  >
+    <span>
+      COMPRA
+    </span>
+    <strong
+      class="--fourxs"
+    >
+      $104,75
+    </strong>
+    <span>
+      VENTA
+    </span>
+    <strong
+      class="--fourxs"
+    >
+      $110,75
+    </strong>
+  </p>
+</div>
+`;
+
+exports[`private - common - currencyData Currency data render with info props Should return information data 1`] = `
+<a
+  class="com-link provider-data"
+  href="https://www.invertironline.com/"
+  title=""
+>
+  <div
+    class="container-logo"
+  >
+    <span
+      class="--sixxs"
+    >
+      Información de
+    </span>
+    <img
+      alt="BYMA"
+      class="com-image logo byma"
+      loading="lazy"
+      src="undefined$LATEST"
+    />
+  </div>
+  <div
+    class="container-logo"
+  >
+    <span
+      class="--sixxs"
+    >
+      provista por
+    </span>
+    <img
+      alt="InvertirOnline"
+      class="com-image logo iol"
+      loading="lazy"
+      src="undefined$LATEST"
+    />
+  </div>
+</a>
+`;

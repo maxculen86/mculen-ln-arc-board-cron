@@ -5,10 +5,10 @@ import dateAndTimeUtil from '../../common/utils/dateAndTimeUtil';
 const DateHeader = ({ display_date, labelEdicionImpresa }) => {
     const { text: textEdicionImpresa } = labelEdicionImpresa || {};
     const { date, time } = dateAndTimeUtil(display_date);
+    const timeOrNot = textEdicionImpresa !== 'Impresa' ? ` • ${time}` : '';
+
     return date && time ? (
-        <p className="com-date --threexs">
-            {`${date}${textEdicionImpresa !== 'Impresa' ? ` • ${time}` : ''}`}
-        </p>
+        <p className="com-date --threexs">{`${date}${timeOrNot}`}</p>
     ) : null;
 };
 

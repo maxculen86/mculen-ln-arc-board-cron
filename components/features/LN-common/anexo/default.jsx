@@ -4,7 +4,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
-import Static from 'fusion:static';
+import StaticValidation from '../../../private/common/staticValidation';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import get from '../../../private/common/utils/get';
 import { getChildsFromSections } from '../../../private/LN/common/utils/homeHelper';
@@ -42,13 +42,17 @@ const AnexoFeature = props => {
             className={`com-anexo ${EXTRA_CLASS}`}
             style={{ height, overflow: 'hidden', width: '100%' }}
         >
-            {isInSection({ sectionName: 'Anexo1', id, renderables }) ? (
-                <Static id={id} htmlOnly>
-                    {comp()}
-                </Static>
-            ) : (
-                comp()
-            )}
+            <StaticValidation
+                id={id}
+                htmlOnly
+                isStatic={isInSection({
+                    sectionName: 'Anexo1',
+                    id,
+                    renderables
+                })}
+            >
+                {comp()}
+            </StaticValidation>
         </div>
     ) : (
         comp()

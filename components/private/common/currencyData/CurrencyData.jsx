@@ -1,28 +1,13 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
-import getAssetsPath from '../../common/utils/getAssetsPath';
+import getAssetsPath from '../utils/getAssetsPath';
 
 import Text from '../text';
 import ComLink from '../com-link';
 import ComImage from '../com-image';
 
 import '../../../../resources/dist/css/ln/modules/currency-data.css';
-
-const propTypes = {
-    classCondition: PropTypes.string,
-    title: PropTypes.string,
-    purchaseValue: PropTypes.string,
-    saleValue: PropTypes.string,
-    textBrand: PropTypes.string,
-    informationAlt: PropTypes.string,
-    providedAlt: PropTypes.string
-};
-
-const defaultProps = {
-    informationAlt: 'BYMA',
-    providedAlt: 'InvertirOnline'
-};
 
 const CurrencyData = ({
     outputType,
@@ -35,24 +20,28 @@ const CurrencyData = ({
     saleValue,
     sourceName,
     urlBrand,
-    textBrand,
     informationAlt,
     providedAlt,
     ...r
 }) => {
-    const navigationData =
-        sourceName === 'dbna'
-            ? 'https://www.lanacion.com.ar/dolar-hoy/'
-            : '' || sourceName === 'dblue'
-            ? 'https://www.lanacion.com.ar/tema/dolar-blue-tid67294/'
-            : '';
-
-    const titleData =
-        sourceName === 'dbna'
-            ? 'Dólar hoy'
-            : '' || sourceName === 'dblue'
-            ? 'Dólar blue'
-            : '';
+    const navigationData = sourceNombre => {
+        if (sourceNombre === 'dbna') {
+            return 'https://www.lanacion.com.ar/dolar-hoy/';
+        }
+        if (sourceNombre === 'dblue') {
+            return 'https://www.lanacion.com.ar/tema/dolar-blue-tid67294/';
+        }
+        return '';
+    };
+    const titleData = sourceNombre => {
+        if (sourceNombre === 'dbna') {
+            return 'Dólar hoy';
+        }
+        if (sourceNombre === 'dblue') {
+            return 'Dólar blue';
+        }
+        return '';
+    };
 
     return (
         <>
@@ -60,9 +49,9 @@ const CurrencyData = ({
                 <div className={`${classCondition} currency-data`}>
                     <ComLink
                         type="text/css"
-                        title={titleData}
+                        title={titleData(sourceName)}
                         classCondition="link-container-currency-data"
-                        link={navigationData}
+                        link={navigationData(sourceName)}
                     >
                         <Text
                             tag="h2"
@@ -119,7 +108,32 @@ const CurrencyData = ({
     );
 };
 
-CurrencyData.propTypes = propTypes;
-CurrencyData.defaultProps = defaultProps;
+CurrencyData.propTypes = {
+    outputType: PropTypes.string,
+    siteProperties: PropTypes.shape({
+        host: PropTypes.string
+    }).isRequired,
+    contextPath: PropTypes.string.isRequired,
+    deployment: PropTypes.func.isRequired,
+    classCondition: PropTypes.string,
+    title: PropTypes.string,
+    purchaseValue: PropTypes.string,
+    saleValue: PropTypes.string,
+    sourceName: PropTypes.string,
+    urlBrand: PropTypes.string,
+    informationAlt: PropTypes.string,
+    providedAlt: PropTypes.string
+};
+CurrencyData.defaultProps = {
+    outputType: 'default',
+    classCondition: '',
+    title: '',
+    purchaseValue: '',
+    saleValue: '',
+    sourceName: '',
+    urlBrand: '',
+    informationAlt: 'BYMA',
+    providedAlt: 'InvertirOnline'
+};
 
 export default Consumer(CurrencyData);

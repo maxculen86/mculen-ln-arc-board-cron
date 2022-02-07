@@ -41,7 +41,7 @@ const ComLogo = props => {
     const Logo = (
         <StaticValidation
             id={assets || `logo-${logoName}`}
-            notStatic={!isStatic}
+            isStatic={isStatic}
             htmlOnly
             persistent
         >

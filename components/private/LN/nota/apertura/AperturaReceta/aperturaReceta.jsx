@@ -35,26 +35,25 @@ const aperturaReceta = props => {
         (!listSections || listSections.length === 0) &&
         promoItems === undefined
     );
+    if (aperturaVacio) return null;
 
     return (
         <>
-            {aperturaVacio ? null : (
-                <div
-                    className={`row aper-receta w-100-mobile ${
-                        hasMultimedia ? '' : 'sin-foto'
-                    }`}
-                >
-                    {hasMultimedia ? (
-                        <AperturaConDestacado {...props} />
-                    ) : (
-                        <AperturaSinDestacado
-                            tags={tags}
-                            taxonomy={taxonomy}
-                            receta={!!promoItems && promoItems.receta}
-                        />
-                    )}
-                </div>
-            )}
+            <div
+                className={`row aper-receta w-100-mobile ${
+                    hasMultimedia ? '' : 'sin-foto'
+                }`}
+            >
+                {hasMultimedia ? (
+                    <AperturaConDestacado {...props} />
+                ) : (
+                    <AperturaSinDestacado
+                        tags={tags}
+                        taxonomy={taxonomy}
+                        receta={!!promoItems && promoItems.receta}
+                    />
+                )}
+            </div>
         </>
     );
 };
