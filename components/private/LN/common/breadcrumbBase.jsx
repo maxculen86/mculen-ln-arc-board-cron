@@ -83,14 +83,15 @@ const BreadcrumbBase = props => {
                     })
                 }}
             >
-                <i
+                {/* <i
                     className="com-icon bullet icon-bullet-xs"
                     style={{
                         ...(colorCategory && {
                             color: colorCategory
                         })
                     }}
-                />
+                /> */}
+                <i className="--bullet --fourxs">{`>`}</i>
                 {lastSection.name}
             </span>
         );
