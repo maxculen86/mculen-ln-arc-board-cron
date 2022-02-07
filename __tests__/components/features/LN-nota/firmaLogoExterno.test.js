@@ -21,8 +21,6 @@ Context.useAppContext = jest.fn(() => ({
     outputType: 'default'
 }));
 
-// jest.mock('fusion:static', () => 'mock-static');
-
 describe('Test of return FirmaLogoExterno', () => {
     const props = {
         distributor: undefined,
