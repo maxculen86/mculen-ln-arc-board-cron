@@ -4,14 +4,12 @@ import Consumer from 'fusion:consumer';
 import Icon from '../../../common/icon';
 import Text from '../../../common/text';
 import List from '../../../common/mod-list';
-import Image from '../../../common/com-image';
 import Copyright from './copyright';
-import ComLogo from '../../../common/com-logo';
-import getAssetsPath from '../../../common/utils/getAssetsPath';
 
 import '../../../../../resources/dist/css/ln/modules/mod-footer.css';
+import ComLogo from '../../../common/com-logo';
 
-const Index = ({ outputType, contextPath, home, deployment }) => {
+const Index = ({ home }) => {
     const listText = [
         {
             text: 'Últimas noticias',
@@ -242,21 +240,17 @@ const Index = ({ outputType, contextPath, home, deployment }) => {
                             />
                         </div>
                         <div className="col-desksm-4 --right">
-                            <Image
-                                src={getAssetsPath(contextPath)(deployment)(
-                                    'google-play.svg'
-                                )}
-                                alt="Descargar nuestra app en Google Play"
+                            <ComLogo
+                                logoName="android-store"
+                                title="Descargar nuestra app en Google Play"
                                 width="120"
                                 height="35"
                                 href="https://play.google.com/store/apps/details?id=app.lanacion.activity&hl=es_419"
                                 target="_blank"
                             />
-                            <Image
-                                src={getAssetsPath(contextPath)(deployment)(
-                                    'app-store.svg'
-                                )}
-                                alt="Descargar nuestra app en el App Store"
+                            <ComLogo
+                                logoName="ios-store"
+                                title="Descargar nuestra app en el App Store"
                                 width="120"
                                 height="35"
                                 href="https://apps.apple.com/ar/app/la-nacion/id410689702"
