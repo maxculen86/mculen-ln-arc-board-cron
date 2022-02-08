@@ -1,6 +1,5 @@
 const groupBannerConfig = props => {
     const optionsSet = Object.keys(props.customFields);
-
     const numberGroups = optionsSet
         .filter(el => el.startsWith('position'))
         .map(el => el.match(/\d+/g)[0]);

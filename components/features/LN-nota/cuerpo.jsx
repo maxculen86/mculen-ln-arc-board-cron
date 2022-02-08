@@ -11,6 +11,7 @@ import {
 
 const cuerpo = props => {
     const bannerConfig = groupBannerConfig(props);
+    // console.log("🚀 ~ file: cuerpo.jsx ~ line 1444444 ~ bannerConfig", bannerConfig)
     const properties = {
         ...props,
         bannerConfig

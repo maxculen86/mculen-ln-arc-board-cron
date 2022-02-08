@@ -1,7 +1,7 @@
 import {
     rules,
     bodyElementRules
-} from '../../../../../../components/features/LN-nota/body/_children/_bodyElementRules';
+} from '../../../../../../components/features/LN-nota/body/_utils/_bodyElementRules';
 import Consumer from 'fusion:consumer';
 import contentElements from '../../../../../../__mocks__/data/nota/body/contentElements.json';
 import globalContent from '../../../../../../__mocks__/data/nota/body/globalContent.json';
@@ -38,10 +38,10 @@ describe('_bodyElementRules', () => {
     describe('bodyElementFucntion', () => {
         test('retornar 95 elementos', () => {
             const payload = contentElements.map((element, currentIndex) => {
-                console.log(
-                    '🚀 ~ file: _bodyElementRules.test.js. ~ line 41 ~ payload ~ element',
-                    element
-                );
+                // console.log(
+                //     '🚀 ~ file: _bodyElementRules.test.js. ~ line 41 ~ payload ~ element',
+                //     element
+                // );
                 return bodyElementRules({
                     element,
                     outputType: 'default',
