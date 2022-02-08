@@ -53,6 +53,7 @@ exports[`TePuedeIneresarAmp Should render component 1`] = `
                     <amp-img
                       alt="Las predicciones de Jimena La Torre para la semana del 10 al 16 de enero"
                       class="com-image "
+                      data-amp-auto-lightbox-disable="true"
                       height="513"
                       layout="responsive"
                       src="https://resizer.glanacion.com/resizer/7wV6eZcAcRi93W6JtB62FEZt1rA=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5HNJZRFCG5F7NGAAHY2GBOWNIA.jpg"
@@ -150,6 +151,7 @@ exports[`TePuedeIneresarAmp Should render component 1`] = `
                     <amp-img
                       alt="¿Cómo será tu año de acuerdo a tu signo ascendente?"
                       class="com-image "
+                      data-amp-auto-lightbox-disable="true"
                       height="513"
                       layout="responsive"
                       src="https://resizer.glanacion.com/resizer/MBWv7KsMM8OoV2QsIsIp1rY4gX8=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/N7CFWFKC4NEZJFNJDX3GHMHC4Q.jpg"
