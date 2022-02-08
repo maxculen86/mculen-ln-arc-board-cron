@@ -11,7 +11,6 @@ const ComImage = props => {
     const {
         src,
         srcset,
-        srcsetAMP,
         alt,
         layout,
         classCondition,
@@ -22,6 +21,7 @@ const ComImage = props => {
         target,
         isApertura,
         svg,
+        sizes,
         withLazy = true
     } = props;
 
@@ -29,10 +29,9 @@ const ComImage = props => {
 
     const commonProps = {
         src,
-        alt: alt,
+        alt,
         width,
-        height,
-        ...(amp && srcsetAMP && { srcSet: srcsetAMP })
+        height
     };
 
     const classes = `${svg ? '' : 'com-image'} ${classCondition || ''}`;
@@ -42,6 +41,7 @@ const ComImage = props => {
             {...commonProps}
             className={classes}
             srcSet={srcset}
+            sizes={sizes}
             loading={withLazy ? 'lazy' : undefined}
         />
     );
@@ -70,7 +70,6 @@ const ComImage = props => {
 ComImage.propTypes = {
     src: PropTypes.string.isRequired,
     srcset: PropTypes.string,
-    srcsetAMP: PropTypes.string,
     alt: PropTypes.string,
     classCondition: PropTypes.string,
     amp: PropTypes.bool.isRequired,
@@ -79,6 +78,7 @@ ComImage.propTypes = {
     href: PropTypes.string,
     target: PropTypes.string,
     layout: PropTypes.string,
+    sizes: PropTypes.string,
     withLazy: PropTypes.bool,
     isApertura: PropTypes.bool,
     svg: PropTypes.bool
@@ -86,7 +86,6 @@ ComImage.propTypes = {
 
 ComImage.defaultProps = {
     srcset: undefined,
-    srcsetAMP: '',
     classCondition: '',
     href: '',
     alt: undefined,
@@ -94,7 +93,8 @@ ComImage.defaultProps = {
     withLazy: true,
     layout: undefined,
     isApertura: false,
-    svg: false
+    svg: false,
+    sizes: undefined
 };
 
 export default ComImage;

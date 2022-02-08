@@ -29,11 +29,14 @@ const ImageArticle = props => {
     const sourceActive = active ? sourcesZoom : sources;
 
     // TODO: ver este tema de source sets con maquetacion
-    const srcsetAMP = getSourceSet(isVertical, image, sourceActive);
+    const srcset = getSourceSet(isVertical, image, sourceActive);
+    const sizes = sourceActive
+        .map(x => `${x.option.media} ${x.option.width}px`)
+        .join();
 
     return (
         <ComPicture href={href} amp={outputType === 'amp'}>
-            {!active &&
+            {/* {!active &&
                 outputType !== 'amp' &&
                 sources &&
                 sources.map(x => {
@@ -44,8 +47,8 @@ const ImageArticle = props => {
                             srcSet={x.resizedUrl}
                         />
                     );
-                })}
-            {active &&
+                })} */}
+            {/* {active &&
                 sourcesZoom &&
                 sourcesZoom.map(x => {
                     return (
@@ -55,9 +58,11 @@ const ImageArticle = props => {
                             srcSet={x.resizedUrl}
                         />
                     );
-                })}
+                })} */}
             <ComImage
-                srcsetAMP={srcsetAMP}
+                srcset={srcset}
+                sizes={sizes}
+                srcsetAMP={srcset}
                 src={url}
                 alt={altBasic}
                 amp={outputType === 'amp'}
