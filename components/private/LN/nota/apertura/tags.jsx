@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import TaxonomyComponent from '../../common/taxonomyImportantList';
 import HeaderSection from '../../../common/mod-headerSection';
 
@@ -74,8 +74,8 @@ Tags.propTypes = {
             text: PropTypes.string
         })
     ).isRequired,
-    destacado: PropTypes.boolean.isRequired,
-    temas: PropTypes.boolean,
+    destacado: PropTypes.bool.isRequired,
+    temas: PropTypes.bool,
     sections: PropTypes.arrayOf(PropTypes.shape)
 };
 

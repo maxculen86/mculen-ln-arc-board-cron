@@ -4,6 +4,7 @@ import '../../../resources/dist/css/ln/components/com-icon.css';
 import ComText from './text';
 
 const ComIco = props => {
+    console.log('🚀 ~ file: com-icon.jsx ~ line 7 ~ props', props);
     const { iconName, textname, style, sizeBullet, sizeText, sizeIcon } = props;
 
     if (!iconName) return null;

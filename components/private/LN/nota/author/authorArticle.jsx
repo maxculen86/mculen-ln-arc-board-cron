@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import '../../../../../resources/dist/css/ln/components/author.css';
 
 // TODO: esta mal como arma el listado con las 'y' y las ','. El test pasa para poder mergear pero hay que corregirlo!
@@ -10,7 +10,7 @@ const authorArticle = ({
 }) => {
     const concatAuthors = (index, authors) => {
         if (index < authors.length - 2) return ',';
-        if (index === authors.length - 2) return ' y';
+        if (index === authors.length - 2) return 'y';
         return '';
     };
 
@@ -18,18 +18,17 @@ const authorArticle = ({
     by = by.filter(author => author.type === 'author');
     return (
         <>
-            {by && by.length > 0 ? <span>Por</span> : ''}
-            {by &&
-                by.map((authorNota, i) => (
-                    <span key={authorNota._id} className="">
-                        {authorNota.url && authorNota.url !== '' ? (
-                            <a href={authorNota.url}>{authorNota.name}</a>
-                        ) : (
-                            <span> {authorNota.name} </span>
-                        )}
-                        {concatAuthors(i, by)}
-                    </span>
-                ))}
+            {by.length > 0 ? <span>Por</span> : ''}
+            {by.map((authorNota, i) => (
+                <span key={authorNota._id} className="">
+                    {authorNota.url && authorNota.url !== '' ? (
+                        <a href={authorNota.url}>{authorNota.name}</a>
+                    ) : (
+                        <span>{authorNota.name}</span>
+                    )}
+                    {concatAuthors(i, by)}
+                </span>
+            ))}
         </>
     );
 };
