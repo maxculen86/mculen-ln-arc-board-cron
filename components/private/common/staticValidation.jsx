@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import Static from 'fusion:static';
 import { useAppContext } from 'fusion:context';
 
@@ -24,7 +24,8 @@ export default function StaticValidation({
 }
 
 StaticValidation.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.node).isRequired,
+    children: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
+        .isRequired,
     id: PropTypes.string.isRequired,
     notStatic: PropTypes.boolean
 };

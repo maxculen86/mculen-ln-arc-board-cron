@@ -92,6 +92,7 @@ const ModArticle = props => {
             })}
             {...extraOpts}
             onClick={onCLick}
+            onAuxClick={onCLick}
         >
             {hour}
 

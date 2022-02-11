@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable no-console */
 /* eslint-disable consistent-return */
 import React, { useEffect, useReducer } from 'react';
@@ -31,6 +32,10 @@ import DivBannerSSR from '../../private/common/banners/DivBannerSSR';
 import { getScriptForComercial } from '../../private/common/banners/bannersRules';
 import PwaModals from '../../private/LN/common/pwaModals';
 import { homeLayoutsPropTypes } from '../../private/common/utils/propTypesHelper';
+import {
+    productClickFromServer,
+    prepareImpressionEvent
+} from '../../private/common/utils/viewability';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -158,6 +163,7 @@ const LNMainHome = props => {
                     scrollTop,
                     dataSections
                 );
+
                 if (!sectionVisible) return;
                 sessionStorage.setItem('lb', sectionVisible);
                 const scrollPercentRounded = getScrollPercent();
@@ -170,6 +176,8 @@ const LNMainHome = props => {
                 ) {
                     dispatch({ type: 'updateNextBlock' });
                 }
+
+                prepareImpressionEvent(true);
             } catch (error) {
                 console.error('Error en useEffect LN-Main_Home =>', {
                     error,
@@ -181,8 +189,12 @@ const LNMainHome = props => {
         }, 25);
 
         const dataSections = document.querySelectorAll('[data-section]');
+
         window.addEventListener('scroll', e => handleScroll(e, dataSections));
-        return () => window.removeEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, [blocksToLoad]);
 
     // First Load
@@ -688,19 +700,16 @@ const LNMainHome = props => {
             )}
             <Metarefresh />
             <PwaModals />
+            {productClickFromServer()}
         </GlobalProvider>
     );
 };
 
 LNMainHome.propTypes = {
-    renderables: PropTypes.node.isRequired,
+    renderables: PropTypes.arrayOf(PropTypes.node),
     outputType: PropTypes.string,
-    isAdmin: PropTypes.bool.isRequired,
+    isAdmin: PropTypes.bool,
     ...homeLayoutsPropTypes
-};
-
-LNMainHome.defaultProps = {
-    outputType: 'default'
 };
 
 LNMainHome.sections = pageBuilderSections;
