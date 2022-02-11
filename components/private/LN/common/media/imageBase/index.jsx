@@ -5,15 +5,7 @@ import ComPicture from '../../../../common/com-picture';
 import { getSourceSet } from '../../utils/mediaHelper';
 
 const ImageArticle = props => {
-    const {
-        image,
-        href,
-        outputType,
-        active,
-        withLazy,
-        isVertical,
-        isApertura
-    } = props;
+    const { image, href, outputType, active, isVertical, isApertura } = props;
 
     const { alt_text: altText, caption, titleText, height, width, url } = image;
     const altBasic = altText || caption || titleText || '';
@@ -63,7 +55,6 @@ const ImageArticle = props => {
                 amp={outputType === 'amp'}
                 height={height}
                 width={width}
-                withLazy={withLazy}
                 isApertura={isApertura}
             />
         </ComPicture>
@@ -86,13 +77,11 @@ ImageArticle.propTypes = {
     active: PropTypes.bool,
     isVertical: PropTypes.bool,
     href: PropTypes.string,
-    withLazy: PropTypes.bool,
     isApertura: PropTypes.bool
 };
 
 ImageArticle.defaultProps = {
     href: '',
-    withLazy: true,
     active: false,
     isVertical: false,
     isApertura: false
