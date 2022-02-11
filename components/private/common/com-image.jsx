@@ -22,7 +22,7 @@ const ComImage = props => {
         target,
         isApertura,
         svg,
-        withLazy = true
+        withLazy
     } = props;
 
     if (!src) return null;
@@ -37,12 +37,15 @@ const ComImage = props => {
 
     const classes = `${svg ? '' : 'com-image'} ${classCondition || ''}`;
 
+    const _lazy = `${withLazy ? 'lazy' : undefined}`;
+    const _loading = `${isApertura ? 'eager' : _lazy}`;
+
     const image = (
         <img
             {...commonProps}
             className={classes}
             srcSet={srcset}
-            loading={withLazy ? 'lazy' : undefined}
+            loading={_loading}
         />
     );
     const imageAmp = (
