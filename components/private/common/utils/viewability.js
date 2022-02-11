@@ -11,16 +11,16 @@ export const productClickFromServer = () => {
                 __html: `
                     window.addEventListener('DOMContentLoaded', () => {
                         const articles = document.querySelectorAll('article');
+                        ${getName.toString()}
+                        ${getDataSetProps.toString()}
                         ${productClickFromClient.toString()}
                         articles.forEach(art => {
                 
                             art.addEventListener('click', (element) => {
-                                console.log('Click desde Server');
                                 productClickFromClient(element);
                             });
 
                             art.addEventListener('auxclick', (element) => {
-                                console.log('Click desde Server');
                                 productClickFromClient(element);
                                
                             });
@@ -67,10 +67,10 @@ export const productClickFromClient = (element = {}) => {
     }
 };
 
-export const prepareImpressionEvent = isScrolling => {
+export const prepareImpressionEvent = () => {
     setInterval(() => {
-        if (isScrolling) pushImpressionEvent();
-    }, 1000);
+        pushImpressionEvent();
+    }, 3000);
 };
 
 export const pushImpressionEvent = () => {

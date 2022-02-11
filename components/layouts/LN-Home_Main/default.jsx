@@ -176,8 +176,6 @@ const LNMainHome = props => {
                 ) {
                     dispatch({ type: 'updateNextBlock' });
                 }
-
-                prepareImpressionEvent(true);
             } catch (error) {
                 console.error('Error en useEffect LN-Main_Home =>', {
                     error,
@@ -215,6 +213,8 @@ const LNMainHome = props => {
         const timer = setTimeout(() => {
             window.scrollTo(0, lastScrollPosition);
         }, 1000);
+
+        prepareImpressionEvent();
         return () => {
             clearTimeout(timer);
         };
