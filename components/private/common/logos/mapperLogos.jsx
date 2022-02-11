@@ -1,4 +1,4 @@
-export const mapperLogos = {
+const mapperLogos = {
     hola: 'hola.svg',
     jardin: 'jardin.svg',
     brando: 'brando.svg',
@@ -14,6 +14,7 @@ export const mapperLogos = {
     'rolling-blanco': 'rolling-blanco.svg',
     'ohlala-blanco': 'ohlala-blanco.svg',
     propiedades: 'propiedades.svg',
+    'propiedades-blanco': 'propiedades-blanco.svg',
     campo: 'campo.svg',
     deportes: 'deportes.svg',
     bbc: 'bbc.svg',
@@ -30,3 +31,5 @@ export const mapperLogos = {
     'logo-club': 'club.svg',
     'club-la-nacion': 'club-la-nacion.svg'
 };
+
+export default mapperLogos;
