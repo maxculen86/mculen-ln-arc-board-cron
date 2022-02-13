@@ -3,7 +3,7 @@
 import React from 'react';
 
 import { bodyElementRules } from '../_utils/_bodyElementRules';
-import { buildBanners } from './_buildBanners';
+import { BuildBanners } from './_buildBanners';
 import { supportedTypes } from '../_utils/_bodyRules';
 import get from '../../../../private/common/utils/get';
 
@@ -57,11 +57,11 @@ const BuildBody = ({
             if (supportedTypes.includes(Component.arcType)) {
                 if (nodeType.length) return <></>;
                 // counter += 1;
-                const counterElement = currentIndex + 1;
-                const bannerToRedender = buildBanners({
+                // const counterElement = currentIndex + 1;
+                const bannerToRedender = BuildBanners({
                     banners,
                     globalContent,
-                    counterElement,
+                    elementPosition: currentIndex + 1,
                     contentElements,
                     outputType
                 });

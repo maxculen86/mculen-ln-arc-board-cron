@@ -8,11 +8,10 @@ import DivBannerSSR from '../../../../private/common/banners/DivBannerSSR';
 import DivBannerAMP from '../../../../private/common/banners/DivBannerAMP';
 import { supportedTypes } from '../_utils/_bodyRules';
 
-// eslint-disable-next-line import/prefer-default-export
-export const buildBanners = ({
+export const BuildBanners = ({
     banners = [],
     globalContent = {},
-    counterElement,
+    elementPosition,
     contentElements,
     // counter,
     outputType
@@ -20,9 +19,9 @@ export const buildBanners = ({
     const elementsCount = getElementsCount({ contentElements });
 
     return (
-        banners.some(banner => banner.position === counterElement) &&
+        banners.some(banner => banner.position === elementPosition) &&
         banners
-            .filter(banner => banner.position === counterElement)
+            .filter(banner => banner.position === elementPosition)
             .map(value => {
                 const slotId = setSlotId(value);
 
@@ -38,28 +37,51 @@ export const buildBanners = ({
                     }
                 );
 
-                if (
-                    !bannerConfiguration ||
-                    (outputType === 'amp' && !slotId.includes('_amp'))
-                )
-                    return <></>;
-
-                return (
-                    elementsCount > counterElement && (
-                        <StaticValidation id={slotId} htmlOnly persistent>
-                            {outputType === 'amp' && slotId.includes('_amp') ? (
-                                <DivBannerAMP
-                                    bannerConfiguration={bannerConfiguration}
-                                />
-                            ) : (
-                                <DivBannerSSR
-                                    bannerConfiguration={bannerConfiguration}
-                                />
-                            )}
-                        </StaticValidation>
-                    )
+                return isAmpWithoutSlotIdAmpValidator({
+                    bannerConfiguration,
+                    outputType,
+                    slotId
+                }) ? (
+                    <></>
+                ) : (
+                    DivBannerRender({
+                        elementsCount,
+                        elementPosition,
+                        slotId,
+                        outputType,
+                        bannerConfiguration
+                    })
                 );
             })
+    );
+};
+
+export default BuildBanners;
+
+const isAmpWithoutSlotIdAmpValidator = ({
+    bannerConfiguration,
+    outputType,
+    slotId
+}) =>
+    !bannerConfiguration || (outputType === 'amp' && !slotId.includes('_amp'));
+
+const DivBannerRender = ({
+    elementsCount,
+    elementPosition,
+    slotId,
+    outputType,
+    bannerConfiguration
+}) => {
+    return (
+        elementsCount > elementPosition && (
+            <StaticValidation id={slotId} htmlOnly persistent>
+                {outputType === 'amp' && slotId.includes('_amp') ? (
+                    <DivBannerAMP bannerConfiguration={bannerConfiguration} />
+                ) : (
+                    <DivBannerSSR bannerConfiguration={bannerConfiguration} />
+                )}
+            </StaticValidation>
+        )
     );
 };
 
