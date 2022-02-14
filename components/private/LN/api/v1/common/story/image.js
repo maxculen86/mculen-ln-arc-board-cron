@@ -12,7 +12,7 @@ const imageNota = imageData => {
     if (credits) resp.credito = credits;
 
     if (imageData.distributor && imageData.distributor.name) {
-        resp.fuente = get(imageData, 'distributor.name');
+        resp.fuente = get(imageData, 'distributor.name', '');
     }
 
     if (imageData.caption) {

@@ -264,7 +264,7 @@ const transformContent = (jsonArticle, arcSite, urlQuery) => {
         });
     }
 
-    if (get(resp, 'promo_items.basic.type') === 'gallery') {
+    if (get(resp, 'promo_items.basic.type', '') === 'gallery') {
         promiseArr.push(
             addGalleryData(resp.promo_items.basic, arcSite).then(g => {
                 resp.promo_items.basic = g;
