@@ -73,8 +73,20 @@ const LNSportsHome = props => {
                             {/* Cuerpo */}
                             <div className="sidebar__main">
                                 {/* SECCIONES */}
-                                {apertura}
-                                {cuerpo}
+                                <StaticValidation
+                                    id="staticApertura"
+                                    htmlOnly
+                                    persistent
+                                >
+                                    {apertura}
+                                </StaticValidation>
+                                <StaticValidation
+                                    id="staticCuerpo"
+                                    htmlOnly
+                                    persistent
+                                >
+                                    {cuerpo}
+                                </StaticValidation>
                             </div>
                             <div className="sidebar__aside hlp-tabletlm-none">
                                 {/* BANNERS, RANKING DE NOTAS */}
