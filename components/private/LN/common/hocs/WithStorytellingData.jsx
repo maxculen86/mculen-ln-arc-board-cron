@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'fusion:prop-types';
 import get from '../../../common/utils/get';
-import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData';
+import getApertura from '../../../common/utils/getApertura';
 
 export default function WithStorytellingData(WrappedComponent) {
     return class extends PureComponent {
@@ -42,53 +42,10 @@ export default function WithStorytellingData(WrappedComponent) {
         constructor(props) {
             super(props);
             this.getStorytellingData = this.getStorytellingData.bind(this);
-            this.getApertura = this.getApertura.bind(this);
             this.state = {
                 storytellingData: { apertura: this.getStorytellingData() }
             };
         }
-
-        getApertura = (
-            isMobile,
-            basicImageDsk,
-            videoBackground,
-            basicImageMobile
-        ) => {
-            const promoItemsVideo = get(videoBackground, 'promo_items', null);
-            const epigrafe = get(videoBackground, 'headlines.basic', null);
-            const streams = get(videoBackground, 'streams', null);
-            const video =
-                streams && streams.length > 1
-                    ? streams.reduce((currentItem, previustem) =>
-                          currentItem.width > previustem.width
-                              ? currentItem
-                              : previustem
-                      ).url
-                    : '';
-
-            const { basic: basicVideoDsk } = promoItemsVideo || {};
-
-            const data = isMobile
-                ? basicImageMobile || {}
-                : basicVideoDsk || basicImageDsk || {};
-
-            const {
-                alt_text: altText,
-                url,
-                caption,
-                resized_urls: resizedUrls
-            } = data;
-
-            return {
-                video: isMobile ? '' : video || '',
-                altText: altText || '',
-                src: url || '',
-                srcset: url || '',
-                caption: epigrafe || caption || '',
-                credit: data && EpigrafeAndCreditsData(data),
-                resizedUrls
-            };
-        };
 
         getStorytellingData = () => {
             const promoItems = get(
@@ -113,7 +70,7 @@ export default function WithStorytellingData(WrappedComponent) {
             return type === 'story' &&
                 (subtype === '4' || subtype === '8') &&
                 (basicImage || videoBackground || storytellingMobile)
-                ? this.getApertura(
+                ? getApertura(
                       isMobile,
                       basicImage,
                       videoBackground,
