@@ -14,7 +14,7 @@ const MetaViafoura = props => {
             <>
                 <meta
                     name="vf:container_id"
-                    content={get(props, 'globalContent._id')}
+                    content={get(props, 'globalContent._id', null)}
                 />
                 <meta name="vf:lang" content="es" />
                 <meta

@@ -8,7 +8,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
     class="horoscope-box "
   >
     <h2
-      class="com-title --section --m "
+      class="com-title --m"
     >
       Seleccioná tu signo...
     </h2>

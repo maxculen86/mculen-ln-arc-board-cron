@@ -25,7 +25,7 @@ export const getDescription = ({
     return metaDescription;
 };
 
-export const getUrl = (isArticle, url, domain) => {
+export const getUrl = (url, domain) => {
     const slash = url && url.slice(-1) !== '/' ? '/' : '';
     return (url && `${domain}${url}${slash}`) || domain;
 };
@@ -39,7 +39,6 @@ export const getData = ({
     globalContent,
     contextPath,
     deployment,
-    arcSite,
     section,
     metaDescription
 }) => {
@@ -87,7 +86,7 @@ export const getData = ({
               validateTitle(section, longTitle, titleDefault),
         description,
         image: typeBasicPI === 'image' && urlBasicPI ? pathImagen : PLACEHOLDER,
-        url: getUrl(isArticle, url, domain),
+        url: getUrl(url, domain),
         fbAppId: getAppId(siteProperties) || '',
         isArticle,
         ...(isArticle && { publishDate }),
