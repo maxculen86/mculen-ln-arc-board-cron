@@ -237,6 +237,25 @@ const Default = props => {
                 />
                 <meta name="theme-color" content="#ffffff" />
                 <title>{title}</title>
+                <link
+                    rel="preload"
+                    as="font"
+                    type="font/woff2"
+                    href={`${deployment(
+                        `${contextPath}/resources/fonts/suecaslab-bold-webfont.woff2`
+                    )}`}
+                    crossOrigin="anonymous"
+                />
+                <link
+                    rel="preload"
+                    as="font"
+                    type="font/woff2"
+                    href={`${deployment(
+                        `${contextPath}/resources/fonts/suecaslab-medium-webfont.woff2`
+                    )}`}
+                    crossOrigin="anonymous"
+                />
+                <FontFaceDefault outputType={outputType} />
                 <Libs />
                 <CriticalCss />
                 {arcSite === 'ott' ? (
@@ -342,7 +361,6 @@ const Default = props => {
                     renderables={renderables}
                     section={_nodeType}
                 />
-                <FontFaceDefault outputType={outputType} />
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />
