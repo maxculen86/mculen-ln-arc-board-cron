@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 
 const isSSR = () => typeof window === 'undefined';
 
@@ -10,9 +10,7 @@ export default function useViewportSize() {
         return window.opera;
     };
 
-    const [viewportSize, setViewportSize] = React.useState(
-        isSSR() ? 'desktop' : ''
-    );
+    const [viewportSize, setViewportSize] = useState(isSSR() ? 'desktop' : '');
 
     function isTabletOrMobile(a) {
         const regexUserAgent = new RegExp(
@@ -53,9 +51,7 @@ export default function useViewportSize() {
         return setViewportSize('desktop');
     }
 
-    // useEffect hook always runs client side
-    // useEffect with no dependency array will run the side effect after each rendering
-    React.useEffect(() => {
+    useEffect(() => {
         getViewportSize();
     });
 

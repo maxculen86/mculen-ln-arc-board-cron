@@ -1,27 +1,63 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
+import Context from 'fusion:context';
+import Consumer from 'fusion:consumer';
+import { mount, render } from 'enzyme';
 import nota from '../../../../../__mocks__/data/articles/TWKFZQ6FCNF3ZKPHGGZPMSSOGQ';
-import AperturaReceta from '../../../../../components/private/LN/nota/apertura/AperturaReceta/AperturaSinDestacado';
+import AperturaConDestacado from '../../../../../components/private/LN/nota/apertura/AperturaReceta/AperturaConDestacado';
+import AperturaSinDestacado from '../../../../../components/private/LN/nota/apertura/AperturaReceta/AperturaSinDestacado';
+import AperturaReceta from '../../../../../components/private/LN/nota/apertura/AperturaReceta/aperturaReceta';
 
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
         return props => <Component {...props} />;
     };
 });
+jest.mock('fusion:context', Component => {
+    return function(Component) {
+        return props => <Component {...props} />;
+    };
+});
+Context.useAppContext = jest.fn(() => ({
+    subtype: 7
+}));
 
-import Consumer from 'fusion:consumer';
+describe('features - La Nacion - Components - Nota - AperturaReceta', () => {
+    it('Debe renderizar correctamente, con destacado', () => {
+        const component = mount(<AperturaReceta globalContent={nota} />);
 
-describe('features - La Nacion - Components - Nota - AperturaReceta ', () => {
-    //const component = render(<AperturaReceta globalContent={nota} />);
-    it('Test de snapshot AperturaReceta', () => {
-        //expect(component).toMatchSnapshot();
-        //expect(component).toEqual(1);
-        expect(3).toBe(3);
+        expect(component).toBeDefined();
+        expect(component.find(AperturaSinDestacado)).toHaveLength(0);
+        expect(component.find(AperturaConDestacado)).toHaveLength(1);
+    });
+    it('Snapshot - anexo con destacado', () => {
+        const component = render(<AperturaReceta globalContent={nota} />);
+        expect(component).toMatchSnapshot();
     });
 
-    /* it('Test de logica de Destacado - Video', () => {
-        nota.promo_items.basic.type = 'video';
-        const comp = mount(<AperturaReceta globalContent={nota} />);
-        expect('video').toBe(nota.promo_items.basic.type);
-    }); */
+    it('Sin promo_items basic debe renderizar correctamente, sin destacado', () => {
+        nota.promo_items.basic = undefined;
+        const component = mount(<AperturaReceta globalContent={nota} />);
+
+        expect(component).toBeDefined();
+        expect(component.find(AperturaSinDestacado)).toHaveLength(1);
+        expect(component.find(AperturaConDestacado)).toHaveLength(0);
+    });
+    it('Snapshot - sin promo_items basic debe renderizar correctamente, sin destacado', () => {
+        nota.promo_items.basic = undefined;
+        const component = render(<AperturaReceta globalContent={nota} />);
+        expect(component).toMatchSnapshot();
+    });
+
+    it('Sin tags, sectios ni promo_items debe retornar null', () => {
+        nota.promo_items = undefined;
+        nota.taxonomy.tags = [];
+        nota.taxonomy.primary_section = undefined;
+        nota.taxonomy.sections = [];
+        const component = mount(<AperturaReceta globalContent={nota} />);
+
+        expect(component).toBeDefined();
+        expect(component.find(AperturaSinDestacado)).toHaveLength(0);
+        expect(component.find(AperturaConDestacado)).toHaveLength(0);
+        expect(component.html()).toBeNull();
+    });
 });

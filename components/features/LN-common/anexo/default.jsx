@@ -16,6 +16,7 @@ const AnexoFeature = props => {
     const { renderables = [], isAdmin } = useAppContext();
     const { height } = customFields;
     const errorMessage = getErrorMessage({ customFields });
+
     const _type = getComponentType({ ...props, isAdmin, errorMessage });
 
     // Al estar en la sección 'Anexo_1' del layout necesita tener la clase '--anexo-1'.
@@ -81,7 +82,7 @@ const getComponentFromConfig = (_type, _props) => {
             return (
                 <iframe
                     id={anexoId}
-                    title={`anexo-${id}`}
+                    title={anexoId}
                     data-src={!_props.isAdmin ? url : undefined}
                     src={_props.isAdmin ? url : undefined}
                     frameBorder="0"
