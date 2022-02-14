@@ -177,4 +177,11 @@
             display: none;
         }
     }
+
+    //Oculto "boton tres puntitos"
+    .vf-dropdown {
+        &.vf-secondary-actions {
+            display: none;
+        }
+    }
 }
