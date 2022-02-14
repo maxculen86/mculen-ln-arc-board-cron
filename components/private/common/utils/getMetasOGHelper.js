@@ -86,7 +86,7 @@ export const getData = ({
               validateTitle(section, longTitle, titleDefault),
         description,
         image: typeBasicPI === 'image' && urlBasicPI ? pathImagen : PLACEHOLDER,
-        url: getUrl(isArticle, url, domain),
+        url: getUrl(url, domain),
         fbAppId: getAppId(siteProperties) || '',
         isArticle,
         ...(isArticle && { publishDate }),

@@ -15,7 +15,7 @@ describe('Test return functions by getMetasOGHelper', () => {
     it('Test function getUrl', () => {
         const domain = 'https://www.lanacion.com.ar/';
         const url = '/el-mundo/un-argentino-contrajo-coronavirus';
-        expect(getUrl(true, url, domain)).toStrictEqual(
+        expect(getUrl(url, domain)).toStrictEqual(
             'https://www.lanacion.com.ar//el-mundo/un-argentino-contrajo-coronavirus/'
         );
     });
