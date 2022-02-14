@@ -185,6 +185,13 @@
             height: px(21);
         }
     }
+
+    &.android-store,
+    &.ios-store {
+        width: px(120);
+        height: px(35);
+        border-radius: px(4);
+    }
 }
 
 .logoLN {
