@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
@@ -17,19 +18,19 @@ const hasOptaElements = (contentElements, renderables, promoItems) =>
     (contentElements &&
         contentElements.some(
             contentElement =>
-                get(contentElement, 'type') === 'raw_html' &&
+                get(contentElement, 'type', '') === 'raw_html' &&
                 get(contentElement, 'content', '').includes(optaWidget)
         )) ||
     (renderables &&
         renderables.some(
             elem =>
-                get(elem, 'collection') === 'chains' &&
-                get(elem, 'type') === 'Ln_Caja_Manual' &&
+                get(elem, 'collection', '') === 'chains' &&
+                get(elem, 'type', '') === 'Ln_Caja_Manual' &&
                 get(elem, 'props.customFields.hideCaja', false) !== true &&
                 childrenHasOpta(elem.children)
         )) ||
     (promoItems &&
-        get(promoItems, 'apertura_multimedia.type') === 'raw_html' &&
+        get(promoItems, 'apertura_multimedia.type', '') === 'raw_html' &&
         get(promoItems, 'apertura_multimedia.content', '').includes(
             optaWidget
         ));

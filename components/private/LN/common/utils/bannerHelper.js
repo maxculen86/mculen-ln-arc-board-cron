@@ -107,7 +107,7 @@ export const getBannerConfiguration = (
     const advertiser = get(globalContent, 'label.marca_anunciante.text');
     const primarySection =
         type && type === 'story'
-            ? get(globalContent, 'taxonomy.primary_section._id')
+            ? get(globalContent, 'taxonomy.primary_section._id', '')
             : get(globalContentConfig, 'query.id');
 
     const hideBanners = get(

@@ -25,7 +25,7 @@ export const getDescription = ({
     return metaDescription;
 };
 
-export const getUrl = (isArticle, url, domain) => {
+export const getUrl = (url, domain) => {
     const slash = url && url.slice(-1) !== '/' ? '/' : '';
     return (url && `${domain}${url}${slash}`) || domain;
 };
@@ -39,7 +39,6 @@ export const getData = ({
     globalContent,
     contextPath,
     deployment,
-    arcSite,
     section,
     metaDescription
 }) => {
