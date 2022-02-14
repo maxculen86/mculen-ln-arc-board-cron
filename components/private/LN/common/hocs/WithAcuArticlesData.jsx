@@ -65,7 +65,7 @@ function WithAcuArticlesData(
                 const authorId = get(this, 'props.authorId', null);
                 const distributorId = get(this, 'props.distributorId', null);
                 const size = get(this, 'props.size', 30);
-                const type = get(this, 'props.globalContent.type');
+                const type = get(this, 'props.globalContent.type', '');
 
                 if (
                     !sectionId &&

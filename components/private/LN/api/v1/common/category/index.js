@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 const getPrincipalCategory = section => {
     if (!section) return null;
     return getCategory(section);
