@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import Configuration from '../../common/accumulated/configuration';
 import { articleItem } from '../../common/article/index';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';

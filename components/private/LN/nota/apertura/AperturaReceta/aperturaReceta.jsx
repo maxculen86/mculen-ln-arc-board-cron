@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import AperturaConDestacado from './AperturaConDestacado';
 import AperturaSinDestacado from './AperturaSinDestacado';
 import { getFirstParentSection } from '../../../../common/utils/sectionUtils';
@@ -35,26 +35,25 @@ const aperturaReceta = props => {
         (!listSections || listSections.length === 0) &&
         promoItems === undefined
     );
+    if (aperturaVacio) return null;
 
     return (
         <>
-            {aperturaVacio ? null : (
-                <div
-                    className={`row aper-receta w-100-mobile ${
-                        hasMultimedia ? '' : 'sin-foto'
-                    }`}
-                >
-                    {hasMultimedia ? (
-                        <AperturaConDestacado {...props} />
-                    ) : (
-                        <AperturaSinDestacado
-                            tags={tags}
-                            taxonomy={taxonomy}
-                            receta={!!promoItems && promoItems.receta}
-                        />
-                    )}
-                </div>
-            )}
+            <div
+                className={`row aper-receta w-100-mobile ${
+                    hasMultimedia ? '' : 'sin-foto'
+                }`}
+            >
+                {hasMultimedia ? (
+                    <AperturaConDestacado {...props} />
+                ) : (
+                    <AperturaSinDestacado
+                        tags={tags}
+                        taxonomy={taxonomy}
+                        receta={!!promoItems && promoItems.receta}
+                    />
+                )}
+            </div>
         </>
     );
 };
@@ -69,7 +68,7 @@ aperturaReceta.propTypes = {
                     text: PropTypes.string
                 })
             ).isRequired,
-            primary_section: PropTypes.string,
+            primary_section: PropTypes.shape(),
             sections: PropTypes.array
         }),
         promo_items: PropTypes.shape({

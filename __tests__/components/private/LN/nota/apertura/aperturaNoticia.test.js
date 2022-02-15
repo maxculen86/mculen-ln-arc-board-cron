@@ -99,6 +99,9 @@ describe('PRIVATE - LN - Nota - Apertura - Noticia', () => {
     };
 
     it('Render OK cuando es Apertura Noticia con HTML en AMP', () => {
+        Context.useAppContext = jest.fn(() => ({
+            outputType: 'amp'
+        }));
         const component = mount(
             <AperturaNoticia globalContent={globalContent} outputType="amp" />
         );
@@ -109,6 +112,9 @@ describe('PRIVATE - LN - Nota - Apertura - Noticia', () => {
     });
 
     it('Render OK cuando es Apertura Noticia con HTML en default', () => {
+        Context.useAppContext = jest.fn(() => ({
+            outputType: 'default'
+        }));
         const component = mount(
             <AperturaNoticia
                 globalContent={globalContent}

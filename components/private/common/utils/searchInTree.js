@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 const searchInTree = (id, sections = []) => {
     for (const section of sections) {
         if (section._id === id) return section.site && section.site.site_url;

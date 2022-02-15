@@ -1,4 +1,4 @@
-export default function loadOTTVideoAnalytics(titulo, video_id) {
+export default function loadOTTVideoAnalytics(titulo, videoId) {
     const datalayer = window.dataLayer;
     if (datalayer === undefined) return '';
     window.addEventListener('powaRender', event => {
@@ -8,7 +8,7 @@ export default function loadOTTVideoAnalytics(titulo, video_id) {
             dataLayer.push({
                 event: 'videoPlay',
                 videoName: titulo,
-                videoID: video_id
+                videoID: videoId
             });
         });
 
@@ -16,7 +16,7 @@ export default function loadOTTVideoAnalytics(titulo, video_id) {
             dataLayer.push({
                 event: '25',
                 videoName: titulo,
-                videoID: video_id
+                videoID: videoId
             });
         });
 
@@ -24,7 +24,7 @@ export default function loadOTTVideoAnalytics(titulo, video_id) {
             dataLayer.push({
                 event: '50',
                 videoName: titulo,
-                videoID: video_id
+                videoID: videoId
             });
         });
 
@@ -32,7 +32,7 @@ export default function loadOTTVideoAnalytics(titulo, video_id) {
             dataLayer.push({
                 event: '75',
                 videoName: titulo,
-                videoID: video_id
+                videoID: videoId
             });
         });
 
@@ -40,7 +40,7 @@ export default function loadOTTVideoAnalytics(titulo, video_id) {
             dataLayer.push({
                 event: 'COMPLETE',
                 videoName: titulo,
-                videoID: video_id
+                videoID: videoId
             });
         });
 
@@ -48,7 +48,7 @@ export default function loadOTTVideoAnalytics(titulo, video_id) {
             dataLayer.push({
                 event: 'videoDisplay',
                 videoName: titulo,
-                videoID: video_id
+                videoID: videoId
             });
         }
     });

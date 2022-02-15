@@ -67,8 +67,9 @@
                 display: inline-block;
                 .com-image {
                     border-radius: px(4);
-                    width: px(120);
-                    height: px(35);
+                }
+                &:first-child {
+                    margin-right: px(16);
                 }
                 &:last-child {
                     margin-right: 0;

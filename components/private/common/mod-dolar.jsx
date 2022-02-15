@@ -5,8 +5,8 @@ import CurrencyData from './currencyData/CurrencyData';
 
 import '../../../resources/dist/css/ln/modules/mod-dolar.css';
 
-const ModDolar = ({ imageUrl, data }) =>
-    (data && (
+const ModDolar = ({ imageUrl, data = [] }) =>
+    (data.length && (
         <ul className="mod-dolar">
             {data.map((item, index) => {
                 const { sourceName, title, compra, venta } = item;

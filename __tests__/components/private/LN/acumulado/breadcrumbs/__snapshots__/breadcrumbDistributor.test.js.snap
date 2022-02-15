@@ -23,8 +23,10 @@ Array [
       class="com-text --fourxs"
     >
       <i
-        class="com-icon bullet icon-bullet-xs"
-      />
+        class="--bullet --fourxs"
+      >
+        &gt;
+      </i>
       The New York Times
     </span>
   </nav>,
