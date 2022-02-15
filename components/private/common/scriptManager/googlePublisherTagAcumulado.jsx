@@ -1,7 +1,6 @@
 /* eslint-disable react/require-default-props */
-
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 
 const formatExpression = text => {
     return 'ca_'.concat(
@@ -28,12 +27,9 @@ const getCategories = (name, parent, ancestors) => {
             return formatExpression(treeCategory[treeCategory.length - 1]);
         });
 
-    // eslint-disable-next-line no-nested-ternary
-    return ancestorsCategorys
-        ? actualCategory.concat(ancestorsCategorys)
-        : parentCategory
-        ? actualCategory.concat(parentCategory)
-        : actualCategory;
+    if (ancestorsCategorys) return actualCategory.concat(ancestorsCategorys);
+    if (parentCategory) return actualCategory.concat(parentCategory);
+    return actualCategory;
 };
 
 const getTopic = content =>

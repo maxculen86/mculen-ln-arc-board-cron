@@ -1,5 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Private - Common - ModheaderSection =>  ModheaderSection with image and link should render mod-logo with anchor tag 1`] = `
+<section
+  class="mod-headersection  --line"
+>
+  <div
+    class="mod-logo"
+  >
+    <a
+      class="com-link"
+      href="https://lanacion.com.ar/"
+      title=""
+    >
+      <img
+        alt="Titulo Separador"
+        class="com-image "
+        height="100"
+        loading="lazy"
+        src="https://lanacion.com.ar/mock.jpeg"
+        width="100"
+      />
+    </a>
+  </div>
+</section>
+`;
+
+exports[`Private - Common - ModheaderSection =>  ModheaderSection with image should render mod-logo 1`] = `
+<section
+  class="mod-headersection  --line"
+>
+  <div
+    class="mod-logo"
+  >
+    <img
+      alt="Titulo Separador"
+      class="com-image "
+      height="100"
+      loading="lazy"
+      src="https://lanacion.com.ar/mock.jpeg"
+      width="100"
+    />
+  </div>
+</section>
+`;
+
 exports[`Private - Common - ModheaderSection =>  Snapshot ModheaderSection con link 1`] = `
 <section
   class="mod-headersection  --line"
