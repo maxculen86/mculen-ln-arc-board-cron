@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/require-default-props */
-import React from 'react';
+import React, { useContext } from 'react';
 import { useAppContext } from 'fusion:context';
 import getProperties from 'fusion:properties';
 import PropTypes from 'fusion:prop-types';
@@ -31,7 +31,9 @@ const ArticleFeature = ({
         outputType,
         layout: layoutPageBuilder
     } = useAppContext();
+
     const { cajaTemaConfig } = getProperties(arcSite);
+
     const {
         config,
         index,

@@ -17,7 +17,8 @@ const ModheaderSection = props => {
         image,
         classCondition = '',
         link,
-        outputType
+        outputType,
+        customTitle
     } = props;
     const { width, height, url } = image || {};
     if (!title && !url) return null;
@@ -44,6 +45,7 @@ const ModheaderSection = props => {
                     tag={tag}
                     content={title}
                     link={addForwardSLash(link)}
+                    customTitle={customTitle}
                 />
             ) : (
                 <div className="mod-logo">{link ? ImageWithLink : Image}</div>
@@ -64,7 +66,8 @@ ModheaderSection.propTypes = {
         width: PropTypes.string.isRequired,
         height: PropTypes.string.isRequired,
         url: PropTypes.string.isRequired
-    })
+    }),
+    customTitle: PropTypes.string
 };
 
 ModheaderSection.defaultProps = {
@@ -74,7 +77,8 @@ ModheaderSection.defaultProps = {
     line: true,
     size: '--l',
     tag: 'h3',
-    image: {}
+    image: {},
+    customTitle: undefined
 };
 
 export default withImage(ModheaderSection);

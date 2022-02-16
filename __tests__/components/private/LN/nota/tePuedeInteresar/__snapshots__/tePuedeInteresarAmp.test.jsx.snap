@@ -51,7 +51,7 @@ exports[`TePuedeIneresarAmp Should render component 1`] = `
                     class="mod-picture "
                   >
                     <amp-img
-                      alt="Las predicciones de Jimena La Torre para la semana del 10 al 16 de enero"
+                      alt="Te puede interesar"
                       class="com-image "
                       data-amp-auto-lightbox-disable="true"
                       height="513"
@@ -149,7 +149,7 @@ exports[`TePuedeIneresarAmp Should render component 1`] = `
                     class="mod-picture "
                   >
                     <amp-img
-                      alt="¿Cómo será tu año de acuerdo a tu signo ascendente?"
+                      alt="Te puede interesar"
                       class="com-image "
                       data-amp-auto-lightbox-disable="true"
                       height="513"

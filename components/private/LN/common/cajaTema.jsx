@@ -14,6 +14,7 @@ import {
     getMarkupForDatalayer
 } from './utils/cajaTemasHelper';
 import OrderedList from './lists/ordered';
+import CajaTemaContext from '../../common/context/cajaTemaContext';
 
 const getComponentForLayout = (layoutName, props) => {
     const types = {
@@ -81,8 +82,10 @@ const getComponentForLayout = (layoutName, props) => {
                 );
             });
         },
-        ArticleFeature: ({ _children = [], notesQuantity }) => {
-            return _children.slice(0, notesQuantity);
+        ArticleFeature: ({ _children = [], notesQuantity, hideTitle }) => {
+            return _children
+                .slice(0, notesQuantity)
+                .map(x => ({ ...x, props: { ...x.props, hideTitle } }));
         }
     };
 
@@ -123,27 +126,30 @@ const CajaTema = props => {
     });
 
     return (
-        <div {...extraOptsDiv}>
-            <section
-                {...extraOpts}
-                className={`box-articles ${backgroundColor} ${classCondition}`}
-            >
-                {!hideTitle && layoutName !== 'Editoriales' && (
-                    <ModHeaderSection
-                        imageId={imageId}
-                        title={title}
-                        link={url}
-                    />
-                )}
-                <ModRowGap typeArticle={layoutName} column={notesQuantity}>
-                    {sectionName === 'Ranking' ? (
-                        <OrderedList>{childrenComponent}</OrderedList>
-                    ) : (
-                        childrenComponent
+        <CajaTemaContext.Provider value={{ title, hideTitle }}>
+            <div {...extraOptsDiv}>
+                <section
+                    {...extraOpts}
+                    className={`box-articles ${backgroundColor} ${classCondition}`}
+                >
+                    {!hideTitle && layoutName !== 'Editoriales' && (
+                        <ModHeaderSection
+                            imageId={imageId}
+                            title={title}
+                            link={url}
+                            customTitle={!hideTitle && title}
+                        />
                     )}
-                </ModRowGap>
-            </section>
-        </div>
+                    <ModRowGap typeArticle={layoutName} column={notesQuantity}>
+                        {sectionName === 'Ranking' ? (
+                            <OrderedList>{childrenComponent}</OrderedList>
+                        ) : (
+                            childrenComponent
+                        )}
+                    </ModRowGap>
+                </section>
+            </div>
+        </CajaTemaContext.Provider>
     );
 };
 
