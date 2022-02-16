@@ -4,7 +4,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
-import Static from 'fusion:static';
+import StaticValidation from '../../../private/common/staticValidation';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import get from '../../../private/common/utils/get';
 import { getChildsFromSections } from '../../../private/LN/common/utils/homeHelper';
@@ -16,6 +16,7 @@ const AnexoFeature = props => {
     const { renderables = [], isAdmin } = useAppContext();
     const { height } = customFields;
     const errorMessage = getErrorMessage({ customFields });
+
     const _type = getComponentType({ ...props, isAdmin, errorMessage });
 
     // Al estar en la sección 'Anexo_1' del layout necesita tener la clase '--anexo-1'.
@@ -42,13 +43,17 @@ const AnexoFeature = props => {
             className={`com-anexo ${EXTRA_CLASS}`}
             style={{ height, overflow: 'hidden', width: '100%' }}
         >
-            {isInSection({ sectionName: 'Anexo1', id, renderables }) ? (
-                <Static id={id} htmlOnly>
-                    {comp()}
-                </Static>
-            ) : (
-                comp()
-            )}
+            <StaticValidation
+                id={id}
+                htmlOnly
+                isStatic={isInSection({
+                    sectionName: 'Anexo1',
+                    id,
+                    renderables
+                })}
+            >
+                {comp()}
+            </StaticValidation>
         </div>
     ) : (
         comp()
@@ -77,7 +82,7 @@ const getComponentFromConfig = (_type, _props) => {
             return (
                 <iframe
                     id={anexoId}
-                    title={`anexo-${id}`}
+                    title={anexoId}
                     data-src={!_props.isAdmin ? url : undefined}
                     src={_props.isAdmin ? url : undefined}
                     frameBorder="0"

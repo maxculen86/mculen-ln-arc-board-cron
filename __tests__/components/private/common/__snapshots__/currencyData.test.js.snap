@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Common private currencyData CurrencyData snapshot 1`] = `
+exports[`Common private currencyData - with dbna CurrencyData snapshot 1`] = `
 <div
-  class="undefined currency-data"
+  class=" currency-data"
 >
   <mock-com-link
     classcondition="link-container-currency-data"

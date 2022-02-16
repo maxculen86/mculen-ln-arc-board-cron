@@ -78,7 +78,7 @@ export const imageMobile = imageData => {
     const credits = epigrafeAndCreditsData(imageData);
     if (credits) resp.credits = credits;
     if (imageData.distributor && imageData.distributor.name) {
-        resp.source = get(imageData, 'distributor.name');
+        resp.source = get(imageData, 'distributor.name', '');
     }
     if (imageData.caption) {
         resp.epigraph = imageData.caption;

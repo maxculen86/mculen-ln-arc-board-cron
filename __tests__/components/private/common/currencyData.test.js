@@ -1,11 +1,7 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import CurrencyData from '../../../../components/private/common/currencyData/CurrencyData';
-import Text from '../../../../components/private/common/text';
-import ComLink from '../../../../components/private/common/com-link';
-import ComImage from '../../../../components/private/common/com-image';
-import getAssetsPath from '../../../../components/private/common/utils/getAssetsPath';
-import { shallow, render } from 'enzyme';
+import { render } from 'enzyme';
 
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
@@ -35,7 +31,7 @@ const props = {
     providedAlt: 'InvertirOnline'
 };
 
-describe('Common private currencyData', () => {
+describe('Common private currencyData - with dbna', () => {
     const wrapper = render(<CurrencyData {...props} />);
     const result = wrapper.first();
     const children = result.children();
@@ -65,6 +61,40 @@ describe('Common private currencyData', () => {
     });
     it('CurrencyData snapshot', () => {
         expect(result).toMatchSnapshot();
+    });
+});
+
+describe('Currency data - with dblue', () => {
+    props.sourceName = 'dblue';
+    const wrapper = render(<CurrencyData {...props} />);
+    const result = wrapper.first();
+    const children = result.children();
+    const linkComponent = children[0];
+    it('Should return dblue link and text', () => {
+        expect(linkComponent).toBeTruthy();
+        expect(linkComponent.attribs.link).toBe(
+            'https://www.lanacion.com.ar/tema/dolar-blue-tid67294/'
+        );
+        expect(linkComponent.attribs.classcondition).toBe(
+            'link-container-currency-data'
+        );
+        expect(linkComponent.attribs.title).toBe('Dólar blue');
+    });
+});
+
+describe('Currency data with invalid sourceName', () => {
+    props.sourceName = 'mock';
+    const wrapper = render(<CurrencyData {...props} />);
+    const result = wrapper.first();
+    const children = result.children();
+    const linkComponent = children[0];
+    it('Should return empty strings for link and text', () => {
+        expect(linkComponent).toBeTruthy();
+        expect(linkComponent.attribs.link).toBe('');
+        expect(linkComponent.attribs.classcondition).toBe(
+            'link-container-currency-data'
+        );
+        expect(linkComponent.attribs.title).toBe('');
     });
 });
 

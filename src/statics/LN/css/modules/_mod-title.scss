@@ -1,7 +1,0 @@
-@import '../abstracts/variables';
-@import '../abstracts/mixins';
-
-.mod-title {
-    @include flex(flex);
-    margin-bottom: $spacing-sm;
-}
