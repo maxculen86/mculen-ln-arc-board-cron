@@ -10,7 +10,8 @@ import PwaModals from '../private/LN/common/pwaModals';
 import insertTitleAndDescrition from '../private/common/utils/lnBuscadorHelper';
 import '../../resources/dist/css/ln/pages/buscador.css';
 
-const lnBuscador = ({ children, metaValue }) => {
+const lnBuscador = ({ children, metaValue, siteProperties }) => {
+    const { longTitle, description } = siteProperties;
     let searchResults = '';
     if (typeof window !== 'undefined') {
         const urlSerachParams =
@@ -18,8 +19,8 @@ const lnBuscador = ({ children, metaValue }) => {
         searchResults = urlSerachParams ? urlSerachParams.get('query') : '';
         insertTitleAndDescrition(
             searchResults,
-            metaValue('title'),
-            metaValue('description')
+            metaValue('title') || longTitle,
+            metaValue('description') || description
         );
     }
 
@@ -51,7 +52,8 @@ const pageBuilderSections = ['Cuerpo'];
 lnBuscador.sections = pageBuilderSections;
 lnBuscador.propTypes = {
     children: PropTypes.arrayOf(PropTypes.node).isRequired,
-    metaValue: PropTypes.func.isRequired
+    metaValue: PropTypes.func.isRequired,
+    siteProperties: PropTypes.isRequired
 };
 
 export default Consumer(lnBuscador);
