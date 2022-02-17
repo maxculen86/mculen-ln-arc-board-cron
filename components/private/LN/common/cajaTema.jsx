@@ -14,7 +14,6 @@ import {
     getMarkupForDatalayer
 } from './utils/cajaTemasHelper';
 import OrderedList from './lists/ordered';
-import CajaTemaContext from '../../common/context/cajaTemaContext';
 
 const getComponentForLayout = (layoutName, props) => {
     const types = {
@@ -126,30 +125,28 @@ const CajaTema = props => {
     });
 
     return (
-        <CajaTemaContext.Provider value={{ title, hideTitle }}>
-            <div {...extraOptsDiv}>
-                <section
-                    {...extraOpts}
-                    className={`box-articles ${backgroundColor} ${classCondition}`}
-                >
-                    {!hideTitle && layoutName !== 'Editoriales' && (
-                        <ModHeaderSection
-                            imageId={imageId}
-                            title={title}
-                            link={url}
-                            customTitle={!hideTitle && title}
-                        />
+        <div {...extraOptsDiv}>
+            <section
+                {...extraOpts}
+                className={`box-articles ${backgroundColor} ${classCondition}`}
+            >
+                {!hideTitle && layoutName !== 'Editoriales' && (
+                    <ModHeaderSection
+                        imageId={imageId}
+                        title={title}
+                        link={url}
+                        customTitle={!hideTitle && title}
+                    />
+                )}
+                <ModRowGap typeArticle={layoutName} column={notesQuantity}>
+                    {sectionName === 'Ranking' ? (
+                        <OrderedList>{childrenComponent}</OrderedList>
+                    ) : (
+                        childrenComponent
                     )}
-                    <ModRowGap typeArticle={layoutName} column={notesQuantity}>
-                        {sectionName === 'Ranking' ? (
-                            <OrderedList>{childrenComponent}</OrderedList>
-                        ) : (
-                            childrenComponent
-                        )}
-                    </ModRowGap>
-                </section>
-            </div>
-        </CajaTemaContext.Provider>
+                </ModRowGap>
+            </section>
+        </div>
     );
 };
 

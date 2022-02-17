@@ -33,7 +33,13 @@ const ModheaderSection = props => {
         />
     );
 
-    const modLogoImage = link ? <ComLink link={link}>{Image}</ComLink> : Image;
+    const modLogoImage = link ? (
+        <ComLink link={link} title={title}>
+            {Image}
+        </ComLink>
+    ) : (
+        Image
+    );
 
     return (
         <section

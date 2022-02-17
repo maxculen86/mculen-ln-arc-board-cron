@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/require-default-props */
-import React, { useContext } from 'react';
+import React from 'react';
 import { useAppContext } from 'fusion:context';
 import getProperties from 'fusion:properties';
 import PropTypes from 'fusion:prop-types';

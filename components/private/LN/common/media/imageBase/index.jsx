@@ -1,9 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import ComImage from '../../../../common/com-image';
 import ComPicture from '../../../../common/com-picture';
 import { getSourceSet } from '../../utils/mediaHelper';
-import CajaTemaContext from '../../../../common/context/cajaTemaContext';
 
 const sourceMapper = source => {
     return source.map(e => {
@@ -29,7 +28,6 @@ const ImageArticle = props => {
     } = props;
 
     const { alt_text: altText, caption, titleText, height, width, url } = image;
-    const { title: cajaTemaTitle, hideTitle } = useContext(CajaTemaContext);
 
     const altBasic = altText || caption || titleText || '';
     if (!url) return null;
@@ -56,7 +54,7 @@ const ImageArticle = props => {
             <ComImage
                 srcsetAMP={srcsetAMP}
                 src={url}
-                alt={hideTitle ? altBasic : cajaTemaTitle}
+                alt={altBasic}
                 amp={outputType === 'amp'}
                 height={height}
                 width={width}
@@ -84,9 +82,7 @@ ImageArticle.propTypes = {
     isVertical: PropTypes.bool,
     href: PropTypes.string,
     withLazy: PropTypes.bool,
-    isApertura: PropTypes.bool,
-    cajaTemaTitle: PropTypes.string,
-    hideTitle: PropTypes.bool
+    isApertura: PropTypes.bool
 };
 
 ImageArticle.defaultProps = {
@@ -94,9 +90,7 @@ ImageArticle.defaultProps = {
     withLazy: true,
     active: false,
     isVertical: false,
-    isApertura: false,
-    cajaTemaTitle: undefined,
-    hideTitle: false
+    isApertura: false
 };
 
 export default ImageArticle;
