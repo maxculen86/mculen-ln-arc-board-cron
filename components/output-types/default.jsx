@@ -189,12 +189,7 @@ const Default = props => {
     );
     const _nodeType = getSectionName({ nodeType, type });
 
-    const title = getTitle(
-        _nodeType,
-        metaValue('title'),
-        layout,
-        siteProperties
-    );
+    const title = getTitle(_nodeType, metaValue('title'), siteProperties);
 
     const metaDescription = getMetaDescriptionDefault(
         metaValue('description'),
