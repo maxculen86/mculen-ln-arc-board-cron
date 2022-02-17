@@ -3,6 +3,7 @@
 exports[`Private - Common - ModheaderSection =>  ModheaderSection with image and link should render mod-logo with anchor tag 1`] = `
 <section
   class="mod-headersection  --line"
+  role="contentinfo"
 >
   <div
     class="mod-logo"
@@ -28,6 +29,7 @@ exports[`Private - Common - ModheaderSection =>  ModheaderSection with image and
 exports[`Private - Common - ModheaderSection =>  ModheaderSection with image should render mod-logo 1`] = `
 <section
   class="mod-headersection  --line"
+  role="contentinfo"
 >
   <div
     class="mod-logo"
@@ -47,6 +49,7 @@ exports[`Private - Common - ModheaderSection =>  ModheaderSection with image sho
 exports[`Private - Common - ModheaderSection =>  Snapshot ModheaderSection con link 1`] = `
 <section
   class="mod-headersection  --line"
+  role="contentinfo"
 >
   <h3
     class="com-title --l"
@@ -65,6 +68,7 @@ exports[`Private - Common - ModheaderSection =>  Snapshot ModheaderSection con l
 exports[`Private - Common - ModheaderSection =>  Snapshots ModheaderSection 1`] = `
 <section
   class="mod-headersection  --line"
+  role="contentinfo"
 >
   <h3
     class="com-title --l"
