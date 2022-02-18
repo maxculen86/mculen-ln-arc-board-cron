@@ -1,28 +1,17 @@
-import getQueryParamValue from './getQueryParamValue';
 import getMetaDescriptionForAcum from './getMetaDescriptionForAcum';
 
 export const getTitle = (
     _nodeType = '',
     metaValue,
-    layout = '',
-    requestUri = '',
-    { host, longTitle, title: defaultTitle }
+    { longTitle, title: defaultTitle }
 ) => {
-    const title = _nodeType === 'home' ? longTitle : metaValue || defaultTitle;
-    const query =
-        host && requestUri
-            ? getQueryParamValue('query', `${host}${requestUri}`)
-            : null;
-
-    return layout === 'LN-buscador' && query ? `${query}: ${title}` : title;
+    return _nodeType === 'home' ? longTitle : metaValue || defaultTitle;
 };
 
 export const getMetaDescriptionDefault = (
     metaValue,
     layout,
     defaultDescription,
-    host,
-    requestUri,
     _nodeType,
     _id,
     Payload,
@@ -30,11 +19,6 @@ export const getMetaDescriptionDefault = (
     name,
     arcSite
 ) => {
-    const query =
-        host && requestUri
-            ? getQueryParamValue('query', `${host}${requestUri}`)
-            : null;
-
     if (_nodeType === 'acumulado') {
         return (
             getMetaDescriptionForAcum(
@@ -49,7 +33,5 @@ export const getMetaDescriptionDefault = (
         );
     }
 
-    return layout === 'LN-buscador' && query && metaValue
-        ? metaValue.replace(/[+]/, query)
-        : defaultDescription;
+    return defaultDescription;
 };

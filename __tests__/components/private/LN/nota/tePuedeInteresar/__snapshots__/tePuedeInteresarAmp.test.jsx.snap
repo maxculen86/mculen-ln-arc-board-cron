@@ -16,6 +16,7 @@ exports[`TePuedeIneresarAmp Should render component 1`] = `
     >
       <section
         class="mod-headersection  --line"
+        role="contentinfo"
       >
         <h3
           class="com-title --l"
