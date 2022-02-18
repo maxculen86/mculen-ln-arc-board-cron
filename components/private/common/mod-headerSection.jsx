@@ -45,6 +45,7 @@ const ModheaderSection = props => {
         <section
             className={`mod-headersection ${classCondition} ${line &&
                 '--line'}`}
+            role="contentinfo"
         >
             {!Image ? (
                 <ComTitle
@@ -68,13 +69,12 @@ ModheaderSection.propTypes = {
     tag: PropTypes.string,
     line: PropTypes.bool,
     size: PropTypes.string,
-    outputType: PropTypes.string.isRequired,
+    outputType: PropTypes.string,
     image: PropTypes.shape({
-        width: PropTypes.string.isRequired,
-        height: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired
-    }),
-    customTitle: PropTypes.string
+        width: PropTypes.number,
+        height: PropTypes.number,
+        url: PropTypes.string
+    })
 };
 
 ModheaderSection.defaultProps = {
@@ -85,7 +85,7 @@ ModheaderSection.defaultProps = {
     size: '--l',
     tag: 'h3',
     image: {},
-    customTitle: undefined
+    outputType: 'default'
 };
 
 export default withImage(ModheaderSection);

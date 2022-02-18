@@ -15,7 +15,6 @@ describe('components - private - common - ComImage', () => {
         srcsetAMP: '',
         href: 'https://www.lanacion.com.ar/',
         target: '_blank',
-        withLazy: true,
         isApertura: false
     };
     describe('Props on default outputType, with svg, lazy and href', () => {
@@ -41,7 +40,6 @@ describe('components - private - common - ComImage', () => {
         const propsTwo = {
             ...props,
             svg: false,
-            withLazy: false,
             href: undefined
         };
 
@@ -52,7 +50,7 @@ describe('components - private - common - ComImage', () => {
 
             expect(imageTag).toHaveLength(1);
             expect(component.find('ComLink')).toHaveLength(0);
-            expect(imageProps.loading).toBe(undefined);
+            expect(imageProps.loading).toBe('lazy');
             expect(imageProps.alt).toBe(propsTwo.alt);
             expect(imageProps.width).toBe(propsTwo.width);
             expect(imageProps.height).toBe(propsTwo.height);
@@ -69,7 +67,6 @@ describe('components - private - common - ComImage', () => {
             layout: undefined,
             target: undefined,
             classCondition: undefined,
-            withLazy: undefined,
             srcsetAMP: 'mock'
         };
 

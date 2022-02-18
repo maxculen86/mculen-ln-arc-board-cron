@@ -80,7 +80,6 @@ const media = ({
                             active={active}
                             image={{ ...mediaData, titleText }}
                             href={href}
-                            withLazy={itsGallery ? false : !zoom}
                             outputType={outputType}
                             zoom={zoom}
                             isApertura={isApertura}

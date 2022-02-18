@@ -144,7 +144,8 @@
             height: px(26);
         }
     }
-    &.propiedades {
+    &.propiedades,
+    &.propiedades-blanco {
         &.--xs {
             width: px(166);
             height: px(22);
