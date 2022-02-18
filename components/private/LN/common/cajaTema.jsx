@@ -81,10 +81,8 @@ const getComponentForLayout = (layoutName, props) => {
                 );
             });
         },
-        ArticleFeature: ({ _children = [], notesQuantity, hideTitle }) => {
-            return _children
-                .slice(0, notesQuantity)
-                .map(x => ({ ...x, props: { ...x.props, hideTitle } }));
+        ArticleFeature: ({ _children = [], notesQuantity }) => {
+            return _children.slice(0, notesQuantity);
         }
     };
 
