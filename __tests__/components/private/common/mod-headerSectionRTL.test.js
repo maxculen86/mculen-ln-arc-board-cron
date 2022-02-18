@@ -79,9 +79,12 @@ describe('Private - Common - ModHeaderSection =>', () => {
         );
 
         expect(getByRole('link')).toBeInTheDocument();
+        expect(getByRole('link').title).toEqual(props.title);
+
         expect(getByRole('img')).toBeInTheDocument();
         expect(getByRole('img').src).toEqual(imageMock.url);
-        expect(getByRole('img').width).toBe(imageMock.width);
+        expect(getByRole('img').alt).toEqual(props.title);
+        expect(getByRole('img').width).toEqual(imageMock.width);
         expect(getByRole('img').height).toEqual(imageMock.height);
     });
 });

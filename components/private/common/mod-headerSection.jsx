@@ -74,7 +74,8 @@ ModheaderSection.propTypes = {
         width: PropTypes.number,
         height: PropTypes.number,
         url: PropTypes.string
-    })
+    }),
+    customTitle: PropTypes.string
 };
 
 ModheaderSection.defaultProps = {
@@ -85,7 +86,8 @@ ModheaderSection.defaultProps = {
     size: '--l',
     tag: 'h3',
     image: {},
-    outputType: 'default'
+    outputType: 'default',
+    customTitle: undefined
 };
 
 export default withImage(ModheaderSection);
