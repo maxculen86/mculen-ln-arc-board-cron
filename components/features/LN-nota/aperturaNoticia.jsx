@@ -9,6 +9,7 @@ import {
     VIDEO
 } from '../../private/common/utils/subtypes/subtypeHelper';
 import {
+    buildScriptResizeSSRInfography,
     buildScriptForZoom,
     getEpigrafe
 } from '../../private/LN/common/utils/mediaHelper';
@@ -23,6 +24,11 @@ const aperturaNoticia = props => {
     const { isDesktop } = getViewport();
     const isVideo = subtype === VIDEO && _type === 'video';
 
+    const scriptForResizeSSRInfography = buildScriptResizeSSRInfography(
+        promoItems,
+        subtype
+    );
+
     const Component = (
         <section className="mod-opening">
             {(() => {
@@ -33,12 +39,14 @@ const aperturaNoticia = props => {
                 const firstText = contentElements.find(
                     element => element.type === 'text'
                 );
+
                 const scriptForZoom =
                     outputType !== 'amp' &&
                     buildScriptForZoom(aperturaMultimedia || basic, subtype);
                 const { caption, credit } = getEpigrafe(
                     aperturaMultimedia || basic
                 );
+
                 return (
                     <Media
                         mediaData={aperturaMultimedia || basic}
@@ -66,7 +74,10 @@ const aperturaNoticia = props => {
     return (
         (isVideo && Component) || (
             <StaticValidation id={idFeature} persistent>
-                {Component}
+                <>
+                    {Component}
+                    {scriptForResizeSSRInfography}
+                </>
             </StaticValidation>
         )
     );

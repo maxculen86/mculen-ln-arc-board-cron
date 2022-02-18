@@ -1,8 +1,10 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
+import { parse } from 'node-html-parser';
 import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData';
 import get from '../../../common/utils/get';
 import {
+    INFOGRAFIA,
     FOTOAL100,
     STORYTELLING
 } from '../../../common/utils/subtypes/subtypeHelper';
@@ -78,8 +80,7 @@ export const getSourceSet = (isVertical, image, sourceActive = []) => {
 export const buildScriptForZoom = (mediaData, subtype) => {
     const { width = 0, _id: idMedia, type } = mediaData || {};
     return (
-        type === 'image' &&
-        idMedia && (
+        (type === 'image' && idMedia && (
             <script
                 dangerouslySetInnerHTML={{
                     __html: `
@@ -106,6 +107,30 @@ export const buildScriptForZoom = (mediaData, subtype) => {
                 `
                 }}
             />
-        )
+        )) ||
+        undefined
+    );
+};
+
+export const buildScriptResizeSSRInfography = (promoItems, subtype) => {
+    const { basic: { _id: idMedia, type, content } = {} } = promoItems || {};
+
+    if (subtype !== INFOGRAFIA || type !== 'raw_html' || !content) {
+        return undefined;
+    }
+    const htmlNode = parse(content.trim()).firstChild;
+    const src = htmlNode.attributes.src;
+
+    return (
+        <script
+            defer
+            type="text/javascript"
+            dangerouslySetInnerHTML={{
+                __html: `
+                window.addEventListener("DOMContentLoaded", () => {
+                    const pymIframe = new pym.Parent("anexo-${idMedia}", "${src}", {});
+                });`
+            }}
+        />
     );
 };
