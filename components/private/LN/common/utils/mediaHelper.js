@@ -119,7 +119,7 @@ export const buildScriptResizeSSRInfography = (promoItems, subtype) => {
         return undefined;
     }
     const htmlNode = parse(content.trim()).firstChild;
-    const src = htmlNode.attributes.src;
+    const { src } = htmlNode.attributes || {};
 
     return (
         <script
