@@ -51,7 +51,7 @@ ComLink.propTypes = {
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.string,
         PropTypes.node
-    ]).isRequired,
+    ]),
     link: PropTypes.string,
     textname: PropTypes.string,
     title: PropTypes.string,
