@@ -112,14 +112,26 @@ export const buildScriptForZoom = (mediaData, subtype) => {
     );
 };
 
-export const buildScriptResizeSSRInfography = (promoItems, subtype) => {
+export const buildScriptResizeSSRInfography = (
+    promoItems,
+    subtype,
+    outputType
+) => {
     const { basic: { _id: idMedia, type, content } = {} } = promoItems || {};
 
-    if (subtype !== INFOGRAFIA || type !== 'raw_html' || !content) {
-        return undefined;
-    }
-    const htmlNode = parse(content.trim()).firstChild;
+    const htmlNode = content ? parse(content.trim()).firstChild : {};
     const { src } = htmlNode.attributes || {};
+
+    if (
+        subtype !== INFOGRAFIA ||
+        type !== 'raw_html' ||
+        !content ||
+        !src ||
+        outputType === 'amp' ||
+        htmlNode.tagName !== 'iframe'
+    ) {
+        return null;
+    }
 
     return (
         <script

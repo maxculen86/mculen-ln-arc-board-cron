@@ -4,10 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import StaticValidation from '../../private/common/staticValidation';
 import Media from '../../private/LN/common/media';
-import {
-    INFOGRAFIA,
-    VIDEO
-} from '../../private/common/utils/subtypes/subtypeHelper';
+import { VIDEO } from '../../private/common/utils/subtypes/subtypeHelper';
 import {
     buildScriptResizeSSRInfography,
     buildScriptForZoom,
@@ -26,7 +23,8 @@ const aperturaNoticia = props => {
 
     const scriptForResizeSSRInfography = buildScriptResizeSSRInfography(
         promoItems,
-        subtype
+        subtype,
+        outputType
     );
 
     const Component = (
