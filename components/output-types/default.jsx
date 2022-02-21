@@ -291,12 +291,14 @@ const Default = props => {
                     Tag="script"
                     globalContent={globalContent}
                 />
-                <MetasOG
-                    {...props}
-                    section={_nodeType}
-                    title={title}
-                    metaDescription={metaDescription}
-                />
+                {layout !== 'LN-buscador' && (
+                    <MetasOG
+                        {...props}
+                        section={_nodeType}
+                        title={title}
+                        metaDescription={metaDescription}
+                    />
+                )}
                 {canonicalUrl && siteProperties.host && (
                     <link
                         rel="canonical"
