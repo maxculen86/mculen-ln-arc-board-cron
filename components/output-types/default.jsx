@@ -130,8 +130,7 @@ const Default = props => {
         siteProperties,
         renderables,
         globalContent,
-        outputType,
-        requestUri
+        outputType
     } = props;
 
     const {
@@ -152,7 +151,7 @@ const Default = props => {
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
     const { basic: descriptionBasic } = description || {};
     const { name: distributorName } = distributor || {};
-    const { host, description: defaultDescription } = siteProperties;
+    const { description: defaultDescription } = siteProperties;
 
     const metaTitleBasic = metaTitle || basicTitle;
 
@@ -190,20 +189,12 @@ const Default = props => {
     );
     const _nodeType = getSectionName({ nodeType, type });
 
-    const title = getTitle(
-        _nodeType,
-        metaValue('title'),
-        layout,
-        requestUri,
-        siteProperties
-    );
+    const title = getTitle(_nodeType, metaValue('title'), siteProperties);
 
     const metaDescription = getMetaDescriptionDefault(
         metaValue('description'),
         layout,
         defaultDescription,
-        host,
-        requestUri,
         _nodeType,
         _id,
         Payload,
@@ -236,7 +227,8 @@ const Default = props => {
                     content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
                 <meta name="theme-color" content="#ffffff" />
-                <title>{title}</title>
+                <meta name="google" content="notranslate" />
+                {layout !== 'LN-buscador' && <title>{title}</title>}
                 <link
                     rel="preload"
                     as="font"
@@ -331,17 +323,19 @@ const Default = props => {
                     defaultTitle={siteProperties.longTitle}
                     metaValue={title}
                 />
-                <MetaDescription
-                    subtype={subtype}
-                    nodeType={nodeType}
-                    _id={_id}
-                    description={descriptionBasic}
-                    metaTitleBasic={metaTitleBasic}
-                    subheadlines={subheadlines && subheadlines.basic}
-                    arcSite={arcSite}
-                    section={_nodeType}
-                    metaDescription={metaDescription}
-                />
+                {layout !== 'LN-buscador' && (
+                    <MetaDescription
+                        subtype={subtype}
+                        nodeType={nodeType}
+                        _id={_id}
+                        description={descriptionBasic}
+                        metaTitleBasic={metaTitleBasic}
+                        subheadlines={subheadlines && subheadlines.basic}
+                        arcSite={arcSite}
+                        section={_nodeType}
+                        metaDescription={metaDescription}
+                    />
+                )}
                 <MetaViafoura {...props} />
                 <Syndication
                     type={type}
