@@ -236,6 +236,7 @@ const Default = props => {
                     content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
                 <meta name="theme-color" content="#ffffff" />
+                <meta name="google" content="notranslate" />
                 <title>{title}</title>
                 <link
                     rel="preload"
