@@ -44,7 +44,12 @@ const ArticleFeature = ({
         id &&
         useContent({
             source: 'articleSourceNota',
-            query: { id: id.trim(), published: true, imageConfig },
+            query: {
+                id: id.trim(),
+                published: true,
+                imageConfig,
+                checkExclusiveAccess: false
+            },
             filter
         });
 
