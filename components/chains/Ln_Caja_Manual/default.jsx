@@ -73,24 +73,6 @@ const CajaManual = props => {
         containsHTML
     );
 
-    if (isAdmin && error) {
-        return (
-            <div
-                style={{
-                    marginTop: '10px',
-                    marginBottom: '10px',
-                    width: '100%'
-                }}
-            >
-                <PageBuilderMessage
-                    key={featureId}
-                    type={error.type}
-                    message={error.message}
-                />
-            </div>
-        );
-    }
-
     if (error) return <></>;
 
     const Component = (

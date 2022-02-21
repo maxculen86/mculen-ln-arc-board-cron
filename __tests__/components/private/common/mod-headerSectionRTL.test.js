@@ -74,9 +74,7 @@ describe('Private - Common - ModHeaderSection =>', () => {
             line: true
         };
 
-        const { getByAltText, getByRole } = render(
-            <ModheaderSection {...props} />
-        );
+        const { getByRole } = render(<ModheaderSection {...props} />);
 
         expect(getByRole('link')).toBeInTheDocument();
         expect(getByRole('link').title).toEqual(props.title);

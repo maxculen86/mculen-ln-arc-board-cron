@@ -15,6 +15,7 @@ type Query {
     additional_properties: AditionalProperties
     source: Source
     subtitle: String
+    alt_text: String
 }
 
 `;
