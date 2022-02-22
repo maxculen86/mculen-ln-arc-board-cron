@@ -85,4 +85,33 @@ describe('Private - Common - ModHeaderSection =>', () => {
         expect(getByRole('img').width).toEqual(imageMock.width);
         expect(getByRole('img').height).toEqual(imageMock.height);
     });
+
+    test('ModheaderSection without title', () => {
+        const props = {
+            link: 'https://lanacion.com.ar/',
+            image: { ...imageMock, caption: 'Caption test' },
+            size: '--l',
+            line: true
+        };
+
+        const { getByRole } = render(<ModheaderSection {...props} />);
+
+        expect(getByRole('link').title).toEqual(props.image.caption);
+        expect(getByRole('img').alt).toEqual(props.image.caption);
+    });
+
+    test('ModheaderSection without title and caption', () => {
+        const DEFAULT_TITLE = 'LA NACION';
+        const props = {
+            link: 'https://lanacion.com.ar/',
+            image: imageMock,
+            size: '--l',
+            line: true
+        };
+
+        const { getByRole } = render(<ModheaderSection {...props} />);
+
+        expect(getByRole('link').title).toEqual(DEFAULT_TITLE);
+        expect(getByRole('img').alt).toEqual(DEFAULT_TITLE);
+    });
 });
