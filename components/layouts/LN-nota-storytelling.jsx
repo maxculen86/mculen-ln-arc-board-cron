@@ -1,6 +1,6 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
-import Static from 'fusion:static';
+import StaticValidation from '../private/common/staticValidation';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelling';
@@ -71,9 +71,9 @@ const lnNotaStorytelling = ({
                         </div>
                     </div>
                 </main>
-                <Static id="StaticFooter">
+                <StaticValidation id="StaticFooter" htmlOnly persistent>
                     <Footer />
-                </Static>
+                </StaticValidation>
             </div>
             <LoadBannersSSR />
             <PwaModals />

@@ -62,7 +62,7 @@ export const _AMPBoilerplate = `
     }`;
 
 export const AMPCustomStyle = props => {
-    const { arcSite, layout, Resource, contextPath, deployment } = props;
+    const { arcSite, layout, Resource } = props;
     const { [layout]: StylesConfig } = styleConfig[arcSite] || {};
 
     return StylesConfig ? (

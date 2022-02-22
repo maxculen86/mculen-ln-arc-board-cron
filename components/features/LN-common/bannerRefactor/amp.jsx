@@ -40,7 +40,6 @@ const Banner = props => {
 };
 
 Banner.label = 'LN-Common-BannerRefactor';
-Banner.static = true;
 
 Banner.propTypes = bannerPropTypes;
 

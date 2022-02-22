@@ -28,7 +28,7 @@ const renderBreadcrumbAutor = (globalContent, host) => (
 
 const renderBreadcrumbDistributor = (globalContent, host) => (
     <BreadcrumbDistributor
-        name={globalContent.name}
+        name={globalContent.name || ''}
         canonicalUrl={globalContent.canonical_url}
         host={host}
     />

@@ -193,7 +193,7 @@ const LNMapaDelSitio = ({ children }) => {
     ];
 
     const listado9 = [
-        { text: 'Horóscopo', href: 'https://www.lanacion.com.ar/horoscopo' },
+        { text: 'Horóscopo', href: 'https://www.lanacion.com.ar/horoscopo/' },
         {
             text: 'Pronóstico',
             href: 'https://servicios.lanacion.com.ar/pronostico-del-tiempo'

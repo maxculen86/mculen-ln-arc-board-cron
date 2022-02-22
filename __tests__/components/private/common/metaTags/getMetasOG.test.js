@@ -1,7 +1,5 @@
-import { SITE_LANACION, SITE_RECETAS } from 'fusion:environment';
 import getMetasOG from '../../../../../components/private/common/metaTags/getMetasOG';
 import getAssetsPath from '../../../../../components/private/common/utils/getAssetsPath';
-import { LANACIONAR_URLASSETS } from 'fusion:environment';
 import getMetaDescriptionForAcum from '../../../../../components/private/common/utils/getMetaDescriptionForAcum';
 
 jest.mock('fusion:content', () => ({
@@ -82,7 +80,6 @@ describe('Common - getMetasOG function', () => {
             },
             section: 'nota'
         };
-
         const metas = [
             {
                 property: 'fb_app_id',
@@ -259,5 +256,64 @@ describe('Common - getMetasOG function metaDescriptionForAcum', () => {
         expect(meteDescription).toEqual(
             'Description Titulo Nota 1, Titulo Nota 2'
         );
+    });
+});
+
+describe('Metas home', () => {
+    it('Test para el caso de que el metaValue sea undefined en metas de tipo website', () => {
+        const props = {
+            siteProperties: {
+                title: 'LA NACION',
+                description: 'Últimas Noticias de LA NACION',
+                shareConfig: {
+                    facebook: {
+                        appID: '205326199490321'
+                    }
+                }
+            },
+            metaValue: function metaValue(name) {
+                undefined;
+            },
+            contextPath: '/pf',
+            deployment: function deployment() {
+                return '$LATEST';
+            },
+            section: 'home'
+        };
+
+        const metas = [
+            {
+                property: 'fb_app_id',
+                content: '205326199490321'
+            },
+            {
+                property: 'og:type',
+                content: 'website'
+            },
+            {
+                property: 'og:title',
+                content: ''
+            },
+            {
+                property: 'og:description',
+                content: 'Últimas Noticias de LA NACION'
+            },
+            {
+                property: 'og:image',
+                content: getAssetsPath(props.contextPath)(props.deployment)(
+                    'placeholderLN.jpg'
+                )
+            },
+            {
+                property: 'og:url',
+                content: 'https://www.lanacion.com.ar/'
+            },
+            {
+                content: 'LA NACION',
+                property: 'og:site_name'
+            }
+        ];
+
+        expect(getMetasOG(props)).toStrictEqual(metas);
     });
 });

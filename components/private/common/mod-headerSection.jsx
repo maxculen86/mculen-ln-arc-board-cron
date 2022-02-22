@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 
 import '../../../resources/dist/css/ln/modules/mod-headersection.css';
 import ComTitle from './com-title';
@@ -15,11 +15,11 @@ const ModheaderSection = props => {
         line,
         size,
         image,
-        classCondition = '',
+        classCondition,
         link,
         outputType
     } = props;
-    const { width, height, url } = image || {};
+    const { width, height, url } = image;
     if (!title && !url) return null;
 
     const Image = url && (
@@ -31,7 +31,8 @@ const ModheaderSection = props => {
             amp={outputType === 'amp'}
         />
     );
-    const ImageWithLink = link && <ComLink link={link}>{Image}</ComLink>;
+
+    const modLogoImage = link ? <ComLink link={link}>{Image}</ComLink> : Image;
 
     return (
         <section
@@ -46,7 +47,7 @@ const ModheaderSection = props => {
                     link={addForwardSLash(link)}
                 />
             ) : (
-                <div className="mod-logo">{link ? ImageWithLink : Image}</div>
+                <div className="mod-logo">{modLogoImage}</div>
             )}
         </section>
     );
@@ -57,7 +58,7 @@ ModheaderSection.propTypes = {
     title: PropTypes.string,
     classCondition: PropTypes.string,
     tag: PropTypes.string,
-    line: PropTypes.boolean,
+    line: PropTypes.bool,
     size: PropTypes.string,
     outputType: PropTypes.string.isRequired,
     image: PropTypes.shape({

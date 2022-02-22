@@ -54,14 +54,16 @@ const ComImage = props => {
         />
     );
 
+    const rightImage = amp ? imageAmp : image;
+
     return (
         <>
             {href ? (
                 <ComLink link={href} target={target || ''} title={alt}>
-                    {amp ? imageAmp : image}
+                    {rightImage}
                 </ComLink>
             ) : (
-                <>{amp ? imageAmp : image}</>
+                <>{rightImage}</>
             )}
         </>
     );

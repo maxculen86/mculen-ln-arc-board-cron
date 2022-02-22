@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ARC_STATIC } from 'fusion:environment';
+import { useAppContext } from 'fusion:context';
+import StaticValidation from './staticValidation';
 
 import ComLink from './com-link';
 import Image from './com-image';
-import Static from 'fusion:static';
-import { ARC_STATIC } from 'fusion:environment';
-import { useAppContext } from 'fusion:context';
 import { mapperLogos } from './logos/mapperLogos';
 
 import '../../../resources/dist/css/ln/components/com-logo.css';
@@ -27,39 +27,36 @@ const ComLogo = props => {
     } = props;
 
     const { contextPath, deployment, outputType } = useAppContext();
-    const folderRoute = folder ? folder : '';
     const assets = mapperLogos[logoName];
     const archivoSVG = `${ARC_STATIC}${deployment(
-        `${contextPath}/resources/images/${folderRoute}${assets}`
+        `${contextPath}/resources/images/${folder || ''}${assets}`
     )}`;
-    const sizeLogo = size ? size : '';
-    const extraClass = `com-logo ${logoName} ${sizeLogo}`;
+    const extraClass = `com-logo ${logoName} ${size || ''}`;
     const classes = `${classCondition} ${extraClass}`;
-    const altProp = alt ? alt : title;
 
     const amp = outputType === 'amp' ? 'amp' : '';
 
     if (!logoName) return null;
 
-    const Img = (
-        <Image
-            classCondition={classes}
-            width={width}
-            height={height}
-            src={archivoSVG}
-            alt={altProp}
-            amp={amp}
-            svg
-        />
+    const Logo = (
+        <StaticValidation
+            id={assets || `logo-${logoName}`}
+            isStatic={isStatic}
+            htmlOnly
+            persistent
+        >
+            <Image
+                classCondition={classes}
+                width={width}
+                height={height}
+                src={archivoSVG}
+                alt={alt || title}
+                amp={amp}
+                svg
+            />
+        </StaticValidation>
     );
 
-    const Logo = isStatic ? (
-        <Static id={assets || `logo-${logoName}`} htmlOnly>
-            {Img}
-        </Static>
-    ) : (
-        Img
-    );
     const Link = (
         <ComLink link={href} title={title} rel={rel} target={target}>
             {Logo}

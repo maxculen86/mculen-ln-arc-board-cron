@@ -1,5 +1,5 @@
 import React from 'react';
-import { useContent } from 'fusion:content';
+import PropTypes from 'fusion:prop-types';
 
 import '../../../../../resources/dist/css/ln/modules/mod-subheader.css';
 
@@ -9,11 +9,9 @@ import ComLink from '../../../common/com-link';
 import Club from '../../../common/icons/system/Club';
 
 const ModSubheader = props => {
-    const { data: dolar } = useContent({ source: 'dolarSource' }) || {};
-    const { weather } = useContent({ source: 'weatherSource' }) || {};
-
-    const [dolarBna = {}, dolarBlue = {}] = dolar || [];
-    const { icon_name, temperatura, nombre } = weather || {};
+    const { dolar = [], weather = {} } = props;
+    const [dolarBna = {}, dolarBlue = {}] = dolar;
+    const { icon_name: iconName, temperatura, nombre } = weather;
 
     return (
         <section className="mod-subheader">
@@ -28,7 +26,7 @@ const ModSubheader = props => {
                     />
 
                     <ComWeather
-                        iconName={icon_name}
+                        iconName={iconName}
                         size="--fourxs"
                         temperature={temperatura}
                         weatherPlace={nombre}
@@ -59,6 +57,15 @@ const ModSubheader = props => {
             </div>
         </section>
     );
+};
+
+ModSubheader.propTypes = {
+    dolar: PropTypes.arrayOf(PropTypes.object).isRequired,
+    weather: PropTypes.shape({
+        icon_name: PropTypes.string.isRequired,
+        temperatura: PropTypes.string.isRequired,
+        nombre: PropTypes.string.isRequired
+    }).isRequired
 };
 
 export default ModSubheader;
