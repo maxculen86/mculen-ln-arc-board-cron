@@ -7,20 +7,23 @@ import Footer from '../private/LN/common/footer';
 import ComTitle from '../private/common/com-title';
 import GlobalProvider from '../private/common/context/globalContext';
 import PwaModals from '../private/LN/common/pwaModals';
-import insertTitleAndDescrition from '../private/common/utils/lnBuscadorHelper';
+import createTagsTitleAndMetas from '../private/common/utils/lnBuscadorHelper';
+import getQueryParamValue from '../private/common/utils/getQueryParamValue';
 import '../../resources/dist/css/ln/pages/buscador.css';
 
-const lnBuscador = ({ children, metaValue, siteProperties }) => {
-    const { longTitle, description } = siteProperties;
+const lnBuscador = ({
+    children,
+    metaValue,
+    siteProperties: { description } = {}
+}) => {
     let searchResults = '';
+
     if (typeof window !== 'undefined') {
-        const urlSerachParams =
-            new URLSearchParams(window.location.search) || {};
-        searchResults = urlSerachParams ? urlSerachParams.get('query') : '';
-        insertTitleAndDescrition(
-            searchResults,
-            metaValue('title') || longTitle,
-            metaValue('description') || description
+        searchResults = getQueryParamValue('query', window.location.href);
+        createTagsTitleAndMetas(
+            metaValue('description') || description,
+            window.location.href,
+            searchResults
         );
     }
 

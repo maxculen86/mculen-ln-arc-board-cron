@@ -292,12 +292,14 @@ const Default = props => {
                     Tag="script"
                     globalContent={globalContent}
                 />
-                <MetasOG
-                    {...props}
-                    section={_nodeType}
-                    title={title}
-                    metaDescription={metaDescription}
-                />
+                {layout !== 'LN-buscador' && (
+                    <MetasOG
+                        {...props}
+                        section={_nodeType}
+                        title={title}
+                        metaDescription={metaDescription}
+                    />
+                )}
                 {canonicalUrl && siteProperties.host && (
                     <link
                         rel="canonical"
@@ -365,9 +367,8 @@ const Default = props => {
                     Tag="script"
                     globalContent={globalContent}
                 />
-                <div id="fusion-app">
-                    <Fusion>{children}</Fusion>
-                </div>
+                <div id="fusion-app">{children}</div>
+                <Fusion />
                 <Scripts
                     location="body-bottom"
                     section={_nodeType}
