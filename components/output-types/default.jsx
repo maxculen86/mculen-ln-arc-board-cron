@@ -227,6 +227,7 @@ const Default = props => {
                     content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
                 <meta name="theme-color" content="#ffffff" />
+                <meta name="google" content="notranslate" />
                 {layout !== 'LN-buscador' && <title>{title}</title>}
                 <link
                     rel="preload"
@@ -291,12 +292,14 @@ const Default = props => {
                     Tag="script"
                     globalContent={globalContent}
                 />
-                <MetasOG
-                    {...props}
-                    section={_nodeType}
-                    title={title}
-                    metaDescription={metaDescription}
-                />
+                {layout !== 'LN-buscador' && (
+                    <MetasOG
+                        {...props}
+                        section={_nodeType}
+                        title={title}
+                        metaDescription={metaDescription}
+                    />
+                )}
                 {canonicalUrl && siteProperties.host && (
                     <link
                         rel="canonical"
@@ -364,9 +367,8 @@ const Default = props => {
                     Tag="script"
                     globalContent={globalContent}
                 />
-                <div id="fusion-app">
-                    <Fusion>{children}</Fusion>
-                </div>
+                <div id="fusion-app">{children}</div>
+                <Fusion />
                 <Scripts
                     location="body-bottom"
                     section={_nodeType}
