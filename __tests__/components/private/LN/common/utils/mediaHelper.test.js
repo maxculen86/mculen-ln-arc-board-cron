@@ -1,9 +1,6 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
-
 import { buildScriptResizeSSRInfography } from '../../../../../../components/private/LN/common/utils/mediaHelper';
-import { INFOGRAFIA } from '../../../../../../components/private/common/utils/subtypes/subtypeHelper';
+import articlePictureOpening from '../../../../../../__mocks__/data/articles/4HFO7YPZBFEYVB6K5XY6IFV3XY';
+import articleVideoOpening from '../../../../../../__mocks__/data/articles/KMD6TFFRHRC7XBPE2DDNKOTALE';
 
 describe('Private - LN - Common - Utils -> mediaHelper', () => {
     const url =
@@ -18,11 +15,7 @@ describe('Private - LN - Common - Utils -> mediaHelper', () => {
     const outputType = 'default';
 
     it('Deberia retornar script al ser llamado con los parametros correctos', () => {
-        const component = buildScriptResizeSSRInfography(
-            promoItems,
-            INFOGRAFIA,
-            outputType
-        );
+        const component = buildScriptResizeSSRInfography(promoItems);
         expect(component).toBeTruthy();
         expect(component.type).toStrictEqual('script');
         expect(component.props.type).toStrictEqual('text/javascript');
@@ -37,12 +30,14 @@ describe('Private - LN - Common - Utils -> mediaHelper', () => {
         expect(buildScriptResizeSSRInfography()).toBeNull();
         expect(buildScriptResizeSSRInfography({})).toBeNull();
         expect(buildScriptResizeSSRInfography(undefined)).toBeNull();
-        expect(buildScriptResizeSSRInfography(promoItems, 5)).toBeNull();
+        expect(buildScriptResizeSSRInfography(promoItems)).toBeNull();
+    });
+    it('Deberia retornar nulo al ser llamado apertura imagen o video', () => {
         expect(
-            buildScriptResizeSSRInfography(promoItems, INFOGRAFIA, 'amp')
+            buildScriptResizeSSRInfography(articlePictureOpening.promo_items)
         ).toBeNull();
         expect(
-            buildScriptResizeSSRInfography(promoItems, INFOGRAFIA, outputType)
+            buildScriptResizeSSRInfography(articleVideoOpening.promo_items)
         ).toBeNull();
     });
 });

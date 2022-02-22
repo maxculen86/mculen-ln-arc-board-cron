@@ -4,7 +4,10 @@ import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import StaticValidation from '../../private/common/staticValidation';
 import Media from '../../private/LN/common/media';
-import { VIDEO } from '../../private/common/utils/subtypes/subtypeHelper';
+import {
+    VIDEO,
+    INFOGRAFIA
+} from '../../private/common/utils/subtypes/subtypeHelper';
 import {
     buildScriptResizeSSRInfography,
     buildScriptForZoom,
@@ -20,12 +23,6 @@ const aperturaNoticia = props => {
         aperturaMultimedia || basic || {};
     const { isDesktop } = getViewport();
     const isVideo = subtype === VIDEO && _type === 'video';
-
-    const scriptForResizeSSRInfography = buildScriptResizeSSRInfography(
-        promoItems,
-        subtype,
-        outputType
-    );
 
     const Component = (
         <section className="mod-opening">
@@ -74,7 +71,9 @@ const aperturaNoticia = props => {
             <StaticValidation id={idFeature} persistent>
                 <>
                     {Component}
-                    {scriptForResizeSSRInfography}
+                    {subtype === INFOGRAFIA &&
+                        outputType !== 'amp' &&
+                        buildScriptResizeSSRInfography(promoItems)}
                 </>
             </StaticValidation>
         )

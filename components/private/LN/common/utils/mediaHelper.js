@@ -4,7 +4,6 @@ import { parse } from 'node-html-parser';
 import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData';
 import get from '../../../common/utils/get';
 import {
-    INFOGRAFIA,
     FOTOAL100,
     STORYTELLING
 } from '../../../common/utils/subtypes/subtypeHelper';
@@ -112,22 +111,16 @@ export const buildScriptForZoom = (mediaData, subtype) => {
     );
 };
 
-export const buildScriptResizeSSRInfography = (
-    promoItems,
-    subtype,
-    outputType
-) => {
-    const { basic: { _id: idMedia, type, content } = {} } = promoItems || {};
+export const buildScriptResizeSSRInfography = (promoItems = {}) => {
+    const { basic: { _id: idMedia, type, content } = {} } = promoItems;
 
     const htmlNode = content ? parse(content.trim()).firstChild : {};
     const { src } = htmlNode.attributes || {};
 
     if (
-        subtype !== INFOGRAFIA ||
         type !== 'raw_html' ||
         !content ||
         !src ||
-        outputType === 'amp' ||
         htmlNode.tagName !== 'iframe'
     ) {
         return null;
