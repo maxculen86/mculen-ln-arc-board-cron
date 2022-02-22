@@ -34,7 +34,6 @@ const requestConfigProps = (index, defaultDays, defaultWeeks) => {
 };
 
 ranking.label = 'LN-Common-Ranking';
-ranking.lazy = true;
 
 ranking.propTypes = {
     outputType: PropTypes.string,
