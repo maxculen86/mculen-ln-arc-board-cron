@@ -2452,7 +2452,8 @@ export default {
                     subheadTagApertura: 'h2',
                     withSubheadAndMedia: true,
                     withSubhead: true,
-                    imageConfig: 'featuredFocalIzquierdo'
+                    imageConfig: 'featuredFocalIzquierdo',
+                    isApertura: true
                 },
                 1: {
                     titleSize: '--xs',
@@ -2480,7 +2481,8 @@ export default {
                     subheadTagApertura: 'h2',
                     withSubheadAndMedia: true,
                     imageConfig: 'mediumFocalDerecho',
-                    withSubhead: true
+                    withSubhead: true,
+                    isApertura: true
                 }
             }
         },
@@ -2581,7 +2583,8 @@ export default {
                     titleTagApertura: 'h1',
                     subheadTagApertura: 'h2',
                     withSubheadAndMedia: true,
-                    imageConfig: 'bomba'
+                    imageConfig: 'bomba',
+                    isApertura: true
                 }
             }
         },
