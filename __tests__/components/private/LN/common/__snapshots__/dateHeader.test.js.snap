@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`features - LaNacion - Nota - DateHeader Test de snapshot DateHeader 1`] = `
+exports[`features - LaNacion - Nota - DateHeader With props Test de snapshot DateHeader 1`] = `
 <p
   class="com-date --threexs"
 >

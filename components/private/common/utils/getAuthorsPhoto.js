@@ -10,13 +10,13 @@ const getAuthorsPhoto = article => {
         auth => get(auth, `${imageResizedUrl}`, null) !== null
     );
     const urlsResizes = get(authorWithPhoto, `${imageResizedUrl}`, []);
-    const alt_text = get(authorWithPhoto, 'alt_text', '');
+    const altText = get(authorWithPhoto, 'alt_text', '');
     if (urlsResizes.length === 0) return null;
     return {
         height: 80,
         resized_urls: get(authorWithPhoto, `${imageResizedUrl}`, []),
         type: 'image',
-        alt_text,
+        altText,
         url: urlsResizes.length > 0 ? urlsResizes[0].resizedUrl : null,
         width: 80
     };

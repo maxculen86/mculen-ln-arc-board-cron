@@ -32,6 +32,7 @@ export const createResizer = (resizerKey, resizerUrl) => {
         );
 
         const thumbor = new Thumbor(resizerKey, resizerUrl);
+        thumbor.filter(`format(webp)`);
         thumbor.filter(`quality(${filterQuality})`);
 
         if (proportion) {

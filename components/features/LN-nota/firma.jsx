@@ -6,96 +6,20 @@
 import React from 'react';
 import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
-import get from 'lodash.get';
 import { SITE_LANACION } from 'fusion:environment';
 import StaticValidation from '../../private/common/staticValidation';
 
 import ModAutor from '../../private/common/mod-autor';
 import ComPartner from '../../private/common/com-partner';
 import ComLink from '../../private/common/com-link';
-
+import {
+    place,
+    filterByAuthor,
+    getPropsBuilder,
+    getPropsBuilderFromContentElements
+} from '../../private/common/utils/firmaHelper';
 import { compose } from '../../private/common/utils/functional';
 import formatDistributorName from '../../private/LN/common/utils/formatDistributorName';
-
-const place = Object.freeze({ Top: 'Top', Bottom: 'Bottom' });
-
-const filterByAuthor = authors =>
-    authors.filter(author => author.type === 'author');
-
-const renderAsList = (authors, position) =>
-    (authors && authors.length > 1) || position === place.Bottom;
-
-const getPropsBuilderFromContentElements = position => contentElements =>
-    position === place.Top
-        ? { authors: [], photo: null, medio: null }
-        : contentElements
-              .filter(
-                  contentElement =>
-                      contentElement.additional_properties &&
-                      contentElement.additional_properties.nodeType === 'firma'
-              )
-              .map(author => ({ name: author.content }))
-              .reduce(
-                  (accumulator, value) => ({
-                      ...accumulator,
-                      authors: [{ name: value.name }],
-                      photo: null,
-                      medio: null
-                  }),
-                  {}
-              );
-
-const getPropsBuilder = position => authors =>
-    authors
-        .map(author => {
-            const id = get(author, '_id');
-            const name = get(author, 'name');
-
-            return {
-                name:
-                    get(
-                        author,
-                        'additional_properties.original.author_type'
-                    ) === ''
-                        ? name
-                        : get(
-                              author,
-                              'additional_properties.original.byline'
-                          ) || name,
-                link: id ? `/autor/${id}/` : '',
-                photo: get(author, 'additional_properties.original.image'),
-                medio: get(author, 'additional_properties.original.role')
-            };
-        })
-        .reduce(
-            (accumulator, value) => {
-                return {
-                    ...accumulator,
-                    ...{
-                        authors: [
-                            ...accumulator.authors,
-                            ...[
-                                {
-                                    ...{ name: value.name },
-                                    ...{ link: value.link }
-                                }
-                            ]
-                        ]
-                    },
-                    ...{
-                        photo: renderAsList(authors, position)
-                            ? null
-                            : value.photo
-                    },
-                    ...{
-                        medio: renderAsList(authors, position)
-                            ? null
-                            : value.medio
-                    }
-                };
-            },
-            { authors: [], photo: null, medio: null, smth: 'credits' }
-        );
 
 const FirmaFeature = props => {
     const {

@@ -74,7 +74,7 @@ export const getCajaTemaConfig = (
     const parent = renderables.find(
         elem =>
             get(elem, 'collection') === 'chains' &&
-            get(elem, 'type') === 'Ln_Caja_Manual' &&
+            get(elem, 'type', '') === 'Ln_Caja_Manual' &&
             get(elem, 'children') &&
             elem.children.some(child => get(child, 'props.id') === featureId)
     );
@@ -98,7 +98,7 @@ export const getCajaTemaConfig = (
             (renderables.some(
                 elem =>
                     get(elem, 'collection') === 'layouts' &&
-                    get(elem, 'type') === layoutsName.Home
+                    get(elem, 'type', '') === layoutsName.Home
             ) &&
                 get(
                     cajaTemaConfig,
@@ -119,7 +119,7 @@ export const getWithMedia = (customFields, articleProps, article) =>
     (!get(customFields, 'hideImage') &&
         (get(articleProps, 'withSubheadAndMedia') ||
             (!get(articleProps, 'withSubheadAndMedia') &&
-                (get(article, 'promo_items.basic.type') === 'image' ||
+                (get(article, 'promo_items.basic.type', '') === 'image' ||
                     get(customFields, 'html')))));
 
 export const getWithSubhead = (articleProps, withMedia, customFields) =>

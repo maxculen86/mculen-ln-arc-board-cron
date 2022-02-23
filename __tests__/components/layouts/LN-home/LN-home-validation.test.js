@@ -7,6 +7,14 @@ import PageBuilderMessage from '../../../../components/private/LN/home/common/co
 import renderables1 from '../../../../__mocks__/data/renderables/data1';
 import renderables2 from '../../../../__mocks__/data/renderables/data2';
 import renderablesOk from '../../../../__mocks__/data/renderables/data3';
+import Consumer from 'fusion:consumer';
+import {
+    sectionWith2ItemToShow,
+    sectionWithAnexoHide,
+    sectionWithNoCollectionAndAnexoShow,
+    sectionWithNoCollectionAndNoAnexo
+} from '../../../../__mocks__/data/renderables/sectionsComercialData';
+import Context from 'fusion:context';
 
 jest.mock('fusion:context', () => () => ({
     default: props => {
@@ -19,21 +27,12 @@ jest.mock('fusion:context', () => () => ({
     }
 }));
 
-import Context from 'fusion:context';
-
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
         return props => <Component {...props} />;
     };
 });
 
-import Consumer from 'fusion:consumer';
-import {
-    sectionWith2ItemToShow,
-    sectionWithAnexoHide,
-    sectionWithNoCollectionAndAnexoShow,
-    sectionWithNoCollectionAndNoAnexo
-} from '../../../../__mocks__/data/renderables/sectionsComercialData';
 describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />', () => {
     it('Validar Seccion Anticipo en Home', () => {
         expect(
@@ -487,5 +486,26 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
                 true
             )
         ).toEqual(true);
+    });
+});
+
+describe('Test return function sectionHelper', () => {
+    it('Test return with ouputType json', () => {
+        expect(
+            sectionHelper(
+                true,
+                'Bloque_2',
+                sectionsValidation.Bloque_2.position,
+                renderablesOk,
+                'json',
+                true
+            )
+        ).toString('TODO');
+    });
+
+    it('Test return default condition', () => {
+        expect(
+            sectionHelper(null, undefined, false, [], 'default', false)
+        ).toStrictEqual(null);
     });
 });
