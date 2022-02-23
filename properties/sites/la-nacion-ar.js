@@ -68,7 +68,7 @@ const promoItemsSizes = {
             height: 746,
             media: minWidth1024,
             proportion: '3:2',
-            media_preload: '(min-width: 1024.1px and max-width: 1280px'
+            media_preload: '(min-width: 1024.1px and max-width: 1280px)'
         },
         {
             width: 768,
