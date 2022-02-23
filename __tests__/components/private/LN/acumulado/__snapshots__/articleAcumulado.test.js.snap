@@ -9,6 +9,7 @@ exports[`Private - LN - Acumulado - ArticleAcum Test de snapshot ArticleAcum 1`]
   datasection="CuerpoAcu"
   datetext="2020-06-02T15:28:04.694Z"
   hour="false"
+  isapertura="false"
   isrenderauthor="false"
   label="[object Object]"
   leadtext="Volanta"
