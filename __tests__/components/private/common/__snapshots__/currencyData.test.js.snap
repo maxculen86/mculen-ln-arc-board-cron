@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Common private currencyData - with dbna CurrencyData snapshot 1`] = `
+<div
+  class=" currency-data"
+>
+  <mock-com-link
+    classcondition="link-container-currency-data"
+    link="https://www.lanacion.com.ar/dolar-hoy/"
+    title="Dólar hoy"
+    type="text/css"
+  >
+    <mock-text
+      extraclass="dolar-title"
+      size="--twoxs"
+      tag="h2"
+      text="Dólar hoy"
+      weight="bold"
+    />
+  </mock-com-link>
+  <p
+    class="com-text --sixxs"
+  >
+    <span>
+      COMPRA
+    </span>
+    <strong
+      class="--fourxs"
+    >
+      $104,25
+    </strong>
+    <span>
+      VENTA
+    </span>
+    <strong
+      class="--fourxs"
+    >
+      $110,25
+    </strong>
+  </p>
+</div>
+`;
+
+exports[`Currency data with urlBrand Snapshot de component con urlBrand 1`] = `
+<mock-com-link
+  classcondition="provider-data"
+  link="https://www.invertironline.com/"
+  type="text/css"
+>
+  <div
+    class="container-logo"
+  >
+    <span
+      class="--sixxs"
+    >
+      Información de
+    </span>
+    <mock-com-image
+      alt="BYMA"
+      amp="false"
+      classcondition="logo byma"
+      src="undefinedundefined"
+    />
+  </div>
+  <div
+    class="container-logo"
+  >
+    <span
+      class="--sixxs"
+    >
+      provista por
+    </span>
+    <mock-com-image
+      alt="InvertirOnline"
+      amp="false"
+      classcondition="logo iol"
+      src="undefinedundefined"
+    />
+  </div>
+</mock-com-link>
+`;

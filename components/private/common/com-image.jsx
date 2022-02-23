@@ -21,8 +21,7 @@ const ComImage = props => {
         target,
         isApertura,
         svg,
-        sizes,
-        withLazy = true
+        sizes
     } = props;
 
     if (!src) return null;
@@ -41,8 +40,7 @@ const ComImage = props => {
             {...commonProps}
             className={classes}
             srcSet={srcset}
-            sizes={sizes}
-            loading={withLazy ? 'lazy' : undefined}
+            loading={isApertura ? 'eager' : 'lazy'}
         />
     );
     const imageAmp = (
@@ -51,17 +49,20 @@ const ComImage = props => {
             class={classes}
             layout={layout || 'responsive'}
             data-hero={isApertura ? true : undefined}
+            data-amp-auto-lightbox-disable="true"
         />
     );
+
+    const rightImage = amp ? imageAmp : image;
 
     return (
         <>
             {href ? (
                 <ComLink link={href} target={target || ''} title={alt}>
-                    {amp ? imageAmp : image}
+                    {rightImage}
                 </ComLink>
             ) : (
-                <>{amp ? imageAmp : image}</>
+                <>{rightImage}</>
             )}
         </>
     );
@@ -79,7 +80,6 @@ ComImage.propTypes = {
     target: PropTypes.string,
     layout: PropTypes.string,
     sizes: PropTypes.string,
-    withLazy: PropTypes.bool,
     isApertura: PropTypes.bool,
     svg: PropTypes.bool
 };
@@ -90,7 +90,6 @@ ComImage.defaultProps = {
     href: '',
     alt: undefined,
     target: '',
-    withLazy: true,
     layout: undefined,
     isApertura: false,
     svg: false,

@@ -17,6 +17,7 @@ import logger from '../../components/private/common/utils/logger';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import getPresets from './utils/presets';
 import ArticleSourceNotas from './acuArticlesSourcebyIds';
+import parseUrl from './utils/parseUrl';
 
 const transformArticles = (cantidadNotas, liftigniterArticles = []) =>
     liftigniterArticles &&
@@ -162,7 +163,6 @@ const resolveData = query => {
     const {
         cantidadNotas = 9,
         referrer = SITE_LANACION,
-        imageConfig = 'm',
         idArticle,
         userId = '',
         sessionId,
@@ -173,7 +173,8 @@ const resolveData = query => {
         widgetType,
         articles = [],
         urlReferer = null,
-        maxAgeInSeconds
+        maxAgeInSeconds,
+        source = 'No viene de te puede interesar'
     } = query;
 
     const userIdParam = userId && !userId.includes('/') ? `/${userId}` : '';
@@ -183,8 +184,13 @@ const resolveData = query => {
         'Content-Type': 'application/json',
         'x-api-key': LIFTIGNITER_X_API_KEY
     };
+
     const body = {
-        url: urlReferer === null ? referrer : urlReferer,
+        url: parseUrl(
+            urlReferer === null ? referrer : urlReferer,
+            source,
+            arcSite
+        ),
         referrer,
         sessionId,
         pageviewId: idArticle

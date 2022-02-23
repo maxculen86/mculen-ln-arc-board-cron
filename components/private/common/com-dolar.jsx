@@ -7,8 +7,7 @@ const ComDolar = props => {
         precioCompraBna,
         precioVentaBna,
         precioCompraBlue,
-        precioVentaBlue,
-        size
+        precioVentaBlue
     } = props;
     return (
         <ul className="com-dolar">

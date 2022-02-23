@@ -1,0 +1,119 @@
+import React from 'react';
+import ImageAuthor from '../../LN/acumulado/author/imageAuthor';
+import ComContainer from '../com-container';
+import ModDescriptionList from '../mod-descriptionList';
+import ComSubtitle from '../com-subtitle';
+import ListSocialIcons from '../list-socialicons';
+
+export const authorPhoto = (outputType, url, byline) => {
+    return url ? (
+        <div className="col-12 col-tablet-4 col-deskxl-3">
+            <ImageAuthor outputType={outputType} url={url} name={byline} />
+        </div>
+    ) : null;
+};
+
+export const authorEducation = education => {
+    return education.length > 0 ? (
+        <ComContainer classCondition="--educacion">
+            <ModDescriptionList
+                bullet
+                sizeBullet="--twoxs"
+                descriptionTitle="Educación"
+                size="--twoxs"
+                list={education}
+            />
+        </ComContainer>
+    ) : null;
+};
+
+export const authorLocation = location => {
+    return location ? (
+        <ComContainer>
+            <ModDescriptionList
+                classCondition="--idiomas"
+                descriptionTitle="Ubicación:"
+                size="--twoxs"
+                text={location}
+            />
+        </ComContainer>
+    ) : null;
+};
+
+export const authorAwards = awards => {
+    return awards.length > 0 ? (
+        <ComContainer classCondition="--reconocimientos">
+            <ModDescriptionList
+                descriptionTitle="Reconocimientos"
+                size="--twoxs"
+                list={awards}
+            />
+        </ComContainer>
+    ) : null;
+};
+
+export const authorLanguages = languages => {
+    return languages ? (
+        <ComContainer>
+            <ModDescriptionList
+                classCondition="--idiomas"
+                descriptionTitle="Idiomas:"
+                size="--twoxs"
+                text={languages}
+            />
+        </ComContainer>
+    ) : null;
+};
+
+export const authorAffiliations = affiliations => {
+    return affiliations ? (
+        <ComContainer>
+            <ModDescriptionList
+                classCondition="--membresia"
+                descriptionTitle="Membresías profesionales:"
+                size="--twoxs"
+                text={affiliations}
+            />
+        </ComContainer>
+    ) : null;
+};
+
+export const authorBooks = (books = []) => {
+    return books.length > 0 ? (
+        <ComContainer>
+            <ModDescriptionList
+                descriptionTitle="Publicaciones"
+                size="--twoxs"
+                list={books}
+            />
+        </ComContainer>
+    ) : null;
+};
+
+export const authorPodcast = (podcast = []) => {
+    return podcast.length > 0 ? (
+        <ComContainer>
+            <ModDescriptionList
+                descriptionTitle="Podcast"
+                size="--twoxs"
+                list={podcast}
+            />
+        </ComContainer>
+    ) : null;
+};
+
+export const authorSocialNetworks = (socialNetworks, data) => {
+    return socialNetworks.length > 0 ? (
+        <div className="col-12">
+            <ComContainer classCondition="--socialicons">
+                <ComSubtitle size="--twoxs">Conectar</ComSubtitle>
+                <ListSocialIcons
+                    sizeIcon="--xl"
+                    data={data}
+                    size="--threexs"
+                    vertical=""
+                />
+            </ComContainer>
+        </div>
+    ) : null;
+};

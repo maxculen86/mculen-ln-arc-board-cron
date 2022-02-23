@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import generateProps from './utils/GetPropsForComLink';
 import '../../../resources/dist/css/ln/components/com-link.css';
 import '../../../resources/dist/css/ln/components/com-text.css';
 
@@ -18,30 +19,27 @@ const ComLink = props => {
         style
     } = props;
 
+    const classBuilder = builder => (builder ? ` ${builder}` : '');
+
     const isString = typeof children === 'string';
-    const SIZE_CLASS = size ? ` ${size}` : '';
-    const EXTRA_CLASS = classCondition ? ` ${classCondition}` : '';
+    const SIZE_CLASS = classBuilder(size);
+    const EXTRA_CLASS = classBuilder(classCondition);
     // TODO: Evaluar si debe retornar un span cuando el componente no recibe link
     // TODO: Definir si el link debe ser una propiedad obligatoria
-    const _props = {
-        ...(link && { href: link }),
-        ...(dataEvent && { 'data-event': dataEvent }),
-        ...(dataSection && { 'data-section': dataSection }),
-        // ...(link && !rel && { rel: target === '_blank' ? 'nofollow' : undefined }),
-        ...(link && {
-            rel:
-                rel ||
-                (target === '_blank' && !link.split('.').includes('lanacion')
-                    ? 'nofollow'
-                    : undefined)
-        }),
-        ...(link && { target }),
-        ...(link && { title }),
-        ...(isString && { dangerouslySetInnerHTML: { __html: children } }),
-        ...(!isString && { children: children || textname }),
-        ...(style && { style }),
-        className: `com-${link ? 'link' : 'text'}${SIZE_CLASS}${EXTRA_CLASS}`
-    };
+    const _props = generateProps(
+        link,
+        dataEvent,
+        dataSection,
+        rel,
+        target,
+        title,
+        textname,
+        isString,
+        children,
+        style,
+        SIZE_CLASS,
+        EXTRA_CLASS
+    );
 
     const tag = link ? 'a' : 'span';
 
@@ -53,7 +51,7 @@ ComLink.propTypes = {
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.string,
         PropTypes.node
-    ]).isRequired,
+    ]),
     link: PropTypes.string,
     textname: PropTypes.string,
     title: PropTypes.string,

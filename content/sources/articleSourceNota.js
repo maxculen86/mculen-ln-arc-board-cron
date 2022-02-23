@@ -46,7 +46,8 @@ const fetch = query => {
         url = '',
         imageConfig,
         meteringVariant,
-        paywallEnabled = ''
+        paywallEnabled = '',
+        checkExclusiveAccess = true
     } = query;
     const arcSite = query['arc-site'];
     const properties = getProperties(arcSite);
@@ -78,7 +79,7 @@ const fetch = query => {
                 throw new Redirect(forwardUrl, 301);
             }
 
-            response &&
+            if (response && checkExclusiveAccess) {
                 validateExclusiveAccess({
                     contentCode:
                         response.content_restrictions &&
@@ -87,6 +88,7 @@ const fetch = query => {
                     host: SITE_LANACION,
                     path: query.uri
                 });
+            }
 
             isNotShowcase(response) &&
                 paywallUtils.checkPaywall({
@@ -264,7 +266,7 @@ const transformContent = (jsonArticle, arcSite, urlQuery) => {
         });
     }
 
-    if (get(resp, 'promo_items.basic.type') === 'gallery') {
+    if (get(resp, 'promo_items.basic.type', '') === 'gallery') {
         promiseArr.push(
             addGalleryData(resp.promo_items.basic, arcSite).then(g => {
                 resp.promo_items.basic = g;

@@ -18,22 +18,12 @@ const getListSections = (sections, extraOpts, host, colorCategory) =>
                 href={`${path}/`}
                 title={`Noticias de ${section.name}`}
                 {...extraOpts}
-                //style={{ color: colorCategory, borderLeftColor: colorCategory }}
-
                 style={{
                     ...(colorCategory && {
                         color: colorCategory
                     })
                 }}
             >
-                {/* <i
-                    className="com-icon bullet icon-bullet-xs"
-                    style={{
-                        ...(colorCategory && {
-                            color: colorCategory
-                        })
-                    }}
-                /> */}
                 <i className="--bullet --fourxs">{`>`}</i>
                 {section.name}
             </a>
@@ -83,14 +73,7 @@ const BreadcrumbBase = props => {
                     })
                 }}
             >
-                <i
-                    className="com-icon bullet icon-bullet-xs"
-                    style={{
-                        ...(colorCategory && {
-                            color: colorCategory
-                        })
-                    }}
-                />
+                <i className="--bullet --fourxs">{`>`}</i>
                 {lastSection.name}
             </span>
         );

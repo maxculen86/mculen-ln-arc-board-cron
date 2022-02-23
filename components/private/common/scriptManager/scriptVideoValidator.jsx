@@ -12,8 +12,8 @@ const scriptVideoValidator = globalContent => {
     const promoItems = get(globalContent, 'promo_items');
     const basicPromoItems = get(promoItems, 'basic');
     const aperturaMultimediaPromoItems = get(promoItems, 'apertura_multimedia');
-    const typeBasic = get(basicPromoItems, 'type');
-    const typeMultimedia = get(aperturaMultimediaPromoItems, 'type');
+    const typeBasic = get(basicPromoItems, 'type', '');
+    const typeMultimedia = get(aperturaMultimediaPromoItems, 'type', '');
 
     return (
         (videosBody(contentElements) > 0 ||
