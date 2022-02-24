@@ -1,6 +1,132 @@
+import getProperties from 'fusion:properties';
 import removeInvalidUrlTagA from '../../../../../components/private/common/utils/removeInvalidUrlTagA';
 import powerUp from '../../../../../content/sources/utils/powerUp';
 import contentElementRecipe from '../../../../../__mocks__/data/articles/contentElementsRecipe.json';
+import articleSourceNota from '../../../../../content/sources/articleSourceNota';
+import responseArticleSource from '../../../../../__mocks__/data/articles/responseArticleSource';
+
+const data = responseArticleSource;
+jest.mock('request-promise-native', () => {
+    return {
+        __esModule: true,
+        default: (method, url, body, headers) => {
+            return Promise.resolve({});
+        },
+        defaults: () => mock.default
+    };
+});
+
+jest.mock('../../../../../components/private/common/utils/logger', () => {
+    const push = jest.fn();
+    return { push };
+});
+
+jest.mock('fusion:properties', () => () => ({
+    getProperties: () => ({
+        imageConfig: {
+            resize: {
+                m: {
+                    promo_items: {
+                        sizes: [
+                            {
+                                width: 360,
+                                height: 240,
+                                media: '1024',
+                                proportion: '3:2'
+                            },
+                            {
+                                width: 768,
+                                height: 512,
+                                media: '1024',
+                                proportion: '3:2'
+                            },
+                            {
+                                width: 351,
+                                height: 234,
+                                media: '1024',
+                                proportion: '3:2'
+                            },
+                            {
+                                width: 360,
+                                height: 240,
+                                media: '1024',
+                                proportion: '3:2'
+                            }
+                        ]
+                    },
+                    content_elements: {
+                        sizes: [
+                            {
+                                width: 278,
+                                height: 186,
+                                media: '1024'
+                            },
+                            {
+                                width: 344,
+                                height: 230,
+                                media: '1024'
+                            },
+                            {
+                                width: 768,
+                                height: 513,
+                                media: '(max-width: 375px)'
+                            },
+                            {
+                                width: 350,
+                                height: 234,
+                                media: '(max-width: 375px)'
+                            },
+                            {
+                                width: 360,
+                                height: 234,
+                                media: '(max-width: 375px)'
+                            }
+                        ]
+                    },
+                    credits: {
+                        sizes: [
+                            {
+                                width: 80,
+                                height: 80,
+                                media: '1024'
+                            }
+                        ]
+                    }
+                },
+                default: [
+                    {
+                        width: 1033,
+                        height: 768,
+                        media: '1024',
+                        class: 'img-desktop',
+                        media_preload: '1024'
+                    }
+                ]
+            }
+        }
+    })
+}));
+jest.spyOn(articleSourceNota, 'transform').mockReturnValue(() => jest.fn());
+describe('Article source nota - validateExclusiveAccess', () => {
+    const { fetch: articleSourceFetch } = articleSourceNota;
+    const query = {
+        uri: '/comunidad/nota-prueba-caja-cerrada-nid17022022/',
+        url: '/comunidad/nota-prueba-caja-cerrada-nid17022022/',
+        meteringVariant: 'A',
+        'arc-site': 'la-nacion-ar',
+        checkExclusiveAccess: true,
+        imageConfig: 'm'
+    };
+    it('validateExclusive access must be called', done => {
+        articleSourceFetch(query).then(response => {
+            console.log(
+                '🚀 ~ file: articleSourceNota.test.js ~ line 260 ~ fetch ~ response',
+                response
+            );
+            expect(response).toBe('hola');
+        });
+    });
+});
 
 describe('Common - utils - removeInvalidUrlTagA.js', () => {
     describe('Content Element with url valid in <a> tag', () => {
