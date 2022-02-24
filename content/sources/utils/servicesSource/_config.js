@@ -59,5 +59,5 @@ export const meanings = {
     Tradicional: {},
     Nombres: {},
     Animales: {},
-    ActualizadaPorLoteriaNacional: {}
+    LoteriaNacional: {}
 };
