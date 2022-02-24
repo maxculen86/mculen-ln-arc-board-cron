@@ -19,8 +19,8 @@ exports[`features - La Nacion - Components - Nota - AperturaReceta Snapshot - an
           class="mod-figure --horizontal"
           role="button"
         >
-          <picture
-            class="mod-picture "
+          <div
+            class="placeholder "
           >
             <img
               alt=""
@@ -28,9 +28,10 @@ exports[`features - La Nacion - Components - Nota - AperturaReceta Snapshot - an
               height="230"
               loading="eager"
               src="https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg"
+              srcset=""
               width="345"
             />
-          </picture>
+          </div>
           <i
             class="com-icon icon-close  --negative"
           >

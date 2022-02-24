@@ -58,7 +58,6 @@ exports[`TePuedeIneresarAmp Should render component 1`] = `
                       height="513"
                       layout="responsive"
                       src="https://resizer.glanacion.com/resizer/7wV6eZcAcRi93W6JtB62FEZt1rA=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5HNJZRFCG5F7NGAAHY2GBOWNIA.jpg"
-                      srcset="https://resizer.glanacion.com/resizer/t9PS4meryG8Xa9u-mX9jMGbKoyk=/360x240/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5HNJZRFCG5F7NGAAHY2GBOWNIA.jpg 360w, https://resizer.glanacion.com/resizer/wYKWfLV7Ym4Io9p4A3BA199RrZs=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5HNJZRFCG5F7NGAAHY2GBOWNIA.jpg 768w, https://resizer.glanacion.com/resizer/kXV-yoHz3pbiEX4iszzFjsxgp_Q=/351x234/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5HNJZRFCG5F7NGAAHY2GBOWNIA.jpg 351w, "
                       width="768"
                     />
                   </div>
@@ -156,7 +155,6 @@ exports[`TePuedeIneresarAmp Should render component 1`] = `
                       height="513"
                       layout="responsive"
                       src="https://resizer.glanacion.com/resizer/MBWv7KsMM8OoV2QsIsIp1rY4gX8=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/N7CFWFKC4NEZJFNJDX3GHMHC4Q.jpg"
-                      srcset="https://resizer.glanacion.com/resizer/7eZVUP53DrTU7wFM_yyN43lnk7w=/360x240/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/N7CFWFKC4NEZJFNJDX3GHMHC4Q.jpg 360w, https://resizer.glanacion.com/resizer/hk4R-wNu5S-r7g08kazUrRkG1_0=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/N7CFWFKC4NEZJFNJDX3GHMHC4Q.jpg 768w, https://resizer.glanacion.com/resizer/nVubcz7kIn6kgD1w5Lcc8qpBqXU=/351x234/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/N7CFWFKC4NEZJFNJDX3GHMHC4Q.jpg 351w, "
                       width="768"
                     />
                   </div>
