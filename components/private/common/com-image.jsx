@@ -30,7 +30,8 @@ const ComImage = props => {
         src,
         alt,
         width,
-        height
+        height,
+        sizes
     };
 
     const classes = `${svg ? '' : 'com-image'} ${classCondition || ''}`;
@@ -47,6 +48,7 @@ const ComImage = props => {
         <amp-img
             {...commonProps}
             class={classes}
+            srcSet={srcset}
             layout={layout || 'responsive'}
             data-hero={isApertura ? true : undefined}
             data-amp-auto-lightbox-disable="true"
