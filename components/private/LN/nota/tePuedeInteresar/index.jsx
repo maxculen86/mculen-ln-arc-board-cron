@@ -100,7 +100,7 @@ class Index extends Component {
     }
 
     registerActivity(widgetType, articles = []) {
-        const { sessionId, url, idArticle, arcSite, layout, type } = this.props;
+        const { sessionId, url, idArticle, arcSite } = this.props;
 
         const { fetched } = this.getContent({
             source: 'liftigniterSource',
@@ -111,8 +111,7 @@ class Index extends Component {
                 arcSite,
                 action: 'activity',
                 widgetType,
-                articles: articles.map(article => article.website_url),
-                source: `Layout: ${layout}. Type: ${type}`
+                articles: articles.map(article => article.website_url)
             }
         });
 
