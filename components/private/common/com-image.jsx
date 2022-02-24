@@ -42,6 +42,7 @@ const ComImage = props => {
             className={classes}
             srcSet={srcset}
             loading={isApertura ? 'eager' : 'lazy'}
+            importance={isApertura ? 'high' : 'low'}
         />
     );
     const imageAmp = (

@@ -235,7 +235,7 @@ const Default = props => {
                     href={`${deployment(
                         `${contextPath}/resources/fonts/suecaslab-bold-webfont.woff2`
                     )}`}
-                    crossOrigin="anonymous"
+                    crossOrigin=""
                 />
                 <link
                     rel="preload"
@@ -244,7 +244,7 @@ const Default = props => {
                     href={`${deployment(
                         `${contextPath}/resources/fonts/suecaslab-medium-webfont.woff2`
                     )}`}
-                    crossOrigin="anonymous"
+                    crossOrigin=""
                 />
                 <FontFaceDefault outputType={outputType} />
                 <Libs />
