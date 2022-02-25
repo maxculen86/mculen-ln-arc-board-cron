@@ -63,10 +63,6 @@ const fetch = query => {
 
     return request(opt)
         .then(response => {
-            console.log(
-                '🚀 ~ file: articleSourceNota.js ~ line 66 ~ response',
-                JSON.stringify(response)
-            );
             if (
                 response &&
                 response.type === 'redirect' &&
@@ -372,7 +368,6 @@ const addFollowAnotherNoteData = async (anotherNoteData, arcSite, i) => {
 
 export default {
     fetch,
-    transform,
     params: {
         url: 'text',
         id: 'text',

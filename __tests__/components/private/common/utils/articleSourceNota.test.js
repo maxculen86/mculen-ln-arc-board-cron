@@ -4,17 +4,25 @@ import powerUp from '../../../../../content/sources/utils/powerUp';
 import contentElementRecipe from '../../../../../__mocks__/data/articles/contentElementsRecipe.json';
 import articleSourceNota from '../../../../../content/sources/articleSourceNota';
 import responseArticleSource from '../../../../../__mocks__/data/articles/responseArticleSource';
+import validateExclusiveAccess from '../../../../../content/sources/utils/validateExclusiveAccess';
 
-const data = responseArticleSource;
+const mockData = responseArticleSource;
 jest.mock('request-promise-native', () => {
-    return {
+    const mock = {
         __esModule: true,
-        default: (method, url, body, headers) => {
-            return Promise.resolve({});
-        },
+        default: (method, url, body, headers) => Promise.resolve(mockData),
         defaults: () => mock.default
     };
+
+    return mock;
 });
+
+jest.mock(
+    '../../../../../content/sources/utils/validateExclusiveAccess',
+    () => {
+        return jest.fn();
+    }
+);
 
 jest.mock('../../../../../components/private/common/utils/logger', () => {
     const push = jest.fn();
@@ -106,7 +114,6 @@ jest.mock('fusion:properties', () => () => ({
         }
     })
 }));
-jest.spyOn(articleSourceNota, 'transform').mockReturnValue(() => jest.fn());
 describe('Article source nota - validateExclusiveAccess', () => {
     const { fetch: articleSourceFetch } = articleSourceNota;
     const query = {
@@ -114,17 +121,26 @@ describe('Article source nota - validateExclusiveAccess', () => {
         url: '/comunidad/nota-prueba-caja-cerrada-nid17022022/',
         meteringVariant: 'A',
         'arc-site': 'la-nacion-ar',
-        checkExclusiveAccess: true,
+        checkExclusiveAccess: false,
         imageConfig: 'm'
     };
-    it('validateExclusive access must be called', done => {
-        articleSourceFetch(query).then(response => {
-            console.log(
-                '🚀 ~ file: articleSourceNota.test.js ~ line 260 ~ fetch ~ response',
-                response
-            );
-            expect(response).toBe('hola');
-        });
+    it('validateExclusive access must NOT be called when checkExclusiveAccess false', done => {
+        articleSourceFetch(query)
+            .then(response => {
+                expect(validateExclusiveAccess).toBeCalledTimes(0);
+            })
+            .then(done);
+    });
+    const queryTrue = {
+        ...query,
+        checkExclusiveAccess: true
+    };
+    it('validateExclusive access must be called when checkExclusiveAccess true', done => {
+        articleSourceFetch(queryTrue)
+            .then(response => {
+                expect(validateExclusiveAccess).toBeCalledTimes(1);
+            })
+            .then(done);
     });
 });
 

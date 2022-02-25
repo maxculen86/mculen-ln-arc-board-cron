@@ -26,14 +26,7 @@
                     "alt_text": "",
                     "caption": "",
                     "created_date": "2020-06-15T10:42:16Z",
-                    "credits": {
-                        "by": [
-                            {
-                                "name": "",
-                                "type": "author"
-                            }
-                        ]
-                    },
+                    "credits": { "by": [{ "name": "", "type": "author" }] },
                     "distributor": {
                         "category": "other",
                         "mode": "custom",
@@ -42,15 +35,11 @@
                     "height": 350,
                     "last_updated_date": "2020-06-15T10:42:16Z",
                     "licensable": false,
-                    "owner": {
-                        "id": "lanacionar"
-                    },
+                    "owner": { "id": "lanacionar" },
                     "source": {
                         "source_id": "1719988.jpg",
                         "source_type": "other",
-                        "additional_properties": {
-                            "editor": "photo center"
-                        },
+                        "additional_properties": { "editor": "photo center" },
                         "edit_url": "https://lanacionar.arcpublishing.com/photo/Y4XRZI3ANBDZHAQ3SSFUVER6V4",
                         "system": "photo center"
                     },
@@ -62,9 +51,7 @@
                     "width": 960,
                     "display_date": "2013-06-06T00:17:00Z",
                     "first_publish_date": "2013-06-06T00:17:00Z",
-                    "description": {
-                        "basic": ""
-                    },
+                    "description": { "basic": "" },
                     "language": "es-419",
                     "publish_date": "2013-06-06T00:17:00Z"
                 },
@@ -113,14 +100,7 @@
                     "alt_text": "",
                     "caption": "El antecedente de Multideas, la empresa de funcionarios, en Tecnópolis 2011",
                     "created_date": "2020-06-15T03:27:27Z",
-                    "credits": {
-                        "by": [
-                            {
-                                "name": "",
-                                "type": "author"
-                            }
-                        ]
-                    },
+                    "credits": { "by": [{ "name": "", "type": "author" }] },
                     "distributor": {
                         "category": "other",
                         "mode": "custom",
@@ -129,15 +109,11 @@
                     "height": 662,
                     "last_updated_date": "2020-06-15T03:27:27Z",
                     "licensable": false,
-                    "owner": {
-                        "id": "lanacionar"
-                    },
+                    "owner": { "id": "lanacionar" },
                     "source": {
                         "source_id": "1719966.jpg",
                         "source_type": "other",
-                        "additional_properties": {
-                            "editor": "photo center"
-                        },
+                        "additional_properties": { "editor": "photo center" },
                         "edit_url": "https://lanacionar.arcpublishing.com/photo/CXSLL4FRABFOFL72V5JWZ4IBKI",
                         "system": "photo center"
                     },
@@ -149,9 +125,7 @@
                     "width": 1018,
                     "display_date": "2013-06-05T23:42:00Z",
                     "first_publish_date": "2013-06-05T23:42:00Z",
-                    "description": {
-                        "basic": ""
-                    },
+                    "description": { "basic": "" },
                     "language": "es-419",
                     "publish_date": "2013-06-05T23:42:00Z"
                 },
@@ -228,15 +202,11 @@
                     "height": 640,
                     "last_updated_date": "2020-06-15T11:28:13Z",
                     "licensable": false,
-                    "owner": {
-                        "id": "lanacionar"
-                    },
+                    "owner": { "id": "lanacionar" },
                     "source": {
                         "source_id": "1719971.jpg",
                         "source_type": "other",
-                        "additional_properties": {
-                            "editor": "photo center"
-                        },
+                        "additional_properties": { "editor": "photo center" },
                         "edit_url": "https://lanacionar.arcpublishing.com/photo/GN3XFPXOPBFYLPXI34Q72ENIJM",
                         "system": "photo center"
                     },
@@ -248,9 +218,7 @@
                     "width": 960,
                     "display_date": "2013-06-05T23:49:00Z",
                     "first_publish_date": "2013-06-05T23:49:00Z",
-                    "description": {
-                        "basic": ""
-                    },
+                    "description": { "basic": "" },
                     "language": "es-419",
                     "publish_date": "2013-06-05T23:49:00Z",
                     "vanity_credits": {
@@ -283,9 +251,7 @@
                 {
                     "_id": "L7FDKAS33RCFHBA7NH6PFBVOWM",
                     "type": "raw_html",
-                    "additional_properties": {
-                        "nodeType": "especiales-ln"
-                    },
+                    "additional_properties": { "nodeType": "especiales-ln" },
                     "content": "<iframe src=\"https://docs.google.com/viewer?url=https://especiales.lanacion.com.ar/multimedia/proyectos/13/pdf/Convenio_tecnopolis.pdf&embedded=true\" width=\"645\" height=\"600\" style=\"border:none;\"></iframe>"
                 },
                 {
@@ -337,15 +303,11 @@
                     "height": 640,
                     "last_updated_date": "2020-06-15T03:28:38Z",
                     "licensable": false,
-                    "owner": {
-                        "id": "lanacionar"
-                    },
+                    "owner": { "id": "lanacionar" },
                     "source": {
                         "source_id": "1719976.jpg",
                         "source_type": "other",
-                        "additional_properties": {
-                            "editor": "photo center"
-                        },
+                        "additional_properties": { "editor": "photo center" },
                         "edit_url": "https://lanacionar.arcpublishing.com/photo/UQI3Z4YCZZDR5D6DDEACJXJR3A",
                         "system": "photo center"
                     },
@@ -400,10 +362,7 @@
                             "type": "text"
                         }
                     ],
-                    "citation": {
-                        "content": "",
-                        "type": "text"
-                    },
+                    "citation": { "content": "", "type": "text" },
                     "subtype": "blockquote",
                     "additional_properties": {}
                 },
@@ -424,10 +383,7 @@
                             "type": "text"
                         }
                     ],
-                    "citation": {
-                        "content": "",
-                        "type": "text"
-                    },
+                    "citation": { "content": "", "type": "text" },
                     "subtype": "blockquote",
                     "additional_properties": {}
                 },
@@ -442,10 +398,7 @@
                             "type": "text"
                         }
                     ],
-                    "citation": {
-                        "content": "",
-                        "type": "text"
-                    },
+                    "citation": { "content": "", "type": "text" },
                     "subtype": "blockquote",
                     "additional_properties": {}
                 }
@@ -464,34 +417,20 @@
                 "basic": "Tecnópolis: el dinero de los stands fue a manos de funcionarios y, además, a empresas \"fantasma\"",
                 "mobile": "Tecnópolis: el dinero de los stands fue a manos de funcionarios y, además, a emp"
             },
-            "owner": {
-                "sponsored": false,
-                "id": "lanacionar"
-            },
+            "owner": { "sponsored": false, "id": "lanacionar" },
             "comments": {
                 "allow_comments": true,
                 "display_comments": true,
                 "moderation_required": false
             },
-            "syndication": {
-                "external_distribution": true,
-                "search": true
-            },
-            "workflow": {
-                "status_code": 5
-            },
+            "syndication": { "external_distribution": true, "search": true },
+            "workflow": { "status_code": 5 },
             "subheadlines": {
                 "basic": "En 2012 se adjudicaron más de $13 millones a una sociedad de dirección apócrifa, sin teléfono ni página web; otra porción de los fondos llegó a Santamaría y Risolía"
             },
             "label": {
-                "edicion": {
-                    "display": true,
-                    "text": "Digital"
-                },
-                "livefyre_entrada_id": {
-                    "display": true,
-                    "text": "730120"
-                }
+                "edicion": { "display": true, "text": "Digital" },
+                "livefyre_entrada_id": { "display": true, "text": "730120" }
             },
             "source": {
                 "source_id": "1588977",
@@ -507,9 +446,7 @@
                     "name": "Política",
                     "path": "/politica",
                     "parent_id": "/",
-                    "parent": {
-                        "default": "/"
-                    },
+                    "parent": { "default": "/" },
                     "additional_properties": {
                         "original": {
                             "_id": "/politica",
@@ -530,9 +467,7 @@
                                 "default": "/",
                                 "Header-FirstNav": "/"
                             },
-                            "ancestors": {
-                                "Header-FirstNav": ["/"]
-                            },
+                            "ancestors": { "Header-FirstNav": ["/"] },
                             "inactive": false,
                             "node_type": "section"
                         }
@@ -564,9 +499,7 @@
                                 "default": "/",
                                 "Header-FirstNav": "/"
                             },
-                            "ancestors": {
-                                "Header-FirstNav": ["/"]
-                            },
+                            "ancestors": { "Header-FirstNav": ["/"] },
                             "inactive": false,
                             "node_type": "section"
                         }
@@ -581,9 +514,7 @@
                         "name": "Política",
                         "path": "/politica",
                         "parent_id": "/",
-                        "parent": {
-                            "default": "/"
-                        },
+                        "parent": { "default": "/" },
                         "additional_properties": {
                             "original": {
                                 "_id": "/politica",
@@ -604,9 +535,7 @@
                                     "default": "/",
                                     "Header-FirstNav": "/"
                                 },
-                                "ancestors": {
-                                    "Header-FirstNav": ["/"]
-                                },
+                                "ancestors": { "Header-FirstNav": ["/"] },
                                 "inactive": false,
                                 "node_type": "section"
                             }
@@ -621,9 +550,7 @@
                         "name": "LA NACION Data",
                         "path": "/data",
                         "parent_id": "/",
-                        "parent": {
-                            "default": "/"
-                        },
+                        "parent": { "default": "/" },
                         "additional_properties": {
                             "original": {
                                 "_id": "/data",
@@ -701,9 +628,7 @@
                                     "default": "/",
                                     "Header-FirstNav": "/"
                                 },
-                                "ancestors": {
-                                    "Header-FirstNav": ["/"]
-                                },
+                                "ancestors": { "Header-FirstNav": ["/"] },
                                 "inactive": false,
                                 "node_type": "section"
                             }
@@ -809,9 +734,7 @@
                         "height": 640,
                         "last_updated_date": "2020-06-15T03:28:31Z",
                         "licensable": false,
-                        "owner": {
-                            "id": "lanacionar"
-                        },
+                        "owner": { "id": "lanacionar" },
                         "source": {
                             "source_id": "1719977.jpg",
                             "source_type": "other",
@@ -829,9 +752,7 @@
                         "width": 960,
                         "display_date": "2013-06-06T00:11:00Z",
                         "first_publish_date": "2013-06-06T00:11:00Z",
-                        "description": {
-                            "basic": ""
-                        },
+                        "description": { "basic": "" },
                         "language": "es-419",
                         "publish_date": "2013-06-06T00:11:00Z",
                         "vanity_credits": {
@@ -879,9 +800,7 @@
                         "height": 1200,
                         "last_updated_date": "2020-06-15T03:28:32Z",
                         "licensable": false,
-                        "owner": {
-                            "id": "lanacionar"
-                        },
+                        "owner": { "id": "lanacionar" },
                         "source": {
                             "source_id": "1719965.jpg",
                             "source_type": "other",
@@ -899,9 +818,7 @@
                         "width": 1920,
                         "display_date": "2013-06-05T23:41:00Z",
                         "first_publish_date": "2013-06-05T23:41:00Z",
-                        "description": {
-                            "basic": ""
-                        },
+                        "description": { "basic": "" },
                         "language": "es-419",
                         "publish_date": "2013-06-05T23:41:00Z",
                         "vanity_credits": {
@@ -933,14 +850,7 @@
                         "alt_text": "",
                         "caption": "",
                         "created_date": "2020-06-15T03:28:39Z",
-                        "credits": {
-                            "by": [
-                                {
-                                    "name": "",
-                                    "type": "author"
-                                }
-                            ]
-                        },
+                        "credits": { "by": [{ "name": "", "type": "author" }] },
                         "distributor": {
                             "category": "other",
                             "mode": "custom",
@@ -949,9 +859,7 @@
                         "height": 697,
                         "last_updated_date": "2020-06-15T03:28:39Z",
                         "licensable": false,
-                        "owner": {
-                            "id": "lanacionar"
-                        },
+                        "owner": { "id": "lanacionar" },
                         "source": {
                             "source_id": "1719964.jpg",
                             "source_type": "other",
@@ -969,9 +877,7 @@
                         "width": 1915,
                         "display_date": "2013-06-05T23:41:00Z",
                         "first_publish_date": "2013-06-05T23:41:00Z",
-                        "description": {
-                            "basic": ""
-                        },
+                        "description": { "basic": "" },
                         "language": "es-419",
                         "publish_date": "2013-06-05T23:41:00Z"
                     }
@@ -1005,10 +911,7 @@
                                 "site": "email",
                                 "url": "mjastreblansky@lanacion.com.ar"
                             },
-                            {
-                                "site": "twitter",
-                                "url": "@maiajastre"
-                            }
+                            { "site": "twitter", "url": "@maiajastre" }
                         ],
                         "socialLinks": [
                             {
@@ -1077,9 +980,7 @@
                         "name": "Política",
                         "path": "/politica",
                         "parent_id": "/",
-                        "parent": {
-                            "default": "/"
-                        },
+                        "parent": { "default": "/" },
                         "additional_properties": {
                             "original": {
                                 "_id": "/politica",
@@ -1100,9 +1001,7 @@
                                     "default": "/",
                                     "Header-FirstNav": "/"
                                 },
-                                "ancestors": {
-                                    "Header-FirstNav": ["/"]
-                                },
+                                "ancestors": { "Header-FirstNav": ["/"] },
                                 "inactive": false,
                                 "node_type": "section"
                             }
@@ -1112,9 +1011,7 @@
                     "website_url": "/politica/julio-de-vido-tecnopolis-el-dinero-de-los-stands-fue-a-manos-de-funcionarios-a-empresas-fant-nid1588977/"
                 }
             },
-            "additional_properties": {
-                "has_published_copy": true
-            },
+            "additional_properties": { "has_published_copy": true },
             "publish_date": "2013-06-06T05:53:00Z",
             "canonical_url": "/politica/julio-de-vido-tecnopolis-el-dinero-de-los-stands-fue-a-manos-de-funcionarios-a-empresas-fant-nid1588977/",
             "publishing": {
@@ -1128,9 +1025,6 @@
             "website_url": "/politica/julio-de-vido-tecnopolis-el-dinero-de-los-stands-fue-a-manos-de-funcionarios-a-empresas-fant-nid1588977/"
         }
     ],
-    "additional_properties": {
-        "took": 3,
-        "timed_out": false
-    },
+    "additional_properties": { "took": 3, "timed_out": false },
     "count": 1
 }

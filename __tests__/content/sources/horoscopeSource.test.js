@@ -1,4 +1,3 @@
-import 'regenerator-runtime/runtime';
 import logger from '../../../components/private/common/utils/logger';
 import horoscopeSource, {
     resolve
