@@ -263,7 +263,7 @@ const Default = props => {
                     rel="preload"
                     as="script"
                     href={`${deployment(
-                        `${contextPath}/dist/components/combinations/react.js`
+                        `${contextPath}/dist/engine/react.js`
                     )}`}
                     crossOrigin=""
                 />
