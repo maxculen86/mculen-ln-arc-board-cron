@@ -1,4 +1,6 @@
-import getProperties from 'fusion:properties';
+import env from '../../../../../__mocks__/fusion:environment';
+import properties from '../../../../../__mocks__/fusion:properties';
+import Redirect from '../../../../../content/sources/utils/redirect';
 import removeInvalidUrlTagA from '../../../../../components/private/common/utils/removeInvalidUrlTagA';
 import powerUp from '../../../../../content/sources/utils/powerUp';
 import contentElementRecipe from '../../../../../__mocks__/data/articles/contentElementsRecipe.json';
@@ -6,128 +8,54 @@ import articleSourceNota from '../../../../../content/sources/articleSourceNota'
 import responseArticleSource from '../../../../../__mocks__/data/articles/responseArticleSource';
 import validateExclusiveAccess from '../../../../../content/sources/utils/validateExclusiveAccess';
 
-const mockData = responseArticleSource;
+const mockRequestResponse = jest.fn();
 jest.mock('request-promise-native', () => {
     const mock = {
         __esModule: true,
-        default: (method, url, body, headers) => Promise.resolve(mockData),
+        default: (method, url, body, headers) => mockRequestResponse(),
         defaults: () => mock.default
     };
-
     return mock;
 });
+const mockResponse = Promise.resolve(responseArticleSource);
+const mockResponseRedirect = Promise.resolve({
+    ...responseArticleSource,
+    type: 'redirect',
+    redirect_url: 'https://www.lanacion.com.ar/'
+});
+mockRequestResponse
+    .mockReturnValueOnce(mockResponse)
+    .mockReturnValueOnce(mockResponse)
+    .mockReturnValueOnce(mockResponseRedirect);
 
-jest.mock(
-    '../../../../../content/sources/utils/validateExclusiveAccess',
-    () => {
-        return jest.fn();
-    }
+jest.mock('../../../../../content/sources/utils/validateExclusiveAccess', () =>
+    jest.fn()
 );
-
 jest.mock('../../../../../components/private/common/utils/logger', () => {
     const push = jest.fn();
     return { push };
 });
+jest.mock('../../../../../content/sources/utils/redirect', () => jest.fn());
 
-jest.mock('fusion:properties', () => () => ({
-    getProperties: () => ({
-        imageConfig: {
-            resize: {
-                m: {
-                    promo_items: {
-                        sizes: [
-                            {
-                                width: 360,
-                                height: 240,
-                                media: '1024',
-                                proportion: '3:2'
-                            },
-                            {
-                                width: 768,
-                                height: 512,
-                                media: '1024',
-                                proportion: '3:2'
-                            },
-                            {
-                                width: 351,
-                                height: 234,
-                                media: '1024',
-                                proportion: '3:2'
-                            },
-                            {
-                                width: 360,
-                                height: 240,
-                                media: '1024',
-                                proportion: '3:2'
-                            }
-                        ]
-                    },
-                    content_elements: {
-                        sizes: [
-                            {
-                                width: 278,
-                                height: 186,
-                                media: '1024'
-                            },
-                            {
-                                width: 344,
-                                height: 230,
-                                media: '1024'
-                            },
-                            {
-                                width: 768,
-                                height: 513,
-                                media: '(max-width: 375px)'
-                            },
-                            {
-                                width: 350,
-                                height: 234,
-                                media: '(max-width: 375px)'
-                            },
-                            {
-                                width: 360,
-                                height: 234,
-                                media: '(max-width: 375px)'
-                            }
-                        ]
-                    },
-                    credits: {
-                        sizes: [
-                            {
-                                width: 80,
-                                height: 80,
-                                media: '1024'
-                            }
-                        ]
-                    }
-                },
-                default: [
-                    {
-                        width: 1033,
-                        height: 768,
-                        media: '1024',
-                        class: 'img-desktop',
-                        media_preload: '1024'
-                    }
-                ]
-            }
-        }
-    })
-}));
+const { fetch: articleSourceFetch } = articleSourceNota;
+const query = {
+    uri: '/comunidad/nota-prueba-caja-cerrada-nid17022022/',
+    url: '/comunidad/nota-prueba-caja-cerrada-nid17022022/',
+    meteringVariant: 'A',
+    'arc-site': 'la-nacion-ar',
+    checkExclusiveAccess: false,
+    imageConfig: 'm'
+};
 describe('Article source nota - validateExclusiveAccess', () => {
-    const { fetch: articleSourceFetch } = articleSourceNota;
-    const query = {
-        uri: '/comunidad/nota-prueba-caja-cerrada-nid17022022/',
-        url: '/comunidad/nota-prueba-caja-cerrada-nid17022022/',
-        meteringVariant: 'A',
-        'arc-site': 'la-nacion-ar',
-        checkExclusiveAccess: false,
-        imageConfig: 'm'
-    };
-    it('validateExclusive access must NOT be called when checkExclusiveAccess false', done => {
+    afterEach(() => {
+        validateExclusiveAccess.mockClear();
+    });
+
+    it('validateExclusive access must NOT be called when checkExclusiveAccess false & match snapshot', done => {
         articleSourceFetch(query)
             .then(response => {
                 expect(validateExclusiveAccess).toBeCalledTimes(0);
+                expect(response).toMatchSnapshot();
             })
             .then(done);
     });
@@ -139,6 +67,20 @@ describe('Article source nota - validateExclusiveAccess', () => {
         articleSourceFetch(queryTrue)
             .then(response => {
                 expect(validateExclusiveAccess).toBeCalledTimes(1);
+            })
+            .then(done);
+    });
+});
+
+describe('Article source nota - redirect', () => {
+    it('Must redirect to provided redirect_url with status code 301', done => {
+        articleSourceFetch(query)
+            .then(() => {
+                expect(Redirect).toBeCalledTimes(1);
+                expect(Redirect).toBeCalledWith(
+                    'https://www.lanacion.com.ar/',
+                    301
+                );
             })
             .then(done);
     });
