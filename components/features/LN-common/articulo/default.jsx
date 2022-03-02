@@ -31,7 +31,9 @@ const ArticleFeature = ({
         outputType,
         layout: layoutPageBuilder
     } = useAppContext();
+
     const { cajaTemaConfig } = getProperties(arcSite);
+
     const {
         config,
         index,

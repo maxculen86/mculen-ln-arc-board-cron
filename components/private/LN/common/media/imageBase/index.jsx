@@ -20,6 +20,7 @@ const ImageArticle = props => {
     const { image, href, outputType, active, isVertical, isApertura } = props;
 
     const { alt_text: altText, caption, titleText, height, width, url } = image;
+
     const altBasic = altText || caption || titleText || '';
     if (!url) return null;
 
