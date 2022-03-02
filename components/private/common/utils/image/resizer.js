@@ -329,7 +329,6 @@ export const addResizedUrls = (ansDoc, options) => {
         content_elements: contentElements,
         credits
     } = ansDoc;
-
     if (!resizerSecret || !resizerUrl || !presets)
         throw new Error(
             'Debe proporcionar el resizerSecret, resizerUrl y presets'
