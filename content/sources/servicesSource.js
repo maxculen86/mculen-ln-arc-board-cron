@@ -1,30 +1,16 @@
 import { ARC_ACCESS_TOKEN, CONTENT_BASE } from 'fusion:environment';
-import request from 'request-promise-native';
 import { resolve as sectionSourceResolve } from './sectionSource';
-import defaultWidget from './utils/widgets/defaultWidget';
+import defaultRequest from './utils/defaultRequest';
+import getRequest from './utils/getRequest';
 import { getAuthForRequest } from './utils/widgets/helper';
 
-const getRequest = query => {
-    const opt = {
-        uri: query,
-        json: true
-    };
-    if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
-        };
-    }
-    return request(opt).then(data => data);
-};
-
 const SERVICES = {
-    loterias: defaultWidget,
-    default: defaultWidget
+    loterias: defaultRequest,
+    default: defaultRequest
 };
 
 const fetch = async (query, { cachedCall }) => {
     const {
-        id = '',
         service = '',
         serviceItem = '',
         uri = '',
@@ -57,7 +43,7 @@ const fetch = async (query, { cachedCall }) => {
             })
         )
         .catch(error => {
-            return reject({ error, uri, arcSite });
+            return reject({ error, uri, arcSite, source: 'servicesSource' });
         });
 };
 
