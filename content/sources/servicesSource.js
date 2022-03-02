@@ -30,18 +30,13 @@ const fetch = async (query, { cachedCall }) => {
         uri = '',
         'arc-site': arcSite = 'la-nacion-ar'
     } = query;
-    console.log(
-        '🚀 ~ file: servicesSource.js ~ line 33 ~ fetch ~ query',
-        query
-    );
 
-    console.log('🚀 ~ file: servicesSource.js ~ line 28 ~ fetch ~ id', id);
     const sectionSourceData = await cachedCall('sectionSource', getRequest, {
         query: `${CONTENT_BASE}${sectionSourceResolve(query)}`
     });
-    return sectionSourceData;
+
     const { request: serviceRequest, resolve, reject, transform, getUri } =
-        SERVICES[service] || SERVICES.defaultWidget;
+        SERVICES[service] || SERVICES.default;
 
     return serviceRequest({
         queryData: query,
@@ -50,7 +45,13 @@ const fetch = async (query, { cachedCall }) => {
     })
         .then(response =>
             resolve({
-                response: { ...sectionSourceData, dataService: response },
+                response: {
+                    ...sectionSourceData,
+                    dataService: response,
+                    serviceType: serviceItem
+                        ? `detalle-${service}`
+                        : `home-${service}`
+                },
                 transform,
                 query
             })
