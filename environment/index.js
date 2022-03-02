@@ -8,7 +8,7 @@ export default {
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygFBlPZMQdmI1mewscHTzb/BAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMAyE1bawAzVQX0z2mAgEQgDsU2eFLGS7c9DKgHAiRtFqUlI1iDycLd4NJQOX7QpYVZjTiLT9AUmFefdVOop88yABc4R+YYCzSh24wCA==}', //NOSONAR
     API_INGRESAR: 'https://api-ingresar.lanacion.com.ar',
     RELOGIN_VALIDATION: '8121600000',
-    SITIO_SEGURO_REGISTRACION: 'https://ingresar.lanacion.com.ar',
+    SITIO_SEGURO_REGISTRACION: 'https://suscripciones.lanacion.com.ar',
     LOGIN_URL: 'https://ingresar.lanacion.com.ar/ingresar/D/1/?callback=',
     COOKIE_EXPIRATION: '8640000000',
     DOMINIO_COOKIE: '.lanacion.com.ar',
