@@ -11,6 +11,8 @@ const SERVICES = {
 
 const fetch = async (query, { cachedCall }) => {
     const {
+        // eslint-disable-next-line no-unused-vars
+        id = '',
         service = '',
         serviceItem = '',
         uri = '',
