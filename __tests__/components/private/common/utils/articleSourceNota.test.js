@@ -1,6 +1,90 @@
+import env from '../../../../../__mocks__/fusion:environment';
+import properties from '../../../../../__mocks__/fusion:properties';
+import Redirect from '../../../../../content/sources/utils/redirect';
 import removeInvalidUrlTagA from '../../../../../components/private/common/utils/removeInvalidUrlTagA';
 import powerUp from '../../../../../content/sources/utils/powerUp';
 import contentElementRecipe from '../../../../../__mocks__/data/articles/contentElementsRecipe.json';
+import articleSourceNota from '../../../../../content/sources/articleSourceNota';
+import responseArticleSource from '../../../../../__mocks__/data/articles/responseArticleSource';
+import validateExclusiveAccess from '../../../../../content/sources/utils/validateExclusiveAccess';
+
+const mockRequestResponse = jest.fn();
+jest.mock('request-promise-native', () => {
+    const mock = {
+        __esModule: true,
+        default: (method, url, body, headers) => mockRequestResponse(),
+        defaults: () => mock.default
+    };
+    return mock;
+});
+const mockResponse = Promise.resolve(responseArticleSource);
+const mockResponseRedirect = Promise.resolve({
+    ...responseArticleSource,
+    type: 'redirect',
+    redirect_url: 'https://www.lanacion.com.ar/'
+});
+mockRequestResponse
+    .mockReturnValueOnce(mockResponse)
+    .mockReturnValueOnce(mockResponse)
+    .mockReturnValueOnce(mockResponseRedirect);
+
+jest.mock('../../../../../content/sources/utils/validateExclusiveAccess', () =>
+    jest.fn()
+);
+jest.mock('../../../../../components/private/common/utils/logger', () => {
+    const push = jest.fn();
+    return { push };
+});
+jest.mock('../../../../../content/sources/utils/redirect', () => jest.fn());
+
+const { fetch: articleSourceFetch } = articleSourceNota;
+const query = {
+    uri: '/comunidad/nota-prueba-caja-cerrada-nid17022022/',
+    url: '/comunidad/nota-prueba-caja-cerrada-nid17022022/',
+    meteringVariant: 'A',
+    'arc-site': 'la-nacion-ar',
+    checkExclusiveAccess: false,
+    imageConfig: 'm'
+};
+describe('Article source nota - validateExclusiveAccess', () => {
+    afterEach(() => {
+        validateExclusiveAccess.mockClear();
+    });
+
+    it('validateExclusive access must NOT be called when checkExclusiveAccess false & match snapshot', done => {
+        articleSourceFetch(query)
+            .then(response => {
+                expect(validateExclusiveAccess).toBeCalledTimes(0);
+                expect(response).toMatchSnapshot();
+            })
+            .then(done);
+    });
+    const queryTrue = {
+        ...query,
+        checkExclusiveAccess: true
+    };
+    it('validateExclusive access must be called when checkExclusiveAccess true', done => {
+        articleSourceFetch(queryTrue)
+            .then(response => {
+                expect(validateExclusiveAccess).toBeCalledTimes(1);
+            })
+            .then(done);
+    });
+});
+
+describe('Article source nota - redirect', () => {
+    it('Must redirect to provided redirect_url with status code 301', done => {
+        articleSourceFetch(query)
+            .then(() => {
+                expect(Redirect).toBeCalledTimes(1);
+                expect(Redirect).toBeCalledWith(
+                    'https://www.lanacion.com.ar/',
+                    301
+                );
+            })
+            .then(done);
+    });
+});
 
 describe('Common - utils - removeInvalidUrlTagA.js', () => {
     describe('Content Element with url valid in <a> tag', () => {
