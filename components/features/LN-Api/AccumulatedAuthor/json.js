@@ -66,11 +66,19 @@ class AccumulatedAuthor {
             if (!acuArticlesSource || !acuArticlesSource.content_elements) {
                 return null;
             }
+            const paginator = acuArticlesSource.next;
+            let page = 1;
+            if (paginator) {
+                page = Math.floor(
+                    paginator / acuArticlesSource.content_elements.length
+                );
+            }
             const acuData = {
                 tipoAcumulado: 3,
                 name: author.byline,
                 articles: acuArticlesSource.content_elements,
-                paginator: acuArticlesSource.next,
+                paginator,
+                page,
                 total: acuArticlesSource.count,
                 author
             };
