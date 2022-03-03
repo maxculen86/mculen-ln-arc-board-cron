@@ -3,14 +3,14 @@ import logger from '../../../../../components/private/common/utils/logger';
 
 const getUri = ({ service = '', serviceItem = '' }) => {
     if (service)
-        return `https://arcservices.lanacion.com.ar/servicios/loterias/${service}/`.concat(
+        return `https://arcservices.lanacion.com.ar/servicios/${service}/`.concat(
             serviceItem || ''
         );
 
     throw new Error('Debe definir un servicio ó servicio e item.');
 };
 
-const loteryRequest = ({ queryData, getUri: getApiUri, auth } = {}) =>
+const lotteryRequest = ({ queryData, getUri: getApiUri, auth } = {}) =>
     request({
         uri: getApiUri(queryData),
         json: true,
@@ -25,7 +25,7 @@ const reject = ({ error, uri, arcSite }) => {
 
 export default {
     getUri,
-    request: loteryRequest,
+    request: lotteryRequest,
     resolve,
     reject
 };
