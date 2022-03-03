@@ -31,7 +31,7 @@ const ImageArticle = props => {
         <ComPicture href={href} amp={outputType === 'amp'}>
             <ComImage
                 srcset={srcset}
-                sizes={sizes}
+                sizes={!sizes || `${sizes},100vw`}
                 srcsetAMP={srcset}
                 src={url}
                 alt={altBasic}
