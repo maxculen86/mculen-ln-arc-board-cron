@@ -4,18 +4,6 @@ import ComImage from '../../../../common/com-image';
 import ComPicture from '../../../../common/com-picture';
 import { getSourceSet } from '../../utils/mediaHelper';
 
-const sourceMapper = source => {
-    return source.map(e => {
-        return (
-            <source
-                key={e.option.media}
-                media={e.option.media}
-                srcSet={e.resizedUrl}
-            />
-        );
-    });
-};
-
 const ImageArticle = props => {
     const { image, href, outputType, active, isVertical, isApertura } = props;
 
@@ -34,17 +22,17 @@ const ImageArticle = props => {
     const sourceActive = active ? sourcesZoom : sources;
 
     // TODO: ver este tema de source sets con maquetacion
-    const srcsetAMP = getSourceSet(isVertical, image, sourceActive);
+    const srcset = getSourceSet(isVertical, image, sourceActive);
+    const sizes =
+        sourceActive &&
+        sourceActive.map(x => `${x.option.media} ${x.option.width}px`).join();
 
     return (
         <ComPicture href={href} amp={outputType === 'amp'}>
-            {!active &&
-                outputType !== 'amp' &&
-                sources &&
-                sourceMapper(sources)}
-            {active && sourcesZoom && sourceMapper(sourcesZoom)}
             <ComImage
-                srcsetAMP={srcsetAMP}
+                srcset={srcset}
+                sizes={sizes}
+                srcsetAMP={srcset}
                 src={url}
                 alt={altBasic}
                 amp={outputType === 'amp'}

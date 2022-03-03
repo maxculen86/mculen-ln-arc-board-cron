@@ -355,7 +355,7 @@ const SkeletonContentMedia = () => (
     <div className="content-media">
         <section className="mod-media">
             <figure className="mod-figure --horizontal">
-                <picture className="mod-picture" />
+                <picture className="placeholder" />
             </figure>
         </section>
     </div>
@@ -364,7 +364,7 @@ const SkeletonContentMedia = () => (
 const SkeletonContentMediaWithoutFigure = () => (
     <div className="content-media">
         <section className="mod-media">
-            <picture className="mod-picture" />
+            <picture className="placeholder" />
         </section>
     </div>
 );
