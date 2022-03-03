@@ -22,6 +22,7 @@ import getSectionName from '../private/LN/common/utils/getSectionName';
 import MeteringAMP from '../private/common/scriptManager/meteringAMP';
 import Favicon from '../private/common/favicon';
 import get from '../private/common/utils/get';
+import FontPreloads from '../private/common/fontsPreloads';
 // import { getBiggestImage } from 'components/private/LN/nota/snippet/noticia';
 
 /**
@@ -141,12 +142,13 @@ const Amp = props => {
                     subtype={subtype}
                     syndication={syndication}
                 />
+                {LinkImagePreload()}
+                <FontPreloads />
                 <link
                     rel="preload"
                     as="script"
                     href="https://cdn.ampproject.org/v0.js"
                 />
-                {LinkImagePreload()}
                 <script async src="https://cdn.ampproject.org/v0.js" />
 
                 <AMPScripts

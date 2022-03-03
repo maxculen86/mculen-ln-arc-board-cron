@@ -44,6 +44,7 @@ import {
     getTitle,
     getMetaDescriptionDefault
 } from '../private/common/utils/outputTypeHelper';
+import FontPreloads from '../private/common/fontsPreloads';
 
 const scriptList = [
     {
@@ -228,25 +229,9 @@ const Default = props => {
                 />
                 <meta name="theme-color" content="#ffffff" />
                 {layout !== 'LN-buscador' && <title>{title}</title>}
-                <link
-                    rel="preload"
-                    as="font"
-                    type="font/woff2"
-                    href={`${deployment(
-                        `${contextPath}/resources/fonts/suecaslab-bold-webfont.woff2`
-                    )}`}
-                    crossOrigin="anonymous"
-                />
-                <link
-                    rel="preload"
-                    as="font"
-                    type="font/woff2"
-                    href={`${deployment(
-                        `${contextPath}/resources/fonts/suecaslab-medium-webfont.woff2`
-                    )}`}
-                    crossOrigin="anonymous"
-                />
-                <FontFaceDefault outputType={outputType} />
+                {LinkImagePreload()}
+                <FontPreloads />
+                <FontFaceDefault />
                 <Libs />
                 <CriticalCss />
                 {arcSite === 'ott' ? (
@@ -259,9 +244,6 @@ const Default = props => {
                 ) : (
                     <CssLinks />
                 )}
-
-                {LinkImagePreload()}
-
                 <TagsLoadingList
                     section="all"
                     location="head"
