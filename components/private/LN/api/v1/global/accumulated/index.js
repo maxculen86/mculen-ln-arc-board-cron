@@ -12,6 +12,11 @@ const index = acuData => {
         paginar: acuData.paginator > 0,
         titulo: acuData.name
     };
+    let pagina = 1;
+    if (acuData.paginator) {
+        pagina = Math.floor(acuData.paginator / acuData.articles.length);
+        acuData.pagina = pagina;
+    }
 
     if (acuData.articles) {
         resp.notas = acuData.articles.reduce((result, f) => {
@@ -27,7 +32,7 @@ const index = acuData => {
         }, []);
     }
     if (acuData.author) {
-        resp.autor = authorAcu(acuData.author);
+        resp.autor = authorAcu(acuData.author, acuData.pagina);
     }
 
     if (acuData.tag) {

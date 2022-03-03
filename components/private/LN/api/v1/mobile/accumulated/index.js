@@ -17,6 +17,7 @@ const banners = acuData => {
     let pagina = 1;
     if (acuData.paginator) {
         pagina = Math.floor(acuData.paginator / acuData.articles.length);
+        acuData.pagina = pagina;
     }
     return sectionsElements.reduce((r, e) => {
         if (pagina > 1) {
@@ -55,9 +56,8 @@ const index = acuData => {
             return result;
         }, []);
     }
-
     if (acuData.author) {
-        resp.autor = authorAcu(acuData.author);
+        resp.autor = authorAcu(acuData.author, acuData.pagina);
     }
 
     if (acuData.tag) {

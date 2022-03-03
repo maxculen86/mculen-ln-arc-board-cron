@@ -16,6 +16,26 @@ const getAuthorData = author => {
     };
 };
 
+export const getAuthorBio = author => {
+    const {
+        longBio,
+        location,
+        education,
+        languages,
+        affiliations,
+        books
+    } = author;
+
+    return {
+        longBio,
+        location,
+        education,
+        languages,
+        affiliations,
+        books
+    };
+};
+
 export const authorCommon = author => {
     const authorData = getAuthorData(author);
     const image = getImageUrl(
@@ -29,16 +49,17 @@ export const authorCommon = author => {
     };
 };
 
-export const authorAcu = author => {
+export const authorAcu = (author, page) => {
     const authorData = getAuthorData(author);
+    const authorBio = getAuthorBio(author);
     const { email, twitter } = author;
     const image = getImageUrl(get(author, 'image.url', null));
-
     return {
         ...authorData,
         imagen: image ? image[0] : null,
         mail: email,
-        twitter: twitter ? twitter.trim() : twitter
+        twitter: twitter ? twitter.trim() : twitter,
+        ...(page <= 1 ? authorBio : null)
     };
 };
 
