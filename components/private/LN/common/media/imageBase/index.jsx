@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ComImage from '../../../../common/com-image';
 import ComPicture from '../../../../common/com-picture';
-import { getSourceSet } from '../../utils/mediaHelper';
+import { getSourceSet, getSizes } from '../../utils/mediaHelper';
 
 const ImageArticle = props => {
     const { image, href, outputType, active, isVertical, isApertura } = props;
@@ -22,10 +22,9 @@ const ImageArticle = props => {
     const sourceActive = active ? sourcesZoom : sources;
 
     // TODO: ver este tema de source sets con maquetacion
+
     const srcset = getSourceSet(isVertical, image, sourceActive);
-    const sizes =
-        sourceActive &&
-        sourceActive.map(x => `${x.option.media} ${x.option.width}px`).join();
+    const sizes = getSizes(sourceActive);
 
     return (
         <ComPicture href={href} amp={outputType === 'amp'}>

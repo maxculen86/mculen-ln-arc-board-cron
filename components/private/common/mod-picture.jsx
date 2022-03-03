@@ -2,25 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ComPicture from './com-picture';
-import ComSource from './com-source';
 import ComImage from './com-image';
 import ModVideo from './mod-video';
+import { getSizes } from '../LN/common/utils/mediaHelper';
 
 import '../../../resources/dist/css/ln/modules/mod-picture.css';
 
 const ModImage = props => {
-    const {
-        media,
-        src,
-        srcset,
-        alt,
-        classCondition,
-        video,
-        amp,
-        sizes = {},
-        sources,
-        isApertura
-    } = props;
+    const { src, alt, classCondition, video, amp, sources, isApertura } = props;
+
+    const srcSet = sources
+        .map(x => `${x.resizedUrl} ${x.option.width}w`)
+        .join();
+
+    const sizesImg = getSizes(sources);
 
     return (
         <ComPicture
@@ -28,24 +23,12 @@ const ModImage = props => {
             video={video ? '--video-background' : ''}
             amp={amp}
         >
-            {!amp && !sources && srcset ? (
-                <ComSource media={media} srcset={srcset} />
-            ) : (
-                <></>
-            )}
-            {!amp &&
-                sources &&
-                sources.map(source => (
-                    <ComSource
-                        media={source.option.media}
-                        srcset={source.resizedUrl}
-                    />
-                ))}
             <ComImage
+                srcset={srcSet}
                 src={src}
                 alt={alt}
                 amp={amp}
-                {...sizes}
+                sizes={sizesImg}
                 isApertura={isApertura}
             />
             {video ? <ModVideo image={src} video={video} /> : <></>}
@@ -53,21 +36,29 @@ const ModImage = props => {
     );
 };
 
+ModImage.defaultProps = {
+    alt: '',
+    classCondition: '',
+    amp: false,
+    video: '',
+    sources: []
+};
+
 ModImage.propTypes = {
     src: PropTypes.string.isRequired,
-    srcset: PropTypes.string.isRequired,
-    media: PropTypes.string,
     alt: PropTypes.string,
     classCondition: PropTypes.string,
     video: PropTypes.string,
     amp: PropTypes.bool,
     isApertura: PropTypes.bool,
-    sources: PropTypes.shape({
-        option: PropTypes.shape({
-            media: PropTypes.string
-        }),
-        resizedUrl: PropTypes.string
-    })
+    sources: PropTypes.arrayOf(
+        PropTypes.shape({
+            option: PropTypes.shape({
+                media: PropTypes.string
+            }),
+            resizedUrl: PropTypes.string
+        })
+    )
 };
 
 ModImage.defaultProps = {
