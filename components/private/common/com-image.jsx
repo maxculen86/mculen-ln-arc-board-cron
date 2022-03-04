@@ -6,7 +6,6 @@ import ComLink from './com-link';
 
 import '../../../resources/dist/css/ln/components/com-image.css';
 import '../../../resources/dist/css/ln/modules/mod-media.css';
-
 const ComImage = props => {
     const {
         src,
@@ -47,8 +46,8 @@ const ComImage = props => {
     const imageAmp = (
         <amp-img
             {...commonProps}
-            class={classes}
             srcSet={srcset}
+            class={classes}
             layout={layout || 'responsive'}
             data-hero={isApertura ? true : undefined}
             data-amp-auto-lightbox-disable="true"
