@@ -343,7 +343,7 @@ $rank-dsk: px(400);
             margin: 0;
 
             .mod-figure {
-                height: calc(100vh - 105px);
+                height: calc(100vh - 187px);
 
                 .mod-picture {
                     height: 100%;
@@ -351,8 +351,11 @@ $rank-dsk: px(400);
                     padding-top: calc((3 / 2) * 100%);
                 }
 
+                @media ($media-m) {
+                    height: calc(100vh - 293px);
+                }
                 @media ($media-l) {
-                    height: calc(100vh - 73px);
+                    height: calc(100vh - 262px);
 
                     .mod-picture {
                         padding-top: $video;
