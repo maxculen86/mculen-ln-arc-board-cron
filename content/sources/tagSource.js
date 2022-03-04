@@ -4,6 +4,7 @@ import filter from '../filters/LN/acumulado/tag';
 import force404AMP from './utils/force404AMP';
 import logger from '../../components/private/common/utils/logger';
 import NotFoundError from './utils/notFoundError';
+import getRequest from './utils/getRequest';
 
 const resolve = key => {
     const { slug, outputType } = key;
@@ -12,19 +13,6 @@ const resolve = key => {
     force404AMP({ outputType });
 
     return `/tags/v2/search?prefix=${slug}`;
-};
-
-const getRequest = query => {
-    const opt = {
-        uri: query,
-        json: true
-    };
-    if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
-        };
-    }
-    return request(opt).then(data => data);
 };
 
 const fetch = async (query, { cachedCall }) => {
