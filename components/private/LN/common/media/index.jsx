@@ -85,7 +85,7 @@ const media = ({
                             isApertura={isApertura}
                         />
                         {children}
-                        {zoom && (
+                        {(zoom || itsGallery) && (
                             <>
                                 <Icon name="close" negative />
                                 <Icon name="zoom" negative />
