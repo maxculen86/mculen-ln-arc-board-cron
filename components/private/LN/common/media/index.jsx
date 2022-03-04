@@ -85,8 +85,12 @@ const media = ({
                             isApertura={isApertura}
                         />
                         {children}
-                        <Icon name="close" negative />
-                        <Icon name="zoom" negative />
+                        {(zoom || itsGallery) && (
+                            <>
+                                <Icon name="close" negative />
+                                <Icon name="zoom" negative />
+                            </>
+                        )}
                     </ComFigure>
                 );
                 break;
