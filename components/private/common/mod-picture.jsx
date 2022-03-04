@@ -28,7 +28,7 @@ const ModImage = props => {
                 src={src}
                 alt={alt}
                 amp={amp}
-                sizes={sizesImg}
+                sizes={!sizesImg || `${sizesImg},100vw`}
                 isApertura={isApertura}
             />
             {video ? <ModVideo image={src} video={video} /> : <></>}
