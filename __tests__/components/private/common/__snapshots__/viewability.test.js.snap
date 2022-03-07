@@ -90,26 +90,30 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
       id="tema_01"
     >
       <_temp
+        customTitle="Titulo de Nota"
         imageId={null}
         link={null}
         title="Titulo de Nota"
       >
         <ModheaderSection
           classCondition=""
+          customTitle="Titulo de Nota"
           image={Object {}}
           imageId={null}
           line={true}
           link={null}
+          outputType="default"
           size="--l"
           tag="h3"
           title="Titulo de Nota"
         >
           <section
             className="mod-headersection  --line"
+            role="contentinfo"
           >
             <ComTitle
               content="Titulo de Nota"
-              customTitle=""
+              customTitle="Titulo de Nota"
               link={null}
               preTitle=""
               size="--l"
@@ -297,7 +301,6 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                               isApertura={false}
                               isVertical={false}
                               outputType="default"
-                              withLazy={true}
                               zoom={false}
                             >
                               <ComPicture
@@ -324,7 +327,6 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                                       svg={false}
                                       target=""
                                       width={768}
-                                      withLazy={true}
                                     >
                                       <img
                                         alt="Prueba Newsletter de propiedades"
@@ -636,7 +638,6 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                               isApertura={false}
                               isVertical={false}
                               outputType="default"
-                              withLazy={true}
                               zoom={false}
                             >
                               <ComPicture
@@ -663,7 +664,6 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                                       svg={false}
                                       target=""
                                       width={768}
-                                      withLazy={true}
                                     >
                                       <img
                                         alt="Coronavirus. Motín en Devoto: “Nos negamos a morir en la cárcel”"
@@ -975,7 +975,6 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                               isApertura={false}
                               isVertical={false}
                               outputType="default"
-                              withLazy={true}
                               zoom={false}
                             >
                               <ComPicture
@@ -1002,7 +1001,6 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                                       svg={false}
                                       target=""
                                       width={768}
-                                      withLazy={true}
                                     >
                                       <img
                                         alt="Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos"
