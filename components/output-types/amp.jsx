@@ -85,11 +85,11 @@ const Amp = props => {
     const _nodeType = getSectionName({ nodeType, type });
 
     const LinkImagePreload = () => {
-        const biggestImage = get(
-            globalContent,
-            'promo_items.basic.resized_urls',
-            []
-        ).reduce(
+        const images = get(globalContent, 'promo_items.basic.resized_urls', []);
+        const imagesrcset = [];
+        const imagesizes = [];
+
+        const biggestImage = images.reduce(
             (prev, curr) =>
                 get(prev, 'option.width', 0) > get(curr, 'option.width', 0)
                     ? prev
@@ -97,12 +97,19 @@ const Amp = props => {
             {}
         );
 
+        images.forEach(x => {
+            imagesrcset.push(`${x.resizedUrl} ${x.option.width}w`);
+            imagesizes.push(`${x.option.media_preload} ${x.option.width}px`);
+        });
+
         return (
             <link
+                as="image"
                 id="preload-img"
                 rel="preload"
+                imagesrcset={imagesrcset}
+                imagesizes={imagesizes}
                 href={biggestImage.resizedUrl}
-                as="image"
             />
         );
     };
