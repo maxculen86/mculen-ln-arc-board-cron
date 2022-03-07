@@ -34,7 +34,7 @@ import PwaModals from '../../private/LN/common/pwaModals';
 import { homeLayoutsPropTypes } from '../../private/common/utils/propTypesHelper';
 import {
     productClickFromServer,
-    prepareImpressionEvent
+    createObservers
 } from '../../private/common/utils/viewability';
 
 const reducer = (state, action) => {
@@ -214,7 +214,8 @@ const LNMainHome = props => {
             window.scrollTo(0, lastScrollPosition);
         }, 1000);
 
-        prepareImpressionEvent();
+        createObservers();
+
         return () => {
             clearTimeout(timer);
         };
@@ -328,10 +329,7 @@ const LNMainHome = props => {
                                 />
 
                                 {blocksToLoad.bloque2.loaded && (
-                                    <section
-                                        id="multimedia"
-                                        data-section="multimedia"
-                                    >
+                                    <section data-section="multimedia">
                                         {multimedia}
                                     </section>
                                 )}
@@ -553,7 +551,11 @@ const LNMainHome = props => {
                         </div>
                         {/* RANKING */}
                         {blocksToLoad.bloque3.loaded && (
-                            <div data-section="ranking" className="ranking-ln9">
+                            <div
+                                data-section="ranking"
+                                className="ranking-ln9"
+                                data-module="tema_ranking"
+                            >
                                 <AnexoFeature
                                     id="ranking"
                                     customFields={{
@@ -570,16 +572,16 @@ const LNMainHome = props => {
                             {/* Cuerpo */}
                             <div className="sidebar__main">
                                 {/* 4to Bloque */}
-                                <div data-section="bloque2">
+                                <div id="bloque2" data-section="bloque2">
                                     {blocksToLoad.bloque4.loaded && bloque2}
                                 </div>
-                                <div data-section="comercial2">
+                                <div id="comercial2" data-section="comercial2">
                                     {blocksToLoad.bloque4.loaded && comercial2}
                                 </div>
-                                <div data-section="bloque3">
+                                <div id="bloque3" data-section="bloque3">
                                     {blocksToLoad.bloque4.loaded && bloque3}
                                 </div>
-                                <div data-section="bloque4">
+                                <div id="bloque4" data-section="bloque4">
                                     {blocksToLoad.bloque4.loaded && bloque4}
                                 </div>
                             </div>
