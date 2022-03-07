@@ -6,7 +6,9 @@ import Consumer from 'fusion:consumer';
 import ModArticle from '../../../../components/private/common/mod-article';
 import Article from '../../../../components/private/common/mod-article';
 import ArticleAcum from '../../../../components/private/LN/acumulado/articleAcum';
+import BombaFeature from '../../../../components/features/LN-common/bomba/default';
 import articles from '../../../../__mocks__/data/articles/articles.json';
+import { useContent } from 'fusion:content';
 
 jest.mock('fusion:consumer', component => {
     return function(component) {
@@ -25,6 +27,8 @@ jest.mock('fusion:context', () => () => ({
     }
 }));
 
+jest.mock('fusion:static', () => 'mock-static');
+
 // jest.mock(
 //     '../../../../components/private/common/mod-article',
 //     () => 'mock-mod-article'
@@ -41,6 +45,7 @@ jest.mock('fusion:context', () => () => ({
 // );
 
 import Context from 'fusion:context';
+
 jest.mock('fusion:properties', () => () => ({
     getProperties: () => {
         return {
@@ -331,6 +336,41 @@ describe('Viewability', () => {
             expect(window.dataLayer[7].product.brand).toBe('0');
             expect(window.dataLayer[7].product.list).toBe('h_editoriales');
             expect(window.dataLayer[7].product.name).toBe('');
+        });
+
+        it('Cuando se hace click en una bomba debe guardar en dataLayer datos attr del articulo', () => {
+            useContent.mockImplementation(() => articles[0]);
+            const articlesBomba = [articles[0]];
+            const propsBomba = {
+                // articles: articlesBomba,
+                // notesQuantity: 2,
+                // position: '01',
+                customFields: {
+                    title: 'Titulo de Nota',
+                    noteId: 'K2FFK3J6DNCX3D76BQ6D7FLQNE'
+                },
+                sectionName: 'bomba',
+                handleClick: productClickFromClient
+            };
+
+            const seccionBomba = mount(<BombaFeature {...propsBomba} />);
+            //const componentMod = shallow(<ModArticle {...props} />);
+            expect(seccionBomba).toBeTruthy();
+            expect(seccionBomba.props()).toEqual(propsBomba);
+            // expect(seccionBomba.props().layout).toBe('h_00');
+            const artBomba = seccionBomba.find(ModArticle);
+            expect(artBomba.length).toBe(1);
+            artBomba.first().simulate('click');
+            expect(window.dataLayer.length).toBe(9);
+            expect(window.dataLayer[8].event).toBe('productClickLocal');
+            expect(window.dataLayer[8].product.position).toBe('0001');
+            expect(window.dataLayer[8].product.id).toBe(
+                'K2FFK3J6DNCX3D76BQ6D7FLQNE'
+            );
+            expect(window.dataLayer[8].product.variant).toBe('editor');
+            expect(window.dataLayer[8].product.brand).toBe('h_00');
+            expect(window.dataLayer[8].product.list).toBe('h_tema-01');
+            expect(window.dataLayer[8].product.name).toBe('');
         });
     });
 

@@ -39,7 +39,7 @@ const getDataSetProps = element => {
         const { dataset: articleDataSet = {} } = element;
         const { dataset: sectionDataSet = {} } = element.closest(
             '.box-articles'
-        );
+        ) || { dataset: { blockName: 'h_tema-01', diagramacionId: 'h_00' } };
         return {
             position: articleDataSet.pos,
             id: articleDataSet.id,
@@ -53,9 +53,9 @@ const getDataSetProps = element => {
 };
 
 const getName = element => {
-    const h2Dom = element.querySelectorAll('h2');
-    if (h2Dom && h2Dom.length > 0) {
-        return (h2Dom[0].innerText && h2Dom[0].innerText.trim()) || '';
+    const subtitle = element.querySelectorAll('h2, h1');
+    if (subtitle && subtitle.length > 0) {
+        return (subtitle[0].innerText && subtitle[0].innerText.trim()) || '';
     }
     return '';
 };
