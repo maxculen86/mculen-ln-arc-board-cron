@@ -2,13 +2,14 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import Static from 'fusion:static';
+import StaticValidation from '../../private/common/staticValidation';
 import Media from '../../private/LN/common/media';
 import {
-    INFOGRAFIA,
-    VIDEO
+    VIDEO,
+    INFOGRAFIA
 } from '../../private/common/utils/subtypes/subtypeHelper';
 import {
+    buildScriptResizeSSRInfography,
     buildScriptForZoom,
     getEpigrafe
 } from '../../private/LN/common/utils/mediaHelper';
@@ -33,12 +34,14 @@ const aperturaNoticia = props => {
                 const firstText = contentElements.find(
                     element => element.type === 'text'
                 );
+
                 const scriptForZoom =
                     outputType !== 'amp' &&
                     buildScriptForZoom(aperturaMultimedia || basic, subtype);
                 const { caption, credit } = getEpigrafe(
                     aperturaMultimedia || basic
                 );
+
                 return (
                     <Media
                         mediaData={aperturaMultimedia || basic}
@@ -64,10 +67,15 @@ const aperturaNoticia = props => {
     );
 
     return (
-        ((isVideo || subtype === INFOGRAFIA) && Component) || (
-            <Static id={idFeature} persistent>
-                {Component}
-            </Static>
+        (isVideo && Component) || (
+            <StaticValidation id={idFeature} persistent>
+                <>
+                    {Component}
+                    {subtype === INFOGRAFIA &&
+                        outputType !== 'amp' &&
+                        buildScriptResizeSSRInfography(promoItems)}
+                </>
+            </StaticValidation>
         )
     );
 };

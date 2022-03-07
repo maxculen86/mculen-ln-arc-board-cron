@@ -4,7 +4,7 @@
 
 import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
-import Static from 'fusion:static';
+import StaticValidation from '../../../common/staticValidation';
 import Paragraph from './parrafo';
 import PullQuote from './pullQuote';
 import BlockQuote from './blockQuote';
@@ -193,7 +193,11 @@ const Cuerpo = props => {
 
                                     return (
                                         elementsCount > counter && (
-                                            <Static id={slotId}>
+                                            <StaticValidation
+                                                id={slotId}
+                                                htmlOnly
+                                                persistent
+                                            >
                                                 {outputType === 'amp' &&
                                                 slotId.includes('_amp') ? (
                                                     <DivBannerAMP
@@ -208,7 +212,7 @@ const Cuerpo = props => {
                                                         }
                                                     />
                                                 )}
-                                            </Static>
+                                            </StaticValidation>
                                         )
                                     );
                                 })}

@@ -26,6 +26,14 @@
             height: px(21);
         }
     }
+    &.gda {
+        width: px(36);
+        height: px(20);
+    }
+    &.data-fiscal {
+        width: px(28);
+        height: px(38);
+    }
     &.brando,
     &.brando-blanco {
         &.--xs {
@@ -125,6 +133,7 @@
             height: px(40);
         }
     }
+    &.bbc-blanco,
     &.bbc {
         &.--xs {
             width: px(128);
@@ -135,7 +144,8 @@
             height: px(26);
         }
     }
-    &.propiedades {
+    &.propiedades,
+    &.propiedades-blanco {
         &.--xs {
             width: px(166);
             height: px(22);
@@ -175,6 +185,13 @@
             width: px(44);
             height: px(21);
         }
+    }
+
+    &.android-store,
+    &.ios-store {
+        width: px(120);
+        height: px(35);
+        border-radius: px(4);
     }
 }
 

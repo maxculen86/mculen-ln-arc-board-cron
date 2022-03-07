@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import Static from 'fusion:static';
 import { useAppContext } from 'fusion:context';
 import TePuedeInteresarAmp from '../../../private/LN/nota/tePuedeInteresar/tePuedeInteresarAmp';
 import findTermica from '../../../private/common/utils/findTermica';
@@ -14,8 +13,7 @@ const tePuedeInteresar = props => {
     const {
         customFields: { cantidadNotas = 6 },
         outputType,
-        siteProperties,
-        id
+        siteProperties
     } = props;
 
     const { requestUri, globalContent, layout } = useAppContext();
@@ -25,27 +23,24 @@ const tePuedeInteresar = props => {
     const { _id } = globalContent || {};
 
     return (
-        <Static id={id} htmlOnly persistent>
-            <TePuedeInteresarAmp
-                cantidadNotas={cantidadNotas}
-                excludeItems={[url]}
-                outputType={outputType}
-                url={url}
-                idArticle={_id}
-                dataLayerSection={
-                    layout === layoutsName.Home
-                        ? 'h_sugerencias'
-                        : 'n_te_puede_interesar'
-                }
-            />
-        </Static>
+        <TePuedeInteresarAmp
+            cantidadNotas={cantidadNotas}
+            excludeItems={[url]}
+            outputType={outputType}
+            url={url}
+            idArticle={_id}
+            dataLayerSection={
+                layout === layoutsName.Home
+                    ? 'h_sugerencias'
+                    : 'n_te_puede_interesar'
+            }
+        />
     );
 };
 
 tePuedeInteresar.label = 'LN-Nota-tePuedeInteresar';
 
 tePuedeInteresar.propTypes = {
-    id: PropTypes.string.isRequired,
     customFields: PropTypes.shape({
         cantidadNotas: PropTypes.number.tag({
             defaultValue: 6,

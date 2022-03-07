@@ -1,10 +1,21 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import BreadCrumbArticle from '../../private/LN/nota/breadcrumb/breadcrumbArticle';
-import withStatic from '../../private/common/hocs/withStatic';
+import StaticValidation from '../../private/common/staticValidation';
 
-const breadCrumbArticle = props => <BreadCrumbArticle {...props} />;
+const breadCrumbArticle = props => {
+    const { id: featureId } = props;
+    return (
+        <StaticValidation id={featureId} htmlOnly persistent>
+            <BreadCrumbArticle {...props} />
+        </StaticValidation>
+    );
+};
+breadCrumbArticle.propTypes = {
+    id: PropTypes.string.isRequired
+};
 
 breadCrumbArticle.label = 'LN-Nota-Breadcrumb';
 
-export default withStatic(Consumer(breadCrumbArticle));
+export default Consumer(breadCrumbArticle);

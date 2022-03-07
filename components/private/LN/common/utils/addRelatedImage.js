@@ -10,14 +10,14 @@ const AddRelatedImage = article => {
         (relatedContent &&
             relatedContent.find(
                 item =>
-                    get(item, 'referent.type') === 'image' ||
-                    get(item, 'type') === 'image'
+                    get(item, 'referent.type', '') === 'image' ||
+                    get(item, 'type', '') === 'image'
             )) ||
         {};
 
     const withoutPromoItems =
         !get(article, 'promo_items.basic') ||
-        get(article, 'promo_items.basic.type') !== 'image';
+        get(article, 'promo_items.basic.type', null) !== 'image';
 
     const imageData =
         id &&

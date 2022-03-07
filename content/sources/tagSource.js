@@ -4,6 +4,7 @@ import filter from '../filters/LN/acumulado/tag';
 import force404AMP from './utils/force404AMP';
 import logger from '../../components/private/common/utils/logger';
 import NotFoundError from './utils/notFoundError';
+import getRequest from './utils/getRequest';
 
 const resolve = key => {
     const { slug, outputType } = key;
@@ -14,21 +15,8 @@ const resolve = key => {
     return `/tags/v2/search?prefix=${slug}`;
 };
 
-const getRequest = query => {
-    const opt = {
-        uri: query,
-        json: true
-    };
-    if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
-        };
-    }
-    return request(opt).then(data => data);
-};
-
 const fetch = async (query, { cachedCall }) => {
-    const { uri, slug, website = 'la-nacion-ar' } = query || {};
+    const { slug, website = 'la-nacion-ar' } = query || {};
 
     const opt = {
         uri: `${CONTENT_BASE}${resolve(query)}`,
@@ -61,14 +49,14 @@ const fetch = async (query, { cachedCall }) => {
         .catch(error => {
             logger.push(
                 error,
-                { source: 'content/source/tagSource', url: uri },
+                { source: 'content/source/tagSource', url: `/tema/${slug}/` },
                 query['arc-site']
             );
         });
 };
 
 const transform = (data, query, tagConfigData) => {
-    const { uri, meteringVariant, slug } = query || {};
+    const { meteringVariant, slug } = query || {};
 
     const { tagConfigGroup } = tagConfigData || {};
 
@@ -87,7 +75,7 @@ const transform = (data, query, tagConfigData) => {
         ...data,
         node_type: 'tags',
         name: data.Payload.items[0].name,
-        canonical_url: uri,
+        canonical_url: `/tema/${slug}/`,
         subscription: meteringVariant,
         acumuladoGeneral
     };

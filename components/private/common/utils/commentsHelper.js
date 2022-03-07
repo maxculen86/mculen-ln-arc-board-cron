@@ -1,3 +1,5 @@
+/* eslint-disable no-restricted-globals */
+/* eslint-disable react-hooks/rules-of-hooks */
 import { LOGIN_URL, SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import { useContext } from 'react';
 import { GlobalContext } from '../context/globalContext';
@@ -49,8 +51,8 @@ export const CALLBACKS_BY_CHANNEL_AND_EVENT = {
 };
 
 export const allowComments = props =>
-    get(props, 'globalContent.type') === 'story' &&
-    get(props, 'globalContent._id') &&
+    get(props, 'globalContent.type', '') === 'story' &&
+    get(props, 'globalContent._id', '') &&
     get(props, 'globalContent.comments.display_comments', true);
 
 export const shouldLoadViafoura = inputDate => {

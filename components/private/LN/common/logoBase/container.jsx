@@ -29,14 +29,13 @@ const LogoBaseContainer = ({
         ? dictionaryAlt[logoName]
         : logoName;
 
-    const sponsor = !color ? `${logoName}${'-blanco'}` : logoName;
-
-    if (!logoName) return null;
+    const sponsor = !color && logoName ? `${logoName}${'-blanco'}` : logoName;
 
     if (sponsored) {
         return (
             <ModSponsor
                 type={`${advertiser ? '--contentlab' : ''}`}
+                logoName={logoName}
                 sponsor={sponsor}
                 textName={advertiser}
                 link={`${path}/`} //agrego barra al final

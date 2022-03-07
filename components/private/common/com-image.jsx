@@ -6,12 +6,10 @@ import ComLink from './com-link';
 
 import '../../../resources/dist/css/ln/components/com-image.css';
 import '../../../resources/dist/css/ln/modules/mod-media.css';
-
 const ComImage = props => {
     const {
         src,
         srcset,
-        srcsetAMP,
         alt,
         layout,
         classCondition,
@@ -22,17 +20,17 @@ const ComImage = props => {
         target,
         isApertura,
         svg,
-        withLazy = true
+        sizes
     } = props;
 
     if (!src) return null;
 
     const commonProps = {
         src,
-        alt: alt,
+        alt,
         width,
         height,
-        ...(amp && srcsetAMP && { srcSet: srcsetAMP })
+        sizes
     };
 
     const classes = `${svg ? '' : 'com-image'} ${classCondition || ''}`;
@@ -42,26 +40,30 @@ const ComImage = props => {
             {...commonProps}
             className={classes}
             srcSet={srcset}
-            loading={withLazy ? 'lazy' : undefined}
+            loading={isApertura ? 'eager' : 'lazy'}
         />
     );
     const imageAmp = (
         <amp-img
             {...commonProps}
+            srcSet={srcset}
             class={classes}
             layout={layout || 'responsive'}
             data-hero={isApertura ? true : undefined}
+            data-amp-auto-lightbox-disable="true"
         />
     );
+
+    const rightImage = amp ? imageAmp : image;
 
     return (
         <>
             {href ? (
                 <ComLink link={href} target={target || ''} title={alt}>
-                    {amp ? imageAmp : image}
+                    {rightImage}
                 </ComLink>
             ) : (
-                <>{amp ? imageAmp : image}</>
+                <>{rightImage}</>
             )}
         </>
     );
@@ -70,7 +72,6 @@ const ComImage = props => {
 ComImage.propTypes = {
     src: PropTypes.string.isRequired,
     srcset: PropTypes.string,
-    srcsetAMP: PropTypes.string,
     alt: PropTypes.string,
     classCondition: PropTypes.string,
     amp: PropTypes.bool.isRequired,
@@ -79,22 +80,21 @@ ComImage.propTypes = {
     href: PropTypes.string,
     target: PropTypes.string,
     layout: PropTypes.string,
-    withLazy: PropTypes.bool,
+    sizes: PropTypes.string,
     isApertura: PropTypes.bool,
     svg: PropTypes.bool
 };
 
 ComImage.defaultProps = {
     srcset: undefined,
-    srcsetAMP: '',
     classCondition: '',
     href: '',
     alt: undefined,
     target: '',
-    withLazy: true,
     layout: undefined,
     isApertura: false,
-    svg: false
+    svg: false,
+    sizes: undefined
 };
 
 export default ComImage;

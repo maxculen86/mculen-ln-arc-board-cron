@@ -1,0 +1,55 @@
+{
+    "name": "StatusCodeError",
+    "statusCode": 404,
+    "message": "404 - {\"message\":\"Content with id=GYKI2Q22GRE2HKGL4PGNGOXA6Y, branch=default, published=true, type=story was not found.\"}",
+    "error": {
+        "message": "Content with id=GYKI2Q22GRE2HKGL4PGNGOXA6Y, branch=default, published=true, type=story was not found."
+    },
+    "options": {
+        "uri": "https://api.sandbox.lanacionar.arcpublishing.com/content/v4/stories/?website=la-nacion-ar&_id=GYKI2Q22GRE2HKGL4PGNGOXA6Y&included_fields=headlines,label,website_url,type",
+        "json": true,
+        "auth": {
+            "bearer": "70J379V39ESH46J6BPMNI7BM7440LQRO6eSpBXP/j70KfRJTQWNrYq8g6WH/jtjLZOF0eAjy"
+        },
+        "simple": true,
+        "resolveWithFullResponse": false,
+        "transform2xxOnly": false
+    },
+    "response": {
+        "statusCode": 404,
+        "body": {
+            "message": "Content with id=GYKI2Q22GRE2HKGL4PGNGOXA6Y, branch=default, published=true, type=story was not found."
+        },
+        "headers": {
+            "date": "Tue, 01 Feb 2022 13:30:35 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "115",
+            "connection": "close",
+            "server": "nginx",
+            "x-powered-by": "Express",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"73-3v6TV46RN3qCb1IlkBTn22Wjsik\""
+        },
+        "request": {
+            "uri": {
+                "protocol": "https:",
+                "slashes": true,
+                "auth": null,
+                "host": "api.sandbox.lanacionar.arcpublishing.com",
+                "port": 443,
+                "hostname": "api.sandbox.lanacionar.arcpublishing.com",
+                "hash": null,
+                "search": "?website=la-nacion-ar&_id=GYKI2Q22GRE2HKGL4PGNGOXA6Y&included_fields=headlines,label,website_url,type",
+                "query": "website=la-nacion-ar&_id=GYKI2Q22GRE2HKGL4PGNGOXA6Y&included_fields=headlines,label,website_url,type",
+                "pathname": "/content/v4/stories/",
+                "path": "/content/v4/stories/?website=la-nacion-ar&_id=GYKI2Q22GRE2HKGL4PGNGOXA6Y&included_fields=headlines,label,website_url,type",
+                "href": "https://api.sandbox.lanacionar.arcpublishing.com/content/v4/stories/?website=la-nacion-ar&_id=GYKI2Q22GRE2HKGL4PGNGOXA6Y&included_fields=headlines,label,website_url,type"
+            },
+            "method": "GET",
+            "headers": {
+                "authorization": "Bearer 70J379V39ESH46J6BPMNI7BM7440LQRO6eSpBXP/j70KfRJTQWNrYq8g6WH/jtjLZOF0eAjy",
+                "accept": "application/json"
+            }
+        }
+    }
+}

@@ -26,7 +26,8 @@ describe('ModSponsor', () => {
             type: '',
             sponsor: 'jardin',
             textName: null,
-            link: '/revista-jardin'
+            link: '/revista-jardin',
+            logoName: 'jardin'
         };
         const component = render(<ModSponsor {...props} />);
         expect(component).toMatchSnapshot();
@@ -37,7 +38,8 @@ describe('ModSponsor', () => {
             type: '',
             sponsor: 'jardin',
             textName: '',
-            link: '/revista-jardin'
+            link: '/revista-jardin',
+            logoName: 'jardin'
         };
         const component = mount(<ModSponsor {...props} />);
         expect(component.find('com-logo')).toHaveLength(1);
@@ -63,6 +65,34 @@ describe('ModSponsor', () => {
             link: '/revista-jardin'
         };
         const component = mount(<ModSponsor {...props} />);
+        expect(component.find('.com-text')).toHaveLength(1);
+        expect(component.html()).toContain('Espacio Patrocinado');
+    });
+
+    it('Sets Logo and Content Lab', () => {
+        const props = {
+            type: '--contentlab',
+            sponsor: '',
+            textName: 'Volkswagen',
+            link: '/revista-jardin',
+            logoName: 'jardin'
+        };
+        const component = mount(<ModSponsor {...props} />);
+        expect(component.find('.com-text')).toHaveLength(1);
+        expect(component.find('com-logo')).toHaveLength(1);
+        expect(component.html()).toContain('Content LAB para Volkswagen');
+    });
+
+    it('Sets Logo and Sponsored Content', () => {
+        const props = {
+            type: '',
+            sponsor: 'jardin',
+            textName: null,
+            link: '/revista-jardin',
+            logoName: 'jardin'
+        };
+        const component = mount(<ModSponsor {...props} />);
+        expect(component.find('com-logo')).toHaveLength(1);
         expect(component.find('.com-text')).toHaveLength(1);
         expect(component.html()).toContain('Espacio Patrocinado');
     });

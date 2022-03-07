@@ -10,31 +10,74 @@ describe('features - LaNacion - Nota - AuthorNota', () => {
     it('Test de snapshot TituloNota', () => {
         expect(component).toMatchSnapshot();
     });
-
-    it('displays accurately the number of authors', () => {
+    const props = {
+        globalContent: {
+            credits: {
+                by: [
+                    {
+                        _id: '1',
+                        name: 'Juan',
+                        type: 'author',
+                        slug: 'juan-odd',
+                        url: 'https://www.lanacion.com.ar'
+                    }
+                ]
+            }
+        }
+    };
+    it('Displays accurately 1 author', () => {
+        const wrapper = mount(<AuthorArticle {...props} />);
+        expect(wrapper.find('authorArticle').text()).toBe('PorJuan');
+        expect(wrapper.find('.com-author')).toHaveLength(0);
+        expect(wrapper.find('span')).toHaveLength(2);
+        expect(wrapper.find('a')).toHaveLength(1);
+    });
+    it('Displays accurately 2 authors', () => {
+        props.globalContent.credits.by.push({
+            _id: '2',
+            name: 'Maria',
+            type: 'author',
+            slug: 'maria-odd',
+            url: ''
+        });
+        const wrapper = mount(<AuthorArticle {...props} />);
+        expect(wrapper.find('authorArticle').text()).toBe('PorJuanyMaria');
+        expect(wrapper.find('.com-author')).toHaveLength(0);
+        expect(wrapper.find('span')).toHaveLength(4);
+        expect(wrapper.find('a')).toHaveLength(1);
+    });
+    it('Displays accurately 3 authors', () => {
+        props.globalContent.credits.by.push({
+            _id: '2',
+            name: 'Pepe',
+            type: 'author',
+            slug: 'pepe-odd',
+            url: 'https://www.lanacion.com.ar'
+        });
+        const wrapper = mount(<AuthorArticle {...props} />);
+        expect(wrapper.find('authorArticle').text()).toBe('PorJuan,MariayPepe');
+        expect(wrapper.find('.com-author')).toHaveLength(0);
+        expect(wrapper.find('span')).toHaveLength(5);
+        expect(wrapper.find('a')).toHaveLength(2);
+    });
+    it('Returns null without by array of authors', () => {
+        const props = {
+            globalContent: {
+                credits: {}
+            }
+        };
+        const wrapper = mount(<AuthorArticle {...props} />);
+        expect(wrapper.html()).toBeNull();
+    });
+    it('Returns empty string with empty array of authors', () => {
         const props = {
             globalContent: {
                 credits: {
-                    by: [
-                        {
-                            _id: '1',
-                            name: 'Juan ',
-                            type: 'author',
-                            slug: 'juan-odd',
-                            url: 'https://www.lanacion.com.ar'
-                        },
-                        {
-                            _id: '2',
-                            name: 'Maria ',
-                            type: 'author',
-                            slug: 'maria-odd',
-                            url: ''
-                        }
-                    ]
+                    by: []
                 }
             }
         };
         const wrapper = mount(<AuthorArticle {...props} />);
-        expect(wrapper.find('.com-author')).toHaveLength(0);
+        expect(wrapper.html()).toBe('');
     });
 });

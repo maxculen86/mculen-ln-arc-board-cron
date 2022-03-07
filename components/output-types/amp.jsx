@@ -21,6 +21,8 @@ import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage
 import getSectionName from '../private/LN/common/utils/getSectionName';
 import MeteringAMP from '../private/common/scriptManager/meteringAMP';
 import Favicon from '../private/common/favicon';
+import get from '../private/common/utils/get';
+// import { getBiggestImage } from 'components/private/LN/nota/snippet/noticia';
 
 /**
  * TODO: Resolver el tema de las canonicas
@@ -82,27 +84,35 @@ const Amp = props => {
     const dataLayerAmp = dataLayerIndexAmp(arcSite, layout, globalContent);
     const _nodeType = getSectionName({ nodeType, type });
 
-    const LinkImagePreload = () =>
-        getDataToLinkImage(globalContent, _nodeType, renderables, arcSite).map(
-            elem => {
-                return (
-                    <link
-                        id="preload-img"
-                        rel="preload"
-                        href={elem.resizedUrl}
-                        as="image"
-                        media={elem.media}
-                    />
-                );
-            }
+    const LinkImagePreload = () => {
+        const biggestImage = get(
+            globalContent,
+            'promo_items.basic.resized_urls',
+            []
+        ).reduce(
+            (prev, curr) =>
+                get(prev, 'option.width', 0) > get(curr, 'option.width', 0)
+                    ? prev
+                    : curr,
+            {}
         );
 
+        return (
+            <link
+                id="preload-img"
+                rel="preload"
+                href={biggestImage.resizedUrl}
+                as="image"
+            />
+        );
+    };
     return (
         <html amp={String.fromCodePoint(9889)} lang="es">
             <head>
                 <meta charset="utf-8" />
                 <meta name="viewport" content="width=device-width" />
                 <meta name="theme-color" content="#ffffff" />
+                <meta name="google" content="notranslate" />
                 <MetaTitle
                     subtype={subtype}
                     metaTitleBasic={metaTitleBasic}
@@ -173,7 +183,7 @@ const Amp = props => {
                 <MetaSectionParsely arcSite={arcSite} taxonomy={taxonomy} />
                 <title>{metaTitleValue}</title>
             </head>
-            <body>
+            <body data-amp-auto-lightbox-disable>
                 <amp-analytics
                     config={`https://www.googletagmanager.com/amp.json?id=${idAMP}`}
                     data-credentials="include"

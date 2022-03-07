@@ -1,5 +1,6 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
+import { parse } from 'node-html-parser';
 import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData';
 import get from '../../../common/utils/get';
 import {
@@ -75,11 +76,16 @@ export const getSourceSet = (isVertical, image, sourceActive = []) => {
     return srcset;
 };
 
+export const getSizes = (sources = []) => {
+    return sources
+        .map(x => x.option.media && `${x.option.media} ${x.option.width}px`)
+        .filter(Boolean);
+};
+
 export const buildScriptForZoom = (mediaData, subtype) => {
     const { width = 0, _id: idMedia, type } = mediaData || {};
     return (
-        type === 'image' &&
-        idMedia && (
+        (type === 'image' && idMedia && (
             <script
                 dangerouslySetInnerHTML={{
                     __html: `
@@ -106,6 +112,36 @@ export const buildScriptForZoom = (mediaData, subtype) => {
                 `
                 }}
             />
-        )
+        )) ||
+        undefined
+    );
+};
+
+export const buildScriptResizeSSRInfography = (promoItems = {}) => {
+    const { basic: { _id: idMedia, type, content } = {} } = promoItems;
+
+    const htmlNode = content ? parse(content.trim()).firstChild : {};
+    const { src } = htmlNode.attributes || {};
+
+    if (
+        type !== 'raw_html' ||
+        !content ||
+        !src ||
+        htmlNode.tagName !== 'iframe'
+    ) {
+        return null;
+    }
+
+    return (
+        <script
+            defer
+            type="text/javascript"
+            dangerouslySetInnerHTML={{
+                __html: `
+                window.addEventListener("DOMContentLoaded", () => {
+                    const pymIframe = new pym.Parent("anexo-${idMedia}", "${src}", {});
+                });`
+            }}
+        />
     );
 };

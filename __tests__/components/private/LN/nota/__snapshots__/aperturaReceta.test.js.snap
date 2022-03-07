@@ -1,0 +1,328 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`features - La Nacion - Components - Nota - AperturaReceta Snapshot - anexo con destacado 1`] = `
+<div
+  class="row aper-receta w-100-mobile "
+>
+  <div
+    class="col-desksm-8"
+  >
+    <div
+      class="content-media"
+    >
+      <section
+        class="mod-media   "
+        id="YQPFIZTCKVFKFDHNINT7IBBI6U"
+        role="button"
+      >
+        <figure
+          class="mod-figure --horizontal"
+          role="button"
+        >
+          <div
+            class="placeholder "
+          >
+            <img
+              alt=""
+              class="com-image "
+              height="230"
+              loading="eager"
+              sizes=",100vw"
+              src="https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg"
+              srcset=""
+              width="345"
+            />
+          </div>
+        </figure>
+      </section>
+    </div>
+  </div>
+  <div
+    class="col-desksm-4 cont-aper"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="col-12"
+      >
+        <section
+          class="mod-themes"
+        >
+          <a
+            class="com-link com-button --secondary --compact --transparent"
+            href="/recetas/platos-principales/"
+            title="Ir a notas de Platos Principales"
+          >
+            Platos Principales
+          </a>
+          <a
+            class="com-link com-button --secondary --compact --transparent"
+            href="/recetas/recetas-con-ingredientes/pollo/"
+            title="Ir a notas de Pollo"
+          >
+            Pollo
+          </a>
+          <a
+            class="com-link com-button --secondary --compact --transparent"
+            href="/recetas/recetas-con-ingredientes/"
+            title="Ir a notas de Recetas con ingredientes"
+          >
+            Recetas con ingredientes
+          </a>
+        </section>
+      </div>
+    </div>
+    <div
+      class="cont_tags tags"
+    >
+      <div
+        class="row tag"
+      >
+        <div
+          class="col-2 col-tablet-1"
+        >
+          <i
+            class="com-icon icon-timer"
+          >
+            <svg
+              fill="none"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M17.618 5.968L19.071 4.515L20.485 5.929L19.032 7.382C20.4678 9.17917 21.1609 11.4579 20.9691 13.7501C20.7772 16.0424 19.715 18.1742 18.0005  19.7077C16.286 21.2412 14.0494 22.0601 11.75 21.9961C9.4506 21.9321 7.26301 20.9901 5.63647 19.3635C4.00993 17.737 3.06793 15.5494 3.00392 13.25 C2.93991 10.9506 3.75875 8.71402 5.29228 6.99951C6.82581 5.285 8.95761 4.22275 11.2499 4.03092C13.5421 3.83909 15.8208 4.53223 17.618 5.968ZM12  20C12.9193 20 13.8295 19.8189 14.6788 19.4672C15.5281 19.1154 16.2997 18.5998 16.9497 17.9497C17.5998 17.2997 18.1154 16.5281 18.4672 15.6788 C18.8189 14.8295 19 13.9193 19 13C19 12.0807 18.8189 11.1705 18.4672 10.3212C18.1154 9.47194 17.5998 8.70026 16.9497 8.05025C16.2997 7.40024  15.5281 6.88463 14.6788 6.53284C13.8295 6.18106 12.9193 6 12 6C10.1435 6 8.36301 6.7375 7.05025 8.05025C5.7375 9.36301 5 11.1435 5 13C5 14.8565  5.7375 16.637 7.05025 17.9497C8.36301 19.2625 10.1435 20 12 20ZM11 8H13V14H11V8ZM8 1H16V3H8V1Z"
+                fill="#272727"
+                xmlns="http://www.w3.org/2000/svg"
+              />
+            </svg>
+          </i>
+        </div>
+        <div
+          class="time-number col-10 col-tablet-11"
+        >
+          <span>
+            <strong>
+              Tiempo total:
+            </strong>
+             45 min.
+          </span>
+        </div>
+      </div>
+      <div
+        class="row tag"
+      >
+        <div
+          class="col-2 col-tablet-1"
+        >
+          <i
+            class="com-icon icon-group"
+          >
+            <svg
+              fill="none"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3 22C2.44772 22 1.99355 21.5505 2.06239 21.0026C2.28276 19.2486 3.0799 17.6064 4.34315 16.3431C5.84344 14.8429 7.87827 14 10 14C12.1217  14 14.1566 14.8429 15.6569 16.3431C16.9201 17.6064 17.7172 19.2486 17.9376 21.0026C18.0065 21.5505 17.5523 22 17 22C16.4477 22 16.0085  21.5492 15.9169 21.0046C15.7113 19.7825 15.1304 18.6452 14.2426 17.7574C13.1174 16.6321 11.5913 16 10 16C8.4087 16 6.88258 16.6321 5.75736  17.7574C4.86956 18.6452 4.28871 19.7825 4.08312 21.0046C3.9915 21.5492 3.55228 22 3 22ZM10 13C6.685 13 4 10.315 4 7C4 3.685 6.685 1 10 1 C13.315 1 16 3.685 16 7C16 10.315 13.315 13 10 13ZM10 11C12.21 11 14 9.21 14 7C14 4.79 12.21 3 10 3C7.79 3 6 4.79 6 7C6 9.21 7.79 11 10 11Z M17.8734 15.6152C18.1002 15.1114 18.6966 14.8818 19.1681 15.1696C20.1906 15.794 21.0637 16.6424 21.7186 17.6557C22.3736 18.6692 22.7885 19.8139  22.9377 21.0027C23.0065 21.5506 22.5524 22 22.0002 22C21.4478 22 21.0086 21.5491 20.917 21.0044C20.7822 20.2017 20.4847 19.4311 20.0391 18.7416 C19.5934 18.052 19.013 17.4642 18.3364 17.0115C17.8774 16.7043 17.6467 16.1188 17.8734 15.6152ZM17.2785 4.52457C17.4477 3.93201 18.1026 3.61367  18.6108 3.96224C19.1841 4.35541 19.6806 4.85572 20.071 5.43923C20.6771 6.34492 21.0004 7.41024 21 8.5C21.0004 9.87233 20.4877 11.1952 19.5625  12.2088C18.8919 12.9436 18.0396 13.4774 17.1008 13.7628C16.5236 13.9384 16 13.4577 16 12.8544C16 12.344 16.3842 11.926 16.8551 11.729C17.265  11.5574 17.641 11.3083 17.9613 10.9925C18.4943 10.4669 18.8447 9.78432 18.9612 9.04493C19.0776 8.30555 18.954 7.5483 18.6084 6.88435C18.3969  6.47796 18.109 6.11964 17.7633 5.8274C17.3812 5.5044 17.1411 5.00565 17.2785 4.52457Z"
+                fill="#272727"
+                xmlns="http://www.w3.org/2000/svg"
+              />
+            </svg>
+          </i>
+        </div>
+        <div
+          class="time-number col-10 col-tablet-11"
+        >
+          <span>
+            <strong>
+              Porciones:
+            </strong>
+             8
+          </span>
+        </div>
+      </div>
+    </div>
+    <h4
+      class="com-title --threexs"
+    >
+      Recetas con:
+    </h4>
+    <section
+      class="mod-themes"
+    >
+      <a
+        class="com-link com-button --secondary --compact --transparent --tag"
+        href="/tema/tagprueba1/"
+        title="Ir a notas de TagPrueba1"
+      >
+        TagPrueba1
+      </a>
+      <a
+        class="com-link com-button --secondary --compact --transparent --tag"
+        href="/tema/tagprueba2/"
+        title="Ir a notas de TagPrueba2"
+      >
+        TagPrueba2
+      </a>
+    </section>
+  </div>
+</div>
+`;
+
+exports[`features - La Nacion - Components - Nota - AperturaReceta Snapshot - sin promo_items basic debe renderizar correctamente, sin destacado 1`] = `
+<div
+  class="row aper-receta w-100-mobile sin-foto"
+>
+  <div
+    class="col-desksm-12 cont-aper"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="col-desksm-3"
+      >
+        <div
+          class="cont_tags tags"
+        >
+          <div
+            class="row tag"
+          >
+            <div
+              class="col-2 col-tablet-1"
+            >
+              <i
+                class="com-icon icon-timer"
+              >
+                <svg
+                  fill="none"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M17.618 5.968L19.071 4.515L20.485 5.929L19.032 7.382C20.4678 9.17917 21.1609 11.4579 20.9691 13.7501C20.7772 16.0424 19.715 18.1742 18.0005  19.7077C16.286 21.2412 14.0494 22.0601 11.75 21.9961C9.4506 21.9321 7.26301 20.9901 5.63647 19.3635C4.00993 17.737 3.06793 15.5494 3.00392 13.25 C2.93991 10.9506 3.75875 8.71402 5.29228 6.99951C6.82581 5.285 8.95761 4.22275 11.2499 4.03092C13.5421 3.83909 15.8208 4.53223 17.618 5.968ZM12  20C12.9193 20 13.8295 19.8189 14.6788 19.4672C15.5281 19.1154 16.2997 18.5998 16.9497 17.9497C17.5998 17.2997 18.1154 16.5281 18.4672 15.6788 C18.8189 14.8295 19 13.9193 19 13C19 12.0807 18.8189 11.1705 18.4672 10.3212C18.1154 9.47194 17.5998 8.70026 16.9497 8.05025C16.2997 7.40024  15.5281 6.88463 14.6788 6.53284C13.8295 6.18106 12.9193 6 12 6C10.1435 6 8.36301 6.7375 7.05025 8.05025C5.7375 9.36301 5 11.1435 5 13C5 14.8565  5.7375 16.637 7.05025 17.9497C8.36301 19.2625 10.1435 20 12 20ZM11 8H13V14H11V8ZM8 1H16V3H8V1Z"
+                    fill="#272727"
+                    xmlns="http://www.w3.org/2000/svg"
+                  />
+                </svg>
+              </i>
+            </div>
+            <div
+              class="time-number col-10 col-tablet-11"
+            >
+              <span>
+                <strong>
+                  Tiempo total:
+                </strong>
+                 45 min.
+              </span>
+            </div>
+          </div>
+          <div
+            class="row tag"
+          >
+            <div
+              class="col-2 col-tablet-1"
+            >
+              <i
+                class="com-icon icon-group"
+              >
+                <svg
+                  fill="none"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3 22C2.44772 22 1.99355 21.5505 2.06239 21.0026C2.28276 19.2486 3.0799 17.6064 4.34315 16.3431C5.84344 14.8429 7.87827 14 10 14C12.1217  14 14.1566 14.8429 15.6569 16.3431C16.9201 17.6064 17.7172 19.2486 17.9376 21.0026C18.0065 21.5505 17.5523 22 17 22C16.4477 22 16.0085  21.5492 15.9169 21.0046C15.7113 19.7825 15.1304 18.6452 14.2426 17.7574C13.1174 16.6321 11.5913 16 10 16C8.4087 16 6.88258 16.6321 5.75736  17.7574C4.86956 18.6452 4.28871 19.7825 4.08312 21.0046C3.9915 21.5492 3.55228 22 3 22ZM10 13C6.685 13 4 10.315 4 7C4 3.685 6.685 1 10 1 C13.315 1 16 3.685 16 7C16 10.315 13.315 13 10 13ZM10 11C12.21 11 14 9.21 14 7C14 4.79 12.21 3 10 3C7.79 3 6 4.79 6 7C6 9.21 7.79 11 10 11Z M17.8734 15.6152C18.1002 15.1114 18.6966 14.8818 19.1681 15.1696C20.1906 15.794 21.0637 16.6424 21.7186 17.6557C22.3736 18.6692 22.7885 19.8139  22.9377 21.0027C23.0065 21.5506 22.5524 22 22.0002 22C21.4478 22 21.0086 21.5491 20.917 21.0044C20.7822 20.2017 20.4847 19.4311 20.0391 18.7416 C19.5934 18.052 19.013 17.4642 18.3364 17.0115C17.8774 16.7043 17.6467 16.1188 17.8734 15.6152ZM17.2785 4.52457C17.4477 3.93201 18.1026 3.61367  18.6108 3.96224C19.1841 4.35541 19.6806 4.85572 20.071 5.43923C20.6771 6.34492 21.0004 7.41024 21 8.5C21.0004 9.87233 20.4877 11.1952 19.5625  12.2088C18.8919 12.9436 18.0396 13.4774 17.1008 13.7628C16.5236 13.9384 16 13.4577 16 12.8544C16 12.344 16.3842 11.926 16.8551 11.729C17.265  11.5574 17.641 11.3083 17.9613 10.9925C18.4943 10.4669 18.8447 9.78432 18.9612 9.04493C19.0776 8.30555 18.954 7.5483 18.6084 6.88435C18.3969  6.47796 18.109 6.11964 17.7633 5.8274C17.3812 5.5044 17.1411 5.00565 17.2785 4.52457Z"
+                    fill="#272727"
+                    xmlns="http://www.w3.org/2000/svg"
+                  />
+                </svg>
+              </i>
+            </div>
+            <div
+              class="time-number col-10 col-tablet-11"
+            >
+              <span>
+                <strong>
+                  Porciones:
+                </strong>
+                 8
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-desksm-9"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col-12"
+          >
+            <section
+              class="mod-themes"
+            >
+              <a
+                class="com-link com-button --secondary --compact --transparent"
+                href="/recetas/platos-principales/"
+                title="Ir a notas de Platos Principales"
+              >
+                Platos Principales
+              </a>
+              <a
+                class="com-link com-button --secondary --compact --transparent"
+                href="/recetas/recetas-con-ingredientes/pollo/"
+                title="Ir a notas de Pollo"
+              >
+                Pollo
+              </a>
+              <a
+                class="com-link com-button --secondary --compact --transparent"
+                href="/recetas/recetas-con-ingredientes/"
+                title="Ir a notas de Recetas con ingredientes"
+              >
+                Recetas con ingredientes
+              </a>
+            </section>
+          </div>
+        </div>
+        <h4
+          class="com-title --m"
+        >
+          Recetas con:
+        </h4>
+        <section
+          class="mod-themes"
+        >
+          <a
+            class="com-link com-button --secondary --compact --transparent --tag"
+            href="/tema/tagprueba1/"
+            title="Ir a notas de TagPrueba1"
+          >
+            TagPrueba1
+          </a>
+          <a
+            class="com-link com-button --secondary --compact --transparent --tag"
+            href="/tema/tagprueba2/"
+            title="Ir a notas de TagPrueba2"
+          >
+            TagPrueba2
+          </a>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+`;

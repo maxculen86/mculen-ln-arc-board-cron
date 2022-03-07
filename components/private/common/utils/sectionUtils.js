@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import get from 'lodash.get';
 
 // TODO: Revisar si actualmente la función getSectionStyle está en uso

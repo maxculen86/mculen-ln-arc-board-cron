@@ -15,7 +15,7 @@ export const getLayoutType = layout => {
 };
 
 export const placeholderArticles = {
-    Bomba: layout => {
+    Bomba: () => {
         return [
             <article className="mod-article">
                 <SkeletonContentMedia />
@@ -81,51 +81,55 @@ export const placeholderArticles = {
         };
         return articles[layout] || [];
     },
-    Color: layout => {
-        return new Array(3).fill().map(e => (
-            <article className="mod-article">
-                <SkeletonContentMedia />
-                <section className="mod-description">
-                    <h1 className="com-title --xs">
-                        <SkeletonSpan extraClass="--line1" />
-                        <SkeletonSpan extraClass="--line2" />
-                        <SkeletonSpan extraClass="--line3" />
-                    </h1>
-                    <SkeletonAuthorName />
-                </section>
-            </article>
-        ));
+    Color: () => {
+        return Array.from({ length: 3 })
+            .fill()
+            .map(e => (
+                <article className="mod-article">
+                    <SkeletonContentMedia />
+                    <section className="mod-description">
+                        <h1 className="com-title --xs">
+                            <SkeletonSpan extraClass="--line1" />
+                            <SkeletonSpan extraClass="--line2" />
+                            <SkeletonSpan extraClass="--line3" />
+                        </h1>
+                        <SkeletonAuthorName />
+                    </section>
+                </article>
+            ));
     },
     Grilla: layout => {
         const quantityNotes = Math.abs(layout.slice(-1));
         if (!quantityNotes) return [];
         const articles = {
             1: [<SkeletonGrillaArticle />],
-            2: new Array(quantityNotes)
+            2: Array.from({ length: quantityNotes })
                 .fill()
                 .map(e => <SkeletonGrillaArticle />),
-            Default: new Array(quantityNotes)
+            Default: Array.from({ length: quantityNotes })
                 .fill()
                 .map(e => <SkeletonDefaultArticle />)
         };
         return articles[quantityNotes] || articles.Default;
     },
-    Author: layout => {
-        return new Array(3).fill().map(e => (
-            <article className="mod-article --author">
-                <SkeletonContentMediaWithoutFigure />
-                <section className="mod-description">
-                    <h2 className="com-title --m">
-                        <SkeletonSpan extraClass="--line1" />
-                        <SkeletonSpan extraClass="--line2" />
-                        <SkeletonSpan extraClass="--line3" />
-                    </h2>
-                    <SkeletonAuthorName />
-                </section>
-            </article>
-        ));
+    Author: () => {
+        return Array.from({ length: 3 })
+            .fill()
+            .map(e => (
+                <article className="mod-article --author">
+                    <SkeletonContentMediaWithoutFigure />
+                    <section className="mod-description">
+                        <h2 className="com-title --m">
+                            <SkeletonSpan extraClass="--line1" />
+                            <SkeletonSpan extraClass="--line2" />
+                            <SkeletonSpan extraClass="--line3" />
+                        </h2>
+                        <SkeletonAuthorName />
+                    </section>
+                </article>
+            ));
     },
-    Opinion: layout => [
+    Opinion: () => [
         <article className="mod-article">
             <SkeletonContentMediaWithoutFigure />
             <section className="mod-description">
@@ -152,16 +156,18 @@ export const placeholderArticles = {
             </section>
         </article>
     ],
-    Editoriales: layout =>
-        new Array(2).fill().map(e => (
-            <article className="mod-article">
-                <div className="mod-description">
-                    <h2 className="com-title --twoxs">
-                        <SkeletonSpan />
-                    </h2>
-                </div>
-            </article>
-        ))
+    Editoriales: () =>
+        Array.from({ length: 2 })
+            .fill()
+            .map(e => (
+                <article className="mod-article">
+                    <div className="mod-description">
+                        <h2 className="com-title --twoxs">
+                            <SkeletonSpan />
+                        </h2>
+                    </div>
+                </article>
+            ))
 };
 
 export const placeholderLayouts = {
@@ -349,7 +355,7 @@ const SkeletonContentMedia = () => (
     <div className="content-media">
         <section className="mod-media">
             <figure className="mod-figure --horizontal">
-                <picture className="mod-picture" />
+                <picture className="placeholder" />
             </figure>
         </section>
     </div>
@@ -358,7 +364,7 @@ const SkeletonContentMedia = () => (
 const SkeletonContentMediaWithoutFigure = () => (
     <div className="content-media">
         <section className="mod-media">
-            <picture className="mod-picture" />
+            <picture className="placeholder" />
         </section>
     </div>
 );

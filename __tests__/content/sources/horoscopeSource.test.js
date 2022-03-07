@@ -3,15 +3,15 @@ import logger from '../../../components/private/common/utils/logger';
 import horoscopeSource, {
     resolve
 } from '../../../content/sources/horoscopeSource';
-import mockAPI_RESPONSE_ZODIAC from '../../../__mocks__/data/apiHoroscope/horoscoposZodiaco';
-import mockAPI_RESPONSE_SIGN_ZODIAC from '../../../__mocks__/data/apiHoroscope/signoZodiaco';
-import mockAPI_RESPONSE_CHINESE from '../../../__mocks__/data/apiHoroscope/horoscoposChinos';
-import mockAPI_RESPONSE_SIGN_CHINESE from '../../../__mocks__/data/apiHoroscope/signoChino';
+import mockAPI_RESPONSE_ZODIAC from '../../../__mocks__/data/apiHoroscope/horoscoposZodiaco.json';
+import mockAPI_RESPONSE_SIGN_ZODIAC from '../../../__mocks__/data/apiHoroscope/signoZodiaco.json';
+import mockAPI_RESPONSE_CHINESE from '../../../__mocks__/data/apiHoroscope/horoscoposChinos.json';
+import mockAPI_RESPONSE_SIGN_CHINESE from '../../../__mocks__/data/apiHoroscope/signoChino.json';
 
 jest.mock('request-promise-native', () => {
     return {
         __esModule: true,
-        default: (method, url, body, headers) => {
+        default: method => {
             const path = method.uri.split('/');
             path.splice(0, 5);
 
@@ -36,8 +36,7 @@ jest.mock('request-promise-native', () => {
                 });
             }
             throw new Error('Catch test');
-        },
-        defaults: () => mock.default
+        }
     };
 });
 
@@ -45,6 +44,7 @@ jest.mock('../../../components/private/common/utils/logger', () => {
     const push = jest.fn();
     return { push };
 });
+
 const loggerPush = jest.spyOn(logger, 'push');
 
 describe('Content Sources - Horoscope Source =>', () => {

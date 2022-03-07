@@ -14,8 +14,8 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
       <a
         href="http://google.com"
       >
-        <picture
-          class="mod-picture "
+        <div
+          class="placeholder "
         />
       </a>
     </section>

@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import Static from 'fusion:static';
+import StaticValidation from '../../private/common/staticValidation';
 import { VIDEO } from '../../private/common/utils/subtypes/subtypeHelper';
 
 import BadgeUsertype from '../../private/common/badge/UserType';
@@ -17,15 +18,25 @@ const bajadaNota = props => {
     } = props;
 
     return (
-        <Static id={featureId}>
+        <StaticValidation id={featureId} htmlOnly persistent>
             <BajadaNota {...props} />
             {contentCode === 'cerrada' && (
                 <BadgeUsertype dark={VIDEO === subtype} />
             )}
-        </Static>
+        </StaticValidation>
     );
 };
 
 bajadaNota.label = 'LN-Nota-Bajada';
+
+bajadaNota.propTypes = {
+    id: PropTypes.string.isRequired,
+    globalContent: PropTypes.shape({
+        content_restrictions: PropTypes.shape({
+            content_code: PropTypes.string.isRequired
+        }),
+        subtype: PropTypes.string.isRequired
+    }).isRequired
+};
 
 export default Consumer(bajadaNota);

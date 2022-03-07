@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
@@ -33,6 +34,7 @@ const requestConfigProps = (index, defaultDays, defaultWeeks) => {
 };
 
 ranking.label = 'LN-Common-Ranking';
+
 ranking.propTypes = {
     outputType: PropTypes.string,
     customFields: PropTypes.shape({
