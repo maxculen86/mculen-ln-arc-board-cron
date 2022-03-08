@@ -74,6 +74,7 @@ describe('components - private - common - ComImage', () => {
         it('Should return link and amp-img with correct props', () => {
             const imageTag = component.find('amp-img');
             const imageProps = imageTag.props();
+            console.log(imageProps);
             const linkImage = component.find('ComLink');
             const linkProps = linkImage.props();
 

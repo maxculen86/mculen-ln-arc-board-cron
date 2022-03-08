@@ -76,6 +76,16 @@ export const getSourceSet = (isVertical, image, sourceActive = []) => {
     return srcset;
 };
 
+export const getSizes = (sources = []) => {
+    return Array.isArray(sources)
+        ? sources
+              .map(
+                  x => x.option.media && `${x.option.media} ${x.option.width}px`
+              )
+              .filter(Boolean)
+        : [];
+};
+
 export const buildScriptForZoom = (mediaData, subtype) => {
     const { width = 0, _id: idMedia, type } = mediaData || {};
     return (
