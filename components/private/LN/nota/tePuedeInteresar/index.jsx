@@ -126,7 +126,11 @@ class Index extends Component {
         return (
             articles &&
             articles.length > 0 && (
-                <div className="row interest" ref={this.myRef}>
+                <div
+                    className="row interest"
+                    ref={this.myRef}
+                    data-module="tema_tePuedeInteresar"
+                >
                     <CajaTema
                         title="Te puede interesar"
                         sectionName={dataLayerSection}
