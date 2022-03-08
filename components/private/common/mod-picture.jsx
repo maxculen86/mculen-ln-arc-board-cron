@@ -11,9 +11,10 @@ import '../../../resources/dist/css/ln/modules/mod-picture.css';
 const ModImage = props => {
     const { src, alt, classCondition, video, amp, sources, isApertura } = props;
 
-    const srcSet =
-        sources &&
-        sources.map(x => `${x.resizedUrl} ${x.option.width}w`).join();
+    const srcSet = sources
+        ? sources.map(x => `${x.resizedUrl} ${x.option.width}w`).join()
+        : '';
+
     const sizesImg = getSizes(sources);
 
     return (

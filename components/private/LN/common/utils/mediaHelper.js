@@ -77,12 +77,13 @@ export const getSourceSet = (isVertical, image, sourceActive = []) => {
 };
 
 export const getSizes = (sources = []) => {
-    return (
-        sources &&
-        sources
-            .map(x => x.option.media && `${x.option.media} ${x.option.width}px`)
-            .filter(Boolean)
-    );
+    return Array.isArray(sources)
+        ? sources
+              .map(
+                  x => x.option.media && `${x.option.media} ${x.option.width}px`
+              )
+              .filter(Boolean)
+        : [];
 };
 
 export const buildScriptForZoom = (mediaData, subtype) => {
