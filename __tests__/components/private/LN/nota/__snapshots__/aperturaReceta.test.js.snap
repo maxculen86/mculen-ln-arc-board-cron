@@ -28,9 +28,8 @@ exports[`features - La Nacion - Components - Nota - AperturaReceta Snapshot - an
               height="230"
               importance="high"
               loading="eager"
-              sizes=",100vw"
+              sizes="100vw"
               src="https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg"
-              srcset=""
               width="345"
             />
           </div>
