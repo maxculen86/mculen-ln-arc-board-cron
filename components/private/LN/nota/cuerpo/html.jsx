@@ -13,7 +13,7 @@ const hasIframeWithPYM = (domParser, content) => {
 
 const Html = props => {
     const { data } = props;
-    const { content } = data || { content: null };
+    const { content, _id: idMedia } = data || { content: null };
     const domParser = typeof DOMParser === 'function' && new DOMParser();
 
     if (!content) return null;
@@ -22,6 +22,7 @@ const Html = props => {
         <HtmlPym data={data} />
     ) : (
         <div
+            id={`anexo-${idMedia}`}
             className="com-embed --html"
             dangerouslySetInnerHTML={{
                 __html: content

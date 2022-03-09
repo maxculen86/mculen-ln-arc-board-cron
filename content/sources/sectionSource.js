@@ -5,7 +5,7 @@ import { getTodayDateForAcuDolar } from '../../components/private/common/utils/d
 import force404AMP from './utils/force404AMP';
 import NotFoundError from './utils/notFoundError';
 
-const resolve = key => {
+export const resolve = key => {
     const { id, website } = key;
     const finalWebsite = website || key['arc-site'];
     if (!id)

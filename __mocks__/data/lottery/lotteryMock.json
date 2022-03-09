@@ -1,0 +1,56 @@
+[
+    {
+        "name": "Quiniela Poceada de la Ciudad",
+        "id": "quiniela_poceada",
+        "date": "yyyy-MM-dd HH:mm:ss",
+        "letters": ["C X Z Z"],
+        "results": ["03", "09", "10", "13", "17", "24"]
+    },
+    {
+        "name": "Loto Plus",
+        "id": "loto",
+        "date": "yyyy-MM-dd HH:mm:ss",
+        "lottery_draw_id": "tradicional",
+        "lottery_draw_name": "Tradicional",
+        "jackpot": ["4", "8"],
+        "estimated_pot": ["907.000.000,00"],
+        "results": ["01", "05", "09", "12", "19", "20"]
+    },
+    {
+        "name": "Loto Plus",
+        "id": "loto",
+        "date": "yyyy-MM-dd HH:mm:ss",
+        "lottery_draw_id": "Sale_o_sale",
+        "lottery_draw_name": "Sale o sale",
+        "jackpot": ["4", "8"],
+        "results": ["02", "18", "25", "29", "35", "41"]
+    },
+    {
+        "name": "Loto Plus",
+        "id": "loto",
+        "date": "yyyy-MM-dd HH:mm:ss",
+        "lottery_draw_id": "Sale_o_sale",
+        "lottery_draw_name": "Sale o sale",
+        "jackpot": ["4", "8", "8", "7"],
+        "results": ["08", "10", "14", "18", "29", "39"]
+    },
+    {
+        "name": "Quini 6",
+        "id": "quini_6",
+        "date": "yyyy-MM-dd HH:mm:ss",
+        "lottery_draw_id": "Tradicional",
+        "results": ["07", "21", "29", "30", "33", "37"]
+    },
+    {
+        "name": "Quini 6",
+        "id": "quini_6",
+        "lottery_draw_id": "Segunda_vuelta",
+        "resultados": ["07", "21", "29", "30", "33", "37"]
+    },
+    {
+        "name": "Quini 6",
+        "id": "quini_6",
+        "lottery_draw_id": "Revancha",
+        "resultados": ["07", "21", "29", "30", "33", "37"]
+    }
+]

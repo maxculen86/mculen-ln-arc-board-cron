@@ -40,7 +40,7 @@ describe('Private - Common - ModheaderSection => ', () => {
         );
         expect(component).toBeDefined();
         expect(component.html()).toContain(
-            '<section class="mod-headersection  --line">'
+            '<section class="mod-headersection  --line" role="contentinfo">'
         );
     });
 
