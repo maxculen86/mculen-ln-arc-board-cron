@@ -149,6 +149,6 @@ CommentsViafouraFeature.propTypes = {
 
 CommentsViafouraFeature.outputType = 'default';
 CommentsViafouraFeature.label = 'LN-Nota-Comments-Viafoura';
-CommentsViafouraFeature.lazy = ['default', 'widgets'];
+CommentsViafouraFeature.lazy = ['default'];
 
 export default Consumer(CommentsViafouraFeature);
