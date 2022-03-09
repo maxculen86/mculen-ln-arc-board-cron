@@ -8,7 +8,8 @@ import get from '../../../common/utils/get';
 import {
     restMinutes,
     differenceInMinutes,
-    formatDateTreeHoursMore
+    formatDateTreeHoursMore,
+    addHours
 } from '../../../common/utils/dateAndTimeUtil';
 
 const extracDataFromCredits = by => {
@@ -96,15 +97,13 @@ const SnippetLiveblog = props => {
         headlines,
         subheadlines,
         first_publish_date: firstPublishDate,
-        last_updated_date: lastUpdatedDate
+        display_date: displayDate
     } = globalContent || {};
 
     const PLACEHOLDER = getAssetsPath(contextPath)(deployment)(
         'placeholderLN-600_amp.jpg'
     );
-
     const url = `${siteProperties.host}${canonicalUrl || ''}`;
-
     const blogObjects = buildBlogObjects(globalContent, url, PLACEHOLDER);
 
     const data = {
@@ -126,7 +125,7 @@ const SnippetLiveblog = props => {
         '@id': '#liveBlogPosting',
         description: subheadlines && subheadlines.basic,
         coverageStartTime: formatDateTreeHoursMore(new Date(firstPublishDate)),
-        coverageEndTime: formatDateTreeHoursMore(new Date(lastUpdatedDate)),
+        coverageEndTime: addHours(9, displayDate),
         name:
             headlines &&
             `${headlines.meta_title ||
