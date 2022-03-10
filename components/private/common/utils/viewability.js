@@ -1,7 +1,6 @@
+/* eslint-disable no-console */
 /* eslint-disable react/no-danger */
 import React from 'react';
-
-const articlesSeen = [];
 
 export const productClickFromServer = () => {
     return (
@@ -67,37 +66,6 @@ export const productClickFromClient = (element = {}) => {
     }
 };
 
-// export const prepareImpressionEvent = () => {
-//     setInterval(() => {
-//         pushImpressionEvent();
-//     }, 3000);
-// };
-
-// export const pushImpressionEvent = () => {
-//     const targetElements = document.querySelectorAll('article');
-//     const articlesToAdd = [];
-//     targetElements.forEach(domElm => {
-//         if (elementInViewport(domElm)) {
-//             if (
-//                 domElm.dataset.id !== undefined &&
-//                 !articlesSeen.find(art => art.id === domElm.dataset.id)
-//             ) {
-//                 const product = getDataSetProps(domElm);
-//                 articlesToAdd.push(product);
-//             }
-//         }
-//     });
-
-//     if (articlesToAdd.length > 0) {
-//         window.dataLayer.push({
-//             event: 'impressionsLocal',
-//             products: articlesToAdd
-//         });
-
-//         articlesSeen.push(...articlesToAdd);
-//     }
-// };
-
 // const elementInViewport = el => {
 //     const bounding = el.getBoundingClientRect();
 //     return (
@@ -118,25 +86,26 @@ const createIntersectionObserver = () => {
     };
 
     const callback = (entries, observer) => {
-        const articlesToAdd = [];
-        entries.forEach(entry => {
-            if (
-                entry.isIntersecting &&
-                !articlesSeen.find(art => art.id === entry.target.dataset.id)
-            ) {
-                const product = getDataSetProps(entry.target);
-                articlesToAdd.push(product);
-                observer.unobserve(entry.target);
-            }
-        });
+        try {
+            const articlesToAdd = [];
+            const articlesSeen =
+                JSON.parse(sessionStorage.getItem('seenArticlesLocal')) || [];
 
-        if (articlesToAdd.length > 0) {
-            window.dataLayer.push({
-                event: 'impressionsLocal',
-                products: articlesToAdd
+            entries.forEach(entry => {
+                if (shouldAddArticle(entry, articlesSeen)) {
+                    const product = getDataSetProps(entry.target);
+                    articlesToAdd.push({ id: product.id, name: product.name });
+                    observer.unobserve(entry.target);
+                }
             });
 
-            articlesSeen.push(...articlesToAdd);
+            addEventImpressionToDataLayer(articlesToAdd, articlesSeen);
+        } catch (error) {
+            console.error('Error en viewability.js', {
+                error,
+                outputType: 'default',
+                websiteUrl: 'lanacion.com.ar'
+            });
         }
     };
 
@@ -149,8 +118,33 @@ const createIntersectionObserver = () => {
     });
 
     return observer;
-    // const target = document.querySelector('.mod-article');
-    // observer.observe(target);
+};
+
+const shouldAddArticle = (entry, articlesSeen) => {
+    return (
+        entry.isIntersecting &&
+        Array.isArray(articlesSeen) &&
+        !articlesSeen.find(art => art.id === entry.target.dataset.id)
+    );
+};
+
+const addEventImpressionToDataLayer = (
+    articlesToAdd = [],
+    articlesSeen = []
+) => {
+    if (articlesToAdd.length > 0) {
+        window.dataLayer.push({
+            event: 'impressionsLocal',
+            products: articlesToAdd
+        });
+
+        articlesSeen.push(...articlesToAdd);
+
+        sessionStorage.setItem(
+            'seenArticlesLocal',
+            JSON.stringify(articlesSeen)
+        );
+    }
 };
 
 export const createObservers = () => {
