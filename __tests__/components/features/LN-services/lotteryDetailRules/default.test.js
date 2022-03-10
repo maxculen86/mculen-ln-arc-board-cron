@@ -23,6 +23,6 @@ describe('Features - LN-servicios - LN Loteria Reglas =>', () => {
         expect(
             StaticValidation.getElementsByClassName('lottery-rules-box').length
         ).toBe(1);
-        expect(StaticValidation.firstChild.children.length).toBe(3);
+        expect(StaticValidation.firstChild.children.length).toBe(2);
     });
 });
