@@ -23,12 +23,11 @@ const fetch = async (query, { cachedCall }) => {
         query: `${CONTENT_BASE}${sectionSourceResolve(query)}`
     });
 
-    const { request: serviceRequest, resolve, reject, transform, getUri } =
+    const { request: serviceRequest, resolve, reject, transform } =
         SERVICES[service] || SERVICES.default;
 
     return serviceRequest({
         queryData: query,
-        getUri,
         auth: getAuthForRequest(ARC_ACCESS_TOKEN)
     })
         .then(response =>

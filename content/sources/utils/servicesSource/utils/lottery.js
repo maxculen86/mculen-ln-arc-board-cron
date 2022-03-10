@@ -10,9 +10,9 @@ const getUri = ({ service = '', serviceItem = '' }) => {
     throw new Error('Debe definir un servicio ó servicio e item.');
 };
 
-const lotteryRequest = ({ queryData, getUri: getApiUri, auth } = {}) =>
+const lotteryRequest = ({ queryData, auth } = {}) =>
     request({
-        uri: getApiUri(queryData),
+        uri: getUri(queryData),
         json: true,
         ...auth
     });
