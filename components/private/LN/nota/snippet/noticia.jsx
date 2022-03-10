@@ -2,6 +2,7 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { SITE_LANACION } from 'fusion:environment';
 import HTMLLIBRE from '../../../common/utils/subtypes/htmlLibre';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
@@ -21,15 +22,29 @@ const extractDataFromTags = tags => {
     return { keywords };
 };
 
-const extracDataFromCredits = by => {
+const extracDataFromCredits = (by, config = {}) => {
     let authors = [];
 
     if (by) {
         authors = by
             .filter(v => v.type === 'author')
-            .map(author => getAuthorByline(author));
+            .map(author =>
+                config.snippet
+                    ? setAuthorSnippetStructure(author)
+                    : getAuthorByline(author)
+            );
     }
     return { authors: authors.length ? authors : [] };
+};
+
+const setAuthorSnippetStructure = author => {
+    const bioPage = get(author, 'additional_properties.original.bio_page', '');
+
+    return {
+        '@type': 'Person',
+        name: getAuthorByline(author),
+        url: `${SITE_LANACION}${bioPage}`
+    };
 };
 
 const getBiggestImage = basic => {
@@ -179,7 +194,7 @@ const SnippetNoticia = props => {
         name: distributorName
     };
 
-    const { authors } = extracDataFromCredits(by);
+    const { authors } = extracDataFromCredits(by, { snippet: true });
     const { keywords } = extractDataFromTags(tags);
     const { thumbnailUrl, image } = extractDataFromPromoItems(
         promoItems,
@@ -187,6 +202,7 @@ const SnippetNoticia = props => {
     );
 
     const trust = get(label, 'trust.text', 'Noticia Original');
+    const creators = authors.map(a => a.name);
 
     let data = {
         '@context': urlShema,
@@ -211,7 +227,7 @@ const SnippetNoticia = props => {
             productID: 'lanacion.com.ar:acceso_digital'
         },
         author: !authors.length ? distributorAuthor : authors,
-        creator: authors,
+        creator: creators,
         keywords,
         publisher: {
             '@type': 'Organization',
