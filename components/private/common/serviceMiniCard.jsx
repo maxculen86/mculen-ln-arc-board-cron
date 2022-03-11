@@ -3,10 +3,10 @@ import PropTypes from 'fusion:prop-types';
 import Icon from './icon';
 import Text from './text';
 
-import '../../../resources/dist/css/ln/modules/services-mini-card.css';
+import '../../../resources/dist/css/ln/components/services-mini-card.css';
 import ComLink from './com-link';
 
-const BoxNumberMeaning = ({ title, icon, labeled, link, linkTitle }) => {
+const ServiceMiniCard = ({ title, icon, labeled, link, linkTitle }) => {
     return (
         <div className="box-number-meaning">
             <div className="meaning-number-text">
@@ -22,12 +22,12 @@ const BoxNumberMeaning = ({ title, icon, labeled, link, linkTitle }) => {
                     {title}
                 </Text>
             </div>
-            <Icon name={`${icon}-lotteries`} size="xl" />
+            <Icon name={`${icon}`} size="xl" />
         </div>
     );
 };
 
-BoxNumberMeaning.propTypes = {
+ServiceMiniCard.propTypes = {
     title: PropTypes.string,
     link: PropTypes.string,
     linkTitle: PropTypes.string,
@@ -35,7 +35,7 @@ BoxNumberMeaning.propTypes = {
     labeled: PropTypes.string
 };
 
-BoxNumberMeaning.defaultProps = {
+ServiceMiniCard.defaultProps = {
     title: 'Animales',
     linkTitle: 'Significado de los numeros',
     link: '',
@@ -43,4 +43,4 @@ BoxNumberMeaning.defaultProps = {
     labeled: 'Significado de los numeros'
 };
 
-export default BoxNumberMeaning;
+export default ServiceMiniCard;
