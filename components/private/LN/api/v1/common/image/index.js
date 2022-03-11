@@ -28,23 +28,20 @@ const imageCommon = image => {
     const regex = /.*\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/;
     Object.keys(resizedUrls)
         .sort(function orderPhotos(a, b) {
-            const mediaA = parseInt(
-                resizedUrls[a].option.media.match(/\d+/)[0],
-                10
-            );
-            const mediaB = parseInt(
-                resizedUrls[b].option.media.match(/\d+/)[0],
-                10
-            );
+            const mediaA = resizedUrls[a].option.width;
+            const mediaB = resizedUrls[b].option.width;
 
             orderPattern(mediaA, mediaB);
         })
         .forEach((element, index) => {
+            let { media } = resizedUrls[index].option;
+            if (media) {
+                media = parseInt(media.match(/\d+/)[0], 10);
+            } else {
+                media = resizedUrls[index].option.width;
+            }
             resp.parametros.push({
-                media: parseInt(
-                    resizedUrls[index].option.media.match(/\d+/)[0],
-                    10
-                ),
+                media,
                 ancho: resizedUrls[index].option.width,
                 firma: resizedUrls[index].resizedUrl.match(regex)
                     ? resizedUrls[index].resizedUrl.replace(regex, '$1')
