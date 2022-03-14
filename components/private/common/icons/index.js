@@ -56,3 +56,9 @@ export { default as Storm } from './weather/Storm';
 export { default as StormCloudy } from './weather/StormCloudy';
 export { default as SunCloudy } from './weather/SunCloudy';
 export { default as Windy } from './weather/Windy';
+
+// Lotteries Icons
+export { default as AnimalsLotteries } from './lotteries/AnimalsLotteries';
+export { default as NamesLotteries } from './lotteries/NamesLotteries';
+export { default as NationalLotteries } from './lotteries/NationalLotteries';
+export { default as TraditionalLotteries } from './lotteries/TraditionalLotteries';

@@ -56,8 +56,36 @@ export const games = {
 };
 
 export const meanings = {
-    Tradicional: {},
-    Nombres: {},
-    Animales: {},
-    LoteriaNacional: {}
+    Tradicional: {
+        title: 'Tradicional',
+        link:
+            'https://www.lanacion.com.ar/loterias/significado-de-los-numeros-tradicional-nidNNNNNN/',
+        linkTitle:
+            'Ver el significado de sueños y números para loterías y quinielas',
+        icon: 'traditional'
+    },
+    Nombres: {
+        title: 'Nombres',
+        link:
+            'https://www.lanacion.com.ar/loterias/significado-de-los-numeros-nombres-nidNNNNNN/',
+        linkTitle:
+            'Ver el significado de sueños según los animales y números para loterías y quinielas',
+        icon: 'names'
+    },
+    Animales: {
+        title: 'Animales',
+        link:
+            'https://www.lanacion.com.ar/loterias/significado-de-los-numeros-animales-nidNNNNNN/',
+        linkTitle:
+            'Ver el significado de sueños según los nombres y números para loterías y quinielas',
+        icon: 'animals'
+    },
+    LoteriaNacional: {
+        title: 'Loteria Nacional',
+        link:
+            'https://www.lanacion.com.ar/loterias/significado-de-los-numeros-loteria-nacional-nidNNNNNN/',
+        linkTitle:
+            'Ver el significado de los sueños y números según la lotería nacional',
+        icon: 'national'
+    }
 };
