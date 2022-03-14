@@ -17,6 +17,7 @@ exports[`Features - LN-acumulado - Caja Detalle Signo Feature => Render feature 
           alt="Tauro"
           class="com-image "
           height="100%"
+          importance="low"
           loading="lazy"
           src="undefined/pf/resources/images/horoscope-logos/tauro.svg"
           width="100%"

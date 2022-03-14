@@ -67,13 +67,14 @@ describe('components - private - common - ComImage', () => {
             layout: undefined,
             target: undefined,
             classCondition: undefined,
-            srcsetAMP: 'mock'
+            srcset: 'mock'
         };
 
         const component = shallow(<ComImage {...propsThree} />);
         it('Should return link and amp-img with correct props', () => {
             const imageTag = component.find('amp-img');
             const imageProps = imageTag.props();
+            console.log(imageProps);
             const linkImage = component.find('ComLink');
             const linkProps = linkImage.props();
 
@@ -83,7 +84,7 @@ describe('components - private - common - ComImage', () => {
             expect(imageProps.height).toBe(propsThree.height);
             expect(imageProps.layout).toBe('responsive');
             expect(imageProps.class).toBe(' ');
-            expect(imageProps.srcSet).toBe(propsThree.srcsetAMP);
+            expect(imageProps.srcSet).toBe(propsThree.srcset);
             expect(imageProps['data-hero']).toBe(undefined);
             expect(linkProps.link).toBe(propsThree.href);
         });

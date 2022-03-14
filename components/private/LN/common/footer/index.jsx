@@ -151,6 +151,16 @@ const Index = ({ home }) => {
         }
     ];
 
+    const listText2c = [
+        { text: 'Libros:' },
+        {
+            text: 'LiBooks',
+            alt: 'Ir a tienda online de LiBooks',
+            href: 'https://www.libooks.com/',
+            target: '_blank'
+        }
+    ];
+
     const listText3 = [
         {
             text: 'Mapa del sitio',
@@ -285,6 +295,9 @@ const Index = ({ home }) => {
                                 mod="--delivery --font-bold"
                             >
                                 {listText2b}
+                            </List>
+                            <List inline size="--fourxs" mod="--font-bold">
+                                {listText2c}
                             </List>
                         </div>
                     </section>

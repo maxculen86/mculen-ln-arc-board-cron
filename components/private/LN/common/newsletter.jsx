@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useState } from 'react';
 import { API_INGRESAR } from 'fusion:environment';
 import ModNewsletter from '../../common/mod-newsletter';

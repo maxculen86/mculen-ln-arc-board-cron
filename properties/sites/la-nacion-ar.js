@@ -38,18 +38,18 @@ const contentElementSizes = {
         },
         {
             width: 768,
-            height: 513,
-            media: minWidth768
+            height: 513
+            //media: minWidth768
         },
         {
             width: 350,
-            height: 234,
-            media: minWidth360
+            height: 234
+            //media: minWidth360
         },
         {
             width: 360,
-            height: 234,
-            media: minWidth320
+            height: 234
+            //media: minWidth320
         }
     ]
 };
@@ -66,28 +66,28 @@ const promoItemsSizes = {
         {
             width: 1200,
             height: 746,
-            media: minWidth1024,
+            //media: minWidth1024,
             proportion: '3:2',
-            media_preload: '(min-width: 1024.1px and max-width: 1280px'
+            media_preload: '(min-width: 1024.1px and max-width: 1280px)'
         },
         {
             width: 768,
             height: 512,
-            media: minWidth768,
+            //media: minWidth768,
             proportion: '3:2',
             media_preload: min768max1024
         },
         {
             width: 351,
             height: 234,
-            media: minWidth375,
+            //media: minWidth375,
             proportion: '3:2',
             media_preload: min375max768
         },
         {
             width: 309,
             height: 206,
-            media: minWidth320,
+            //media: minWidth320,
             proportion: '3:2',
             media_preload: maxWidth375
         }
@@ -201,7 +201,7 @@ export default {
                         {
                             width: 1280,
                             height: 854,
-                            media: minWidth1280,
+                            //media: minWidth1280,
                             useFullSize: true,
                             proportion: '3:2',
                             media_preload:
@@ -210,7 +210,7 @@ export default {
                         {
                             width: 1024,
                             height: 682,
-                            media: minWidth1024,
+                            //media: minWidth1024,
                             useFullSize: true,
                             proportion: '3:2',
                             media_preload: min1024max1280
@@ -218,7 +218,7 @@ export default {
                         {
                             width: 768,
                             height: 512,
-                            media: minWidth768,
+                            //media: minWidth768,
                             useFullSize: true,
                             proportion: '3:2',
                             media_preload: min768max1024
@@ -226,7 +226,7 @@ export default {
                         {
                             width: 375,
                             height: 562,
-                            media: minWidth375,
+                            //media: minWidth375,
                             useFullSize: true,
                             proportion: '2:3',
                             media_preload: min375max768
@@ -234,7 +234,7 @@ export default {
                         {
                             width: 320,
                             height: 480,
-                            media: minWidth320,
+                            //media: minWidth320,
                             useFullSize: true,
                             proportion: '2:3',
                             media_preload: maxWidth375
@@ -306,7 +306,7 @@ export default {
                         {
                             width: 375,
                             height: 250,
-                            media: minWidth375,
+                            //media: minWidth375,
                             useFullSize: true,
                             proportion: '2:3',
                             media_preload: min375max768
@@ -314,7 +314,7 @@ export default {
                         {
                             width: 320,
                             height: 213,
-                            media: minWidth320,
+                            //media: minWidth320,
                             useFullSize: true,
                             proportion: '2:3',
                             media_preload: maxWidth375
@@ -340,13 +340,13 @@ export default {
                         },
                         {
                             width: 375,
-                            height: 250,
-                            media: minWidth375
+                            height: 250
+                            //media: minWidth375
                         },
                         {
                             width: 320,
-                            height: 213,
-                            media: minWidth320
+                            height: 213
+                            //media: minWidth320
                         }
                     ]
                 }
@@ -378,14 +378,14 @@ export default {
                         {
                             width: 375,
                             height: 229,
-                            media: minWidth375,
+                            //media: minWidth375,
                             useFullSize: true,
                             proportion: '2:3'
                         },
                         {
                             width: 320,
                             height: 192,
-                            media: minWidth320,
+                            //media: minWidth320,
                             useFullSize: true,
                             proportion: '2:3'
                         }
@@ -410,13 +410,13 @@ export default {
                         },
                         {
                             width: 375,
-                            height: 229,
-                            media: minWidth375
+                            height: 229
+                            //media: minWidth375
                         },
                         {
                             width: 320,
-                            height: 192,
-                            media: minWidth320
+                            height: 192
+                            //media: minWidth320
                         }
                     ]
                 }
@@ -451,7 +451,7 @@ export default {
                         {
                             width: 375,
                             height: 229,
-                            media: minWidth375,
+                            //media: minWidth375,
                             useFullSize: true,
                             proportion: '2:3',
                             media_preload: min375max768
@@ -459,7 +459,7 @@ export default {
                         {
                             width: 320,
                             height: 192,
-                            media: minWidth320,
+                            //media: minWidth320,
                             useFullSize: true,
                             proportion: '2:3',
                             media_preload: maxWidth375
@@ -485,13 +485,13 @@ export default {
                         },
                         {
                             width: 375,
-                            height: 229,
-                            media: minWidth375
+                            height: 229
+                            //media: minWidth375
                         },
                         {
                             width: 320,
-                            height: 192,
-                            media: minWidth320
+                            height: 192
+                            //media: minWidth320
                         }
                     ]
                 }
@@ -503,14 +503,14 @@ export default {
                         {
                             width: 375,
                             height: 229,
-                            media: minWidth375,
+                            //media: minWidth375,
                             useFullSize: true,
                             proportion: '2:3'
                         },
                         {
                             width: 320,
                             height: 192,
-                            media: minWidth320,
+                            //media: minWidth320,
                             useFullSize: true,
                             proportion: '2:3'
                         }
@@ -520,13 +520,13 @@ export default {
                     sizes: [
                         {
                             width: 375,
-                            height: 229,
-                            media: minWidth375
+                            height: 229
+                            //media: minWidth375
                         },
                         {
                             width: 320,
-                            height: 192,
-                            media: minWidth320
+                            height: 192
+                            //media: minWidth320
                         }
                     ]
                 }
@@ -558,14 +558,14 @@ export default {
                         {
                             width: 375,
                             height: 229,
-                            media: minWidth375,
+                            //media: minWidth375,
                             useFullSize: true,
                             proportion: '3:2'
                         },
                         {
                             width: 320,
                             height: 192,
-                            media: minWidth320,
+                            //media: minWidth320,
                             useFullSize: true,
                             proportion: '3:4'
                         }
@@ -590,13 +590,13 @@ export default {
                         },
                         {
                             width: 375,
-                            height: 229,
-                            media: minWidth375
+                            height: 229
+                            //media: minWidth375
                         },
                         {
                             width: 320,
-                            height: 192,
-                            media: minWidth320
+                            height: 192
+                            //media: minWidth320
                         }
                     ]
                 },
@@ -648,14 +648,14 @@ export default {
                         {
                             width: 375,
                             height: 429,
-                            media: minWidth375,
+                            //media: minWidth375,
                             useFullSize: true,
                             proportion: '3:4'
                         },
                         {
                             width: 320,
                             height: 360,
-                            media: minWidth320,
+                            //media: minWidth320,
                             useFullSize: true,
                             proportion: '3:4'
                         }
@@ -680,13 +680,13 @@ export default {
                         },
                         {
                             width: 375,
-                            height: 429,
-                            media: minWidth375
+                            height: 429
+                            //media: minWidth375
                         },
                         {
                             width: 320,
-                            height: 360,
-                            media: minWidth320
+                            height: 360
+                            //media: minWidth320
                         }
                     ]
                 }
@@ -718,14 +718,14 @@ export default {
                         {
                             width: 375,
                             height: 250,
-                            media: minWidth375,
+                            //media: minWidth375,
                             useFullSize: true,
                             proportion: '3:2'
                         },
                         {
                             width: 320,
                             height: 213,
-                            media: minWidth320,
+                            //media: minWidth320,
                             useFullSize: true,
                             proportion: '3:2'
                         }
@@ -750,13 +750,13 @@ export default {
                         },
                         {
                             width: 375,
-                            height: 250,
-                            media: minWidth375
+                            height: 250
+                            //media: minWidth375
                         },
                         {
                             width: 320,
-                            height: 213,
-                            media: minWidth320
+                            height: 213
+                            //media: minWidth320
                         }
                     ]
                 }
@@ -788,14 +788,14 @@ export default {
                         {
                             width: 375,
                             height: 250,
-                            media: minWidth375,
+                            //media: minWidth375,
                             useFullSize: true,
                             proportion: '3:2'
                         },
                         {
                             width: 320,
                             height: 213,
-                            media: minWidth320,
+                            //media: minWidth320,
                             useFullSize: true,
                             proportion: '3:2'
                         }
@@ -820,13 +820,13 @@ export default {
                         },
                         {
                             width: 375,
-                            height: 250,
-                            media: minWidth375
+                            height: 250
+                            //media: minWidth375
                         },
                         {
                             width: 320,
-                            height: 213,
-                            media: minWidth320
+                            height: 213
+                            //media: minWidth320
                         }
                     ]
                 }
@@ -858,14 +858,14 @@ export default {
                         {
                             width: 375,
                             height: 229,
-                            media: minWidth375,
+                            //media: minWidth375,
                             useFullSize: true,
                             proportion: '3:4'
                         },
                         {
                             width: 320,
                             height: 192,
-                            media: minWidth320,
+                            //media: minWidth320,
                             useFullSize: true,
                             proportion: '3:4'
                         }
@@ -890,13 +890,13 @@ export default {
                         },
                         {
                             width: 375,
-                            height: 229,
-                            media: minWidth375
+                            height: 229
+                            //media: minWidth375
                         },
                         {
                             width: 320,
-                            height: 192,
-                            media: minWidth320
+                            height: 192
+                            //media: minWidth320
                         }
                     ]
                 }
@@ -914,14 +914,14 @@ export default {
                         {
                             width: 375,
                             height: 250,
-                            media: minWidth375,
+                            //media: minWidth375,
                             useFullSize: true,
                             proportion: '2:3'
                         },
                         {
                             width: 278,
                             height: 187,
-                            media: minWidth320,
+                            //media: minWidth320,
                             useFullSize: true,
                             proportion: '2:3'
                         }
@@ -955,14 +955,14 @@ export default {
                         {
                             width: 375,
                             height: 250,
-                            media: minWidth375,
+                            //media: minWidth375,
                             useFullSize: true,
                             proportion: '3:2'
                         },
                         {
                             width: 320,
                             height: 213,
-                            media: minWidth320,
+                            //media: minWidth320,
                             useFullSize: true,
                             proportion: '3:2'
                         }
@@ -1035,7 +1035,7 @@ export default {
                         {
                             width: 1200,
                             height: 800,
-                            media: minWidth1024,
+                            //media: minWidth1024,
                             useFullSize: true,
                             proportion: '3:2',
                             media_preload: min1024max1280
@@ -1043,7 +1043,7 @@ export default {
                         {
                             width: 1023,
                             height: 682,
-                            media: minWidth768,
+                            //media: minWidth768,
                             useFullSize: true,
                             proportion: '3:2',
                             media_preload: min768max1024
@@ -1051,7 +1051,7 @@ export default {
                         {
                             width: 768,
                             height: 1152,
-                            media: minWidth360,
+                            //media: minWidth360,
                             useFullSize: true,
                             proportion: '2:3',
                             media_preload: min375max768
@@ -1059,7 +1059,7 @@ export default {
                         {
                             width: 360,
                             height: 540,
-                            media: minWidth320,
+                            //media: minWidth320,
                             useFullSize: true,
                             proportion: '2:3',
                             media_preload: maxWidth375
@@ -1078,28 +1078,28 @@ export default {
                         {
                             width: 1200,
                             height: 800,
-                            media: minWidth1024,
+                            //media: minWidth1024,
                             useFullSize: true,
                             proportion: '3:2'
                         },
                         {
                             width: 1023,
                             height: 682,
-                            media: minWidth768,
+                            //media: minWidth768,
                             useFullSize: true,
                             proportion: '3:2'
                         },
                         {
                             width: 768,
                             height: 1152,
-                            media: minWidth360,
+                            //media: minWidth360,
                             useFullSize: true,
                             proportion: '2:3'
                         },
                         {
                             width: 360,
                             height: 540,
-                            media: minWidth320,
+                            //media: minWidth320,
                             useFullSize: true,
                             proportion: '2:3'
                         }
@@ -1119,28 +1119,28 @@ export default {
                         {
                             width: 1200,
                             height: 800,
-                            media: minWidth1024,
+                            //media: minWidth1024,
                             proportion: '3:2',
                             media_preload: min1024max1280
                         },
                         {
                             width: 1023,
                             height: 682,
-                            media: minWidth768,
+                            //media: minWidth768,
                             proportion: '3:2',
                             media_preload: min768max1024
                         },
                         {
                             width: 768,
                             height: 512,
-                            media: minWidth375,
+                            //media: minWidth375,
                             proportion: '3:2',
                             media_preload: min375max768
                         },
                         {
                             width: 360,
                             height: 240,
-                            media: minWidth320,
+                            //media: minWidth320,
                             proportion: '3:2',
                             media_preload: maxWidth375
                         }
@@ -1155,23 +1155,23 @@ export default {
                         },
                         {
                             width: 1200,
-                            height: 515,
-                            media: minWidth1024
+                            height: 515
+                            //media: minWidth1024
                         },
                         {
                             width: 1024,
-                            height: 579,
-                            media: minWidth768
+                            height: 579
+                            //media: minWidth768
                         },
                         {
                             width: 768,
-                            height: 432,
-                            media: minWidth360
+                            height: 432
+                            //media: minWidth360
                         },
                         {
                             width: 360,
-                            height: 203,
-                            media: minWidth320
+                            height: 203
+                            //media: minWidth320
                         }
                     ]
                 },
@@ -1196,23 +1196,23 @@ export default {
                         },
                         {
                             width: 1120,
-                            height: 400,
-                            media: minWidth1024
+                            height: 400
+                            //media: minWidth1024
                         },
                         {
                             width: 768,
-                            height: 961,
-                            media: minWidth768
+                            height: 961
+                            //media: minWidth768
                         },
                         {
                             width: 350,
-                            height: 438,
-                            media: minWidth360
+                            height: 438
+                            //media: minWidth360
                         },
                         {
                             width: 310,
-                            height: 203,
-                            media: '(-width: 320px)'
+                            height: 203
+                            //media: '(-width: 320px)'
                         }
                     ]
                 },
@@ -1242,18 +1242,18 @@ export default {
                         },
                         {
                             width: 768,
-                            height: 513,
-                            media: minWidth768
+                            height: 513
+                            //media: minWidth768
                         },
                         {
                             width: 350,
-                            height: 438,
-                            media: minWidth360
+                            height: 438
+                            //media: minWidth360
                         },
                         {
                             width: 310,
-                            height: 203,
-                            media: minWidth320
+                            height: 203
+                            //media: minWidth320
                         }
                     ]
                 },
@@ -1279,19 +1279,19 @@ export default {
                         {
                             width: 768,
                             height: 512,
-                            media: minWidth768,
+                            //media: minWidth768,
                             proportion: '3:2'
                         },
                         {
                             width: 351,
                             height: 234,
-                            media: minWidth360,
+                            //media: minWidth360,
                             proportion: '3:2'
                         },
                         {
                             width: 360,
                             height: 240,
-                            media: minWidth320,
+                            //media: minWidth320,
                             proportion: '3:2'
                         }
                     ]
@@ -2452,7 +2452,8 @@ export default {
                     subheadTagApertura: 'h2',
                     withSubheadAndMedia: true,
                     withSubhead: true,
-                    imageConfig: 'featuredFocalIzquierdo'
+                    imageConfig: 'featuredFocalIzquierdo',
+                    isApertura: true
                 },
                 1: {
                     titleSize: '--xs',
@@ -2480,7 +2481,8 @@ export default {
                     subheadTagApertura: 'h2',
                     withSubheadAndMedia: true,
                     imageConfig: 'mediumFocalDerecho',
-                    withSubhead: true
+                    withSubhead: true,
+                    isApertura: true
                 }
             }
         },
@@ -2581,7 +2583,8 @@ export default {
                     titleTagApertura: 'h1',
                     subheadTagApertura: 'h2',
                     withSubheadAndMedia: true,
-                    imageConfig: 'bomba'
+                    imageConfig: 'bomba',
+                    isApertura: true
                 }
             }
         },

@@ -236,7 +236,7 @@ const Default = props => {
                     href={`${deployment(
                         `${contextPath}/resources/fonts/suecaslab-bold-webfont.woff2`
                     )}`}
-                    crossOrigin="anonymous"
+                    crossOrigin=""
                 />
                 <link
                     rel="preload"
@@ -245,10 +245,10 @@ const Default = props => {
                     href={`${deployment(
                         `${contextPath}/resources/fonts/suecaslab-medium-webfont.woff2`
                     )}`}
-                    crossOrigin="anonymous"
+                    crossOrigin=""
                 />
+                {LinkImagePreload()}
                 <FontFaceDefault outputType={outputType} />
-                <Libs />
                 <CriticalCss />
                 {arcSite === 'ott' ? (
                     <link
@@ -260,9 +260,23 @@ const Default = props => {
                 ) : (
                     <CssLinks />
                 )}
-
-                {LinkImagePreload()}
-
+                <link
+                    rel="preload"
+                    as="script"
+                    href={`${deployment(
+                        `${contextPath}/dist/engine/react.js`
+                    )}`}
+                    crossOrigin=""
+                />
+                <link
+                    rel="preload"
+                    as="script"
+                    href={`${deployment(
+                        `${contextPath}/dist/components/combinations/default.js`
+                    )}`}
+                    crossOrigin=""
+                />
+                <Libs />
                 <TagsLoadingList
                     section="all"
                     location="head"

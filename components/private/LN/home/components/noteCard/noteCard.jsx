@@ -105,6 +105,10 @@ const NoteCard = ({
                 device={device}
                 layout={layout}
                 handleClick={handleClick}
+                isApertura={
+                    isInHomeAperturaOrBomba &&
+                    get(articleProps, 'isApertura', false)
+                }
             />
         )) || <></>
     );

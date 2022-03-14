@@ -14,12 +14,8 @@ const banners = acuData => {
         { idSeccion: 406, index: 16 }
     ];
     const cantNotas = acuData.articles.length;
-    let pagina = 1;
-    if (acuData.paginator) {
-        pagina = Math.floor(acuData.paginator / acuData.articles.length);
-    }
     return sectionsElements.reduce((r, e) => {
-        if (pagina > 1) {
+        if (acuData.page > 1) {
             if (e.index > cantNotas) {
                 return r.concat(e);
             }
@@ -55,9 +51,8 @@ const index = acuData => {
             return result;
         }, []);
     }
-
     if (acuData.author) {
-        resp.autor = authorAcu(acuData.author);
+        resp.autor = authorAcu(acuData.author, acuData.page);
     }
 
     if (acuData.tag) {

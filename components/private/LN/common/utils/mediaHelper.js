@@ -73,7 +73,17 @@ export const getSourceSet = (isVertical, image, sourceActive = []) => {
 
     if (srcset && srcset.length === 1) srcset = `${image.url} ${image.width}w`;
 
-    return srcset;
+    return srcset.length > 0 ? srcset : undefined;
+};
+
+export const getSizes = (sources = []) => {
+    return Array.isArray(sources)
+        ? sources
+              .map(
+                  x => x.option.media && `${x.option.media} ${x.option.width}px`
+              )
+              .filter(Boolean)
+        : [];
 };
 
 export const buildScriptForZoom = (mediaData, subtype) => {
