@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-script-url */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import PropTypes from 'prop-types';
 import Header from './headerBase';
@@ -75,6 +75,7 @@ const HeaderDesktop = ({
 }) => {
     const { loading, goToLoginUrl } = loginData;
     const { getCookie } = handleCookie();
+    const getCookieCallback = useCallback(getCookie, []);
 
     const [token, setToken] = useState(getCookie('token'));
     const [active, setActive] = useState('');
@@ -87,8 +88,8 @@ const HeaderDesktop = ({
 
     useEffect(() => {
         setLoadingUserData(loading ? ' hlp-none' : '');
-        setToken(getCookie('token'));
-    }, [loading, getCookie]);
+        setToken(getCookieCallback('token'));
+    }, [loading, getCookieCallback]);
 
     const handleClickBuscar = () => {
         dynamicallyLoadScript(
