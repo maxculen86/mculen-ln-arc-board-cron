@@ -155,7 +155,8 @@
             height: px(32);
         }
     }
-    &.campo {
+    &.campo,
+    &.campo-blanco {
         &.--xs {
             width: px(121);
             height: px(22);
