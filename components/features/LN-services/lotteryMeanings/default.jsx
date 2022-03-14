@@ -46,6 +46,7 @@ const LotteryMeanings = ({ id: featureId }) => {
             <div className="number-meanings-box row-gap-4">
                 {MEANINGS_MOCK.map((meaningInfo, i) => (
                     <ServiceMiniCard
+                        key={meaningInfo.title}
                         title={meaningInfo.title}
                         link={meaningInfo.link}
                         linkTitle={meaningInfo.linkTitle}

@@ -1,4 +1,6 @@
-const NationalLotteries = ({ ...r }) => {
+import React from 'react';
+
+const NationalLotteries = () => {
     return (
         <svg
             width="40"
@@ -6,7 +8,6 @@ const NationalLotteries = ({ ...r }) => {
             viewBox="0 0 40 40"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            {...r}
         >
             <path
                 d="M0 20C0 8.95431 8.95431 0 20 0C31.0457 0 40 8.95431 40 20C40 31.0457 31.0457 40 20 40C8.95431 40 0 31.0457 0 20Z"
@@ -17,7 +18,7 @@ const NationalLotteries = ({ ...r }) => {
                 cy="18.5"
                 r="9.25"
                 stroke="#0250C9"
-                stroke-width="1.5"
+                strokeWidth="1.5"
             />
             <circle cx="17" cy="13.5" r="1.5" stroke="#0250C9" />
             <circle cx="23" cy="16.5" r="1.5" stroke="#0250C9" />
@@ -32,8 +33,8 @@ const NationalLotteries = ({ ...r }) => {
                 x2="29.25"
                 y2="30.75"
                 stroke="#0250C9"
-                stroke-width="1.5"
-                stroke-linecap="round"
+                strokeWidth="1.5"
+                strokeLinecap="round"
             />
             <line
                 x1="24.9533"
@@ -41,8 +42,8 @@ const NationalLotteries = ({ ...r }) => {
                 x2="26.0928"
                 y2="30.2743"
                 stroke="#0250C9"
-                stroke-width="1.5"
-                stroke-linecap="round"
+                strokeWidth="1.5"
+                strokeLinecap="round"
             />
             <line
                 x1="15.3992"
@@ -50,8 +51,8 @@ const NationalLotteries = ({ ...r }) => {
                 x2="14.1449"
                 y2="30.7238"
                 stroke="#0250C9"
-                stroke-width="1.5"
-                stroke-linecap="round"
+                strokeWidth="1.5"
+                strokeLinecap="round"
             />
         </svg>
     );

@@ -1,4 +1,4 @@
-import { React } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Icon from './icon';
 import Text from './text';
@@ -15,7 +15,7 @@ const ServiceMiniCard = ({ title, icon, labeled, link, linkTitle }) => {
                 </Text>
                 <ComLink link={link} title={linkTitle} textname={title} />
             </div>
-            <Icon name={`${icon}`} size="--xl" />
+            <Icon name={icon} size="--xl" />
         </div>
     );
 };
