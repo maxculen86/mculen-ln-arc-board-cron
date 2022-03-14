@@ -10,6 +10,17 @@
     border-radius: px(4);
     min-height: px(132);
 
+    .com-icon {
+        width: px(40);
+        height: px(40);
+    }
+
+    .com-link {
+        font-weight: 700;
+        font-size: px(20);
+        color: $neutral-black;
+    }
+
     .meaning-number-text {
         display: flex;
         flex-direction: column;

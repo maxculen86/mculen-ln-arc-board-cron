@@ -2,9 +2,9 @@ import { React } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Icon from './icon';
 import Text from './text';
+import ComLink from './com-link';
 
 import '../../../resources/dist/css/ln/components/services-mini-card.css';
-import ComLink from './com-link';
 
 const ServiceMiniCard = ({ title, icon, labeled, link, linkTitle }) => {
     return (
@@ -13,16 +13,9 @@ const ServiceMiniCard = ({ title, icon, labeled, link, linkTitle }) => {
                 <Text size="5xs" color="gray">
                     {labeled}
                 </Text>
-                <ComLink
-                    link={link}
-                    title={linkTitle}
-                    textname="Ir a la nota original"
-                />
-                <Text weight="bold" size="medium">
-                    {title}
-                </Text>
+                <ComLink link={link} title={linkTitle} textname={title} />
             </div>
-            <Icon name={`${icon}`} size="xl" />
+            <Icon name={`${icon}`} size="--xl" />
         </div>
     );
 };
