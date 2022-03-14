@@ -46,23 +46,10 @@ const LotteryMeanings = ({ id: featureId }) => {
                         link={meaningInfo.link}
                         linkTitle={meaningInfo.linkTitle}
                         icon={meaningInfo.icon}
-                        labeled={meaningInfo.labeled}
+                        labeled="Significado de numeros"
                     />
                 ))}
             </div>
-
-            {/* <div className="number-meanings-box row-gap-4">
-                {meanings.map((meaningInfo, i) => (
-                    <ServiceMiniCard
-                        key={meaningInfo.title}
-                        title={meaningInfo.title}
-                        link={meaningInfo.link}
-                        linkTitle={meaningInfo.linkTitle}
-                        icon={meaningInfo.icon}
-                        labeled={meaningInfo.labeled}
-                    />
-                ))}
-            </div> */}
         </StaticValidation>
     );
 };
