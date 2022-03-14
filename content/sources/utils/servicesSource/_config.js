@@ -56,8 +56,36 @@ export const games = {
 };
 
 export const meanings = {
-    Tradicional: {},
-    Nombres: {},
-    Animales: {},
-    LoteriaNacional: {}
+    Tradicional: {
+        title: 'Tradicional',
+        link: '',
+        linkTitle:
+            'Ver el significado de sueños y números para loterías y quinielas',
+        labeled: 'Significado de numeros',
+        icon: 'traditional'
+    },
+    Nombres: {
+        title: 'Nombres',
+        link: '',
+        linkTitle:
+            'Ver el significado de sueños según los animales y números para loterías y quinielas',
+        labeled: 'Significado de numeros',
+        icon: 'names'
+    },
+    Animales: {
+        title: 'Animales',
+        link: '',
+        linkTitle:
+            'Ver el significado de sueños según los nombres y números para loterías y quinielas',
+        labeled: 'Significado de numeros',
+        icon: 'animals'
+    },
+    LoteriaNacional: {
+        title: 'Loteria Nacional',
+        link: '',
+        linkTitle:
+            'Ver el significado de los sueños y números según la lotería nacional',
+        labeled: 'Significado de numeros',
+        icon: 'national'
+    }
 };
