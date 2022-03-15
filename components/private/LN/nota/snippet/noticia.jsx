@@ -8,6 +8,7 @@ import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
 import getAuthorByline from '../../../common/utils/getAuthorByline';
 import getFirstParagraph from '../../../common/utils/getFirstParagraph';
+import getBiggestImage from '../../common/utils/getBiggestImage';
 import get from '../../../common/utils/get';
 import * as Trust from './constants';
 import addRelatedImage from '../../common/utils/addRelatedImage';
@@ -45,20 +46,6 @@ const setAuthorSnippetStructure = author => {
         name: getAuthorByline(author),
         url: `${SITE_LANACION}${bioPage}`
     };
-};
-
-const getBiggestImage = basic => {
-    const { resized_urls: resizedUrls = [] } = basic || {};
-    const imagenFullSize = resizedUrls.reduce(
-        (prev, curr) =>
-            get(prev, 'option.width', 0) > get(curr, 'option.width', 0)
-                ? prev
-                : curr,
-        {}
-    );
-    const { resizedUrl, option } = imagenFullSize;
-    const { width: bigWidth, height: bigHeight } = option || {};
-    return { resizedUrl, bigWidth, bigHeight };
 };
 
 const urlShema = 'https://schema.org';
