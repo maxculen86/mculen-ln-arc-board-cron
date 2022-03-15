@@ -169,6 +169,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
             dataSection=""
             frontdemo={true}
             handleClick={[Function]}
+            isApertura={false}
             isRenderAuthor={false}
             key="K2FFK3J6DNCX3D76BQ6D7FLQNE"
             outputType="default"
@@ -213,6 +214,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
               device="desktop"
               handleClick={[Function]}
               hour={false}
+              isApertura={false}
               isPowa={true}
               isRenderAuthor={false}
               isRenderAuthorOpinion={false}
@@ -243,6 +245,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
               >
                 <media
                   href="/propiedades/prueba-newsletter-de-propiedades-nid11112020/"
+                  isApertura={false}
                   isPowa={true}
                   mediaData={
                     Object {
@@ -263,6 +266,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                       active={false}
                       classCondition=""
                       html=""
+                      idMedia={false}
                       itsGallery={false}
                       outputType="default"
                       scriptForZoom=""
@@ -271,6 +275,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                     >
                       <section
                         className="mod-media   "
+                        id={false}
                         role="button"
                       >
                         <ComFigure
@@ -312,8 +317,8 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                                 <a
                                   href="/propiedades/prueba-newsletter-de-propiedades-nid11112020/"
                                 >
-                                  <picture
-                                    className="mod-picture "
+                                  <div
+                                    className="placeholder "
                                   >
                                     <ComImage
                                       alt="Prueba Newsletter de propiedades"
@@ -322,8 +327,8 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                                       height={513}
                                       href=""
                                       isApertura={false}
+                                      sizes="100vw"
                                       src="https://resizer.glanacion.com/resizer/zCmtgBsAISCbu_XRzUG4HxJvDsU=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/U665QRLUEJGU7B6WMZ4AEAQDRY.jpg"
-                                      srcsetAMP={Array []}
                                       svg={false}
                                       target=""
                                       width={768}
@@ -332,82 +337,17 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                                         alt="Prueba Newsletter de propiedades"
                                         className="com-image "
                                         height={513}
+                                        importance="low"
                                         loading="lazy"
+                                        sizes="100vw"
                                         src="https://resizer.glanacion.com/resizer/zCmtgBsAISCbu_XRzUG4HxJvDsU=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/U665QRLUEJGU7B6WMZ4AEAQDRY.jpg"
                                         width={768}
                                       />
                                     </ComImage>
-                                  </picture>
+                                  </div>
                                 </a>
                               </ComPicture>
                             </ImageArticle>
-                            <Icon
-                              extraClass=""
-                              href=""
-                              name="close"
-                              negative={true}
-                              size=""
-                            >
-                              <i
-                                className="com-icon icon-close  --negative"
-                              >
-                                <MapperIcon
-                                  name="close"
-                                  r={Object {}}
-                                >
-                                  <Close>
-                                    <svg
-                                      fill="none"
-                                      height="24"
-                                      viewBox="0 0 24 24"
-                                      width="24"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        clip-rule="evenodd"
-                                        d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-                                        fill="#272727"
-                                        fill-rule="evenodd"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                      />
-                                    </svg>
-                                  </Close>
-                                </MapperIcon>
-                              </i>
-                            </Icon>
-                            <Icon
-                              extraClass=""
-                              href=""
-                              name="zoom"
-                              negative={true}
-                              size=""
-                            >
-                              <i
-                                className="com-icon icon-zoom  --negative"
-                              >
-                                <MapperIcon
-                                  name="zoom"
-                                  r={Object {}}
-                                >
-                                  <Zoom>
-                                    <svg
-                                      fill="none"
-                                      height="24"
-                                      viewBox="0 0 24 24"
-                                      width="24"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        clip-rule="evenodd"
-                                        d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-                                        fill="#272727"
-                                        fill-rule="evenodd"
-                                      />
-                                    </svg>
-                                  </Zoom>
-                                </MapperIcon>
-                              </i>
-                            </Icon>
                           </figure>
                         </ComFigure>
                       </section>
@@ -506,6 +446,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
             dataSection=""
             frontdemo={true}
             handleClick={[Function]}
+            isApertura={false}
             isRenderAuthor={false}
             key="AQCXKYK4XJCVFNFNZ2IQ7SUCA4"
             outputType="default"
@@ -550,6 +491,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
               device="desktop"
               handleClick={[Function]}
               hour={false}
+              isApertura={false}
               isPowa={true}
               isRenderAuthor={false}
               isRenderAuthorOpinion={false}
@@ -580,6 +522,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
               >
                 <media
                   href="/sociedad/seguridad/coronavirus-motin-en-devoto-nos-negamos-a-morir-en-la-carcel-nid24042020/"
+                  isApertura={false}
                   isPowa={true}
                   mediaData={
                     Object {
@@ -600,6 +543,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                       active={false}
                       classCondition=""
                       html=""
+                      idMedia={false}
                       itsGallery={false}
                       outputType="default"
                       scriptForZoom=""
@@ -608,6 +552,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                     >
                       <section
                         className="mod-media   "
+                        id={false}
                         role="button"
                       >
                         <ComFigure
@@ -649,8 +594,8 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                                 <a
                                   href="/sociedad/seguridad/coronavirus-motin-en-devoto-nos-negamos-a-morir-en-la-carcel-nid24042020/"
                                 >
-                                  <picture
-                                    className="mod-picture "
+                                  <div
+                                    className="placeholder "
                                   >
                                     <ComImage
                                       alt="Coronavirus. Motín en Devoto: “Nos negamos a morir en la cárcel”"
@@ -659,8 +604,8 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                                       height={513}
                                       href=""
                                       isApertura={false}
+                                      sizes="100vw"
                                       src="https://resizer.glanacion.com/resizer/9i-N38ZsnfBkg0NjFi91qNx0y5Y=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TRSC3LYYI5AANJSVUL3ZJJG324.jpg"
-                                      srcsetAMP={Array []}
                                       svg={false}
                                       target=""
                                       width={768}
@@ -669,82 +614,17 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                                         alt="Coronavirus. Motín en Devoto: “Nos negamos a morir en la cárcel”"
                                         className="com-image "
                                         height={513}
+                                        importance="low"
                                         loading="lazy"
+                                        sizes="100vw"
                                         src="https://resizer.glanacion.com/resizer/9i-N38ZsnfBkg0NjFi91qNx0y5Y=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TRSC3LYYI5AANJSVUL3ZJJG324.jpg"
                                         width={768}
                                       />
                                     </ComImage>
-                                  </picture>
+                                  </div>
                                 </a>
                               </ComPicture>
                             </ImageArticle>
-                            <Icon
-                              extraClass=""
-                              href=""
-                              name="close"
-                              negative={true}
-                              size=""
-                            >
-                              <i
-                                className="com-icon icon-close  --negative"
-                              >
-                                <MapperIcon
-                                  name="close"
-                                  r={Object {}}
-                                >
-                                  <Close>
-                                    <svg
-                                      fill="none"
-                                      height="24"
-                                      viewBox="0 0 24 24"
-                                      width="24"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        clip-rule="evenodd"
-                                        d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-                                        fill="#272727"
-                                        fill-rule="evenodd"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                      />
-                                    </svg>
-                                  </Close>
-                                </MapperIcon>
-                              </i>
-                            </Icon>
-                            <Icon
-                              extraClass=""
-                              href=""
-                              name="zoom"
-                              negative={true}
-                              size=""
-                            >
-                              <i
-                                className="com-icon icon-zoom  --negative"
-                              >
-                                <MapperIcon
-                                  name="zoom"
-                                  r={Object {}}
-                                >
-                                  <Zoom>
-                                    <svg
-                                      fill="none"
-                                      height="24"
-                                      viewBox="0 0 24 24"
-                                      width="24"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        clip-rule="evenodd"
-                                        d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-                                        fill="#272727"
-                                        fill-rule="evenodd"
-                                      />
-                                    </svg>
-                                  </Zoom>
-                                </MapperIcon>
-                              </i>
-                            </Icon>
                           </figure>
                         </ComFigure>
                       </section>
@@ -843,6 +723,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
             dataSection=""
             frontdemo={true}
             handleClick={[Function]}
+            isApertura={false}
             isRenderAuthor={false}
             key="KEBYELHATJHPRNAWO24GRV6YCQ"
             outputType="default"
@@ -887,6 +768,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
               device="desktop"
               handleClick={[Function]}
               hour={false}
+              isApertura={false}
               isPowa={true}
               isRenderAuthor={false}
               isRenderAuthorOpinion={false}
@@ -917,6 +799,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
               >
                 <media
                   href="/lifestyle/ansiedad-por-separacion-como-evitar-que-los-perros-sufran-cuando-vuelvan-a-quedarse-solos-nid24042020/"
+                  isApertura={false}
                   isPowa={true}
                   mediaData={
                     Object {
@@ -937,6 +820,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                       active={false}
                       classCondition=""
                       html=""
+                      idMedia={false}
                       itsGallery={false}
                       outputType="default"
                       scriptForZoom=""
@@ -945,6 +829,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                     >
                       <section
                         className="mod-media   "
+                        id={false}
                         role="button"
                       >
                         <ComFigure
@@ -986,8 +871,8 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                                 <a
                                   href="/lifestyle/ansiedad-por-separacion-como-evitar-que-los-perros-sufran-cuando-vuelvan-a-quedarse-solos-nid24042020/"
                                 >
-                                  <picture
-                                    className="mod-picture "
+                                  <div
+                                    className="placeholder "
                                   >
                                     <ComImage
                                       alt="Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos"
@@ -996,8 +881,8 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                                       height={513}
                                       href=""
                                       isApertura={false}
+                                      sizes="100vw"
                                       src="https://resizer.glanacion.com/resizer/pyiWe6lOY0IToc9Qn7DqM0fOY84=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HWSYUPWYQ5DKDON4ZV74I6MWZU.jpg"
-                                      srcsetAMP={Array []}
                                       svg={false}
                                       target=""
                                       width={768}
@@ -1006,82 +891,17 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                                         alt="Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos"
                                         className="com-image "
                                         height={513}
+                                        importance="low"
                                         loading="lazy"
+                                        sizes="100vw"
                                         src="https://resizer.glanacion.com/resizer/pyiWe6lOY0IToc9Qn7DqM0fOY84=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HWSYUPWYQ5DKDON4ZV74I6MWZU.jpg"
                                         width={768}
                                       />
                                     </ComImage>
-                                  </picture>
+                                  </div>
                                 </a>
                               </ComPicture>
                             </ImageArticle>
-                            <Icon
-                              extraClass=""
-                              href=""
-                              name="close"
-                              negative={true}
-                              size=""
-                            >
-                              <i
-                                className="com-icon icon-close  --negative"
-                              >
-                                <MapperIcon
-                                  name="close"
-                                  r={Object {}}
-                                >
-                                  <Close>
-                                    <svg
-                                      fill="none"
-                                      height="24"
-                                      viewBox="0 0 24 24"
-                                      width="24"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        clip-rule="evenodd"
-                                        d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
-                                        fill="#272727"
-                                        fill-rule="evenodd"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                      />
-                                    </svg>
-                                  </Close>
-                                </MapperIcon>
-                              </i>
-                            </Icon>
-                            <Icon
-                              extraClass=""
-                              href=""
-                              name="zoom"
-                              negative={true}
-                              size=""
-                            >
-                              <i
-                                className="com-icon icon-zoom  --negative"
-                              >
-                                <MapperIcon
-                                  name="zoom"
-                                  r={Object {}}
-                                >
-                                  <Zoom>
-                                    <svg
-                                      fill="none"
-                                      height="24"
-                                      viewBox="0 0 24 24"
-                                      width="24"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        clip-rule="evenodd"
-                                        d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
-                                        fill="#272727"
-                                        fill-rule="evenodd"
-                                      />
-                                    </svg>
-                                  </Zoom>
-                                </MapperIcon>
-                              </i>
-                            </Icon>
                           </figure>
                         </ComFigure>
                       </section>
