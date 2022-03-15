@@ -206,13 +206,14 @@ const LNMainHome = props => {
             dispatch({ type: 'update', payload: 'bloque3' });
         }
 
+        createObservers();
+
         if (!lastSectionSaw || !lastScrollPosition) return;
         const lastBlockSaw = sectionsWithBlocks[lastSectionSaw];
         dispatch({ type: 'update', payload: lastBlockSaw });
 
         const timer = setTimeout(() => {
             window.scrollTo(0, lastScrollPosition);
-            createObservers();
         }, 1000);
 
         return () => {
