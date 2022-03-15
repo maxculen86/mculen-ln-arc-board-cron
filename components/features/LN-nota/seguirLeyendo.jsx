@@ -35,6 +35,9 @@ const seguirLeyendo = ({ globalContent }) => {
     );
 };
 
+seguirLeyendo.label = 'LN-Nota-SeguirLeyendo';
+seguirLeyendo.lazy = true;
+
 seguirLeyendo.propTypes = {
     globalContent: PropTypes.shape({
         related_content: PropTypes.shape({
@@ -50,7 +53,5 @@ seguirLeyendo.propTypes = {
         })
     })
 };
-
-seguirLeyendo.label = 'LN-Nota-SeguirLeyendo';
 
 export default Consumer(seguirLeyendo);

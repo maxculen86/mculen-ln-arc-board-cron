@@ -30,7 +30,7 @@ export default {
         site: 'datadoghq.com',
         forwardErrorsToLogs: true,
         sampleRateLog: 1,
-        sampleRateRum: 0.1,
+        sampleRateRum: 0.15,
         service: 'lanacion-arc',
         env: 'prod',
         trackInteractions: true,

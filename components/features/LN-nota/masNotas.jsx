@@ -129,6 +129,7 @@ const masNotas = props => {
 };
 
 masNotas.label = 'LN-Nota-masNotas';
+masNotas.lazy = true;
 
 masNotas.propTypes = {
     id: PropTypes.string,
@@ -155,7 +156,8 @@ masNotas.propTypes = {
                 path: PropTypes.string
             })
         })
-    })
+    }),
+    arcSite: PropTypes.string
 };
 
 export default Consumer(masNotas);

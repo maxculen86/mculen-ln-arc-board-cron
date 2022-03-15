@@ -206,8 +206,10 @@ const reMeHandler = (res, token, xvalue, dispatch) => {
         setCookie('xvalue', xvalue);
         setupCookies(JSON.parse(res.response) || {});
         _UserClientLibs('RefreshAsync')();
+    } else {
+        /**TODO: Chequear handler de errores borrados en la eliminación del switch */
+        goToLogout(dispatch);
     }
-    goToLogout(dispatch);
 };
 
 export const loginSetup = dispatch => {

@@ -96,6 +96,7 @@ const Amp = props => {
                 <meta charset="utf-8" />
                 <meta name="viewport" content="width=device-width" />
                 <meta name="theme-color" content="#ffffff" />
+                <meta name="google" content="notranslate" />
                 <MetaTitle
                     subtype={subtype}
                     metaTitleBasic={metaTitleBasic}

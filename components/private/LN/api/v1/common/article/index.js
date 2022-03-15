@@ -2,6 +2,7 @@
 import get from 'lodash.get';
 import Image from '../image';
 import { authorHomeMobile, articleSignature } from '../author';
+import matchObject from '../utils/matchObject';
 
 const getArticleImage = article => {
     const imagedefault =
@@ -61,6 +62,11 @@ export const articleItem = article => {
     const autores = getArticleAuthor(article);
     const autor = autores ? autores[0] : null;
     const signature = get(article, 'additionalProperties.authors', null);
+    const sentToApps = get(article, 'label.enviar_a_apps.text', null);
+    const enviarApps =
+        matchObject(article, 'contains') === false
+            ? matchObject(article, 'contains')
+            : !(sentToApps && sentToApps.toLowerCase() === 'no');
     return {
         id,
         templateId: Number.isInteger(templateId)
@@ -79,7 +85,8 @@ export const articleItem = article => {
         marquesina: articleSignature(autores, signature),
         seccionPadre: getArticleOpinionSubtype(article),
         imagen: getArticleImage(article),
-        opinion: get(article, 'additionalProperties.opinion', false)
+        opinion: get(article, 'additionalProperties.opinion', false),
+        enviarApps
     };
 };
 

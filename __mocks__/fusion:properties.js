@@ -1,29 +1,85 @@
-/**
- * Global mock for a fusion:consumer when running
- * unit tests of anything using a consumer HOC.
- *
- * In order to use this mock you must do
- * `import Consumer from 'fusion:consumer';`
- * at the top of your unit test file, this will
- * trigger jest to mock the Consumer import below
- * */
+import React from 'react';
 
-jest.mock('fusion:properties', () => {
-    return function(source) {
-        switch (source) {
-            case 'ott':
-                return require('./data/properties/ottSiteProps');
-            default:
-                return {
-                    sliderConfig: [
+jest.mock('fusion:properties', () => () => ({
+    imageConfig: {
+        resize: {
+            l: {
+                promo_items: {
+                    sizes: [
                         {
-                            name: 'desktop',
-                            lowerRange: 1380,
-                            topRange: null,
-                            pageSize: 4
+                            width: 360,
+                            height: 240,
+                            media: '1024',
+                            proportion: '3:2'
+                        },
+                        {
+                            width: 768,
+                            height: 512,
+                            media: '1024',
+                            proportion: '3:2'
+                        },
+                        {
+                            width: 351,
+                            height: 234,
+                            media: '1024',
+                            proportion: '3:2'
+                        },
+                        {
+                            width: 360,
+                            height: 240,
+                            media: '1024',
+                            proportion: '3:2'
                         }
                     ]
-                };
+                },
+                content_elements: {
+                    sizes: [
+                        {
+                            width: 278,
+                            height: 186,
+                            media: '1024'
+                        },
+                        {
+                            width: 344,
+                            height: 230,
+                            media: '1024'
+                        },
+                        {
+                            width: 768,
+                            height: 513,
+                            media: '(max-width: 375px)'
+                        },
+                        {
+                            width: 350,
+                            height: 234,
+                            media: '(max-width: 375px)'
+                        },
+                        {
+                            width: 360,
+                            height: 234,
+                            media: '(max-width: 375px)'
+                        }
+                    ]
+                },
+                credits: {
+                    sizes: [
+                        {
+                            width: 80,
+                            height: 80,
+                            media: '1024'
+                        }
+                    ]
+                }
+            },
+            default: [
+                {
+                    width: 1033,
+                    height: 768,
+                    media: '1024',
+                    class: 'img-desktop',
+                    media_preload: '1024'
+                }
+            ]
         }
-    };
-});
+    }
+}));

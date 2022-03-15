@@ -12,7 +12,6 @@ const index = acuData => {
         paginar: acuData.paginator > 0,
         titulo: acuData.name
     };
-
     if (acuData.articles) {
         resp.notas = acuData.articles.reduce((result, f) => {
             if (f) {
@@ -27,7 +26,7 @@ const index = acuData => {
         }, []);
     }
     if (acuData.author) {
-        resp.autor = authorAcu(acuData.author);
+        resp.autor = authorAcu(acuData.author, acuData.page);
     }
 
     if (acuData.tag) {
