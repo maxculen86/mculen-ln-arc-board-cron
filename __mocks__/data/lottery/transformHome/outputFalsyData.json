@@ -1,0 +1,34 @@
+[
+    {
+        "name": "",
+        "date": "21/12/1995",
+        "results": [
+            {
+                "name": "Tradicional",
+                "date": "21/12",
+                "result": ["01", "02", "03", "04", "05", "06"]
+            },
+            {
+                "name": "Segunda vuelta",
+                "date": "12/12",
+                "result": []
+            },
+            {
+                "name": "Revancha",
+                "date": "21/12",
+                "result": null
+            }
+        ]
+    },
+    {
+        "name": "Telekino",
+        "date": "21/12/1995",
+        "results": [
+            {
+                "name": "Tradicional",
+                "result": ["03", "04", "05", "06", "07", "08"],
+                "date": "21/12"
+            }
+        ]
+    }
+]
