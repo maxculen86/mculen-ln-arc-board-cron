@@ -79,12 +79,6 @@ export const productClickFromClient = (element = {}) => {
 // };
 
 const createIntersectionObserver = () => {
-    const options = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
     const callback = (entries, observer) => {
         try {
             const articlesToAdd = [];
@@ -109,7 +103,11 @@ const createIntersectionObserver = () => {
         }
     };
 
-    const observer = new IntersectionObserver(callback, options);
+    const observer = new IntersectionObserver(callback, {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    });
 
     document.querySelectorAll('article').forEach(element => {
         if (element) {
@@ -154,8 +152,6 @@ export const createObservers = () => {
         mutationsList.forEach(mutation => {
             mutation.addedNodes.forEach(node => {
                 if (node.dataset.module) {
-                    // if (node.nodeName === 'ARTICLE') {
-                    // interSectionObserver.observe(node);
                     const arts = document.querySelectorAll(
                         `div[data-module=${node.dataset.module}] article`
                     );

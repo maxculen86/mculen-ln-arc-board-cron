@@ -212,9 +212,8 @@ const LNMainHome = props => {
 
         const timer = setTimeout(() => {
             window.scrollTo(0, lastScrollPosition);
+            createObservers();
         }, 1000);
-
-        createObservers();
 
         return () => {
             clearTimeout(timer);
