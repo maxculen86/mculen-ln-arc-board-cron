@@ -5,6 +5,10 @@
     justify-content: space-between;
     margin-bottom: px(8);
 
+    .labeled {
+        color: $light-neutral-600;
+    }
+
     :last-child {
         max-width: 150px;
         text-align: end;

@@ -1,11 +1,13 @@
 import { React } from 'react';
 import PropTypes from 'prop-types';
-import { Text } from '@lana-ui/common';
+import Text from '../../../private/common/text';
+
+import '../../../../../resources/dist/css/ln/components/result-item.css';
 
 const ResultItem = ({ text, result }) => {
     return (
         <div className="result-item">
-            <Text size="5xs" color="gray">
+            <Text size="5xs" className="labeled">
                 {text}
             </Text>
             <Text className="results-secondary" weight="bold" size="5xs">
