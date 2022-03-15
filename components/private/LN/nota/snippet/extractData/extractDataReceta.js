@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import get from '../../../../common/utils/get';
+import getBiggestImage from '../../../common/utils/getBiggestImage';
 
 export const extractDataFromContentElements = contentElements => {
     const instructions = [];
@@ -70,38 +71,42 @@ export const extractDataFromCredits = by => {
     return { autores };
 };
 
-export const extractDataFromPromoItems = promoItems => {
+export const extractDataFromPromoItems = (promoItems, PLACERHOLDER) => {
     let cookTime = '';
     let counterPortion = '';
     let counterTime = '';
-    let image;
+    let image = {
+        '@context': 'https://schema.org',
+        '@type': 'ImageObject',
+        url: PLACERHOLDER,
+        height: '800',
+        width: '1200'
+    };
     let prepTime = '';
 
     if (promoItems) {
-        const { basic } = promoItems;
-        const { type, url } = basic || {};
+        const { basic, receta } = promoItems;
+        const { type, url, height, width } = basic || {};
+        const { bigWidth, bigHeight } = getBiggestImage(basic);
+
         if (type === 'image') {
-            image = url;
+            image = {
+                ...image,
+                url,
+                height: bigHeight ? `${bigHeight}` : `${height}`,
+                width: bigWidth ? `${bigWidth}` : `${width}`
+            };
         }
 
-        if (promoItems.receta) {
+        if (receta) {
             if (
-                promoItems.receta.subtype === 'custom-detalle-receta' &&
-                get(promoItems.receta, 'embed.config.title', '') ===
-                    'detalle-receta'
+                receta.subtype === 'custom-detalle-receta' &&
+                get(receta, 'embed.config.title', '') === 'detalle-receta'
             ) {
-                counterTime = get(
-                    promoItems.receta,
-                    'embed.config.counterTime',
-                    ''
-                );
-                counterPortion = get(
-                    promoItems.receta,
-                    'embed.config.counterPortion',
-                    ''
-                );
-                cookTime = get(promoItems.receta, 'embed.config.cookTime', '');
-                prepTime = get(promoItems.receta, 'embed.config.prepTime', '');
+                counterTime = get(receta, 'embed.config.counterTime', '');
+                counterPortion = get(receta, 'embed.config.counterPortion', '');
+                cookTime = get(receta, 'embed.config.cookTime', '');
+                prepTime = get(receta, 'embed.config.prepTime', '');
             }
         }
     }

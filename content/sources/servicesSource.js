@@ -23,7 +23,7 @@ const fetch = async (query, { cachedCall }) => {
         query: `${CONTENT_BASE}${sectionSourceResolve(query)}`
     });
 
-    const { request: serviceRequest, resolve, reject, transform } =
+    const { request: serviceRequest, resolve, reject } =
         SERVICES[service] || SERVICES.default;
 
     return serviceRequest({
@@ -39,7 +39,6 @@ const fetch = async (query, { cachedCall }) => {
                         ? `detalle-${service}`
                         : `home-${service}`
                 },
-                transform,
                 query
             })
         )
