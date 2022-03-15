@@ -95,6 +95,7 @@ const Amp = props => {
             <head>
                 <meta charset="utf-8" />
                 <meta name="viewport" content="width=device-width" />
+                <LinkImagePreload resizedUrls={resizedUrls} />
                 <meta name="theme-color" content="#ffffff" />
                 <meta name="google" content="notranslate" />
                 <MetaTitle
@@ -131,7 +132,6 @@ const Amp = props => {
                     as="script"
                     href="https://cdn.ampproject.org/v0.js"
                 />
-                <LinkImagePreload resizedUrls={resizedUrls} />
                 <script async src="https://cdn.ampproject.org/v0.js" />
 
                 <AMPScripts
