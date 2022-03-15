@@ -1,0 +1,24 @@
+@import '../../../../../statics/scss/base/variables';
+
+.ball {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: px(30);
+    background: $light-neutral-200;
+
+    &.--small {
+        width: px(32);
+        height: px(32);
+    }
+    &.--large {
+        width: px(40);
+        height: px(40);
+    }
+    &.--grey {
+        background: $light-neutral-200;
+    }
+    &.--blue {
+        background-color: $light-blue-100;
+    }
+}

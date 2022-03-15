@@ -1,0 +1,19 @@
+@import '../../../../../statics/scss/base/variables';
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: px(8);
+
+    :last-child {
+        max-width: 150px;
+        text-align: end;
+    }
+    .results-secondary .text {
+        &:not(:last-child)::after {
+            content: '-';
+            color: $light-neutral-700;
+            margin-right: px(0.5);
+        }
+    }
+}
