@@ -62,7 +62,7 @@ const getName = element => {
 export const productClickFromClient = (element = {}) => {
     const product = getDataSetProps(element.currentTarget);
     if (product.id) {
-        window.dataLayer.push({ event: 'productClickLocal', product });
+        window.dataLayer.push({ event: 'productClickTest', product });
     }
 };
 
@@ -83,12 +83,12 @@ const createIntersectionObserver = () => {
         try {
             const articlesToAdd = [];
             const articlesSeen =
-                JSON.parse(sessionStorage.getItem('seenArticlesLocal')) || [];
+                JSON.parse(sessionStorage.getItem('seenArticlesTest')) || [];
 
             entries.forEach(entry => {
                 if (shouldAddArticle(entry, articlesSeen)) {
                     const product = getDataSetProps(entry.target);
-                    articlesToAdd.push({ id: product.id, name: product.name });
+                    articlesToAdd.push(product);
                     observer.unobserve(entry.target);
                 }
             });
@@ -132,15 +132,19 @@ const addEventImpressionToDataLayer = (
 ) => {
     if (articlesToAdd.length > 0) {
         window.dataLayer.push({
-            event: 'impressionsLocal',
+            event: 'impressionsTest',
             products: articlesToAdd
         });
 
         articlesSeen.push(...articlesToAdd);
 
         sessionStorage.setItem(
-            'seenArticlesLocal',
-            JSON.stringify(articlesSeen)
+            'seenArticlesTest',
+            JSON.stringify(
+                articlesSeen.map(art => {
+                    return { id: art.id, name: art.name };
+                })
+            )
         );
     }
 };

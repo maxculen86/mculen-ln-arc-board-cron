@@ -113,7 +113,7 @@ describe('Viewability', () => {
 
             arts.first().simulate('click');
             expect(window.dataLayer.length).toBe(1);
-            expect(window.dataLayer[0].event).toBe('productClickLocal');
+            expect(window.dataLayer[0].event).toBe('productClickTest');
             expect(window.dataLayer[0].product).toBeTruthy();
             expect(window.dataLayer[0].product.position).toBe('0101');
             expect(window.dataLayer[0].product.id).toBe(
@@ -128,7 +128,7 @@ describe('Viewability', () => {
 
             arts.last().simulate('click');
             expect(window.dataLayer.length).toBe(2);
-            expect(window.dataLayer[1].event).toBe('productClickLocal');
+            expect(window.dataLayer[1].event).toBe('productClickTest');
             expect(window.dataLayer[1].product).toBeTruthy();
             expect(window.dataLayer[1].product.position).toBe('0103');
             expect(window.dataLayer[1].product.id).toBe(
@@ -157,7 +157,7 @@ describe('Viewability', () => {
 
             artsSeccion2.first().simulate('click');
             expect(window.dataLayer.length).toBe(3);
-            expect(window.dataLayer[2].event).toBe('productClickLocal');
+            expect(window.dataLayer[2].event).toBe('productClickTest');
             expect(window.dataLayer[2].product).toBeTruthy();
             expect(window.dataLayer[2].product.position).toBe('0201');
             expect(window.dataLayer[2].product.id).toBe(
@@ -170,7 +170,7 @@ describe('Viewability', () => {
 
             artsSeccion2.last().simulate('click');
             expect(window.dataLayer.length).toBe(4);
-            expect(window.dataLayer[3].event).toBe('productClickLocal');
+            expect(window.dataLayer[3].event).toBe('productClickTest');
             expect(window.dataLayer[3].product).toBeTruthy();
             expect(window.dataLayer[3].product.position).toBe('0203');
             expect(window.dataLayer[3].product.id).toBe(
@@ -209,7 +209,7 @@ describe('Viewability', () => {
             expect(artsFocalRight.length).toBe(2);
             artsFocalRight.last().simulate('click');
             expect(window.dataLayer.length).toBe(5);
-            expect(window.dataLayer[4].event).toBe('productClickLocal');
+            expect(window.dataLayer[4].event).toBe('productClickTest');
             expect(window.dataLayer[4].product.position).toBe('0102');
             expect(window.dataLayer[4].product.id).toBe(
                 'AQCXKYK4XJCVFNFNZ2IQ7SUCA4'
@@ -268,7 +268,7 @@ describe('Viewability', () => {
             expect(artsOpinion.length).toBe(4);
             artsOpinion.last().simulate('click');
             expect(window.dataLayer.length).toBe(6);
-            expect(window.dataLayer[5].event).toBe('productClickLocal');
+            expect(window.dataLayer[5].event).toBe('productClickTest');
             expect(window.dataLayer[5].product.position).toBe('9804');
             expect(window.dataLayer[5].product.id).toBe(
                 'KEBOPEQGFASKHASFSFAFSF'
@@ -280,7 +280,7 @@ describe('Viewability', () => {
 
             artsOpinion.first().simulate('click');
             expect(window.dataLayer.length).toBe(7);
-            expect(window.dataLayer[6].event).toBe('productClickLocal');
+            expect(window.dataLayer[6].event).toBe('productClickTest');
             expect(window.dataLayer[6].product.position).toBe('9801');
             expect(window.dataLayer[6].product.id).toBe(
                 'K2FFK3J6DNCX3D76BQ6D7FLQNE'
@@ -312,7 +312,7 @@ describe('Viewability', () => {
             expect(artsOpinion.length).toBe(2);
             artsOpinion.last().simulate('click');
             expect(window.dataLayer.length).toBe(8);
-            expect(window.dataLayer[7].event).toBe('productClickLocal');
+            expect(window.dataLayer[7].event).toBe('productClickTest');
             expect(window.dataLayer[7].product.position).toBe('9902');
             expect(window.dataLayer[7].product.id).toBe(
                 'AQCXKYK4XJCVFNFNZ2IQ7SUCA4'
@@ -347,7 +347,7 @@ describe('Viewability', () => {
             expect(artBomba.length).toBe(1);
             artBomba.first().simulate('click');
             expect(window.dataLayer.length).toBe(9);
-            expect(window.dataLayer[8].event).toBe('productClickLocal');
+            expect(window.dataLayer[8].event).toBe('productClickTest');
             expect(window.dataLayer[8].product.position).toBe('0001');
             expect(window.dataLayer[8].product.id).toBe(
                 'K2FFK3J6DNCX3D76BQ6D7FLQNE'
