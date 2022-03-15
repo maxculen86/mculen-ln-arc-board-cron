@@ -109,12 +109,11 @@ export const LinkImagePreload = ({ resizedUrls = [] }) => {
 
     return (
         <link
-            as="image"
-            id="preload-img"
             rel="preload"
-            imagesrcset={imagesrcset}
-            imagesizes={imagesizes}
+            as="image"
             href={biggestImage.resizedUrl}
+            imagesizes={`${imagesizes.filter(Boolean)}100vw`}
+            imagesrcset={imagesrcset}
         />
     );
 };
