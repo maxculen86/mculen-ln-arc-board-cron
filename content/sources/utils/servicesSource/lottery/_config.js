@@ -1,7 +1,7 @@
 export const games = {
-    quiniela_nacional: {},
-    quiniela_provincia: {},
-    quiniela_de_cordoba: {
+    Quiniela_Nacional: {},
+    Quiniela_Provincia: {},
+    Quiniela_de_Cordoba: {
         rules: [
             {
                 text: '¿Cómo jugar a la Quiniela de Córdoba?',
@@ -17,9 +17,9 @@ export const games = {
             }
         ]
     },
-    quiniela_de_santa_fe: {},
-    quiniela_uruguaya: {},
-    quini_6: {
+    Quiniela_de_Santa_Fe: {},
+    Quiniela_Uruguaya: {},
+    Quini_6: {
         rules: [
             {
                 text: '¿Cómo jugar al Quini 6? ¿Qué es el Quini 6?',
@@ -31,8 +31,8 @@ export const games = {
             }
         ]
     },
-    telekino: {},
-    loto: {
+    Telekino: {},
+    Loto: {
         rules: [
             {
                 text: '¿Cómo jugar al Loto?',
@@ -41,8 +41,8 @@ export const games = {
             }
         ]
     },
-    loto_5: {},
-    quiniela_poceada: {
+    Loto_5: {},
+    Quiniela_Poceada: {
         rules: [
             {
                 text: '¿Cómo jugar a la Quiniela Poceada?',
@@ -51,13 +51,41 @@ export const games = {
             }
         ]
     },
-    quiniela_plus: {},
-    brinco: {}
+    Quiniela_Plus: {},
+    Brinco: {}
 };
 
 export const meanings = {
-    Tradicional: {},
-    Nombres: {},
-    Animales: {},
-    LoteriaNacional: {}
+    Tradicional: {
+        title: 'Tradicional',
+        link:
+            'https://www.lanacion.com.ar/loterias/significado-de-los-numeros-tradicional-nidNNNNNN/',
+        linkTitle:
+            'Ver el significado de sueños y números para loterías y quinielas',
+        icon: 'traditional'
+    },
+    Nombres: {
+        title: 'Nombres',
+        link:
+            'https://www.lanacion.com.ar/loterias/significado-de-los-numeros-nombres-nidNNNNNN/',
+        linkTitle:
+            'Ver el significado de sueños según los animales y números para loterías y quinielas',
+        icon: 'names'
+    },
+    Animales: {
+        title: 'Animales',
+        link:
+            'https://www.lanacion.com.ar/loterias/significado-de-los-numeros-animales-nidNNNNNN/',
+        linkTitle:
+            'Ver el significado de sueños según los nombres y números para loterías y quinielas',
+        icon: 'animals'
+    },
+    LoteriaNacional: {
+        title: 'Loteria Nacional',
+        link:
+            'https://www.lanacion.com.ar/loterias/significado-de-los-numeros-loteria-nacional-nidNNNNNN/',
+        linkTitle:
+            'Ver el significado de los sueños y números según la lotería nacional',
+        icon: 'national'
+    }
 };

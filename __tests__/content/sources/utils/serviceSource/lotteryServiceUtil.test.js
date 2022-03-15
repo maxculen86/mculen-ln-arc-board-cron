@@ -1,11 +1,21 @@
 import 'regenerator-runtime/runtime';
-import lotteryMock from '../../../../../__mocks__/data/lottery/lotteryMock.json';
-import lottery from '../../../../../content/sources/utils/servicesSource/utils/lottery';
-import error404 from '../../../../../__mocks__/data/logger/error404.json';
+import error404 from '../../../../../__mocks__/data/logger/error404';
+import lotteryMock from '../../../../../__mocks__/data/lottery/lotteryMock';
+import lottery from '../../../../../content/sources/utils/servicesSource/lottery/lottery';
+import inputResultsMock from '../../../../../__mocks__/data/lottery/transformHome/inputResultsMock';
+import inputOrderMock from '../../../../../__mocks__/data/lottery/transformHome/inputOrderMock';
+import inputExtraPropsMock from '../../../../../__mocks__/data/lottery/transformHome/inputExtraPropsMock';
+import inputFalsyData from '../../../../../__mocks__/data/lottery/transformHome/inputFalsyData';
+import inputApiResponse from '../../../../../__mocks__/data/lottery/transformHome/inputApiResponse';
+import outputResultsMock from '../../../../../__mocks__/data/lottery/transformHome/outputResultsMock';
+import outputOrderMock from '../../../../../__mocks__/data/lottery/transformHome/outputOrderMock';
+import outputExtraPropsMock from '../../../../../__mocks__/data/lottery/transformHome/outputExtraPropsMock';
+import outputFalsyData from '../../../../../__mocks__/data/lottery/transformHome/outputFalsyData';
+import outputApiResponse from '../../../../../__mocks__/data/lottery/transformHome/outputApiResponse';
 
 const mockResponse = lotteryMock;
 
-const { getUri, request: lotteryRequest, resolve, reject } = lottery;
+const { getUri, request: lotteryRequest, resolve, reject, transform } = lottery;
 
 jest.mock('request-promise-native', () => {
     return {
@@ -44,13 +54,25 @@ describe('Tests lottery request', () => {
     });
 });
 
-describe('Tests resolve function', () => {
-    it('Should return the transformed response', () => {
-        const res = {
-            query: {},
-            response: [{ name: 'Quini 6', id: 'quini_6' }]
-        };
-        expect(resolve(res)).toStrictEqual(res.response);
+describe('Tests transform home function', () => {
+    it('Should check that results are being added to the lottery', () => {
+        expect(transform(inputResultsMock)).toStrictEqual(outputResultsMock);
+    });
+
+    it('Should reorder lotteries based on config order', () => {
+        expect(transform(inputOrderMock)).toStrictEqual(outputOrderMock);
+    });
+
+    it('Should check extra properties like letters, jackspot and estimated_pot', () => {
+        expect(transform(inputExtraPropsMock)).toStrictEqual(
+            outputExtraPropsMock
+        );
+    });
+    it('should recieve falsy data', () => {
+        expect(transform(inputFalsyData)).toStrictEqual(outputFalsyData);
+    });
+    it('Should check api response', () => {
+        expect(transform(inputApiResponse)).toStrictEqual(outputApiResponse);
     });
 });
 
@@ -60,5 +82,15 @@ describe('Tests reject function', () => {
         expect(() => {
             reject(error);
         }).toThrow();
+    });
+});
+
+describe('Tests resolve function', () => {
+    it('Should return the transformed response', () => {
+        const res = {
+            query: {},
+            response: { dataService: { items: [] }, serviceType: '' }
+        };
+        expect(resolve(res)).toStrictEqual([]);
     });
 });
