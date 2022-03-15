@@ -123,14 +123,14 @@ export const buildScriptForZoom = (mediaData, subtype) => {
 
 export const buildScriptResizeSSRInfography = (promoItems = {}) => {
     const idMedia =
-        get(promoItems, 'basic._id') ||
-        get(promoItems, 'apertura_multimedia._id');
+        get(promoItems, 'apertura_multimedia._id') ||
+        get(promoItems, 'basic._id');
     const type =
-        get(promoItems, 'basic.type') ||
-        get(promoItems, 'apertura_multimedia.type');
+        get(promoItems, 'apertura_multimedia.type') ||
+        get(promoItems, 'basic.type');
     const content =
-        get(promoItems, 'basic.content') ||
-        get(promoItems, 'apertura_multimedia.content');
+        get(promoItems, 'apertura_multimedia.content') ||
+        get(promoItems, 'basic.content');
 
     const htmlNode = content ? parse(content.trim()).firstChild : {};
     const { src } = htmlNode.attributes || {};
