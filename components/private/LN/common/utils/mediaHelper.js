@@ -75,6 +75,39 @@ export const getSourceSet = (isVertical, image, sourceActive = []) => {
     return srcset;
 };
 
+export const LinkImagePreload = ({ resizedUrls = [] }) => {
+    const imagesrcset = [];
+    const imagesizes = [];
+
+    const biggestImage = resizedUrls.reduce(
+        (prev, curr) =>
+            get(prev, 'option.width', 0) > get(curr, 'option.width', 0)
+                ? prev
+                : curr,
+        {}
+    );
+
+    resizedUrls.forEach(x => {
+        imagesrcset.push(`${x.resizedUrl} ${x.option.width}w`);
+        imagesizes.push(
+            x.option.media && `${x.option.media} ${x.option.width}px`
+        );
+    });
+
+    imagesizes.filter(Boolean);
+
+    return (
+        <link
+            as="image"
+            id="preload-img"
+            rel="preload"
+            imagesrcset={imagesrcset}
+            imagesizes={imagesizes}
+            href={biggestImage.resizedUrl}
+        />
+    );
+};
+
 export const buildScriptForZoom = (mediaData, subtype) => {
     const { width = 0, _id: idMedia, type } = mediaData || {};
     return (

@@ -22,6 +22,7 @@ import getSectionName from '../private/LN/common/utils/getSectionName';
 import MeteringAMP from '../private/common/scriptManager/meteringAMP';
 import Favicon from '../private/common/favicon';
 import get from '../private/common/utils/get';
+import { LinkImagePreload } from '../private/LN/common/utils/mediaHelper';
 // import { getBiggestImage } from 'components/private/LN/nota/snippet/noticia';
 
 /**
@@ -83,36 +84,12 @@ const Amp = props => {
     const metaTitleValue = metaValue('title') || title || 'LA NACION';
     const dataLayerAmp = dataLayerIndexAmp(arcSite, layout, globalContent);
     const _nodeType = getSectionName({ nodeType, type });
+    const resizedUrls = get(
+        globalContent,
+        'promo_items.basic.resized_urls',
+        []
+    );
 
-    const LinkImagePreload = () => {
-        const images = get(globalContent, 'promo_items.basic.resized_urls', []);
-        const imagesrcset = [];
-        const imagesizes = [];
-
-        const biggestImage = images.reduce(
-            (prev, curr) =>
-                get(prev, 'option.width', 0) > get(curr, 'option.width', 0)
-                    ? prev
-                    : curr,
-            {}
-        );
-
-        images.forEach(x => {
-            imagesrcset.push(`${x.resizedUrl} ${x.option.width}w`);
-            imagesizes.push(`${x.option.media_preload} ${x.option.width}px`);
-        });
-
-        return (
-            <link
-                as="image"
-                id="preload-img"
-                rel="preload"
-                imagesrcset={imagesrcset}
-                imagesizes={imagesizes}
-                href={biggestImage.resizedUrl}
-            />
-        );
-    };
     return (
         <html amp={String.fromCodePoint(9889)} lang="es">
             <head>
@@ -153,7 +130,7 @@ const Amp = props => {
                     as="script"
                     href="https://cdn.ampproject.org/v0.js"
                 />
-                {LinkImagePreload()}
+                <LinkImagePreload resizedUrls={resizedUrls} />
                 <script async src="https://cdn.ampproject.org/v0.js" />
 
                 <AMPScripts
