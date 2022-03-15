@@ -2,7 +2,13 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import StaticValidation from '../../../private/common/staticValidation';
 import ServiceMiniCard from '../../../private/common/serviceMiniCard';
-import { meanings } from '../../../../content/sources/utils/servicesSource/lottery/_config';
+import Brinco from '../../../private/LN/services/lotteries/Brinco';
+import { meanings } from '../../../../content/sources/utils/servicesSource/_config';
+
+import '../../../../resources/dist/css/ln/components/lotteries.css';
+import '../../../../resources/dist/css/ln/components/result-item.css';
+import '../../../../resources/dist/css/ln/components/label-text.css';
+import '../../../../resources/dist/css/ln/components/ball-lotteries.css';
 
 const MEANINGS_MOCK = [
     {
@@ -35,6 +41,25 @@ const MEANINGS_MOCK = [
     }
 ];
 
+const MOCK_GAMES = {
+    name: 'Brinco',
+    link: 'kkk',
+    date: '00/00/0000',
+    estimated_pot: '$900000',
+    results: [
+        {
+            name: 'Tradicional',
+            result: ['01', '02', '04', '03', '05', '06'],
+            date: '00/00/0000'
+        },
+        {
+            name: 'Brinco junior',
+            result: ['01', '02', '04', '03', '05', '06'],
+            date: '00/00/0000'
+        }
+    ]
+};
+
 const LotteryMeanings = ({ id: featureId }) => {
     return (
         <StaticValidation id={featureId} htmlOnly persistent>
@@ -50,6 +75,7 @@ const LotteryMeanings = ({ id: featureId }) => {
                     />
                 ))}
             </div>
+            <Brinco {...MOCK_GAMES} />
         </StaticValidation>
     );
 };

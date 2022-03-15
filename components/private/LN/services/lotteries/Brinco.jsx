@@ -6,8 +6,6 @@ import BallLotteries from './BallLoteries';
 import LabelText from './LabelText';
 import ResultItem from './ResultItem';
 
-import '../../../../../resources/dist/css/ln/components/lotteries.css';
-
 const Brinco = ({ name, estimatedPot, date, results, isDetail, link }) => {
     const arrResults = results.slice(1, 5);
 

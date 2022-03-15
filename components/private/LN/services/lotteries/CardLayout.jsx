@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from '../../../private/common/com-link';
-import Text from '../../../private/common/text';
+import Link from '../../../../private/common/com-link';
+import Text from '../../../../private/common/text';
 
 import '../../../../../resources/dist/css/ln/components/lotteries.css';
 

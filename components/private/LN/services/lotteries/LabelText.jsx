@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Text from '../../../private/common/text';
-
-import '../../../../../resources/dist/css/ln/components/label-text.css';
+import Text from '../../../../private/common/text';
 
 const LabelText = ({ text, className, size }) => {
     const classes = `label-text ${className}`;
