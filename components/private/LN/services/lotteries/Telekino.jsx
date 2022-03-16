@@ -7,8 +7,6 @@ import LabelText from './LabelText';
 import ResultItem from './ResultItem';
 import { setTraditionFirst } from './utils';
 
-import '../../../../../resources/dist/css/ln/components/lotteries.css';
-
 const Telekino = ({ name, date, results, isDetail, link }) => {
     const resultsTomap = setTraditionFirst(results);
     const arrResults = resultsTomap.slice(1, 5);
