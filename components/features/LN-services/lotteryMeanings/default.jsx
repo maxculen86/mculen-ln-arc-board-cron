@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import StaticValidation from '../../../private/common/staticValidation';
 import ServiceMiniCard from '../../../private/common/serviceMiniCard';
-import { meanings } from '../../../../content/sources/utils/servicesSource/_config';
+import { meanings } from '../../../../content/sources/utils/servicesSource/lottery/_config';
 
 const MEANINGS_MOCK = [
     {
