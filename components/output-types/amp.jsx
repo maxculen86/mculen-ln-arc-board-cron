@@ -129,6 +129,13 @@ const Amp = props => {
                     syndication={syndication}
                 />
                 <FontPreloads />
+                <AMPCustomStyle
+                    layout={layout}
+                    arcSite={arcSite}
+                    Resource={Resource}
+                    contextPath={contextPath}
+                    deployment={deployment}
+                />
                 <link
                     rel="preload"
                     as="script"
@@ -143,13 +150,6 @@ const Amp = props => {
                     globalContent={globalContent}
                 />
 
-                <AMPCustomStyle
-                    layout={layout}
-                    arcSite={arcSite}
-                    Resource={Resource}
-                    contextPath={contextPath}
-                    deployment={deployment}
-                />
                 <style amp-boilerplate="">{_AMPBoilerplate}</style>
                 <noscript
                     dangerouslySetInnerHTML={{
