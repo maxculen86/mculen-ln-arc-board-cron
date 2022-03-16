@@ -86,6 +86,38 @@ export const getSizes = (sources = []) => {
         : [];
 };
 
+export const LinkImagePreload = ({ resizedUrls = [] }) => {
+    const imagesrcset = [];
+    const imagesizes = [];
+
+    const biggestImage = resizedUrls.reduce(
+        (prev, curr) =>
+            get(prev, 'option.width', 0) > get(curr, 'option.width', 0)
+                ? prev
+                : curr,
+        {}
+    );
+
+    resizedUrls.forEach(x => {
+        imagesrcset.push(`${x.resizedUrl} ${x.option.width}w`);
+        imagesizes.push(
+            x.option.media && `${x.option.media} ${x.option.width}px`
+        );
+    });
+
+    imagesizes.filter(Boolean);
+
+    return (
+        <link
+            rel="preload"
+            as="image"
+            href={biggestImage.resizedUrl}
+            imagesizes={`${imagesizes.filter(Boolean)}100vw`}
+            imagesrcset={imagesrcset}
+        />
+    );
+};
+
 export const buildScriptForZoom = (mediaData, subtype) => {
     const { width = 0, _id: idMedia, type } = mediaData || {};
     return (
