@@ -6,12 +6,10 @@ import ComLink from './com-link';
 
 import '../../../resources/dist/css/ln/components/com-image.css';
 import '../../../resources/dist/css/ln/modules/mod-media.css';
-
 const ComImage = props => {
     const {
         src,
         srcset,
-        srcsetAMP,
         alt,
         layout,
         classCondition,
@@ -21,7 +19,8 @@ const ComImage = props => {
         href,
         target,
         isApertura,
-        svg
+        svg,
+        sizes
     } = props;
 
     if (!src) return null;
@@ -31,7 +30,7 @@ const ComImage = props => {
         alt,
         width,
         height,
-        ...(amp && srcsetAMP && { srcSet: srcsetAMP })
+        sizes
     };
 
     const classes = `${svg ? '' : 'com-image'} ${classCondition || ''}`;
@@ -42,11 +41,13 @@ const ComImage = props => {
             className={classes}
             srcSet={srcset}
             loading={isApertura ? 'eager' : 'lazy'}
+            importance={isApertura ? 'high' : 'low'}
         />
     );
     const imageAmp = (
         <amp-img
             {...commonProps}
+            srcSet={srcset}
             class={classes}
             layout={layout || 'responsive'}
             data-hero={isApertura ? true : undefined}
@@ -72,7 +73,6 @@ const ComImage = props => {
 ComImage.propTypes = {
     src: PropTypes.string.isRequired,
     srcset: PropTypes.string,
-    srcsetAMP: PropTypes.string,
     alt: PropTypes.string,
     classCondition: PropTypes.string,
     amp: PropTypes.bool.isRequired,
@@ -81,20 +81,21 @@ ComImage.propTypes = {
     href: PropTypes.string,
     target: PropTypes.string,
     layout: PropTypes.string,
+    sizes: PropTypes.string,
     isApertura: PropTypes.bool,
     svg: PropTypes.bool
 };
 
 ComImage.defaultProps = {
     srcset: undefined,
-    srcsetAMP: '',
     classCondition: '',
     href: '',
     alt: undefined,
     target: '',
     layout: undefined,
     isApertura: false,
-    svg: false
+    svg: false,
+    sizes: undefined
 };
 
 export default ComImage;

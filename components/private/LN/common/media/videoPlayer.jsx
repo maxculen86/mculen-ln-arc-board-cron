@@ -88,9 +88,9 @@ const video = ({
         )) || (
             <figure className="mod-figure">
                 <a href={href}>
-                    <picture className="mod-picture">
+                    <div className="placeholder">
                         <ModVideo video={mainStream.url} autoplay muted loop />
-                    </picture>
+                    </div>
                 </a>
             </figure>
         )

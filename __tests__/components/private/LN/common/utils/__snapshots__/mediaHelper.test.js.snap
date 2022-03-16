@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Private - LN - Common - Utils -> mediaHelper Deberia retornar script al ser llamado con los parametros correctos, con promo_items.basic 1`] = `
+<script
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "
+                window.addEventListener(\\"DOMContentLoaded\\", () => {
+                    const pymIframe = new pym.Parent(\\"anexo-6POSMWEMKZCZBHINVUG3F4O3BY\\", \\"https://especialess3.lanacion.com.ar/18/mundial/mundial2018-historicos/\\", {});
+                });",
+    }
+  }
+  defer={true}
+  type="text/javascript"
+/>
+`;

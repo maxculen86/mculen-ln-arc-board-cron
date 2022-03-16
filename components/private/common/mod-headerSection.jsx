@@ -17,9 +17,12 @@ const ModheaderSection = props => {
         image,
         classCondition,
         link,
-        outputType
+        outputType,
+        customTitle
     } = props;
-    const { width, height, url } = image;
+    const { caption, width, height, url } = image;
+    const roofTitle = title || caption || 'LA NACION';
+
     if (!title && !url) return null;
 
     const Image = url && (
@@ -27,17 +30,24 @@ const ModheaderSection = props => {
             width={width}
             height={height}
             src={url}
-            alt={title}
+            alt={roofTitle}
             amp={outputType === 'amp'}
         />
     );
 
-    const modLogoImage = link ? <ComLink link={link}>{Image}</ComLink> : Image;
+    const modLogoImage = link ? (
+        <ComLink link={link} title={roofTitle}>
+            {Image}
+        </ComLink>
+    ) : (
+        Image
+    );
 
     return (
         <section
             className={`mod-headersection ${classCondition} ${line &&
                 '--line'}`}
+            role="contentinfo"
         >
             {!Image ? (
                 <ComTitle
@@ -45,6 +55,7 @@ const ModheaderSection = props => {
                     tag={tag}
                     content={title}
                     link={addForwardSLash(link)}
+                    customTitle={customTitle}
                 />
             ) : (
                 <div className="mod-logo">{modLogoImage}</div>
@@ -60,12 +71,14 @@ ModheaderSection.propTypes = {
     tag: PropTypes.string,
     line: PropTypes.bool,
     size: PropTypes.string,
-    outputType: PropTypes.string.isRequired,
+    outputType: PropTypes.string,
     image: PropTypes.shape({
-        width: PropTypes.string.isRequired,
-        height: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired
-    })
+        caption: PropTypes.string,
+        width: PropTypes.number,
+        height: PropTypes.number,
+        url: PropTypes.string
+    }),
+    customTitle: PropTypes.string
 };
 
 ModheaderSection.defaultProps = {
@@ -75,7 +88,9 @@ ModheaderSection.defaultProps = {
     line: true,
     size: '--l',
     tag: 'h3',
-    image: {}
+    image: {},
+    outputType: 'default',
+    customTitle: undefined
 };
 
 export default withImage(ModheaderSection);

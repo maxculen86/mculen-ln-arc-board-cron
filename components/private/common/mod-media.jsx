@@ -7,7 +7,7 @@ import HtmlAMP from '../LN/nota/cuerpo/htmlAMP';
 import OptaAMP from '../LN/nota/cuerpo/optaAMP';
 
 const renderHtml = (html, _id, isAmp) => {
-    if (!isAmp) return <Html data={{ content: html }} />;
+    if (!isAmp) return <Html data={{ content: html, _id }} />;
     if (html.includes('opta-widget'))
         return <OptaAMP data={{ content: html, _id }} />;
 

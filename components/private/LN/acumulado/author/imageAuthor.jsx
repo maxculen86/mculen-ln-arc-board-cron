@@ -5,7 +5,7 @@ import ComImage from '../../../common/com-image';
 const ImageAuthor = ({ outputType, url, name }) => {
     return (
         <figure className="mod-figure --horizontal">
-            <div className="mod-picture ">
+            <div className="placeholder ">
                 <ComImage
                     src={url}
                     srcset={url}

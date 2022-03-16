@@ -1,7 +1,7 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 
-.mod-picture {
+.placeholder {
     position: relative;
     background: $light-neutral-200;
     display: block;
@@ -13,7 +13,7 @@
 
     //100% mobile
     @include fullwidth;
-    &.mod-picture {
+    &.placeholder {
         .mod-wikiauthor.mod-wikiauthor & {
             border-radius: 50%;
             padding-top: 100%;
@@ -72,7 +72,7 @@
 .mod-opening,
 .--horizontal,
 .--vertical {
-    .mod-picture {
+    .placeholder {
         overflow: hidden;
         display: flex;
         justify-content: center;
@@ -107,18 +107,18 @@
 
 //.mod-caja-nota,
 .--horizontal {
-    .mod-picture.mod-picture {
+    .placeholder.placeholder {
         padding-top: $picture;
     }
 }
 
 .--vertical {
-    .mod-picture {
+    .placeholder {
         padding-top: calc((4 / 3) * 100%);
     }
     @media ($media-m) {
         .--zoom.--active:not(.--slider) & {
-            .mod-picture {
+            .placeholder {
                 padding-top: initial;
             }
         }
@@ -127,8 +127,8 @@
 
 .cuerpo__nota {
     .mod-media:not(.--slider) {
-        .--horizontal.--horizontal .mod-picture.mod-picture,
-        .--vertical.--vertical .mod-picture.mod-picture {
+        .--horizontal.--horizontal .placeholder.placeholder,
+        .--vertical.--vertical .placeholder.placeholder {
             padding: 0;
             .com-image {
                 position: relative;

@@ -133,6 +133,7 @@ const CajaTema = props => {
                         imageId={imageId}
                         title={title}
                         link={url}
+                        customTitle={!hideTitle && title}
                     />
                 )}
                 <ModRowGap typeArticle={layoutName} column={notesQuantity}>
