@@ -3,7 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import StaticValidation from '../../../private/common/staticValidation';
 import ServiceMiniCard from '../../../private/common/serviceMiniCard';
 // import LotoPlus from '../../../private/LN/services/lotteries/LotoPlus';
-import { meanings } from '../../../../content/sources/utils/servicesSource/_config';
+import { meanings } from '../../../../content/sources/utils/servicesSource/lottery/_config';
 
 // import '../../../../resources/dist/css/ln/components/lotteries.css';
 // import '../../../../resources/dist/css/ln/components/result-item.css';
