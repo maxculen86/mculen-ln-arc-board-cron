@@ -5,11 +5,13 @@ import CardLayout from './CardLayout';
 import BallLotteries from './BallLoteries';
 import LabelText from './LabelText';
 import ResultItem from './ResultItem';
+import { setTraditionFirst } from './utils';
 
 import '../../../../../resources/dist/css/ln/components/lotteries.css';
 
 const Telekino = ({ name, date, results, isDetail, link }) => {
-    const arrResults = results.slice(1, 5);
+    const resultsTomap = setTraditionFirst(results);
+    const arrResults = resultsTomap.slice(1, 5);
 
     return (
         <CardLayout
@@ -21,16 +23,13 @@ const Telekino = ({ name, date, results, isDetail, link }) => {
             <div
                 className={`main-result --telekino ${isDetail && '--detalle'}`}
             >
-                {!isDetail && <LabelText text={results[0].name} />}
-                <div
-                    className={`box-result --grid-5-columns ${isDetail &&
-                        'detail'}`}
-                >
-                    {results[0].result.map(number => (
+                {!isDetail && <LabelText text={resultsTomap[0].name} />}
+                <div className={`traditional ${isDetail && 'detail'}`}>
+                    {resultsTomap[0].result.map(number => (
                         <BallLotteries
                             key={number}
                             number={number}
-                            size="large"
+                            size="small"
                         />
                     ))}
                 </div>

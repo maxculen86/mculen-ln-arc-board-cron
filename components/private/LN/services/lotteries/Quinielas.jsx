@@ -6,8 +6,6 @@ import LabelText from './LabelText';
 import Text from '../../../private/common/text';
 import ResultItem from './ResultItem';
 
-import '../../../../../resources/dist/css/ln/components/lotteries.css';
-
 const Quinielas = ({ name, date, results, link, letters }) => {
     return (
         <CardLayout title={name} subtitle={date} link={link} linkTitle={name}>

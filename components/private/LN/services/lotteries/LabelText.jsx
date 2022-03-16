@@ -6,9 +6,12 @@ const LabelText = ({ text, className, size }) => {
     const classes = `label-text ${className}`;
 
     return (
-        <Text weight="bold" size={`${size}` || '4xs'} className={classes}>
-            {text}
-        </Text>
+        <Text
+            weight="bold"
+            size={`${size}` || '4xs'}
+            extraClass={classes}
+            text={text}
+        />
     );
 };
 

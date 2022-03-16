@@ -3,38 +3,29 @@ import PropTypes from 'prop-types';
 import Link from '../../../../private/common/com-link';
 import Text from '../../../../private/common/text';
 
-import '../../../../../resources/dist/css/ln/components/lotteries.css';
-
-const CardLayout = ({
-    className,
-    title,
-    subtitle,
-    link,
-    linkTitle,
-    children
-}) => {
+const CardLayout = ({ className, title, subtitle, link, children }) => {
     const classes = `card-lotteries ${className}`;
+    const linkTitle = `Resultados del sorteo ${title}`;
 
     return (
         <article className={classes}>
-            <div className="header">
+            <div className="header-lotteries">
                 {link ? (
-                    <Link href={link} title={linkTitle} text={title} />
+                    <Link link={link} title={linkTitle} textname={title} />
                 ) : (
-                    <Text size="2xs" weight="bold">
-                        {title}
-                    </Text>
+                    <Text size="2xs" weight="bold" text={title} />
                 )}
-                <Text size="5xs" className="subtitle">
-                    {subtitle}
-                </Text>
+                <Text size="5xs" extraClass="subtitle" text={subtitle} />
             </div>
             {children}
-            <Link
-                href={link}
-                text={`Resultados del sorteo ${linkTitle}`}
-                className="footer-link"
-            />
+            {link && (
+                <Link
+                    link={link}
+                    title={linkTitle}
+                    textname={linkTitle}
+                    classCondition="footer-link-lotteries"
+                />
+            )}
         </article>
     );
 };

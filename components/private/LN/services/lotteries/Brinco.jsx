@@ -5,20 +5,17 @@ import CardLayout from './CardLayout';
 import BallLotteries from './BallLoteries';
 import LabelText from './LabelText';
 import ResultItem from './ResultItem';
+import { setTraditionFirst } from './utils';
 
 const Brinco = ({ name, estimatedPot, date, results, isDetail, link }) => {
-    const arrResults = results.slice(1, 5);
+    const resultsTomap = setTraditionFirst(results);
+    const arrResults = resultsTomap.slice(1, 5);
 
     return (
-        <CardLayout
-            title={name}
-            subtitle={date}
-            link={!isDetail && link}
-            linkTitle={name}
-        >
+        <CardLayout title={name} subtitle={date} link={!isDetail && link}>
             <div className="main-result --brinco">
                 <div className="box-result --brinco">
-                    {results[0].result.map(number => (
+                    {resultsTomap[0].result.map(number => (
                         <BallLotteries
                             key={number}
                             number={number}
@@ -32,8 +29,8 @@ const Brinco = ({ name, estimatedPot, date, results, isDetail, link }) => {
             </div>
             <div className="extra-results --brinco">
                 {!isDetail &&
-                    arrResults.map(({ text, result }) => (
-                        <ResultItem key={text} text={text} result={result} />
+                    arrResults.map(({ name, result }) => (
+                        <ResultItem key={name} text={name} result={result} />
                     ))}
             </div>
         </CardLayout>

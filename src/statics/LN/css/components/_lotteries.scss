@@ -13,10 +13,12 @@
         max-width: px(340);
     }
 
-    .header {
+    .header-lotteries {
         display: flex;
         flex-direction: column;
-        .link {
+
+        .com-link {
+            color: $light-neutral-600;
             font-size: px(16);
             font-weight: 700;
         }
@@ -25,8 +27,7 @@
         }
     }
 
-    .footer-link {
-        color: $blue-500;
+    .footer-link-lotteries {
         font-size: px(12);
     }
 
@@ -78,14 +79,15 @@
         }
 
         .traditional {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 100%;
+
             &.--loto-plus {
                 display: flex;
                 flex-direction: row;
-
-                .--loto-plus {
-                    justify-content: center;
-                    flex-direction: row;
-                }
+                justify-content: center;
 
                 .jackpot-result {
                     flex-direction: column;
@@ -139,14 +141,22 @@
     .extra-results {
         margin-top: auto;
 
+        .result-item .results-secondary .com-text {
+            &:not(:last-child):after {
+                content: '-';
+                color: $light-neutral-700;
+                margin-right: px(0.5);
+            }
+        }
+
         &.--loto-plus {
-            .result-item:first-child .results-secondary .text {
+            .result-item:first-child .results-secondary .com-text {
                 &:nth-last-child(-n + 2) {
                     color: $light-neutral-500;
                 }
             }
 
-            .result-item:last-child .results-secondary .text {
+            .result-item:last-child .results-secondary .com-text {
                 &:nth-last-child(-n + 4) {
                     color: $light-neutral-500;
                 }

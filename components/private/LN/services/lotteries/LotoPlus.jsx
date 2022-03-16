@@ -5,24 +5,19 @@ import CardLayout from './CardLayout';
 import BallLotteries from './BallLoteries';
 import LabelText from './LabelText';
 import ResultItem from './ResultItem';
-
-import '../../../../../resources/dist/css/ln/components/lotteries.css';
+import { setTraditionFirst } from './utils';
 
 const LotoPlus = ({ name, jackpot, date, results, isDetail, link }) => {
-    const arrResults = results.slice(1, 5);
+    const resultsTomap = setTraditionFirst(results);
+    const arrResults = resultsTomap.slice(1, 5);
 
     return (
-        <CardLayout
-            title={name}
-            subtitle={date}
-            link={!isDetail && link}
-            linkTitle={name}
-        >
+        <CardLayout title={name} subtitle={date} link={!isDetail && link}>
             <div className="main-result --loto-plus">
-                {!isDetail && <LabelText text={results[0].name} />}
+                {!isDetail && <LabelText text={resultsTomap[0].name} />}
                 <div className="traditional --loto-plus">
                     <div className="box-result --loto-plus">
-                        {results[0].result.map(number => (
+                        {resultsTomap[0].result.map(number => (
                             <BallLotteries
                                 key={number}
                                 number={number}
@@ -46,11 +41,11 @@ const LotoPlus = ({ name, jackpot, date, results, isDetail, link }) => {
             </div>
             {!isDetail && (
                 <div className="extra-results --loto-plus">
-                    {arrResults.map(({ nameGame, result, jackpotResult }) => (
+                    {arrResults.map(({ name, result, jackpot }) => (
                         <ResultItem
-                            key={nameGame}
+                            key={name}
                             text={name}
-                            result={[...result, ...jackpotResult]}
+                            result={[...result, ...jackpot]}
                         />
                     ))}
                 </div>

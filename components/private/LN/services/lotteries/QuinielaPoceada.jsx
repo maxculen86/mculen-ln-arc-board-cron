@@ -5,16 +5,9 @@ import CardLayout from './CardLayout';
 import BallLotteries from './BallLoteries';
 import LabelText from './LabelText';
 
-import '../../../../../resources/dist/css/ln/components/lotteries.css';
-
 const QuinielaPoceada = ({ name, date, results, isDetail, link, letters }) => {
     return (
-        <CardLayout
-            title={name}
-            subtitle={date}
-            link={!isDetail && link}
-            linkTitle={name}
-        >
+        <CardLayout title={name} subtitle={date} link={!isDetail && link}>
             <div className={`main-result ${isDetail && '--quiniela-poceada'}`}>
                 <div className="box-result --grid-5-columns">
                     {results[0].result.map(number => (

@@ -5,16 +5,9 @@ import CardLayout from './CardLayout';
 import BallLotteries from './BallLoteries';
 import LabelText from './LabelText';
 
-import '../../../../../resources/dist/css/ln/components/lotteries.css';
-
 const QuinielaPlus = ({ name, date, results, isDetail, link }) => {
     return (
-        <CardLayout
-            title={name}
-            subtitle={date}
-            link={!isDetail && link}
-            linkTitle={name}
-        >
+        <CardLayout title={name} subtitle={date} link={!isDetail && link}>
             <div className="main-result --quini-plus">
                 {!isDetail && <LabelText text={results[0].name} />}
                 <div
