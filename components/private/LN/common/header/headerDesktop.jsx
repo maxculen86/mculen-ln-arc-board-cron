@@ -89,7 +89,7 @@ const HeaderDesktop = ({
     useEffect(() => {
         setLoadingUserData(loading ? ' hlp-none' : '');
         setToken(getCookieCallback('token'));
-    }, [loading, getCookieCallback]);
+    }, [loading, logueado, getCookieCallback]);
 
     const handleClickBuscar = () => {
         dynamicallyLoadScript(
