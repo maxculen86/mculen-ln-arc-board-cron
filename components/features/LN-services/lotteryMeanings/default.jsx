@@ -83,7 +83,6 @@ const LotteryMeanings = ({ id: featureId }) => {
                         labeled="Significado de numeros"
                     />
                 ))} */}
-                hola
             </div>
             <LotoPlus
                 name={MOCK_GAMES.name}
