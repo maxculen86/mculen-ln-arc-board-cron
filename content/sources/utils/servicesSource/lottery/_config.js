@@ -1,7 +1,10 @@
 export const games = {
-    Quiniela_Nacional: {},
-    Quiniela_Provincia: {},
+    Quiniela_Nacional: {
+        url: '/loterias/quiniela-nacional/'
+    },
+    Quiniela_Provincia: { url: '/loterias/quiniela-provincia/' },
     Quiniela_de_Cordoba: {
+        url: '/loterias/quiniela-cordoba/',
         rules: [
             {
                 text: '¿Cómo jugar a la Quiniela de Córdoba?',
@@ -17,9 +20,10 @@ export const games = {
             }
         ]
     },
-    Quiniela_de_Santa_Fe: {},
-    Quiniela_Uruguaya: {},
+    Quiniela_de_Santa_Fe: { url: '/loterias/quiniela-santa-fe/' },
+    Quiniela_Uruguaya: { url: '/loterias/quiniela-montevideo/' },
     Quini_6: {
+        url: '/loterias/quini-6/',
         rules: [
             {
                 text: '¿Cómo jugar al Quini 6? ¿Qué es el Quini 6?',
@@ -31,8 +35,9 @@ export const games = {
             }
         ]
     },
-    Telekino: {},
+    Telekino: { url: '/loterias/telekino/' },
     Loto: {
+        url: '/loterias/loto/',
         rules: [
             {
                 text: '¿Cómo jugar al Loto?',
@@ -41,8 +46,9 @@ export const games = {
             }
         ]
     },
-    Loto_5: {},
+    Loto_5: { url: '/loterias/loto-5/' },
     Quiniela_Poceada: {
+        url: '/loterias/quiniela-poceada/',
         rules: [
             {
                 text: '¿Cómo jugar a la Quiniela Poceada?',
@@ -51,8 +57,8 @@ export const games = {
             }
         ]
     },
-    Quiniela_Plus: {},
-    Brinco: {}
+    Quiniela_Plus: { url: '/loterias/quiniela-plus/' },
+    Brinco: { url: '/loterias/brinco/' }
 };
 
 export const LOTERIES_IDS = {
