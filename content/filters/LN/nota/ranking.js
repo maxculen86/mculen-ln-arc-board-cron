@@ -10,33 +10,36 @@ const image = `
 `;
 
 export default `{
-type
-content_elements {    
-        _id
-        subtype
-        promo_items {
-            basic {
-                ${image}
+    _id
+    size
+    name
+    articles {    
+            _id
+            subtype
+            promo_items {
+                basic {
+                    ${image}
+                }
             }
-        }
-        credits {
-            by {
-                name
-                type
+            credits {
+                by {
+                    name
+                    type
+                }
             }
+            headlines {
+                basic
+                mobile
+            }
+            related_content
+            label {
+                volanta {
+                    text
+                }
+            }
+            subheadlines
+            canonical_url
+            display_date
+            website_url
         }
-        headlines {
-            basic
-            mobile
-        }
-        related_content
-        label {
-            volanta
-            recomendar
-        }
-        subheadlines
-        canonical_url
-        display_date
-        website_url
-    }
 }`;
