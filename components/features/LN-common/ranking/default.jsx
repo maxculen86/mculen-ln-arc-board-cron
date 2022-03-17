@@ -1,13 +1,32 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
+import { useContent as getContent } from 'fusion:content';
 import StaticValidation from '../../../private/common/staticValidation';
 import CajaTema from '../../../private/LN/common/cajaTema';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
-import { getSectionId, getSectionParentId, getDataContent } from './_helper';
+import { getSectionId, getSectionParentId, hasArticles } from './_helper';
 import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
 
 import '../../../../resources/dist/css/ln/components/ranking.css';
+
+const getDataContent = (sectionId, sectionParentId, website) => {
+    const getRankingData = section =>
+        getContent({
+            source: 'rankingArticlesSource',
+            query: {
+                sectionId: section,
+                imageConfig: 'boxArticles',
+                website
+            }
+        });
+
+    const data = getRankingData(sectionId);
+
+    if (!sectionId || !sectionParentId) return data || {};
+
+    return (hasArticles(data) && data) || getRankingData(sectionParentId);
+};
 
 const getComponentForHome = (component, size = 4) =>
     component || getPlaceholder(`ranking${size}`);
