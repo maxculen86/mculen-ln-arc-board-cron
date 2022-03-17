@@ -1,22 +1,25 @@
 import request from 'request-promise-native';
 import logger from '../../../../../components/private/common/utils/logger';
 import { transformLotteryHome, transformLotteryDetail } from './lotteryHelper';
+import { LOTERIES_IDS } from './_config';
 
 const getUri = ({ service = '', serviceItem = '' }) => {
     if (service)
-        return `https://arcservices.lanacion.com.ar/servicios/${service}/`.concat(
-            serviceItem || ''
+        return `https://dev-arcservices.lanacion.com.ar/api/v1/lotteries/`.concat(
+            LOTERIES_IDS[serviceItem] || ''
         );
 
     throw new Error('Debe definir un servicio ó servicio e item.');
 };
 
-const lotteryRequest = ({ queryData, auth } = {}) =>
-    request({
+const lotteryRequest = ({ queryData, auth } = {}) => {
+    const opt = {
         uri: getUri(queryData),
         json: true,
         ...auth
-    });
+    };
+    return request(opt).then(data => data);
+};
 
 const resolve = ({ response = {} }) => transform(response);
 
@@ -25,10 +28,17 @@ const reject = ({ error, uri, arcSite }) => {
 };
 
 const transform = data => {
-    const { serviceType, dataService } = data;
-    return serviceType.includes('home')
-        ? transformLotteryHome(dataService.items)
-        : transformLotteryDetail(dataService.items);
+    const { serviceType, dataService, sectionSourceData } = data;
+
+    return {
+        serviceType,
+        ...sectionSourceData,
+        dataService: {
+            ...(serviceType.includes('home')
+                ? { ...transformLotteryHome(dataService.items) }
+                : { ...transformLotteryDetail(dataService.items) })
+        }
+    };
 };
 
 export default {

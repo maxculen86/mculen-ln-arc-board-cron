@@ -22,7 +22,7 @@ import outputQuiniProvincia from '../../../../../__mocks__/data/lottery/transfor
 import outputTelekino from '../../../../../__mocks__/data/lottery/transformDetail/outputTelekino';
 import outputLotoPLus from '../../../../../__mocks__/data/lottery/transformDetail/outputLotoPlus';
 
-const mockResponse = lotteryMock;
+const mockResponse = Promise.resolve(lotteryMock);
 
 const { getUri, request: lotteryRequest, resolve, reject, transform } = lottery;
 
@@ -42,11 +42,11 @@ describe('Test getUri function', () => {
         expect(
             getUri({ service: 'loterias', serviceItem: 'telekino' })
         ).toStrictEqual(
-            'https://arcservices.lanacion.com.ar/servicios/loterias/telekino'
+            'https://dev-arcservices.lanacion.com.ar/api/v1/lotteries/Telekino'
         );
 
         expect(getUri({ service: 'loterias', serviceItem: '' })).toStrictEqual(
-            'https://arcservices.lanacion.com.ar/servicios/loterias/'
+            'https://dev-arcservices.lanacion.com.ar/api/v1/lotteries/'
         );
 
         expect(() => {
@@ -117,6 +117,9 @@ describe('Tests resolve function', () => {
             query: {},
             response: { dataService: { items: [] }, serviceType: 'home' }
         };
-        expect(resolve(res)).toStrictEqual([]);
+        expect(resolve(res)).toStrictEqual({
+            dataService: {},
+            serviceType: ''
+        });
     });
 });

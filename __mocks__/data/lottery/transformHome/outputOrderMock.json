@@ -1,134 +1,89 @@
-[
-    {
-        "name": "Quiniela Nacional",
-        "date": "00/00/0000",
-        "results": [
-            {
-                "name": "Tradicional",
-                "result": [],
-                "date": "00/00"
-            }
-        ]
+{
+    "dataService": {
+        "0": {
+            "date": "00/00/0000",
+            "name": "Quiniela Nacional",
+            "results": [
+                { "date": "00/00", "name": "Tradicional", "result": [] }
+            ]
+        },
+        "1": {
+            "date": "00/00/0000",
+            "name": "Quiniela Provincia",
+            "results": [
+                { "date": "00/00", "name": "Tradicional", "result": [] }
+            ]
+        },
+        "10": {
+            "date": "00/00/0000",
+            "name": "Quiniela Plus",
+            "results": [
+                { "date": "00/00", "name": "Tradicional", "result": [] }
+            ]
+        },
+        "11": {
+            "date": "00/00/0000",
+            "name": "Brinco",
+            "results": [
+                { "date": "00/00", "name": "Tradicional", "result": [] }
+            ]
+        },
+        "2": {
+            "date": "00/00/0000",
+            "name": "Quiniela de Cordoba",
+            "results": [
+                { "date": "00/00", "name": "Tradicional", "result": [] }
+            ]
+        },
+        "3": {
+            "date": "00/00/0000",
+            "name": "Quiniela de Santa Fe",
+            "results": [
+                { "date": "00/00", "name": "Tradicional", "result": [] }
+            ]
+        },
+        "4": {
+            "date": "00/00/0000",
+            "name": "Quiniela Uruguaya",
+            "results": [
+                { "date": "00/00", "name": "Tradicional", "result": [] }
+            ]
+        },
+        "5": {
+            "date": "00/00/0000",
+            "name": "Quini 6",
+            "results": [
+                { "date": "00/00", "name": "Tradicional", "result": [] }
+            ]
+        },
+        "6": {
+            "date": "00/00/0000",
+            "name": "Telekino",
+            "results": [
+                { "date": "00/00", "name": "Tradicional", "result": [] }
+            ]
+        },
+        "7": {
+            "date": "00/00/0000",
+            "name": "Loto",
+            "results": [
+                { "date": "00/00", "name": "Tradicional", "result": [] }
+            ]
+        },
+        "8": {
+            "date": "00/00/0000",
+            "name": "Loto 5",
+            "results": [
+                { "date": "00/00", "name": "Tradicional", "result": [] }
+            ]
+        },
+        "9": {
+            "date": "00/00/0000",
+            "name": "Quiniela Poceada",
+            "results": [
+                { "date": "00/00", "name": "Tradicional", "result": [] }
+            ]
+        }
     },
-    {
-        "name": "Quiniela Provincia",
-        "date": "00/00/0000",
-        "results": [
-            {
-                "name": "Tradicional",
-                "result": [],
-                "date": "00/00"
-            }
-        ]
-    },
-    {
-        "name": "Quiniela de Cordoba",
-        "date": "00/00/0000",
-        "results": [
-            {
-                "name": "Tradicional",
-                "result": [],
-                "date": "00/00"
-            }
-        ]
-    },
-    {
-        "name": "Quiniela de Santa Fe",
-        "date": "00/00/0000",
-        "results": [
-            {
-                "name": "Tradicional",
-                "result": [],
-                "date": "00/00"
-            }
-        ]
-    },
-    {
-        "name": "Quiniela Uruguaya",
-        "date": "00/00/0000",
-        "results": [
-            {
-                "name": "Tradicional",
-                "result": [],
-                "date": "00/00"
-            }
-        ]
-    },
-    {
-        "name": "Quini 6",
-        "date": "00/00/0000",
-        "results": [
-            {
-                "name": "Tradicional",
-                "result": [],
-                "date": "00/00"
-            }
-        ]
-    },
-    {
-        "name": "Telekino",
-        "date": "00/00/0000",
-        "results": [
-            {
-                "name": "Tradicional",
-                "result": [],
-                "date": "00/00"
-            }
-        ]
-    },
-    {
-        "name": "Loto",
-        "date": "00/00/0000",
-        "results": [
-            {
-                "name": "Tradicional",
-                "result": [],
-                "date": "00/00"
-            }
-        ]
-    },
-    {
-        "name": "Loto 5",
-        "date": "00/00/0000",
-        "results": [
-            {
-                "name": "Tradicional",
-                "result": [],
-                "date": "00/00"
-            }
-        ]
-    },
-    {
-        "name": "Quiniela Poceada",
-        "date": "00/00/0000",
-        "results": [
-            {
-                "name": "Tradicional",
-                "result": [],
-                "date": "00/00"
-            }
-        ]
-    },
-    {
-        "name": "Quiniela Plus",
-        "date": "00/00/0000",
-        "results": [
-            {
-                "name": "Tradicional",
-                "result": [],
-                "date": "00/00"
-            }
-        ]
-    },
-    {
-        "name": "Brinco",
-        "date": "00/00/0000",
-        "results": [
-            {
-                "name": "Tradicional",
-                "result": [],
-                "date": "00/00"
-            }
-        ]
-    }
-]
+    "serviceType": "home"
+}

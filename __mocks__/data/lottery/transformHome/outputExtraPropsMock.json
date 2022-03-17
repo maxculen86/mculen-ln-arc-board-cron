@@ -1,39 +1,42 @@
-[
-    {
-        "name": "Loto",
-        "date": "12/05/2022",
-        "estimated_pot": "907.000.000,00",
-        "results": [
-            {
-                "name": "Tradicional",
-                "result": ["01", "02", "03", "04", "05", "06"],
-                "jackpot": ["4", "8"],
-                "date": "12/05"
-            },
-            {
-                "name": "Desquite",
-                "result": ["02", "03", "04", "05", "06", "07"],
-                "jackpot": ["1", "3"],
-                "date": "12/12"
-            },
-            {
-                "name": "Sale o sale",
-                "result": ["03", "04", "05", "06", "07", "08"],
-                "jackpot": ["3", "5", "6", "9"],
-                "date": "05/06"
-            }
-        ]
+{
+    "dataService": {
+        "0": {
+            "date": "12/05/2022",
+            "estimated_pot": "907.000.000,00",
+            "name": "Loto",
+            "results": [
+                {
+                    "date": "12/05",
+                    "jackpot": ["4", "8"],
+                    "name": "Tradicional",
+                    "result": ["01", "02", "03", "04", "05", "06"]
+                },
+                {
+                    "date": "12/12",
+                    "jackpot": ["1", "3"],
+                    "name": "Desquite",
+                    "result": ["02", "03", "04", "05", "06", "07"]
+                },
+                {
+                    "date": "05/06",
+                    "jackpot": ["3", "5", "6", "9"],
+                    "name": "Sale o sale",
+                    "result": ["03", "04", "05", "06", "07", "08"]
+                }
+            ]
+        },
+        "1": {
+            "date": "24/02/2022",
+            "letters": ["A", "B", "C", "D"],
+            "name": "Quiniela Poceada",
+            "results": [
+                {
+                    "date": "24/02",
+                    "name": "Tradicional",
+                    "result": ["07", "21", "29", "30", "33", "37"]
+                }
+            ]
+        }
     },
-    {
-        "name": "Quiniela Poceada",
-        "date": "24/02/2022",
-        "letters": ["A", "B", "C", "D"],
-        "results": [
-            {
-                "name": "Tradicional",
-                "result": ["07", "21", "29", "30", "33", "37"],
-                "date": "24/02"
-            }
-        ]
-    }
-]
+    "serviceType": "home"
+}
