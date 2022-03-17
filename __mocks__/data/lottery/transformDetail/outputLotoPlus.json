@@ -1,0 +1,126 @@
+[
+    {
+        "name": "Loto",
+        "id": "Loto",
+        "lottery_draw_id": "Desquite",
+        "date": "2022-03-12T22:00:00",
+        "results": ["01", "09", "18", "28", "31", "40"],
+        "jackpot": ["4", "5"],
+        "winners_table": [
+            {
+                "name": "6+2",
+                "winners": "Vacante",
+                "amount": "$662.944.408"
+            },
+            {
+                "name": "6+1",
+                "winners": "Vacante",
+                "amount": "$76.022.298"
+            },
+            {
+                "name": "6",
+                "winners": "Vacante",
+                "amount": "$25.170.770"
+            }
+        ]
+    },
+    {
+        "name": "Loto",
+        "id": "Loto",
+        "lottery_draw_id": "Sale_o_sale",
+        "date": "2022-03-12T22:00:00",
+        "results": ["03", "14", "20", "25", "26", "28"],
+        "jackpot": ["0", "9", "4", "5"],
+        "winners_table": [
+            {
+                "name": "5+2",
+                "winners": "0",
+                "amount": "$500.000"
+            },
+            {
+                "name": "6",
+                "winners": "0",
+                "amount": "$25.170.770"
+            },
+            {
+                "name": "5",
+                "winners": "18",
+                "amount": "$344.559"
+            },
+            {
+                "name": "6+2",
+                "winners": "0",
+                "amount": "$662.944.408"
+            },
+            {
+                "name": "5+1",
+                "winners": "0",
+                "amount": "$130.000"
+            },
+            {
+                "name": "6+1",
+                "winners": "0",
+                "amount": "$76.022.298"
+            }
+        ]
+    },
+    {
+        "name": "Loto",
+        "id": "Loto",
+        "lottery_draw_id": "Tradicional",
+        "date": "2022-03-12T22:00:00",
+        "results": ["08", "19", "20", "27", "29", "40"],
+        "jackpot": ["0", "9"],
+        "estimated_pot": "949.000.000",
+        "winners_table": [
+            {
+                "name": "4+1"
+            },
+            {
+                "name": "3+2"
+            },
+            {
+                "name": "4"
+            },
+            {
+                "name": "6+2",
+                "winners": "Vacante",
+                "amount": "$662.944.408"
+            },
+            {
+                "name": "6+1",
+                "winners": "Vacante",
+                "amount": "$76.022.298"
+            },
+            {
+                "name": "6",
+                "winners": "Vacante",
+                "amount": "$25.170.770"
+            },
+            {
+                "name": "3"
+            },
+            {
+                "name": "5+1",
+                "winners": "4",
+                "amount": "$130.000"
+            },
+            {
+                "name": "5",
+                "winners": "13",
+                "amount": "$50.000"
+            },
+            {
+                "name": "4+2"
+            },
+            {
+                "name": "3+1"
+            },
+            {
+                "name": "5+2",
+                "winners": "1",
+                "amount": "$500.000"
+            }
+        ]
+    }
+]

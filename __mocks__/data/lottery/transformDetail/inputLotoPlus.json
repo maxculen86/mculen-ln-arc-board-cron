@@ -1,0 +1,145 @@
+{
+    "dataService": {
+        "items": [
+            {
+                "prizes": [
+                    {
+                        "name": "6 aciertos + 2 jackpot",
+                        "winners": "Vacante",
+                        "amount": "$662.944.408"
+                    },
+                    {
+                        "name": "6 aciertos + 1 jackpot",
+                        "winners": "Vacante",
+                        "amount": "$76.022.298"
+                    },
+                    {
+                        "name": "6 aciertos",
+                        "winners": "Vacante",
+                        "amount": "$25.170.770"
+                    }
+                ],
+                "id": "Loto",
+                "name": "Loto",
+                "lottery_draw_id": "Desquite",
+                "date": "2022-03-12T22:00:00",
+                "results": ["01", "09", "18", "28", "31", "40"],
+                "additional_properties": {
+                    "jackpot": ["4", "5"]
+                }
+            },
+            {
+                "prizes": [
+                    {
+                        "name": "5 aciertos + 2 jackpot",
+                        "winners": "0",
+                        "amount": "$500.000"
+                    },
+                    {
+                        "name": "6 aciertos",
+                        "winners": "0",
+                        "amount": "$25.170.770"
+                    },
+                    {
+                        "name": "5 aciertos",
+                        "winners": "18",
+                        "amount": "$344.559"
+                    },
+                    {
+                        "name": "6 aciertos + 2 jackpot",
+                        "winners": "0",
+                        "amount": "$662.944.408"
+                    },
+                    {
+                        "name": "5 aciertos + 1 jackpot",
+                        "winners": "0",
+                        "amount": "$130.000"
+                    },
+                    {
+                        "name": "6 aciertos + 1 jackpot",
+                        "winners": "0",
+                        "amount": "$76.022.298"
+                    }
+                ],
+                "id": "Loto",
+                "name": "Loto",
+                "lottery_draw_id": "Sale_o_sale",
+                "date": "2022-03-12T22:00:00",
+                "results": ["03", "14", "20", "25", "26", "28"],
+                "additional_properties": {
+                    "jackpot": ["0", "9", "4", "5"]
+                }
+            },
+            {
+                "prizes": [
+                    {
+                        "name": "4 aciertos + 1 jackpot",
+                        "amount": ""
+                    },
+                    {
+                        "name": "3 aciertos + 2 jackpot",
+                        "amount": ""
+                    },
+                    {
+                        "name": "4 aciertos",
+                        "amount": ""
+                    },
+                    {
+                        "name": "6 aciertos + 2 jackpot",
+                        "winners": "Vacante",
+                        "amount": "$662.944.408"
+                    },
+                    {
+                        "name": "6 aciertos + 1 jackpot",
+                        "winners": "Vacante",
+                        "amount": "$76.022.298"
+                    },
+                    {
+                        "name": "6 aciertos",
+                        "winners": "Vacante",
+                        "amount": "$25.170.770"
+                    },
+                    {
+                        "name": "3 aciertos",
+                        "amount": ""
+                    },
+                    {
+                        "name": "5 aciertos + 1 jackpot",
+                        "winners": "4",
+                        "amount": "$130.000"
+                    },
+                    {
+                        "name": "5 aciertos",
+                        "winners": "13",
+                        "amount": "$50.000"
+                    },
+                    {
+                        "name": "4 aciertos + 2 jackpot",
+                        "amount": ""
+                    },
+                    {
+                        "name": "3 aciertos + 1 jackpot",
+                        "amount": ""
+                    },
+                    {
+                        "name": "5 aciertos + 2 jackpot",
+                        "winners": "1",
+                        "amount": "$500.000"
+                    }
+                ],
+                "id": "Loto",
+                "name": "Loto",
+                "lottery_draw_id": "Tradicional",
+                "date": "2022-03-12T22:00:00",
+                "results": ["08", "19", "20", "27", "29", "40"],
+                "additional_properties": {
+                    "jackpot": ["0", "9"],
+                    "estimated_pot": ["949.000.000"]
+                }
+            }
+        ],
+        "creation_date": "3/17/2022 9:25:25 AM",
+        "quantity": 3
+    },
+    "serviceType": "detail"
+}
