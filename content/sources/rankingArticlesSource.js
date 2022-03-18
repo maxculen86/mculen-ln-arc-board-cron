@@ -3,7 +3,7 @@ import { LANACION_SERVICES_URL } from 'fusion:environment';
 import logger from '../../components/private/common/utils/logger';
 import get from '../../components/private/common/utils/get';
 import { isNotRecommend } from './utils/collectionsHelper';
-import filter from '../filters/LN/nota/ranking';
+import filter from '../filters/LN/nota/articleRanking';
 import {
     getCanonicalUrls,
     getQuery,

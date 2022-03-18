@@ -7,6 +7,8 @@ const image = `
     }
     url
     subtitle
+    height
+    width
 `;
 
 export default `{
