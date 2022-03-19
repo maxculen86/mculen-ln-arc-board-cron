@@ -16,7 +16,6 @@ exports[`Private - Common - ModheaderSection =>  ModheaderSection with image and
       <img
         alt="Titulo Separador"
         class="com-image "
-        decoding="async"
         height="100"
         importance="low"
         loading="lazy"
@@ -39,7 +38,6 @@ exports[`Private - Common - ModheaderSection =>  ModheaderSection with image sho
     <img
       alt="Titulo Separador"
       class="com-image "
-      decoding="async"
       height="100"
       importance="low"
       loading="lazy"

@@ -16,7 +16,6 @@ exports[`Features - LN-acumulado - Caja Detalle Signo Feature => Render feature 
         <img
           alt="Tauro"
           class="com-image "
-          decoding="async"
           height="100%"
           importance="low"
           loading="lazy"

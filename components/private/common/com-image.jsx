@@ -37,7 +37,6 @@ const ComImage = props => {
 
     const image = (
         <img
-            decoding="async"
             {...commonProps}
             className={classes}
             srcSet={srcset}

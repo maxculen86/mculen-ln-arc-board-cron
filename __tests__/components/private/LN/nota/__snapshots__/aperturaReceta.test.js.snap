@@ -25,7 +25,6 @@ exports[`features - La Nacion - Components - Nota - AperturaReceta Snapshot - an
             <img
               alt=""
               class="com-image "
-              decoding="async"
               height="230"
               importance="high"
               loading="eager"
