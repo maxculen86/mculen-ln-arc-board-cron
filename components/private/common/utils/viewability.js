@@ -36,9 +36,10 @@ export const productClickFromServer = () => {
 const getDataSetProps = element => {
     if (element) {
         const { dataset: articleDataSet = {} } = element;
-        const { dataset: sectionDataSet = {} } = element.closest(
-            '.box-articles'
-        ) || { dataset: { blockName: 'h_tema-01', diagramacionId: 'h_00' } };
+        const { dataset: sectionDataSet = {} } = (element.closest &&
+            element.closest('.box-articles')) || {
+            dataset: { blockName: 'h_tema-01', diagramacionId: 'h_00' }
+        };
         return {
             position: articleDataSet.pos,
             id: articleDataSet.id,
@@ -78,9 +79,9 @@ export const productClickFromClient = (element = {}) => {
 //     );
 // };
 
-const createIntersectionObserver = () => {
-    const callback = (entries, observer) => {
-        try {
+export const createIntersectionObserver = () => {
+    try {
+        const callback = (entries, observer) => {
             const articlesToAdd = [];
             const articlesSeen =
                 JSON.parse(sessionStorage.getItem('seenArticlesTest')) || [];
@@ -94,28 +95,29 @@ const createIntersectionObserver = () => {
             });
 
             addEventImpressionToDataLayer(articlesToAdd, articlesSeen);
-        } catch (error) {
-            console.error('Error en viewability.js', {
-                error,
-                outputType: 'default',
-                websiteUrl: 'lanacion.com.ar'
-            });
-        }
-    };
+        };
 
-    const observer = new IntersectionObserver(callback, {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    });
+        const observer = new IntersectionObserver(callback, {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        });
 
-    document.querySelectorAll('article').forEach(element => {
-        if (element) {
-            observer.observe(element);
-        }
-    });
+        document.querySelectorAll('article').forEach(element => {
+            if (element) {
+                observer.observe(element);
+            }
+        });
 
-    return observer;
+        return observer;
+    } catch (error) {
+        console.error('Error en viewability.js => createIntersectionObserver', {
+            error,
+            outputType: 'default',
+            websiteUrl: 'lanacion.com.ar'
+        });
+        return {};
+    }
 };
 
 const shouldAddArticle = (entry, articlesSeen) => {
@@ -173,12 +175,12 @@ export const createObservers = () => {
         });
     };
 
-    const targetNode = document.querySelector('#wrapper');
-
-    const config = { attributes: false, childList: true, subtree: true };
-
     const mutationObserver = new MutationObserver(mutationCallback);
-    mutationObserver.observe(targetNode, config);
+    mutationObserver.observe(document.querySelector('#wrapper'), {
+        attributes: false,
+        childList: true,
+        subtree: true
+    });
 
     // mutationObserver.disconnect();
 };

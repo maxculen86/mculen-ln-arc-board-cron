@@ -1,6 +1,9 @@
 import React from 'react';
 import { mount, render, shallow } from 'enzyme';
-import { productClickFromClient } from '../../../../components/private/common/utils/viewability';
+import {
+    createIntersectionObserver,
+    productClickFromClient
+} from '../../../../components/private/common/utils/viewability';
 import CajaTema from '../../../../components/private/LN/common/cajaTema';
 import Consumer from 'fusion:consumer';
 import ModArticle from '../../../../components/private/common/mod-article';
@@ -71,11 +74,6 @@ jest.mock('fusion:properties', () => () => ({
 describe('Viewability', () => {
     beforeAll(() => {
         window.dataLayer = [];
-        jest.useFakeTimers();
-    });
-
-    afterAll(() => {
-        jest.clearAllTimers();
     });
 
     describe('Evento productClick del script viewability', () => {
@@ -357,5 +355,97 @@ describe('Viewability', () => {
             expect(window.dataLayer[8].product.list).toBe('h_tema-01');
             expect(window.dataLayer[8].product.name).toBe('');
         });
+    });
+});
+
+describe('IntersectionObserver', () => {
+    beforeEach(() => {
+        jest.spyOn(window.sessionStorage.__proto__, 'getItem');
+        jest.spyOn(window.sessionStorage.__proto__, 'setItem');
+    });
+
+    afterEach(() => {
+        sessionStorage.getItem.mockRestore();
+        sessionStorage.setItem.mockRestore();
+    });
+    it('Deberia  observe elementos, llamar al callback y ubserve', () => {
+        let h2DOM = global.document.createElement('h2');
+        h2DOM.innerText = 'Nota de Prueba';
+
+        let article = global.document.createElement('article');
+        article.dataset.pos = '0203';
+        article.dataset.id = '2R6O5TWUGJDYJAVGNHXCD5OZTQ';
+        article.dataset.source = 'editor';
+        article.dataset.notaid = '2R6O5TWUGJDYJAVGNHXCD5OZTQ';
+        article.appendChild(h2DOM);
+
+        const mockedEntries = [
+            {
+                isIntersecting: true,
+                target: article
+            }
+        ];
+        const mockedArticle = [article];
+
+        const observe = jest.fn();
+        const unobserve = jest.fn();
+        const takeRecords = jest.fn(() => mockedEntries);
+
+        window.IntersectionObserver = jest.fn(() => ({
+            observe,
+            unobserve,
+            takeRecords
+        }));
+
+        jest.spyOn(document, 'querySelectorAll').mockReturnValueOnce(
+            mockedArticle
+        );
+
+        const observer = createIntersectionObserver();
+        expect(observe).toBeCalledTimes(1);
+
+        const [callback] = window.IntersectionObserver.mock.calls[0];
+        callback(mockedEntries, observer);
+        expect(unobserve).toBeCalledTimes(1);
+
+        expect(window.sessionStorage.getItem).toHaveBeenCalledTimes(1);
+        expect(window.sessionStorage.setItem).toHaveBeenCalledTimes(1);
+        expect(window.sessionStorage.setItem).toHaveBeenCalledWith(
+            'seenArticlesTest',
+            '[{"id":"2R6O5TWUGJDYJAVGNHXCD5OZTQ","name":"Nota de Prueba"}]'
+        );
+
+        /* Se vuelve a llamar con la misma nota que ya registro */
+        callback(mockedEntries, observer);
+        expect(unobserve).toBeCalledTimes(1);
+        expect(window.sessionStorage.getItem).toHaveBeenCalledTimes(2);
+        expect(window.sessionStorage.setItem).toHaveBeenCalledTimes(1);
+
+        /* Se llama con nueva nota */
+        let h2DOM2 = global.document.createElement('h2');
+        h2DOM2.innerText = 'Nota de Prueba 2';
+
+        let article2 = global.document.createElement('article');
+        article2.dataset.pos = '0401';
+        article2.dataset.id = 'AAAAAAAAAAAAAAAAAaa';
+        article2.dataset.source = 'editor';
+        article2.dataset.notaid = 'AAAAAAAAAAAAAAAAAaa';
+        article2.appendChild(h2DOM2);
+
+        const mockedEntries2 = [
+            {
+                isIntersecting: true,
+                target: article2
+            }
+        ];
+
+        callback(mockedEntries2, observer);
+        expect(unobserve).toBeCalledTimes(2);
+        expect(window.sessionStorage.getItem).toHaveBeenCalledTimes(3);
+        expect(window.sessionStorage.setItem).toHaveBeenCalledTimes(2);
+        expect(window.sessionStorage.setItem).toHaveBeenCalledWith(
+            'seenArticlesTest',
+            '[{"id":"2R6O5TWUGJDYJAVGNHXCD5OZTQ","name":"Nota de Prueba"},{"id":"AAAAAAAAAAAAAAAAAaa","name":"Nota de Prueba 2"}]'
+        );
     });
 });
