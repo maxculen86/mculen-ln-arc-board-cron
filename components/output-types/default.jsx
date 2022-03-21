@@ -233,7 +233,6 @@ const Default = props => {
                 {LinkImagePreload()}
                 <FontPreloads />
                 <FontFaceDefault />
-                <Libs />
                 <CriticalCss />
                 {arcSite === 'ott' ? (
                     <link
