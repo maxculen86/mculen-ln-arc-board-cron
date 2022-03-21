@@ -87,7 +87,7 @@ BreadcrumbArticle.propTypes = {
                     label: PropTypes.string
                 })
             )
-        }).isRequired,
+        }),
         owner: PropTypes.shape({
             sponsored: PropTypes.boolean
         })

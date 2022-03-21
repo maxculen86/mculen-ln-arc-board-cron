@@ -208,7 +208,7 @@ const VideoPlayer = props => {
 VideoPlayer.propTypes = {
     videoId: PropTypes.string.isRequired,
     tituloVideo: PropTypes.string.isRequired,
-    arcSite: PropTypes.string.isRequired,
+    arcSite: PropTypes.string,
     enableAds: PropTypes.bool,
     enableAdBar: PropTypes.bool,
     loadVideoOnInit: PropTypes.bool,
@@ -220,7 +220,7 @@ VideoPlayer.propTypes = {
     adsURL: PropTypes.string.isRequired,
     globalContent: PropTypes.shape({
         content_elements: PropTypes.arrayOf(PropTypes.object)
-    }).isRequired,
+    }),
     device: PropTypes.string.isRequired
 };
 
@@ -232,7 +232,9 @@ VideoPlayer.defaultProps = {
     enableAdBar: true,
     muted: false,
     sticky: false,
-    isAdmin: false
+    isAdmin: false,
+    globalContent: {},
+    arcSite: 'la-nacion-ar'
 };
 
 export default Context(VideoPlayer);

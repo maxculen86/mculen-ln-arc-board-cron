@@ -83,10 +83,13 @@ DivBannerSSR.propTypes = {
         dfpId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
         dimensions: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)),
         slotName: PropTypes.string,
-        targeting: PropTypes.shape({
-            seccion: PropTypes.string,
-            sitio: PropTypes.string
-        }),
+        targeting: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.shape({
+                seccion: PropTypes.string,
+                sitio: PropTypes.string
+            })
+        ]),
         sizemap: PropTypes.arrayOf(
             PropTypes.shape({
                 breakpoints: PropTypes.array,

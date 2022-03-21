@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
@@ -154,7 +155,7 @@ CajaTema.propTypes = {
             _id: PropTypes.string
         })
     ).isRequired,
-    outputType: PropTypes.string.isRequired,
+    outputType: PropTypes.string,
     layout: PropTypes.string,
     backgroundColor: PropTypes.string,
     classCondition: PropTypes.string,

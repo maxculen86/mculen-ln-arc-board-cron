@@ -66,7 +66,6 @@ const HeaderDesktop = ({
     logueado,
     loginData,
     goToLogout,
-    host,
     isHome,
     section,
     // headerDark,
@@ -231,7 +230,6 @@ HeaderDesktop.propTypes = {
         loading: PropTypes.bool
     }).isRequired,
     goToLogout: PropTypes.func.isRequired,
-    host: PropTypes.string.isRequired,
     isHome: PropTypes.bool.isRequired,
     // headerDark: PropTypes.string,
     toglleDesplegable: PropTypes.func.isRequired,

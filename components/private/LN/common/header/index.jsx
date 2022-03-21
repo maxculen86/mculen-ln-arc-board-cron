@@ -78,18 +78,25 @@ const Index = props => {
 
 Index.propTypes = {
     outputType: PropTypes.string.isRequired,
-    isAdmin: PropTypes.bool.isRequired,
+    isAdmin: PropTypes.bool,
     siteProperties: PropTypes.shape({
         host: PropTypes.string,
         layoutsName: PropTypes.shape({
             Home: PropTypes.string
         })
-    }).isRequired,
-    layout: PropTypes.string.isRequired,
+    }),
+    layout: PropTypes.string,
     globalContent: PropTypes.shape({
         type: PropTypes.string,
         node_type: PropTypes.string
-    }).isRequired
+    })
+};
+
+Index.defaultProps = {
+    isAdmin: false,
+    siteProperties: {},
+    layout: '',
+    globalContent: {}
 };
 
 const toglleDesplegable = () => {

@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ArticleAcum from './articleAcum';
@@ -34,7 +35,7 @@ NotaApertura.propTypes = {
             _id: PropTypes.string
         })
     ).isRequired,
-    outputType: PropTypes.string.isRequired
+    outputType: PropTypes.string
 };
 
 export default NotaApertura;

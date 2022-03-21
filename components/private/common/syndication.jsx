@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
@@ -25,7 +26,7 @@ const Syndication = ({ type, subtype, syndication, arcSite, outputType }) => {
 Syndication.propTypes = {
     arcSite: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
-    outputType: PropTypes.string.isRequired,
+    outputType: PropTypes.string,
     subtype: PropTypes.string.isRequired,
     syndication: PropTypes.shape({
         external_distribution: PropTypes.bool,

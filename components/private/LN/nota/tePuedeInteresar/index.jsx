@@ -145,7 +145,7 @@ Index.propTypes = {
     cantidadNotas: PropTypes.number.isRequired,
     userId: PropTypes.string,
     sessionId: PropTypes.string,
-    outputType: PropTypes.string.isRequired,
+    outputType: PropTypes.string,
     idArticle: PropTypes.string,
     url: PropTypes.string.isRequired,
     excludeItems: PropTypes.arrayOf(PropTypes.string),
@@ -158,7 +158,8 @@ Index.defaultProps = {
     excludeItems: [],
     idArticle: null,
     sessionId: null,
-    arcSite: 'la-nacion-ar'
+    arcSite: 'la-nacion-ar',
+    outputType: 'default'
 };
 
 export default Consumer(Index);

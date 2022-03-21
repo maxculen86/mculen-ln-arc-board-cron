@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import Static from 'fusion:static';
 import PropTypes from 'fusion:prop-types';
@@ -71,7 +72,7 @@ TechoFeatured.propTypes = {
         })
     }).isRequired,
     id: PropTypes.string.isRequired,
-    outputType: PropTypes.string.isRequired
+    outputType: PropTypes.string
 };
 
 export default TechoFeatured;

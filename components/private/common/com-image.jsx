@@ -75,9 +75,10 @@ ComImage.propTypes = {
     srcset: PropTypes.string,
     alt: PropTypes.string,
     classCondition: PropTypes.string,
-    amp: PropTypes.bool.isRequired,
-    width: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired,
+    amp: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]).isRequired,
+    width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+    height: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+        .isRequired,
     href: PropTypes.string,
     target: PropTypes.string,
     layout: PropTypes.string,

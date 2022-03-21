@@ -235,7 +235,7 @@ Cuerpo.propTypes = {
             dfp_id: PropTypes.number.isRequired
         })
     }).isRequired,
-    outputType: PropTypes.string.isRequired,
+    outputType: PropTypes.string,
     globalContent: PropTypes.shape({
         content_elements: PropTypes.arrayOf(PropTypes.shape()).isRequired
     }).isRequired
