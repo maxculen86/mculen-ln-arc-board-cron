@@ -142,7 +142,7 @@ class Index extends Component {
 }
 
 Index.propTypes = {
-    cantidadNotas: PropTypes.number.isRequired,
+    cantidadNotas: PropTypes.number,
     userId: PropTypes.string,
     sessionId: PropTypes.string,
     outputType: PropTypes.string,
@@ -159,7 +159,8 @@ Index.defaultProps = {
     idArticle: null,
     sessionId: null,
     arcSite: 'la-nacion-ar',
-    outputType: 'default'
+    outputType: 'default',
+    cantidadNotas: 6
 };
 
 export default Consumer(Index);

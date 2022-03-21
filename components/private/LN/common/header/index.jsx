@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React, { useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
@@ -77,7 +78,7 @@ const Index = props => {
 };
 
 Index.propTypes = {
-    outputType: PropTypes.string.isRequired,
+    outputType: PropTypes.string,
     isAdmin: PropTypes.bool,
     siteProperties: PropTypes.shape({
         host: PropTypes.string,

@@ -3,7 +3,7 @@
 /* eslint-disable react/jsx-fragments          */
 
 import React, { useEffect } from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import StaticValidation from '../../../common/staticValidation';
 import Paragraph from './parrafo';
 import PullQuote from './pullQuote';
@@ -239,6 +239,10 @@ Cuerpo.propTypes = {
     globalContent: PropTypes.shape({
         content_elements: PropTypes.arrayOf(PropTypes.shape()).isRequired
     }).isRequired
+};
+
+Cuerpo.defaultProps = {
+    outputType: 'default'
 };
 
 export default Cuerpo;

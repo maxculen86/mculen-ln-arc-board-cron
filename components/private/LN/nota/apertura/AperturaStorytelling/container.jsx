@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Context from 'fusion:context';
@@ -19,7 +20,7 @@ const AperturaStorytelling = props => {
 AperturaStorytelling.propTypes = {
     globalContent: PropTypes.shape({
         subtype: PropTypes.string
-    }).isRequired
+    })
 };
 
 AperturaStorytelling.defaultProps = {};

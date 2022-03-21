@@ -1,8 +1,7 @@
-/* eslint-disable react/require-default-props */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import ModRowGap from '../../common/mod-rowgap';
 import ModHeaderSection from '../../common/mod-headerSection';
 import Opinion from '../../common/opinion';
@@ -160,13 +159,13 @@ CajaTema.propTypes = {
     backgroundColor: PropTypes.string,
     classCondition: PropTypes.string,
     notesQuantity: PropTypes.number,
-    hideTitle: PropTypes.boolean,
-    withSubhead: PropTypes.boolean,
+    hideTitle: PropTypes.bool,
+    withSubhead: PropTypes.bool,
     title: PropTypes.string,
-    titleSize: PropTypes.oneOfType([PropTypes.boolean, PropTypes.string]),
+    titleSize: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     url: PropTypes.string,
     imageId: PropTypes.string,
-    position: PropTypes.oneOfType([PropTypes.boolean, PropTypes.string])
+    position: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
         .isRequired,
     sectionName: PropTypes.string.isRequired,
     _children: PropTypes.arrayOf(PropTypes.node)
@@ -183,7 +182,8 @@ CajaTema.defaultProps = {
     withSubhead: false,
     hideTitle: false,
     notesQuantity: 3,
-    _children: []
+    _children: [],
+    outputType: 'default'
 };
 
 const areEqual = (prevProps, nextProps) =>

@@ -32,14 +32,18 @@ video.propTypes = {
         type: PropTypes.string
     }).isRequired,
     outputType: PropTypes.string,
-    primerParrafo: PropTypes.shape({
-        content: PropTypes.string
-    }).isRequired,
+    primerParrafo: PropTypes.oneOfType([
+        PropTypes.shape({
+            content: PropTypes.string
+        }),
+        PropTypes.string
+    ]).isRequired,
     tituloNota: PropTypes.string
 };
 
 video.defaultProps = {
-    tituloNota: ''
+    tituloNota: '',
+    outputType: 'default'
 };
 
 export default video;
