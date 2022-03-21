@@ -48,11 +48,8 @@ const RankingFeature = ({ id: featureId }) => {
     const isHome = layout === layoutsName.Home;
     const sectionId = getSectionId(globalContent);
     const sectionParentId = getSectionParentId(sectionId);
-    const { name, articles, size } = getDataContent(
-        sectionId,
-        sectionParentId,
-        website || arcSite
-    );
+    const { name, articles, size } =
+        getDataContent(sectionId, sectionParentId, website || arcSite) || {};
 
     const component = articles && articles.length && (
         <CajaTema
