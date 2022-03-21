@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import transformISODate from '../../../../../components/private/common/utils/transformISODate';
-import { games } from './_config';
+import { games, LOCATIONS } from './_config';
+import { getTodayDateForAcuDolar } from '../../../../../components/private/common/utils/dateAndTimeUtil';
 
 export const transformLotteryDetail = data => data;
 
@@ -51,3 +52,45 @@ const transformResult = values =>
             })
         };
     });
+
+const extractGameTypes = (dataService, serviceType) => {
+    const { items } = dataService;
+    return serviceType === 'detalle-loterias'
+        ? items.reduce((acc, lottery) => {
+              lottery.lottery_draw_id && acc.push(lottery.lottery_draw_id);
+              return acc;
+          }, [])
+        : [];
+};
+
+const formatter = new Intl.ListFormat('es', {
+    style: 'long',
+    type: 'conjunction'
+});
+
+const gamesQtyText = {
+    0: '',
+    1: 'y su modalidad:',
+    default: 'y sus modalidades:'
+};
+
+export const metaDataLotteryDetail = (dataService, serviceType) => {
+    const { items } = dataService;
+    const { name: lotteryName, lottery_draw_number = '' } = items[0];
+    const gamesModes = extractGameTypes(dataService, serviceType);
+
+    const singularOrPluralSelector =
+        gamesModes.length >= 2 ? 'default' : gamesModes.length;
+
+    const modalities = `${
+        gamesQtyText[singularOrPluralSelector]
+    } ${formatter.format(gamesModes)}`;
+
+    return {
+        lotteryName,
+        lotteryNumber: lottery_draw_number,
+        modalities,
+        date: getTodayDateForAcuDolar(),
+        location: LOCATIONS[lotteryName]
+    };
+};

@@ -1,6 +1,10 @@
 import request from 'request-promise-native';
 import logger from '../../../../../components/private/common/utils/logger';
-import { transformLotteryHome, transformLotteryDetail } from './lotteryHelper';
+import {
+    transformLotteryHome,
+    transformLotteryDetail,
+    metaDataLotteryDetail
+} from './lotteryHelper';
 import { LOTERIES_IDS } from './_config';
 
 const getUri = ({ service = '', serviceItem = '' }) => {
@@ -37,6 +41,11 @@ const transform = data => {
             ...(serviceType.includes('home')
                 ? { ...transformLotteryHome(dataService.items) }
                 : { ...transformLotteryDetail(dataService.items) })
+        },
+        metaData: {
+            ...(serviceType === 'detalle-loterias'
+                ? { ...metaDataLotteryDetail(dataService, serviceType) }
+                : '')
         }
     };
 };
