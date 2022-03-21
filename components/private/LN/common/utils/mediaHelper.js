@@ -86,17 +86,9 @@ export const getSizes = (sources = []) => {
         : [];
 };
 
-export const LinkImagePreload = ({ resizedUrls = [] }) => {
+export const LinkImagePreload = ({ originalURL, resizedUrls = [] }) => {
     const imagesrcset = [];
     const imagesizes = [];
-
-    const biggestImage = resizedUrls.reduce(
-        (prev, curr) =>
-            get(prev, 'option.width', 0) > get(curr, 'option.width', 0)
-                ? prev
-                : curr,
-        {}
-    );
 
     resizedUrls.forEach(x => {
         imagesrcset.push(`${x.resizedUrl} ${x.option.width}w`);
@@ -105,14 +97,12 @@ export const LinkImagePreload = ({ resizedUrls = [] }) => {
         );
     });
 
-    imagesizes.filter(Boolean);
-
     return (
         <link
             rel="preload"
             as="image"
-            href={biggestImage.resizedUrl}
-            imagesizes={`${imagesizes.filter(Boolean)},100vw`}
+            href={originalURL}
+            // imagesizes={`${imagesizes.filter(Boolean)},100vw`}
             imagesrcset={imagesrcset}
         />
     );
