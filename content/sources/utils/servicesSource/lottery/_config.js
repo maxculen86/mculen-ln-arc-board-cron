@@ -55,6 +55,21 @@ export const games = {
     Brinco: {}
 };
 
+export const LOTERIES_IDS = {
+    'quiniela-nacional': 'Quiniela_Nacional',
+    'quiniela-provincia': 'Quiniela_Provincia',
+    'quiniela-cordoba': 'Quiniela_de_Cordoba',
+    'quiniela-santa-fe': 'Quiniela_de_Santa_Fe',
+    'quiniela-uruguaya': 'Quiniela_Uruguaya',
+    'quini-6': 'Quini_6',
+    telekino: 'Telekino',
+    loto: 'Loto',
+    'loto-5': 'Loto_5',
+    'quiniela-poceada': 'Quiniela_Poceada',
+    'quiniela-plus': 'Quiniela_Plus',
+    brinco: 'Brinco'
+};
+
 export const meanings = {
     Tradicional: {
         title: 'Tradicional',

@@ -1,7 +1,8 @@
 import 'regenerator-runtime/runtime';
 import servicesSource from '../../../content/sources/servicesSource';
 import logger from '../../../components/private/common/utils/logger';
-import * as defaultRequest from '../../../content/sources/utils/defaultRequest';
+import lottery from '../../../content/sources/utils/servicesSource/lottery/lottery';
+import telekinoResponse from '../../../__mocks__/data/lottery/transformDetail/outputTelekino';
 
 jest.mock('../../../components/private/common/utils/logger', () => {
     const push = jest.fn();
@@ -22,15 +23,15 @@ describe('Content Sources - Services Source', () => {
     };
 
     it('Should return data that is sent in a default request', done => {
-        const defaultResponse = {
-            dataService: { ...query },
-            serviceType: 'detalle-loterias'
-        };
+        const requestMockReq = jest.spyOn(lottery, 'request');
+        const requestMockRes = jest.spyOn(lottery, 'resolve');
+        requestMockReq.mockReturnValueOnce(Promise.resolve(telekinoResponse));
+        requestMockRes.mockReturnValueOnce(Promise.resolve(telekinoResponse));
 
         fetch(query, {
             cachedCall: jest.fn()
         })
-            .then(response => expect(response).toStrictEqual(defaultResponse))
+            .then(response => expect(response).toStrictEqual(telekinoResponse))
             .then(done);
     });
 
@@ -52,7 +53,7 @@ describe('Content Sources - Services Source', () => {
     });
 
     it('Should reject request', done => {
-        const requestMock = jest.spyOn(defaultRequest.default, 'resolve');
+        const requestMock = jest.spyOn(lottery, 'resolve');
 
         requestMock.mockImplementation(() => {
             throw new Error();

@@ -1,23 +1,28 @@
-[
-    {
-        "name": "Quini 6",
-        "date": "21/12/1995",
-        "results": [
+{
+    "dataService": {
+        "lotteries": [
             {
-                "name": "Tradicional",
-                "date": "21/12",
-                "result": ["01", "02", "03", "04", "05", "06"]
-            },
-            {
-                "name": "Segunda vuelta",
-                "date": "12/12",
-                "result": ["02", "03", "04", "05", "06", "07"]
-            },
-            {
-                "name": "Revancha",
-                "date": "05/06",
-                "result": ["03", "04", "05", "06", "07", "08"]
+                "date": "21/12/1995",
+                "name": "Quini 6",
+                "results": [
+                    {
+                        "date": "21/12",
+                        "name": "Tradicional",
+                        "result": ["01", "02", "03", "04", "05", "06"]
+                    },
+                    {
+                        "date": "12/12",
+                        "name": "Segunda vuelta",
+                        "result": ["02", "03", "04", "05", "06", "07"]
+                    },
+                    {
+                        "date": "05/06",
+                        "name": "Revancha",
+                        "result": ["03", "04", "05", "06", "07", "08"]
+                    }
+                ]
             }
         ]
-    }
-]
+    },
+    "serviceType": "home"
+}

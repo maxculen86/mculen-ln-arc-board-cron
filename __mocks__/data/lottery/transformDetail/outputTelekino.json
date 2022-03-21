@@ -1,0 +1,113 @@
+{
+    "dataService": {
+        "lotteryDetail": [
+            {
+                "name": "Telekino",
+                "id": "Telekino",
+                "date": "2022-03-13T19:00:00",
+                "estimated_pot": "$145.000.000,00",
+                "results": [
+                    "02",
+                    "03",
+                    "05",
+                    "07",
+                    "10",
+                    "12",
+                    "14",
+                    "18",
+                    "19",
+                    "20",
+                    "21",
+                    "22",
+                    "23",
+                    "24",
+                    "25"
+                ],
+                "winners_table": [
+                    {
+                        "name": "14",
+                        "winners": "17",
+                        "amount": "$25.860,00"
+                    },
+                    {
+                        "name": "15",
+                        "winners": "Vacante",
+                        "amount": "$137.819.119,00"
+                    },
+                    {
+                        "name": "13",
+                        "winners": "628",
+                        "amount": "$622,00"
+                    },
+                    {
+                        "name": "12",
+                        "winners": "7.203",
+                        "amount": "$200,00"
+                    },
+                    {
+                        "name": "11",
+                        "winners": "37.512",
+                        "amount": "$100,00"
+                    }
+                ]
+            },
+            {
+                "name": "Telekino",
+                "id": "Telekino",
+                "lottery_draw_id": "Rekino",
+                "date": "2022-03-13T19:00:00",
+                "estimated_pot": "$145.0000.000,00",
+                "results": [
+                    "03",
+                    "04",
+                    "07",
+                    "08",
+                    "10",
+                    "12",
+                    "13",
+                    "14",
+                    "15",
+                    "16",
+                    "17",
+                    "19",
+                    "20",
+                    "22",
+                    "23"
+                ],
+                "winners_table": [
+                    {
+                        "name": "15"
+                    },
+                    {
+                        "name": "14",
+                        "winners": "12",
+                        "amount": "$19.815,00"
+                    }
+                ],
+                "winner_carton": [
+                    {
+                        "numbers": "424.592",
+                        "amount": "$100.000,00"
+                    },
+                    {
+                        "numbers": "441.252",
+                        "amount": "$100.000,00"
+                    },
+                    {
+                        "numbers": "508.827",
+                        "amount": "$100.000,00"
+                    },
+                    {
+                        "numbers": "353.844",
+                        "amount": "$100.000,00"
+                    },
+                    {
+                        "numbers": "495.371",
+                        "amount": "$100.000,00"
+                    }
+                ]
+            }
+        ]
+    },
+    "serviceType": "detalle-loterias"
+}

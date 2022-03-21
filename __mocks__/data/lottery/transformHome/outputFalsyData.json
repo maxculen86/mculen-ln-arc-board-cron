@@ -1,34 +1,31 @@
-[
-    {
-        "name": "",
-        "date": "21/12/1995",
-        "results": [
+{
+    "dataService": {
+        "lotteries": [
             {
-                "name": "Tradicional",
-                "date": "21/12",
-                "result": ["01", "02", "03", "04", "05", "06"]
+                "date": "21/12/1995",
+                "name": "",
+                "results": [
+                    {
+                        "date": "21/12",
+                        "name": "Tradicional",
+                        "result": ["01", "02", "03", "04", "05", "06"]
+                    },
+                    { "date": "12/12", "name": "Segunda vuelta", "result": [] },
+                    { "date": "21/12", "name": "Revancha", "result": null }
+                ]
             },
             {
-                "name": "Segunda vuelta",
-                "date": "12/12",
-                "result": []
-            },
-            {
-                "name": "Revancha",
-                "date": "21/12",
-                "result": null
+                "date": "21/12/1995",
+                "name": "Telekino",
+                "results": [
+                    {
+                        "date": "21/12",
+                        "name": "Tradicional",
+                        "result": ["03", "04", "05", "06", "07", "08"]
+                    }
+                ]
             }
         ]
     },
-    {
-        "name": "Telekino",
-        "date": "21/12/1995",
-        "results": [
-            {
-                "name": "Tradicional",
-                "result": ["03", "04", "05", "06", "07", "08"],
-                "date": "21/12"
-            }
-        ]
-    }
-]
+    "serviceType": "home"
+}
