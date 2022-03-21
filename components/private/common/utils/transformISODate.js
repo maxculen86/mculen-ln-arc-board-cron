@@ -1,5 +1,3 @@
-import capitalizeFirstLetter from './capitalizeFirstLetter';
-
 const transformISODate = (
     date = '0000-00-00T00:00:00',
     type = 'dd/mm/yyyy'
@@ -16,14 +14,19 @@ const transformISODate = (
     }
     if (type === 'withDay') {
         const dateWithDay = new Date(date);
-        dateWithDay.getDay();
-        return `${capitalizeFirstLetter(
-            new Intl.DateTimeFormat('es-ES', { weekday: 'long' }).format(
-                dateWithDay
-            )
-        )} ${transformedDate}`;
+        return `${weekDays[dateWithDay.getDay()]} ${transformedDate}`;
     }
     return transformedDate;
 };
 
 export default transformISODate;
+
+const weekDays = [
+    'Domingo',
+    'Lunes',
+    'Martes',
+    'Miércoles',
+    'Jueves',
+    'Viernes',
+    'Sábado'
+];
