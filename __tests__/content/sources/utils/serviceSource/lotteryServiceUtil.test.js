@@ -118,7 +118,7 @@ describe('Tests resolve function', () => {
             response: { dataService: { items: [] }, serviceType: 'home' }
         };
         expect(resolve(res)).toStrictEqual({
-            dataService: {},
+            dataService: { lotteries: [] },
             serviceType: 'home'
         });
     });

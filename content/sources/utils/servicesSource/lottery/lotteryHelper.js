@@ -1,13 +1,14 @@
 /* eslint-disable camelcase */
 import transformISODate from '../../../../../components/private/common/utils/transformISODate';
 import { games } from './_config';
+import get from '../../../../../components/private/common/utils/get';
 
 const getValue = (input, key) => input.filter(e => e.id === key);
 
 export const transformLotteryDetail = data => {
     const [firstLottery = {}] = data;
-    const newRules = getLotteryRules(Object.entries(games), firstLottery);
-    const newLotteries = data.map(lottery => {
+    const newRules = get(games, `${firstLottery.id}.rules`, []);
+    const lotteryDetail = data.map(lottery => {
         const {
             name = '',
             id = '',
@@ -50,8 +51,8 @@ export const transformLotteryDetail = data => {
         };
     });
     return {
-        ...newLotteries,
-        ...(newRules[0].length && { rules: newRules[0] })
+        lotteryDetail,
+        ...(newRules.length && { rules: newRules })
     };
 };
 
@@ -59,14 +60,6 @@ const getLotteryName = lotteries =>
     lotteries
         .filter(item => item !== 'aciertos' && item !== 'jackpot')
         .join('');
-
-const getLotteryRules = (lotteries, firstLottery) =>
-    lotteries
-        .filter(([key]) => key === firstLottery.id)
-        .map(([_, value]) => {
-            const { rules = [] } = value;
-            return rules;
-        });
 
 const getWinnersTable = prizes =>
     prizes
@@ -95,8 +88,8 @@ const getWinnersCarton = prizes =>
             };
         });
 
-export const transformLotteryHome = data =>
-    Object.keys(games).reduce((acc, lottery) => {
+export const transformLotteryHome = data => ({
+    lotteries: Object.keys(games).reduce((acc, lottery) => {
         const newValue = getValue(data, lottery);
         const [
             {
@@ -119,7 +112,8 @@ export const transformLotteryHome = data =>
                 results: transformResult(newValue)
             });
         return acc;
-    }, []);
+    }, [])
+});
 
 const transformResult = values =>
     values &&
