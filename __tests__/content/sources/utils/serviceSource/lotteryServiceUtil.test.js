@@ -119,7 +119,7 @@ describe('Tests resolve function', () => {
         };
         expect(resolve(res)).toStrictEqual({
             dataService: {},
-            serviceType: ''
+            serviceType: 'home'
         });
     });
 });

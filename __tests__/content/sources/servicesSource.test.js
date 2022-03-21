@@ -1,9 +1,8 @@
 import 'regenerator-runtime/runtime';
 import servicesSource from '../../../content/sources/servicesSource';
 import logger from '../../../components/private/common/utils/logger';
-import * as defaultRequest from '../../../content/sources/utils/defaultRequest';
 import lottery from '../../../content/sources/utils/servicesSource/lottery/lottery';
-import responseDatailLottery from '../../../__mocks__/data/lottery/responseDetailLottery.json';
+import telekinoResponse from '../../../__mocks__/data/lottery/transformDetail/outputTelekino';
 
 jest.mock('../../../components/private/common/utils/logger', () => {
     const push = jest.fn();
@@ -24,12 +23,15 @@ describe('Content Sources - Services Source', () => {
     };
 
     it('Should return data that is sent in a default request', done => {
+        const requestMockReq = jest.spyOn(lottery, 'request');
+        const requestMockRes = jest.spyOn(lottery, 'resolve');
+        requestMockReq.mockReturnValueOnce(Promise.resolve(telekinoResponse));
+        requestMockRes.mockReturnValueOnce(Promise.resolve(telekinoResponse));
+
         fetch(query, {
             cachedCall: jest.fn()
         })
-            .then(response =>
-                expect(response).toStrictEqual(responseDatailLottery)
-            )
+            .then(response => expect(response).toStrictEqual(telekinoResponse))
             .then(done);
     });
 
