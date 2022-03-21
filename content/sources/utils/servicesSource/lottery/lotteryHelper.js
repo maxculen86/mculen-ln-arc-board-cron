@@ -30,7 +30,7 @@ export const transformLotteryDetail = data => {
             name,
             id,
             ...(lottery_draw_id && { lottery_draw_id }),
-            date,
+            date: transformISODate(date, 'withDay'),
             ...(letters.length && {
                 letters: letters.shift()
             }),
