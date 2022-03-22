@@ -70,6 +70,21 @@ export const LOTERIES_IDS = {
     brinco: 'Brinco'
 };
 
+export const LOCATIONS = {
+    'Quiniela Nacional': 'Buenos Aires',
+    'Quiniela Provincia': 'Buenos Aires',
+    'Quiniela de Cordoba': 'Cordoba',
+    'Quiniela de Santa Fe': 'Santa Fe',
+    'Quiniela Uruguaya': 'Montevideo',
+    'Quini 6': 'Buenos Aires',
+    Telekino: 'Buenos Aires',
+    Loto: 'Buenos Aires',
+    'Loto 5': 'Buenos Aires',
+    'Quiniela Poceada': 'Buenos Aires',
+    'Quiniela Plus': 'Buenos Aires',
+    Brinco: 'Buenos Aires'
+};
+
 export const meanings = {
     Tradicional: {
         title: 'Tradicional',

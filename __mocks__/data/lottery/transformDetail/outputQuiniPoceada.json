@@ -54,5 +54,12 @@
             }
         ]
     },
+    "metaData": {
+        "completeDay": "Martes 15 de marzo",
+        "location": "Buenos Aires",
+        "lotteryName": "Quiniela Poceada",
+        "lotteryNumber": "",
+        "modalities": ""
+    },
     "serviceType": "detalle-loterias"
 }
