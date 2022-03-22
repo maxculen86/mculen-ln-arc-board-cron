@@ -86,9 +86,32 @@ export const getSizes = (sources = []) => {
         : [];
 };
 
-export const LinkImagePreload = ({ originalURL, resizedUrls = [] }) => {
+const mustRenderPreload = ({ originalURL, imagesrcset }) =>
+    originalURL && imagesrcset;
+
+export const getShortestImage = (resizedUrls = []) => {
+    const result = resizedUrls.reduce(
+        (prev, curr) =>
+            get(prev, 'option.width', 5000) < get(curr, 'option.width', 5000)
+                ? prev
+                : curr,
+        {}
+    );
+
+    const _width = get(result, 'option.width', undefined);
+    const _height = get(result, 'option._height', undefined);
+
+    return {
+        resizedUrl: result.resizedUrl,
+        _width,
+        _height
+    };
+};
+export const LinkImagePreload = ({ originalURL = '', resizedUrls = [] }) => {
     const imagesrcset = [];
     const imagesizes = [];
+
+    const { resizedUrl, _width } = getShortestImage(resizedUrls);
 
     resizedUrls.forEach(x => {
         imagesrcset.push(`${x.resizedUrl} ${x.option.width}w`);
@@ -98,12 +121,14 @@ export const LinkImagePreload = ({ originalURL, resizedUrls = [] }) => {
     });
 
     return (
-        <link
-            rel="preload"
-            as="image"
-            href={`${originalURL} 351vw`}
-            imagesrcset={imagesrcset}
-        />
+        mustRenderPreload({ originalURL, imagesrcset }) && (
+            <link
+                rel="preload"
+                as="image"
+                href={`${resizedUrl} ${_width}w`}
+                imagesrcset={imagesrcset}
+            />
+        )
     );
 };
 

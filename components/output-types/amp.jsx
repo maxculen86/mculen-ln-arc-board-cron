@@ -90,7 +90,7 @@ const Amp = props => {
         'promo_items.basic.resized_urls',
         []
     );
-    const originalURL = get(globalContent, 'promo_items.basic.url', []);
+    const originalURL = get(globalContent, 'promo_items.basic.url', '');
 
     return (
         <html amp={String.fromCodePoint(9889)} lang="es">
