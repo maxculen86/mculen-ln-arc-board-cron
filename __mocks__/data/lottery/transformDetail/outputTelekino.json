@@ -109,5 +109,12 @@
             }
         ]
     },
+    "metaData": {
+        "date": "22 de marzo",
+        "location": "Buenos Aires",
+        "lotteryName": "Telekino",
+        "lotteryNumber": "",
+        "modalities": "y su modalidad: Rekino"
+    },
     "serviceType": "detalle-loterias"
 }

@@ -54,5 +54,12 @@
             }
         ]
     },
+    "metaData": {
+        "date": "22 de marzo",
+        "location": "Buenos Aires",
+        "lotteryName": "Quiniela Poceada",
+        "lotteryNumber": "",
+        "modalities": " "
+    },
     "serviceType": "detalle-loterias"
 }
