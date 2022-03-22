@@ -11,12 +11,12 @@
         display: flex;
         flex-direction: column;
 
-        .title {
+        .title-header-table {
             padding: px(12) px(16);
             border-bottom: 1px solid $light-neutral-400;
         }
 
-        .sub-header {
+        .sub-header-table {
             display: flex;
             padding: px(16);
             justify-content: space-between;
@@ -32,7 +32,7 @@
         justify-items: center;
         grid-template-columns: repeat(4, 1fr);
 
-        &.--detail {
+        &.--meaning-table {
             grid-template-columns: repeat(2, 1fr);
 
             @media ($media-m) {
@@ -46,7 +46,7 @@
             width: 100%;
             border-top: 1px solid $light-neutral-400;
 
-            &.--detail {
+            &.--meaning-table {
                 &:nth-child(-n + 5) {
                     @media ($media-m) {
                         border-top: none;
@@ -58,26 +58,26 @@
                 }
             }
 
-            .numerator {
+            .numerator-table {
                 padding: px(12) px(8);
                 background-color: $light-neutral-200;
-                &.--detail {
+                &.--meaning-table {
                     font-weight: 700;
                 }
             }
 
-            .number {
+            .number-table-horizontal {
                 display: flex;
                 justify-content: center;
                 width: 100%;
                 padding: px(12) px(8);
             }
 
-            &.--detail {
+            &.--meaning-table {
                 font-weight: 400;
             }
 
-            &:nth-child(-n + 4):not(.--detail) .number {
+            &:nth-child(-n + 4):not(.--meaning-table) .number-table-horizontal {
                 font-weight: 700;
             }
         }

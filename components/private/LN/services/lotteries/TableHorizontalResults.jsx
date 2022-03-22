@@ -7,7 +7,7 @@ const TableHorizontalResults = ({
     results,
     date,
     letters,
-    isDetail,
+    isMeaning,
     lotteryDrawId,
     meaning
 }) => {
@@ -17,12 +17,16 @@ const TableHorizontalResults = ({
 
     return (
         <div className={classes}>
-            {!isDetail && (
+            {!isMeaning && (
                 <div className="header-table">
-                    <Text className="title" weight="bold" size="4xs">
+                    <Text
+                        extraClass="title-header-table"
+                        weight="bold"
+                        size="4xs"
+                    >
                         {`${lotteryDrawId} - ${date}`}
                     </Text>
-                    <div className="sub-header">
+                    <div className="sub-header-table">
                         <Text weight="bold" size="4xs">
                             A la Cabeza:
                             <Text weight="bold" size="l">
@@ -38,20 +42,25 @@ const TableHorizontalResults = ({
                     </div>
                 </div>
             )}
-            <div className={`body-table ${isDetail && '--detail'}`}>
+            <div className={`body-table ${isMeaning && '--meaning-table'}`}>
                 {results.map((number, index) => (
-                    <div className={`number-box ${isDetail && '--detail'}`}>
+                    <div
+                        className={`number-box ${isMeaning &&
+                            '--meaning-table'}`}
+                    >
                         <Text
                             key={number}
                             size="4xs"
-                            className={`numerator ${isDetail && '--detail'}`}
+                            extraClass={`numerator-table ${isMeaning &&
+                                '--meaning-table'}`}
                         >
-                            {formatIndex(isDetail ? index : index + 1)}
+                            {formatIndex(isMeaning ? index : index + 1)}
                         </Text>
                         <Text
                             key={number}
                             size="4xs"
-                            className={`number ${isDetail && '--detail'}`}
+                            extraClass={`number-table-horizontal ${isMeaning &&
+                                '--meaning-table'}`}
                         >
                             {number}
                         </Text>
@@ -66,7 +75,7 @@ TableHorizontalResults.propTypes = {
     className: PropTypes.string,
     date: PropTypes.string,
     letters: PropTypes.string,
-    isDetail: PropTypes.bool,
+    isMeaning: PropTypes.bool,
     lotteryDrawId: PropTypes.string,
     meaning: PropTypes.string,
     results: PropTypes.arrayOf
@@ -76,7 +85,7 @@ TableHorizontalResults.defaultProps = {
     className: '',
     date: '',
     letters: '',
-    isDetail: false,
+    isMeaning: false,
     lotteryDrawId: '',
     meaning: '',
     results: []
