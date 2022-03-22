@@ -41,7 +41,8 @@ ModImage.defaultProps = {
     classCondition: '',
     amp: false,
     video: '',
-    sources: []
+    sources: [],
+    isApertura: false
 };
 
 ModImage.propTypes = {
@@ -51,18 +52,17 @@ ModImage.propTypes = {
     video: PropTypes.string,
     amp: PropTypes.bool,
     isApertura: PropTypes.bool,
-    sources: PropTypes.arrayOf(
-        PropTypes.shape({
-            option: PropTypes.shape({
-                media: PropTypes.string
-            }),
-            resizedUrl: PropTypes.string
-        })
-    )
-};
-
-ModImage.defaultProps = {
-    isApertura: false
+    sources: PropTypes.oneOfType([
+        PropTypes.arrayOf(
+            PropTypes.shape({
+                option: PropTypes.shape({
+                    media: PropTypes.string
+                }),
+                resizedUrl: PropTypes.string
+            })
+        ),
+        PropTypes.string
+    ])
 };
 
 export default ModImage;

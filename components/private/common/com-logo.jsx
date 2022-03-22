@@ -69,8 +69,8 @@ const ComLogo = props => {
 ComLogo.propTypes = {
     logoName: PropTypes.string,
     size: PropTypes.string,
-    width: PropTypes.number,
-    height: PropTypes.number,
+    width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     classCondition: PropTypes.string,
     href: PropTypes.string,
     title: PropTypes.string,

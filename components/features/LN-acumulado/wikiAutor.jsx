@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
@@ -19,8 +20,8 @@ wikiAuthor.propTypes = {
     id: PropTypes.string.isRequired,
     globalContent: PropTypes.shape({
         ...wikiAuthorPropTypes
-    }).isRequired,
-    outputType: PropTypes.string.isRequired
+    }),
+    outputType: PropTypes.string
 };
 
 export default Consumer(wikiAuthor);

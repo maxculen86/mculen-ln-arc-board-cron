@@ -4,7 +4,7 @@
             {
                 "name": "Loto",
                 "id": "Loto",
-                "date": "12/05/2022",
+                "date": "2022-03-16T17:30:00",
                 "lottery_draw_id": "tradicional",
                 "lottery_draw_name": "Tradicional",
                 "results": ["01", "02", "03", "04", "05", "06"],
@@ -17,7 +17,7 @@
             {
                 "name": "Loto",
                 "id": "Loto",
-                "date": "12/12/2012",
+                "date": "2022-03-16T17:30:00",
                 "lottery_draw_id": "Desquite",
                 "lottery_draw_name": "Desquite",
                 "results": ["02", "03", "04", "05", "06", "07"],
@@ -29,7 +29,7 @@
             {
                 "name": "Loto",
                 "id": "Loto",
-                "date": "05/06/1786",
+                "date": "2022-03-16T17:30:00",
                 "lottery_draw_id": "Sale_o_sale",
                 "lottery_draw_name": "Sale o sale",
                 "results": ["03", "04", "05", "06", "07", "08"],
@@ -38,7 +38,7 @@
             {
                 "name": "Quiniela Poceada",
                 "id": "Quiniela_Poceada",
-                "date": "24/02/2022",
+                "date": "2022-03-16T17:30:00",
                 "results": ["07", "21", "29", "30", "33", "37"],
                 "additional_properties": {
                     "letters": ["A B C D"],

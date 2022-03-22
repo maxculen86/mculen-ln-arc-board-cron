@@ -13,6 +13,15 @@ import outputExtraPropsMock from '../../../../../__mocks__/data/lottery/transfor
 import outputFalsyData from '../../../../../__mocks__/data/lottery/transformHome/outputFalsyData';
 import outputApiResponse from '../../../../../__mocks__/data/lottery/transformHome/outputApiResponse';
 
+import inputQuiniPoceada from '../../../../../__mocks__/data/lottery/transformDetail/inputQuiniPoceada';
+import inputQuiniProvincia from '../../../../../__mocks__/data/lottery/transformDetail/inputQuiniProvincia';
+import inputTelekino from '../../../../../__mocks__/data/lottery/transformDetail/inputTelekino';
+import inputLotoPlus from '../../../../../__mocks__/data/lottery/transformDetail/inputLotoPlus';
+import outputQuiniPoceada from '../../../../../__mocks__/data/lottery/transformDetail/outputQuiniPoceada';
+import outputQuiniProvincia from '../../../../../__mocks__/data/lottery/transformDetail/outputQuiniProvincia';
+import outputTelekino from '../../../../../__mocks__/data/lottery/transformDetail/outputTelekino';
+import outputLotoPLus from '../../../../../__mocks__/data/lottery/transformDetail/outputLotoPlus';
+
 const mockResponse = Promise.resolve(lotteryMock);
 
 const { getUri, request: lotteryRequest, resolve, reject, transform } = lottery;
@@ -76,6 +85,23 @@ describe('Tests transform home function', () => {
     });
 });
 
+describe('Tests transform detail function', () => {
+    it('Should check results from Quini Poceada', () => {
+        expect(transform(inputQuiniPoceada)).toStrictEqual(outputQuiniPoceada);
+    });
+    it('Should check results from Quini Provincia', () => {
+        expect(transform(inputQuiniProvincia)).toStrictEqual(
+            outputQuiniProvincia
+        );
+    });
+    it('Should check results from Telekino', () => {
+        expect(transform(inputTelekino)).toStrictEqual(outputTelekino);
+    });
+    it('Should check results from Loto Plus', () => {
+        expect(transform(inputLotoPlus)).toStrictEqual(outputLotoPLus);
+    });
+});
+
 describe('Tests reject function', () => {
     it('Should reject request', () => {
         const error = { error: error404, uri: '', arcSite: '' };
@@ -89,12 +115,14 @@ describe('Tests resolve function', () => {
     it('Should return the transformed response', () => {
         const res = {
             query: {},
-            response: { dataService: { items: [] }, serviceType: '' }
+            response: { dataService: { items: [] }, serviceType: 'home' }
         };
         expect(resolve(res)).toStrictEqual({
             dataService: {},
             metaData: {},
-            serviceType: ''
+            serviceType: '',
+            dataService: { lotteries: [] },
+            serviceType: 'home'
         });
     });
 });

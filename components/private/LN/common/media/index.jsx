@@ -124,7 +124,7 @@ const media = ({
             ) : (
                 <div className="content-media" ref={refContainer}>
                     <ModMedia
-                        idMedia={isApertura && idMedia}
+                        idMedia={isApertura ? idMedia : undefined}
                         zoom={zoom}
                         withZoom={withZoom}
                         active={active}
@@ -149,7 +149,7 @@ media.propTypes = {
     mediaData: PropTypes.shape({
         type: PropTypes.string,
         _id: PropTypes.string
-    }).isRequired,
+    }),
     itsGallery: PropTypes.bool,
     active: PropTypes.bool,
     handleClick: PropTypes.func,
@@ -171,6 +171,7 @@ media.propTypes = {
 };
 
 media.defaultProps = {
+    mediaData: {},
     itsGallery: false,
     withZoom: false,
     isApertura: false,

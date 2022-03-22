@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 
 const Syndication = ({ type, subtype, syndication, arcSite, outputType }) => {
     const { external_distribution: externalDistribution, search } =

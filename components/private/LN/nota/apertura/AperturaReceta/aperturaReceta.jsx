@@ -67,7 +67,7 @@ aperturaReceta.propTypes = {
                     slug: PropTypes.string,
                     text: PropTypes.string
                 })
-            ).isRequired,
+            ),
             primary_section: PropTypes.shape(),
             sections: PropTypes.array
         }),
@@ -76,7 +76,15 @@ aperturaReceta.propTypes = {
             basic: PropTypes.object
         }),
         subtype: PropTypes.string
-    }).isRequired
+    })
+};
+
+aperturaReceta.defaultProps = {
+    globalContent: {
+        taxonomy: {
+            tags: []
+        }
+    }
 };
 
 export default aperturaReceta;

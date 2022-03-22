@@ -69,7 +69,7 @@ Icon.propTypes = {
     extraClass: PropTypes.string,
     rel: PropTypes.string,
     size: PropTypes.string,
-    children: PropTypes.string,
+    children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
     negative: PropTypes.bool
 };
 

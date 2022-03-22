@@ -24,7 +24,7 @@ const ModVideo = props => {
             muted={muted}
             poster={image}
             controls={controls}
-            playsinline={playsinline}
+            playsInline={playsinline}
         >
             <ComSource src={video} type="video/mp4" />
         </video>
@@ -36,7 +36,7 @@ ModVideo.propTypes = {
     video: PropTypes.string.isRequired,
     autoplay: PropTypes.bool,
     controls: PropTypes.bool,
-    muted: PropTypes.string,
+    muted: PropTypes.bool,
     loop: PropTypes.bool,
     playsinline: PropTypes.bool
 };

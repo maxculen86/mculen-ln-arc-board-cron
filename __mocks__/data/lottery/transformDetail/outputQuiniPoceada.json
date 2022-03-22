@@ -1,0 +1,58 @@
+{
+    "dataService": {
+        "lotteryDetail": [
+            {
+                "name": "Quiniela Poceada",
+                "id": "Quiniela_Poceada",
+                "date": "Martes 15/03/2022",
+                "results": [
+                    "4",
+                    "6",
+                    "8",
+                    "10",
+                    "11",
+                    "14",
+                    "15",
+                    "17",
+                    "18",
+                    "22",
+                    "32",
+                    "42",
+                    "43",
+                    "53",
+                    "54",
+                    "60",
+                    "62",
+                    "67",
+                    "68",
+                    "89"
+                ],
+                "letters": "QRTZ",
+                "winners_table": [
+                    {
+                        "name": "8",
+                        "winners": "1",
+                        "amount": "$117.534.642"
+                    },
+                    {
+                        "name": "6",
+                        "winners": "209",
+                        "amount": "$1.342"
+                    },
+                    {
+                        "name": "7",
+                        "winners": "13",
+                        "amount": "$50.733"
+                    }
+                ]
+            }
+        ],
+        "rules": [
+            {
+                "text": "¿Cómo jugar a la Quiniela Poceada?",
+                "description": "De un extracto de veinte (20) números de dos cifras, el apostador debe seleccionar 8 números. Obtienen premio las apuestas con ocho (8), siete (7) o seis (6) aciertos."
+            }
+        ]
+    },
+    "serviceType": "detalle-loterias"
+}

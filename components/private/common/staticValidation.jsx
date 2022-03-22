@@ -20,7 +20,7 @@ export default function StaticValidation({ children, id, isStatic, ...props }) {
 }
 
 StaticValidation.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.node).isRequired,
+    children: PropTypes.node.isRequired,
     id: PropTypes.string.isRequired,
     isStatic: PropTypes.boolean
 };
