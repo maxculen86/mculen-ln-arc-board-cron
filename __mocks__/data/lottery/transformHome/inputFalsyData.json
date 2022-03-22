@@ -4,7 +4,7 @@
             {
                 "name": "",
                 "id": "Quini_6",
-                "date": "21/12/1995",
+                "date": "2022-03-16T17:30:00",
                 "lottery_draw_id": "Tradicional",
                 "lottery_draw_name": "Tradicional",
                 "results": ["01", "02", "03", "04", "05", "06"]
@@ -12,7 +12,7 @@
             {
                 "name": "Quini 6",
                 "id": "Quini_6",
-                "date": "12/12/2012",
+                "date": "2022-03-16T17:30:00",
                 "lottery_draw_id": "Segunda_vuelta",
                 "lottery_draw_name": "Segunda vuelta"
             },
@@ -23,18 +23,18 @@
                 "letters": null,
                 "results": null,
                 "estimated_pot": null,
-                "date": "21/12/1995"
+                "date": "2022-03-16T17:30:00"
             },
             {
                 "name": "Telekino",
                 "results": ["03", "04", "05", "06", "07", "08"],
-                "date": "21/12/1995"
+                "date": "2022-03-16T17:30:00"
             },
             {
                 "name": "Telekino",
                 "id": "Telekino",
                 "results": ["03", "04", "05", "06", "07", "08"],
-                "date": "21/12/1995"
+                "date": "2022-03-16T17:30:00"
             }
         ]
     },

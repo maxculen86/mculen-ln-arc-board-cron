@@ -2,87 +2,87 @@
     "dataService": {
         "lotteries": [
             {
-                "date": "00/00/0000",
+                "date": "16/03/2022",
                 "name": "Quiniela Nacional",
                 "results": [
-                    { "date": "00/00", "name": "Tradicional", "result": [] }
+                    { "date": "16/03", "name": "Tradicional", "result": [] }
                 ]
             },
             {
-                "date": "00/00/0000",
+                "date": "16/03/2022",
                 "name": "Quiniela Provincia",
                 "results": [
-                    { "date": "00/00", "name": "Tradicional", "result": [] }
+                    { "date": "16/03", "name": "Tradicional", "result": [] }
                 ]
             },
             {
-                "date": "00/00/0000",
+                "date": "16/03/2022",
                 "name": "Quiniela de Cordoba",
                 "results": [
-                    { "date": "00/00", "name": "Tradicional", "result": [] }
+                    { "date": "16/03", "name": "Tradicional", "result": [] }
                 ]
             },
             {
-                "date": "00/00/0000",
+                "date": "16/03/2022",
                 "name": "Quiniela de Santa Fe",
                 "results": [
-                    { "date": "00/00", "name": "Tradicional", "result": [] }
+                    { "date": "16/03", "name": "Tradicional", "result": [] }
                 ]
             },
             {
-                "date": "00/00/0000",
+                "date": "16/03/2022",
                 "name": "Quiniela Uruguaya",
                 "results": [
-                    { "date": "00/00", "name": "Tradicional", "result": [] }
+                    { "date": "16/03", "name": "Tradicional", "result": [] }
                 ]
             },
             {
-                "date": "00/00/0000",
+                "date": "16/03/2022",
                 "name": "Quini 6",
                 "results": [
-                    { "date": "00/00", "name": "Tradicional", "result": [] }
+                    { "date": "16/03", "name": "Tradicional", "result": [] }
                 ]
             },
             {
-                "date": "00/00/0000",
+                "date": "16/03/2022",
                 "name": "Telekino",
                 "results": [
-                    { "date": "00/00", "name": "Tradicional", "result": [] }
+                    { "date": "16/03", "name": "Tradicional", "result": [] }
                 ]
             },
             {
-                "date": "00/00/0000",
+                "date": "16/03/2022",
                 "name": "Loto",
                 "results": [
-                    { "date": "00/00", "name": "Tradicional", "result": [] }
+                    { "date": "16/03", "name": "Tradicional", "result": [] }
                 ]
             },
             {
-                "date": "00/00/0000",
+                "date": "16/03/2022",
                 "name": "Loto 5",
                 "results": [
-                    { "date": "00/00", "name": "Tradicional", "result": [] }
+                    { "date": "16/03", "name": "Tradicional", "result": [] }
                 ]
             },
             {
-                "date": "00/00/0000",
+                "date": "16/03/2022",
                 "name": "Quiniela Poceada",
                 "results": [
-                    { "date": "00/00", "name": "Tradicional", "result": [] }
+                    { "date": "16/03", "name": "Tradicional", "result": [] }
                 ]
             },
             {
-                "date": "00/00/0000",
+                "date": "16/03/2022",
                 "name": "Quiniela Plus",
                 "results": [
-                    { "date": "00/00", "name": "Tradicional", "result": [] }
+                    { "date": "16/03", "name": "Tradicional", "result": [] }
                 ]
             },
             {
-                "date": "00/00/0000",
+                "date": "16/03/2022",
                 "name": "Brinco",
                 "results": [
-                    { "date": "00/00", "name": "Tradicional", "result": [] }
+                    { "date": "16/03", "name": "Tradicional", "result": [] }
                 ]
             }
         ]

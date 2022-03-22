@@ -2,21 +2,21 @@
     "dataService": {
         "lotteries": [
             {
-                "date": "21/12/1995",
+                "date": "16/03/2022",
                 "name": "Quini 6",
                 "results": [
                     {
-                        "date": "21/12",
+                        "date": "16/03",
                         "name": "Tradicional",
                         "result": ["01", "02", "03", "04", "05", "06"]
                     },
                     {
-                        "date": "12/12",
+                        "date": "16/03",
                         "name": "Segunda vuelta",
                         "result": ["02", "03", "04", "05", "06", "07"]
                     },
                     {
-                        "date": "05/06",
+                        "date": "16/03",
                         "name": "Revancha",
                         "result": ["03", "04", "05", "06", "07", "08"]
                     }
