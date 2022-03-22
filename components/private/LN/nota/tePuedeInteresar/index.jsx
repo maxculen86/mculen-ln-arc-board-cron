@@ -142,10 +142,10 @@ class Index extends Component {
 }
 
 Index.propTypes = {
-    cantidadNotas: PropTypes.number.isRequired,
+    cantidadNotas: PropTypes.number,
     userId: PropTypes.string,
     sessionId: PropTypes.string,
-    outputType: PropTypes.string.isRequired,
+    outputType: PropTypes.string,
     idArticle: PropTypes.string,
     url: PropTypes.string.isRequired,
     excludeItems: PropTypes.arrayOf(PropTypes.string),
@@ -158,7 +158,9 @@ Index.defaultProps = {
     excludeItems: [],
     idArticle: null,
     sessionId: null,
-    arcSite: 'la-nacion-ar'
+    arcSite: 'la-nacion-ar',
+    outputType: 'default',
+    cantidadNotas: 6
 };
 
 export default Consumer(Index);

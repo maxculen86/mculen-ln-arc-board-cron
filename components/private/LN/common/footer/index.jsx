@@ -347,9 +347,14 @@ const Index = ({ home }) => {
 };
 
 Index.propTypes = {
-    outputType: PropTypes.string.isRequired,
+    outputType: PropTypes.string,
     siteProperties: PropTypes.shape({
         host: PropTypes.string
-    }).isRequired
+    })
+};
+
+Index.defaultProps = {
+    outputType: 'default',
+    siteProperties: {}
 };
 export default Consumer(Index);

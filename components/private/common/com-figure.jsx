@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
@@ -20,8 +21,8 @@ const ComFigure = ({ classCondition, children, handleClick }) => {
 
 ComFigure.propTypes = {
     children: PropTypes.node.isRequired,
-    classCondition: PropTypes.string.isRequired,
-    handleClick: PropTypes.func.isRequired
+    classCondition: PropTypes.string,
+    handleClick: PropTypes.func
 };
 
 export default ComFigure;
