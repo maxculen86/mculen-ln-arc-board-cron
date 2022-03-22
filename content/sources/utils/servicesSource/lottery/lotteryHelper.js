@@ -147,8 +147,8 @@ const extractGameTypes = (dataService, serviceType) => {
 
 const gamesQtyText = {
     0: '',
-    1: 'y su modalidad:',
-    default: 'y sus modalidades:'
+    1: 'y su modalidad: ',
+    default: 'y sus modalidades: '
 };
 
 export const metaDataLotteryDetail = (dataService, serviceType) => {
@@ -162,7 +162,7 @@ export const metaDataLotteryDetail = (dataService, serviceType) => {
 
     const modalities = `${
         gamesQtyText[singularOrPluralSelector]
-    } ${gamesModes.join(', ').replace(/, ([^,]*)$/, ' y $1')}`;
+    }${gamesModes.join(', ').replace(/, ([^,]*)$/, ' y $1')}`;
 
     return {
         lotteryName,

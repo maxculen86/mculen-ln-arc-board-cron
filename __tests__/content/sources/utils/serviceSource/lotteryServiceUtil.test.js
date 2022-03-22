@@ -119,7 +119,6 @@ describe('Tests resolve function', () => {
         };
         expect(resolve(res)).toStrictEqual({
             dataService: {},
-            metaData: {},
             serviceType: '',
             dataService: { lotteries: [] },
             serviceType: 'home'

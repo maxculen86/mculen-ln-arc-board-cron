@@ -42,11 +42,9 @@ const transform = data => {
                 ? { ...transformLotteryHome(dataService.items) }
                 : { ...transformLotteryDetail(dataService.items) })
         },
-        metaData: {
-            ...(serviceType === 'detalle-loterias'
-                ? { ...metaDataLotteryDetail(dataService, serviceType) }
-                : '')
-        }
+        ...(serviceType === 'detalle-loterias' && {
+            metaData: metaDataLotteryDetail(dataService, serviceType)
+        })
     };
 };
 
