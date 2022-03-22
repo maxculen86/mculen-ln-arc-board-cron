@@ -63,11 +63,6 @@ const extractGameTypes = (dataService, serviceType) => {
         : [];
 };
 
-const formatter = new Intl.ListFormat('es', {
-    style: 'long',
-    type: 'conjunction'
-});
-
 const gamesQtyText = {
     0: '',
     1: 'y su modalidad:',
@@ -84,7 +79,7 @@ export const metaDataLotteryDetail = (dataService, serviceType) => {
 
     const modalities = `${
         gamesQtyText[singularOrPluralSelector]
-    } ${formatter.format(gamesModes)}`;
+    } ${gamesModes.join(', ').replace(/, ([^,]*)$/, ' y $1')}`;
 
     return {
         lotteryName,
