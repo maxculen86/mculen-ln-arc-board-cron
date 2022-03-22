@@ -12,6 +12,8 @@ jest.mock('../../../components/private/common/utils/logger', () => {
 const loggerPush = jest.spyOn(logger, 'push');
 
 describe('Content Sources - Services Source', () => {
+    jest.setTimeout(30000);
+
     const { fetch } = servicesSource;
 
     const query = {
@@ -54,6 +56,9 @@ describe('Content Sources - Services Source', () => {
 
     it('Should reject request', done => {
         const requestMock = jest.spyOn(lottery, 'resolve');
+        const requestMockReq = jest.spyOn(lottery, 'request');
+
+        requestMockReq.mockReturnValueOnce(Promise.reject());
 
         requestMock.mockImplementation(() => {
             throw new Error();
