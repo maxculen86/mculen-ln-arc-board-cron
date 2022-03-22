@@ -6,15 +6,13 @@
                 "id": "Quini_6",
                 "date": "2022-03-16T17:30:00",
                 "lottery_draw_id": "Tradicional",
-                "lottery_draw_name": "Tradicional",
                 "results": ["01", "02", "03", "04", "05", "06"]
             },
             {
                 "name": "Quini 6",
                 "id": "Quini_6",
-                "date": "2022-03-16T17:30:00",
-                "lottery_draw_id": "Segunda_vuelta",
-                "lottery_draw_name": "Segunda vuelta",
+                "date": "12/12/2012",
+                "lottery_draw_id": "Segunda vuelta",
                 "results": ["02", "03", "04", "05", "06", "07"]
             },
             {
@@ -22,7 +20,6 @@
                 "id": "Quini_6",
                 "date": "2022-03-16T17:30:00",
                 "lottery_draw_id": "Revancha",
-                "lottery_draw_name": "Revancha",
                 "results": ["03", "04", "05", "06", "07", "08"]
             }
         ]

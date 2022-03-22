@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import transformISODate from '../../../../../components/private/common/utils/transformISODate';
-import { games } from './_config';
+import { games } from './config';
 import get from '../../../../../components/private/common/utils/get';
 
 const getValue = (input, key) => input.filter(e => e.id === key);
@@ -93,16 +93,20 @@ export const transformLotteryHome = data => ({
         const newValue = getValue(data, lottery);
         const [
             {
+                id,
                 name = '',
                 date = '0000-00-00T00:00:00',
                 additional_properties = {}
             } = {}
         ] = newValue;
         const { letters = [], estimated_pot = [] } = additional_properties;
+        const { url, component } = lottery;
         newValue.length &&
             acc.push({
+                id,
                 name,
                 date: transformISODate(date),
+                ...(url && { link: url }),
                 ...(letters.length && {
                     letters: letters.shift().split(' ')
                 }),
@@ -119,14 +123,14 @@ const transformResult = values =>
     values &&
     values.map(item => {
         const {
-            lottery_draw_name = 'Tradicional',
+            lottery_draw_id = 'Tradicional',
             date = '',
             results = [],
             additional_properties = {}
         } = item;
         const { jackpot = [] } = additional_properties;
         return {
-            name: lottery_draw_name,
+            name: lottery_draw_id,
             date: transformISODate(date, 'dd/mm'),
             result: results,
             ...(jackpot.length && {
