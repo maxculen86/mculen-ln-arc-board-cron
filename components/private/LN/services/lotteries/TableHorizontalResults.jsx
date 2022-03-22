@@ -29,7 +29,7 @@ const TableHorizontalResults = ({
                     <div className="sub-header-table">
                         <Text weight="bold" size="4xs">
                             A la Cabeza:
-                            <Text weight="bold" size="l">
+                            <Text weight="bold" size="large">
                                 {meaningNumber}
                             </Text>
                             {meaning}
