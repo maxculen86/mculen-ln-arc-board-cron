@@ -2,72 +2,74 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import StaticValidation from '../../../private/common/staticValidation';
 import ServiceMiniCard from '../../../private/common/serviceMiniCard';
-// import LotoPlus from '../../../private/LN/services/lotteries/LotoPlus';
+import TableHorizontalResults from '../../../private/LN/services/lotteries/TableHorizontalResults';
 import { meanings } from '../../../../content/sources/utils/servicesSource/lottery/_config';
 
 // import '../../../../resources/dist/css/ln/components/lotteries.css';
 // import '../../../../resources/dist/css/ln/components/result-item.css';
 // import '../../../../resources/dist/css/ln/components/label-text.css';
 // import '../../../../resources/dist/css/ln/components/ball-lotteries.css';
+import '../../../../resources/dist/css/ln/components/table-horizontal-results.css';
 
-const MEANINGS_MOCK = [
-    {
-        title: 'Animales',
-        linkTitle: 'significado de los numeros de animales',
-        link: 'significados de animales punto com',
-        icon: 'animals',
-        labeled: 'Significado de numeros'
-    },
-    {
-        title: 'Nombres',
-        linkTitle: 'Significado de los numeros de animales',
-        link: 'significados de animales punto com',
-        icon: 'names',
-        labeled: 'Significado de numeros'
-    },
-    {
-        title: 'Tradicional',
-        linkTitle: 'Significado de los numeros de animales',
-        link: 'significados de animales punto com',
-        icon: 'traditional',
-        labeled: 'Significado de numeros'
-    },
-    {
-        title: 'Loteria Nacional',
-        linkTitle: 'Significado de los numeros de animales',
-        link: 'significados de animales punto com',
-        icon: 'national',
-        labeled: 'Significado de numeros'
-    }
-];
+// const MEANINGS_MOCK = [
+//     {
+//         title: 'Animales',
+//         linkTitle: 'significado de los numeros de animales',
+//         link: 'significados de animales punto com',
+//         icon: 'animals',
+//         labeled: 'Significado de numeros'
+//     },
+//     {
+//         title: 'Nombres',
+//         linkTitle: 'Significado de los numeros de animales',
+//         link: 'significados de animales punto com',
+//         icon: 'names',
+//         labeled: 'Significado de numeros'
+//     },
+//     {
+//         title: 'Tradicional',
+//         linkTitle: 'Significado de los numeros de animales',
+//         link: 'significados de animales punto com',
+//         icon: 'traditional',
+//         labeled: 'Significado de numeros'
+//     },
+//     {
+//         title: 'Loteria Nacional',
+//         linkTitle: 'Significado de los numeros de animales',
+//         link: 'significados de animales punto com',
+//         icon: 'national',
+//         labeled: 'Significado de numeros'
+//     }
+// ];
 
-// const MOCK_GAMES = {
-//     name: 'LotoPlus',
-//     link: 'kkk',
-//     date: '00/00/0000',
-//     jackpot: ['1', '2'],
-//     estimated_pot: '$900000',
-//     results: [
-//         {
-//             name: 'loto loco',
-//             result: ['01', '02', '04', '03', '05', '06'],
-//             jackpot: ['1', '2'],
-//             date: '00/00/0000'
-//         },
-//         {
-//             name: 'Tradicional',
-//             result: ['01', '02', '04', '03', '05', '06'],
-//             jackpot: ['1', '2'],
-//             date: '00/00/0000'
-//         },
-//         {
-//             name: 'LotoPlus junior',
-//             result: ['01', '02', '04', '03', '05', '06'],
-//             jackpot: ['1', '2', '3', '4'],
-//             date: '00/00/0000'
-//         }
-//     ]
-// };
+const MOCK_DETAILS_QUINIELAS = {
+    name: 'Quiniela Provincia',
+    lottery_draw_id: 'Vespertina',
+    date: '2022-03-16T17:30:00',
+    meaning: 'Ramera',
+    results: [
+        '4678',
+        '9806',
+        '2011',
+        '9304',
+        '7766',
+        '4749',
+        '4067',
+        '0900',
+        '3428',
+        '9785',
+        '1685',
+        '2817',
+        '9476',
+        '8604',
+        '5558',
+        '0019',
+        '1369',
+        '0899',
+        '3976',
+        '8172'
+    ]
+};
 
 const LotteryMeanings = ({ id: featureId }) => {
     return (
@@ -84,14 +86,13 @@ const LotteryMeanings = ({ id: featureId }) => {
                     />
                 ))}
             </div>
-            {/* <LotoPlus
-                name={MOCK_GAMES.name}
-                estimatedPot={MOCK_GAMES.estimated_pot}
-                date={MOCK_GAMES.date}
-                results={MOCK_GAMES.results}
-                link={MOCK_GAMES.link}
-                jackpot={MOCK_GAMES.jackpot}
-            /> */}
+            <TableHorizontalResults
+                lotteryDrawId={MOCK_DETAILS_QUINIELAS.lottery_draw_id}
+                letters={MOCK_DETAILS_QUINIELAS.letters}
+                meanings={MOCK_DETAILS_QUINIELAS.meanings}
+                date={MOCK_DETAILS_QUINIELAS.date}
+                results={MOCK_DETAILS_QUINIELAS.results}
+            />
         </StaticValidation>
     );
 };
