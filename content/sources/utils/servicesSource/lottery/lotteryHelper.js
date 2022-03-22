@@ -1,7 +1,6 @@
 /* eslint-disable camelcase */
 import transformISODate from '../../../../../components/private/common/utils/transformISODate';
 import { games, LOCATIONS } from './_config';
-import { getTodayDateForAcuDolar } from '../../../../../components/private/common/utils/dateAndTimeUtil';
 import get from '../../../../../components/private/common/utils/get';
 
 const getValue = (input, key) => input.filter(e => e.id === key);
@@ -154,8 +153,9 @@ const gamesQtyText = {
 
 export const metaDataLotteryDetail = (dataService, serviceType) => {
     const { items } = dataService;
-    const { name: lotteryName, lottery_draw_number = '' } = items[0];
+    const { name: lotteryName, lottery_draw_number = '', date = '' } = items[0];
     const gamesModes = extractGameTypes(dataService, serviceType);
+    const completeDay = transformISODate(date, 'dia de mes');
 
     const singularOrPluralSelector =
         gamesModes.length >= 2 ? 'default' : gamesModes.length;
@@ -168,7 +168,7 @@ export const metaDataLotteryDetail = (dataService, serviceType) => {
         lotteryName,
         lotteryNumber: lottery_draw_number,
         modalities,
-        date: getTodayDateForAcuDolar(),
+        completeDay,
         location: LOCATIONS[lotteryName]
     };
 };
