@@ -41,13 +41,19 @@ const LotoPlus = ({ name, jackpot, date, results, isDetail, link }) => {
             </div>
             {!isDetail && (
                 <div className="extra-results --loto-plus">
-                    {arrResults.map(({ name, result, jackpot }) => (
-                        <ResultItem
-                            key={name}
-                            text={name}
-                            result={[...result, ...jackpot]}
-                        />
-                    ))}
+                    {arrResults.map(
+                        ({
+                            name: subLottery,
+                            result,
+                            jackpot: subLotteryJackpot
+                        }) => (
+                            <ResultItem
+                                key={subLottery}
+                                text={subLottery}
+                                result={[...result, ...subLotteryJackpot]}
+                            />
+                        )
+                    )}
                 </div>
             )}
             {isDetail && (

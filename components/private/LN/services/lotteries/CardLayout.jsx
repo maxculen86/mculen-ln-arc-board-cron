@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from '../../../../private/common/com-link';
-import Text from '../../../../private/common/text';
+import Link from '../../../common/com-link';
+import Text from '../../../common/text';
 
 const CardLayout = ({ className, title, subtitle, link, children }) => {
     const classes = `card-lotteries ${className}`;
@@ -35,7 +35,6 @@ CardLayout.propTypes = {
     title: PropTypes.string,
     subtitle: PropTypes.string,
     link: PropTypes.string,
-    linkTitle: PropTypes.string,
     children: PropTypes.string
 };
 
@@ -44,7 +43,6 @@ CardLayout.defaultProps = {
     title: '',
     subtitle: '',
     link: '',
-    linkTitle: '',
     children: ''
 };
 

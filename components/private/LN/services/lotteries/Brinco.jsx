@@ -29,8 +29,12 @@ const Brinco = ({ name, estimatedPot, date, results, isDetail, link }) => {
             </div>
             <div className="extra-results --brinco">
                 {!isDetail &&
-                    arrResults.map(({ name, result }) => (
-                        <ResultItem key={name} text={name} result={result} />
+                    arrResults.map(({ name: subLottery, result }) => (
+                        <ResultItem
+                            key={subLottery}
+                            text={subLottery}
+                            result={result}
+                        />
                     ))}
             </div>
         </CardLayout>

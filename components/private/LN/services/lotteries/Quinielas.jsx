@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import CardLayout from './CardLayout';
 import LabelText from './LabelText';
-import Text from '../../../private/common/text';
+import Text from '../../../common/text';
 import ResultItem from './ResultItem';
 
 const Quinielas = ({ name, date, results, link, letters }) => {
