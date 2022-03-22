@@ -31,7 +31,7 @@ const ImageArticle = props => {
 
     const srcset = getSourceSet(isVertical, image, sourceActive);
     const sizes = getSizes(sourceActive);
-    const { resizedUrl, _width, _height } = getShortestImage(sourceActive);
+    const { resizedUrl, _width } = getShortestImage(sourceActive);
 
     return (
         <ComPicture href={href} amp={outputType === 'amp'}>
@@ -41,8 +41,8 @@ const ImageArticle = props => {
                 src={!isAmp ? url : `${resizedUrl} ${_width}w`}
                 alt={altBasic}
                 amp={isAmp}
-                height={_height || height}
-                width={_width || width}
+                height={height}
+                width={width}
                 isApertura={isApertura}
             />
         </ComPicture>

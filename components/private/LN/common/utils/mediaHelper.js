@@ -99,12 +99,10 @@ export const getShortestImage = (resizedUrls = []) => {
     );
 
     const _width = get(result, 'option.width', undefined);
-    const _height = get(result, 'option._height', undefined);
 
     return {
         resizedUrl: result.resizedUrl,
-        _width,
-        _height
+        _width
     };
 };
 export const LinkImagePreload = ({ originalURL = '', resizedUrls = [] }) => {
