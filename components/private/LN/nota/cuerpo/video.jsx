@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Media from '../../common/media';
@@ -25,19 +26,24 @@ video.arcType = 'video';
 
 video.propTypes = {
     data: PropTypes.shape({
-        content: PropTypes.string.isRequired,
-        list_type: PropTypes.string.isRequired,
-        items: PropTypes.arrayOf.isRequired,
-        type: PropTypes.string.isRequired
+        content: PropTypes.string,
+        list_type: PropTypes.string,
+        items: PropTypes.array,
+        type: PropTypes.string
     }).isRequired,
-    outputType: PropTypes.string.isRequired,
-    primerParrafo: PropTypes.string,
+    outputType: PropTypes.string,
+    primerParrafo: PropTypes.oneOfType([
+        PropTypes.shape({
+            content: PropTypes.string
+        }),
+        PropTypes.string
+    ]).isRequired,
     tituloNota: PropTypes.string
 };
 
 video.defaultProps = {
-    primerParrafo: '',
-    tituloNota: ''
+    tituloNota: '',
+    outputType: 'default'
 };
 
 export default video;

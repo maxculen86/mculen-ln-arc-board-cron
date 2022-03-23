@@ -152,10 +152,11 @@ body {
 a {
     text-decoration: none;
     color: inherit;
-    transition: all 0.2s ease-in-out;
-    &:hover {
-        opacity: 0.8;
-        transition: all 0.2s ease-in-out;
-        cursor: pointer;
+    @media (min-width: 1024px) {
+        &:hover {
+            opacity: 0.8;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
     }
 }

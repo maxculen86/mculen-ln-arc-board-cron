@@ -2,32 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ComImage from '../../../../common/com-image';
 import ComPicture from '../../../../common/com-picture';
-import { getSourceSet } from '../../utils/mediaHelper';
-
-const sourceMapper = source => {
-    return source.map(e => {
-        return (
-            <source
-                key={e.option.media}
-                media={e.option.media}
-                srcSet={e.resizedUrl}
-            />
-        );
-    });
-};
+import {
+    getSourceSet,
+    getSizes,
+    getShortestImage
+} from '../../utils/mediaHelper';
 
 const ImageArticle = props => {
-    const {
-        image,
-        href,
-        outputType,
-        active,
-        withLazy,
-        isVertical,
-        isApertura
-    } = props;
+    const { image, href, outputType, active, isVertical, isApertura } = props;
 
     const { alt_text: altText, caption, titleText, height, width, url } = image;
+
+    const isAmp = outputType === 'amp';
+
     const altBasic = altText || caption || titleText || '';
     if (!url) return null;
 
@@ -41,23 +28,21 @@ const ImageArticle = props => {
     const sourceActive = active ? sourcesZoom : sources;
 
     // TODO: ver este tema de source sets con maquetacion
-    const srcsetAMP = getSourceSet(isVertical, image, sourceActive);
+
+    const srcset = getSourceSet(isVertical, image, sourceActive);
+    const sizes = getSizes(sourceActive);
+    const { resizedUrl, _width } = getShortestImage(sourceActive);
 
     return (
         <ComPicture href={href} amp={outputType === 'amp'}>
-            {!active &&
-                outputType !== 'amp' &&
-                sources &&
-                sourceMapper(sources)}
-            {active && sourcesZoom && sourceMapper(sourcesZoom)}
             <ComImage
-                srcsetAMP={srcsetAMP}
-                src={url}
+                srcset={srcset}
+                sizes={sizes.length > 0 ? `${sizes},100vw` : '100vw'}
+                src={!isAmp ? url : `${resizedUrl} ${_width}w`}
                 alt={altBasic}
-                amp={outputType === 'amp'}
+                amp={isAmp}
                 height={height}
                 width={width}
-                withLazy={withLazy}
                 isApertura={isApertura}
             />
         </ComPicture>
@@ -80,13 +65,11 @@ ImageArticle.propTypes = {
     active: PropTypes.bool,
     isVertical: PropTypes.bool,
     href: PropTypes.string,
-    withLazy: PropTypes.bool,
     isApertura: PropTypes.bool
 };
 
 ImageArticle.defaultProps = {
     href: '',
-    withLazy: true,
     active: false,
     isVertical: false,
     isApertura: false

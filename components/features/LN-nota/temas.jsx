@@ -21,6 +21,7 @@ const temas = props => {
 };
 
 temas.label = 'LN-Nota-Temas';
+temas.lazy = true;
 
 temas.propTypes = {
     id: PropTypes.string,
@@ -29,7 +30,7 @@ temas.propTypes = {
             tags: PropTypes.arrayOf(PropTypes.shape()),
             sections: PropTypes.arrayOf(PropTypes.shape())
         })
-    }).isRequired
+    })
 };
 
 export default Consumer(temas);

@@ -129,13 +129,14 @@ const masNotas = props => {
 };
 
 masNotas.label = 'LN-Nota-masNotas';
+masNotas.lazy = true;
 
 masNotas.propTypes = {
     id: PropTypes.string,
     outputType: PropTypes.string,
     customFields: PropTypes.shape({
         cantidadNotas: PropTypes.number.tag({ label: 'Cantidad de Notas' }),
-        filter: PropTypes.oneOf(['0', '1']).tag({
+        filter: PropTypes.oneOf(['0', '1', 1, 0]).tag({
             labels: {
                 0: 'Ultimas Noticias',
                 1: 'Por Sección'
@@ -155,7 +156,8 @@ masNotas.propTypes = {
                 path: PropTypes.string
             })
         })
-    })
+    }),
+    arcSite: PropTypes.string
 };
 
 export default Consumer(masNotas);

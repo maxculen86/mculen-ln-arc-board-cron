@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
@@ -36,7 +37,7 @@ bajadaNota.propTypes = {
             content_code: PropTypes.string.isRequired
         }),
         subtype: PropTypes.string.isRequired
-    }).isRequired
+    })
 };
 
 export default Consumer(bajadaNota);

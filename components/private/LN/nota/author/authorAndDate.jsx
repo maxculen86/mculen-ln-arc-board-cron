@@ -58,13 +58,14 @@ authorAndDate.propTypes = {
             by: PropTypes.arrayOf(PropTypes.shape({}))
         })
     }).isRequired,
-    date: PropTypes.bool.isRequired,
+    date: PropTypes.bool,
     author: PropTypes.bool,
-    authorDate: PropTypes.string
+    authorDate: PropTypes.bool
 };
 authorAndDate.defaultProps = {
     author: undefined,
-    authorDate: undefined
+    authorDate: undefined,
+    date: undefined
 };
 
 export default authorAndDate;

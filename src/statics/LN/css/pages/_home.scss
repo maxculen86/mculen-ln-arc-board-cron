@@ -111,7 +111,7 @@
                 overflow: hidden;
                 border: 1px solid $light-neutral-400;
 
-                .mod-picture.mod-picture {
+                .placeholder.placeholder {
                     padding-top: 100%;
                     border: none;
                     .com-image {
@@ -322,15 +322,15 @@ $rank-dsk: px(400);
             }
             .mod-description {
                 position: relative;
-                margin-top: px(110);
+                margin-top: px(16);
 
-                @media ($media-m) {
-                    margin-top: px(200);
-                }
+                // @media ($media-m) {
+                //     margin-top: px(200);
+                // }
 
-                @media ($media-l) {
-                    margin-top: px(188);
-                }
+                // @media ($media-l) {
+                //     margin-top: px(188);
+                // }
             }
         }
     }
@@ -343,18 +343,21 @@ $rank-dsk: px(400);
             margin: 0;
 
             .mod-figure {
-                height: calc(100vh - 105px);
+                height: calc(100vh - 130px);
 
-                .mod-picture {
+                .placeholder {
                     height: 100%;
                     border: none;
                     padding-top: calc((3 / 2) * 100%);
                 }
 
+                @media ($media-m) {
+                    height: calc(100vh - 293px);
+                }
                 @media ($media-l) {
-                    height: calc(100vh - 73px);
+                    height: calc(100vh - 262px);
 
-                    .mod-picture {
+                    .placeholder {
                         padding-top: $video;
                     }
                 }
@@ -671,7 +674,7 @@ $rank-dsk: px(400);
         .mod-article {
             .mod-media {
                 margin-bottom: 0;
-                .mod-picture {
+                .placeholder {
                     border: none;
                 }
             }
@@ -904,7 +907,7 @@ $rank-dsk: px(400);
 
         .mod-media {
             margin-bottom: 0;
-            .mod-picture {
+            .placeholder {
                 border: none;
                 padding-top: calc((5 / 4) * 100%);
             }
@@ -942,7 +945,7 @@ $rank-dsk: px(400);
             .mod-article {
                 > div {
                     .mod-media {
-                        .mod-picture {
+                        .placeholder {
                             border: none;
                             padding-top: calc((9 / 16) * 100%);
                             img {
@@ -1086,7 +1089,7 @@ $rank-dsk: px(400);
         &.--highlight.--highlight {
             .mod-article {
                 .mod-media {
-                    .mod-picture {
+                    .placeholder {
                         padding-top: calc((5 / 4) * 100%);
                     }
                 }
@@ -1100,7 +1103,7 @@ $rank-dsk: px(400);
         &.--cinema {
             //margin-top: px(32);
             .mod-media {
-                .mod-picture {
+                .placeholder {
                     padding-top: calc((2 / 5) * 100%);
                 }
             }
@@ -1163,7 +1166,7 @@ $rank-dsk: px(400);
 //         a {
 //             background: aqua;
 //         }
-//         .mod-picture {
+//         .placeholder {
 //             opacity: 0.2;
 //         }
 //         &:hover {

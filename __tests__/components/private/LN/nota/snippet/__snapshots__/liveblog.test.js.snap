@@ -19,11 +19,34 @@ exports[`Private - LN - nota - snippet - liveblog  Snapshot Snippet Liveblog 1`]
       \\"width\\": 600
     }
   },
+  \\"about\\": {
+    \\"@type\\": \\"Event\\",
+    \\"name\\": \\"Meta titulo\\",
+    \\"startDate\\": \\"2020-06-25T16:39:44.527Z\\",
+    \\"endDate\\": \\"2020-06-26T04:39:44.527Z\\",
+    \\"location\\": {
+      \\"@type\\": \\"place\\",
+      \\"name\\": \\"LA NACION\\",
+      \\"address\\": {
+        \\"@type\\": \\"PostalAddress\\",
+        \\"addressLocality\\": \\"Buenos Aires\\",
+        \\"addressRegion\\": \\"AR\\"
+      }
+    },
+    \\"description\\": \\"Esta es la prueba de la bajada en Foto al 100\\",
+    \\"image\\": {
+      \\"@context\\": \\"https://schema.org\\",
+      \\"@type\\": \\"ImageObject\\",
+      \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN-600_amp.jpg$LATEST\\",
+      \\"height\\": \\"800\\",
+      \\"width\\": \\"1200\\"
+    }
+  },
   \\"url\\": \\"https://www.lanacion.com.ar/arquitectura/nota-de-prueba-foto-al-100-nid25062020/\\",
   \\"@id\\": \\"#liveBlogPosting\\",
   \\"description\\": \\"Esta es la prueba de la bajada en Foto al 100\\",
   \\"coverageStartTime\\": \\"2020-06-25T16:39:44.527Z\\",
-  \\"coverageEndTime\\": \\"2020-06-25T17:39:38.448Z\\",
+  \\"coverageEndTime\\": \\"2020-06-26T04:39:44.527Z\\",
   \\"name\\": \\"Meta titulo\\",
   \\"liveBlogUpdate\\": [
     {

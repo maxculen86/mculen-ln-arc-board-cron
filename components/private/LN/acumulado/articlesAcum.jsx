@@ -65,7 +65,7 @@ ArticlesAcum.propTypes = {
     getBanner: PropTypes.func.isRequired,
     typeArticle: PropTypes.string.isRequired,
     outputType: PropTypes.string,
-    classCondition: PropTypes.string
+    classCondition: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
 };
 
 ArticlesAcum.defaultProps = {

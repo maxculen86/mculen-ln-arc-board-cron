@@ -103,6 +103,10 @@ const NoteCard = ({
                 isPowa={isPowa}
                 device={device}
                 layout={layout}
+                isApertura={
+                    isInHomeAperturaOrBomba &&
+                    get(articleProps, 'isApertura', false)
+                }
             />
         )) || <></>
     );

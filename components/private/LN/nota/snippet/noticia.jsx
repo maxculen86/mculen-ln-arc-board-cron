@@ -2,6 +2,7 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { SITE_LANACION } from 'fusion:environment';
 import HTMLLIBRE from '../../../common/utils/subtypes/htmlLibre';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
@@ -11,6 +12,10 @@ import get from '../../../common/utils/get';
 import * as Trust from './constants';
 import addRelatedImage from '../../common/utils/addRelatedImage';
 import addForwardSlash from '../../common/utils/addForwardSlash';
+import {
+    extractDataFromPromoItems,
+    urlShema
+} from '../../common/utils/extractDataFromPromoItems';
 
 const extractDataFromTags = tags => {
     let keywords = [];
@@ -21,62 +26,28 @@ const extractDataFromTags = tags => {
     return { keywords };
 };
 
-const extracDataFromCredits = by => {
+const extracDataFromCredits = (by, config = {}) => {
     let authors = [];
 
     if (by) {
         authors = by
             .filter(v => v.type === 'author')
-            .map(author => getAuthorByline(author));
+            .map(author =>
+                config.snippet
+                    ? setAuthorSnippetStructure(author)
+                    : getAuthorByline(author)
+            );
     }
     return { authors: authors.length ? authors : [] };
 };
 
-const getBiggestImage = basic => {
-    const { resized_urls: resizedUrls = [] } = basic || {};
-    const imagenFullSize = resizedUrls.reduce(
-        (prev, curr) =>
-            get(prev, 'option.width', 0) > get(curr, 'option.width', 0)
-                ? prev
-                : curr,
-        {}
-    );
-    const { resizedUrl, option } = imagenFullSize;
-    const { width: bigWidth, height: bigHeight } = option || {};
-    return { resizedUrl, bigWidth, bigHeight };
-};
-
-const urlShema = 'https://schema.org';
-
-const extractDataFromPromoItems = (promoItems, PLACEHOLDER) => {
-    const { basic } = promoItems || {};
-    const { url, type, height, width } = basic || {};
-    const isImage = basic && type === 'image';
-    let thumbnailUrl = PLACEHOLDER;
-    let image = {
-        '@context': urlShema,
-        '@type': 'ImageObject',
-        url: PLACEHOLDER,
-        height: '800',
-        width: '1200'
-    };
-
-    if (promoItems && isImage) {
-        const { resizedUrl, bigWidth, bigHeight } = getBiggestImage(basic);
-        const pathImagen = url;
-        thumbnailUrl = `${pathImagen}`;
-        image = {
-            '@context': urlShema,
-            '@type': 'ImageObject',
-            url: resizedUrl ? `${resizedUrl}` : `${pathImagen}`,
-            height: bigHeight ? `${bigHeight}` : `${height}`,
-            width: bigWidth ? `${bigWidth}` : `${width}`
-        };
-    }
+const setAuthorSnippetStructure = author => {
+    const bioPage = get(author, 'additional_properties.original.bio_page', '');
 
     return {
-        thumbnailUrl,
-        image
+        '@type': 'Person',
+        name: getAuthorByline(author),
+        url: `${SITE_LANACION}${bioPage}`
     };
 };
 
@@ -165,6 +136,7 @@ const SnippetNoticia = props => {
     const { name: distributorName } = distributor;
 
     const { promo_items: promoItems } = addRelatedImage(props.globalContent);
+
     const LOGO_LN = getAssetsPath(contextPath)(deployment)(
         'placeholderLN-600_amp.jpg'
     );
@@ -179,7 +151,7 @@ const SnippetNoticia = props => {
         name: distributorName
     };
 
-    const { authors } = extracDataFromCredits(by);
+    const { authors } = extracDataFromCredits(by, { snippet: true });
     const { keywords } = extractDataFromTags(tags);
     const { thumbnailUrl, image } = extractDataFromPromoItems(
         promoItems,
@@ -187,6 +159,7 @@ const SnippetNoticia = props => {
     );
 
     const trust = get(label, 'trust.text', 'Noticia Original');
+    const creators = authors.map(a => a.name);
 
     let data = {
         '@context': urlShema,
@@ -211,7 +184,7 @@ const SnippetNoticia = props => {
             productID: 'lanacion.com.ar:acceso_digital'
         },
         author: !authors.length ? distributorAuthor : authors,
-        creator: authors,
+        creator: creators,
         keywords,
         publisher: {
             '@type': 'Organization',

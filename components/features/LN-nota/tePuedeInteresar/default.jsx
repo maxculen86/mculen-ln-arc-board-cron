@@ -80,6 +80,7 @@ const tePuedeInteresar = props => {
 };
 
 tePuedeInteresar.label = 'LN-Nota-tePuedeInteresar';
+tePuedeInteresar.lazy = true;
 
 tePuedeInteresar.propTypes = {
     customFields: PropTypes.shape({
@@ -87,8 +88,8 @@ tePuedeInteresar.propTypes = {
             defaultValue: 6,
             min: 3,
             label: 'Cantidad de Notas'
-        }).isRequired
-    }).isRequired,
+        })
+    }),
     outputType: PropTypes.string,
     siteProperties: PropTypes.shape({
         host: PropTypes.string

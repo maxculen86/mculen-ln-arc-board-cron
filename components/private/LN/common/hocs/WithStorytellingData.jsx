@@ -9,9 +9,15 @@ export default function WithStorytellingData(WrappedComponent) {
             return {
                 globalContent: PropTypes.shape({
                     promo_items: PropTypes.shape({
-                        basic: PropTypes.arrayOf(PropTypes.node),
-                        storytelling: PropTypes.arrayOf(PropTypes.node),
-                        storytelling_mobile: PropTypes.arrayOf(PropTypes.node),
+                        basic: PropTypes.object,
+                        storytelling: PropTypes.oneOfType([
+                            PropTypes.arrayOf(PropTypes.node),
+                            PropTypes.object
+                        ]),
+                        storytelling_mobile: PropTypes.oneOfType([
+                            PropTypes.arrayOf(PropTypes.node),
+                            PropTypes.object
+                        ]),
                         type: PropTypes.string,
                         subtype: PropTypes.string
                     })

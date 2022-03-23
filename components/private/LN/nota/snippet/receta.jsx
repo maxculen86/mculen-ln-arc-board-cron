@@ -35,7 +35,9 @@ const snippet = props => {
         deployment
     } = props;
 
-    const PLACERHOLDER = getAssetsPath(contextPath)(deployment)('bco.png');
+    const PLACERHOLDER = getAssetsPath(contextPath)(deployment)(
+        'placeholderLN-1080.jpg'
+    );
 
     const LOGO_AMP = getAssetsPath(contextPath)(deployment)('logo-ln-amp.png');
 
@@ -57,7 +59,7 @@ const snippet = props => {
         counterPortion,
         cookTime,
         prepTime
-    } = extractDataFromPromoItems(promoItems);
+    } = extractDataFromPromoItems(promoItems, PLACERHOLDER);
 
     const categoria = primarySection.name;
 
@@ -102,7 +104,6 @@ const snippet = props => {
             '@type': autores === '' ? 'Organization' : 'Person',
             name: autores === '' ? 'LA NACION recetas' : `${autores}`
         },
-        image: `${image || PLACERHOLDER}`,
         recipeIngredient: ingredients,
         recipeCategory: categoria,
         name: `${headLinesBasic || 'LA NACION - Recetas'}`,
@@ -119,7 +120,8 @@ const snippet = props => {
                 height: 41,
                 width: 391
             }
-        }
+        },
+        image
     };
     return <SnippetRender data={data} />;
 };

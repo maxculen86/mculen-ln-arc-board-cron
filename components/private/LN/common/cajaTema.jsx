@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import ModRowGap from '../../common/mod-rowgap';
 import ModHeaderSection from '../../common/mod-headerSection';
 import Opinion from '../../common/opinion';
@@ -102,7 +102,8 @@ const CajaTema = props => {
         hideTitle = false,
         position,
         sectionName = '',
-        _children = []
+        _children = [],
+        isHome = false
     } = props;
 
     const artWithoutDate =
@@ -133,11 +134,16 @@ const CajaTema = props => {
                         imageId={imageId}
                         title={title}
                         link={url}
+                        customTitle={!hideTitle && title}
                     />
                 )}
                 <ModRowGap typeArticle={layoutName} column={notesQuantity}>
                     {sectionName === 'Ranking' ? (
-                        <OrderedList>{childrenComponent}</OrderedList>
+                        <OrderedList
+                            extraClass={isHome ? 'row-gap-tablet-4' : ''}
+                        >
+                            {childrenComponent}
+                        </OrderedList>
                     ) : (
                         childrenComponent
                     )}
@@ -153,18 +159,18 @@ CajaTema.propTypes = {
             _id: PropTypes.string
         })
     ).isRequired,
-    outputType: PropTypes.string.isRequired,
+    outputType: PropTypes.string,
     layout: PropTypes.string,
     backgroundColor: PropTypes.string,
     classCondition: PropTypes.string,
     notesQuantity: PropTypes.number,
-    hideTitle: PropTypes.boolean,
-    withSubhead: PropTypes.boolean,
+    hideTitle: PropTypes.bool,
+    withSubhead: PropTypes.bool,
     title: PropTypes.string,
-    titleSize: PropTypes.oneOfType([PropTypes.boolean, PropTypes.string]),
+    titleSize: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     url: PropTypes.string,
     imageId: PropTypes.string,
-    position: PropTypes.oneOfType([PropTypes.boolean, PropTypes.string])
+    position: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
         .isRequired,
     sectionName: PropTypes.string.isRequired,
     _children: PropTypes.arrayOf(PropTypes.node)
@@ -181,7 +187,8 @@ CajaTema.defaultProps = {
     withSubhead: false,
     hideTitle: false,
     notesQuantity: 3,
-    _children: []
+    _children: [],
+    outputType: 'default'
 };
 
 const areEqual = (prevProps, nextProps) =>

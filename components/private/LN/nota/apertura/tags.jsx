@@ -73,7 +73,7 @@ Tags.propTypes = {
             slug: PropTypes.string,
             text: PropTypes.string
         })
-    ).isRequired,
+    ),
     destacado: PropTypes.bool.isRequired,
     temas: PropTypes.bool,
     sections: PropTypes.arrayOf(PropTypes.shape)
@@ -81,7 +81,8 @@ Tags.propTypes = {
 
 Tags.defaultProps = {
     temas: false,
-    sections: []
+    sections: [],
+    tags: []
 };
 
 export default Tags;

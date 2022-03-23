@@ -5,7 +5,8 @@ export default {
     IS_DEV: 'true',
     IS_SANDBOX: 'true',
     API_ENV: 'sandbox',
-    RANKING_URL: 'https://api.lanacionar.arcpublishing.com',
+    RANKING_URL:
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygHvArd3vNTVbEIdqek5qVFOAAAA9DCB8QYJKoZIhvcNAQcGoIHjMIHgAgEAMIHaBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDGfXmCwlTipuJajo1gIBEICBrDramRDrIg5zeki6aUV1h40ZQlmNVH1jfWZTyJbmdHOMPSBQft2s64nNfhttuktf7+1Sss4g/f0arqUtcmEUTDvOMa2xO8ODNavc8EhYPE0bJpdXgnzKfzw2DyzR2Yumyw88IISoKERQWLv4nbffor8FhyVURwPQ5UBsU/Oq0X5BFNakgho251OeEKBh2ffuNLdFmRRxczyJu75GTYaF+jieSuu3YiPqpVtBm00=}', //NOSONAR
     LANACIONAR_URLASSETS: urlSandboxArcPublishing,
     OPTA_WIDGET_URL: 'https://sandbox.lanacion.com.ar/opta-embed',
     SITE_LANACION: urlSandboxArcPublishing,
@@ -31,5 +32,6 @@ export default {
     VIAFOURA_UUID: '00000000-0000-4000-8000-43ce53965c44',
     VIAFOURA_XREQUEST:
         'cq4Xr6peiyYAhuLxRBq/ozZD+TOR0BiHnofsJWLLbi59gsFl9mRE6Xdzi/eBGed+',
-    ARC_WIDGETS: 'https://dev.lanacionar.arcpublishing.com/widgets/'
+    ARC_WIDGETS: 'https://dev.lanacionar.arcpublishing.com/widgets/',
+    LANACION_SERVICES_URL: 'https://arcservices.lanacion.com.ar'
 };

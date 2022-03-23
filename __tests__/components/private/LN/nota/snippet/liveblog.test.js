@@ -5,7 +5,8 @@ import article from '../../../../../../__mocks__/data/articles/YODTB72QWJCR7AAC3
 import {
     restMinutes,
     differenceInMinutes,
-    formatDateTreeHoursMore
+    formatDateTreeHoursMore,
+    addHours
 } from '../../../../../../components/private/common/utils/dateAndTimeUtil';
 
 jest.mock('fusion:environment', () => {
@@ -65,7 +66,7 @@ describe('Private - LN - nota - snippet - liveblog ', () => {
                 headlines: { basic: title, meta_title: metaTitle },
                 credits: { by },
                 first_publish_date: firstPublishDate,
-                last_updated_date: lastUpdatedDate
+                display_date: displayDate
             },
             contextPath,
             deployment
@@ -102,9 +103,7 @@ describe('Private - LN - nota - snippet - liveblog ', () => {
         expect(coverageStartTime).toBe(
             formatDateTreeHoursMore(new Date(firstPublishDate)).toISOString()
         );
-        expect(coverageEndTime).toBe(
-            formatDateTreeHoursMore(new Date(lastUpdatedDate)).toISOString()
-        );
+        expect(coverageEndTime).toBe(addHours(9, displayDate).toISOString());
         //expect(mainEntityOfPage).toBe(`${host}${path}/`);
         //expect(author).toStrictEqual(['Redacción LA NACION']);
         expect(publisherType).toBe('Organization');

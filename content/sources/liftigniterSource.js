@@ -173,8 +173,7 @@ const resolveData = query => {
         widgetType,
         articles = [],
         urlReferer = null,
-        maxAgeInSeconds,
-        source = 'No viene de te puede interesar'
+        maxAgeInSeconds
     } = query;
 
     const userIdParam = userId && !userId.includes('/') ? `/${userId}` : '';
@@ -186,11 +185,7 @@ const resolveData = query => {
     };
 
     const body = {
-        url: parseUrl(
-            urlReferer === null ? referrer : urlReferer,
-            source,
-            arcSite
-        ),
+        url: parseUrl(urlReferer === null ? referrer : urlReferer),
         referrer,
         sessionId,
         pageviewId: idArticle

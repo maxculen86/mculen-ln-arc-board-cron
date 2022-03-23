@@ -199,38 +199,16 @@ const setupCookies = ({ Usuario: obj }) => {
 };
 
 const reMeHandler = (res, token, xvalue, dispatch) => {
-    switch (res.code) {
-        case '0000':
-            eraseCookie('token');
-            eraseCookie('xvalue');
-
-            setCookie('token', token);
-            setCookie('xvalue', xvalue);
-            setupCookies(JSON.parse(res.response) || {});
-            _UserClientLibs('RefreshAsync')();
-            break;
-        case '0001':
-            /**
-                 * TODO: manejo de Logger
-                 Logger.Error("ReMe | Error Controlado ", JSON.stringify(res) );
-                 */
-            goToLogout(dispatch);
-            break;
-        case '0002':
-            /**
-                 * TODO: manejo de Logger
-                 Logger.Error("ReMe | Token inválido ", JSON.stringify(res)); 
-                 //{ 'response' : res ,  'tokens': { 'X-Token': Cookie.LeerCookie("token") 
-                 || '', 'X-Value': Cookie.LeerCookie("xvalue") || '' }});
-            */
-            goToLogout(dispatch);
-            break;
-        default:
-            /**
-                 * TODO: manejo de Logger
-                 Logger.Error("ReMe | Error (Handler) ", JSON.stringify(res) );
-                 */
-            goToLogout(dispatch);
+    if (res.code === '0000') {
+        eraseCookie('token');
+        eraseCookie('xvalue');
+        setCookie('token', token);
+        setCookie('xvalue', xvalue);
+        setupCookies(JSON.parse(res.response) || {});
+        _UserClientLibs('RefreshAsync')();
+    } else {
+        /**TODO: Chequear handler de errores borrados en la eliminación del switch */
+        goToLogout(dispatch);
     }
 };
 

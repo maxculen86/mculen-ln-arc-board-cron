@@ -1,5 +1,6 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
+import { parse } from 'node-html-parser';
 import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData';
 import get from '../../../common/utils/get';
 import {
@@ -72,14 +73,67 @@ export const getSourceSet = (isVertical, image, sourceActive = []) => {
 
     if (srcset && srcset.length === 1) srcset = `${image.url} ${image.width}w`;
 
-    return srcset;
+    return srcset.length > 0 ? srcset : undefined;
+};
+
+export const getSizes = (sources = []) => {
+    return Array.isArray(sources)
+        ? sources
+              .map(
+                  x => x.option.media && `${x.option.media} ${x.option.width}px`
+              )
+              .filter(Boolean)
+        : [];
+};
+
+const mustRenderPreload = ({ originalURL, imagesrcset }) =>
+    originalURL && imagesrcset;
+
+export const getShortestImage = (resizedUrls = []) => {
+    const result = resizedUrls.reduce(
+        (prev, curr) =>
+            get(prev, 'option.width', 5000) < get(curr, 'option.width', 5000)
+                ? prev
+                : curr,
+        {}
+    );
+
+    const _width = get(result, 'option.width', undefined);
+
+    return {
+        resizedUrl: result.resizedUrl,
+        _width
+    };
+};
+export const LinkImagePreload = ({ originalURL = '', resizedUrls = [] }) => {
+    const imagesrcset = [];
+    const imagesizes = [];
+
+    const { resizedUrl, _width } = getShortestImage(resizedUrls);
+
+    resizedUrls.forEach(x => {
+        imagesrcset.push(`${x.resizedUrl} ${x.option.width}w`);
+        imagesizes.push(
+            x.option.media && `${x.option.media} ${x.option.width}px`
+        );
+    });
+
+    return (
+        mustRenderPreload({ originalURL, imagesrcset }) && (
+            <link
+                rel="preload"
+                as="image"
+                href={`${resizedUrl} ${_width}w`}
+                imagesrcset={imagesrcset}
+            />
+        )
+    );
 };
 
 export const buildScriptForZoom = (mediaData, subtype) => {
     const { width = 0, _id: idMedia, type } = mediaData || {};
     return (
-        type === 'image' &&
-        idMedia && (
+        (type === 'image' && idMedia && (
             <script
                 dangerouslySetInnerHTML={{
                     __html: `
@@ -106,6 +160,44 @@ export const buildScriptForZoom = (mediaData, subtype) => {
                 `
                 }}
             />
-        )
+        )) ||
+        undefined
+    );
+};
+
+export const buildScriptResizeSSRInfography = (promoItems = {}) => {
+    const idMedia =
+        get(promoItems, 'apertura_multimedia._id') ||
+        get(promoItems, 'basic._id');
+    const type =
+        get(promoItems, 'apertura_multimedia.type') ||
+        get(promoItems, 'basic.type');
+    const content =
+        get(promoItems, 'apertura_multimedia.content') ||
+        get(promoItems, 'basic.content');
+
+    const htmlNode = content ? parse(content.trim()).firstChild : {};
+    const { src } = htmlNode.attributes || {};
+
+    if (
+        type !== 'raw_html' ||
+        !content ||
+        !src ||
+        htmlNode.tagName !== 'iframe'
+    ) {
+        return null;
+    }
+
+    return (
+        <script
+            defer
+            type="text/javascript"
+            dangerouslySetInnerHTML={{
+                __html: `
+                window.addEventListener("DOMContentLoaded", () => {
+                    const pymIframe = new pym.Parent("anexo-${idMedia}", "${src}", {});
+                });`
+            }}
+        />
     );
 };

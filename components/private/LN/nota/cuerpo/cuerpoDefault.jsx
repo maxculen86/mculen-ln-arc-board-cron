@@ -3,7 +3,7 @@
 /* eslint-disable react/jsx-fragments          */
 
 import React, { useEffect } from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import StaticValidation from '../../../common/staticValidation';
 import Paragraph from './parrafo';
 import PullQuote from './pullQuote';
@@ -21,6 +21,7 @@ import Html from './html';
 import OptaAMP from './optaAMP';
 import powerUpsReceta from './powerUpsReceta';
 import HtmlAMP from './htmlAMP';
+import Divider from './divider';
 import DivBannerSSR from '../../../common/banners/DivBannerSSR';
 import DivBannerAMP from '../../../common/banners/DivBannerAMP';
 import { setStorageConfiguration } from '../../../common/utils/storage';
@@ -57,7 +58,8 @@ const Cuerpo = props => {
         Html,
         OptaAMP,
         powerUpsReceta,
-        HtmlAMP
+        HtmlAMP,
+        Divider
     ];
 
     useEffect(() => {
@@ -71,9 +73,9 @@ const Cuerpo = props => {
                 websiteUrl
             });
         }
-    }, [_id]);
+    }, [_id, outputType, websiteUrl]);
 
-    const types = ['text', 'image', 'oembed_response', 'video'];
+    const types = ['text', 'image', 'oembed_response', 'video', 'divider'];
 
     const getElementsCount = supportedTypes =>
         contentElements.filter(el => supportedTypes.includes(el.type)).length;
@@ -233,10 +235,14 @@ Cuerpo.propTypes = {
             dfp_id: PropTypes.number.isRequired
         })
     }).isRequired,
-    outputType: PropTypes.string.isRequired,
+    outputType: PropTypes.string,
     globalContent: PropTypes.shape({
         content_elements: PropTypes.arrayOf(PropTypes.shape()).isRequired
     }).isRequired
+};
+
+Cuerpo.defaultProps = {
+    outputType: 'default'
 };
 
 export default Cuerpo;

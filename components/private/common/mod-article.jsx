@@ -43,7 +43,8 @@ const ModArticle = props => {
         category,
         tags,
         handleClick,
-        layout
+        layout,
+        isApertura
     } = props;
 
     const { _id, website_url: websiteUrl } = articleData || {};
@@ -103,6 +104,7 @@ const ModArticle = props => {
                     html={anexo}
                     titleText={titleText}
                     isPowa={isPowa}
+                    isApertura={isApertura}
                     // labelArticle="La Chapita solo se tiene que ver con foto o placeholder"
                 />
             )}
@@ -173,7 +175,8 @@ ModArticle.propTypes = {
         streams: PropTypes.array,
         type: PropTypes.string
     }),
-    withMedia: PropTypes.bool
+    withMedia: PropTypes.bool,
+    isApertura: PropTypes.bool
 };
 
 ModArticle.defaultProps = {
@@ -206,7 +209,8 @@ ModArticle.defaultProps = {
     titleTag: undefined,
     tags: undefined,
     videoBackground: undefined,
-    withMedia: false
+    withMedia: false,
+    isApertura: false
 };
 
 export default ModArticle;

@@ -41,7 +41,8 @@ const ArticleAcum = ({
     artPosition,
     withCategory,
     withTags,
-    handleClick
+    handleClick,
+    isApertura
 }) => {
     const _article = addRelatedImage(article);
     const {
@@ -99,6 +100,7 @@ const ArticleAcum = ({
                 tags={withTags && tagList}
                 label={{ text: chapita }}
                 handleClick={handleClick}
+                isApertura={isApertura}
             />
             {children}
         </>
@@ -143,7 +145,8 @@ ArticleAcum.propTypes = {
     withVolanta: PropTypes.bool,
     isRenderAuthor: PropTypes.bool,
     boxPosition: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-    artPosition: PropTypes.string
+    artPosition: PropTypes.string,
+    isApertura: PropTypes.bool
 };
 
 ArticleAcum.defaultProps = {
@@ -160,7 +163,8 @@ ArticleAcum.defaultProps = {
     withTags: false,
     isRenderAuthor: false,
     withSubhead: false,
-    withVolanta: true
+    withVolanta: true,
+    isApertura: false
 };
 
 export default ArticleAcum;

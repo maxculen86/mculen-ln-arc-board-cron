@@ -151,6 +151,16 @@ const Index = ({ home }) => {
         }
     ];
 
+    const listText2c = [
+        { text: 'Libros:' },
+        {
+            text: 'LiBooks',
+            alt: 'Ir a tienda online de LiBooks',
+            href: 'https://www.libooks.com/',
+            target: '_blank'
+        }
+    ];
+
     const listText3 = [
         {
             text: 'Mapa del sitio',
@@ -286,6 +296,9 @@ const Index = ({ home }) => {
                             >
                                 {listText2b}
                             </List>
+                            <List inline size="--fourxs" mod="--font-bold">
+                                {listText2c}
+                            </List>
                         </div>
                     </section>
                 )}
@@ -334,9 +347,14 @@ const Index = ({ home }) => {
 };
 
 Index.propTypes = {
-    outputType: PropTypes.string.isRequired,
+    outputType: PropTypes.string,
     siteProperties: PropTypes.shape({
         host: PropTypes.string
-    }).isRequired
+    })
+};
+
+Index.defaultProps = {
+    outputType: 'default',
+    siteProperties: {}
 };
 export default Consumer(Index);

@@ -20,5 +20,6 @@ const NewsLetter = () => {
 };
 
 NewsLetter.label = 'LN-Common-Newsletter';
+NewsLetter.lazy = true;
 
 export default NewsLetter;

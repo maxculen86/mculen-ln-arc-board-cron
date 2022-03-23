@@ -144,7 +144,8 @@
             height: px(26);
         }
     }
-    &.propiedades {
+    &.propiedades,
+    &.propiedades-blanco {
         &.--xs {
             width: px(166);
             height: px(22);
@@ -154,7 +155,8 @@
             height: px(32);
         }
     }
-    &.campo {
+    &.campo,
+    &.campo-blanco {
         &.--xs {
             width: px(121);
             height: px(22);

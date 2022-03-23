@@ -7,6 +7,7 @@ jest.mock('fusion:environment', () => {
         API_ENV: 'prod',
         RESIZER_URL:
             'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer',
+        RESIZER_KEY: 'Fmkgru2rZ2uPZ5wXs7B2HbVDJHDkdoi5',
         API_INGRESAR: 'https://api-ingresar.lanacion.com.ar',
         RELOGIN_VALIDATION: '8121600000',
         SITIO_SEGURO_REGISTRACION: 'https://ingresar.lanacion.com.ar',
@@ -14,7 +15,7 @@ jest.mock('fusion:environment', () => {
         COOKIE_EXPIRATION: '8640000000',
         DOMINIO_COOKIE: '.lanacion.com.ar',
         RANKING_URL:
-            'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/arcio/ans/most-read/',
+            'https://2018-09:_04QuWtAkaPLWkF-gdlX1ZHgnd1dqOQ6R62CbBPQ-PmHZwc2CztLI-MUGIJ3a3ctcNjBw3WRwmy_zpvUIYODrv66Tvg4JE8c@api.lanacionar.arcpublishing.com',
         OPTA_WIDGET_URL: 'https://www.lanacion.com.ar/recetas/opta-embed',
         LANACIONAR_URLASSETS:
             'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com',

@@ -44,6 +44,7 @@ import {
     getTitle,
     getMetaDescriptionDefault
 } from '../private/common/utils/outputTypeHelper';
+import FontPreloads from '../private/common/fontsPreloads';
 
 const scriptList = [
     {
@@ -130,8 +131,7 @@ const Default = props => {
         siteProperties,
         renderables,
         globalContent,
-        outputType,
-        requestUri
+        outputType
     } = props;
 
     const {
@@ -152,7 +152,7 @@ const Default = props => {
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
     const { basic: descriptionBasic } = description || {};
     const { name: distributorName } = distributor || {};
-    const { host, description: defaultDescription } = siteProperties;
+    const { description: defaultDescription } = siteProperties;
 
     const metaTitleBasic = metaTitle || basicTitle;
 
@@ -190,20 +190,12 @@ const Default = props => {
     );
     const _nodeType = getSectionName({ nodeType, type });
 
-    const title = getTitle(
-        _nodeType,
-        metaValue('title'),
-        layout,
-        requestUri,
-        siteProperties
-    );
+    const title = getTitle(_nodeType, metaValue('title'), siteProperties);
 
     const metaDescription = getMetaDescriptionDefault(
         metaValue('description'),
         layout,
         defaultDescription,
-        host,
-        requestUri,
         _nodeType,
         _id,
         Payload,
@@ -236,8 +228,11 @@ const Default = props => {
                     content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
                 <meta name="theme-color" content="#ffffff" />
-                <title>{title}</title>
-                <Libs />
+                <meta name="google" content="notranslate" />
+                {layout !== 'LN-buscador' && <title>{title}</title>}
+                {LinkImagePreload()}
+                <FontPreloads />
+                <FontFaceDefault />
                 <CriticalCss />
                 {arcSite === 'ott' ? (
                     <link
@@ -249,9 +244,23 @@ const Default = props => {
                 ) : (
                     <CssLinks />
                 )}
-
-                {LinkImagePreload()}
-
+                <link
+                    rel="preload"
+                    as="script"
+                    href={`${deployment(
+                        `${contextPath}/dist/engine/react.js`
+                    )}`}
+                    crossOrigin=""
+                />
+                <link
+                    rel="preload"
+                    as="script"
+                    href={`${deployment(
+                        `${contextPath}/dist/components/combinations/default.js`
+                    )}`}
+                    crossOrigin=""
+                />
+                <Libs />
                 <TagsLoadingList
                     section="all"
                     location="head"
@@ -281,12 +290,14 @@ const Default = props => {
                     Tag="script"
                     globalContent={globalContent}
                 />
-                <MetasOG
-                    {...props}
-                    section={_nodeType}
-                    title={title}
-                    metaDescription={metaDescription}
-                />
+                {layout !== 'LN-buscador' && (
+                    <MetasOG
+                        {...props}
+                        section={_nodeType}
+                        title={title}
+                        metaDescription={metaDescription}
+                    />
+                )}
                 {canonicalUrl && siteProperties.host && (
                     <link
                         rel="canonical"
@@ -312,17 +323,19 @@ const Default = props => {
                     defaultTitle={siteProperties.longTitle}
                     metaValue={title}
                 />
-                <MetaDescription
-                    subtype={subtype}
-                    nodeType={nodeType}
-                    _id={_id}
-                    description={descriptionBasic}
-                    metaTitleBasic={metaTitleBasic}
-                    subheadlines={subheadlines && subheadlines.basic}
-                    arcSite={arcSite}
-                    section={_nodeType}
-                    metaDescription={metaDescription}
-                />
+                {layout !== 'LN-buscador' && (
+                    <MetaDescription
+                        subtype={subtype}
+                        nodeType={nodeType}
+                        _id={_id}
+                        description={descriptionBasic}
+                        metaTitleBasic={metaTitleBasic}
+                        subheadlines={subheadlines && subheadlines.basic}
+                        arcSite={arcSite}
+                        section={_nodeType}
+                        metaDescription={metaDescription}
+                    />
+                )}
                 <MetaViafoura {...props} />
                 <Syndication
                     type={type}
@@ -342,7 +355,6 @@ const Default = props => {
                     renderables={renderables}
                     section={_nodeType}
                 />
-                <FontFaceDefault outputType={outputType} />
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />
@@ -353,9 +365,8 @@ const Default = props => {
                     Tag="script"
                     globalContent={globalContent}
                 />
-                <div id="fusion-app">
-                    <Fusion>{children}</Fusion>
-                </div>
+                <div id="fusion-app">{children}</div>
+                <Fusion />
                 <Scripts
                     location="body-bottom"
                     section={_nodeType}
