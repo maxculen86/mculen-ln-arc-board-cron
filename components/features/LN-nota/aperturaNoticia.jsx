@@ -9,7 +9,7 @@ import {
     INFOGRAFIA
 } from '../../private/common/utils/subtypes/subtypeHelper';
 import {
-    buildScriptResizeSSRInfography,
+    // buildScriptResizeSSRInfography,
     buildScriptForZoom,
     getEpigrafe
 } from '../../private/LN/common/utils/mediaHelper';
@@ -67,14 +67,9 @@ const aperturaNoticia = props => {
     );
 
     return (
-        (isVideo && Component) || (
+        ((isVideo || subtype === INFOGRAFIA) && Component) || (
             <StaticValidation id={idFeature} persistent>
-                <>
-                    {Component}
-                    {subtype === INFOGRAFIA &&
-                        outputType !== 'amp' &&
-                        buildScriptResizeSSRInfography(promoItems)}
-                </>
+                {Component}
             </StaticValidation>
         )
     );
