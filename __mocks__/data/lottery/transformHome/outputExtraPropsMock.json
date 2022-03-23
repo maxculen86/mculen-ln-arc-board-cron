@@ -2,8 +2,11 @@
     "dataService": {
         "lotteries": [
             {
+                "component": "LotoPlus",
                 "date": "16/03/2022",
-                "estimated_pot": "907.000.000,00",
+                "estimatedPot": "907.000.000,00",
+                "id": "Loto",
+                "link": "/loterias/loto/",
                 "name": "Loto",
                 "results": [
                     {
@@ -29,7 +32,10 @@
             {
                 "date": "16/03/2022",
                 "letters": ["A", "B", "C", "D"],
+                "link": "/loterias/quiniela-poceada/",
                 "name": "Quiniela Poceada",
+                "id": "Quiniela_Poceada",
+                "component": "QuinielaPoceada",
                 "results": [
                     {
                         "date": "16/03",

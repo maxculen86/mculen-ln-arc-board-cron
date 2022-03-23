@@ -18,7 +18,7 @@ const QuinielaPoceada = ({ name, date, results, isDetail, link, letters }) => {
                         />
                     ))}
                 </div>
-                <LabelText text={`Letras: ${letters}`} />
+                <LabelText text={`Letras: ${letters.join(',')}`} />
             </div>
         </CardLayout>
     );

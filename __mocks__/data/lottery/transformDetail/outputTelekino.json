@@ -5,7 +5,7 @@
                 "name": "Telekino",
                 "id": "Telekino",
                 "date": "Domingo 13/03/2022",
-                "estimated_pot": "$145.000.000,00",
+                "estimatedPot": "$145.000.000,00",
                 "results": [
                     "02",
                     "03",
@@ -56,7 +56,7 @@
                 "id": "Telekino",
                 "lottery_draw_id": "Rekino",
                 "date": "Domingo 13/03/2022",
-                "estimated_pot": "$145.0000.000,00",
+                "estimatedPot": "$145.0000.000,00",
                 "results": [
                     "03",
                     "04",

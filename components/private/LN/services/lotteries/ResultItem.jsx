@@ -1,6 +1,6 @@
 import { React } from 'react';
 import PropTypes from 'prop-types';
-import Text from '../../../../private/common/text';
+import Text from '../../../common/text';
 
 const ResultItem = ({ text, result }) => {
     return (
