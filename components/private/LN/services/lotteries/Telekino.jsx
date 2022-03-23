@@ -22,12 +22,15 @@ const Telekino = ({ name, date, results, isDetail, link }) => {
                 className={`main-result --telekino ${isDetail && '--detalle'}`}
             >
                 {!isDetail && <LabelText text={resultsTomap[0].name} />}
-                <div className={`traditional ${isDetail && 'detail'}`}>
+                <div
+                    className={`box-result --grid-5-columns ${isDetail &&
+                        'detail'}`}
+                >
                     {resultsTomap[0].result.map(number => (
                         <BallLotteries
                             key={number}
                             number={number}
-                            size="small"
+                            size="large"
                         />
                     ))}
                 </div>

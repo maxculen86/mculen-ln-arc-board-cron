@@ -73,7 +73,7 @@
                 "date": "Sábado 12/03/2022",
                 "results": ["08", "19", "20", "27", "29", "40"],
                 "jackpot": ["0", "9"],
-                "estimated_pot": "949.000.000",
+                "estimatedPot": "949.000.000",
                 "winners_table": [
                     {
                         "name": "4+1"

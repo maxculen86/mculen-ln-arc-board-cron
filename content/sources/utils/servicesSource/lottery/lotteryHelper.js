@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import transformISODate from '../../../../../components/private/common/utils/transformISODate';
-import { games } from './config';
+import { games } from './_config';
 import get from '../../../../../components/private/common/utils/get';
 
 const getValue = (input, key) => input.filter(e => e.id === key);
@@ -41,7 +41,7 @@ export const transformLotteryDetail = data => {
                 meaning
             }),
             ...(estimated_pot.length && {
-                estimated_pot: estimated_pot.shift()
+                estimatedPot: estimated_pot.shift()
             }),
             results,
             ...(winnersTable.length && { winners_table: winnersTable }),
@@ -91,6 +91,8 @@ const getWinnersCarton = prizes =>
 export const transformLotteryHome = data => ({
     lotteries: Object.keys(games).reduce((acc, lottery) => {
         const newValue = getValue(data, lottery);
+        const cardComponent = get(games, `${lottery}.component`, '');
+        const url = get(games, `${lottery}.url`, '');
         const [
             {
                 id,
@@ -100,18 +102,18 @@ export const transformLotteryHome = data => ({
             } = {}
         ] = newValue;
         const { letters = [], estimated_pot = [] } = additional_properties;
-        const { url, component } = lottery;
         newValue.length &&
             acc.push({
                 id,
                 name,
+                component: cardComponent,
                 date: transformISODate(date),
                 ...(url && { link: url }),
                 ...(letters.length && {
                     letters: letters.shift().split(' ')
                 }),
                 ...(estimated_pot.length && {
-                    estimated_pot: estimated_pot.shift()
+                    estimatedPot: estimated_pot.shift()
                 }),
                 results: transformResult(newValue)
             });
@@ -123,14 +125,14 @@ const transformResult = values =>
     values &&
     values.map(item => {
         const {
-            lottery_draw_id = 'Tradicional',
+            lottery_draw_name = 'Tradicional',
             date = '',
             results = [],
             additional_properties = {}
         } = item;
         const { jackpot = [] } = additional_properties;
         return {
-            name: lottery_draw_id,
+            name: lottery_draw_name,
             date: transformISODate(date, 'dd/mm'),
             result: results,
             ...(jackpot.length && {

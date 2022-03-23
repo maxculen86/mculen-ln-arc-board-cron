@@ -27,7 +27,7 @@ const LotoPlus = ({ name, jackpot, date, results, isDetail, link }) => {
                     </div>
                     {!isDetail && (
                         <div className="jackpot-result">
-                            {jackpot.map(number => (
+                            {resultsTomap[0].jackpot.map(number => (
                                 <BallLotteries
                                     key={number}
                                     number={number}
@@ -39,7 +39,7 @@ const LotoPlus = ({ name, jackpot, date, results, isDetail, link }) => {
                     )}
                 </div>
             </div>
-            {!isDetail && (
+            {!isDetail && arrResults && (
                 <div className="extra-results --loto-plus">
                     {arrResults.map(
                         ({
@@ -56,7 +56,7 @@ const LotoPlus = ({ name, jackpot, date, results, isDetail, link }) => {
                     )}
                 </div>
             )}
-            {isDetail && (
+            {isDetail && jackpot && (
                 <div className="extra-results --jackpot-details">
                     <LabelText
                         text="Jackpot"
