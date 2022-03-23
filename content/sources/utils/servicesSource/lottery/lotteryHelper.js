@@ -175,6 +175,6 @@ export const metaDataLotteryDetail = (dataService, serviceType) => {
         lotteryNumber: lottery_draw_number,
         modalities,
         completeDay,
-        location: LOCATIONS[lotteryName]
+        location: LOCATIONS[lotteryName] || LOCATIONS.default
     };
 };
