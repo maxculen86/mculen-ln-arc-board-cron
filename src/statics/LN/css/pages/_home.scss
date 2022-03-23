@@ -324,13 +324,13 @@ $rank-dsk: px(400);
                 position: relative;
                 margin-top: px(16);
 
-                @media ($media-m) {
-                    margin-top: px(200);
-                }
+                // @media ($media-m) {
+                //     margin-top: px(200);
+                // }
 
-                @media ($media-l) {
-                    margin-top: px(188);
-                }
+                // @media ($media-l) {
+                //     margin-top: px(188);
+                // }
             }
         }
     }
