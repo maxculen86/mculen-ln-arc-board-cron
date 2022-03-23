@@ -133,5 +133,12 @@
             }
         ]
     },
+    "metaData": {
+        "completeDay": "Sábado 12 de marzo",
+        "location": "Buenos Aires",
+        "lotteryName": "Loto",
+        "lotteryNumber": "",
+        "modalities": "y sus modalidades: Desquite, Sale_o_sale y Tradicional"
+    },
     "serviceType": "detalle-loterias"
 }

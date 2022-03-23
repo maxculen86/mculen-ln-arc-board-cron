@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import transformISODate from '../../../../../components/private/common/utils/transformISODate';
-import { games } from './_config';
+import { games, LOCATIONS } from './_config';
 import get from '../../../../../components/private/common/utils/get';
 
 const getValue = (input, key) => input.filter(e => e.id === key);
@@ -134,3 +134,41 @@ const transformResult = values =>
             })
         };
     });
+
+const extractGameTypes = (dataService, serviceType) => {
+    const { items } = dataService;
+    return serviceType === 'detalle-loterias'
+        ? items.reduce((acc, lottery) => {
+              lottery.lottery_draw_id && acc.push(lottery.lottery_draw_id);
+              return acc;
+          }, [])
+        : [];
+};
+
+const gamesQtyText = {
+    0: '',
+    1: 'y su modalidad: ',
+    default: 'y sus modalidades: '
+};
+
+export const metaDataLotteryDetail = (dataService, serviceType) => {
+    const { items } = dataService;
+    const { name: lotteryName, lottery_draw_number = '', date = '' } = items[0];
+    const gamesModes = extractGameTypes(dataService, serviceType);
+    const completeDay = transformISODate(date, 'dia de mes');
+
+    const singularOrPluralSelector =
+        gamesModes.length >= 2 ? 'default' : gamesModes.length;
+
+    const modalities = `${
+        gamesQtyText[singularOrPluralSelector]
+    }${gamesModes.join(', ').replace(/, ([^,]*)$/, ' y $1')}`;
+
+    return {
+        lotteryName,
+        lotteryNumber: lottery_draw_number,
+        modalities,
+        completeDay,
+        location: LOCATIONS[lotteryName]
+    };
+};
