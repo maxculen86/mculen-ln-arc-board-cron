@@ -1,0 +1,34 @@
+@import '../abstracts/variables';
+
+.table-container {
+    .table {
+        overflow: hidden;
+        border-collapse: inherit;
+        border: 1px solid $light-neutral-400;
+        border-radius: px(4);
+        border-bottom: initial;
+        margin-bottom: $spacing-xl;
+        width: 100%;
+        font-family: $font-arial;
+
+        thead {
+            font-weight: 700;
+            background-color: $light-neutral-200;
+        }
+        tfoot {
+            font-weight: 700;
+        }
+        th,
+        td {
+            text-align: center;
+            padding: px(12) px(16);
+            border-bottom: 1px solid $light-neutral-400;
+        }
+        .estimated-pot {
+            font-weight: 700;
+        }
+        .border-divider:not(:last-child) {
+            border-right: 1px solid $light-neutral-400;
+        }
+    }
+}

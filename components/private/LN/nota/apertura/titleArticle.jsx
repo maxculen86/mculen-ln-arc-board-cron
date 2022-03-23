@@ -18,7 +18,7 @@ const titleArticle = ({ headlines, prefix, size }) => {
 
 titleArticle.propTypes = {
     prefix: PropTypes.string,
-    size: PropTypes.string,
+    size: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]).isRequired,
     headlines: PropTypes.shape({
         basic: PropTypes.string.isRequired
     }).isRequired

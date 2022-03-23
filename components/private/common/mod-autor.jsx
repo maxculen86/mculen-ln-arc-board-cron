@@ -41,11 +41,15 @@ ModAutor.propTypes = {
             name: PropTypes.string,
             link: PropTypes.string
         })
-    ).isRequired,
+    ),
     classCondition: PropTypes.string.isRequired,
     foto: PropTypes.string,
     medio: PropTypes.string,
     amp: PropTypes.bool
+};
+
+ModAutor.defaultProps = {
+    autor: []
 };
 
 export default ModAutor;

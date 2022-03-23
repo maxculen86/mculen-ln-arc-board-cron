@@ -85,7 +85,7 @@ TitleAndIconArticle.propTypes = {
                     label: PropTypes.string
                 })
             )
-        }).isRequired
+        })
     }).isRequired,
     layout: PropTypes.string.isRequired
 };
