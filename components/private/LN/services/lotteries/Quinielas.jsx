@@ -6,7 +6,7 @@ import LabelText from './LabelText';
 import Text from '../../../common/text';
 import ResultItem from './ResultItem';
 
-const Quinielas = ({ name, date, results, link, letters }) => {
+const Quinielas = ({ name, date, results, link, letters, meaning }) => {
     return (
         <CardLayout
             title={name}
@@ -19,6 +19,7 @@ const Quinielas = ({ name, date, results, link, letters }) => {
                     {results[0].result[0]}
                 </Text>
                 {letters && <LabelText text={`Letras: ${letters}`} />}
+                {meaning && <LabelText text={meaning} />}
             </div>
             <div className="extra-results">
                 {results.map(item => (
@@ -38,7 +39,8 @@ Quinielas.propTypes = {
     name: PropTypes.string,
     date: PropTypes.string,
     link: PropTypes.string,
-    letters: PropTypes.string
+    letters: PropTypes.string,
+    meaning: PropTypes.string
 };
 
 Quinielas.defaultProps = {
@@ -46,7 +48,8 @@ Quinielas.defaultProps = {
     name: '',
     date: '',
     link: '',
-    letters: ''
+    letters: '',
+    meaning: ''
 };
 
 export default Quinielas;
