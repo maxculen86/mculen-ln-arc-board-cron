@@ -118,5 +118,12 @@
             }
         ]
     },
+    "metaData": {
+        "completeDay": "Miércoles 16 de marzo",
+        "location": "Buenos Aires",
+        "lotteryName": "Quiniela Provincia",
+        "lotteryNumber": "",
+        "modalities": "y sus modalidades: Vespertina, Matutina, Primera y Nocturna"
+    },
     "serviceType": "detalle-loterias"
 }
