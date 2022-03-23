@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Private - LN - Common - Utils -> mediaHelper Deberia retornar script al ser llamado con los parametros correctos 1`] = `
+exports[`Private - LN - Common - Utils -> mediaHelper Deberia retornar script al ser llamado con los parametros correctos, con promo_items.basic 1`] = `
 <script
   dangerouslySetInnerHTML={
     Object {
