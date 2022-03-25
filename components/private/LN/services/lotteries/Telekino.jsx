@@ -26,13 +26,15 @@ const Telekino = ({ name, date, results, isDetail, link }) => {
                     className={`box-result --grid-5-columns ${isDetail &&
                         'detail'}`}
                 >
-                    {resultsTomap[0].result.map(number => (
-                        <BallLotteries
-                            key={number}
-                            number={number}
-                            size="large"
-                        />
-                    ))}
+                    {(!isDetail ? resultsTomap[0].result : results).map(
+                        number => (
+                            <BallLotteries
+                                key={number}
+                                number={number}
+                                size="large"
+                            />
+                        )
+                    )}
                 </div>
             </div>
             {!isDetail && (

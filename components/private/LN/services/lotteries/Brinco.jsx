@@ -15,13 +15,15 @@ const Brinco = ({ name, estimatedPot, date, results, isDetail, link }) => {
         <CardLayout title={name} subtitle={date} link={!isDetail && link}>
             <div className="main-result --brinco">
                 <div className="box-result --brinco">
-                    {resultsTomap[0].result.map(number => (
-                        <BallLotteries
-                            key={number}
-                            number={number}
-                            size="large"
-                        />
-                    ))}
+                    {(!isDetail ? resultsTomap[0].result : results).map(
+                        number => (
+                            <BallLotteries
+                                key={number}
+                                number={number}
+                                size="large"
+                            />
+                        )
+                    )}
                 </div>
                 {!isDetail && (
                     <LabelText text={`Pozo vacante: ${estimatedPot}`} />

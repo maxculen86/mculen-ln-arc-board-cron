@@ -92,6 +92,7 @@
                 ],
                 "id": "Telekino",
                 "name": "Telekino",
+                "lottery_draw_name": "Rekino",
                 "lottery_draw_id": "Rekino",
                 "date": "2022-03-13T19:00:00",
                 "results": [

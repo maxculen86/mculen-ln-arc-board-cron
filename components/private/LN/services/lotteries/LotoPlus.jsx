@@ -17,13 +17,15 @@ const LotoPlus = ({ name, jackpot, date, results, isDetail, link }) => {
                 {!isDetail && <LabelText text={resultsTomap[0].name} />}
                 <div className="traditional --loto-plus">
                     <div className="box-result --loto-plus">
-                        {resultsTomap[0].result.map(number => (
-                            <BallLotteries
-                                key={number}
-                                number={number}
-                                size="large"
-                            />
-                        ))}
+                        {(!isDetail ? resultsTomap[0].result : results).map(
+                            number => (
+                                <BallLotteries
+                                    key={number}
+                                    number={number}
+                                    size="large"
+                                />
+                            )
+                        )}
                     </div>
                     {!isDetail && (
                         <div className="jackpot-result">

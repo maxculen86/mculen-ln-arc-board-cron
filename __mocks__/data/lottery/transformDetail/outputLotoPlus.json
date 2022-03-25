@@ -2,10 +2,10 @@
     "dataService": {
         "lotteryDetail": [
             {
-                "name": "Loto",
+                "name": "Desquite",
                 "id": "Loto",
-                "lottery_draw_id": "Desquite",
                 "date": "Sábado 12/03/2022",
+                "component": "LotoPlus",
                 "results": ["01", "09", "18", "28", "31", "40"],
                 "jackpot": ["4", "5"],
                 "winners_table": [
@@ -27,10 +27,10 @@
                 ]
             },
             {
-                "name": "Loto",
+                "name": "Sale_o_sale",
                 "id": "Loto",
-                "lottery_draw_id": "Sale_o_sale",
                 "date": "Sábado 12/03/2022",
+                "component": "LotoPlus",
                 "results": ["03", "14", "20", "25", "26", "28"],
                 "jackpot": ["0", "9", "4", "5"],
                 "winners_table": [
@@ -67,10 +67,10 @@
                 ]
             },
             {
-                "name": "Loto",
+                "name": "Tradicional",
                 "id": "Loto",
-                "lottery_draw_id": "Tradicional",
                 "date": "Sábado 12/03/2022",
+                "component": "LotoPlus",
                 "results": ["08", "19", "20", "27", "29", "40"],
                 "jackpot": ["0", "9"],
                 "estimatedPot": "949.000.000",

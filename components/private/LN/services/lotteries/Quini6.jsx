@@ -21,13 +21,15 @@ const Quini6 = ({ name, estimatedPot, date, results, isDetail, link }) => {
                             : 'box-result --quini-6'
                     }
                 >
-                    {resultsTomap[0].result.map(number => (
-                        <BallLotteries
-                            key={number}
-                            number={number}
-                            size={isDetail ? 'large' : 'small'}
-                        />
-                    ))}
+                    {(!isDetail ? resultsTomap[0].result : results).map(
+                        number => (
+                            <BallLotteries
+                                key={number}
+                                number={number}
+                                size={isDetail ? 'large' : 'small'}
+                            />
+                        )
+                    )}
                 </div>
                 {!isDetail && (
                     <div className="extra-results">
