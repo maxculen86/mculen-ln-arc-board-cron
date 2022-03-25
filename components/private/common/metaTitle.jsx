@@ -46,7 +46,8 @@ MetaTitle.propTypes = {
     title: PropTypes.string,
     section: PropTypes.string,
     defaultTitle: PropTypes.string,
-    subtype: PropTypes.string
+    subtype: PropTypes.string,
+    metaValue: PropTypes.string
 };
 
 MetaTitle.defaultProps = {
@@ -54,7 +55,8 @@ MetaTitle.defaultProps = {
     title: '',
     section: '',
     defaultTitle: '',
-    subtype: ''
+    subtype: '',
+    metaValue: ''
 };
 
 export default MetaTitle;

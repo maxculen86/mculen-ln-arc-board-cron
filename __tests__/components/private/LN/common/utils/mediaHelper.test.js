@@ -14,7 +14,7 @@ describe('Private - LN - Common - Utils -> mediaHelper', () => {
     };
     const outputType = 'default';
 
-    it('Deberia retornar script al ser llamado con los parametros correctos', () => {
+    it('Deberia retornar script al ser llamado con los parametros correctos, con promo_items.basic', () => {
         const component = buildScriptResizeSSRInfography(promoItems);
         expect(component).toBeTruthy();
         expect(component.type).toStrictEqual('script');
@@ -24,6 +24,22 @@ describe('Private - LN - Common - Utils -> mediaHelper', () => {
             promoItems.basic._id
         );
         expect(component).toMatchSnapshot();
+    });
+
+    const promoItemsMultimedia = {
+        apertura_multimedia: {
+            ...promoItems.basic
+        }
+    };
+    it('Deberia retornar script al ser llamado con promo_items.apertura_multimedia', () => {
+        const component = buildScriptResizeSSRInfography(promoItemsMultimedia);
+        expect(component).toBeTruthy();
+        expect(component.type).toStrictEqual('script');
+        expect(component.props.type).toStrictEqual('text/javascript');
+        expect(component.props.dangerouslySetInnerHTML.__html).toContain(url);
+        expect(component.props.dangerouslySetInnerHTML.__html).toContain(
+            promoItemsMultimedia.apertura_multimedia._id
+        );
     });
     it('Deberia retornar nulo al ser llamado con los parametros incorrectos', () => {
         promoItems.basic.content = '<opta-widget></opta-widget>';

@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/no-danger */
 import React, { useEffect, useState } from 'react';
@@ -232,9 +233,7 @@ VideoPlayer.defaultProps = {
     enableAdBar: true,
     muted: false,
     sticky: false,
-    isAdmin: false,
-    globalContent: {},
-    arcSite: 'la-nacion-ar'
+    isAdmin: false
 };
 
 export default Context(VideoPlayer);

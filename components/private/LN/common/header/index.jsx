@@ -93,13 +93,6 @@ Index.propTypes = {
     })
 };
 
-Index.defaultProps = {
-    isAdmin: false,
-    siteProperties: {},
-    layout: '',
-    globalContent: {}
-};
-
 const toglleDesplegable = () => {
     document.body.classList.contains('dropdown')
         ? document.body.classList.remove('dropdown')

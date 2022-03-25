@@ -105,7 +105,8 @@ export const LOCATIONS = {
     'Loto 5': 'Buenos Aires',
     'Quiniela Poceada': 'Buenos Aires',
     'Quiniela Plus': 'Buenos Aires',
-    Brinco: 'Buenos Aires'
+    Brinco: 'Buenos Aires',
+    default: 'Buenos Aires'
 };
 
 export const meanings = {

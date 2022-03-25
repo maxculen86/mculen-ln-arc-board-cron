@@ -2,11 +2,11 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
+import { FONT_BOLD, FONT_MEDIUM } from 'fusion:environment';
 
-export const getStyleFontsInLine = ({ contextPath, deployment }) => `
-@font-face {font-family:'LNlogos';src:url('${deployment(
-    `${contextPath}/resources/fonts/lana-logos-v1.woff`
-)}') format('woff');font-weight: normal;font-style: normal;font-display: optional;}
+export const getStyleFontsInLine = () => `
+@font-face {font-family:'SuecaSlab';src:url('${FONT_BOLD}') format('woff2');font-weight: 700;font-style: normal;font-display: swap;}
+@font-face {font-family:'SuecaSlab';src:url('${FONT_MEDIUM}') format('woff2');font-weight: 500;font-style: normal;font-display: swap;}
 `; // NOSONAR;
 
 const FontFace = props => {
