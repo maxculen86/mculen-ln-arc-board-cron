@@ -110,34 +110,44 @@ describe('Common - GetDataToLinkImage', () => {
         ];
 
         it('with resized Media, return array media data', () => {
-            expect(GetDataToLinkImage(globalContent, 'nota')).toEqual(expected);
+            expect(
+                GetDataToLinkImage({ data: globalContent, section: 'nota' })
+            ).toEqual(expected);
         });
 
         it('without resized Media, return empty Array', () => {
-            expect(GetDataToLinkImage({}, 'nota')).toEqual([]);
+            expect(GetDataToLinkImage({ data: {}, section: 'nota' })).toEqual(
+                []
+            );
         });
 
         it('STORYTELLING or FOTOAL100 without promo_items.storytelling_mobile, return array media data', () => {
             expect(
-                GetDataToLinkImage({ ...globalContent, subtype: '4' }, 'nota')
+                GetDataToLinkImage({
+                    data: { ...globalContent, subtype: '4' },
+                    section: 'nota'
+                })
             ).toEqual(expected);
             expect(
-                GetDataToLinkImage({ ...globalContent, subtype: '8' }, 'nota')
+                GetDataToLinkImage({
+                    data: { ...globalContent, subtype: '8' },
+                    section: 'nota'
+                })
             ).toEqual(expected);
         });
 
         it('STORYTELLING or FOTOAL100 with promo_items.storytelling_mobile, return empty Array', () => {
             expect(
-                GetDataToLinkImage(
-                    { ...articleToExclude, subtype: '4' },
-                    'nota'
-                )
+                GetDataToLinkImage({
+                    data: { ...articleToExclude, subtype: '4' },
+                    section: 'nota'
+                })
             ).toEqual([]);
             expect(
-                GetDataToLinkImage(
-                    { ...articleToExclude, subtype: '8' },
-                    'nota'
-                )
+                GetDataToLinkImage({
+                    data: { ...articleToExclude, subtype: '8' },
+                    section: 'nota'
+                })
             ).toEqual([]);
         });
     });
@@ -266,39 +276,63 @@ describe('Common - GetDataToLinkImage', () => {
         ];
 
         it('without renderables, return empty Array', () => {
-            expect(GetDataToLinkImage({}, 'home', [])).toEqual([]);
+            expect(
+                GetDataToLinkImage({
+                    data: {},
+                    section: 'home',
+                    renderables: []
+                })
+            ).toEqual([]);
         });
 
         describe('with Bomba', () => {
             it('Visible with imageId, return Array with imageResizedUrls', () => {
                 const renderables = bombaVisible;
                 getImage.mockImplementation(() => responseRelatedImageSource);
-                expect(GetDataToLinkImage({}, 'home', renderables)).toEqual(
-                    resizedUrls
-                );
+                expect(
+                    GetDataToLinkImage({
+                        data: {},
+                        section: 'home',
+                        renderables
+                    })
+                ).toEqual(resizedUrls);
             });
 
             it('Visible with noteId, return Array with imageResizedUrls', () => {
                 const renderables = bombaVisibleOnlyNoteId;
                 getImage.mockImplementation(() => responseArticleSourceNota);
-                expect(GetDataToLinkImage({}, 'home', renderables)).toEqual(
-                    resizedUrls
-                );
+                expect(
+                    GetDataToLinkImage({
+                        data: {},
+                        section: 'home',
+                        renderables
+                    })
+                ).toEqual(resizedUrls);
             });
 
             it('Hiden, return Empty Array', () => {
                 const renderables = bombaOculta;
                 getImage.mockImplementation(() => {});
-                expect(GetDataToLinkImage({}, 'home', renderables)).toEqual([]);
+                expect(
+                    GetDataToLinkImage({
+                        data: {},
+                        section: 'home',
+                        renderables
+                    })
+                ).toEqual([]);
             });
         });
         describe('with Apertura', () => {
             it('Return Array with imageResizedUrls', () => {
                 const renderables = dataApertura;
                 getImage.mockImplementation(() => responseRelatedImageSource);
-                expect(GetDataToLinkImage({}, 'home', renderables)).toEqual(
-                    resizedUrls
-                );
+                expect(
+                    GetDataToLinkImage({
+                        data: {},
+                        section: 'home',
+                        renderables
+                    })
+                ).toEqual(resizedUrls);
             });
         });
     });
@@ -309,7 +343,11 @@ describe('Common - GetDataToLinkImage', () => {
             const globalContent = {};
             const renderables = [];
             expect(
-                GetDataToLinkImage(globalContent, 'acumulado', renderables)
+                GetDataToLinkImage({
+                    data: globalContent,
+                    section: 'acumulado',
+                    renderables
+                })
             ).toEqual([]);
         });
     });
@@ -320,14 +358,18 @@ describe('Common - GetDataToLinkImage', () => {
             const globalContent = {};
             const renderables = [];
             expect(
-                GetDataToLinkImage(globalContent, 'nuevaSeccion', renderables)
+                GetDataToLinkImage({
+                    data: globalContent,
+                    section: 'nuevaSeccion',
+                    renderables
+                })
             ).toEqual([]);
         });
     });
 
     describe('When the params is undefined', () => {
         it('without defined parameters, return empty Array', () => {
-            expect(GetDataToLinkImage()).toEqual([]);
+            expect(GetDataToLinkImage({})).toEqual([]);
         });
     });
 });

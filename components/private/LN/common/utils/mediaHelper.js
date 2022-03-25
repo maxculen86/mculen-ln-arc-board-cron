@@ -86,9 +86,6 @@ export const getSizes = (sources = []) => {
         : [];
 };
 
-const mustRenderPreload = ({ originalURL, imagesrcset }) =>
-    originalURL && imagesrcset;
-
 export const getShortestImage = (resizedUrls = []) => {
     const result = resizedUrls.reduce(
         (prev, curr) =>
@@ -105,7 +102,9 @@ export const getShortestImage = (resizedUrls = []) => {
         _width
     };
 };
-export const LinkImagePreload = ({ originalURL = '', resizedUrls = [] }) => {
+export const LinkImagePreload = ({ resizedUrls = [] }) => {
+    if (resizedUrls === 0) return null;
+
     const imagesrcset = [];
     const imagesizes = [];
 
@@ -119,7 +118,7 @@ export const LinkImagePreload = ({ originalURL = '', resizedUrls = [] }) => {
     });
 
     return (
-        mustRenderPreload({ originalURL, imagesrcset }) && (
+        imagesrcset.length > 0 && (
             <link
                 rel="preload"
                 as="image"

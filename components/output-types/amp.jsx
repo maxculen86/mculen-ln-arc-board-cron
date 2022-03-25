@@ -90,17 +90,13 @@ const Amp = props => {
         'promo_items.basic.resized_urls',
         []
     );
-    const originalURL = get(globalContent, 'promo_items.basic.url', '');
 
     return (
         <html amp={String.fromCodePoint(9889)} lang="es">
             <head>
                 <meta charset="utf-8" />
                 <meta name="viewport" content="width=device-width" />
-                <LinkImagePreload
-                    originalURL={originalURL}
-                    resizedUrls={resizedUrls}
-                />
+                <LinkImagePreload resizedUrls={resizedUrls} />
                 <meta name="theme-color" content="#ffffff" />
                 <meta name="google" content="notranslate" />
                 <MetaTitle

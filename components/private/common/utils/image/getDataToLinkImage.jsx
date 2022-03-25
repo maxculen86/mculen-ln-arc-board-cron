@@ -1,9 +1,11 @@
+import React from 'react';
 import getProperties from 'fusion:properties';
 import get from '../get';
 import getImage from './getImage';
 import { getChildsFromSections } from '../../../LN/common/utils/homeHelper';
 import sectionsValidation from '../../../../layouts/config/LN-Home.config';
 import { FOTOAL100, STORYTELLING } from '../subtypes/subtypeHelper';
+import { LinkImagePreload } from '../../../LN/common/utils/mediaHelper';
 
 const getSource = (imageID, noteID, imageConfig, isHideImage) => {
     return imageID
@@ -20,10 +22,14 @@ const getcustomFieldsData = fieldsData => {
 };
 
 const getPromoItems = items => {
-    return get(items, 'promo_items.basic.resized_urls', []).map(elem => ({
-        resizedUrl: get(elem, 'resizedUrl', ''),
-        media: get(elem, 'option.media_preload', '')
-    }));
+    return get(items, 'promo_items.basic.resized_urls', []).map(elem => {
+        return {
+            resizedUrl: get(elem, 'resizedUrl', ''),
+            media: get(elem, 'option.media_preload', ''),
+            // TODO: Evaluar no pasar Media
+            option: elem.option
+        };
+    });
 };
 
 const sourceType = ['relatedImageSource', 'articleSourceNota'];
@@ -74,12 +80,26 @@ const getMediaApertura = (renderables, arcSite) => {
     );
 };
 
-const getDataToLinkImage = (
+const mapResp = (links = []) =>
+    links.map(elem => {
+        return (
+            <link
+                id="preload-img"
+                rel="preload"
+                href={elem.resizedUrl}
+                as="image"
+                media={elem.media}
+            />
+        );
+    });
+
+const getDataToLinkImage = ({
     data = {},
     section = '',
     renderables = [],
     arcSite = ''
-) => {
+}) => {
+    if (!data) return [];
     const sectionData =
         {
             nota: () => {
@@ -88,7 +108,17 @@ const getDataToLinkImage = (
                     (subtype === FOTOAL100 || subtype === STORYTELLING) &&
                     get(promoItems, 'storytelling_mobile.resized_urls.length')
                 );
-                return (!shouldExclude && getPromoItems(data)) || [];
+                const resizedUrls = get(
+                    data,
+                    'promo_items.basic.resized_urls',
+                    []
+                );
+
+                return (
+                    !shouldExclude && (
+                        <LinkImagePreload resizedUrls={resizedUrls} />
+                    )
+                );
             },
             acumulado: () => {
                 return [];
@@ -119,7 +149,11 @@ const getDataToLinkImage = (
                     ? getMediaBomba(arcSite, bomba)
                     : getMediaApertura(renderables, arcSite);
 
-                return (Array.isArray(resizedUrls) && resizedUrls) || [];
+                return Array.isArray(resizedUrls) && !resizedUrls ? (
+                    <LinkImagePreload resizedUrls={resizedUrls} />
+                ) : (
+                    []
+                );
             }
         } || [];
 
