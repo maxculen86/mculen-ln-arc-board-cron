@@ -8,9 +8,12 @@
         width: px(5);
         height: px(5);
         left: px(5);
-        top: px(-1);
+        top: 0;
         background-color: $red-500;
         border-radius: 50%;
+        .--bomba & {
+            top: px(-1);
+        }
     }
 
     .ringring {

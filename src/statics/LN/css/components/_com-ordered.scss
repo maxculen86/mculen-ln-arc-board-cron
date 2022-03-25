@@ -13,10 +13,6 @@
         i {
             font-style: italic;
         }
-
-        &:first-of-type {
-            margin: 0 0 1em 0;
-        }
         &:before {
             content: counter(item) '';
             counter-increment: item;

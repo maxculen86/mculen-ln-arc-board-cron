@@ -10,6 +10,7 @@ export const getLayoutType = layout => {
         (layout.includes('author') && 'Author') ||
         (layout.includes('opinion') && 'Opinion') ||
         (layout.includes('editoriales') && 'Editoriales') ||
+        (layout.includes('ranking') && 'Ranking') ||
         ''
     );
 };
@@ -167,7 +168,20 @@ export const placeholderArticles = {
                         </h2>
                     </div>
                 </article>
-            ))
+            )),
+    Ranking: layout => {
+        const quantityNotes = Math.abs(layout.slice(-1));
+        if (!quantityNotes) return [];
+        return (
+            <ol className="com-ordered row-gap-tablet-4">
+                {new Array(quantityNotes).fill().map(e => (
+                    <li className="com-item">
+                        <SkeletonGrillaArticle />
+                    </li>
+                ))}
+            </ol>
+        );
+    }
 };
 
 export const placeholderLayouts = {
@@ -305,7 +319,21 @@ export const placeholderLayouts = {
                 </div>
             </section>
         </div>
-    )
+    ),
+    Ranking: articles => {
+        return (
+            <div>
+                <section className="box-articles com-ranking">
+                    <section className="mod-headersection --line">
+                        <h3 className="com-title --l">
+                            <SkeletonSpan />
+                        </h3>
+                    </section>
+                    <div className="row">{articles}</div>
+                </section>
+            </div>
+        );
+    }
 };
 
 export const getPlaceholder = (layout, index) => {

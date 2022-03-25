@@ -29,8 +29,7 @@ const ComImage = props => {
         src,
         alt,
         width,
-        height,
-        sizes
+        height
     };
 
     const classes = `${svg ? '' : 'com-image'} ${classCondition || ''}`;
@@ -38,6 +37,7 @@ const ComImage = props => {
     const image = (
         <img
             {...commonProps}
+            sizes={sizes}
             className={classes}
             srcSet={srcset}
             loading={isApertura ? 'eager' : 'lazy'}

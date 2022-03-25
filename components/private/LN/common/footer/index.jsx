@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
@@ -353,8 +354,4 @@ Index.propTypes = {
     })
 };
 
-Index.defaultProps = {
-    outputType: 'default',
-    siteProperties: {}
-};
 export default Consumer(Index);
