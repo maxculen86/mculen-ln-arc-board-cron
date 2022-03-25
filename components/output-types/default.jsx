@@ -230,20 +230,6 @@ const Default = props => {
                 <meta name="theme-color" content="#ffffff" />
                 <meta name="google" content="notranslate" />
                 {layout !== 'LN-buscador' && <title>{title}</title>}
-                {LinkImagePreload()}
-                <FontPreloads />
-                <FontFaceDefault />
-                <CriticalCss />
-                {arcSite === 'ott' ? (
-                    <link
-                        rel="stylesheet"
-                        href={deployment(
-                            `${contextPath}${pathCss}/${arcSite}/style.css`
-                        )}
-                    />
-                ) : (
-                    <CssLinks />
-                )}
                 <link
                     rel="preload"
                     as="script"
@@ -261,6 +247,20 @@ const Default = props => {
                     crossOrigin=""
                 />
                 <Libs />
+                {LinkImagePreload()}
+                <FontPreloads />
+                <FontFaceDefault />
+                <CriticalCss />
+                {arcSite === 'ott' ? (
+                    <link
+                        rel="stylesheet"
+                        href={deployment(
+                            `${contextPath}${pathCss}/${arcSite}/style.css`
+                        )}
+                    />
+                ) : (
+                    <CssLinks />
+                )}
                 <TagsLoadingList
                     section="all"
                     location="head"
