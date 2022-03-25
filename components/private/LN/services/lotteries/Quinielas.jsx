@@ -27,8 +27,10 @@ const Quinielas = ({
                 <Text weight="bold" size="2xl">
                     {results[0].result[0]}
                 </Text>
-                {letters && <LabelText text={`Letras: ${letters}`} />}
-                {meaning && isDetail && <LabelText text={meaning} />}
+                {letters && isDetail && (
+                    <LabelText text={`Letras: ${letters}`} />
+                )}
+                {meaning && <LabelText text={meaning} />}
             </div>
             <div className="extra-results">
                 {results.map(item => (
