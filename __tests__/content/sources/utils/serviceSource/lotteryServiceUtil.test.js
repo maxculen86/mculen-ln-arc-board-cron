@@ -40,11 +40,11 @@ describe('Test getUri function', () => {
         expect(
             getUri({ service: 'loterias', serviceItem: 'telekino' })
         ).toStrictEqual(
-            'https://dev-arcservices.lanacion.com.ar/api/v1/lotteries/Telekino'
+            'https://pre-arcservices.lanacion.com.ar/api/v1/lotteries/Telekino'
         );
 
         expect(getUri({ service: 'loterias', serviceItem: '' })).toStrictEqual(
-            'https://dev-arcservices.lanacion.com.ar/api/v1/lotteries/'
+            'https://pre-arcservices.lanacion.com.ar/api/v1/lotteries/'
         );
 
         expect(() => {

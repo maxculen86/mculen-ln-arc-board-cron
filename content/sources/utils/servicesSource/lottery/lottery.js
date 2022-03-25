@@ -9,7 +9,7 @@ import { LOTERIES_IDS } from './_config';
 
 const getUri = ({ service = '', serviceItem = '' }) => {
     if (service)
-        return `https://dev-arcservices.lanacion.com.ar/api/v1/lotteries/`.concat(
+        return `https://pre-arcservices.lanacion.com.ar/api/v1/lotteries/`.concat(
             LOTERIES_IDS[serviceItem] || ''
         );
 
