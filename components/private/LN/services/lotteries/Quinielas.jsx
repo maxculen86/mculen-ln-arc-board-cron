@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -6,7 +7,15 @@ import LabelText from './LabelText';
 import Text from '../../../common/text';
 import ResultItem from './ResultItem';
 
-const Quinielas = ({ name, date, results, link, letters, meaning }) => {
+const Quinielas = ({
+    name,
+    date,
+    results,
+    link,
+    letters,
+    meaning,
+    isDetail
+}) => {
     return (
         <CardLayout
             title={name}
@@ -19,7 +28,7 @@ const Quinielas = ({ name, date, results, link, letters, meaning }) => {
                     {results[0].result[0]}
                 </Text>
                 {letters && <LabelText text={`Letras: ${letters}`} />}
-                {meaning && <LabelText text={meaning} />}
+                {meaning && isDetail && <LabelText text={meaning} />}
             </div>
             <div className="extra-results">
                 {results.map(item => (
