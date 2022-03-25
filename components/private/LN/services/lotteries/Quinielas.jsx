@@ -7,6 +7,8 @@ import Text from '../../../common/text';
 import ResultItem from './ResultItem';
 
 const Quinielas = ({ name, date, results, link, letters }) => {
+    const arrResults = results.slice(1, 5);
+
     return (
         <CardLayout
             title={name}
@@ -21,7 +23,7 @@ const Quinielas = ({ name, date, results, link, letters }) => {
                 {letters && <LabelText text={`Letras: ${letters}`} />}
             </div>
             <div className="extra-results">
-                {results.map(item => (
+                {arrResults.map(item => (
                     <ResultItem
                         key={item.name}
                         text={`${item.date} - ${item.name}`}
