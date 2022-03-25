@@ -57,6 +57,27 @@ const contentElementSizes = {
 const promoItemsSizes = {
     sizes: [
         {
+            width: 309,
+            height: 206,
+            //media: minWidth320,
+            proportion: '3:2',
+            media_preload: maxWidth375
+        },
+        {
+            width: 351,
+            height: 234,
+            //media: minWidth375,
+            proportion: '3:2',
+            media_preload: min375max768
+        },
+        {
+            width: 768,
+            height: 512,
+            //media: minWidth768,
+            proportion: '3:2',
+            media_preload: min768max1024
+        },
+        {
             width: 879,
             height: 586,
             media: minWidth1280,
@@ -69,27 +90,6 @@ const promoItemsSizes = {
             //media: minWidth1024,
             proportion: '3:2',
             media_preload: '(min-width: 1024.1px and max-width: 1280px)'
-        },
-        {
-            width: 768,
-            height: 512,
-            //media: minWidth768,
-            proportion: '3:2',
-            media_preload: min768max1024
-        },
-        {
-            width: 351,
-            height: 234,
-            //media: minWidth375,
-            proportion: '3:2',
-            media_preload: min375max768
-        },
-        {
-            width: 309,
-            height: 206,
-            //media: minWidth320,
-            proportion: '3:2',
-            media_preload: maxWidth375
         }
     ]
 };

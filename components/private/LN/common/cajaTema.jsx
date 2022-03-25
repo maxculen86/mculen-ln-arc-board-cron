@@ -102,7 +102,8 @@ const CajaTema = props => {
         hideTitle = false,
         position,
         sectionName = '',
-        _children = []
+        _children = [],
+        isHome = false
     } = props;
 
     const artWithoutDate =
@@ -138,7 +139,11 @@ const CajaTema = props => {
                 )}
                 <ModRowGap typeArticle={layoutName} column={notesQuantity}>
                     {sectionName === 'Ranking' ? (
-                        <OrderedList>{childrenComponent}</OrderedList>
+                        <OrderedList
+                            extraClass={isHome ? 'row-gap-tablet-4' : ''}
+                        >
+                            {childrenComponent}
+                        </OrderedList>
                     ) : (
                         childrenComponent
                     )}

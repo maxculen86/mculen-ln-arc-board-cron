@@ -3,8 +3,8 @@ import IndexAcuV1 from '../../../private/LN/api/v1/global/accumulated';
 import IndexAcuV2 from '../../../private/LN/api/v2/global/accumulated';
 import IndexAcuV1Mobile from '../../../private/LN/api/v1/mobile/accumulated';
 import browser from '../../../private/common/utils/browser';
-import filter from '../../../../content/filters/LN/nota/articleRanking';
 import get from '../../../private/common/utils/get';
+import { getSectionParentId } from '../../LN-common/ranking/_helper';
 
 // URL de ejemplo: http://localhost/api/v1/notas/ranking/bySection/recetas/?_website=la-nacion-ar&outputType=json
 // Resolver: ^\/api\/v1\/notas\/ranking\/bySection(\/((?!params).)+)\/(.*\/)$ , donde "params" dependera del customField "paramUrlId" configurado
@@ -18,13 +18,16 @@ class SectionRanking {
         } = props;
 
         this.state = {};
-        this.fetch(sectionId, customFields, 1);
+        const sectionRegex = new RegExp(/\/(.+)/);
+        const section = sectionRegex.exec(sectionId)[1];
+        this.fetch(section, customFields, 1);
 
         if (
             !this.state.rankingArticleSource ||
-            this.state.rankingArticleSource.content_elements?.length === 0
+            !this.state.rankingArticleSource.articles ||
+            this.state.rankingArticleSource.articles.length === 0
         ) {
-            this.fetch(sectionId, customFields, 2);
+            this.fetch(getSectionParentId(section), customFields, 1);
         }
 
         this.state = { ...this.state };
@@ -39,22 +42,17 @@ class SectionRanking {
         };
     }
 
-    fetch(sectionId, customFields, index) {
-        const weeksAgo = get(customFields, `weeksAgo${index}`, 1);
-        const daysAgo = get(customFields, `daysAgo${index}`, 1);
+    fetch(section, customFields, index) {
         const size = get(customFields, `size${index}`, 3);
 
         this.fetchContent({
             rankingArticleSource: {
                 source: 'rankingArticlesSource',
                 query: {
-                    sectionId,
-                    weeksAgo,
-                    daysAgo,
+                    sectionId: section,
                     size,
-                    imageConfig: 'm'
-                },
-                filter
+                    imageConfig: 'boxArticles'
+                }
             }
         });
     }
@@ -64,25 +62,24 @@ class SectionRanking {
             const { rankingArticleSource, globalContent: configuration } =
                 this.state || {};
 
-            const {
-                globalContent: { name },
-                requestUri
-            } = this.props;
+            const { requestUri } = this.props;
 
             const indexAcu = this.apiData[browser.getApiType(requestUri)][
                 browser.getApiVersion(requestUri)
             ];
+
             if (
                 !rankingArticleSource ||
-                !rankingArticleSource.content_elements
+                !rankingArticleSource.articles ||
+                !rankingArticleSource.articles.length === 0
             ) {
                 return null;
             }
 
             const acuData = {
-                name,
-                articles: rankingArticleSource.content_elements,
-                total: rankingArticleSource.content_elements.length,
+                name: rankingArticleSource.name,
+                articles: rankingArticleSource.articles,
+                total: rankingArticleSource.articles.length,
                 configuration
             };
 

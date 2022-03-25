@@ -9,7 +9,16 @@ import { getSizes } from '../LN/common/utils/mediaHelper';
 import '../../../resources/dist/css/ln/modules/mod-picture.css';
 
 const ModImage = props => {
-    const { src, alt, classCondition, video, amp, sources, isApertura } = props;
+    const {
+        src,
+        alt,
+        classCondition,
+        video,
+        amp,
+        sources,
+        isApertura,
+        sizes
+    } = props;
 
     const srcSet = sources
         ? sources.map(x => `${x.resizedUrl} ${x.option.width}w`).join()
@@ -29,20 +38,12 @@ const ModImage = props => {
                 alt={alt}
                 amp={amp}
                 sizes={!sizesImg || `${sizesImg},100vw`}
+                {...sizes}
                 isApertura={isApertura}
             />
             {video ? <ModVideo image={src} video={video} /> : <></>}
         </ComPicture>
     );
-};
-
-ModImage.defaultProps = {
-    alt: '',
-    classCondition: '',
-    amp: false,
-    video: '',
-    sources: [],
-    isApertura: false
 };
 
 ModImage.propTypes = {
@@ -52,17 +53,28 @@ ModImage.propTypes = {
     video: PropTypes.string,
     amp: PropTypes.bool,
     isApertura: PropTypes.bool,
-    sources: PropTypes.oneOfType([
-        PropTypes.arrayOf(
-            PropTypes.shape({
-                option: PropTypes.shape({
-                    media: PropTypes.string
-                }),
-                resizedUrl: PropTypes.string
-            })
-        ),
-        PropTypes.string
-    ])
+    sources: PropTypes.arrayOf(
+        PropTypes.shape({
+            option: PropTypes.shape({
+                media: PropTypes.string
+            }),
+            resizedUrl: PropTypes.string
+        })
+    ),
+    sizes: PropTypes.shape({
+        width: PropTypes.number,
+        height: PropTypes.number
+    })
+};
+
+ModImage.defaultProps = {
+    alt: '',
+    classCondition: '',
+    amp: false,
+    video: '',
+    sources: [],
+    sizes: {},
+    isApertura: false
 };
 
 export default ModImage;

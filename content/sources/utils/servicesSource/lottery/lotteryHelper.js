@@ -101,7 +101,11 @@ export const transformLotteryHome = data => ({
                 additional_properties = {}
             } = {}
         ] = newValue;
-        const { letters = [], estimated_pot = [] } = additional_properties;
+        const {
+            letters = [],
+            estimated_pot = [],
+            meaning = ''
+        } = additional_properties;
         newValue.length &&
             acc.push({
                 id,
@@ -111,6 +115,9 @@ export const transformLotteryHome = data => ({
                 ...(url && { link: url }),
                 ...(letters.length && {
                     letters: letters.shift().split(' ')
+                }),
+                ...(meaning && {
+                    meaning
                 }),
                 ...(estimated_pot.length && {
                     estimatedPot: estimated_pot.shift()
@@ -175,6 +182,6 @@ export const metaDataLotteryDetail = (dataService, serviceType) => {
         lotteryNumber: lottery_draw_number,
         modalities,
         completeDay,
-        location: LOCATIONS[lotteryName]
+        location: LOCATIONS[lotteryName] || LOCATIONS.default
     };
 };
