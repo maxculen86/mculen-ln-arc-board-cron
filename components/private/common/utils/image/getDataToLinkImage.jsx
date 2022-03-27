@@ -149,7 +149,7 @@ const getDataToLinkImage = ({
                     ? getMediaBomba(arcSite, bomba)
                     : getMediaApertura(renderables, arcSite);
 
-                return Array.isArray(resizedUrls) && !resizedUrls ? (
+                return Array.isArray(resizedUrls) && resizedUrls.length > 0 ? (
                     <LinkImagePreload resizedUrls={resizedUrls} />
                 ) : (
                     []
