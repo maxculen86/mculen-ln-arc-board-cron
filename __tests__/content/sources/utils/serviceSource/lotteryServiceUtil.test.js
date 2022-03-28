@@ -4,12 +4,10 @@ import error404 from '../../../../../__mocks__/data/logger/error404';
 import lotteryMock from '../../../../../__mocks__/data/lottery/lotteryMock';
 import lottery from '../../../../../content/sources/utils/servicesSource/lottery/lottery';
 import inputResultsMock from '../../../../../__mocks__/data/lottery/transformHome/inputResultsMock';
-import inputOrderMock from '../../../../../__mocks__/data/lottery/transformHome/inputOrderMock';
 import inputExtraPropsMock from '../../../../../__mocks__/data/lottery/transformHome/inputExtraPropsMock';
 import inputFalsyData from '../../../../../__mocks__/data/lottery/transformHome/inputFalsyData';
 import inputApiResponse from '../../../../../__mocks__/data/lottery/transformHome/inputApiResponse';
 import outputResultsMock from '../../../../../__mocks__/data/lottery/transformHome/outputResultsMock';
-import outputOrderMock from '../../../../../__mocks__/data/lottery/transformHome/outputOrderMock';
 import outputExtraPropsMock from '../../../../../__mocks__/data/lottery/transformHome/outputExtraPropsMock';
 import outputFalsyData from '../../../../../__mocks__/data/lottery/transformHome/outputFalsyData';
 import outputApiResponse from '../../../../../__mocks__/data/lottery/transformHome/outputApiResponse';
@@ -69,10 +67,6 @@ describe('Tests transform home function', () => {
         expect(transform(inputResultsMock)).toStrictEqual(outputResultsMock);
     });
 
-    /* it('Should reorder lotteries based on config order', () => {
-        expect(transform(inputOrderMock)).toStrictEqual(outputOrderMock);
-    }); */
-
     it('Should check extra properties like letters, jackspot and estimated_pot', () => {
         expect(transform(inputExtraPropsMock)).toStrictEqual(
             outputExtraPropsMock
@@ -81,9 +75,9 @@ describe('Tests transform home function', () => {
     it('should recieve falsy data', () => {
         expect(transform(inputFalsyData)).toStrictEqual(outputFalsyData);
     });
-    /* it('Should check api response', () => {
+    it('Should check api response', () => {
         expect(transform(inputApiResponse)).toStrictEqual(outputApiResponse);
-    }); */
+    });
 });
 
 describe('Tests transform detail function', () => {

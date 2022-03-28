@@ -5,12 +5,12 @@ import CardLayout from './CardLayout';
 import BallLotteries from './BallLoteries';
 import LabelText from './LabelText';
 import ResultItem from './ResultItem';
-import { setTraditionFirst } from './utils';
+import { setTraditionFirst, hasTraditionalResult } from './utils';
 
 const Telekino = ({ name, date, results, isDetail, link }) => {
     const resultsTomap = setTraditionFirst(results);
     const arrResults = resultsTomap.slice(1, 5);
-
+    if (hasTraditionalResult(isDetail, resultsTomap)) return <></>;
     return (
         <CardLayout
             title={name}
@@ -26,13 +26,15 @@ const Telekino = ({ name, date, results, isDetail, link }) => {
                     className={`box-result --grid-5-columns ${isDetail &&
                         'detail'}`}
                 >
-                    {resultsTomap[0].result.map(number => (
-                        <BallLotteries
-                            key={number}
-                            number={number}
-                            size="large"
-                        />
-                    ))}
+                    {(!isDetail ? resultsTomap[0].result : results).map(
+                        number => (
+                            <BallLotteries
+                                key={number}
+                                number={number}
+                                size="large"
+                            />
+                        )
+                    )}
                 </div>
             </div>
             {!isDetail && (

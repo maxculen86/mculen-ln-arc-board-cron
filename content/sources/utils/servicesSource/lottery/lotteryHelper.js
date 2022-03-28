@@ -8,11 +8,12 @@ const getValue = (input, key) => input.filter(e => e.id === key);
 export const transformLotteryDetail = data => {
     const [firstLottery = {}] = data;
     const newRules = get(games, `${firstLottery.id}.rules`, []);
+    const cardComponent = get(games, `${firstLottery.id}.component`, '');
     const lotteryDetail = data.map(lottery => {
         const {
             name = '',
             id = '',
-            lottery_draw_id = '',
+            lottery_draw_name = '',
             date = '',
             additional_properties = {},
             prizes = [],
@@ -27,12 +28,12 @@ export const transformLotteryDetail = data => {
         const winnersTable = getWinnersTable(prizes);
         const winnersCarton = getWinnersCarton(prizes);
         return {
-            name,
+            name: lottery_draw_name || name,
             id,
-            ...(lottery_draw_id && { lottery_draw_id }),
+            component: cardComponent,
             date: transformISODate(date, 'day dd/mm/yyyy'),
             ...(letters.length && {
-                letters: letters.shift()
+                letters
             }),
             ...(jackpot.length && {
                 jackpot

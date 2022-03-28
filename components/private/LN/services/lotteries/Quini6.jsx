@@ -5,11 +5,12 @@ import CardLayout from './CardLayout';
 import BallLotteries from './BallLoteries';
 import LabelText from './LabelText';
 import ResultItem from './ResultItem';
-import { setTraditionFirst } from './utils';
+import { setTraditionFirst, hasTraditionalResult } from './utils';
 
 const Quini6 = ({ name, estimatedPot, date, results, isDetail, link }) => {
     const resultsTomap = setTraditionFirst(results);
     const arrResults = resultsTomap.slice(1, 5);
+    if (hasTraditionalResult(isDetail, resultsTomap)) return <></>;
     return (
         <CardLayout title={name} subtitle={date} link={!isDetail && link}>
             <div className="main-result --quini-6">
@@ -21,13 +22,15 @@ const Quini6 = ({ name, estimatedPot, date, results, isDetail, link }) => {
                             : 'box-result --quini-6'
                     }
                 >
-                    {resultsTomap[0].result.map(number => (
-                        <BallLotteries
-                            key={number}
-                            number={number}
-                            size={isDetail ? 'large' : 'small'}
-                        />
-                    ))}
+                    {(!isDetail ? resultsTomap[0].result : results).map(
+                        number => (
+                            <BallLotteries
+                                key={number}
+                                number={number}
+                                size={isDetail ? 'large' : 'small'}
+                            />
+                        )
+                    )}
                 </div>
             </div>
             {!isDetail && (

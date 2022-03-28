@@ -4,7 +4,7 @@
             {
                 "id": "Quiniela_Nacional",
                 "name": "Quiniela Nacional",
-                "lottery_draw_id": "Primera",
+                "lottery_draw_name": "Primera",
                 "date": "2022-03-04T11:30:00",
                 "results": [
                     "6964",
@@ -37,7 +37,7 @@
             {
                 "id": "Quiniela_Provincia",
                 "name": "Quiniela Provincia",
-                "lottery_draw_id": "Primera",
+                "lottery_draw_name": "Primera",
                 "date": "2022-03-04T11:30:00",
                 "results": [
                     "4388",
@@ -70,7 +70,7 @@
             {
                 "id": "Quiniela_de_Cordoba",
                 "name": "Quiniela de Cordoba",
-                "lottery_draw_id": "Primera",
+                "lottery_draw_name": "Primera",
                 "date": "2022-03-04T11:30:00",
                 "results": [
                     "9541",
@@ -103,7 +103,7 @@
             {
                 "id": "Quiniela_de_Santa_Fe",
                 "name": "Quiniela de Santa Fe",
-                "lottery_draw_id": "Primera",
+                "lottery_draw_name": "Primera",
                 "date": "2022-03-04T11:30:00",
                 "results": [
                     "0865",
@@ -136,7 +136,7 @@
             {
                 "id": "Quiniela_Poceada",
                 "name": "Quiniela Poceada",
-                "lottery_draw_id": "",
+                "lottery_draw_name": "",
                 "date": "2022-03-03T22:00:00",
                 "results": [
                     "07",
@@ -169,7 +169,7 @@
             {
                 "id": "Quiniela_de_Cordoba",
                 "name": "Quiniela de Cordoba",
-                "lottery_draw_id": "Nocturna",
+                "lottery_draw_name": "Nocturna",
                 "date": "2022-03-03T21:10:00",
                 "results": [
                     "5287",
@@ -202,7 +202,7 @@
             {
                 "id": "Quiniela_Nacional",
                 "name": "Quiniela Nacional",
-                "lottery_draw_id": "Nocturna",
+                "lottery_draw_name": "Nocturna",
                 "date": "2022-03-03T21:00:00",
                 "results": [
                     "4386",
@@ -235,7 +235,7 @@
             {
                 "id": "Quiniela_Plus",
                 "name": "Quiniela Plus",
-                "lottery_draw_id": "",
+                "lottery_draw_name": "",
                 "date": "2022-03-03T21:00:00",
                 "results": [
                     "00",
@@ -268,7 +268,7 @@
             {
                 "id": "Quiniela_Provincia",
                 "name": "Quiniela Provincia",
-                "lottery_draw_id": "Nocturna",
+                "lottery_draw_name": "Nocturna",
                 "date": "2022-03-03T21:00:00",
                 "results": [
                     "0928",
@@ -301,7 +301,7 @@
             {
                 "id": "Quiniela_Uruguaya",
                 "name": "Quiniela Uruguaya",
-                "lottery_draw_id": "Nocturna",
+                "lottery_draw_name": "Nocturna",
                 "date": "2022-03-03T21:00:00",
                 "results": [
                     "897",
@@ -334,7 +334,7 @@
             {
                 "id": "Quiniela_de_Santa_Fe",
                 "name": "Quiniela de Santa Fe",
-                "lottery_draw_id": "Nocturna",
+                "lottery_draw_name": "Nocturna",
                 "date": "2022-03-03T21:00:00",
                 "results": [
                     "8097",
@@ -367,7 +367,7 @@
             {
                 "id": "Quiniela_Nacional",
                 "name": "Quiniela Nacional",
-                "lottery_draw_id": "Vespertina",
+                "lottery_draw_name": "Vespertina",
                 "date": "2022-03-03T17:30:00",
                 "results": [
                     "8211",
@@ -400,7 +400,7 @@
             {
                 "id": "Quiniela_Provincia",
                 "name": "Quiniela Provincia",
-                "lottery_draw_id": "Vespertina",
+                "lottery_draw_name": "Vespertina",
                 "date": "2022-03-03T17:30:00",
                 "results": [
                     "3291",
@@ -433,7 +433,7 @@
             {
                 "id": "Quiniela_de_Cordoba",
                 "name": "Quiniela de Cordoba",
-                "lottery_draw_id": "Vespertina",
+                "lottery_draw_name": "Vespertina",
                 "date": "2022-03-03T17:30:00",
                 "results": [
                     "7444",
@@ -466,7 +466,7 @@
             {
                 "id": "Quiniela_de_Santa_Fe",
                 "name": "Quiniela de Santa Fe",
-                "lottery_draw_id": "Vespertina",
+                "lottery_draw_name": "Vespertina",
                 "date": "2022-03-03T17:30:00",
                 "results": [
                     "5468",
@@ -499,7 +499,7 @@
             {
                 "id": "Quiniela_Nacional",
                 "name": "Quiniela Nacional",
-                "lottery_draw_id": "Matutina",
+                "lottery_draw_name": "Matutina",
                 "date": "2022-03-03T14:00:00",
                 "results": [
                     "0339",
@@ -532,7 +532,7 @@
             {
                 "id": "Quiniela_Provincia",
                 "name": "Quiniela Provincia",
-                "lottery_draw_id": "Matutina",
+                "lottery_draw_name": "Matutina",
                 "date": "2022-03-03T14:00:00",
                 "results": [
                     "6190",
@@ -565,7 +565,7 @@
             {
                 "id": "Quiniela_Uruguaya",
                 "name": "Quiniela Uruguaya",
-                "lottery_draw_id": "Matutina",
+                "lottery_draw_name": "Matutina",
                 "date": "2022-03-03T14:00:00",
                 "results": [
                     "544",
@@ -598,7 +598,7 @@
             {
                 "id": "Quiniela_de_Cordoba",
                 "name": "Quiniela de Cordoba",
-                "lottery_draw_id": "Matutina",
+                "lottery_draw_name": "Matutina",
                 "date": "2022-03-03T14:00:00",
                 "results": [
                     "4831",
@@ -631,7 +631,7 @@
             {
                 "id": "Quiniela_de_Santa_Fe",
                 "name": "Quiniela de Santa Fe",
-                "lottery_draw_id": "Matutina",
+                "lottery_draw_name": "Matutina",
                 "date": "2022-03-03T14:00:00",
                 "results": [
                     "4400",
@@ -664,7 +664,7 @@
             {
                 "id": "Loto",
                 "name": "Loto",
-                "lottery_draw_id": "Desquite",
+                "lottery_draw_name": "Desquite",
                 "date": "2022-03-02T22:00:00",
                 "results": ["01", "13", "20", "26", "29", "35"],
                 "additional_properties": {
@@ -676,7 +676,7 @@
             {
                 "id": "Loto",
                 "name": "Loto",
-                "lottery_draw_id": "Sale o sale",
+                "lottery_draw_name": "Sale o sale",
                 "date": "2022-03-02T22:00:00",
                 "results": ["00", "04", "08", "18", "26", "38"],
                 "additional_properties": {
@@ -688,7 +688,7 @@
             {
                 "id": "Loto",
                 "name": "Loto",
-                "lottery_draw_id": "Tradicional",
+                "lottery_draw_name": "Tradicional",
                 "date": "2022-03-02T22:00:00",
                 "results": ["03", "05", "13", "19", "27", "38"],
                 "additional_properties": {
@@ -700,7 +700,7 @@
             {
                 "id": "Quini_6",
                 "name": "Quini 6",
-                "lottery_draw_id": "Pozo extra",
+                "lottery_draw_name": "Pozo extra",
                 "date": "2022-03-02T21:30:00",
                 "results": [
                     "09",
@@ -731,7 +731,7 @@
             {
                 "id": "Quini_6",
                 "name": "Quini 6",
-                "lottery_draw_id": "Revancha",
+                "lottery_draw_name": "Revancha",
                 "date": "2022-03-02T21:30:00",
                 "results": ["03", "15", "20", "23", "36", "39"],
                 "additional_properties": {
@@ -743,7 +743,7 @@
             {
                 "id": "Quini_6",
                 "name": "Quini 6",
-                "lottery_draw_id": "Segunda vuelta",
+                "lottery_draw_name": "Segunda vuelta",
                 "date": "2022-03-02T21:30:00",
                 "results": ["05", "19", "20", "29", "35", "40"],
                 "additional_properties": {
@@ -755,7 +755,7 @@
             {
                 "id": "Quini_6",
                 "name": "Quini 6",
-                "lottery_draw_id": "Siempre sale",
+                "lottery_draw_name": "Siempre sale",
                 "date": "2022-03-02T21:30:00",
                 "results": ["01", "02", "25", "35", "39", "42"],
                 "additional_properties": {
@@ -767,7 +767,7 @@
             {
                 "id": "Quini_6",
                 "name": "Quini 6",
-                "lottery_draw_id": "Tradicional",
+                "lottery_draw_name": "Tradicional",
                 "date": "2022-03-02T21:30:00",
                 "results": ["09", "12", "16", "20", "24", "38"],
                 "additional_properties": {

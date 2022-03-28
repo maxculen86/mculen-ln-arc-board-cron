@@ -83,7 +83,7 @@ export const LOTERIES_IDS = {
     'quiniela-provincia': 'Quiniela_Provincia',
     'quiniela-cordoba': 'Quiniela_de_Cordoba',
     'quiniela-santa-fe': 'Quiniela_de_Santa_Fe',
-    'quiniela-uruguaya': 'Quiniela_Uruguaya',
+    'quiniela-montevideo': 'Quiniela_Uruguaya',
     'quini-6': 'Quini_6',
     telekino: 'Telekino',
     loto: 'Loto',

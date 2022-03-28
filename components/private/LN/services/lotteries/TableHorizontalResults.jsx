@@ -1,6 +1,9 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Text from '../../../common/text';
+
+import '../../../../../resources/dist/css/ln/components/table-horizontal-results.css';
 
 const TableHorizontalResults = ({
     className,
@@ -8,7 +11,7 @@ const TableHorizontalResults = ({
     date,
     letters,
     isMeaning,
-    lotteryDrawId,
+    name,
     meaning
 }) => {
     const classes = `table-horizontal-results ${className}`;
@@ -24,13 +27,13 @@ const TableHorizontalResults = ({
                         weight="bold"
                         size="4xs"
                     >
-                        {`${lotteryDrawId} - ${date}`}
+                        {`${name} - ${date}`}
                     </Text>
                     <div className="sub-header-table">
                         <Text weight="bold" size="4xs">
                             A la Cabeza:
                             <Text weight="bold" size="large">
-                                {meaningNumber}
+                                {` ${meaningNumber} `}
                             </Text>
                             {meaning}
                         </Text>
@@ -76,7 +79,7 @@ TableHorizontalResults.propTypes = {
     date: PropTypes.string,
     letters: PropTypes.string,
     isMeaning: PropTypes.bool,
-    lotteryDrawId: PropTypes.string,
+    name: PropTypes.string,
     meaning: PropTypes.string,
     results: PropTypes.arrayOf
 };
@@ -86,7 +89,7 @@ TableHorizontalResults.defaultProps = {
     date: '',
     letters: '',
     isMeaning: false,
-    lotteryDrawId: '',
+    name: '',
     meaning: '',
     results: []
 };
