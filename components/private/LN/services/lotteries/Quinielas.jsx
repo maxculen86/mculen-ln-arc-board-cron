@@ -16,6 +16,8 @@ const Quinielas = ({
     meaning,
     isDetail
 }) => {
+    const arrResults = results.slice(1, 5);
+
     return (
         <CardLayout
             title={name}
@@ -33,7 +35,7 @@ const Quinielas = ({
                 {meaning && <LabelText text={meaning} />}
             </div>
             <div className="extra-results">
-                {results.map(item => (
+                {arrResults.map(item => (
                     <ResultItem
                         key={item.name}
                         text={`${item.date} - ${item.name}`}
