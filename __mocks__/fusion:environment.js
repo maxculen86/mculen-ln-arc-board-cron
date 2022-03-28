@@ -20,6 +20,7 @@ jest.mock('fusion:environment', () => {
         LANACIONAR_URLASSETS:
             'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com',
         SITE_LANACION: 'https://www.lanacion.com.ar',
-        SITE_RECETAS: 'https://www.lanacion.com.ar/recetas/'
+        SITE_RECETAS: 'https://www.lanacion.com.ar/recetas/',
+        LANACION_SERVICES_URL: 'https://arcservices.lanacion.com.ar'
     };
 });

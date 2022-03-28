@@ -1,4 +1,5 @@
 import 'regenerator-runtime/runtime';
+import { LANACION_SERVICES_URL } from 'fusion:environment';
 import error404 from '../../../../../__mocks__/data/logger/error404';
 import lotteryMock from '../../../../../__mocks__/data/lottery/lotteryMock';
 import lottery from '../../../../../content/sources/utils/servicesSource/lottery/lottery';
@@ -42,11 +43,11 @@ describe('Test getUri function', () => {
         expect(
             getUri({ service: 'loterias', serviceItem: 'telekino' })
         ).toStrictEqual(
-            'https://dev-arcservices.lanacion.com.ar/api/v1/lotteries/Telekino'
+            'https://arcservices.lanacion.com.ar/api/v1/lotteries/Telekino'
         );
 
         expect(getUri({ service: 'loterias', serviceItem: '' })).toStrictEqual(
-            'https://dev-arcservices.lanacion.com.ar/api/v1/lotteries/'
+            'https://arcservices.lanacion.com.ar/api/v1/lotteries/'
         );
 
         expect(() => {
