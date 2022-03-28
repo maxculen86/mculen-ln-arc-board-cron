@@ -1,0 +1,25 @@
+@import '../abstracts/variables';
+
+.lotteries {
+    &.number-meanings-box {
+        margin: px(32) 0;
+        &.row-gap-tablet-4 {
+            column-gap: px(16);
+        }
+    }
+
+    &.home-lottery-grid {
+        justify-items: center;
+        &.row-gap-tablet-3 {
+            row-gap: px(32);
+        }
+        margin-bottom: px(32);
+    }
+
+    &.lottery-detail-box {
+        &.row-gap-tablet-2 {
+            row-gap: px(32);
+        }
+        margin-bottom: px(32);
+    }
+}

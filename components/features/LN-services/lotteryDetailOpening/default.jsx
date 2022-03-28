@@ -26,7 +26,9 @@ const LotteryDetailOpening = ({ id: featureId }) => {
     return (
         lottery.length && (
             <StaticValidation id={featureId} htmlOnly persistent>
-                <div className="lottery-detail-box lay">{lotteryDetail}</div>
+                <div className="lotteries lottery-detail-box row-gap-tablet-2">
+                    {lotteryDetail}
+                </div>
             </StaticValidation>
         )
     );

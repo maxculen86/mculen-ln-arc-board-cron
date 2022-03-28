@@ -7,6 +7,7 @@
     border: 1px solid $dark-neutral-600;
     border-radius: 4px;
     min-height: px(340);
+    min-width: px(300);
     padding: $spacing-sm $spacing-sm px(20) $spacing-sm;
 
     @media ($media-s) {
