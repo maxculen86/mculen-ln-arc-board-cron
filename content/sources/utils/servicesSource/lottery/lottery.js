@@ -1,3 +1,4 @@
+import { LANACION_SERVICES_URL } from 'fusion:environment';
 import request from 'request-promise-native';
 import logger from '../../../../../components/private/common/utils/logger';
 import {
@@ -9,7 +10,7 @@ import { LOTERIES_IDS } from './_config';
 
 const getUri = ({ service = '', serviceItem = '' }) => {
     if (service)
-        return `https://dev-arcservices.lanacion.com.ar/api/v1/lotteries/`.concat(
+        return `${LANACION_SERVICES_URL}/api/v1/lotteries/`.concat(
             LOTERIES_IDS[serviceItem] || ''
         );
 
