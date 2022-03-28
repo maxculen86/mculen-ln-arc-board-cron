@@ -5,12 +5,12 @@ import CardLayout from './CardLayout';
 import BallLotteries from './BallLoteries';
 import LabelText from './LabelText';
 import ResultItem from './ResultItem';
-import { setTraditionFirst } from './utils';
+import { setTraditionFirst, hasTraditionalResult } from './utils';
 
 const Telekino = ({ name, date, results, isDetail, link }) => {
     const resultsTomap = setTraditionFirst(results);
     const arrResults = resultsTomap.slice(1, 5);
-
+    if (hasTraditionalResult(isDetail, resultsTomap)) return <></>;
     return (
         <CardLayout
             title={name}
