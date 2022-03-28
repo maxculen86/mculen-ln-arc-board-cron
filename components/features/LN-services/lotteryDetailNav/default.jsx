@@ -1,8 +1,15 @@
 import React from 'react';
+import { SITE_LANACION, API_ENV } from 'fusion:environment';
 import ComLinkList from '../../../private/common/com-link-list';
+import { meanings } from '../../../../content/sources/utils/servicesSource/lottery/_config';
 
 const LotteryDetailNav = () => {
-    return <ComLinkList list={tagList} extraClass="--tags" />;
+    const list = tagList.map(tag => ({
+        title: tag.title,
+        link: `${SITE_LANACION}${tag.link}`,
+        textname: tag.title
+    }));
+    return <ComLinkList list={list} extraClass="--tags" />;
 };
 
 LotteryDetailNav.label = 'LN Loteria Detalle Navegación';
@@ -12,86 +19,66 @@ export default LotteryDetailNav;
 const tagList = [
     {
         title: 'Quiniela de la Ciudad',
-        link: 'https://www.lanacion.com.ar/loterias/quiniela-nacional/',
-        textname: 'Quiniela de la Ciudad'
+        link: '/loterias/quiniela-nacional/'
     },
     {
         title: 'Quiniela de la Provincia',
-        link: 'https://www.lanacion.com.ar/loterias/quiniela-provincia/',
-        textname: 'Quiniela de la Provincia'
+        link: '/loterias/quiniela-provincia/'
     },
     {
         title: 'Quiniela de Córdoba',
-        link: 'https://www.lanacion.com.ar/loterias/quiniela-cordoba/',
-        textname: 'Quiniela de Córdoba'
+        link: '/loterias/quiniela-cordoba/'
     },
     {
         title: 'Quiniela de Santa Fé',
-        link: 'https://www.lanacion.com.ar/loterias/quiniela-santa-fe/',
-        textname: 'Quiniela de Santa Fé'
+        link: '/loterias/quiniela-santa-fe/'
     },
     {
         title: 'Quiniela de Montevideo',
-        link: 'https://www.lanacion.com.ar/loterias/quiniela-montevideo/',
-        textname: 'Quiniela de Montevideo'
+        link: '/loterias/quiniela-montevideo/'
     },
     {
         title: 'Quini 6',
-        link: 'https://www.lanacion.com.ar/loterias/quini-6/',
-        textname: 'Quini 6'
+        link: '/loterias/quini-6/'
     },
     {
         title: 'Telekino',
-        link: 'https://www.lanacion.com.ar/loterias/telekino/',
-        textname: 'Telekino'
+        link: '/loterias/telekino/'
     },
     {
         title: 'Loto Plus',
-        link: 'https://www.lanacion.com.ar/loterias/loto/',
-        textname: 'Loto Plus'
+        link: '/loterias/loto/'
     },
     {
         title: 'Loto 5',
-        link: 'https://www.lanacion.com.ar/loterias/loto-5/',
-        textname: 'Loto 5'
+        link: '/loterias/loto-5/'
     },
     {
         title: 'Quiniela Poceada',
-        link: 'https://www.lanacion.com.ar/loterias/quiniela-poceada/',
-        textname: 'Quiniela Poceada'
+        link: '/loterias/quiniela-poceada/'
     },
     {
         title: 'Quiniela Plus',
-        link: 'https://www.lanacion.com.ar/loterias/quiniela-plus/',
-        textname: 'Quiniela Plus'
+        link: '/loterias/quiniela-plus/'
     },
     {
         title: 'Brinco',
-        link: 'https://www.lanacion.com.ar/loterias/brinco/',
-        textname: 'Brinco'
+        link: '/loterias/brinco/'
     },
     {
-        title: 'Tradicional',
-        link:
-            'https://www.lanacion.com.ar/loterias/significado-de-los-numeros-tradicional-nidNNNNNN/',
-        textname: 'Tradicional'
+        title: `Sueños: ${meanings.Tradicional.title}`,
+        link: meanings.Tradicional.link[API_ENV]
     },
     {
-        title: 'Nombres',
-        link:
-            'https://www.lanacion.com.ar/loterias/significado-de-los-numeros-nombres-nidNNNNNN/',
-        textname: 'Nombres'
+        title: `Sueños: ${meanings.Nombres.title}`,
+        link: meanings.Nombres.link[API_ENV]
     },
     {
-        title: 'Animales',
-        link:
-            'https://www.lanacion.com.ar/loterias/significado-de-los-numeros-animales-nidNNNNNN/',
-        textname: 'Animales'
+        title: `Sueños: ${meanings.Animales.title}`,
+        link: meanings.Animales.link[API_ENV]
     },
     {
-        title: 'Loteria Nacional',
-        link:
-            'https://www.lanacion.com.ar/loterias/significado-de-los-numeros-loteria-nacional-nidNNNNNN/',
-        textname: 'Loteria Nacional'
+        title: `Sueños: ${meanings.LoteriaNacional.title}`,
+        link: meanings.LoteriaNacional.link[API_ENV]
     }
 ];
