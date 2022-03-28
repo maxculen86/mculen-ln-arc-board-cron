@@ -27,17 +27,13 @@ const LotteryDetailRules = ({ id: featureId }) => {
                             id={`${featureId}-title-${i}`}
                             tag="h2"
                             text={text}
-                            size="medium"
-                            weight="bold"
-                            font="sueca"
+                            extraClass="com-title --l"
                         />
                         <ComText
                             id={`${featureId}-description-${i}`}
                             tag="p"
                             text={description}
-                            size="xs"
-                            weight="light"
-                            font="georgia"
+                            extraClass="com-paragraph --s"
                         />
                     </div>
                 ))}

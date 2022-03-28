@@ -29,21 +29,18 @@ const Quini6 = ({ name, estimatedPot, date, results, isDetail, link }) => {
                         />
                     ))}
                 </div>
-                {!isDetail && (
-                    <div className="extra-results">
-                        {arrResults.map(({ name: resultName, result }) => (
-                            <ResultItem
-                                key={resultName}
-                                text={resultName}
-                                result={result}
-                            />
-                        ))}
-                    </div>
-                )}
-                {!isDetail && (
-                    <LabelText text={`Pozo vacante: ${estimatedPot}`} />
-                )}
             </div>
+            {!isDetail && (
+                <div className="extra-results">
+                    {arrResults.map(({ name: resultName, result }) => (
+                        <ResultItem
+                            key={resultName}
+                            text={resultName}
+                            result={result}
+                        />
+                    ))}
+                </div>
+            )}
         </CardLayout>
     );
 };
