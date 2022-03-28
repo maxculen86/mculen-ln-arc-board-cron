@@ -15,22 +15,30 @@ const LotteryDetailOpening = ({ id: featureId }) => {
         'globalContent.dataService.lotteryDetail',
         []
     );
-    const lotteryDetail = lottery.map(lot => {
-        const { component: cardComponent, id, winners_table } = lot;
-        const Lottery = components[cardComponent];
-        return !winners_table ? (
-            <TableHorizontalResults key={id} {...lot} />
-        ) : (
-            <Lottery key={id} isDetail {...lot} />
-        );
-    });
+
     return (
         lottery.length && (
             <StaticValidation id={featureId} htmlOnly persistent>
-                <div className="lottery-detail-box lay">{lotteryDetail}</div>
-                {lottery.map(game => {
-                    return <DetailsTable data={game} />;
-                })}
+                <div className="lottery-detail-box lay">
+                    {lottery.map(lot => {
+                        const {
+                            component: cardComponent,
+                            id,
+                            winners_table
+                        } = lot;
+                        const Lottery = components[cardComponent];
+                        return (
+                            <>
+                                {!winners_table ? (
+                                    <TableHorizontalResults key={id} {...lot} />
+                                ) : (
+                                    <Lottery key={id} isDetail {...lot} />
+                                )}
+                                <DetailsTable data={lot} />
+                            </>
+                        );
+                    })}
+                </div>
             </StaticValidation>
         )
     );
