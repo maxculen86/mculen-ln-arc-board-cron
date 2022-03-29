@@ -9,6 +9,8 @@ import get from '../../../private/common/utils/get';
 import { components } from '../lotteryGrid/default';
 import TableHorizontalResults from '../../../private/LN/services/lotteries/TableHorizontalResults';
 
+import '../../../../resources/dist/css/ln/pages/lotteries.css';
+
 const LotteryDetailOpening = ({ id: featureId }) => {
     const lottery = get(
         useAppContext(),
@@ -19,7 +21,13 @@ const LotteryDetailOpening = ({ id: featureId }) => {
     return (
         lottery.length && (
             <StaticValidation id={featureId} htmlOnly persistent>
-                <div className="lottery-detail-box lay">
+                <div
+                    className={`lotteries ${
+                        !lottery[0].winners_table
+                            ? 'quinielas-detail-layout row-gap-tablet-2'
+                            : 'lottery-detail-box'
+                    }`}
+                >
                     {lottery.map(lot => {
                         const {
                             component: cardComponent,
@@ -32,9 +40,11 @@ const LotteryDetailOpening = ({ id: featureId }) => {
                                 {!winners_table ? (
                                     <TableHorizontalResults key={id} {...lot} />
                                 ) : (
-                                    <Lottery key={id} isDetail {...lot} />
+                                    <>
+                                        <Lottery key={id} isDetail {...lot} />
+                                        <DetailsTable data={lot} />
+                                    </>
                                 )}
-                                <DetailsTable data={lot} />
                             </>
                         );
                     })}

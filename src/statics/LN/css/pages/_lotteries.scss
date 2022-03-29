@@ -17,6 +17,19 @@
     }
 
     &.lottery-detail-box {
+        display: grid;
+        grid-template-columns: 1fr;
+        column-gap: px(32);
+        row-gap: px(32);
+
+        @media ($media-m) {
+            grid-template-columns: 1fr 2fr;
+        }
+        margin-bottom: px(32);
+    }
+
+    &.quinielas-detail-layout {
+        display: grid;
         &.row-gap-tablet-2 {
             row-gap: px(32);
         }
