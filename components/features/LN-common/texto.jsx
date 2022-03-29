@@ -29,17 +29,17 @@ Text.propTypes = {
         font: PropTypes.oneOf(Object.keys(fonts)).tag({
             label: 'Fuente',
             description: 'Seleccione la fuente que corresponda.',
-            defaultValue: fonts[0]
+            defaultValue: 'sueca'
         }),
         size: PropTypes.oneOf(Object.keys(sizes)).tag({
             label: 'Tamaño',
             description: 'Seleccione el tamaño de la fuente que corresponda.',
-            defaultValue: sizes[0]
+            defaultValue: 'medium'
         }),
         weight: PropTypes.oneOf(Object.keys(weights)).tag({
             label: 'Peso',
             description: 'Seleccione el peso de la fuente que corresponda.',
-            defaultValue: weights[0]
+            defaultValue: 'regular'
         }),
         htmlTag: PropTypes.oneOf([
             'span',
