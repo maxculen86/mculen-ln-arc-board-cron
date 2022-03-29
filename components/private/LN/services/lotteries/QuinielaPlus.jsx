@@ -14,7 +14,7 @@ const QuinielaPlus = ({ name, date, results, isDetail, link }) => {
                     className={`box-result --grid-5-columns ${isDetail &&
                         '--quini-plus'}`}
                 >
-                    {results[0].result.map(number => (
+                    {(!isDetail ? results[0].result : results).map(number => (
                         <BallLotteries
                             key={number}
                             number={number}

@@ -19,7 +19,7 @@ import QuinielaPoceada from '../../../private/LN/services/lotteries/QuinielaPoce
 import Quinielas from '../../../private/LN/services/lotteries/Quinielas';
 import Telekino from '../../../private/LN/services/lotteries/Telekino';
 
-const components = {
+export const components = {
     Brinco,
     Loto5,
     LotoPlus,
@@ -42,8 +42,8 @@ const LotteryGrid = ({ id: featureId }) => {
                 <div className="row-gap-3">
                     {lotteries.map(lottery => {
                         const { component: cardComponent, id } = lottery;
-                        const Component = components[cardComponent];
-                        return <Component key={id} {...lottery} />;
+                        const Lottery = components[cardComponent];
+                        return <Lottery key={id} {...lottery} />;
                     })}
                 </div>
             </StaticValidation>

@@ -4,17 +4,14 @@ import '../../../../../resources/dist/css/ln/components/details-table.css';
 
 const DetailsTable = ({ data }) => {
     const {
-        winners_table: winnersTable,
+        winners_table: winnersTable = [],
         name,
-        estimated_pot: estimatedPot,
-        winner_carton: winnerCarton
+        estimatedPot = '',
+        winner_carton: winnerCarton = []
     } = data;
-    const winnerCartonAmount = winnerCarton
-        ? winnerCarton.find(carton => carton.amount)
-        : false;
     return (
         <section className="table-container">
-            {winnersTable && (
+            {winnersTable.length > 0 && (
                 <table className="table">
                     <thead>
                         <tr>
@@ -40,10 +37,7 @@ const DetailsTable = ({ data }) => {
                 <table className="table">
                     <thead>
                         <tr>
-                            <th>
-                                Próximo pozo de
-                                {name}
-                            </th>
+                            <th>{`Próximo pozo de ${name}`}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -53,7 +47,7 @@ const DetailsTable = ({ data }) => {
                     </tbody>
                 </table>
             )}
-            {winnerCarton && (
+            {winnerCarton.length > 0 && (
                 <table className="table">
                     <thead>
                         <tr>
@@ -76,7 +70,7 @@ const DetailsTable = ({ data }) => {
                     <tfoot>
                         <tr>
                             <td colSpan={winnerCarton.length}>
-                                {`${winnerCartonAmount.amount} C/U`}
+                                {`${winnerCarton[0].amount} C/U`}
                             </td>
                         </tr>
                     </tfoot>
