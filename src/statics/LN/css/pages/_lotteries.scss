@@ -1,0 +1,38 @@
+@import '../abstracts/variables';
+
+.lotteries {
+    &.number-meanings-box {
+        margin: px(32) 0;
+        &.row-gap-tablet-4 {
+            column-gap: px(16);
+        }
+    }
+
+    &.home-lottery-grid {
+        justify-items: center;
+        &.row-gap-tablet-3 {
+            row-gap: px(32);
+        }
+        margin-bottom: px(32);
+    }
+
+    &.lottery-detail-box {
+        display: grid;
+        grid-template-columns: 1fr;
+        column-gap: px(32);
+        row-gap: px(32);
+
+        @media ($media-m) {
+            grid-template-columns: 1fr 2fr;
+        }
+        margin-bottom: px(32);
+    }
+
+    &.quinielas-detail-layout {
+        display: grid;
+        &.row-gap-tablet-2 {
+            row-gap: px(32);
+        }
+        margin-bottom: px(32);
+    }
+}
