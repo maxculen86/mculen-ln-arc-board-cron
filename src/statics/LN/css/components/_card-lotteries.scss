@@ -28,10 +28,6 @@
         }
     }
 
-    .footer-link-lotteries {
-        font-size: px(12);
-    }
-
     .main-result {
         display: flex;
         flex-direction: column;
@@ -126,6 +122,7 @@
             display: flex;
             flex-direction: row;
             justify-content: space-around;
+            column-gap: px(1);
             width: 100%;
         }
 
@@ -146,15 +143,18 @@
             @media ($media-m) {
                 column-gap: px(4);
             }
-            @media ($media-xl) {
-                column-gap: px(12);
+            @media ($media-l) {
+                column-gap: px(16);
+            }
+            @media ($media-lm) {
+                column-gap: px(8);
             }
         }
     }
 
     .extra-results {
         margin-top: auto;
-
+        margin-bottom: $spacing-sm;
         .result-item .results-secondary .com-text {
             &:not(:last-child):after {
                 content: '-';
