@@ -20,9 +20,15 @@ const LotteryDetailOpening = ({ id: featureId }) => {
         []
     );
 
+    const metaData = get(useAppContext(), 'globalContent.metaData', {});
+    const { lotteryName = '', completeDay = '' } = metaData;
+
     return (
         lottery.length && (
             <StaticValidation id={featureId} htmlOnly persistent>
+                <Text font="sueca" size="xs" weight="regular" tag="p">
+                    {`Últimos resultados en ${lotteryName}, ${completeDay} de ${new Date().getFullYear()}`}
+                </Text>
                 <div
                     className={`lotteries ${
                         !lottery[0].winners_table
