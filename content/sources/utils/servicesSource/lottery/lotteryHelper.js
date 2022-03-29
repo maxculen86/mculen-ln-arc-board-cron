@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import transformISODate from '../../../../../components/private/common/utils/transformISODate';
-import { games, LOCATIONS } from './_config';
+import { games } from './_config';
 import get from '../../../../../components/private/common/utils/get';
 
 const getValue = (input, key) => input.filter(e => e.id === key);
@@ -167,7 +167,12 @@ const gamesQtyText = {
 
 export const metaDataLotteryDetail = (dataService, serviceType) => {
     const { items } = dataService;
-    const { name: lotteryName, lottery_draw_number = '', date = '' } = items[0];
+    const {
+        name: lotteryName,
+        lottery_draw_number = '',
+        date = '',
+        location = 'Buenos Aires'
+    } = items[0];
     const gamesModes = extractGameTypes(dataService, serviceType);
     const completeDay = transformISODate(date, 'dia de mes');
 
@@ -183,6 +188,6 @@ export const metaDataLotteryDetail = (dataService, serviceType) => {
         lotteryNumber: lottery_draw_number,
         modalities,
         completeDay,
-        location: LOCATIONS[lotteryName] || LOCATIONS.default
+        location
     };
 };
