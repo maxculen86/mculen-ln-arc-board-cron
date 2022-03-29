@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 /* eslint-disable camelcase */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
