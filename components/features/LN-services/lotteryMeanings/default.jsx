@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import { API_ENV } from 'fusion:environment';
+import { API_ENV, SITE_LANACION } from 'fusion:environment';
 import StaticValidation from '../../../private/common/staticValidation';
 import ServiceMiniCard from '../../../private/common/serviceMiniCard';
 
@@ -16,7 +16,9 @@ const LotteryMeanings = ({ id: featureId }) => {
                     <ServiceMiniCard
                         key={meaningInfo.title}
                         title={meaningInfo.title}
-                        link={meaningInfo.link[API_ENV || 'sandbox']}
+                        link={`${SITE_LANACION}${
+                            meaningInfo.link[API_ENV || 'sandbox']
+                        }`}
                         linkTitle={meaningInfo.linkTitle}
                         icon={meaningInfo.icon}
                         labeled="Significado de numeros"
