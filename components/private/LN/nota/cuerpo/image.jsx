@@ -39,13 +39,20 @@ image.arcType = 'image';
 image.propTypes = {
     data: PropTypes.shape({
         caption: PropTypes.string,
-        distributor: PropTypes.string,
-        vanity_credits: PropTypes.array,
+        distributor: PropTypes.object,
+        vanity_credits: PropTypes.shape({
+            affiliation: PropTypes.array,
+            by: PropTypes.array
+        }),
         credits: PropTypes.shape(),
         type: PropTypes.string.isRequired
     }).isRequired,
     withZoom: PropTypes.string.isRequired,
-    outputType: PropTypes.string.isRequired
+    outputType: PropTypes.string
+};
+
+image.defaultProps = {
+    outputType: 'default'
 };
 
 export default image;

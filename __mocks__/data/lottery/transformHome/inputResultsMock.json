@@ -1,0 +1,30 @@
+{
+    "dataService": {
+        "items": [
+            {
+                "name": "Quini 6",
+                "id": "Quini_6",
+                "date": "2022-03-16T17:30:00",
+                "lottery_draw_id": "Tradicional",
+                "results": ["01", "02", "03", "04", "05", "06"]
+            },
+            {
+                "name": "Quini 6",
+                "id": "Quini_6",
+                "date": "2022-03-16T17:30:00",
+                "lottery_draw_id": "Segunda vuelta",
+                "lottery_draw_name": "Segunda vuelta",
+                "results": ["02", "03", "04", "05", "06", "07"]
+            },
+            {
+                "name": "Quini 6",
+                "id": "Quini_6",
+                "date": "2022-03-16T17:30:00",
+                "lottery_draw_id": "Revancha",
+                "lottery_draw_name": "Revancha",
+                "results": ["03", "04", "05", "06", "07", "08"]
+            }
+        ]
+    },
+    "serviceType": "home"
+}

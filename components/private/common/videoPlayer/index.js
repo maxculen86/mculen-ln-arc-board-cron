@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/no-danger */
 import React, { useEffect, useState } from 'react';
@@ -208,7 +209,7 @@ const VideoPlayer = props => {
 VideoPlayer.propTypes = {
     videoId: PropTypes.string.isRequired,
     tituloVideo: PropTypes.string.isRequired,
-    arcSite: PropTypes.string.isRequired,
+    arcSite: PropTypes.string,
     enableAds: PropTypes.bool,
     enableAdBar: PropTypes.bool,
     loadVideoOnInit: PropTypes.bool,
@@ -220,7 +221,7 @@ VideoPlayer.propTypes = {
     adsURL: PropTypes.string.isRequired,
     globalContent: PropTypes.shape({
         content_elements: PropTypes.arrayOf(PropTypes.object)
-    }).isRequired,
+    }),
     device: PropTypes.string.isRequired
 };
 

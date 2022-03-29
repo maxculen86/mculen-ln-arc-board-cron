@@ -1,0 +1,34 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.box-number-meaning {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: px(1) solid $dark-neutral-600;
+    padding: px(16);
+    border-radius: px(4);
+    min-height: px(132);
+
+    .com-icon {
+        width: px(40);
+        height: px(40);
+    }
+
+    .com-link {
+        font-weight: 700;
+        font-size: px(20);
+        color: $neutral-black;
+    }
+
+    .meaning-number-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: px(16);
+
+        @media ($media-xs) and (max-width: 767px) {
+            flex-direction: column-reverse;
+        }
+    }
+}
