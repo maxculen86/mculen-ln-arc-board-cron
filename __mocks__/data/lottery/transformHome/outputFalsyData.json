@@ -2,7 +2,7 @@
     "dataService": {
         "lotteries": [
             {
-                "date": "16/03/2022",
+                "date": "Miércoles 16/03/2022",
                 "component": "Quini6",
                 "id": "Quini_6",
                 "link": "/loterias/quini-6/",
@@ -18,7 +18,7 @@
                 ]
             },
             {
-                "date": "16/03/2022",
+                "date": "Miércoles 16/03/2022",
                 "name": "Telekino",
                 "component": "Telekino",
                 "link": "/loterias/telekino/",

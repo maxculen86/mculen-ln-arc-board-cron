@@ -112,7 +112,7 @@ export const transformLotteryHome = data => ({
                 id,
                 name,
                 component: cardComponent,
-                date: transformISODate(date),
+                date: transformISODate(date, 'day dd/mm/yyyy'),
                 ...(url && { link: url }),
                 ...(letters.length && {
                     letters: letters.shift().split(' ')
