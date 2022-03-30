@@ -95,6 +95,7 @@ export const getShortestImage = (resizedUrls = []) => {
         {}
     );
 
+    // eslint-disable-next-line no-underscore-dangle
     const _width = get(result, 'option.width', undefined);
 
     return {
@@ -103,7 +104,7 @@ export const getShortestImage = (resizedUrls = []) => {
     };
 };
 export const LinkImagePreload = ({ resizedUrls = [] }) => {
-    if (resizedUrls === 0) return null;
+    if (resizedUrls.length === 0) return null;
 
     const imagesrcset = [];
     const imagesizes = [];
@@ -118,7 +119,7 @@ export const LinkImagePreload = ({ resizedUrls = [] }) => {
     });
 
     return (
-        imagesrcset.length > 0 && (
+        imagesrcset.length && (
             <link
                 rel="preload"
                 as="image"

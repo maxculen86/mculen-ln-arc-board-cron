@@ -99,65 +99,60 @@ const getDataToLinkImage = ({
     renderables = [],
     arcSite = ''
 }) => {
-    if (!data) return [];
-    const sectionData =
-        {
-            nota: () => {
-                const { subtype, promo_items: promoItems } = data || {};
-                const shouldExclude = !!(
-                    (subtype === FOTOAL100 || subtype === STORYTELLING) &&
-                    get(promoItems, 'storytelling_mobile.resized_urls.length')
-                );
-                const resizedUrls = get(
-                    data,
-                    'promo_items.basic.resized_urls',
-                    []
-                );
+    if (!data) return <></>;
+    const sectionData = {
+        nota: () => {
+            const { subtype, promo_items: promoItems } = data || {};
+            const shouldExclude = !!(
+                (subtype === FOTOAL100 || subtype === STORYTELLING) &&
+                get(promoItems, 'storytelling_mobile.resized_urls.length')
+            );
+            const resizedUrls = get(data, 'promo_items.basic.resized_urls', []);
 
-                return (
-                    !shouldExclude && (
-                        <LinkImagePreload resizedUrls={resizedUrls} />
-                    )
-                );
-            },
-            acumulado: () => {
-                return [];
-            },
-            home: () => {
-                const bomba =
-                    (renderables.length &&
-                        getChildsFromSections(
-                            get(sectionsValidation, 'Bomba.position', 2) + 1,
-                            renderables
-                        ).filter(
-                            element =>
-                                get(
-                                    element,
-                                    'props.customFields.hideFeature',
-                                    false
-                                ) !== true &&
-                                get(
-                                    element,
-                                    'props.customFields.hideImage',
-                                    false
-                                ) !== true &&
-                                get(element, 'type', null) === 'LN-common/bomba'
-                        )) ||
-                    [];
+            return !shouldExclude ? (
+                <LinkImagePreload resizedUrls={resizedUrls} />
+            ) : (
+                <></>
+            );
+        },
+        acumulado: () => {
+            return [];
+        },
+        home: () => {
+            const bomba =
+                (renderables.length &&
+                    getChildsFromSections(
+                        get(sectionsValidation, 'Bomba.position', 2) + 1,
+                        renderables
+                    ).filter(
+                        element =>
+                            get(
+                                element,
+                                'props.customFields.hideFeature',
+                                false
+                            ) !== true &&
+                            get(
+                                element,
+                                'props.customFields.hideImage',
+                                false
+                            ) !== true &&
+                            get(element, 'type', null) === 'LN-common/bomba'
+                    )) ||
+                [];
 
-                const resizedUrls = bomba.length
-                    ? getMediaBomba(arcSite, bomba)
-                    : getMediaApertura(renderables, arcSite);
+            const resizedUrls = bomba.length
+                ? getMediaBomba(arcSite, bomba)
+                : getMediaApertura(renderables, arcSite);
 
-                return Array.isArray(resizedUrls) && resizedUrls.length > 0 ? (
-                    <LinkImagePreload resizedUrls={resizedUrls} />
-                ) : (
-                    []
-                );
-            }
-        } || [];
+            return Array.isArray(resizedUrls) && resizedUrls.length > 0 ? (
+                <LinkImagePreload resizedUrls={resizedUrls} />
+            ) : (
+                <></>
+            );
+        }
+    } || <></>;
 
-    return (sectionData[section] && sectionData[section]()) || [];
+    return (sectionData[section] && sectionData[section]()) || <></>;
 };
 
 export default getDataToLinkImage;
