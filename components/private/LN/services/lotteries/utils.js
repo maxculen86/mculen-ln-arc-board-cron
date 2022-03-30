@@ -9,3 +9,15 @@ export const hasTraditionalResult = (isDetail, results) => {
     }
     return !results[0];
 };
+
+export const reorderQuini6 = results =>
+    results.sort(
+        (a, b) => quini6Order.indexOf(a.name) - quini6Order.indexOf(b.name)
+    );
+
+const quini6Order = [
+    'Segunda vuelta',
+    'Revancha',
+    'Pozo extra',
+    'Siempre sale'
+];

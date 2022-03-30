@@ -8,6 +8,7 @@ import DetailsTable from '../../../private/LN/services/lotteries/DetailsTable';
 import get from '../../../private/common/utils/get';
 import { components } from '../lotteryGrid/default';
 import TableHorizontalResults from '../../../private/LN/services/lotteries/TableHorizontalResults';
+import { reorderQuini6 } from '../../../private/LN/services/lotteries/utils';
 
 const LotteryDetailOpening = ({ id: featureId }) => {
     const lottery = get(
@@ -15,7 +16,8 @@ const LotteryDetailOpening = ({ id: featureId }) => {
         'globalContent.dataService.lotteryDetail',
         []
     );
-
+    const [firstLot = ''] = lottery;
+    if (firstLot.id === 'Quini_6') reorderQuini6(lottery);
     return (
         lottery.length && (
             <StaticValidation id={featureId} htmlOnly persistent>

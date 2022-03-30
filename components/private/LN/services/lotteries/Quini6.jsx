@@ -5,11 +5,15 @@ import CardLayout from './CardLayout';
 import BallLotteries from './BallLoteries';
 import LabelText from './LabelText';
 import ResultItem from './ResultItem';
-import { setTraditionFirst, hasTraditionalResult } from './utils';
+import {
+    setTraditionFirst,
+    hasTraditionalResult,
+    reorderQuini6
+} from './utils';
 
 const Quini6 = ({ name, estimatedPot, date, results, isDetail, link }) => {
     const resultsTomap = setTraditionFirst(results);
-    const arrResults = resultsTomap.slice(1, 5);
+    const arrResults = reorderQuini6(resultsTomap.slice(1, 5));
     if (hasTraditionalResult(isDetail, resultsTomap)) return <></>;
     return (
         <CardLayout title={name} subtitle={date} link={!isDetail && link}>
