@@ -59,20 +59,19 @@ const LotteryDetailOpening = ({ id: featureId }) => {
                             </>
                         );
                     })}
+                    <Text size="5xs">
+                        Información provista por
+                        {`${' '}`}
+                        <ComLink
+                            link="https://www.datafactory.la/"
+                            target="_blank"
+                            rel="nofollow"
+                            title="Ir a Data Factory"
+                        >
+                            Datafactory
+                        </ComLink>
+                    </Text>
                 </div>
-
-                <Text>
-                    Información provista por
-                    {`${' '}`}
-                    <ComLink
-                        link="https://www.datafactory.la/"
-                        target="_blank"
-                        rel="nofollow"
-                        title="Ir a Data Factory"
-                    >
-                        Datafactory
-                    </ComLink>
-                </Text>
             </StaticValidation>
         )
     );
