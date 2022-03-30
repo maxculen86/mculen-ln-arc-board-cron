@@ -29,7 +29,13 @@ const LotteryDetailOpening = ({ id: featureId }) => {
     return (
         lottery.length && (
             <StaticValidation id={featureId} htmlOnly persistent>
-                <Text font="sueca" size="xs" weight="regular" tag="p">
+                <Text
+                    font="sueca"
+                    size="xs"
+                    weight="regular"
+                    tag="p"
+                    extraClass="com-paragraph"
+                >
                     {`Últimos resultados en ${lotteryName}, ${completeDay} de ${new Date().getFullYear()}`}
                 </Text>
                 <div

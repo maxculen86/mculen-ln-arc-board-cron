@@ -5,6 +5,9 @@ import get from '../../../../../components/private/common/utils/get';
 
 const getValue = (input, key) => input.filter(e => e.id === key);
 
+const formatNumbers = (arr = []) =>
+    arr ? arr.map(num => num.padStart(2, '0')) : [];
+
 export const transformLotteryDetail = data => {
     const [firstLottery = {}] = data;
     const newRules = get(games, `${firstLottery.id}.rules`, []);
@@ -33,7 +36,7 @@ export const transformLotteryDetail = data => {
             component: cardComponent,
             date: transformISODate(date, 'day dd/mm/yyyy'),
             ...(letters.length && {
-                letters
+                letters: [letters[0].replace(/\s+/g, '')]
             }),
             ...(jackpot.length && {
                 jackpot
@@ -44,7 +47,7 @@ export const transformLotteryDetail = data => {
             ...(estimated_pot.length && {
                 estimatedPot: estimated_pot.shift()
             }),
-            results,
+            results: formatNumbers(results),
             ...(winnersTable.length && { winners_table: winnersTable }),
             ...(winnersCarton.length && {
                 winner_carton: winnersCarton
@@ -115,7 +118,7 @@ export const transformLotteryHome = data => ({
                 date: transformISODate(date, 'day dd/mm/yyyy'),
                 ...(url && { link: url }),
                 ...(letters.length && {
-                    letters: letters.shift().split(' ')
+                    letters: [letters[0].replace(/\s+/g, '')]
                 }),
                 ...(meaning && {
                     meaning
@@ -142,7 +145,7 @@ const transformResult = values =>
         return {
             name: lottery_draw_name,
             date: transformISODate(date, 'dd/mm'),
-            result: results,
+            result: formatNumbers(results),
             ...(jackpot.length && {
                 jackpot
             })

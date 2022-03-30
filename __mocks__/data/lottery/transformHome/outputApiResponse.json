@@ -597,7 +597,7 @@
             },
             {
                 "date": "Jueves 03/03/2022",
-                "letters": ["B", "C", "L", "V"],
+                "letters": ["BCLV"],
                 "name": "Quiniela Poceada",
                 "link": "/loterias/quiniela-poceada/",
                 "component": "QuinielaPoceada",

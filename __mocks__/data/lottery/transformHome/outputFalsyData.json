@@ -14,7 +14,7 @@
                         "result": ["01", "02", "03", "04", "05", "06"]
                     },
                     { "date": "16/03", "name": "Segunda vuelta", "result": [] },
-                    { "date": "16/03", "name": "Revancha", "result": null }
+                    { "date": "16/03", "name": "Revancha", "result": [] }
                 ]
             },
             {
