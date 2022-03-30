@@ -20,7 +20,7 @@ const LotteryDetailOpening = ({ id: featureId }) => {
         'globalContent.dataService.lotteryDetail',
         []
     );
-    const [firstLot = ''] = lottery;
+    const [firstLot = {}] = lottery;
     if (firstLot.id === 'Quini_6') reorderQuini6(lottery);
 
     const metaData = get(useAppContext(), 'globalContent.metaData', {});
