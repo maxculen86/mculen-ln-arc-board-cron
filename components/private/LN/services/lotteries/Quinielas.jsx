@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -6,7 +7,17 @@ import LabelText from './LabelText';
 import Text from '../../../common/text';
 import ResultItem from './ResultItem';
 
-const Quinielas = ({ name, date, results, link, letters }) => {
+const Quinielas = ({
+    name,
+    date,
+    results,
+    link,
+    letters,
+    meaning,
+    isDetail
+}) => {
+    const arrResults = results.slice(1, 5);
+
     return (
         <CardLayout
             title={name}
@@ -18,10 +29,13 @@ const Quinielas = ({ name, date, results, link, letters }) => {
                 <Text weight="bold" size="2xl">
                     {results[0].result[0]}
                 </Text>
-                {letters && <LabelText text={`Letras: ${letters}`} />}
+                {letters && isDetail && (
+                    <LabelText text={`Letras: ${letters}`} />
+                )}
+                {meaning && <LabelText text={meaning} />}
             </div>
             <div className="extra-results">
-                {results.map(item => (
+                {arrResults.map(item => (
                     <ResultItem
                         key={item.name}
                         text={`${item.date} - ${item.name}`}
@@ -38,7 +52,8 @@ Quinielas.propTypes = {
     name: PropTypes.string,
     date: PropTypes.string,
     link: PropTypes.string,
-    letters: PropTypes.string
+    letters: PropTypes.string,
+    meaning: PropTypes.string
 };
 
 Quinielas.defaultProps = {
@@ -46,7 +61,8 @@ Quinielas.defaultProps = {
     name: '',
     date: '',
     link: '',
-    letters: ''
+    letters: '',
+    meaning: ''
 };
 
 export default Quinielas;

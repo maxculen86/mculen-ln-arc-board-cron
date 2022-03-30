@@ -1,67 +1,40 @@
 // Familia, tamaño y peso de fuentes
 
 // Font family
-export const getFontFamily = font => {
-    switch (font) {
-        case 'arial':
-            return '--arial';
-        case 'georgia':
-            return '--georgia';
-        case 'sueca':
-            return '--sueca';
-        default:
-            return font;
-    }
+export const fonts = {
+    arial: '--arial',
+    georgia: '--georgia',
+    sueca: '--sueca'
 };
+
+export const getFontFamily = font => fonts[font] || font;
 
 // Font size
-export const getFontSize = size => {
-    switch (size) {
-        case '6xs':
-            return '--sixxs';
-        case '5xs':
-            return '--fivexs';
-        case '4xs':
-            return '--fourxs';
-        case '3xs':
-            return '--threexs';
-        case '2xs':
-            return '--twoxs';
-        case 'xs':
-            return '--xs';
-        case 'small':
-            return '--s';
-        case 'medium':
-            return '--m';
-        case 'large':
-            return '--l';
-        case 'xl':
-            return '--xl';
-        case '2xl':
-            return '--twoxl';
-        case '3xl':
-            return '--threexl';
-        default:
-            return size;
-    }
+export const sizes = {
+    '6xs': '--sixxs',
+    '5xs': '--fivexs',
+    '4xs': '--fourxs',
+    '3xs': '--threexs',
+    '2xs': '--twoxs',
+    xs: '--xs',
+    small: '--s',
+    medium: '--m',
+    large: '--l',
+    xl: '--xl',
+    '2xl': '--twoxl',
+    '3xl': '--threexl'
 };
 
+export const getFontSize = size => sizes[size] || size;
+
 // Font weight
-export const getFontWeight = weight => {
-    switch (weight) {
-        case 'thin':
-            return '--font-thin';
-        case 'light':
-            return '--font-light';
-        case 'regular':
-            return '--font-regular';
-        case 'medium':
-            return '--font-medium';
-        case 'bold':
-            return '--font-bold';
-        case 'black':
-            return '--font-black';
-        default:
-            return weight;
-    }
+export const weights = {
+    thin: '--font-thin',
+    light: '--font-light',
+    regular: '--font-regular',
+    medium: '--font-medium',
+    bold: '--font-bold',
+    black: '--font-black'
 };
+
+export const getFontWeight = weight => weights[weight] || weight;

@@ -7,28 +7,25 @@
     border: 1px solid $dark-neutral-600;
     border-radius: 4px;
     min-height: px(340);
+    min-width: px(234);
+    width: 100%;
     padding: $spacing-sm $spacing-sm px(20) $spacing-sm;
 
     @media ($media-s) {
-        max-width: px(340);
+        max-width: px(328);
     }
-
     .header-lotteries {
         display: flex;
         flex-direction: column;
 
         .com-link {
-            color: $light-neutral-600;
+            color: $neutral-black;
             font-size: px(16);
             font-weight: 700;
         }
         .subtitle {
             color: $light-neutral-600;
         }
-    }
-
-    .footer-link-lotteries {
-        font-size: px(12);
     }
 
     .main-result {
@@ -125,22 +122,44 @@
             display: flex;
             flex-direction: row;
             justify-content: space-around;
+            column-gap: px(1);
             width: 100%;
         }
 
         &.--quini-6-detail {
             grid-template-columns: repeat(3, 1fr);
-            margin-bottom: px(90);
-        }
+            padding-bottom: px(90);
 
+
+            &.quini-6-extra-pot {
+                padding: px(20) 0;
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
         &.--grid-5-columns {
             grid-template-columns: repeat(5, 1fr);
+            column-gap: px(1);
+            @media ($media-xs) {
+                column-gap: px(12);
+            }
+            @media ($media-s) {
+                column-gap: px(16);
+            }
+            @media ($media-m) {
+                column-gap: px(4);
+            }
+            @media ($media-l) {
+                column-gap: px(16);
+            }
+            @media ($media-lm) {
+                column-gap: px(8);
+            }
         }
     }
 
     .extra-results {
         margin-top: auto;
-
+        margin-bottom: $spacing-sm;
         .result-item .results-secondary .com-text {
             &:not(:last-child):after {
                 content: '-';

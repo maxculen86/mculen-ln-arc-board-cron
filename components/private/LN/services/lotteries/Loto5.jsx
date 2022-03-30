@@ -10,7 +10,7 @@ const Loto5 = ({ name, estimatedPot, date, results, isDetail, link }) => {
         <CardLayout title={name} subtitle={date} link={!isDetail && link}>
             <div className="main-result">
                 <div className={`--loto-5 ${isDetail && 'detail'}`}>
-                    {results[0].result.map(number => (
+                    {(!isDetail ? results[0].result : results).map(number => (
                         <BallLotteries
                             key={number}
                             number={number}

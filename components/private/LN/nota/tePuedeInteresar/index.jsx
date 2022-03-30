@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-console */
 import React, { Component } from 'react';
@@ -159,7 +160,6 @@ Index.defaultProps = {
     idArticle: null,
     sessionId: null,
     arcSite: 'la-nacion-ar',
-    outputType: 'default',
     cantidadNotas: 6
 };
 

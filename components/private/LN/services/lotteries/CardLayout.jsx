@@ -11,9 +11,11 @@ const CardLayout = ({ className, title, subtitle, link, children }) => {
         <article className={classes}>
             <div className="header-lotteries">
                 {link ? (
-                    <Link link={link} title={linkTitle} textname={title} />
+                    <Text tag="h2" size="2xs" weight="bold">
+                        <Link link={link} title={linkTitle} textname={title} />
+                    </Text>
                 ) : (
-                    <Text size="2xs" weight="bold" text={title} />
+                    <Text tag="h2" size="2xs" weight="bold" text={title} />
                 )}
                 <Text size="5xs" extraClass="subtitle" text={subtitle} />
             </div>
@@ -23,7 +25,7 @@ const CardLayout = ({ className, title, subtitle, link, children }) => {
                     link={link}
                     title={linkTitle}
                     textname={linkTitle}
-                    classCondition="footer-link-lotteries"
+                    classCondition="--fivexs"
                 />
             )}
         </article>

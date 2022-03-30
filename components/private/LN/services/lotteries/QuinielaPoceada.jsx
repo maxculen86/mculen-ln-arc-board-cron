@@ -10,7 +10,7 @@ const QuinielaPoceada = ({ name, date, results, isDetail, link, letters }) => {
         <CardLayout title={name} subtitle={date} link={!isDetail && link}>
             <div className={`main-result ${isDetail && '--quiniela-poceada'}`}>
                 <div className="box-result --grid-5-columns">
-                    {results[0].result.map(number => (
+                    {(!isDetail ? results[0].result : results).map(number => (
                         <BallLotteries
                             key={number}
                             number={number}

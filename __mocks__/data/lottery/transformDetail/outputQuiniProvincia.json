@@ -3,8 +3,8 @@
         "lotteryDetail": [
             {
                 "id": "Quiniela_Provincia",
-                "name": "Quiniela Provincia",
-                "lottery_draw_id": "Vespertina",
+                "name": "Vespertina",
+                "component": "Quinielas",
                 "date": "Miércoles 16/03/2022",
                 "meaning": "Ramera",
                 "results": [
@@ -32,8 +32,8 @@
             },
             {
                 "id": "Quiniela_Provincia",
-                "name": "Quiniela Provincia",
-                "lottery_draw_id": "Matutina",
+                "name": "Matutina",
+                "component": "Quinielas",
                 "date": "Miércoles 16/03/2022",
                 "meaning": "Mal tiempo",
                 "results": [
@@ -61,8 +61,8 @@
             },
             {
                 "id": "Quiniela_Provincia",
-                "name": "Quiniela Provincia",
-                "lottery_draw_id": "Primera",
+                "name": "Primera",
+                "component": "Quinielas",
                 "date": "Miércoles 16/03/2022",
                 "meaning": "Muerto",
                 "results": [
@@ -90,8 +90,8 @@
             },
             {
                 "id": "Quiniela_Provincia",
-                "name": "Quiniela Provincia",
-                "lottery_draw_id": "Nocturna",
+                "name": "Nocturna",
+                "component": "Quinielas",
                 "date": "Martes 15/03/2022",
                 "results": [
                     "0195",

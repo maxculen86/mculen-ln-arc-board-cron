@@ -7,6 +7,10 @@ jest.mock(
     '../../../../../components/private/common/staticValidation.jsx',
     () => 'mock-static-validation'
 );
+jest.mock(
+    '../../../../../components/private/common/mod-headerSection.jsx',
+    () => 'mock-mod-header-section'
+);
 
 describe('Features - LN-servicios - LN Loteria Significado de Números =>', () => {
     const { container } = render(<LotteryMeanings id="QWERTYUIOP" />);
