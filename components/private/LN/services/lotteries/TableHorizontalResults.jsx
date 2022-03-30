@@ -77,17 +77,17 @@ const TableHorizontalResults = ({
 TableHorizontalResults.propTypes = {
     className: PropTypes.string,
     date: PropTypes.string,
-    letters: PropTypes.string,
+    letters: PropTypes.arrayOf(PropTypes.string),
     isMeaning: PropTypes.bool,
     name: PropTypes.string,
     meaning: PropTypes.string,
-    results: PropTypes.arrayOf
+    results: PropTypes.arrayOf(PropTypes.string)
 };
 
 TableHorizontalResults.defaultProps = {
     className: '',
     date: '',
-    letters: '',
+    letters: [],
     isMeaning: false,
     name: '',
     meaning: '',

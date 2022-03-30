@@ -45,11 +45,14 @@ const Brinco = ({ name, estimatedPot, date, results, isDetail, link }) => {
 
 Brinco.propTypes = {
     results: PropTypes.arrayOf(
-        PropTypes.shape({
-            name: PropTypes.string,
-            date: PropTypes.string,
-            result: PropTypes.arrayOf(PropTypes.string)
-        })
+        PropTypes.oneOfType([
+            PropTypes.shape({
+                name: PropTypes.string,
+                winners: PropTypes.string,
+                amount: PropTypes.string
+            }),
+            PropTypes.string
+        ])
     ),
     name: PropTypes.string,
     date: PropTypes.string,
