@@ -15,6 +15,9 @@ const Quini6 = ({ name, estimatedPot, date, results, isDetail, link }) => {
     const resultsTomap = setTraditionFirst(results);
     const arrResults = reorderQuini6(resultsTomap.slice(1, 5));
     if (hasTraditionalResult(isDetail, resultsTomap)) return <></>;
+
+    const extraPotClass = name === 'Pozo extra' && 'quini-6-extra-pot';
+
     return (
         <CardLayout title={name} subtitle={date} link={!isDetail && link}>
             <div className="main-result --quini-6">
@@ -22,7 +25,7 @@ const Quini6 = ({ name, estimatedPot, date, results, isDetail, link }) => {
                 <div
                     className={
                         isDetail
-                            ? 'box-result --quini-6-detail'
+                            ? `box-result --quini-6-detail  ${extraPotClass}`
                             : 'box-result --quini-6'
                     }
                 >

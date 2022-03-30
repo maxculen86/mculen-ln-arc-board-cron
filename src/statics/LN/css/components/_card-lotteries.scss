@@ -128,9 +128,14 @@
 
         &.--quini-6-detail {
             grid-template-columns: repeat(3, 1fr);
-            margin-bottom: px(90);
-        }
+            padding-bottom: px(90);
 
+
+            &.quini-6-extra-pot {
+                padding: px(20) 0;
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
         &.--grid-5-columns {
             grid-template-columns: repeat(5, 1fr);
             column-gap: px(1);
