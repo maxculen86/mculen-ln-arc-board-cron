@@ -5,7 +5,7 @@ import { useAppContext } from 'fusion:context';
 import StaticValidation from '../../../private/common/staticValidation';
 import get from '../../../private/common/utils/get';
 
-import '../../../../resources/dist/css/ln/components/lotteries.css';
+import '../../../../resources/dist/css/ln/components/card-lotteries.css';
 import '../../../../resources/dist/css/ln/components/result-item.css';
 import '../../../../resources/dist/css/ln/components/label-text.css';
 import '../../../../resources/dist/css/ln/components/ball-lotteries.css';
@@ -39,7 +39,7 @@ const LotteryGrid = ({ id: featureId }) => {
     return (
         lotteries.length && (
             <StaticValidation id={featureId} htmlOnly persistent>
-                <div className="row-gap-3">
+                <div className="lotteries home-lottery-grid row-gap-tablet-3">
                     {lotteries.map(lottery => {
                         const { component: cardComponent, id } = lottery;
                         const Lottery = components[cardComponent];

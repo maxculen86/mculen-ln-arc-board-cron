@@ -115,7 +115,7 @@ export const meanings = {
         },
 
         linkTitle:
-            'Ver el significado de sueños según los animales y números para loterías y quinielas',
+            'Ver el significado de sueños según los nombres y números para loterías y quinielas',
         icon: 'names'
     },
     Animales: {
@@ -127,7 +127,7 @@ export const meanings = {
         },
 
         linkTitle:
-            'Ver el significado de sueños según los nombres y números para loterías y quinielas',
+            'Ver el significado de sueños según los animales y números para loterías y quinielas',
         icon: 'animals'
     },
     LoteriaNacional: {

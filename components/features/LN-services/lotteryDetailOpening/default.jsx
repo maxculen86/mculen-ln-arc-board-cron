@@ -9,6 +9,10 @@ import get from '../../../private/common/utils/get';
 import { components } from '../lotteryGrid/default';
 import TableHorizontalResults from '../../../private/LN/services/lotteries/TableHorizontalResults';
 import { reorderQuini6 } from '../../../private/LN/services/lotteries/utils';
+import ComLink from '../../../private/common/com-link';
+import Text from '../../../private/common/text';
+
+import '../../../../resources/dist/css/ln/pages/lotteries.css';
 
 const LotteryDetailOpening = ({ id: featureId }) => {
     const lottery = get(
@@ -18,10 +22,23 @@ const LotteryDetailOpening = ({ id: featureId }) => {
     );
     const [firstLot = ''] = lottery;
     if (firstLot.id === 'Quini_6') reorderQuini6(lottery);
+
+    const metaData = get(useAppContext(), 'globalContent.metaData', {});
+    const { lotteryName = '', completeDay = '' } = metaData;
+
     return (
         lottery.length && (
             <StaticValidation id={featureId} htmlOnly persistent>
-                <div className="lottery-detail-box lay">
+                <Text font="sueca" size="xs" weight="regular" tag="p">
+                    {`Últimos resultados en ${lotteryName}, ${completeDay} de ${new Date().getFullYear()}`}
+                </Text>
+                <div
+                    className={`lotteries ${
+                        !lottery[0].winners_table
+                            ? 'quinielas-detail-layout row-gap-tablet-2'
+                            : 'lottery-detail-box'
+                    }`}
+                >
                     {lottery.map(lot => {
                         const {
                             component: cardComponent,
@@ -34,13 +51,28 @@ const LotteryDetailOpening = ({ id: featureId }) => {
                                 {!winners_table ? (
                                     <TableHorizontalResults key={id} {...lot} />
                                 ) : (
-                                    <Lottery key={id} isDetail {...lot} />
+                                    <>
+                                        <Lottery key={id} isDetail {...lot} />
+                                        <DetailsTable data={lot} />
+                                    </>
                                 )}
-                                <DetailsTable data={lot} />
                             </>
                         );
                     })}
                 </div>
+
+                <Text>
+                    Información provista por
+                    {`${' '}`}
+                    <ComLink
+                        link="https://www.datafactory.la/"
+                        target="_blank"
+                        rel="nofollow"
+                        title="Ir a Data Factory"
+                    >
+                        Datafactory
+                    </ComLink>
+                </Text>
             </StaticValidation>
         )
     );
