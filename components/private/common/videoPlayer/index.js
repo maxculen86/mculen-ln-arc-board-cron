@@ -104,7 +104,7 @@ const VideoPlayer = props => {
         autoPlay,
         enableControls,
         sticky,
-        globalContent,
+        globalContent = {},
         device
     } = props;
 

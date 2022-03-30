@@ -179,44 +179,6 @@ describe('BuildBody', () => {
         expect(
             container.querySelectorAll(`div[class*="divider"]`)
         ).toHaveLength(1);
-
-        expect(container.firstChild).toMatchSnapshot(`<p 
-        class="com-paragraph  --capital --s"
-      >
-        Lorem ipsum dolor sit amet consectetur adipiscing elit nostra sapien sociosqu, facilisis mattis imperdiet suscipit sodales pharetra posuere penatibus turpis, fusce viverra metus euismod 
-        <strong>
-          egestas natoque primis bibendum accumsan
-        </strong>
-        . Class 
-        <em>
-          cursus tristique
-        </em>
-         parturient 
-        <u>
-          himenaeos pharetra litora ut natoque
-        </u>
-         mauris, lacus feugiat nibh pulvinar nostra vestibulum turpis urna, netus nullam rhoncus dictumst viverra tincidunt in enim. Euismod phasellus nascetur duis eget molestie curabitur aliquet ornare, 
-        <em>
-          <strong>
-            natoque interdum magna
-          </strong>
-        </em>
-         suscipit dictum
-        <em>
-          <u>
-             potenti cum ullamcorper
-          </u>
-        </em>
-        , vestibulum 
-        <em>
-          <u>
-            <strong>
-              arcu gravida tincidunt aenean at sollicitudin
-            </strong>
-          </u>
-        </em>
-        .
-      </p>`);
     });
 
     it('deberia renderizar todos los elementos del cuerpo para AMP', () => {
