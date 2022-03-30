@@ -1,15 +1,11 @@
 import { FOTOAL100 } from '../../../../private/common/utils/subtypes/subtypeHelper';
 import get from '../../../../private/common/utils/get';
 
-export const selectRule = ({ globalSubtype, typeElement, outputType }) => {
-    if (globalSubtype === FOTOAL100) {
+export const selectRule = ({ subtype, type, outputType }) => {
+    if (subtype === FOTOAL100) {
         return bodyRules.defaultFotoAl100;
     }
-    return get(
-        bodyRules,
-        `${typeElement}.${outputType}`,
-        bodyRules.defaultRule
-    );
+    return get(bodyRules, `${type}.${outputType}`, bodyRules.defaultRule);
 };
 
 export const supportedTypes = ['text', 'image', 'oembed_response', 'video'];
@@ -38,7 +34,7 @@ export const bodyRules = {
     gallery: {},
     list: {},
     interstitial_link: {},
-    powerupreceta: {},
+    'power-up-receta': {},
     raw_html: {
         amp: ({ content = '', componentElement }) => {
             const isAmp = componentElement.outputType === 'amp';
@@ -77,16 +73,16 @@ export const bodyRules = {
             return componentElement.arcType === subtypeElement;
         }
     },
-    defaultFotoAl100: ({ componentElement, typeElement }) => {
+    defaultFotoAl100: ({ componentElement, type }) => {
         return (
             !(
-                typeElement === 'oembed_response' ||
-                typeElement === 'raw_html' ||
-                typeElement === 'video'
-            ) && bodyRules.defaultRule({ componentElement, typeElement })
+                type === 'oembed_response' ||
+                type === 'raw_html' ||
+                type === 'video'
+            ) && bodyRules.defaultRule({ componentElement, type })
         );
     },
-    defaultRule: ({ componentElement, typeElement }) => {
-        return componentElement.arcType === typeElement;
+    defaultRule: ({ componentElement, type }) => {
+        return componentElement.arcType === type;
     }
 };

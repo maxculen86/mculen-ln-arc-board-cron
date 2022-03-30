@@ -1,34 +1,28 @@
 /* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable react/prop-types */
 import React from 'react';
-
 import { bodyElementRules } from '../_utils/_bodyElementRules';
 import { BuildBanners } from './_buildBanners';
 import { supportedTypes } from '../_utils/_bodyRules';
 import get from '../../../../private/common/utils/get';
 
-const BuildBody = ({
-    banners,
-    tituloNota,
-    contentElements,
-    globalSubType,
-    outputType,
-    globalContent
-}) => {
-    // let counter = 0;
+const BuildBody = ({ banners, outputType, globalContent = {} }) => {
+    const {
+        content_elements: contentElements,
+        headlines: { basic: tituloNota },
+        subtype = ''
+    } = globalContent;
 
+    let counter = 0;
     const elementList = contentElements.map((element, currentIndex) => {
-        // const { additional_properties: { nodeType = {} } = {} } = element || {};
         const nodeType = get(element, 'additional_properties.nodeType', {});
         const capitalIndex = contentElements.findIndex(v => v.type === 'text');
 
         const Component = bodyElementRules({
             element,
             outputType,
-            globalSubType
+            subtype
         });
 
-        // const { arcType = '' } = Component || {};
         const arcType = get(Component, 'arcType', '');
 
         const extraProps = setExtraProps({
@@ -37,7 +31,7 @@ const BuildBody = ({
             contentElements
         });
 
-        const _BaseComp = setDataComponent({
+        const ComponentWithProps = setDataComponent({
             Component,
             extraProps,
             element,
@@ -47,33 +41,26 @@ const BuildBody = ({
             arcType
         });
 
-        // return _BaseComp;
-
-        const _Comp = _BaseComp;
-
-        // console.log('Componente', _Comp, 'Banner', banners);
-        // debugger
         if (Component) {
             if (supportedTypes.includes(Component.arcType)) {
                 if (nodeType.length) return <></>;
-                // counter += 1;
-                // const counterElement = currentIndex + 1;
+                counter += 1;
                 const bannerToRedender = BuildBanners({
                     banners,
                     globalContent,
-                    elementPosition: currentIndex + 1,
+                    elementPosition: counter,
                     contentElements,
                     outputType
                 });
 
                 return (
                     <>
-                        {_Comp}
+                        {ComponentWithProps}
                         {bannerToRedender}
                     </>
                 );
             }
-            return _Comp;
+            return ComponentWithProps;
         }
 
         return <></>;

@@ -16,6 +16,7 @@ import Html from '../../../../private/LN/nota/cuerpo/html';
 import OptaAMP from '../../../../private/LN/nota/cuerpo/optaAMP';
 import powerUpsReceta from '../../../../private/LN/nota/cuerpo/powerUpsReceta';
 import HtmlAMP from '../../../../private/LN/nota/cuerpo/htmlAMP';
+import Divider from '../../../../private/LN/nota/cuerpo/divider';
 
 // ultils
 import { selectRule } from './_bodyRules';
@@ -36,30 +37,27 @@ const bodyComponents = [
     Html,
     OptaAMP,
     powerUpsReceta,
-    HtmlAMP
+    HtmlAMP,
+    Divider
 ];
 
-export const bodyElementRules = ({
-    element = {},
-    outputType = '',
-    subtype: globalSubtype = ''
-} = {}) => {
-    const { type: typeElement, subtype: subtypeElement, content } =
-        element || {};
+export const bodyElementRules = (props = {}) => {
+    const { element = {}, outputType = '', subtype } = props;
+    const { type, subtype: subtypeElement, content } = element;
 
     return bodyComponents.find(componentElement => {
         const componentSelected = selectRule({
-            globalSubtype,
-            typeElement,
+            subtype,
+            type,
             outputType
         });
 
         return componentSelected({
-            globalSubtype,
+            subtype,
             subtypeElement,
             content,
             componentElement,
-            typeElement
+            type
         });
     });
 };

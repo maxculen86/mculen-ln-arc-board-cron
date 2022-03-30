@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'fusion:prop-types';
 
 import {
     BANNERS_DESKTOP,
@@ -28,7 +28,7 @@ const attributes = [
     {
         name: 'position',
         type: 'number',
-        info: 'After which paragraph do you want the banner to show?',
+        info: 'Despues de que parrafo quiere ubicar el banner?',
         min: 0,
         max: 20
     },
