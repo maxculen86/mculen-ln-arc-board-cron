@@ -25,12 +25,18 @@ const QuinielaPoceada = ({ name, date, results, isDetail, link, letters }) => {
 };
 
 QuinielaPoceada.propTypes = {
-    results: PropTypes.arrayOf,
+    results: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.string,
+            date: PropTypes.string,
+            result: PropTypes.arrayOf(PropTypes.string)
+        })
+    ),
     name: PropTypes.string,
     date: PropTypes.string,
     isDetail: PropTypes.bool,
     link: PropTypes.string,
-    letters: PropTypes.string
+    letters: PropTypes.arrayOf(PropTypes.string)
 };
 
 QuinielaPoceada.defaultProps = {
@@ -39,7 +45,7 @@ QuinielaPoceada.defaultProps = {
     date: '',
     isDetail: false,
     link: '',
-    letters: ''
+    letters: []
 };
 
 export default QuinielaPoceada;
