@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React, { useReducer } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
@@ -103,7 +104,7 @@ GlobalProviderAcu.propTypes = {
         id_logo_image: PropTypes.string
     }).isRequired,
     idCollectionsInPage: PropTypes.arrayOf(PropTypes.string).isRequired,
-    idCollectionApertura: PropTypes.string.isRequired
+    idCollectionApertura: PropTypes.string
 };
 
 export { GlobalContext, GlobalProviderAcu };

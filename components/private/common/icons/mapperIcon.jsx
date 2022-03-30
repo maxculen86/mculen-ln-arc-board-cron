@@ -57,7 +57,11 @@ import {
     RainyCloudy,
     StormCloudy,
     ClearNight,
-    Ln
+    Ln,
+    AnimalsLotteries,
+    NamesLotteries,
+    NationalLotteries,
+    TraditionalLotteries
 } from './index';
 
 const listIcons = {
@@ -118,7 +122,13 @@ const listIcons = {
     'snow-cloudy': SnowCloudy,
     'rainy-cloudy': RainyCloudy,
     'storm-cloudy': StormCloudy,
-    'clear-night': ClearNight
+    'clear-night': ClearNight,
+
+    //Lotteries Icons
+    animals: AnimalsLotteries,
+    names: NamesLotteries,
+    national: NationalLotteries,
+    traditional: TraditionalLotteries
 };
 
 const MapperIcon = ({ name, r }) => {

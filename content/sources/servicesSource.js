@@ -1,11 +1,12 @@
 import { ARC_ACCESS_TOKEN, CONTENT_BASE } from 'fusion:environment';
 import { resolve as sectionSourceResolve } from './sectionSource';
 import defaultRequest from './utils/defaultRequest';
+import lottery from './utils/servicesSource/lottery/lottery';
 import getRequest from './utils/getRequest';
 import { getAuthForRequest } from './utils/widgets/helper';
 
 const SERVICES = {
-    loterias: defaultRequest,
+    loterias: lottery,
     default: defaultRequest
 };
 
@@ -23,7 +24,7 @@ const fetch = async (query, { cachedCall }) => {
         query: `${CONTENT_BASE}${sectionSourceResolve(query)}`
     });
 
-    const { request: serviceRequest, resolve, reject, transform } =
+    const { request: serviceRequest, resolve, reject } =
         SERVICES[service] || SERVICES.default;
 
     return serviceRequest({
@@ -33,13 +34,12 @@ const fetch = async (query, { cachedCall }) => {
         .then(response =>
             resolve({
                 response: {
-                    ...sectionSourceData,
+                    sectionSourceData,
                     dataService: response,
                     serviceType: serviceItem
                         ? `detalle-${service}`
                         : `home-${service}`
                 },
-                transform,
                 query
             })
         )

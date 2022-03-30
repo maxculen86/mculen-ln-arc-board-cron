@@ -75,9 +75,9 @@ ComImage.propTypes = {
     srcset: PropTypes.string,
     alt: PropTypes.string,
     classCondition: PropTypes.string,
-    amp: PropTypes.bool.isRequired,
-    width: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired,
+    amp: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]).isRequired,
+    width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     href: PropTypes.string,
     target: PropTypes.string,
     layout: PropTypes.string,
@@ -95,7 +95,9 @@ ComImage.defaultProps = {
     layout: undefined,
     isApertura: false,
     svg: false,
-    sizes: undefined
+    sizes: undefined,
+    height: undefined,
+    width: undefined
 };
 
 export default ComImage;

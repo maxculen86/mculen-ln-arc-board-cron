@@ -16,6 +16,7 @@ const galleryItem = ({
     outputType
 }) => {
     const credito = EpigrafeAndCreditsData(mediaData);
+
     return (
         <>
             <Media
@@ -49,10 +50,10 @@ const galleryItem = ({
 
 galleryItem.propTypes = {
     mediaData: PropTypes.shape({
-        distributor: PropTypes.string,
+        distributor: PropTypes.object,
         caption: PropTypes.string,
         vanity_credits: PropTypes.array,
-        credits: PropTypes.array
+        credits: PropTypes.object
     }).isRequired,
     withZoom: PropTypes.string.isRequired,
     totalGallery: PropTypes.number.isRequired,

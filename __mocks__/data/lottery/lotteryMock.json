@@ -10,8 +10,7 @@
         "name": "Loto Plus",
         "id": "loto",
         "date": "yyyy-MM-dd HH:mm:ss",
-        "lottery_draw_id": "tradicional",
-        "lottery_draw_name": "Tradicional",
+        "lottery_draw_id": "Tradicional",
         "jackpot": ["4", "8"],
         "estimated_pot": ["907.000.000,00"],
         "results": ["01", "05", "09", "12", "19", "20"]
@@ -20,8 +19,7 @@
         "name": "Loto Plus",
         "id": "loto",
         "date": "yyyy-MM-dd HH:mm:ss",
-        "lottery_draw_id": "Sale_o_sale",
-        "lottery_draw_name": "Sale o sale",
+        "lottery_draw_id": "Sale o sale",
         "jackpot": ["4", "8"],
         "results": ["02", "18", "25", "29", "35", "41"]
     },
@@ -29,8 +27,7 @@
         "name": "Loto Plus",
         "id": "loto",
         "date": "yyyy-MM-dd HH:mm:ss",
-        "lottery_draw_id": "Sale_o_sale",
-        "lottery_draw_name": "Sale o sale",
+        "lottery_draw_id": "Sale o sale",
         "jackpot": ["4", "8", "8", "7"],
         "results": ["08", "10", "14", "18", "29", "39"]
     },
