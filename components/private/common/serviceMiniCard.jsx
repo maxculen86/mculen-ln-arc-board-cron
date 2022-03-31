@@ -10,7 +10,7 @@ const ServiceMiniCard = ({ title, icon, labeled, link, linkTitle }) => {
     return (
         <div className="box-number-meaning">
             <div className="meaning-number-text">
-                <Text tag="h2" size="5xs" color="gray">
+                <Text tag="h2" size="5xs">
                     {labeled}
                     <ComLink
                         classCondition="--m --font-bold"

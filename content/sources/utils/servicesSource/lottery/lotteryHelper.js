@@ -28,6 +28,7 @@ export const transformLotteryDetail = data => {
             estimated_pot = [],
             meaning = ''
         } = additional_properties;
+
         const winnersTable = getWinnersTable(prizes);
         const winnersCarton = getWinnersCarton(prizes);
         return {
@@ -44,9 +45,10 @@ export const transformLotteryDetail = data => {
             ...(meaning && {
                 meaning
             }),
-            ...(estimated_pot.length && {
-                estimatedPot: estimated_pot.shift()
-            }),
+            ...(estimated_pot.length &&
+                estimated_pot[0] !== '$0' && {
+                    estimatedPot: estimated_pot.shift()
+                }),
             results: formatNumbers(results),
             ...(winnersTable.length && { winners_table: winnersTable }),
             ...(winnersCarton.length && {
