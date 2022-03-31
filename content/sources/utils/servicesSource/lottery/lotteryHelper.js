@@ -44,9 +44,10 @@ export const transformLotteryDetail = data => {
             ...(meaning && {
                 meaning
             }),
-            ...(estimated_pot.length && {
-                estimatedPot: estimated_pot.shift()
-            }),
+            ...(estimated_pot.length &&
+                estimated_pot.shift() !== '$0' && {
+                    estimatedPot: estimated_pot.shift()
+                }),
             results: formatNumbers(results),
             ...(winnersTable.length && { winners_table: winnersTable }),
             ...(winnersCarton.length && {
