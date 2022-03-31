@@ -30,7 +30,7 @@ const tagList = [
         link: '/loterias/quiniela-cordoba/'
     },
     {
-        title: 'Quiniela de Santa Fé',
+        title: 'Quiniela de Santa Fe',
         link: '/loterias/quiniela-santa-fe/'
     },
     {
