@@ -38,7 +38,7 @@ const TableHorizontalResults = ({
                             </Text>
                             {meaning}
                         </Text>
-                        {letters && (
+                        {letters.length !== 0 && (
                             <Text weight="bold" size="4xs">
                                 {`Letras: ${letters}`}
                             </Text>
