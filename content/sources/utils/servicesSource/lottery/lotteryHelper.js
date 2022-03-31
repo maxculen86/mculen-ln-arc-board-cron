@@ -109,9 +109,10 @@ export const transformLotteryHome = data => ({
         ] = newValue;
         const {
             letters = [],
-            estimated_pot = [],
+            vacant_pot = [],
             meaning = ''
         } = additional_properties;
+
         newValue.length &&
             acc.push({
                 id,
@@ -125,9 +126,10 @@ export const transformLotteryHome = data => ({
                 ...(meaning && {
                     meaning
                 }),
-                ...(estimated_pot.length && {
-                    estimatedPot: estimated_pot.shift()
-                }),
+                ...(vacant_pot.length &&
+                    vacant_pot[0] !== '$0' && {
+                        vacantPot: vacant_pot.shift()
+                    }),
                 results: transformResult(newValue)
             });
         return acc;
