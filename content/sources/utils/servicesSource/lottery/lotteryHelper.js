@@ -62,22 +62,13 @@ export const transformLotteryDetail = data => {
     };
 };
 
-const getLotteryName = lotteries =>
-    lotteries
-        .filter(item => item !== 'aciertos' && item !== 'jackpot')
-        .join('');
-
 const getWinnersTable = prizes =>
     prizes
         .filter(prize => prize.name !== 'carton')
         .map(prize => {
             const { name: prizeName = '', winners = '', amount = '' } = prize;
-            const newPrizeName = prizeName.split(' ');
             return {
-                name:
-                    newPrizeName.length < 2
-                        ? newPrizeName.shift()
-                        : getLotteryName(newPrizeName),
+                name: prizeName.replace(/\s(aciertos|jackpot)/gm, ''),
                 ...(winners && { winners }),
                 ...(amount && { amount })
             };
