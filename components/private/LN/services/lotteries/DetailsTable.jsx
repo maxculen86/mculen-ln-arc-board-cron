@@ -12,7 +12,7 @@ const DetailsTable = ({ data }) => {
     return (
         <section className="table-container">
             {winnersTable.length > 0 && (
-                <table className="table">
+                <table className="table --winners-table">
                     <thead>
                         <tr>
                             <th>Aciertos</th>
@@ -81,7 +81,27 @@ const DetailsTable = ({ data }) => {
 };
 
 DetailsTable.propTypes = {
-    data: PropTypes.objectOf
+    data: PropTypes.shape({
+        component: PropTypes.string,
+        date: PropTypes.string,
+        estimatedPot: PropTypes.string,
+        id: PropTypes.string,
+        name: PropTypes.string,
+        results: PropTypes.arrayOf(PropTypes.string),
+        winners_table: PropTypes.arrayOf(
+            PropTypes.shape({
+                name: PropTypes.string,
+                winners: PropTypes.string,
+                amount: PropTypes.string
+            })
+        ),
+        winner_carton: PropTypes.arrayOf(
+            PropTypes.shape({
+                numbers: PropTypes.string,
+                amount: PropTypes.string
+            })
+        )
+    })
 };
 DetailsTable.defaultProps = {
     data: {}
