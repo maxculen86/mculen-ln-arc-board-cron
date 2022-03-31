@@ -15,11 +15,13 @@ const QuinielaPlus = ({ name, date, results, isDetail, link }) => {
                         '--quini-plus'}`}
                 >
                     {(!isDetail ? results[0].result : results).map(number => (
-                        <BallLotteries
-                            key={number}
-                            number={number}
-                            size="large"
-                        />
+                        <div>
+                            <BallLotteries
+                                key={number}
+                                number={number}
+                                size="large"
+                            />
+                        </div>
                     ))}
                 </div>
             </div>

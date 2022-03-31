@@ -11,11 +11,13 @@ const QuinielaPoceada = ({ name, date, results, isDetail, link, letters }) => {
             <div className={`main-result ${isDetail && '--quiniela-poceada'}`}>
                 <div className="box-result --grid-5-columns">
                     {(!isDetail ? results[0].result : results).map(number => (
-                        <BallLotteries
-                            key={number}
-                            number={number}
-                            size="large"
-                        />
+                        <div>
+                            <BallLotteries
+                                key={number}
+                                number={number}
+                                size="large"
+                            />
+                        </div>
                     ))}
                 </div>
                 <LabelText text={`Letras: ${letters.join(',')}`} />
