@@ -74,7 +74,7 @@ const LotteryDetailOpening = ({ id: featureId }) => {
                             rel="nofollow"
                             title="Ir a Data Factory"
                         >
-                            Data factory
+                            Data Factory
                         </ComLink>
                     </Text>
                 </div>
