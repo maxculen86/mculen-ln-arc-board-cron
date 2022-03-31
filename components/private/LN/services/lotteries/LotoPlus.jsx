@@ -81,10 +81,19 @@ const LotoPlus = ({ name, jackpot, date, results, isDetail, link }) => {
 };
 
 LotoPlus.propTypes = {
-    results: PropTypes.arrayOf,
+    results: PropTypes.arrayOf(
+        PropTypes.oneOfType([
+            PropTypes.shape({
+                name: PropTypes.string,
+                winners: PropTypes.string,
+                amount: PropTypes.string
+            }),
+            PropTypes.string
+        ])
+    ),
     name: PropTypes.string,
     date: PropTypes.string,
-    jackpot: PropTypes.string,
+    jackpot: PropTypes.arrayOf(PropTypes.string),
     isDetail: PropTypes.bool,
     link: PropTypes.string
 };
@@ -95,7 +104,7 @@ LotoPlus.defaultProps = {
     date: '',
     isDetail: false,
     link: '',
-    jackpot: ''
+    jackpot: []
 };
 
 export default LotoPlus;

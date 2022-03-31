@@ -5,14 +5,17 @@ import Text from '../../../common/text';
 
 const CardLayout = ({ className, title, subtitle, link, children }) => {
     const classes = `card-lotteries ${className}`;
-    const linkTitle = `Resultados del sorteo ${title}`;
 
     return (
         <article className={classes}>
             <div className="header-lotteries">
                 {link ? (
                     <Text tag="h2" size="2xs" weight="bold">
-                        <Link link={link} title={linkTitle} textname={title} />
+                        <Link
+                            link={link}
+                            title={`Ir a ${title}`}
+                            textname={title}
+                        />
                     </Text>
                 ) : (
                     <Text tag="h2" size="2xs" weight="bold" text={title} />
@@ -23,8 +26,8 @@ const CardLayout = ({ className, title, subtitle, link, children }) => {
             {link && (
                 <Link
                     link={link}
-                    title={linkTitle}
-                    textname={linkTitle}
+                    title={`Ir a resultados del sorteo ${title}`}
+                    textname={`Resultados del sorteo ${title}`}
                     classCondition="--fivexs"
                 />
             )}
