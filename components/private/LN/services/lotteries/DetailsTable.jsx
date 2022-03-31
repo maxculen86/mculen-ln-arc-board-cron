@@ -12,7 +12,7 @@ const DetailsTable = ({ data }) => {
     return (
         <section className="table-container">
             {winnersTable.length > 0 && (
-                <table className="table">
+                <table className="table --winners-table">
                     <thead>
                         <tr>
                             <th>Aciertos</th>
