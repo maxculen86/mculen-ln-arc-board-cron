@@ -5,7 +5,7 @@ import { meanings } from '../../../../content/sources/utils/servicesSource/lotte
 
 const LotteryDetailNav = () => {
     const list = tagList.map(tag => ({
-        title: tag.title,
+        title: tag.linkTitle || `Ir a ${tag.title}`,
         link: `${SITE_LANACION}${tag.link}`,
         textname: tag.title
     }));
@@ -18,7 +18,7 @@ export default LotteryDetailNav;
 
 const tagList = [
     {
-        title: 'Quiniela de la Ciudad',
+        title: 'Quiniela Nacional',
         link: '/loterias/quiniela-nacional/'
     },
     {
@@ -67,18 +67,22 @@ const tagList = [
     },
     {
         title: `Sueños: ${meanings.Tradicional.title}`,
-        link: meanings.Tradicional.link[API_ENV]
+        link: meanings.Tradicional.link[API_ENV],
+        linkTitle: meanings.Tradicional.linkTitle
     },
     {
         title: `Sueños: ${meanings.Nombres.title}`,
-        link: meanings.Nombres.link[API_ENV]
+        link: meanings.Nombres.link[API_ENV],
+        linkTitle: meanings.Nombres.linkTitle
     },
     {
         title: `Sueños: ${meanings.Animales.title}`,
-        link: meanings.Animales.link[API_ENV]
+        link: meanings.Animales.link[API_ENV],
+        linkTitle: meanings.Animales.linkTitle
     },
     {
         title: `Sueños: ${meanings.LoteriaNacional.title}`,
-        link: meanings.LoteriaNacional.link[API_ENV]
+        link: meanings.LoteriaNacional.link[API_ENV],
+        linkTitle: meanings.LoteriaNacional.linkTitle
     }
 ];

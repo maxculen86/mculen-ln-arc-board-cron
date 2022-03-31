@@ -47,6 +47,7 @@
             border-top: 1px solid $light-neutral-400;
 
             &.--meaning-table {
+                font-weight: 400;
                 &:nth-child(-n + 5) {
                     @media ($media-m) {
                         border-top: none;
@@ -71,10 +72,6 @@
                 justify-content: center;
                 width: 100%;
                 padding: px(12) px(8);
-            }
-
-            &.--meaning-table {
-                font-weight: 400;
             }
 
             &:nth-child(-n + 4):not(.--meaning-table) .number-table-horizontal {

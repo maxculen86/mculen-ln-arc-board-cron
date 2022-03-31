@@ -25,8 +25,16 @@ const DetailsTable = ({ data }) => {
                             return (
                                 <tr>
                                     <td>{x.name ? x.name : '-'}</td>
-                                    <td>{x.winners ? x.winners : 'VACANTE'}</td>
-                                    <td>{x.amount ? x.amount : '-'}</td>
+                                    <td>
+                                        {x.winners && x.winners !== '0'
+                                            ? x.winners
+                                            : '-'}
+                                    </td>
+                                    <td>
+                                        {x.amount && x.amount !== '$0'
+                                            ? x.amount
+                                            : '-'}
+                                    </td>
                                 </tr>
                             );
                         })}

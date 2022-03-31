@@ -28,6 +28,7 @@ export const transformLotteryDetail = data => {
             estimated_pot = [],
             meaning = ''
         } = additional_properties;
+
         const winnersTable = getWinnersTable(prizes);
         const winnersCarton = getWinnersCarton(prizes);
         return {
@@ -44,9 +45,10 @@ export const transformLotteryDetail = data => {
             ...(meaning && {
                 meaning
             }),
-            ...(estimated_pot.length && {
-                estimatedPot: estimated_pot.shift()
-            }),
+            ...(estimated_pot.length &&
+                estimated_pot[0] !== '$0' && {
+                    estimatedPot: estimated_pot.shift()
+                }),
             results: formatNumbers(results),
             ...(winnersTable.length && { winners_table: winnersTable }),
             ...(winnersCarton.length && {
@@ -60,22 +62,13 @@ export const transformLotteryDetail = data => {
     };
 };
 
-const getLotteryName = lotteries =>
-    lotteries
-        .filter(item => item !== 'aciertos' && item !== 'jackpot')
-        .join('');
-
 const getWinnersTable = prizes =>
     prizes
         .filter(prize => prize.name !== 'carton')
         .map(prize => {
             const { name: prizeName = '', winners = '', amount = '' } = prize;
-            const newPrizeName = prizeName.split(' ');
             return {
-                name:
-                    newPrizeName.length < 2
-                        ? newPrizeName.shift()
-                        : getLotteryName(newPrizeName),
+                name: prizeName.replace(/\s(aciertos|jackpot)/gm, ''),
                 ...(winners && { winners }),
                 ...(amount && { amount })
             };
@@ -107,9 +100,10 @@ export const transformLotteryHome = data => ({
         ] = newValue;
         const {
             letters = [],
-            estimated_pot = [],
+            vacant_pot = [],
             meaning = ''
         } = additional_properties;
+
         newValue.length &&
             acc.push({
                 id,
@@ -123,9 +117,10 @@ export const transformLotteryHome = data => ({
                 ...(meaning && {
                     meaning
                 }),
-                ...(estimated_pot.length && {
-                    estimatedPot: estimated_pot.shift()
-                }),
+                ...(vacant_pot.length &&
+                    vacant_pot[0] !== '$0' && {
+                        vacantPot: vacant_pot.shift()
+                    }),
                 results: transformResult(newValue)
             });
         return acc;

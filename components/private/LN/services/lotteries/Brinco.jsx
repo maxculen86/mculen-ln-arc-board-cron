@@ -7,7 +7,7 @@ import LabelText from './LabelText';
 import ResultItem from './ResultItem';
 import { setTraditionFirst, hasTraditionalResult } from './utils';
 
-const Brinco = ({ name, estimatedPot, date, results, isDetail, link }) => {
+const Brinco = ({ name, vacantPot, date, results, isDetail, link }) => {
     const resultsTomap = setTraditionFirst(results);
     const arrResults = resultsTomap.slice(1, 5);
     if (hasTraditionalResult(isDetail, resultsTomap)) return <></>;
@@ -25,8 +25,8 @@ const Brinco = ({ name, estimatedPot, date, results, isDetail, link }) => {
                         )
                     )}
                 </div>
-                {!isDetail && (
-                    <LabelText text={`Pozo vacante: ${estimatedPot}`} />
+                {!isDetail && vacantPot && (
+                    <LabelText text={`Pozo vacante: ${vacantPot}`} />
                 )}
             </div>
             <div className="extra-results --brinco">
@@ -56,7 +56,7 @@ Brinco.propTypes = {
     ),
     name: PropTypes.string,
     date: PropTypes.string,
-    estimatedPot: PropTypes.string,
+    vacantPot: PropTypes.string,
     isDetail: PropTypes.bool,
     link: PropTypes.string
 };
@@ -67,7 +67,7 @@ Brinco.defaultProps = {
     date: '',
     isDetail: false,
     link: '',
-    estimatedPot: ''
+    vacantPot: ''
 };
 
 export default Brinco;

@@ -27,11 +27,12 @@
         align-items: center;
         margin-bottom: px(16);
         text-align: center;
+        .com-text {
+            display: flex;
+            flex-direction: column;
+        }
         .com-link {
             display: inline-block;
-        }
-        @media ($media-xs) and (max-width: 767px) {
-            flex-direction: column-reverse;
         }
     }
 }

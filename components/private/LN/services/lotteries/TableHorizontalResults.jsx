@@ -16,7 +16,8 @@ const TableHorizontalResults = ({
 }) => {
     const classes = `table-horizontal-results ${className}`;
     const formatIndex = index => (index < 10 ? `0${index}` : index);
-    const meaningNumber = results[0].slice(2, 4);
+    const meaningNumber =
+        results[0].length === 3 ? results[0].slice(-2) : results[0].slice(2, 4);
 
     return (
         <div className={classes}>
@@ -37,7 +38,7 @@ const TableHorizontalResults = ({
                             </Text>
                             {meaning}
                         </Text>
-                        {letters && (
+                        {letters.length !== 0 && (
                             <Text weight="bold" size="4xs">
                                 {`Letras: ${letters}`}
                             </Text>
