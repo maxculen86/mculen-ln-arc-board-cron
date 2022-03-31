@@ -38,7 +38,7 @@ const ImageArticle = props => {
             <ComImage
                 srcset={srcset}
                 sizes={sizes.length > 0 ? `${sizes},100vw` : '100vw'}
-                src={`${resizedUrl} ${_width}w`}
+                src={isAmp ? `${resizedUrl} ${_width}w` : url}
                 alt={altBasic}
                 amp={isAmp}
                 height={height}

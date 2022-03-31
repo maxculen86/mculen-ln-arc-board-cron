@@ -96,7 +96,7 @@ const Amp = props => {
             <head>
                 <meta charset="utf-8" />
                 <meta name="viewport" content="width=device-width" />
-                <LinkImagePreload resizedUrls={resizedUrls} />
+                <LinkImagePreload resizedUrls={resizedUrls} isAmp />
                 <meta name="theme-color" content="#ffffff" />
                 <meta name="google" content="notranslate" />
                 <MetaTitle
