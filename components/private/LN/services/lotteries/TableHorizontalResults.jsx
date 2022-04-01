@@ -24,6 +24,7 @@ const TableHorizontalResults = ({
             {!isMeaning && (
                 <div className="header-table">
                     <Text
+                        tag="h2"
                         extraClass="title-header-table"
                         weight="bold"
                         size="4xs"
