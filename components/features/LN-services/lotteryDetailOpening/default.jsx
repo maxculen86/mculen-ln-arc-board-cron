@@ -33,7 +33,7 @@ const LotteryDetailOpening = ({ id: featureId }) => {
                     font="sueca"
                     size="xs"
                     weight="regular"
-                    tag="p"
+                    tag="h2"
                     extraClass="com-paragraph"
                 >
                     {`Últimos resultados en ${lotteryName}, ${completeDay} de ${new Date().getFullYear()}`}
