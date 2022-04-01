@@ -45,6 +45,7 @@ import {
     getMetaDescriptionDefault
 } from '../private/common/utils/outputTypeHelper';
 import FontPreloads from '../private/common/fontsPreloads';
+import get from '../private/common/utils/get';
 
 const scriptList = [
     {
@@ -204,21 +205,6 @@ const Default = props => {
         arcSite
     );
 
-    const LinkImagePreload = () =>
-        getDataToLinkImage(globalContent, _nodeType, renderables, arcSite).map(
-            elem => {
-                return (
-                    <link
-                        id="preload-img"
-                        rel="preload"
-                        href={elem.resizedUrl}
-                        as="image"
-                        media={elem.media}
-                    />
-                );
-            }
-        );
-
     return (
         <html lang="es">
             <head>
@@ -230,7 +216,12 @@ const Default = props => {
                 <meta name="theme-color" content="#ffffff" />
                 <meta name="google" content="notranslate" />
                 {layout !== 'LN-buscador' && <title>{title}</title>}
-                {LinkImagePreload()}
+                {getDataToLinkImage({
+                    data: globalContent,
+                    section: _nodeType,
+                    renderables,
+                    arcSite
+                })}
                 <FontPreloads />
                 <FontFaceDefault />
                 <CriticalCss />
