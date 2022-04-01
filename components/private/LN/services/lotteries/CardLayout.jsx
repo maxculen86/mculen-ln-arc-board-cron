@@ -24,12 +24,13 @@ const CardLayout = ({ className, title, subtitle, link, children }) => {
             </div>
             {children}
             {link && (
-                <Link
-                    link={link}
-                    title={`Ir a resultados del sorteo ${title}`}
-                    textname={`Resultados del sorteo ${title}`}
-                    classCondition="--fivexs"
-                />
+                <Text tag="h3" size="5xs">
+                    <Link
+                        link={link}
+                        title={`Ir a resultados del sorteo ${title}`}
+                        textname={`Ver resultados del sorteo ${title}`}
+                    />
+                </Text>
             )}
         </article>
     );

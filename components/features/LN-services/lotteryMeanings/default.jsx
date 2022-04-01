@@ -10,7 +10,10 @@ import ModHeaderSection from '../../../private/common/mod-headerSection';
 const LotteryMeanings = ({ id: featureId }) => {
     return (
         <StaticValidation id={featureId} htmlOnly persistent>
-            <ModHeaderSection title="Significado de números segun los sueños" />
+            <ModHeaderSection
+                tag="h2"
+                title="Significado de números según los sueños"
+            />
             <div className="lotteries number-meanings-box row-gap-tablet-4">
                 {Object.entries(meanings).map(([, meaningInfo], i) => (
                     <ServiceMiniCard
