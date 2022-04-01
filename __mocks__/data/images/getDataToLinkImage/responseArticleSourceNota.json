@@ -1,0 +1,44 @@
+{
+    "_id": "3ZDQ542ANJHEBLH6HOKBTBR5J4",
+    "credits": {},
+    "promo_items": {
+        "basic": {
+            "height": 513,
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 512,
+                        "media": "(min-width: 768px)",
+                        "media_preload": "(min-width: 768.1px and max-width: 1024px)",
+                        "width": 768
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/0-_Q3j7WaTgvazaqaWo1TlsdFYg=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/H53R624KARDARCICFNEC7ZC7YA.jpg"
+                },
+                {
+                    "option": {
+                        "height": 562,
+                        "media": "(min-width: 375px)",
+                        "media_preload": "(min-width: 375.1px and max-width: 768px)",
+                        "width": 375
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v0nB_sKZ3HeDxcpmmYhzX6P49i0=/375x562/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/H53R624KARDARCICFNEC7ZC7YA.jpg"
+                },
+                {
+                    "option": {
+                        "height": 480,
+                        "media": "(min-width: 320px)",
+                        "media_preload": "(max-width: 375px)",
+                        "width": 320
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/FtoYG9gG-lYJTikOJudK9UNhnWA=/320x480/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/H53R624KARDARCICFNEC7ZC7YA.jpg"
+                }
+            ],
+            "type": "image",
+            "url": "https://resizer.glanacion.com/resizer/NkdwqqOol3BTGYVPvPGR2L1uKmQ=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/Q72OLPCCKJHUNA4YUYUK4LNY2Q.jpg",
+            "width": 768
+        }
+    },
+    "publish_date": "2021-08-17T00:08:44Z",
+    "subtype": "1",
+    "website_url": "/lifestyle/titulo-random-3f2a24-nid16082021/"
+}

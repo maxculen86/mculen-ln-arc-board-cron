@@ -1,7 +1,11 @@
 import React from 'react';
 import { FONT_BOLD, FONT_MEDIUM } from 'fusion:environment';
+import { useAppContext } from 'fusion:context';
+import { getWebFont } from './fontface';
 
 const FontFaceDefault = () => {
+    const { contextPath, deployment } = useAppContext();
+
     const stringScript = `
         const loadFont = ({family, url, config}) => {
             var font = new FontFace(family, url, config);
@@ -15,7 +19,11 @@ const FontFaceDefault = () => {
 
         loadFont({
             family: "SuecaSlab",
-            url:"url('${FONT_BOLD}')", 
+            url:"url('${getWebFont({
+                font: FONT_BOLD,
+                contextPath,
+                deployment
+            })}')", 
             config:{
                 format: 'woff2',
                 weight: '700',
@@ -25,7 +33,11 @@ const FontFaceDefault = () => {
         });
         loadFont({
             family: "SuecaSlab",
-            url:"url('${FONT_MEDIUM}')", 
+            url:"url('${getWebFont({
+                font: FONT_MEDIUM,
+                contextPath,
+                deployment
+            })}')", 
             config:{
                 format: 'woff2',
                 weight: '500',

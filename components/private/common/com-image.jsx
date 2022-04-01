@@ -37,11 +37,11 @@ const ComImage = props => {
     const image = (
         <img
             {...commonProps}
-            sizes={sizes}
             className={classes}
             srcSet={srcset}
             loading={isApertura ? 'eager' : 'lazy'}
             importance={isApertura ? 'high' : 'low'}
+            decoding="async"
         />
     );
     const imageAmp = (

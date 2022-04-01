@@ -27,7 +27,10 @@ const ScriptHtmlLibre = props => {
 
     return (
         (type === 'story' && hasPymClass && (
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/pym/1.2.0/pym.v1.min.js" />
+            <script
+                defer
+                src="https://cdnjs.cloudflare.com/ajax/libs/pym/1.2.0/pym.v1.min.js"
+            />
         )) ||
         null
     );
