@@ -7,11 +7,11 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
   <article
     class="horoscope-box "
   >
-    <h2
+    <h3
       class="com-title --m"
     >
       Seleccioná tu signo...
-    </h2>
+    </h3>
     <div
       class="--items"
     >
@@ -24,7 +24,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
           <a
             class="com-link"
             href="https://www.lanacion.com.ar/horoscopo/aries/"
-            title="Ir al detalle de Aries"
+            title="Ir al horóscopo de Aries"
           >
             <div
               class="container-svg"
@@ -62,7 +62,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
           <a
             class="com-link"
             href="https://www.lanacion.com.ar/horoscopo/tauro/"
-            title="Ir al detalle de Tauro"
+            title="Ir al horóscopo de Tauro"
           >
             <div
               class="container-svg"
@@ -100,7 +100,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
           <a
             class="com-link"
             href="https://www.lanacion.com.ar/horoscopo/geminis/"
-            title="Ir al detalle de Geminis"
+            title="Ir al horóscopo de Geminis"
           >
             <div
               class="container-svg"
@@ -138,7 +138,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
           <a
             class="com-link"
             href="https://www.lanacion.com.ar/horoscopo/cancer/"
-            title="Ir al detalle de Cancer"
+            title="Ir al horóscopo de Cancer"
           >
             <div
               class="container-svg"
@@ -176,7 +176,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
           <a
             class="com-link"
             href="https://www.lanacion.com.ar/horoscopo/leo/"
-            title="Ir al detalle de Leo"
+            title="Ir al horóscopo de Leo"
           >
             <div
               class="container-svg"
@@ -214,7 +214,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
           <a
             class="com-link"
             href="https://www.lanacion.com.ar/horoscopo/virgo/"
-            title="Ir al detalle de Virgo"
+            title="Ir al horóscopo de Virgo"
           >
             <div
               class="container-svg"
@@ -252,7 +252,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
           <a
             class="com-link"
             href="https://www.lanacion.com.ar/horoscopo/libra/"
-            title="Ir al detalle de Libra"
+            title="Ir al horóscopo de Libra"
           >
             <div
               class="container-svg"
@@ -290,7 +290,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
           <a
             class="com-link"
             href="https://www.lanacion.com.ar/horoscopo/escorpio/"
-            title="Ir al detalle de Escorpio"
+            title="Ir al horóscopo de Escorpio"
           >
             <div
               class="container-svg"
@@ -328,7 +328,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
           <a
             class="com-link"
             href="https://www.lanacion.com.ar/horoscopo/sagitario/"
-            title="Ir al detalle de Sagitario"
+            title="Ir al horóscopo de Sagitario"
           >
             <div
               class="container-svg"
@@ -366,7 +366,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
           <a
             class="com-link"
             href="https://www.lanacion.com.ar/horoscopo/capricornio/"
-            title="Ir al detalle de Capricornio"
+            title="Ir al horóscopo de Capricornio"
           >
             <div
               class="container-svg"
@@ -404,7 +404,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
           <a
             class="com-link"
             href="https://www.lanacion.com.ar/horoscopo/acuario/"
-            title="Ir al detalle de Acuario"
+            title="Ir al horóscopo de Acuario"
           >
             <div
               class="container-svg"
@@ -442,7 +442,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
           <a
             class="com-link"
             href="https://www.lanacion.com.ar/horoscopo/piscis/"
-            title="Ir al detalle de Piscis"
+            title="Ir al horóscopo de Piscis"
           >
             <div
               class="container-svg"
@@ -484,7 +484,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
           <a
             class="com-link"
             href="https://www.lanacion.com.ar/horoscopo/horoscopo-chino-2022/"
-            title="Ir al detalle de Horóscopo Chino"
+            title="Ir al horóscopo de Horóscopo Chino"
           >
             <div
               class="container-svg"
