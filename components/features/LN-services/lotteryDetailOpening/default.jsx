@@ -8,7 +8,11 @@ import DetailsTable from '../../../private/LN/services/lotteries/DetailsTable';
 import get from '../../../private/common/utils/get';
 import { components } from '../lotteryGrid/default';
 import TableHorizontalResults from '../../../private/LN/services/lotteries/TableHorizontalResults';
-import { reorderQuini6 } from '../../../private/LN/services/lotteries/utils';
+import {
+    reorderSubLotteries,
+    quini6Order,
+    lotoPlusOrder
+} from '../../../private/LN/services/lotteries/utils';
 import ComLink from '../../../private/common/com-link';
 import Text from '../../../private/common/text';
 
@@ -21,11 +25,11 @@ const LotteryDetailOpening = ({ id: featureId }) => {
         []
     );
     const [firstLot = {}] = lottery;
-    if (firstLot.id === 'Quini_6') reorderQuini6(lottery);
-
     const metaData = get(useAppContext(), 'globalContent.metaData', {});
     const { lotteryName = '', completeDay = '' } = metaData;
 
+    if (firstLot.id === 'Quini_6') reorderSubLotteries(lottery, quini6Order);
+    if (firstLot.id === 'Loto') reorderSubLotteries(lottery, lotoPlusOrder);
     return (
         lottery.length && (
             <StaticValidation id={featureId} htmlOnly persistent>
