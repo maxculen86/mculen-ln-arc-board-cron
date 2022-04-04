@@ -12,30 +12,31 @@ const MetaTitle = ({
     subtype,
     metaValue
 }) => {
-    if (arcSite !== 'la-nacion-ar') return <></>;
+    if (!['la-nacion-ar', 'ott'].includes(arcSite)) return <></>;
 
-    let metaTitleForStory = metaValue || '';
-    let metaTitleForAcum = '';
+    const setContent = () => {
+        if (arcSite === 'ott' && !section.length) return defaultTitle;
 
-    const acusWithMeta = ['section', 'author', 'distributor', 'tags'];
+        const acusWithMeta = ['section', 'author', 'distributor', 'tags'];
 
-    if (acusWithMeta.includes(nodeType)) {
-        const customTitle =
-            title === 'Últimas noticias - LA NACION' ? 'LA NACION' : title;
-        metaTitleForAcum = customTitle;
-        metaTitleForStory = undefined;
-    }
+        let metaTitleForStory = metaValue || '';
+        let metaTitleForAcum = '';
 
-    return (
-        <meta
-            name="title"
-            content={`${
-                section === 'home'
-                    ? defaultTitle
-                    : metaTitleForStory || metaTitleForAcum
-            }`}
-        />
-    );
+        if (acusWithMeta.includes(nodeType)) {
+            const customTitle =
+                title === 'Últimas noticias - LA NACION' ? 'LA NACION' : title;
+            metaTitleForAcum = customTitle;
+            metaTitleForStory = undefined;
+        }
+
+        return section === 'home'
+            ? defaultTitle
+            : metaTitleForStory || metaTitleForAcum;
+    };
+
+    const content = setContent();
+
+    return <meta name="title" content={content} />;
 };
 
 MetaTitle.propTypes = {

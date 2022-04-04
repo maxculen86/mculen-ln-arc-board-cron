@@ -95,22 +95,46 @@ export const getData = ({
     };
 };
 
-export const setMetaDescription = (data, section) => {
-    if (section === 'nota') {
-        if (data.subtype === RECETA && data.description !== '') {
-            return `${
-                data.description.split('.', 1)[0]
-            }. Encontrá acá la receta de ${data.title}`;
-        }
-        if (data.subtype === RECETA && data.description === '') {
-            return `Encontrá acá la receta de ${data.title}`;
-        }
-        if (data.subtype !== RECETA && data.description !== '') {
-            return `${data.description}`;
-        }
-        if (data.subtype !== RECETA && data.description === '') {
-            return `${data.title}`;
-        }
-    }
-    return data.description;
+export const setMetaDescription = ({
+    data,
+    section,
+    siteProperties,
+    arcSite
+}) => {
+    const options = {
+        'la-nacion-ar': () => {
+            if (section === 'nota') {
+                if (data.subtype === RECETA) {
+                    return data.description !== ''
+                        ? `${
+                              data.description.split('.', 1)[0]
+                          }. Encontrá acá la receta de ${data.title}`
+                        : `Encontrá acá la receta de ${data.title}`;
+                }
+
+                return data.description !== ''
+                    ? `${data.description}`
+                    : `${data.title}`;
+            }
+
+            return data.description;
+        },
+        ott: () => (section === 'home' ? siteProperties.description : '')
+    };
+
+    return options[arcSite]();
+};
+
+export const setOgTitle = ({
+    arcSite,
+    section,
+    pageBuilderTitle,
+    siteProperties
+}) => {
+    const options = {
+        'la-nacion-ar': () => pageBuilderTitle,
+        ott: () => (section === 'home' ? siteProperties.title : '')
+    };
+
+    return options[arcSite]();
 };

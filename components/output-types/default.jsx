@@ -34,6 +34,7 @@ import { pipe } from '../private/common/utils/functional';
 import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
 import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 import addForwardSlash from '../private/LN/common/utils/addForwardSlash';
+import setDefaultMetaTitle from '../private/common/utils/setDefaultMetaTitle';
 import AmazonPublisherServices from '../private/common/scriptManager/amazonPublisherServices';
 import FontFaceDefault from '../private/common/fontfaceDefault';
 import CriticalCss from '../private/common/criticalcss';
@@ -177,6 +178,10 @@ const Default = props => {
             );
 
     const getScriptsToBeLoaded = getScriptsFilterFunction(scriptList);
+    const _nodeType = getSectionName({ nodeType, type });
+    const title = getTitle(_nodeType, metaValue('title'), siteProperties);
+    const defaultMetaTitle = setDefaultMetaTitle(arcSite, siteProperties);
+    const ottDescription = arcSite === 'ott' && siteProperties.description;
 
     const scripts = pipe(
         getPageBuilderFeatures,
@@ -188,9 +193,6 @@ const Default = props => {
         siteProperties.scripts,
         globalContent
     );
-    const _nodeType = getSectionName({ nodeType, type });
-
-    const title = getTitle(_nodeType, metaValue('title'), siteProperties);
 
     const metaDescription = getMetaDescriptionDefault(
         metaValue('description'),
@@ -320,7 +322,7 @@ const Default = props => {
                     nodeType={nodeType}
                     _id={_id}
                     section={_nodeType}
-                    defaultTitle={siteProperties.longTitle}
+                    defaultTitle={defaultMetaTitle}
                     metaValue={title}
                 />
                 {layout !== 'LN-buscador' && (
@@ -334,6 +336,7 @@ const Default = props => {
                         arcSite={arcSite}
                         section={_nodeType}
                         metaDescription={metaDescription}
+                        ottDescription={ottDescription}
                     />
                 )}
                 <MetaViafoura {...props} />
