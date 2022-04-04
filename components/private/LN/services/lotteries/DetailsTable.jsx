@@ -1,4 +1,4 @@
-import { React } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import '../../../../../resources/dist/css/ln/components/details-table.css';
 
