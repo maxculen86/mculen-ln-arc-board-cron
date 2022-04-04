@@ -9,10 +9,6 @@ const DetailsTable = ({ data }) => {
         estimatedPot = '',
         winner_carton: winnerCarton = []
     } = data;
-    console.log(
-        '🚀 ~ file: DetailsTable.jsx ~ line 11 ~ DetailsTable ~ winnerCarton',
-        winnerCarton
-    );
     return (
         <section className="table-container">
             {winnersTable.length > 0 && (
