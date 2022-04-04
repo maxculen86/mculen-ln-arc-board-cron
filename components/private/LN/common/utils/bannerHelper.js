@@ -250,7 +250,7 @@ export const getDimsFromSiteService = (config, slotName, section) => {
 
     // TODO: hacerlo dinamico
     if (
-        ['propiedades', 'campo'].includes(section) &&
+        ['propiedades', 'campo', 'salud'].includes(section) &&
         (slotName === 'nota_caja1_dsk' || slotName === 'acumulado_caja1_dsk')
     )
         position.dimensions = '120x600,160x600,300x600';
@@ -264,11 +264,16 @@ export const getDimsFromSiteService = (config, slotName, section) => {
 export const isPrimarySectionInBannerSegments = primarySection => segments => {
     if (!segments || !primarySection) return [false, null];
 
+    const EXCEPTIONS = {
+        salud: 'bienestar'
+    };
+
     const base = primarySection.split('/').filter(Boolean);
     const section = base.find(x => segments.includes(x)) || base.shift();
-    const included = segments.includes(section);
+    const hardSection = EXCEPTIONS[section] || section;
+    const included = segments.includes(hardSection);
 
-    return [included, section];
+    return [included, hardSection];
 };
 
 export const getSlotForDevice = device => slots =>
