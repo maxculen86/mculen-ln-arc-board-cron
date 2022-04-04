@@ -55,7 +55,7 @@ const DetailsTable = ({ data }) => {
                     </tbody>
                 </table>
             )}
-            {winnerCarton.length > 0 && (
+            {winnerCarton.length > 0 && winnerCarton[0].numbers !== '0' && (
                 <table className="table">
                     <thead>
                         <tr>
