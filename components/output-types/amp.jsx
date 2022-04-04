@@ -98,7 +98,6 @@ const Amp = props => {
                 <meta name="viewport" content="width=device-width" />
                 <LinkImagePreload resizedUrls={resizedUrls} isAmp />
                 <meta name="theme-color" content="#ffffff" />
-                <meta name="google" content="notranslate" />
                 <MetaTitle
                     subtype={subtype}
                     metaTitleBasic={metaTitleBasic}
