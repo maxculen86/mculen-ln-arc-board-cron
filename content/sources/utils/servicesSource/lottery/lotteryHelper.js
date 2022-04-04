@@ -100,7 +100,7 @@ export const transformLotteryHome = data => ({
         ] = newValue;
         const {
             letters = [],
-            vacant_pot = [],
+            vacant_pot = '$0',
             meaning = ''
         } = additional_properties;
 
@@ -117,10 +117,9 @@ export const transformLotteryHome = data => ({
                 ...(meaning && {
                     meaning
                 }),
-                ...(vacant_pot.length &&
-                    vacant_pot[0] !== '$0' && {
-                        vacantPot: vacant_pot.shift()
-                    }),
+                ...(vacant_pot !== '$0' && {
+                    vacantPot: vacant_pot
+                }),
                 results: transformResult(newValue)
             });
         return acc;
