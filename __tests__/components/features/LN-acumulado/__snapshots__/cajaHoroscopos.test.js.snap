@@ -32,6 +32,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
               <img
                 alt="Aries"
                 class="com-image "
+                decoding="async"
                 height="100%"
                 importance="low"
                 loading="lazy"
@@ -69,6 +70,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
               <img
                 alt="Tauro"
                 class="com-image "
+                decoding="async"
                 height="100%"
                 importance="low"
                 loading="lazy"
@@ -106,6 +108,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
               <img
                 alt="Geminis"
                 class="com-image "
+                decoding="async"
                 height="100%"
                 importance="low"
                 loading="lazy"
@@ -143,6 +146,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
               <img
                 alt="Cancer"
                 class="com-image "
+                decoding="async"
                 height="100%"
                 importance="low"
                 loading="lazy"
@@ -180,6 +184,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
               <img
                 alt="Leo"
                 class="com-image "
+                decoding="async"
                 height="100%"
                 importance="low"
                 loading="lazy"
@@ -217,6 +222,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
               <img
                 alt="Virgo"
                 class="com-image "
+                decoding="async"
                 height="100%"
                 importance="low"
                 loading="lazy"
@@ -254,6 +260,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
               <img
                 alt="Libra"
                 class="com-image "
+                decoding="async"
                 height="100%"
                 importance="low"
                 loading="lazy"
@@ -291,6 +298,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
               <img
                 alt="Escorpio"
                 class="com-image "
+                decoding="async"
                 height="100%"
                 importance="low"
                 loading="lazy"
@@ -328,6 +336,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
               <img
                 alt="Sagitario"
                 class="com-image "
+                decoding="async"
                 height="100%"
                 importance="low"
                 loading="lazy"
@@ -365,6 +374,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
               <img
                 alt="Capricornio"
                 class="com-image "
+                decoding="async"
                 height="100%"
                 importance="low"
                 loading="lazy"
@@ -402,6 +412,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
               <img
                 alt="Acuario"
                 class="com-image "
+                decoding="async"
                 height="100%"
                 importance="low"
                 loading="lazy"
@@ -439,6 +450,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
               <img
                 alt="Piscis"
                 class="com-image "
+                decoding="async"
                 height="100%"
                 importance="low"
                 loading="lazy"
@@ -480,6 +492,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature Caj
               <img
                 alt="Horóscopo Chino"
                 class="com-image "
+                decoding="async"
                 height="100%"
                 importance="low"
                 loading="lazy"

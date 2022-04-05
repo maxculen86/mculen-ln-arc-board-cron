@@ -30,7 +30,7 @@ temas.propTypes = {
             tags: PropTypes.arrayOf(PropTypes.shape()),
             sections: PropTypes.arrayOf(PropTypes.shape())
         })
-    }).isRequired
+    })
 };
 
 export default Consumer(temas);

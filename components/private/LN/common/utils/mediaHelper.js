@@ -86,6 +86,50 @@ export const getSizes = (sources = []) => {
         : [];
 };
 
+export const getShortestImage = (resizedUrls = []) => {
+    const result = resizedUrls.reduce(
+        (prev, curr) =>
+            get(prev, 'option.width', 5000) < get(curr, 'option.width', 5000)
+                ? prev
+                : curr,
+        {}
+    );
+
+    // eslint-disable-next-line no-underscore-dangle
+    const _width = get(result, 'option.width', undefined);
+
+    return {
+        resizedUrl: result.resizedUrl,
+        _width
+    };
+};
+export const LinkImagePreload = ({ resizedUrls = [], isAmp }) => {
+    if (resizedUrls.length === 0) return null;
+
+    const imagesrcset = [];
+    const imagesizes = [];
+
+    const { resizedUrl, _width } = getShortestImage(resizedUrls);
+
+    resizedUrls.forEach(x => {
+        imagesrcset.push(`${x.resizedUrl} ${x.option.width}w`);
+        imagesizes.push(
+            x.option.media && `${x.option.media} ${x.option.width}px`
+        );
+    });
+
+    return (
+        imagesrcset.length && (
+            <link
+                rel="preload"
+                as="image"
+                href={isAmp ? `${resizedUrl} ${_width}w` : resizedUrl}
+                imagesrcset={imagesrcset}
+            />
+        )
+    );
+};
+
 export const buildScriptForZoom = (mediaData, subtype) => {
     const { width = 0, _id: idMedia, type } = mediaData || {};
     return (

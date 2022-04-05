@@ -46,15 +46,6 @@ const ModImage = props => {
     );
 };
 
-ModImage.defaultProps = {
-    alt: '',
-    classCondition: '',
-    amp: false,
-    video: '',
-    sources: [],
-    sizes: {}
-};
-
 ModImage.propTypes = {
     src: PropTypes.string.isRequired,
     alt: PropTypes.string,
@@ -77,6 +68,12 @@ ModImage.propTypes = {
 };
 
 ModImage.defaultProps = {
+    alt: '',
+    classCondition: '',
+    amp: false,
+    video: '',
+    sources: [],
+    sizes: {},
     isApertura: false
 };
 

@@ -49,7 +49,12 @@ videoPlayerSnippet.propTypes = {
         url: PropTypes.string
     }).isRequired,
     tituloNota: PropTypes.string.isRequired,
-    parrafo: PropTypes.string.isRequired
+    parrafo: PropTypes.oneOfType([
+        PropTypes.shape({
+            content: PropTypes.string
+        }),
+        PropTypes.string
+    ]).isRequired
 };
 
 export default videoPlayerSnippet;

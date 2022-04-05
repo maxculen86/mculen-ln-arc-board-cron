@@ -12,6 +12,10 @@ import get from '../../../common/utils/get';
 import * as Trust from './constants';
 import addRelatedImage from '../../common/utils/addRelatedImage';
 import addForwardSlash from '../../common/utils/addForwardSlash';
+import {
+    extractDataFromPromoItems,
+    urlShema
+} from '../../common/utils/extractDataFromPromoItems';
 
 const extractDataFromTags = tags => {
     let keywords = [];
@@ -44,54 +48,6 @@ const setAuthorSnippetStructure = author => {
         '@type': 'Person',
         name: getAuthorByline(author),
         url: `${SITE_LANACION}${bioPage}`
-    };
-};
-
-const getBiggestImage = basic => {
-    const { resized_urls: resizedUrls = [] } = basic || {};
-    const imagenFullSize = resizedUrls.reduce(
-        (prev, curr) =>
-            get(prev, 'option.width', 0) > get(curr, 'option.width', 0)
-                ? prev
-                : curr,
-        {}
-    );
-    const { resizedUrl, option } = imagenFullSize;
-    const { width: bigWidth, height: bigHeight } = option || {};
-    return { resizedUrl, bigWidth, bigHeight };
-};
-
-const urlShema = 'https://schema.org';
-
-const extractDataFromPromoItems = (promoItems, PLACEHOLDER) => {
-    const { basic } = promoItems || {};
-    const { url, type, height, width } = basic || {};
-    const isImage = basic && type === 'image';
-    let thumbnailUrl = PLACEHOLDER;
-    let image = {
-        '@context': urlShema,
-        '@type': 'ImageObject',
-        url: PLACEHOLDER,
-        height: '800',
-        width: '1200'
-    };
-
-    if (promoItems && isImage) {
-        const { resizedUrl, bigWidth, bigHeight } = getBiggestImage(basic);
-        const pathImagen = url;
-        thumbnailUrl = `${pathImagen}`;
-        image = {
-            '@context': urlShema,
-            '@type': 'ImageObject',
-            url: resizedUrl ? `${resizedUrl}` : `${pathImagen}`,
-            height: bigHeight ? `${bigHeight}` : `${height}`,
-            width: bigWidth ? `${bigWidth}` : `${width}`
-        };
-    }
-
-    return {
-        thumbnailUrl,
-        image
     };
 };
 
@@ -180,6 +136,7 @@ const SnippetNoticia = props => {
     const { name: distributorName } = distributor;
 
     const { promo_items: promoItems } = addRelatedImage(props.globalContent);
+
     const LOGO_LN = getAssetsPath(contextPath)(deployment)(
         'placeholderLN-600_amp.jpg'
     );

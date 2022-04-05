@@ -136,7 +136,7 @@ masNotas.propTypes = {
     outputType: PropTypes.string,
     customFields: PropTypes.shape({
         cantidadNotas: PropTypes.number.tag({ label: 'Cantidad de Notas' }),
-        filter: PropTypes.oneOf(['0', '1']).tag({
+        filter: PropTypes.oneOf(['0', '1', 1, 0]).tag({
             labels: {
                 0: 'Ultimas Noticias',
                 1: 'Por Sección'

@@ -29,8 +29,7 @@ const ComImage = props => {
         src,
         alt,
         width,
-        height,
-        sizes
+        height
     };
 
     const classes = `${svg ? '' : 'com-image'} ${classCondition || ''}`;
@@ -42,6 +41,7 @@ const ComImage = props => {
             srcSet={srcset}
             loading={isApertura ? 'eager' : 'lazy'}
             importance={isApertura ? 'high' : 'low'}
+            decoding="async"
         />
     );
     const imageAmp = (
@@ -75,9 +75,9 @@ ComImage.propTypes = {
     srcset: PropTypes.string,
     alt: PropTypes.string,
     classCondition: PropTypes.string,
-    amp: PropTypes.bool.isRequired,
-    width: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired,
+    amp: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]).isRequired,
+    width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     href: PropTypes.string,
     target: PropTypes.string,
     layout: PropTypes.string,
@@ -95,7 +95,9 @@ ComImage.defaultProps = {
     layout: undefined,
     isApertura: false,
     svg: false,
-    sizes: undefined
+    sizes: undefined,
+    height: undefined,
+    width: undefined
 };
 
 export default ComImage;

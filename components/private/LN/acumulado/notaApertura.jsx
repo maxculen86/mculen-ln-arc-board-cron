@@ -1,5 +1,6 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import ArticleAcum from './articleAcum';
 import ModRowGap from '../../common/mod-rowgap';
 
@@ -34,7 +35,11 @@ NotaApertura.propTypes = {
             _id: PropTypes.string
         })
     ).isRequired,
-    outputType: PropTypes.string.isRequired
+    outputType: PropTypes.string
+};
+
+NotaApertura.defaultProps = {
+    outputType: 'default'
 };
 
 export default NotaApertura;

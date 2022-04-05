@@ -42,5 +42,7 @@ export default {
     VIAFOURA_XREQUEST:
         'QA+b2NU5+pJLVNVOQ2ahGn3bZOAcJKVKVey+ZreIMqYHg2ei2uOcbiKxU4TAsg4X',
     ARC_WIDGETS: 'https://arc-widgets.lanacion.com.ar/widgets/',
+    FONT_BOLD: '/resources/fonts/suecaslab-bold-webfont.woff2',
+    FONT_MEDIUM: '/resources/fonts/suecaslab-medium-webfont.woff2',
     LANACION_SERVICES_URL: 'https://arcservices.lanacion.com.ar'
 };

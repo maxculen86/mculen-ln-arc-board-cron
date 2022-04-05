@@ -88,8 +88,8 @@ tePuedeInteresar.propTypes = {
             defaultValue: 6,
             min: 3,
             label: 'Cantidad de Notas'
-        }).isRequired
-    }).isRequired,
+        })
+    }),
     outputType: PropTypes.string,
     siteProperties: PropTypes.shape({
         host: PropTypes.string

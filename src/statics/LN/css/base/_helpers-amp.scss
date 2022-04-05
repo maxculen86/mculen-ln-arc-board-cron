@@ -131,9 +131,9 @@
         //mobile home
         .mod-article & {
             @include sizeM;
-            .--bomba & {
-                @include sizeL;
-            }
+            // .--bomba & {
+            //     @include sizeL;
+            // }
         }
     }
     @media ($media-m) {

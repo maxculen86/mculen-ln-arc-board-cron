@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
@@ -347,9 +348,10 @@ const Index = ({ home }) => {
 };
 
 Index.propTypes = {
-    outputType: PropTypes.string.isRequired,
+    outputType: PropTypes.string,
     siteProperties: PropTypes.shape({
         host: PropTypes.string
-    }).isRequired
+    })
 };
+
 export default Consumer(Index);
