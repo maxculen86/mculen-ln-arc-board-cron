@@ -23,9 +23,9 @@ export const transformLotteryDetail = data => {
             results = []
         } = lottery;
         const {
-            letters = [],
+            letters = '',
             jackpot = [],
-            estimated_pot = [],
+            estimated_pot = '$0',
             meaning = ''
         } = additional_properties;
 
@@ -36,8 +36,8 @@ export const transformLotteryDetail = data => {
             id,
             component: cardComponent,
             date: transformISODate(date, 'day dd/mm/yyyy'),
-            ...(letters.length && {
-                letters: [letters[0].replace(/\s+/g, '')]
+            ...(letters !== '' && {
+                letters: [letters.replace(/\s+/g, '')]
             }),
             ...(jackpot.length && {
                 jackpot
@@ -46,8 +46,8 @@ export const transformLotteryDetail = data => {
                 meaning
             }),
             ...(estimated_pot.length &&
-                estimated_pot[0] !== '$0' && {
-                    estimatedPot: estimated_pot.shift()
+                estimated_pot !== '$0' && {
+                    estimatedPot: estimated_pot
                 }),
             results: formatNumbers(results),
             ...(winnersTable.length && { winners_table: winnersTable }),
@@ -99,7 +99,7 @@ export const transformLotteryHome = data => ({
             } = {}
         ] = newValue;
         const {
-            letters = [],
+            letters = '',
             vacant_pot = '$0',
             meaning = ''
         } = additional_properties;
@@ -111,8 +111,8 @@ export const transformLotteryHome = data => ({
                 component: cardComponent,
                 date: transformISODate(date, 'day dd/mm/yyyy'),
                 ...(url && { link: url }),
-                ...(letters.length && {
-                    letters: [letters[0].replace(/\s+/g, '')]
+                ...(letters !== '' && {
+                    letters: [letters.replace(/\s+/g, '')]
                 }),
                 ...(meaning && {
                     meaning
