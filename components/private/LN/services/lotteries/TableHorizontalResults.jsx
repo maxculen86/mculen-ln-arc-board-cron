@@ -1,6 +1,10 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Text from '../../../common/text';
+import get from '../../../common/utils/get';
+
+import '../../../../../resources/dist/css/ln/components/table-horizontal-results.css';
 
 const TableHorizontalResults = ({
     className,
@@ -8,33 +12,36 @@ const TableHorizontalResults = ({
     date,
     letters,
     isMeaning,
-    lotteryDrawId,
+    name,
     meaning
 }) => {
     const classes = `table-horizontal-results ${className}`;
     const formatIndex = index => (index < 10 ? `0${index}` : index);
-    const meaningNumber = results[0].slice(2, 4);
+    const meaningNumber = get(results, '[0].length') && results[0].slice(-2);
 
     return (
         <div className={classes}>
             {!isMeaning && (
                 <div className="header-table">
                     <Text
+                        tag="h2"
                         extraClass="title-header-table"
                         weight="bold"
                         size="4xs"
                     >
-                        {`${lotteryDrawId} - ${date}`}
+                        {`${name} - ${date}`}
                     </Text>
                     <div className="sub-header-table">
-                        <Text weight="bold" size="4xs">
-                            A la Cabeza:
-                            <Text weight="bold" size="large">
-                                {meaningNumber}
+                        {meaningNumber && (
+                            <Text weight="bold" size="4xs">
+                                A la Cabeza:
+                                <Text weight="bold" size="large">
+                                    {` ${meaningNumber} `}
+                                </Text>
+                                {meaning}
                             </Text>
-                            {meaning}
-                        </Text>
-                        {letters && (
+                        )}
+                        {letters.length !== 0 && (
                             <Text weight="bold" size="4xs">
                                 {`Letras: ${letters}`}
                             </Text>
@@ -74,19 +81,19 @@ const TableHorizontalResults = ({
 TableHorizontalResults.propTypes = {
     className: PropTypes.string,
     date: PropTypes.string,
-    letters: PropTypes.string,
+    letters: PropTypes.arrayOf(PropTypes.string),
     isMeaning: PropTypes.bool,
-    lotteryDrawId: PropTypes.string,
+    name: PropTypes.string,
     meaning: PropTypes.string,
-    results: PropTypes.arrayOf
+    results: PropTypes.arrayOf(PropTypes.string)
 };
 
 TableHorizontalResults.defaultProps = {
     className: '',
     date: '',
-    letters: '',
+    letters: [],
     isMeaning: false,
-    lotteryDrawId: '',
+    name: '',
     meaning: '',
     results: []
 };

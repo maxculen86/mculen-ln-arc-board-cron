@@ -26,7 +26,7 @@ describe('Utils - SectionUtils', () => {
         expect(LogoComponent).toMatchObject({
             color: true,
             logoName: 'bbc',
-            path: '/distributor/bbc-mundo/'
+            path: '/distributor/bbc-mundo'
         });
     });
 
@@ -39,7 +39,7 @@ describe('Utils - SectionUtils', () => {
         expect(LogoComponent).toMatchObject({
             color: true,
             logoName: 'bbc',
-            path: '/distributor/bbc-mundo/'
+            path: '/distributor/bbc-mundo'
         });
     });
 
@@ -78,7 +78,7 @@ describe('Utils - SectionUtils', () => {
         expect(LogoComponent).toMatchObject({
             color: false,
             logoName: 'bbc',
-            path: '/distributor/bbc-mundo/'
+            path: '/distributor/bbc-mundo'
         });
     });
 });

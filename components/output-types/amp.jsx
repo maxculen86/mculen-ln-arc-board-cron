@@ -105,6 +105,7 @@ const Amp = props => {
                     arcSite={arcSite}
                     nodeType={nodeType}
                     _id={_id}
+                    metaValue={metaTitleValue}
                     title={metaTitleValue}
                 />
                 <MetaDescription
@@ -121,7 +122,7 @@ const Amp = props => {
                     subheadlines={subheadlines && subheadlines.basic}
                     arcSite={arcSite}
                 />
-                <MetasOG {...props} />
+                <MetasOG {...props} section={_nodeType} />
                 <Syndication
                     type={type}
                     arcSite={arcSite}

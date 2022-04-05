@@ -5,26 +5,32 @@ import Text from '../../../common/text';
 
 const CardLayout = ({ className, title, subtitle, link, children }) => {
     const classes = `card-lotteries ${className}`;
-    const linkTitle = `Resultados del sorteo ${title}`;
 
     return (
         <article className={classes}>
             <div className="header-lotteries">
                 {link ? (
-                    <Link link={link} title={linkTitle} textname={title} />
+                    <Text tag="h2" size="2xs" weight="bold">
+                        <Link
+                            link={link}
+                            title={`Ir a ${title}`}
+                            textname={title}
+                        />
+                    </Text>
                 ) : (
-                    <Text size="2xs" weight="bold" text={title} />
+                    <Text tag="h2" size="2xs" weight="bold" text={title} />
                 )}
                 <Text size="5xs" extraClass="subtitle" text={subtitle} />
             </div>
             {children}
             {link && (
-                <Link
-                    link={link}
-                    title={linkTitle}
-                    textname={linkTitle}
-                    classCondition="footer-link-lotteries"
-                />
+                <Text tag="h3" size="5xs">
+                    <Link
+                        link={link}
+                        title={`Ir a resultados del sorteo ${title}`}
+                        textname={`Ver resultados del sorteo ${title}`}
+                    />
+                </Text>
             )}
         </article>
     );

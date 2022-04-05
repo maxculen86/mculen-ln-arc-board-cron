@@ -5,26 +5,28 @@ import CardLayout from './CardLayout';
 import BallLotteries from './BallLoteries';
 import LabelText from './LabelText';
 import ResultItem from './ResultItem';
-import { setTraditionFirst } from './utils';
+import { setTraditionFirst, hasTraditionalResult } from './utils';
 
-const Brinco = ({ name, estimatedPot, date, results, isDetail, link }) => {
+const Brinco = ({ name, vacantPot, date, results, isDetail, link }) => {
     const resultsTomap = setTraditionFirst(results);
     const arrResults = resultsTomap.slice(1, 5);
-
+    if (hasTraditionalResult(isDetail, resultsTomap)) return <></>;
     return (
         <CardLayout title={name} subtitle={date} link={!isDetail && link}>
             <div className="main-result --brinco">
                 <div className="box-result --brinco">
-                    {resultsTomap[0].result.map(number => (
-                        <BallLotteries
-                            key={number}
-                            number={number}
-                            size="large"
-                        />
-                    ))}
+                    {(!isDetail ? resultsTomap[0].result : results).map(
+                        number => (
+                            <BallLotteries
+                                key={number}
+                                number={number}
+                                size="large"
+                            />
+                        )
+                    )}
                 </div>
-                {!isDetail && (
-                    <LabelText text={`Pozo vacante: ${estimatedPot}`} />
+                {!isDetail && vacantPot && (
+                    <LabelText text={`Pozo vacante: ${vacantPot}`} />
                 )}
             </div>
             <div className="extra-results --brinco">
@@ -42,10 +44,19 @@ const Brinco = ({ name, estimatedPot, date, results, isDetail, link }) => {
 };
 
 Brinco.propTypes = {
-    results: PropTypes.arrayOf,
+    results: PropTypes.arrayOf(
+        PropTypes.oneOfType([
+            PropTypes.shape({
+                name: PropTypes.string,
+                winners: PropTypes.string,
+                amount: PropTypes.string
+            }),
+            PropTypes.string
+        ])
+    ),
     name: PropTypes.string,
     date: PropTypes.string,
-    estimatedPot: PropTypes.string,
+    vacantPot: PropTypes.string,
     isDetail: PropTypes.bool,
     link: PropTypes.string
 };
@@ -56,7 +67,7 @@ Brinco.defaultProps = {
     date: '',
     isDetail: false,
     link: '',
-    estimatedPot: ''
+    vacantPot: ''
 };
 
 export default Brinco;

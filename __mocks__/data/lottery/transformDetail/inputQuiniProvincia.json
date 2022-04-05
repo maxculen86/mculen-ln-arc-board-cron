@@ -4,6 +4,7 @@
             {
                 "id": "Quiniela_Provincia",
                 "name": "Quiniela Provincia",
+                "lottery_draw_name": "Vespertina",
                 "lottery_draw_id": "Vespertina",
                 "date": "2022-03-16T17:30:00",
                 "results": [
@@ -35,7 +36,9 @@
             {
                 "id": "Quiniela_Provincia",
                 "name": "Quiniela Provincia",
+                "lottery_draw_name": "Matutina",
                 "lottery_draw_id": "Matutina",
+
                 "date": "2022-03-16T14:00:00",
                 "results": [
                     "8783",
@@ -66,7 +69,9 @@
             {
                 "id": "Quiniela_Provincia",
                 "name": "Quiniela Provincia",
+                "lottery_draw_name": "Primera",
                 "lottery_draw_id": "Primera",
+
                 "date": "2022-03-16T11:30:00",
                 "results": [
                     "1247",
@@ -97,6 +102,7 @@
             {
                 "id": "Quiniela_Provincia",
                 "name": "Quiniela Provincia",
+                "lottery_draw_name": "Nocturna",
                 "lottery_draw_id": "Nocturna",
                 "date": "2022-03-15T21:00:00",
                 "results": [

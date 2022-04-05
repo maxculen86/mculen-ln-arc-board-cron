@@ -184,21 +184,21 @@ const VideoPlayer = props => {
                         __html: `
                         ${deviceType}
                         deviceType() === 'desktop' &&
-                            window.addEventListener('load', (event) => {
-                                const divsPowaShadows = document.querySelectorAll('.cuerpo__nota .powa-shadow');
+                            window.addEventListener('load', () => {
+                                const [{ shadowRoot } = {}] = document.querySelectorAll('.cuerpo__nota .powa-shadow');
                                 const divFirstPowa =
-                                    divsPowaShadows &&
-                                    divsPowaShadows.length > 0 &&
-                                    divsPowaShadows[0].shadowRoot.querySelector('[data-uuid="${firstVideo._id}"]');
-                                if (divFirstPowa) {
-                                    if (window.powas) {
-                                        window.powas[divFirstPowa.id].powa.on('viewable', () => {
-                                            window.powas[divFirstPowa.id].powa.play();
-                                        })
-                                    }
+                                    shadowRoot.querySelector &&
+                                    shadowRoot.querySelector('[data-uuid="${firstVideo._id}"]');
+                                let userPause = false;
+                                
+                                if (divFirstPowa && window.powas) {
+                                    const { powa } = window.powas[divFirstPowa.id];
+                                    
+                                    powa.on('pause', () => userPause = true);
+                                    powa.on('viewable', () => !userPause && powa.play());
                                 }
                             });
-            `
+                        `
                     }}
                 />
             )}

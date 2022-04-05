@@ -31,7 +31,12 @@ describe('Content Sources - Services Source', () => {
         requestMockRes.mockReturnValueOnce(Promise.resolve(telekinoResponse));
 
         fetch(query, {
-            cachedCall: jest.fn()
+            cachedCall: jest.fn(() => {
+                const sectionSourceData = {
+                    _id: '/loterias/telekino'
+                };
+                return sectionSourceData;
+            })
         })
             .then(response => expect(response).toStrictEqual(telekinoResponse))
             .then(done);
@@ -65,7 +70,12 @@ describe('Content Sources - Services Source', () => {
         });
 
         fetch(query, {
-            cachedCall: jest.fn()
+            cachedCall: jest.fn(() => {
+                const sectionSourceData = {
+                    _id: '/loterias/telekino'
+                };
+                return sectionSourceData;
+            })
         })
             .then(() => expect(loggerPush).toBeCalledTimes(1))
             .then(done);

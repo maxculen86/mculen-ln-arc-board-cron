@@ -3,8 +3,7 @@
         "lotteries": [
             {
                 "component": "LotoPlus",
-                "date": "16/03/2022",
-                "estimatedPot": "907.000.000,00",
+                "date": "Miércoles 16/03/2022",
                 "id": "Loto",
                 "link": "/loterias/loto/",
                 "name": "Loto",
@@ -30,8 +29,8 @@
                 ]
             },
             {
-                "date": "16/03/2022",
-                "letters": ["A", "B", "C", "D"],
+                "date": "Miércoles 16/03/2022",
+                "letters": ["ABCD"],
                 "link": "/loterias/quiniela-poceada/",
                 "name": "Quiniela Poceada",
                 "id": "Quiniela_Poceada",

@@ -101,9 +101,9 @@ describe('Private - LN - nota - snippet - liveblog ', () => {
         expect(name).toBe(metaTitle);
         expect(url).toBe(`${host}${canonical_url}`);
         expect(coverageStartTime).toBe(
-            formatDateTreeHoursMore(new Date(firstPublishDate)).toISOString()
+            new Date(firstPublishDate).toISOString()
         );
-        expect(coverageEndTime).toBe(addHours(9, displayDate).toISOString());
+        expect(coverageEndTime).toBe(addHours(12, displayDate).toISOString());
         //expect(mainEntityOfPage).toBe(`${host}${path}/`);
         //expect(author).toStrictEqual(['Redacción LA NACION']);
         expect(publisherType).toBe('Organization');
