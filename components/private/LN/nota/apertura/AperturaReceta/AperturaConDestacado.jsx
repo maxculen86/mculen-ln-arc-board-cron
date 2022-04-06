@@ -5,7 +5,6 @@ import Sections from '../sections';
 import DetalleReceta from '../detalleReceta';
 
 import '../../../../../../resources/dist/css/ln/layouts/grid.css';
-import ComTitle from '../../../../common/com-title';
 import Media from '../../../common/media';
 
 const AperturaConDestacado = props => {
@@ -34,14 +33,12 @@ const AperturaConDestacado = props => {
                     <DetalleReceta receta={promoItems.receta} />
                 )}
                 {!!tags && tags.length > 0 && (
-                    <>
-                        <ComTitle
-                            size="--threexs"
-                            tag="h4"
-                            content="Recetas con:"
-                        />
-                        <Tags tags={tags} destacado={false} />
-                    </>
+                    <Tags
+                        tags={tags}
+                        destacado={false}
+                        showItems={3}
+                        extraTagText="recetas con"
+                    />
                 )}
             </div>
         </>

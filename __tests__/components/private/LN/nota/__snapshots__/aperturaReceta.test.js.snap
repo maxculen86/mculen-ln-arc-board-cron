@@ -53,21 +53,21 @@ exports[`features - La Nacion - Components - Nota - AperturaReceta Snapshot - an
           <a
             class="com-link com-button --secondary --compact --transparent"
             href="/recetas/platos-principales/"
-            title="Ir a notas de Platos Principales"
+            title="Ir a notas de  Platos Principales"
           >
             Platos Principales
           </a>
           <a
             class="com-link com-button --secondary --compact --transparent"
             href="/recetas/recetas-con-ingredientes/pollo/"
-            title="Ir a notas de Pollo"
+            title="Ir a notas de  Pollo"
           >
             Pollo
           </a>
           <a
             class="com-link com-button --secondary --compact --transparent"
             href="/recetas/recetas-con-ingredientes/"
-            title="Ir a notas de Recetas con ingredientes"
+            title="Ir a notas de  Recetas con ingredientes"
           >
             Recetas con ingredientes
           </a>
@@ -148,25 +148,20 @@ exports[`features - La Nacion - Components - Nota - AperturaReceta Snapshot - an
         </div>
       </div>
     </div>
-    <h4
-      class="com-title --threexs"
-    >
-      Recetas con:
-    </h4>
     <section
       class="mod-themes"
     >
       <a
         class="com-link com-button --secondary --compact --transparent --tag"
         href="/tema/tagprueba1/"
-        title="Ir a notas de TagPrueba1"
+        title="Ir a notas de recetas con TagPrueba1"
       >
         TagPrueba1
       </a>
       <a
         class="com-link com-button --secondary --compact --transparent --tag"
         href="/tema/tagprueba2/"
-        title="Ir a notas de TagPrueba2"
+        title="Ir a notas de recetas con TagPrueba2"
       >
         TagPrueba2
       </a>
@@ -278,46 +273,41 @@ exports[`features - La Nacion - Components - Nota - AperturaReceta Snapshot - si
               <a
                 class="com-link com-button --secondary --compact --transparent"
                 href="/recetas/platos-principales/"
-                title="Ir a notas de Platos Principales"
+                title="Ir a notas de  Platos Principales"
               >
                 Platos Principales
               </a>
               <a
                 class="com-link com-button --secondary --compact --transparent"
                 href="/recetas/recetas-con-ingredientes/pollo/"
-                title="Ir a notas de Pollo"
+                title="Ir a notas de  Pollo"
               >
                 Pollo
               </a>
               <a
                 class="com-link com-button --secondary --compact --transparent"
                 href="/recetas/recetas-con-ingredientes/"
-                title="Ir a notas de Recetas con ingredientes"
+                title="Ir a notas de  Recetas con ingredientes"
               >
                 Recetas con ingredientes
               </a>
             </section>
           </div>
         </div>
-        <h4
-          class="com-title --m"
-        >
-          Recetas con:
-        </h4>
         <section
           class="mod-themes"
         >
           <a
             class="com-link com-button --secondary --compact --transparent --tag"
             href="/tema/tagprueba1/"
-            title="Ir a notas de TagPrueba1"
+            title="Ir a notas de recetas con TagPrueba1"
           >
             TagPrueba1
           </a>
           <a
             class="com-link com-button --secondary --compact --transparent --tag"
             href="/tema/tagprueba2/"
-            title="Ir a notas de TagPrueba2"
+            title="Ir a notas de recetas con TagPrueba2"
           >
             TagPrueba2
           </a>

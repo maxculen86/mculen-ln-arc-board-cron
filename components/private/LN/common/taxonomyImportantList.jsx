@@ -4,24 +4,25 @@ import PropTypes from 'fusion:prop-types';
 import '../../../../resources/dist/css/ln/modules/mod-themes.css';
 import ComLink from '../../common/com-link';
 
-/**
- * Renderiza elementos relacionados destacados (como categorias o tags)
- */
-const TaxonomyImportantList = ({ list, destacado }) => {
+const TaxonomyImportantList = ({ list, showItems, extraTagText }) => {
     return (
         <section className="mod-themes">
-            {list.map(v => (
+            {list.slice(0, showItems).map(item => (
                 <ComLink
-                    link={v.type === 'tag' ? `/tema/${v.path}/` : `${v.path}/`}
-                    keytext={v.text}
+                    link={
+                        item.type === 'tag'
+                            ? `/tema/${item.path}/`
+                            : `${item.path}/`
+                    }
+                    keytext={item.text}
                     classCondition={
-                        v.type === 'tag'
+                        item.type === 'tag'
                             ? 'com-button --secondary --compact --transparent --tag'
                             : 'com-button --secondary --compact --transparent'
                     }
-                    title={`Ir a notas de ${v.text}`}
+                    title={`Ir a notas de ${extraTagText} ${item.text}`}
                 >
-                    {v.text}
+                    {item.text}
                 </ComLink>
             ))}
         </section>
@@ -35,7 +36,13 @@ TaxonomyImportantList.propTypes = {
             path: PropTypes.string
         })
     ).isRequired,
-    destacado: PropTypes.boolean.isRequired
+    showItems: PropTypes.number,
+    extraTagText: PropTypes.string
+};
+
+TaxonomyImportantList.defaultProps = {
+    showItems: undefined,
+    extraTagText: ''
 };
 
 export default TaxonomyImportantList;
