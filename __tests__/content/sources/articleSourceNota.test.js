@@ -2,7 +2,10 @@ import env from '../../../__mocks__/fusion:environment';
 import properties from '../../../__mocks__/fusion:properties';
 import Redirect from '../../../content/sources/utils/redirect';
 import removeInvalidUrlTagA from '../../../components/private/common/utils/removeInvalidUrlTagA';
-import powerUp from '../../../content/sources/utils/powerUp';
+import {
+    recipePowerUps,
+    removeParallaxPowerUp
+} from '../../../content/sources/utils/powerUp';
 import contentElementRecipe from '../../../__mocks__/data/articles/contentElementsRecipe.json';
 import articleSourceNota from '../../../content/sources/articleSourceNota';
 import responseArticleSource from '../../../__mocks__/data/articles/responseArticleSource.json';
@@ -291,11 +294,14 @@ describe('Common - utils - removeInvalidUrlTagA.js', () => {
     });
 });
 
-describe('Content - sources - powerUp (recipes w/ ingredients and preparation)', () => {
+describe('Content - sources - utils - powerUp (recipes w/ ingredients and preparation)', () => {
     describe('Original Content Element', () => {
+        const wrapper = recipePowerUps(contentElementRecipe.unformatted);
+        const stringWrapper = JSON.stringify(wrapper);
         test('Should return content_element with correct format and array for recipes PowerUps be first on top.', () => {
-            const wrapper = powerUp(contentElementRecipe.unformatted);
             expect(wrapper).toStrictEqual(contentElementRecipe.formatted);
+            expect(stringWrapper).toContain('custom-ingrediente');
+            expect(stringWrapper).toContain('custom-preparacion');
         });
     });
     describe('Should return correct content_element format', () => {
@@ -303,14 +309,44 @@ describe('Content - sources - powerUp (recipes w/ ingredients and preparation)',
             const contentElementEmpty = [];
             const expectedResult = [];
 
-            const wrapper = powerUp(contentElementEmpty);
+            const wrapper = recipePowerUps(contentElementEmpty);
             expect(wrapper).toStrictEqual(expectedResult);
         });
         test('When content_element does not have power ups, returns content_element unmodified', () => {
             const expectedResult = contentElementRecipe.noPowerUps;
 
-            const wrapper = powerUp(contentElementRecipe.noPowerUps);
+            const wrapper = recipePowerUps(contentElementRecipe.noPowerUps);
             expect(wrapper).toStrictEqual(expectedResult);
         });
+    });
+});
+describe('Content - sources - utils - removeParallaxPowerUp', () => {
+    const parallaxContentElement = {
+        _id: '256RFM63BBANFMJ4QZJEYZV3UE',
+        type: 'custom_embed',
+        subtype: 'custom-parallax',
+        additional_properties: {
+            _id: 'DLUV2Q4SJBHMLIXP4WXFBZ46AM',
+            comments: []
+        },
+        embed: {
+            config: {
+                imageId: 'JNVTFZAOFRE5TLQ7CVAOIB4UKY',
+                title: 'Titulo parallax prueba',
+                paragraph:
+                    'Esta es una prueba de parallax, con un parrafo de ejemplo.'
+            },
+            id: '15fe194324c0a9',
+            url: 'https://www.lanacion.com.ar/'
+        }
+    };
+    test('Should remove parallax from non-fotoAl100 note, for example recipe', () => {
+        const expectedResult = contentElementRecipe.unformatted;
+        const contentElementsRecipeParallax = [
+            ...expectedResult,
+            parallaxContentElement
+        ];
+        const wrapper = removeParallaxPowerUp(contentElementsRecipeParallax);
+        expect(wrapper).toStrictEqual(expectedResult);
     });
 });

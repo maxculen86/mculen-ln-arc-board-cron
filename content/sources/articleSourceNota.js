@@ -25,7 +25,7 @@ import logger from '../../components/private/common/utils/logger';
 import paywallUtils from './utils/paywall';
 import removeInvalidUrlTagA from '../../components/private/common/utils/removeInvalidUrlTagA';
 import isNotShowcase from './utils/isNotShowcase';
-import powerUp from './utils/powerUp';
+import { recipePowerUps, removeParallaxPowerUp } from './utils/powerUp';
 import firmaDistributorValidation from './utils/firmaDistributorValidator';
 
 const resolve = (key, a) => {
@@ -296,7 +296,12 @@ const transformContent = (jsonArticle, arcSite, urlQuery) => {
             API_ENV
         );
         if (subtype === RECETA) {
-            resp.content_elements = powerUp(resp.content_elements);
+            resp.content_elements = recipePowerUps(resp.content_elements);
+        }
+        if (subtype !== FOTOAL100) {
+            resp.content_elements = removeParallaxPowerUp(
+                resp.content_elements
+            );
         }
     }
 

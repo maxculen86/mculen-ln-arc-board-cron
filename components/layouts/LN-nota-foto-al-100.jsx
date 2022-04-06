@@ -12,6 +12,8 @@ import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import PwaModals from '../private/LN/common/pwaModals';
 import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/utils/propTypesHelper';
 
+import Parallax from '../private/LN/nota/cuerpo/powerUpParallax';
+
 const lnNotaFotoAl100 = ({
     children: [
         bannerMegatop,
@@ -33,6 +35,26 @@ const lnNotaFotoAl100 = ({
     },
     layout
 }) => {
+    const parallaxData = {
+        _id: '256RFM63BBANFMJ4QZJEYZV3UE',
+        type: 'custom_embed',
+        subtype: 'custom-parallax',
+        additional_properties: {
+            _id: 'DLUV2Q4SJBHMLIXP4WXFBZ46AM',
+            comments: []
+        },
+        embed: {
+            config: {
+                imageId: 'JNVTFZAOFRE5TLQ7CVAOIB4UKY',
+                title: 'Titulo parallax prueba',
+                paragraph:
+                    'Esta es una prueba de parallax, con un parrafo de ejemplo.'
+            },
+            id: '15fe194324c0a9',
+            url: 'https://www.lanacion.com.ar/'
+        }
+    };
+
     const amp = outputType === 'amp' ? 'amp' : '';
     const logo = getSectionLogo(sections, layout, name);
     const magazine = logo ? logo.logoName : '';
@@ -54,6 +76,7 @@ const lnNotaFotoAl100 = ({
                     >
                         <AperturaStorytelling />
                     </StaticValidation>
+                    <Parallax {...parallaxData} />
                     <div className="row">
                         {leftCuerpo}
                         {cuerpo}
