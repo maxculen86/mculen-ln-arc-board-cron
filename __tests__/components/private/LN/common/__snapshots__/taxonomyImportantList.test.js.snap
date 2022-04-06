@@ -7,21 +7,21 @@ exports[`components - private - LN - common - TaxonomyImportantList Test de snap
   <a
     class="com-link com-button --secondary --compact --transparent --tag"
     href="/tema/asd-1/"
-    title="Ir a notas de  asd 1"
+    title="Ir a notas de asd 1"
   >
     asd 1
   </a>
   <a
     class="com-link com-button --secondary --compact --transparent --tag"
     href="/tema/asd-2/"
-    title="Ir a notas de  asd 2"
+    title="Ir a notas de asd 2"
   >
     asd 2
   </a>
   <a
     class="com-link com-button --secondary --compact --transparent"
     href="asd-3/"
-    title="Ir a notas de  asd 3"
+    title="Ir a notas de asd 3"
   >
     asd 3
   </a>

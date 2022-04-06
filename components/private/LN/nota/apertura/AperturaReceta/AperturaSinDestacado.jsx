@@ -24,7 +24,7 @@ const AperturaSinDestacado = props => {
                             tags={tags}
                             destacado={false}
                             showItems={3}
-                            extraTagText="recetas con"
+                            extraTagText=" recetas con"
                         />
                     )}
                 </div>

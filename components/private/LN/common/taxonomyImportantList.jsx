@@ -20,7 +20,7 @@ const TaxonomyImportantList = ({ list, showItems, extraTagText }) => {
                             ? 'com-button --secondary --compact --transparent --tag'
                             : 'com-button --secondary --compact --transparent'
                     }
-                    title={`Ir a notas de ${extraTagText} ${item.text}`}
+                    title={`Ir a notas de${extraTagText} ${item.text}`}
                 >
                     {item.text}
                 </ComLink>
