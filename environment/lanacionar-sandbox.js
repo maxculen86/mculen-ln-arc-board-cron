@@ -2,7 +2,8 @@ export default {
     IS_DEV: 'false',
     IS_SANDBOX: 'true',
     API_ENV: 'sandbox',
-    RANKING_URL: 'https://api.lanacionar.arcpublishing.com',
+    RANKING_URL:
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygHbvhzM7N/1VqWBWWCSB4BkAAAA9DCB8QYJKoZIhvcNAQcGoIHjMIHgAgEAMIHaBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDCh+jeuLh3vFdbvoZgIBEICBrBfhWaHiwfcVU+lITUpTUEAUw4YrxGgFldk4xQFCU8bR7zjjSm9N44UbwGZoMhvJl2R7d8/sx/iNMOattoU4a3BcSmTTrWruS6XZ0ugsWJsJ+tvb23mA3Ym9AqCGQmgC5aZdd8DD3qdqM/40cnjwIzb0+ZiCy21jH5OitS5OEmb728IIfD0/nqfhW1mquFeV9hjtLFRObJSOXk0Vb04JbVSa4uj/Q692o9r9wgQ=}', //NOSONAR
     LANACIONAR_URLASSETS:
         'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com',
     OPTA_WIDGET_URL: 'https://arc-widgets.lanacion.com.ar/opta-embed',
@@ -31,5 +32,6 @@ export default {
     VIAFOURA_XREQUEST:
         '+A5uYQkKRlUYelDeXhW0I88A7/UVYGFtIugKIur9dtQE9dx7srvdJiI+ZSJZ2YsE',
     ARC_WIDGETS:
-        'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/widgets/'
+        'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/widgets/',
+    LANACION_SERVICES_URL: 'https://arcservices.lanacion.com.ar'
 };

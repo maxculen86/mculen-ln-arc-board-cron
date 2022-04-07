@@ -44,6 +44,8 @@ import {
     getTitle,
     getMetaDescriptionDefault
 } from '../private/common/utils/outputTypeHelper';
+import FontPreloads from '../private/common/fontsPreloads';
+import get from '../private/common/utils/get';
 
 const scriptList = [
     {
@@ -203,21 +205,6 @@ const Default = props => {
         arcSite
     );
 
-    const LinkImagePreload = () =>
-        getDataToLinkImage(globalContent, _nodeType, renderables, arcSite).map(
-            elem => {
-                return (
-                    <link
-                        id="preload-img"
-                        rel="preload"
-                        href={elem.resizedUrl}
-                        as="image"
-                        media={elem.media}
-                    />
-                );
-            }
-        );
-
     return (
         <html lang="es">
             <head>
@@ -227,28 +214,15 @@ const Default = props => {
                     content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
                 <meta name="theme-color" content="#ffffff" />
-                <meta name="google" content="notranslate" />
                 {layout !== 'LN-buscador' && <title>{title}</title>}
-                <link
-                    rel="preload"
-                    as="font"
-                    type="font/woff2"
-                    href={`${deployment(
-                        `${contextPath}/resources/fonts/suecaslab-bold-webfont.woff2`
-                    )}`}
-                    crossOrigin=""
-                />
-                <link
-                    rel="preload"
-                    as="font"
-                    type="font/woff2"
-                    href={`${deployment(
-                        `${contextPath}/resources/fonts/suecaslab-medium-webfont.woff2`
-                    )}`}
-                    crossOrigin=""
-                />
-                {LinkImagePreload()}
-                <FontFaceDefault outputType={outputType} />
+                {getDataToLinkImage({
+                    data: globalContent,
+                    section: _nodeType,
+                    renderables,
+                    arcSite
+                })}
+                <FontPreloads />
+                <FontFaceDefault />
                 <CriticalCss />
                 {arcSite === 'ott' ? (
                     <link

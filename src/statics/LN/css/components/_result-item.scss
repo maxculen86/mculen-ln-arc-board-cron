@@ -1,0 +1,28 @@
+@import '../abstracts/variables';
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: px(8);
+
+    .labeled {
+        color: $light-neutral-600;
+    }
+
+    :last-child {
+        max-width: 150px;
+        text-align: end;
+    }
+    .results-secondary {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+    .results-secondary .text {
+        &:not(:last-child)::after {
+            content: '-';
+            color: $light-neutral-700;
+            margin-right: px(0.5);
+        }
+    }
+}

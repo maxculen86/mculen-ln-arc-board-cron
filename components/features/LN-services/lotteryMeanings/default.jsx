@@ -1,57 +1,30 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { API_ENV, SITE_LANACION } from 'fusion:environment';
 import StaticValidation from '../../../private/common/staticValidation';
 import ServiceMiniCard from '../../../private/common/serviceMiniCard';
 
-const MEANINGS_MOCK = [
-    {
-        title: 'Animales',
-        linkTitle: 'significado de los numeros de animales',
-        link: 'significados de animales punto com',
-        icon: 'animals',
-        labeled: 'Significado de numeros'
-    },
-    {
-        title: 'Nombres',
-        linkTitle: 'Significado de los numeros de animales',
-        link: 'significados de animales punto com',
-        icon: 'names',
-        labeled: 'Significado de numeros'
-    },
-    {
-        title: 'Tradicional',
-        linkTitle: 'Significado de los numeros de animales',
-        link: 'significados de animales punto com',
-        icon: 'traditional',
-        labeled: 'Significado de numeros'
-    },
-    {
-        title: 'Loteria Nacional',
-        linkTitle: 'Significado de los numeros de animales',
-        link: 'significados de animales punto com',
-        icon: 'national',
-        labeled: 'Significado de numeros'
-    }
-];
+import { meanings } from '../../../../content/sources/utils/servicesSource/lottery/_config';
+import ModHeaderSection from '../../../private/common/mod-headerSection';
 
 const LotteryMeanings = ({ id: featureId }) => {
     return (
         <StaticValidation id={featureId} htmlOnly persistent>
-            {/* <div className="number-meanings-box row-gap-4">
-                {Object.entries(meanings).map(([topic], i) => (
-                    <div key={topic}>{topic}</div>
-                ))}
-            </div> */}
-
-            <div className="number-meanings-box row-gap-4">
-                {MEANINGS_MOCK.map((meaningInfo, i) => (
+            <ModHeaderSection
+                tag="h2"
+                title="Significado de números según los sueños"
+            />
+            <div className="lotteries number-meanings-box row-gap-tablet-4">
+                {Object.entries(meanings).map(([, meaningInfo], i) => (
                     <ServiceMiniCard
                         key={meaningInfo.title}
                         title={meaningInfo.title}
-                        link={meaningInfo.link}
+                        link={`${SITE_LANACION}${
+                            meaningInfo.link[API_ENV || 'sandbox']
+                        }`}
                         linkTitle={meaningInfo.linkTitle}
                         icon={meaningInfo.icon}
-                        labeled={meaningInfo.labeled}
+                        labeled="Significado de numeros"
                     />
                 ))}
             </div>

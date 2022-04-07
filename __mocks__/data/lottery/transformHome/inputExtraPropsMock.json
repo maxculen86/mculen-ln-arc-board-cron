@@ -1,0 +1,51 @@
+{
+    "dataService": {
+        "items": [
+            {
+                "name": "Loto",
+                "id": "Loto",
+                "date": "2022-03-16T17:30:00",
+                "lottery_draw_id": "tradicional",
+                "results": ["01", "02", "03", "04", "05", "06"],
+                "additional_properties": {
+                    "jackpot": ["4", "8"],
+                    "estimated_pot": "907.000.000,00",
+                    "letters": ""
+                }
+            },
+            {
+                "name": "Loto",
+                "id": "Loto",
+                "date": "2022-03-16T17:30:00",
+                "lottery_draw_id": "Desquite",
+                "lottery_draw_name": "Desquite",
+                "results": ["02", "03", "04", "05", "06", "07"],
+                "additional_properties": {
+                    "jackpot": ["1", "3"],
+                    "letters": ""
+                }
+            },
+            {
+                "name": "Loto",
+                "id": "Loto",
+                "date": "2022-03-16T17:30:00",
+                "lottery_draw_id": "Sale o sale",
+                "lottery_draw_name": "Sale o sale",
+                "results": ["03", "04", "05", "06", "07", "08"],
+                "additional_properties": { "jackpot": ["3", "5", "6", "9"] }
+            },
+            {
+                "name": "Quiniela Poceada",
+                "id": "Quiniela_Poceada",
+                "date": "2022-03-16T17:30:00",
+                "results": ["07", "21", "29", "30", "33", "37"],
+                "additional_properties": {
+                    "letters": "A B C D",
+                    "jackpot": []
+                }
+            },
+            { "name": "Quiniela Provincia", "date": "", "results": [] }
+        ]
+    },
+    "serviceType": "home"
+}

@@ -1,0 +1,82 @@
+@import '../abstracts/variables';
+
+.table-horizontal-results {
+    border: 1px solid $light-neutral-400;
+    border-radius: 4px;
+    overflow: hidden;
+
+    .header-table {
+        background-color: $light-neutral-200;
+
+        display: flex;
+        flex-direction: column;
+
+        .title-header-table {
+            padding: px(12) px(16);
+            border-bottom: 1px solid $light-neutral-400;
+        }
+
+        .sub-header-table {
+            display: flex;
+            padding: px(16);
+            justify-content: space-between;
+
+            :nth-child(n + 2) {
+                margin-top: px(8);
+            }
+        }
+    }
+
+    .body-table {
+        display: grid;
+        justify-items: center;
+        grid-template-columns: repeat(4, 1fr);
+
+        &.--meaning-table {
+            grid-template-columns: repeat(2, 1fr);
+
+            @media ($media-m) {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        .number-box {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            border-top: 1px solid $light-neutral-400;
+
+            &.--meaning-table {
+                font-weight: 400;
+                &:nth-child(-n + 5) {
+                    @media ($media-m) {
+                        border-top: none;
+                    }
+                    border-top: 1px solid $light-neutral-400;
+                    &:nth-child(-n + 2) {
+                        border-top: none;
+                    }
+                }
+            }
+
+            .numerator-table {
+                padding: px(12) px(8);
+                background-color: $light-neutral-200;
+                &.--meaning-table {
+                    font-weight: 700;
+                }
+            }
+
+            .number-table-horizontal {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                padding: px(12) px(8);
+            }
+
+            &:nth-child(-n + 4):not(.--meaning-table) .number-table-horizontal {
+                font-weight: 700;
+            }
+        }
+    }
+}

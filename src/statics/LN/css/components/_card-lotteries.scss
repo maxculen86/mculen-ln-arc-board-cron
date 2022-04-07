@@ -1,0 +1,200 @@
+@import '../abstracts/variables';
+
+.card-lotteries {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid $dark-neutral-600;
+    border-radius: 4px;
+    min-height: px(340);
+    max-height: px(360);
+    min-width: px(234);
+    width: 100%;
+    padding: $spacing-sm $spacing-sm px(20) $spacing-sm;
+
+    @media ($media-s) {
+        max-width: px(328);
+    }
+    .header-lotteries {
+        display: flex;
+        flex-direction: column;
+
+        .com-link {
+            color: $neutral-black;
+            font-size: px(16);
+            font-weight: 700;
+        }
+        .subtitle {
+            color: $light-neutral-600;
+        }
+    }
+
+    .main-result {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        &.--quinielas {
+            margin: px(24) 0;
+            :first-child {
+                padding: px(8) 0;
+                margin-bottom: px(8);
+            }
+        }
+
+        &.--quiniela-poceada {
+            margin-bottom: px(20);
+        }
+
+        &.--brinco,
+        &.--loto-plus,
+        &.--quini-6 {
+            margin-top: auto;
+        }
+        &.--telekino {
+            margin-top: px(16);
+            &.--detalle {
+                margin-bottom: auto;
+                margin-top: px(40);
+            }
+        }
+
+        .--loto-5 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: px(200);
+            margin-bottom: px(8);
+
+            &.detail {
+                margin-bottom: px(108);
+            }
+
+            .ball {
+                margin: 0 px(8);
+            }
+        }
+
+        .traditional {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 100%;
+
+            &.--loto-plus {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+
+                .jackpot-result {
+                    flex-direction: column;
+                    margin-left: px(16);
+                    :first-child {
+                        margin-bottom: px(8);
+                    }
+                }
+            }
+        }
+
+        span {
+            margin-bottom: $spacing;
+        }
+    }
+
+    .box-result {
+        display: grid;
+        justify-items: center;
+        row-gap: px(8);
+        column-gap: px(16);
+        margin-bottom: px(8);
+
+        &.--quini-plus {
+            margin-top: px(30);
+            margin-bottom: px(40);
+        }
+
+        &.--brinco,
+        &.--loto-plus {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        &.--quini-6 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            column-gap: px(1);
+            width: 100%;
+        }
+
+        &.--quini-6-detail {
+            grid-template-columns: repeat(3, 1fr);
+            padding-bottom: px(90);
+
+            &.quini-6-extra-pot {
+                padding: px(20) 0;
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        &.--grid-5-columns {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            column-gap: 0px;
+            flex: 100%;
+
+            & > div {
+                display: flex;
+                justify-content: center;
+                flex: 20%;
+            }
+        }
+    }
+
+    .extra-results {
+        margin-top: auto;
+        margin-bottom: $spacing-sm;
+        .result-item .results-secondary .com-text {
+            &:not(:last-child):after {
+                content: '-';
+                color: $light-neutral-700;
+                margin-right: px(0.5);
+            }
+        }
+
+        &.--loto-plus {
+            .result-item:first-child .results-secondary .com-text {
+                &:nth-last-child(-n + 2) {
+                    color: $light-neutral-500;
+                }
+            }
+
+            .result-item:last-child .results-secondary .com-text {
+                &:nth-last-child(-n + 4) {
+                    color: $light-neutral-500;
+                }
+            }
+        }
+
+        &.--jackpot-details {
+            display: flex;
+            flex-direction: column;
+
+            .jackpot-text-details {
+                text-align: center;
+                margin-bottom: px(8);
+            }
+
+            .jackpot-result-details {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                margin-bottom: px(25);
+
+                .ball {
+                    margin: 0 px(8);
+                }
+            }
+        }
+    }
+}

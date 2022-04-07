@@ -1,0 +1,56 @@
+{
+    "dataService": {
+        "items": [
+            {
+                "prizes": [
+                    {
+                        "name": "8 aciertos",
+                        "winners": "1",
+                        "amount": "$117.534.642"
+                    },
+                    {
+                        "name": "6 aciertos",
+                        "winners": "209",
+                        "amount": "$1.342"
+                    },
+                    {
+                        "name": "7 aciertos",
+                        "winners": "13",
+                        "amount": "$50.733"
+                    }
+                ],
+                "id": "Quiniela_Poceada",
+                "name": "Quiniela Poceada",
+                "date": "2022-03-15T22:00:00",
+                "results": [
+                    "4",
+                    "6",
+                    "8",
+                    "10",
+                    "11",
+                    "14",
+                    "15",
+                    "17",
+                    "18",
+                    "22",
+                    "32",
+                    "42",
+                    "43",
+                    "53",
+                    "54",
+                    "60",
+                    "62",
+                    "67",
+                    "68",
+                    "89"
+                ],
+                "additional_properties": {
+                    "letters": "QRTZ"
+                }
+            }
+        ],
+        "creation_date": "3/17/2022 9:25:06 AM",
+        "quantity": 1
+    },
+    "serviceType": "detalle-loterias"
+}

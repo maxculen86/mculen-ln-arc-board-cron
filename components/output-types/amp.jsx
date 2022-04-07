@@ -22,6 +22,8 @@ import getSectionName from '../private/LN/common/utils/getSectionName';
 import MeteringAMP from '../private/common/scriptManager/meteringAMP';
 import Favicon from '../private/common/favicon';
 import get from '../private/common/utils/get';
+import FontPreloads from '../private/common/fontsPreloads';
+import { LinkImagePreload } from '../private/LN/common/utils/mediaHelper';
 // import { getBiggestImage } from 'components/private/LN/nota/snippet/noticia';
 
 /**
@@ -83,42 +85,26 @@ const Amp = props => {
     const metaTitleValue = metaValue('title') || title || 'LA NACION';
     const dataLayerAmp = dataLayerIndexAmp(arcSite, layout, globalContent);
     const _nodeType = getSectionName({ nodeType, type });
+    const resizedUrls = get(
+        globalContent,
+        'promo_items.basic.resized_urls',
+        []
+    );
 
-    const LinkImagePreload = () => {
-        const biggestImage = get(
-            globalContent,
-            'promo_items.basic.resized_urls',
-            []
-        ).reduce(
-            (prev, curr) =>
-                get(prev, 'option.width', 0) > get(curr, 'option.width', 0)
-                    ? prev
-                    : curr,
-            {}
-        );
-
-        return (
-            <link
-                id="preload-img"
-                rel="preload"
-                href={biggestImage.resizedUrl}
-                as="image"
-            />
-        );
-    };
     return (
         <html amp={String.fromCodePoint(9889)} lang="es">
             <head>
                 <meta charset="utf-8" />
                 <meta name="viewport" content="width=device-width" />
+                <LinkImagePreload resizedUrls={resizedUrls} isAmp />
                 <meta name="theme-color" content="#ffffff" />
-                <meta name="google" content="notranslate" />
                 <MetaTitle
                     subtype={subtype}
                     metaTitleBasic={metaTitleBasic}
                     arcSite={arcSite}
                     nodeType={nodeType}
                     _id={_id}
+                    metaValue={metaTitleValue}
                     title={metaTitleValue}
                 />
                 <MetaDescription
@@ -135,19 +121,26 @@ const Amp = props => {
                     subheadlines={subheadlines && subheadlines.basic}
                     arcSite={arcSite}
                 />
-                <MetasOG {...props} />
+                <MetasOG {...props} section={_nodeType} />
                 <Syndication
                     type={type}
                     arcSite={arcSite}
                     subtype={subtype}
                     syndication={syndication}
                 />
+                <FontPreloads />
+                <AMPCustomStyle
+                    layout={layout}
+                    arcSite={arcSite}
+                    Resource={Resource}
+                    contextPath={contextPath}
+                    deployment={deployment}
+                />
                 <link
                     rel="preload"
                     as="script"
                     href="https://cdn.ampproject.org/v0.js"
                 />
-                {LinkImagePreload()}
                 <script async src="https://cdn.ampproject.org/v0.js" />
 
                 <AMPScripts
@@ -157,13 +150,6 @@ const Amp = props => {
                     globalContent={globalContent}
                 />
 
-                <AMPCustomStyle
-                    layout={layout}
-                    arcSite={arcSite}
-                    Resource={Resource}
-                    contextPath={contextPath}
-                    deployment={deployment}
-                />
                 <style amp-boilerplate="">{_AMPBoilerplate}</style>
                 <noscript
                     dangerouslySetInnerHTML={{

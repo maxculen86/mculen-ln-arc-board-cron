@@ -8,9 +8,13 @@ import get from '../../../common/utils/get';
 import {
     restMinutes,
     differenceInMinutes,
-    formatDateTreeHoursMore,
     addHours
 } from '../../../common/utils/dateAndTimeUtil';
+import {
+    extractDataFromPromoItems,
+    urlShema
+} from '../../common/utils/extractDataFromPromoItems';
+import addRelatedImage from '../../common/utils/addRelatedImage';
 
 const extracDataFromCredits = by => {
     let authors = [];
@@ -70,8 +74,8 @@ const buildBlogObjects = (globalContent, url, PLACEHOLDER) => {
             url: `${url.slice(0, -1)}#parrafo_${i + 1}`,
             '@id': `#parrafo_${i + 1}`,
             mainEntityOfPage: { '@type': 'WebPage' },
-            datePublished: formatDateTreeHoursMore(dateModified),
-            dateModified: formatDateTreeHoursMore(dateModified),
+            datePublished: dateModified,
+            dateModified,
             articleBody: elem.content,
             image: {
                 '@type': 'ImageObject',
@@ -100,37 +104,61 @@ const SnippetLiveblog = props => {
         display_date: displayDate
     } = globalContent || {};
 
+    const { promo_items: promoItems } = addRelatedImage(globalContent);
+
     const PLACEHOLDER = getAssetsPath(contextPath)(deployment)(
         'placeholderLN-600_amp.jpg'
     );
+
+    const { image } = extractDataFromPromoItems(promoItems, PLACEHOLDER);
+
     const url = `${siteProperties.host}${canonicalUrl || ''}`;
     const blogObjects = buildBlogObjects(globalContent, url, PLACEHOLDER);
+    const converageStart = new Date(firstPublishDate);
+    const coverageEnd = addHours(12, displayDate);
+    const noteTitle =
+        headlines &&
+        `${headlines.meta_title || headlines.basic || 'LA NACION - Noticia'}`;
+    const noteDescription = subheadlines && subheadlines.basic;
 
     const data = {
-        '@context': 'https://schema.org',
+        '@context': urlShema,
         '@type': 'LiveBlogPosting',
         publisher: {
             '@type': 'Organization',
             name: `${siteProperties.title || ''}`,
             url: `${siteProperties.host || ''}`,
             logo: {
-                '@context': 'https://schema.org',
+                '@context': urlShema,
                 '@type': 'ImageObject',
                 url: `${PLACEHOLDER}`,
                 height: 60,
                 width: 600
             }
         },
+        about: {
+            '@type': 'Event',
+            name: noteTitle,
+            startDate: converageStart,
+            endDate: coverageEnd,
+            location: {
+                '@type': 'place',
+                name: 'LA NACION',
+                address: {
+                    '@type': 'PostalAddress',
+                    addressLocality: 'Buenos Aires',
+                    addressRegion: 'AR'
+                }
+            },
+            description: noteDescription,
+            image
+        },
         url,
         '@id': '#liveBlogPosting',
-        description: subheadlines && subheadlines.basic,
-        coverageStartTime: formatDateTreeHoursMore(new Date(firstPublishDate)),
-        coverageEndTime: addHours(9, displayDate),
-        name:
-            headlines &&
-            `${headlines.meta_title ||
-                headlines.basic ||
-                'LA NACION - Noticia'}`,
+        description: noteDescription,
+        coverageStartTime: converageStart,
+        coverageEndTime: coverageEnd,
+        name: noteTitle,
         liveBlogUpdate: blogObjects
     };
 

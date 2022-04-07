@@ -1,17 +1,18 @@
 import { ARC_ACCESS_TOKEN, CONTENT_BASE } from 'fusion:environment';
 import { resolve as sectionSourceResolve } from './sectionSource';
 import defaultRequest from './utils/defaultRequest';
+import lottery from './utils/servicesSource/lottery/lottery';
 import getRequest from './utils/getRequest';
 import { getAuthForRequest } from './utils/widgets/helper';
+import NotFoundError from './utils/notFoundError';
 
 const SERVICES = {
-    loterias: defaultRequest,
+    loterias: lottery,
     default: defaultRequest
 };
 
 const fetch = async (query, { cachedCall }) => {
     const {
-        // eslint-disable-next-line no-unused-vars
         id = '',
         service = '',
         serviceItem = '',
@@ -23,8 +24,16 @@ const fetch = async (query, { cachedCall }) => {
         query: `${CONTENT_BASE}${sectionSourceResolve(query)}`
     });
 
-    const { request: serviceRequest, resolve, reject, transform } =
+    const { request: serviceRequest, resolve, reject } =
         SERVICES[service] || SERVICES.default;
+
+    const { _id: sectionSourceId } = sectionSourceData;
+
+    if (sectionSourceId !== id) {
+        throw new NotFoundError(
+            `La sección '${id}' que intenta consultar no existe`
+        );
+    }
 
     return serviceRequest({
         queryData: query,
@@ -33,13 +42,12 @@ const fetch = async (query, { cachedCall }) => {
         .then(response =>
             resolve({
                 response: {
-                    ...sectionSourceData,
+                    sectionSourceData,
                     dataService: response,
                     serviceType: serviceItem
                         ? `detalle-${service}`
                         : `home-${service}`
                 },
-                transform,
                 query
             })
         )

@@ -1054,6 +1054,53 @@
                 "affiliation": []
             },
             "height": 230,
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 586,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(min-width: 1280.1px)",
+                        "width": 879
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/ukSW4gU9iBtaPSnmCq696TxMqqQ=/879x586/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif"
+                },
+                {
+                    "option": {
+                        "height": 746,
+                        "media": "(min-width: 1024px)",
+                        "media_preload": "(min-width: 1024.1px and max-width: 1280px)",
+                        "width": 1119
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/rUtO9Zp3kIlYQscYiKTu-WAmsHE=/1119x746/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif"
+                },
+                {
+                    "option": {
+                        "height": 512,
+                        "media": "(min-width: 768px)",
+                        "media_preload": "(min-width: 768.1px and max-width: 1024px)",
+                        "width": 768
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/O8Q1PaEr9K7hBEBuOSqnHFtZ3KQ=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif"
+                },
+                {
+                    "option": {
+                        "height": 234,
+                        "media": "(min-width: 375px)",
+                        "media_preload": "(min-width: 375.1px and max-width: 768px)",
+                        "width": 351
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/DyiPCWqItlg8Q2LbS-quVA7u79U=/351x234/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif"
+                },
+                {
+                    "option": {
+                        "height": 206,
+                        "media": "(min-width: 320px)",
+                        "media_preload": "(max-width: 375px)",
+                        "width": 309
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/YYmrDx8O3WnsLCiQC11HpsEf9J4=/309x206/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif"
+                }
+            ],
             "last_updated_date": "2018-09-20T14:08:26Z",
             "licensable": false,
             "owner": {

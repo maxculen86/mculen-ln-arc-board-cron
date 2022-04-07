@@ -1,0 +1,37 @@
+{
+    "dataService": {
+        "lotteries": [
+            {
+                "date": "Miércoles 16/03/2022",
+                "component": "Quini6",
+                "id": "Quini_6",
+                "link": "/loterias/quini-6/",
+                "name": "",
+                "results": [
+                    {
+                        "date": "16/03",
+                        "name": "Tradicional",
+                        "result": ["01", "02", "03", "04", "05", "06"]
+                    },
+                    { "date": "16/03", "name": "Segunda vuelta", "result": [] },
+                    { "date": "16/03", "name": "Revancha", "result": [] }
+                ]
+            },
+            {
+                "date": "Miércoles 16/03/2022",
+                "name": "Telekino",
+                "component": "Telekino",
+                "link": "/loterias/telekino/",
+                "id": "Telekino",
+                "results": [
+                    {
+                        "date": "16/03",
+                        "name": "Tradicional",
+                        "result": ["03", "04", "05", "06", "07", "08"]
+                    }
+                ]
+            }
+        ]
+    },
+    "serviceType": "home"
+}

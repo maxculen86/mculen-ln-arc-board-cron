@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
@@ -91,7 +92,7 @@ const LNNotaReceta = ({ outputType, children }) => {
 
 LNNotaReceta.propTypes = {
     children: PropTypes.arrayOf(PropTypes.object).isRequired,
-    outputType: PropTypes.string.isRequired
+    outputType: PropTypes.string
 };
 
 LNNotaReceta.sections = pageBuilderSections;

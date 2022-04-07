@@ -1,0 +1,49 @@
+{
+    "dataService": {
+        "lotteries": [
+            {
+                "component": "LotoPlus",
+                "date": "Miércoles 16/03/2022",
+                "id": "Loto",
+                "link": "/loterias/loto/",
+                "name": "Loto",
+                "results": [
+                    {
+                        "date": "16/03",
+                        "jackpot": ["4", "8"],
+                        "name": "Tradicional",
+                        "result": ["01", "02", "03", "04", "05", "06"]
+                    },
+                    {
+                        "date": "16/03",
+                        "jackpot": ["1", "3"],
+                        "name": "Desquite",
+                        "result": ["02", "03", "04", "05", "06", "07"]
+                    },
+                    {
+                        "date": "16/03",
+                        "jackpot": ["3", "5", "6", "9"],
+                        "name": "Sale o sale",
+                        "result": ["03", "04", "05", "06", "07", "08"]
+                    }
+                ]
+            },
+            {
+                "date": "Miércoles 16/03/2022",
+                "letters": ["ABCD"],
+                "link": "/loterias/quiniela-poceada/",
+                "name": "Quiniela Poceada",
+                "id": "Quiniela_Poceada",
+                "component": "QuinielaPoceada",
+                "results": [
+                    {
+                        "date": "16/03",
+                        "name": "Tradicional",
+                        "result": ["07", "21", "29", "30", "33", "37"]
+                    }
+                ]
+            }
+        ]
+    },
+    "serviceType": "home"
+}

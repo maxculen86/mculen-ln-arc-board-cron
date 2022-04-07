@@ -2,12 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ComImage from '../../../../common/com-image';
 import ComPicture from '../../../../common/com-picture';
-import { getSourceSet, getSizes } from '../../utils/mediaHelper';
+import {
+    getSourceSet,
+    getSizes,
+    getShortestImage
+} from '../../utils/mediaHelper';
 
 const ImageArticle = props => {
     const { image, href, outputType, active, isVertical, isApertura } = props;
 
     const { alt_text: altText, caption, titleText, height, width, url } = image;
+
+    const isAmp = outputType === 'amp';
 
     const altBasic = altText || caption || titleText || '';
     if (!url) return null;
@@ -25,15 +31,17 @@ const ImageArticle = props => {
 
     const srcset = getSourceSet(isVertical, image, sourceActive);
     const sizes = getSizes(sourceActive);
+    const { resizedUrl, _width } = getShortestImage(sourceActive);
+    const _url = resizedUrl || url;
 
     return (
         <ComPicture href={href} amp={outputType === 'amp'}>
             <ComImage
                 srcset={srcset}
                 sizes={sizes.length > 0 ? `${sizes},100vw` : '100vw'}
-                src={url}
+                src={!isAmp ? _url : `${resizedUrl} ${_width}w`}
                 alt={altBasic}
-                amp={outputType === 'amp'}
+                amp={isAmp}
                 height={height}
                 width={width}
                 isApertura={isApertura}

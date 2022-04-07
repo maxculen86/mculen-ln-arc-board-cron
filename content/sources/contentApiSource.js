@@ -9,10 +9,10 @@ const is404 = message => {
 };
 
 const eventByFilter = {
-    website_url: response => {
+    website_url: ({ response, statusCode }) => {
         const { redirect_url: redirectUrl } = response;
 
-        if (redirectUrl) throw new Redirect(redirectUrl, 301);
+        if (redirectUrl) throw new Redirect(redirectUrl, statusCode || 301);
         else return response;
     },
     source_id: () => {},
@@ -20,6 +20,7 @@ const eventByFilter = {
 };
 
 const fetch = query => {
+    const { statusCode } = query;
     const { path, typeFilter } = resolve(query);
     const opt = {
         uri: `${CONTENT_BASE}${path}`,
@@ -33,7 +34,7 @@ const fetch = query => {
     return request(opt)
         .then(response => {
             eventByFilter[typeFilter]
-                ? eventByFilter[typeFilter](response)
+                ? eventByFilter[typeFilter]({ response, statusCode })
                 : is404('No contiene redirect');
         })
         .catch(error => {
@@ -75,7 +76,8 @@ export default {
         published: 'text',
         source_id: 'text',
         website_url: 'text',
-        website: 'text'
+        website: 'text',
+        statusCode: 'text'
     },
     fetch
 };

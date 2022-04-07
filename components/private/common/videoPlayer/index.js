@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/no-danger */
 import React, { useEffect, useState } from 'react';
@@ -183,21 +184,21 @@ const VideoPlayer = props => {
                         __html: `
                         ${deviceType}
                         deviceType() === 'desktop' &&
-                            window.addEventListener('load', (event) => {
-                                const divsPowaShadows = document.querySelectorAll('.cuerpo__nota .powa-shadow');
+                            window.addEventListener('load', () => {
+                                const [{ shadowRoot } = {}] = document.querySelectorAll('.cuerpo__nota .powa-shadow');
                                 const divFirstPowa =
-                                    divsPowaShadows &&
-                                    divsPowaShadows.length > 0 &&
-                                    divsPowaShadows[0].shadowRoot.querySelector('[data-uuid="${firstVideo._id}"]');
-                                if (divFirstPowa) {
-                                    if (window.powas) {
-                                        window.powas[divFirstPowa.id].powa.on('viewable', () => {
-                                            window.powas[divFirstPowa.id].powa.play();
-                                        })
-                                    }
+                                    shadowRoot.querySelector &&
+                                    shadowRoot.querySelector('[data-uuid="${firstVideo._id}"]');
+                                let userPause = false;
+                                
+                                if (divFirstPowa && window.powas) {
+                                    const { powa } = window.powas[divFirstPowa.id];
+                                    
+                                    powa.on('pause', () => userPause = true);
+                                    powa.on('viewable', () => !userPause && powa.play());
                                 }
                             });
-            `
+                        `
                     }}
                 />
             )}
@@ -208,7 +209,7 @@ const VideoPlayer = props => {
 VideoPlayer.propTypes = {
     videoId: PropTypes.string.isRequired,
     tituloVideo: PropTypes.string.isRequired,
-    arcSite: PropTypes.string.isRequired,
+    arcSite: PropTypes.string,
     enableAds: PropTypes.bool,
     enableAdBar: PropTypes.bool,
     loadVideoOnInit: PropTypes.bool,
@@ -220,7 +221,7 @@ VideoPlayer.propTypes = {
     adsURL: PropTypes.string.isRequired,
     globalContent: PropTypes.shape({
         content_elements: PropTypes.arrayOf(PropTypes.object)
-    }).isRequired,
+    }),
     device: PropTypes.string.isRequired
 };
 

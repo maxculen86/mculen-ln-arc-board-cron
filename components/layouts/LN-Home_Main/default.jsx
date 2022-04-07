@@ -1,6 +1,7 @@
 /* eslint-disable react/require-default-props */
 /* eslint-disable no-console */
 /* eslint-disable consistent-return */
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
@@ -22,7 +23,7 @@ import {
 } from '../../private/LN/common/utils/homeHelper';
 import sectionHelper from '../../private/LN/common/utils/sectionHelper';
 import getScrollPercent from '../../private/LN/common/utils/getScrollPercent';
-import AnexoFeature from '../../features/LN-acumulado/anexoIframe';
+import Ranking from '../../features/LN-common/ranking/default';
 import SubHeader from '../../features/LN-common/subHeader';
 import TePuedeInteresar from '../../features/LN-nota/tePuedeInteresar/default';
 import pageBuilderSections from '../config/LN-PageBuilder.config.json';
@@ -551,18 +552,8 @@ const LNMainHome = props => {
                         </div>
                         {/* RANKING */}
                         {blocksToLoad.bloque3.loaded && (
-                            <div
-                                data-section="ranking"
-                                className="ranking-ln9"
-                                data-module="tema_ranking"
-                            >
-                                <AnexoFeature
-                                    id="ranking"
-                                    customFields={{
-                                        url:
-                                            'https://www.lanacion.com.ar/masleidas/home'
-                                    }}
-                                />
+                            <div data-section="ranking" className="lay">
+                                <Ranking {...props} id="rankingHome" />
                             </div>
                         )}
                         <div className="lay" data-section="comercial1">

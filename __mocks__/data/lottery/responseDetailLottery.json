@@ -1,0 +1,119 @@
+{
+    "serviceType": "detalle-loterias",
+    "dataService": {
+        "0": {
+            "prizes": [
+                {
+                    "name": "14 aciertos",
+                    "winners": "17",
+                    "amount": "$25.860,00"
+                },
+                {
+                    "name": "15 aciertos",
+                    "winners": "Vacante",
+                    "amount": "$137.819.119,00"
+                },
+                {
+                    "name": "13 aciertos",
+                    "winners": "628",
+                    "amount": "$622,00"
+                },
+                {
+                    "name": "12 aciertos",
+                    "winners": "7.203",
+                    "amount": "$200,00"
+                },
+                {
+                    "name": "11 aciertos",
+                    "winners": "37.512",
+                    "amount": "$100,00"
+                }
+            ],
+            "id": "Telekino",
+            "name": "Telekino",
+            "date": "2022-03-13T19:00:00",
+            "results": [
+                "02",
+                "03",
+                "05",
+                "07",
+                "10",
+                "12",
+                "14",
+                "18",
+                "19",
+                "20",
+                "21",
+                "22",
+                "23",
+                "24",
+                "25"
+            ],
+            "additional_properties": {
+                "estimated_pot": ["$145.000.000,00"]
+            }
+        },
+        "1": {
+            "prizes": [
+                {
+                    "name": "15 aciertos",
+                    "amount": ""
+                },
+                {
+                    "name": "carton",
+                    "winners": "424.592",
+                    "amount": "$100.000,00"
+                },
+                {
+                    "name": "carton",
+                    "winners": "441.252",
+                    "amount": "$100.000,00"
+                },
+                {
+                    "name": "14 aciertos",
+                    "winners": "12",
+                    "amount": "$19.815,00"
+                },
+                {
+                    "name": "carton",
+                    "winners": "508.827",
+                    "amount": "$100.000,00"
+                },
+                {
+                    "name": "carton",
+                    "winners": "353.844",
+                    "amount": "$100.000,00"
+                },
+                {
+                    "name": "carton",
+                    "winners": "495.371",
+                    "amount": "$100.000,00"
+                }
+            ],
+            "id": "Telekino",
+            "name": "Telekino",
+            "lottery_draw_id": "Rekino",
+            "date": "2022-03-13T19:00:00",
+            "results": [
+                "03",
+                "04",
+                "07",
+                "08",
+                "10",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "19",
+                "20",
+                "22",
+                "23"
+            ],
+            "additional_properties": {
+                "estimated_pot": ["$145.0000.000,00"]
+            }
+        }
+    }
+}

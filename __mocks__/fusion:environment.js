@@ -15,11 +15,12 @@ jest.mock('fusion:environment', () => {
         COOKIE_EXPIRATION: '8640000000',
         DOMINIO_COOKIE: '.lanacion.com.ar',
         RANKING_URL:
-            'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/arcio/ans/most-read/',
+            'https://2018-09:_04QuWtAkaPLWkF-gdlX1ZHgnd1dqOQ6R62CbBPQ-PmHZwc2CztLI-MUGIJ3a3ctcNjBw3WRwmy_zpvUIYODrv66Tvg4JE8c@api.lanacionar.arcpublishing.com',
         OPTA_WIDGET_URL: 'https://www.lanacion.com.ar/recetas/opta-embed',
         LANACIONAR_URLASSETS:
             'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com',
         SITE_LANACION: 'https://www.lanacion.com.ar',
-        SITE_RECETAS: 'https://www.lanacion.com.ar/recetas/'
+        SITE_RECETAS: 'https://www.lanacion.com.ar/recetas/',
+        LANACION_SERVICES_URL: 'https://arcservices.lanacion.com.ar'
     };
 });

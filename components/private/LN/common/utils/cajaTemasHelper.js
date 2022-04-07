@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable no-underscore-dangle */
 import PropTypes from 'fusion:prop-types';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import get from '../../../common/utils/get';
@@ -278,28 +277,6 @@ export const cajaTemasCustomsFields = featuredName => {
             group: featuredRules[featuredName].groupName,
             labels: featuredRules[featuredName].layouts
         }).isRequired,
-        // Se Pidió ocultarlo de momento. User Story[73305]
-        // backgroundColor: PropTypes.oneOf([
-        //     'default',
-        //     '--bgpink',
-        //     '--bgblue',
-        //     '--bgred',
-        //     '--bgteal',
-        //     '--bggrey'
-        // ]).tag({
-        //     label: 'Color de Fondo',
-        //     defaultValue: 'default',
-        //     description: 'Cambiar el color de fondo de la caja',
-        //     group: featuredRules[featuredName].groupName,
-        //     labels: {
-        //         default: 'Sin Fondo',
-        //         '--bgpink': 'Rosa',
-        //         '--bgblue': 'Celeste LN',
-        //         '--bgred': 'Rojo',
-        //         '--bgteal': 'Verde',
-        //         '--bggrey': 'Gris'
-        //     }
-        // }),
         initialPosition: PropTypes.number.tag({
             label: 'N° de nota inicial',
             description: 'Indicar a partir de que nota desea mostrar',

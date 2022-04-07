@@ -9,6 +9,7 @@ import GlobalProvider from '../private/common/context/globalContext';
 import AnexoDefault from '../features/LN-common/anexo/default';
 
 import '../../resources/dist/css/ln/pages/acumulado.css';
+import '../../resources/dist/css/ln/pages/lotteries.css';
 
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
 import get from '../private/common/utils/get';

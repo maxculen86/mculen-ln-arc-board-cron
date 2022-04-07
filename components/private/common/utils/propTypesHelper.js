@@ -107,20 +107,18 @@ const wikiAuthorPropTypes = {
 
 const notaAl100andStorytellingLayoutsPropTypes = {
     children: PropTypes.arrayOf(PropTypes.node).isRequired,
-    outputType: PropTypes.string.isRequired,
-    tree: PropTypes.arrayOf(PropTypes.node).isRequired,
-    isAdmin: PropTypes.bool.isRequired,
+    outputType: PropTypes.string,
+    tree: PropTypes.object,
+    isAdmin: PropTypes.bool,
     globalContent: PropTypes.shape({
         taxonomy: PropTypes.shape({
-            sections: PropTypes.shape({
-                _id: PropTypes.string
-            })
+            sections: PropTypes.array
         }),
         distributor: PropTypes.shape({
             name: PropTypes.string
         })
-    }).isRequired,
-    layout: PropTypes.string.isRequired
+    }),
+    layout: PropTypes.string
 };
 
 const homeLayoutsPropTypes = {
