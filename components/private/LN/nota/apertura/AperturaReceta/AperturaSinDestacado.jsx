@@ -5,7 +5,6 @@ import Sections from '../sections';
 import DetalleReceta from '../detalleReceta';
 
 import '../../../../../../resources/dist/css/ln/layouts/grid.css';
-import ComTitle from '../../../../common/com-title';
 
 const AperturaSinDestacado = props => {
     const { receta, taxonomy, tags } = props;
@@ -21,14 +20,12 @@ const AperturaSinDestacado = props => {
                 <div className="col-desksm-9">
                     <Sections taxonomy={taxonomy} destacado />
                     {!!tags && tags.length > 0 && (
-                        <>
-                            <ComTitle
-                                size="--m"
-                                tag="h4"
-                                content="Recetas con:"
-                            />
-                            <Tags tags={tags} destacado={false} />
-                        </>
+                        <Tags
+                            tags={tags}
+                            destacado={false}
+                            showItems={3}
+                            extraTagText=" recetas con"
+                        />
                     )}
                 </div>
             </div>

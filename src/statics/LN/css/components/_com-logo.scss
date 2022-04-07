@@ -155,6 +155,17 @@
             height: px(32);
         }
     }
+    &.bienestar,
+    &.bienestar-blanco {
+        &.--xs {
+            width: px(129);
+            height: px(22);
+        }
+        &.--sm {
+            width: px(187);
+            height: px(32);
+        }
+    }
     &.campo,
     &.campo-blanco {
         &.--xs {
