@@ -44,9 +44,9 @@ const getDataSetProps = element => {
             position: articleDataSet.pos,
             id: articleDataSet.id,
             variant: articleDataSet.source,
-            brand: sectionDataSet.diagramacionId, // focalLeft3",// se saca de data-diagramacion-id de la <section> padre del <article>
-            list: sectionDataSet.blockName, // "h_tema-01",// se saca de data-block-name de la <section> padre del <article>
-            name: getName(element) // se saca del contenido de la etique <a> del <section class="mod-description">"
+            brand: sectionDataSet.diagramacionId,
+            list: sectionDataSet.blockName,
+            name: getName(element)
         };
     }
     return {};
@@ -66,18 +66,6 @@ export const productClickFromClient = (element = {}) => {
         window.dataLayer.push({ event: 'productClickTest', product });
     }
 };
-
-// const elementInViewport = el => {
-//     const bounding = el.getBoundingClientRect();
-//     return (
-//         bounding.top >= 0 &&
-//         bounding.left >= 0 &&
-//         bounding.bottom <=
-//             (window.innerHeight || document.documentElement.clientHeight) &&
-//         bounding.right <=
-//             (window.innerWidth || document.documentElement.clientWidth)
-//     );
-// };
 
 export const createIntersectionObserver = () => {
     try {
