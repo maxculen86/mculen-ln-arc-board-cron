@@ -5,12 +5,24 @@ import CardLayout from './CardLayout';
 import BallLotteries from './BallLoteries';
 import LabelText from './LabelText';
 import ResultItem from './ResultItem';
-import { setTraditionFirst, hasTraditionalResult } from './utils';
+import {
+    setTraditionFirst,
+    hasTraditionalResult,
+    reorderSubLotteries,
+    quini6Order
+} from './utils';
 
 const Quini6 = ({ name, estimatedPot, date, results, isDetail, link }) => {
     const resultsTomap = setTraditionFirst(results);
-    const arrResults = resultsTomap.slice(1, 5);
+    const arrResults = reorderSubLotteries(
+        resultsTomap.slice(1, 5),
+        quini6Order
+    );
+
     if (hasTraditionalResult(isDetail, resultsTomap)) return <></>;
+
+    const extraPotClass = name === 'Pozo extra' && 'quini-6-extra-pot';
+
     return (
         <CardLayout title={name} subtitle={date} link={!isDetail && link}>
             <div className="main-result --quini-6">
@@ -18,7 +30,7 @@ const Quini6 = ({ name, estimatedPot, date, results, isDetail, link }) => {
                 <div
                     className={
                         isDetail
-                            ? 'box-result --quini-6-detail'
+                            ? `box-result --quini-6-detail  ${extraPotClass}`
                             : 'box-result --quini-6'
                     }
                 >
@@ -49,7 +61,16 @@ const Quini6 = ({ name, estimatedPot, date, results, isDetail, link }) => {
 };
 
 Quini6.propTypes = {
-    results: PropTypes.arrayOf,
+    results: PropTypes.arrayOf(
+        PropTypes.oneOfType([
+            PropTypes.shape({
+                name: PropTypes.string,
+                winners: PropTypes.string,
+                amount: PropTypes.string
+            }),
+            PropTypes.string
+        ])
+    ),
     name: PropTypes.string,
     date: PropTypes.string,
     estimatedPot: PropTypes.string,

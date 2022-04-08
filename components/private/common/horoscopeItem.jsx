@@ -31,7 +31,7 @@ const HoroscopeItem = ({
                         ? 'https://www.lanacion.com.ar/horoscopo/horoscopo-chino-2022/'
                         : `${baseUrl}/horoscopo/${quitarTildes(nombre)}/`
                 }
-                title={`Ir al detalle de ${nombre}`}
+                title={`Ir al horóscopo de ${nombre}`}
             >
                 <div className="container-svg">
                     <Image

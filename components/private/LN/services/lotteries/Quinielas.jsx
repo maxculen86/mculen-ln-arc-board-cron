@@ -48,11 +48,17 @@ const Quinielas = ({
 };
 
 Quinielas.propTypes = {
-    results: PropTypes.arrayOf,
+    results: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.string,
+            date: PropTypes.string,
+            result: PropTypes.arrayOf(PropTypes.string)
+        })
+    ),
     name: PropTypes.string,
     date: PropTypes.string,
     link: PropTypes.string,
-    letters: PropTypes.string,
+    letters: PropTypes.arrayOf(PropTypes.string),
     meaning: PropTypes.string
 };
 
@@ -61,7 +67,7 @@ Quinielas.defaultProps = {
     name: '',
     date: '',
     link: '',
-    letters: '',
+    letters: [],
     meaning: ''
 };
 

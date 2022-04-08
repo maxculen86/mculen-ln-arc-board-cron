@@ -15,6 +15,8 @@ export const mapperLogos = {
     'ohlala-blanco': 'ohlala-blanco.svg',
     propiedades: 'propiedades.svg',
     'propiedades-blanco': 'propiedades-blanco.svg',
+    bienestar: 'propiedades.svg',
+    'bienestar-blanco': 'propiedades-blanco.svg',
     campo: 'campo.svg',
     'campo-blanco': 'campo-blanco.svg',
     deportes: 'deportes.svg',

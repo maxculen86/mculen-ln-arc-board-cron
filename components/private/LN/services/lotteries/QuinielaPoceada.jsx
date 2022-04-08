@@ -11,11 +11,13 @@ const QuinielaPoceada = ({ name, date, results, isDetail, link, letters }) => {
             <div className={`main-result ${isDetail && '--quiniela-poceada'}`}>
                 <div className="box-result --grid-5-columns">
                     {(!isDetail ? results[0].result : results).map(number => (
-                        <BallLotteries
-                            key={number}
-                            number={number}
-                            size="large"
-                        />
+                        <div>
+                            <BallLotteries
+                                key={number}
+                                number={number}
+                                size="large"
+                            />
+                        </div>
                     ))}
                 </div>
                 <LabelText text={`Letras: ${letters.join(',')}`} />
@@ -25,12 +27,21 @@ const QuinielaPoceada = ({ name, date, results, isDetail, link, letters }) => {
 };
 
 QuinielaPoceada.propTypes = {
-    results: PropTypes.arrayOf,
+    results: PropTypes.arrayOf(
+        PropTypes.oneOfType([
+            PropTypes.shape({
+                name: PropTypes.string,
+                winners: PropTypes.string,
+                amount: PropTypes.string
+            }),
+            PropTypes.string
+        ])
+    ),
     name: PropTypes.string,
     date: PropTypes.string,
     isDetail: PropTypes.bool,
     link: PropTypes.string,
-    letters: PropTypes.string
+    letters: PropTypes.arrayOf(PropTypes.string)
 };
 
 QuinielaPoceada.defaultProps = {
@@ -39,7 +50,7 @@ QuinielaPoceada.defaultProps = {
     date: '',
     isDetail: false,
     link: '',
-    letters: ''
+    letters: []
 };
 
 export default QuinielaPoceada;

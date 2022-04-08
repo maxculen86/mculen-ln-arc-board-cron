@@ -26,9 +26,13 @@
         flex-direction: column;
         align-items: center;
         margin-bottom: px(16);
-
-        @media ($media-xs) and (max-width: 767px) {
-            flex-direction: column-reverse;
+        text-align: center;
+        .com-text {
+            display: flex;
+            flex-direction: column;
+        }
+        .com-link {
+            display: inline-block;
         }
     }
 }

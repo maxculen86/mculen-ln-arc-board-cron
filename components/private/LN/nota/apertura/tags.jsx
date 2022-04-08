@@ -32,7 +32,14 @@ const getSectionsAsTags = sections => {
 };
 
 // TODO: este componente deberia ser el que tiene el titulo de "Recetas con:"
-const Tags = ({ tags = [], sections, destacado, temas }) => {
+const Tags = ({
+    tags = [],
+    sections,
+    destacado,
+    temas,
+    showItems,
+    extraTagText
+}) => {
     const categories = getSectionsAsTags(sections);
 
     const listTags = categories.concat(tags).map(x => {
@@ -60,7 +67,12 @@ const Tags = ({ tags = [], sections, destacado, temas }) => {
                     </div>
                 </div>
             ) : (
-                <TaxonomyComponent list={listTags} destacado={destacado} />
+                <TaxonomyComponent
+                    list={listTags}
+                    destacado={destacado}
+                    showItems={showItems}
+                    extraTagText={extraTagText}
+                />
             )}
         </>
     );
@@ -76,13 +88,17 @@ Tags.propTypes = {
     ),
     destacado: PropTypes.bool.isRequired,
     temas: PropTypes.bool,
-    sections: PropTypes.arrayOf(PropTypes.shape)
+    sections: PropTypes.arrayOf(PropTypes.shape),
+    showItems: PropTypes.number,
+    extraTagText: PropTypes.string
 };
 
 Tags.defaultProps = {
     temas: false,
     sections: [],
-    tags: []
+    tags: [],
+    showItems: undefined,
+    extraTagText: ''
 };
 
 export default Tags;

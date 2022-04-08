@@ -2,7 +2,7 @@
     "dataService": {
         "lotteries": [
             {
-                "date": "04/03/2022",
+                "date": "Viernes 04/03/2022",
                 "letters": ["BNQR"],
                 "name": "Quiniela Nacional",
                 "component": "Quinielas",
@@ -116,7 +116,7 @@
                 ]
             },
             {
-                "date": "04/03/2022",
+                "date": "Viernes 04/03/2022",
                 "name": "Quiniela Provincia",
                 "component": "Quinielas",
                 "link": "/loterias/quiniela-provincia/",
@@ -229,7 +229,7 @@
                 ]
             },
             {
-                "date": "04/03/2022",
+                "date": "Viernes 04/03/2022",
                 "name": "Quiniela de Cordoba",
                 "link": "/loterias/quiniela-cordoba/",
                 "id": "Quiniela_de_Cordoba",
@@ -342,7 +342,7 @@
                 ]
             },
             {
-                "date": "04/03/2022",
+                "date": "Viernes 04/03/2022",
                 "name": "Quiniela de Santa Fe",
                 "link": "/loterias/quiniela-santa-fe/",
                 "id": "Quiniela_de_Santa_Fe",
@@ -455,7 +455,7 @@
                 ]
             },
             {
-                "date": "03/03/2022",
+                "date": "Jueves 03/03/2022",
                 "name": "Quiniela Uruguaya",
                 "component": "Quinielas",
                 "link": "/loterias/quiniela-montevideo/",
@@ -516,7 +516,7 @@
                 ]
             },
             {
-                "date": "02/03/2022",
+                "date": "Miércoles 02/03/2022",
                 "name": "Quini 6",
                 "component": "Quini6",
                 "link": "/loterias/quini-6/",
@@ -569,7 +569,7 @@
                 ]
             },
             {
-                "date": "02/03/2022",
+                "date": "Miércoles 02/03/2022",
                 "name": "Loto",
                 "id": "Loto",
                 "component": "LotoPlus",
@@ -596,8 +596,8 @@
                 ]
             },
             {
-                "date": "03/03/2022",
-                "letters": ["B", "C", "L", "V"],
+                "date": "Jueves 03/03/2022",
+                "letters": ["BCLV"],
                 "name": "Quiniela Poceada",
                 "link": "/loterias/quiniela-poceada/",
                 "component": "QuinielaPoceada",
@@ -632,7 +632,7 @@
                 ]
             },
             {
-                "date": "03/03/2022",
+                "date": "Jueves 03/03/2022",
                 "name": "Quiniela Plus",
                 "id": "Quiniela_Plus",
                 "component": "QuinielaPlus",

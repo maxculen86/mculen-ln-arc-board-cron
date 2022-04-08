@@ -86,9 +86,6 @@ export const getSizes = (sources = []) => {
         : [];
 };
 
-const mustRenderPreload = ({ originalURL, imagesrcset }) =>
-    originalURL && imagesrcset;
-
 export const getShortestImage = (resizedUrls = []) => {
     const result = resizedUrls.reduce(
         (prev, curr) =>
@@ -98,6 +95,7 @@ export const getShortestImage = (resizedUrls = []) => {
         {}
     );
 
+    // eslint-disable-next-line no-underscore-dangle
     const _width = get(result, 'option.width', undefined);
 
     return {
@@ -105,7 +103,9 @@ export const getShortestImage = (resizedUrls = []) => {
         _width
     };
 };
-export const LinkImagePreload = ({ originalURL = '', resizedUrls = [] }) => {
+export const LinkImagePreload = ({ resizedUrls = [], isAmp }) => {
+    if (resizedUrls.length === 0) return null;
+
     const imagesrcset = [];
     const imagesizes = [];
 
@@ -119,11 +119,11 @@ export const LinkImagePreload = ({ originalURL = '', resizedUrls = [] }) => {
     });
 
     return (
-        mustRenderPreload({ originalURL, imagesrcset }) && (
+        imagesrcset.length && (
             <link
                 rel="preload"
                 as="image"
-                href={`${resizedUrl} ${_width}w`}
+                href={isAmp ? `${resizedUrl} ${_width}w` : resizedUrl}
                 imagesrcset={imagesrcset}
             />
         )

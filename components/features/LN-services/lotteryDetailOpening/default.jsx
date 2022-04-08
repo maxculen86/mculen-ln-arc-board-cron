@@ -8,6 +8,11 @@ import DetailsTable from '../../../private/LN/services/lotteries/DetailsTable';
 import get from '../../../private/common/utils/get';
 import { components } from '../lotteryGrid/default';
 import TableHorizontalResults from '../../../private/LN/services/lotteries/TableHorizontalResults';
+import {
+    reorderSubLotteries,
+    quini6Order,
+    lotoPlusOrder
+} from '../../../private/LN/services/lotteries/utils';
 import ComLink from '../../../private/common/com-link';
 import Text from '../../../private/common/text';
 
@@ -19,10 +24,24 @@ const LotteryDetailOpening = ({ id: featureId }) => {
         'globalContent.dataService.lotteryDetail',
         []
     );
+    const [firstLot = {}] = lottery;
+    const metaData = get(useAppContext(), 'globalContent.metaData', {});
+    const { lotteryName = '', completeDay = '' } = metaData;
 
+    if (firstLot.id === 'Quini_6') reorderSubLotteries(lottery, quini6Order);
+    if (firstLot.id === 'Loto') reorderSubLotteries(lottery, lotoPlusOrder);
     return (
         lottery.length && (
             <StaticValidation id={featureId} htmlOnly persistent>
+                <Text
+                    font="sueca"
+                    size="xs"
+                    weight="regular"
+                    tag="h2"
+                    extraClass="com-paragraph"
+                >
+                    {`Últimos resultados en ${lotteryName}, ${completeDay} de ${new Date().getFullYear()}`}
+                </Text>
                 <div
                     className={`lotteries ${
                         !lottery[0].winners_table
@@ -50,20 +69,19 @@ const LotteryDetailOpening = ({ id: featureId }) => {
                             </>
                         );
                     })}
+                    <Text size="5xs">
+                        Información provista por
+                        {`${' '}`}
+                        <ComLink
+                            link="https://www.datafactory.la/"
+                            target="_blank"
+                            rel="nofollow"
+                            title="Ir a Data Factory"
+                        >
+                            Data Factory
+                        </ComLink>
+                    </Text>
                 </div>
-
-                <Text>
-                    Información provista por
-                    {`${' '}`}
-                    <ComLink
-                        link="https://www.datafactory.la/"
-                        target="_blank"
-                        rel="nofollow"
-                        title="Ir a Data Factory"
-                    >
-                        Datafactory
-                    </ComLink>
-                </Text>
             </StaticValidation>
         )
     );

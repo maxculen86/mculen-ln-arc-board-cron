@@ -15,11 +15,13 @@ const QuinielaPlus = ({ name, date, results, isDetail, link }) => {
                         '--quini-plus'}`}
                 >
                     {(!isDetail ? results[0].result : results).map(number => (
-                        <BallLotteries
-                            key={number}
-                            number={number}
-                            size="large"
-                        />
+                        <div>
+                            <BallLotteries
+                                key={number}
+                                number={number}
+                                size="large"
+                            />
+                        </div>
                     ))}
                 </div>
             </div>
@@ -28,7 +30,16 @@ const QuinielaPlus = ({ name, date, results, isDetail, link }) => {
 };
 
 QuinielaPlus.propTypes = {
-    results: PropTypes.arrayOf,
+    results: PropTypes.arrayOf(
+        PropTypes.oneOfType([
+            PropTypes.shape({
+                name: PropTypes.string,
+                winners: PropTypes.string,
+                amount: PropTypes.string
+            }),
+            PropTypes.string
+        ])
+    ),
     name: PropTypes.string,
     date: PropTypes.string,
     isDetail: PropTypes.bool,

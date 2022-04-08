@@ -30,8 +30,8 @@
                 ],
                 "additional_properties": {
                     "jackpot": [],
-                    "estimated_pot": [],
-                    "letters": ["BNQR"]
+                    "estimated_pot": "",
+                    "letters": "BNQR"
                 }
             },
             {
@@ -63,8 +63,8 @@
                 ],
                 "additional_properties": {
                     "jackpot": [],
-                    "estimated_pot": [],
-                    "letters": []
+                    "estimated_pot": "",
+                    "letters": ""
                 }
             },
             {
@@ -96,8 +96,8 @@
                 ],
                 "additional_properties": {
                     "jackpot": [],
-                    "estimated_pot": [],
-                    "letters": []
+                    "estimated_pot": "",
+                    "letters": ""
                 }
             },
             {
@@ -129,8 +129,8 @@
                 ],
                 "additional_properties": {
                     "jackpot": [],
-                    "estimated_pot": [],
-                    "letters": []
+                    "estimated_pot": "",
+                    "letters": ""
                 }
             },
             {
@@ -162,8 +162,8 @@
                 ],
                 "additional_properties": {
                     "jackpot": [],
-                    "estimated_pot": [],
-                    "letters": ["B C L V"]
+                    "estimated_pot": "",
+                    "letters": "B C L V"
                 }
             },
             {
@@ -195,8 +195,8 @@
                 ],
                 "additional_properties": {
                     "jackpot": [],
-                    "estimated_pot": [],
-                    "letters": []
+                    "estimated_pot": "",
+                    "letters": ""
                 }
             },
             {
@@ -228,8 +228,8 @@
                 ],
                 "additional_properties": {
                     "jackpot": [],
-                    "estimated_pot": [],
-                    "letters": ["B C L V"]
+                    "estimated_pot": "",
+                    "letters": "B C L V"
                 }
             },
             {
@@ -261,8 +261,8 @@
                 ],
                 "additional_properties": {
                     "jackpot": [],
-                    "estimated_pot": [],
-                    "letters": []
+                    "estimated_pot": "",
+                    "letters": ""
                 }
             },
             {
@@ -294,8 +294,8 @@
                 ],
                 "additional_properties": {
                     "jackpot": [],
-                    "estimated_pot": [],
-                    "letters": []
+                    "estimated_pot": "",
+                    "letters": ""
                 }
             },
             {
@@ -327,8 +327,8 @@
                 ],
                 "additional_properties": {
                     "jackpot": [],
-                    "estimated_pot": [],
-                    "letters": []
+                    "estimated_pot": "",
+                    "letters": ""
                 }
             },
             {
@@ -360,8 +360,8 @@
                 ],
                 "additional_properties": {
                     "jackpot": [],
-                    "estimated_pot": [],
-                    "letters": []
+                    "estimated_pot": "",
+                    "letters": ""
                 }
             },
             {
@@ -393,8 +393,8 @@
                 ],
                 "additional_properties": {
                     "jackpot": [],
-                    "estimated_pot": [],
-                    "letters": ["E D L N"]
+                    "estimated_pot": "",
+                    "letters": "E D L N"
                 }
             },
             {
@@ -426,8 +426,8 @@
                 ],
                 "additional_properties": {
                     "jackpot": [],
-                    "estimated_pot": [],
-                    "letters": []
+                    "estimated_pot": "",
+                    "letters": ""
                 }
             },
             {
@@ -459,8 +459,8 @@
                 ],
                 "additional_properties": {
                     "jackpot": [],
-                    "estimated_pot": [],
-                    "letters": []
+                    "estimated_pot": "",
+                    "letters": ""
                 }
             },
             {
@@ -492,8 +492,8 @@
                 ],
                 "additional_properties": {
                     "jackpot": [],
-                    "estimated_pot": [],
-                    "letters": []
+                    "estimated_pot": "",
+                    "letters": ""
                 }
             },
             {
@@ -525,8 +525,8 @@
                 ],
                 "additional_properties": {
                     "jackpot": [],
-                    "estimated_pot": [],
-                    "letters": ["ACCT"]
+                    "estimated_pot": "",
+                    "letters": "ACCT"
                 }
             },
             {
@@ -558,8 +558,8 @@
                 ],
                 "additional_properties": {
                     "jackpot": [],
-                    "estimated_pot": [],
-                    "letters": []
+                    "estimated_pot": "",
+                    "letters": ""
                 }
             },
             {
@@ -591,8 +591,8 @@
                 ],
                 "additional_properties": {
                     "jackpot": [],
-                    "estimated_pot": [],
-                    "letters": []
+                    "estimated_pot": "",
+                    "letters": ""
                 }
             },
             {
@@ -624,8 +624,8 @@
                 ],
                 "additional_properties": {
                     "jackpot": [],
-                    "estimated_pot": [],
-                    "letters": []
+                    "estimated_pot": "",
+                    "letters": ""
                 }
             },
             {
@@ -657,8 +657,8 @@
                 ],
                 "additional_properties": {
                     "jackpot": [],
-                    "estimated_pot": [],
-                    "letters": []
+                    "estimated_pot": "",
+                    "letters": ""
                 }
             },
             {
@@ -669,8 +669,8 @@
                 "results": ["01", "13", "20", "26", "29", "35"],
                 "additional_properties": {
                     "jackpot": ["2", "6"],
-                    "estimated_pot": [],
-                    "letters": []
+                    "estimated_pot": "",
+                    "letters": ""
                 }
             },
             {
@@ -681,8 +681,8 @@
                 "results": ["00", "04", "08", "18", "26", "38"],
                 "additional_properties": {
                     "jackpot": [null, null, null, null],
-                    "estimated_pot": [],
-                    "letters": []
+                    "estimated_pot": "",
+                    "letters": ""
                 }
             },
             {
@@ -693,8 +693,8 @@
                 "results": ["03", "05", "13", "19", "27", "38"],
                 "additional_properties": {
                     "jackpot": ["2", "3"],
-                    "estimated_pot": ["929000000,00"],
-                    "letters": []
+                    "estimated_pot": "929000000,00",
+                    "letters": ""
                 }
             },
             {
@@ -724,8 +724,8 @@
                 ],
                 "additional_properties": {
                     "jackpot": [],
-                    "estimated_pot": [],
-                    "letters": []
+                    "estimated_pot": "",
+                    "letters": ""
                 }
             },
             {
@@ -736,8 +736,8 @@
                 "results": ["03", "15", "20", "23", "36", "39"],
                 "additional_properties": {
                     "jackpot": [],
-                    "estimated_pot": [],
-                    "letters": []
+                    "estimated_pot": "",
+                    "letters": ""
                 }
             },
             {
@@ -748,8 +748,8 @@
                 "results": ["05", "19", "20", "29", "35", "40"],
                 "additional_properties": {
                     "jackpot": [],
-                    "estimated_pot": [],
-                    "letters": []
+                    "estimated_pot": "",
+                    "letters": ""
                 }
             },
             {
@@ -760,8 +760,8 @@
                 "results": ["01", "02", "25", "35", "39", "42"],
                 "additional_properties": {
                     "jackpot": [],
-                    "estimated_pot": [],
-                    "letters": []
+                    "estimated_pot": "",
+                    "letters": ""
                 }
             },
             {
@@ -772,8 +772,8 @@
                 "results": ["09", "12", "16", "20", "24", "38"],
                 "additional_properties": {
                     "jackpot": [],
-                    "estimated_pot": ["175000000,00"],
-                    "letters": []
+                    "estimated_pot": "175000000,00",
+                    "letters": ""
                 }
             }
         ]
