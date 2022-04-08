@@ -70,6 +70,8 @@ describe('Common - getMetasOG function', () => {
                 }
             },
 
+            arcSite: 'la-nacion-ar',
+
             metaValue: function metaValue(name) {
                 return name === 'title' ? 'Arroz chaufa de mariscos' : '';
             },
@@ -137,6 +139,7 @@ describe('Common - getMetasOG function', () => {
                 return '$LATEST';
             },
             section: 'acumulado',
+            arcSite: 'la-nacion-ar',
             metaDescription: 'Últimas Noticias de LA NACION'
         };
 
@@ -194,6 +197,7 @@ describe('Common - getMetasOG function', () => {
                     }
                 }
             },
+            arcSite: 'la-nacion-ar',
             metaValue: function metaValue(name) {
                 return name === 'title' ? 'Javier Blanco' : '';
             },
@@ -278,7 +282,8 @@ describe('Metas home', () => {
             deployment: function deployment() {
                 return '$LATEST';
             },
-            section: 'home'
+            section: 'home',
+            arcSite: 'la-nacion-ar'
         };
 
         const metas = [

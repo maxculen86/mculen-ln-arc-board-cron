@@ -34,7 +34,7 @@ import { pipe } from '../private/common/utils/functional';
 import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
 import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 import addForwardSlash from '../private/LN/common/utils/addForwardSlash';
-import setDefaultMetaTitle from '../private/common/utils/setDefaultMetaTitle';
+import setMetasOtt from '../private/common/metaTags/setMetasHelper';
 import AmazonPublisherServices from '../private/common/scriptManager/amazonPublisherServices';
 import FontFaceDefault from '../private/common/fontfaceDefault';
 import CriticalCss from '../private/common/criticalcss';
@@ -148,8 +148,10 @@ const Default = props => {
         name,
         Payload,
         _id,
-        taxonomy
+        taxonomy,
+        first_publish_date: firstPublishDate
     } = globalContent || {};
+
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
     const { basic: descriptionBasic } = description || {};
     const { name: distributorName } = distributor || {};
@@ -178,10 +180,19 @@ const Default = props => {
             );
 
     const getScriptsToBeLoaded = getScriptsFilterFunction(scriptList);
-    const _nodeType = getSectionName({ nodeType, type });
+    const _nodeType = getSectionName({ nodeType, type, arcSite });
     const title = getTitle(_nodeType, metaValue('title'), siteProperties);
-    const defaultMetaTitle = setDefaultMetaTitle(arcSite, siteProperties);
-    const ottDescription = arcSite === 'ott' && siteProperties.description;
+
+    const {
+        title: ottMetaTitle,
+        description: ottMetaDescription
+    } = setMetasOtt({
+        date: firstPublishDate,
+        acumulado: name,
+        title: metaTitleBasic,
+        section: _nodeType,
+        siteProperties
+    });
 
     const scripts = pipe(
         getPageBuilderFeatures,
@@ -298,6 +309,8 @@ const Default = props => {
                         section={_nodeType}
                         title={title}
                         metaDescription={metaDescription}
+                        ottMetaTitle={ottMetaTitle}
+                        ottMetaDescription={ottMetaDescription}
                     />
                 )}
                 {canonicalUrl && siteProperties.host && (
@@ -315,15 +328,13 @@ const Default = props => {
                     nodeType={nodeType}
                 />
                 <MetaTitle
-                    subtype={subtype}
-                    metaTitleBasic={metaTitleBasic}
-                    title={title}
                     arcSite={arcSite}
+                    title={title}
+                    defaultTitle={siteProperties.longTitle}
                     nodeType={nodeType}
-                    _id={_id}
                     section={_nodeType}
-                    defaultTitle={defaultMetaTitle}
                     metaValue={title}
+                    ottMetaTitle={ottMetaTitle}
                 />
                 {layout !== 'LN-buscador' && (
                     <MetaDescription
@@ -333,10 +344,11 @@ const Default = props => {
                         description={descriptionBasic}
                         metaTitleBasic={metaTitleBasic}
                         subheadlines={subheadlines && subheadlines.basic}
+                        acumulado={name}
                         arcSite={arcSite}
                         section={_nodeType}
                         metaDescription={metaDescription}
-                        ottDescription={ottDescription}
+                        ottMetaDescription={ottMetaDescription}
                     />
                 )}
                 <MetaViafoura {...props} />

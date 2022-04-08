@@ -12,7 +12,7 @@ const MetaDescription = ({
     _id,
     section,
     metaDescription,
-    ottDescription = ''
+    ottMetaDescription
 }) => {
     if (
         !subtype &&
@@ -22,7 +22,7 @@ const MetaDescription = ({
         return <></>;
 
     const setContent = () => {
-        if (arcSite === 'ott' && !section.length) return ottDescription;
+        if (arcSite === 'ott') return ottMetaDescription;
 
         return (
             (subtype &&
@@ -39,7 +39,7 @@ const MetaDescription = ({
     const acusWithMeta = ['section', 'author', 'distributor', 'tags'];
     const acuRecetaRegExp = new RegExp(/^\/recetas\/(.+)$/);
 
-    if (acusWithMeta.includes(nodeType)) {
+    if (acusWithMeta.includes(nodeType) && arcSite === 'la-nacion-ar') {
         return (
             <meta
                 name="description"
@@ -69,7 +69,7 @@ MetaDescription.propTypes = {
     metaTitleBasic: PropTypes.string.isRequired,
     nodeType: PropTypes.string.isRequired,
     subheadlines: PropTypes.object,
-    ottDescription: PropTypes.string
+    ottMetaDescription: PropTypes.string
 };
 
 export default MetaDescription;

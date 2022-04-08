@@ -22,7 +22,8 @@ const TagsListFeature = ({ id, title }) => {
         acumuladoGeneral: { hidetagslist = false } = {},
         acumuladoColor: { navigation_color_tags: colorTags } = {}
     } = useGlobalProviderAcu() || {};
-    const sectionIsHome = getSectionName({ nodeType, type }) === 'home';
+    const sectionIsHome =
+        getSectionName({ nodeType, type, arcSite }) === 'home';
 
     const [articlesInCache] = useState(
         (typeof window !== 'undefined' &&

@@ -16,7 +16,11 @@ export default function AllPrograms({ items }) {
     return (
         <section className="programas">
             <section className="slider">
-                <Title className="section-title" title="Todos los programas" />
+                <Title
+                    TitleTag="h2"
+                    className="section-title"
+                    title="Todos los programas"
+                />
                 {currentItem}
             </section>
         </section>

@@ -2,20 +2,18 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 const MetaTitle = ({
-    metaTitleBasic,
     arcSite,
     title,
     nodeType,
-    _id = '',
     section,
     defaultTitle,
-    subtype,
-    metaValue
+    metaValue,
+    ottMetaTitle
 }) => {
     if (!['la-nacion-ar', 'ott'].includes(arcSite)) return <></>;
 
     const setContent = () => {
-        if (arcSite === 'ott' && !section.length) return defaultTitle;
+        if (arcSite === 'ott') return ottMetaTitle;
 
         const acusWithMeta = ['section', 'author', 'distributor', 'tags'];
 
@@ -40,23 +38,19 @@ const MetaTitle = ({
 };
 
 MetaTitle.propTypes = {
-    metaTitleBasic: PropTypes.string.isRequired,
     arcSite: PropTypes.string.isRequired,
     nodeType: PropTypes.string.isRequired,
-    _id: PropTypes.string,
     title: PropTypes.string,
     section: PropTypes.string,
     defaultTitle: PropTypes.string,
-    subtype: PropTypes.string,
-    metaValue: PropTypes.string
+    metaValue: PropTypes.string,
+    ottMetaTitle: PropTypes.string
 };
 
 MetaTitle.defaultProps = {
-    _id: '',
     title: '',
     section: '',
     defaultTitle: '',
-    subtype: '',
     metaValue: ''
 };
 

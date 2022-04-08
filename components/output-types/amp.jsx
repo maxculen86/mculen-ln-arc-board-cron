@@ -88,7 +88,7 @@ const Amp = props => {
         []
     );
     const originalURL = get(globalContent, 'promo_items.basic.url', '');
-    const _nodeType = getSectionName({ nodeType, type });
+    const _nodeType = getSectionName({ nodeType, type, arcSite });
 
     return (
         <html amp={String.fromCodePoint(9889)} lang="es">

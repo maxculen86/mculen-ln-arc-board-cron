@@ -98,8 +98,8 @@ export const getData = ({
 export const setMetaDescription = ({
     data,
     section,
-    siteProperties,
-    arcSite
+    arcSite,
+    ottMetaDescription
 }) => {
     const options = {
         'la-nacion-ar': () => {
@@ -119,21 +119,16 @@ export const setMetaDescription = ({
 
             return data.description;
         },
-        ott: () => (section === 'home' ? siteProperties.description : '')
+        ott: () => ottMetaDescription
     };
 
     return options[arcSite]();
 };
 
-export const setOgTitle = ({
-    arcSite,
-    section,
-    pageBuilderTitle,
-    siteProperties
-}) => {
+export const setMetaTitle = ({ arcSite, pageBuilderTitle, ottMetaTitle }) => {
     const options = {
         'la-nacion-ar': () => pageBuilderTitle,
-        ott: () => (section === 'home' ? siteProperties.title : '')
+        ott: () => ottMetaTitle
     };
 
     return options[arcSite]();

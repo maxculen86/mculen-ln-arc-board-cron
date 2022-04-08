@@ -1,7 +1,7 @@
 import addForwardSlash from '../../LN/common/utils/addForwardSlash';
 import {
     setMetaDescription,
-    setOgTitle,
+    setMetaTitle,
     getData
 } from '../utils/getMetasOGHelper';
 
@@ -9,7 +9,13 @@ const getMetasOG = props => {
     const data = getData(props);
     const metaTitleFromPB = props.metaValue('title') || '';
     const pageBuilderTitle = metaTitleFromPB.replace(' - LA NACION', '');
-    const { section, siteProperties, arcSite } = props;
+    const {
+        section,
+        siteProperties,
+        arcSite,
+        ottMetaTitle,
+        ottMetaDescription
+    } = props;
 
     const metas = [
         {
@@ -22,11 +28,12 @@ const getMetasOG = props => {
         },
         {
             property: 'og:title',
-            content: setOgTitle({
+            content: setMetaTitle({
                 arcSite,
                 pageBuilderTitle,
                 section,
-                siteProperties
+                siteProperties,
+                ottMetaTitle
             })
         },
         {
@@ -35,7 +42,8 @@ const getMetasOG = props => {
                 data,
                 section,
                 siteProperties,
-                arcSite
+                arcSite,
+                ottMetaDescription
             })
         },
         {

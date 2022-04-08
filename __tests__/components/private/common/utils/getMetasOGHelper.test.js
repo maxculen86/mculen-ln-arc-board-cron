@@ -26,7 +26,8 @@ describe('Test return functions by getMetasOGHelper', () => {
             subheadlinesBasic: 'Todas las noticias de Argentina y el mundo',
             section: 'nota',
             descriptionDefault: 'La nacion',
-            metaDescription: 'Ultimas noticias de Argentina y el mundo.'
+            metaDescription: 'Ultimas noticias de Argentina y el mundo.',
+            arcSite: 'la-nacion-ar'
         };
         expect(getDescription(props)).toStrictEqual(
             'Ultimas noticias de Argentina y el mundo.'
@@ -42,61 +43,95 @@ describe('Test return functions by getMetasOGHelper', () => {
     });
 
     it('Test return function setMetaDescription', () => {
-        const data = {
-            subtype: 5,
-            description: '',
-            title: 'Ultimas noticias de Argentina y el Mundo'
+        const props = {
+            data: {
+                subtype: 5,
+                description: '',
+                title: 'Ultimas noticias de Argentina y el Mundo'
+            },
+            arcSite: 'la-nacion-ar',
+            section: 'nota'
         };
 
-        expect(setMetaDescription(data, 'nota')).toStrictEqual(
+        expect(setMetaDescription(props)).toStrictEqual(
             'Ultimas noticias de Argentina y el Mundo'
         );
     });
 
     it('Test return function setMetaDescription subtype RECETA', () => {
-        const data = {
-            subtype: '7',
-            description: 'Preparacion de arroz chaufa de mariscos',
-            title: 'Arroz chaufa de mariscos'
+        const props = {
+            data: {
+                subtype: '7',
+                description: 'Preparacion de arroz chaufa de mariscos',
+                title: 'Arroz chaufa de mariscos',
+                arcSite: 'la-nacion-ar'
+            },
+            arcSite: 'la-nacion-ar',
+            section: 'nota'
         };
 
-        expect(setMetaDescription(data, 'nota')).toStrictEqual(
+        expect(setMetaDescription(props)).toStrictEqual(
             'Preparacion de arroz chaufa de mariscos. Encontrá acá la receta de Arroz chaufa de mariscos'
         );
     });
 
     it('Test return function setMetaDescription subtype RECETA and description string empty', () => {
-        const data = {
-            subtype: '7',
-            description: '',
-            title: 'Arroz chaufa de mariscos'
+        const props = {
+            data: {
+                subtype: '7',
+                description: '',
+                title: 'Arroz chaufa de mariscos',
+                arcSite: 'la-nacion-ar'
+            },
+            arcSite: 'la-nacion-ar',
+            section: 'nota'
         };
 
-        expect(setMetaDescription(data, 'nota')).toStrictEqual(
+        expect(setMetaDescription(props)).toStrictEqual(
             'Encontrá acá la receta de Arroz chaufa de mariscos'
         );
     });
 
     it('Test return function setMetaDescription subtype !== RECETA and description string != empty', () => {
-        const data = {
-            subtype: '8',
-            description: 'El mundo',
-            title: ''
+        const props = {
+            data: {
+                subtype: '8',
+                description: 'El mundo',
+                title: ''
+            },
+            arcSite: 'la-nacion-ar',
+            section: 'nota'
         };
 
-        expect(setMetaDescription(data, 'nota')).toStrictEqual('El mundo');
+        expect(setMetaDescription(props)).toStrictEqual('El mundo');
     });
 
     it('Test return default function setMetaDescription', () => {
-        const data = {
-            subtype: 5,
-            description:
-                'Todas las noticias de Argentina y el mundo en La Nacion',
-            title: 'Ultimas noticias de Argentina y el Mundo'
+        const props = {
+            data: {
+                subtype: 5,
+                description:
+                    'Todas las noticias de Argentina y el mundo en La Nacion',
+                title: 'Ultimas noticias de Argentina y el Mundo'
+            },
+            arcSite: 'la-nacion-ar',
+            section: 'home'
         };
 
-        expect(setMetaDescription(data, 'home')).toStrictEqual(
+        expect(setMetaDescription(props)).toStrictEqual(
             'Todas las noticias de Argentina y el mundo en La Nacion'
+        );
+    });
+
+    it('Test return default function setMetaDescription ott', () => {
+        const props = {
+            arcSite: 'ott',
+            ottMetaDescription:
+                'Ingresá a LN+ para ver todos los programas y videos online: La Cornisa, Odisea Argentina, El diario de Leuco, Mesa chica y mucho más!'
+        };
+
+        expect(setMetaDescription(props)).toStrictEqual(
+            props.ottMetaDescription
         );
     });
 });

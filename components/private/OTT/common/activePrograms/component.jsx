@@ -17,13 +17,21 @@ export default function ActivePrograms({ items, type }) {
     });
     return type === 'Carousel' ? (
         <section>
-            <Title className="section-title" title="Todos los programas" />
+            <Title
+                className="section-title"
+                title="Todos los programas"
+                TitleTag="h2"
+            />
             <Carousell>{currentItem}</Carousell>
         </section>
     ) : (
         <section className="programas">
             <section className="slider">
-                <Title className="section-title" title="Todos los programas" />
+                <Title
+                    className="section-title"
+                    title="Todos los programas"
+                    TitleTag="h2"
+                />
                 {currentItem}
             </section>
         </section>
