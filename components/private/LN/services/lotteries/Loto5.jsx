@@ -5,7 +5,7 @@ import CardLayout from './CardLayout';
 import BallLotteries from './BallLoteries';
 import LabelText from './LabelText';
 
-const Loto5 = ({ name, estimatedPot, date, results, isDetail, link }) => {
+const Loto5 = ({ name, vacantPot, date, results, isDetail, link }) => {
     return (
         <CardLayout title={name} subtitle={date} link={!isDetail && link}>
             <div className="main-result">
@@ -18,8 +18,8 @@ const Loto5 = ({ name, estimatedPot, date, results, isDetail, link }) => {
                         />
                     ))}
                 </div>
-                {!isDetail && (
-                    <LabelText text={`Pozo vacante: ${estimatedPot}`} />
+                {!isDetail && vacantPot && (
+                    <LabelText text={`Pozo vacante: ${vacantPot}`} />
                 )}
             </div>
         </CardLayout>
@@ -39,7 +39,7 @@ Loto5.propTypes = {
     ),
     name: PropTypes.string,
     date: PropTypes.string,
-    estimatedPot: PropTypes.string,
+    vacantPot: PropTypes.string,
     isDetail: PropTypes.bool,
     link: PropTypes.string
 };
@@ -50,7 +50,7 @@ Loto5.defaultProps = {
     date: '',
     isDetail: false,
     link: '',
-    estimatedPot: ''
+    vacantPot: ''
 };
 
 export default Loto5;

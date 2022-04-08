@@ -1,4 +1,4 @@
-import { React } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import '../../../../../resources/dist/css/ln/components/details-table.css';
 
@@ -12,7 +12,7 @@ const DetailsTable = ({ data }) => {
     return (
         <section className="table-container">
             {winnersTable.length > 0 && (
-                <table className="table">
+                <table className="table --winners-table">
                     <thead>
                         <tr>
                             <th>Aciertos</th>
@@ -25,8 +25,16 @@ const DetailsTable = ({ data }) => {
                             return (
                                 <tr>
                                     <td>{x.name ? x.name : '-'}</td>
-                                    <td>{x.winners ? x.winners : 'VACANTE'}</td>
-                                    <td>{x.amount ? x.amount : '-'}</td>
+                                    <td>
+                                        {x.winners && x.winners !== '0'
+                                            ? x.winners
+                                            : '-'}
+                                    </td>
+                                    <td>
+                                        {x.amount && x.amount !== '$0'
+                                            ? x.amount
+                                            : '-'}
+                                    </td>
                                 </tr>
                             );
                         })}
@@ -47,7 +55,7 @@ const DetailsTable = ({ data }) => {
                     </tbody>
                 </table>
             )}
-            {winnerCarton.length > 0 && (
+            {winnerCarton.length > 0 && winnerCarton[0].numbers !== '0' && (
                 <table className="table">
                     <thead>
                         <tr>
@@ -67,13 +75,15 @@ const DetailsTable = ({ data }) => {
                             })}
                         </tr>
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colSpan={winnerCarton.length}>
-                                {`${winnerCarton[0].amount} C/U`}
-                            </td>
-                        </tr>
-                    </tfoot>
+                    {winnerCarton[0].amount !== '$0' && (
+                        <tfoot>
+                            <tr>
+                                <td colSpan={winnerCarton.length}>
+                                    {`${winnerCarton[0].amount} C/U`}
+                                </td>
+                            </tr>
+                        </tfoot>
+                    )}
                 </table>
             )}
         </section>

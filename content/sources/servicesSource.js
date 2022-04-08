@@ -4,6 +4,7 @@ import defaultRequest from './utils/defaultRequest';
 import lottery from './utils/servicesSource/lottery/lottery';
 import getRequest from './utils/getRequest';
 import { getAuthForRequest } from './utils/widgets/helper';
+import NotFoundError from './utils/notFoundError';
 
 const SERVICES = {
     loterias: lottery,
@@ -12,7 +13,6 @@ const SERVICES = {
 
 const fetch = async (query, { cachedCall }) => {
     const {
-        // eslint-disable-next-line no-unused-vars
         id = '',
         service = '',
         serviceItem = '',
@@ -26,6 +26,14 @@ const fetch = async (query, { cachedCall }) => {
 
     const { request: serviceRequest, resolve, reject } =
         SERVICES[service] || SERVICES.default;
+
+    const { _id: sectionSourceId } = sectionSourceData;
+
+    if (sectionSourceId !== id) {
+        throw new NotFoundError(
+            `La sección '${id}' que intenta consultar no existe`
+        );
+    }
 
     return serviceRequest({
         queryData: query,

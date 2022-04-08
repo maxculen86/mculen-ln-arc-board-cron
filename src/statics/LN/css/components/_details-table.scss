@@ -10,6 +10,7 @@
         margin-bottom: $spacing-xl;
         width: 100%;
         font-family: $font-arial;
+        text-align: center;
 
         thead {
             font-weight: 700;
@@ -18,10 +19,18 @@
         tfoot {
             font-weight: 700;
         }
+        &.--winners-table {
+            th,
+            td {
+                width: 33.3%;
+            }
+        }
         th,
         td {
-            text-align: center;
-            padding: px(12) px(16);
+            display: table-cell;
+            vertical-align: middle;
+            padding-top: px(12);
+            padding-bottom: px(12);
             border-bottom: 1px solid $light-neutral-400;
         }
         .estimated-pot {

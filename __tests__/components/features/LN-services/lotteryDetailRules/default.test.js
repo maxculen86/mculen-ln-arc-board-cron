@@ -38,10 +38,10 @@ describe('Features - LN-servicios - LN Loteria Reglas =>', () => {
             )
         ).toBeVisible();
     });
-    /*  it('should return a list of lotteries', () => {
+    it('should return a list of lotteries', () => {
         expect(
             StaticValidation.getElementsByClassName('lottery-rules-box').length
         ).toBe(1);
         expect(StaticValidation.firstChild.children.length).toBe(2);
-    }); */
+    });
 });

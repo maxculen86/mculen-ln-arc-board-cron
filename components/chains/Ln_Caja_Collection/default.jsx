@@ -19,6 +19,7 @@ import PageBuilderMessage from '../../private/LN/home/common/components/pageBuil
 import siteConfig from '../../../properties/sites/la-nacion-ar';
 import get from '../../private/common/utils/get';
 import { getPlaceholder } from '../../private/LN/common/utils/cajaTemasPlaceholder';
+import { productClickFromClient } from '../../private/common/utils/viewability';
 
 const CajaCollection = props => {
     const {
@@ -140,6 +141,7 @@ const CajaCollection = props => {
                 sectionName={sectionName}
                 articles={_articles}
                 titleSize={titleSize}
+                handleClick={productClickFromClient}
             />
         )) ||
         getPlaceholder(layout)

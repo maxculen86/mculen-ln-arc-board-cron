@@ -1,0 +1,972 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Viewability Evento productClick del script viewability Cuando se hace click en un articulo con layout grilla debe guardar en dataLayer datos attr del articulo 1`] = `
+<CajaTema
+  articles={
+    Array [
+      Object {
+        "_id": "K2FFK3J6DNCX3D76BQ6D7FLQNE",
+        "display_date": "2020-11-11T13:54:13.588Z",
+        "headlines": Object {
+          "basic": "Prueba Newsletter de propiedades",
+          "mobile": "",
+        },
+        "promo_items": Object {
+          "basic": Object {
+            "height": 513,
+            "type": "image",
+            "url": "https://resizer.glanacion.com/resizer/zCmtgBsAISCbu_XRzUG4HxJvDsU=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/U665QRLUEJGU7B6WMZ4AEAQDRY.jpg",
+            "width": 768,
+          },
+        },
+        "publish_date": "2020-11-11T13:54:13.588Z",
+        "subheadlines": Object {
+          "basic": "esto es una pruena",
+        },
+        "subtype": "1",
+        "website_url": "/propiedades/prueba-newsletter-de-propiedades-nid11112020/",
+      },
+      Object {
+        "_id": "AQCXKYK4XJCVFNFNZ2IQ7SUCA4",
+        "display_date": "2021-03-01T03:32:27.897Z",
+        "headlines": Object {
+          "basic": "Coronavirus. Motín en Devoto: “Nos negamos a morir en la cárcel”",
+          "mobile": "",
+        },
+        "promo_items": Object {
+          "basic": Object {
+            "height": 513,
+            "type": "image",
+            "url": "https://resizer.glanacion.com/resizer/9i-N38ZsnfBkg0NjFi91qNx0y5Y=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TRSC3LYYI5AANJSVUL3ZJJG324.jpg",
+            "width": 768,
+          },
+        },
+        "publish_date": "2021-03-12T14:17:55.232Z",
+        "subheadlines": Object {
+          "basic": "A los conflictos y protestas de presos de las cárceles de la provincia de Buenos Aires en medio de la pandemia del coronavirus , se sumó un motín protagonizado por detenidos alojados en el complejo penitenciario de Villa Devoto , donde los internos se subieron a los techos para exigir que la Justicia ordene excarcelaciones y arrestos domiciliarios.",
+        },
+        "subtype": "1",
+        "website_url": "/sociedad/seguridad/coronavirus-motin-en-devoto-nos-negamos-a-morir-en-la-carcel-nid24042020/",
+      },
+      Object {
+        "_id": "KEBYELHATJHPRNAWO24GRV6YCQ",
+        "display_date": "2020-04-24T16:10:43.235Z",
+        "headlines": Object {
+          "basic": "Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos",
+          "mobile": "",
+        },
+        "promo_items": Object {
+          "basic": Object {
+            "height": 513,
+            "type": "image",
+            "url": "https://resizer.glanacion.com/resizer/pyiWe6lOY0IToc9Qn7DqM0fOY84=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HWSYUPWYQ5DKDON4ZV74I6MWZU.jpg",
+            "width": 768,
+          },
+        },
+        "publish_date": "2021-01-07T12:56:01.989Z",
+        "subheadlines": Object {
+          "basic": "A los perros no les gusta estar solos . Tanto es así que incluso pueden llegar a experimentar ataques de pánico cuando los dueños salen de sus casas . ",
+        },
+        "subtype": "1",
+        "website_url": "/lifestyle/ansiedad-por-separacion-como-evitar-que-los-perros-sufran-cuando-vuelvan-a-quedarse-solos-nid24042020/",
+      },
+    ]
+  }
+  handleClick={[Function]}
+  layout="grilla3"
+  notesQuantity={3}
+  position="01"
+  sectionName="propiedades"
+  title="Titulo de Nota"
+>
+  <div
+    data-module="tema_01"
+  >
+    <section
+      className="box-articles  "
+      data-block-name="h_propiedadestema-01"
+      data-diagramacion-id="grilla3"
+      data-is-block={true}
+      id="tema_01"
+    >
+      <_temp
+        customTitle="Titulo de Nota"
+        imageId={null}
+        link={null}
+        title="Titulo de Nota"
+      >
+        <ModheaderSection
+          classCondition=""
+          customTitle="Titulo de Nota"
+          image={Object {}}
+          imageId={null}
+          line={true}
+          link={null}
+          outputType="default"
+          size="--l"
+          tag="h3"
+          title="Titulo de Nota"
+        >
+          <section
+            className="mod-headersection  --line"
+            role="contentinfo"
+          >
+            <ComTitle
+              content="Titulo de Nota"
+              customTitle="Titulo de Nota"
+              link={null}
+              preTitle=""
+              size="--l"
+              tag="h3"
+            >
+              <h3
+                className="com-title --l"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Titulo de Nota",
+                  }
+                }
+              />
+            </ComTitle>
+          </section>
+        </ModheaderSection>
+      </_temp>
+      <ModRowGap
+        classCondition=""
+        column={3}
+        typeArticle="Grilla"
+      >
+        <div
+          className="row-gap-tablet-3 "
+        >
+          <ArticleAcum
+            artPosition="01"
+            article={
+              Object {
+                "_id": "K2FFK3J6DNCX3D76BQ6D7FLQNE",
+                "display_date": "",
+                "headlines": Object {
+                  "basic": "Prueba Newsletter de propiedades",
+                  "mobile": "",
+                },
+                "promo_items": Object {
+                  "basic": Object {
+                    "height": 513,
+                    "type": "image",
+                    "url": "https://resizer.glanacion.com/resizer/zCmtgBsAISCbu_XRzUG4HxJvDsU=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/U665QRLUEJGU7B6WMZ4AEAQDRY.jpg",
+                    "width": 768,
+                  },
+                },
+                "publish_date": "2020-11-11T13:54:13.588Z",
+                "subheadlines": Object {
+                  "basic": "esto es una pruena",
+                },
+                "subtype": "1",
+                "website_url": "/propiedades/prueba-newsletter-de-propiedades-nid11112020/",
+              }
+            }
+            boxPosition="01"
+            dataSection=""
+            frontdemo={true}
+            handleClick={[Function]}
+            isApertura={false}
+            isRenderAuthor={false}
+            key="K2FFK3J6DNCX3D76BQ6D7FLQNE"
+            outputType="default"
+            titleTag="h2"
+            typeArticle="Grilla"
+            withCategory={false}
+            withSubhead={false}
+            withTags={false}
+            withVolanta={true}
+          >
+            <ModArticle
+              artPosition="01"
+              articleData={
+                Object {
+                  "_id": "K2FFK3J6DNCX3D76BQ6D7FLQNE",
+                  "display_date": "",
+                  "headlines": Object {
+                    "basic": "Prueba Newsletter de propiedades",
+                    "mobile": "",
+                  },
+                  "promo_items": Object {
+                    "basic": Object {
+                      "height": 513,
+                      "type": "image",
+                      "url": "https://resizer.glanacion.com/resizer/zCmtgBsAISCbu_XRzUG4HxJvDsU=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/U665QRLUEJGU7B6WMZ4AEAQDRY.jpg",
+                      "width": 768,
+                    },
+                  },
+                  "publish_date": "2020-11-11T13:54:13.588Z",
+                  "subheadlines": Object {
+                    "basic": "esto es una pruena",
+                  },
+                  "subtype": "1",
+                  "website_url": "/propiedades/prueba-newsletter-de-propiedades-nid11112020/",
+                }
+              }
+              authors=""
+              boxPosition="01"
+              category={false}
+              dataSection=""
+              dateText=""
+              device="desktop"
+              handleClick={[Function]}
+              hour={false}
+              isApertura={false}
+              isPowa={true}
+              isRenderAuthor={false}
+              isRenderAuthorOpinion={false}
+              label={
+                Object {
+                  "text": "",
+                }
+              }
+              layout=""
+              leadText=""
+              link="/propiedades/prueba-newsletter-de-propiedades-nid11112020/"
+              outputType="default"
+              subheadText={false}
+              tags={false}
+              titleTag="h2"
+              titleText="Prueba Newsletter de propiedades"
+              typeArticle="Grilla"
+              withMedia={true}
+            >
+              <article
+                className="mod-article toi0101 nidK2FFK3J6DNCX3D76BQ6D7FLQNE"
+                data-id="K2FFK3J6DNCX3D76BQ6D7FLQNE"
+                data-notaid="K2FFK3J6DNCX3D76BQ6D7FLQNE"
+                data-pos="0101"
+                data-source="editor"
+                onAuxClick={[Function]}
+                onClick={[Function]}
+              >
+                <media
+                  href="/propiedades/prueba-newsletter-de-propiedades-nid11112020/"
+                  isApertura={false}
+                  isPowa={true}
+                  mediaData={
+                    Object {
+                      "height": 513,
+                      "type": "image",
+                      "url": "https://resizer.glanacion.com/resizer/zCmtgBsAISCbu_XRzUG4HxJvDsU=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/U665QRLUEJGU7B6WMZ4AEAQDRY.jpg",
+                      "width": 768,
+                    }
+                  }
+                  outputType="default"
+                  titleText="Prueba Newsletter de propiedades"
+                  withZoom={false}
+                >
+                  <div
+                    className="content-media"
+                  >
+                    <ModMedia
+                      active={false}
+                      classCondition=""
+                      html=""
+                      itsGallery={false}
+                      outputType="default"
+                      scriptForZoom=""
+                      withZoom={false}
+                      zoom={false}
+                    >
+                      <section
+                        className="mod-media   "
+                        role="button"
+                      >
+                        <ComFigure
+                          classCondition="--horizontal"
+                          handleClick={[Function]}
+                          outputType="default"
+                          width={768}
+                          withZoom={false}
+                        >
+                          <figure
+                            className="mod-figure --horizontal"
+                            onClick={[Function]}
+                            onKeyDown={[Function]}
+                            role="button"
+                          >
+                            <ImageArticle
+                              active={false}
+                              href="/propiedades/prueba-newsletter-de-propiedades-nid11112020/"
+                              image={
+                                Object {
+                                  "height": 513,
+                                  "titleText": "Prueba Newsletter de propiedades",
+                                  "type": "image",
+                                  "url": "https://resizer.glanacion.com/resizer/zCmtgBsAISCbu_XRzUG4HxJvDsU=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/U665QRLUEJGU7B6WMZ4AEAQDRY.jpg",
+                                  "width": 768,
+                                }
+                              }
+                              isApertura={false}
+                              isVertical={false}
+                              outputType="default"
+                              zoom={false}
+                            >
+                              <ComPicture
+                                amp={false}
+                                classCondition=""
+                                href="/propiedades/prueba-newsletter-de-propiedades-nid11112020/"
+                                video=""
+                              >
+                                <a
+                                  href="/propiedades/prueba-newsletter-de-propiedades-nid11112020/"
+                                >
+                                  <div
+                                    className="placeholder "
+                                  >
+                                    <ComImage
+                                      alt="Prueba Newsletter de propiedades"
+                                      amp={false}
+                                      classCondition=""
+                                      height={513}
+                                      href=""
+                                      isApertura={false}
+                                      sizes="100vw"
+                                      src="https://resizer.glanacion.com/resizer/zCmtgBsAISCbu_XRzUG4HxJvDsU=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/U665QRLUEJGU7B6WMZ4AEAQDRY.jpg"
+                                      svg={false}
+                                      target=""
+                                      width={768}
+                                    >
+                                      <img
+                                        alt="Prueba Newsletter de propiedades"
+                                        className="com-image "
+                                        decoding="async"
+                                        height={513}
+                                        importance="low"
+                                        loading="lazy"
+                                        src="https://resizer.glanacion.com/resizer/zCmtgBsAISCbu_XRzUG4HxJvDsU=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/U665QRLUEJGU7B6WMZ4AEAQDRY.jpg"
+                                        width={768}
+                                      />
+                                    </ComImage>
+                                  </div>
+                                </a>
+                              </ComPicture>
+                            </ImageArticle>
+                          </figure>
+                        </ComFigure>
+                      </section>
+                    </ModMedia>
+                  </div>
+                </media>
+                <ModDescription
+                  authorSize="4xs"
+                  authors=""
+                  category={false}
+                  dateText=""
+                  label={
+                    Object {
+                      "text": "",
+                    }
+                  }
+                  lead=""
+                  link="/propiedades/prueba-newsletter-de-propiedades-nid11112020/"
+                  marquesina={null}
+                  subheadSize="2xs"
+                  subheadTag="h3"
+                  subheadText={false}
+                  tags={false}
+                  titleSize="--xs"
+                  titleTag="h2"
+                  titleText="Prueba Newsletter de propiedades"
+                >
+                  <section
+                    className="mod-description"
+                  >
+                    <ComTitle
+                      content="Prueba Newsletter de propiedades"
+                      customTitle=""
+                      lead=""
+                      link="/propiedades/prueba-newsletter-de-propiedades-nid11112020/"
+                      preTitle=""
+                      size="--xs"
+                      tag="h2"
+                    >
+                      <h2
+                        className="com-title --xs"
+                      >
+                        <ComLink
+                          classCondition=""
+                          dataEvent=""
+                          dataSection=""
+                          link="/propiedades/prueba-newsletter-de-propiedades-nid11112020/"
+                          size=""
+                          style=""
+                          textname=""
+                          title="Prueba Newsletter de propiedades"
+                        >
+                          <a
+                            className="com-link"
+                            href="/propiedades/prueba-newsletter-de-propiedades-nid11112020/"
+                            title="Prueba Newsletter de propiedades"
+                          >
+                            Prueba Newsletter de propiedades
+                          </a>
+                        </ComLink>
+                      </h2>
+                    </ComTitle>
+                    <div />
+                  </section>
+                </ModDescription>
+              </article>
+            </ModArticle>
+          </ArticleAcum>
+          <ArticleAcum
+            artPosition="02"
+            article={
+              Object {
+                "_id": "AQCXKYK4XJCVFNFNZ2IQ7SUCA4",
+                "display_date": "",
+                "headlines": Object {
+                  "basic": "Coronavirus. Motín en Devoto: “Nos negamos a morir en la cárcel”",
+                  "mobile": "",
+                },
+                "promo_items": Object {
+                  "basic": Object {
+                    "height": 513,
+                    "type": "image",
+                    "url": "https://resizer.glanacion.com/resizer/9i-N38ZsnfBkg0NjFi91qNx0y5Y=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TRSC3LYYI5AANJSVUL3ZJJG324.jpg",
+                    "width": 768,
+                  },
+                },
+                "publish_date": "2021-03-12T14:17:55.232Z",
+                "subheadlines": Object {
+                  "basic": "A los conflictos y protestas de presos de las cárceles de la provincia de Buenos Aires en medio de la pandemia del coronavirus , se sumó un motín protagonizado por detenidos alojados en el complejo penitenciario de Villa Devoto , donde los internos se subieron a los techos para exigir que la Justicia ordene excarcelaciones y arrestos domiciliarios.",
+                },
+                "subtype": "1",
+                "website_url": "/sociedad/seguridad/coronavirus-motin-en-devoto-nos-negamos-a-morir-en-la-carcel-nid24042020/",
+              }
+            }
+            boxPosition="01"
+            dataSection=""
+            frontdemo={true}
+            handleClick={[Function]}
+            isApertura={false}
+            isRenderAuthor={false}
+            key="AQCXKYK4XJCVFNFNZ2IQ7SUCA4"
+            outputType="default"
+            titleTag="h2"
+            typeArticle="Grilla"
+            withCategory={false}
+            withSubhead={false}
+            withTags={false}
+            withVolanta={true}
+          >
+            <ModArticle
+              artPosition="02"
+              articleData={
+                Object {
+                  "_id": "AQCXKYK4XJCVFNFNZ2IQ7SUCA4",
+                  "display_date": "",
+                  "headlines": Object {
+                    "basic": "Coronavirus. Motín en Devoto: “Nos negamos a morir en la cárcel”",
+                    "mobile": "",
+                  },
+                  "promo_items": Object {
+                    "basic": Object {
+                      "height": 513,
+                      "type": "image",
+                      "url": "https://resizer.glanacion.com/resizer/9i-N38ZsnfBkg0NjFi91qNx0y5Y=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TRSC3LYYI5AANJSVUL3ZJJG324.jpg",
+                      "width": 768,
+                    },
+                  },
+                  "publish_date": "2021-03-12T14:17:55.232Z",
+                  "subheadlines": Object {
+                    "basic": "A los conflictos y protestas de presos de las cárceles de la provincia de Buenos Aires en medio de la pandemia del coronavirus , se sumó un motín protagonizado por detenidos alojados en el complejo penitenciario de Villa Devoto , donde los internos se subieron a los techos para exigir que la Justicia ordene excarcelaciones y arrestos domiciliarios.",
+                  },
+                  "subtype": "1",
+                  "website_url": "/sociedad/seguridad/coronavirus-motin-en-devoto-nos-negamos-a-morir-en-la-carcel-nid24042020/",
+                }
+              }
+              authors=""
+              boxPosition="01"
+              category={false}
+              dataSection=""
+              dateText=""
+              device="desktop"
+              handleClick={[Function]}
+              hour={false}
+              isApertura={false}
+              isPowa={true}
+              isRenderAuthor={false}
+              isRenderAuthorOpinion={false}
+              label={
+                Object {
+                  "text": "",
+                }
+              }
+              layout=""
+              leadText=""
+              link="/sociedad/seguridad/coronavirus-motin-en-devoto-nos-negamos-a-morir-en-la-carcel-nid24042020/"
+              outputType="default"
+              subheadText={false}
+              tags={false}
+              titleTag="h2"
+              titleText="Coronavirus. Motín en Devoto: “Nos negamos a morir en la cárcel”"
+              typeArticle="Grilla"
+              withMedia={true}
+            >
+              <article
+                className="mod-article toi0102 nidAQCXKYK4XJCVFNFNZ2IQ7SUCA4"
+                data-id="AQCXKYK4XJCVFNFNZ2IQ7SUCA4"
+                data-notaid="AQCXKYK4XJCVFNFNZ2IQ7SUCA4"
+                data-pos="0102"
+                data-source="editor"
+                onAuxClick={[Function]}
+                onClick={[Function]}
+              >
+                <media
+                  href="/sociedad/seguridad/coronavirus-motin-en-devoto-nos-negamos-a-morir-en-la-carcel-nid24042020/"
+                  isApertura={false}
+                  isPowa={true}
+                  mediaData={
+                    Object {
+                      "height": 513,
+                      "type": "image",
+                      "url": "https://resizer.glanacion.com/resizer/9i-N38ZsnfBkg0NjFi91qNx0y5Y=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TRSC3LYYI5AANJSVUL3ZJJG324.jpg",
+                      "width": 768,
+                    }
+                  }
+                  outputType="default"
+                  titleText="Coronavirus. Motín en Devoto: “Nos negamos a morir en la cárcel”"
+                  withZoom={false}
+                >
+                  <div
+                    className="content-media"
+                  >
+                    <ModMedia
+                      active={false}
+                      classCondition=""
+                      html=""
+                      itsGallery={false}
+                      outputType="default"
+                      scriptForZoom=""
+                      withZoom={false}
+                      zoom={false}
+                    >
+                      <section
+                        className="mod-media   "
+                        role="button"
+                      >
+                        <ComFigure
+                          classCondition="--horizontal"
+                          handleClick={[Function]}
+                          outputType="default"
+                          width={768}
+                          withZoom={false}
+                        >
+                          <figure
+                            className="mod-figure --horizontal"
+                            onClick={[Function]}
+                            onKeyDown={[Function]}
+                            role="button"
+                          >
+                            <ImageArticle
+                              active={false}
+                              href="/sociedad/seguridad/coronavirus-motin-en-devoto-nos-negamos-a-morir-en-la-carcel-nid24042020/"
+                              image={
+                                Object {
+                                  "height": 513,
+                                  "titleText": "Coronavirus. Motín en Devoto: “Nos negamos a morir en la cárcel”",
+                                  "type": "image",
+                                  "url": "https://resizer.glanacion.com/resizer/9i-N38ZsnfBkg0NjFi91qNx0y5Y=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TRSC3LYYI5AANJSVUL3ZJJG324.jpg",
+                                  "width": 768,
+                                }
+                              }
+                              isApertura={false}
+                              isVertical={false}
+                              outputType="default"
+                              zoom={false}
+                            >
+                              <ComPicture
+                                amp={false}
+                                classCondition=""
+                                href="/sociedad/seguridad/coronavirus-motin-en-devoto-nos-negamos-a-morir-en-la-carcel-nid24042020/"
+                                video=""
+                              >
+                                <a
+                                  href="/sociedad/seguridad/coronavirus-motin-en-devoto-nos-negamos-a-morir-en-la-carcel-nid24042020/"
+                                >
+                                  <div
+                                    className="placeholder "
+                                  >
+                                    <ComImage
+                                      alt="Coronavirus. Motín en Devoto: “Nos negamos a morir en la cárcel”"
+                                      amp={false}
+                                      classCondition=""
+                                      height={513}
+                                      href=""
+                                      isApertura={false}
+                                      sizes="100vw"
+                                      src="https://resizer.glanacion.com/resizer/9i-N38ZsnfBkg0NjFi91qNx0y5Y=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TRSC3LYYI5AANJSVUL3ZJJG324.jpg"
+                                      svg={false}
+                                      target=""
+                                      width={768}
+                                    >
+                                      <img
+                                        alt="Coronavirus. Motín en Devoto: “Nos negamos a morir en la cárcel”"
+                                        className="com-image "
+                                        decoding="async"
+                                        height={513}
+                                        importance="low"
+                                        loading="lazy"
+                                        src="https://resizer.glanacion.com/resizer/9i-N38ZsnfBkg0NjFi91qNx0y5Y=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TRSC3LYYI5AANJSVUL3ZJJG324.jpg"
+                                        width={768}
+                                      />
+                                    </ComImage>
+                                  </div>
+                                </a>
+                              </ComPicture>
+                            </ImageArticle>
+                          </figure>
+                        </ComFigure>
+                      </section>
+                    </ModMedia>
+                  </div>
+                </media>
+                <ModDescription
+                  authorSize="4xs"
+                  authors=""
+                  category={false}
+                  dateText=""
+                  label={
+                    Object {
+                      "text": "",
+                    }
+                  }
+                  lead=""
+                  link="/sociedad/seguridad/coronavirus-motin-en-devoto-nos-negamos-a-morir-en-la-carcel-nid24042020/"
+                  marquesina={null}
+                  subheadSize="2xs"
+                  subheadTag="h3"
+                  subheadText={false}
+                  tags={false}
+                  titleSize="--xs"
+                  titleTag="h2"
+                  titleText="Coronavirus. Motín en Devoto: “Nos negamos a morir en la cárcel”"
+                >
+                  <section
+                    className="mod-description"
+                  >
+                    <ComTitle
+                      content="Coronavirus. Motín en Devoto: “Nos negamos a morir en la cárcel”"
+                      customTitle=""
+                      lead=""
+                      link="/sociedad/seguridad/coronavirus-motin-en-devoto-nos-negamos-a-morir-en-la-carcel-nid24042020/"
+                      preTitle=""
+                      size="--xs"
+                      tag="h2"
+                    >
+                      <h2
+                        className="com-title --xs"
+                      >
+                        <ComLink
+                          classCondition=""
+                          dataEvent=""
+                          dataSection=""
+                          link="/sociedad/seguridad/coronavirus-motin-en-devoto-nos-negamos-a-morir-en-la-carcel-nid24042020/"
+                          size=""
+                          style=""
+                          textname=""
+                          title="Coronavirus. Motín en Devoto: “Nos negamos a morir en la cárcel”"
+                        >
+                          <a
+                            className="com-link"
+                            href="/sociedad/seguridad/coronavirus-motin-en-devoto-nos-negamos-a-morir-en-la-carcel-nid24042020/"
+                            title="Coronavirus. Motín en Devoto: “Nos negamos a morir en la cárcel”"
+                          >
+                            Coronavirus. Motín en Devoto: “Nos negamos a morir en la cárcel”
+                          </a>
+                        </ComLink>
+                      </h2>
+                    </ComTitle>
+                    <div />
+                  </section>
+                </ModDescription>
+              </article>
+            </ModArticle>
+          </ArticleAcum>
+          <ArticleAcum
+            artPosition="03"
+            article={
+              Object {
+                "_id": "KEBYELHATJHPRNAWO24GRV6YCQ",
+                "display_date": "",
+                "headlines": Object {
+                  "basic": "Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos",
+                  "mobile": "",
+                },
+                "promo_items": Object {
+                  "basic": Object {
+                    "height": 513,
+                    "type": "image",
+                    "url": "https://resizer.glanacion.com/resizer/pyiWe6lOY0IToc9Qn7DqM0fOY84=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HWSYUPWYQ5DKDON4ZV74I6MWZU.jpg",
+                    "width": 768,
+                  },
+                },
+                "publish_date": "2021-01-07T12:56:01.989Z",
+                "subheadlines": Object {
+                  "basic": "A los perros no les gusta estar solos . Tanto es así que incluso pueden llegar a experimentar ataques de pánico cuando los dueños salen de sus casas . ",
+                },
+                "subtype": "1",
+                "website_url": "/lifestyle/ansiedad-por-separacion-como-evitar-que-los-perros-sufran-cuando-vuelvan-a-quedarse-solos-nid24042020/",
+              }
+            }
+            boxPosition="01"
+            dataSection=""
+            frontdemo={true}
+            handleClick={[Function]}
+            isApertura={false}
+            isRenderAuthor={false}
+            key="KEBYELHATJHPRNAWO24GRV6YCQ"
+            outputType="default"
+            titleTag="h2"
+            typeArticle="Grilla"
+            withCategory={false}
+            withSubhead={false}
+            withTags={false}
+            withVolanta={true}
+          >
+            <ModArticle
+              artPosition="03"
+              articleData={
+                Object {
+                  "_id": "KEBYELHATJHPRNAWO24GRV6YCQ",
+                  "display_date": "",
+                  "headlines": Object {
+                    "basic": "Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos",
+                    "mobile": "",
+                  },
+                  "promo_items": Object {
+                    "basic": Object {
+                      "height": 513,
+                      "type": "image",
+                      "url": "https://resizer.glanacion.com/resizer/pyiWe6lOY0IToc9Qn7DqM0fOY84=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HWSYUPWYQ5DKDON4ZV74I6MWZU.jpg",
+                      "width": 768,
+                    },
+                  },
+                  "publish_date": "2021-01-07T12:56:01.989Z",
+                  "subheadlines": Object {
+                    "basic": "A los perros no les gusta estar solos . Tanto es así que incluso pueden llegar a experimentar ataques de pánico cuando los dueños salen de sus casas . ",
+                  },
+                  "subtype": "1",
+                  "website_url": "/lifestyle/ansiedad-por-separacion-como-evitar-que-los-perros-sufran-cuando-vuelvan-a-quedarse-solos-nid24042020/",
+                }
+              }
+              authors=""
+              boxPosition="01"
+              category={false}
+              dataSection=""
+              dateText=""
+              device="desktop"
+              handleClick={[Function]}
+              hour={false}
+              isApertura={false}
+              isPowa={true}
+              isRenderAuthor={false}
+              isRenderAuthorOpinion={false}
+              label={
+                Object {
+                  "text": "",
+                }
+              }
+              layout=""
+              leadText=""
+              link="/lifestyle/ansiedad-por-separacion-como-evitar-que-los-perros-sufran-cuando-vuelvan-a-quedarse-solos-nid24042020/"
+              outputType="default"
+              subheadText={false}
+              tags={false}
+              titleTag="h2"
+              titleText="Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos"
+              typeArticle="Grilla"
+              withMedia={true}
+            >
+              <article
+                className="mod-article toi0103 nidKEBYELHATJHPRNAWO24GRV6YCQ"
+                data-id="KEBYELHATJHPRNAWO24GRV6YCQ"
+                data-notaid="KEBYELHATJHPRNAWO24GRV6YCQ"
+                data-pos="0103"
+                data-source="editor"
+                onAuxClick={[Function]}
+                onClick={[Function]}
+              >
+                <media
+                  href="/lifestyle/ansiedad-por-separacion-como-evitar-que-los-perros-sufran-cuando-vuelvan-a-quedarse-solos-nid24042020/"
+                  isApertura={false}
+                  isPowa={true}
+                  mediaData={
+                    Object {
+                      "height": 513,
+                      "type": "image",
+                      "url": "https://resizer.glanacion.com/resizer/pyiWe6lOY0IToc9Qn7DqM0fOY84=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HWSYUPWYQ5DKDON4ZV74I6MWZU.jpg",
+                      "width": 768,
+                    }
+                  }
+                  outputType="default"
+                  titleText="Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos"
+                  withZoom={false}
+                >
+                  <div
+                    className="content-media"
+                  >
+                    <ModMedia
+                      active={false}
+                      classCondition=""
+                      html=""
+                      itsGallery={false}
+                      outputType="default"
+                      scriptForZoom=""
+                      withZoom={false}
+                      zoom={false}
+                    >
+                      <section
+                        className="mod-media   "
+                        role="button"
+                      >
+                        <ComFigure
+                          classCondition="--horizontal"
+                          handleClick={[Function]}
+                          outputType="default"
+                          width={768}
+                          withZoom={false}
+                        >
+                          <figure
+                            className="mod-figure --horizontal"
+                            onClick={[Function]}
+                            onKeyDown={[Function]}
+                            role="button"
+                          >
+                            <ImageArticle
+                              active={false}
+                              href="/lifestyle/ansiedad-por-separacion-como-evitar-que-los-perros-sufran-cuando-vuelvan-a-quedarse-solos-nid24042020/"
+                              image={
+                                Object {
+                                  "height": 513,
+                                  "titleText": "Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos",
+                                  "type": "image",
+                                  "url": "https://resizer.glanacion.com/resizer/pyiWe6lOY0IToc9Qn7DqM0fOY84=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HWSYUPWYQ5DKDON4ZV74I6MWZU.jpg",
+                                  "width": 768,
+                                }
+                              }
+                              isApertura={false}
+                              isVertical={false}
+                              outputType="default"
+                              zoom={false}
+                            >
+                              <ComPicture
+                                amp={false}
+                                classCondition=""
+                                href="/lifestyle/ansiedad-por-separacion-como-evitar-que-los-perros-sufran-cuando-vuelvan-a-quedarse-solos-nid24042020/"
+                                video=""
+                              >
+                                <a
+                                  href="/lifestyle/ansiedad-por-separacion-como-evitar-que-los-perros-sufran-cuando-vuelvan-a-quedarse-solos-nid24042020/"
+                                >
+                                  <div
+                                    className="placeholder "
+                                  >
+                                    <ComImage
+                                      alt="Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos"
+                                      amp={false}
+                                      classCondition=""
+                                      height={513}
+                                      href=""
+                                      isApertura={false}
+                                      sizes="100vw"
+                                      src="https://resizer.glanacion.com/resizer/pyiWe6lOY0IToc9Qn7DqM0fOY84=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HWSYUPWYQ5DKDON4ZV74I6MWZU.jpg"
+                                      svg={false}
+                                      target=""
+                                      width={768}
+                                    >
+                                      <img
+                                        alt="Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos"
+                                        className="com-image "
+                                        decoding="async"
+                                        height={513}
+                                        importance="low"
+                                        loading="lazy"
+                                        src="https://resizer.glanacion.com/resizer/pyiWe6lOY0IToc9Qn7DqM0fOY84=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HWSYUPWYQ5DKDON4ZV74I6MWZU.jpg"
+                                        width={768}
+                                      />
+                                    </ComImage>
+                                  </div>
+                                </a>
+                              </ComPicture>
+                            </ImageArticle>
+                          </figure>
+                        </ComFigure>
+                      </section>
+                    </ModMedia>
+                  </div>
+                </media>
+                <ModDescription
+                  authorSize="4xs"
+                  authors=""
+                  category={false}
+                  dateText=""
+                  label={
+                    Object {
+                      "text": "",
+                    }
+                  }
+                  lead=""
+                  link="/lifestyle/ansiedad-por-separacion-como-evitar-que-los-perros-sufran-cuando-vuelvan-a-quedarse-solos-nid24042020/"
+                  marquesina={null}
+                  subheadSize="2xs"
+                  subheadTag="h3"
+                  subheadText={false}
+                  tags={false}
+                  titleSize="--xs"
+                  titleTag="h2"
+                  titleText="Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos"
+                >
+                  <section
+                    className="mod-description"
+                  >
+                    <ComTitle
+                      content="Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos"
+                      customTitle=""
+                      lead=""
+                      link="/lifestyle/ansiedad-por-separacion-como-evitar-que-los-perros-sufran-cuando-vuelvan-a-quedarse-solos-nid24042020/"
+                      preTitle=""
+                      size="--xs"
+                      tag="h2"
+                    >
+                      <h2
+                        className="com-title --xs"
+                      >
+                        <ComLink
+                          classCondition=""
+                          dataEvent=""
+                          dataSection=""
+                          link="/lifestyle/ansiedad-por-separacion-como-evitar-que-los-perros-sufran-cuando-vuelvan-a-quedarse-solos-nid24042020/"
+                          size=""
+                          style=""
+                          textname=""
+                          title="Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos"
+                        >
+                          <a
+                            className="com-link"
+                            href="/lifestyle/ansiedad-por-separacion-como-evitar-que-los-perros-sufran-cuando-vuelvan-a-quedarse-solos-nid24042020/"
+                            title="Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos"
+                          >
+                            Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos
+                          </a>
+                        </ComLink>
+                      </h2>
+                    </ComTitle>
+                    <div />
+                  </section>
+                </ModDescription>
+              </article>
+            </ModArticle>
+          </ArticleAcum>
+        </div>
+      </ModRowGap>
+    </section>
+  </div>
+</CajaTema>
+`;

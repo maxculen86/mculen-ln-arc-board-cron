@@ -7,6 +7,7 @@
     border: 1px solid $dark-neutral-600;
     border-radius: 4px;
     min-height: px(340);
+    max-height: px(360);
     min-width: px(234);
     width: 100%;
     padding: $spacing-sm $spacing-sm px(20) $spacing-sm;
@@ -130,29 +131,22 @@
             grid-template-columns: repeat(3, 1fr);
             padding-bottom: px(90);
 
-
             &.quini-6-extra-pot {
                 padding: px(20) 0;
                 grid-template-columns: repeat(4, 1fr);
             }
         }
         &.--grid-5-columns {
-            grid-template-columns: repeat(5, 1fr);
-            column-gap: px(1);
-            @media ($media-xs) {
-                column-gap: px(12);
-            }
-            @media ($media-s) {
-                column-gap: px(16);
-            }
-            @media ($media-m) {
-                column-gap: px(4);
-            }
-            @media ($media-l) {
-                column-gap: px(16);
-            }
-            @media ($media-lm) {
-                column-gap: px(8);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            column-gap: 0px;
+            flex: 100%;
+
+            & > div {
+                display: flex;
+                justify-content: center;
+                flex: 20%;
             }
         }
     }

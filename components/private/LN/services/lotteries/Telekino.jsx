@@ -28,11 +28,13 @@ const Telekino = ({ name, date, results, isDetail, link }) => {
                 >
                     {(!isDetail ? resultsTomap[0].result : results).map(
                         number => (
-                            <BallLotteries
-                                key={number}
-                                number={number}
-                                size="large"
-                            />
+                            <div>
+                                <BallLotteries
+                                    key={number}
+                                    number={number}
+                                    size="large"
+                                />
+                            </div>
                         )
                     )}
                 </div>

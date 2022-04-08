@@ -6,7 +6,7 @@ import get from './utils/get';
 import getFirstAuthorAsString from './utils/getAuthorsAsString';
 
 const Opinion = props => {
-    const { articles = [], layout, arcSite } = props;
+    const { articles = [], layout, arcSite, handleClick } = props;
     const transform = _articles =>
         _articles &&
         _articles.length &&
@@ -56,6 +56,7 @@ const Opinion = props => {
                         }
                         boxPosition="98"
                         artPosition="01"
+                        handleClick={handleClick}
                     />
                 </div>
                 <div className="col-tablet-4">
@@ -78,6 +79,7 @@ const Opinion = props => {
                         )}
                         boxPosition="98"
                         artPosition="02"
+                        handleClick={handleClick}
                     />
                     <Article
                         articleData={art3}
@@ -98,6 +100,7 @@ const Opinion = props => {
                         )}
                         boxPosition="98"
                         artPosition="03"
+                        handleClick={handleClick}
                     />
                 </div>
                 <div className="col-tablet-3">
@@ -120,6 +123,7 @@ const Opinion = props => {
                         )}
                         boxPosition="98"
                         artPosition="04"
+                        handleClick={handleClick}
                     />
                 </div>
             </>
@@ -130,13 +134,15 @@ const Opinion = props => {
 Opinion.propTypes = {
     articles: PropTypes.shape({}),
     layout: PropTypes.string,
-    arcSite: PropTypes.string
+    arcSite: PropTypes.string,
+    handleClick: PropTypes.func
 };
 
 Opinion.defaultProps = {
     articles: [],
     layout: 'opinion4',
-    arcSite: 'la-nacion-ar'
+    arcSite: 'la-nacion-ar',
+    handleClick: undefined
 };
 
 export default Opinion;
