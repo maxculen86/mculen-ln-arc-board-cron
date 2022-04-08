@@ -4,9 +4,12 @@ import PropTypes from 'fusion:prop-types';
 import '../../../../resources/dist/css/ln/components/breadcrumb.css';
 import ModTooltip from '../../common/mod-tooltip';
 import ComContainer from '../../common/com-container';
+import capitalizeFirstLetter from '../../common/utils/capitalizeFirstLetter';
+import recipeDictionary from '../../common/utils/recetaDictionary';
 
 const getListSections = (sections, extraOpts, host, colorCategory) =>
-    sections.map(section => {
+    sections.map((section, i) => {
+        const { id = '' } = section;
         const path =
             section.name === 'LA NACION' && section.path === '/' && host
                 ? host
@@ -16,7 +19,11 @@ const getListSections = (sections, extraOpts, host, colorCategory) =>
                 className="com-link --fourxs"
                 key={path}
                 href={`${path}/`}
-                title={`Noticias de ${section.name}`}
+                title={
+                    i + 1 === sections.length && id.includes('/recetas')
+                        ? capitalizeFirstLetter(recipeDictionary[section.name])
+                        : `Noticias de ${section.name}`
+                }
                 {...extraOpts}
                 style={{
                     ...(colorCategory && {

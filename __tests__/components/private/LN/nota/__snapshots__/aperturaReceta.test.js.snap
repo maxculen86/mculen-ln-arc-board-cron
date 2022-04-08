@@ -53,21 +53,21 @@ exports[`features - La Nacion - Components - Nota - AperturaReceta Snapshot - an
           <a
             class="com-link com-button --secondary --compact --transparent"
             href="/recetas/platos-principales/"
-            title="Ir a notas de Platos Principales"
+            title="Ir a notas de undefined"
           >
             Platos Principales
           </a>
           <a
             class="com-link com-button --secondary --compact --transparent"
             href="/recetas/recetas-con-ingredientes/pollo/"
-            title="Ir a notas de Pollo"
+            title="Ir a notas de recetas con pollo"
           >
             Pollo
           </a>
           <a
             class="com-link com-button --secondary --compact --transparent"
             href="/recetas/recetas-con-ingredientes/"
-            title="Ir a notas de Recetas con ingredientes"
+            title="Ir a notas de undefined"
           >
             Recetas con ingredientes
           </a>
@@ -273,21 +273,21 @@ exports[`features - La Nacion - Components - Nota - AperturaReceta Snapshot - si
               <a
                 class="com-link com-button --secondary --compact --transparent"
                 href="/recetas/platos-principales/"
-                title="Ir a notas de Platos Principales"
+                title="Ir a notas de undefined"
               >
                 Platos Principales
               </a>
               <a
                 class="com-link com-button --secondary --compact --transparent"
                 href="/recetas/recetas-con-ingredientes/pollo/"
-                title="Ir a notas de Pollo"
+                title="Ir a notas de recetas con pollo"
               >
                 Pollo
               </a>
               <a
                 class="com-link com-button --secondary --compact --transparent"
                 href="/recetas/recetas-con-ingredientes/"
-                title="Ir a notas de Recetas con ingredientes"
+                title="Ir a notas de undefined"
               >
                 Recetas con ingredientes
               </a>
