@@ -137,6 +137,9 @@ export const getMarkupForDatalayer = (
             extraOpts: {
                 'data-block-name': 'n_ranking',
                 ...extraOptsdefault
+            },
+            extraOptsDiv: {
+                'data-module': 'tema_ranking'
             }
         },
         Default: (pos, section, lay) => {

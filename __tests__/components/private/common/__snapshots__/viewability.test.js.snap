@@ -266,7 +266,6 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                       active={false}
                       classCondition=""
                       html=""
-                      idMedia={false}
                       itsGallery={false}
                       outputType="default"
                       scriptForZoom=""
@@ -275,7 +274,6 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                     >
                       <section
                         className="mod-media   "
-                        id={false}
                         role="button"
                       >
                         <ComFigure
@@ -336,10 +334,10 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                                       <img
                                         alt="Prueba Newsletter de propiedades"
                                         className="com-image "
+                                        decoding="async"
                                         height={513}
                                         importance="low"
                                         loading="lazy"
-                                        sizes="100vw"
                                         src="https://resizer.glanacion.com/resizer/zCmtgBsAISCbu_XRzUG4HxJvDsU=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/U665QRLUEJGU7B6WMZ4AEAQDRY.jpg"
                                         width={768}
                                       />
@@ -543,7 +541,6 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                       active={false}
                       classCondition=""
                       html=""
-                      idMedia={false}
                       itsGallery={false}
                       outputType="default"
                       scriptForZoom=""
@@ -552,7 +549,6 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                     >
                       <section
                         className="mod-media   "
-                        id={false}
                         role="button"
                       >
                         <ComFigure
@@ -613,10 +609,10 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                                       <img
                                         alt="Coronavirus. Motín en Devoto: “Nos negamos a morir en la cárcel”"
                                         className="com-image "
+                                        decoding="async"
                                         height={513}
                                         importance="low"
                                         loading="lazy"
-                                        sizes="100vw"
                                         src="https://resizer.glanacion.com/resizer/9i-N38ZsnfBkg0NjFi91qNx0y5Y=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TRSC3LYYI5AANJSVUL3ZJJG324.jpg"
                                         width={768}
                                       />
@@ -820,7 +816,6 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                       active={false}
                       classCondition=""
                       html=""
-                      idMedia={false}
                       itsGallery={false}
                       outputType="default"
                       scriptForZoom=""
@@ -829,7 +824,6 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                     >
                       <section
                         className="mod-media   "
-                        id={false}
                         role="button"
                       >
                         <ComFigure
@@ -890,10 +884,10 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                                       <img
                                         alt="Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos"
                                         className="com-image "
+                                        decoding="async"
                                         height={513}
                                         importance="low"
                                         loading="lazy"
-                                        sizes="100vw"
                                         src="https://resizer.glanacion.com/resizer/pyiWe6lOY0IToc9Qn7DqM0fOY84=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HWSYUPWYQ5DKDON4ZV74I6MWZU.jpg"
                                         width={768}
                                       />
