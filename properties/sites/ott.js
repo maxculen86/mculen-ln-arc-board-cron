@@ -1,5 +1,8 @@
 export default {
     title: 'LN+ Mirá todos los programas y videos online',
+    acumuladoTitle: 'Mirá todos los programas y videos online en LN+',
+    description:
+        'Ingresá a LN+ para ver todos los programas y videos online: La Cornisa, Odisea Argentina, El diario de Leuco, Mesa chica y mucho más!',
     className: {
         body: 'ott'
     },

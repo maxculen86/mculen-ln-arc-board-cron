@@ -20,6 +20,7 @@ exports[`OTT - layout - activePrograms - components Snapshot Test 1`] = `
 >
   <section>
     <mock-title
+      TitleTag="h3"
       className="section-title"
       title="Todos los programas"
     />
