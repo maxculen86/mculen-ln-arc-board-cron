@@ -15,7 +15,7 @@ const HoroscopeBox = ({
     return (
         <article className={`horoscope-box ${classCondition}`}>
             {title && (
-                <Text tag="h2" extraClass="com-title" size="--m">
+                <Text tag="h3" extraClass="com-title" size="--m">
                     {title}
                 </Text>
             )}

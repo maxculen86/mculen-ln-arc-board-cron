@@ -8,7 +8,6 @@ import get from '../../../common/utils/get';
 import {
     restMinutes,
     differenceInMinutes,
-    formatDateTreeHoursMore,
     addHours
 } from '../../../common/utils/dateAndTimeUtil';
 import {
@@ -75,8 +74,8 @@ const buildBlogObjects = (globalContent, url, PLACEHOLDER) => {
             url: `${url.slice(0, -1)}#parrafo_${i + 1}`,
             '@id': `#parrafo_${i + 1}`,
             mainEntityOfPage: { '@type': 'WebPage' },
-            datePublished: formatDateTreeHoursMore(dateModified),
-            dateModified: formatDateTreeHoursMore(dateModified),
+            datePublished: dateModified,
+            dateModified,
             articleBody: elem.content,
             image: {
                 '@type': 'ImageObject',
@@ -115,8 +114,8 @@ const SnippetLiveblog = props => {
 
     const url = `${siteProperties.host}${canonicalUrl || ''}`;
     const blogObjects = buildBlogObjects(globalContent, url, PLACEHOLDER);
-    const converageStart = formatDateTreeHoursMore(new Date(firstPublishDate));
-    const coverageEnd = addHours(9, displayDate);
+    const converageStart = new Date(firstPublishDate);
+    const coverageEnd = addHours(12, displayDate);
     const noteTitle =
         headlines &&
         `${headlines.meta_title || headlines.basic || 'LA NACION - Noticia'}`;

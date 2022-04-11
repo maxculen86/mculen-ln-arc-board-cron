@@ -50,7 +50,7 @@
                     "25"
                 ],
                 "additional_properties": {
-                    "estimated_pot": ["$145.000.000,00"]
+                    "estimated_pot": "$145.000.000,00"
                 }
             },
             {
@@ -92,6 +92,7 @@
                 ],
                 "id": "Telekino",
                 "name": "Telekino",
+                "lottery_draw_name": "Rekino",
                 "lottery_draw_id": "Rekino",
                 "date": "2022-03-13T19:00:00",
                 "results": [
@@ -112,7 +113,7 @@
                     "23"
                 ],
                 "additional_properties": {
-                    "estimated_pot": ["$145.0000.000,00"]
+                    "estimated_pot": "$145.0000.000,00"
                 }
             }
         ],

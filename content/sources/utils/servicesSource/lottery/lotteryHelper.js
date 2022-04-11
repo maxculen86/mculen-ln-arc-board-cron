@@ -1,38 +1,43 @@
 /* eslint-disable camelcase */
 import transformISODate from '../../../../../components/private/common/utils/transformISODate';
-import { games, LOCATIONS } from './_config';
+import { games } from './_config';
 import get from '../../../../../components/private/common/utils/get';
 
 const getValue = (input, key) => input.filter(e => e.id === key);
 
+const formatNumbers = (arr = []) =>
+    arr ? arr.map(num => num.padStart(2, '0')) : [];
+
 export const transformLotteryDetail = data => {
     const [firstLottery = {}] = data;
     const newRules = get(games, `${firstLottery.id}.rules`, []);
+    const cardComponent = get(games, `${firstLottery.id}.component`, '');
     const lotteryDetail = data.map(lottery => {
         const {
             name = '',
             id = '',
-            lottery_draw_id = '',
+            lottery_draw_name = '',
             date = '',
             additional_properties = {},
             prizes = [],
             results = []
         } = lottery;
         const {
-            letters = [],
+            letters = '',
             jackpot = [],
-            estimated_pot = [],
+            estimated_pot = '$0',
             meaning = ''
         } = additional_properties;
+
         const winnersTable = getWinnersTable(prizes);
         const winnersCarton = getWinnersCarton(prizes);
         return {
-            name,
+            name: lottery_draw_name || name,
             id,
-            ...(lottery_draw_id && { lottery_draw_id }),
+            component: cardComponent,
             date: transformISODate(date, 'day dd/mm/yyyy'),
-            ...(letters.length && {
-                letters: letters.shift()
+            ...(letters !== '' && {
+                letters: [letters.replace(/\s+/g, '')]
             }),
             ...(jackpot.length && {
                 jackpot
@@ -40,10 +45,11 @@ export const transformLotteryDetail = data => {
             ...(meaning && {
                 meaning
             }),
-            ...(estimated_pot.length && {
-                estimatedPot: estimated_pot.shift()
-            }),
-            results,
+            ...(estimated_pot.length &&
+                estimated_pot !== '$0' && {
+                    estimatedPot: estimated_pot
+                }),
+            results: formatNumbers(results),
             ...(winnersTable.length && { winners_table: winnersTable }),
             ...(winnersCarton.length && {
                 winner_carton: winnersCarton
@@ -56,22 +62,13 @@ export const transformLotteryDetail = data => {
     };
 };
 
-const getLotteryName = lotteries =>
-    lotteries
-        .filter(item => item !== 'aciertos' && item !== 'jackpot')
-        .join('');
-
 const getWinnersTable = prizes =>
     prizes
         .filter(prize => prize.name !== 'carton')
         .map(prize => {
             const { name: prizeName = '', winners = '', amount = '' } = prize;
-            const newPrizeName = prizeName.split(' ');
             return {
-                name:
-                    newPrizeName.length < 2
-                        ? newPrizeName.shift()
-                        : getLotteryName(newPrizeName),
+                name: prizeName.replace(/\s(aciertos|jackpot)/gm, ''),
                 ...(winners && { winners }),
                 ...(amount && { amount })
             };
@@ -101,19 +98,27 @@ export const transformLotteryHome = data => ({
                 additional_properties = {}
             } = {}
         ] = newValue;
-        const { letters = [], estimated_pot = [] } = additional_properties;
+        const {
+            letters = '',
+            vacant_pot = '$0',
+            meaning = ''
+        } = additional_properties;
+
         newValue.length &&
             acc.push({
                 id,
                 name,
                 component: cardComponent,
-                date: transformISODate(date),
+                date: transformISODate(date, 'day dd/mm/yyyy'),
                 ...(url && { link: url }),
-                ...(letters.length && {
-                    letters: letters.shift().split(' ')
+                ...(letters !== '' && {
+                    letters: [letters.replace(/\s+/g, '')]
                 }),
-                ...(estimated_pot.length && {
-                    estimatedPot: estimated_pot.shift()
+                ...(meaning && {
+                    meaning
+                }),
+                ...(vacant_pot !== '$0' && {
+                    vacantPot: vacant_pot
                 }),
                 results: transformResult(newValue)
             });
@@ -134,7 +139,7 @@ const transformResult = values =>
         return {
             name: lottery_draw_name,
             date: transformISODate(date, 'dd/mm'),
-            result: results,
+            result: formatNumbers(results),
             ...(jackpot.length && {
                 jackpot
             })
@@ -159,7 +164,12 @@ const gamesQtyText = {
 
 export const metaDataLotteryDetail = (dataService, serviceType) => {
     const { items } = dataService;
-    const { name: lotteryName, lottery_draw_number = '', date = '' } = items[0];
+    const {
+        name: lotteryName,
+        lottery_draw_number = '',
+        date = '',
+        location = 'Buenos Aires'
+    } = items[0];
     const gamesModes = extractGameTypes(dataService, serviceType);
     const completeDay = transformISODate(date, 'dia de mes');
 
@@ -175,6 +185,6 @@ export const metaDataLotteryDetail = (dataService, serviceType) => {
         lotteryNumber: lottery_draw_number,
         modalities,
         completeDay,
-        location: LOCATIONS[lotteryName] || LOCATIONS.default
+        location
     };
 };

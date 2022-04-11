@@ -98,13 +98,13 @@ const Amp = props => {
                 <meta name="viewport" content="width=device-width" />
                 <LinkImagePreload resizedUrls={resizedUrls} isAmp />
                 <meta name="theme-color" content="#ffffff" />
-                <meta name="google" content="notranslate" />
                 <MetaTitle
                     subtype={subtype}
                     metaTitleBasic={metaTitleBasic}
                     arcSite={arcSite}
                     nodeType={nodeType}
                     _id={_id}
+                    metaValue={metaTitleValue}
                     title={metaTitleValue}
                 />
                 <MetaDescription
@@ -121,7 +121,7 @@ const Amp = props => {
                     subheadlines={subheadlines && subheadlines.basic}
                     arcSite={arcSite}
                 />
-                <MetasOG {...props} />
+                <MetasOG {...props} section={_nodeType} />
                 <Syndication
                     type={type}
                     arcSite={arcSite}

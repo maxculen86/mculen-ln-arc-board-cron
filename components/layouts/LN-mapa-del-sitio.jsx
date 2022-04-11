@@ -203,15 +203,15 @@ const LNMapaDelSitio = ({ children }) => {
         { text: 'Feriados', href: 'https://www.lanacion.com.ar/feriados' },
         {
             text: 'Loterías y quinielas',
-            href: 'https://servicios.lanacion.com.ar/loterias'
+            href: 'https://www.lanacion.com.ar/loterias/'
         },
         {
             text: 'Cartelera de cine',
-            href: 'https://www.lanacion.com.ar/cartelera-de-cine'
+            href: 'https://www.lanacion.com.ar/cartelera-de-cine/'
         },
         {
             text: 'Cartelera de teatro',
-            href: 'https://www.lanacion.com.ar/cartelera-de-teatro'
+            href: 'https://www.lanacion.com.ar/cartelera-de-teatro/'
         },
         {
             text: 'Recetas',

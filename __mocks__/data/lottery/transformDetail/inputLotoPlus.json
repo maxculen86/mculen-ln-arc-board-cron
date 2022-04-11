@@ -21,6 +21,7 @@
                 ],
                 "id": "Loto",
                 "name": "Loto",
+                "lottery_draw_name": "Desquite",
                 "lottery_draw_id": "Desquite",
                 "date": "2022-03-12T22:00:00",
                 "results": ["01", "09", "18", "28", "31", "40"],
@@ -63,6 +64,7 @@
                 ],
                 "id": "Loto",
                 "name": "Loto",
+                "lottery_draw_name": "Sale_o_sale",
                 "lottery_draw_id": "Sale_o_sale",
                 "date": "2022-03-12T22:00:00",
                 "results": ["03", "14", "20", "25", "26", "28"],
@@ -129,12 +131,13 @@
                 ],
                 "id": "Loto",
                 "name": "Loto",
+                "lottery_draw_name": "Tradicional",
                 "lottery_draw_id": "Tradicional",
                 "date": "2022-03-12T22:00:00",
                 "results": ["08", "19", "20", "27", "29", "40"],
                 "additional_properties": {
                     "jackpot": ["0", "9"],
-                    "estimated_pot": ["949.000.000"]
+                    "estimated_pot": "949.000.000"
                 }
             }
         ],

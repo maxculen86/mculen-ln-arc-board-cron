@@ -36,7 +36,11 @@ const ModCategory = props => {
                 </div>
             ) : (
                 <h1 className="com-title --xl" style={style}>
-                    <a href={url} className="com-link --black" title={category}>
+                    <a
+                        href={url}
+                        className="com-link --black"
+                        title={`Ir a ${category}`}
+                    >
                         {category}
                     </a>
                 </h1>

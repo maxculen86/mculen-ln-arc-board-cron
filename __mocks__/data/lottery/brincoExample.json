@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Brinco",
+        "id": "Brinco",
+        "component": "Brinco",
+        "date": "Domingo 03/04/2022",
+        "estimatedPot": "$73.000.000",
+        "results": ["05", "08", "10", "30", "36", "39"],
+        "winners_table": [
+            {
+                "name": "5",
+                "winners": "8",
+                "amount": "$70.007"
+            },
+            {
+                "name": "3",
+                "winners": "4.859",
+                "amount": "$80"
+            },
+            {
+                "name": "4",
+                "winners": "356",
+                "amount": "$519"
+            },
+            {
+                "name": "6",
+                "winners": "Vacante",
+                "amount": "$56.580.658"
+            }
+        ]
+    }
+]
