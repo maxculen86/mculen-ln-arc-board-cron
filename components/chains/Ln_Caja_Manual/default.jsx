@@ -42,7 +42,10 @@ const CajaManual = props => {
         sectionName
     } = getCommonProps(props);
 
-    const aperturasChildren = getChildrenFromAperturaHome(renderables);
+    const aperturasChildren = getChildrenFromAperturaHome(
+        renderables,
+        childProps
+    );
     const multimediaChildren = getChildrenFromSectionHome(
         renderables,
         'Multimedia',
