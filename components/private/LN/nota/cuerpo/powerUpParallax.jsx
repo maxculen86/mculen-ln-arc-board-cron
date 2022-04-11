@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
 import ComImage from '../../../common/com-image';
 
-const Parallax = ({ _id, type, subtype, embed }) => {
+const Parallax = ({ data }) => {
     const {
-        config: { imageId, title, paragraph }
-    } = embed;
+        embed: {
+            config: { imageId, title, paragraph }
+        }
+    } = data;
 
     const imageContent = useContent({
         source: 'imageSource',
@@ -38,17 +40,19 @@ const Parallax = ({ _id, type, subtype, embed }) => {
         </div>
     );
 };
-Parallax.arcType = 'power-up-parallax';
+Parallax.arcType = 'custom-parallax';
 Parallax.propTypes = {
-    _id: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    subtype: PropTypes.string.isRequired,
-    embed: PropTypes.shape({
-        config: PropTypes.shape({
-            imageId: PropTypes.string.isRequired,
-            title: PropTypes.string,
-            paragraph: PropTypes.string
-        })
+    data: PropTypes.shape({
+        _id: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+        subtype: PropTypes.string.isRequired,
+        embed: PropTypes.shape({
+            config: PropTypes.shape({
+                imageId: PropTypes.string.isRequired,
+                title: PropTypes.string,
+                paragraph: PropTypes.string
+            }).isRequired
+        }).isRequired
     }).isRequired
 };
 

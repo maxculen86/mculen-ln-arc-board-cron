@@ -20,6 +20,7 @@ import BotonLink from './botonLink';
 import Html from './html';
 import OptaAMP from './optaAMP';
 import powerUpsReceta from './powerUpsReceta';
+import Parallax from './powerUpParallax';
 import HtmlAMP from './htmlAMP';
 import Divider from './divider';
 import DivBannerSSR from '../../../common/banners/DivBannerSSR';
@@ -58,6 +59,7 @@ const Cuerpo = props => {
         Html,
         OptaAMP,
         powerUpsReceta,
+        Parallax,
         HtmlAMP,
         Divider
     ];
@@ -94,7 +96,7 @@ const Cuerpo = props => {
             additional_properties: { nodeType = {} } = {}
         } = element || {};
         const Component = bodyComponents.find(bc => {
-            if (subtype === FOTOAL100) {
+            if (subtype === FOTOAL100 && _subtype !== 'custom-parallax') {
                 return (
                     !(
                         _type === 'oembed_response' ||

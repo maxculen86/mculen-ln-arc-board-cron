@@ -190,6 +190,16 @@ const labels = `
         }
     }
 `;
+const customParallax = `
+    subtype
+    embed {
+        config {
+            imageId
+            title
+            paragraph
+        }
+    }
+`;
 const customReceta = `
     subtype
     embed {
@@ -382,6 +392,7 @@ export default `
             subtype
             embed{
                 config{
+
                     items{
                         text
                         value
@@ -399,6 +410,7 @@ export default `
         }
         ${image}
         ${customReceta}
+        ${customParallax}
         ${gallery}
         ${video}
         ${oembed}
