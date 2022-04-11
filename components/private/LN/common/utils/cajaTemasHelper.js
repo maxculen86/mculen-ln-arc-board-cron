@@ -95,12 +95,18 @@ export const getMarkupForDatalayer = (
             extraOpts: {
                 'data-block-name': 'h_opinion',
                 ...extraOptsdefault
+            },
+            extraOptsDiv: {
+                'data-module': `tema_opinion`
             }
         },
         Editoriales: {
             extraOpts: {
                 'data-block-name': 'h_editoriales',
                 ...extraOptsdefault
+            },
+            extraOptsDiv: {
+                'data-module': `tema_editoriales`
             }
         },
         OtrasNoticias: {
@@ -131,6 +137,9 @@ export const getMarkupForDatalayer = (
             extraOpts: {
                 'data-block-name': 'n_ranking',
                 ...extraOptsdefault
+            },
+            extraOptsDiv: {
+                'data-module': 'tema_ranking'
             }
         },
         Default: (pos, section, lay) => {

@@ -12,6 +12,7 @@ const LastVideosByProgram = props => {
             videos={props.videos}
             nextPageHandler={props.nextPage}
             hasNext={props.hasNextPage}
+            programName={props.globalContent && props.globalContent.name}
         />
     );
 };

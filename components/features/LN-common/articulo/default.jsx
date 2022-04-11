@@ -16,6 +16,7 @@ import filter from '../../../../content/filters/LN/nota/articleAcu';
 import featureArticleCustomsFields from '../../../private/LN/common/utils/articuloHelper';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
+import { productClickFromClient } from '../../../private/common/utils/viewability';
 
 const ArticleFeature = ({
     id: featureId,
@@ -119,6 +120,7 @@ const ArticleFeature = ({
                 )}
                 videoBackground={videoBackground}
                 isPowa={layout !== 'grilla1'}
+                handleClick={productClickFromClient}
             />
         )) ||
         getPlaceholder(layout, index)

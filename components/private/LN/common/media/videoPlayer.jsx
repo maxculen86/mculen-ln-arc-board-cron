@@ -19,7 +19,8 @@ const video = ({
     tituloNota,
     autoplay,
     isPowa,
-    href
+    href,
+    isApertura
 }) => {
     const { streams = [], promo_items: promoItems } = mediaData;
     const tituloVideo = get(mediaData, 'headlines.basic', '');
@@ -57,6 +58,7 @@ const video = ({
                         tituloVideo={tituloVideo}
                         autoPlay={autoplay}
                         device={screenUtils.device}
+                        isApertura={isApertura}
                     />
                 </AmpContainer>
                 <AmpContainer isForAmp>
