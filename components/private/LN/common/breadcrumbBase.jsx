@@ -9,18 +9,20 @@ import recipeDictionary from '../../common/utils/recetaDictionary';
 
 const getListSections = (sections, extraOpts, host, colorCategory) =>
     sections.map((section, i) => {
-        const { id = '' } = section;
+        const { id = '', path: sectionPath = '' } = section;
         const path =
             section.name === 'LA NACION' && section.path === '/' && host
                 ? host
                 : section.path;
+        const isRecipe =
+            id.includes('/recetas') || sectionPath.includes('/recetas');
         return (
             <a
                 className="com-link --fourxs"
                 key={path}
                 href={`${path}/`}
                 title={
-                    i + 1 === sections.length && id.includes('/recetas')
+                    i + 1 === sections.length && isRecipe
                         ? capitalizeFirstLetter(recipeDictionary[section.name])
                         : `Noticias de ${section.name}`
                 }
@@ -47,6 +49,7 @@ const BreadcrumbBase = props => {
         tooltip,
         colorCategory = ''
     } = props;
+    console.log('🚀 ~ file: breadcrumbBase.jsx ~ line 50 ~ sections', sections);
 
     const extraOpts = {};
 
