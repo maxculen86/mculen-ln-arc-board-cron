@@ -114,7 +114,6 @@ const CajaManual = props => {
             _children={children}
         />
     );
-    console.log('🚀 ~ file: default.jsx', isInApertura, Component);
     return isInApertura && !isAdmin ? (
         <Static id={featureId}>{Component}</Static>
     ) : (

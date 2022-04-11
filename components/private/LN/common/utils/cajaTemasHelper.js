@@ -240,10 +240,6 @@ export const hastVariant = (childProps = []) => {
 
 export const getChildrenFromAperturaHome = ({ renderables, childProps }) => {
     const hasVariantForABTesting = hastVariant(childProps);
-    console.log(
-        '🚀 ~ file: cajaTemasHelper.js ~ line 243 ~ getChildrenFromAperturaHome ~ isVariant',
-        hasVariantForABTesting
-    );
 
     return hasVariantForABTesting
         ? getChildrenFromSectionHome(renderables, 'Apertura_1', 3)
@@ -251,10 +247,6 @@ export const getChildrenFromAperturaHome = ({ renderables, childProps }) => {
               ...getChildrenFromSectionHome(renderables, 'Apertura_1', 3),
               ...getChildrenFromSectionHome(renderables, 'Apertura_2', 4)
           ];
-
-    // return getChildrenFromSectionHome(renderables, 'Apertura_1', 3).concat(
-    //     getChildrenFromSectionHome(renderables, 'Apertura_2', 4)
-    // );
 };
 
 export const isInApertura = (idFeature, tree = {}) => {
