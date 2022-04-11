@@ -49,7 +49,6 @@ const BreadcrumbBase = props => {
         tooltip,
         colorCategory = ''
     } = props;
-    console.log('🚀 ~ file: breadcrumbBase.jsx ~ line 50 ~ sections', sections);
 
     const extraOpts = {};
 
