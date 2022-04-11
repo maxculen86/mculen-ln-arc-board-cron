@@ -234,19 +234,10 @@ export const getChildrenFromSectionHome = (
     return get(renderables, `[${INDEX_SECTION}].children`, []) || [];
 };
 
-export const hastVariant = (childProps = []) => {
-    return childProps.some(elem => elem && !!Object.keys(elem.variants).length);
-};
-
-export const getChildrenFromAperturaHome = ({ renderables, childProps }) => {
-    const hasVariantForABTesting = hastVariant(childProps);
-
-    return hasVariantForABTesting
-        ? getChildrenFromSectionHome(renderables, 'Apertura_1', 3)
-        : [
-              ...getChildrenFromSectionHome(renderables, 'Apertura_1', 3),
-              ...getChildrenFromSectionHome(renderables, 'Apertura_2', 4)
-          ];
+export const getChildrenFromAperturaHome = renderables => {
+    return getChildrenFromSectionHome(renderables, 'Apertura_1', 3).concat(
+        getChildrenFromSectionHome(renderables, 'Apertura_2', 4)
+    );
 };
 
 export const isInApertura = (idFeature, tree = {}) => {

@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import { useAppContext, useComponentContext } from 'fusion:context';
+import { useAppContext } from 'fusion:context';
 import getProperties from 'fusion:properties';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
@@ -33,7 +33,6 @@ const ArticleFeature = ({
     } = useAppContext();
 
     const { cajaTemaConfig } = getProperties(arcSite);
-    const { registerSuccessEvent } = useComponentContext();
 
     const {
         config,
@@ -120,7 +119,6 @@ const ArticleFeature = ({
                 )}
                 videoBackground={videoBackground}
                 isPowa={layout !== 'grilla1'}
-                registerSuccessEvent={registerSuccessEvent}
             />
         )) ||
         getPlaceholder(layout, index)
