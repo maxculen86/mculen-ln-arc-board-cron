@@ -20,7 +20,7 @@ export default function ActivePrograms({ items, type }) {
             <Title
                 className="section-title"
                 title="Todos los programas"
-                TitleTag="h2"
+                TitleTag="h3"
             />
             <Carousell>{currentItem}</Carousell>
         </section>
@@ -30,7 +30,7 @@ export default function ActivePrograms({ items, type }) {
                 <Title
                     className="section-title"
                     title="Todos los programas"
-                    TitleTag="h2"
+                    TitleTag="h3"
                 />
                 {currentItem}
             </section>

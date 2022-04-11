@@ -17,7 +17,7 @@ export default function AllPrograms({ items }) {
         <section className="programas">
             <section className="slider">
                 <Title
-                    TitleTag="h2"
+                    TitleTag="h3"
                     className="section-title"
                     title="Todos los programas"
                 />
