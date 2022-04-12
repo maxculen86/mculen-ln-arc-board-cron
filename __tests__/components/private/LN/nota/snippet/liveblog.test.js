@@ -83,7 +83,7 @@ describe('Private - LN - nota - snippet - liveblog ', () => {
             author,
             publisher: {
                 '@type': publisherType,
-                name: publisherName,
+                headline: publisherName,
                 url: publisherUrl,
                 logo: {
                     '@context': logoContext,

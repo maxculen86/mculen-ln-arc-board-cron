@@ -126,7 +126,7 @@ const SnippetLiveblog = props => {
         '@type': 'LiveBlogPosting',
         publisher: {
             '@type': 'Organization',
-            name: `${siteProperties.title || ''}`,
+            headline: `${siteProperties.title || ''}`,
             url: `${siteProperties.host || ''}`,
             logo: {
                 '@context': urlShema,

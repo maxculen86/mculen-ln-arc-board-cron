@@ -9,7 +9,7 @@ exports[`Private - LN - nota - snippet - liveblog  Snapshot Snippet Liveblog 1`]
   \\"@type\\": \\"LiveBlogPosting\\",
   \\"publisher\\": {
     \\"@type\\": \\"Organization\\",
-    \\"name\\": \\"\\",
+    \\"headline\\": \\"\\",
     \\"url\\": \\"https://www.lanacion.com.ar\\",
     \\"logo\\": {
       \\"@context\\": \\"https://schema.org\\",
