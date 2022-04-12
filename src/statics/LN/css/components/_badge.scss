@@ -21,4 +21,17 @@
     &.--a-fondo {
         background: $red-400;
     }
+    &.--liveblog-red {
+        background: $red-700;
+        &:before {
+            content: '';
+            position: relative;
+            top: px(4.65);
+            width: px(5.33);
+            height: px(5.33);
+            border-radius: 50%;
+            background: $neutral-white;
+            margin-right: px(7.33);
+        }
+    }
 }
