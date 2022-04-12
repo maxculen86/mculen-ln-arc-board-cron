@@ -39,4 +39,8 @@ const recipeDictionary = {
     'cocina vietnamita': 'recetas de cocina vietnamita'
 };
 
-export default recipeDictionary;
+const textSelector = name => {
+    return recipeDictionary[name] || 'Ir a notas de recetas';
+};
+
+export default textSelector;
