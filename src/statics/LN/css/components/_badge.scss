@@ -22,9 +22,13 @@
         background: $red-400;
     }
     &.--liveblog-red {
+        .badge-container & {
+            margin-bottom: 16px;
+        }
         background: $red-700;
         &:before {
             content: '';
+            display: list-item;
             position: relative;
             top: px(4.65);
             width: px(5.33);

@@ -8,6 +8,7 @@ import '../../../../../resources/dist/css/ln/components/title.css';
 import getTooltip from '../../common/utils/getTooltip';
 import { GlobalContext } from '../../../common/context/globalContext';
 import { VIDEO } from '../../../common/utils/subtypes/subtypeHelper';
+import Badge from '../../../common/badge/Badge';
 
 const TitleAndIconArticle = ({
     customFields: { prefix },
@@ -30,7 +31,6 @@ const TitleAndIconArticle = ({
     if (sponsored) keyTooltip = 'Espacio Patrocinado';
     if (advertiser) keyTooltip = 'Content LAB';
     const tooltip = getTooltip(keyTooltip, siteService);
-
     return (
         <>
             <LogoBase
@@ -42,6 +42,9 @@ const TitleAndIconArticle = ({
                 subtype={subtype}
                 tooltip={tooltip}
             />
+            <div className="badge-container">
+                <Badge type="liveblog-red">EN VIVO</Badge>
+            </div>
             <TitleArticle
                 prefix={prefix || ''}
                 size={subtype === VIDEO && '--xl'}
