@@ -10,9 +10,9 @@ exports[`Share Matches snapshot 1`] = `
   >
     <button
       class="com-button --icon"
-      data-event=""
-      data-section=""
-      id=""
+      data-event="LinkClick"
+      data-section="CompartirNotaLN"
+      id="btnfacebook"
       on=""
       tabindex=""
       title="Compartir la nota en Facebook"
@@ -38,9 +38,9 @@ exports[`Share Matches snapshot 1`] = `
     </button>
     <button
       class="com-button --icon"
-      data-event=""
-      data-section=""
-      id=""
+      data-event="LinkClick"
+      data-section="CompartirNotaLN"
+      id="btntwitter"
       on=""
       tabindex=""
       title="Compartir la nota en Twitter"
@@ -68,8 +68,8 @@ exports[`Share Matches snapshot 1`] = `
     </button>
     <button
       class="com-button --icon"
-      data-event=""
-      data-section=""
+      data-event="LinkClick"
+      data-section="CompartirNotaLN"
       id="whatsAppShareDesktop"
       on=""
       tabindex=""
@@ -104,9 +104,9 @@ exports[`Share Matches snapshot 1`] = `
   >
     <button
       class="com-button --icon"
-      data-event=""
-      data-section=""
-      id=""
+      data-event="LinkClick"
+      data-section="CompartirNotaLN"
+      id="btnemail"
       on=""
       tabindex=""
       title="Compartir la nota por E-mail"
@@ -134,9 +134,9 @@ exports[`Share Matches snapshot 1`] = `
     </button>
     <button
       class="com-button comment-btn --icon"
-      data-event=""
-      data-section=""
-      id=""
+      data-event="LinkClick"
+      data-section="CompartirNotaLN"
+      id="btncomments"
       on=""
       tabindex=""
       title="Ir a los comentarios de la nota"
@@ -181,9 +181,9 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
   >
     <button
       class="com-button --icon"
-      data-event=""
-      data-section=""
-      id=""
+      data-event="LinkClick"
+      data-section="CompartirNotaLN"
+      id="btnfacebook"
       on=""
       tabindex=""
       title="Compartir la nota en Facebook"
@@ -209,9 +209,9 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
     </button>
     <button
       class="com-button --icon"
-      data-event=""
-      data-section=""
-      id=""
+      data-event="LinkClick"
+      data-section="CompartirNotaLN"
+      id="btntwitter"
       on=""
       tabindex=""
       title="Compartir la nota en Twitter"
@@ -239,8 +239,8 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
     </button>
     <button
       class="com-button --icon"
-      data-event=""
-      data-section=""
+      data-event="LinkClick"
+      data-section="CompartirNotaLN"
       id="whatsAppShareDesktop"
       on=""
       tabindex=""
@@ -275,9 +275,9 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
   >
     <button
       class="com-button --icon"
-      data-event=""
-      data-section=""
-      id=""
+      data-event="LinkClick"
+      data-section="CompartirNotaLN"
+      id="btnemail"
       on=""
       tabindex=""
       title="Compartir la nota por E-mail"
