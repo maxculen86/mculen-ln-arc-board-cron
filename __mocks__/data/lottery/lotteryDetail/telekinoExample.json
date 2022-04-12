@@ -1,0 +1,89 @@
+[
+    {
+        "name": "Telekino",
+        "id": "Telekino",
+        "component": "Telekino",
+        "date": "Domingo 10/04/2022",
+        "estimatedPot": "$10.000.000",
+        "results": [
+            "01",
+            "03",
+            "05",
+            "06",
+            "08",
+            "09",
+            "10",
+            "12",
+            "15",
+            "16",
+            "18",
+            "19",
+            "20",
+            "23",
+            "24"
+        ],
+        "winners_table": [
+            {
+                "name": "15",
+                "winners": "Vacante",
+                "amount": "$5.549.526"
+            },
+            {
+                "name": "14",
+                "winners": "14",
+                "amount": "$27.442"
+            },
+            {
+                "name": "13",
+                "winners": "546",
+                "amount": "$625"
+            },
+            {
+                "name": "12",
+                "winners": "6.188",
+                "amount": "$200"
+            },
+            {
+                "name": "11",
+                "winners": "32.747",
+                "amount": "$10"
+            }
+        ]
+    },
+    {
+        "name": "Rekino",
+        "id": "Telekino",
+        "component": "Telekino",
+        "date": "Domingo 10/04/2022",
+        "estimatedPot": "$10.000.000",
+        "results": [
+            "02",
+            "03",
+            "06",
+            "07",
+            "11",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "19",
+            "22",
+            "23",
+            "24",
+            "25"
+        ],
+        "winners_table": [
+            {
+                "name": "15",
+                "winners": "1",
+                "amount": "$241.902"
+            },
+            {
+                "name": "14",
+                "winners": "0",
+                "amount": "$0"
+            }
+        ]
+    }
+]

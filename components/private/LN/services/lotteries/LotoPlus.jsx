@@ -5,20 +5,9 @@ import CardLayout from './CardLayout';
 import BallLotteries from './BallLoteries';
 import LabelText from './LabelText';
 import ResultItem from './ResultItem';
-import {
-    setTraditionFirst,
-    hasTraditionalResult,
-    reorderSubLotteries,
-    lotoPlusOrder
-} from './utils';
 
 const LotoPlus = ({ name, jackpot, date, results, isDetail, link }) => {
-    const resultsTomap = setTraditionFirst(results);
-    const arrResults = reorderSubLotteries(
-        resultsTomap.slice(1, 5),
-        lotoPlusOrder
-    );
-    if (hasTraditionalResult(isDetail, resultsTomap)) return <></>;
+    const resultsTomap = results;
     return (
         <CardLayout title={name} subtitle={date} link={!isDetail && link}>
             <div className="main-result --loto-plus">
@@ -49,9 +38,9 @@ const LotoPlus = ({ name, jackpot, date, results, isDetail, link }) => {
                     )}
                 </div>
             </div>
-            {!isDetail && arrResults && (
+            {!isDetail && results && (
                 <div className="extra-results --loto-plus">
-                    {arrResults.map(
+                    {results.map(
                         ({
                             name: subLottery,
                             result,

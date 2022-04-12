@@ -4,12 +4,10 @@ import PropTypes from 'prop-types';
 import CardLayout from './CardLayout';
 import BallLotteries from './BallLoteries';
 import LabelText from './LabelText';
-import ResultItem from './ResultItem';
 import { setTraditionFirst, hasTraditionalResult } from './utils';
 
 const Brinco = ({ name, vacantPot, date, results, isDetail, link }) => {
     const resultsTomap = setTraditionFirst(results);
-    const arrResults = resultsTomap.slice(1, 5);
     if (hasTraditionalResult(isDetail, resultsTomap)) return <></>;
     return (
         <CardLayout title={name} subtitle={date} link={!isDetail && link}>
@@ -28,16 +26,6 @@ const Brinco = ({ name, vacantPot, date, results, isDetail, link }) => {
                 {!isDetail && vacantPot && (
                     <LabelText text={`Pozo vacante: ${vacantPot}`} />
                 )}
-            </div>
-            <div className="extra-results --brinco">
-                {!isDetail &&
-                    arrResults.map(({ name: subLottery, result }) => (
-                        <ResultItem
-                            key={subLottery}
-                            text={subLottery}
-                            result={result}
-                        />
-                    ))}
             </div>
         </CardLayout>
     );

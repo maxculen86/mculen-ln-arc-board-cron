@@ -1,0 +1,48 @@
+[
+    {
+        "name": "Quiniela Poceada",
+        "id": "Quiniela_Poceada",
+        "component": "QuinielaPoceada",
+        "date": "Lunes 11/04/2022",
+        "letters": ["OJTY"],
+        "results": [
+            "06",
+            "07",
+            "08",
+            "18",
+            "21",
+            "02",
+            "25",
+            "31",
+            "41",
+            "46",
+            "62",
+            "63",
+            "65",
+            "66",
+            "77",
+            "83",
+            "90",
+            "91",
+            "92",
+            "99"
+        ],
+        "winners_table": [
+            {
+                "name": "8",
+                "winners": "Vacante",
+                "amount": "$12.974.149"
+            },
+            {
+                "name": "7",
+                "winners": "Vacante",
+                "amount": "$583.426"
+            },
+            {
+                "name": "6",
+                "winners": "16",
+                "amount": "$7.194"
+            }
+        ]
+    }
+]

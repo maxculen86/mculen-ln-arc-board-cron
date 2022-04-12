@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Loto 5",
+        "id": "Loto_5",
+        "component": "Loto5",
+        "date": "Sábado 09/04/2022",
+        "estimatedPot": "$9.600.000",
+        "results": ["02", "14", "16", "30", "36"],
+        "winners_table": [
+            {
+                "name": "5",
+                "winners": "Vacante",
+                "amount": "$8.544.830"
+            },
+            {
+                "name": "4",
+                "winners": "10",
+                "amount": "$35.688"
+            },
+            {
+                "name": "3",
+                "winners": "467",
+                "amount": "$80"
+            }
+        ]
+    }
+]

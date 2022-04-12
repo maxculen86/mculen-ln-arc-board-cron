@@ -1,0 +1,138 @@
+[
+    {
+        "name": "Tradicional",
+        "id": "Loto",
+        "component": "LotoPlus",
+        "date": "Sábado 09/04/2022",
+        "jackpot": ["6", "0"],
+        "estimatedPot": "$952.000.000",
+        "results": ["03", "04", "05", "07", "23", "38"],
+        "winners_table": [
+            {
+                "name": "6 + 2",
+                "winners": "Vacante",
+                "amount": "$692.141.471"
+            },
+            {
+                "name": "6 + 1",
+                "winners": "Vacante",
+                "amount": "$56.56.593.276"
+            },
+            {
+                "name": "6",
+                "winners": "Vacante",
+                "amount": "$17.090.676"
+            },
+            {
+                "name": "5 + 2",
+                "winners": "Vacante",
+                "amount": "$500.000"
+            },
+            {
+                "name": "5 + 1",
+                "winners": "1",
+                "amount": "$130.000"
+            },
+            {
+                "name": "5",
+                "winners": "20",
+                "amount": "$50.000"
+            },
+            {
+                "name": "4 + 2",
+                "winners": "-",
+                "amount": "$-"
+            },
+            {
+                "name": "4 + 1",
+                "winners": "-",
+                "amount": "$-"
+            },
+            {
+                "name": "4",
+                "winners": "-",
+                "amount": "$-"
+            },
+            {
+                "name": "3 + 2",
+                "winners": "-",
+                "amount": "$-"
+            },
+            {
+                "name": "3 + 1",
+                "winners": "-",
+                "amount": "$-"
+            },
+            {
+                "name": "3",
+                "winners": "-",
+                "amount": "$-"
+            }
+        ]
+    },
+    {
+        "name": "Desquite",
+        "id": "Loto",
+        "component": "LotoPlus",
+        "date": "Sábado 09/04/2022",
+        "jackpot": ["2", "9"],
+        "results": ["05", "09", "13", "14", "25", "35"],
+        "winners_table": [
+            {
+                "name": "6 + 2",
+                "winners": "Vacante",
+                "amount": "$692.141.471"
+            },
+            {
+                "name": "6 + 1",
+                "winners": "Vacante",
+                "amount": "$56.593.276"
+            },
+            {
+                "name": "6",
+                "winners": "Vacante",
+                "amount": "$17.090.677"
+            }
+        ]
+    },
+    {
+        "name": "Sale o sale",
+        "id": "Loto",
+        "component": "LotoPlus",
+        "date": "Sábado 09/04/2022",
+        "jackpot": ["0", "2", "6", "9"],
+        "results": ["08", "12", "21", "27", "34", "40"],
+        "winners_table": [
+            {
+                "name": "6 + 2",
+                "winners": "-",
+                "amount": "$-"
+            },
+            {
+                "name": "6 + 1",
+                "winners": "-",
+                "amount": "$-"
+            },
+            {
+                "name": "6",
+                "winners": "-",
+                "amount": "$-"
+            },
+            {
+                "name": "5 + 2",
+                "winners": "-",
+                "amount": "$-"
+            },
+            {
+                "name": "5 + 1",
+                "winners": "-",
+                "amount": "$-"
+            },
+            {
+                "name": "5",
+                "winners": "25",
+                "amount": "$248.099"
+            }
+        ]
+    }
+]
