@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import dateAndTimeUtil, {
     addHoursAndFormat,
     hasFutureDisplayDate,
-    isOlderThan24HourAgo
+    isOlderThanXHoursAgo
 } from '../../../../components/private/common/utils/dateAndTimeUtil';
 // import UltimasNoticias from '../../../../components/features/LN-acumulado/ultimasNoticias';
 
@@ -27,15 +27,15 @@ describe('Features - LN-acumulado - Ultimas Noticias =>', () => {
 
         it('deberia filtrar notas con published_date mayor a 24 hs', () => {
             const date1 = '2021-02-05T17:34:00.624Z';
-            const result1 = isOlderThan24HourAgo(date1);
+            const result1 = isOlderThanXHoursAgo(date1, 24);
             expect(result1).toBeTruthy();
             /*
             const date2 = '2021-02-16T19:34:00.624Z';
-            const result2 = isOlderThan24HourAgo(date2);
+            const result2 = isOlderThanXHoursAgo(date2,24);
             expect(result2).toBeFalsy();
 
             const date3 = '2021-02-16T14:34:00.624Z';
-            const result3 = isOlderThan24HourAgo(date3);
+            const result3 = isOlderThanXHoursAgo(date3,24);
             expect(result3).toBeFalsy();
             */
         });
