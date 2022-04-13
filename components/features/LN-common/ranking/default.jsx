@@ -9,6 +9,7 @@ import { getSectionId, getSectionParentId, hasArticles } from './_helper';
 import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
 
 import '../../../../resources/dist/css/ln/components/ranking.css';
+import { productClickFromClient } from '../../../private/common/utils/viewability';
 
 const getDataContent = (sectionId, sectionParentId, website) => {
     const getRankingData = section =>
@@ -65,6 +66,7 @@ const RankingFeature = ({ id: featureId }) => {
             withVolanta
             layout={isHome ? 'Ranking' : undefined}
             isHome={isHome}
+            handleClick={productClickFromClient}
         />
     );
 

@@ -7,6 +7,7 @@ import get from '../../../common/utils/get';
 import '../../../../../resources/dist/css/ln/components/title.css';
 import '../../../../../resources/dist/css/ln/components/tag.css';
 import ModCategory from '../../../common/mod-category';
+import textSelector from '../../../common/utils/recetaDictionary';
 
 const setTitle = (
     replaceTitle,
@@ -33,6 +34,7 @@ const AcumuladoTitle = props => {
     const { outputType, idLogoImage, colorCategory } = props;
     const isPrimarySection = get(props, 'isPrimarySection', {});
     const navigationList = get(props, 'navigation', null);
+
     const globalContent = get(props, 'globalContent', {});
     const replaceTitle = get(props, 'customFields.replaceTitle', null);
     const prefixTitle = get(props, 'customFields.prefixTitle', null);
@@ -55,16 +57,20 @@ const AcumuladoTitle = props => {
                 name,
                 node_type: nodeType,
                 url: categoryUrl,
-                display_name: displayName
+                display_name: displayName,
+                parent = {}
             }) => {
                 const { nav_title: navTitle } = navigation || {};
                 const isLink = nodeType === 'link';
                 const titleLink = navTitle || (isLink && displayName) || name;
+                const { default: acuName = '' } = parent;
                 return {
                     key: _id,
                     link: (isLink && categoryUrl) || `${_id}/`,
                     textname: navTitle || (isLink && displayName) || name,
-                    title: `Ir a ${titleLink}`,
+                    title: acuName.includes('/recetas')
+                        ? `Ir a notas de ${textSelector(name)}`
+                        : `Ir a ${titleLink}`,
                     ...(colorCategory && { style: { color: colorCategory } })
                 };
             }

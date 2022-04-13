@@ -356,7 +356,7 @@ describe('Test del Chain - <Ln_Caja_Collection />', () => {
             0,
             ''
         );
-        expect(Object.keys(extraOptsDiv).length).toEqual(0);
+        expect(Object.keys(extraOptsDiv).length).toEqual(1);
         expect(extraOpts['data-block-name']).toEqual('h_opinion');
     });
 
@@ -380,7 +380,7 @@ describe('Test del Chain - <Ln_Caja_Collection />', () => {
             0,
             ''
         );
-        expect(Object.keys(extraOptsDiv).length).toEqual(0);
+        expect(Object.keys(extraOptsDiv).length).toEqual(1);
         expect(extraOpts['data-block-name']).toEqual('h_editoriales');
     });
 

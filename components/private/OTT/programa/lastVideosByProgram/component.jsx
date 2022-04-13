@@ -1,13 +1,16 @@
 import React from 'react';
+import Proptypes from 'prop-types';
 import get from 'lodash.get';
 import ShowMoreVideos from './showMoreVideos';
 import Title from '../../../common/title';
 import VideoArticle from '../../common/videoArticle';
+import VideoOpeningTitle from '../../home/videoOpeningTitle';
 
 export default function LastVideosByProgams({
     videos,
     nextPageHandler,
-    hasNext
+    hasNext,
+    programName
 }) {
     const currentItem = videos.map((video, index) => {
         const title = get(video, 'headlines.basic', null);
@@ -24,9 +27,14 @@ export default function LastVideosByProgams({
     });
     return (
         <section className="slider">
+            <VideoOpeningTitle title={programName} />
             <Title title="Últimos Videos" className="section-title" />
             {currentItem}
             {hasNext && <ShowMoreVideos onClick={nextPageHandler} />}
         </section>
     );
 }
+
+LastVideosByProgams.propTypes = {
+    programName: Proptypes.string.isRequired
+};

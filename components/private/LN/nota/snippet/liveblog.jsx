@@ -158,7 +158,7 @@ const SnippetLiveblog = props => {
         description: noteDescription,
         coverageStartTime: converageStart,
         coverageEndTime: coverageEnd,
-        name: noteTitle,
+        headline: noteTitle,
         liveBlogUpdate: blogObjects
     };
 

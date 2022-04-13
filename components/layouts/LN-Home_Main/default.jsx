@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable no-console */
 /* eslint-disable consistent-return */
 /* eslint-disable react/jsx-props-no-spreading */
@@ -32,6 +33,10 @@ import DivBannerSSR from '../../private/common/banners/DivBannerSSR';
 import { getScriptForComercial } from '../../private/common/banners/bannersRules';
 import PwaModals from '../../private/LN/common/pwaModals';
 import { homeLayoutsPropTypes } from '../../private/common/utils/propTypesHelper';
+import {
+    productClickFromServer,
+    createObservers
+} from '../../private/common/utils/viewability';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -159,6 +164,7 @@ const LNMainHome = props => {
                     scrollTop,
                     dataSections
                 );
+
                 if (!sectionVisible) return;
                 sessionStorage.setItem('lb', sectionVisible);
                 const scrollPercentRounded = getScrollPercent();
@@ -182,8 +188,12 @@ const LNMainHome = props => {
         }, 25);
 
         const dataSections = document.querySelectorAll('[data-section]');
+
         window.addEventListener('scroll', e => handleScroll(e, dataSections));
-        return () => window.removeEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, [blocksToLoad]);
 
     // First Load
@@ -197,6 +207,8 @@ const LNMainHome = props => {
             dispatch({ type: 'update', payload: 'bloque3' });
         }
 
+        createObservers();
+
         if (!lastSectionSaw || !lastScrollPosition) return;
         const lastBlockSaw = sectionsWithBlocks[lastSectionSaw];
         dispatch({ type: 'update', payload: lastBlockSaw });
@@ -204,6 +216,7 @@ const LNMainHome = props => {
         const timer = setTimeout(() => {
             window.scrollTo(0, lastScrollPosition);
         }, 1000);
+
         return () => {
             clearTimeout(timer);
         };
@@ -317,10 +330,7 @@ const LNMainHome = props => {
                                 />
 
                                 {blocksToLoad.bloque2.loaded && (
-                                    <section
-                                        id="multimedia"
-                                        data-section="multimedia"
-                                    >
+                                    <section data-section="multimedia">
                                         {multimedia}
                                     </section>
                                 )}
@@ -553,16 +563,16 @@ const LNMainHome = props => {
                             {/* Cuerpo */}
                             <div className="sidebar__main">
                                 {/* 4to Bloque */}
-                                <div data-section="bloque2">
+                                <div id="bloque2" data-section="bloque2">
                                     {blocksToLoad.bloque4.loaded && bloque2}
                                 </div>
-                                <div data-section="comercial2">
+                                <div id="comercial2" data-section="comercial2">
                                     {blocksToLoad.bloque4.loaded && comercial2}
                                 </div>
-                                <div data-section="bloque3">
+                                <div id="bloque3" data-section="bloque3">
                                     {blocksToLoad.bloque4.loaded && bloque3}
                                 </div>
-                                <div data-section="bloque4">
+                                <div id="bloque4" data-section="bloque4">
                                     {blocksToLoad.bloque4.loaded && bloque4}
                                 </div>
                             </div>
@@ -683,19 +693,16 @@ const LNMainHome = props => {
             )}
             <Metarefresh />
             <PwaModals />
+            {productClickFromServer()}
         </GlobalProvider>
     );
 };
 
 LNMainHome.propTypes = {
-    renderables: PropTypes.node.isRequired,
+    renderables: PropTypes.arrayOf(PropTypes.node),
     outputType: PropTypes.string,
-    isAdmin: PropTypes.bool.isRequired,
+    isAdmin: PropTypes.bool,
     ...homeLayoutsPropTypes
-};
-
-LNMainHome.defaultProps = {
-    outputType: 'default'
 };
 
 LNMainHome.sections = pageBuilderSections;

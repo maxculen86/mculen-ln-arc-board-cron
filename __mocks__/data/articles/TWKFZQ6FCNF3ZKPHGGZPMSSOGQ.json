@@ -592,7 +592,7 @@
                 "_website": "la-nacion-ar",
                 "type": "section",
                 "version": "0.6.0",
-                "name": "Platos Principales",
+                "name": "Platos de comida principal",
                 "description": null,
                 "path": "/recetas/platos-principales",
                 "parent_id": "/recetas",
@@ -759,16 +759,16 @@
                 "_website": "la-nacion-ar",
                 "type": "section",
                 "version": "0.6.0",
-                "name": "Recetas con ingredientes",
+                "name": "Dulces",
                 "description": null,
-                "path": "/recetas/recetas-con-ingredientes",
+                "path": "/recetas/dulces",
                 "parent_id": "/recetas",
                 "parent": {
                     "default": "/recetas"
                 },
                 "additional_properties": {
                     "original": {
-                        "_id": "/recetas/recetas-con-ingredientes",
+                        "_id": "/recetas/dulces",
                         "site_topper": {
                             "site_logo_image": null
                         },
@@ -794,10 +794,10 @@
                             "debug": "false"
                         },
                         "_admin": {
-                            "alias_ids": ["/recetas/recetas-con-ingredientes"]
+                            "alias_ids": ["/recetas/dulces"]
                         },
                         "_website": "la-nacion-ar",
-                        "name": "Recetas con ingredientes",
+                        "name": "Dulces",
                         "parent": {
                             "default": "/recetas"
                         },
@@ -808,7 +808,7 @@
                         "node_type": "section"
                     }
                 },
-                "_website_section_id": "la-nacion-ar./recetas/recetas-con-ingredientes"
+                "_website_section_id": "la-nacion-ar./recetas/dulces"
             },
             {
                 "_id": "/revista-brando",

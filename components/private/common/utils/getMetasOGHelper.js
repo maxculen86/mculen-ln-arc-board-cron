@@ -95,22 +95,41 @@ export const getData = ({
     };
 };
 
-export const setMetaDescription = (data, section) => {
-    if (section === 'nota') {
-        if (data.subtype === RECETA && data.description !== '') {
-            return `${
-                data.description.split('.', 1)[0]
-            }. Encontrá acá la receta de ${data.title}`;
-        }
-        if (data.subtype === RECETA && data.description === '') {
-            return `Encontrá acá la receta de ${data.title}`;
-        }
-        if (data.subtype !== RECETA && data.description !== '') {
-            return `${data.description}`;
-        }
-        if (data.subtype !== RECETA && data.description === '') {
-            return `${data.title}`;
-        }
-    }
-    return data.description;
+export const setMetaDescription = ({
+    data,
+    section,
+    arcSite,
+    ottMetaDescription
+}) => {
+    const options = {
+        'la-nacion-ar': () => {
+            if (section === 'nota') {
+                if (data.subtype === RECETA) {
+                    return data.description !== ''
+                        ? `${
+                              data.description.split('.', 1)[0]
+                          }. Encontrá acá la receta de ${data.title}`
+                        : `Encontrá acá la receta de ${data.title}`;
+                }
+
+                return data.description !== ''
+                    ? `${data.description}`
+                    : `${data.title}`;
+            }
+
+            return data.description;
+        },
+        ott: () => ottMetaDescription
+    };
+
+    return options[arcSite]();
+};
+
+export const setMetaTitle = ({ arcSite, pageBuilderTitle, ottMetaTitle }) => {
+    const options = {
+        'la-nacion-ar': () => pageBuilderTitle,
+        ott: () => ottMetaTitle
+    };
+
+    return options[arcSite]();
 };

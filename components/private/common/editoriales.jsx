@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -6,7 +8,7 @@ import ComTitle from './com-title';
 import get from './utils/get';
 
 const Editoriales = props => {
-    const { articles = [], title, link, layout, arcSite } = props;
+    const { articles = [], title, link, layout, arcSite, handleClick } = props;
     const { cajaTemaConfig } = getProperties(arcSite);
     const _articles = articles.map((article, index) => {
         const { headlines, website_url: websiteUrl } = article;
@@ -25,6 +27,11 @@ const Editoriales = props => {
             id: article._id
         };
     });
+
+    const onCLick = event => {
+        typeof handleClick == 'function' && handleClick(event);
+    };
+
     const extraOpts = {};
     return (
         <>
@@ -44,7 +51,12 @@ const Editoriales = props => {
                             extraOpts['data-notaid'] = element.id;
                             extraOpts['data-source'] = 'editor';
                             return (
-                                <article className="mod-article" {...extraOpts}>
+                                <article
+                                    className="mod-article"
+                                    {...extraOpts}
+                                    onClick={onCLick}
+                                    onAuxClick={onCLick}
+                                >
                                     <div className="mod-description">
                                         <h2 className="com-title --twoxs">
                                             <a
@@ -71,7 +83,8 @@ Editoriales.propTypes = {
     layout: PropTypes.string,
     title: PropTypes.string,
     link: PropTypes.string,
-    arcSite: PropTypes.string
+    arcSite: PropTypes.string,
+    handleClick: PropTypes.func
 };
 
 Editoriales.defaultProps = {
@@ -79,7 +92,8 @@ Editoriales.defaultProps = {
     layout: 'editoriales2',
     title: '',
     link: '',
-    arcSite: 'la-nacion-ar'
+    arcSite: 'la-nacion-ar',
+    handleClick: undefined
 };
 
 export default Editoriales;
