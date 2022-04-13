@@ -70,7 +70,7 @@ const ArticleFeature = ({
     const image = useContent({
         source: conditionallyCallImageSource(imageId),
         query: {
-            id: imageId.trim(),
+            id: imageId && imageId.trim(),
             published: true,
             imageConfig,
             nid: id,
