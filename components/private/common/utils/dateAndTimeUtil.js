@@ -119,8 +119,8 @@ export function hasFutureDisplayDate(displayDate = '') {
     return dateInJS > new Date();
 }
 
-export function isOlderThanXHoursAgo(date, hour) {
-    const oneDay = 1000 * 60 * 60 * hour;
+export function isOlderThanXHoursAgo(date, hours) {
+    const oneDay = 1000 * 60 * 60 * hours;
     const aHoursAgo = Date.now() - oneDay;
     const dateInJS = new Date(date);
     return dateInJS < aHoursAgo;

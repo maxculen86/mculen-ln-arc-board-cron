@@ -23,7 +23,7 @@
     }
     &.--liveblog-red {
         .badge-container & {
-            margin-bottom: 16px;
+            margin-bottom: $spacing-sm;
         }
         background: $red-700;
         &:before {
