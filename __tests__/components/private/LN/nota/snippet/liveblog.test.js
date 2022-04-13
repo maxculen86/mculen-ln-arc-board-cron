@@ -75,7 +75,7 @@ describe('Private - LN - nota - snippet - liveblog ', () => {
         const {
             '@context': context,
             '@type': type,
-            name,
+            headline,
             url,
             coverageStartTime,
             coverageEndTime,
@@ -83,7 +83,7 @@ describe('Private - LN - nota - snippet - liveblog ', () => {
             author,
             publisher: {
                 '@type': publisherType,
-                headline: publisherName,
+                name: publisherName,
                 url: publisherUrl,
                 logo: {
                     '@context': logoContext,
@@ -98,7 +98,7 @@ describe('Private - LN - nota - snippet - liveblog ', () => {
 
         expect(context).toBe('https://schema.org');
         expect(type).toBe('LiveBlogPosting');
-        expect(name).toBe(metaTitle);
+        expect(headline).toBe(metaTitle);
         expect(url).toBe(`${host}${canonical_url}`);
         expect(coverageStartTime).toBe(
             new Date(firstPublishDate).toISOString()

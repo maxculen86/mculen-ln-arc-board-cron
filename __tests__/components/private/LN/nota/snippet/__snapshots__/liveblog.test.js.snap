@@ -9,7 +9,7 @@ exports[`Private - LN - nota - snippet - liveblog  Snapshot Snippet Liveblog 1`]
   \\"@type\\": \\"LiveBlogPosting\\",
   \\"publisher\\": {
     \\"@type\\": \\"Organization\\",
-    \\"headline\\": \\"\\",
+    \\"name\\": \\"\\",
     \\"url\\": \\"https://www.lanacion.com.ar\\",
     \\"logo\\": {
       \\"@context\\": \\"https://schema.org\\",
@@ -47,7 +47,7 @@ exports[`Private - LN - nota - snippet - liveblog  Snapshot Snippet Liveblog 1`]
   \\"description\\": \\"Esta es la prueba de la bajada en Foto al 100\\",
   \\"coverageStartTime\\": \\"2020-06-25T19:39:44.527Z\\",
   \\"coverageEndTime\\": \\"2020-06-26T07:39:44.527Z\\",
-  \\"name\\": \\"Meta titulo\\",
+  \\"headline\\": \\"Meta titulo\\",
   \\"liveBlogUpdate\\": [
     {
       \\"@type\\": \\"BlogPosting\\",
