@@ -47,12 +47,8 @@ const ArticleFeature = ({
         return (idImage && idImage.trim() && 'relatedImageSource') || null;
     };
 
-    const conditionallyCallVideoSource = idVideo => {
-        return (idVideo && 'videoSource') || null;
-    };
-
     const article = useContent({
-        source: (id && 'articleSourceNota') || null,
+        source: (id && id.trim() && 'articleSourceNota') || null,
         query: {
             id: id && id.trim(),
             published: true,
@@ -63,7 +59,7 @@ const ArticleFeature = ({
     });
 
     const videoBackground = useContent({
-        source: conditionallyCallVideoSource(videoId),
+        source: (videoId && 'videoSource') || null,
         query: { id: videoId && videoId.trim(), website: 'la-nacion-ar' }
     });
 

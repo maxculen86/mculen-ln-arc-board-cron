@@ -77,15 +77,22 @@ const ModArticle = props => {
         return type === 'image' ? imagenDestacada : null;
     })();
 
-    const onCLick = event => {
-        console.log(
-            '🚀 ~ file: mod-article.jsx ~ line 81 ~ registerSuccessEvent is a fuction',
-            typeof registerSuccessEvent === 'function'
-        );
+    const customHandlerClick = (() => {
+        if (typeof registerSuccessEvent === 'function')
+            return registerSuccessEvent;
+        if (typeof handleClick == 'function')
+            return event => handleClick(event, websiteUrl);
+        return null;
+    })();
 
-        typeof registerSuccessEvent === 'function' && registerSuccessEvent();
-        typeof handleClick == 'function' && handleClick(event, websiteUrl);
-    };
+    const events =
+        typeof customHandlerClick === 'function'
+            ? { onClick: customHandlerClick }
+            : {};
+
+    console.log('🚀 ~ file: mod-article.jsx ~ line 97 ~ eventsxxx', events, {
+        ...events
+    });
 
     return (
         <article
@@ -99,7 +106,7 @@ const ModArticle = props => {
                 isRenderAuthorOpinion
             })}
             {...extraOpts}
-            onClick={onCLick}
+            {...events}
         >
             {hour}
 
