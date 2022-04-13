@@ -40,7 +40,7 @@ const recipeDictionary = {
 };
 
 const textSelector = name => {
-    return recipeDictionary[name] || 'Ir a notas de recetas';
+    return recipeDictionary[name] || 'recetas';
 };
 
 export default textSelector;
