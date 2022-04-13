@@ -43,6 +43,10 @@ const ArticleFeature = ({
         imageConfig
     } = getCajaTemaConfig(featureId, renderables, cajaTemaConfig, isBomba);
 
+    const conditionallyCallImageSource = idImage => {
+        return (idImage && idImage.trim() && 'relatedImageSource') || null;
+    };
+
     const article =
         id &&
         useContent({
@@ -63,19 +67,16 @@ const ArticleFeature = ({
             query: { id: videoId.trim(), website: 'la-nacion-ar' }
         });
 
-    const image =
-        imageId &&
-        imageId.trim() &&
-        useContent({
-            source: 'relatedImageSource',
-            query: {
-                id: imageId.trim(),
-                published: true,
-                imageConfig,
-                nid: id,
-                boxType: 'ArticleFeature'
-            }
-        });
+    const image = useContent({
+        source: conditionallyCallImageSource(imageId),
+        query: {
+            id: imageId.trim(),
+            published: true,
+            imageConfig,
+            nid: id,
+            boxType: 'ArticleFeature'
+        }
+    });
 
     const error = validateArticleFeature(id, article);
 
