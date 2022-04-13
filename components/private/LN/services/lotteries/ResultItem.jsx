@@ -6,7 +6,7 @@ const ResultItem = ({ text, result }) => {
     return (
         <div className="result-item">
             <Text size="5xs" extraClass="labeled" text={text} />
-            <Text extraClass="results-secondary" weight="bold" size="5xs">
+            <Text extraClass="results-secondary" weight="bold" size="4xs">
                 {result.map(number => (
                     <Text key={number} text={number} />
                 ))}

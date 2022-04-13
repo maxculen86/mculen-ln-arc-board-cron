@@ -6,8 +6,7 @@
     justify-content: space-between;
     border: 1px solid $dark-neutral-600;
     border-radius: 4px;
-    min-height: px(340);
-    max-height: px(360);
+    height: px(340);
     min-width: px(234);
     width: 100%;
     padding: $spacing-sm $spacing-sm px(20) $spacing-sm;
@@ -18,11 +17,8 @@
     .header-lotteries {
         display: flex;
         flex-direction: column;
-
         .com-link {
             color: $neutral-black;
-            font-size: px(16);
-            font-weight: 700;
         }
         .subtitle {
             color: $light-neutral-600;
@@ -34,126 +30,80 @@
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-
-        &.--quinielas {
-            margin: px(24) 0;
-            :first-child {
-                padding: px(8) 0;
-                margin-bottom: px(8);
-            }
-        }
-
-        &.--quiniela-poceada {
-            margin-bottom: px(20);
-        }
-
-        &.--brinco,
-        &.--loto-plus,
-        &.--quini-6 {
-            margin-top: auto;
-        }
-        &.--telekino {
-            margin-top: px(16);
-            &.--detalle {
-                margin-bottom: auto;
-                margin-top: px(40);
-            }
-        }
-
-        .--loto-5 {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            max-width: px(200);
-            margin-bottom: px(8);
-
-            &.detail {
-                margin-bottom: px(108);
-            }
-
-            .ball {
-                margin: 0 px(8);
-            }
-        }
-
-        .traditional {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            width: 100%;
-
-            &.--loto-plus {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-
-                .jackpot-result {
-                    flex-direction: column;
-                    margin-left: px(16);
-                    :first-child {
-                        margin-bottom: px(8);
-                    }
-                }
-            }
-        }
-
+        margin: auto 0;
         span {
             margin-bottom: $spacing;
         }
-    }
+        .box-result {
+            display: grid;
+            justify-items: center;
+            margin-bottom: $spacing-xs;
 
-    .box-result {
-        display: grid;
-        justify-items: center;
-        row-gap: px(8);
-        column-gap: px(16);
-        margin-bottom: px(8);
-
-        &.--quini-plus {
-            margin-top: px(30);
-            margin-bottom: px(40);
-        }
-
-        &.--brinco,
-        &.--loto-plus {
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        &.--quini-6 {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            column-gap: px(1);
-            width: 100%;
-        }
-
-        &.--quini-6-detail {
-            grid-template-columns: repeat(3, 1fr);
-            padding-bottom: px(90);
-
-            &.quini-6-extra-pot {
-                padding: px(20) 0;
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-        &.--grid-5-columns {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            column-gap: 0px;
-            flex: 100%;
-
-            & > div {
+            &.--quini-6 {
                 display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                width: 100%;
+            }
+
+            &.--loto-5 {
+                display: flex;
+                flex-wrap: wrap;
                 justify-content: center;
-                flex: 20%;
+                max-width: px(190);
+                margin-bottom: 0;
+                &.detail {
+                    margin-bottom: px(108);
+                }
+                .ball {
+                    margin: 0 $spacing-xs $spacing-xs;
+                }
+            }
+            &.--quini-plus {
+                margin-top: px(30);
+                margin-bottom: px(40);
+            }
+
+            &.--loto-plus {
+                grid-template-columns: repeat(3, 1fr);
+                row-gap: px(8);
+                column-gap: px(16);
+            }
+
+            &.--brinco {
+                grid-template-columns: repeat(3, 1fr);
+                row-gap: $spacing-xs;
+                column-gap: $spacing-sm;
+                margin-bottom: $spacing-xs;
+            }
+
+            &.--quini-6-detail {
+                grid-template-columns: repeat(3, 1fr);
+                padding-bottom: px(90);
+
+                &.quini-6-extra-pot {
+                    padding: px(20) 0;
+                    grid-template-columns: repeat(4, 1fr);
+                }
+            }
+            &.--grid-5-columns {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                column-gap: 0px;
+                flex: 100%;
+
+                & > div {
+                    display: flex;
+                    justify-content: center;
+                    flex: 20%;
+                }
             }
         }
     }
 
     .extra-results {
-        margin-top: auto;
-        margin-bottom: $spacing-sm;
+        margin: auto 0;
         .result-item .results-secondary .com-text {
             &:not(:last-child):after {
                 content: '-';
@@ -192,12 +142,9 @@
                 margin-bottom: px(25);
 
                 .ball {
-                    margin: 0 px(8);
+                    margin: 0 $spacing-xs;
                 }
             }
         }
-    }
-    .--flex {
-        display: flex;
     }
 }
