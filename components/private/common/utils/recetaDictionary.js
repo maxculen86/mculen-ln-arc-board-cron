@@ -1,0 +1,46 @@
+const recipeDictionary = {
+    Entradas: 'recetas de entradas',
+    'Platos de comida principal': 'recetas principales',
+    Dulces: 'recetas dulces',
+    Pollo: 'recetas con pollo',
+    Vegetarianas: 'recetas vegetarianas',
+    'Fáciles y rápidas': 'recetas rápidas',
+    Postres: 'recetas de postres',
+    Ensaladas: 'recetas de ensaladas',
+    Veganas: 'recetas veganas',
+    'Celíacos sin gluten': 'recetas para celíacos sin gluten',
+    Tortas: 'recetas de tortas',
+    Carnes: 'recetas con carnes',
+    Guarniciones: 'recetas de guarniciones',
+    Cocina: 'recetas de cocina internacional',
+    'Qué cocino': 'recetas de qué cocino',
+    Árabe: 'recetas de cocina Árabe',
+    Argentina: 'recetas de cocina Argentina',
+    China: 'recetas de cocina China',
+    Española: 'recetas de cocina Española',
+    Francesa: 'recetas de cocina Francesa',
+    India: 'recetas de cocina India',
+    Italiana: 'recetas de cocina Italiana',
+    Japonesa: 'recetas de cocina Japonesa',
+    Libanesa: 'recetas de cocina Libanesa',
+    Mexicana: 'recetas de cocina Mexicana',
+    Peruana: 'recetas de cocina Peruana',
+    Vietnamita: 'recetas de cocina Vietnamita',
+    'cocina libanesa': 'recetas de cocina libanesa',
+    'cocina argentina': 'recetas de cocina argentina',
+    'cocina china': 'recetas de cocina china',
+    'cocina española': 'recetas de cocina española',
+    'cocina francesa': 'recetas de cocina francesa',
+    'cocina india': 'recetas de cocina india',
+    'cocina italiana': 'recetas de cocina italiana',
+    'cocina japonesa': 'recetas de cocina japonesa',
+    'cocina mexicana': 'recetas de cocina mexicana',
+    'cocina peruana': 'recetas de cocina peruana',
+    'cocina vietnamita': 'recetas de cocina vietnamita'
+};
+
+const textSelector = name => {
+    return recipeDictionary[name] || 'recetas';
+};
+
+export default textSelector;
