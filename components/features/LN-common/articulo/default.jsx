@@ -47,25 +47,25 @@ const ArticleFeature = ({
         return (idImage && idImage.trim() && 'relatedImageSource') || null;
     };
 
-    const article =
-        id &&
-        useContent({
-            source: 'articleSourceNota',
-            query: {
-                id: id.trim(),
-                published: true,
-                imageConfig,
-                checkExclusiveAccess: false
-            },
-            filter
-        });
+    const conditionallyCallVideoSource = idVideo => {
+        return (idVideo && 'videoSource') || null;
+    };
 
-    const videoBackground =
-        videoId &&
-        useContent({
-            source: 'videoSource',
-            query: { id: videoId.trim(), website: 'la-nacion-ar' }
-        });
+    const article = useContent({
+        source: (id && 'articleSourceNota') || null,
+        query: {
+            id: id && id.trim(),
+            published: true,
+            imageConfig,
+            checkExclusiveAccess: false
+        },
+        filter
+    });
+
+    const videoBackground = useContent({
+        source: conditionallyCallVideoSource(videoId),
+        query: { id: videoId && videoId.trim(), website: 'la-nacion-ar' }
+    });
 
     const image = useContent({
         source: conditionallyCallImageSource(imageId),
