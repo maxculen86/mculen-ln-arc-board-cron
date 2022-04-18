@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Text from '../../../common/text';
+import '../../../../../resources/dist/css/ln/components/result-item.css';
 
 const ResultItem = ({ text, result }) => {
     return (

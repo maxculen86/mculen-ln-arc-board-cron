@@ -17,12 +17,12 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-end;
-    }
-    .results-secondary .text {
-        &:not(:last-child)::after {
-            content: '-';
-            color: $light-neutral-700;
-            margin-right: px(0.5);
+        .com-text {
+            &:not(:first-child)::before {
+                content: '-';
+                color: $light-neutral-700;
+                margin-right: px(0.5);
+            }
         }
     }
 }

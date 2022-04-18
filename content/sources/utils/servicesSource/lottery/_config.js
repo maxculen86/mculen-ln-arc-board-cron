@@ -10,13 +10,13 @@ export const reorderSubLotteries = (results, order) =>
 export const games = {
     Quiniela_Nacional: {
         url: '/loterias/quiniela-nacional/',
-        mainResultClass: '--quinielas',
+        isQuiniela: true,
         getLotteryDate,
         getExtraResults
     },
     Quiniela_Provincia: {
         url: '/loterias/quiniela-provincia/',
-        mainResultClass: '--quinielas',
+        isQuiniela: true,
         getLotteryDate,
         getExtraResults
     },
@@ -36,19 +36,19 @@ export const games = {
                 Redoblona: Significa que se apostó a que dos números (de dos cifras exclusivamente) saldrán en lugares determinados.`
             }
         ],
-        mainResultClass: '--quinielas',
+        isQuiniela: true,
         getLotteryDate,
         getExtraResults
     },
     Quiniela_de_Santa_Fe: {
         url: '/loterias/quiniela-santa-fe/',
-        mainResultClass: '--quinielas',
+        isQuiniela: true,
         getLotteryDate,
         getExtraResults
     },
     Quiniela_Uruguaya: {
         url: '/loterias/quiniela-montevideo/',
-        mainResultClass: '--quinielas',
+        isQuiniela: true,
         getLotteryDate,
         getExtraResults
     },

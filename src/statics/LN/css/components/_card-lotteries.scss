@@ -27,6 +27,7 @@
 
     .main-result {
         display: flex;
+        position: relative;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
@@ -35,42 +36,33 @@
             margin-bottom: $spacing;
         }
         .box-result {
-            display: grid;
-            justify-items: center;
-            margin-bottom: $spacing-xs;
+            display: flex;
 
             &.--quini-6 {
-                display: flex;
                 flex-wrap: wrap;
                 justify-content: space-between;
                 width: 100%;
             }
 
             &.--loto-5 {
-                display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
                 max-width: px(190);
                 margin-bottom: 0;
-                &.detail {
-                    margin-bottom: px(108);
-                }
                 .ball {
                     margin: 0 $spacing-xs $spacing-xs;
                 }
             }
-            &.--quini-plus {
-                margin-top: px(30);
-                margin-bottom: px(40);
-            }
 
             &.--loto-plus {
+                display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 row-gap: px(8);
                 column-gap: px(16);
             }
 
             &.--brinco {
+                display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 row-gap: $spacing-xs;
                 column-gap: $spacing-sm;
@@ -78,6 +70,7 @@
             }
 
             &.--quini-6-detail {
+                display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 padding-bottom: px(90);
 
@@ -87,16 +80,30 @@
                 }
             }
             &.--grid-5-columns {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
+                display: grid;
+                width: 100%;
+                grid-template-columns: repeat(5, 1fr);
+                justify-content: center;
                 column-gap: 0px;
-                flex: 100%;
-
-                & > div {
-                    display: flex;
-                    justify-content: center;
-                    flex: 20%;
+            }
+            .ball {
+                display: flex;
+                justify-content: center;
+                justify-self: center;
+                align-items: center;
+                border-radius: 50%;
+                background: $light-neutral-200;
+                width: px(40);
+                height: px(40);
+                &.--small {
+                    width: px(32);
+                    height: px(32);
+                }
+                &.--grey {
+                    background: $light-neutral-200;
+                }
+                &.--blue {
+                    background-color: $blue-100;
                 }
             }
         }
@@ -104,14 +111,6 @@
 
     .extra-results {
         margin: auto 0;
-        .result-item .results-secondary .com-text {
-            &:not(:last-child):after {
-                content: '-';
-                color: $light-neutral-700;
-                margin-right: px(0.5);
-            }
-        }
-
         &.--loto-plus {
             .result-item:first-child .results-secondary .com-text {
                 &:nth-last-child(-n + 2) {

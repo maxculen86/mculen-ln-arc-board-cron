@@ -5,10 +5,7 @@ import { useAppContext } from 'fusion:context';
 import StaticValidation from '../../../private/common/staticValidation';
 import get from '../../../private/common/utils/get';
 
-import '../../../../resources/dist/css/ln/components/card-lotteries.css';
-import '../../../../resources/dist/css/ln/components/result-item.css';
 import '../../../../resources/dist/css/ln/components/label-text.css';
-import '../../../../resources/dist/css/ln/components/ball-lotteries.css';
 
 import LotteryCard from '../../../private/LN/services/lotteries/LotteryCard';
 

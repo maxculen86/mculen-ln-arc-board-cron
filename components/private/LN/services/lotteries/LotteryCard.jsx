@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from '../../../common/utils/get';
+import '../../../../../resources/dist/css/ln/components/card-lotteries.css';
+
 import {
     games,
     reorderSubLotteries
@@ -26,7 +28,7 @@ const LotteryCard = ({
 }) => {
     const getDate = get(games, `${id}.getLotteryDate`, () => date);
     const getOrder = get(games, `${id}.sublotteriesOrder`, []);
-    const mainResultClass = get(games, `${id}.mainResultClass`, '');
+    const isQuiniela = get(games, `${id}.isQuiniela`, false);
     const boxResultClass = get(games, `${id}.boxResultClass`, '');
     const showVacantPot = get(games, `${id}.showVacantPot`, false);
     const showLetters = get(games, `${id}.showLetters`, false);
@@ -41,7 +43,7 @@ const LotteryCard = ({
         jackpot: firstResultJackpot = []
     } = firstResult;
     const [resultFirstChild = ''] = result;
-    const isQuinielas = mainResultClass === '--quinielas';
+    const isQuini6 = boxResultClass.includes('--quini-6');
     return (
         <CardLayout
             title={name}
@@ -49,14 +51,11 @@ const LotteryCard = ({
             link={!isDetail && link}
             linkTitle={name}
         >
-            <div
-                className={`main-result ${mainResultClass}`}
-                data-testid={`${id}-test`}
-            >
+            <div className="main-result" data-testid={`${id}-test`}>
                 {!isDetail && showFirstLotteryName && (
                     <LabelText text={firstResultName} />
                 )}
-                {isQuinielas ? (
+                {isQuiniela ? (
                     <Text weight="bold" size="2xl">
                         {resultFirstChild}
                     </Text>
@@ -66,7 +65,7 @@ const LotteryCard = ({
                             <BallLotteries
                                 key={number}
                                 number={number}
-                                size={isDetail ? 'large' : 'small'}
+                                size={isQuini6 ? 'small' : ''}
                             />
                         ))}
                     </div>
@@ -77,7 +76,6 @@ const LotteryCard = ({
                             <BallLotteries
                                 key={number}
                                 number={number}
-                                size="large"
                                 color="blue"
                             />
                         ))}
@@ -95,12 +93,12 @@ const LotteryCard = ({
                         <ResultItem
                             key={item.name}
                             text={
-                                isQuinielas
+                                isQuiniela
                                     ? `${item.date} - ${item.name}`
                                     : item.name
                             }
                             result={
-                                !isQuinielas ? item.result : [item.result[0]]
+                                !isQuiniela ? item.result : [item.result[0]]
                             }
                         />
                     ))}
@@ -139,7 +137,6 @@ const LotteryCard = ({
                             <BallLotteries
                                 key={number}
                                 number={number}
-                                size="large"
                                 color="blue"
                             />
                         ))}

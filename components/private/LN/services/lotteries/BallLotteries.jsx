@@ -1,11 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../../../../../resources/dist/css/ln/components/ball-lotteries.css';
 
 const BallLotteries = ({ number, size, color }) => {
     return (
-        <div className={`--twoxs --font-bold ball --${size} --${color}`}>
+        <span
+            className={`--twoxs --font-bold ball${size &&
+                ` --${size}`}${color && ` --${color}`}`}
+        >
             {number}
-        </div>
+        </span>
     );
 };
 
