@@ -33,11 +33,9 @@ const Text = ({
     return (
         <CustomTag id={id} className={_className} style={styles}>
             {link ? (
-                <a
-                    href={link}
-                    title={_content}
-                    dangerouslySetInnerHTML={{ __html: _content }}
-                />
+                <a href={link} title={_content}>
+                    {_content}
+                </a>
             ) : (
                 _content
             )}
