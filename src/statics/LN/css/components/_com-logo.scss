@@ -166,6 +166,17 @@
             height: px(32);
         }
     }
+    &.movilidad,
+    &.movilidad-blanco {
+        &.--xs {
+            width: px(141);
+            height: px(20);
+        }
+        &.--sm {
+            width: px(205);
+            height: px(28);
+        }
+    }
     &.campo,
     &.campo-blanco {
         &.--xs {
