@@ -14,7 +14,21 @@ import { adjustByURL } from '../../../private/common/utils/propTypesHelper';
 const AnexoFeature = props => {
     const { id, customFields } = props;
     const { renderables = [], isAdmin } = useAppContext();
-    const { height } = customFields;
+    const { heightDesktop, heightTablet, heightMobile } = customFields;
+
+    console.log(
+        '🚀 ~ file: default.jsx ~ line 18 ~ heightDesktop',
+        heightDesktop
+    );
+    console.log(
+        '🚀 ~ file: default.jsx ~ line 18 ~ heightTablet',
+        heightTablet
+    );
+    console.log(
+        '🚀 ~ file: default.jsx ~ line 18 ~ heightMobile',
+        heightMobile
+    );
+
     const errorMessage = getErrorMessage({ customFields });
 
     const _type = getComponentType({ ...props, isAdmin, errorMessage });
@@ -38,11 +52,16 @@ const AnexoFeature = props => {
         handleIframeProps(id);
     }, [id, comp]);
 
+    const responsiveHeight = `.anexo-responsive-${id}{height:${heightDesktop}px}
+        @media(max-width:995px){.anexo-responsive-${id}{height:${heightTablet}px}}
+        @media(max-width:700px){.anexo-responsive-${id}{height:${heightMobile}px}}`;
+
     return _type === 'Iframe' ? (
         <div
-            className={`com-anexo ${EXTRA_CLASS}`}
-            style={{ height, overflow: 'hidden', width: '100%' }}
+            className={`com-anexo anexo-responsive-${id} ${EXTRA_CLASS}`}
+            style={{ overflow: 'hidden', width: '100%' }}
         >
+            <style>{responsiveHeight}</style>
             <StaticValidation
                 id={id}
                 htmlOnly
@@ -98,14 +117,36 @@ const getComponentFromConfig = (_type, _props) => {
 const getComponentType = ({
     isAdmin,
     errorMessage,
-    customFields: { url, hideByUrl, html, height, hideByHtml }
+    customFields: {
+        url,
+        hideByUrl,
+        html,
+        heightDesktop,
+        heightTablet,
+        heightMobile,
+        hideByHtml
+    }
 }) =>
     (isAdmin && errorMessage && 'Error') ||
     (!errorMessage && !hideByHtml && html && 'Html') ||
-    (!errorMessage && !hideByUrl && url && height && 'Iframe');
+    (!errorMessage &&
+        !hideByUrl &&
+        url &&
+        heightDesktop &&
+        heightTablet &&
+        heightMobile &&
+        'Iframe');
 
 const getErrorMessage = ({
-    customFields: { url, hideByUrl, html, height, hideByHtml } = {}
+    customFields: {
+        url,
+        hideByUrl,
+        html,
+        heightDesktop,
+        heightTablet,
+        heightMobile,
+        hideByHtml
+    } = {}
 }) =>
     (!url &&
         !hideByUrl &&
@@ -115,7 +156,9 @@ const getErrorMessage = ({
     (!html &&
         url &&
         !hideByUrl &&
-        !height &&
+        !heightDesktop &&
+        !heightTablet &&
+        !heightMobile &&
         'El alto fijo del anexo es un campo requerido para los anexos con URL') ||
     '';
 
@@ -154,10 +197,22 @@ AnexoFeature.propTypes = {
             // disabled: true,
             defaultValue: ''
         }),
-        height: PropTypes.number.tag({
-            label: 'Alto',
+        heightDesktop: PropTypes.number.tag({
+            label: 'Alto Desktop',
             group: adjustByURL,
-            description: 'Ingrese aquí el alto fijo del anexo',
+            description: 'Ingrese el alto fijo del anexo para Desktop',
+            defaultValue: 0
+        }),
+        heightTablet: PropTypes.number.tag({
+            label: 'Alto Tablet',
+            group: adjustByURL,
+            description: 'Ingrese el alto fijo del anexo para Tablet',
+            defaultValue: 0
+        }),
+        heightMobile: PropTypes.number.tag({
+            label: 'Alto Mobile',
+            group: adjustByURL,
+            description: 'Ingrese el alto fijo del anexo para Mobile',
             defaultValue: 0
         }),
         hideByHtml: PropTypes.bool.tag({
@@ -174,7 +229,9 @@ AnexoFeature.defaultProps = {
         url: '',
         hideByUrl: false,
         html: '',
-        height: 0,
+        heightDesktop: 0,
+        heightTablet: 0,
+        heightMobile: 0,
         hideByHtml: false
     }
 };
