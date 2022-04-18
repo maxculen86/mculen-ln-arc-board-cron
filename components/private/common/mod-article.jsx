@@ -90,10 +90,6 @@ const ModArticle = props => {
             ? { onClick: customHandlerClick }
             : {};
 
-    console.log('🚀 ~ file: mod-article.jsx ~ line 97 ~ eventsxxx', events, {
-        ...events
-    });
-
     return (
         <article
             className={setArticleClassName({

@@ -16,6 +16,7 @@ import filter from '../../../../content/filters/LN/nota/articleAcu';
 import featureArticleCustomsFields from '../../../private/LN/common/utils/articuloHelper';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
+import ErrorBoundary from '../../../private/common/ErrorBoundary';
 
 const ArticleFeature = ({
     id: featureId,
@@ -59,7 +60,7 @@ const ArticleFeature = ({
     });
 
     const videoBackground = useContent({
-        source: (videoId && 'videoSource') || null,
+        source: (videoId && videoId.trim() && 'videoSource') || null,
         query: { id: videoId && videoId.trim(), website: 'la-nacion-ar' }
     });
 
@@ -98,27 +99,29 @@ const ArticleFeature = ({
 
     return (
         (!error && article && (
-            <NoteCard
-                id={featureId}
-                article={article}
-                promoItems={image && image.promo_items}
-                articleProps={config}
-                customFields={customFields}
-                outputType={outputType}
-                index={index}
-                boxPosition={boxPosition}
-                layout={layout}
-                isAdmin={isAdmin}
-                isInHomeAperturaOrBomba={isInHomeAperturaOrBomba(
-                    renderables,
-                    featureId,
-                    layoutsName,
-                    layoutPageBuilder
-                )}
-                videoBackground={videoBackground}
-                isPowa={layout !== 'grilla1'}
-                registerSuccessEvent={registerSuccessEvent}
-            />
+            <ErrorBoundary>
+                <NoteCard
+                    id={featureId}
+                    article={article}
+                    promoItems={image && image.promo_items}
+                    articleProps={config}
+                    customFields={customFields}
+                    outputType={outputType}
+                    index={index}
+                    boxPosition={boxPosition}
+                    layout={layout}
+                    isAdmin={isAdmin}
+                    isInHomeAperturaOrBomba={isInHomeAperturaOrBomba(
+                        renderables,
+                        featureId,
+                        layoutsName,
+                        layoutPageBuilder
+                    )}
+                    videoBackground={videoBackground}
+                    isPowa={layout !== 'grilla1'}
+                    registerSuccessEvent={registerSuccessEvent}
+                />
+            </ErrorBoundary>
         )) ||
         getPlaceholder(layout, index)
     );
