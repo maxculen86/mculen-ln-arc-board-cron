@@ -3,7 +3,7 @@ import PropTypes from 'fusion:prop-types';
 
 import '../../../../resources/dist/css/ln/modules/mod-themes.css';
 import ComLink from '../../common/com-link';
-import recipeDictionary from '../../common/utils/recetaDictionary';
+import textSelector from '../../common/utils/recetaDictionary';
 
 const TaxonomyImportantList = ({ list, showItems, extraTagText }) => {
     return (
@@ -25,7 +25,7 @@ const TaxonomyImportantList = ({ list, showItems, extraTagText }) => {
                         }
                         title={
                             path.includes('/recetas')
-                                ? `Ir a notas de ${recipeDictionary[item.text]}`
+                                ? `Ir a notas de ${textSelector(item.text)}`
                                 : `Ir a notas de${extraTagText} ${item.text}`
                         }
                     >

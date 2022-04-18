@@ -7,7 +7,7 @@ import get from '../../../common/utils/get';
 import '../../../../../resources/dist/css/ln/components/title.css';
 import '../../../../../resources/dist/css/ln/components/tag.css';
 import ModCategory from '../../../common/mod-category';
-import recipeDictionary from '../../../common/utils/recetaDictionary';
+import textSelector from '../../../common/utils/recetaDictionary';
 
 const setTitle = (
     replaceTitle,
@@ -69,7 +69,7 @@ const AcumuladoTitle = props => {
                     link: (isLink && categoryUrl) || `${_id}/`,
                     textname: navTitle || (isLink && displayName) || name,
                     title: acuName.includes('/recetas')
-                        ? `Ir a notas de ${recipeDictionary[name]}`
+                        ? `Ir a notas de ${textSelector(name)}`
                         : `Ir a ${titleLink}`,
                     ...(colorCategory && { style: { color: colorCategory } })
                 };
