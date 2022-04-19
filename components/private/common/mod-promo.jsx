@@ -26,7 +26,7 @@ const ModPromo = ({
                         color
                         isStatic={isStatic}
                     />
-                    {text && <p className="com-text --twoxs">{text}</p>}
+                    {text && <p className="com-text --threexs">{text}</p>}
                 </div>
                 <span className="com-button --secondary">
                     {textButton || 'IR A NOTAS'}
