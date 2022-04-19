@@ -173,6 +173,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
             isRenderAuthor={false}
             key="K2FFK3J6DNCX3D76BQ6D7FLQNE"
             outputType="default"
+            sectionName="propiedades"
             titleTag="h2"
             typeArticle="Grilla"
             withCategory={false}
@@ -448,6 +449,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
             isRenderAuthor={false}
             key="AQCXKYK4XJCVFNFNZ2IQ7SUCA4"
             outputType="default"
+            sectionName="propiedades"
             titleTag="h2"
             typeArticle="Grilla"
             withCategory={false}
@@ -723,6 +725,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
             isRenderAuthor={false}
             key="KEBYELHATJHPRNAWO24GRV6YCQ"
             outputType="default"
+            sectionName="propiedades"
             titleTag="h2"
             typeArticle="Grilla"
             withCategory={false}
