@@ -428,7 +428,7 @@ const LNMainHome = props => {
                                             <CajaPromo
                                                 customFields={{
                                                     text:
-                                                        'La información más completa del mercado inmobiliario minuto a minuto.',
+                                                        'Casas, departamentos, inversiones y más',
                                                     link:
                                                         'https://www.lanacion.com.ar/propiedades/',
                                                     logoName: 'propiedades'
@@ -437,10 +437,28 @@ const LNMainHome = props => {
                                             <CajaPromo
                                                 customFields={{
                                                     text:
-                                                        'La mejor información para un sector clave que evoluciona día a día.',
+                                                        'Agricultura, ganadería, tecnologías y más',
                                                     link:
                                                         'https://www.lanacion.com.ar/economia/campo/',
                                                     logoName: 'campo'
+                                                }}
+                                            />
+                                            <CajaPromo
+                                                customFields={{
+                                                    text:
+                                                        'Vida sana, nutrición, descanso y más',
+                                                    link:
+                                                        'https://www.lanacion.com.ar/salud/',
+                                                    logoName: 'salud'
+                                                }}
+                                            />
+                                            <CajaPromo
+                                                customFields={{
+                                                    text:
+                                                        'Tendencias, test drives, eléctricos y más',
+                                                    link:
+                                                        'https://www.lanacion.com.ar/autos/',
+                                                    logoName: 'autos'
                                                 }}
                                             />
                                         </div>
