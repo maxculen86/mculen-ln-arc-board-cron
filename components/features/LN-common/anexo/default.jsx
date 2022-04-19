@@ -12,33 +12,20 @@ import sectionsValidation from '../../../layouts/config/LN-Home.config.json';
 import { adjustByURL } from '../../../private/common/utils/propTypesHelper';
 
 const AnexoFeature = props => {
-    const { id, customFields } = props;
+    const { id, customFields = {} } = props;
     const { renderables = [], isAdmin } = useAppContext();
     const { heightDesktop, heightTablet, heightMobile } = customFields;
 
-    console.log(
-        '🚀 ~ file: default.jsx ~ line 18 ~ heightDesktop',
-        heightDesktop
-    );
-    console.log(
-        '🚀 ~ file: default.jsx ~ line 18 ~ heightTablet',
-        heightTablet
-    );
-    console.log(
-        '🚀 ~ file: default.jsx ~ line 18 ~ heightMobile',
-        heightMobile
-    );
+    const isApertura = isInSection({ sectionName: 'Anexo_1', id, renderables });
 
-    const errorMessage = getErrorMessage({ customFields });
+    const errorMessage = getErrorMessage({ isApertura, customFields });
 
     const _type = getComponentType({ ...props, isAdmin, errorMessage });
 
     // Al estar en la sección 'Anexo_1' del layout necesita tener la clase '--anexo-1'.
-    const EXTRA_CLASS = (
-        (isInSection({ sectionName: 'Anexo1', id, renderables }) &&
-            '--anexo-1 ') ||
-        ''
-    ).concat((!isAdmin && _type === 'Iframe' && 'skeleton-box') || '');
+    const EXTRA_CLASS = ((isApertura && '--anexo-1 ') || '').concat(
+        (!isAdmin && _type === 'Iframe' && 'skeleton-box') || ''
+    );
 
     const comp = () =>
         getComponentFromConfig(_type, {
@@ -52,25 +39,19 @@ const AnexoFeature = props => {
         handleIframeProps(id);
     }, [id, comp]);
 
-    const responsiveHeight = `.anexo-responsive-${id}{height:${heightDesktop}px}
-        @media(max-width:995px){.anexo-responsive-${id}{height:${heightTablet}px}}
-        @media(max-width:700px){.anexo-responsive-${id}{height:${heightMobile}px}}`;
-
     return _type === 'Iframe' ? (
         <div
-            className={`com-anexo anexo-responsive-${id} ${EXTRA_CLASS}`}
+            id={`anexo-responsive-${id}`}
+            className={`com-anexo ${EXTRA_CLASS}`}
             style={{ overflow: 'hidden', width: '100%' }}
         >
-            <style>{responsiveHeight}</style>
-            <StaticValidation
-                id={id}
-                htmlOnly
-                isStatic={isInSection({
-                    sectionName: 'Anexo1',
-                    id,
-                    renderables
-                })}
-            >
+            <StaticValidation id={id} htmlOnly isStatic={isApertura}>
+                <style>
+                    {`#anexo-responsive-${id}{height:${heightMobile}px}@media(min-width:768px){#anexo-responsive-${id}{height:${
+                        // eslint-disable-next-line prettier/prettier
+                        heightTablet
+                    }px}}@media(min-width:1024px){#anexo-responsive-${id}{height:${heightDesktop}px}}`}
+                </style>
                 {comp()}
             </StaticValidation>
         </div>
@@ -88,7 +69,7 @@ const getComponentFromConfig = (_type, _props) => {
                 message={errorMessage}
             />
         ),
-        Html: ({ customFields: { html }, extraClass }) => (
+        Html: ({ customFields: { html = '' }, extraClass }) => (
             <div
                 className={`com-anexo ${extraClass}`}
                 dangerouslySetInnerHTML={{
@@ -96,7 +77,7 @@ const getComponentFromConfig = (_type, _props) => {
                 }}
             />
         ),
-        Iframe: ({ id, customFields: { url } }) => {
+        Iframe: ({ id, customFields: { url = '' } }) => {
             const anexoId = `anexo-${id}`;
             return (
                 <iframe
@@ -118,14 +99,14 @@ const getComponentType = ({
     isAdmin,
     errorMessage,
     customFields: {
-        url,
-        hideByUrl,
-        html,
+        url = '',
+        hideByUrl = false,
+        html = '',
         heightDesktop,
         heightTablet,
         heightMobile,
-        hideByHtml
-    }
+        hideByHtml = false
+    } = {}
 }) =>
     (isAdmin && errorMessage && 'Error') ||
     (!errorMessage && !hideByHtml && html && 'Html') ||
@@ -138,14 +119,15 @@ const getComponentType = ({
         'Iframe');
 
 const getErrorMessage = ({
+    isApertura,
     customFields: {
-        url,
-        hideByUrl,
-        html,
+        url = '',
+        hideByUrl = false,
+        html = '',
         heightDesktop,
         heightTablet,
         heightMobile,
-        hideByHtml
+        hideByHtml = false
     } = {}
 }) =>
     (!url &&
@@ -153,18 +135,23 @@ const getErrorMessage = ({
         !html &&
         !hideByHtml &&
         'Se requiere agregue la URL o HTML del anexo') ||
-    (!html &&
+    (hideByHtml &&
         url &&
         !hideByUrl &&
-        !heightDesktop &&
-        !heightTablet &&
-        !heightMobile &&
-        'El alto fijo del anexo es un campo requerido para los anexos con URL') ||
+        (!heightDesktop || !heightTablet || !heightMobile) &&
+        'Los tres altos fijos del anexo (Desktop, Tablet y Mobile) son campos requeridos para los anexos con URL') ||
+    (hideByHtml &&
+        url &&
+        !hideByUrl &&
+        isApertura &&
+        (heightDesktop > 250 || heightTablet > 250 || heightMobile > 250) &&
+        'Los altos fijos máximos de anexos con URL en apertura son de 250px para Desktop, Tablet y Mobile. Corrijalos, caso contrario no se verá el anexo') ||
     '';
 
 const isInSection = ({ sectionName, id, renderables = [] }) => {
     const sectionPosition =
         get(sectionsValidation, `${sectionName}.position`, 1) + 1;
+
     return getChildsFromSections(sectionPosition, renderables).some(
         el => get(el, 'props.id', '') === id
     );
@@ -221,19 +208,7 @@ AnexoFeature.propTypes = {
             description: 'Marque para ocultar el anexo',
             defaultValue: false
         })
-    })
-};
-
-AnexoFeature.defaultProps = {
-    customFields: {
-        url: '',
-        hideByUrl: false,
-        html: '',
-        heightDesktop: 0,
-        heightTablet: 0,
-        heightMobile: 0,
-        hideByHtml: false
-    }
+    }).isRequired
 };
 
 export default AnexoFeature;
