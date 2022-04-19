@@ -29,7 +29,7 @@ const ModPromo = ({
                     {text && <p className="com-text --twoxs">{text}</p>}
                 </div>
                 <span className="com-button --secondary">
-                    {textButton || 'INGRESAR'}
+                    {textButton || 'IR A NOTAS'}
                 </span>
             </a>
         </CustomTag>
