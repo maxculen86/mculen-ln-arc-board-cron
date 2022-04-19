@@ -128,7 +128,7 @@ export const getSectionLogo = (sections, layout, distributorName) => {
 
     const { logoName, path } = getLogoData(sections);
 
-    if (!logoName && !path && isBBC)
+    if (isBBC)
         return {
             logoName: 'bbc',
             path: '/distributor/bbc-mundo',
