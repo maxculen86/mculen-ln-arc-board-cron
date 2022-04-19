@@ -1,0 +1,51 @@
+{
+    "_id": "EO27GX6SBNCRTAZRIK5G4G23AY",
+    "type": "list",
+    "list_type": "unordered",
+    "additional_properties": {
+        "comments": [],
+        "inline_comments": []
+    },
+    "items": [
+        {
+            "_id": "UBLVLAPB4JAXRLHT4G2XTSR2F4",
+            "additional_properties": {
+                "comments": [],
+                "inline_comments": []
+            },
+            "block_properties": {},
+            "content": "<i>Línea 135. El Centro de Atención al Suicida (CAS) está atendiendo 18 horas diarias, de 8 a 2 de la mañana, de forma anónima, gratuita y voluntaria. La técnica que utiliza es la “escucha activa”, con intervenciones orientadas a que el “consultante” hable. La línea 135 es gratis desde CABA o Gran Buenos Aires; y el (011) 5275-1135 es para el todo el país.</i>",
+            "type": "text"
+        },
+        {
+            "_id": "AJAVPS3TO5DO7ELE3IHRNL45AU",
+            "additional_properties": {
+                "comments": [],
+                "inline_comments": []
+            },
+            "block_properties": {},
+            "content": "<i>Hospital Nacional en Red Especializado en Salud Mental y Adicciones “Lic. Laura Bonaparte”. Cuenta con un Comité de Emergencia que realiza entrevistas telefónicas para el asesoramiento y la contención de personas que sufren los efectos del aislamiento social, preventivo y obligatorio. Atendida por profesiones de salud mental, la línea de teléfono (011) 4305-0091 al . 96, interno 1155, está disponible de 8 a 20.</i>",
+            "type": "text"
+        },
+        {
+            "_id": "TLCWBEVAZFGUVFLUP73NCANZKU",
+            "additional_properties": {
+                "comments": [],
+                "inline_comments": []
+            },
+            "block_properties": {},
+            "content": "<i>Salud Mental Responde CABA. Es un dispositivo que brinda orientación telefónica de forma confidencial para residentes de la ciudad de Buenos Aires. Tels: 4863-8888/48615586/4123-3120, lunes a viernes de 8 a 20. 4123-3100 int. 3484/3485 feriados, fin de semana y noche, de 20 a 8.</i>",
+            "type": "text"
+        },
+        {
+            "_id": "ZSUMPZX3HNBZXI2ENOPN3LNIB4",
+            "additional_properties": {
+                "comments": [],
+                "inline_comments": []
+            },
+            "block_properties": {},
+            "content": "<i>SOS un Amigo Anónimo. Esta asociación sin fines de lucro que desde hace casi cinco décadas ofrece asistencia telefónica anónima y confidencial para personas que transitan alguna crisis emocional, en el contexto de pandemia, está recibiendo las llamadas por Skype (usuario: SOSUNAMIGOANONIMO). Son 30 voluntarios que permiten que SOS funcione todos los días de 10 a 19. Se llama y atienden directamente.</i>",
+            "type": "text"
+        }
+    ]
+}

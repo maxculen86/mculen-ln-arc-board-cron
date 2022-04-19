@@ -14,7 +14,7 @@ const list = (nodo, dataNota) => {
 
     resp.valor = listElements.map(v => {
         const valor = htmlText(v.content);
-        if (valor && valor.valor?.length) {
+        if (valor) {
             return {
                 _t: 'li',
                 valor
