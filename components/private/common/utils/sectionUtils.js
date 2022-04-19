@@ -46,6 +46,8 @@ const getRegex = sectionId => {
         /\/(lnmas)/,
         /^\/(propiedades)(?:\/.+)?/,
         /^\/(economia\/campo)(?:\/.+)?/,
+        /^\/(salud)(?:\/.+)?/,
+        /^\/(autos)(?:\/.+)?/,
         /\/revista-(.\w+[^\W]?)/
     ];
 
