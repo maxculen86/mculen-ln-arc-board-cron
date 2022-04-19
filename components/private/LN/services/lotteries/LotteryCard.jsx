@@ -12,7 +12,7 @@ import CardLayout from './CardLayout';
 import LabelText from './LabelText';
 import Text from '../../../common/text';
 import ResultItem from './ResultItem';
-import BallLotteries from './BallLoteries';
+import BallLotteries from './BallLotteries';
 
 const LotteryCard = ({
     id,
@@ -32,8 +32,15 @@ const LotteryCard = ({
     const boxResultClass = get(games, `${id}.boxResultClass`, '');
     const showVacantPot = get(games, `${id}.showVacantPot`, false);
     const showLetters = get(games, `${id}.showLetters`, false);
-    const showFirstLotteryName = get(games, `${id}.showFirstLotteryName`, true);
+    const showFirstLotteryName = get(
+        games,
+        `${id}.showFirstLotteryName`,
+        false
+    );
     const hasJackpot = get(games, `${id}.hasJackpot`, false);
+    const hasExtraResults = get(games, `${id}.hasExtraResults`, false);
+    const hasLoto = get(games, `${id}.hasLoto`, false);
+    const isQuini6 = boxResultClass.includes('--quini-6');
 
     const reorderedResults = reorderSubLotteries(results, getOrder);
     const [firstResult = {}] = reorderedResults;
@@ -43,7 +50,6 @@ const LotteryCard = ({
         jackpot: firstResultJackpot = []
     } = firstResult;
     const [resultFirstChild = ''] = result;
-    const isQuini6 = boxResultClass.includes('--quini-6');
     return (
         <CardLayout
             title={name}
@@ -55,11 +61,12 @@ const LotteryCard = ({
                 {!isDetail && showFirstLotteryName && (
                     <LabelText text={firstResultName} />
                 )}
-                {isQuiniela ? (
+                {isQuiniela && (
                     <Text weight="bold" size="2xl">
                         {resultFirstChild}
                     </Text>
-                ) : (
+                )}
+                {!isQuiniela && !hasLoto && (
                     <div className={boxResultClass}>
                         {(!isDetail ? result : results).map(number => (
                             <BallLotteries
@@ -70,15 +77,27 @@ const LotteryCard = ({
                         ))}
                     </div>
                 )}
-                {!isDetail && (
-                    <div className="jackpot-result">
-                        {firstResultJackpot.map(number => (
-                            <BallLotteries
-                                key={number}
-                                number={number}
-                                color="blue"
-                            />
-                        ))}
+                {!isDetail && hasLoto && (
+                    <div className="traditional">
+                        <div className={boxResultClass}>
+                            {(!isDetail ? result : results).map(number => (
+                                <BallLotteries
+                                    key={number}
+                                    number={number}
+                                    size={isQuini6 ? 'small' : ''}
+                                />
+                            ))}
+                        </div>
+                        <div className="jackpot-result">
+                            {firstResultJackpot.map(number => (
+                                <BallLotteries
+                                    key={number}
+                                    number={number}
+                                    color="blue"
+                                    size={isQuini6 ? 'small' : ''}
+                                />
+                            ))}
+                        </div>
                     </div>
                 )}
                 {meaning && <LabelText text={meaning} />}
@@ -87,7 +106,7 @@ const LotteryCard = ({
                 )}
                 {showLetters && <LabelText text={`Letras: ${letters}`} />}
             </div>
-            {!isDetail && !hasJackpot && (
+            {!isDetail && hasExtraResults && (
                 <div className="extra-results">
                     {reorderedResults.slice(1, 5).map(item => (
                         <ResultItem
@@ -100,6 +119,7 @@ const LotteryCard = ({
                             result={
                                 !isQuiniela ? item.result : [item.result[0]]
                             }
+                            className={isQuini6 ? '--quini-6' : ''}
                         />
                     ))}
                 </div>

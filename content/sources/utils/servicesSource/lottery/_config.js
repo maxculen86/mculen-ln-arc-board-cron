@@ -12,13 +12,15 @@ export const games = {
         url: '/loterias/quiniela-nacional/',
         isQuiniela: true,
         getLotteryDate,
-        getExtraResults
+        getExtraResults,
+        hasExtraResults: true
     },
     Quiniela_Provincia: {
         url: '/loterias/quiniela-provincia/',
         isQuiniela: true,
         getLotteryDate,
-        getExtraResults
+        getExtraResults,
+        hasExtraResults: true
     },
     Quiniela_de_Cordoba: {
         url: '/loterias/quiniela-cordoba/',
@@ -38,19 +40,22 @@ export const games = {
         ],
         isQuiniela: true,
         getLotteryDate,
-        getExtraResults
+        getExtraResults,
+        hasExtraResults: true
     },
     Quiniela_de_Santa_Fe: {
         url: '/loterias/quiniela-santa-fe/',
         isQuiniela: true,
         getLotteryDate,
-        getExtraResults
+        getExtraResults,
+        hasExtraResults: true
     },
     Quiniela_Uruguaya: {
         url: '/loterias/quiniela-montevideo/',
         isQuiniela: true,
         getLotteryDate,
-        getExtraResults
+        getExtraResults,
+        hasExtraResults: true
     },
     Quini_6: {
         url: '/loterias/quini-6/',
@@ -73,13 +78,17 @@ export const games = {
             'Siempre sale'
         ],
         getLotteryDate,
-        getExtraResults
+        getExtraResults,
+        hasExtraResults: true,
+        showFirstLotteryName: true
     },
     Telekino: {
         url: '/loterias/telekino/',
         boxResultClass: 'box-result --grid-5-columns',
         getLotteryDate,
-        getExtraResults
+        getExtraResults,
+        hasExtraResults: true,
+        showFirstLotteryName: true
     },
     Loto: {
         url: '/loterias/loto/',
@@ -95,7 +104,10 @@ export const games = {
         showVacantPot: false,
         hasJackpot: true,
         getLotteryDate,
-        getExtraResults
+        getExtraResults,
+        hasExtraResults: true,
+        hasLoto: true,
+        showFirstLotteryName: true
     },
     Loto_5: {
         url: '/loterias/loto-5/',
@@ -116,7 +128,6 @@ export const games = {
         boxResultClass: 'box-result --grid-5-columns',
         showVacantPot: false,
         showLetters: true,
-        showFirstLotteryName: false,
         getLotteryDate,
         getExtraResults
     },
@@ -124,7 +135,8 @@ export const games = {
         url: '/loterias/quiniela-plus/',
         boxResultClass: 'box-result --grid-5-columns',
         getLotteryDate,
-        getExtraResults
+        getExtraResults,
+        showFirstLotteryName: true
     },
     Brinco: {
         url: '/loterias/brinco/',

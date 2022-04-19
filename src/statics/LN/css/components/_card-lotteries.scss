@@ -32,18 +32,27 @@
         justify-content: space-between;
         align-items: center;
         margin: auto 0;
-        span {
-            margin-bottom: $spacing;
+        .traditional {
+            display: flex;
+            .box-result {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                column-gap: $spacing-sm;
+                margin-right: $spacing-sm;
+            }
+            .jackpot-result {
+                .ball {
+                    margin-bottom: $spacing-xs;
+                }
+            }
         }
         .box-result {
             display: flex;
-
             &.--quini-6 {
                 flex-wrap: wrap;
                 justify-content: space-between;
                 width: 100%;
             }
-
             &.--loto-5 {
                 flex-wrap: wrap;
                 justify-content: center;
@@ -53,14 +62,6 @@
                     margin: 0 $spacing-xs $spacing-xs;
                 }
             }
-
-            &.--loto-plus {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                row-gap: px(8);
-                column-gap: px(16);
-            }
-
             &.--brinco {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
@@ -84,27 +85,7 @@
                 width: 100%;
                 grid-template-columns: repeat(5, 1fr);
                 justify-content: center;
-                column-gap: 0px;
-            }
-            .ball {
-                display: flex;
-                justify-content: center;
-                justify-self: center;
-                align-items: center;
-                border-radius: 50%;
-                background: $light-neutral-200;
-                width: px(40);
-                height: px(40);
-                &.--small {
-                    width: px(32);
-                    height: px(32);
-                }
-                &.--grey {
-                    background: $light-neutral-200;
-                }
-                &.--blue {
-                    background-color: $blue-100;
-                }
+                row-gap: $spacing-xs;
             }
         }
     }
