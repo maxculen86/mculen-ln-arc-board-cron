@@ -1,18 +1,42 @@
 import Consumer from 'fusion:consumer';
+import getProperties from 'fusion:properties';
+import getCajaTemaConfig from '../../../private/LN/home/components/noteCard/noteCardImageHelper';
+import get from '../../../private/common/utils/get';
 
 class ArticleFeature {
     constructor(props) {
         this.props = props;
         const {
-            customFields: { noteId, imageId }
+            customFields: { noteId, imageId },
+            id: featureId,
+            arcSite
         } = props;
+
+        const renderables = get(props, 'renderables', null);
+        let imageConfig = null;
         this.state = {};
+
+        if (renderables) {
+            const { cajaTemaConfig } = getProperties(arcSite);
+
+            imageConfig = getCajaTemaConfig(
+                featureId,
+                renderables,
+                cajaTemaConfig,
+                false
+            ).imageConfig;
+        }
 
         noteId &&
             this.fetchContent({
                 articleSourceNota: {
                     source: 'articleSourceNota',
-                    query: { id: noteId.trim(), published: true }
+                    query: {
+                        id: noteId.trim(),
+                        imageConfig,
+                        published: true,
+                        checkExclusiveAccess: false
+                    }
                 }
             });
 
@@ -24,7 +48,7 @@ class ArticleFeature {
                     query: {
                         id: imageId.trim(),
                         published: true,
-                        imageConfig: 'm',
+                        imageConfig,
                         'arc-site': 'la-nacion-ar',
                         nid: noteId,
                         boxType: 'ArticleFeature'

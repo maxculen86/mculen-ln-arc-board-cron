@@ -227,7 +227,9 @@ const Default = props => {
                     content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
                 <meta name="theme-color" content="#ffffff" />
-                {layout !== 'LN-buscador' && <title>{title}</title>}
+                {layout !== 'LN-buscador' && (
+                    <title>{arcSite === 'ott' ? ottMetaTitle : title}</title>
+                )}
                 {getDataToLinkImage({
                     data: globalContent,
                     section: _nodeType,

@@ -126,7 +126,8 @@
 }
 
 .cuerpo__nota {
-    .mod-media:not(.--slider) {
+    //.mod-media:not(.--slider) {
+    > .content-media {
         .--horizontal.--horizontal .placeholder.placeholder,
         .--vertical.--vertical .placeholder.placeholder {
             padding: 0;

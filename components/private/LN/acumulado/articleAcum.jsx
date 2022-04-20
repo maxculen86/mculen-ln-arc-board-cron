@@ -7,12 +7,16 @@ import ComHour from '../../common/com-hour';
 import get from '../../common/utils/get';
 import getAuthorsAsString from '../../common/utils/getAuthorsAsString';
 import addRelatedImage from '../common/utils/addRelatedImage';
+import setAuthorsRender from '../../common/utils/setAuthorsRender';
 
 const typeAcumRules = {
     Grilla: {
         withMedia: true,
         withAuthors: true,
-        withHour: false
+        withHour: false,
+        SeguiLeyendo: {
+            withAuthors: false
+        }
     },
     Listado: {
         withMedia: false,
@@ -29,6 +33,7 @@ const typeAcumRules = {
 const ArticleAcum = ({
     children,
     dataSection,
+    sectionName,
     article,
     typeArticle = 'Grilla',
     outputType,
@@ -45,6 +50,7 @@ const ArticleAcum = ({
     isApertura
 }) => {
     const _article = addRelatedImage(article);
+
     const {
         display_date,
         headlines,
@@ -54,7 +60,8 @@ const ArticleAcum = ({
     } = _article;
 
     const authors =
-        typeAcumRules[typeArticle].withAuthors && getAuthorsAsString(_article);
+        setAuthorsRender({ typeAcumRules, typeArticle, sectionName }) &&
+        getAuthorsAsString(_article);
 
     const subheadText = withSubhead && getBajadaOrFirstTextParagraph(_article);
 
@@ -146,7 +153,8 @@ ArticleAcum.propTypes = {
     isRenderAuthor: PropTypes.bool,
     boxPosition: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     artPosition: PropTypes.string,
-    isApertura: PropTypes.bool
+    isApertura: PropTypes.bool,
+    sectionName: PropTypes.string.isRequired
 };
 
 ArticleAcum.defaultProps = {

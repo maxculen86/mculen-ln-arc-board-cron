@@ -91,6 +91,7 @@ const getComponentForLayout = (layoutName, props) => {
                         artPosition={position !== 'toi' ? artPosition : ''}
                         handleClick={handleClick}
                         dataSection={dataSection}
+                        sectionName={sectionName}
                         titleTag={customTitleTag}
                     />
                 );
