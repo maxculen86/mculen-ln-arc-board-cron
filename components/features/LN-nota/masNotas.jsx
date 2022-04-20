@@ -25,7 +25,7 @@ const getSectionTitle = noteType => {
 const getTitle = (customFilter, subtype, link = {}) => {
     const { text, path } = link;
     if (customFilter === '1') {
-        return `${getSectionTitle(subtype)}<a href='${addForwardSlash(
+        return `${getSectionTitle(subtype)}<a href='/tema/${addForwardSlash(
             path
         )}' class='com-link'>${capitalizeFirstLetter(text)}</a>`;
     }
