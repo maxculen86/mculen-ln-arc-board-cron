@@ -36,7 +36,7 @@ exports[`Private - Feature - CajaAnticipo => with a valid response Snapshot Caja
             size="--xs"
           />
           <p
-            className="com-text --twoxs"
+            className="com-text --threexs"
           >
             La información más completa del mercado inmobiliario minuto a minuto.
           </p>
@@ -44,7 +44,7 @@ exports[`Private - Feature - CajaAnticipo => with a valid response Snapshot Caja
         <span
           className="com-button --secondary"
         >
-          INGRESAR
+          IR A NOTAS
         </span>
       </a>
     </section>

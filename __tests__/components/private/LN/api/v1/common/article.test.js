@@ -4,7 +4,7 @@ import articlesTPInteresar from '../../../../../../../__mocks__/data/articles/te
 //import Article from '../../../../../../components/private/LN/api/v1/common/articles/index';
 import Article from '../../../../../../../components/private/LN/api/v1/global/accumulated/story';
 import dateAndTimeUtil, {
-    isOlderThan24HourAgo,
+    isOlderThanXHoursAgo,
     hasFutureDisplayDate,
     addHoursAndFormat,
     dateAndTimeForAppsUtil
@@ -308,7 +308,7 @@ describe('Test de index en Json', () => {
 
     test('deberia filtrar notas con published_date mayor a 24 hs', () => {
         const date1 = '2021-02-05T17:34:00.624Z';
-        const result1 = isOlderThan24HourAgo(date1);
+        const result1 = isOlderThanXHoursAgo(date1, 24);
         expect(result1).toBeTruthy();
     });
 });

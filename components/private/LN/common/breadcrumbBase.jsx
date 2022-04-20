@@ -5,7 +5,7 @@ import '../../../../resources/dist/css/ln/components/breadcrumb.css';
 import ModTooltip from '../../common/mod-tooltip';
 import ComContainer from '../../common/com-container';
 import capitalizeFirstLetter from '../../common/utils/capitalizeFirstLetter';
-import recipeDictionary from '../../common/utils/recetaDictionary';
+import textSelector from '../../common/utils/recetaDictionary';
 
 const getListSections = (sections, extraOpts, host, colorCategory) =>
     sections.map((section, i) => {
@@ -23,7 +23,7 @@ const getListSections = (sections, extraOpts, host, colorCategory) =>
                 href={`${path}/`}
                 title={
                     i + 1 === sections.length && isRecipe
-                        ? capitalizeFirstLetter(recipeDictionary[section.name])
+                        ? capitalizeFirstLetter(textSelector(section.name))
                         : `Noticias de ${section.name}`
                 }
                 {...extraOpts}

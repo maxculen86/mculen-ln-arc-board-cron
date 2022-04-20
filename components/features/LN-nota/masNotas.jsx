@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable react/prop-types */
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
@@ -181,7 +179,8 @@ masNotas.propTypes = {
                 _website: PropTypes.string,
                 name: PropTypes.string,
                 path: PropTypes.string
-            })
+            }),
+            tags: PropTypes.arrayOf(PropTypes.shape())
         })
     }),
     arcSite: PropTypes.string
