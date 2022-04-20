@@ -53,23 +53,23 @@ exports[`features - La Nacion - Components - Nota - AperturaReceta Snapshot - an
           <a
             class="com-link com-button --secondary --compact --transparent"
             href="/recetas/platos-principales/"
-            title="Ir a notas de Platos Principales"
+            title="Ir a notas de recetas principales"
           >
-            Platos Principales
+            Platos de comida principal
           </a>
           <a
             class="com-link com-button --secondary --compact --transparent"
             href="/recetas/recetas-con-ingredientes/pollo/"
-            title="Ir a notas de Pollo"
+            title="Ir a notas de recetas con pollo"
           >
             Pollo
           </a>
           <a
             class="com-link com-button --secondary --compact --transparent"
-            href="/recetas/recetas-con-ingredientes/"
-            title="Ir a notas de Recetas con ingredientes"
+            href="/recetas/dulces/"
+            title="Ir a notas de recetas dulces"
           >
-            Recetas con ingredientes
+            Dulces
           </a>
         </section>
       </div>
@@ -273,23 +273,23 @@ exports[`features - La Nacion - Components - Nota - AperturaReceta Snapshot - si
               <a
                 class="com-link com-button --secondary --compact --transparent"
                 href="/recetas/platos-principales/"
-                title="Ir a notas de Platos Principales"
+                title="Ir a notas de recetas principales"
               >
-                Platos Principales
+                Platos de comida principal
               </a>
               <a
                 class="com-link com-button --secondary --compact --transparent"
                 href="/recetas/recetas-con-ingredientes/pollo/"
-                title="Ir a notas de Pollo"
+                title="Ir a notas de recetas con pollo"
               >
                 Pollo
               </a>
               <a
                 class="com-link com-button --secondary --compact --transparent"
-                href="/recetas/recetas-con-ingredientes/"
-                title="Ir a notas de Recetas con ingredientes"
+                href="/recetas/dulces/"
+                title="Ir a notas de recetas dulces"
               >
-                Recetas con ingredientes
+                Dulces
               </a>
             </section>
           </div>

@@ -118,7 +118,7 @@ const Index = ({ home }) => {
         {
             text: 'Bon vivir',
             alt: 'Ir a tienda online de Bonvivir',
-            href: 'https://www.bonvivir.com/',
+            href: 'https://bonvivir.com/',
             target: '_blank'
         }
     ];
@@ -229,7 +229,7 @@ const Index = ({ home }) => {
                             />
                             <Icon
                                 name="instagram"
-                                href="https://www.instagram.com/lanacioncom"
+                                href="https://www.instagram.com/lanacioncom/"
                                 target="_blank"
                                 rel
                                 title="Seguirnos en Instagram"

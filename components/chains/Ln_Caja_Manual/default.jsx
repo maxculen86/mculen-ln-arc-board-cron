@@ -16,6 +16,7 @@ import {
     customFieldValidation,
     childrenValidation
 } from '../utils/contentValidations';
+import { productClickFromClient } from '../../private/common/utils/viewability';
 
 const CajaManual = props => {
     const {
@@ -109,6 +110,7 @@ const CajaManual = props => {
             position={position}
             sectionName={sectionName}
             _children={children}
+            handleClick={productClickFromClient}
         />
     );
 

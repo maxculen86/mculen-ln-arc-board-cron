@@ -34,6 +34,7 @@ import { pipe } from '../private/common/utils/functional';
 import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
 import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 import addForwardSlash from '../private/LN/common/utils/addForwardSlash';
+import setMetasOtt from '../private/common/metaTags/setMetasHelper';
 import AmazonPublisherServices from '../private/common/scriptManager/amazonPublisherServices';
 import FontFaceDefault from '../private/common/fontfaceDefault';
 import CriticalCss from '../private/common/criticalcss';
@@ -148,8 +149,10 @@ const Default = props => {
         name,
         Payload,
         _id,
-        taxonomy
+        taxonomy,
+        first_publish_date: firstPublishDate
     } = globalContent || {};
+
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
     const { basic: descriptionBasic } = description || {};
     const { name: distributorName } = distributor || {};
@@ -178,6 +181,19 @@ const Default = props => {
             );
 
     const getScriptsToBeLoaded = getScriptsFilterFunction(scriptList);
+    const _nodeType = getSectionName({ nodeType, type, arcSite });
+    const title = getTitle(_nodeType, metaValue('title'), siteProperties);
+
+    const {
+        title: ottMetaTitle,
+        description: ottMetaDescription
+    } = setMetasOtt({
+        date: firstPublishDate,
+        acumulado: name,
+        title: metaTitleBasic,
+        section: _nodeType,
+        siteProperties
+    });
 
     const scripts = pipe(
         getPageBuilderFeatures,
@@ -189,9 +205,6 @@ const Default = props => {
         siteProperties.scripts,
         globalContent
     );
-    const _nodeType = getSectionName({ nodeType, type });
-
-    const title = getTitle(_nodeType, metaValue('title'), siteProperties);
 
     const metaDescription = getMetaDescriptionDefault(
         metaValue('description'),
@@ -214,7 +227,9 @@ const Default = props => {
                     content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
                 <meta name="theme-color" content="#ffffff" />
-                {layout !== 'LN-buscador' && <title>{title}</title>}
+                {layout !== 'LN-buscador' && (
+                    <title>{arcSite === 'ott' ? ottMetaTitle : title}</title>
+                )}
                 {getDataToLinkImage({
                     data: globalContent,
                     section: _nodeType,
@@ -286,6 +301,8 @@ const Default = props => {
                         section={_nodeType}
                         title={title}
                         metaDescription={metaDescription}
+                        ottMetaTitle={ottMetaTitle}
+                        ottMetaDescription={ottMetaDescription}
                     />
                 )}
                 {canonicalUrl && siteProperties.host && (
@@ -303,15 +320,13 @@ const Default = props => {
                     nodeType={nodeType}
                 />
                 <MetaTitle
-                    subtype={subtype}
-                    metaTitleBasic={metaTitleBasic}
-                    title={title}
                     arcSite={arcSite}
-                    nodeType={nodeType}
-                    _id={_id}
-                    section={_nodeType}
+                    title={title}
                     defaultTitle={siteProperties.longTitle}
+                    nodeType={nodeType}
+                    section={_nodeType}
                     metaValue={title}
+                    ottMetaTitle={ottMetaTitle}
                 />
                 {layout !== 'LN-buscador' && (
                     <MetaDescription
@@ -321,9 +336,11 @@ const Default = props => {
                         description={descriptionBasic}
                         metaTitleBasic={metaTitleBasic}
                         subheadlines={subheadlines && subheadlines.basic}
+                        acumulado={name}
                         arcSite={arcSite}
                         section={_nodeType}
                         metaDescription={metaDescription}
+                        ottMetaDescription={ottMetaDescription}
                     />
                 )}
                 <MetaViafoura {...props} />
