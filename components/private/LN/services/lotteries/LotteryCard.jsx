@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from '../../../common/utils/get';
-import '../../../../../resources/dist/css/ln/components/card-lotteries.css';
+import '../../../../../resources/dist/css/ln/components/lottery-card.css';
 
 import {
     games,
@@ -50,12 +50,12 @@ const LotteryCard = ({
         jackpot: firstResultJackpot = []
     } = firstResult;
     const [resultFirstChild = ''] = result;
+
     return (
         <CardLayout
             title={name}
             subtitle={getDate(date, firstResultName)}
             link={!isDetail && link}
-            linkTitle={name}
         >
             <div className="main-result" data-testid={`${id}-test`}>
                 {!isDetail && showFirstLotteryName && (
@@ -67,13 +67,28 @@ const LotteryCard = ({
                     </Text>
                 )}
                 {!isQuiniela && !hasLoto && (
-                    <div className={boxResultClass}>
+                    <div
+                        className={`${boxResultClass}${
+                            isDetail && isQuini6 ? ' --detail' : ''
+                        }${name === 'Pozo extra' ? ' --extra-pot' : ''}`}
+                    >
                         {(!isDetail ? result : results).map(number => (
                             <BallLotteries
                                 key={number}
                                 number={number}
-                                size={isQuini6 ? 'small' : ''}
+                                size={isQuini6 && !isDetail ? 'small' : ''}
                             />
+                        ))}
+                    </div>
+                )}
+                {isDetail && hasLoto && (
+                    <div
+                        className={`${boxResultClass}${
+                            isDetail ? '-detail' : ''
+                        }`}
+                    >
+                        {(!isDetail ? result : results).map(number => (
+                            <BallLotteries key={number} number={number} />
                         ))}
                     </div>
                 )}
@@ -81,11 +96,7 @@ const LotteryCard = ({
                     <div className="traditional">
                         <div className={boxResultClass}>
                             {(!isDetail ? result : results).map(number => (
-                                <BallLotteries
-                                    key={number}
-                                    number={number}
-                                    size={isQuini6 ? 'small' : ''}
-                                />
+                                <BallLotteries key={number} number={number} />
                             ))}
                         </div>
                         <div className="jackpot-result">
@@ -94,7 +105,6 @@ const LotteryCard = ({
                                     key={number}
                                     number={number}
                                     color="blue"
-                                    size={isQuini6 ? 'small' : ''}
                                 />
                             ))}
                         </div>

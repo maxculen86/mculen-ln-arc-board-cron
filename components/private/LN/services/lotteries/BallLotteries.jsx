@@ -4,12 +4,12 @@ import '../../../../../resources/dist/css/ln/components/ball-lotteries.css';
 
 const BallLotteries = ({ number, size, color }) => {
     return (
-        <span
+        <div
             className={`--twoxs --font-bold ball${size &&
                 ` --${size}`}${color && ` --${color}`}`}
         >
             {number}
-        </span>
+        </div>
     );
 };
 

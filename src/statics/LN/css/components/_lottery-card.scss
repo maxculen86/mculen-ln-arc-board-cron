@@ -1,6 +1,6 @@
 @import '../abstracts/variables';
 
-.card-lotteries {
+.lottery-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -14,7 +14,7 @@
     @media ($media-s) {
         max-width: px(328);
     }
-    .header-lotteries {
+    .lottery-header {
         display: flex;
         flex-direction: column;
         .com-link {
@@ -52,7 +52,30 @@
                 flex-wrap: wrap;
                 justify-content: space-between;
                 width: 100%;
+                &.--detail {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    column-gap: $spacing-sm;
+                    justify-content: center;
+                    row-gap: $spacing-xs;
+                    width: auto;
+                    &.--extra-pot {
+                        width: 100%;
+                        column-gap: 0;
+                        grid-template-columns: repeat(5, 1fr);
+                        :nth-child(16) {
+                            grid-column: 2 / 3;
+                        }
+                        :nth-child(17) {
+                            grid-column: 3 / 4;
+                        }
+                        :nth-child(18) {
+                            grid-column: 4 / 5;
+                        }
+                    }
+                }
             }
+
             &.--loto-5 {
                 flex-wrap: wrap;
                 justify-content: center;
@@ -62,24 +85,20 @@
                     margin: 0 $spacing-xs $spacing-xs;
                 }
             }
-            &.--brinco {
+
+            &.--brinco,
+            &.--loto-plus-detail {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 row-gap: $spacing-xs;
                 column-gap: $spacing-sm;
                 margin-bottom: $spacing-xs;
             }
-
-            &.--quini-6-detail {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                padding-bottom: px(90);
-
-                &.quini-6-extra-pot {
-                    padding: px(20) 0;
-                    grid-template-columns: repeat(4, 1fr);
-                }
+            &.--loto-plus-detail {
+                margin-top: $spacing-sm;
+                margin-bottom: 0;
             }
+
             &.--grid-5-columns {
                 display: grid;
                 width: 100%;
@@ -112,14 +131,12 @@
 
             .jackpot-text-details {
                 text-align: center;
-                margin-bottom: px(8);
             }
 
             .jackpot-result-details {
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
-                margin-bottom: px(25);
 
                 .ball {
                     margin: 0 $spacing-xs;
