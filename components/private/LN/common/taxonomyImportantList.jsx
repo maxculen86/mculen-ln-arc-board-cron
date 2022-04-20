@@ -5,7 +5,7 @@ import '../../../../resources/dist/css/ln/modules/mod-themes.css';
 import ComLink from '../../common/com-link';
 import recipeDictionary from '../../common/utils/recetaDictionary';
 
-const TaxonomyImportantList = ({ list, showItems, extraTagText }) => {
+const TaxonomyImportantList = ({ list, showItems }) => {
     return (
         <section className="mod-themes">
             {list.slice(0, showItems).map(item => {
@@ -26,7 +26,9 @@ const TaxonomyImportantList = ({ list, showItems, extraTagText }) => {
                         title={
                             path.includes('/recetas')
                                 ? `Ir a notas de ${recipeDictionary[item.text]}`
-                                : `Ir a notas de${extraTagText} ${item.text}`
+                                : `Ir a notas de ${item.text
+                                      .charAt(0)
+                                      .toLowerCase() + item.text.slice(1)}`
                         }
                     >
                         {item.text}
@@ -44,13 +46,11 @@ TaxonomyImportantList.propTypes = {
             path: PropTypes.string
         })
     ).isRequired,
-    showItems: PropTypes.number,
-    extraTagText: PropTypes.string
+    showItems: PropTypes.number
 };
 
 TaxonomyImportantList.defaultProps = {
-    showItems: undefined,
-    extraTagText: ''
+    showItems: undefined
 };
 
 export default TaxonomyImportantList;

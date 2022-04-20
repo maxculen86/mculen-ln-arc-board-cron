@@ -156,14 +156,14 @@ exports[`features - La Nacion - Components - Nota - AperturaReceta Snapshot - an
         href="/tema/tagprueba1/"
         title="Ir a notas de recetas con TagPrueba1"
       >
-        TagPrueba1
+        Recetas con TagPrueba1
       </a>
       <a
         class="com-link com-button --secondary --compact --transparent --tag"
         href="/tema/tagprueba2/"
         title="Ir a notas de recetas con TagPrueba2"
       >
-        TagPrueba2
+        Recetas con TagPrueba2
       </a>
     </section>
   </div>
@@ -302,14 +302,14 @@ exports[`features - La Nacion - Components - Nota - AperturaReceta Snapshot - si
             href="/tema/tagprueba1/"
             title="Ir a notas de recetas con TagPrueba1"
           >
-            TagPrueba1
+            Recetas con TagPrueba1
           </a>
           <a
             class="com-link com-button --secondary --compact --transparent --tag"
             href="/tema/tagprueba2/"
             title="Ir a notas de recetas con TagPrueba2"
           >
-            TagPrueba2
+            Recetas con TagPrueba2
           </a>
         </section>
       </div>
