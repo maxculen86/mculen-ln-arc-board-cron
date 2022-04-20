@@ -1,26 +1,31 @@
 import Consumer from 'fusion:consumer';
 import getProperties from 'fusion:properties';
-import GetCajaTemaConfig from '../../../private/LN/home/components/noteCard/noteCardImageHelper';
+import getCajaTemaConfig from '../../../private/LN/home/components/noteCard/noteCardImageHelper';
+import get from '../../../private/common/utils/get';
 
 class ArticleFeature {
     constructor(props) {
         this.props = props;
         const {
-            id: featureId,
             customFields: { noteId, imageId },
-            arcSite,
-            renderables
+            id: featureId,
+            arcSite
         } = props;
+
+        const renderables = get(props, 'renderables', null);
+        let imageConfig = null;
         this.state = {};
 
-        const { cajaTemaConfig } = getProperties(arcSite);
+        if (renderables) {
+            const { cajaTemaConfig } = getProperties(arcSite);
 
-        const { imageConfig } = GetCajaTemaConfig(
-            featureId,
-            renderables,
-            cajaTemaConfig,
-            false
-        );
+            imageConfig = getCajaTemaConfig(
+                featureId,
+                renderables,
+                cajaTemaConfig,
+                false
+            ).imageConfig;
+        }
 
         noteId &&
             this.fetchContent({

@@ -1,7 +1,7 @@
 import get from '../../../../common/utils/get';
 import siteConfig from '../../../../../../properties/sites/la-nacion-ar';
 
-const GetCajaTemaConfig = (featureId, renderables, cajaTemaConfig, isBomba) => {
+const getCajaTemaConfig = (featureId, renderables, cajaTemaConfig, isBomba) => {
     if (isBomba)
         return {
             imageConfig: get(cajaTemaConfig, `bomba1.articles[0].imageConfig`),
@@ -54,4 +54,4 @@ const GetCajaTemaConfig = (featureId, renderables, cajaTemaConfig, isBomba) => {
     };
 };
 
-export default GetCajaTemaConfig;
+export default getCajaTemaConfig;
