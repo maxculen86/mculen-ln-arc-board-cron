@@ -2,6 +2,7 @@ import ArticleDesordenedList from '../../../../../../../../../../__mocks__/data/
 import ArticleEmptyList from '../../../../../../../../../../__mocks__/data/nota/cuerpo/list/EmptyList.json';
 import ArticleOrdenedList from '../../../../../../../../../../__mocks__/data/nota/cuerpo/list/OrdenedList.json';
 import ArticleNoElementList from '../../../../../../../../../../__mocks__/data/nota/cuerpo/list/NoElementList.json';
+import ArticleBulletList from '../../../../../../../../../../__mocks__/data/nota/cuerpo/list/BulletList.json';
 
 import List from '../../../../../../../../../../components/private/LN/api/v1/mobile/story/cuerpo/elements/list';
 
@@ -14,6 +15,13 @@ describe('Test de las listas en el cuerpo de una nota', () => {
     it('Test de listas si es vacia', () => {
         const resp = List(ArticleEmptyList);
         expect(resp).toBe(null);
+    });
+
+    it('Test lista Bullet', () => {
+        const resp = List(ArticleBulletList);
+        expect(resp['_t']).toBe('list');
+        expect(resp['type']).toBe('ul');
+        expect(resp['items'][0]['_t']).toBe('li');
     });
 
     it('Test lista ordenada cabecera', () => {
