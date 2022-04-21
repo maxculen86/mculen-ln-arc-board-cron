@@ -1,4 +1,4 @@
-import get from 'lodash.get';
+import get from '../../../../../../common/utils/get';
 import { getSubCategory } from '../../category';
 import { getTag } from '../../tag';
 import NotaRelacionadas from './notaRelacionada';

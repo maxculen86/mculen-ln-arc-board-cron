@@ -1,4 +1,4 @@
-import get from 'lodash.get';
+import get from '../../../../../common/utils/get';
 import matchObject from '../utils/matchObject';
 import Apertura from './apertura/aperturaArticle';
 import ModificadorTemplate from './modificadorTemplate';

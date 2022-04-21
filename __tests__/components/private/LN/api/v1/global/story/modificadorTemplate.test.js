@@ -1,6 +1,6 @@
 import ModificadorTemplateArticle from '../../../../../../../../__mocks__/data/nota/modificadorTemplate.json';
 import ModificadorTemplate from '../../../../../../../../components/private/LN/api/v1/common/story/modificadorTemplate';
-import get from 'lodash.get';
+import get from '../../../../../../../../components/private/common/utils/get';
 
 describe('Pruebas unitarias para los modificadores template', () => {
     it('Test valor al enviar un null', () => {

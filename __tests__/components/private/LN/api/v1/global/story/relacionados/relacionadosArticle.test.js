@@ -1,4 +1,4 @@
-import get from 'lodash.get';
+import get from '../../../../../../../../../components/private/common/utils/get';
 
 import Relacionados from '../../../../../../../../../components/private/LN/api/v1/common/story/relacionados';
 import articleFull from '../../../../../../../../../__mocks__/data/articles/QAZ7BVHG5BCNFN7S67XCBP6PA4.json';

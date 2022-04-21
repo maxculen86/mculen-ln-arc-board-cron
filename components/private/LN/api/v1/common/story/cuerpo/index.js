@@ -1,4 +1,4 @@
-import get from 'lodash.get';
+import get from '../../../../../../common/utils/get';
 import defaultCuerpo from './templates/default';
 import recetaCuerpo from './templates/receta';
 import htmlCuerpo from './templates/htmlLibre';

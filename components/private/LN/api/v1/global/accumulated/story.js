@@ -1,4 +1,4 @@
-import get from 'lodash.get';
+import get from '../../../../../common/utils/get';
 import Image from '../../common/image';
 import { authorCommon as Author } from '../../common/author';
 import { getTag } from '../../common/tag';
