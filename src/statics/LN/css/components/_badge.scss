@@ -39,6 +39,9 @@
         }
     }
     &.--exclusive-ln {
+        display: flex;
+        align-items: center;
+        width: fit-content;
         padding: px(6);
         padding-right: px(12);
         background: $light-neutral-50;
