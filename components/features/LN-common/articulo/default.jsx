@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import { useAppContext } from 'fusion:context';
+import { useAppContext, useComponentContext } from 'fusion:context';
 import getProperties from 'fusion:properties';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
@@ -16,6 +16,7 @@ import filter from '../../../../content/filters/LN/nota/articleAcu';
 import featureArticleCustomsFields from '../../../private/LN/common/utils/articuloHelper';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
+import ErrorBoundary from '../../../private/common/ErrorBoundary';
 
 const ArticleFeature = ({
     id: featureId,
@@ -33,6 +34,7 @@ const ArticleFeature = ({
     } = useAppContext();
 
     const { cajaTemaConfig } = getProperties(arcSite);
+    const { registerSuccessEvent } = useComponentContext();
 
     const {
         config,
@@ -42,39 +44,36 @@ const ArticleFeature = ({
         imageConfig
     } = getCajaTemaConfig(featureId, renderables, cajaTemaConfig, isBomba);
 
-    const article =
-        id &&
-        useContent({
-            source: 'articleSourceNota',
-            query: {
-                id: id.trim(),
-                published: true,
-                imageConfig,
-                checkExclusiveAccess: false
-            },
-            filter
-        });
+    const conditionallyCallImageSource = idImage => {
+        return (idImage && idImage.trim() && 'relatedImageSource') || null;
+    };
 
-    const videoBackground =
-        videoId &&
-        useContent({
-            source: 'videoSource',
-            query: { id: videoId.trim(), website: 'la-nacion-ar' }
-        });
+    const article = useContent({
+        source: (id && id.trim() && 'articleSourceNota') || null,
+        query: {
+            id: id && id.trim(),
+            published: true,
+            imageConfig,
+            checkExclusiveAccess: false
+        },
+        filter
+    });
 
-    const image =
-        imageId &&
-        imageId.trim() &&
-        useContent({
-            source: 'relatedImageSource',
-            query: {
-                id: imageId.trim(),
-                published: true,
-                imageConfig,
-                nid: id,
-                boxType: 'ArticleFeature'
-            }
-        });
+    const videoBackground = useContent({
+        source: (videoId && videoId.trim() && 'videoSource') || null,
+        query: { id: videoId && videoId.trim(), website: 'la-nacion-ar' }
+    });
+
+    const image = useContent({
+        source: conditionallyCallImageSource(imageId),
+        query: {
+            id: imageId && imageId.trim(),
+            published: true,
+            imageConfig,
+            nid: id,
+            boxType: 'ArticleFeature'
+        }
+    });
 
     const error = validateArticleFeature(id, article);
 
@@ -100,26 +99,29 @@ const ArticleFeature = ({
 
     return (
         (!error && article && (
-            <NoteCard
-                id={featureId}
-                article={article}
-                promoItems={image && image.promo_items}
-                articleProps={config}
-                customFields={customFields}
-                outputType={outputType}
-                index={index}
-                boxPosition={boxPosition}
-                layout={layout}
-                isAdmin={isAdmin}
-                isInHomeAperturaOrBomba={isInHomeAperturaOrBomba(
-                    renderables,
-                    featureId,
-                    layoutsName,
-                    layoutPageBuilder
-                )}
-                videoBackground={videoBackground}
-                isPowa={layout !== 'grilla1'}
-            />
+            <ErrorBoundary>
+                <NoteCard
+                    id={featureId}
+                    article={article}
+                    promoItems={image && image.promo_items}
+                    articleProps={config}
+                    customFields={customFields}
+                    outputType={outputType}
+                    index={index}
+                    boxPosition={boxPosition}
+                    layout={layout}
+                    isAdmin={isAdmin}
+                    isInHomeAperturaOrBomba={isInHomeAperturaOrBomba(
+                        renderables,
+                        featureId,
+                        layoutsName,
+                        layoutPageBuilder
+                    )}
+                    videoBackground={videoBackground}
+                    isPowa={layout !== 'grilla1'}
+                    registerSuccessEvent={registerSuccessEvent}
+                />
+            </ErrorBoundary>
         )) ||
         getPlaceholder(layout, index)
     );

@@ -42,7 +42,10 @@ const CajaManual = props => {
         sectionName
     } = getCommonProps(props);
 
-    const aperturasChildren = getChildrenFromAperturaHome(renderables);
+    const aperturasChildren = getChildrenFromAperturaHome(
+        renderables,
+        childProps
+    );
     const multimediaChildren = getChildrenFromSectionHome(
         renderables,
         'Multimedia',
@@ -111,7 +114,6 @@ const CajaManual = props => {
             _children={children}
         />
     );
-
     return isInApertura && !isAdmin ? (
         <Static id={featureId}>{Component}</Static>
     ) : (
