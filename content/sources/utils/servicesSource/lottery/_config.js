@@ -2,8 +2,6 @@ const getLotteryDate = (date, name) => {
     return quinielas[name] === '' ? `${name} - ${date}` : date;
 };
 
-const getExtraResults = () => {};
-
 export const reorderSubLotteries = (results, order) =>
     results.sort((a, b) => order.indexOf(a.name) - order.indexOf(b.name));
 
@@ -12,14 +10,12 @@ export const games = {
         url: '/loterias/quiniela-nacional/',
         isQuiniela: true,
         getLotteryDate,
-        getExtraResults,
         hasExtraResults: true
     },
     Quiniela_Provincia: {
         url: '/loterias/quiniela-provincia/',
         isQuiniela: true,
         getLotteryDate,
-        getExtraResults,
         hasExtraResults: true
     },
     Quiniela_de_Cordoba: {
@@ -40,21 +36,18 @@ export const games = {
         ],
         isQuiniela: true,
         getLotteryDate,
-        getExtraResults,
         hasExtraResults: true
     },
     Quiniela_de_Santa_Fe: {
         url: '/loterias/quiniela-santa-fe/',
         isQuiniela: true,
         getLotteryDate,
-        getExtraResults,
         hasExtraResults: true
     },
     Quiniela_Uruguaya: {
         url: '/loterias/quiniela-montevideo/',
         isQuiniela: true,
         getLotteryDate,
-        getExtraResults,
         hasExtraResults: true
     },
     Quini_6: {
@@ -78,7 +71,6 @@ export const games = {
             'Siempre sale'
         ],
         getLotteryDate,
-        getExtraResults,
         hasExtraResults: true,
         showFirstLotteryName: true
     },
@@ -86,7 +78,6 @@ export const games = {
         url: '/loterias/telekino/',
         boxResultClass: 'box-result --grid-5-columns',
         getLotteryDate,
-        getExtraResults,
         hasExtraResults: true,
         showFirstLotteryName: true
     },
@@ -104,7 +95,6 @@ export const games = {
         showVacantPot: false,
         hasJackpot: true,
         getLotteryDate,
-        getExtraResults,
         hasExtraResults: true,
         hasLoto: true,
         showFirstLotteryName: true
@@ -113,8 +103,7 @@ export const games = {
         url: '/loterias/loto-5/',
         boxResultClass: 'box-result --loto-5',
         showVacantPot: true,
-        getLotteryDate,
-        getExtraResults
+        getLotteryDate
     },
     Quiniela_Poceada: {
         url: '/loterias/quiniela-poceada/',
@@ -128,22 +117,19 @@ export const games = {
         boxResultClass: 'box-result --grid-5-columns',
         showVacantPot: false,
         showLetters: true,
-        getLotteryDate,
-        getExtraResults
+        getLotteryDate
     },
     Quiniela_Plus: {
         url: '/loterias/quiniela-plus/',
         boxResultClass: 'box-result --grid-5-columns',
         getLotteryDate,
-        getExtraResults,
         showFirstLotteryName: true
     },
     Brinco: {
         url: '/loterias/brinco/',
         boxResultClass: 'box-result --brinco',
         showVacantPot: true,
-        getLotteryDate,
-        getExtraResults
+        getLotteryDate
     }
 };
 

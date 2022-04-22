@@ -23,6 +23,7 @@ import quinielaCordobaHtml from '../../../../../__mocks__/data/lottery/lotteryDe
 import quinielaSantaFeHtml from '../../../../../__mocks__/data/lottery/lotteryDetail/html/quinielaSantaFeHtml.json';
 import quinielaUruguayaHtml from '../../../../../__mocks__/data/lottery/lotteryDetail/html/quinielaUruguayaHtml.json';
 import quini6Html from '../../../../../__mocks__/data/lottery/lotteryDetail/html/quini6Html.json';
+import telekinoHtml from '../../../../../__mocks__/data/lottery/lotteryDetail/html/telekinoHtml.json';
 
 jest.mock(
     '../../../../../components/private/common/staticValidation.jsx',
@@ -93,10 +94,7 @@ const lotteriesDetailsHTML = {
         data: brincoExample
     },
     Telekino: {
-        html: [
-            '<div class="main-result" data-testid="Telekino-test"><div class="box-result --grid-5-columns"><div class="--twoxs --font-bold ball">01</div><div class="--twoxs --font-bold ball">03</div><div class="--twoxs --font-bold ball">05</div><div class="--twoxs --font-bold ball">06</div><div class="--twoxs --font-bold ball">08</div><div class="--twoxs --font-bold ball">09</div><div class="--twoxs --font-bold ball">10</div><div class="--twoxs --font-bold ball">12</div><div class="--twoxs --font-bold ball">15</div><div class="--twoxs --font-bold ball">16</div><div class="--twoxs --font-bold ball">18</div><div class="--twoxs --font-bold ball">19</div><div class="--twoxs --font-bold ball">20</div><div class="--twoxs --font-bold ball">23</div><div class="--twoxs --font-bold ball">24</div></div></div>',
-            '<div class="main-result" data-testid="Telekino-test"><div class="box-result --grid-5-columns"><div class="--twoxs --font-bold ball">02</div><div class="--twoxs --font-bold ball">03</div><div class="--twoxs --font-bold ball">06</div><div class="--twoxs --font-bold ball">07</div><div class="--twoxs --font-bold ball">11</div><div class="--twoxs --font-bold ball">13</div><div class="--twoxs --font-bold ball">14</div><div class="--twoxs --font-bold ball">15</div><div class="--twoxs --font-bold ball">16</div><div class="--twoxs --font-bold ball">17</div><div class="--twoxs --font-bold ball">19</div><div class="--twoxs --font-bold ball">22</div><div class="--twoxs --font-bold ball">23</div><div class="--twoxs --font-bold ball">24</div><div class="--twoxs --font-bold ball">25</div></div></div>'
-        ],
+        html: telekinoHtml,
         data: telekinoExample
     },
     Quiniela_Nacional: {
