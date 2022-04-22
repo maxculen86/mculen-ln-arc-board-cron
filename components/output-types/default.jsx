@@ -46,7 +46,6 @@ import {
     getMetaDescriptionDefault
 } from '../private/common/utils/outputTypeHelper';
 import FontPreloads from '../private/common/fontsPreloads';
-import get from '../private/common/utils/get';
 
 const scriptList = [
     {

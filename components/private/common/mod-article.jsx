@@ -44,7 +44,8 @@ const ModArticle = props => {
         tags,
         handleClick,
         layout,
-        isApertura
+        isApertura,
+        registerSuccessEvent
     } = props;
 
     const { _id, website_url: websiteUrl } = articleData || {};
@@ -76,9 +77,18 @@ const ModArticle = props => {
         return type === 'image' ? imagenDestacada : null;
     })();
 
-    const onCLick = event => {
-        typeof handleClick == 'function' && handleClick(event, websiteUrl);
-    };
+    const customHandlerClick = (() => {
+        if (typeof registerSuccessEvent === 'function')
+            return registerSuccessEvent;
+        if (typeof handleClick == 'function')
+            return event => handleClick(event, websiteUrl);
+        return null;
+    })();
+
+    const events =
+        typeof customHandlerClick === 'function'
+            ? { onClick: customHandlerClick, onAuxClick: customHandlerClick }
+            : {};
 
     return (
         <article
@@ -92,8 +102,7 @@ const ModArticle = props => {
                 isRenderAuthorOpinion
             })}
             {...extraOpts}
-            onClick={onCLick}
-            onAuxClick={onCLick}
+            {...events}
         >
             {hour}
 
@@ -151,6 +160,7 @@ ModArticle.propTypes = {
     dateText: PropTypes.string,
     device: PropTypes.string,
     handleClick: PropTypes.func,
+    registerSuccessEvent: PropTypes.func,
     hour: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
     isPowa: PropTypes.bool,
     isRenderAuthor: PropTypes.bool,
@@ -193,6 +203,7 @@ ModArticle.defaultProps = {
     dateText: undefined,
     device: 'desktop',
     handleClick: undefined,
+    registerSuccessEvent: undefined,
     hour: undefined,
     isRenderAuthor: false,
     isRenderAuthorOpinion: false,
