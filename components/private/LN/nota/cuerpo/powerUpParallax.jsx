@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
 import ComImage from '../../../common/com-image';
+import '../../../../../resources/dist/css/ln/components/parallax.css';
 
 const Parallax = ({ data }) => {
     const {
@@ -20,21 +21,24 @@ const Parallax = ({ data }) => {
     if (!imageId || !imageContent || (!title && !paragraph)) return null;
 
     return (
-        <div className="containerParallax">
-            <ComImage
-                src={imageUrl}
-                alt={caption}
-                amp={false}
-                classCondition="imageParallax"
-            />
+        <div className="container-parallax">
+            <div className="image-container">
+                <ComImage
+                    src={imageUrl}
+                    alt={caption}
+                    amp={false}
+                    classCondition="image-parallax"
+                />
+            </div>
             {title && (
-                <div className="stepParallax">
-                    <h2>{title}</h2>
+                <div className="step-parallax">
+                    <h2 className="bajada-titulo">{title}</h2>
+                    <span className="bajada-titulo-2">Skerrit</span>
                 </div>
             )}
             {paragraph && (
-                <div className="stepParallax">
-                    <p>{paragraph}</p>
+                <div className="step-parallax">
+                    <p className="bajada-parrafo">{paragraph}</p>
                 </div>
             )}
         </div>

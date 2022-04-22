@@ -1,0 +1,76 @@
+@import '../abstracts/variables';
+
+.container-parallax {
+    .image-container {
+        height: 100vh;
+        position: sticky;
+        position: -webkit-sticky;
+        top: 0;
+        overflow: hidden;
+        z-index: 0;
+        .image-parallax {
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
+    }
+    .step-parallax {
+        position: relative;
+        height: 100vh;
+        margin: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+        z-index: 100;
+        -webkit-transform: translateZ(1px);
+        transform: translateZ(1px);
+        text-align: center;
+
+        .bajada-titulo {
+            width: auto;
+            font-weight: 800;
+            font-family: 'Prumo Deck';
+            font-size: 5rem;
+            line-height: 1.1;
+            letter-spacing: 0rem;
+            color: #03fada;
+            text-shadow: 0px 1px 3px black;
+        }
+        .bajada-titulo-2 {
+            background: transparent;
+            border: 0;
+            width: 80%;
+            max-width: 740px;
+            text-align: center;
+            font-weight: 200;
+            font-family: 'Prumo Deck';
+            font-size: 3rem;
+            line-height: 1.1;
+            letter-spacing: 0rem;
+            color: #fff;
+            text-shadow: 0px 1px 3px black;
+        }
+
+        .bajada-parrafo {
+            font-size: 25px;
+            font-family: 'Prumo Deck';
+            letter-spacing: 0rem;
+            color: #fff;
+            background-color: #0000007a;
+            display: inline-block;
+            padding: 37px;
+            line-height: 1.2;
+            font-weight: 100;
+        }
+    }
+}
