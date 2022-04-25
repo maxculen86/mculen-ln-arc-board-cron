@@ -24,13 +24,14 @@ const Badge = ({ children, className, type }) => {
     return (
         <span className={`badge --sixxs ${className} ${classType}`}>
             {type === LIVEBLOG && <Live />}
-            {type === EXCLUSIVE_LN && (
+            {type === EXCLUSIVE_LN ? (
                 <>
                     <Icon name="exclusive-ln" />
                     Exclusivo suscriptor
                 </>
+            ) : (
+                children
             )}
-            {type !== EXCLUSIVE_LN && children}
         </span>
     );
 };
