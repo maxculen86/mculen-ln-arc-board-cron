@@ -38,4 +38,23 @@
             margin-right: px(7.33);
         }
     }
+    &.--exclusive-ln {
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        padding: px(6);
+        padding-right: px(12);
+        background: $light-neutral-50;
+        border: 1px solid $light-neutral-300;
+        border-radius: px(20);
+        text-transform: none;
+        color: $neutral-black;
+        font-weight: 700;
+        font-size: px(16);
+
+        .com-icon {
+            margin-right: px(8);
+            margin-bottom: px(4);
+        }
+    }
 }

@@ -2,18 +2,36 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../../../../resources/dist/css/ln/components/badge.css';
 import Live from '../live';
-import { A_FONDO, LIVEBLOG, LIVEBLOG_RED, SPONSORED } from './types';
+import Icon from '../icon';
+import {
+    A_FONDO,
+    LIVEBLOG,
+    LIVEBLOG_RED,
+    SPONSORED,
+    EXCLUSIVE_LN
+} from './types';
 
 const Badge = ({ children, className, type }) => {
-    const classType = [A_FONDO, LIVEBLOG, LIVEBLOG_RED, SPONSORED].includes(
-        type
-    )
+    const classType = [
+        A_FONDO,
+        LIVEBLOG,
+        LIVEBLOG_RED,
+        SPONSORED,
+        EXCLUSIVE_LN
+    ].includes(type)
         ? `--${type}`
         : '';
     return (
         <span className={`badge --sixxs ${className} ${classType}`}>
             {type === LIVEBLOG && <Live />}
-            {children}
+            {type === EXCLUSIVE_LN ? (
+                <>
+                    <Icon name="exclusive-ln" />
+                    Exclusivo suscriptor
+                </>
+            ) : (
+                children
+            )}
         </span>
     );
 };
@@ -26,7 +44,13 @@ Badge.defaultProps = {
 Badge.propTypes = {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
-    type: PropTypes.oneOf([A_FONDO, LIVEBLOG, LIVEBLOG_RED, SPONSORED])
+    type: PropTypes.oneOf([
+        A_FONDO,
+        LIVEBLOG,
+        LIVEBLOG_RED,
+        SPONSORED,
+        EXCLUSIVE_LN
+    ])
 };
 
 export default Badge;

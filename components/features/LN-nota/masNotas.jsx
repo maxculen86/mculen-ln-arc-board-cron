@@ -102,6 +102,7 @@ const masNotas = props => {
     ).reduce((acc, tag) => {
         if (acc.articles) return acc;
         const { slug, text } = tag;
+        const isSection = Object.keys(tag).length === 0;
         const res = getArticlesFromAcumSource(
             getQuery(filterType, subtype, customQuerys, slug),
             filter,
@@ -113,7 +114,7 @@ const masNotas = props => {
             shouldNotFilter,
             _website,
             true,
-            !tag
+            isSection
         )
             .filter(
                 article =>
