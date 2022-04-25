@@ -22,8 +22,13 @@ import quinielaProvinciaHtml from '../../../../../__mocks__/data/lottery/lottery
 import quinielaCordobaHtml from '../../../../../__mocks__/data/lottery/lotteryDetail/html/quinielaCordobaHtml.json';
 import quinielaSantaFeHtml from '../../../../../__mocks__/data/lottery/lotteryDetail/html/quinielaSantaFeHtml.json';
 import quinielaUruguayaHtml from '../../../../../__mocks__/data/lottery/lotteryDetail/html/quinielaUruguayaHtml.json';
+import quiniPoceadaHtml from '../../../../../__mocks__/data/lottery/lotteryDetail/html/quiniPoceadaHtml.json';
+import quiniPlusHtml from '../../../../../__mocks__/data/lottery/lotteryDetail/html/quiniPlusHtml.json';
+import brincoHtml from '../../../../../__mocks__/data/lottery/lotteryDetail/html/brincoHtml.json';
 import quini6Html from '../../../../../__mocks__/data/lottery/lotteryDetail/html/quini6Html.json';
 import telekinoHtml from '../../../../../__mocks__/data/lottery/lotteryDetail/html/telekinoHtml.json';
+import lotoHtml from '../../../../../__mocks__/data/lottery/lotteryDetail/html/lotoHtml.json';
+import loto5Html from '../../../../../__mocks__/data/lottery/lotteryDetail/html/loto5Html.json';
 
 jest.mock(
     '../../../../../components/private/common/staticValidation.jsx',
@@ -88,9 +93,7 @@ describe('Features - LN-servicios - LN Loteria Detalle =>', () => {
 
 const lotteriesDetailsHTML = {
     Brinco: {
-        html: [
-            '<div class="main-result" data-testid="Brinco-test"><div class="box-result --brinco"><div class="--twoxs --font-bold ball">05</div><div class="--twoxs --font-bold ball">08</div><div class="--twoxs --font-bold ball">10</div><div class="--twoxs --font-bold ball">30</div><div class="--twoxs --font-bold ball">36</div><div class="--twoxs --font-bold ball">39</div></div></div>'
-        ],
+        html: brincoHtml,
         data: brincoExample
     },
     Telekino: {
@@ -122,29 +125,19 @@ const lotteriesDetailsHTML = {
         data: quini6Example
     },
     Loto: {
-        html: [
-            '<div class="main-result" data-testid="Loto-test"><div class="box-result --loto-plus-detail"><div class="--twoxs --font-bold ball">03</div><div class="--twoxs --font-bold ball">04</div><div class="--twoxs --font-bold ball">05</div><div class="--twoxs --font-bold ball">07</div><div class="--twoxs --font-bold ball">23</div><div class="--twoxs --font-bold ball">38</div></div></div>',
-            '<div class="main-result" data-testid="Loto-test"><div class="box-result --loto-plus-detail"><div class="--twoxs --font-bold ball">05</div><div class="--twoxs --font-bold ball">09</div><div class="--twoxs --font-bold ball">13</div><div class="--twoxs --font-bold ball">14</div><div class="--twoxs --font-bold ball">25</div><div class="--twoxs --font-bold ball">35</div></div></div>',
-            '<div class="main-result" data-testid="Loto-test"><div class="box-result --loto-plus-detail"><div class="--twoxs --font-bold ball">08</div><div class="--twoxs --font-bold ball">12</div><div class="--twoxs --font-bold ball">21</div><div class="--twoxs --font-bold ball">27</div><div class="--twoxs --font-bold ball">34</div><div class="--twoxs --font-bold ball">40</div></div></div>'
-        ],
+        html: lotoHtml,
         data: lotoExample
     },
     Loto_5: {
-        html: [
-            '<div class="main-result" data-testid="Loto_5-test"><div class="box-result --loto-5"><div class="--twoxs --font-bold ball">02</div><div class="--twoxs --font-bold ball">14</div><div class="--twoxs --font-bold ball">16</div><div class="--twoxs --font-bold ball">30</div><div class="--twoxs --font-bold ball">36</div></div></div>'
-        ],
+        html: loto5Html,
         data: loto5Example
     },
     Quiniela_Poceada: {
-        html: [
-            '<div class="main-result" data-testid="Quiniela_Poceada-test"><div class="box-result --grid-5-columns"><div class="--twoxs --font-bold ball">06</div><div class="--twoxs --font-bold ball">07</div><div class="--twoxs --font-bold ball">08</div><div class="--twoxs --font-bold ball">18</div><div class="--twoxs --font-bold ball">21</div><div class="--twoxs --font-bold ball">02</div><div class="--twoxs --font-bold ball">25</div><div class="--twoxs --font-bold ball">31</div><div class="--twoxs --font-bold ball">41</div><div class="--twoxs --font-bold ball">46</div><div class="--twoxs --font-bold ball">62</div><div class="--twoxs --font-bold ball">63</div><div class="--twoxs --font-bold ball">65</div><div class="--twoxs --font-bold ball">66</div><div class="--twoxs --font-bold ball">77</div><div class="--twoxs --font-bold ball">83</div><div class="--twoxs --font-bold ball">90</div><div class="--twoxs --font-bold ball">91</div><div class="--twoxs --font-bold ball">92</div><div class="--twoxs --font-bold ball">99</div></div><span class="label-text  --font-bold --fourxs">Letras: OJTY</span></div>'
-        ],
+        html: quiniPoceadaHtml,
         data: quiniPoceadaExample
     },
     Quiniela_Plus: {
-        html: [
-            '<div class="main-result" data-testid="Quiniela_Plus-test"><div class="box-result --grid-5-columns"><div class="--twoxs --font-bold ball">11</div><div class="--twoxs --font-bold ball">17</div><div class="--twoxs --font-bold ball">24</div><div class="--twoxs --font-bold ball">26</div><div class="--twoxs --font-bold ball">29</div><div class="--twoxs --font-bold ball">44</div><div class="--twoxs --font-bold ball">46</div><div class="--twoxs --font-bold ball">49</div><div class="--twoxs --font-bold ball">50</div><div class="--twoxs --font-bold ball">52</div><div class="--twoxs --font-bold ball">55</div><div class="--twoxs --font-bold ball">60</div><div class="--twoxs --font-bold ball">64</div><div class="--twoxs --font-bold ball">68</div><div class="--twoxs --font-bold ball">69</div><div class="--twoxs --font-bold ball">73</div><div class="--twoxs --font-bold ball">87</div><div class="--twoxs --font-bold ball">89</div><div class="--twoxs --font-bold ball">95</div><div class="--twoxs --font-bold ball">99</div></div></div>'
-        ],
+        html: quiniPlusHtml,
         data: quiniPlusExample
     }
 };
