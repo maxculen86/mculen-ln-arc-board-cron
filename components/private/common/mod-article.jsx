@@ -77,18 +77,10 @@ const ModArticle = props => {
         return type === 'image' ? imagenDestacada : null;
     })();
 
-    const customHandlerClick = (() => {
-        if (typeof registerSuccessEvent === 'function')
-            return registerSuccessEvent;
-        if (typeof handleClick == 'function')
-            return event => handleClick(event, websiteUrl);
-        return null;
-    })();
-
-    const events =
-        typeof customHandlerClick === 'function'
-            ? { onClick: customHandlerClick, onAuxClick: customHandlerClick }
-            : {};
+    const onCLick = event => {
+        typeof registerSuccessEvent === 'function' && registerSuccessEvent();
+        typeof handleClick == 'function' && handleClick(event, websiteUrl);
+    };
 
     return (
         <article
@@ -102,7 +94,8 @@ const ModArticle = props => {
                 isRenderAuthorOpinion
             })}
             {...extraOpts}
-            {...events}
+            onClick={onCLick}
+            onAuxClick={onCLick}
         >
             {hour}
 

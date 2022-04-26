@@ -56,7 +56,7 @@ const masNotas = props => {
             subtype,
             taxonomy: {
                 primary_section: { _id, _website, name: sectionName, path },
-                tags
+                tags = []
             },
             _id: idArticle
         },
