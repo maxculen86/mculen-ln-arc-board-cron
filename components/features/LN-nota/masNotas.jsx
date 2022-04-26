@@ -135,22 +135,22 @@ const masNotas = props => {
 
     const title = getTitle(filterType, subtype, link);
 
-    return (
+    return articles.length >= 3 ? (
         <StaticValidation id={featureId} htmlOnly persistent>
-            {articles.length >= 3 && (
-                <CajaTema
-                    title={title}
-                    notesQuantity={size.originalSize}
-                    sectionName={
-                        filterType === '1' ? 'OtrasNoticias' : 'UltimasNoticias'
-                    }
-                    articles={articles}
-                    position="toi"
-                    outputType={outputType}
-                    withVolanta
-                />
-            )}
+            <CajaTema
+                title={title}
+                notesQuantity={size.originalSize}
+                sectionName={
+                    filterType === '1' ? 'OtrasNoticias' : 'UltimasNoticias'
+                }
+                articles={articles}
+                position="toi"
+                outputType={outputType}
+                withVolanta
+            />
         </StaticValidation>
+    ) : (
+        <></>
     );
 };
 
