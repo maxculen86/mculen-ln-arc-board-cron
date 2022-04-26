@@ -6,48 +6,18 @@ import getProperties from 'fusion:properties';
 import StaticValidation from '../../private/common/staticValidation';
 import getArticlesFromAcumSource from '../../private/LN/common/utils/getArticlesFromAcumSource';
 import filter from '../../../content/filters/LN/acumulado/articleMasNotas';
-import addForwardSlash from '../../private/LN/common/utils/addForwardSlash';
 import CajaTema from '../../private/LN/common/cajaTema';
 import {
     NOTICIA,
     RECETA,
     VIDEO
 } from '../../private/common/utils/subtypes/subtypeHelper';
-import capitalizeFirstLetter from '../../private/common/utils/capitalizeFirstLetter';
 import get from '../../private/common/utils/get';
-
-const getSectionTitle = noteType => {
-    if (Number(noteType) === 1) return 'Otras noticias de&nbsp;';
-    if (Number(noteType) === 7) return 'Más recetas de&nbsp;';
-    return 'Más notas de&nbsp;';
-};
-
-const getTitle = (customFilter, subtype, link = {}) => {
-    const { text, path } = link;
-    if (customFilter === '1') {
-        return `${getSectionTitle(subtype)}<a href='/tema/${addForwardSlash(
-            path
-        )}' class='com-link'>${capitalizeFirstLetter(text)}</a>`;
-    }
-
-    if (customFilter === '0') {
-        return subtype === '7' ? 'Últimas Recetas' : 'Últimas Noticias';
-    }
-
-    return `Últimas notas de <a href='${addForwardSlash(
-        path
-    )}' class='com-link'> ${capitalizeFirstLetter(text)}</a>`;
-};
-
-const FILTER_TYPES = {
-    0: 'Ultimas Noticias',
-    1: 'Por Tags'
-};
-
-const getQuery = (filterType, subtype, customQuerys, tagId) =>
-    filterType === '1'
-        ? { tagId }
-        : customQuerys[subtype] || customQuerys.default;
+import {
+    getTitle,
+    getQuery,
+    FILTER_TYPES
+} from '../../private/common/utils/masNotasHelper';
 
 const masNotas = props => {
     const {
