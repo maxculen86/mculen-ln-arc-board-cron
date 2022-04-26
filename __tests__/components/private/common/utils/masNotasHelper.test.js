@@ -17,20 +17,20 @@ describe('Mas Notas Helper Function Tests', () => {
     });
     it('should test getTitle function', () => {
         expect(
-            getTitle('1', '1', { text: 'Noticias', path: '/noticias' })
+            getTitle('1', '1', { text: 'Noticias', path: 'noticias' })
         ).toStrictEqual(
-            "Otras noticias de&nbsp;<a href='/tema//noticias/' class='com-link'>Noticias</a>"
+            "Otras noticias de&nbsp;<a href='/tema/noticias/' class='com-link'>Noticias</a>"
         );
         expect(
-            getTitle('1', '7', { text: 'Recetas', path: '/recetas' })
+            getTitle('1', '7', { text: 'Recetas', path: 'recetas' })
         ).toStrictEqual(
-            "Más recetas de&nbsp;<a href='/tema//recetas/' class='com-link'>Recetas</a>"
+            "Más recetas de&nbsp;<a href='/tema/recetas/' class='com-link'>Recetas</a>"
         );
         expect(
-            getTitle('0', '1', { text: 'Noticias', path: '/noticias' })
+            getTitle('0', '1', { text: 'Noticias', path: 'noticias' })
         ).toStrictEqual('Últimas Noticias');
         expect(
-            getTitle('0', '7', { text: 'Recetas', path: '/recetas' })
+            getTitle('0', '7', { text: 'Recetas', path: 'recetas' })
         ).toStrictEqual('Últimas Recetas');
     });
     it('should test getQuery function', () => {
