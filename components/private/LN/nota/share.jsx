@@ -52,6 +52,8 @@ const Share = props => {
         maxWidth: '32px',
         maxHeight: '32px'
     };
+    const isSaved = true; // booleano para saber si la nota esta guardada o no
+
     return (
         <div
             id="v-share"
@@ -59,11 +61,65 @@ const Share = props => {
         >
             <AmpContainer isForAmp={false}>
                 <div className="container --left">
+                    {/* Se oculta temporalmente para luego refactorizar */}
+                    {displayComments && (
+                        <>
+                            {/* Bookmark para guardado de notas */}
+                            <ComButton
+                                id="btncomments"
+                                dataEvent="LinkClick"
+                                dataSection="Guardar Nota"
+                                onClick={() => {}}
+                                size="--fourxs"
+                                iconName={
+                                    isSaved ? 'bookmark-filled' : 'bookmark'
+                                }
+                                title="Notas guardadas"
+                                classCondition={`bookmark ${isSaved &&
+                                    '--is-saved'}`}
+                            />
+                            <ComButton
+                                id="btncomments"
+                                dataEvent="LinkClick"
+                                dataSection="CompartirNotaLN"
+                                onClick={() => scrollToComments()}
+                                size="--fivexs"
+                                iconName="chat"
+                                title="Ir a los comentarios de la nota"
+                                classCondition="comment-btn"
+                                textname={totalVisibleContent}
+                            />
+                        </>
+                    )}
+                </div>
+
+                <ComLine />
+
+                <div className="container --right">
+                    <ComButton
+                        dataEvent="LinkClick"
+                        dataSection="CompartirNotaLN"
+                        iconName="whatsapp"
+                        title="Compartir la nota en WhatsApp"
+                        id="whatsAppShareDesktop"
+                        onClick={() =>
+                            shareWhatsAppDesktop(requestUri, config.host)
+                        }
+                    />
+                    {/* Boton para copiar Link de la nota a compartir */}
+                    <ComButton
+                        dataEvent="LinkClick"
+                        dataSection="CompartirNotaLN"
+                        iconName="copy"
+                        title="Copiar link de la nota"
+                        id="copyLinkNote"
+                        onClick={() => {}}
+                    />
                     <ComButton
                         id="btnfacebook"
                         dataEvent="LinkClick"
                         dataSection="CompartirNotaLN"
-                        iconName="facebook-filled"
+                        iconName="facebook"
                         title="Compartir la nota en Facebook"
                         onClick={() =>
                             popUpCompartirNotaFB(requestUri, config.host, title)
@@ -73,7 +129,7 @@ const Share = props => {
                         id="btntwitter"
                         dataEvent="LinkClick"
                         dataSection="CompartirNotaLN"
-                        iconName="twitter-filled"
+                        iconName="twitter"
                         title="Compartir la nota en Twitter"
                         onClick={() =>
                             popUpCompartirNotaTW(
@@ -84,22 +140,6 @@ const Share = props => {
                         }
                     />
                     <ComButton
-                        id="btnwhatsapp"
-                        dataEvent="LinkClick"
-                        dataSection="CompartirNotaLN"
-                        iconName="whatsapp-filled"
-                        title="Compartir la nota en WhatsApp"
-                        id="whatsAppShareDesktop"
-                        onClick={() =>
-                            shareWhatsAppDesktop(requestUri, config.host)
-                        }
-                    />
-                </div>
-
-                <ComLine />
-
-                <div className="container --right">
-                    <ComButton
                         id="btnemail"
                         dataEvent="LinkClick"
                         dataSection="CompartirNotaLN"
@@ -109,24 +149,6 @@ const Share = props => {
                             popUpCompartirMailTo(requestUri, config.host)
                         }
                     />
-                    {/* Se oculta temporalmente para luego refactorizar */}
-                    {displayComments && (
-                        <>
-                            <ComButton
-                                id="btncomments"
-                                dataEvent="LinkClick"
-                                dataSection="CompartirNotaLN"
-                                onClick={() => scrollToComments()}
-                                size="--fourxs"
-                                iconName="comment"
-                                title="Ir a los comentarios de la nota"
-                                classCondition="comment-btn"
-                            />
-                            <label className="counterComments --fourxs">
-                                {totalVisibleContent}
-                            </label>
-                        </>
-                    )}
                 </div>
             </AmpContainer>
 
