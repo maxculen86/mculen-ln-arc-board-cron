@@ -15,4 +15,5 @@ export default `
         anexoinferior
         collectionForTag
     }
+    isWiki
 }`;

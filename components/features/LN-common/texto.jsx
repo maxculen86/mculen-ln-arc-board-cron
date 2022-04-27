@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ComText from '../../private/common/text';
 import { fonts, sizes, weights } from '../../private/common/text/getFontData';
+import StaticValidation from '../../private/common/staticValidation';
 
 const Text = props => {
     const {
@@ -10,16 +11,18 @@ const Text = props => {
     } = props;
 
     return (
-        <ComText
-            id={featureId}
-            tag={htmlTag || 'span'}
-            font={font}
-            size={size}
-            weight={weight}
-            text={text}
-            link={link}
-            extraClass={className}
-        />
+        <StaticValidation id={featureId} htmlOnly persistent>
+            <ComText
+                id={featureId}
+                tag={htmlTag || 'span'}
+                font={font}
+                size={size}
+                weight={weight}
+                text={text}
+                link={link}
+                extraClass={className}
+            />
+        </StaticValidation>
     );
 };
 

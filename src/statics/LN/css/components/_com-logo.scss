@@ -155,6 +155,28 @@
             height: px(32);
         }
     }
+    &.salud,
+    &.salud-blanco {
+        &.--xs {
+            width: px(129);
+            height: px(22);
+        }
+        &.--sm {
+            width: px(187);
+            height: px(32);
+        }
+    }
+    &.autos,
+    &.autos-blanco {
+        &.--xs {
+            width: px(141);
+            height: px(20);
+        }
+        &.--sm {
+            width: px(205);
+            height: px(28);
+        }
+    }
     &.campo,
     &.campo-blanco {
         &.--xs {

@@ -1,0 +1,45 @@
+{
+    "promo_items": {
+        "basic": {
+            "_id": "H53R624KARDARCICFNEC7ZC7YA",
+            "type": "image",
+            "resized_urls": [
+                {
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/0-_Q3j7WaTgvazaqaWo1TlsdFYg=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/H53R624KARDARCICFNEC7ZC7YA.jpg",
+                    "option": {
+                        "width": 768,
+                        "height": 512,
+                        "media": "(min-width: 768px)",
+                        "useFullSize": true,
+                        "proportion": "3:2",
+                        "media_preload": "(min-width: 768.1px and max-width: 1024px)"
+                    }
+                },
+                {
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v0nB_sKZ3HeDxcpmmYhzX6P49i0=/375x562/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/H53R624KARDARCICFNEC7ZC7YA.jpg",
+                    "option": {
+                        "width": 375,
+                        "height": 562,
+                        "media": "(min-width: 375px)",
+                        "useFullSize": true,
+                        "proportion": "2:3",
+                        "media_preload": "(min-width: 375.1px and max-width: 768px)"
+                    }
+                },
+                {
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/FtoYG9gG-lYJTikOJudK9UNhnWA=/320x480/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/H53R624KARDARCICFNEC7ZC7YA.jpg",
+                    "option": {
+                        "width": 320,
+                        "height": 480,
+                        "media": "(min-width: 320px)",
+                        "useFullSize": true,
+                        "proportion": "2:3",
+                        "media_preload": "(max-width: 375px)"
+                    }
+                }
+            ],
+            "resized_urls_zoom": []
+        }
+    },
+    "_id": "193728078327a4eb5c153e21c6330c53325196e9228d8217fdeaac0d59ce5db1"
+}

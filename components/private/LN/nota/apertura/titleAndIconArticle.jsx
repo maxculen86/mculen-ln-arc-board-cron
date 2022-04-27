@@ -7,7 +7,9 @@ import TitleArticle from './titleArticle';
 import '../../../../../resources/dist/css/ln/components/title.css';
 import getTooltip from '../../common/utils/getTooltip';
 import { GlobalContext } from '../../../common/context/globalContext';
-import { VIDEO } from '../../../common/utils/subtypes/subtypeHelper';
+import { VIDEO, LIVEBLOG } from '../../../common/utils/subtypes/subtypeHelper';
+import Badge from '../../../common/badge/Badge';
+import { isOlderThanXHoursAgo } from '../../../common/utils/dateAndTimeUtil';
 
 const TitleAndIconArticle = ({
     customFields: { prefix },
@@ -17,7 +19,8 @@ const TitleAndIconArticle = ({
         label,
         distributor = { name: 'LA NACION' },
         owner,
-        subtype
+        subtype,
+        display_date: displayDate
     },
     layout
 }) => {
@@ -30,7 +33,7 @@ const TitleAndIconArticle = ({
     if (sponsored) keyTooltip = 'Espacio Patrocinado';
     if (advertiser) keyTooltip = 'Content LAB';
     const tooltip = getTooltip(keyTooltip, siteService);
-
+    const coverageEndTime = !isOlderThanXHoursAgo(displayDate, 12);
     return (
         <>
             <LogoBase
@@ -42,6 +45,11 @@ const TitleAndIconArticle = ({
                 subtype={subtype}
                 tooltip={tooltip}
             />
+            {subtype === LIVEBLOG && coverageEndTime && (
+                <div className="badge-container">
+                    <Badge type="liveblog-red">EN VIVO</Badge>
+                </div>
+            )}
             <TitleArticle
                 prefix={prefix || ''}
                 size={subtype === VIDEO && '--xl'}
@@ -78,6 +86,7 @@ TitleAndIconArticle.propTypes = {
             sponsored: PropTypes.bool
         }),
         subtype: PropTypes.string,
+        display_date: PropTypes.string,
         siteService: PropTypes.shape({
             tooltips: PropTypes.arrayOf(
                 PropTypes.shape({

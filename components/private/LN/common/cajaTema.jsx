@@ -17,20 +17,34 @@ import OrderedList from './lists/ordered';
 
 const getComponentForLayout = (layoutName, props) => {
     const types = {
-        Opinion: ({ articles, layout }) => {
-            return <Opinion articles={articles} layout={layout} />;
+        Opinion: ({ articles, layout, handleClick }) => {
+            return (
+                <Opinion
+                    articles={articles}
+                    layout={layout}
+                    handleClick={handleClick}
+                />
+            );
         },
-        Editoriales: ({ articles, layout, title, url }) => {
+        Editoriales: ({ articles, layout, title, url, handleClick }) => {
             return (
                 <Editoriales
                     articles={articles}
                     layout={layout}
                     title={title}
                     link={url}
+                    handleClick={handleClick}
                 />
             );
         },
-        Focal: ({ articles, layout, outputType, position, _children }) => {
+        Focal: ({
+            articles,
+            layout,
+            outputType,
+            position,
+            _children,
+            handleClick
+        }) => {
             return (
                 <FocalFactory
                     directionFocal={layout}
@@ -38,6 +52,7 @@ const getComponentForLayout = (layoutName, props) => {
                     outputType={outputType}
                     boxPosition={position}
                     _children={_children}
+                    handleClick={handleClick}
                 />
             );
         },
@@ -76,6 +91,7 @@ const getComponentForLayout = (layoutName, props) => {
                         artPosition={position !== 'toi' ? artPosition : ''}
                         handleClick={handleClick}
                         dataSection={dataSection}
+                        sectionName={sectionName}
                         titleTag={customTitleTag}
                     />
                 );

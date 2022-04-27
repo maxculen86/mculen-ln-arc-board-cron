@@ -1,11 +1,22 @@
 import addForwardSlash from '../../LN/common/utils/addForwardSlash';
-import { setMetaDescription, getData } from '../utils/getMetasOGHelper';
+import {
+    setMetaDescription,
+    setMetaTitle,
+    getData
+} from '../utils/getMetasOGHelper';
 
 const getMetasOG = props => {
     const data = getData(props);
     const metaTitleFromPB = props.metaValue('title') || '';
     const pageBuilderTitle = metaTitleFromPB.replace(' - LA NACION', '');
-    const { section, siteProperties } = props;
+    const {
+        section,
+        siteProperties,
+        arcSite,
+        ottMetaTitle,
+        ottMetaDescription
+    } = props;
+
     const metas = [
         {
             property: 'fb_app_id',
@@ -17,11 +28,23 @@ const getMetasOG = props => {
         },
         {
             property: 'og:title',
-            content: pageBuilderTitle
+            content: setMetaTitle({
+                arcSite,
+                pageBuilderTitle,
+                section,
+                siteProperties,
+                ottMetaTitle
+            })
         },
         {
             property: 'og:description',
-            content: setMetaDescription(data, section)
+            content: setMetaDescription({
+                data,
+                section,
+                siteProperties,
+                arcSite,
+                ottMetaDescription
+            })
         },
         {
             property: 'og:image',

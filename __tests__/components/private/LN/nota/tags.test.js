@@ -40,12 +40,16 @@ describe('La Nacion - Nota - Tags (Main categories removed from Themes)', () => 
 
         it('List tags in Receta should return same tags as provided', () => {
             const listTagsReceta = [
-                { type: 'tag', path: 'cous-cous-tid47203', text: 'cous cous' },
-                { type: 'tag', path: 'soja', text: 'Soja' },
+                {
+                    type: 'tag',
+                    path: 'cous-cous-tid47203',
+                    text: 'Recetas con cous cous'
+                },
+                { type: 'tag', path: 'soja', text: 'Recetas con Soja' },
                 {
                     type: 'tag',
                     path: 'cebolla-de-verdeo-tid47175',
-                    text: 'cebolla de verdeo'
+                    text: 'Recetas con cebolla de verdeo'
                 }
             ];
             const comp = shallow(<Tags {...propsReceta} />);

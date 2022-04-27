@@ -105,7 +105,8 @@ const VideoPlayer = props => {
         enableControls,
         sticky,
         globalContent = {},
-        device
+        device,
+        isApertura
     } = props;
 
     const firstVideo = globalContent.content_elements
@@ -153,7 +154,7 @@ const VideoPlayer = props => {
         window.addEventListener('powaReady', setVideoEvents);
         addToDataLayer('videoDisplay', tituloVideo, videoId);
         return () => window.removeEventListener('powaReady', setVideoEvents);
-    }, [adsURL, isAdmin, tituloVideo, videoId]);
+    }, [adsURL, isAdmin, tituloVideo, videoId, streamingAnalyticInstance]);
 
     return (
         <>
@@ -168,9 +169,10 @@ const VideoPlayer = props => {
                 data-autoplay-muted={autoPlay}
                 data-controls={enableControls}
                 data-muted={
-                    firstVideo &&
-                    videoId === firstVideo._id &&
-                    device === 'desktop'
+                    (firstVideo &&
+                        videoId === firstVideo._id &&
+                        device === 'desktop') ||
+                    isApertura
                         ? true
                         : muted
                 }
@@ -222,7 +224,8 @@ VideoPlayer.propTypes = {
     globalContent: PropTypes.shape({
         content_elements: PropTypes.arrayOf(PropTypes.object)
     }),
-    device: PropTypes.string.isRequired
+    device: PropTypes.string.isRequired,
+    isApertura: PropTypes.bool
 };
 
 VideoPlayer.defaultProps = {
@@ -233,7 +236,8 @@ VideoPlayer.defaultProps = {
     enableAdBar: true,
     muted: false,
     sticky: false,
-    isAdmin: false
+    isAdmin: false,
+    isApertura: false
 };
 
 export default Context(VideoPlayer);

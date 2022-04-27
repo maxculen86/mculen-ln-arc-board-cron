@@ -99,7 +99,8 @@ export const meanings = {
         link: {
             sandbox:
                 '/loterias/significado-de-suenos-y-numeros-para-loterias-y-quinielas-nid25032022/',
-            prod: '#'
+            prod:
+                '/loterias/significado-de-suenos-y-numeros-para-loterias-y-quinielas-nid09042022/'
         },
 
         linkTitle:
@@ -111,7 +112,8 @@ export const meanings = {
         link: {
             sandbox:
                 '/loterias/significado-de-suenos-segun-los-nombres-y-numeros-para-loterias-y-quinielas-nid25032022/',
-            prod: '#'
+            prod:
+                '/loterias/significado-de-suenos-segun-los-nombres-y-numeros-para-loterias-y-quinielas-nid09042022/'
         },
 
         linkTitle:
@@ -123,7 +125,8 @@ export const meanings = {
         link: {
             sandbox:
                 '/loterias/significado-de-suenos-segun-los-animales-y-numeros-para-loterias-y-quinielas-nid25032022/',
-            prod: '#'
+            prod:
+                '/loterias/significado-de-suenos-segun-los-animales-y-numeros-para-loterias-y-quinielas-nid09042022/'
         },
 
         linkTitle:
@@ -135,7 +138,8 @@ export const meanings = {
         link: {
             sandbox:
                 '/loterias/significado-de-los-suenos-y-numeros-segun-la-loteria-nacional-nid25032022/',
-            prod: '#'
+            prod:
+                '/loterias/significado-de-los-suenos-y-numeros-segun-la-loteria-nacional-nid09042022/'
         },
 
         linkTitle:

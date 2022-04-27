@@ -63,7 +63,8 @@ const transform = (data, query, tagConfigData) => {
     const {
         anexosuperiortag: anexoSuperiorTag = '',
         anexoinferiortag: anexoInferiorTag = '',
-        collectiontag: collectionTag = ''
+        collectiontag: collectionTag = '',
+        wikilist: wikiList = {}
     } = tagConfigGroup || {};
 
     const acumuladoGeneral = {
@@ -77,7 +78,8 @@ const transform = (data, query, tagConfigData) => {
         name: data.Payload.items[0].name,
         canonical_url: `/tema/${slug}/`,
         subscription: meteringVariant,
-        acumuladoGeneral
+        acumuladoGeneral,
+        isWiki: typeof wikiList[slug] !== 'undefined'
     };
 };
 

@@ -9,7 +9,7 @@ import { addResizedUrls } from '../../components/private/common/utils/image/resi
 import {
     addHoursAndFormat,
     hasFutureDisplayDate,
-    isOlderThan24HourAgo
+    isOlderThanXHoursAgo
 } from '../../components/private/common/utils/dateAndTimeUtil';
 import { isNotRecommend } from './utils/collectionsHelper';
 
@@ -236,7 +236,7 @@ const transform = (data, siteProps) => {
     // Si viene de Ultimas Noticias
     if (sectionsIds) {
         respData.content_elements = respData.content_elements
-            .filter(story => !isOlderThan24HourAgo(story.display_date))
+            .filter(story => !isOlderThanXHoursAgo(story.display_date, 24))
             .filter(story => !hasFutureDisplayDate(story.display_date))
             .map(story => {
                 return {

@@ -60,6 +60,9 @@ const Share = props => {
             <AmpContainer isForAmp={false}>
                 <div className="container --left">
                     <ComButton
+                        id="btnfacebook"
+                        dataEvent="LinkClick"
+                        dataSection="CompartirNotaLN"
                         iconName="facebook-filled"
                         title="Compartir la nota en Facebook"
                         onClick={() =>
@@ -67,6 +70,9 @@ const Share = props => {
                         }
                     />
                     <ComButton
+                        id="btntwitter"
+                        dataEvent="LinkClick"
+                        dataSection="CompartirNotaLN"
                         iconName="twitter-filled"
                         title="Compartir la nota en Twitter"
                         onClick={() =>
@@ -78,6 +84,9 @@ const Share = props => {
                         }
                     />
                     <ComButton
+                        id="btnwhatsapp"
+                        dataEvent="LinkClick"
+                        dataSection="CompartirNotaLN"
                         iconName="whatsapp-filled"
                         title="Compartir la nota en WhatsApp"
                         id="whatsAppShareDesktop"
@@ -91,6 +100,9 @@ const Share = props => {
 
                 <div className="container --right">
                     <ComButton
+                        id="btnemail"
+                        dataEvent="LinkClick"
+                        dataSection="CompartirNotaLN"
                         iconName="email"
                         title="Compartir la nota por E-mail"
                         onClick={() =>
@@ -101,6 +113,9 @@ const Share = props => {
                     {displayComments && (
                         <>
                             <ComButton
+                                id="btncomments"
+                                dataEvent="LinkClick"
+                                dataSection="CompartirNotaLN"
                                 onClick={() => scrollToComments()}
                                 size="--fourxs"
                                 iconName="comment"

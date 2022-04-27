@@ -18,6 +18,10 @@
         }
         .com-text {
             margin-bottom: $spacing;
+            margin-right: $spacing-sm;
+        }
+        .com-button {
+            min-width: px(110);
         }
         &:hover {
             .com-button {
@@ -36,11 +40,6 @@
             .com-text {
                 margin-bottom: 0;
             }
-        }
-    }
-    @media ($media-l) {
-        .link {
-            padding: px(24);
         }
     }
 }

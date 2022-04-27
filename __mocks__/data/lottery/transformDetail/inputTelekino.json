@@ -50,7 +50,7 @@
                     "25"
                 ],
                 "additional_properties": {
-                    "estimated_pot": ["$145.000.000,00"]
+                    "estimated_pot": "$145.000.000,00"
                 }
             },
             {
@@ -113,7 +113,7 @@
                     "23"
                 ],
                 "additional_properties": {
-                    "estimated_pot": ["$145.0000.000,00"]
+                    "estimated_pot": "$145.0000.000,00"
                 }
             }
         ],

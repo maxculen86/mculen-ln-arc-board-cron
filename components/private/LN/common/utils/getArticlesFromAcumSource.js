@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useContent } from 'fusion:content';
 import get from '../../../common/utils/get';
 
@@ -11,7 +12,8 @@ const getArticlesFromAcumSource = (
     type,
     shouldNotFilter,
     website = 'la-nacion-ar',
-    promoItemsOnly = false
+    promoItemsOnly = false,
+    staticMode = true
 ) => {
     const { sectionId, tagId, authorId, distributorId, sectionsIds, subtype } =
         typesOfQuery || {};
@@ -38,9 +40,8 @@ const getArticlesFromAcumSource = (
             shouldNotFilter
         },
         filter,
-        staticMode: true
+        staticMode
     });
-
     return get(articleList, 'content_elements', []);
 };
 

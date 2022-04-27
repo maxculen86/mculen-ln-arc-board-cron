@@ -15,7 +15,7 @@ jest.mock(
 describe('Features - LN-servicios - LN Loteria Significado de Números =>', () => {
     const { container } = render(<LotteryMeanings id="QWERTYUIOP" />);
     const StaticValidation = container.querySelector('mock-static-validation');
-    /* it('should be wrapped by StaticValidation component', () => {
+    it('should be wrapped by StaticValidation component', () => {
         expect(
             screen.getByText(
                 (content, element) =>
@@ -24,11 +24,12 @@ describe('Features - LN-servicios - LN Loteria Significado de Números =>', () =
         ).toBeVisible();
     });
     it('should return a list of topics about number meanings', () => {
+        render(<LotteryMeanings id="QWERTYUIOP" />);
         expect(
-            StaticValidation.getElementsByClassName('number-meanings-box')
-                .length
+            StaticValidation.getElementsByClassName(
+                'lotteries number-meanings-box row-gap-tablet-4'
+            ).length
         ).toBe(1);
-        expect(StaticValidation.firstChild.children.length).toBe(4);
-    }); */
-    it('should', () => {});
+        expect(screen.getAllByRole('heading').length).toBe(4);
+    });
 });

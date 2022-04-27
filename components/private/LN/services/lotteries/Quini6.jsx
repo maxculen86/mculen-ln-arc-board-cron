@@ -8,12 +8,17 @@ import ResultItem from './ResultItem';
 import {
     setTraditionFirst,
     hasTraditionalResult,
-    reorderQuini6
+    reorderSubLotteries,
+    quini6Order
 } from './utils';
 
 const Quini6 = ({ name, estimatedPot, date, results, isDetail, link }) => {
     const resultsTomap = setTraditionFirst(results);
-    const arrResults = reorderQuini6(resultsTomap.slice(1, 5));
+    const arrResults = reorderSubLotteries(
+        resultsTomap.slice(1, 5),
+        quini6Order
+    );
+
     if (hasTraditionalResult(isDetail, resultsTomap)) return <></>;
 
     const extraPotClass = name === 'Pozo extra' && 'quini-6-extra-pot';
@@ -56,7 +61,16 @@ const Quini6 = ({ name, estimatedPot, date, results, isDetail, link }) => {
 };
 
 Quini6.propTypes = {
-    results: PropTypes.arrayOf,
+    results: PropTypes.arrayOf(
+        PropTypes.oneOfType([
+            PropTypes.shape({
+                name: PropTypes.string,
+                winners: PropTypes.string,
+                amount: PropTypes.string
+            }),
+            PropTypes.string
+        ])
+    ),
     name: PropTypes.string,
     date: PropTypes.string,
     estimatedPot: PropTypes.string,

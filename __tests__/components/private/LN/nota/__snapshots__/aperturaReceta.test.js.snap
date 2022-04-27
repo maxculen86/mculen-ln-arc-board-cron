@@ -25,11 +25,12 @@ exports[`features - La Nacion - Components - Nota - AperturaReceta Snapshot - an
             <img
               alt=""
               class="com-image "
+              decoding="async"
               height="230"
               importance="high"
               loading="eager"
-              sizes="100vw"
-              src="https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg"
+              src="https://resizer.glanacion.com/resizer/YYmrDx8O3WnsLCiQC11HpsEf9J4=/309x206/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif"
+              srcset="https://resizer.glanacion.com/resizer/ukSW4gU9iBtaPSnmCq696TxMqqQ=/879x586/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif 879w, https://resizer.glanacion.com/resizer/rUtO9Zp3kIlYQscYiKTu-WAmsHE=/1119x746/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif 1119w, https://resizer.glanacion.com/resizer/O8Q1PaEr9K7hBEBuOSqnHFtZ3KQ=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif 768w, https://resizer.glanacion.com/resizer/DyiPCWqItlg8Q2LbS-quVA7u79U=/351x234/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif 351w, https://resizer.glanacion.com/resizer/YYmrDx8O3WnsLCiQC11HpsEf9J4=/309x206/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif 309w"
               width="345"
             />
           </div>
@@ -52,23 +53,23 @@ exports[`features - La Nacion - Components - Nota - AperturaReceta Snapshot - an
           <a
             class="com-link com-button --secondary --compact --transparent"
             href="/recetas/platos-principales/"
-            title="Ir a notas de Platos Principales"
+            title="Ir a notas de recetas principales"
           >
-            Platos Principales
+            Platos de comida principal
           </a>
           <a
             class="com-link com-button --secondary --compact --transparent"
             href="/recetas/recetas-con-ingredientes/pollo/"
-            title="Ir a notas de Pollo"
+            title="Ir a notas de recetas con pollo"
           >
             Pollo
           </a>
           <a
             class="com-link com-button --secondary --compact --transparent"
-            href="/recetas/recetas-con-ingredientes/"
-            title="Ir a notas de Recetas con ingredientes"
+            href="/recetas/dulces/"
+            title="Ir a notas de recetas dulces"
           >
-            Recetas con ingredientes
+            Dulces
           </a>
         </section>
       </div>
@@ -147,27 +148,22 @@ exports[`features - La Nacion - Components - Nota - AperturaReceta Snapshot - an
         </div>
       </div>
     </div>
-    <h4
-      class="com-title --threexs"
-    >
-      Recetas con:
-    </h4>
     <section
       class="mod-themes"
     >
       <a
         class="com-link com-button --secondary --compact --transparent --tag"
         href="/tema/tagprueba1/"
-        title="Ir a notas de TagPrueba1"
+        title="Ir a notas de recetas con TagPrueba1"
       >
-        TagPrueba1
+        Recetas con TagPrueba1
       </a>
       <a
         class="com-link com-button --secondary --compact --transparent --tag"
         href="/tema/tagprueba2/"
-        title="Ir a notas de TagPrueba2"
+        title="Ir a notas de recetas con TagPrueba2"
       >
-        TagPrueba2
+        Recetas con TagPrueba2
       </a>
     </section>
   </div>
@@ -277,48 +273,43 @@ exports[`features - La Nacion - Components - Nota - AperturaReceta Snapshot - si
               <a
                 class="com-link com-button --secondary --compact --transparent"
                 href="/recetas/platos-principales/"
-                title="Ir a notas de Platos Principales"
+                title="Ir a notas de recetas principales"
               >
-                Platos Principales
+                Platos de comida principal
               </a>
               <a
                 class="com-link com-button --secondary --compact --transparent"
                 href="/recetas/recetas-con-ingredientes/pollo/"
-                title="Ir a notas de Pollo"
+                title="Ir a notas de recetas con pollo"
               >
                 Pollo
               </a>
               <a
                 class="com-link com-button --secondary --compact --transparent"
-                href="/recetas/recetas-con-ingredientes/"
-                title="Ir a notas de Recetas con ingredientes"
+                href="/recetas/dulces/"
+                title="Ir a notas de recetas dulces"
               >
-                Recetas con ingredientes
+                Dulces
               </a>
             </section>
           </div>
         </div>
-        <h4
-          class="com-title --m"
-        >
-          Recetas con:
-        </h4>
         <section
           class="mod-themes"
         >
           <a
             class="com-link com-button --secondary --compact --transparent --tag"
             href="/tema/tagprueba1/"
-            title="Ir a notas de TagPrueba1"
+            title="Ir a notas de recetas con TagPrueba1"
           >
-            TagPrueba1
+            Recetas con TagPrueba1
           </a>
           <a
             class="com-link com-button --secondary --compact --transparent --tag"
             href="/tema/tagprueba2/"
-            title="Ir a notas de TagPrueba2"
+            title="Ir a notas de recetas con TagPrueba2"
           >
-            TagPrueba2
+            Recetas con TagPrueba2
           </a>
         </section>
       </div>

@@ -46,6 +46,8 @@ const getRegex = sectionId => {
         /\/(lnmas)/,
         /^\/(propiedades)(?:\/.+)?/,
         /^\/(economia\/campo)(?:\/.+)?/,
+        /^\/(salud)(?:\/.+)?/,
+        /^\/(autos)(?:\/.+)?/,
         /\/revista-(.\w+[^\W]?)/
     ];
 
@@ -126,7 +128,7 @@ export const getSectionLogo = (sections, layout, distributorName) => {
 
     const { logoName, path } = getLogoData(sections);
 
-    if (!logoName && !path && isBBC)
+    if (isBBC)
         return {
             logoName: 'bbc',
             path: '/distributor/bbc-mundo',
