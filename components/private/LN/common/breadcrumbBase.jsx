@@ -34,7 +34,9 @@ const getListSections = (sections, extraOpts, host, colorCategory) =>
                 }}
             >
                 <i className="--bullet --fourxs">{`>`}</i>
-                {section.name}
+                {i + 1 === sections.length && isRecipe
+                    ? capitalizeFirstLetter(textSelector(section.name))
+                    : section.name}
             </a>
         );
     });

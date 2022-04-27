@@ -22,6 +22,7 @@
         background: $red-400;
     }
     &.--liveblog-red {
+        list-style: none;
         .badge-container & {
             margin-bottom: $spacing-sm;
         }
