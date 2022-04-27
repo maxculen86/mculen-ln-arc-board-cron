@@ -11,13 +11,35 @@ const MetaDescription = ({
     subheadlines,
     _id,
     section,
-    metaDescription
+    metaDescription,
+    ottMetaDescription
 }) => {
-    if (arcSite !== 'la-nacion-ar') return <></>;
+    if (
+        !subtype &&
+        section !== 'home' &&
+        !['la-nacion-ar', 'ott'].includes(arcSite)
+    )
+        return <></>;
+
+    const setContent = () => {
+        if (arcSite === 'ott') return ottMetaDescription;
+
+        return (
+            (subtype &&
+                `${getMetaDescription(
+                    description,
+                    metaTitleBasic,
+                    subheadlines,
+                    subtype
+                )}`) ||
+            metaDescription
+        );
+    };
 
     const acusWithMeta = ['section', 'author', 'distributor', 'tags'];
     const acuRecetaRegExp = new RegExp(/^\/recetas\/(.+)$/);
-    if (acusWithMeta.includes(nodeType)) {
+
+    if (acusWithMeta.includes(nodeType) && arcSite === 'la-nacion-ar') {
         return (
             <meta
                 name="description"
@@ -32,23 +54,9 @@ const MetaDescription = ({
         );
     }
 
-    if (!subtype && section !== 'home') return <></>;
+    const content = setContent();
 
-    return (
-        <meta
-            name="description"
-            content={
-                (subtype &&
-                    `${getMetaDescription(
-                        description,
-                        metaTitleBasic,
-                        subheadlines,
-                        subtype
-                    )}`) ||
-                metaDescription
-            }
-        />
-    );
+    return <meta name="description" content={content} />;
 };
 
 MetaDescription.propTypes = {
@@ -60,7 +68,8 @@ MetaDescription.propTypes = {
     description: PropTypes.string.isRequired,
     metaTitleBasic: PropTypes.string.isRequired,
     nodeType: PropTypes.string.isRequired,
-    subheadlines: PropTypes.object
+    subheadlines: PropTypes.object,
+    ottMetaDescription: PropTypes.string
 };
 
 export default MetaDescription;

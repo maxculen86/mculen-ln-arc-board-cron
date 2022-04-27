@@ -31,20 +31,20 @@ Array [
     </a>
     <a
       class="com-link --fourxs"
-      href="/recetas/recetas-con-ingredientes/"
-      title="Noticias de Recetas con ingredientes"
+      href="/recetas/dulces/"
+      title="Noticias de Dulces"
     >
       <i
         class="--bullet --fourxs"
       >
         &gt;
       </i>
-      Recetas con ingredientes
+      Dulces
     </a>
     <a
       class="com-link --fourxs"
       href="/recetas/recetas-con-ingredientes/pollo/"
-      title="Noticias de Pollo"
+      title="Recetas con pollo"
     >
       <i
         class="--bullet --fourxs"

@@ -20,7 +20,7 @@ const list = (nodo, dataNota) => {
     resp.items = listElements.map(v => {
         if (validateValueText(v.content)) return null;
         const value = htmlText(v.content);
-        if (value && value.length) {
+        if (value) {
             return {
                 _t: 'li',
                 value: v.content

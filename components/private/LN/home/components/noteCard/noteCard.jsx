@@ -26,7 +26,9 @@ const NoteCard = ({
     layout,
     isInHomeAperturaOrBomba,
     videoBackground,
-    isPowa
+    isPowa,
+    handleClick,
+    registerSuccessEvent
 }) => {
     const [article, setArticle] = useState(
         transform(content, customFields, promoItems)
@@ -103,10 +105,12 @@ const NoteCard = ({
                 isPowa={isPowa}
                 device={device}
                 layout={layout}
+                handleClick={handleClick}
                 isApertura={
                     isInHomeAperturaOrBomba &&
                     get(articleProps, 'isApertura', false)
                 }
+                registerSuccessEvent={registerSuccessEvent}
             />
         )) || <></>
     );

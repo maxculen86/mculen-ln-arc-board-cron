@@ -6,43 +6,27 @@ import getProperties from 'fusion:properties';
 import StaticValidation from '../../private/common/staticValidation';
 import getArticlesFromAcumSource from '../../private/LN/common/utils/getArticlesFromAcumSource';
 import filter from '../../../content/filters/LN/acumulado/articleMasNotas';
-import addForwardSlash from '../../private/LN/common/utils/addForwardSlash';
 import CajaTema from '../../private/LN/common/cajaTema';
 import {
     NOTICIA,
     RECETA,
     VIDEO
 } from '../../private/common/utils/subtypes/subtypeHelper';
-
-const getSectionTitle = noteType => {
-    if (Number(noteType) === 1) return 'Otras noticias de&nbsp;';
-    if (Number(noteType) === 7) return 'Más recetas de&nbsp;';
-    return 'Más notas de&nbsp;';
-};
-
-const getTitle = (customFilter, subtype, sectionName, path) => {
-    if (customFilter === '1') {
-        return `${getSectionTitle(subtype)}<a href='${addForwardSlash(
-            path
-        )}' class='com-link'>${sectionName}</a>`;
-    }
-
-    if (customFilter === '0') {
-        return subtype === '7' ? 'Últimas Recetas' : 'Últimas Noticias';
-    }
-
-    return `Últimas notas de <a href='${addForwardSlash(
-        path
-    )}' class='com-link'> ${sectionName}</a>`;
-};
+import get from '../../private/common/utils/get';
+import {
+    getTitle,
+    getQuery,
+    FILTER_TYPES
+} from '../../private/common/utils/masNotasHelper';
 
 const masNotas = props => {
     const {
-        customFields: { cantidadNotas, filter: filterCustomField = 0 },
+        customFields: { cantidadNotas = 30, filter: filterCustomField = 0 },
         globalContent: {
             subtype,
             taxonomy: {
-                primary_section: { _id, _website, name: sectionName, path }
+                primary_section: { _id, _website, name: sectionName, path },
+                tags
             },
             _id: idArticle
         },
@@ -51,28 +35,19 @@ const masNotas = props => {
         arcSite
     } = props;
 
+    const filterType = filterCustomField.toString();
+
     if (!_id) return <></>;
 
-    const title = getTitle(
-        filterCustomField.toString(),
-        subtype,
-        sectionName,
-        path
-    );
-
-    const getDoubleSize = size => ({
-        tripleSize: Math.ceil(size * 1.5),
-        originalSize: size
-    });
-
-    const size = getDoubleSize(cantidadNotas || 30);
+    const size = {
+        tripleSize: Math.ceil(cantidadNotas * 1.5),
+        originalSize: cantidadNotas
+    };
     let sectionId = _id;
     let excludeSectionId = false;
 
-    if (filterCustomField.toString() === '0' && subtype === RECETA)
-        sectionId = '/recetas';
-    if (filterCustomField.toString() === '0' && subtype === NOTICIA)
-        excludeSectionId = true;
+    if (filterType === '0' && subtype === RECETA) sectionId = '/recetas';
+    if (filterType === '0' && subtype === NOTICIA) excludeSectionId = true;
 
     const { notRecommendedSections = [] } = getProperties(arcSite);
 
@@ -90,40 +65,61 @@ const masNotas = props => {
         [VIDEO]: { sectionId, subtype },
         default: { sectionId }
     };
-    const typesOfQuery = customQuerys[subtype] || customQuerys.default;
 
-    const articles = getArticlesFromAcumSource(
-        typesOfQuery,
-        filter,
-        'boxArticles',
-        size,
-        'composer',
-        excludeSectionId,
-        'story',
-        shouldNotFilter,
-        _website,
-        true
-    );
+    const { articles = [], link = {} } = (filterType === '1'
+        ? tags
+        : [{}]
+    ).reduce((acc, tag) => {
+        if (acc.articles) return acc;
+        const { slug, text } = tag;
+        const isSection = Object.keys(tag).length === 0;
+        const res = getArticlesFromAcumSource(
+            getQuery(filterType, subtype, customQuerys, slug),
+            filter,
+            'boxArticles',
+            size,
+            'composer',
+            excludeSectionId,
+            'story',
+            shouldNotFilter,
+            _website,
+            true,
+            isSection
+        )
+            .filter(
+                article =>
+                    article._id !== idArticle &&
+                    get(article, 'promo_items.basic.type') === 'image'
+            )
+            .slice(0, Number(size.originalSize));
+        if (res.length >= 3) {
+            acc.articles = res;
+            acc.link = {
+                text: text || sectionName,
+                path: slug || path
+            };
+        }
 
-    const articlesFiltered = articles
-        .filter(article => article._id !== idArticle)
-        .slice(0, Number(size.originalSize));
+        return acc;
+    }, {});
+
+    const title = getTitle(filterType, subtype, link);
 
     return (
         <StaticValidation id={featureId} htmlOnly persistent>
-            <CajaTema
-                title={title}
-                notesQuantity={size.originalSize}
-                sectionName={
-                    filterCustomField.toString() === '1'
-                        ? 'OtrasNoticias'
-                        : 'UltimasNoticias'
-                }
-                articles={articlesFiltered}
-                position="toi"
-                outputType={outputType}
-                withVolanta
-            />
+            {articles.length >= 3 && (
+                <CajaTema
+                    title={title}
+                    notesQuantity={size.originalSize}
+                    sectionName={
+                        filterType === '1' ? 'OtrasNoticias' : 'UltimasNoticias'
+                    }
+                    articles={articles}
+                    position="toi"
+                    outputType={outputType}
+                    withVolanta
+                />
+            )}
         </StaticValidation>
     );
 };
@@ -136,10 +132,10 @@ masNotas.propTypes = {
     outputType: PropTypes.string,
     customFields: PropTypes.shape({
         cantidadNotas: PropTypes.number.tag({ label: 'Cantidad de Notas' }),
-        filter: PropTypes.oneOf(['0', '1', 1, 0]).tag({
+        filter: PropTypes.oneOf(['0', '1']).tag({
             labels: {
-                0: 'Ultimas Noticias',
-                1: 'Por Sección'
+                0: FILTER_TYPES[0],
+                1: FILTER_TYPES[1]
             },
             label: 'Filtrar por',
             defaultValue: 0
@@ -154,7 +150,8 @@ masNotas.propTypes = {
                 _website: PropTypes.string,
                 name: PropTypes.string,
                 path: PropTypes.string
-            })
+            }),
+            tags: PropTypes.arrayOf(PropTypes.shape())
         })
     }),
     arcSite: PropTypes.string

@@ -95,12 +95,18 @@ export const getMarkupForDatalayer = (
             extraOpts: {
                 'data-block-name': 'h_opinion',
                 ...extraOptsdefault
+            },
+            extraOptsDiv: {
+                'data-module': `tema_opinion`
             }
         },
         Editoriales: {
             extraOpts: {
                 'data-block-name': 'h_editoriales',
                 ...extraOptsdefault
+            },
+            extraOptsDiv: {
+                'data-module': `tema_editoriales`
             }
         },
         OtrasNoticias: {
@@ -131,6 +137,9 @@ export const getMarkupForDatalayer = (
             extraOpts: {
                 'data-block-name': 'n_ranking',
                 ...extraOptsdefault
+            },
+            extraOptsDiv: {
+                'data-module': 'tema_ranking'
             }
         },
         Default: (pos, section, lay) => {
@@ -234,10 +243,23 @@ export const getChildrenFromSectionHome = (
     return get(renderables, `[${INDEX_SECTION}].children`, []) || [];
 };
 
-export const getChildrenFromAperturaHome = renderables => {
-    return getChildrenFromSectionHome(renderables, 'Apertura_1', 3).concat(
-        getChildrenFromSectionHome(renderables, 'Apertura_2', 4)
+export const hastVariant = (childProps = []) => {
+    return childProps.some(
+        elem => elem && elem.variants && !!Object.keys(elem.variants).length
     );
+};
+
+export const getChildrenFromAperturaHome = (renderables, childProps) => {
+    const hasVariantForABTesting = hastVariant(childProps) || false;
+    return hasVariantForABTesting
+        ? getChildrenFromSectionHome(renderables, 'Apertura_1', 3)
+        : [
+              ...getChildrenFromSectionHome(renderables, 'Apertura_1', 3),
+              ...getChildrenFromSectionHome(renderables, 'Apertura_2', 4)
+          ];
+    // return getChildrenFromSectionHome(renderables, 'Apertura_1', 3).concat(
+    //     getChildrenFromSectionHome(renderables, 'Apertura_2', 4)
+    // );
 };
 
 export const isInApertura = (idFeature, tree = {}) => {

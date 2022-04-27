@@ -2,19 +2,32 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import { useContent } from 'fusion:content';
 import StaticValidation from '../../private/common/staticValidation';
 import SeguirLeyendo from '../../private/LN/nota/seguirLeyendo';
 import get from '../../private/common/utils/get';
-import HeaderSection from '../../private/common/mod-headerSection';
+import filter from '../../../content/filters/LN/nota/articleAcu';
 
-// TODO: Reoptimizar este componente
-const seguirLeyendo = ({ globalContent }) => {
-    const removeVideo = content => content.filter(x => x && x.type !== 'video');
-    const relatedContent = removeVideo(
-        get(globalContent, 'related_content.basic', [])
-    );
+const seguirLeyendo = ({ globalContent, outputType }) => {
+    const justThreeStories = content =>
+        content
+            .filter(element => element && element.type === 'story')
+            .slice(0, 3);
 
-    if (relatedContent.every(con => con && con.type !== 'story')) return null;
+    const getRelatedData = content =>
+        content.map(article =>
+            useContent({
+                source: 'articleSourceNota',
+                query: { id: article._id },
+                filter
+            })
+        );
+
+    const relatedContent = get(globalContent, 'related_content.basic', []);
+    const relatedStories = justThreeStories(relatedContent);
+    const articles = getRelatedData(relatedStories);
+
+    if (!articles.length) return null;
 
     return (
         <StaticValidation id="LN-Nota-SeguirLeyendo" htmlOnly persistent>
@@ -26,8 +39,10 @@ const seguirLeyendo = ({ globalContent }) => {
                         data-block-name="n_segui_leyendo"
                         data-diagramacion-id="0"
                     >
-                        <HeaderSection title="Seguí leyendo" />
-                        <SeguirLeyendo relatedContent={relatedContent} />
+                        <SeguirLeyendo
+                            relatedContent={articles}
+                            outputType={outputType}
+                        />
                     </section>
                 </div>
             </div>
@@ -51,7 +66,8 @@ seguirLeyendo.propTypes = {
                 })
             )
         })
-    })
+    }),
+    outputType: PropTypes.string.isRequired
 };
 
 export default Consumer(seguirLeyendo);

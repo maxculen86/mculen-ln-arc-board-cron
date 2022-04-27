@@ -1,3 +1,5 @@
+import capitalizeFirstLetter from './capitalizeFirstLetter';
+
 const monthNames = [
     'enero',
     'febrero',
@@ -13,7 +15,7 @@ const monthNames = [
     'diciembre'
 ];
 
-function formatDate(originalDate) {
+export function formatDate(originalDate) {
     // TODO: en  el render desde el cliente toma la hora del mismo,
     // cuando es ssr toma la hora del servidor.
 
@@ -22,12 +24,30 @@ function formatDate(originalDate) {
             ? originalDate
             : formatDateTreeHoursMore(originalDate);
 
-    const monthIndex = date.getMonth();
+    const month = setMonth({ date });
 
-    return `${date.getDate()} de ${
-        monthNames[monthIndex]
-    } de ${date.getFullYear()}`;
+    return `${date.getDate()} de ${month} de ${date.getFullYear()}`;
 }
+
+const setDay = date => {
+    const day = String(date.getDate());
+    return day < 10 ? day.padStart(2, '0') : day;
+};
+
+const setMonth = ({ date, capitalize }) => {
+    const month = date.getMonth();
+    const name = monthNames[month];
+
+    return capitalize ? capitalizeFirstLetter(name) : name;
+};
+
+export const formatDateWithoutAddingHours = ({ date, capitalize }) => {
+    const day = setDay(date);
+    const month = setMonth({ date, capitalize });
+    const year = date.getFullYear();
+
+    return `${day} de ${month} de ${year}`;
+};
 
 export const getTodayDateForAcuDolar = () => {
     const date = new Date();
@@ -99,11 +119,11 @@ export function hasFutureDisplayDate(displayDate = '') {
     return dateInJS > new Date();
 }
 
-export function isOlderThan24HourAgo(date) {
-    const oneDay = 1000 * 60 * 60 * 24;
-    const aDayAgo = Date.now() - oneDay;
+export function isOlderThanXHoursAgo(date, hours) {
+    const oneDay = 1000 * 60 * 60 * hours;
+    const aHoursAgo = Date.now() - oneDay;
     const dateInJS = new Date(date);
-    return dateInJS < aDayAgo;
+    return dateInJS < aHoursAgo;
 }
 
 export function addHoursAndFormat(hours, originalDate) {
