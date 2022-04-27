@@ -32,7 +32,6 @@ const getCajaTemaConfig = (featureId, renderables, cajaTemaConfig, isBomba) => {
     );
 
     const layout = get(parent, 'props.customFields.layout');
-
     const config = get(cajaTemaConfig, `${layout}.articles[${index}]`, null);
     return {
         imageConfig:

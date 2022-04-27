@@ -6,7 +6,10 @@ import getProperties from 'fusion:properties';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import { validateArticleFeature } from '../../../private/LN/common/utils/cajaTemasValidators';
-import { isInHomeAperturaOrBomba } from '../../../private/LN/home/components/noteCard/noteCardHelper';
+import {
+    isInHomeAperturaOrBomba,
+    isInApertura
+} from '../../../private/LN/home/components/noteCard/noteCardHelper';
 import getCajaTemaConfig from '../../../private/LN/home/components/noteCard/noteCardImageHelper';
 import NoteCard from '../../../private/LN/home/components/noteCard/noteCard';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
@@ -32,6 +35,7 @@ const ArticleFeature = ({
         layout: layoutPageBuilder
     } = useAppContext();
 
+    const { layoutsName = {} } = siteConfig || {};
     const { cajaTemaConfig } = getProperties(arcSite);
     const { registerSuccessEvent } = useComponentContext();
 
@@ -53,7 +57,14 @@ const ArticleFeature = ({
             id: id && id.trim(),
             published: true,
             imageConfig,
-            checkExclusiveAccess: false
+            checkExclusiveAccess: false,
+            isInApertura: isInApertura({
+                renderables,
+                featureId,
+                layoutsName,
+                layoutPageBuilder,
+                config
+            })
         },
         filter
     });
@@ -70,13 +81,18 @@ const ArticleFeature = ({
             published: true,
             imageConfig,
             nid: id,
-            boxType: 'ArticleFeature'
+            boxType: 'ArticleFeature',
+            isInApertura: isInApertura({
+                renderables,
+                featureId,
+                layoutsName,
+                layoutPageBuilder,
+                config
+            })
         }
     });
 
     const error = validateArticleFeature(id, article);
-
-    const { layoutsName = {} } = siteConfig || {};
 
     if (isAdmin && !!error) {
         return (
@@ -143,3 +159,7 @@ ArticleFeature.propTypes = {
 };
 
 export default ArticleFeature;
+
+// R6ADUZ4VMVFYBE3AEDTFIS7LNA
+// SRRUE4DFR5BCJJC3I2NRD7T3IY
+// TSFFE64DPJF6FGJSW7VIZRDA3E

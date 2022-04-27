@@ -8,9 +8,22 @@ import { FOTOAL100, STORYTELLING } from '../subtypes/subtypeHelper';
 import { LinkImagePreload } from '../../../LN/common/utils/mediaHelper';
 
 const getSource = (imageID, noteID, imageConfig, isHideImage) => {
+    const isInApertura = true;
     return imageID
-        ? getImage(imageID, sourceType[0], imageConfig, isHideImage)
-        : getImage(noteID, sourceType[1], imageConfig, isHideImage);
+        ? getImage(
+              imageID,
+              sourceType[0],
+              imageConfig,
+              isHideImage,
+              isInApertura
+          )
+        : getImage(
+              noteID,
+              sourceType[1],
+              imageConfig,
+              isHideImage,
+              isInApertura
+          );
 };
 
 const getcustomFieldsData = fieldsData => {

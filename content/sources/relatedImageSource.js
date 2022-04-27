@@ -8,7 +8,19 @@ import getPresets from './utils/presets';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 
 const resolve = key => {
-    const { id, nid, boxType, subtype, imageConfig, isAddRelated } = key;
+    const {
+        id,
+        nid,
+        boxType,
+        subtype,
+        imageConfig,
+        isAddRelated,
+        isInApertura = false
+    } = key;
+    console.log(
+        '🚀🚀🚀 ~ file: relatedImageSource.js ~ line 12 ~ isInApertura',
+        isInApertura
+    );
     if (!id)
         throw new Error('Debe definir id para obtener la imagen', {
             id,
@@ -25,6 +37,7 @@ const transform = (data, siteProps) => {
     const { presets, presetsDefault } = getPresets(siteProps);
     const presetsPromoItems = get(presets, 'promo_items', null);
     const subtype = get(siteProps, `subtype`, null);
+    const isInApertura = get(siteProps, `isInApertura`, false);
     const isFotoAl100orStorytelling =
         subtype === FOTOAL100 || subtype === STORYTELLING;
 
@@ -41,7 +54,8 @@ const transform = (data, siteProps) => {
                 // Se pasa el subtype para que las notas de foto al 100
                 // y storytelling no sean excluidas de las validaciones del resizer
                 // y pueda aplicarse 3:2, focal point o smartcrop
-                subtype: isFotoAl100orStorytelling ? '-1' : subtype
+                subtype: isFotoAl100orStorytelling ? '-1' : subtype,
+                isInApertura
             }
         )
     };
