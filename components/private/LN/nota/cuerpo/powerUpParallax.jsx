@@ -16,9 +16,9 @@ const Parallax = ({ data }) => {
         query: { published: true, id: imageId.trim() }
     });
 
-    const { url: imageUrl, caption } = imageContent;
-
     if (!imageId || !imageContent || (!title && !paragraph)) return null;
+
+    const { url: imageUrl, caption } = imageContent;
 
     return (
         <div className="container-parallax">

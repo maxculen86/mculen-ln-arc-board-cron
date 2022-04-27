@@ -1,8 +1,6 @@
 @import '../abstracts/variables';
 
 .container-parallax {
-    position: relative;
-    z-index: 100;
     .image-container {
         position: sticky;
         position: -webkit-sticky;
@@ -32,7 +30,7 @@
         -webkit-box-pack: start;
         -ms-flex-pack: start;
         justify-content: flex-start;
-        z-index: 110;
+        z-index: 100;
         -webkit-transform: translateZ(1px);
         transform: translateZ(1px);
         text-align: center;
@@ -55,7 +53,7 @@
         }
 
         .bajada-parrafo {
-            max-width: 90%;
+            max-width: px(740);
             font-size: 25px;
             font-family: 'Prumo Deck';
             letter-spacing: 0rem;
