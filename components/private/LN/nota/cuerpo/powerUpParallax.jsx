@@ -27,13 +27,12 @@ const Parallax = ({ data }) => {
                     src={imageUrl}
                     alt={caption}
                     amp={false}
-                    classCondition="image-parallax"
+                    classCondition="--parallax"
                 />
             </div>
             {title && (
                 <div className="step-parallax">
                     <h2 className="bajada-titulo">{title}</h2>
-                    <span className="bajada-titulo-2">Skerrit</span>
                 </div>
             )}
             {paragraph && (

@@ -13,17 +13,19 @@ const props = {
         _id: 'ZJHB6CNYBFHEJG4U5PF6FTRTXU',
         comments: []
     },
-    embed: {
-        config: {},
-        id: '15fe194324c0a9',
-        url: 'https://www.lanacion.com.ar/'
+    data: {
+        embed: {
+            config: {},
+            id: '15fe194324c0a9',
+            url: 'https://www.lanacion.com.ar/'
+        }
     }
 };
 
 describe('Components - Private - LN - Nota - Cuerpo - PowerUpParallax =>', () => {
     useContent.mockImplementation(() => IMAGE_DATA);
     it('Should show image and title', () => {
-        props.embed.config = {
+        props.data.embed.config = {
             imageId: 'JNVTFZAOFRE5TLQ7CVAOIB4UKY',
             title: 'Titulo parallax prueba'
         };
@@ -37,7 +39,7 @@ describe('Components - Private - LN - Nota - Cuerpo - PowerUpParallax =>', () =>
         expect(paragraph).toBeNull();
     });
     it('Should show image and title ', () => {
-        props.embed.config = {
+        props.data.embed.config = {
             imageId: 'JNVTFZAOFRE5TLQ7CVAOIB4UKY',
             paragraph:
                 'Esta es una prueba de parallax, con un parrafo de ejemplo para el test.'
@@ -48,11 +50,11 @@ describe('Components - Private - LN - Nota - Cuerpo - PowerUpParallax =>', () =>
         const title = screen.queryByText('Titulo parallax prueba');
         expect(title).toBeNull();
         expect(
-            screen.getByText(props.embed.config.paragraph)
+            screen.getByText(props.data.embed.config.paragraph)
         ).toBeInTheDocument();
     });
     it('Should show image, title and paragraph', () => {
-        props.embed.config = {
+        props.data.embed.config = {
             imageId: 'JNVTFZAOFRE5TLQ7CVAOIB4UKY',
             title: 'Titulo parallax prueba',
             paragraph:
@@ -62,11 +64,11 @@ describe('Components - Private - LN - Nota - Cuerpo - PowerUpParallax =>', () =>
         expect(screen.getAllByRole('img')).toHaveLength(1);
         expect(screen.getAllByRole('heading', { level: 2 })).toHaveLength(1);
         expect(
-            screen.getByText(props.embed.config.paragraph)
+            screen.getByText(props.data.embed.config.paragraph)
         ).toBeInTheDocument();
     });
     it('Should return null without title and paragraph', () => {
-        props.embed.config = {
+        props.data.embed.config = {
             imageId: 'JNVTFZAOFRE5TLQ7CVAOIB4UKY'
         };
         const { container } = render(<PowerUpParallax {...props} />);
