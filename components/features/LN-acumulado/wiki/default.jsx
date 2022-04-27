@@ -5,10 +5,10 @@ import get from '../../../private/common/utils/get';
 
 const WikiFeature = () => {
     const props = get(useAppContext(), 'globalContent', {});
-    const { isWiki } = props;
+    const { isWiki, imageId = '' } = props;
     const wikiSourceData = useContent({
         source: isWiki ? 'wikiTagSource' : null,
-        query: { type: 'person' }
+        query: { type: 'person', imageId }
     });
 
     return isWiki && <>Texto de prueba para wiki</>;
