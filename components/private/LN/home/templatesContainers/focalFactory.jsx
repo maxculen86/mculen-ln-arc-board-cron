@@ -9,7 +9,8 @@ const FocalFactory = ({
     articles = [],
     _children,
     outputType,
-    boxPosition
+    boxPosition,
+    handleClick
 }) => {
     const articleList =
         (_children && _children.length && _children) ||
@@ -40,6 +41,7 @@ const FocalFactory = ({
                         label="Chapita"
                         artPosition={`0${index + 1}`}
                         boxPosition={boxPosition}
+                        handleClick={handleClick}
                         {...(articleProps || {})}
                     />
                 )
@@ -64,7 +66,12 @@ FocalFactory.propTypes = {
     directionFocal: PropTypes.string.isRequired,
     outputType: PropTypes.string.isRequired,
     articles: PropTypes.arrayOf(PropTypes.node).isRequired,
-    _children: PropTypes.arrayOf(PropTypes.node).isRequired
+    _children: PropTypes.arrayOf(PropTypes.node).isRequired,
+    handleClick: PropTypes.func
+};
+
+FocalFactory.defaultProps = {
+    handleClick: undefined
 };
 
 export default FocalFactory;

@@ -105,6 +105,7 @@ const media = ({
                             autoplay={autoplay}
                             isPowa={isPowa}
                             href={href}
+                            isApertura={isApertura}
                         />
                         {children}
                     </figure>

@@ -1,6 +1,7 @@
 import * as fusionConsumer from 'fusion:consumer';
 import * as FeatureArticle from '../../../../../components/features/LN-common/articulo/json';
 import article from '../../../../../__mocks__/data/articles/2KOBND62KNFVVBFQZOADNN6WNY.json';
+import getProperties from 'fusion:properties';
 
 jest.mock('fusion:consumer', component => {
     return function(component) {
@@ -14,6 +15,44 @@ jest.mock('fusion:consumer', component => {
         };
     };
 });
+
+jest.mock('fusion:properties', () => () => ({
+    getProperties: () => {
+        return {
+            cajaTemaConfig: {
+                opinion4: {
+                    className: '--opinion',
+                    articles: {
+                        0: {
+                            titleSize: '--l',
+                            withChapita: true,
+                            imageConfig: 'featuredOpinion'
+                        },
+                        1: {
+                            titleSize: '--xs',
+                            authorSize: '--fourxs',
+                            isRenderAuthorOpinion: true,
+                            imageConfig: 'featuredOpinion'
+                        },
+                        2: {
+                            titleSize: '--xs',
+                            authorSize: '--fourxs',
+                            isRenderAuthorOpinion: true,
+                            imageConfig: 'featuredOpinion'
+                        },
+                        3: {
+                            titleSize: '--l',
+                            authorSize: '--fourxs',
+                            isRenderAuthorOpinion: true,
+                            imageConfig: 'featuredOpinion'
+                        }
+                    }
+                }
+            }
+        };
+    }
+}));
+
 describe('components - features - LN-common - articulo - json.js', () => {
     const props = {
         arcSite: 'la-nacion-ar',

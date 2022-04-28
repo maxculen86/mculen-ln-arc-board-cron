@@ -44,7 +44,8 @@ const ModArticle = props => {
         tags,
         handleClick,
         layout,
-        isApertura
+        isApertura,
+        registerSuccessEvent
     } = props;
 
     const { _id, website_url: websiteUrl } = articleData || {};
@@ -77,6 +78,7 @@ const ModArticle = props => {
     })();
 
     const onCLick = event => {
+        typeof registerSuccessEvent === 'function' && registerSuccessEvent();
         typeof handleClick == 'function' && handleClick(event, websiteUrl);
     };
 
@@ -93,6 +95,7 @@ const ModArticle = props => {
             })}
             {...extraOpts}
             onClick={onCLick}
+            onAuxClick={onCLick}
         >
             {hour}
 
@@ -150,6 +153,7 @@ ModArticle.propTypes = {
     dateText: PropTypes.string,
     device: PropTypes.string,
     handleClick: PropTypes.func,
+    registerSuccessEvent: PropTypes.func,
     hour: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
     isPowa: PropTypes.bool,
     isRenderAuthor: PropTypes.bool,
@@ -192,6 +196,7 @@ ModArticle.defaultProps = {
     dateText: undefined,
     device: 'desktop',
     handleClick: undefined,
+    registerSuccessEvent: undefined,
     hour: undefined,
     isRenderAuthor: false,
     isRenderAuthorOpinion: false,

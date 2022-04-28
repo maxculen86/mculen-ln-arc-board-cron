@@ -14,7 +14,7 @@ const BadgeUsertype = ({ icon, text, title, dark, className, type }) => {
             title={title}
         >
             <Icon name={icon} />
-            <Text size="2xs" weight="bold" text={text}></Text>
+            <Text size="2xs" weight="bold" text={text} />
         </div>
     );
 };

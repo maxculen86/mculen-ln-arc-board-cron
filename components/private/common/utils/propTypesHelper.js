@@ -122,7 +122,7 @@ const notaAl100andStorytellingLayoutsPropTypes = {
 };
 
 const homeLayoutsPropTypes = {
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node,
     globalContent: PropTypes.shape({
         style: PropTypes.shape({
             section_style_name: PropTypes.string,
@@ -143,7 +143,7 @@ const homeLayoutsPropTypes = {
             navigation_color_tags: PropTypes.string,
             id_logo_image: PropTypes.string
         })
-    }).isRequired
+    })
 };
 
 const groupCustomFields = 'Custom Fields';

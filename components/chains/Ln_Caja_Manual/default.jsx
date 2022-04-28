@@ -16,6 +16,7 @@ import {
     customFieldValidation,
     childrenValidation
 } from '../utils/contentValidations';
+import { productClickFromClient } from '../../private/common/utils/viewability';
 
 const CajaManual = props => {
     const {
@@ -42,7 +43,10 @@ const CajaManual = props => {
         sectionName
     } = getCommonProps(props);
 
-    const aperturasChildren = getChildrenFromAperturaHome(renderables);
+    const aperturasChildren = getChildrenFromAperturaHome(
+        renderables,
+        childProps
+    );
     const multimediaChildren = getChildrenFromSectionHome(
         renderables,
         'Multimedia',
@@ -109,9 +113,9 @@ const CajaManual = props => {
             position={position}
             sectionName={sectionName}
             _children={children}
+            handleClick={productClickFromClient}
         />
     );
-
     return isInApertura && !isAdmin ? (
         <Static id={featureId}>{Component}</Static>
     ) : (

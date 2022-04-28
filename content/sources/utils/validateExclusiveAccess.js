@@ -11,7 +11,7 @@ const validateExclusiveAccess = ({
         if (
             meteringVariant !== 'S' &&
             !path.match(
-                /\/api\/v([1-2]+)\/notas\/(byId\/(.+)\/$|byUrl(\/.+\/$))/g
+                /\/api\/(?:mobile\/)?v([1-2]+)\/notas\/(byId\/(.+)\/$|byUrl(\/.+\/$))/g
             )
         ) {
             const PAYWALL_URL =

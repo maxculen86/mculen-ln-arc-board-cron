@@ -1049,6 +1049,14 @@ export default {
                             media_preload: min768max1024
                         },
                         {
+                            width: 1276,
+                            height: 1914,
+                            // media: minWidth768,
+                            useFullSize: true,
+                            proportion: '2:3',
+                            media_preload: minWidth768
+                        },
+                        {
                             width: 768,
                             height: 1152,
                             //media: minWidth360,
