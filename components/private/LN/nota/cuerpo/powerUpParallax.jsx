@@ -1,32 +1,65 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
+import { useAppContext } from 'fusion:context';
+import getProperties from 'fusion:properties';
 import ComImage from '../../../common/com-image';
 import '../../../../../resources/dist/css/ln/components/parallax.css';
+import getImageResized from '../../../common/utils/getImageResized';
 
 const Parallax = ({ data }) => {
+    const { arcSite, outputType } = useAppContext();
+    const isAmp = outputType === 'amp';
+    const { imageConfig: { resize = {} } = {} } = getProperties(arcSite);
+    const { fotoAl100: { promo_items: { sizes = [] } = {} } = {} } = resize;
     const {
         embed: {
             config: { imageId, title, paragraph }
         }
     } = data;
 
+    const sizesNew = sizes.map(size => ({
+        ...size,
+        isNotSmart: true
+    }));
+
     const imageContent = useContent({
-        source: 'imageSource',
+        source: `${imageId ? 'imageSource' : null}`,
         query: { published: true, id: imageId.trim() }
     });
 
     if (!imageId || !imageContent || (!title && !paragraph)) return null;
 
-    const { url: imageUrl, caption } = imageContent;
+    const {
+        url: imageUrl,
+        width: originalWidth,
+        height: originalHeight,
+        focal_point: focalPointObject,
+        caption
+    } = imageContent;
+
+    const focalPoint = focalPointObject ? Object.values(focalPointObject) : [];
+
+    const imageResized = getImageResized(
+        imageUrl,
+        originalWidth,
+        originalHeight,
+        sizesNew,
+        focalPoint
+    );
+
+    const srcSet = imageResized
+        ? imageResized.map(x => `${x.resizedUrl} ${x.option.width}w`).join()
+        : '';
 
     return (
         <div className="container-parallax">
             <div className="image-container">
                 <ComImage
                     src={imageUrl}
+                    srcset={srcSet}
                     alt={caption}
-                    amp={false}
+                    amp={isAmp}
                     classCondition="--parallax"
                 />
             </div>

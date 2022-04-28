@@ -1,9 +1,17 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import Context from 'fusion:context';
 import { useContent } from 'fusion:content';
+import getProperties from 'fusion:properties';
 import PowerUpParallax from '../../../../../../components/private/LN/nota/cuerpo/powerUpParallax';
 import IMAGE_DATA from '../../../../../../__mocks__/data/nota/cuerpo/image/image.json';
+
+jest.mock('fusion:context', Component => {
+    return function(Component) {
+        return props => <Component {...props} />;
+    };
+});
 
 const props = {
     _id: '77NRHRWIWFCFDOCDN34LGQ32SE',
@@ -23,6 +31,9 @@ const props = {
 };
 
 describe('Components - Private - LN - Nota - Cuerpo - PowerUpParallax =>', () => {
+    Context.useAppContext = jest.fn(() => ({
+        arcSite: 'la-nacion-ar'
+    }));
     useContent.mockImplementation(() => IMAGE_DATA);
     it('Should show image and title', () => {
         props.data.embed.config = {
