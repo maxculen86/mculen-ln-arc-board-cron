@@ -19,6 +19,8 @@ import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
 import { productClickFromClient } from '../../../private/common/utils/viewability';
 import ErrorBoundary from '../../../private/common/ErrorBoundary';
+import { getChildrenFromSectionHome } from '../../../private/LN/common/utils/cajaTemasHelper';
+import get from '../../../private/common/utils/get';
 
 const ArticleFeature = ({
     id: featureId,
@@ -51,6 +53,22 @@ const ArticleFeature = ({
         return (idImage && idImage.trim() && 'relatedImageSource') || null;
     };
 
+    const isBombaHidden = () => {
+        const bomba = getChildrenFromSectionHome(renderables, 'Bomba', 2) || [];
+        return get(bomba[0], 'props.customFields.hideFeature', false);
+    };
+
+    const onlyOneApeturaValidateForWWW =
+        isBomba ||
+        (isBombaHidden() &&
+            isInApertura({
+                renderables,
+                featureId,
+                layoutsName,
+                layoutPageBuilder,
+                config
+            }));
+
     const article = useContent({
         source: (id && id.trim() && 'articleSourceNota') || null,
         query: {
@@ -58,13 +76,7 @@ const ArticleFeature = ({
             published: true,
             imageConfig,
             checkExclusiveAccess: false,
-            isInApertura: isInApertura({
-                renderables,
-                featureId,
-                layoutsName,
-                layoutPageBuilder,
-                config
-            })
+            isInApertura: onlyOneApeturaValidateForWWW
         },
         filter
     });
@@ -82,13 +94,7 @@ const ArticleFeature = ({
             imageConfig,
             nid: id,
             boxType: 'ArticleFeature',
-            isInApertura: isInApertura({
-                renderables,
-                featureId,
-                layoutsName,
-                layoutPageBuilder,
-                config
-            })
+            isInApertura: onlyOneApeturaValidateForWWW
         }
     });
 
@@ -159,7 +165,3 @@ ArticleFeature.propTypes = {
 };
 
 export default ArticleFeature;
-
-// R6ADUZ4VMVFYBE3AEDTFIS7LNA
-// SRRUE4DFR5BCJJC3I2NRD7T3IY
-// TSFFE64DPJF6FGJSW7VIZRDA3E
