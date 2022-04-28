@@ -4,7 +4,6 @@
             {
                 "id": "Quiniela_Provincia",
                 "name": "Vespertina",
-                "component": "Quinielas",
                 "date": "Miércoles 16/03/2022",
                 "meaning": "Ramera",
                 "results": [
@@ -33,7 +32,6 @@
             {
                 "id": "Quiniela_Provincia",
                 "name": "Matutina",
-                "component": "Quinielas",
                 "date": "Miércoles 16/03/2022",
                 "meaning": "Mal tiempo",
                 "results": [
@@ -62,7 +60,6 @@
             {
                 "id": "Quiniela_Provincia",
                 "name": "Primera",
-                "component": "Quinielas",
                 "date": "Miércoles 16/03/2022",
                 "meaning": "Muerto",
                 "results": [
@@ -91,7 +88,6 @@
             {
                 "id": "Quiniela_Provincia",
                 "name": "Nocturna",
-                "component": "Quinielas",
                 "date": "Martes 15/03/2022",
                 "results": [
                     "0195",

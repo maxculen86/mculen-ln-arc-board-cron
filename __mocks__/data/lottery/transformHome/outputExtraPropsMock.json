@@ -2,7 +2,6 @@
     "dataService": {
         "lotteries": [
             {
-                "component": "LotoPlus",
                 "date": "Miércoles 16/03/2022",
                 "id": "Loto",
                 "link": "/loterias/loto/",
@@ -34,7 +33,6 @@
                 "link": "/loterias/quiniela-poceada/",
                 "name": "Quiniela Poceada",
                 "id": "Quiniela_Poceada",
-                "component": "QuinielaPoceada",
                 "results": [
                     {
                         "date": "16/03",
