@@ -5,9 +5,9 @@ import '../../../../../resources/dist/css/ln/components/result-item.css';
 
 const ResultItem = ({ text, result, className }) => {
     return (
-        <div className={`result-item${` ${className}`}`}>
+        <div className="result-item">
             <Text size="5xs" extraClass="labeled" text={text} />
-            <div className="results-secondary">
+            <div className={`results-secondary ${className}`}>
                 {result.map(number => (
                     <Text key={number} text={number} size="4xs" weight="bold" />
                 ))}

@@ -39,7 +39,11 @@ const LotteryCard = ({
     );
     const hasJackpot = get(games, `${id}.hasJackpot`, false);
     const hasExtraResults = get(games, `${id}.hasExtraResults`, false);
-    const hasLoto = get(games, `${id}.hasLoto`, false);
+    const extraResultsModificator = get(
+        games,
+        `${id}.extraResultsModificator`,
+        ''
+    );
     const isQuini6 = boxResultClass.includes('--quini-6');
 
     const reorderedResults = reorderSubLotteries(results, getOrder);
@@ -66,7 +70,7 @@ const LotteryCard = ({
                         {resultFirstChild}
                     </Text>
                 )}
-                {!isQuiniela && !hasLoto && (
+                {!isQuiniela && !hasJackpot && (
                     <div
                         className={`${boxResultClass}${
                             isDetail && isQuini6 ? ' --detail' : ''
@@ -81,7 +85,7 @@ const LotteryCard = ({
                         ))}
                     </div>
                 )}
-                {isDetail && hasLoto && (
+                {isDetail && hasJackpot && (
                     <div
                         className={`${boxResultClass}${
                             isDetail ? '-detail' : ''
@@ -92,7 +96,7 @@ const LotteryCard = ({
                         ))}
                     </div>
                 )}
-                {!isDetail && hasLoto && (
+                {!isDetail && hasJackpot && (
                     <div className="traditional">
                         <div className={boxResultClass}>
                             {(!isDetail ? result : results).map(number => (
@@ -129,7 +133,7 @@ const LotteryCard = ({
                             result={
                                 !isQuiniela ? item.result : [item.result[0]]
                             }
-                            className={isQuini6 ? '--quini-6' : ''}
+                            className={extraResultsModificator}
                         />
                     ))}
                 </div>
@@ -151,6 +155,7 @@ const LotteryCard = ({
                                         ...subLotteryResult,
                                         ...subLotteryJackpot
                                     ]}
+                                    className={extraResultsModificator}
                                 />
                             )
                         )}

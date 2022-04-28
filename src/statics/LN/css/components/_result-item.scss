@@ -3,14 +3,15 @@
 .result-item {
     display: flex;
     justify-content: space-between;
-    margin-bottom: px(8);
+    &:not(:last-child) {
+        margin-bottom: $spacing-xs;
+    }
 
     .labeled {
         color: $light-neutral-600;
     }
 
     :last-child {
-        max-width: 150px;
         text-align: end;
     }
     .results-secondary {
@@ -23,6 +24,26 @@
                 color: $light-neutral-700;
                 margin-right: px(0.5);
             }
+        }
+
+        &.--grid-6 {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            .com-text {
+                justify-self: flex-end;
+            }
+        }
+        &.--flex-6 {
+            max-width: px(120);
+            .com-text {
+                flex: none;
+                width: calc(100% / 6);
+                justify-self: flex-end;
+            }
+        }
+        &.--grid-5 {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
         }
     }
 }

@@ -26,7 +26,7 @@ const CardLayout = ({ title, subtitle, link, children }) => {
                     <Link
                         link={link}
                         title={`Ir a resultados del sorteo ${title}`}
-                        textname={`Resultados del sorteo ${title}`}
+                        textname={`Ver resultados del sorteo ${title}`}
                     />
                 </Text>
             )}

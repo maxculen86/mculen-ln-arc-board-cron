@@ -72,6 +72,7 @@ export const games = {
         ],
         getLotteryDate,
         hasExtraResults: true,
+        extraResultsModificator: '--grid-6',
         showFirstLotteryName: true
     },
     Telekino: {
@@ -79,6 +80,7 @@ export const games = {
         boxResultClass: 'box-result --grid-5-columns',
         getLotteryDate,
         hasExtraResults: true,
+        extraResultsModificator: '--grid-5',
         showFirstLotteryName: true
     },
     Loto: {
@@ -95,8 +97,7 @@ export const games = {
         showVacantPot: false,
         hasJackpot: true,
         getLotteryDate,
-        hasExtraResults: true,
-        hasLoto: true,
+        extraResultsModificator: '--flex-6',
         showFirstLotteryName: true
     },
     Loto_5: {
