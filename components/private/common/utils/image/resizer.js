@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 // TODO: asegurar que utilice una configuracion por defecto cuando no tiene una especifica. Por ej. si no hay config para credits, o para ese subtype, o para ese tamaño de nota
 
-import { RESIZER_URL_PUBLIC } from 'fusion:environment';
+import { RESIZER_URL_PUBLIC, SITE_LANACION } from 'fusion:environment';
 import { FOTOAL100, RECETA, STORYTELLING } from '../subtypes/subtypeHelper';
 import get from '../get';
 import { getAspectRatio } from '../../../../../content/sources/utils/getRatio';
@@ -64,7 +64,7 @@ export const createResizer = (resizerKey, resizerUrl, isInApertura = false) => {
             .buildUrl();
 
         return isInApertura
-            ? url
+            ? url.replace(/^.*\/\/[^\/]+/, SITE_LANACION)
             : url.replace(/^.*\/\/[^\/]+/, RESIZER_URL_PUBLIC);
     };
 

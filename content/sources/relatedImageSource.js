@@ -8,19 +8,7 @@ import getPresets from './utils/presets';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 
 const resolve = key => {
-    const {
-        id,
-        nid,
-        boxType,
-        subtype,
-        imageConfig,
-        isAddRelated,
-        isInApertura = false
-    } = key;
-    console.log(
-        '🚀🚀🚀 ~ file: relatedImageSource.js ~ line 12 ~ isInApertura',
-        isInApertura
-    );
+    const { id, nid, boxType, subtype, imageConfig, isAddRelated } = key;
     if (!id)
         throw new Error('Debe definir id para obtener la imagen', {
             id,
