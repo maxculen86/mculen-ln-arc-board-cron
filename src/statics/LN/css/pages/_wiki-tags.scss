@@ -2,60 +2,144 @@
 @import '../abstracts/mixins';
 
 .wiki-tags {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin-bottom: px(36);
+    display: grid;
+    height: 100%;
+    width: 100%;
+    column-gap: px(24);
+    margin-bottom: px(33);
     border: 1px $light-neutral-400 solid;
     border-radius: px(4);
 
-    .description {
+    grid-template-areas:
+        'image'
+        'info'
+        'description'
+        'rrss'
+        'tags';
+
+    grid-template-rows: 1fr;
+
+    & .wiki-img {
+        grid-area: image;
+    }
+    & .extra-info {
+        grid-area: info;
+    }
+    & .social-networks {
+        grid-area: rrss;
+    }
+    & .wiki-description {
+        grid-area: description;
+    }
+    & .tags-buttons {
+        grid-area: tags;
+    }
+
+    .wiki-img {
+        .com-image {
+            min-width: px(293);
+            height: 100%;
+        }
+    }
+
+    .extra-info {
         display: flex;
         flex-direction: column;
+
+        .description {
+            display: flex;
+            flex-direction: column;
+
+            .label {
+                color: $light-neutral-500;
+            }
+
+            .text {
+                margin-bottom: px(16);
+            }
+        }
     }
 
     .social-networks {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+        justify-content: flex-start;
+        align-items: baseline;
+        padding: 12px 0;
+
+        .text-social-n {
+            margin: 0 px(12);
+            align-self: center;
+        }
 
         .social-icons {
             background-color: $light-neutral-200;
+            margin: 0 8px;
             padding: px(8);
             border-radius: px(4);
         }
     }
 
-    .wiki-img {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        min-width: px(293);
-
-        .com-image {
-            height: auto;
-        }
-    }
-
-    .tags-wiki {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        margin-top: px(24);
-    }
-
-    .wiki-info {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        margin: px(24);
-        width: 100%;
-    }
-
     .wiki-description {
         display: flex;
         flex-direction: column;
-        margin: px(24);
+    }
+
+    .extra-info,
+    .wiki-description {
+        padding: px(16) px(16) px(12) 0;
+    }
+
+    .tags-buttons {
+        padding: 12px 0;
+    }
+
+    @media ($media-m) {
+        grid-template-areas:
+            'image info info'
+            'image description description'
+            'rrss  blank blank'
+            'tags  blank blank';
+
+        grid-template-rows: 1fr;
+
+        .extra-info {
+            flex-wrap: wrap;
+            max-height: 130px;
+        }
+    }
+
+    @media ($media-l) {
+        grid-template-areas:
+            'image info info info'
+            'image description description  description'
+            'rrss tags tags tags';
+
+        grid-template-rows: 1fr;
+
+        .extra-info {
+            max-height: 100%;
+            flex-wrap: nowrap;
+        }
+
+        .social-networks {
+            justify-content: flex-start;
+            .text-social-n {
+                align-self: unset;
+            }
+        }
+    }
+
+    @media ($media-lg) {
+        grid-template-areas:
+            'image info description description'
+            'image info description  description'
+            'image rrss tags tags';
+
+        grid-template-rows: 1fr 1fr;
+
+        .extra-info,
+        .wiki-description {
+            padding: px(24) px(16) px(12) 0;
+        }
     }
 }

@@ -13,8 +13,22 @@ const WikiTag = () => {
 
         return (
             <div className={classes}>
-                <Text>{label}</Text>
-                <Text>{text}</Text>
+                <Text
+                    font="arial"
+                    size="4xs"
+                    weight="regular"
+                    extraClass="label"
+                >
+                    {label}
+                </Text>
+                <Text
+                    font="sueca"
+                    size="2xs"
+                    weight="regular"
+                    extraClass="text"
+                >
+                    {text}
+                </Text>
             </div>
         );
     };
@@ -56,13 +70,21 @@ const WikiTag = () => {
                     width="80"
                     height="240"
                 />
-                <div />
-                <div />
             </div>
-            <div className="wiki-info">
+            <div className="extra-info">
                 <ExtraInformation
                     classes="description"
                     label="nombre de tipo"
+                    text="Lionel Andrés Messi Cuccittini "
+                />
+                <ExtraInformation
+                    classes="description"
+                    label="Futbolista "
+                    text="Rosario, Santa Fe, Argentina"
+                />
+                <ExtraInformation
+                    classes="description"
+                    label="1987-06-24"
                     text="leonel messirve"
                 />
                 <ExtraInformation
@@ -78,23 +100,35 @@ const WikiTag = () => {
                 <ExtraInformation
                     classes="description"
                     label="nombre de tipo"
-                    text="leonel messirve"
+                    text="Lionel Andrés Messi Cuccittini "
                 />
-                <div className="social-networks">
-                    <Text>Conectar:</Text>
-                    <div className="social-icons">
-                        <Icon name="facebook" />
-                    </div>
-                    <div className="social-icons">
-                        <Icon name="whatsapp" />
-                    </div>
-                    <div className="social-icons">
-                        <Icon name="instagram" />
-                    </div>
+            </div>
+            <div className="social-networks">
+                <Text
+                    font="sueca"
+                    size="2xs"
+                    weight="regular"
+                    extraClass="com-paragraph text-social-n"
+                >
+                    Conectar:
+                </Text>
+                <div className="social-icons">
+                    <Icon name="facebook" />
+                </div>
+                <div className="social-icons">
+                    <Icon name="whatsapp" />
+                </div>
+                <div className="social-icons">
+                    <Icon name="instagram" />
                 </div>
             </div>
             <div className="wiki-description">
-                <Text>
+                <Text
+                    font="sueca"
+                    size="2xs"
+                    weight="regular"
+                    extraClass="com-paragraph"
+                >
                     Lionel Andrés Messi Cuccittini , conocido como Leo Messi, es
                     un futbolista argentino que juega como delantero o
                     centrocampista. Jugador histórico del Fútbol Club Barcelona,
@@ -112,12 +146,12 @@ const WikiTag = () => {
                     Balón de Oro. Con el Barcelona ha ganado 35 títulos, entre
                     ellos.
                 </Text>
-                <TaxonomyImportantList
-                    extraClass="tags-wiki"
-                    list={tagsList}
-                    showItems={5}
-                />
             </div>
+            <TaxonomyImportantList
+                extraClass="tags-buttons"
+                list={tagsList}
+                showItems={5}
+            />
         </article>
     );
 };
