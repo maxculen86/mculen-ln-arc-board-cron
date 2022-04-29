@@ -1,0 +1,61 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.wiki-tags {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: px(36);
+    border: 1px $light-neutral-400 solid;
+    border-radius: px(4);
+
+    .description {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .social-networks {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .social-icons {
+            background-color: $light-neutral-200;
+            padding: px(8);
+            border-radius: px(4);
+        }
+    }
+
+    .wiki-img {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .com-image {
+            height: auto;
+        }
+    }
+
+    .tags-wiki {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: px(24);
+    }
+
+    .wiki-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin: px(24);
+        width: 100%;
+    }
+
+    .wiki-description {
+        display: flex;
+        flex-direction: column;
+        margin: px(24);
+        max-width: px(676);
+    }
+}

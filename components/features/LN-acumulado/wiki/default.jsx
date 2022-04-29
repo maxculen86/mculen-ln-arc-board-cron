@@ -2,6 +2,7 @@ import React from 'react';
 import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
 import get from '../../../private/common/utils/get';
+import Wikitag from '../../../private/LN/acumulado/wiki/WikiTag';
 
 const WikiFeature = () => {
     const props = get(useAppContext(), 'globalContent', {});
@@ -11,7 +12,7 @@ const WikiFeature = () => {
         query: { type: 'person' }
     });
 
-    return isWiki && <>Texto de prueba para wiki</>;
+    return isWiki && <Wikitag />;
 };
 
 WikiFeature.label = 'LN-Acumulado-WikiTag';
