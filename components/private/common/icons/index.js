@@ -43,6 +43,7 @@ export { default as Knife } from './system/Knife';
 export { default as ShareAndroid } from './system/ShareAndroid';
 export { default as Share } from './system/Share';
 export { default as Ln } from './system/Ln';
+export { default as ExclusiveLn } from './system/ExclusiveLn';
 
 // Weather Icons
 export { default as ClearNight } from './weather/ClearNight';

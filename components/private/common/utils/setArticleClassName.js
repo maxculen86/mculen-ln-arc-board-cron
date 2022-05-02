@@ -3,14 +3,14 @@ const setArticleClassName = ({
     classCondition = '',
     boxPosition,
     artPosition,
-    noMedia,
+    withMedia,
     isRenderAuthor,
     isRenderAuthorOpinion
 }) => {
     const toiClass = boxPosition
         ? `toi${boxPosition.replace('toi', '')}${artPosition || ''} nid${_id}`
         : '';
-    const noMediaClass = noMedia ? '--no-media' : '';
+    const noMediaClass = !withMedia ? '--no-media' : '';
     const authorClass =
         (isRenderAuthor && classCondition !== '--columnista') ||
         isRenderAuthorOpinion

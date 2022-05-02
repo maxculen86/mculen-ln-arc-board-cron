@@ -48,7 +48,12 @@ const ModArticle = props => {
         registerSuccessEvent
     } = props;
 
-    const { _id, website_url: websiteUrl } = articleData || {};
+    const {
+        _id,
+        website_url: websiteUrl,
+        content_restrictions: contentRestrictions
+    } = articleData || {};
+
     const extraOpts = {};
     if (dataSection) {
         extraOpts['data-section'] = dataSection;
@@ -89,7 +94,7 @@ const ModArticle = props => {
                 boxPosition,
                 artPosition,
                 _id,
-                noMedia,
+                withMedia,
                 isRenderAuthor,
                 isRenderAuthorOpinion
             })}
@@ -129,6 +134,7 @@ const ModArticle = props => {
                 marquesina={marquesina}
                 category={category}
                 tags={tags}
+                contentRestrictions={contentRestrictions}
             />
         </article>
     );
