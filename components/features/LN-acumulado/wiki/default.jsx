@@ -5,7 +5,7 @@ import get from '../../../private/common/utils/get';
 
 const WikiFeature = () => {
     const props = get(useAppContext(), 'globalContent', {});
-    const { isWiki, imageId = '' } = props;
+    const { isWiki } = props;
     const wikiSourceData = useContent({
         source: isWiki ? 'wikiTagSource' : null,
         query: { type: 'person', imageId, imageConfig: 'aperturaAcu' }
