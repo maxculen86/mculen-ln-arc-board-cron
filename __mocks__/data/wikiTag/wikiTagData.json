@@ -1,0 +1,84 @@
+{
+    "creation_date": "ISO DATE_TIME",
+    "type": 1,
+    "description": "text",
+    "image": {
+        "url": "text",
+        "width": "text",
+        "height": "text",
+        "alt": "text",
+        "resizedUrls": [
+            {
+                "resizedUrl": "https://resizer.glanacion.com/resizer/Gznpo_A-53BruruApPNBWCesfGY=/608x407/smart/filters:format(webp):quality(80)/text",
+                "option": {
+                    "width": 608,
+                    "height": 407,
+                    "media": "(min-width: 1280px)",
+                    "useFullSize": true,
+                    "proportion": "3:2"
+                }
+            },
+            {
+                "resizedUrl": "https://resizer.glanacion.com/resizer/7283GWFDa6bmv9CV5uu7V-Evfr4=/486x325/smart/filters:format(webp):quality(80)/text",
+                "option": {
+                    "width": 486,
+                    "height": 325,
+                    "media": "(min-width: 1024px)",
+                    "useFullSize": true,
+                    "proportion": "3:2"
+                }
+            },
+            {
+                "resizedUrl": "https://resizer.glanacion.com/resizer/UQtegYJEG1pW91Yi_mElMxIijvs=/358x240/smart/filters:format(webp):quality(80)/text",
+                "option": {
+                    "width": 358,
+                    "height": 240,
+                    "media": "(min-width: 768px)",
+                    "useFullSize": true,
+                    "proportion": "3:2"
+                }
+            },
+            {
+                "resizedUrl": "https://resizer.glanacion.com/resizer/4ieSR2Oc2vrPyaCUZhB6mR3dY0s=/375x250/smart/filters:format(webp):quality(80)/text",
+                "option": {
+                    "width": 375,
+                    "height": 250,
+                    "useFullSize": true,
+                    "proportion": "3:2"
+                }
+            },
+            {
+                "resizedUrl": "https://resizer.glanacion.com/resizer/0oP_7uSBvg0zaKquA_CEC_VeiyY=/320x213/smart/filters:format(webp):quality(80)/text",
+                "option": {
+                    "width": 320,
+                    "height": 213,
+                    "useFullSize": true,
+                    "proportion": "3:2"
+                }
+            }
+        ]
+    },
+    "schemasInfo": {
+        "addtional_name": "text",
+        "birth_date": "ISO DATE_TIME",
+        "job_title": "text"
+    },
+    "social_networks": [
+        {
+            "type": "text",
+            "name": "text",
+            "url": "text"
+        }
+    ],
+    "related_tags": [
+        {
+            "text": "text",
+            "slug": "text"
+        },
+        {
+            "text": "text",
+            "slug": "text"
+        }
+    ],
+    "_id": "44b5fdc56d3e45967a7430124426307d580cf6f09358f1a5a07fc2ac524c0548"
+}

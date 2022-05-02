@@ -8,7 +8,7 @@ const WikiFeature = () => {
     const { isWiki } = props;
     const wikiSourceData = useContent({
         source: isWiki ? 'wikiTagSource' : null,
-        query: { type: 'person', imageId, imageConfig: 'aperturaAcu' }
+        query: { type: 'person', imageConfig: 'aperturaAcu' }
     });
     const {
         image: { resizedUrls = [], url = '', alt = '' }
