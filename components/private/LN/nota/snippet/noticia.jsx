@@ -160,12 +160,13 @@ const SnippetNoticia = props => {
 
     const trust = get(label, 'trust.text', 'Noticia Original');
     const creators = authors.map(a => a.name);
+    const articleBody = getFirstParagraph(contentElements);
 
     let data = {
         '@context': urlShema,
         '@type': 'NewsArticle',
         headline: headlines && `${headlines.basic || 'LA NACION - Noticia'}`,
-        articleBody: getFirstParagraph(contentElements),
+        ...(articleBody && { articleBody: getFirstParagraph(contentElements) }),
         url: `${siteProperties.host}${canonical_url}`,
         dateCreated: `${new Date(createdDate).toUTCString()}`,
         datePublished: `${new Date(firstPublishDate).toUTCString()}`,
@@ -261,11 +262,9 @@ const SnippetNoticia = props => {
     };
 
     return (
-        (type === 'story' &&
-            (getFirstParagraph(contentElements) ||
-                subtype === HTMLLIBRE.id) && (
-                <SnippetRender id="Schema_NewsArticle" data={data} />
-            )) ||
+        (type === 'story' && (
+            <SnippetRender id="Schema_NewsArticle" data={data} />
+        )) ||
         null
     );
 };
