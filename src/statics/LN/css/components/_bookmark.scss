@@ -1,0 +1,43 @@
+@import '../abstracts/variables';
+
+.bookmark-layout {
+    .bookmark-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .help {
+            display: inline-flex;
+            align-items: center;
+            background: $light-neutral-200;
+            border-radius: px(4);
+            padding: px(12) px(16);
+            .icon-lamp {
+                width: px(10);
+                height: px(14);
+                margin: 0 px(10) 0 px(2);
+            }
+        }
+    }
+    .empty-bookmark {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: px(96) 0px;
+        text-align: center;
+        .placeholder-bookmark {
+            margin-bottom: px(32);
+        }
+        .com-text {
+            margin-bottom: $spacing-xs;
+        }
+        .instruction {
+            display: inline-flex;
+            text-align: center;
+            .icon-bookmark {
+                display: inline-flex;
+                width: px(10);
+                height: px(14);
+            }
+        }
+    }
+}

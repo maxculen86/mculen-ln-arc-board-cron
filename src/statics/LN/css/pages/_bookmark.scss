@@ -1,0 +1,23 @@
+@import '../abstracts/variables';
+
+.bookmark {
+    .title {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: $spacing-lg;
+        h1 {
+            margin-bottom: px(28);
+        }
+        @media ($media-m) {
+            margin-bottom: px(28);
+            h1 {
+                margin-bottom: 0;
+            }
+            .com-text {
+                margin-right: $spacing-sm;
+            }
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+}
