@@ -1,7 +1,9 @@
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
+import getProperties from 'fusion:properties';
 import logger from '../../components/private/common/utils/logger';
-import getRequest from './utils/getRequest';
 import wikiTypes from './utils/servicesSource/wiki/_config';
+import get from '../../components/private/common/utils/get';
+import getImageResized from '../../components/private/common/utils/getImageResized';
 
 const resolve = query => {
     const { slug = '' } = query;
@@ -10,13 +12,7 @@ const resolve = query => {
 };
 
 const fetch = query => {
-    const {
-        id = '',
-        uri = '',
-        slug = '',
-        type = '',
-        arcSite = 'la-nacion-ar'
-    } = query;
+    const { id = '', uri = '', slug = '', type = '' } = query;
 
     // return getRequest(resolve(query))
     //     .then(response => response)
@@ -24,13 +20,43 @@ const fetch = query => {
     //         logger.push(error, { source: 'wikiTagSource', url: uri }, arcSite);
     //     });
 
-    return Promise.resolve(wikiTypes[type]);
+    return {
+        ...wikiTypes[type]
+    };
+};
+
+const transform = (data, siteProps) => {
+    const {
+        imageConfig = '',
+        'arc-site': arcSite = 'la-nacion-ar'
+    } = siteProps;
+
+    const properties = getProperties(arcSite);
+    const imageSizesDefault = get(properties, `imageConfig.resize.default`, []);
+
+    const imageSizes = get(
+        properties,
+        `imageConfig.resize.${imageConfig}.promo_items.sizes`,
+        imageSizesDefault
+    );
+
+    const { image } = data;
+    const { width, height, url } = image;
+
+    const transformedImage = getImageResized(url, width, height, imageSizes);
+
+    image.resizedUrls = transformedImage !== [] ? transformedImage : [];
+    return data;
 };
 
 export default {
     fetch,
+    transform,
     params: {
-        type: 'text'
+        type: 'text',
+        slug: 'text',
+        imageId: 'text',
+        imageConfig: 'text'
     },
     ttl: 120
 };

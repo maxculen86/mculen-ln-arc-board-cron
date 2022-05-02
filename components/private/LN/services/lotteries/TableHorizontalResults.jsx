@@ -7,6 +7,7 @@ import get from '../../../common/utils/get';
 import '../../../../../resources/dist/css/ln/components/table-horizontal-results.css';
 
 const TableHorizontalResults = ({
+    id,
     className,
     results,
     date,
@@ -20,7 +21,7 @@ const TableHorizontalResults = ({
     const meaningNumber = get(results, '[0].length') && results[0].slice(-2);
 
     return (
-        <div className={classes}>
+        <div className={classes} data-testid={`${id}-test`}>
             {!isMeaning && (
                 <div className="header-table">
                     <Text
@@ -54,9 +55,9 @@ const TableHorizontalResults = ({
                     <div
                         className={`number-box ${isMeaning &&
                             '--meaning-table'}`}
+                        key={number}
                     >
                         <Text
-                            key={number}
                             size="4xs"
                             extraClass={`numerator-table ${isMeaning &&
                                 '--meaning-table'}`}
@@ -79,6 +80,7 @@ const TableHorizontalResults = ({
 };
 
 TableHorizontalResults.propTypes = {
+    id: PropTypes.string,
     className: PropTypes.string,
     date: PropTypes.string,
     letters: PropTypes.arrayOf(PropTypes.string),
@@ -89,6 +91,7 @@ TableHorizontalResults.propTypes = {
 };
 
 TableHorizontalResults.defaultProps = {
+    id: '',
     className: '',
     date: '',
     letters: [],

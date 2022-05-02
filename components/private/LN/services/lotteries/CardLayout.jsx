@@ -3,12 +3,10 @@ import PropTypes from 'prop-types';
 import Link from '../../../common/com-link';
 import Text from '../../../common/text';
 
-const CardLayout = ({ className, title, subtitle, link, children }) => {
-    const classes = `card-lotteries ${className}`;
-
+const CardLayout = ({ title, subtitle, link, children }) => {
     return (
-        <article className={classes}>
-            <div className="header-lotteries">
+        <article className="lottery-card">
+            <div className="lottery-header">
                 {link ? (
                     <Text tag="h2" size="2xs" weight="bold">
                         <Link
@@ -37,7 +35,6 @@ const CardLayout = ({ className, title, subtitle, link, children }) => {
 };
 
 CardLayout.propTypes = {
-    className: PropTypes.string,
     title: PropTypes.string,
     subtitle: PropTypes.string,
     link: PropTypes.string,
@@ -45,7 +42,6 @@ CardLayout.propTypes = {
 };
 
 CardLayout.defaultProps = {
-    className: '',
     title: '',
     subtitle: '',
     link: '',
