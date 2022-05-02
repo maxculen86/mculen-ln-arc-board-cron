@@ -9,11 +9,6 @@ const wikiTypes = {
             height: 'text',
             alt: 'text'
         },
-        schemasInfo: {
-            addtional_name: 'text',
-            birth_date: 'ISO DATE_TIME',
-            job_title: 'text'
-        },
         social_networks: [
             {
                 type: 'text',
@@ -30,12 +25,19 @@ const wikiTypes = {
                 text: 'text',
                 slug: 'text'
             }
-        ]
+        ],
+        schemasInfo: {
+            addtional_name: 'text',
+            birth_date: 'ISO DATE_TIME',
+            family_name: 'text',
+            given_name: 'text',
+            job_title: 'text'
+        }
     },
 
     organization: {
         creation_date: 'ISO DATE_TIME',
-        type: 2,
+        type: 1,
         description: 'text',
         logo_url: 'text',
         image: {
@@ -44,10 +46,6 @@ const wikiTypes = {
             height: 'text',
             alt: 'text'
         },
-        schemasInfo: {
-            address: 'text',
-            founding_date: 'ISO DATE_TIME'
-        },
         social_networks: [
             {
                 type: 'text',
@@ -64,7 +62,14 @@ const wikiTypes = {
                 text: 'text',
                 slug: 'slug'
             }
-        ]
+        ],
+        schemasInfo: {
+            address: 'text',
+            founding_date: 'ISO DATE_TIME',
+            founding_location: 'text',
+            legal_name: 'text',
+            location: 'text'
+        }
     }
 };
 

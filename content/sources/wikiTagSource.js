@@ -12,9 +12,8 @@ const resolve = query => {
 };
 
 const fetch = query => {
-    const { id = '', uri = '', slug = '', type = '', imageId } = query;
+    const { id = '', uri = '', slug = '', type = '' } = query;
 
-    // TODO: Ver si se pueden mandar query params al imageSource
     // return getRequest(resolve(query))
     //     .then(response => response)
     //     .catch(error => {

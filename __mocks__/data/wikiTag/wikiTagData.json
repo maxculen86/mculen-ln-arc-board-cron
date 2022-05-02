@@ -58,11 +58,6 @@
             }
         ]
     },
-    "schemasInfo": {
-        "addtional_name": "text",
-        "birth_date": "ISO DATE_TIME",
-        "job_title": "text"
-    },
     "social_networks": [
         {
             "type": "text",
@@ -80,5 +75,12 @@
             "slug": "text"
         }
     ],
-    "_id": "44b5fdc56d3e45967a7430124426307d580cf6f09358f1a5a07fc2ac524c0548"
+    "schemasInfo": {
+        "addtional_name": "text",
+        "birth_date": "ISO DATE_TIME",
+        "family_name": "text",
+        "given_name": "text",
+        "job_title": "text"
+    },
+    "_id": "76315a19a666cd7c7bf59c4e076934c88695ef2cc5bc9e6f874fb4d08c4b9f12"
 }
