@@ -1,0 +1,656 @@
+[
+    {
+        "_id": "QXMSDT6FFZBAPI4IMLUZRZOOLI",
+        "content_elements": [
+            {
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate ante in neque consectetur, eu lobortis dui elementum. Maecenas sed ornare magna, vel pellentesque neque. Integer posuere elit vitae mauris pharetra, eu scelerisque neque auctor. Pellentesque venenatis lorem velit, quis placerat nisl viverra finibus. Pellentesque iaculis sapien eros, sit amet fringilla nisl tincidunt at. Mauris mollis convallis turpis, quis porttitor lectus tempor vel. Duis finibus libero eget orci consequat, ac sodales lacus porta. In eget mi condimentum erat porta molestie sed sit amet erat. Donec malesuada mauris eget quam e",
+                "type": "text"
+            }
+        ],
+        "display_date": "2021-03-16T14:39:10.467Z",
+        "headlines": {
+            "basic": "Test noticia en ARC",
+            "mobile": ""
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/FxNJuboUPqw48kxH4BtfJrUjPCU=/298x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/ktjqVw_Jmvjh28qrkkPc-PNxPSM=/318x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/dlAmO7B9sjKzcsyqD_I2mimL8G4=/233x159/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/xLoN8deZlscJCZKG1oe0rn-vkIs=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/V9RGQsv_GCzPniXDHprwsEi7BxY=/320x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                    }
+                ],
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/ngt46cXQqzICZYARWzoI2HsTg44=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2021-05-18T20:39:00.489Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "Con su “Cocina de Frankfurt” de 1926, Magarete Schütte-Lihotzky, la primera mujer austríaca en recibirse de arquitecta, creó una de las mayores revoluciones en la vivienda social del siglo XX y facilitó hasta el día de hoy nuestra experiencia cotidiana."
+        },
+        "subtype": "4",
+        "website_url": "/deportes/test-noticia-en-arc-nid16032021/"
+    },
+    {
+        "_id": "VJFFH5SAVZGJ7FHF55PP3RK5AA",
+        "content_elements": [
+            {
+                "content": "<b>Cuando Marcela Losardo</b>, ministra de Justicia, escuchó que el discurso que Fernández exhortaba al Congreso a controlar al Poder Judicial estaba convencida de que hablaba de hacerlo<mark class=\"hl_yellow\"> </mark><a href=\"https://www.youtube.com/watch?v=acMQr5Fz5S8\" target=_blank>con las atribuciones</a> que los legisladores ya tienen, a través de la bicameral del Ministerio Público o la posibilidad de enjuiciar a los miembros de la Corte Suprema.",
+                "type": "text"
+            }
+        ],
+        "display_date": "2021-03-03T19:57:04.039Z",
+        "headlines": {
+            "basic": "primera prueba de ARC 03 de marzo 2021 - Esto es un titulo Largo.",
+            "mobile": "Duro cruce entre Eduardo Feinmann y Graciana Peñafort: \"Cristina no es corrupta\""
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/GgPXX_R11yjYH4XPQvaMuZiLhC8=/298x200/filters:format(webp):quality(80):focal(243x457:253x447)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TVMH2S6AZJA2JCQXBGFXM77AQA.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/St_qehpRbrlMHZyNUYj9bWyHpUA=/318x213/filters:format(webp):quality(80):focal(243x457:253x447)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TVMH2S6AZJA2JCQXBGFXM77AQA.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/-7hCmJxjWDLDqluVgOlMTHPAB_I=/233x159/filters:format(webp):quality(80):focal(243x457:253x447)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TVMH2S6AZJA2JCQXBGFXM77AQA.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/2gh-9YrKE123tBGlP_bEQUGiP0E=/375x250/filters:format(webp):quality(80):focal(243x457:253x447)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TVMH2S6AZJA2JCQXBGFXM77AQA.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/UXd8PBVP1IVTt56phOGY2iKoqDc=/320x213/filters:format(webp):quality(80):focal(243x457:253x447)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TVMH2S6AZJA2JCQXBGFXM77AQA.jpg"
+                    }
+                ],
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/cX7sPOI_FGS-7QC-kNViY3IbwZM=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TVMH2S6AZJA2JCQXBGFXM77AQA.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2021-03-04T11:22:48.12Z",
+        "related_content": {
+            "basic": [
+                {
+                    "_id": "J4PH7AW5NVBSZDSKAIFVSBLOGI",
+                    "referent": {
+                        "type": "image"
+                    },
+                    "type": "reference"
+                },
+                {
+                    "_id": "JTOJIUJWSFDHFE3XSNIW5D2UXM",
+                    "referent": {
+                        "type": "image"
+                    },
+                    "type": "reference"
+                },
+                {
+                    "_id": "KHV3J7D5FFEMLA5Z4OJPL7RZOM",
+                    "referent": {
+                        "type": "image"
+                    },
+                    "type": "reference"
+                }
+            ]
+        },
+        "subheadlines": {
+            "basic": ""
+        },
+        "subtype": "1",
+        "website_url": "/sociedad/primera-prueba-de-arc-03-de-marzo-2021-esto-es-un-titulo-largo-nid03032021/"
+    },
+    {
+        "_id": "BICZ5O46GFGNPHG6R7L7BLN57M",
+        "content_elements": [
+            {
+                "content": "<b>Feliz por ser parte de esta exitosa producción</b>, Lago cuenta, entusiasmada, a LA NACION cómo es la trastienda de las grabaciones y cómo son los protocolos que se siguen en el set a raíz de la pandemia.",
+                "type": "text"
+            }
+        ],
+        "display_date": "2021-02-17T16:46:14.086Z",
+        "headlines": {
+            "basic": "Primera Prueba Composer - Taller 17 de febrero de 2021 - Esto es un titulo largo.",
+            "mobile": "Primera Prueba Composer - Taller 17 de febrero de 2021"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/BO4ZzjaGHF2yyi1HlkCm6IKuGBI=/298x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JO47WJFXVBF6VA4ZSMWG5STCRA.png"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/4dopW5x0i3i1RB5UisAZr2pbmLE=/318x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JO47WJFXVBF6VA4ZSMWG5STCRA.png"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/mmzBH6ZDwjNOqbpTbhDJUNLNujg=/233x159/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JO47WJFXVBF6VA4ZSMWG5STCRA.png"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/2Djq8F_SUYisH5_KvgDlYX0IJoE=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JO47WJFXVBF6VA4ZSMWG5STCRA.png"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/HRy_dzPjb5cVDAOH_LQchCZLI7w=/320x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JO47WJFXVBF6VA4ZSMWG5STCRA.png"
+                    }
+                ],
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/7YyuVtf_pTaBf3shYce5y2Ek1dY=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JO47WJFXVBF6VA4ZSMWG5STCRA.png",
+                "width": 768
+            }
+        },
+        "publish_date": "2021-03-03T18:37:19.575Z",
+        "related_content": {
+            "basic": [
+                {
+                    "_id": "MCRCRQDEYRGZPMXKV4VCYPY2UA",
+                    "referent": {
+                        "type": "image"
+                    },
+                    "type": "reference"
+                },
+                {
+                    "_id": "YK7K7RH3XNGQHPV6DWMDXGZHNI",
+                    "referent": {
+                        "type": "image"
+                    },
+                    "type": "reference"
+                },
+                {
+                    "_id": "SHYDT6RHYNHJLH4542A7QLY7OA",
+                    "referent": {
+                        "type": "image"
+                    },
+                    "type": "reference"
+                }
+            ]
+        },
+        "subheadlines": {
+            "basic": ""
+        },
+        "subtype": "1",
+        "website_url": "/deportes/primera-prueba-composer-taller-17-de-febrero-de-2021-esto-es-un-titulo-largo-nid17022021/"
+    },
+    {
+        "_id": "NJGHBQMMSNCCXIYYHPCYS3WJ5M",
+        "content_elements": [
+            {
+                "content": "Enfant terrible. <b>Gerard Depardieu</b> ha hecho honor a su fama de revoltoso, rebelde y poco afecto a conducirse por los caminos de la urbanidad. El actor <a href=\"https://www.lanacion.com.ar/el-mundo/nazaret-la-ciudad-israeli-que-critica-la-ofensiva-militar-nid825457/\">francés, nacido</a> en Chateauroux, en el Centro-Valle de Loira, jamás se <mark class=\"hl_yellow\">preocupó por aparentar</mark> lo que no es. Al contrario, hasta se regodeó en esa personalidad díscola, mal llevada. En el amor, la cosa no podía ser diferente. Gerard tuvo apasionadas parejas, oficiales y de las otras, y una vida sexual que no siempre tuvo ribetes <a href=\"https://www.youtube.com/watch?v=acMQr5Fz5S8\" target=_blank>amorosos todos</a>.",
+                "type": "text"
+            }
+        ],
+        "display_date": "2021-02-09T16:34:00.860Z",
+        "headlines": {
+            "basic": "Tiempo de cambios y proyectos a futuro en Newmark - esto es un titulo largo.",
+            "mobile": "Tiempo de cambios y proyectos a futuro en Newmark"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/_vXAXhx6rynhz-5ORENCj3x8Mg4=/298x200/filters:format(webp):quality(80):focal(275x421:285x411)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TVMH2S6AZJA2JCQXBGFXM77AQA.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/eNHuxNrS-e68T5izrVAnLu_1WOo=/318x213/filters:format(webp):quality(80):focal(275x421:285x411)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TVMH2S6AZJA2JCQXBGFXM77AQA.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/euw5joU0WOFf4pmJPArXggtZ50M=/233x159/filters:format(webp):quality(80):focal(275x421:285x411)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TVMH2S6AZJA2JCQXBGFXM77AQA.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/lwKabJr1GbPZMo2ZAenmFI66408=/375x250/filters:format(webp):quality(80):focal(275x421:285x411)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TVMH2S6AZJA2JCQXBGFXM77AQA.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/3GzOOZhgbpoL-FT8SUtowoRbPY0=/320x213/filters:format(webp):quality(80):focal(275x421:285x411)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TVMH2S6AZJA2JCQXBGFXM77AQA.jpg"
+                    }
+                ],
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/cX7sPOI_FGS-7QC-kNViY3IbwZM=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TVMH2S6AZJA2JCQXBGFXM77AQA.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2021-02-09T16:34:32.986Z",
+        "related_content": {
+            "basic": [
+                {
+                    "_id": "IN5IMSTFFBCZBN6C2WOOEE23OY",
+                    "referent": {
+                        "type": "story"
+                    },
+                    "type": "reference"
+                }
+            ]
+        },
+        "subheadlines": {
+            "basic": ""
+        },
+        "subtype": "1",
+        "website_url": "/seguridad/tiempo-de-cambios-y-proyectos-a-futuro-en-newmark-esto-es-un-titulo-largo-nid27012021/"
+    },
+    {
+        "_id": "JI7O45L7EVFVHMGTXI5CRNGFJ4",
+        "content_elements": [
+            {
+                "content": "nfant terrible. <b>Gerard Depardieu</b> ha hecho honor a su fama de revoltoso, rebelde y poco afecto a conducirse por los caminos de la urbanidad. <mark class=\"hl_yellow\">El actor francés</mark>, nacido en <a href=\"https://www.lanacion.com.ar/el-mundo/nazaret-la-ciudad-israeli-que-critica-la-ofensiva-militar-nid825457/\">Chateauroux, en el Centro-Valle </a>de Loira, jamás se preocupó por aparentar lo que no es. Al contrario, hasta se regodeó en esa personalidad díscola, mal llevada. En el amor, la cosa no podía ser diferente. Gerard tuvo apasionadas parejas, oficiales y de las otras, y una vida sexual que no siempre tuvo ribetes amorosos todos.",
+                "type": "text"
+            }
+        ],
+        "display_date": "2021-02-09T16:26:00.021Z",
+        "headlines": {
+            "basic": "Esta es otra prueba de ARC - Con un titulo largo de una nueva prueba...",
+            "mobile": "Esta es otra prueba de ARC - Con un titulo corto"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "volanta k&l"
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/Pwku_q7c1rEw42K6MI8xhLeSFu0=/298x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TAS4NBL2DNDVFEWSSFQP5NVTEI.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/ONEMuy3bSXXk6hSrZPNcVlhHoPE=/318x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TAS4NBL2DNDVFEWSSFQP5NVTEI.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/qhijELOL50xOB4ifukXJKRb9y00=/233x159/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TAS4NBL2DNDVFEWSSFQP5NVTEI.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/LF6vhxX7vAcmuqekyT4PlYgbWYo=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TAS4NBL2DNDVFEWSSFQP5NVTEI.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/K28o9aDhBlzM8WLeu2vNJUJ5YwY=/320x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TAS4NBL2DNDVFEWSSFQP5NVTEI.JPG"
+                    }
+                ],
+                "subtitle": "Kamala Harris, Denis McDonough",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/lNMEkMhn8C1-DzdREZhFs9u5u8o=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TAS4NBL2DNDVFEWSSFQP5NVTEI.JPG",
+                "width": 768
+            }
+        },
+        "publish_date": "2021-05-12T02:31:42.744Z",
+        "related_content": {
+            "basic": [
+                {
+                    "_id": "HNWDMOB73FF5ZB75IAPL2OFVAE",
+                    "referent": {
+                        "type": "image"
+                    },
+                    "type": "reference"
+                },
+                {
+                    "_id": "T6DNHZI4YBDPJBPEPS7QXH4ER4",
+                    "referent": {
+                        "type": "image"
+                    },
+                    "type": "reference"
+                },
+                {
+                    "_id": "4DCH73SR4FBH5DDELG6XCYC54Y",
+                    "referent": {
+                        "type": "image"
+                    },
+                    "type": "reference"
+                },
+                {
+                    "_id": "D4HZ2WB6ZRH6BDUXRBN7PIFXLU",
+                    "referent": {
+                        "type": "image"
+                    },
+                    "type": "reference"
+                },
+                {
+                    "_id": "TAS4NBL2DNDVFEWSSFQP5NVTEI",
+                    "referent": {
+                        "type": "image"
+                    },
+                    "type": "reference"
+                },
+                {
+                    "_id": "AZIJTNIABBHJ5JSXHGKHVHC5ZE",
+                    "referent": {
+                        "type": "image"
+                    },
+                    "type": "reference"
+                },
+                {
+                    "_id": "KRDDMN3CUREJ5DODQEBLEBMYRY",
+                    "referent": {
+                        "type": "image"
+                    },
+                    "type": "reference"
+                },
+                {
+                    "_id": "EAZUZVNAJBBYPDO3TCAJYURXE4",
+                    "referent": {
+                        "type": "image"
+                    },
+                    "type": "reference"
+                }
+            ]
+        },
+        "subheadlines": {
+            "basic": ""
+        },
+        "subtype": "4",
+        "website_url": "/deportes/esta-es-otra-prueba-de-arc-con-un-titulo-largo-de-una-nueva-prueba-nid09022021/"
+    },
+    {
+        "_id": "BDSUG6OPNFFNBANENN4CAHSMQM",
+        "content_elements": [
+            {
+                "content": "<b>El arqueólogo británico</b>&nbsp;y profesor de la Universidad de Reading, Ken Dark, afirma haber encontrado, debajo de un&nbsp;convento en <i>Nazaret</i><i>,</i> lo que fue el&nbsp;hogar de la infancia&nbsp;de Jesucristo, <mark class=\"hl_yellow\">donde vivió junto a sus padres, María y José.</mark>",
+                "type": "text"
+            }
+        ],
+        "display_date": "2021-02-02T16:23:00.828Z",
+        "headlines": {
+            "basic": "Prueba Taller 2 de febrero - Titulo largo con mas palabras.",
+            "mobile": "Prueba Taller 2 de febrero - Titulo corto"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/__qndydRVWbsoJebWLk_9w6lISk=/298x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/WYREEH5SO5HHLOMD7JKQAHTRJE.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/39vjmb2f-5taYIe3oETHoTvBMs4=/318x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/WYREEH5SO5HHLOMD7JKQAHTRJE.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/4R8MWusMn7N-N8IPJ6mVg66Pluc=/233x159/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/WYREEH5SO5HHLOMD7JKQAHTRJE.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/LR8-cZcp7_HKJOASX555ofYEutI=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/WYREEH5SO5HHLOMD7JKQAHTRJE.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/JQpHUapeRtGVwDE8re5ucfOrtQU=/320x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/WYREEH5SO5HHLOMD7JKQAHTRJE.jpg"
+                    }
+                ],
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/4wzkkudIJkk6D9z_jYOhB_7yoL0=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/WYREEH5SO5HHLOMD7JKQAHTRJE.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2021-02-02T16:23:44.043Z",
+        "related_content": {
+            "basic": [
+                {
+                    "_id": "DQS7KOMYORAL5HP7PYBBYT46I4",
+                    "referent": {
+                        "type": "story"
+                    },
+                    "type": "reference"
+                }
+            ]
+        },
+        "subheadlines": {
+            "basic": ""
+        },
+        "subtype": "1",
+        "website_url": "/sociedad/seguridad/prueba-taller-2-de-febrero-titulo-largo-con-mas-palabras-nid02022021/"
+    },
+    {
+        "_id": "JNUD2TEINBC6RCACNTTY2ZCS24",
+        "content_elements": [
+            {
+                "content": "<b>El arqueólogo británico</b> y profesor de la Universidad de Reading, Ken Dark, afirma haber encontrado, debajo de un <mark class=\"hl_yellow\">convento en Nazaret</mark>, lo que fue el <a href=\"https://www.lanacion.com.ar/el-mundo/nazaret-la-ciudad-israeli-que-critica-la-ofensiva-militar-nid825457/\">hogar de la infancia</a> de Jesucristo, donde vivió junto a sus padres, María y José.",
+                "type": "text"
+            }
+        ],
+        "display_date": "2021-01-26T16:25:01.335Z",
+        "headlines": {
+            "basic": "Prueba Taller 26 de enero - titulo largo, puedo escribir mas.",
+            "mobile": "Prueba Taller 26 de enero - titulo corto"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/Tl4XzFJqLIaJOhGHOSQZKR3kWoA=/298x200/filters:format(webp):quality(80):focal(281x438:291x428)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/GYSBAPWP2FBEBJ4WIWQGYFUGIQ.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/c10jbJYfN7A7JJZ16p5jlMgTojA=/318x213/filters:format(webp):quality(80):focal(281x438:291x428)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/GYSBAPWP2FBEBJ4WIWQGYFUGIQ.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/qIYgu5VvsfNDzffCgY1lVB6yDqo=/233x159/filters:format(webp):quality(80):focal(281x438:291x428)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/GYSBAPWP2FBEBJ4WIWQGYFUGIQ.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/rsd8mMJL1yJqdf0HtLYi3KU0EQw=/375x250/filters:format(webp):quality(80):focal(281x438:291x428)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/GYSBAPWP2FBEBJ4WIWQGYFUGIQ.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/Y8erz4xdwamWZgddRdtA-wrMCfs=/320x213/filters:format(webp):quality(80):focal(281x438:291x428)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/GYSBAPWP2FBEBJ4WIWQGYFUGIQ.jpg"
+                    }
+                ],
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/_8Hsh9nZpgUWjC0pTVXp7qgsIHE=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/GYSBAPWP2FBEBJ4WIWQGYFUGIQ.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2021-01-26T16:25:35.459Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": ""
+        },
+        "subtype": "1",
+        "website_url": "/politica/prueba-taller-26-de-enero-titulo-largo-puedo-escribir-mas-nid26012021/"
+    }
+]
