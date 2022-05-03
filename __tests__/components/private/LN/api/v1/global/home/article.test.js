@@ -297,7 +297,9 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
             const notas = articlesMap(articlesfromCajaManual);
             expect(notas[0].id).toBe('2KOBND62KNFVVBFQZOADNN6WNY');
         } catch (err) {
-            expect(err.message).toBe('Titulo de la nota es null o undefined');
+            expect(err.message).toBe(
+                'La nota con el id: 3SHTRO3NKBCN7L3JITCDQYSJLM: No posee el valor Titulo'
+            );
         }
     });
     it('Testeo getArticleSignature, autores en marquesina', () => {

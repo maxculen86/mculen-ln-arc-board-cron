@@ -1,6 +1,7 @@
-import { get } from 'lodash';
+import get from '../../../../../common/utils/get';
 import Image from '../../common/image';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
+import logger from '../../../../../common/utils/logger';
 import {
     articleItem as Article,
     anexoItem as Anexo,
@@ -58,8 +59,16 @@ const articlesMap = articles => {
             try {
                 const article = Article({ ...f, storyType: 'home' });
                 result.push(article);
-            } catch (ex) {
-                console.log(ex);
+            } catch (error) {
+                logger.push(
+                    error,
+                    {
+                        source: 'components/private/LN/api/v1/global/home',
+                        url:
+                            'https://www.lanacion.com.ar/?_website=la-nacion-ar&outputType=json'
+                    },
+                    'la-nacion-ar'
+                );
             }
         }
         return result;
@@ -92,7 +101,6 @@ const storyBox = element => {
             notas: resultArticles
         };
     }
-
     return null;
 };
 
