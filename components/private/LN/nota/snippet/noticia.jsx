@@ -3,7 +3,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { SITE_LANACION } from 'fusion:environment';
-import HTMLLIBRE from '../../../common/utils/subtypes/htmlLibre';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
 import getAuthorByline from '../../../common/utils/getAuthorByline';
@@ -126,8 +125,7 @@ const SnippetNoticia = props => {
             display_date: displayDate = '',
             content_restrictions: { content_code: contentCode } = {},
             label,
-            owner: { sponsored },
-            subtype
+            owner: { sponsored }
         },
         contextPath,
         deployment
@@ -160,12 +158,13 @@ const SnippetNoticia = props => {
 
     const trust = get(label, 'trust.text', 'Noticia Original');
     const creators = authors.map(a => a.name);
+    const articleBody = getFirstParagraph(contentElements);
 
     let data = {
         '@context': urlShema,
         '@type': 'NewsArticle',
         headline: headlines && `${headlines.basic || 'LA NACION - Noticia'}`,
-        articleBody: getFirstParagraph(contentElements),
+        ...(articleBody && { articleBody }),
         url: `${siteProperties.host}${canonical_url}`,
         dateCreated: `${new Date(createdDate).toUTCString()}`,
         datePublished: `${new Date(firstPublishDate).toUTCString()}`,
@@ -261,11 +260,9 @@ const SnippetNoticia = props => {
     };
 
     return (
-        (type === 'story' &&
-            (getFirstParagraph(contentElements) ||
-                subtype === HTMLLIBRE.id) && (
-                <SnippetRender id="Schema_NewsArticle" data={data} />
-            )) ||
+        (type === 'story' && (
+            <SnippetRender id="Schema_NewsArticle" data={data} />
+        )) ||
         null
     );
 };
