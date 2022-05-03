@@ -87,7 +87,17 @@ describe('masNotas feature Test', () => {
         );
         expect(screen.getAllByRole('article').length).toStrictEqual(6);
     });
-
+    it('should not show same article and not to show articles without media destacada', () => {
+        mockArticlesFunc.mockReturnValueOnce(mockArticles);
+        render(
+            <MasNotas {...getMasNotasProps(30, '0', '1', taxonomySection)} />
+        );
+        const articles = screen.getAllByRole('article');
+        articles.forEach(article => {
+            expect(article).not.toContain('AVYWDWDAVVESZGD7HXMW46GTYA');
+            expect(article).not.toContain('no-media-article-id');
+        });
+    });
     it('should not render feature', () => {
         mockArticlesFunc.mockReturnValueOnce([]);
         render(

@@ -1,5 +1,81 @@
 [
     {
+        "_id": "AVYWDWDAVVESZGD7HXMW46GTYA",
+        "content_elements": [
+            {
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate ante in neque consectetur, eu lobortis dui elementum. Maecenas sed ornare magna, vel pellentesque neque. Integer posuere elit vitae mauris pharetra, eu scelerisque neque auctor. Pellentesque venenatis lorem velit, quis placerat nisl viverra finibus. Pellentesque iaculis sapien eros, sit amet fringilla nisl tincidunt at. Mauris mollis convallis turpis, quis porttitor lectus tempor vel. Duis finibus libero eget orci consequat, ac sodales lacus porta. In eget mi condimentum erat porta molestie sed sit amet erat. Donec malesuada mauris eget quam e",
+                "type": "text"
+            }
+        ],
+        "display_date": "2021-03-16T14:39:10.467Z",
+        "headlines": {
+            "basic": "Test noticia en ARC",
+            "mobile": ""
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/FxNJuboUPqw48kxH4BtfJrUjPCU=/298x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/ktjqVw_Jmvjh28qrkkPc-PNxPSM=/318x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/dlAmO7B9sjKzcsyqD_I2mimL8G4=/233x159/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/xLoN8deZlscJCZKG1oe0rn-vkIs=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/V9RGQsv_GCzPniXDHprwsEi7BxY=/320x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                    }
+                ],
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/ngt46cXQqzICZYARWzoI2HsTg44=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2021-05-18T20:39:00.489Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "Con su “Cocina de Frankfurt” de 1926, Magarete Schütte-Lihotzky, la primera mujer austríaca en recibirse de arquitecta, creó una de las mayores revoluciones en la vivienda social del siglo XX y facilitó hasta el día de hoy nuestra experiencia cotidiana."
+        },
+        "subtype": "4",
+        "website_url": "/deportes/test-noticia-en-arc-nid16032021/"
+    },
+    {
         "_id": "QXMSDT6FFZBAPI4IMLUZRZOOLI",
         "content_elements": [
             {
@@ -652,5 +728,81 @@
         },
         "subtype": "1",
         "website_url": "/politica/prueba-taller-26-de-enero-titulo-largo-puedo-escribir-mas-nid26012021/"
+    },
+    {
+        "_id": "no-media-article-id",
+        "content_elements": [
+            {
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate ante in neque consectetur, eu lobortis dui elementum. Maecenas sed ornare magna, vel pellentesque neque. Integer posuere elit vitae mauris pharetra, eu scelerisque neque auctor. Pellentesque venenatis lorem velit, quis placerat nisl viverra finibus. Pellentesque iaculis sapien eros, sit amet fringilla nisl tincidunt at. Mauris mollis convallis turpis, quis porttitor lectus tempor vel. Duis finibus libero eget orci consequat, ac sodales lacus porta. In eget mi condimentum erat porta molestie sed sit amet erat. Donec malesuada mauris eget quam e",
+                "type": "text"
+            }
+        ],
+        "display_date": "2021-03-16T14:39:10.467Z",
+        "headlines": {
+            "basic": "Test noticia en ARC",
+            "mobile": ""
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/FxNJuboUPqw48kxH4BtfJrUjPCU=/298x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/ktjqVw_Jmvjh28qrkkPc-PNxPSM=/318x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/dlAmO7B9sjKzcsyqD_I2mimL8G4=/233x159/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/xLoN8deZlscJCZKG1oe0rn-vkIs=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/V9RGQsv_GCzPniXDHprwsEi7BxY=/320x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                    }
+                ],
+                "type": "extra",
+                "url": "https://resizer.glanacion.com/resizer/ngt46cXQqzICZYARWzoI2HsTg44=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2021-05-18T20:39:00.489Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "Con su “Cocina de Frankfurt” de 1926, Magarete Schütte-Lihotzky, la primera mujer austríaca en recibirse de arquitecta, creó una de las mayores revoluciones en la vivienda social del siglo XX y facilitó hasta el día de hoy nuestra experiencia cotidiana."
+        },
+        "subtype": "4",
+        "website_url": "/deportes/test-noticia-en-arc-nid16032021/"
     }
 ]
