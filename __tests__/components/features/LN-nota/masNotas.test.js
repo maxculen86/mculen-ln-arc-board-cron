@@ -4,9 +4,9 @@ import { render, screen } from '@testing-library/react';
 import getProperties from 'fusion:properties';
 import Consumer from 'fusion:consumer';
 import Context from 'fusion:context';
-import taxonomySection from '../../../../__mocks__/data/masNotas/taxonomySection.json';
-import taxonomyTags from '../../../../__mocks__/data/masNotas/taxonomyTags.json';
-import mockArticles from '../../../../__mocks__/data/masNotas/articles.json';
+import taxonomySection from '../../../../__mocks__/data/masNotas/taxonomySection';
+import taxonomyTags from '../../../../__mocks__/data/masNotas/taxonomyTags';
+import mockArticles from '../../../../__mocks__/data/masNotas/articles';
 import '@testing-library/jest-dom';
 
 const mockArticlesFunc = jest.fn();
