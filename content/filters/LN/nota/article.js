@@ -194,7 +194,21 @@ const customParallax = `
     subtype
     embed {
         config {
-            imageId
+            imageId {
+                id
+                url
+                width
+                height
+                focalPoint
+                caption
+                resized_urls {
+                    resizedUrl
+                    option {
+                        width
+                        height
+                    }
+                }
+            }
             title
             paragraph
         }

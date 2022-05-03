@@ -1,3 +1,4 @@
+import 'regenerator-runtime/runtime';
 import env from '../../../__mocks__/fusion:environment';
 import properties from '../../../__mocks__/fusion:properties';
 import Redirect from '../../../content/sources/utils/redirect';
@@ -61,7 +62,9 @@ describe('Article source nota - validateExclusiveAccess', () => {
     });
 
     it('validateExclusive access must NOT be called when checkExclusiveAccess false & match snapshot', done => {
-        articleSourceFetch(query)
+        articleSourceFetch(query, {
+            cachedCall: jest.fn()
+        })
             .then(response => {
                 expect(validateExclusiveAccess).toBeCalledTimes(0);
                 expect(response).toMatchSnapshot();
@@ -73,7 +76,9 @@ describe('Article source nota - validateExclusiveAccess', () => {
         checkExclusiveAccess: true
     };
     it('validateExclusive access must be called when checkExclusiveAccess true', done => {
-        articleSourceFetch(queryTrue)
+        articleSourceFetch(queryTrue, {
+            cachedCall: jest.fn()
+        })
             .then(response => {
                 expect(validateExclusiveAccess).toBeCalledTimes(1);
             })
@@ -83,7 +88,9 @@ describe('Article source nota - validateExclusiveAccess', () => {
 
 describe('Article source nota - redirect', () => {
     it('Must redirect to provided redirect_url with status code 301', done => {
-        articleSourceFetch(query)
+        articleSourceFetch(query, {
+            cachedCall: jest.fn()
+        })
             .then(() => {
                 expect(Redirect).toBeCalledTimes(1);
                 expect(Redirect).toBeCalledWith(

@@ -2,8 +2,6 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Context from 'fusion:context';
-import { useContent } from 'fusion:content';
-import getProperties from 'fusion:properties';
 import PowerUpParallax from '../../../../../../components/private/LN/nota/cuerpo/powerUpParallax';
 import IMAGE_DATA from '../../../../../../__mocks__/data/nota/cuerpo/image/image.json';
 
@@ -34,10 +32,9 @@ describe('Components - Private - LN - Nota - Cuerpo - PowerUpParallax =>', () =>
     Context.useAppContext = jest.fn(() => ({
         arcSite: 'la-nacion-ar'
     }));
-    useContent.mockImplementation(() => IMAGE_DATA);
     it('Should show image and title', () => {
         props.data.embed.config = {
-            imageId: 'JNVTFZAOFRE5TLQ7CVAOIB4UKY',
+            imageId: IMAGE_DATA,
             title: 'Titulo parallax prueba'
         };
 
@@ -51,7 +48,7 @@ describe('Components - Private - LN - Nota - Cuerpo - PowerUpParallax =>', () =>
     });
     it('Should show image and title ', () => {
         props.data.embed.config = {
-            imageId: 'JNVTFZAOFRE5TLQ7CVAOIB4UKY',
+            imageId: IMAGE_DATA,
             paragraph:
                 'Esta es una prueba de parallax, con un parrafo de ejemplo para el test.'
         };
@@ -66,7 +63,7 @@ describe('Components - Private - LN - Nota - Cuerpo - PowerUpParallax =>', () =>
     });
     it('Should show image, title and paragraph', () => {
         props.data.embed.config = {
-            imageId: 'JNVTFZAOFRE5TLQ7CVAOIB4UKY',
+            imageId: IMAGE_DATA,
             title: 'Titulo parallax prueba',
             paragraph:
                 'Esta es una prueba de parallax, con un parrafo de ejemplo para el test.'
@@ -80,7 +77,7 @@ describe('Components - Private - LN - Nota - Cuerpo - PowerUpParallax =>', () =>
     });
     it('Should return null without title and paragraph', () => {
         props.data.embed.config = {
-            imageId: 'JNVTFZAOFRE5TLQ7CVAOIB4UKY'
+            imageId: IMAGE_DATA
         };
         const { container } = render(<PowerUpParallax {...props} />);
         expect(container).toBeEmptyDOMElement();

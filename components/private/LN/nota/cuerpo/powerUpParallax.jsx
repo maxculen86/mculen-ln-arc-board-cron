@@ -1,55 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useContent } from 'fusion:content';
 import { useAppContext } from 'fusion:context';
-import getProperties from 'fusion:properties';
 import ComImage from '../../../common/com-image';
 import '../../../../../resources/dist/css/ln/components/parallax.css';
-import getImageResized from '../../../common/utils/getImageResized';
+import { filteredSources } from '../apertura/AperturaStorytelling/component';
+import useViewportSize from '../../../common/hooks/useViewportSize';
 
-const Parallax = ({ data }) => {
-    const { arcSite, outputType } = useAppContext();
+const Parallax = ({ data = {} }) => {
+    const { outputType } = useAppContext();
     const isAmp = outputType === 'amp';
-    const { imageConfig: { resize = {} } = {} } = getProperties(arcSite);
-    const { fotoAl100: { promo_items: { sizes = [] } = {} } = {} } = resize;
+
+    const [device, setDevice] = useState('desktop');
+    const dev = useViewportSize();
+    useEffect(() => {
+        setDevice(dev);
+    }, [dev]);
+
     const {
         embed: {
             config: { imageId, title, paragraph }
         }
     } = data;
+    const { url: imageUrl, caption, resized_urls: imagesResized } = imageId;
 
-    const sizesNew = sizes.map(size => ({
-        ...size,
-        isNotSmart: true
-    }));
+    if (!imageId || (!title && !paragraph)) return null;
 
-    const imageContent = useContent({
-        source: `${imageId ? 'imageSource' : null}`,
-        query: { published: true, id: imageId.trim() }
-    });
-
-    if (!imageId || !imageContent || (!title && !paragraph)) return null;
-
-    const {
-        url: imageUrl,
-        width: originalWidth,
-        height: originalHeight,
-        focal_point: focalPointObject,
-        caption
-    } = imageContent;
-
-    const focalPoint = focalPointObject ? Object.values(focalPointObject) : [];
-
-    const imageResized = getImageResized(
-        imageUrl,
-        originalWidth,
-        originalHeight,
-        sizesNew,
-        focalPoint
-    );
-
-    const srcSet = imageResized
-        ? imageResized.map(x => `${x.resizedUrl} ${x.option.width}w`).join()
+    const sourcesForDevice = filteredSources(imagesResized, device, isAmp);
+    const srcSet = sourcesForDevice
+        ? sourcesForDevice.map(x => `${x.resizedUrl} ${x.option.width}w`).join()
         : '';
 
     return (
@@ -84,7 +62,23 @@ Parallax.propTypes = {
         subtype: PropTypes.string.isRequired,
         embed: PropTypes.shape({
             config: PropTypes.shape({
-                imageId: PropTypes.string.isRequired,
+                imageId: PropTypes.shape({
+                    id: PropTypes.string,
+                    url: PropTypes.string,
+                    width: PropTypes.number,
+                    height: PropTypes.number,
+                    focalPoint: PropTypes.arrayOf(PropTypes.number),
+                    caption: PropTypes.string,
+                    resized_urls: PropTypes.arrayOf(
+                        PropTypes.shape({
+                            resizedUrl: PropTypes.string,
+                            option: PropTypes.shape({
+                                width: PropTypes.number,
+                                height: PropTypes.number
+                            })
+                        })
+                    )
+                }).isRequired,
                 title: PropTypes.string,
                 paragraph: PropTypes.string
             }).isRequired

@@ -18,7 +18,7 @@ import '../../../../../../resources/dist/css/ln/modules/mod-opening.css';
 import get from '../../../../common/utils/get';
 import { getAspectRatio } from '../../../../../../content/sources/utils/getRatio';
 
-export const filteredSources = (resizedUrls, device) => {
+export const filteredSources = (resizedUrls, device, isAmp) => {
     if (resizedUrls && device) {
         return resizedUrls.filter(image => {
             const imageRatio = getAspectRatio(
@@ -26,7 +26,7 @@ export const filteredSources = (resizedUrls, device) => {
                 image.option.height
             );
 
-            if (device === 'mobile' || device === 'tablet') {
+            if (device === 'mobile' || device === 'tablet' || isAmp) {
                 return imageRatio === '2:3';
             }
             return imageRatio === '3:2';
