@@ -4,7 +4,6 @@ import { articleItem } from '../../common/article/index';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
 import { getTag } from '../../common/tag';
 import { authorAcu } from '../../common/author';
-import logger from '../../../../../common/utils/logger';
 
 const banners = acuData => {
     const sectionsElements = [
@@ -47,15 +46,11 @@ const index = acuData => {
                     result.push(article);
                 }
             } catch (error) {
-                logger.push(
+                console.error(error.message, {
                     error,
-                    {
-                        source:
-                            'components/private/LN/api/v1/mobile/accumulated',
-                        url: `${acuData.name}`
-                    },
-                    'la-nacion-ar'
-                );
+                    outputType: 'json',
+                    element: acuData.name
+                });
             }
             return result;
         }, []);

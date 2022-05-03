@@ -1,7 +1,6 @@
 import get from '../../../../../common/utils/get';
 import Image from '../../common/image';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
-import logger from '../../../../../common/utils/logger';
 import {
     articleItem as Article,
     anexoItem as Anexo,
@@ -60,15 +59,13 @@ const articlesMap = articles => {
                 const article = Article({ ...f, storyType: 'home' });
                 result.push(article);
             } catch (error) {
-                logger.push(
+                // eslint-disable-next-line no-console
+                console.error(error.message, {
                     error,
-                    {
-                        source: 'components/private/LN/api/v1/global/home',
-                        url:
-                            'https://www.lanacion.com.ar/?_website=la-nacion-ar&outputType=json'
-                    },
-                    'la-nacion-ar'
-                );
+                    outputType: 'json',
+                    websiteUrl:
+                        'https://www.lanacion.com.ar/?_website=la-nacion-ar&outputType=json'
+                });
             }
         }
         return result;
