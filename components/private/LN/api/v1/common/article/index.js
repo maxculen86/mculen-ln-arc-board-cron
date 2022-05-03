@@ -55,10 +55,10 @@ export const articleItem = article => {
         throw new Error('Revisar Parametros de Articulo en null o undefined');
     }
 
-    const url = get(article, 'canonical_url', null);
+    const url = get(article, 'website_url', null);
     if (!url) {
         throw new Error(
-            `La nota con el id: ${id} no posee el valor canonical_url`
+            `La nota con el id: ${id} no posee el valor website_url`
         );
     }
 
