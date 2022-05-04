@@ -3,13 +3,13 @@
 
 .wiki-tags {
     display: grid;
-    height: 100%;
     width: 100%;
-    column-gap: px(24);
     margin-bottom: px(33);
+    padding: px(4);
     border: 1px $light-neutral-400 solid;
     border-radius: px(4);
 
+    column-gap: px(24);
     grid-template-areas:
         'image'
         'info'
@@ -17,9 +17,10 @@
         'rrss'
         'tags';
 
-    grid-template-rows: 1fr;
+    grid-template-rows: px(326);
+    grid-template-columns: px(326);
 
-    & .wiki-img {
+    & .com-image {
         grid-area: image;
     }
     & .extra-info {
@@ -35,20 +36,20 @@
         grid-area: tags;
     }
 
-    .wiki-img {
-        .com-image {
-            min-width: px(293);
-            height: 100%;
-        }
+    .com-image {
+        height: 100%;
     }
 
     .extra-info {
         display: flex;
         flex-direction: column;
+        margin: px(24) 0 px(8) 0;
 
         .description {
             display: flex;
             flex-direction: column;
+            justify-content: space-evenly;
+            width: fit-content;
 
             .label {
                 color: $light-neutral-500;
@@ -57,6 +58,12 @@
             .text {
                 margin-bottom: px(16);
             }
+
+            .com-link {
+                font-family: $font-SuecaSlab;
+                font-size: 16px;
+                font-weight: 400;
+            }
         }
     }
 
@@ -64,10 +71,10 @@
         display: flex;
         justify-content: flex-start;
         align-items: baseline;
-        padding: 12px 0;
+        margin-bottom: px(24);
 
         .text-social-n {
-            margin: 0 px(12);
+            margin-right: px(12);
             align-self: center;
         }
 
@@ -84,48 +91,64 @@
         flex-direction: column;
     }
 
-    .extra-info,
-    .wiki-description {
-        padding: px(16) px(16) px(12) 0;
-    }
-
     .tags-buttons {
-        padding: 12px 0;
+        margin-bottom: px(8);
     }
 
     @media ($media-m) {
         grid-template-areas:
             'image info info'
             'image description description'
-            'rrss  blank blank'
-            'tags  blank blank';
+            'rrss  description description'
+            'tags  description description';
 
-        grid-template-rows: 1fr;
+        grid-template-rows: px(200) px(250);
+        grid-template-columns: px(300) 1fr;
+        padding: 0 px(16) 0 0;
 
         .extra-info {
             flex-wrap: wrap;
-            max-height: 130px;
+            max-height: px(250);
+            .description {
+                max-width: px(220);
+                margin-right: px(4);
+            }
+        }
+
+        .social-networks {
+            margin: px(16) 0 px(16) px(16);
+        }
+        .tags-buttons {
+            margin-left: px(16);
         }
     }
 
     @media ($media-l) {
         grid-template-areas:
             'image info info info'
-            'image description description  description'
+            'image description description description'
+            'blank description description description'
             'rrss tags tags tags';
 
-        grid-template-rows: 1fr;
+        grid-template-rows: px(200) px(260) px(20) px(130);
 
         .extra-info {
             max-height: 100%;
-            flex-wrap: nowrap;
+
+            .description {
+                max-width: 100%;
+            }
         }
 
         .social-networks {
             justify-content: flex-start;
+            margin: px(16) px(24) 0 0;
             .text-social-n {
                 align-self: unset;
             }
+        }
+        .tags-buttons {
+            margin: px(16) 0 px(8) 0;
         }
     }
 
@@ -135,11 +158,19 @@
             'image info description  description'
             'image rrss tags tags';
 
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: 200px 140px 100px;
 
-        .extra-info,
         .wiki-description {
-            padding: px(24) px(16) px(12) 0;
+            padding: px(24) 0 px(12) 0;
+        }
+        .social-networks {
+            margin-top: 0;
+            .text-social-n {
+                margin-left: 0;
+            }
+        }
+        .tags-buttons {
+            margin-top: 0;
         }
     }
 }
