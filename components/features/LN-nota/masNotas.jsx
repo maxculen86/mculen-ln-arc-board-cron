@@ -4,7 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import getProperties from 'fusion:properties';
 import StaticValidation from '../../private/common/staticValidation';
-import getArticlesFromAcumSource from '../../private/LN/common/utils/getArticlesFromAcumSource';
+import GetArticlesFromAcumSource from '../../private/LN/common/utils/getArticlesFromAcumSource';
 import filter from '../../../content/filters/LN/acumulado/articleMasNotas';
 import CajaTema from '../../private/LN/common/cajaTema';
 import {
@@ -73,7 +73,7 @@ const masNotas = props => {
         if (acc.articles) return acc;
         const { slug, text } = tag;
         const isSection = Object.keys(tag).length === 0;
-        const res = getArticlesFromAcumSource(
+        const res = GetArticlesFromAcumSource(
             getQuery(filterType, subtype, customQuerys, slug),
             filter,
             'boxArticles',

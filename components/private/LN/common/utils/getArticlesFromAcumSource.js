@@ -1,8 +1,7 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import { useContent } from 'fusion:content';
 import get from '../../../common/utils/get';
 
-const getArticlesFromAcumSource = (
+const GetArticlesFromAcumSource = (
     typesOfQuery,
     filter,
     imageConfig,
@@ -18,18 +17,18 @@ const getArticlesFromAcumSource = (
     const { sectionId, tagId, authorId, distributorId, sectionsIds, subtype } =
         typesOfQuery || {};
 
-    if (!sectionId && !tagId && !authorId && !distributorId && !sectionsIds)
-        return [];
-
     const articleList = useContent({
-        source: 'acuArticlesSource',
+        source:
+            sectionId || tagId || authorId || distributorId || sectionsIds
+                ? 'acuArticlesSource'
+                : null,
         query: {
             website,
             sectionId,
             authorId,
             tagId,
             subtype,
-            size: size.tripleSize || size,
+            size: (size && size.tripleSize) || size,
             imageConfig,
             excludeSectionId,
             promoItemsOnly,
@@ -45,4 +44,4 @@ const getArticlesFromAcumSource = (
     return get(articleList, 'content_elements', []);
 };
 
-export default getArticlesFromAcumSource;
+export default GetArticlesFromAcumSource;
