@@ -26,9 +26,10 @@ const wikiTypes = {
                 slug: 'text'
             }
         ],
-        schemasInfo: {
-            addtional_name: 'text',
-            birth_date: 'ISO DATE_TIME',
+        schemas_info: {
+            additional_name: 'text',
+            birth_date: '2022-05-01T19:00:00',
+            birth_place: 'text',
             family_name: 'text',
             given_name: 'text',
             job_title: 'text'
@@ -37,7 +38,7 @@ const wikiTypes = {
 
     organization: {
         creation_date: 'ISO DATE_TIME',
-        type: 1,
+        type: 2,
         description: 'text',
         logo_url: 'text',
         image: {
@@ -63,9 +64,9 @@ const wikiTypes = {
                 slug: 'slug'
             }
         ],
-        schemasInfo: {
+        schemas_info: {
             address: 'text',
-            founding_date: 'ISO DATE_TIME',
+            founding_date: '2022-05-01T19:00:00',
             founding_location: 'text',
             legal_name: 'text',
             location: 'text'
