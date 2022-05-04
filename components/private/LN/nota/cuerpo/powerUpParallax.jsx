@@ -50,8 +50,8 @@ const Parallax = ({ data = {} }) => {
                     classCondition="--parallax"
                 />
             </div>
-            {title && (
-                <div className="step-parallax">
+            <div className="step-parallax">
+                {title && (
                     <Text
                         tag="h2"
                         extraClass="bajada-titulo"
@@ -60,10 +60,8 @@ const Parallax = ({ data = {} }) => {
                     >
                         {title}
                     </Text>
-                </div>
-            )}
-            {paragraph && (
-                <div className="step-parallax">
+                )}
+                {paragraph && (
                     <Text
                         tag="p"
                         extraClass="bajada-parrafo"
@@ -72,8 +70,8 @@ const Parallax = ({ data = {} }) => {
                     >
                         {paragraph}
                     </Text>
-                </div>
-            )}
+                )}
+            </div>
         </div>
     );
 };
