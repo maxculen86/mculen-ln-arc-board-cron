@@ -1,11 +1,22 @@
+const getLotteryDate = (date, name) => {
+    return quinielas[name] === '' ? `${name} - ${date}` : date;
+};
+
+export const reorderSubLotteries = (results, order) =>
+    results.sort((a, b) => order.indexOf(a.name) - order.indexOf(b.name));
+
 export const games = {
     Quiniela_Nacional: {
         url: '/loterias/quiniela-nacional/',
-        component: 'Quinielas'
+        isQuiniela: true,
+        getLotteryDate,
+        hasExtraResults: true
     },
     Quiniela_Provincia: {
         url: '/loterias/quiniela-provincia/',
-        component: 'Quinielas'
+        isQuiniela: true,
+        getLotteryDate,
+        hasExtraResults: true
     },
     Quiniela_de_Cordoba: {
         url: '/loterias/quiniela-cordoba/',
@@ -23,15 +34,21 @@ export const games = {
                 Redoblona: Significa que se apostó a que dos números (de dos cifras exclusivamente) saldrán en lugares determinados.`
             }
         ],
-        component: 'Quinielas'
+        isQuiniela: true,
+        getLotteryDate,
+        hasExtraResults: true
     },
     Quiniela_de_Santa_Fe: {
         url: '/loterias/quiniela-santa-fe/',
-        component: 'Quinielas'
+        isQuiniela: true,
+        getLotteryDate,
+        hasExtraResults: true
     },
     Quiniela_Uruguaya: {
         url: '/loterias/quiniela-montevideo/',
-        component: 'Quinielas'
+        isQuiniela: true,
+        getLotteryDate,
+        hasExtraResults: true
     },
     Quini_6: {
         url: '/loterias/quini-6/',
@@ -45,9 +62,27 @@ export const games = {
                     El pozo quedará vacante e incrementará el premio del concurso siguiente, cuando no se registren apuestas ganadoras del primer premio.`
             }
         ],
-        component: 'Quini6'
+        boxResultClass: 'box-result --quini-6',
+        sublotteriesOrder: [
+            'Tradicional',
+            'Segunda vuelta',
+            'Revancha',
+            'Pozo extra',
+            'Siempre sale'
+        ],
+        getLotteryDate,
+        hasExtraResults: true,
+        extraResultsModificator: '--grid-6',
+        showFirstLotteryName: true
     },
-    Telekino: { url: '/loterias/telekino/', component: 'Telekino' },
+    Telekino: {
+        url: '/loterias/telekino/',
+        boxResultClass: 'box-result --grid-5-columns',
+        getLotteryDate,
+        hasExtraResults: true,
+        extraResultsModificator: '--grid-5',
+        showFirstLotteryName: true
+    },
     Loto: {
         url: '/loterias/loto/',
         rules: [
@@ -57,9 +92,20 @@ export const games = {
                     Obtendrán premio aquellas apuestas que aciertan a tres, cuatro, cinco o seis números de la combinación ganadora.`
             }
         ],
-        component: 'LotoPlus'
+        boxResultClass: 'box-result --loto-plus',
+        sublotteriesOrder: ['Tradicional', 'Desquite', 'Sale o sale'],
+        showVacantPot: false,
+        hasJackpot: true,
+        getLotteryDate,
+        extraResultsModificator: '--flex-6',
+        showFirstLotteryName: true
     },
-    Loto_5: { url: '/loterias/loto-5/', component: 'Loto5' },
+    Loto_5: {
+        url: '/loterias/loto-5/',
+        boxResultClass: 'box-result --loto-5',
+        showVacantPot: true,
+        getLotteryDate
+    },
     Quiniela_Poceada: {
         url: '/loterias/quiniela-poceada/',
         rules: [
@@ -69,13 +115,23 @@ export const games = {
                     'De un extracto de veinte (20) números de dos cifras, el apostador debe seleccionar 8 números. Obtienen premio las apuestas con ocho (8), siete (7) o seis (6) aciertos.'
             }
         ],
-        component: 'QuinielaPoceada'
+        boxResultClass: 'box-result --grid-5-columns',
+        showVacantPot: false,
+        showLetters: true,
+        getLotteryDate
     },
     Quiniela_Plus: {
         url: '/loterias/quiniela-plus/',
-        component: 'QuinielaPlus'
+        boxResultClass: 'box-result --grid-5-columns',
+        getLotteryDate,
+        showFirstLotteryName: true
     },
-    Brinco: { url: '/loterias/brinco/', component: 'Brinco' }
+    Brinco: {
+        url: '/loterias/brinco/',
+        boxResultClass: 'box-result --brinco',
+        showVacantPot: true,
+        getLotteryDate
+    }
 };
 
 export const LOTERIES_IDS = {
@@ -99,7 +155,8 @@ export const meanings = {
         link: {
             sandbox:
                 '/loterias/significado-de-suenos-y-numeros-para-loterias-y-quinielas-nid25032022/',
-            prod: '#'
+            prod:
+                '/loterias/significado-de-suenos-y-numeros-para-loterias-y-quinielas-nid09042022/'
         },
 
         linkTitle:
@@ -111,7 +168,8 @@ export const meanings = {
         link: {
             sandbox:
                 '/loterias/significado-de-suenos-segun-los-nombres-y-numeros-para-loterias-y-quinielas-nid25032022/',
-            prod: '#'
+            prod:
+                '/loterias/significado-de-suenos-segun-los-nombres-y-numeros-para-loterias-y-quinielas-nid09042022/'
         },
 
         linkTitle:
@@ -123,7 +181,8 @@ export const meanings = {
         link: {
             sandbox:
                 '/loterias/significado-de-suenos-segun-los-animales-y-numeros-para-loterias-y-quinielas-nid25032022/',
-            prod: '#'
+            prod:
+                '/loterias/significado-de-suenos-segun-los-animales-y-numeros-para-loterias-y-quinielas-nid09042022/'
         },
 
         linkTitle:
@@ -135,11 +194,19 @@ export const meanings = {
         link: {
             sandbox:
                 '/loterias/significado-de-los-suenos-y-numeros-segun-la-loteria-nacional-nid25032022/',
-            prod: '#'
+            prod:
+                '/loterias/significado-de-los-suenos-y-numeros-segun-la-loteria-nacional-nid09042022/'
         },
 
         linkTitle:
             'Ver el significado de los sueños y números según la lotería nacional',
         icon: 'national'
     }
+};
+
+const quinielas = {
+    Primera: '',
+    Nocturna: '',
+    Vespertina: '',
+    Matutina: ''
 };

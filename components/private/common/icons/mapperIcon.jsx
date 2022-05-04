@@ -13,6 +13,7 @@ import {
     RssFilled,
     Email,
     EmailFilled,
+    ExclusiveLn,
     Whatsapp,
     WhatsappFilled,
     YoutubeFilled,
@@ -98,6 +99,7 @@ const listIcons = {
     'arrow-up': ArrowUp,
     'arrow-right': ArrowRight,
     'arrow-left': ArrowLeft,
+    'exclusive-ln': ExclusiveLn,
     comment: Comment,
     timer: Timer,
     group: Group,
@@ -124,7 +126,7 @@ const listIcons = {
     'storm-cloudy': StormCloudy,
     'clear-night': ClearNight,
 
-    //Lotteries Icons
+    // Lotteries Icons
     animals: AnimalsLotteries,
     names: NamesLotteries,
     national: NationalLotteries,

@@ -11,7 +11,6 @@ const formatNumbers = (arr = []) =>
 export const transformLotteryDetail = data => {
     const [firstLottery = {}] = data;
     const newRules = get(games, `${firstLottery.id}.rules`, []);
-    const cardComponent = get(games, `${firstLottery.id}.component`, '');
     const lotteryDetail = data.map(lottery => {
         const {
             name = '',
@@ -34,7 +33,6 @@ export const transformLotteryDetail = data => {
         return {
             name: lottery_draw_name || name,
             id,
-            component: cardComponent,
             date: transformISODate(date, 'day dd/mm/yyyy'),
             ...(letters !== '' && {
                 letters: [letters.replace(/\s+/g, '')]
@@ -88,7 +86,6 @@ const getWinnersCarton = prizes =>
 export const transformLotteryHome = data => ({
     lotteries: Object.keys(games).reduce((acc, lottery) => {
         const newValue = getValue(data, lottery);
-        const cardComponent = get(games, `${lottery}.component`, '');
         const url = get(games, `${lottery}.url`, '');
         const [
             {
@@ -108,7 +105,6 @@ export const transformLotteryHome = data => ({
             acc.push({
                 id,
                 name,
-                component: cardComponent,
                 date: transformISODate(date, 'day dd/mm/yyyy'),
                 ...(url && { link: url }),
                 ...(letters !== '' && {

@@ -46,8 +46,7 @@ describe('Utils - SectionUtils', () => {
     it('getSectionLogo test Propiedades', () => {
         const sections = notaPropiedades.taxonomy.sections;
         const layout = 'LN-nota-noticia';
-        const distributorName = 'BBC Mundo';
-        const LogoComponent = getSectionLogo(sections, layout, distributorName);
+        const LogoComponent = getSectionLogo(sections, layout);
 
         expect(LogoComponent).toMatchObject({
             color: true,
@@ -64,8 +63,8 @@ describe('Utils - SectionUtils', () => {
 
         expect(LogoComponent).toMatchObject({
             color: true,
-            logoName: 'brando',
-            path: '/revista-brando'
+            logoName: 'bbc',
+            path: '/distributor/bbc-mundo'
         });
     });
 

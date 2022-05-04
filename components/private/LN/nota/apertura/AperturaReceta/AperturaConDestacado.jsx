@@ -33,12 +33,7 @@ const AperturaConDestacado = props => {
                     <DetalleReceta receta={promoItems.receta} />
                 )}
                 {!!tags && tags.length > 0 && (
-                    <Tags
-                        tags={tags}
-                        destacado={false}
-                        showItems={3}
-                        extraTagText=" recetas con"
-                    />
+                    <Tags tags={tags} destacado={false} showItems={3} />
                 )}
             </div>
         </>

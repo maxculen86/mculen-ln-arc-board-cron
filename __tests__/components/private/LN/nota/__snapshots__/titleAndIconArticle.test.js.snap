@@ -3,11 +3,11 @@
 exports[`features - LaNacion - Nota - TituloNota Test de snapshot Titulo e Icono en Nota 1`] = `
 Array [
   <com-logo
-    alt="Revista Brando"
-    href="/revista-brando/"
-    logoname="brando"
+    alt="bbc"
+    href="/distributor/bbc-mundo/"
+    logoname="bbc"
     size="--sm"
-    title="Revista Brando"
+    title="bbc"
   />,
   <h1
     class="com-title --threexl"
