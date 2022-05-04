@@ -5,7 +5,6 @@
                 "date": "Viernes 04/03/2022",
                 "letters": ["BNQR"],
                 "name": "Quiniela Nacional",
-                "component": "Quinielas",
                 "id": "Quiniela_Nacional",
                 "link": "/loterias/quiniela-nacional/",
                 "results": [
@@ -118,7 +117,6 @@
             {
                 "date": "Viernes 04/03/2022",
                 "name": "Quiniela Provincia",
-                "component": "Quinielas",
                 "link": "/loterias/quiniela-provincia/",
                 "id": "Quiniela_Provincia",
                 "results": [
@@ -233,7 +231,6 @@
                 "name": "Quiniela de Cordoba",
                 "link": "/loterias/quiniela-cordoba/",
                 "id": "Quiniela_de_Cordoba",
-                "component": "Quinielas",
                 "results": [
                     {
                         "date": "04/03",
@@ -346,7 +343,6 @@
                 "name": "Quiniela de Santa Fe",
                 "link": "/loterias/quiniela-santa-fe/",
                 "id": "Quiniela_de_Santa_Fe",
-                "component": "Quinielas",
                 "results": [
                     {
                         "date": "04/03",
@@ -457,7 +453,6 @@
             {
                 "date": "Jueves 03/03/2022",
                 "name": "Quiniela Uruguaya",
-                "component": "Quinielas",
                 "link": "/loterias/quiniela-montevideo/",
                 "id": "Quiniela_Uruguaya",
                 "results": [
@@ -518,7 +513,6 @@
             {
                 "date": "Miércoles 02/03/2022",
                 "name": "Quini 6",
-                "component": "Quini6",
                 "link": "/loterias/quini-6/",
                 "id": "Quini_6",
                 "results": [
@@ -572,7 +566,6 @@
                 "date": "Miércoles 02/03/2022",
                 "name": "Loto",
                 "id": "Loto",
-                "component": "LotoPlus",
                 "link": "/loterias/loto/",
                 "results": [
                     {
@@ -600,7 +593,6 @@
                 "letters": ["BCLV"],
                 "name": "Quiniela Poceada",
                 "link": "/loterias/quiniela-poceada/",
-                "component": "QuinielaPoceada",
                 "id": "Quiniela_Poceada",
                 "results": [
                     {
@@ -635,7 +627,6 @@
                 "date": "Jueves 03/03/2022",
                 "name": "Quiniela Plus",
                 "id": "Quiniela_Plus",
-                "component": "QuinielaPlus",
                 "link": "/loterias/quiniela-plus/",
                 "results": [
                     {

@@ -4,72 +4,72 @@ import Image from '../../../common/com-image';
 import Text from '../../../common/text';
 import Icon from '../../../common/icon';
 import TaxonomyImportantList from '../../common/taxonomyImportantList';
-import SchemaInfoTags from './SchemaInfoTags';
+import SchemaInfoWiki from './SchemaInfoWiki';
 
 const WikiTag = ({
-    creation_date,
-    social_networks,
-    related_tags,
+    creation_date: creationDate,
+    social_networks: socialNetworks,
+    related_tags: relatedTags,
     type,
     description,
-    schemas_info,
+    schemas_info: schemasInfo,
     image,
-    logo_url
+    logo_url: logoUrl
 }) => {
-    const formatTags = related_tags.map(({ text, slug }) => ({
+    const {
+        additional_name: additionalName,
+        birth_date: birthDate,
+        birth_place: birthPlace,
+        job_title: jobTitle,
+        founding_date: foundingDate,
+        founding_location: foundingLocation,
+        family_name: familyName,
+        given_name: givenName,
+        location,
+        address,
+        legal_name: legalName
+    } = schemasInfo;
+
+    const formatTags = relatedTags.map(({ text, slug }) => ({
         text,
         path: slug
     }));
 
-    const schemasInfo = {
-        given_name: 'Club Atlético Boca',
-        birth_date: '1905-04-03',
-        address: 'esta es la direccion, codigo postal',
-        location: '1905-04-03',
-        birth_place: '1905-04-03',
-        job_title: 'La Boca, Ciudad de Buenos Aires, Argentina'
-    };
-
     const schemaDictionary = {
-        additional_name: '',
-        birth_date: 'Fecha de nacimiento',
-        birth_place: 'Lugar de nacimiento',
-        family_name: '',
-        given_name: 'Nombre',
-        job_title: 'Profesión',
-        founding_date: 'Fecha de fundación',
-        founding_laction: 'Fecha de fundación',
-        legal_name: 'Nombre legal'
+        additionalName: '',
+        birthDate: 'Fecha de nacimiento',
+        birthPlace: 'Lugar de nacimiento',
+        familyName: '',
+        givenName: 'Nombre',
+        jobTitle: 'Profesión',
+        foundingDate: 'Fecha de fundación',
+        foundingLocation: 'Fecha de fundación',
+        legalName: 'Nombre legal'
     };
 
     const addressInformation = {
-        link: schemasInfo.location,
-        text: schemasInfo.address
+        link: location,
+        text: address
     };
 
-    if (type === 'organizacion') {
-        delete schemasInfo.location;
-        delete schemasInfo.address;
-    }
-
-    // const isPersonWiki = type !== 'organizacion';
-    // const formatAlt = isPersonWiki
-    //     ? `${given_name} ${additional_name} ${family_name}`
-    //     : legal_name;
+    const isPersonWiki = type !== 'organizacion';
+    const formatAlt = isPersonWiki
+        ? `${givenName} ${additionalName} ${familyName}`
+        : legalName;
 
     return (
         <article className="wiki-tags">
-            <Image src={image.url} alt="holis" title="foto" />
+            <Image src={image.url} alt={formatAlt} />
             <div className="extra-info">
                 {Object.keys(schemasInfo).map(key => (
-                    <SchemaInfoTags
+                    <SchemaInfoWiki
                         classes="description"
                         label={schemaDictionary[key]}
                         text={schemasInfo[key]}
                     />
                 ))}
                 {type === 'organizacion' && (
-                    <SchemaInfoTags
+                    <SchemaInfoWiki
                         classes="description"
                         label="Dirección"
                         text={addressInformation.text}
@@ -86,7 +86,7 @@ const WikiTag = ({
                 >
                     Conectar:
                 </Text>
-                {social_networks.map(iconInfo => (
+                {socialNetworks.map(iconInfo => (
                     <div className="social-icons">
                         <Icon
                             name={iconInfo.name}
@@ -140,7 +140,7 @@ WikiTag.propTypes = {
         address: PropTypes.string,
         founding_date: PropTypes.string,
         birth_place: PropTypes.string,
-        founding_laction: PropTypes.string,
+        founding_location: PropTypes.string,
         legal_name: PropTypes.string,
         location: PropTypes.string,
         additional_name: PropTypes.string,
@@ -212,7 +212,7 @@ WikiTag.defaultProps = {
         job_title: 'Futbolista ',
         address: 'Rosario, Santa Fe, Argentina',
         founding_date: null,
-        founding_laction: null,
+        founding_location: null,
         legal_name: null,
         location: null
     },

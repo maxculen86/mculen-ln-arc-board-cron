@@ -9,8 +9,12 @@ const WikiFeature = () => {
     const { isWiki } = props;
     const wikiSourceData = useContent({
         source: isWiki ? 'wikiTagSource' : null,
-        query: { type: 'person' }
+        query: { type: 'person', imageConfig: 'aperturaAcu' }
     });
+
+    const {
+        image: { resizedUrls = [], url = '', alt = '' }
+    } = wikiSourceData;
 
     return isWiki && <Wikitag />;
 };

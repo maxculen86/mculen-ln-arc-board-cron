@@ -3,20 +3,19 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
-import StaticValidation from '../../../private/common/staticValidation';
-import DetailsTable from '../../../private/LN/services/lotteries/DetailsTable';
-import get from '../../../private/common/utils/get';
-import { components } from '../lotteryGrid/default';
-import TableHorizontalResults from '../../../private/LN/services/lotteries/TableHorizontalResults';
-import {
-    reorderSubLotteries,
-    quini6Order,
-    lotoPlusOrder
-} from '../../../private/LN/services/lotteries/utils';
-import ComLink from '../../../private/common/com-link';
 import Text from '../../../private/common/text';
+import get from '../../../private/common/utils/get';
+import ComLink from '../../../private/common/com-link';
+import StaticValidation from '../../../private/common/staticValidation';
+import LotteryCard from '../../../private/LN/services/lotteries/LotteryCard';
+import DetailsTable from '../../../private/LN/services/lotteries/DetailsTable';
+import TableHorizontalResults from '../../../private/LN/services/lotteries/TableHorizontalResults';
 
 import '../../../../resources/dist/css/ln/pages/lotteries.css';
+import {
+    games,
+    reorderSubLotteries
+} from '../../../../content/sources/utils/servicesSource/lottery/_config';
 
 const LotteryDetailOpening = ({ id: featureId }) => {
     const lottery = get(
@@ -25,11 +24,13 @@ const LotteryDetailOpening = ({ id: featureId }) => {
         []
     );
     const [firstLot = {}] = lottery;
+    const { id = '' } = firstLot;
+    const getOrder = get(games, `${id}.sublotteriesOrder`, []);
+    const reorderedLotteries = reorderSubLotteries(lottery, getOrder);
+
     const metaData = get(useAppContext(), 'globalContent.metaData', {});
     const { lotteryName = '', completeDay = '' } = metaData;
 
-    if (firstLot.id === 'Quini_6') reorderSubLotteries(lottery, quini6Order);
-    if (firstLot.id === 'Loto') reorderSubLotteries(lottery, lotoPlusOrder);
     return (
         lottery.length && (
             <StaticValidation id={featureId} htmlOnly persistent>
@@ -49,20 +50,22 @@ const LotteryDetailOpening = ({ id: featureId }) => {
                             : 'lottery-detail-box'
                     }`}
                 >
-                    {lottery.map(lot => {
-                        const {
-                            component: cardComponent,
-                            id,
-                            winners_table
-                        } = lot;
-                        const Lottery = components[cardComponent];
+                    {reorderedLotteries.map(lot => {
+                        const { id: lotteryId, winners_table } = lot;
                         return (
                             <>
                                 {!winners_table ? (
-                                    <TableHorizontalResults key={id} {...lot} />
+                                    <TableHorizontalResults
+                                        key={lotteryId}
+                                        {...lot}
+                                    />
                                 ) : (
                                     <>
-                                        <Lottery key={id} isDetail {...lot} />
+                                        <LotteryCard
+                                            key={lotteryId}
+                                            isDetail
+                                            {...lot}
+                                        />
                                         <DetailsTable data={lot} />
                                     </>
                                 )}

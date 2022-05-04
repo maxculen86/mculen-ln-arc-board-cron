@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Text from '../../../common/text';
 import ComLink from '../../../common/com-link';
 
-const SchemaInfoTags = ({ classes, label, text, link }) => {
+const SchemaInfoWiki = ({ classes, label, text, link }) => {
     return (
         <div className={classes}>
             <Text font="arial" size="4xs" weight="regular" extraClass="label">
@@ -26,16 +26,16 @@ const SchemaInfoTags = ({ classes, label, text, link }) => {
     );
 };
 
-export default SchemaInfoTags;
+export default SchemaInfoWiki;
 
-SchemaInfoTags.propTypes = {
+SchemaInfoWiki.propTypes = {
     classes: PropTypes.string,
     link: PropTypes.string,
     label: PropTypes.string,
     text: PropTypes.string
 };
 
-SchemaInfoTags.defaultProps = {
+SchemaInfoWiki.defaultProps = {
     text: '',
     label: '',
     classes: '',

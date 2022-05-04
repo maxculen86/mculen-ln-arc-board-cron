@@ -26,7 +26,7 @@ const masNotas = props => {
             subtype,
             taxonomy: {
                 primary_section: { _id, _website, name: sectionName, path },
-                tags
+                tags = []
             },
             _id: idArticle
         },
@@ -107,7 +107,7 @@ const masNotas = props => {
 
     return (
         <StaticValidation id={featureId} htmlOnly persistent>
-            {articles.length >= 3 && (
+            {articles.length >= 3 ? (
                 <CajaTema
                     title={title}
                     notesQuantity={size.originalSize}
@@ -119,6 +119,8 @@ const masNotas = props => {
                     outputType={outputType}
                     withVolanta
                 />
+            ) : (
+                <></>
             )}
         </StaticValidation>
     );

@@ -30,7 +30,7 @@ const Schemas = ({ section }) => {
     const createScript = childrens =>
         childrens.map(x => (
             <script
-                dangerouslySetInnerHTML={{ __html: x.replace(/\s/g, '') }}
+                dangerouslySetInnerHTML={{ __html: x }}
                 type="application/ld+json"
             ></script>
         ));

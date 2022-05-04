@@ -72,6 +72,7 @@ const transform = (data, query, tagConfigData) => {
         anexoinferior: getDataForTag(anexoInferiorTag, slug),
         collectionForTag: getDataForTag(collectionTag, slug)
     };
+    const isWiki = typeof wikiList[slug] !== 'undefined';
     return {
         ...data,
         node_type: 'tags',
@@ -79,7 +80,8 @@ const transform = (data, query, tagConfigData) => {
         canonical_url: `/tema/${slug}/`,
         subscription: meteringVariant,
         acumuladoGeneral,
-        isWiki: typeof wikiList[slug] !== 'undefined'
+        isWiki,
+        ...(isWiki && { imageId: wikiList[slug] })
     };
 };
 
