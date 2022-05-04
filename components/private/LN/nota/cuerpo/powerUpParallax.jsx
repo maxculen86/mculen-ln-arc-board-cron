@@ -5,6 +5,7 @@ import ComImage from '../../../common/com-image';
 import '../../../../../resources/dist/css/ln/components/parallax.css';
 import { filteredSources } from '../apertura/AperturaStorytelling/component';
 import useViewportSize from '../../../common/hooks/useViewportSize';
+import Text from '../../../common/text';
 
 const Parallax = ({ data = {} }) => {
     const { outputType } = useAppContext();
@@ -21,7 +22,13 @@ const Parallax = ({ data = {} }) => {
             config: { imageId, title, paragraph }
         }
     } = data;
-    const { url: imageUrl, caption, resized_urls: imagesResized } = imageId;
+    const {
+        url: imageUrl,
+        caption,
+        resized_urls: imagesResized,
+        width,
+        height
+    } = imageId;
 
     if (!imageId || (!title && !paragraph)) return null;
 
@@ -38,17 +45,33 @@ const Parallax = ({ data = {} }) => {
                     srcset={srcSet}
                     alt={caption}
                     amp={isAmp}
+                    width={width}
+                    height={height}
                     classCondition="--parallax"
                 />
             </div>
             {title && (
                 <div className="step-parallax">
-                    <h2 className="bajada-titulo">{title}</h2>
+                    <Text
+                        tag="h2"
+                        extraClass="bajada-titulo"
+                        font="sueca"
+                        weight="bold"
+                    >
+                        {title}
+                    </Text>
                 </div>
             )}
             {paragraph && (
                 <div className="step-parallax">
-                    <p className="bajada-parrafo">{paragraph}</p>
+                    <Text
+                        tag="p"
+                        extraClass="bajada-parrafo"
+                        font="georgia"
+                        size="small"
+                    >
+                        {paragraph}
+                    </Text>
                 </div>
             )}
         </div>

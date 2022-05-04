@@ -51,10 +51,9 @@ describe('Article source nota - addParallaxData', () => {
                 expect(getImageResized).toBeCalledTimes(3);
                 expect(response.length).toBe(9);
                 expect(parallaxs.length).toBe(3);
-                // contentElements.forEach((element, index) => {
-                //     element._id === response[index].id
-                // })
-
+                contentElements.forEach((element, index) => {
+                    expect(element._id).toEqual(response[index]._id);
+                });
                 expect(response).toMatchSnapshot();
             })
             .then(done);

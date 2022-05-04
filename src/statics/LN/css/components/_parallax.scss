@@ -36,33 +36,28 @@
         text-align: center;
 
         .bajada-titulo {
-            width: auto;
-            font-weight: 800;
-            font-family: 'Prumo Deck';
-            font-size: px(48);
-            line-height: 1.1;
-            letter-spacing: 0rem;
-            color: #03fada;
-            text-shadow: 0px 1px 3px black;
-            @media (min-width: 520px) {
-                font-size: px(64);
-            }
+            color: $light-neutral-50;
+            text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.46);
+            font-size: px(24);
+            line-height: px(32);
+            letter-spacing: px(-0.4);
             @media ($media-m) {
-                font-size: px(128);
+                font-size: px(40);
+                line-height: px(52);
+            }
+            @media ($media-l) {
+                font-size: px(48);
+                line-height: px(56);
             }
         }
 
         .bajada-parrafo {
-            max-width: px(740);
-            font-size: 25px;
-            font-family: 'Prumo Deck';
-            letter-spacing: 0rem;
-            color: #fff;
-            background-color: #0000007a;
             display: inline-block;
-            padding: px(24);
-            line-height: 1.2;
-            font-weight: 100;
+            max-width: px(740);
+            border-radius: px(4);
+            color: #ffffff;
+            background-color: #1c1c1f99;
+            padding: $spacing-sm;
         }
     }
 }
