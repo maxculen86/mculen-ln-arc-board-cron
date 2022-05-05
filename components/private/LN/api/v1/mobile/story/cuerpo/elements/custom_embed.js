@@ -1,6 +1,5 @@
 import get from '../../../../../../../common/utils/get';
 import header from './header';
-import htmlText from '../../../../common/story/cuerpo/elements/htmlText';
 import image from './image';
 
 const customEmbed = (nodo, dataNota) => {
@@ -26,7 +25,7 @@ const customEmbed = (nodo, dataNota) => {
 
     const paragraphElement = get(nodo, 'embed.config.paragraph', null);
     if (paragraphElement) {
-        res.push({ _t: 'p', valor: htmlText(paragraphElement) });
+        res.push({ _t: 'text', valor: paragraphElement });
     }
 
     return res;
