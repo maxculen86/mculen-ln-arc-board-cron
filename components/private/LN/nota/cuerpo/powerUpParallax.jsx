@@ -10,9 +10,9 @@ import Text from '../../../common/text';
 const Parallax = ({ data = {} }) => {
     const { outputType } = useAppContext();
     const isAmp = outputType === 'amp';
-
-    const [device, setDevice] = useState('desktop');
     const dev = useViewportSize();
+    const [device, setDevice] = useState(dev);
+
     useEffect(() => {
         setDevice(dev);
     }, [dev]);
@@ -50,8 +50,8 @@ const Parallax = ({ data = {} }) => {
                     classCondition="--parallax"
                 />
             </div>
-            <div className="step-parallax">
-                {title && (
+            {title && (
+                <div className="step-parallax">
                     <Text
                         tag="h2"
                         extraClass="bajada-titulo"
@@ -60,8 +60,10 @@ const Parallax = ({ data = {} }) => {
                     >
                         {title}
                     </Text>
-                )}
-                {paragraph && (
+                </div>
+            )}
+            {paragraph && (
+                <div className="step-parallax">
                     <Text
                         tag="p"
                         extraClass="bajada-parrafo"
@@ -70,8 +72,8 @@ const Parallax = ({ data = {} }) => {
                     >
                         {paragraph}
                     </Text>
-                )}
-            </div>
+                </div>
+            )}
         </div>
     );
 };
