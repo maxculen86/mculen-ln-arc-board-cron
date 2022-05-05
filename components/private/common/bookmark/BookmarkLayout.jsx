@@ -3,6 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import Text from '../text';
 import Icon from '../icon';
 import EmptyBookmark from './EmptyBookmark';
+import DeleteNote from './DeleteNote';
 import '../../../../resources/dist/css/ln/components/bookmark.css';
 
 const BookmarkLayout = ({ notes }) => {
@@ -20,6 +21,7 @@ const BookmarkLayout = ({ notes }) => {
                     </Text>
                 </div>
             </div>
+            <DeleteNote />
             {notes === 0 ? (
                 <div>
                     <EmptyBookmark />

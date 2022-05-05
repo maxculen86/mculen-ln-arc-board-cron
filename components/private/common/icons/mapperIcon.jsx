@@ -62,7 +62,10 @@ import {
     AnimalsLotteries,
     NamesLotteries,
     NationalLotteries,
-    TraditionalLotteries
+    TraditionalLotteries,
+    Lamp,
+    Bookmark,
+    AlertFailed
 } from './index';
 
 const listIcons = {
@@ -112,6 +115,9 @@ const listIcons = {
     'share-android': ShareAndroid,
     share: Share,
     ln: Ln,
+    lamp: Lamp,
+    bookmark: Bookmark,
+    'alert-failed': AlertFailed,
 
     // Weather Icons
     sun: Sun,

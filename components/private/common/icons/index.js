@@ -44,6 +44,9 @@ export { default as ShareAndroid } from './system/ShareAndroid';
 export { default as Share } from './system/Share';
 export { default as Ln } from './system/Ln';
 export { default as ExclusiveLn } from './system/ExclusiveLn';
+export { default as Lamp } from './system/Lamp';
+export { default as Bookmark } from './system/Bookmark';
+export { default as AlertFailed } from './system/AlertFailed';
 
 // Weather Icons
 export { default as ClearNight } from './weather/ClearNight';
