@@ -61,7 +61,7 @@
     "social_networks": [
         {
             "type": "text",
-            "name": "text",
+            "name": "instagram",
             "url": "text"
         }
     ],
@@ -75,12 +75,18 @@
             "slug": "text"
         }
     ],
-    "schemasInfo": {
-        "addtional_name": "text",
-        "birth_date": "ISO DATE_TIME",
+    "schemas_info": {
+        "additional_name": "text",
+        "birth_date": "2022-05-01T19:00:002022-05-01T19:00:00",
         "family_name": "text",
         "given_name": "text",
-        "job_title": "text"
+        "job_title": "text",
+        "birth_place": "birthPlace",
+        "founding_date": "foundingDate",
+        "founding_location": "foundingLocation",
+        "location": "",
+        "address": "",
+        "legal_name": "legalName"
     },
     "_id": "76315a19a666cd7c7bf59c4e076934c88695ef2cc5bc9e6f874fb4d08c4b9f12"
 }

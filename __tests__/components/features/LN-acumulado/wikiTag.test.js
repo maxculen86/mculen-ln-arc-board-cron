@@ -21,7 +21,7 @@ jest.mock('fusion:context', () => () => ({
 const fusionUseContent = jest.spyOn(Content, 'useContent');
 
 describe('LN-Acumulado-WikiTag test', () => {
-    it('Should render the feture when isWiki si true', () => {
+    it('Should render the feture when isWiki is true', () => {
         Context.useAppContext = jest.fn(() => ({
             globalContent: {
                 isWiki: true

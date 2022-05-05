@@ -2,7 +2,7 @@
 
 exports[`components - private - LN - common - TaxonomyImportantList Test de snapshot de taxonomy important list 1`] = `
 <section
-  class="mod-themes"
+  class="mod-themes "
 >
   <a
     class="com-link com-button --secondary --compact --transparent --tag"

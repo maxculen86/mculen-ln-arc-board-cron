@@ -12,7 +12,7 @@ const wikiTypes = {
         social_networks: [
             {
                 type: 'text',
-                name: 'text',
+                name: 'instagram',
                 url: 'text'
             }
         ],
