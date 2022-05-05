@@ -1,4 +1,4 @@
-const powerUp = contentElements => {
+export const recipePowerUps = contentElements => {
     const powerUps = powerUpsJoin(contentElements);
     const newContentElements = contentElements.filter(e => {
         return e.type !== 'custom_embed';
@@ -10,8 +10,13 @@ const powerUp = contentElements => {
 };
 
 const powerUpsJoin = contentElements => {
+    const recipeSubtypes = [
+        'custom-ingrediente',
+        'custom-preparacion',
+        'custom-nutrition'
+    ];
     const powerUps = contentElements.filter(e => {
-        return e.type === 'custom_embed';
+        return e.type === 'custom_embed' && recipeSubtypes.includes(e.subtype);
     });
 
     return {
@@ -21,4 +26,10 @@ const powerUpsJoin = contentElements => {
     };
 };
 
-export default powerUp;
+export const removeParallaxPowerUp = contentElements => {
+    return contentElements.filter(
+        content =>
+            content.type !== 'custom_embed' ||
+            content.subtype !== 'custom-parallax'
+    );
+};

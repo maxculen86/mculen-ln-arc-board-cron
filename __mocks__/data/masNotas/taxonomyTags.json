@@ -1,0 +1,133 @@
+{
+    "primary_section": {
+        "_id": "/recetas/platos-de-comida-principal",
+        "_website": "la-nacion-ar",
+        "additional_properties": {
+            "original": {
+                "ancestors": {},
+                "migration": {
+                    "id_section_ln9": null,
+                    "migrated_mob": "true"
+                }
+            }
+        },
+        "name": "Platos de comida principal",
+        "parent_id": "/recetas",
+        "path": "/recetas/platos-de-comida-principal",
+        "type": "section"
+    },
+    "sections": [
+        {
+            "_id": "/recetas",
+            "_website": "la-nacion-ar",
+            "additional_properties": {
+                "original": {
+                    "ancestors": {},
+                    "migration": {
+                        "id_section_ln9": "0",
+                        "migrated_mob": "true"
+                    },
+                    "site": {},
+                    "style": {}
+                }
+            },
+            "name": "Recetas",
+            "parent_id": "/",
+            "path": "/recetas",
+            "type": "section"
+        },
+        {
+            "_id": "/recetas/platos-de-comida-principal",
+            "_website": "la-nacion-ar",
+            "additional_properties": {
+                "original": {
+                    "ancestors": {},
+                    "migration": {
+                        "id_section_ln9": null,
+                        "migrated_mob": "true"
+                    }
+                }
+            },
+            "name": "Platos de comida principal",
+            "parent_id": "/recetas",
+            "path": "/recetas/platos-de-comida-principal",
+            "type": "section"
+        }
+    ],
+    "sites": [
+        {
+            "additional_properties": {
+                "original": {
+                    "_id": "/recetas",
+                    "migration": {
+                        "id_section_ln9": "0",
+                        "migrated_mob": "true"
+                    }
+                }
+            }
+        },
+        {
+            "additional_properties": {
+                "original": {
+                    "_id": "/recetas/platos-de-comida-principal",
+                    "migration": {
+                        "id_section_ln9": null,
+                        "migrated_mob": "true"
+                    }
+                }
+            }
+        }
+    ],
+    "tags": [
+        {
+            "description": "Pescados",
+            "slug": "pescados-tid67216",
+            "text": "Pescados"
+        },
+        {
+            "description": "Arroz",
+            "slug": "arroz-tid47136",
+            "text": "Arroz"
+        },
+        {
+            "description": "Ajo",
+            "slug": "ajo-tid47126",
+            "text": "Ajo"
+        },
+        {
+            "description": "Aceite de oliva",
+            "slug": "aceite-de-oliva-tid47117",
+            "text": "Aceite de oliva"
+        },
+        {
+            "description": "Vino blanco",
+            "slug": "vino-blanco-tid47349",
+            "text": "Vino blanco"
+        },
+        {
+            "description": "Alcaucil",
+            "slug": "alcaucil-tid47129",
+            "text": "Alcaucil"
+        },
+        {
+            "description": "Limón",
+            "slug": "limon-tid47252",
+            "text": "Limón"
+        },
+        {
+            "description": "Perejil",
+            "slug": "perejil-tid47297",
+            "text": "Perejil"
+        },
+        {
+            "description": "Mejillón",
+            "slug": "mejillon-tid47930",
+            "text": "Mejillón"
+        },
+        {
+            "description": "Langostinos",
+            "slug": "langostinos-tid47750",
+            "text": "Langostinos"
+        }
+    ]
+}

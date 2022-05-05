@@ -42,7 +42,8 @@ const dates = {
         return `${weekDays[dateWithDay.getDay()]} ${dateFormated[0]} de ${
             monthNames[dateFormated[1]]
         }`;
-    }
+    },
+    'yyyy/mm/dd': date => date.join('-')
 };
 
 const transformISODate = (

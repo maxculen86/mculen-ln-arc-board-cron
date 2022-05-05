@@ -133,6 +133,17 @@ const HeaderDesktop = ({
                         className={`com-usuario${active} ${!token &&
                             loadingUserData}`}
                     >
+                        {/* Botón oculto para Experimentos ADQUISICION */}
+                        <a
+                            className={`com-button --special${loadingUserData}`}
+                            id="btnupselling"
+                            title="¡Mejorá tu plan!"
+                            href="#"
+                            rel="nofollow"
+                        >
+                            ¡MEJORÁ TU PLAN!
+                        </a>
+
                         {!loginData.subscription &&
                             typeof window !== 'undefined' && (
                                 <a

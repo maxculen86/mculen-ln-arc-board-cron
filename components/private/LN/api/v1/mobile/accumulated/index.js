@@ -45,8 +45,12 @@ const index = acuData => {
                     });
                     result.push(article);
                 }
-            } catch (ex) {
-                console.log(ex);
+            } catch (error) {
+                console.error(error.message, {
+                    error,
+                    outputType: 'json',
+                    element: acuData.name
+                });
             }
             return result;
         }, []);

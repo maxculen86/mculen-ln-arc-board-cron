@@ -29,7 +29,7 @@ const getApertura = (
         alt_text: altText = '',
         url = '',
         caption,
-        resized_urls: resizedUrls = ''
+        resized_urls: resizedUrls = []
     } = data;
 
     return {
