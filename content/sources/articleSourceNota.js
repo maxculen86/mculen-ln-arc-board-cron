@@ -48,7 +48,8 @@ const fetch = (query, { cachedCall }) => {
         imageConfig,
         meteringVariant,
         paywallEnabled = '',
-        checkExclusiveAccess = true
+        checkExclusiveAccess = true,
+        isInApertura = false
     } = query;
     const arcSite = query['arc-site'];
     const properties = getProperties(arcSite);
@@ -105,7 +106,8 @@ const fetch = (query, { cachedCall }) => {
                 url,
                 meteringVariant,
                 paywallEnabled,
-                cachedCall
+                cachedCall,
+                isInApertura
             );
         })
         .catch(error => {
@@ -132,7 +134,8 @@ const transform = (
     urlQuery,
     meteringVariant,
     paywallEnabled,
-    cachedCall
+    cachedCall,
+    isInApertura
 ) => {
     // Data
     const subtype = get(data, `subtype`, null);
@@ -213,7 +216,8 @@ const transform = (
                 presetsDefault,
                 zoomSizes: presetsZoom
             },
-            subtype
+            subtype,
+            isInApertura
         })
     };
     return transformContent(

@@ -1,6 +1,5 @@
 import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
 import { createResizer } from './image/resizer';
-
 // TODO: Pasar a properties por site y tomar desde allí
 const defaultSizes = [
     {

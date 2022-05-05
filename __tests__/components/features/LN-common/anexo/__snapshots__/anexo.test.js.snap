@@ -13,7 +13,8 @@ exports[`features - LN-common - anexo - default With HTML anexo props Should mat
 exports[`features - LN-common - anexo - default With anexo URL props Should match URL anexo snapshot 1`] = `
 <div
   class="com-anexo skeleton-box"
-  style="height:300px;overflow:hidden;width:100%"
+  id="anexo-responsive-f0f0raOK8mKx1sc"
+  style="overflow:hidden;width:100%"
 >
   <iframe
     data-src="https://especialess3.lanacion.com.ar/21/03/anexo-home-vacunas-test/"
