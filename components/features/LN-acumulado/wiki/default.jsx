@@ -11,6 +11,8 @@ import TaxonomyImportantList from '../../../private/LN/common/taxonomyImportantL
 import SchemaInfoWiki from '../../../private/LN/acumulado/wiki/SchemaInfoWiki';
 import StaticValidation from '../../../private/common/staticValidation';
 
+// import '../../../../resources/dist/css/pages/wiki-tags.css';
+
 const WikiFeature = () => {
     const props = get(useAppContext(), 'globalContent', {});
     const { isWiki } = props;
@@ -137,6 +139,10 @@ const WikiFeature = () => {
 };
 
 WikiFeature.propTypes = {
+    creation_date: PropTypes.string,
+    type: PropTypes.string,
+    description: PropTypes.string,
+    image: PropTypes.string,
     social_networks: PropTypes.arrayOf(
         PropTypes.oneOfType([
             PropTypes.shape({
@@ -169,12 +175,8 @@ WikiFeature.propTypes = {
         family_name: PropTypes.string,
         given_name: PropTypes.string
     }),
-    creation_date: PropTypes.string,
-    type: PropTypes.string,
-    description: PropTypes.string,
-    image: PropTypes.string,
-    logo_url: PropTypes.string,
     _id: PropTypes.string,
+    logo_url: PropTypes.string,
     isWiki: PropTypes.string
 };
 
