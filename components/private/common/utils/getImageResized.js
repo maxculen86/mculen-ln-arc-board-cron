@@ -13,7 +13,8 @@ const getImageResized = (
     url,
     originalWidth = 1033,
     originalHeight = 768,
-    options = defaultSizes
+    options = defaultSizes,
+    focalPoint
 ) => {
     return (
         url &&
@@ -21,7 +22,8 @@ const getImageResized = (
             url,
             originalWidth,
             originalHeight,
-            options
+            options,
+            focalPoint
         )
     );
 };

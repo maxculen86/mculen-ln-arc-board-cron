@@ -1,0 +1,303 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Article source nota - addParallaxData addParallaxData must return parallax content_elements modified when present 1`] = `
+Array [
+  Object {
+    "_id": "Z3ANKJJDPBBNHFLPKJFEK73PIM",
+    "content": "Cuerpo de nota acá!",
+    "type": "text",
+  },
+  Object {
+    "_id": "ALI63LJK3FETLM37SASN4FFPQQ",
+    "content": "Lorem ipsum dolor sit amet",
+    "type": "text",
+  },
+  Object {
+    "_id": "PMDPBNJQBFD5JL7MNUNK23R4DM",
+    "embed": Object {
+      "config": Object {
+        "imageId": Object {
+          "caption": "Mark Zuckerberg",
+          "height": 549,
+          "id": "OZ2BUI354ZCGRGCF7MSWOJWUEM",
+          "resized_urls": Array [
+            Object {
+              "option": Object {
+                "height": 1280,
+                "isNotSmart": true,
+                "media": "(min-width: 1280px)",
+                "media_preload": "(min-width: 1280.1px)",
+                "proportion": "3:2",
+                "useFullSize": true,
+                "width": 1920,
+              },
+              "resizedUrl": "https://resizer.glanacion.com/resizer/b8eyQFt3iUEHMhCM_w3JrWCrM04=/1920x1280/filters:format(webp):quality(80):focal(201x212:211x202)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OZ2BUI354ZCGRGCF7MSWOJWUEM.jpg",
+            },
+            Object {
+              "option": Object {
+                "height": 800,
+                "isNotSmart": true,
+                "media_preload": "(min-width: 1024.1px and max-width: 1280px)",
+                "proportion": "3:2",
+                "useFullSize": true,
+                "width": 1200,
+              },
+              "resizedUrl": "https://resizer.glanacion.com/resizer/H8KJSh2nYOGrPMIeP_Pa_sBa-1o=/1200x800/filters:format(webp):quality(80):focal(201x212:211x202)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OZ2BUI354ZCGRGCF7MSWOJWUEM.jpg",
+            },
+            Object {
+              "option": Object {
+                "height": 682,
+                "isNotSmart": true,
+                "media_preload": "(min-width: 768.1px and max-width: 1024px)",
+                "proportion": "3:2",
+                "useFullSize": true,
+                "width": 1023,
+              },
+              "resizedUrl": "https://resizer.glanacion.com/resizer/keFjJnKBYvX9QzdsthS2LVWKRNM=/1023x682/filters:format(webp):quality(80):focal(201x212:211x202)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OZ2BUI354ZCGRGCF7MSWOJWUEM.jpg",
+            },
+            Object {
+              "option": Object {
+                "height": 1914,
+                "isNotSmart": true,
+                "media_preload": "(min-width: 768px)",
+                "proportion": "2:3",
+                "useFullSize": true,
+                "width": 1276,
+              },
+              "resizedUrl": "https://resizer.glanacion.com/resizer/0Pvk4l1Z0kIuLouqlHWU5eF5MrQ=/1276x1914/filters:format(webp):quality(80):focal(201x212:211x202)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OZ2BUI354ZCGRGCF7MSWOJWUEM.jpg",
+            },
+            Object {
+              "option": Object {
+                "height": 1152,
+                "isNotSmart": true,
+                "media_preload": "(min-width: 375.1px and max-width: 768px)",
+                "proportion": "2:3",
+                "useFullSize": true,
+                "width": 768,
+              },
+              "resizedUrl": "https://resizer.glanacion.com/resizer/_909z_943GSVvBTBrpZmD_fJLog=/768x1152/filters:format(webp):quality(80):focal(201x212:211x202)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OZ2BUI354ZCGRGCF7MSWOJWUEM.jpg",
+            },
+            Object {
+              "option": Object {
+                "height": 540,
+                "isNotSmart": true,
+                "media_preload": "(max-width: 375px)",
+                "proportion": "2:3",
+                "useFullSize": true,
+                "width": 360,
+              },
+              "resizedUrl": "https://resizer.glanacion.com/resizer/E7x0z-aKGdI4ttZy0uwuBieSVdA=/360x540/filters:format(webp):quality(80):focal(201x212:211x202)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OZ2BUI354ZCGRGCF7MSWOJWUEM.jpg",
+            },
+          ],
+          "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OZ2BUI354ZCGRGCF7MSWOJWUEM.jpg",
+          "width": 976,
+        },
+        "paragraph": "Parrafo de prueba para parallax en foto al 100 mediante power-up! ",
+        "title": "Prueba parallax!",
+      },
+      "id": "1b077baaaee465",
+      "url": "https://www.lanacion.com.ar/",
+    },
+    "subtype": "custom-parallax",
+    "type": "custom_embed",
+  },
+  Object {
+    "_id": "ALTNMEB5K5H2RCOIUN5CNFW6OM",
+    "content": "Una formación del <b>tren Sarmiento atropelló a un auto </b>que cruzó con la barrera baja en la estación <b>Villa Luro</b>. Como consecuencia del choque el <b>conductor </b>del vehículo quedó <b>atrapado </b>y personal médico y de Bomberos trabajó en el lugar para rescatarlo. En tanto, el <b>servicio </b>de la línea se encuentra <b>limitado </b>y llega solo hasta Liniers. Desde Trenes Argentinos informaron que “por la colisión, el tercer riel, que nutre de energía a las formaciones, resultó dañado. Se sigue trabajando para normalizar el servicio” y que “se ofrecen micros entre Once - Liniers y Liniers - Once”.",
+    "type": "text",
+  },
+  Object {
+    "_id": "TBWJ3VHAC5EXXK7QIGOFMNYZVM",
+    "content": "Una formación del tren Sarmiento atropelló a un auto que cruzó con la barrera baja en la estación Villa Luro. Como consecuencia del choque el conductor del vehículo quedó atrapado y personal médico y de Bomberos trabajó en el lugar para rescatarlo. En tanto, el servicio de la línea se encuentra limitado y llega solo hasta Liniers. Desde Trenes Argentinos informaron que “por la colisión, el tercer riel, que nutre de energía a las formaciones, resultó dañado. Se sigue trabajando para normalizar el servicio” y que “se ofrecen micros entre Once - Liniers y Liniers - Once”.",
+    "type": "text",
+  },
+  Object {
+    "_id": "3UCAGHAVGJDTFPDWKRONYGMGQU",
+    "embed": Object {
+      "config": Object {
+        "imageId": Object {
+          "caption": "",
+          "height": 586,
+          "id": "SU2YQWVAOVA7JFRFP7UBMWDDM4",
+          "resized_urls": Array [
+            Object {
+              "option": Object {
+                "height": 1280,
+                "isNotSmart": true,
+                "media": "(min-width: 1280px)",
+                "media_preload": "(min-width: 1280.1px)",
+                "proportion": "3:2",
+                "useFullSize": true,
+                "width": 1920,
+              },
+              "resizedUrl": "https://resizer.glanacion.com/resizer/0ZBvgthSHk6mZmK3v5EeYSFujGQ=/1920x1280/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SU2YQWVAOVA7JFRFP7UBMWDDM4.webp",
+            },
+            Object {
+              "option": Object {
+                "height": 800,
+                "isNotSmart": true,
+                "media_preload": "(min-width: 1024.1px and max-width: 1280px)",
+                "proportion": "3:2",
+                "useFullSize": true,
+                "width": 1200,
+              },
+              "resizedUrl": "https://resizer.glanacion.com/resizer/6jimcP3NOzDQ4c2vJHoouem7_E0=/1200x800/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SU2YQWVAOVA7JFRFP7UBMWDDM4.webp",
+            },
+            Object {
+              "option": Object {
+                "height": 682,
+                "isNotSmart": true,
+                "media_preload": "(min-width: 768.1px and max-width: 1024px)",
+                "proportion": "3:2",
+                "useFullSize": true,
+                "width": 1023,
+              },
+              "resizedUrl": "https://resizer.glanacion.com/resizer/86dgBzw50r_QMKKnX-2ZErlN9OI=/1023x682/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SU2YQWVAOVA7JFRFP7UBMWDDM4.webp",
+            },
+            Object {
+              "option": Object {
+                "height": 1914,
+                "isNotSmart": true,
+                "media_preload": "(min-width: 768px)",
+                "proportion": "2:3",
+                "useFullSize": true,
+                "width": 1276,
+              },
+              "resizedUrl": "https://resizer.glanacion.com/resizer/TdlfKCiPYMkn8-Kt0G4fybf56bM=/1276x1914/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SU2YQWVAOVA7JFRFP7UBMWDDM4.webp",
+            },
+            Object {
+              "option": Object {
+                "height": 1152,
+                "isNotSmart": true,
+                "media_preload": "(min-width: 375.1px and max-width: 768px)",
+                "proportion": "2:3",
+                "useFullSize": true,
+                "width": 768,
+              },
+              "resizedUrl": "https://resizer.glanacion.com/resizer/CUTkAotu5yItLluqV8d0RbDXBh4=/768x1152/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SU2YQWVAOVA7JFRFP7UBMWDDM4.webp",
+            },
+            Object {
+              "option": Object {
+                "height": 540,
+                "isNotSmart": true,
+                "media_preload": "(max-width: 375px)",
+                "proportion": "2:3",
+                "useFullSize": true,
+                "width": 360,
+              },
+              "resizedUrl": "https://resizer.glanacion.com/resizer/dK5Lo0Qyt7roZeN230StVLRwqPQ=/360x540/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SU2YQWVAOVA7JFRFP7UBMWDDM4.webp",
+            },
+          ],
+          "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SU2YQWVAOVA7JFRFP7UBMWDDM4.webp",
+          "width": 879,
+        },
+        "paragraph": "Catorce provincias se encontraban hoy en situación de alerta por vientos fuertes con ráfagas que pueden alcanzar los 100 kilómetros por hora, abundante caída de nieve y tormentas de variada intensidad, fenómenos provocados por una sucesión de frentes de baja presión que afectan a gran parte del país desde el pasado viernes, informó el Servicio Meteorológico Nacional (SMN).",
+        "title": "Estamos probando nuevamente con otro titulo.",
+      },
+      "id": "18ed7d286789b5",
+      "url": "https://www.lanacion.com.ar/",
+    },
+    "subtype": "custom-parallax",
+    "type": "custom_embed",
+  },
+  Object {
+    "_id": "KHZF45WPARHPTBNFYG3G6S5HHE",
+    "content": "Una formación del tren Sarmiento atropelló a un auto que cruzó con la barrera baja en la estación Villa Luro. Como consecuencia del choque el conductor del vehículo quedó atrapado y personal médico y de Bomberos trabajó en el lugar para rescatarlo. En tanto, el servicio de la línea se encuentra limitado y llega solo hasta Liniers. Desde Trenes Argentinos informaron que “por la colisión, el tercer riel, que nutre de energía a las formaciones, resultó dañado. Se sigue trabajando para normalizar el servicio” y que “se ofrecen micros entre Once - Liniers y Liniers - Once”.",
+    "type": "text",
+  },
+  Object {
+    "_id": "BJ4FNXH2FNHELFEBVLAQB4HDNA",
+    "content": "Una formación del tren Sarmiento atropelló a un auto que cruzó con la barrera baja en la estación Villa Luro. Como consecuencia del choque el conductor del vehículo quedó atrapado y personal médico y de Bomberos trabajó en el lugar para rescatarlo. En tanto, el servicio de la línea se encuentra limitado y llega solo hasta Liniers. Desde Trenes Argentinos informaron que “por la colisión, el tercer riel, que nutre de energía a las formaciones, resultó dañado. Se sigue trabajando para normalizar el servicio” y que “se ofrecen micros entre Once - Liniers y Liniers - Once”.",
+    "type": "text",
+  },
+  Object {
+    "_id": "COLTQUCUOVDKHD7OMSV5AT62UI",
+    "embed": Object {
+      "config": Object {
+        "imageId": Object {
+          "caption": "",
+          "height": 720,
+          "id": "M4TPZ7LJKNDAFAWYPLGYU5JZMA",
+          "resized_urls": Array [
+            Object {
+              "option": Object {
+                "height": 1280,
+                "isNotSmart": true,
+                "media": "(min-width: 1280px)",
+                "media_preload": "(min-width: 1280.1px)",
+                "proportion": "3:2",
+                "useFullSize": true,
+                "width": 1920,
+              },
+              "resizedUrl": "https://resizer.glanacion.com/resizer/dvqAreT3rtcrMrCrpAxGKVpFvNM=/1920x1280/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/M4TPZ7LJKNDAFAWYPLGYU5JZMA.jpg",
+            },
+            Object {
+              "option": Object {
+                "height": 800,
+                "isNotSmart": true,
+                "media_preload": "(min-width: 1024.1px and max-width: 1280px)",
+                "proportion": "3:2",
+                "useFullSize": true,
+                "width": 1200,
+              },
+              "resizedUrl": "https://resizer.glanacion.com/resizer/kX-n6YZPumMS84YarW8cLltZr_Y=/1200x800/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/M4TPZ7LJKNDAFAWYPLGYU5JZMA.jpg",
+            },
+            Object {
+              "option": Object {
+                "height": 682,
+                "isNotSmart": true,
+                "media_preload": "(min-width: 768.1px and max-width: 1024px)",
+                "proportion": "3:2",
+                "useFullSize": true,
+                "width": 1023,
+              },
+              "resizedUrl": "https://resizer.glanacion.com/resizer/iPlMJB1klENGVNq54jCtjc0WEyU=/1023x682/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/M4TPZ7LJKNDAFAWYPLGYU5JZMA.jpg",
+            },
+            Object {
+              "option": Object {
+                "height": 1914,
+                "isNotSmart": true,
+                "media_preload": "(min-width: 768px)",
+                "proportion": "2:3",
+                "useFullSize": true,
+                "width": 1276,
+              },
+              "resizedUrl": "https://resizer.glanacion.com/resizer/4K_iQacum3DGiT1gIBnWjPrMp4s=/1276x1914/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/M4TPZ7LJKNDAFAWYPLGYU5JZMA.jpg",
+            },
+            Object {
+              "option": Object {
+                "height": 1152,
+                "isNotSmart": true,
+                "media_preload": "(min-width: 375.1px and max-width: 768px)",
+                "proportion": "2:3",
+                "useFullSize": true,
+                "width": 768,
+              },
+              "resizedUrl": "https://resizer.glanacion.com/resizer/6q1cXb8B4FTWKFinsRFETcbKMTI=/768x1152/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/M4TPZ7LJKNDAFAWYPLGYU5JZMA.jpg",
+            },
+            Object {
+              "option": Object {
+                "height": 540,
+                "isNotSmart": true,
+                "media_preload": "(max-width: 375px)",
+                "proportion": "2:3",
+                "useFullSize": true,
+                "width": 360,
+              },
+              "resizedUrl": "https://resizer.glanacion.com/resizer/B94TugB7YlN-H1sprKmJVy6jtLE=/360x540/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/M4TPZ7LJKNDAFAWYPLGYU5JZMA.jpg",
+            },
+          ],
+          "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/M4TPZ7LJKNDAFAWYPLGYU5JZMA.jpg",
+          "width": 1280,
+        },
+        "paragraph": "ñlasd ñlas ñl asñl ñalsdñl ñlmasdñl mañlmsd ñlmasñldm ñl masñldm ñalsmd oihn aslkdn aisjd oinasodi nalisnd iasdli jaoisjd aoisjd asjd oiasjdoi jasoidj aoisjd oiasjd oiasdlk jasljd oiasjdi jasiodj aoisjd ioajsd ",
+        "title": "Estamos probando con Chuks",
+      },
+      "id": "da7b525ba8ebd",
+      "url": "https://www.lanacion.com.ar/",
+    },
+    "subtype": "custom-parallax",
+    "type": "custom_embed",
+  },
+]
+`;

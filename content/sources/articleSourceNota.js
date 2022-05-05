@@ -8,6 +8,7 @@ import {
     API_ENV
 } from 'fusion:environment';
 import getProperties from 'fusion:properties';
+import addParallaxData from './utils/addParallaxData';
 import get from '../../components/private/common/utils/get';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import filter from '../filters/LN/nota/article';
@@ -25,7 +26,7 @@ import logger from '../../components/private/common/utils/logger';
 import paywallUtils from './utils/paywall';
 import removeInvalidUrlTagA from '../../components/private/common/utils/removeInvalidUrlTagA';
 import isNotShowcase from './utils/isNotShowcase';
-import powerUp from './utils/powerUp';
+import { recipePowerUps, removeParallaxPowerUp } from './utils/powerUp';
 import firmaDistributorValidation from './utils/firmaDistributorValidator';
 
 const resolve = (key, a) => {
@@ -41,7 +42,7 @@ const resolve = (key, a) => {
     throw new Error('Debe definir url o id para obtener la nota');
 };
 
-const fetch = query => {
+const fetch = (query, { cachedCall }) => {
     const {
         url = '',
         imageConfig,
@@ -105,6 +106,7 @@ const fetch = query => {
                 url,
                 meteringVariant,
                 paywallEnabled,
+                cachedCall,
                 isInApertura
             );
         })
@@ -132,6 +134,7 @@ const transform = (
     urlQuery,
     meteringVariant,
     paywallEnabled,
+    cachedCall,
     isInApertura
 ) => {
     // Data
@@ -217,10 +220,22 @@ const transform = (
             isInApertura
         })
     };
-    return transformContent(resp, arcSite, urlQuery);
+    return transformContent(
+        resp,
+        arcSite,
+        urlQuery,
+        cachedCall,
+        presetsPromoItemsFotoAl100
+    );
 };
 
-const transformContent = (jsonArticle, arcSite, urlQuery) => {
+const transformContent = async (
+    jsonArticle,
+    arcSite,
+    urlQuery,
+    cachedCall,
+    presetsPromoItemsFotoAl100
+) => {
     const promiseArr = [];
     const sections = get(jsonArticle, 'taxonomy.sections');
     const resp = {
@@ -300,7 +315,19 @@ const transformContent = (jsonArticle, arcSite, urlQuery) => {
             API_ENV
         );
         if (subtype === RECETA) {
-            resp.content_elements = powerUp(resp.content_elements);
+            resp.content_elements = recipePowerUps(resp.content_elements);
+        }
+        if (subtype !== FOTOAL100) {
+            resp.content_elements = removeParallaxPowerUp(
+                resp.content_elements
+            );
+        }
+        if (subtype === FOTOAL100) {
+            resp.content_elements = await addParallaxData(
+                resp.content_elements,
+                cachedCall,
+                presetsPromoItemsFotoAl100
+            );
         }
     }
 
