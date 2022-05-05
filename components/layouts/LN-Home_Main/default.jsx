@@ -568,6 +568,12 @@ const LNMainHome = props => {
                                 />
                             </div>
                         </div>
+                        <DivBannerSSR
+                            bannerConfiguration={{
+                                slotId: 'parallax_dsk',
+                                withoutHide: true
+                            }}
+                        />
                         {/* RANKING */}
                         {blocksToLoad.bloque3.loaded && (
                             <div data-section="ranking" className="lay">
