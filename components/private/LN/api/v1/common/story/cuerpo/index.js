@@ -14,7 +14,8 @@ const getStoryElementBySubtype = storyBodyElements => {
         Gallery,
         Embed,
         Html,
-        Button
+        Button,
+        CustomEmbed
     } = storyBodyElements;
 
     return {
@@ -28,7 +29,8 @@ const getStoryElementBySubtype = storyBodyElements => {
             gallery: Gallery,
             oembed_response: Embed,
             raw_html: Html,
-            interstitial_link: Button
+            interstitial_link: Button,
+            custom_embed: CustomEmbed
         },
         7: {
             text: Text,
@@ -40,9 +42,10 @@ const getStoryElementBySubtype = storyBodyElements => {
             gallery: Gallery,
             oembed_response: Embed,
             raw_html: Html,
-            interstitial_link: Button
+            interstitial_link: Button,
+            custom_embed: CustomEmbed
         },
-        8: { text: Text, image: Image }
+        8: { text: Text, custom_embed: CustomEmbed, image: Image }
     };
 };
 
