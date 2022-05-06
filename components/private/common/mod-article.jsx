@@ -48,7 +48,12 @@ const ModArticle = props => {
         registerSuccessEvent
     } = props;
 
-    const { _id, website_url: websiteUrl } = articleData || {};
+    const {
+        _id,
+        website_url: websiteUrl,
+        content_restrictions: contentRestrictions
+    } = articleData || {};
+
     const extraOpts = {};
     if (dataSection) {
         extraOpts['data-section'] = dataSection;
@@ -69,11 +74,12 @@ const ModArticle = props => {
     const type = get(imagenDestacada, 'type', null);
 
     const mediaData = (() => {
-        if (
-            videoBackground &&
-            (layout === 'grillaVideo1' || device !== 'mobile')
-        )
+        if (videoBackground) {
+            if (layout === 'grilla1' && device === 'mobile') {
+                return type === 'image' ? imagenDestacada : null;
+            }
             return videoBackground;
+        }
         return type === 'image' ? imagenDestacada : null;
     })();
 
@@ -89,7 +95,7 @@ const ModArticle = props => {
                 boxPosition,
                 artPosition,
                 _id,
-                noMedia,
+                withMedia,
                 isRenderAuthor,
                 isRenderAuthorOpinion
             })}
@@ -129,6 +135,7 @@ const ModArticle = props => {
                 marquesina={marquesina}
                 category={category}
                 tags={tags}
+                contentRestrictions={contentRestrictions}
             />
         </article>
     );

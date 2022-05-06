@@ -26,6 +26,7 @@ const transform = (data, siteProps) => {
     const presetsPromoItems = get(presets, 'promo_items', null);
     const subtype = get(siteProps, `subtype`, null);
     const isInApertura = get(siteProps, `isInApertura`, false);
+    const isAdmin = get(siteProps, `isAdmin`, false);
     const isFotoAl100orStorytelling =
         subtype === FOTOAL100 || subtype === STORYTELLING;
 
@@ -43,7 +44,8 @@ const transform = (data, siteProps) => {
                 // y storytelling no sean excluidas de las validaciones del resizer
                 // y pueda aplicarse 3:2, focal point o smartcrop
                 subtype: isFotoAl100orStorytelling ? '-1' : subtype,
-                isInApertura
+                isInApertura,
+                isAdmin
             }
         )
     };
