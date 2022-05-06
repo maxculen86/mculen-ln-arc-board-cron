@@ -10,11 +10,11 @@ const getBadge = (contentCode, label) => {
     const validations = {
         comun: () => {
             return (
-                text.trim() && (
+                (text && text.trim() && (
                     <Badge className="com-label" type={style}>
                         {text.trim()}
                     </Badge>
-                )
+                )) || <></>
             );
         },
         cerrada: () => {
@@ -22,7 +22,9 @@ const getBadge = (contentCode, label) => {
         }
     };
 
-    return validations[contentCode]();
+    return validations[contentCode]
+        ? validations[contentCode]()
+        : validations.comun();
 };
 
 export default getBadge;
