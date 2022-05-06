@@ -7,19 +7,19 @@ import sectionsValidation from '../../../../layouts/config/LN-Home.config';
 import { FOTOAL100, STORYTELLING } from '../subtypes/subtypeHelper';
 import { LinkImagePreload } from '../../../LN/common/utils/mediaHelper';
 
-const getSource = (imageID, noteID, imageConfig, isHideImage) => {
+const getSource = (imageID = '', noteID = '', imageConfig, isHideImage) => {
     const isInApertura = true;
-    return imageID
+    return imageID.trim()
         ? getImage(
-              imageID,
-              sourceType[0],
+              imageID.trim(),
+              'relatedImageSource',
               imageConfig,
               isHideImage,
               isInApertura
           )
         : getImage(
-              noteID,
-              sourceType[1],
+              noteID.trim(),
+              'articleSourceNota',
               imageConfig,
               isHideImage,
               isInApertura
@@ -29,8 +29,8 @@ const getSource = (imageID, noteID, imageConfig, isHideImage) => {
 const getcustomFieldsData = fieldsData => {
     return {
         isHideImage: get(fieldsData, 'props.customFields.hideImage', false),
-        imageID: get(fieldsData, 'props.customFields.imageId', ''),
-        noteID: get(fieldsData, 'props.customFields.noteId', '')
+        imageID: get(fieldsData, 'props.customFields.imageId', '').trim(),
+        noteID: get(fieldsData, 'props.customFields.noteId', '').trim()
     };
 };
 
@@ -44,8 +44,6 @@ const getPromoItems = items => {
         };
     });
 };
-
-const sourceType = ['relatedImageSource', 'articleSourceNota'];
 
 const getMediaBomba = (arcSite, bomba) => {
     const { isHideImage, imageID, noteID } = getcustomFieldsData(bomba[0]);
@@ -92,19 +90,6 @@ const getMediaApertura = (renderables, arcSite) => {
         []
     );
 };
-
-const mapResp = (links = []) =>
-    links.map(elem => {
-        return (
-            <link
-                id="preload-img"
-                rel="preload"
-                href={elem.resizedUrl}
-                as="image"
-                media={elem.media}
-            />
-        );
-    });
 
 const getDataToLinkImage = ({
     data = {},
