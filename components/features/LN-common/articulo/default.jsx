@@ -76,29 +76,47 @@ const ArticleFeature = ({
             published: true,
             imageConfig,
             checkExclusiveAccess: false,
-            isInApertura: onlyOneApeturaValidateForWWW
+            isInApertura: onlyOneApeturaValidateForWWW,
+            isAdmin
         },
         filter
     });
 
-    const videoBackground = useContent({
-        source: (videoId && videoId.trim() && 'videoSource') || null,
-        query: { id: videoId && videoId.trim(), website: 'la-nacion-ar' }
-    });
+    const videoBackground =
+        useContent({
+            source: (videoId && videoId.trim() && 'videoSource') || null,
+            query: {
+                id: videoId && videoId.trim(),
+                website: 'la-nacion-ar',
+                imageConfig,
+                isInApertura: onlyOneApeturaValidateForWWW,
+                isAdmin
+            }
+        }) || null;
 
-    const image = useContent({
-        source: conditionallyCallImageSource(imageId),
-        query: {
-            id: imageId && imageId.trim(),
-            published: true,
-            imageConfig,
-            nid: id,
-            boxType: 'ArticleFeature',
-            isInApertura: onlyOneApeturaValidateForWWW
-        }
-    });
+    const image =
+        useContent({
+            source: conditionallyCallImageSource(imageId),
+            query: {
+                id: imageId && imageId.trim(),
+                published: true,
+                imageConfig,
+                nid: id,
+                boxType: 'ArticleFeature',
+                isInApertura: onlyOneApeturaValidateForWWW,
+                isAdmin
+            }
+        }) || null;
 
-    const error = validateArticleFeature(id, article);
+    const error = validateArticleFeature(
+        id,
+        article,
+        image,
+        videoBackground,
+        layout,
+        imageId,
+        videoId
+    );
 
     if (isAdmin && !!error) {
         return (
@@ -139,7 +157,7 @@ const ArticleFeature = ({
                         layoutPageBuilder
                     )}
                     videoBackground={videoBackground}
-                    isPowa={layout !== 'grilla1'}
+                    isPowa={layout === 'grillaVideo1'}
                     handleClick={productClickFromClient}
                     registerSuccessEvent={registerSuccessEvent}
                 />
