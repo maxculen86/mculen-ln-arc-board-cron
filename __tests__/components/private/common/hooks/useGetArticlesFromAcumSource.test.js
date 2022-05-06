@@ -1,15 +1,14 @@
 import React from 'react';
-import GetArticlesFromAcumSource from '../../../../../components/private/LN/common/utils/getArticlesFromAcumSource';
+import { useContent } from 'fusion:content';
 import mockArticles from '../../../../../__mocks__/data/masNotas/articles.json';
 import filter from '../../../../../content/filters/LN/acumulado/articleMasNotas';
-import { render, screen } from '@testing-library/react';
-import { useContent } from 'fusion:content';
+import useGetArticlesFromAcumSource from '../../../../../components/private/LN/common/hooks/useGetArticlesFromAcumSource';
 
 jest.mock('fusion:content', () => ({
     useContent: jest.fn()
 }));
 describe('Testing get Articles from Acum Source', () => {
-    const props = {
+    const args = {
         typesOfQuery: {
             sectionId: '/recetas'
         },
@@ -29,12 +28,14 @@ describe('Testing get Articles from Acum Source', () => {
     };
     it('should return the corresponding array of articles', () => {
         useContent.mockReturnValueOnce(mockArticles);
-        const { container } = render(<GetArticlesFromAcumSource {...props} />);
-        expect(screen.getByRole('')).toStrictEqual(mockArticles);
+        expect(
+            useGetArticlesFromAcumSource(...Object.values(args))
+        ).toStrictEqual(mockArticles.content_elements);
     });
     it('should return an empty array', () => {
         useContent.mockReturnValueOnce([]);
-        render(<GetArticlesFromAcumSource {...props} />);
-        expect(screen.getByRole('')).toStrictEqual([]);
+        expect(
+            useGetArticlesFromAcumSource(...Object.values(args))
+        ).toStrictEqual([]);
     });
 });

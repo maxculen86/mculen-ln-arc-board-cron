@@ -1,7 +1,7 @@
 import { useContent } from 'fusion:content';
 import get from '../../../common/utils/get';
 
-const GetArticlesFromAcumSource = (
+export default function useGetArticlesFromAcumSource(
     typesOfQuery,
     filter,
     imageConfig,
@@ -13,7 +13,7 @@ const GetArticlesFromAcumSource = (
     website = 'la-nacion-ar',
     promoItemsOnly = false,
     staticMode = true
-) => {
+) {
     const { sectionId, tagId, authorId, distributorId, sectionsIds, subtype } =
         typesOfQuery || {};
 
@@ -42,6 +42,4 @@ const GetArticlesFromAcumSource = (
         staticMode
     });
     return get(articleList, 'content_elements', []);
-};
-
-export default GetArticlesFromAcumSource;
+}
