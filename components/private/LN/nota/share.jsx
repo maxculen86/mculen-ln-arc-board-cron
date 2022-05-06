@@ -22,21 +22,19 @@ import Icon from '../../common/icon';
 import { conditionallyCallViafoura } from '../../common/utils/commentsHelper';
 import findTermica from '../../common/utils/findTermica';
 import getToken from '../../common/utils/getToken';
+import { toggleBookmark } from '../../common/utils/bookmarkHelper';
+import useCheckBookmark from '../../common/hooks/bookmark/useCheckBookmark';
+// import useListBookmarks from '../../common/hooks/bookmark/useListBookmarks';
 
 const Share = props => {
-    const {
-        classCondition,
-        classesNames,
-        requestUri,
-        globalContent: {
-            _id: id,
-            headlines: { basic: title, mobile: mobileTitle },
-            comments: { display_comments: displayComments = true } = {},
-            first_publish_date: firstPublishDate
-        }
-    } = props;
-
     const { arcSite = 'la-nacion-ar' } = useAppContext() || {};
+    const { classCondition, classesNames, requestUri, globalContent } = props;
+    const {
+        _id: id,
+        headlines: { basic: title, mobile: mobileTitle },
+        comments: { display_comments: displayComments = true } = {},
+        first_publish_date: firstPublishDate
+    } = globalContent;
 
     const { totalVisibleContent = '' } =
         useContent({
@@ -50,18 +48,35 @@ const Share = props => {
 
     const facebookId = get(siteVars, 'shareConfig.facebook.appID', undefined);
 
-    const [token, setToken] = useState();
+    const termicaBookmark = findTermica('bookmark_web');
+    const [bookmark, setBookmark] = useState(false);
+    const [toast, setToast] = useState(false);
+
+    const checkBookmarkId = useCheckBookmark(termicaBookmark, getToken(), id);
+
+    // const listOfBookmarks = useListBookmarks(termicaBookmark, token);
+    // console.log('🚀 ~ file: share.jsx ~ line 58 ~ listOfBookmarks', listOfBookmarks);
+    console.count('🚀 ~ file: share.jsx ~ line 79 ~~ RENDER Nº');
+
+    const onButtonClicked = () => {
+        toggleBookmark(
+            getToken(),
+            globalContent,
+            bookmark,
+            setBookmark,
+            setToast
+        );
+    };
+
     useEffect(() => {
-        setToken(getToken());
-    }, []);
-    console.log('🚀 ~ file: share.jsx ~ line 54 ~ token', token);
+        setBookmark(checkBookmarkId);
+    }, [checkBookmarkId]);
 
     // TODO: arreglar el tema de las URL's
     const mystyle = {
         maxWidth: '32px',
         maxHeight: '32px'
     };
-    const isSaved = false; // booleano para saber si la nota esta guardada o no
 
     return (
         <div
@@ -72,17 +87,17 @@ const Share = props => {
                 <div className="container --left">
                     {/* Se oculta temporalmente para luego refactorizar */}
                     {/* Bookmark para guardado de notas */}
-                    {findTermica('bookmark') && (
+                    {termicaBookmark && (
                         <ComButton
                             id="btnbookmark"
                             dataEvent="LinkClick"
                             dataSection="Guardar Nota"
-                            onClick={() => {}}
+                            onClick={onButtonClicked}
                             size="--fourxs"
-                            iconName={isSaved ? 'bookmark-filled' : 'bookmark'}
+                            iconName={bookmark ? 'bookmark-filled' : 'bookmark'}
                             title="Notas guardadas"
                             classCondition={`bookmark ${
-                                isSaved ? '--is-saved' : ''
+                                bookmark ? '--is-saved' : ''
                             }`}
                         />
                     )}
@@ -97,7 +112,7 @@ const Share = props => {
                                 iconName="chat"
                                 title="Ir a los comentarios de la nota"
                                 classCondition="comment-btn"
-                                textname={totalVisibleContent}
+                                textname={`${totalVisibleContent}`}
                             />
                         </>
                     )}

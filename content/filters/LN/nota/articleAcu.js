@@ -39,6 +39,9 @@ export default `
             }
         }
     }
+    content_restrictions {
+        content_code
+    }
     credits {
         by {
             name

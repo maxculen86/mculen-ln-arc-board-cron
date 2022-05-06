@@ -16,4 +16,5 @@ export default `
         collectionForTag
     }
     isWiki
+    imageId
 }`;

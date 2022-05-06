@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 
 import ComFigure from '../../../../common/com-figure';
 import ModPicture from '../../../../common/mod-picture';
@@ -9,10 +9,31 @@ import TitleAndIconArticle from '../titleAndIconArticle';
 import WithScreenUtils from '../../../../common/hocs/withScreenUtils';
 import WithStorytellingData from '../../../common/hocs/WithStorytellingData';
 
-import { FOTOAL100 } from '../../../../common/utils/subtypes/subtypeHelper';
+import {
+    FOTOAL100,
+    STORYTELLING
+} from '../../../../common/utils/subtypes/subtypeHelper';
 
 import '../../../../../../resources/dist/css/ln/modules/mod-opening.css';
 import get from '../../../../common/utils/get';
+import { getAspectRatio } from '../../../../../../content/sources/utils/getRatio';
+
+export const filteredSources = (resizedUrls, device, isAmp) => {
+    if (resizedUrls && device) {
+        return resizedUrls.filter(image => {
+            const imageRatio = getAspectRatio(
+                image.option.width,
+                image.option.height
+            );
+
+            if (device === 'mobile' || device === 'tablet' || isAmp) {
+                return imageRatio === '2:3';
+            }
+            return imageRatio === '3:2';
+        });
+    }
+    return '';
+};
 
 const Component = props => {
     const {
@@ -42,7 +63,14 @@ const Component = props => {
         credit,
         resizedUrls
     } = apertura;
+
+    const sourcesForDevice =
+        subtype === STORYTELLING
+            ? filteredSources(resizedUrls, device)
+            : resizedUrls.filter(x => x.option.width !== 1276);
+
     const sizes = outputType === 'amp' ? { width: 80, height: 537 } : {};
+
     return (
         <section className="mod-opening">
             <ComFigure>
@@ -54,7 +82,7 @@ const Component = props => {
                     video={video || ''}
                     amp={outputType === 'amp'}
                     sizes={sizes}
-                    sources={resizedUrls}
+                    sources={sourcesForDevice}
                     isApertura
                 />
                 <div className="mod-title">
@@ -87,7 +115,13 @@ Component.propTypes = {
             caption: PropTypes.string,
             credit: PropTypes.string
         })
-    })
+    }),
+    globalContent: PropTypes.shape({
+        headlines: PropTypes.shape({
+            basic: PropTypes.string
+        }),
+        subtype: PropTypes.string
+    }).isRequired
 };
 
 Component.defaultProps = {

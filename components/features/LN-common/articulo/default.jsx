@@ -6,7 +6,10 @@ import getProperties from 'fusion:properties';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import { validateArticleFeature } from '../../../private/LN/common/utils/cajaTemasValidators';
-import { isInHomeAperturaOrBomba } from '../../../private/LN/home/components/noteCard/noteCardHelper';
+import {
+    isInHomeAperturaOrBomba,
+    isInApertura
+} from '../../../private/LN/home/components/noteCard/noteCardHelper';
 import getCajaTemaConfig from '../../../private/LN/home/components/noteCard/noteCardImageHelper';
 import NoteCard from '../../../private/LN/home/components/noteCard/noteCard';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
@@ -16,6 +19,8 @@ import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
 import { productClickFromClient } from '../../../private/common/utils/viewability';
 import ErrorBoundary from '../../../private/common/ErrorBoundary';
+import { getChildrenFromSectionHome } from '../../../private/LN/common/utils/cajaTemasHelper';
+import get from '../../../private/common/utils/get';
 
 const ArticleFeature = ({
     id: featureId,
@@ -32,6 +37,7 @@ const ArticleFeature = ({
         layout: layoutPageBuilder
     } = useAppContext();
 
+    const { layoutsName = {} } = siteConfig || {};
     const { cajaTemaConfig } = getProperties(arcSite);
     const { registerSuccessEvent } = useComponentContext();
 
@@ -47,36 +53,70 @@ const ArticleFeature = ({
         return (idImage && idImage.trim() && 'relatedImageSource') || null;
     };
 
+    const isBombaHidden = () => {
+        const bomba = getChildrenFromSectionHome(renderables, 'Bomba', 2) || [];
+        return get(bomba[0], 'props.customFields.hideFeature', false);
+    };
+
+    const onlyOneApeturaValidateForWWW =
+        isBomba ||
+        (isBombaHidden() &&
+            isInApertura({
+                renderables,
+                featureId,
+                layoutsName,
+                layoutPageBuilder,
+                config
+            }));
+
     const article = useContent({
         source: (id && id.trim() && 'articleSourceNota') || null,
         query: {
             id: id && id.trim(),
             published: true,
             imageConfig,
-            checkExclusiveAccess: false
+            checkExclusiveAccess: false,
+            isInApertura: onlyOneApeturaValidateForWWW,
+            isAdmin
         },
         filter
     });
 
-    const videoBackground = useContent({
-        source: (videoId && videoId.trim() && 'videoSource') || null,
-        query: { id: videoId && videoId.trim(), website: 'la-nacion-ar' }
-    });
+    const videoBackground =
+        useContent({
+            source: (videoId && videoId.trim() && 'videoSource') || null,
+            query: {
+                id: videoId && videoId.trim(),
+                website: 'la-nacion-ar',
+                imageConfig,
+                isInApertura: onlyOneApeturaValidateForWWW,
+                isAdmin
+            }
+        }) || null;
 
-    const image = useContent({
-        source: conditionallyCallImageSource(imageId),
-        query: {
-            id: imageId && imageId.trim(),
-            published: true,
-            imageConfig,
-            nid: id,
-            boxType: 'ArticleFeature'
-        }
-    });
+    const image =
+        useContent({
+            source: conditionallyCallImageSource(imageId),
+            query: {
+                id: imageId && imageId.trim(),
+                published: true,
+                imageConfig,
+                nid: id,
+                boxType: 'ArticleFeature',
+                isInApertura: onlyOneApeturaValidateForWWW,
+                isAdmin
+            }
+        }) || null;
 
-    const error = validateArticleFeature(id, article);
-
-    const { layoutsName = {} } = siteConfig || {};
+    const error = validateArticleFeature(
+        id,
+        article,
+        image,
+        videoBackground,
+        layout,
+        imageId,
+        videoId
+    );
 
     if (isAdmin && !!error) {
         return (
@@ -117,7 +157,7 @@ const ArticleFeature = ({
                         layoutPageBuilder
                     )}
                     videoBackground={videoBackground}
-                    isPowa={layout !== 'grilla1'}
+                    isPowa={layout === 'grillaVideo1'}
                     handleClick={productClickFromClient}
                     registerSuccessEvent={registerSuccessEvent}
                 />

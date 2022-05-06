@@ -4,7 +4,6 @@ import Text from '../../../common/text';
 
 const LabelText = ({ text, className, size }) => {
     const classes = `label-text ${className}`;
-
     return (
         <Text
             weight="bold"

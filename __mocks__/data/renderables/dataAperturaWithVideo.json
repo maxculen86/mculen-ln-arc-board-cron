@@ -1,0 +1,64 @@
+[
+    {},
+    {},
+    {},
+    {},
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 3
+        },
+        "children": [
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Manual",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Manual",
+                    "name": null,
+                    "customFields": {
+                        "layout": "focalRight2",
+                        "initialPosition": 1,
+                        "hideTitle": true,
+                        "pbInternal_cloneId": "c0fCdBNjvrxb3sF",
+                        "hideCaja": false
+                    },
+                    "displayProperties": {}
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-common/articulo",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/articulo",
+                            "id": "f0fcLtIhSP7E7tK",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "chapita": "Dolar hoy",
+                                "authors": "Juan Carlos",
+                                "lead": "",
+                                "title": "",
+                                "noteId": "3ZDQ542ANJHEBLH6HOKBTBR5J4",
+                                "imageId": "",
+                                "video": "26280ea8-b29d-4961-b019-a998da7f3252",
+                                "hideFeature": false,
+                                "hideImage": false
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {}
+]

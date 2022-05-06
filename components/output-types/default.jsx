@@ -132,7 +132,8 @@ const Default = props => {
         siteProperties,
         renderables,
         globalContent,
-        outputType
+        outputType,
+        isAdmin
     } = props;
 
     const {
@@ -233,7 +234,8 @@ const Default = props => {
                     data: globalContent,
                     section: _nodeType,
                     renderables,
-                    arcSite
+                    arcSite,
+                    isAdmin
                 })}
                 <FontPreloads />
                 <FontFaceDefault />

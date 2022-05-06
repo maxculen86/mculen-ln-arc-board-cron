@@ -41,6 +41,9 @@ describe('Private - Common - ModDescription', () => {
         dateSize: '',
         marquesina: 'Por Carlos Pagni',
         category: { name: 'Comunidad', path: '/comunidad' },
+        contentRestrictions: {
+            content_code: 'comun'
+        },
         tags: [
             { text: 'Educación', slug: 'educacion-123' },
             { text: 'Inclusión', slug: 'inclusion-123' },

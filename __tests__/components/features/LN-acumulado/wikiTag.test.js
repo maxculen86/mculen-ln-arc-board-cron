@@ -4,14 +4,10 @@ import Content from 'fusion:content';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import WikiFeature from '../../../../components/features/LN-acumulado/wiki/default';
+import mockWikiTagData from '../../../../__mocks__/data/wikiTag/wikiTagData.json';
 
 jest.mock('fusion:content', () => ({
-    useContent: isWiki =>
-        isWiki
-            ? {
-                  wiki: 'data'
-              }
-            : {}
+    useContent: isWiki => (isWiki ? mockWikiTagData : {})
 }));
 
 jest.mock('fusion:context', () => () => ({
@@ -37,7 +33,7 @@ describe('LN-Acumulado-WikiTag test', () => {
 
         expect(container).toBeInTheDocument();
         expect(fusionUseContent).toBeCalledTimes(1);
-        expect(Content.useContent(isWiki)).toStrictEqual({ wiki: 'data' });
+        expect(Content.useContent(isWiki)).toStrictEqual(mockWikiTagData);
     });
     it('Should not render when isWiki is false', () => {
         Context.useAppContext = jest.fn(() => ({

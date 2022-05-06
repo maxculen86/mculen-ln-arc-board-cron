@@ -3,7 +3,6 @@
         "lotteries": [
             {
                 "date": "Miércoles 16/03/2022",
-                "component": "Quini6",
                 "id": "Quini_6",
                 "link": "/loterias/quini-6/",
                 "name": "",
@@ -20,7 +19,6 @@
             {
                 "date": "Miércoles 16/03/2022",
                 "name": "Telekino",
-                "component": "Telekino",
                 "link": "/loterias/telekino/",
                 "id": "Telekino",
                 "results": [

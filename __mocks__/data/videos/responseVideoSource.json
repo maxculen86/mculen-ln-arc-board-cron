@@ -1,0 +1,171 @@
+{
+    "_id": "4118a500-998b-4a95-88e0-b6bc325e0cf0",
+    "type": "video",
+    "version": "0.8.0",
+    "subtype": "videos",
+    "language": "es",
+    "canonical_url": "/video/chile-ofrece-multiples-posibilidades-para-realizar-las-compras-del-mes-vid4118a500",
+    "canonical_website": "la-nacion-ar",
+    "short_url": "/video/chile-ofrece-multiples-posibilidades-para-realizar-las-compras-del-mes-vid4118a500",
+    "created_date": "2022-03-29T20:14:19Z",
+    "last_updated_date": "2022-03-30T02:52:34Z",
+    "first_publish_date": "2022-03-29T20:21:29Z",
+    "display_date": "2022-03-29T20:21:29Z",
+    "headlines": {
+        "basic": "Chile ofrece múltiples posibilidades para realizar las compras del mes.",
+        "meta_title": "Chile ofrece múltiples posibilidades para realizar las compras del mes."
+    },
+    "subheadlines": { "basic": "Santiago de Chile visto desde las alturas" },
+    "description": {
+        "basic": "Chile ofrece múltiples posibilidades para realizar las compras del mes. En general, los chilenos optan por los supermercados."
+    },
+    "credits": { "affiliation": [], "by": [] },
+    "taxonomy": {
+        "tags": [],
+        "primary_site": {
+            "_id": "/el-mundo",
+            "type": "site",
+            "version": "0.5.8",
+            "name": "El Mundo",
+            "path": "/el-mundo",
+            "parent_id": "/",
+            "additional_properties": []
+        },
+        "sites": [],
+        "primary_section": {
+            "_id": "/el-mundo",
+            "_website": "la-nacion-ar",
+            "type": "section",
+            "version": "0.6.0",
+            "name": "El Mundo",
+            "path": "/el-mundo",
+            "parent_id": "/",
+            "parent": [],
+            "additional_properties": []
+        },
+        "sections": [],
+        "seo_keywords": []
+    },
+    "promo_items": {
+        "basic": {
+            "type": "image",
+            "version": "0.5.8",
+            "credits": [],
+            "caption": "Chile ofrece múltiples posibilidades para realizar las compras del mes. En general, los chilenos optan por el supermercado.",
+            "url": "https://d3us6z9haan6vf.cloudfront.net/03-30-2022/t_5f8a3d21151443b99020143df7290b7a_name_file_1280x720_2000_v3_1_.jpg",
+            "width": 1280,
+            "height": 720
+        }
+    },
+    "related_content": { "redirect": [], "basic": [] },
+    "owner": { "sponsored": false, "id": "sandbox.lanacionar" },
+    "planning": { "scheduling": {} },
+    "revision": { "published": true, "branch": "default" },
+    "syndication": { "search": true },
+    "source": {
+        "name": "LA NACION",
+        "system": "video center",
+        "edit_url": "https://sandbox.lanacionar.arcpublishing.com/goldfish/video/6243689bd601800001be77da"
+    },
+    "distributor": {
+        "name": "LA NACION",
+        "category": "staff",
+        "subcategory": "",
+        "reference_id": "a19656bb-25db-481a-9492-55e88b0ff568",
+        "mode": "reference_denormalized"
+    },
+    "tracking": { "in_url_headline": "video" },
+    "additional_properties": {
+        "subsection": "El Mundo",
+        "videoCategory": "videos",
+        "workflowStatus": "PUBLISHED",
+        "videoId": "6243689bd601800001be77da",
+        "vertical": false,
+        "embedContinuousPlay": true,
+        "imageResizerUrls": [],
+        "advertising": {
+            "allowPrerollOnDomain": false,
+            "autoPlayPreroll": false,
+            "commercialAdNode": "/el-mundo",
+            "enableAdInsertion": false,
+            "enableAutoPreview": true,
+            "enableServerSideFallback": false,
+            "forceAd": false,
+            "playAds": true,
+            "playVideoAds": true,
+            "videoAdZone": ""
+        },
+        "disableUpNext": false,
+        "videoAdZone": "",
+        "platform": "desktop",
+        "playVideoAds": true,
+        "useVariants": false,
+        "has_published_copy": true,
+        "playlistTags": [],
+        "firstPublishedBy": {
+            "name": "María Renee Salas Cáceres",
+            "email": "mane.salas.c@gmail.com",
+            "lastname": ""
+        },
+        "anglerfishArcId": "MK226ZV7OZB6HLJVXTWJMDIPIE",
+        "MK226ZV7OZB6HLJVXTWJMDIPIE": "03-30-2022/t_5f8a3d21151443b99020143df7290b7a_name_file_1280x720_2000_v3_1_.jpg",
+        "isWire": false,
+        "gifAsThumbnail": false,
+        "published": true,
+        "lastPublishedBy": {
+            "name": "María Renee Salas Cáceres",
+            "email": "mane.salas.c@gmail.com",
+            "lastname": ""
+        },
+        "permalinkUrl": "/video/chile-ofrece-multiples-posibilidades-para-realizar-las-compras-del-mes-vid4118a500",
+        "forceClosedCaptionsOn": false,
+        "doNotShowTranscripts": false
+    },
+    "duration": 38848,
+    "video_type": "clip",
+    "streams": [
+        {
+            "height": 360,
+            "width": 640,
+            "filesize": 3625629,
+            "stream_type": "mp4",
+            "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/LA_NACION/20220329/6243689bd601800001be77da/b7958f59-3bc1-4144-b134-eaec19e21716/t_4591bda568ae4e53b9e6fde00bf71c0f_name_VIDEO_SUPER/file_640x360-600.mp4",
+            "bitrate": 600,
+            "provider": "mediaconvert"
+        },
+        {
+            "height": 720,
+            "width": 1280,
+            "filesize": 10509843,
+            "stream_type": "mp4",
+            "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/LA_NACION/20220329/6243689bd601800001be77da/b7958f59-3bc1-4144-b134-eaec19e21716/t_4591bda568ae4e53b9e6fde00bf71c0f_name_VIDEO_SUPER/file_1280x720-2000-v3_1.mp4",
+            "bitrate": 2000,
+            "provider": "mediaconvert"
+        }
+    ],
+    "subtitles": {},
+    "promo_image": {
+        "type": "image",
+        "version": "0.5.8",
+        "credits": { "by": [] },
+        "caption": "Chile ofrece múltiples posibilidades para realizar las compras del mes. En general, los chilenos optan por el supermercado.",
+        "url": "https://d3us6z9haan6vf.cloudfront.net/03-30-2022/t_5f8a3d21151443b99020143df7290b7a_name_file_1280x720_2000_v3_1_.jpg",
+        "width": 1280,
+        "height": 720
+    },
+    "embed_html": "",
+    "websites": {
+        "la-nacion-ar": {
+            "website_section": [],
+            "website_url": "/video/chile-ofrece-multiples-posibilidades-para-realizar-las-compras-del-mes-vid4118a500"
+        }
+    },
+    "publishing": {
+        "scheduled_operations": {
+            "publish_edition": [],
+            "unpublish_edition": []
+        }
+    },
+    "website": "la-nacion-ar",
+    "website_url": "/video/chile-ofrece-multiples-posibilidades-para-realizar-las-compras-del-mes-vid4118a500"
+}
