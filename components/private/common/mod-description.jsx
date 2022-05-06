@@ -4,7 +4,7 @@ import Text from './text';
 import ComTitle from './com-title';
 import ComDate from './com-date';
 import ComTag from './com-tag';
-import Badge from './badge';
+import getBadge from './utils/getBadge';
 import '../../../resources/dist/css/ln/components/mod-description.css';
 
 const ModDescription = props => {
@@ -23,18 +23,15 @@ const ModDescription = props => {
         lead,
         marquesina,
         category,
-        tags
+        tags,
+        contentRestrictions: { content_code: contentCode }
     } = props;
     const withMarquee = !!(marquesina || authors);
     const { name: categoryName, path: categoryPath } = category || {};
 
     return (
         <section className="mod-description">
-            {label && label.text && label.text.trim() && (
-                <Badge className="com-label" type={label.style || ''}>
-                    {label.text.trim()}
-                </Badge>
-            )}
+            {getBadge(contentCode, label)}
             <ComTitle
                 tag={titleTag}
                 size={titleSize}
@@ -117,7 +114,12 @@ ModDescription.propTypes = {
     ]),
     titleSize: PropTypes.string,
     titleTag: PropTypes.string,
-    titleText: PropTypes.string.isRequired
+    titleText: PropTypes.string.isRequired,
+    contentRestrictions: PropTypes.shape({
+        content_code: PropTypes.shape({
+            contentCode: PropTypes.string
+        })
+    })
 };
 
 ModDescription.defaultProps = {
@@ -134,7 +136,10 @@ ModDescription.defaultProps = {
     subheadText: false,
     tags: undefined,
     titleSize: '--xs',
-    titleTag: 'h2'
+    titleTag: 'h2',
+    contentRestrictions: {
+        content_code: 'comun'
+    }
 };
 
 export default ModDescription;
