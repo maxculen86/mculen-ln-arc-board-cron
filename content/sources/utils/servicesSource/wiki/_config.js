@@ -6,7 +6,7 @@ const wikiTypes = {
             'Lionel Andrés Messi Cuccittini , conocido como Leo Messi, es un futbolista argentino que juega como delantero o centrocampista. Jugador histórico del Fútbol Club Barcelona, al que estuvo ligado veinte años, desde 2021 integra el plantel del Paris Saint-Germain de la Ligue 1 de Francia. Es también internacional con la selección de Argentina, equipo del que es capitán y máximo goleador histórico. Considerado con frecuencia el mejor jugador del mundo y uno de los mejores de todos los tiempos, es el único futbolista en la historia que ha ganado, entre otras distinciones, siete veces el Balón de Oro, seis premios de la FIFA al mejor jugador del mundo y seis Botas de Oro. En 2020, se convirtió en el primer futbolista y el primer argentino en recibir un premio Laureus, además de ser incluido en el Dream Team del Balón de Oro. Con el Barcelona ha ganado 35 títulos, entre ellos.',
         image: {
             url:
-                'https://resizer.glanacion.com/resizer/Gznpo_A-53BruruApPNBWCesfGY=/608x407/smart/filters:format(webp):quality(80)/text',
+                'https://cdn.pixabay.com/photo/2020/09/01/21/03/sunset-5536777__340.jpg',
             width: '295',
             height: '440',
             alt: 'text'

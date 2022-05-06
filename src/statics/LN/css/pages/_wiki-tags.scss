@@ -20,7 +20,7 @@
     grid-template-rows: px(326);
     grid-template-columns: px(326);
 
-    & .com-image {
+    & .placeholder {
         grid-area: image;
     }
     & .extra-info {
@@ -36,8 +36,9 @@
         grid-area: tags;
     }
 
-    .com-image {
+    .placeholder {
         height: 100%;
+        margin-left: 0;
     }
 
     .extra-info {
@@ -89,6 +90,11 @@
     .wiki-description {
         display: flex;
         flex-direction: column;
+        a {
+            font-family: $font-SuecaSlab;
+            font-size: 16px;
+            font-weight: 400;
+        }
     }
 
     .tags-buttons {
@@ -165,6 +171,7 @@
         }
         .social-networks {
             margin-top: 0;
+            margin-left: 0;
             .text-social-n {
                 margin-left: 0;
             }

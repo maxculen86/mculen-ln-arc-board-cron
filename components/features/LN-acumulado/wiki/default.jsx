@@ -10,8 +10,7 @@ import Icon from '../../../private/common/icon';
 import TaxonomyImportantList from '../../../private/LN/common/taxonomyImportantList';
 import SchemaInfoWiki from '../../../private/LN/acumulado/wiki/SchemaInfoWiki';
 import StaticValidation from '../../../private/common/staticValidation';
-
-// import '../../../../resources/dist/css/pages/wiki-tags.css';
+import ComPicture from '../../../private/common/com-picture';
 
 const WikiFeature = () => {
     const props = get(useAppContext(), 'globalContent', {});
@@ -79,17 +78,23 @@ const WikiFeature = () => {
     return (
         <StaticValidation id={featureId} htmlOnly persistent>
             <article className="wiki-tags">
-                <Image src={srcImg} alt={formatAlt} />
+                <ComPicture>
+                    <Image src={srcImg} alt={formatAlt} />
+                </ComPicture>
                 <div className="extra-info">
                     {Object.keys(schemasInfo)
                         .filter(key => key !== 'location' && key !== 'address')
-                        .map(key => (
-                            <SchemaInfoWiki
-                                classes="description"
-                                label={schemaDictionary[key]}
-                                text={schemasInfo[key]}
-                            />
-                        ))}
+                        .map(
+                            key =>
+                                schemasInfo[key].length > 3 && (
+                                    <SchemaInfoWiki
+                                        key={schemasInfo[key]}
+                                        classes="description"
+                                        label={schemaDictionary[key]}
+                                        text={schemasInfo[key]}
+                                    />
+                                )
+                        )}
                     {isOrganization && (
                         <SchemaInfoWiki
                             classes="description"
@@ -124,6 +129,9 @@ const WikiFeature = () => {
                         size="2xs"
                         weight="regular"
                         extraClass="com-paragraph"
+                        // dangerouslySetInnerHTML={{
+                        //     __html: description
+                        // }}
                     >
                         {description}
                     </Text>
