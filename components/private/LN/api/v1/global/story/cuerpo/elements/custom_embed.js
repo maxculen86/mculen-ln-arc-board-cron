@@ -4,7 +4,7 @@ import htmlText from '../../../../common/story/cuerpo/elements/htmlText';
 import image from './image';
 
 const customEmbed = (nodo, dataNota) => {
-    if (!nodo && nodo.subtype !== 'custom-parallax') return null;
+    if (!nodo || nodo.subtype !== 'custom-parallax') return null;
 
     const res = [];
 
@@ -28,6 +28,8 @@ const customEmbed = (nodo, dataNota) => {
     if (paragraphElement) {
         res.push({ _t: 'p', valor: htmlText(paragraphElement) });
     }
+
+    if (res.length === 0) return null;
 
     return res;
 };
