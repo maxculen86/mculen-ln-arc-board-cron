@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/control-has-associated-label,jsx-a11y/label-has-associated-control,react/jsx-curly-newline */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import getProperties from 'fusion:properties';
 import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
@@ -11,7 +11,8 @@ import {
     popUpCompartirNotaFB,
     shareWhatsAppDesktop,
     popUpCompartirMailTo,
-    scrollToComments
+    scrollToComments,
+    copyToClipboard
 } from '../common/utils/shareHelper';
 import ComButton from '../../common/com-button';
 import ComLine from '../../common/com-line';
@@ -19,6 +20,8 @@ import AmpContainer from '../../common/ampContainer';
 import get from '../../common/utils/get';
 import Icon from '../../common/icon';
 import { conditionallyCallViafoura } from '../../common/utils/commentsHelper';
+import findTermica from '../../common/utils/findTermica';
+import getToken from '../../common/utils/getToken';
 
 const Share = props => {
     const {
@@ -47,12 +50,18 @@ const Share = props => {
 
     const facebookId = get(siteVars, 'shareConfig.facebook.appID', undefined);
 
+    const [token, setToken] = useState();
+    useEffect(() => {
+        setToken(getToken());
+    }, []);
+    console.log('🚀 ~ file: share.jsx ~ line 54 ~ token', token);
+
     // TODO: arreglar el tema de las URL's
     const mystyle = {
         maxWidth: '32px',
         maxHeight: '32px'
     };
-    const isSaved = true; // booleano para saber si la nota esta guardada o no
+    const isSaved = false; // booleano para saber si la nota esta guardada o no
 
     return (
         <div
@@ -62,22 +71,23 @@ const Share = props => {
             <AmpContainer isForAmp={false}>
                 <div className="container --left">
                     {/* Se oculta temporalmente para luego refactorizar */}
+                    {/* Bookmark para guardado de notas */}
+                    {findTermica('bookmark') && (
+                        <ComButton
+                            id="btnbookmark"
+                            dataEvent="LinkClick"
+                            dataSection="Guardar Nota"
+                            onClick={() => {}}
+                            size="--fourxs"
+                            iconName={isSaved ? 'bookmark-filled' : 'bookmark'}
+                            title="Notas guardadas"
+                            classCondition={`bookmark ${
+                                isSaved ? '--is-saved' : ''
+                            }`}
+                        />
+                    )}
                     {displayComments && (
                         <>
-                            {/* Bookmark para guardado de notas */}
-                            <ComButton
-                                id="btncomments"
-                                dataEvent="LinkClick"
-                                dataSection="Guardar Nota"
-                                onClick={() => {}}
-                                size="--fourxs"
-                                iconName={
-                                    isSaved ? 'bookmark-filled' : 'bookmark'
-                                }
-                                title="Notas guardadas"
-                                classCondition={`bookmark ${isSaved &&
-                                    '--is-saved'}`}
-                            />
                             <ComButton
                                 id="btncomments"
                                 dataEvent="LinkClick"
@@ -113,7 +123,7 @@ const Share = props => {
                         iconName="copy"
                         title="Copiar link de la nota"
                         id="copyLinkNote"
-                        onClick={() => {}}
+                        onClick={() => copyToClipboard()}
                     />
                     <ComButton
                         id="btnfacebook"
