@@ -69,11 +69,12 @@ const ModArticle = props => {
     const type = get(imagenDestacada, 'type', null);
 
     const mediaData = (() => {
-        if (
-            videoBackground &&
-            (layout === 'grillaVideo1' || device !== 'mobile')
-        )
+        if (videoBackground) {
+            if (layout === 'grilla1' && device === 'mobile') {
+                return type === 'image' ? imagenDestacada : null;
+            }
             return videoBackground;
+        }
         return type === 'image' ? imagenDestacada : null;
     })();
 
