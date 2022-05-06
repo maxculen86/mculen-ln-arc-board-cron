@@ -6,7 +6,8 @@ const getImage = (
     id = '',
     sourceType = '',
     imageConfig = '',
-    isHideImage = true
+    isHideImage = true,
+    isInApertura
 ) => {
     const filter = {
         relatedImageSource: '',
@@ -21,7 +22,12 @@ const getImage = (
                 id.trim() &&
                 useContent({
                     source: sourceType,
-                    query: { id: id.trim(), published: true, imageConfig },
+                    query: {
+                        id: id.trim(),
+                        published: true,
+                        imageConfig,
+                        isInApertura
+                    },
                     filter: filter[sourceType]
                 })) ||
             {}

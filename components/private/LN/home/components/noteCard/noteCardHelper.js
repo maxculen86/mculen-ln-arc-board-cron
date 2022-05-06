@@ -111,3 +111,22 @@ export const isInHomeAperturaOrBomba = (
         );
     });
 };
+
+export const isInApertura = ({
+    renderables,
+    featureId,
+    layoutsName,
+    layoutPageBuilder,
+    config
+}) => {
+    const inHome = isInHomeAperturaOrBomba(
+        renderables,
+        featureId,
+        layoutsName,
+        layoutPageBuilder
+    );
+
+    const inApertura = get(config, 'isApertura', false);
+
+    return inHome && inApertura;
+};

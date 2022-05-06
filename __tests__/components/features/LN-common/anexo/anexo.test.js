@@ -56,7 +56,9 @@ describe('features - LN-common - anexo - default', () => {
             customFields: {
                 url:
                     'https://especialess3.lanacion.com.ar/21/03/anexo-home-vacunas-test/',
-                height: 300,
+                heightDesktop: 300,
+                heightTablet: 150,
+                heightMobile: 100,
                 hideByUrl: false,
                 hideByHtml: true
             }
@@ -72,6 +74,21 @@ describe('features - LN-common - anexo - default', () => {
             expect(
                 component.find('div').hasClass('com-anexo skeleton-box')
             ).toBeTruthy();
+        });
+        it('Should generate style tag with media queries correctly', () => {
+            const component = mount(<AnexoFeature {...propsUrl} />);
+            expect(component.html()).not.toBeNull();
+            expect(component.find('style')).toHaveLength(1);
+            const styleTag = component.find('style').html();
+            expect(styleTag).toContain(
+                '#anexo-responsive-f0f0raOK8mKx1sc{height:100px}'
+            );
+            expect(styleTag).toContain(
+                '@media(min-width:768px){#anexo-responsive-f0f0raOK8mKx1sc{height:150px}}'
+            );
+            expect(styleTag).toContain(
+                '@media(min-width:1024px){#anexo-responsive-f0f0raOK8mKx1sc{height:300px}}'
+            );
         });
         it('Should match URL anexo snapshot', () => {
             const component = render(<AnexoFeature {...propsUrl} />);
@@ -96,6 +113,36 @@ describe('features - LN-common - anexo - default', () => {
             propsUrl.customFields.hideByUrl = true;
             const component = render(<AnexoFeature {...propsUrl} />);
             expect(component.html()).toBeNull();
+        });
+
+        it('Without any of 3 heights on URL anexo - Should return ErrorMessage', () => {
+            propsUrl.customFields.hideByUrl = false;
+            propsUrl.customFields.heightDesktop = undefined;
+            const component = render(<AnexoFeature {...propsUrl} />);
+            expect(component.html()).toContain(
+                'Los tres altos fijos del anexo (Desktop, Tablet y Mobile) son campos requeridos para los anexos con URL'
+            );
+        });
+        it('When any of the 3 heights exceed limit and isApertura is true - Should return ErrorMessage', () => {
+            const renderables = [];
+            renderables[2] = {
+                children: [
+                    {
+                        props: {
+                            id: 'f0f0raOK8mKx1sc'
+                        }
+                    }
+                ]
+            };
+            Context.useAppContext = jest.fn(() => ({
+                isAdmin: true,
+                renderables
+            }));
+            propsUrl.customFields.heightDesktop = 700;
+            const component = render(<AnexoFeature {...propsUrl} />);
+            expect(component.html()).toContain(
+                'Los altos fijos m&#xE1;ximos de anexos con URL en apertura son de 250px para Desktop, Tablet y Mobile. Corrijalos, caso contrario no se ver&#xE1; el anexo'
+            );
         });
     });
     describe('Without right props', () => {

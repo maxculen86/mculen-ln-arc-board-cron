@@ -10,6 +10,7 @@ const WikiFeature = () => {
         source: isWiki ? 'wikiTagSource' : null,
         query: { type: 'person', imageConfig: 'aperturaAcu' }
     });
+
     const {
         image: { resizedUrls = [], url = '', alt = '' }
     } = wikiSourceData;

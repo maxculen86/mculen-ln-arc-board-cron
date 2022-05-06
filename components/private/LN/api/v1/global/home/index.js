@@ -1,4 +1,4 @@
-import { get } from 'lodash';
+import get from '../../../../../common/utils/get';
 import Image from '../../common/image';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
 import {
@@ -58,8 +58,14 @@ const articlesMap = articles => {
             try {
                 const article = Article({ ...f, storyType: 'home' });
                 result.push(article);
-            } catch (ex) {
-                console.log(ex);
+            } catch (error) {
+                // eslint-disable-next-line no-console
+                console.error(error.message, {
+                    error,
+                    outputType: 'json',
+                    websiteUrl:
+                        'https://www.lanacion.com.ar/?_website=la-nacion-ar&outputType=json'
+                });
             }
         }
         return result;
@@ -92,7 +98,6 @@ const storyBox = element => {
             notas: resultArticles
         };
     }
-
     return null;
 };
 
