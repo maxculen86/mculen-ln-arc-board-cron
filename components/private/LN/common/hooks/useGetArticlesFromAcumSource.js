@@ -28,7 +28,7 @@ export default function useGetArticlesFromAcumSource(
             authorId,
             tagId,
             subtype,
-            size: (size && size.tripleSize) || size,
+            size: size.tripleSize || size,
             imageConfig,
             excludeSectionId,
             promoItemsOnly,

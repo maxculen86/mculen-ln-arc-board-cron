@@ -7,7 +7,7 @@ import useGetArticlesFromAcumSource from '../../../../../components/private/LN/c
 jest.mock('fusion:content', () => ({
     useContent: jest.fn()
 }));
-describe('Testing get Articles from Acum Source', () => {
+describe('Private - Common - Hooks - useGetArticlesFromAcumSource', () => {
     const args = {
         typesOfQuery: {
             sectionId: '/recetas'
