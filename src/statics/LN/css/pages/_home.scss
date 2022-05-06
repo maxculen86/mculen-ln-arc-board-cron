@@ -146,6 +146,13 @@
         }
         .com-label {
             display: none;
+            &.--exclusive-ln {
+                display: inline-flex;
+                position: relative;
+                margin-bottom: $spacing;
+                top: 0;
+                left: 0;
+            }
         }
     }
 }
@@ -239,7 +246,14 @@
         width: calc(100% + #{$spacing-lg});
         margin-left: -$spacing-sm;
         padding: px(32) $spacing-sm 0;
-
+        .com-label {
+            &.--exclusive-ln {
+                position: relative;
+                top: 0;
+                left: 0;
+                margin-bottom: $spacing;
+            }
+        }
         .mod-media {
             display: none;
         }
@@ -415,6 +429,12 @@ $rank-dsk: px(400);
                 left: px(16);
                 top: px(-32);
                 z-index: 10;
+                &.--exclusive-ln {
+                    position: relative;
+                    left: 0;
+                    top: 0;
+                    margin-bottom: $spacing;
+                }
             }
             .com-title,
             .com-subhead,
@@ -526,6 +546,11 @@ $rank-dsk: px(400);
             .mod-article:not(:last-child) {
                 margin-bottom: px(32);
             }
+            .com-label {
+                &.--exclusive-ln {
+                    top: px(-44);
+                }
+            }
         }
 
         @media ($media-m) {
@@ -591,7 +616,6 @@ $rank-dsk: px(400);
 
         .col-tablet-4 {
             order: 1;
-
             .mod-article {
                 margin-bottom: px(32);
             }
@@ -921,6 +945,9 @@ $rank-dsk: px(400);
             .com-label {
                 top: px(-30);
                 left: px(8);
+                &.--exclusive-ln {
+                    top: (-35px);
+                }
             }
 
             .com-link.com-link,
@@ -1124,6 +1151,9 @@ $rank-dsk: px(400);
 
                 .com-label {
                     left: 0;
+                    &.--exclusive-ln {
+                        top: (-35px);
+                    }
                 }
 
                 .com-title {
@@ -1142,17 +1172,17 @@ $rank-dsk: px(400);
             }
         }
     }
+}
 
-    @media ($media-m) {
-        &.--cinema {
-            &.--video {
-                .mod-media {
-                    .mod-video {
-                        display: block;
-                    }
-                    .com-image {
-                        display: none;
-                    }
+@media ($media-m) {
+    &.--cinema {
+        &.--video {
+            .mod-media {
+                .mod-video {
+                    display: block;
+                }
+                .com-image {
+                    display: none;
                 }
             }
         }
