@@ -4,13 +4,12 @@ import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
 import get from '../../../private/common/utils/get';
-import Image from '../../../private/common/com-image';
+import ModPicture from '../../../private/common/mod-picture';
 import Text from '../../../private/common/text';
 import Icon from '../../../private/common/icon';
 import TaxonomyImportantList from '../../../private/LN/common/taxonomyImportantList';
 import SchemaInfoWiki from '../../../private/LN/acumulado/wiki/SchemaInfoWiki';
 import StaticValidation from '../../../private/common/staticValidation';
-import ComPicture from '../../../private/common/com-picture';
 
 const WikiFeature = () => {
     const props = get(useAppContext(), 'globalContent', {});
@@ -27,10 +26,12 @@ const WikiFeature = () => {
         type,
         description,
         schemas_info: schemasInfo,
-        image,
+        image = {},
         logo_url: logoUrl,
         _id: featureId
     } = wikiSourceData;
+
+    const { url: imageUrl, resizedUrls } = image;
 
     const {
         additional_name: additionalName,
@@ -73,14 +74,16 @@ const WikiFeature = () => {
         ? `${givenName} ${additionalName} ${familyName}`
         : legalName;
 
-    const srcImg = isOrganization ? logoUrl : image.url;
+    const srcImg = isOrganization ? logoUrl : imageUrl;
 
     return (
         <StaticValidation id={featureId} htmlOnly persistent>
             <article className="wiki-tags">
-                <ComPicture>
-                    <Image src={srcImg} alt={formatAlt} />
-                </ComPicture>
+                <ModPicture
+                    src={srcImg}
+                    alt={formatAlt}
+                    sources={resizedUrls}
+                />
                 <div className="extra-info">
                     {Object.keys(schemasInfo)
                         .filter(key => key !== 'location' && key !== 'address')
