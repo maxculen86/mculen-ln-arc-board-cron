@@ -25,6 +25,11 @@
                 color: $blue-300;
                 font-weight: 700;
             }
+            .mod-autor {
+                .com-text.--autor {
+                    color: $neutral-white;
+                }
+            }
             .container-medio .com-text.--medio {
                 color: $light-neutral-400;
             }
@@ -57,6 +62,9 @@
                 background: none;
                 .container {
                     flex-direction: row;
+                    .counterComments {
+                        color: $neutral-white;
+                    }
                 }
                 .com-line {
                     display: none;

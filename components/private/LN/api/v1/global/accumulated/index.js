@@ -18,8 +18,12 @@ const index = acuData => {
                 try {
                     const article = Article(f);
                     result.push(article);
-                } catch (ex) {
-                    console.log(ex);
+                } catch (error) {
+                    console.error(error.message, {
+                        error,
+                        outputType: 'json',
+                        element: acuData.name
+                    });
                 }
             }
             return result;
