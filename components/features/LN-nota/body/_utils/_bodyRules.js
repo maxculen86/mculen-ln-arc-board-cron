@@ -1,8 +1,8 @@
 import { FOTOAL100 } from '../../../../private/common/utils/subtypes/subtypeHelper';
 import get from '../../../../private/common/utils/get';
 
-export const selectRule = ({ subtype, type, outputType }) => {
-    if (subtype === FOTOAL100) {
+export const selectRule = ({ subtype, type, outputType, subtypeElement }) => {
+    if (subtype === FOTOAL100 && subtypeElement !== 'custom-parallax') {
         return bodyRules.defaultFotoAl100;
     }
     return get(bodyRules, `${type}.${outputType}`, bodyRules.defaultRule);

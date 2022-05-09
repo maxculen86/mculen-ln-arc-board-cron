@@ -17,6 +17,7 @@ import OptaAMP from '../../../../private/LN/nota/cuerpo/optaAMP';
 import powerUpsReceta from '../../../../private/LN/nota/cuerpo/powerUpsReceta';
 import HtmlAMP from '../../../../private/LN/nota/cuerpo/htmlAMP';
 import Divider from '../../../../private/LN/nota/cuerpo/divider';
+import Parallax from '../../../../private/LN/nota/cuerpo/powerUpParallax';
 
 // ultils
 import { selectRule } from './_bodyRules';
@@ -38,6 +39,7 @@ const bodyComponents = [
     OptaAMP,
     powerUpsReceta,
     HtmlAMP,
+    Parallax,
     Divider
 ];
 
@@ -49,7 +51,8 @@ export const bodyElementRules = (props = {}) => {
         const componentSelected = selectRule({
             subtype,
             type,
-            outputType
+            outputType,
+            subtypeElement
         });
 
         return componentSelected({

@@ -21,6 +21,18 @@ describe('_utils/_bodyRules.js', () => {
             expect(component).toEqual(bodyRules.defaultFotoAl100);
         });
 
+        it('is FOTOAL100 (8) pero PARALAX return custom_embed Function in selectRule', () => {
+            const attr = {
+                subtype: '8',
+                outputType: 'default',
+                type: 'custom_embed',
+                subtypeElement: 'custom-parallax'
+            };
+
+            const component = selectRule(attr);
+            expect(component).toEqual(bodyRules.custom_embed.default);
+        });
+
         it('debe retornar FALSE cuando typeElement = oembed_response', () => {
             const attr = {
                 type: 'raw_html',
@@ -89,6 +101,18 @@ describe('_utils/_bodyRules.js', () => {
 
             const component = selectRule(attr);
             expect(component).toEqual(bodyRules.raw_html);
+        });
+
+        it('is RECETA (7) con power up return custom_embed Function in selectRule', () => {
+            const attr = {
+                subtype: '7',
+                outputType: 'default',
+                type: 'custom_embed',
+                subtypeElement: 'power-up-receta'
+            };
+
+            const component = selectRule(attr);
+            expect(component).toEqual(bodyRules.custom_embed.default);
         });
     });
 });
