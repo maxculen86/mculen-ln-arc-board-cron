@@ -2346,7 +2346,7 @@ export default {
                     hideForSubscriptor: true
                 },
                 parallax_mob: {
-                    slotName: `la_nacion_desktop/Home/parallax_mob`,
+                    slotName: `la_nacion_mobile/Home/parallax_mob`,
                     dimensions: [
                         [1, 1],
                         [360, 450]

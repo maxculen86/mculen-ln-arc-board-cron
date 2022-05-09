@@ -570,6 +570,12 @@ const LNMainHome = props => {
                         </div>
                         <DivBannerSSR
                             bannerConfiguration={{
+                                slotId: 'parallax_mob',
+                                withoutHide: true
+                            }}
+                        />
+                        <DivBannerSSR
+                            bannerConfiguration={{
                                 slotId: 'parallax_dsk',
                                 withoutHide: true
                             }}
