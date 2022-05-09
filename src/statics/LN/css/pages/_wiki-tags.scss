@@ -38,6 +38,7 @@
 
     .placeholder {
         height: 100%;
+        max-width: px(293);
         margin-left: 0;
     }
 
@@ -72,7 +73,7 @@
         display: flex;
         justify-content: flex-start;
         align-items: baseline;
-        margin-bottom: px(24);
+        margin: px(24) 0 px(24) 0;
 
         .text-social-n {
             margin-right: px(12);

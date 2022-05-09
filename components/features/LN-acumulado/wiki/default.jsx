@@ -19,13 +19,13 @@ const WikiFeature = () => {
         query: { type: 'person', imageConfig: 'wikiTag' }
     });
 
+    if (!isWiki) return <></>;
+
     const {
-        creation_date: creationDate,
-        social_networks: socialNetworks,
-        related_tags: relatedTags,
-        type,
+        social_networks: socialNetworks = [],
+        related_tags: relatedTags = [],
         description,
-        schemas_info: schemasInfo,
+        schemas_info: schemasInfo = [],
         image = {},
         logo_url: logoUrl,
         _id: featureId
@@ -35,13 +35,8 @@ const WikiFeature = () => {
 
     const {
         additional_name: additionalName,
-        birth_date: birthDate,
         family_name: familyName,
-        job_title: jobTitle,
         given_name: givenName,
-        birth_place: birthPlace,
-        founding_date: foundingDate,
-        founding_location: foundingLocation,
         location,
         address,
         legal_name: legalName
@@ -144,29 +139,6 @@ const WikiFeature = () => {
 };
 
 WikiFeature.propTypes = {
-    creation_date: PropTypes.string,
-    type: PropTypes.string,
-    description: PropTypes.string,
-    image: PropTypes.string,
-    social_networks: PropTypes.arrayOf(
-        PropTypes.oneOfType([
-            PropTypes.shape({
-                name: PropTypes.string,
-                type: PropTypes.string,
-                url: PropTypes.string
-            }),
-            PropTypes.string
-        ])
-    ),
-    related_tags: PropTypes.arrayOf(
-        PropTypes.oneOfType([
-            PropTypes.shape({
-                text: PropTypes.string,
-                slug: PropTypes.string
-            }),
-            PropTypes.string
-        ])
-    ),
     schemas_info: PropTypes.shape({
         job_title: PropTypes.string,
         address: PropTypes.string,
@@ -180,8 +152,6 @@ WikiFeature.propTypes = {
         family_name: PropTypes.string,
         given_name: PropTypes.string
     }),
-    _id: PropTypes.string,
-    logo_url: PropTypes.string,
     isWiki: PropTypes.string
 };
 
