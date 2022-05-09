@@ -15,6 +15,13 @@ const Schemas = ({ section }) => {
         "publishingPrinciples": "https://www.lanacion.com.ar/sociedad/los-veinte-20-principios-del-periodismo-la-nid2390521/",
         "verificationFactCheckingPolicy": "https://www.lanacion.com.ar/sociedad/verificacion-chequeo-datos-nid2406825/",
         "foundingDate": "1870-01-04",
+        "logo": {
+            "@context": "https://schema.org",
+            "@type": "ImageObject",
+            "url": "https://arc-static.glanacion.com/pf/resources/images/placeholderLN-600_amp.jpg?d=851",
+            "height": 60,
+            "width": 600
+          }
         "sameAs": [
           "https://www.facebook.com/lanacion/",
           "https://www.instagram.com/lanacioncom/",
