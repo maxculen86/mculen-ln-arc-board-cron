@@ -127,12 +127,7 @@ const WikiFeature = () => {
                     ))}
                 </div>
                 <div className="wiki-description">
-                    <Text
-                        as="div"
-                        font="sueca"
-                        size="2xs"
-                        weight="regular"
-                        extraClass="com-paragraph"
+                    <div
                         dangerouslySetInnerHTML={{
                             __html: description
                         }}

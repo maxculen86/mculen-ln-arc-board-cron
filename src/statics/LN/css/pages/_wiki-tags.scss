@@ -90,10 +90,14 @@
     .wiki-description {
         display: flex;
         flex-direction: column;
-        a {
+        div {
             font-family: $font-SuecaSlab;
             font-size: 16px;
             font-weight: 400;
+            line-height: 24px;
+        }
+        a {
+            color: $blue-500;
         }
     }
 
