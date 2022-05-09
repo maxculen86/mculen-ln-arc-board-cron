@@ -5,10 +5,14 @@ import get from '../../../private/common/utils/get';
 
 const WikiFeature = () => {
     const props = get(useAppContext(), 'globalContent', {});
+    const slug = get(useAppContext(), 'globalContentConfig.query.slug', '');
     const { isWiki } = props;
     const wikiSourceData = useContent({
         source: isWiki ? 'wikiTagSource' : null,
-        query: { type: 'person', imageConfig: 'aperturaAcu' }
+        query: {
+            slug,
+            imageConfig: 'aperturaAcu'
+        }
     });
 
     const {
