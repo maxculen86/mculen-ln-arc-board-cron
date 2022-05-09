@@ -39,7 +39,7 @@ const Schemas = ({ section }) => {
             <script
                 dangerouslySetInnerHTML={{ __html: x }}
                 type="application/ld+json"
-            ></script>
+            />
         ));
 
     const nodes = createScript([newsMedia, webSite]);
