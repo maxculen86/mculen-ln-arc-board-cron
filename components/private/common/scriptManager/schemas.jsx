@@ -1,7 +1,14 @@
 import React from 'react';
+import { ARC_STATIC } from 'fusion:environment';
+import { useAppContext } from 'fusion:context';
 import PropTypes from 'prop-types';
 
 const Schemas = ({ section }) => {
+    const { contextPath, deployment } = useAppContext();
+    const logoUrl = `${ARC_STATIC}${deployment(
+        `${contextPath}/resources/images/placeholderLN-600_amp.jpg}`
+    )}`;
+
     const newsMedia = `{
         "@context": "http://schema.org",
         "@type": "NewsMediaOrganization",
@@ -18,7 +25,7 @@ const Schemas = ({ section }) => {
         "logo": {
             "@context": "https://schema.org",
             "@type": "ImageObject",
-            "url": "https://arc-static.glanacion.com/pf/resources/images/placeholderLN-600_amp.jpg?d=851",
+            "url": "${logoUrl}",
             "height": 60,
             "width": 600
           }
