@@ -9,15 +9,14 @@ import { LinkImagePreload } from '../../../LN/common/utils/mediaHelper';
 import getVideoPosterResized from '../video/getVideoPosterResized';
 
 const getSource = (
-    imageID,
-    noteID,
+    imageID = '',
+    noteID = '',
     imageConfig,
     isHideImage,
     videoID,
     isAdmin
 ) => {
     const isInApertura = true;
-
     if (videoID) {
         return getVideoPosterResized(
             videoID,
@@ -26,19 +25,18 @@ const getSource = (
             isAdmin
         );
     }
-
-    return imageID
+    return imageID.trim()
         ? getImage(
-              imageID,
-              sourceType[0],
+              imageID.trim(),
+              'relatedImageSource',
               imageConfig,
               isHideImage,
               isInApertura,
               isAdmin
           )
         : getImage(
-              noteID,
-              sourceType[1],
+              noteID.trim(),
+              'articleSourceNota',
               imageConfig,
               isHideImage,
               isInApertura,
@@ -49,8 +47,8 @@ const getSource = (
 const getcustomFieldsData = fieldsData => {
     return {
         isHideImage: get(fieldsData, 'props.customFields.hideImage', false),
-        imageID: get(fieldsData, 'props.customFields.imageId', ''),
-        noteID: get(fieldsData, 'props.customFields.noteId', ''),
+        imageID: get(fieldsData, 'props.customFields.imageId', '').trim(),
+        noteID: get(fieldsData, 'props.customFields.noteId', '').trim(),
         videoID: get(fieldsData, 'props.customFields.video', '')
     };
 };
@@ -65,8 +63,6 @@ const getPromoItems = items => {
         };
     });
 };
-
-const sourceType = ['relatedImageSource', 'articleSourceNota'];
 
 const getMediaBomba = (arcSite, bomba) => {
     const { isHideImage, imageID, noteID } = getcustomFieldsData(bomba[0]);
@@ -123,19 +119,6 @@ const getMediaApertura = (renderables, arcSite, isAdmin) => {
         ) || []
     );
 };
-
-const mapResp = (links = []) =>
-    links.map(elem => {
-        return (
-            <link
-                id="preload-img"
-                rel="preload"
-                href={elem.resizedUrl}
-                as="image"
-                media={elem.media}
-            />
-        );
-    });
 
 const getDataToLinkImage = ({
     data = {},
