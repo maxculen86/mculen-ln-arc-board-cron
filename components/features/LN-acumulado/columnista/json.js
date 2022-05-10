@@ -15,10 +15,12 @@ class Columnista {
                 },
                 transform(data) {
                     const autor = data;
-                    autor.image = {
-                        ...autor.image,
-                        resized_urls: [{ resizedUrl: autor.image.url }]
-                    };
+                    if (data) {
+                        autor.image = {
+                            ...autor.image,
+                            resized_urls: [{ resizedUrl: autor.image.url }]
+                        };
+                    }
                     return authorHomeMobile(autor);
                 }
             }
