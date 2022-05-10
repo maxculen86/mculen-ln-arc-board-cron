@@ -135,12 +135,12 @@ const getErrorMessage = ({
         !html &&
         !hideByHtml &&
         'Se requiere agregue la URL o HTML del anexo') ||
-    (hideByHtml &&
+    ((hideByHtml || (!html && !hideByHtml)) &&
         url &&
         !hideByUrl &&
         (!heightDesktop || !heightTablet || !heightMobile) &&
         'Los tres altos fijos del anexo (Desktop, Tablet y Mobile) son campos requeridos para los anexos con URL') ||
-    (hideByHtml &&
+    ((hideByHtml || (!html && !hideByHtml)) &&
         url &&
         !hideByUrl &&
         isApertura &&
