@@ -1,4 +1,4 @@
-import get from 'lodash.get';
+import get from '../../../../../../../common/utils/get';
 import { dateAndTimeForAppsUtil } from '../../../../../../../common/utils/dateAndTimeUtil';
 import { imageMobile } from '../../../../common/image';
 
