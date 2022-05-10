@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import ComImage from '../../../common/com-image';
 import '../../../../../resources/dist/css/ln/components/parallax.css';
-import { filteredSources } from '../apertura/AperturaStorytelling/component';
 import useViewportSize from '../../../common/hooks/useViewportSize';
+import useProportions from '../../../common/hooks/useProportions';
 import Text from '../../../common/text';
 
 const Parallax = ({ data = {} }) => {
@@ -30,9 +30,10 @@ const Parallax = ({ data = {} }) => {
         height
     } = imageId;
 
+    const sourcesForDevice = useProportions({ imagesResized, device, isAmp });
+
     if (!imageId || (!title && !paragraph)) return null;
 
-    const sourcesForDevice = filteredSources(imagesResized, device, isAmp);
     const srcSet = sourcesForDevice
         ? sourcesForDevice.map(x => `${x.resizedUrl} ${x.option.width}w`).join()
         : '';
