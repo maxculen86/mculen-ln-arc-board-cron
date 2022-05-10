@@ -1,0 +1,117 @@
+[
+    {
+        "name": "Tradicional",
+        "id": "Quini_6",
+        "component": "Quini6",
+        "date": "Domingo 10/04/2022",
+        "estimatedPot": "$475.000.000",
+        "results": ["05", "07", "09", "13", "15", "44"],
+        "winners_table": [
+            {
+                "name": "6",
+                "winners": "Vacante",
+                "amount": "$162.262.213"
+            },
+            {
+                "name": "5",
+                "winners": "90",
+                "amount": "$26.748"
+            },
+            {
+                "name": "4",
+                "winners": "3244",
+                "amount": "$222"
+            }
+        ]
+    },
+    {
+        "name": "Segunda vuelta",
+        "id": "Quini_6",
+        "component": "Quini6",
+        "date": "Domingo 10/04/2022",
+        "results": ["04", "08", "22", "37", "44", "45"],
+        "winners_table": [
+            {
+                "name": "6",
+                "winners": "Vacante",
+                "amount": "$124.736.194"
+            },
+            {
+                "name": "5",
+                "winners": "35",
+                "amount": "$68.781"
+            },
+            {
+                "name": "4",
+                "winners": "1577",
+                "amount": "$458"
+            }
+        ]
+    },
+    {
+        "name": "Revancha",
+        "id": "Quini_6",
+        "component": "Quini6",
+        "date": "Domingo 10/04/2022",
+        "results": ["12", "18", "24", "32", "36", "42"],
+        "winners_table": [
+            {
+                "name": "6",
+                "winners": "Vacante",
+                "amount": "$107.974.652"
+            }
+        ]
+    },
+    {
+        "name": "Pozo extra",
+        "id": "Quini_6",
+        "component": "Quini6",
+        "date": "Domingo 10/04/2022",
+        "results": [
+            "05",
+            "07",
+            "09",
+            "13",
+            "15",
+            "44",
+            "04",
+            "08",
+            "22",
+            "37",
+            "44",
+            "45",
+            "12",
+            "18",
+            "24",
+            "32",
+            "36",
+            "42"
+        ],
+        "winners_table": [
+            {
+                "name": "6",
+                "winners": "4128",
+                "amount": "$2.180"
+            }
+        ]
+    },
+    {
+        "name": "Siempre sale",
+        "id": "Quini_6",
+        "component": "Quini6",
+        "date": "Domingo 10/04/2022",
+        "results": ["03", "10", "11", "16", "31", "43"],
+        "winners_table": [
+            {
+                "name": "6",
+                "winners": "0",
+                "amount": "$0"
+            },
+            {
+                "name": "5",
+                "winners": "30",
+                "amount": "$719.749"
+            }
+        ]
+    }
+]

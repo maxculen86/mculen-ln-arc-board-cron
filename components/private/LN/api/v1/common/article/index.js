@@ -48,16 +48,23 @@ const getArticleOpinionSubtype = article => {
 };
 
 export const articleItem = article => {
-    const { subtype: templateId, website_url: url, label } = article;
+    const { subtype: templateId, label } = article;
 
     const id = get(article, '_id', null);
     if (!id) {
         throw new Error('Revisar Parametros de Articulo en null o undefined');
     }
 
+    const url = get(article, 'website_url', null);
+    if (!url) {
+        throw new Error(
+            `La nota con el id: ${id} no posee el valor website_url`
+        );
+    }
+
     const titulo = getArticleTitle(article);
     if (!titulo) {
-        throw new Error('Titulo de la nota es null o undefined');
+        throw new Error(`La nota con el id: ${id}: No posee el valor Titulo`);
     }
     const autores = getArticleAuthor(article);
     const autor = autores ? autores[0] : null;

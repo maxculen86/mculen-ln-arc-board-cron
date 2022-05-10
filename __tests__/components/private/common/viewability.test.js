@@ -12,6 +12,7 @@ import ArticleAcum from '../../../../components/private/LN/acumulado/articleAcum
 import BombaFeature from '../../../../components/features/LN-common/bomba/default';
 import articles from '../../../../__mocks__/data/articles/articles.json';
 import { useContent } from 'fusion:content';
+//import { useComponentContext } from 'fusion:context';
 
 jest.mock('fusion:consumer', component => {
     return function(component) {
@@ -27,7 +28,8 @@ jest.mock('fusion:context', () => () => ({
         };
 
         return props.children(mockAvailableProps);
-    }
+    },
+    useComponentContext: jest.fn(() => ({}))
 }));
 
 jest.mock('fusion:static', () => 'mock-static');
@@ -323,6 +325,8 @@ describe('Viewability', () => {
 
         it('Cuando se hace click en una BOMBA debe guardar en dataLayer datos attr del articulo', () => {
             useContent.mockImplementation(() => articles[0]);
+            Context.useComponentContext = jest.fn(() => ({}));
+
             const articlesBomba = [articles[0]];
             const propsBomba = {
                 // articles: articlesBomba,

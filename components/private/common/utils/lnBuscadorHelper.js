@@ -42,6 +42,20 @@ const createTagsTitleAndMetas = (description, url, searchResults) => {
             attributes: [
                 {
                     attribute: 'name',
+                    value: 'title'
+                },
+                {
+                    attribute: 'content',
+                    value: constructTitle
+                }
+            ]
+        },
+        {
+            element: 'meta',
+            whereToInsert: 'head',
+            attributes: [
+                {
+                    attribute: 'name',
                     value: 'description'
                 },
                 {

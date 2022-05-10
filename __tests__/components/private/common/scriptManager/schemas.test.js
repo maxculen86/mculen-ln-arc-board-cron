@@ -5,7 +5,11 @@ import { shallow } from 'enzyme';
 describe('Private - Common - Schemas =>', () => {
     const shallowSelf = props => shallow(<Schemas {...props} />);
     const verifyHtml = (wrapper, output = '', finder = 'html') => {
-        return expect(wrapper[finder]()).toEqual(output);
+        const cleanOutput = output.toString().replace(/\s/g, '');
+        const cleanWrapper = wrapper[finder]()
+            .toString()
+            .replace(/\s/g, '');
+        return expect(cleanWrapper).toEqual(cleanOutput);
     };
 
     describe('with empty section or not home', () => {
@@ -51,7 +55,7 @@ describe('Private - Common - Schemas =>', () => {
 
         const nodes = scripts.map(x => (
             <script
-                dangerouslySetInnerHTML={{ __html: x.replace(/\s/g, '') }}
+                dangerouslySetInnerHTML={{ __html: x }}
                 type="application/ld+json"
             ></script>
         ));

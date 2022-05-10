@@ -1,0 +1,203 @@
+{
+    "primary_section": {
+        "_id": "/economia",
+        "_website": "la-nacion-ar",
+        "additional_properties": {
+            "original": {
+                "ancestors": {},
+                "migration": {
+                    "id_section_ln9": "272",
+                    "migrated_mob": "false"
+                },
+                "style": {}
+            }
+        },
+        "name": "Economía",
+        "parent_id": "/",
+        "path": "/economia",
+        "type": "section"
+    },
+    "sections": [
+        {
+            "_id": "/economia",
+            "_website": "la-nacion-ar",
+            "additional_properties": {
+                "original": {
+                    "ancestors": {},
+                    "migration": {
+                        "id_section_ln9": "272",
+                        "migrated_mob": "false"
+                    },
+                    "style": {}
+                }
+            },
+            "name": "Economía",
+            "parent_id": "/",
+            "path": "/economia",
+            "type": "section"
+        },
+        {
+            "_id": "/economia/dolar",
+            "_website": "la-nacion-ar",
+            "additional_properties": {
+                "original": {
+                    "ancestors": {},
+                    "migration": {
+                        "id_section_ln9": "8014",
+                        "migrated_mob": "false"
+                    },
+                    "site": {}
+                }
+            },
+            "name": "Dólar Hoy",
+            "parent_id": "/economia",
+            "path": "/economia/dolar",
+            "type": "section"
+        },
+        {
+            "_id": "/economia/industria",
+            "_website": "la-nacion-ar",
+            "additional_properties": {
+                "original": {
+                    "ancestors": {},
+                    "migration": {
+                        "id_section_ln9": "8002",
+                        "migrated_mob": "false"
+                    }
+                }
+            },
+            "name": "Industria",
+            "parent_id": "/economia",
+            "path": "/economia/industria",
+            "type": "section"
+        },
+        {
+            "_id": "/economia/comercio-exterior",
+            "_website": "la-nacion-ar",
+            "additional_properties": {
+                "original": {
+                    "ancestors": {},
+                    "migration": {
+                        "id_section_ln9": "347",
+                        "migrated_mob": "false"
+                    }
+                }
+            },
+            "name": "Comercio Exterior",
+            "parent_id": "/economia",
+            "path": "/economia/comercio-exterior",
+            "type": "section"
+        },
+        {
+            "_id": "/revista-hola",
+            "_website": "la-nacion-ar",
+            "additional_properties": {
+                "original": {
+                    "ancestors": {},
+                    "migration": {
+                        "id_section_ln9": "7353",
+                        "migrated_mob": "true"
+                    },
+                    "style": {
+                        "section_style_name": "hola"
+                    }
+                }
+            },
+            "name": "Revista ¡HOLA!",
+            "parent_id": "/",
+            "path": "/revista-hola",
+            "type": "section"
+        },
+        {
+            "_id": "/revista-hola/estilo-hola",
+            "_website": "la-nacion-ar",
+            "additional_properties": {
+                "original": {
+                    "migration": {
+                        "id_section_ln9": "7353",
+                        "migrated_mob": "true"
+                    }
+                }
+            },
+            "name": "Estilo ¡HOLA!",
+            "parent_id": "/revista-hola",
+            "path": "/revista-hola/estilo-hola",
+            "type": "section"
+        }
+    ],
+    "sites": [
+        {
+            "additional_properties": {
+                "original": {
+                    "_id": "/economia",
+                    "migration": {
+                        "id_section_ln9": "272",
+                        "migrated_mob": "false"
+                    }
+                }
+            }
+        },
+        {
+            "additional_properties": {
+                "original": {
+                    "_id": "/economia/dolar",
+                    "migration": {
+                        "id_section_ln9": "8014",
+                        "migrated_mob": "false"
+                    }
+                }
+            }
+        },
+        {
+            "additional_properties": {
+                "original": {
+                    "_id": "/economia/industria",
+                    "migration": {
+                        "id_section_ln9": "8002",
+                        "migrated_mob": "false"
+                    }
+                }
+            }
+        },
+        {
+            "additional_properties": {
+                "original": {
+                    "_id": "/economia/comercio-exterior",
+                    "migration": {
+                        "id_section_ln9": "347",
+                        "migrated_mob": "false"
+                    }
+                }
+            }
+        },
+        {
+            "additional_properties": {
+                "original": {
+                    "_id": "/revista-hola",
+                    "migration": {
+                        "id_section_ln9": "7353",
+                        "migrated_mob": "true"
+                    }
+                }
+            }
+        },
+        {
+            "additional_properties": {
+                "original": {
+                    "_id": "/revista-hola/estilo-hola",
+                    "migration": {
+                        "id_section_ln9": "7353",
+                        "migrated_mob": "true"
+                    }
+                }
+            }
+        }
+    ],
+    "tags": [
+        {
+            "description": "Crónicas",
+            "slug": "cronicas-tid61570",
+            "text": "Crónicas"
+        }
+    ]
+}

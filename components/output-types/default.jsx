@@ -46,7 +46,6 @@ import {
     getMetaDescriptionDefault
 } from '../private/common/utils/outputTypeHelper';
 import FontPreloads from '../private/common/fontsPreloads';
-import get from '../private/common/utils/get';
 
 const scriptList = [
     {
@@ -133,7 +132,8 @@ const Default = props => {
         siteProperties,
         renderables,
         globalContent,
-        outputType
+        outputType,
+        isAdmin
     } = props;
 
     const {
@@ -234,7 +234,8 @@ const Default = props => {
                     data: globalContent,
                     section: _nodeType,
                     renderables,
-                    arcSite
+                    arcSite,
+                    isAdmin
                 })}
                 <FontPreloads />
                 <FontFaceDefault />
@@ -319,15 +320,17 @@ const Default = props => {
                     arcSite={arcSite}
                     nodeType={nodeType}
                 />
-                <MetaTitle
-                    arcSite={arcSite}
-                    title={title}
-                    defaultTitle={siteProperties.longTitle}
-                    nodeType={nodeType}
-                    section={_nodeType}
-                    metaValue={title}
-                    ottMetaTitle={ottMetaTitle}
-                />
+                {layout !== 'LN-buscador' && (
+                    <MetaTitle
+                        arcSite={arcSite}
+                        title={title}
+                        defaultTitle={siteProperties.longTitle}
+                        nodeType={nodeType}
+                        section={_nodeType}
+                        metaValue={title}
+                        ottMetaTitle={ottMetaTitle}
+                    />
+                )}
                 {layout !== 'LN-buscador' && (
                     <MetaDescription
                         subtype={subtype}

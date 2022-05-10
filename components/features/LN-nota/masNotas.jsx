@@ -4,50 +4,20 @@ import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import getProperties from 'fusion:properties';
 import StaticValidation from '../../private/common/staticValidation';
-import getArticlesFromAcumSource from '../../private/LN/common/utils/getArticlesFromAcumSource';
 import filter from '../../../content/filters/LN/acumulado/articleMasNotas';
-import addForwardSlash from '../../private/LN/common/utils/addForwardSlash';
 import CajaTema from '../../private/LN/common/cajaTema';
 import {
     NOTICIA,
     RECETA,
     VIDEO
 } from '../../private/common/utils/subtypes/subtypeHelper';
-import capitalizeFirstLetter from '../../private/common/utils/capitalizeFirstLetter';
 import get from '../../private/common/utils/get';
-
-const getSectionTitle = noteType => {
-    if (Number(noteType) === 1) return 'Otras noticias de&nbsp;';
-    if (Number(noteType) === 7) return 'Más recetas de&nbsp;';
-    return 'Más notas de&nbsp;';
-};
-
-const getTitle = (customFilter, subtype, link = {}) => {
-    const { text, path } = link;
-    if (customFilter === '1') {
-        return `${getSectionTitle(subtype)}<a href='/tema/${addForwardSlash(
-            path
-        )}' class='com-link'>${capitalizeFirstLetter(text)}</a>`;
-    }
-
-    if (customFilter === '0') {
-        return subtype === '7' ? 'Últimas Recetas' : 'Últimas Noticias';
-    }
-
-    return `Últimas notas de <a href='${addForwardSlash(
-        path
-    )}' class='com-link'> ${capitalizeFirstLetter(text)}</a>`;
-};
-
-const FILTER_TYPES = {
-    0: 'Ultimas Noticias',
-    1: 'Por Tags'
-};
-
-const getQuery = (filterType, subtype, customQuerys, tagId) =>
-    filterType === '1'
-        ? { tagId }
-        : customQuerys[subtype] || customQuerys.default;
+import {
+    getTitle,
+    getQuery,
+    FILTER_TYPES
+} from '../../private/common/utils/masNotasHelper';
+import useGetArticlesFromAcumSource from '../../private/LN/common/hooks/useGetArticlesFromAcumSource';
 
 const masNotas = props => {
     const {
@@ -56,7 +26,7 @@ const masNotas = props => {
             subtype,
             taxonomy: {
                 primary_section: { _id, _website, name: sectionName, path },
-                tags
+                tags = []
             },
             _id: idArticle
         },
@@ -102,7 +72,8 @@ const masNotas = props => {
     ).reduce((acc, tag) => {
         if (acc.articles) return acc;
         const { slug, text } = tag;
-        const res = getArticlesFromAcumSource(
+        const isSection = Object.keys(tag).length === 0;
+        const res = useGetArticlesFromAcumSource(
             getQuery(filterType, subtype, customQuerys, slug),
             filter,
             'boxArticles',
@@ -113,7 +84,7 @@ const masNotas = props => {
             shouldNotFilter,
             _website,
             true,
-            !tag
+            isSection
         )
             .filter(
                 article =>
@@ -136,7 +107,7 @@ const masNotas = props => {
 
     return (
         <StaticValidation id={featureId} htmlOnly persistent>
-            {articles.length >= 3 && (
+            {articles.length >= 3 ? (
                 <CajaTema
                     title={title}
                     notesQuantity={size.originalSize}
@@ -148,6 +119,8 @@ const masNotas = props => {
                     outputType={outputType}
                     withVolanta
                 />
+            ) : (
+                <></>
             )}
         </StaticValidation>
     );

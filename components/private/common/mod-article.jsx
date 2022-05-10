@@ -44,10 +44,16 @@ const ModArticle = props => {
         tags,
         handleClick,
         layout,
-        isApertura
+        isApertura,
+        registerSuccessEvent
     } = props;
 
-    const { _id, website_url: websiteUrl } = articleData || {};
+    const {
+        _id,
+        website_url: websiteUrl,
+        content_restrictions: contentRestrictions
+    } = articleData || {};
+
     const extraOpts = {};
     if (dataSection) {
         extraOpts['data-section'] = dataSection;
@@ -68,15 +74,17 @@ const ModArticle = props => {
     const type = get(imagenDestacada, 'type', null);
 
     const mediaData = (() => {
-        if (
-            videoBackground &&
-            (layout === 'grillaVideo1' || device !== 'mobile')
-        )
+        if (videoBackground) {
+            if (layout === 'grilla1' && device === 'mobile') {
+                return type === 'image' ? imagenDestacada : null;
+            }
             return videoBackground;
+        }
         return type === 'image' ? imagenDestacada : null;
     })();
 
     const onCLick = event => {
+        typeof registerSuccessEvent === 'function' && registerSuccessEvent();
         typeof handleClick == 'function' && handleClick(event, websiteUrl);
     };
 
@@ -87,7 +95,7 @@ const ModArticle = props => {
                 boxPosition,
                 artPosition,
                 _id,
-                noMedia,
+                withMedia,
                 isRenderAuthor,
                 isRenderAuthorOpinion
             })}
@@ -127,6 +135,7 @@ const ModArticle = props => {
                 marquesina={marquesina}
                 category={category}
                 tags={tags}
+                contentRestrictions={contentRestrictions}
             />
         </article>
     );
@@ -151,6 +160,7 @@ ModArticle.propTypes = {
     dateText: PropTypes.string,
     device: PropTypes.string,
     handleClick: PropTypes.func,
+    registerSuccessEvent: PropTypes.func,
     hour: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
     isPowa: PropTypes.bool,
     isRenderAuthor: PropTypes.bool,
@@ -193,6 +203,7 @@ ModArticle.defaultProps = {
     dateText: undefined,
     device: 'desktop',
     handleClick: undefined,
+    registerSuccessEvent: undefined,
     hour: undefined,
     isRenderAuthor: false,
     isRenderAuthorOpinion: false,

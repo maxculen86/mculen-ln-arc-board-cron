@@ -6,7 +6,6 @@
     padding: px(4) px(8);
     display: inline-flex;
     text-transform: uppercase;
-
     flex-wrap: nowrap;
     overflow: hidden;
     max-width: 95%;
@@ -22,6 +21,7 @@
         background: $red-400;
     }
     &.--liveblog-red {
+        list-style: none;
         .badge-container & {
             margin-bottom: $spacing-sm;
         }
@@ -36,6 +36,24 @@
             border-radius: 50%;
             background: $neutral-white;
             margin-right: px(7.33);
+        }
+    }
+    &.--exclusive-ln {
+        display: inline-flex;
+        z-index: 2;
+        align-items: center;
+        width: fit-content;
+        padding: px(3) px(6) px(3) px(4);
+        background: $light-neutral-50;
+        border: 1px solid $light-neutral-300;
+        border-radius: px(20);
+        text-transform: none;
+        color: $neutral-black;
+        font-weight: 700;
+        .com-icon {
+            width: px(20);
+            height: px(20);
+            margin-right: px(4);
         }
     }
 }

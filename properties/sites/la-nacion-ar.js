@@ -969,6 +969,32 @@ export default {
                     ]
                 }
             },
+            wikiTag: {
+                promo_items: {
+                    sizes: [
+                        {
+                            width: 320,
+                            height: 480,
+                            proportion: '2:3'
+                        },
+                        {
+                            width: 420,
+                            height: 630,
+                            proportion: '2:3'
+                        },
+                        {
+                            width: 640,
+                            height: 960,
+                            proportion: '2:3'
+                        },
+                        {
+                            width: 840,
+                            height: 1260,
+                            proportion: '2:3'
+                        }
+                    ]
+                }
+            },
             zoom: {
                 promo_items: {
                     sizes: [
@@ -1047,6 +1073,14 @@ export default {
                             useFullSize: true,
                             proportion: '3:2',
                             media_preload: min768max1024
+                        },
+                        {
+                            width: 1276,
+                            height: 1914,
+                            // media: minWidth768,
+                            useFullSize: true,
+                            proportion: '2:3',
+                            media_preload: minWidth768
                         },
                         {
                             width: 768,

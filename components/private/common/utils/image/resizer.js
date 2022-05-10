@@ -1,12 +1,17 @@
 /* eslint-disable no-underscore-dangle */
 // TODO: asegurar que utilice una configuracion por defecto cuando no tiene una especifica. Por ej. si no hay config para credits, o para ese subtype, o para ese tamaño de nota
 
-import { RESIZER_URL_PUBLIC } from 'fusion:environment';
+import { RESIZER_URL_PUBLIC, SITE_LANACION } from 'fusion:environment';
 import { FOTOAL100, RECETA, STORYTELLING } from '../subtypes/subtypeHelper';
 import get from '../get';
 import { getAspectRatio } from '../../../../../content/sources/utils/getRatio';
 
-export const createResizer = (resizerKey, resizerUrl) => {
+export const createResizer = (
+    resizerKey,
+    resizerUrl,
+    isInApertura = false,
+    isAdmin = false
+) => {
     const Thumbor =
         // eslint-disable-next-line no-eval
         typeof window === 'undefined' ? eval('require("thumbor")') : () => {};
@@ -63,7 +68,9 @@ export const createResizer = (resizerKey, resizerUrl) => {
             .resize(newWidth, newHeight)
             .buildUrl();
 
-        return url.replace(/^.*\/\/[^\/]+/, RESIZER_URL_PUBLIC);
+        return isInApertura && !isAdmin
+            ? url.replace(/^.*\/\/[^\/]+/, SITE_LANACION)
+            : url.replace(/^.*\/\/[^\/]+/, RESIZER_URL_PUBLIC);
     };
 
     const resizeUrls = (
@@ -322,7 +329,9 @@ export const addResizedUrls = (ansDoc, options) => {
             zoomSizes = []
         },
         presetsDefault,
-        subtype
+        subtype,
+        isInApertura,
+        isAdmin
     } = options;
     const {
         promo_items: promoItems,
@@ -334,7 +343,12 @@ export const addResizedUrls = (ansDoc, options) => {
             'Debe proporcionar el resizerSecret, resizerUrl y presets'
         );
 
-    const resizer = createResizer(resizerSecret, resizerUrl);
+    const resizer = createResizer(
+        resizerSecret,
+        resizerUrl,
+        isInApertura,
+        isAdmin
+    );
 
     const { defaultResize } = getDefaultSize(subtype);
 

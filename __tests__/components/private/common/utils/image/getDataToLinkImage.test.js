@@ -3,6 +3,7 @@ import { shallow, mount } from 'enzyme';
 import getProperties from 'fusion:properties';
 import GetDataToLinkImage from '../../../../../../components/private/common/utils/image/getDataToLinkImage';
 import getImage from '../../../../../../components/private/common/utils/image/getImage';
+import getVideoPosterResized from '../../../../../../components/private/common/utils/video/getVideoPosterResized';
 
 // Data
 import bombaOculta from '../../../../../../__mocks__/data/renderables/bomba/bombaOculta';
@@ -14,9 +15,16 @@ import globalContent from '../../../../../../__mocks__/data/images/getDataToLink
 import responseArticleSourceNota from '../../../../../../__mocks__/data/images/getDataToLinkImage/responseArticleSourceNota';
 import responseRelatedImageSource from '../../../../../../__mocks__/data/images/getDataToLinkImage/responseRelatedImageSource';
 import LinkImagePreload from '../../../../../../components/private/LN/common/utils/mediaHelper';
+import dataAperturaWithVideo from '../../../../../../__mocks__/data/renderables/dataAperturaWithVideo.json';
+import responseGetVideoPosterResized from '../../../../../../__mocks__/data/videos/getDataToLinkImage/responseGetVideoPosterResized.json';
 
 jest.mock(
     '../../../../../../components/private/common/utils/image/getImage',
+    () => jest.fn()
+);
+
+jest.mock(
+    '../../../../../../components/private/common/utils/video/getVideoPosterResized',
     () => jest.fn()
 );
 
@@ -149,6 +157,23 @@ describe('Common - GetDataToLinkImage', () => {
                 );
 
                 expect(wrapper.html()).toEqual(resizedUrls);
+            });
+
+            it('Return array images resized from video', () => {
+                const resizedUrlsPosterVideo = `<link rel=\"preload\" as=\"image\" href=\"https://resizer.glanacion.com/resizer/w5UA7cfSRbm0OCe8l7RIB5aOTjc=/465x311/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/03-30-2022/t_4d232f9022d74394a511f30b4a7db176_name_file_1280x720_2000_v3_1_.jpg\" imagesrcset=\"https://resizer.glanacion.com/resizer/sOXHJ3BvskEeCkq1HN8F29gRsxY=/595x399/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/03-30-2022/t_4d232f9022d74394a511f30b4a7db176_name_file_1280x720_2000_v3_1_.jpg 595w,https://resizer.glanacion.com/resizer/frSnc4fMVEI_4x5qPr4_5e1z0mM=/635x424/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/03-30-2022/t_4d232f9022d74394a511f30b4a7db176_name_file_1280x720_2000_v3_1_.jpg 635w,https://resizer.glanacion.com/resizer/w5UA7cfSRbm0OCe8l7RIB5aOTjc=/465x311/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/03-30-2022/t_4d232f9022d74394a511f30b4a7db176_name_file_1280x720_2000_v3_1_.jpg 465w\"/>`;
+                const renderables = dataAperturaWithVideo;
+                getVideoPosterResized.mockImplementation(
+                    () => responseGetVideoPosterResized
+                );
+                console.log('desde el test', renderables);
+                const wrapper = shallow(
+                    GetDataToLinkImage({
+                        data: {},
+                        section: 'home',
+                        renderables
+                    })
+                );
+                expect(wrapper.html()).toEqual(resizedUrlsPosterVideo);
             });
         });
     });

@@ -1,8 +1,18 @@
 import index from '../../../../../../../../components/private/LN/api/v1/global/home/index';
+
+jest.mock(
+    '../../../../../../../../components/private/common/utils/logger',
+    () => {
+        const push = jest.fn();
+        return { push };
+    }
+);
+
 describe('components - private - LN - api - v1 - home - index.js', () => {
     const articlesCollections = [
         {
             _id: 'ZTYQMEK7ZBBORNEKA6IQDMYQOM',
+            canonical_url: '/deportes/prueba-ios-y-android-cuerpo-nid12052020/',
             credits: {
                 by: []
             },
@@ -92,6 +102,7 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
         },
         {
             _id: 'CCWIARQOVJFIXEG2HDB2RYZJWE',
+            canonical_url: '/deportes/prueba-ios-y-android-cuerpo-nid12052020/',
             credits: {
                 by: [
                     {
@@ -216,6 +227,7 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
         },
         {
             _id: 'IW4AGDLSZRHCLAGKBGCV5ULGE4',
+            canonical_url: '/deportes/prueba-ios-y-android-cuerpo-nid12052020/',
             credits: {
                 by: [
                     {

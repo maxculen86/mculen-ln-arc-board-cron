@@ -1,12 +1,15 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import { useAppContext } from 'fusion:context';
+import { useAppContext, useComponentContext } from 'fusion:context';
 import getProperties from 'fusion:properties';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import { validateArticleFeature } from '../../../private/LN/common/utils/cajaTemasValidators';
-import { isInHomeAperturaOrBomba } from '../../../private/LN/home/components/noteCard/noteCardHelper';
+import {
+    isInHomeAperturaOrBomba,
+    isInApertura
+} from '../../../private/LN/home/components/noteCard/noteCardHelper';
 import getCajaTemaConfig from '../../../private/LN/home/components/noteCard/noteCardImageHelper';
 import NoteCard from '../../../private/LN/home/components/noteCard/noteCard';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
@@ -15,6 +18,9 @@ import featureArticleCustomsFields from '../../../private/LN/common/utils/articu
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
 import { productClickFromClient } from '../../../private/common/utils/viewability';
+import ErrorBoundary from '../../../private/common/ErrorBoundary';
+import { getChildrenFromSectionHome } from '../../../private/LN/common/utils/cajaTemasHelper';
+import get from '../../../private/common/utils/get';
 
 const ArticleFeature = ({
     id: featureId,
@@ -31,7 +37,9 @@ const ArticleFeature = ({
         layout: layoutPageBuilder
     } = useAppContext();
 
+    const { layoutsName = {} } = siteConfig || {};
     const { cajaTemaConfig } = getProperties(arcSite);
+    const { registerSuccessEvent } = useComponentContext();
 
     const {
         config,
@@ -41,43 +49,74 @@ const ArticleFeature = ({
         imageConfig
     } = getCajaTemaConfig(featureId, renderables, cajaTemaConfig, isBomba);
 
-    const article =
-        id &&
-        useContent({
-            source: 'articleSourceNota',
-            query: {
-                id: id.trim(),
-                published: true,
-                imageConfig,
-                checkExclusiveAccess: false
-            },
-            filter
-        });
+    const conditionallyCallImageSource = idImage => {
+        return (idImage && idImage.trim() && 'relatedImageSource') || null;
+    };
+
+    const isBombaHidden = () => {
+        const bomba = getChildrenFromSectionHome(renderables, 'Bomba', 2) || [];
+        return get(bomba[0], 'props.customFields.hideFeature', false);
+    };
+
+    const onlyOneApeturaValidateForWWW =
+        isBomba ||
+        (isBombaHidden() &&
+            isInApertura({
+                renderables,
+                featureId,
+                layoutsName,
+                layoutPageBuilder,
+                config
+            }));
+
+    const article = useContent({
+        source: (id && id.trim() && 'articleSourceNota') || null,
+        query: {
+            id: id && id.trim(),
+            published: true,
+            imageConfig,
+            checkExclusiveAccess: false,
+            isInApertura: onlyOneApeturaValidateForWWW,
+            isAdmin
+        },
+        filter
+    });
 
     const videoBackground =
-        videoId &&
         useContent({
-            source: 'videoSource',
-            query: { id: videoId.trim(), website: 'la-nacion-ar' }
-        });
+            source: (videoId && videoId.trim() && 'videoSource') || null,
+            query: {
+                id: videoId && videoId.trim(),
+                website: 'la-nacion-ar',
+                imageConfig,
+                isInApertura: onlyOneApeturaValidateForWWW,
+                isAdmin
+            }
+        }) || null;
 
     const image =
-        imageId &&
-        imageId.trim() &&
         useContent({
-            source: 'relatedImageSource',
+            source: conditionallyCallImageSource(imageId),
             query: {
-                id: imageId.trim(),
+                id: imageId && imageId.trim(),
                 published: true,
                 imageConfig,
                 nid: id,
-                boxType: 'ArticleFeature'
+                boxType: 'ArticleFeature',
+                isInApertura: onlyOneApeturaValidateForWWW,
+                isAdmin
             }
-        });
+        }) || null;
 
-    const error = validateArticleFeature(id, article);
-
-    const { layoutsName = {} } = siteConfig || {};
+    const error = validateArticleFeature(
+        id,
+        article,
+        image,
+        videoBackground,
+        layout,
+        imageId,
+        videoId
+    );
 
     if (isAdmin && !!error) {
         return (
@@ -99,27 +138,30 @@ const ArticleFeature = ({
 
     return (
         (!error && article && (
-            <NoteCard
-                id={featureId}
-                article={article}
-                promoItems={image && image.promo_items}
-                articleProps={config}
-                customFields={customFields}
-                outputType={outputType}
-                index={index}
-                boxPosition={boxPosition}
-                layout={layout}
-                isAdmin={isAdmin}
-                isInHomeAperturaOrBomba={isInHomeAperturaOrBomba(
-                    renderables,
-                    featureId,
-                    layoutsName,
-                    layoutPageBuilder
-                )}
-                videoBackground={videoBackground}
-                isPowa={layout !== 'grilla1'}
-                handleClick={productClickFromClient}
-            />
+            <ErrorBoundary>
+                <NoteCard
+                    id={featureId}
+                    article={article}
+                    promoItems={image && image.promo_items}
+                    articleProps={config}
+                    customFields={customFields}
+                    outputType={outputType}
+                    index={index}
+                    boxPosition={boxPosition}
+                    layout={layout}
+                    isAdmin={isAdmin}
+                    isInHomeAperturaOrBomba={isInHomeAperturaOrBomba(
+                        renderables,
+                        featureId,
+                        layoutsName,
+                        layoutPageBuilder
+                    )}
+                    videoBackground={videoBackground}
+                    isPowa={layout === 'grillaVideo1'}
+                    handleClick={productClickFromClient}
+                    registerSuccessEvent={registerSuccessEvent}
+                />
+            </ErrorBoundary>
         )) ||
         getPlaceholder(layout, index)
     );
