@@ -40,6 +40,7 @@
         height: 100%;
         max-width: px(293);
         margin-left: 0;
+        border: none;
     }
 
     .extra-info {
@@ -75,7 +76,7 @@
         align-items: baseline;
         margin: px(24) 0 px(24) 0;
 
-        .text-social-n {
+        .com-text {
             margin-right: px(12);
             align-self: center;
         }
@@ -89,14 +90,11 @@
     }
 
     .wiki-description {
-        display: flex;
-        flex-direction: column;
-        div {
-            font-family: $font-SuecaSlab;
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 24px;
-        }
+        font-family: $font-SuecaSlab;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        width: auto;
         a {
             color: $blue-500;
         }
@@ -154,8 +152,8 @@
         .social-networks {
             justify-content: flex-start;
             margin: px(16) px(24) 0 px(16);
-            .text-social-n {
-                align-self: unset;
+            .com-text {
+                margin-bottom: px(80);
             }
         }
         .tags-buttons {
@@ -177,8 +175,9 @@
         .social-networks {
             margin-top: 0;
             margin-left: 0;
-            .text-social-n {
+            .com-text {
                 margin-left: 0;
+                margin-bottom: px(65);
             }
         }
         .tags-buttons {

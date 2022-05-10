@@ -95,12 +95,7 @@ const WikiFeature = () => {
                     )}
                 </div>
                 <div className="social-networks">
-                    <Text
-                        font="sueca"
-                        size="2xs"
-                        weight="regular"
-                        extraClass="com-paragraph text-social-n"
-                    >
+                    <Text font="sueca" size="2xs" weight="regular">
                         Conectar:
                     </Text>
                     {socialNetworks.map(iconInfo => (
