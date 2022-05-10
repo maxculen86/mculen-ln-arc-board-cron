@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -25,7 +26,7 @@ const WikiFeature = () => {
         social_networks: socialNetworks = [],
         related_tags: relatedTags = [],
         description,
-        schemas_info: schemasInfo = [],
+        schemas_info: schemasInfo = {},
         image = {},
         logo_url: logoUrl,
         _id: featureId
@@ -42,11 +43,6 @@ const WikiFeature = () => {
         legal_name: legalName
     } = schemasInfo;
 
-    const formatTags = relatedTags.map(({ text, slug }) => ({
-        text,
-        path: slug
-    }));
-
     const schemaDictionary = {
         birth_date: 'Fecha de nacimiento',
         birth_place: 'Lugar de nacimiento',
@@ -59,15 +55,7 @@ const WikiFeature = () => {
         additional_name: 'Nombre adicional'
     };
 
-    const addressInformation = {
-        link: location,
-        text: address
-    };
-
     const isOrganization = location && address;
-    const formatAlt = !isOrganization
-        ? `${givenName} ${additionalName} ${familyName}`
-        : legalName;
 
     const srcImg = isOrganization ? logoUrl : imageUrl;
 
@@ -76,7 +64,11 @@ const WikiFeature = () => {
             <article className="wiki-tags">
                 <ModPicture
                     src={srcImg}
-                    alt={formatAlt}
+                    alt={
+                        !isOrganization
+                            ? `${givenName} ${additionalName} ${familyName}`
+                            : legalName
+                    }
                     sources={resizedUrls}
                 />
                 <div className="extra-info">
@@ -97,8 +89,8 @@ const WikiFeature = () => {
                         <SchemaInfoWiki
                             classes="description"
                             label="Dirección"
-                            text={addressInformation.text}
-                            link={addressInformation.link}
+                            text={address}
+                            link={location}
                         />
                     )}
                 </div>
@@ -130,7 +122,10 @@ const WikiFeature = () => {
                 </div>
                 <TaxonomyImportantList
                     extraClass="tags-buttons"
-                    list={formatTags}
+                    list={relatedTags.map(({ text, slug }) => ({
+                        text,
+                        path: slug
+                    }))}
                     showItems={5}
                 />
             </article>
