@@ -346,7 +346,6 @@ export const naveggSetTargeting = () => {
 };
 
 export const queueGoogletagCommand = bannersToLoad => {
-    console.log(bannersToLoad);
     googletag.cmd.push(() => {
         const defineSlot = ({ adUnitPath, size, opt_div: optDiv }) =>
             googletag
