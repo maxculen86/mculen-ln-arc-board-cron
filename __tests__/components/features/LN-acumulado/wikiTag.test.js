@@ -21,20 +21,20 @@ jest.mock('fusion:context', () => () => ({
 const fusionUseContent = jest.spyOn(Content, 'useContent');
 
 describe('LN-Acumulado-WikiTag test', () => {
-    // it('Should render the feture when isWiki is true', () => {
-    //     Context.useAppContext = jest.fn(() => ({
-    //         globalContent: {
-    //             isWiki: true
-    //         }
-    //     }));
-    //     const { globalContent } = Context.useAppContext();
-    //     const { isWiki } = globalContent;
-    //     const { container } = render(<WikiFeature />);
+    it.skip('Should render the feture when isWiki is true', () => {
+        Context.useAppContext = jest.fn(() => ({
+            globalContent: {
+                isWiki: true
+            }
+        }));
+        const { globalContent } = Context.useAppContext();
+        const { isWiki } = globalContent;
+        const { container } = render(<WikiFeature />);
 
-    //     expect(container).toBeInTheDocument();
-    //     expect(fusionUseContent).toBeCalledTimes(1);
-    //     expect(Content.useContent(isWiki)).toStrictEqual(mockWikiTagData);
-    // });
+        expect(container).toBeInTheDocument();
+        expect(fusionUseContent).toBeCalledTimes(1);
+        expect(Content.useContent(isWiki)).toStrictEqual(mockWikiTagData);
+    });
     it('Should not render when isWiki is false', () => {
         Context.useAppContext = jest.fn(() => ({
             globalContent: {
