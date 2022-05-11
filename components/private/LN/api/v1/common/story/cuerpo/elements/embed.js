@@ -1,4 +1,4 @@
-import get from 'lodash.get';
+import get from '../../../../../../../common/utils/get';
 import getEmbedHref from '../../../../../../../common/utils/getEmbedHref';
 
 const embed = (nodo, dataNota) => {

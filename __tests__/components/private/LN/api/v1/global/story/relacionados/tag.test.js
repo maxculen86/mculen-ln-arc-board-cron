@@ -2,7 +2,7 @@ import articleFull from '../../../../../../../../../__mocks__/data/articles/QAZ7
 import { getTag } from '../../../../../../../../../components/private/LN/api/v1/common/tag/index';
 import { getTagId } from '../../../../../../../../../components/private/common/utils/getElementId';
 
-import get from 'lodash.get';
+import get from '../../../../../../../../../components/private/common/utils/get';
 
 describe('Test de JSON de tags en article', () => {
     it('Elementos de tags', () => {

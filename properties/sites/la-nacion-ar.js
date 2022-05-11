@@ -2272,6 +2272,11 @@ export default {
                         [920, 300]
                     ],
                     targeting: targetingHome
+                },
+                parallax_dsk: {
+                    slotName: `la_nacion_desktop/Home/parallax_dsk`,
+                    dimensions: [[1260, 300]],
+                    targeting: targetingHome
                 }
             },
             mobile: {
@@ -2365,6 +2370,14 @@ export default {
                     dimensions: [[1, 1]],
                     targeting: targetingHome,
                     hideForSubscriptor: true
+                },
+                parallax_mob: {
+                    slotName: `la_nacion_mobile/Home/parallax_mob`,
+                    dimensions: [
+                        [1, 1],
+                        [360, 450]
+                    ],
+                    targeting: targetingHome
                 }
             },
             tablet: {

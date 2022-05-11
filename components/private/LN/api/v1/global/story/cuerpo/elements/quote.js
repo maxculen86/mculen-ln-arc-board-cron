@@ -1,4 +1,4 @@
-import get from 'lodash.get';
+import get from '../../../../../../../common/utils/get';
 
 const quote = (nodo, dataNota) => {
     if (!nodo) return null;
