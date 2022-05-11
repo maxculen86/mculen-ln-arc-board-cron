@@ -48,31 +48,31 @@ const WikiFeature = () => {
     } = schemasInfo;
 
     const schemaPerson = [
-        { text: 'Primer nombre', value: `${schemasInfo.given_name}` || '' },
+        { text: 'Primer nombre', value: `${schemasInfo.given_name || ''}` },
         {
             text: 'Segundo nombre',
-            value: `${schemasInfo.additional_name}` || ''
+            value: `${schemasInfo.additional_name || ''}`
         },
-        { text: 'Apellido', value: `${schemasInfo.family_name}` || '' },
-        { text: 'Profesión', value: `${schemasInfo.job_title}` || '' },
+        { text: 'Apellido', value: `${schemasInfo.family_name || ''}` },
+        { text: 'Profesión', value: `${schemasInfo.job_title || ''}` },
         {
             text: 'Fecha de nacimiento',
-            value: `${schemasInfo.birth_date}` || ''
+            value: `${schemasInfo.birth_date || ''}`
         },
         {
             text: 'Lugar de nacimiento',
-            value: `${schemasInfo.birth_place}` || ''
+            value: `${schemasInfo.birth_place || ''}`
         }
     ];
     const schemaOrganization = [
-        { text: 'Nombre legal', value: `${schemasInfo.legal_name}` || '' },
+        { text: 'Nombre legal', value: `${schemasInfo.legal_name || ''}` },
         {
             text: 'Fecha de fundación',
-            value: `${schemasInfo.founding_date}` || ''
+            value: `${schemasInfo.founding_date || ''}`
         },
         {
             text: 'Lugar de fundación',
-            value: `${schemasInfo.founding_location}` || ''
+            value: `${schemasInfo.founding_location || ''}`
         }
     ];
 
@@ -113,11 +113,11 @@ const WikiFeature = () => {
                         Conectar:
                     </Text>
                     {socialNetworks.map(iconInfo => (
-                        <div className="social-icons" key={iconInfo.name}>
+                        <div className="social-icons" key={iconInfo.type}>
                             <Icon
-                                name={iconInfo.name}
+                                name={iconInfo.type.toLowerCase()}
                                 href={iconInfo.url}
-                                title={`Ir al ${iconInfo.name}`}
+                                title={`Ir al ${iconInfo.type.toLowerCase()}`}
                             />
                         </div>
                     ))}

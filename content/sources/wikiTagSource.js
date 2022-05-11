@@ -7,7 +7,7 @@ import getImageResized from '../../components/private/common/utils/getImageResiz
 import transformISODate from '../../components/private/common/utils/transformISODate';
 import getRequest from './utils/getRequest';
 
-const getUri = query => {
+const resolve = query => {
     const { slug = '' } = query;
     return `${LANACION_SERVICES_URL}/api/v1/tags/${slug}`;
 };
@@ -15,7 +15,7 @@ const getUri = query => {
 const fetch = query => {
     const { id = '', uri = '', 'arc-site': arcSite = 'la-nacion-ar' } = query;
 
-    return getRequest(getUri(query))
+    return getRequest(resolve(query))
         .then(response => response)
         .catch(error => {
             logger.push(error, { source: 'wikiTagSource', url: uri }, arcSite);
@@ -65,7 +65,7 @@ const transform = (data, siteProps) => {
 export default {
     fetch,
     transform,
-    getUri,
+    resolve,
     params: {
         slug: 'text',
         imageId: 'text',

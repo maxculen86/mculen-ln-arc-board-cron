@@ -23,7 +23,7 @@ jest.mock('fusion:properties', () => () => ({
 const loggerPush = jest.spyOn(logger, 'push');
 
 describe('Content Sources - Wiki Tag Source', () => {
-    const { fetch, getUri, transform } = wikiTagSource;
+    const { fetch, resolve, transform } = wikiTagSource;
 
     const query = { slug: 'lionel-messi-tid1619' };
     const siteProps = { imageConfig: '', 'arc-site': 'la-nacion-ar' };
@@ -36,7 +36,7 @@ describe('Content Sources - Wiki Tag Source', () => {
     });
 
     it('should get uri data correctly', () => {
-        expect(getUri(query)).toStrictEqual(
+        expect(resolve(query)).toStrictEqual(
             'https://arcservices.lanacion.com.ar/api/v1/tags/lionel-messi-tid1619'
         );
     });
