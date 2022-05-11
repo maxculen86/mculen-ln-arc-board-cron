@@ -104,7 +104,7 @@ const VideoPlayer = props => {
         autoPlay,
         enableControls,
         sticky,
-        globalContent,
+        globalContent = {},
         device,
         isApertura
     } = props;
@@ -154,7 +154,7 @@ const VideoPlayer = props => {
         window.addEventListener('powaReady', setVideoEvents);
         addToDataLayer('videoDisplay', tituloVideo, videoId);
         return () => window.removeEventListener('powaReady', setVideoEvents);
-    }, [adsURL, isAdmin, tituloVideo, videoId]);
+    }, [adsURL, isAdmin, tituloVideo, videoId, streamingAnalyticInstance]);
 
     return (
         <>

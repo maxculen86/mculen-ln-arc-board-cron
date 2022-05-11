@@ -1,4 +1,4 @@
-import get from 'lodash.get';
+import get from '../../../../../../../common/utils/get';
 
 const customReceta = (listData, type) => {
     const config = get(listData, 'embed.config');

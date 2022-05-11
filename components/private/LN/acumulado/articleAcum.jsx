@@ -47,7 +47,8 @@ const ArticleAcum = ({
     withCategory,
     withTags,
     handleClick,
-    isApertura
+    isApertura,
+    layout
 }) => {
     const _article = addRelatedImage(article);
 
@@ -154,7 +155,8 @@ ArticleAcum.propTypes = {
     boxPosition: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     artPosition: PropTypes.string,
     isApertura: PropTypes.bool,
-    sectionName: PropTypes.string.isRequired
+    sectionName: PropTypes.string.isRequired,
+    layout: PropTypes.string.isRequired
 };
 
 ArticleAcum.defaultProps = {

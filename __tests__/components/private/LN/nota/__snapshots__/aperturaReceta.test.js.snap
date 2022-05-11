@@ -48,7 +48,7 @@ exports[`features - La Nacion - Components - Nota - AperturaReceta Snapshot - an
         class="col-12"
       >
         <section
-          class="mod-themes"
+          class="mod-themes "
         >
           <a
             class="com-link com-button --secondary --compact --transparent"
@@ -149,7 +149,7 @@ exports[`features - La Nacion - Components - Nota - AperturaReceta Snapshot - an
       </div>
     </div>
     <section
-      class="mod-themes"
+      class="mod-themes "
     >
       <a
         class="com-link com-button --secondary --compact --transparent --tag"
@@ -268,7 +268,7 @@ exports[`features - La Nacion - Components - Nota - AperturaReceta Snapshot - si
             class="col-12"
           >
             <section
-              class="mod-themes"
+              class="mod-themes "
             >
               <a
                 class="com-link com-button --secondary --compact --transparent"
@@ -295,7 +295,7 @@ exports[`features - La Nacion - Components - Nota - AperturaReceta Snapshot - si
           </div>
         </div>
         <section
-          class="mod-themes"
+          class="mod-themes "
         >
           <a
             class="com-link com-button --secondary --compact --transparent --tag"
