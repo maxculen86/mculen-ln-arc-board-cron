@@ -1,15 +1,11 @@
 @import '../abstracts/variables';
+@import '../abstracts/mixins';
 
 .bookmark-layout {
-    display: flex;
-    flex-direction: column;
+    @include flex(flex, column);
     .bookmark-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @include flex(flex, row, space-between, center);
         .help {
-            display: inline-flex;
-            align-items: center;
             background: $light-neutral-200;
             border-radius: px(4);
             padding: px(12) px(16);
@@ -21,9 +17,7 @@
         }
     }
     .empty-bookmark {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        @include flex(flex, column, center);
         padding: px(144) 0px;
         text-align: center;
         .placeholder-bookmark {
@@ -39,6 +33,42 @@
                 display: inline-flex;
                 width: px(10);
                 height: px(14);
+            }
+        }
+    }
+    .helper-bookmark {
+        position: relative;
+        @include flex(flex, column);
+        width: 100vw;
+        height: 100vh;
+        background-color: $light-neutral-50;
+        padding: $spacing-md;
+        max-width: px(576);
+        @media ($media-m) {
+        }
+        .helper-header {
+            @include flex(flex, column);
+            width: 100%;
+            .--line {
+                padding-bottom: $spacing-sm;
+                margin-bottom: $spacing-md;
+            }
+            .com-button {
+                position: absolute;
+                top: $spacing-sm;
+                right: $spacing-sm;
+                padding: 0;
+            }
+        }
+        .helper-main {
+            position: relative;
+            p {
+                margin-bottom: $spacing-md;
+            }
+            .list-content {
+                :last-child {
+                    margin-bottom: 0;
+                }
             }
         }
     }

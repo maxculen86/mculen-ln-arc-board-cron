@@ -5,9 +5,29 @@ import BookmarkLayout from '../../private/common/bookmark/BookmarkLayout';
 import '../../../resources/dist/css/ln/pages/bookmark.css';
 
 const MisNotasFeature = ({ id: featureId }) => {
+    const data = [
+        {
+            title:
+                'Title esto es un titulo de la novedad con unas cuantas lineas que ocupar',
+            marquee: 'Marquee',
+            author: 'Pepito'
+        },
+        {
+            title:
+                'Title esto es un titulo de la novedad con unas cuantas lineas que ocupar',
+            marquee: 'Marquee',
+            author: 'Pepito'
+        },
+        {
+            title:
+                'Title esto es un titulo de la novedad con unas cuantas lineas que ocupar',
+            marquee: 'Marquee',
+            author: 'Pepito'
+        }
+    ];
     return (
         <div id={featureId} htmlOnly persistent>
-            <div className="bookmark">
+            <section className="bookmark">
                 <div className="title">
                     <Text tag="h1" size="--l" font="--sueca" weight="bold">
                         Mis notas
@@ -16,8 +36,8 @@ const MisNotasFeature = ({ id: featureId }) => {
                         Guardadas
                     </Text>
                 </div>
-                <BookmarkLayout notes={0} />
-            </div>
+                <BookmarkLayout data={data} />
+            </section>
         </div>
     );
 };

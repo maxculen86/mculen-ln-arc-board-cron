@@ -1,42 +1,40 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Text from '../text';
-import Icon from '../icon';
-import EmptyBookmark from './EmptyBookmark';
-import DeleteNote from './DeleteNote';
+import ComButton from '../com-button';
+import BookmarkList from './BookmarkList';
+import HelperBookmark from './HelperBookmark';
 import '../../../../resources/dist/css/ln/components/bookmark.css';
 
-const BookmarkLayout = ({ notes }) => {
+const BookmarkLayout = ({ data }) => {
     return (
-        <section className="bookmark-layout">
+        <div className="bookmark-layout">
             <div className="bookmark-header">
                 <Text tag="h2" size="--xs" font="--sueca">
-                    <span className="--font-bold">{`${notes} `}</span>
+                    <span className="--font-bold">
+                        {`${Object.entries(data).length} `}
+                    </span>
                     <span>notas guardadas</span>
                 </Text>
-                <div className="help">
-                    <Icon name="lamp" />
-                    <Text size="--fivexs" font="--arial" weight="bold">
-                        AYUDA
-                    </Text>
-                </div>
+                <ComButton
+                    classCondition="help"
+                    iconName="lamp"
+                    size="--fivexs"
+                    weight="bold"
+                >
+                    AYUDA
+                </ComButton>
             </div>
-            <DeleteNote />
-            {notes === 0 ? (
-                <div>
-                    <EmptyBookmark />
-                </div>
-            ) : (
-                <div>BOOKMARK LIST</div>
-            )}
-        </section>
+            <BookmarkList data={data} />
+            <HelperBookmark />
+        </div>
     );
 };
 
 BookmarkLayout.propTypes = {
-    notes: PropTypes.number
+    data: PropTypes.shape([])
 };
 BookmarkLayout.defaultProps = {
-    notes: 0
+    data: []
 };
 export default BookmarkLayout;

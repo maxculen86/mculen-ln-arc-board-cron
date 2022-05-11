@@ -65,7 +65,10 @@ import {
     TraditionalLotteries,
     Lamp,
     Bookmark,
-    AlertFailed
+    Alert,
+    Info,
+    Checkmark,
+    ErrorWarning
 } from './index';
 
 const listIcons = {
@@ -117,7 +120,10 @@ const listIcons = {
     ln: Ln,
     lamp: Lamp,
     bookmark: Bookmark,
-    'alert-failed': AlertFailed,
+    alert: Alert,
+    info: Info,
+    checkmark: Checkmark,
+    'error-warning': ErrorWarning,
 
     // Weather Icons
     sun: Sun,

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import '../../../../resources/dist/css/ln/components/delete-note.css';
 import Text from '../text';
 import Icon from '../icon';
-import ComButtom from '../com-button';
+import ComButton from '../com-button';
 import ModalBody from './ModalBody';
+import '../../../../resources/dist/css/ln/components/delete-note.css';
 
 const DeleteNote = () => {
     const [showModal, setShowModal] = useState(true);
@@ -13,15 +13,15 @@ const DeleteNote = () => {
     return (
         <>
             {showModal && (
-                <ModalBody className="modal">
+                <ModalBody className="modal-body">
                     <div className="delete-note">
-                        <ComButtom
+                        <ComButton
                             onClick={handleClose}
                             iconName="close"
                             title="Cerrar"
                         />
-                        <div className="alert-failed-container">
-                            <Icon name="alert-failed" />
+                        <div className="icon-container">
+                            <Icon name="alert" />
                         </div>
                         <Text size="medium" font="sueca" weight="bold">
                             Borrar nota guardada
@@ -30,13 +30,13 @@ const DeleteNote = () => {
                             La nota se eliminará del listado.
                         </Text>
                         <div className="buttons-container">
-                            <ComButtom
+                            <ComButton
                                 onClick={handleClose}
                                 textname="cancelar"
                                 size="5xs"
                                 classCondition="--secondary"
                             />
-                            <ComButtom
+                            <ComButton
                                 textname="borrar nota"
                                 size="5xs"
                                 classCondition="--primary"

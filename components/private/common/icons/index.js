@@ -46,7 +46,10 @@ export { default as Ln } from './system/Ln';
 export { default as ExclusiveLn } from './system/ExclusiveLn';
 export { default as Lamp } from './system/Lamp';
 export { default as Bookmark } from './system/Bookmark';
-export { default as AlertFailed } from './system/AlertFailed';
+export { default as Alert } from './system/Alert';
+export { default as Info } from './system/Info';
+export { default as Checkmark } from './system/Checkmark';
+export { default as ErrorWarning } from './system/ErrorWarning';
 
 // Weather Icons
 export { default as ClearNight } from './weather/ClearNight';

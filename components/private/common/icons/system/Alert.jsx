@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-const AlertFailed = props => {
+const Alert = props => {
     const { className, ...r } = props;
 
     return (
@@ -23,11 +23,11 @@ const AlertFailed = props => {
     );
 };
 
-AlertFailed.propTypes = {
+Alert.propTypes = {
     className: PropTypes.string
 };
-AlertFailed.defaultProps = {
+Alert.defaultProps = {
     className: ''
 };
 
-export default AlertFailed;
+export default Alert;

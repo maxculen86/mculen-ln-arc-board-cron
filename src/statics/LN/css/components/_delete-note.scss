@@ -1,62 +1,47 @@
 @import '../abstracts/variables';
-.modal-body {
-    display: flex;
-    position: fixed;
-    align-items: center;
-    justify-content: center;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgb(51, 51, 51);
-    z-index: 110;
-    padding: 0 px($spacing-sm);
-    .delete-note {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        min-width: px(280);
-        width: px(328);
-        border-radius: px(4);
-        padding: px(16) px(21);
-        background-color: $light-neutral-50;
-        .--icon {
-            padding: 0;
-            align-self: flex-end;
+@import '../abstracts/mixins';
+
+.delete-note {
+    @include flex(flex, column, center);
+    min-width: px(280);
+    width: px(328);
+    border-radius: px(4);
+    padding: px(16) px(21);
+    background-color: $light-neutral-50;
+    margin: 0 $spacing-sm;
+    .--icon {
+        padding: 0;
+        align-self: flex-end;
+        margin-bottom: $spacing-md;
+    }
+    .icon-close {
+        align-self: flex-end;
+    }
+    .com-text {
+        &.--m {
+            margin-bottom: px(4);
+        }
+        &.--twoxs {
             margin-bottom: $spacing-md;
         }
-        .icon-close {
-            align-self: flex-end;
+    }
+    .icon-container {
+        @include flex(flex, row, center, center);
+        width: px(40);
+        height: px(40);
+        border-radius: 50%;
+        background-color: $orange-200;
+        margin-bottom: $spacing-md;
+        .icon-alert {
+            width: px(14);
+            height: px(12);
         }
-        .com-text {
-            &.--m {
-                margin-bottom: px(4);
-            }
-            &.--twoxs {
-                margin-bottom: $spacing-md;
-            }
-        }
-        .alert-failed-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: px(40);
-            height: px(40);
-            border-radius: 50%;
-            background-color: $orange-200;
-            margin-bottom: $spacing-md;
-            .icon-alert-failed {
-                width: px(14);
-                height: px(12);
-            }
-        }
-        .buttons-container {
-            @media ($media-xs) {
-                padding: 0 $spacing;
-            }
-            display: flex;
-            width: 100%;
-            justify-content: space-between;
+    }
+    .buttons-container {
+        @include flex(flex, row, space-between);
+        width: 100%;
+        @media ($media-xs) {
+            padding: 0 $spacing;
         }
     }
 }
