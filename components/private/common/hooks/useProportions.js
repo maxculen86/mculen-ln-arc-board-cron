@@ -1,8 +1,6 @@
 import { getAspectRatio } from '../../../../content/sources/utils/getRatio';
 import { STORYTELLING } from '../utils/subtypes/subtypeHelper';
-
-const setProportion = (device, isAmp) =>
-    ['mobile', 'tablet'].includes(device) || isAmp ? '2:3' : '3:2';
+import setProportion from '../utils/setProportion';
 
 const useProportions = ({
     resizedUrls = [],
