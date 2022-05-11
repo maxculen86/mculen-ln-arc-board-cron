@@ -43,48 +43,58 @@ const WikiFeature = () => {
         legal_name: legalName
     } = schemasInfo;
 
-    const schemaDictionary = {
-        birth_date: 'Fecha de nacimiento',
-        birth_place: 'Lugar de nacimiento',
-        family_name: 'Nombre de pila',
-        given_name: 'Nombre',
-        job_title: 'Profesión',
-        founding_date: 'Fecha de fundación',
-        founding_location: 'Lugar de fundación',
-        legal_name: 'Nombre legal',
-        additional_name: 'Nombre adicional'
-    };
+    const schemaPerson = [
+        { text: 'Primer nombre', value: `${schemasInfo.given_name}` || '' },
+        {
+            text: 'Segundo nombre',
+            value: `${schemasInfo.additional_name}` || ''
+        },
+        { text: 'Apellido', value: `${schemasInfo.family_name}` || '' },
+        { text: 'Profesión', value: `${schemasInfo.job_title}` || '' },
+        {
+            text: 'Fecha de nacimiento',
+            value: `${schemasInfo.birth_date}` || ''
+        },
+        {
+            text: 'Lugar de nacimiento',
+            value: `${schemasInfo.birth_place}` || ''
+        }
+    ];
+    const schemaOrganization = [
+        { text: 'Nombre legal', value: `${schemasInfo.legal_name}` || '' },
+        {
+            text: 'Fecha de fundación',
+            value: `${schemasInfo.founding_date}` || ''
+        },
+        {
+            text: 'Lugar de fundación',
+            value: `${schemasInfo.founding_location}` || ''
+        }
+    ];
 
     const isOrganization = location && address;
 
     const srcImg = isOrganization ? logoUrl : imageUrl;
+    const altImg = !isOrganization
+        ? `${givenName} ${additionalName} ${familyName}`
+        : legalName;
 
     return (
         <StaticValidation id={featureId} htmlOnly persistent>
             <article className="wiki-tags">
-                <ModPicture
-                    src={srcImg}
-                    alt={
-                        !isOrganization
-                            ? `${givenName} ${additionalName} ${familyName}`
-                            : legalName
-                    }
-                    sources={resizedUrls}
-                />
+                <ModPicture src={srcImg} alt={altImg} sources={resizedUrls} />
                 <div className="extra-info">
-                    {Object.keys(schemasInfo)
-                        .filter(key => key !== 'location' && key !== 'address')
-                        .map(
-                            key =>
-                                schemasInfo[key].length > 3 && (
-                                    <SchemaInfoWiki
-                                        key={schemasInfo[key]}
-                                        classes="description"
-                                        label={schemaDictionary[key]}
-                                        text={schemasInfo[key]}
-                                    />
-                                )
-                        )}
+                    {(isOrganization ? schemaOrganization : schemaPerson).map(
+                        ({ text, value }) =>
+                            value.length > 2 && (
+                                <SchemaInfoWiki
+                                    key={text}
+                                    classes="description"
+                                    label={text}
+                                    text={value}
+                                />
+                            )
+                    )}
                     {isOrganization && (
                         <SchemaInfoWiki
                             classes="description"
