@@ -1,62 +1,12 @@
 {
     "creation_date": "ISO DATE_TIME",
     "type": 1,
-    "description": "<p>Lionel Andrés Messi Cuccittini , <strong>conocido como Leo Messi</strong>, es un <a href='www.google.com'>futbolista</a> argentino que juega como delantero o centrocampista. Jugador histórico del Fútbol Club Barcelona, al que estuvo ligado veinte años, desde 2021 integra el plantel del Paris Saint-Germain de la Ligue 1 de Francia. Es también internacional con la selección de Argentina, equipo del que es capitán y máximo goleador histórico. Considerado con frecuencia el mejor jugador del mundo y uno de los mejores de todos los tiempos, es el único futbolista en la historia que ha ganado, entre otras distinciones, siete veces el Balón de Oro, seis premios de la FIFA al mejor jugador del mundo y seis Botas de Oro. En 2020, se convirtió en el primer futbolista y el primer argentino en recibir un premio Laureus, además de ser incluido en el Dream Team del Balón de Oro. Con el Barcelona ha ganado 35 títulos, entre ellos.</p>",
+    "description": "<p><strong>Lionel Andrés Messi Cuccittini</strong>. Nació el 24/6/87 en Rosario, Santa Fe, <a href=\"https://www.lanacion.com.ar/tema/argentina-tid434/\" title=\"Noticias de Argentina\">Argentina</a>. Apodos: La Pulga o Leo. Se inició en <u>Newell`s Old Boys</u> y emigró de chico a <u>Barcelona</u>, donde debutó en Primera el 16/10/2004 ante el <u>Espanyol</u>. Entre sus trofeos: Ligas españolas, <strong>Copas del Rey</strong>, <strong>Supercopas de España</strong>, <strong>Champions League</strong>, <strong>Supercopas de Europa</strong> y <strong>Mundiales de Clubes</strong>. Con la <a href=\"https://www.lanacion.com.ar/tema/seleccion-argentina-tid46732/\" title=\"Noticias de Selección argentina\">Selección</a> ganó el <strong>Mundial Sub-20 de Holanda 2005</strong>, el oro en los <strong>JJOO</strong> de <strong>Beijing 2008</strong> y participó de los <em>Mundiales Alemania 2006</em>, <em>Sudáfrica 2010</em>, <em>Brasil 2014</em> y <em>Rusia 2018</em>.</p>",
     "image": {
-        "url": "https://cdn.pixabay.com/photo/2020/09/01/21/03/sunset-5536777__340.jpg",
-        "width": "293",
-        "height": "440",
-        "alt": "texto de la imagen",
-        "resizedUrls": [
-            {
-                "resizedUrl": "https://resizer.glanacion.com/resizer/Gznpo_A-53BruruApPNBWCesfGY=/608x407/smart/filters:format(webp):quality(80)/text",
-                "option": {
-                    "width": 608,
-                    "height": 407,
-                    "media": "(min-width: 1280px)",
-                    "useFullSize": true,
-                    "proportion": "3:2"
-                }
-            },
-            {
-                "resizedUrl": "https://resizer.glanacion.com/resizer/7283GWFDa6bmv9CV5uu7V-Evfr4=/486x325/smart/filters:format(webp):quality(80)/text",
-                "option": {
-                    "width": 486,
-                    "height": 325,
-                    "media": "(min-width: 1024px)",
-                    "useFullSize": true,
-                    "proportion": "3:2"
-                }
-            },
-            {
-                "resizedUrl": "https://resizer.glanacion.com/resizer/UQtegYJEG1pW91Yi_mElMxIijvs=/358x240/smart/filters:format(webp):quality(80)/text",
-                "option": {
-                    "width": 358,
-                    "height": 240,
-                    "media": "(min-width: 768px)",
-                    "useFullSize": true,
-                    "proportion": "3:2"
-                }
-            },
-            {
-                "resizedUrl": "https://resizer.glanacion.com/resizer/4ieSR2Oc2vrPyaCUZhB6mR3dY0s=/375x250/smart/filters:format(webp):quality(80)/text",
-                "option": {
-                    "width": 375,
-                    "height": 250,
-                    "useFullSize": true,
-                    "proportion": "3:2"
-                }
-            },
-            {
-                "resizedUrl": "https://resizer.glanacion.com/resizer/0oP_7uSBvg0zaKquA_CEC_VeiyY=/320x213/smart/filters:format(webp):quality(80)/text",
-                "option": {
-                    "width": 320,
-                    "height": 213,
-                    "useFullSize": true,
-                    "proportion": "3:2"
-                }
-            }
-        ]
+        "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/GZUF7GDQYVCK5FG454PDT5RH64.jpg",
+        "width": "text",
+        "height": "text",
+        "alt": "text"
     },
     "social_networks": [
         {
@@ -101,15 +51,13 @@
         "additional_name": "leo",
         "birth_date": "2022-05-01T19:00:002022-05-01T19:00:00",
         "family_name": "",
-        "given_name": "Lionel Andrés Messi Cuccittini ",
-        "job_title": "Futbolista ",
+        "given_name": "Lionel Andrés Messi Cuccittini",
+        "job_title": "Futbolista",
         "birth_place": "Rosario, Santa Fe, Argentina",
         "founding_date": "",
         "founding_location": "",
         "location": "",
         "address": "",
         "legal_name": ""
-    },
-    "logo_url": "",
-    "_id": "76315a19a666cd7c7bf59c4e076934c88695ef2cc5bc9e6f874fb4d08c4b9f12"
+    }
 }
