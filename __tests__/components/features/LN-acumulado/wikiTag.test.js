@@ -41,7 +41,7 @@ describe('LN-Acumulado-WikiTag test', () => {
             )
         ).toBeVisible();
         expect(screen.getByRole('article')).toBeInTheDocument();
-        expect(screen.getByRole('ig')).toBeInTheDocument();
+        expect(screen.getByRole('img')).toBeInTheDocument();
         expect(screen.getAllByRole('link')).toHaveLength(10);
         expect(
             container.getElementsByClassName('description')

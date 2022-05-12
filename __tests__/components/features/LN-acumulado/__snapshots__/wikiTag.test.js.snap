@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LN-Acumulado-WikiTag test Should render the feture when isWiki is true 1`] = `
+HTMLCollection [
+  <div
+    class="description"
+  >
+    <span
+      class="label --arial --font-regular --fourxs"
+    >
+      Primer nombre
+    </span>
+    <span
+      class="text --sueca --font-regular --twoxs"
+    >
+      Lionel Andrés Messi Cuccittini
+    </span>
+  </div>,
+  <div
+    class="description"
+  >
+    <span
+      class="label --arial --font-regular --fourxs"
+    >
+      Segundo nombre
+    </span>
+    <span
+      class="text --sueca --font-regular --twoxs"
+    >
+      leo
+    </span>
+  </div>,
+  <div
+    class="description"
+  >
+    <span
+      class="label --arial --font-regular --fourxs"
+    >
+      Profesión
+    </span>
+    <span
+      class="text --sueca --font-regular --twoxs"
+    >
+      Futbolista
+    </span>
+  </div>,
+  <div
+    class="description"
+  >
+    <span
+      class="label --arial --font-regular --fourxs"
+    >
+      Fecha de nacimiento
+    </span>
+    <span
+      class="text --sueca --font-regular --twoxs"
+    >
+      2022-05-01T19:00:002022-05-01T19:00:00
+    </span>
+  </div>,
+  <div
+    class="description"
+  >
+    <span
+      class="label --arial --font-regular --fourxs"
+    >
+      Lugar de nacimiento
+    </span>
+    <span
+      class="text --sueca --font-regular --twoxs"
+    >
+      Rosario, Santa Fe, Argentina
+    </span>
+  </div>,
+]
+`;
