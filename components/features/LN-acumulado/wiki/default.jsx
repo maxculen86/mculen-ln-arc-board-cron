@@ -24,7 +24,7 @@ const WikiFeature = () => {
         }
     });
 
-    if (!isWiki) return <></>;
+    if (!isWiki || !wikiSourceData) return <></>;
 
     const {
         social_networks: socialNetworks = [],
@@ -34,7 +34,7 @@ const WikiFeature = () => {
         image = {},
         logo_url: logoUrl,
         _id: featureId
-    } = wikiSourceData;
+    } = wikiSourceData || {};
 
     const { url: imageUrl, resizedUrls } = image;
 
