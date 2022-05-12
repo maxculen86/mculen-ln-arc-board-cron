@@ -28,7 +28,7 @@ const Schemas = ({ section }) => {
             "url": "${logoUrl}",
             "height": 60,
             "width": 600
-          }
+          },
         "sameAs": [
           "https://www.facebook.com/lanacion/",
           "https://www.instagram.com/lanacioncom/",
