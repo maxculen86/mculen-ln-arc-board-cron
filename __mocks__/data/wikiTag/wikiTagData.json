@@ -10,19 +10,19 @@
     },
     "social_networks": [
         {
-            "type": "text",
-            "name": "instagram",
-            "url": "text"
+            "type": "Instagram",
+            "name": "leomessi",
+            "url": "https://www.instagram.com/leomessi/?hl=en"
         },
         {
-            "type": "text",
-            "name": "facebook",
-            "url": "text"
+            "type": "Facebook",
+            "name": "Leo Messi",
+            "url": "https://www.facebook.com/leomessi"
         },
         {
-            "type": "text",
-            "name": "twitter",
-            "url": "text"
+            "type": "Twitter",
+            "name": "Ieomessiok",
+            "url": "https://twitter.com/Ieomessiok?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
         }
     ],
     "related_tags": [

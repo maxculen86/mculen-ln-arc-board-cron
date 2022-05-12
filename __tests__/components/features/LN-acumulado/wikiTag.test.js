@@ -53,7 +53,6 @@ describe('LN-Acumulado-WikiTag test', () => {
                 isWiki: false
             }
         }));
-        const { globalContent } = Context.useAppContext();
         const { container } = render(<WikiFeature />);
         expect(container).toMatchInlineSnapshot('<div />');
     });
