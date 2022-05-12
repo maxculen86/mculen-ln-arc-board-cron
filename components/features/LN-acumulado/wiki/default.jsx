@@ -20,7 +20,7 @@ const WikiFeature = () => {
         source: isWiki ? 'wikiTagSource' : null,
         query: {
             slug,
-            imageConfig: 'aperturaAcu'
+            imageConfig: 'wikiTag'
         }
     });
 
