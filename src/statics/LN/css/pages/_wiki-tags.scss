@@ -17,9 +17,6 @@
         'rrss'
         'tags';
 
-    grid-template-rows: px(326);
-    grid-template-columns: px(326);
-
     & .placeholder {
         grid-area: image;
     }
@@ -37,10 +34,13 @@
     }
 
     .placeholder {
-        height: 100%;
-        max-width: px(293);
-        margin-left: 0;
+        width: 100%;
+        padding-top: 100%;
+        margin: 0;
         border: none;
+        .com-image {
+            height: auto;
+        }
     }
 
     .extra-info {

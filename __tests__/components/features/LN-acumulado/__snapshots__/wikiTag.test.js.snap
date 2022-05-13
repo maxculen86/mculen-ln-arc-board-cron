@@ -8,26 +8,12 @@ HTMLCollection [
     <span
       class="label --arial --font-regular --fourxs"
     >
-      Primer nombre
+      Nombre
     </span>
     <span
       class="text --sueca --font-regular --twoxs"
     >
-      Lionel Andrés Messi Cuccittini
-    </span>
-  </div>,
-  <div
-    class="description"
-  >
-    <span
-      class="label --arial --font-regular --fourxs"
-    >
-      Segundo nombre
-    </span>
-    <span
-      class="text --sueca --font-regular --twoxs"
-    >
-      leo
+      Lionel Andrés Messi Cuccittini leo 
     </span>
   </div>,
   <div
