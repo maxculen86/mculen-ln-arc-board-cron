@@ -48,12 +48,12 @@ const WikiFeature = () => {
     } = schemasInfo;
 
     const schemaPerson = [
-        { text: 'Primer nombre', value: `${schemasInfo.given_name || ''}` },
         {
-            text: 'Segundo nombre',
-            value: `${schemasInfo.additional_name || ''}`
+            text: 'Nombre',
+            value: `${schemasInfo.given_name ||
+                ''} ${schemasInfo.additional_name ||
+                ''} ${schemasInfo.family_name || ''}`
         },
-        { text: 'Apellido', value: `${schemasInfo.family_name || ''}` },
         { text: 'Profesión', value: `${schemasInfo.job_title || ''}` },
         {
             text: 'Fecha de nacimiento',
@@ -118,6 +118,8 @@ const WikiFeature = () => {
                                 name={iconInfo.type.toLowerCase()}
                                 href={iconInfo.url}
                                 title={`Ir al ${iconInfo.type.toLowerCase()}`}
+                                target="_blank"
+                                rel="nofollow"
                             />
                         </div>
                     ))}
