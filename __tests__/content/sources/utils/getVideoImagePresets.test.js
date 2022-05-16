@@ -51,9 +51,10 @@ describe('Test getVideoImagePresets', () => {
     const siteProps = {
         imageConfig: 'featuredFocalIzquierdo',
         isInApertura: true,
-        isAdmin: false,
-        'arc-site': 'la-nacion-ar'
+        isAdmin: false
     };
+
+    const arcSite = 'la-nacion-ar';
 
     const result = {
         configSizes: [
@@ -95,7 +96,9 @@ describe('Test getVideoImagePresets', () => {
             ...siteProps,
             imageConfig: undefined
         };
-        expect(getVideoImagePresets(responseVideoSource, query)).toStrictEqual({
+        expect(
+            getVideoImagePresets(responseVideoSource, query, arcSite)
+        ).toStrictEqual({
             ...result,
             configSizes: []
         });
@@ -103,17 +106,24 @@ describe('Test getVideoImagePresets', () => {
 
     test('Return test when arcSite is not defined ', () => {
         const query = {
-            ...siteProps,
-            'arc-site': undefined
+            ...siteProps
         };
-        expect(getVideoImagePresets(responseVideoSource, query)).toStrictEqual(
-            result
-        );
+        const arcSite = undefined;
+        expect(
+            getVideoImagePresets(responseVideoSource, query, arcSite)
+        ).toStrictEqual(null);
     });
 
     test('Return test when all props are correct', () => {
         expect(
-            getVideoImagePresets(responseVideoSource, siteProps)
+            getVideoImagePresets(responseVideoSource, siteProps, arcSite)
         ).toStrictEqual(result);
+    });
+
+    test('Return test when arcSite is ott', () => {
+        const arcSite = 'ott';
+        expect(
+            getVideoImagePresets(responseVideoSource, siteProps, arcSite)
+        ).toStrictEqual(null);
     });
 });

@@ -2,6 +2,8 @@ import get from '../../components/private/common/utils/get';
 import getImageResized from '../../components/private/common/utils/getImageResized';
 import getVideoImagePresets from './utils/getVideoImagePresets';
 
+// Tener en cuenta que OTT tambien usa este source
+
 const resolve = key => {
     const { id, url, website } = key;
     const basePath = `/content/v4/videos?website=${website}`;
@@ -13,7 +15,8 @@ const resolve = key => {
 
 const transform = (data, siteProps) => {
     const arcSite = get(siteProps, 'arc-site', '');
-    if (arcSite === 'la-nacion-ar') {
+    const presets = getVideoImagePresets(data, siteProps, arcSite);
+    if (presets) {
         const focalPoint = [];
         const {
             width,
@@ -22,7 +25,7 @@ const transform = (data, siteProps) => {
             configSizes,
             isAdmin,
             isInApertura
-        } = getVideoImagePresets(data, siteProps);
+        } = presets;
 
         return {
             ...data,
