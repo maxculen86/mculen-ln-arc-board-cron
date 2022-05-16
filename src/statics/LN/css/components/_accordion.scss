@@ -1,0 +1,38 @@
+@import '../abstracts/variables';
+
+.accordion {
+    &.--closed {
+        margin-bottom: $spacing-md;
+    }
+    .action {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: $spacing-sm;
+        border: 1px solid $light-neutral-300;
+        border-radius: px(4);
+        width: 100%;
+        .com-button {
+            padding: 0;
+            .icon-arrow-up,
+            .icon-arrow-down {
+                width: 20px;
+                height: 20px;
+                path {
+                    fill: $blue-500;
+                }
+            }
+            .icon-arrow-down {
+                transform: rotate(0);
+                transition-duration: 0.3s;
+                &.--rotate {
+                    transform: rotate(-180deg);
+                    transition-duration: 0.3s;
+                }
+            }
+        }
+    }
+    .accordion-content {
+        padding: $spacing-sm 0;
+    }
+}

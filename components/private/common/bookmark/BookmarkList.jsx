@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ModArticle from '../mod-article';
 import EmptyBookmark from './EmptyBookmark';
+import ComButton from '../com-button';
 
 const BookmarkList = ({ data }) => {
     return (
@@ -10,7 +11,17 @@ const BookmarkList = ({ data }) => {
                 <EmptyBookmark />
             ) : (
                 data.map(e => {
-                    return <ModArticle titleText={e.title} />;
+                    return (
+                        <div className="item">
+                            <ModArticle
+                                withMedia
+                                titleText={e.title}
+                                articleData={data}
+                                dateText="2022-05-13T13:29:11.337Z"
+                            />
+                            <ComButton iconName="bookmark" />
+                        </div>
+                    );
                 })
             )}
         </section>

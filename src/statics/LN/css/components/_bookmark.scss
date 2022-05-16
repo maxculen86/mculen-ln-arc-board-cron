@@ -43,7 +43,9 @@
         height: 100vh;
         background-color: $light-neutral-50;
         padding: $spacing-md;
+        padding-bottom: $spacing-lg;
         max-width: px(576);
+        overflow-y: scroll;
         @media ($media-m) {
         }
         .helper-header {
@@ -55,19 +57,100 @@
             }
             .com-button {
                 position: absolute;
-                top: $spacing-sm;
-                right: $spacing-sm;
+                top: px(18);
+                right: px(18);
                 padding: 0;
             }
         }
         .helper-main {
             position: relative;
+            .--italic {
+                font-style: italic;
+            }
             p {
                 margin-bottom: $spacing-md;
             }
             .list-content {
                 :last-child {
                     margin-bottom: 0;
+                }
+                p {
+                    margin-bottom: $spacing-sm;
+                }
+                svg {
+                    margin: auto;
+                    margin-bottom: $spacing-sm;
+                }
+                li {
+                    list-style: disc;
+                    margin-left: $spacing-sm;
+                }
+            }
+        }
+    }
+    .bookmark-list {
+        padding: $spacing-lg 0;
+        .item {
+            position: relative;
+            display: flex;
+            border-bottom: px(1) solid $light-neutral-300;
+            margin-bottom: px(16);
+            .com-button {
+                background-color: $blue-500;
+                padding: px(10);
+                width: px(32);
+                height: px(32);
+                .icon-bookmark {
+                    width: px(10.67);
+                    height: px(13.76);
+                    path {
+                        fill: $light-neutral-50;
+                    }
+                }
+            }
+        }
+        .mod-article {
+            @include flex(flex, row);
+            margin-bottom: px(16);
+            .com-title {
+                font-weight: 400;
+                @media ($media-m) {
+                    font-weight: 700;
+                    font-size: px(20);
+                    line-height: px(28);
+                    letter-spacing: -0.2px;
+                }
+            }
+            .mod-media {
+                margin-left: $spacing-sm;
+            }
+            .content-media {
+                .placeholder {
+                    width: px(60);
+                    aspect-ratio: 1;
+                }
+                @media ($media-s) {
+                    .placeholder {
+                        width: px(100);
+                    }
+                }
+                @media ($media-m) {
+                    .mod-media {
+                        margin-left: 0;
+                    }
+                    .placeholder {
+                        margin-right: $spacing-sm;
+                        width: px(150);
+                        aspect-ratio: 3 / 2;
+                    }
+                }
+            }
+            .mod-description {
+                margin: 0 $spacing-sm;
+                display: flex;
+                flex-direction: column;
+                .com-date {
+                    order: -1;
                 }
             }
         }

@@ -8,21 +8,39 @@ const MisNotasFeature = ({ id: featureId }) => {
     const data = [
         {
             title:
-                'Title esto es un titulo de la novedad con unas cuantas lineas que ocupar',
-            marquee: 'Marquee',
-            author: 'Pepito'
+                'Lead. Title esto es un titulo de la novedad con unas cuantas lineas que ocupar'
         },
         {
             title:
-                'Title esto es un titulo de la novedad con unas cuantas lineas que ocupar',
-            marquee: 'Marquee',
-            author: 'Pepito'
+                'Lead. Title esto es un titulo de la novedad con unas cuantas lineas que ocupar'
         },
         {
             title:
-                'Title esto es un titulo de la novedad con unas cuantas lineas que ocupar',
-            marquee: 'Marquee',
-            author: 'Pepito'
+                'Lead. Title esto es un titulo de la novedad con unas cuantas lineas que ocupar'
+        },
+        {
+            title:
+                'Lead. Title esto es un titulo de la novedad con unas cuantas lineas que ocupar'
+        },
+        {
+            title:
+                'Lead. Title esto es un titulo de la novedad con unas cuantas lineas que ocupar'
+        },
+        {
+            title:
+                'Lead. Title esto es un titulo de la novedad con unas cuantas lineas que ocupar'
+        },
+        {
+            title:
+                'Lead. Title esto es un titulo de la novedad con unas cuantas lineas que ocupar'
+        },
+        {
+            title:
+                'Lead. Title esto es un titulo de la novedad con unas cuantas lineas que ocupar'
+        },
+        {
+            title:
+                'Lead. Title esto es un titulo de la novedad con unas cuantas lineas que ocupar'
         }
     ];
     return (
