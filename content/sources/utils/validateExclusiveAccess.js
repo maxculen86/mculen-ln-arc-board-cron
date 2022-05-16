@@ -10,6 +10,7 @@ const validateExclusiveAccess = ({
     if (contentCode === 'cerrada') {
         if (
             meteringVariant !== 'S' &&
+            path &&
             !path.match(
                 /\/api\/(?:mobile\/)?v([1-2]+)\/notas\/(byId\/(.+)\/$|byUrl(\/.+\/$))/g
             )
