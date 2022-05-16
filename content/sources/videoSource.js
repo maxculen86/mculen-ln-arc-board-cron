@@ -1,6 +1,6 @@
-import getProperties from 'fusion:properties';
 import get from '../../components/private/common/utils/get';
 import getImageResized from '../../components/private/common/utils/getImageResized';
+import getVideoImagePresets from './utils/getVideoImagePresets';
 
 const resolve = key => {
     const { id, url, website } = key;
@@ -12,29 +12,33 @@ const resolve = key => {
 };
 
 const transform = (data, siteProps) => {
-    const focalPoint = [];
-    const { imageConfig, isInApertura } = siteProps;
-    const { imageConfig: { resize } = {} } = getProperties(
-        siteProps['arc-site']
-    );
-    const isAdmin = get(siteProps, `isAdmin`, false);
-
-    const { width, height, url } = get(data, 'promo_items.basic', {});
-
-    const configSizes = get(resize[imageConfig], 'promo_items.sizes', []);
-
-    return {
-        ...data,
-        resizedUrl: getImageResized(
-            url,
-            height,
+    const arcSite = get(siteProps, 'arc-site', '');
+    if (arcSite === 'la-nacion-ar') {
+        const focalPoint = [];
+        const {
             width,
+            height,
+            url,
             configSizes,
-            focalPoint,
-            isInApertura,
-            isAdmin
-        )
-    };
+            isAdmin,
+            isInApertura
+        } = getVideoImagePresets(data, siteProps);
+
+        return {
+            ...data,
+            resizedUrl: getImageResized(
+                url,
+                height,
+                width,
+                configSizes,
+                focalPoint,
+                isInApertura,
+                isAdmin
+            )
+        };
+    }
+
+    return data;
 };
 
 export default {
