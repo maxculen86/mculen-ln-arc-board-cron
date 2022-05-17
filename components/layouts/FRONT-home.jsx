@@ -10,8 +10,8 @@ import Dolar from '../private/common/mod-dolar';
 import GlobalProvider from '../private/common/context/globalContext';
 import ModPromo from '../private/common/mod-promo';
 import NewFooter from '../private/LN/common/footer';
-import Escudos from '../../components/features/LN-acumulado/cajaEscudo';
 import SubHeader from '../private/LN/common/header/subHeader';
+import Toast from '../private/common/toast/Toast';
 
 import '../../resources/dist/css/ln/pages/home.css';
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
@@ -77,20 +77,10 @@ const LNHome = props => {
                 <div id="wrapper" className={`home demofront ${amp}`}>
                     <Header />
                     <SubHeader />
+                    <Toast status="success" />
+
                     {/* <Anticipo title="El Gobierno anticipó al mercado y dio indicios de su nueva estrategia" /> */}
-                    <div className="com-anexo --anexo-1">
-                        <iframe
-                            src={
-                                'https://especialess3.lanacion.com.ar/21/03/anexo-home-vacunas/?initialWidth=1905&amp;childId=bloque1-pymnro0&amp;' +
-                                'parentTitle=%C3%9Altimas%20noticias%20de%20Argentina%20y%20el%20mundo%20-%20LA%20NACION&amp;parentUrl=https%3A%2F%2Fwww.lanacion.com.ar%2F'
-                            }
-                            width="100%"
-                            scrolling="no"
-                            marginheight="0"
-                            frameborder="0"
-                            height="198px"
-                        ></iframe>
-                    </div>
+
                     <div
                         data-module="tema_00"
                         data-is-loading="false"
@@ -128,8 +118,6 @@ const LNHome = props => {
                                         </div>
                                     </section>
 
-                                    <Escudos />
-
                                     <div
                                         data-module="tema_01"
                                         data-is-loading="false"
@@ -152,9 +140,6 @@ const LNHome = props => {
                                                         titleText="Focal izquierdo. Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
                                                         titleTag="h1"
                                                         titleSize="--xl"
-                                                        subheadText={
-                                                            subheadText
-                                                        }
                                                         authors="Por Maia Jastreblansky"
                                                         label="en vivo"
                                                         labelType="liveblog"
@@ -376,9 +361,6 @@ const LNHome = props => {
                                                         titleText="Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
                                                         titleTag="h1"
                                                         titleSize="--xl"
-                                                        subheadText={
-                                                            subheadText
-                                                        }
                                                         authors="Por Maia Jastreblansky"
                                                         position="0402"
                                                     />

@@ -1,0 +1,124 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.toast {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    position: fixed;
+    z-index: 101;
+    background: $orange-100;
+    top: px(113);
+    padding: $spacing-sm;
+    box-shadow: px(0) px(4) px(8) rgba(0, 0, 0, 0.08);
+    width: 90%;
+    @media ($media-s) {
+        width: px(318);
+        right: px(16);
+    }
+    @media ($media-m) {
+        width: px(355);
+        top: px(61);
+    }
+    @media ($media-l) {
+        top: px(89);
+    }
+    .icon-container {
+        @include flex(flex, row, center, center);
+        width: px(40);
+        height: px(40);
+        border-radius: 50%;
+        .icon-checkmark {
+            width: px(11.3);
+            height: px(8);
+        }
+        .icon-info,
+        .icon-error-warning {
+            width: px(13.3);
+            height: px(13.3);
+        }
+        .icon-alert {
+            width: px(14);
+            height: px(12.3);
+        }
+    }
+    .body-toast {
+        grid-column: 2 / 12;
+        padding: 0 $spacing-sm;
+        .--title {
+            margin: px(5) 0;
+            display: block;
+        }
+        .com-button {
+            display: block;
+            margin-top: $spacing-sm;
+            color: $dark-neutral-800;
+            background-color: $dark-neutral-200;
+            &:hover {
+                color: $dark-neutral-800;
+                opacity: 0.8;
+            }
+        }
+        .--description {
+            text-transform: capitalize;
+        }
+    }
+    .icon-close {
+        width: px(20);
+        height: px(20);
+    }
+    &.--success {
+        background-color: $green-100;
+        .icon-container {
+            background-color: $green-200;
+        }
+        .--title {
+            color: $green-800;
+        }
+    }
+    &.--info {
+        background-color: $blue-100;
+        .icon-container {
+            background-color: $blue-200;
+        }
+        .--title {
+            color: $blue-500;
+        }
+    }
+    &.--alert {
+        background-color: $orange-100;
+        .icon-container {
+            background-color: $orange-200;
+        }
+        .--title {
+            color: $orange-700;
+        }
+    }
+    &.--danger {
+        background-color: $red-100;
+        .icon-container {
+            background-color: $red-200;
+        }
+        .--title {
+            color: $red-700;
+        }
+    }
+    .com-button {
+        &.--icon {
+            grid-column: 12 / 13;
+            justify-self: flex-end;
+            align-self: flex-start;
+            padding: 0;
+        }
+        &:hover {
+            path {
+                fill: $light-neutral-800;
+            }
+        }
+        &:active {
+            color: $dark-neutral-800;
+        }
+        &:disabled {
+            color: $dark-neutral-800;
+        }
+    }
+}

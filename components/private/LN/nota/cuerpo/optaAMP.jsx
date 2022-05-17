@@ -1,6 +1,5 @@
 import React from 'react';
 import { OPTA_WIDGET_URL } from 'fusion:environment';
-import Consumer from 'fusion:consumer';
 import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
@@ -8,8 +7,8 @@ import getAssetsPath from '../../../common/utils/getAssetsPath';
 const hasOptaElements = content => content.includes('opta-widget');
 
 const OptaAMP = props => {
-    const { data, contextPath, deployment } = props;
-    const { globalContent } = useAppContext();
+    const { data } = props;
+    const { globalContent, contextPath, deployment } = useAppContext();
     const { _id: idNote } = globalContent;
     const { content = null, width = '360', height = '300', _id: idRawHtml } =
         data || {};
@@ -51,9 +50,7 @@ OptaAMP.isStatic = true;
 OptaAMP.propTypes = {
     data: PropTypes.shape({
         content: PropTypes.string
-    }).isRequired,
-    deployment: PropTypes.func.isRequired,
-    contextPath: PropTypes.string.isRequired
+    }).isRequired
 };
 
-export default Consumer(OptaAMP);
+export default OptaAMP;

@@ -24,6 +24,7 @@ jest.mock('fusion:context', WrappedComponent => {
 });
 
 export const useAppContext = jest.fn();
+export const useComponentContext = jest.fn();
 export const useFusionContext = jest.fn(() => {
     return {
         isAdmin: false,

@@ -4,7 +4,8 @@ const wikiTypes = {
         type: 1,
         description: 'text',
         image: {
-            url: 'text',
+            url:
+                'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/GZUF7GDQYVCK5FG454PDT5RH64.jpg',
             width: 'text',
             height: 'text',
             alt: 'text'

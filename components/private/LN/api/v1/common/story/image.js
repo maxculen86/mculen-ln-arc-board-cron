@@ -1,4 +1,4 @@
-import get from 'lodash.get';
+import get from '../../../../../common/utils/get';
 
 import ImageCommon from '../image';
 import epigrafeAndCreditsData from '../../../../../common/utils/epigrafeAndCreditsData';
