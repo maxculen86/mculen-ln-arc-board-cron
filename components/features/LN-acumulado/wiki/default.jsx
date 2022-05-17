@@ -32,7 +32,6 @@ const WikiFeature = () => {
         description,
         schemas_info: schemasInfo = {},
         image = {},
-        logo_url: logoUrl,
         _id: featureId
     } = wikiSourceData || {};
 
@@ -78,7 +77,6 @@ const WikiFeature = () => {
 
     const isOrganization = location && address;
 
-    const srcImg = isOrganization ? logoUrl : imageUrl;
     const altImg = !isOrganization
         ? `${givenName} ${additionalName} ${familyName}`
         : legalName;
@@ -86,7 +84,7 @@ const WikiFeature = () => {
     return (
         <StaticValidation id={featureId} htmlOnly persistent>
             <article className="wiki-tags">
-                <ModPicture src={srcImg} alt={altImg} sources={resizedUrls} />
+                <ModPicture src={imageUrl} alt={altImg} sources={resizedUrls} />
                 <div className="extra-info">
                     {(isOrganization ? schemaOrganization : schemaPerson).map(
                         ({ text, value }) =>
