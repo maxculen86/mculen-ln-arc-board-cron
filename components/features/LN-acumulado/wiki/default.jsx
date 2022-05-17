@@ -64,7 +64,7 @@ const WikiFeature = () => {
         }
     ];
     const schemaOrganization = [
-        { text: 'Nombre legal', value: `${schemasInfo.legal_name || ''}` },
+        { text: 'Nombre', value: `${schemasInfo.legal_name || ''}` },
         {
             text: 'Fecha de fundación',
             value: `${schemasInfo.founding_date || ''}`
