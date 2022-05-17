@@ -1,4 +1,5 @@
 /* eslint-disable prefer-destructuring */
+import { LANACION_SERVICES_URL } from 'fusion:environment';
 import getProperties from 'fusion:properties';
 import logger from '../../components/private/common/utils/logger';
 import get from '../../components/private/common/utils/get';
@@ -7,9 +8,8 @@ import transformISODate from '../../components/private/common/utils/transformISO
 import getRequest from './utils/getRequest';
 
 const resolve = query => {
-    // TODO agregar la variable de entorno cuando este productivo
     const { slug = '' } = query;
-    return `https://dev-arcservices.lanacion.com.ar/api/v1/tags/${slug}`;
+    return `${LANACION_SERVICES_URL}/api/v1/tags/${slug}`;
 };
 
 const fetch = query => {
