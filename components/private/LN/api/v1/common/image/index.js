@@ -31,7 +31,7 @@ const imageCommon = image => {
             const mediaA = resizedUrls[a].option.width;
             const mediaB = resizedUrls[b].option.width;
 
-            orderPattern(mediaA, mediaB);
+            return orderPattern(mediaA, mediaB);
         })
         .forEach((element, index) => {
             let { media } = resizedUrls[index].option;
