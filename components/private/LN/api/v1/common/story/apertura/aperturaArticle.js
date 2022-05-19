@@ -1,4 +1,4 @@
-import get from 'lodash.get';
+import get from '../../../../../../common/utils/get';
 import Image from '../image';
 import Video from '../video';
 import AperturaReceta from './aperturaReceta';

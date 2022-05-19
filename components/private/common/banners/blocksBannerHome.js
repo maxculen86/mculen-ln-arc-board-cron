@@ -112,6 +112,11 @@ export default {
         {
             slotGroup: 'home',
             tablet: 'caja4_tab'
+        },
+        {
+            slotGroup: 'home',
+            desktop: 'parallax_dsk',
+            mobile: 'parallax_mob'
         }
     ],
     bloque4: [

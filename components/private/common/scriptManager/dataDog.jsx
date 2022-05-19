@@ -44,7 +44,7 @@ function DataDog({ location = 'head' }) {
         window,
         document,
         "script",
-        "https://www.datadoghq-browser-agent.com/datadog-logs-v3.js",
+        "https://www.datadoghq-browser-agent.com/datadog-logs-v4.js",
         "DD_LOGS"
       );
       DD_LOGS.onReady(function () {
@@ -86,7 +86,7 @@ function DataDog({ location = 'head' }) {
         window,
         document,
         "script",
-        "https://www.datadoghq-browser-agent.com/datadog-rum-v3.js",
+        "https://www.datadoghq-browser-agent.com/datadog-rum-v4.js",
         "DD_RUM"
       );
       
@@ -99,9 +99,12 @@ function DataDog({ location = 'head' }) {
           env: "${env}",
           version: "${version}",
           sampleRate: ${sampleRateRum},
+          replaySampleRate: 10,
           trackInteractions: ${trackInteractions},
           trackSessionAcrossSubdomains: ${trackSessionAcrossSubdomains},
         });
+      
+        DD_RUM.startSessionReplayRecording();
 
         if (googleAnalyticsId || usuarioEmail) {
           DD_RUM.setUser({

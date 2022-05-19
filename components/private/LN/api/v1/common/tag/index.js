@@ -1,4 +1,4 @@
-import get from 'lodash.get';
+import get from '../../../../../common/utils/get';
 import { getTagId } from '../../../../../common/utils/getElementId';
 
 const getTag = dataTag => {

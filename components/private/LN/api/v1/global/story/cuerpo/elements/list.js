@@ -1,4 +1,4 @@
-import get from 'lodash.get';
+import get from '../../../../../../../common/utils/get';
 import htmlText from '../../../../common/story/cuerpo/elements/htmlText';
 
 const list = (nodo, dataNota) => {

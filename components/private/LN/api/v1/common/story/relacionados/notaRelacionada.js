@@ -1,4 +1,4 @@
-import get from 'lodash.get';
+import get from '../../../../../../common/utils/get';
 import matchObject from '../../../common/utils/matchObject';
 
 const notaRelacionada = dataNota => {
