@@ -83,7 +83,7 @@ describe('Viewability', () => {
             arcSite: 'la-nacion-ar'
         }));
 
-        it('Cuando se hace click en un articulo con layout grilla debe guardar en dataLayer datos attr del articulo', () => {
+        it.skip('Cuando se hace click en un articulo con layout grilla debe guardar en dataLayer datos attr del articulo', () => {
             const props = {
                 title: 'Titulo de Nota',
                 articles,
@@ -188,7 +188,7 @@ describe('Viewability', () => {
             */
         });
 
-        it('Cuando se hace click en un articulo con layout focalRight debe guardar en dataLayer datos attr del articulo', () => {
+        it.skip('Cuando se hace click en un articulo con layout focalRight debe guardar en dataLayer datos attr del articulo', () => {
             const propsFocalRight = {
                 title: 'Titulo de Nota',
                 articles,
@@ -219,7 +219,7 @@ describe('Viewability', () => {
             expect(window.dataLayer[4].product.name).toBe('');
         });
 
-        it('Cuando se hace click en un articulo con layout OPINION debe guardar en dataLayer datos attr del articulo', () => {
+        it.skip('Cuando se hace click en un articulo con layout OPINION debe guardar en dataLayer datos attr del articulo', () => {
             const propsOpinion = {
                 title: 'Titulo de Nota',
                 articles: [
@@ -290,7 +290,7 @@ describe('Viewability', () => {
             expect(window.dataLayer[6].product.name).toBe('');
         });
 
-        it('Cuando se hace click en un articulo con layout EDITORIALES debe guardar en dataLayer datos attr del articulo', () => {
+        it.skip('Cuando se hace click en un articulo con layout EDITORIALES debe guardar en dataLayer datos attr del articulo', () => {
             const articlesEditorial = [articles[0], articles[1]];
             const propsOpinion = {
                 title: 'Titulo de Nota',
@@ -370,7 +370,7 @@ describe('IntersectionObserver', () => {
         sessionStorage.getItem.mockRestore();
         sessionStorage.setItem.mockRestore();
     });
-    it('Deberia  observe elementos, llamar al callback y ubserve', () => {
+    it.skip('Deberia  observe elementos, llamar al callback y ubserve', () => {
         let h2DOM = global.document.createElement('h2');
         h2DOM.innerText = 'Nota de Prueba';
 
