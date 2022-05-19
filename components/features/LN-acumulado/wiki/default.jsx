@@ -117,8 +117,8 @@ const WikiFeature = () => {
                                 href={iconInfo.url}
                                 title={
                                     isOrganization
-                                        ? `Ir al ${iconInfo.type.toLowerCase()} de ${legalName}`
-                                        : `Ir al ${iconInfo.type.toLowerCase()} de ${givenName} ${familyName}`
+                                        ? `Ir al ${iconInfo.type} de ${legalName}`
+                                        : `Ir al ${iconInfo.type} de ${givenName} ${familyName}`
                                 }
                                 target="_blank"
                                 rel="nofollow"
