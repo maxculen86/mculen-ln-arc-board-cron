@@ -47,10 +47,16 @@ const AnexoFeature = props => {
         >
             <StaticValidation id={id} htmlOnly isStatic={isApertura}>
                 <style>
-                    {`#anexo-responsive-${id}{height:${heightMobile}px}@media(min-width:768px){#anexo-responsive-${id}{height:${
+                    {`#anexo-responsive-${id}{height:${parseInt(
+                        heightMobile,
+                        10
+                    )}px}@media(min-width:768px){#anexo-responsive-${id}{height:${
                         // eslint-disable-next-line prettier/prettier
-                        heightTablet
-                    }px}}@media(min-width:1024px){#anexo-responsive-${id}{height:${heightDesktop}px}}`}
+                        parseInt(heightTablet, 10)
+                    }px}}@media(min-width:1024px){#anexo-responsive-${id}{height:${
+                        // eslint-disable-next-line prettier/prettier
+                        parseInt(heightDesktop, 10)
+                    }px}}`}
                 </style>
                 {comp()}
             </StaticValidation>
@@ -135,12 +141,12 @@ const getErrorMessage = ({
         !html &&
         !hideByHtml &&
         'Se requiere agregue la URL o HTML del anexo') ||
-    (hideByHtml &&
+    ((hideByHtml || (!html && !hideByHtml)) &&
         url &&
         !hideByUrl &&
         (!heightDesktop || !heightTablet || !heightMobile) &&
         'Los tres altos fijos del anexo (Desktop, Tablet y Mobile) son campos requeridos para los anexos con URL') ||
-    (hideByHtml &&
+    ((hideByHtml || (!html && !hideByHtml)) &&
         url &&
         !hideByUrl &&
         isApertura &&

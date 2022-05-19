@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
 import ModDescription from '../../../../components/private/common/mod-description';
+import Context from 'fusion:context';
 
 jest.mock(
     '../../../../components/private/common/com-title.jsx',
@@ -23,6 +24,12 @@ jest.mock(
     '../../../../components/private/common/badge/Badge.jsx',
     () => 'com-badge-mock'
 );
+
+jest.mock('fusion:context', Component => {
+    return function(Component) {
+        return props => <Component {...props} />;
+    };
+});
 
 describe('Private - Common - ModDescription', () => {
     const props = {
@@ -50,6 +57,10 @@ describe('Private - Common - ModDescription', () => {
             { text: 'Sociedad', slug: 'sociedad-123' }
         ]
     };
+
+    Context.useAppContext = jest.fn(() => ({
+        layout: 'LN-Home_Main'
+    }));
 
     it('Render OK', () => {
         const component = mount(<ModDescription {...props} />);

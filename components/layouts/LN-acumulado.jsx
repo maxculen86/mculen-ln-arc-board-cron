@@ -132,6 +132,7 @@ const LNAcumuladoLayout = props => {
     )
         ? '--opening'
         : '';
+
     return (
         <GlobalProvider>
             <GlobalProviderAcu
@@ -162,7 +163,11 @@ const LNAcumuladoLayout = props => {
                                     <AnexoDefault
                                         id="superior"
                                         customFields={{
-                                            height:
+                                            heightDesktop:
+                                                anexoSuperiorConfig.anexoHeight,
+                                            heightTablet:
+                                                anexoSuperiorConfig.anexoHeight,
+                                            heightMobile:
                                                 anexoSuperiorConfig.anexoHeight,
                                             url: anexoSuperiorConfig.anexoUrl
                                         }}
@@ -186,7 +191,11 @@ const LNAcumuladoLayout = props => {
                                     <AnexoDefault
                                         id="inferior"
                                         customFields={{
-                                            height:
+                                            heightDesktop:
+                                                anexoInferiorConfig.anexoHeight,
+                                            heightTablet:
+                                                anexoInferiorConfig.anexoHeight,
+                                            heightMobile:
                                                 anexoInferiorConfig.anexoHeight,
                                             url: anexoInferiorConfig.anexoUrl
                                         }}

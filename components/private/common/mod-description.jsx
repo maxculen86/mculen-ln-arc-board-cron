@@ -1,4 +1,5 @@
 import React from 'react';
+import { useAppContext } from 'fusion:context';
 import PropTypes from 'prop-types';
 import Text from './text';
 import ComTitle from './com-title';
@@ -26,12 +27,17 @@ const ModDescription = props => {
         tags,
         contentRestrictions: { content_code: contentCode }
     } = props;
+    const { layout: layoutPageBuilder } = useAppContext();
     const withMarquee = !!(marquesina || authors);
     const { name: categoryName, path: categoryPath } = category || {};
 
+    const isHomeOrAcu =
+        layoutPageBuilder === 'LN-Home_Main' ||
+        layoutPageBuilder === 'LN-acumulado';
+
     return (
         <section className="mod-description">
-            {getBadge(contentCode, label)}
+            {isHomeOrAcu && getBadge(contentCode, label)}
             <ComTitle
                 tag={titleTag}
                 size={titleSize}
