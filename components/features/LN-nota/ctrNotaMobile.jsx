@@ -18,16 +18,13 @@ const CTRNota = () => {
     const [trigger, setTrigger] = useState(false);
     const device = useViewportSize();
     const isSub = isSubscribed();
-    console.log(
-        '🚀 ~ file: ctrNotaMobile.jsx ~ line 21 ~ CTRNota ~ isSub',
-        isSub
-    );
 
     const data = getContent({
         source: 'rankingArticlesSource',
         query: {
-            sectionId: 'economia',
-            imageConfig: 'boxArticles'
+            sectionId: 'deportes',
+            imageConfig: 'boxArticles',
+            website: 'la-nacion-ar'
         }
     });
     console.log(
