@@ -17,7 +17,7 @@ import getCollectionsFromRenderables from '../private/common/utils/getCollection
 import dataLayerIndexAmp from '../private/common/dataLayerIndexAmp';
 import MetasOG from '../private/common/metaTags/metasOG';
 import ScriptLogoBBCAMP from '../private/common/scriptManager/scriptLogoBBCAMP';
-import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
+import GetDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
 import getSectionName from '../private/LN/common/utils/getSectionName';
 import MeteringAMP from '../private/common/scriptManager/meteringAMP';
 import Favicon from '../private/common/favicon';

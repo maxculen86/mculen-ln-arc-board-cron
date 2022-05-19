@@ -7,6 +7,7 @@ import sectionsValidation from '../../../../layouts/config/LN-Home.config';
 import { FOTOAL100, STORYTELLING } from '../subtypes/subtypeHelper';
 import { LinkImagePreload } from '../../../LN/common/utils/mediaHelper';
 import getVideoPosterResized from '../video/getVideoPosterResized';
+import replaceUrlResizerToWWW from '../../../../../content/sources/utils/replaceUrlResizerToWWW';
 
 const getSource = (
     imageID = '',
@@ -120,22 +121,27 @@ const getMediaApertura = (renderables, arcSite, isAdmin) => {
     );
 };
 
-const getDataToLinkImage = ({
+const GetDataToLinkImage = ({
     data = {},
     section = '',
     renderables = [],
     arcSite = '',
     isAdmin = false
 }) => {
+    const { subtype, promo_items: promoItems } = data || {};
+
+    const basic = replaceUrlResizerToWWW(get(data, 'promo_items.basic', {}));
+
     if (!data) return <></>;
+
     const sectionData = {
         nota: () => {
-            const { subtype, promo_items: promoItems } = data || {};
             const shouldExclude = !!(
                 (subtype === FOTOAL100 || subtype === STORYTELLING) &&
                 get(promoItems, 'storytelling_mobile.resized_urls.length')
             );
-            const resizedUrls = get(data, 'promo_items.basic.resized_urls', []);
+
+            const resizedUrls = get(basic, 'resized_urls', []);
 
             return !shouldExclude ? (
                 <LinkImagePreload resizedUrls={resizedUrls} />
@@ -183,4 +189,4 @@ const getDataToLinkImage = ({
     return (sectionData[section] && sectionData[section]()) || <></>;
 };
 
-export default getDataToLinkImage;
+export default GetDataToLinkImage;
