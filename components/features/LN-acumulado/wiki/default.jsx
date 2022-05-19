@@ -115,7 +115,11 @@ const WikiFeature = () => {
                             <Icon
                                 name={iconInfo.type.toLowerCase()}
                                 href={iconInfo.url}
-                                title={`Ir al ${iconInfo.type.toLowerCase()}`}
+                                title={
+                                    isOrganization
+                                        ? `Ir al ${iconInfo.type.toLowerCase()} de ${legalName}`
+                                        : `Ir al ${iconInfo.type.toLowerCase()} de ${givenName} ${familyName}`
+                                }
                                 target="_blank"
                                 rel="nofollow"
                             />
