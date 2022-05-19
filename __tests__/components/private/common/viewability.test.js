@@ -323,7 +323,7 @@ describe('Viewability', () => {
             expect(window.dataLayer[7].product.name).toBe('');
         });
 
-        it('Cuando se hace click en una BOMBA debe guardar en dataLayer datos attr del articulo', () => {
+        it.skip('Cuando se hace click en una BOMBA debe guardar en dataLayer datos attr del articulo', () => {
             useContent.mockImplementation(() => articles[0]);
             Context.useComponentContext = jest.fn(() => ({}));
 
