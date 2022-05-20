@@ -18,7 +18,7 @@ function getMonthAsText(date) {
 
 function getVideoDateFormat(dateString) {
     const date = new Date(dateString);
-    return `${date.getDay()} ${months[date.getMonth()]} ${date.getYear() +
+    return `${date.getUTCDate()} ${months[date.getMonth()]} ${date.getYear() +
         1900}`;
 }
 
@@ -31,6 +31,7 @@ function timeToIso8601(timestamp) {
 }
 
 export default {
+    months,
     getMonthAsText,
     getVideoDateFormat,
     timeToIso8601
