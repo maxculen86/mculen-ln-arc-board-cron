@@ -19,22 +19,21 @@ const CTRNota = () => {
     const device = useViewportSize();
     const isSub = isSubscribed();
 
-    const data = getContent({
-        source: 'rankingArticlesSource',
-        query: {
-            sectionId: 'deportes',
-            imageConfig: 'boxArticles',
-            website: 'la-nacion-ar'
-        }
-    });
-    console.log(
-        '🚀 ~ file: ctrNotaMobile.jsx ~ line 31 ~ CTRNota ~ data',
-        data
-    );
-    const { articles } = data;
-    const articleToShow = articles.filter(art => {
-        return art._id !== _id;
-    })[0];
+    const data =
+        getContent({
+            source: 'rankingArticlesSource',
+            query: {
+                sectionId: 'deportes',
+                imageConfig: 'boxArticles',
+                website: 'la-nacion-ar'
+            }
+        }) || [];
+
+    const { articles = [] } = data;
+    const articleToShow =
+        articles.filter(art => {
+            return art._id !== _id;
+        })[0] || {};
 
     useEffect(() => {
         const handleScroll = () => {
