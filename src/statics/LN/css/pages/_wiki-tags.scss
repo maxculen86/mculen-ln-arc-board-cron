@@ -46,6 +46,7 @@
         .com-image {
             height: auto;
             margin: 0;
+            background: white;
         }
 
         @media ($media-m) {
@@ -74,14 +75,15 @@
             flex-direction: column;
             justify-content: space-evenly;
             width: fit-content;
+            margin-bottom: px(16);
 
             .label {
                 color: $light-neutral-500;
             }
 
-            .text {
-                margin-bottom: px(16);
-            }
+            //.text {
+            //    margin-bottom: px(16);
+            //}
 
             .com-link {
                 font-family: $font-SuecaSlab;
@@ -121,6 +123,7 @@
             color: $blue-500;
         }
         p {
+            margin-bottom: px(16);
         }
     }
 
