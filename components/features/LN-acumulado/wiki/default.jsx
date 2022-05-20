@@ -119,7 +119,11 @@ const WikiFeature = () => {
                                         ? iconInfo.url.concat('/')
                                         : iconInfo.url
                                 }
-                                title={`Ir al ${iconInfo.type.toLowerCase()}`}
+                                title={
+                                    isOrganization
+                                        ? `Ir al ${iconInfo.type} de ${legalName}`
+                                        : `Ir al ${iconInfo.type} de ${givenName} ${familyName}`
+                                }
                                 target="_blank"
                                 rel="nofollow"
                             />
