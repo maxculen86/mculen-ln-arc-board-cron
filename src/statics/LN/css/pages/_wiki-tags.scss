@@ -56,6 +56,14 @@
         }
     }
 
+    &.--organization {
+        .placeholder.placeholder {
+            .com-image {
+                top: -25%;
+            }
+        }
+    }
+
     .extra-info {
         display: flex;
         flex-direction: column;
@@ -146,6 +154,14 @@
         }
         .tags-buttons {
             margin-left: px(16);
+        }
+
+        &.--organization {
+            .placeholder.placeholder {
+                .com-image {
+                    top: -25%;
+                }
+            }
         }
     }
 
