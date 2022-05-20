@@ -114,7 +114,11 @@ const WikiFeature = () => {
                         <div className="social-icons" key={iconInfo.type}>
                             <Icon
                                 name={iconInfo.type.toLowerCase()}
-                                href={iconInfo.url}
+                                href={
+                                    iconInfo.type === 'Instagram'
+                                        ? iconInfo.url.concat('/')
+                                        : iconInfo.url
+                                }
                                 title={`Ir al ${iconInfo.type.toLowerCase()}`}
                                 target="_blank"
                                 rel="nofollow"
