@@ -4,7 +4,8 @@
 .wiki-tags {
     display: grid;
     width: 100%;
-    margin-bottom: px(33);
+    max-width: px(428);
+    margin: 0 auto $spacing-lg auto;
     padding: px(4);
     border: 1px $light-neutral-400 solid;
     border-radius: px(4);
@@ -33,13 +34,25 @@
         grid-area: tags;
     }
 
-    .placeholder {
-        width: 100%;
+    .placeholder.placeholder {
+        width: calc(100% + 8px);
+        max-height: px(440);
         padding-top: 100%;
-        margin: 0;
+        margin: -4px 0 0 -4px;
         border: none;
+        border-top-left-radius: px(4);
+        border-top-right-radius: px(4);
+
         .com-image {
             height: auto;
+            margin: 0;
+        }
+
+        @media ($media-m) {
+            padding-top: calc(3 / 2 * 100%);
+            border-top-right-radius: 0;
+            width: 100%;
+            margin: 0;
         }
     }
 
@@ -73,12 +86,13 @@
     .social-networks {
         display: flex;
         justify-content: flex-start;
-        align-items: baseline;
+        align-items: flex-start;
         margin: px(24) 0 px(24) 0;
 
         .com-text {
             margin-right: px(12);
-            align-self: center;
+            margin-top: px(8);
+            //align-self: center;
         }
 
         .social-icons {
@@ -111,9 +125,11 @@
             'rrss  description description'
             'tags  description description';
 
-        grid-template-rows: px(200) px(250);
-        grid-template-columns: px(300) 1fr;
+        //grid-template-rows: px(200) px(250);
+        grid-template-rows: auto;
+        grid-template-columns: px(293) px(265) 1fr;
         padding: 0 px(16) 0 0;
+        max-width: none;
 
         .extra-info {
             flex-wrap: wrap;
@@ -122,9 +138,6 @@
                 max-width: px(220);
                 margin-right: px(4);
             }
-        }
-        .placeholder .placeholder {
-            padding-top: 100%;
         }
         .social-networks {
             margin: px(16) 0 px(16) px(16);
@@ -141,7 +154,7 @@
             'blank description description description'
             'rrss tags tags tags';
 
-        grid-template-rows: px(200) px(260) px(20) px(130);
+        //grid-template-rows: px(200) px(260) px(20) px(130);
 
         .extra-info {
             max-height: 100%;
@@ -152,10 +165,10 @@
         }
 
         .social-networks {
-            justify-content: flex-start;
+            //justify-content: flex-start;
             margin: px(16) px(24) 0 px(16);
             .com-text {
-                margin-bottom: px(80);
+                margin-bottom: 0;
             }
         }
         .tags-buttons {
@@ -169,7 +182,7 @@
             'image info description  description'
             'image rrss tags tags';
 
-        grid-template-rows: 200px 140px 100px;
+        //grid-template-rows: 200px 140px 100px;
 
         .wiki-description {
             padding: px(24) 0 px(12) 0;
@@ -179,7 +192,7 @@
             margin-left: 0;
             .com-text {
                 margin-left: 0;
-                margin-bottom: px(65);
+                //margin-bottom: px(65);
             }
         }
         .tags-buttons {
