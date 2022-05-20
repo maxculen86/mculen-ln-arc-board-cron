@@ -83,7 +83,9 @@ const WikiFeature = () => {
 
     return (
         <StaticValidation id={featureId} htmlOnly persistent>
-            <article className="wiki-tags">
+            <article
+                className={`wiki-tags ${isOrganization && '--organization'}`}
+            >
                 <ModPicture src={imageUrl} alt={altImg} sources={resizedUrls} />
                 <div className="extra-info">
                     {(isOrganization ? schemaOrganization : schemaPerson).map(
