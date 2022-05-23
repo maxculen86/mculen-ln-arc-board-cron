@@ -17,16 +17,14 @@ const sourceElementes = [
     'credits,headlines.basic',
     'headlines.mobile',
     'subheadlines',
-    'content_elements',
     'display_date',
     'publish_date',
     'first_publish_date',
-    'website_url',
     'display_date',
+    'website_url',
     'canonical_url',
     'marquesina',
-    'label.recomendar.text',
-    'related_content'
+    'label.recomendar.text'
 ];
 
 const mustElements = key => {
@@ -94,12 +92,21 @@ const resolveUri = key => {
     return `${requestUri}?${uriParams}&body=${encodedBody}`;
 };
 
-const fetch = (query, { cachedCall }) => {};
+const fetch = (query, { cachedCall }) => {
+    //Obtener datos de lo que el usuario sigue
+    //Llamada a ARC
+    //Return InfoArc
+};
 
 export default {
     fetch,
     ttl: 300,
     params: {
-        userToken: 'text'
+        userToken: 'text',
+        tag: 'text',
+        section: 'text',
+        author: 'text',
+        days: 'number',
+        page: 'number'
     }
 };
