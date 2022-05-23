@@ -3,7 +3,6 @@ import { useContent as getContent } from 'fusion:content';
 import { useAppContext } from 'fusion:context';
 import useViewportSize from '../../private/common/hooks/useViewportSize';
 import { isSubscribed } from '../../private/LN/common/utils/contextHelper';
-import getScrollPercent from '../../private/LN/common/utils/getScrollPercent';
 import get from '../../private/common/utils/get';
 
 const CTRNota = () => {
@@ -13,7 +12,7 @@ const CTRNota = () => {
         {}
     );
     const globalContent = get(useAppContext(), 'globalContent', {});
-    const { _id } = globalContent;
+    const { _id: actualArticleId } = globalContent;
 
     const [trigger, setTrigger] = useState(false);
     const device = useViewportSize();
@@ -32,7 +31,7 @@ const CTRNota = () => {
     const { articles = [] } = data;
     const articleToShow =
         articles.filter(art => {
-            return art._id !== _id;
+            return art._id !== actualArticleId;
         })[0] || {};
 
     useEffect(() => {
