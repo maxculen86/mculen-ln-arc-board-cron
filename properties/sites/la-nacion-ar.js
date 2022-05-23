@@ -172,6 +172,10 @@ export default {
             props: {},
             location: ['head']
         },
+        Blockthrough: {
+            props: {},
+            location: ['head']
+        },
         Queryly: {
             props: {},
             location: ['body-bottom']
