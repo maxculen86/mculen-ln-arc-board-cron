@@ -7,11 +7,11 @@ import getScrollPercent from '../../private/LN/common/utils/getScrollPercent';
 import get from '../../private/common/utils/get';
 
 const CTRNota = () => {
-    // const sectionId = get(
-    //     useAppContext(),
-    //     'globalContent.taxonomy.primary_section._id',
-    //     {}
-    // );
+    const sectionId = get(
+        useAppContext(),
+        'globalContent.taxonomy.primary_section.name',
+        {}
+    );
     const globalContent = get(useAppContext(), 'globalContent', {});
     const { _id } = globalContent;
 
@@ -23,7 +23,7 @@ const CTRNota = () => {
         getContent({
             source: 'rankingArticlesSource',
             query: {
-                sectionId: 'deportes',
+                sectionId: sectionId.toLowerCase(),
                 imageConfig: 'boxArticles',
                 website: 'la-nacion-ar'
             }
@@ -37,8 +37,9 @@ const CTRNota = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            const scrollPercent = getScrollPercent();
-            if (!trigger && scrollPercent >= 20) {
+            const scrolledInAxisY = window.scrollY;
+
+            if (!trigger && scrolledInAxisY >= 2800) {
                 setTrigger(true);
                 window.removeEventListener('scroll', handleScroll);
             }
@@ -49,7 +50,7 @@ const CTRNota = () => {
         };
     }, [trigger]);
 
-    const showComponent = !isSub && device === 'mobile';
+    const showComponent = !isSub && device === 'mobile' && articleToShow !== {};
     return showComponent && trigger && <>{articleToShow.headlines.basic}</>;
 };
 
