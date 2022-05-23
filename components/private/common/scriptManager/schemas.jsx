@@ -1,7 +1,14 @@
 import React from 'react';
+import { ARC_STATIC } from 'fusion:environment';
+import { useAppContext } from 'fusion:context';
 import PropTypes from 'prop-types';
 
 const Schemas = ({ section }) => {
+    const { contextPath, deployment } = useAppContext();
+    const logoUrl = `${ARC_STATIC}${deployment(
+        `${contextPath}/resources/images/placeholderLN-600_amp.jpg`
+    )}`;
+
     const newsMedia = `{
         "@context": "http://schema.org",
         "@type": "NewsMediaOrganization",
@@ -22,6 +29,13 @@ const Schemas = ({ section }) => {
         "publishingPrinciples": "https://www.lanacion.com.ar/sociedad/los-veinte-20-principios-del-periodismo-la-nid2390521/",
         "verificationFactCheckingPolicy": "https://www.lanacion.com.ar/sociedad/verificacion-chequeo-datos-nid2406825/",
         "foundingDate": "1870-01-04",
+        "logo": {
+            "@context": "https://schema.org",
+            "@type": "ImageObject",
+            "url": "${logoUrl}",
+            "height": 60,
+            "width": 600
+          },
         "sameAs": [
           "https://www.facebook.com/lanacion/",
           "https://www.instagram.com/lanacioncom/",

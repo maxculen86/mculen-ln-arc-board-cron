@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import get from '../../../common/utils/get';
+import getStreams from './getStreams';
 
 export const validateFeature = (idCollection, articles, layout) => {
     const message =
@@ -72,18 +73,50 @@ export const validateChainManual = (
     return message && { type: 'warning', message };
 };
 
-export const validateArticleFeature = (id, content) => {
-    return (
-        (!id && {
-            type: 'warning',
+export const validateArticleFeature = (
+    id,
+    content,
+    image,
+    video,
+    layout,
+    imageId,
+    videoId
+) => {
+    const { streams } = video || {};
+    const { filesize } = getStreams(streams, '>') || '';
+    const maxVideoSize = 2000000;
+
+    const rules = [
+        {
+            validation: !id,
             message: 'El campo Id de la Nota es obligatorio.'
-        }) ||
-        (!content && {
-            type: 'info',
-            message: 'Cargando...'
-        }) ||
+        },
+        {
+            validation: !content,
+            message: 'El ID de la nota es incorrecto.'
+        },
+        {
+            validation: imageId && image === null,
+            message: 'El ID de la imagen es incorrecto.'
+        },
+        {
+            validation: videoId && video === null,
+            message: 'El ID del video es incorrecto.'
+        },
+        {
+            validation:
+                filesize &&
+                !['grilla1', 'grillaVideo1'].includes(layout) &&
+                filesize > maxVideoSize,
+            message: 'El tamaño del video debe ser inferior a 2MB (Megabytes).'
+        }
+    ];
+    const message = get(
+        rules.find(({ validation }) => validation),
+        'message',
         null
     );
+    return message && { type: 'warning', message };
 };
 
 export const getCajaTemaConfig = (featureId, renderables, cajaTemaConfig) => {

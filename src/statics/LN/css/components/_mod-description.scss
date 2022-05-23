@@ -5,7 +5,9 @@
     position: absolute;
     top: px(-39);
     left: px(-8);
-
+    &.--exclusive-ln {
+        top: px(-44);
+    }
     @media ($media-m) {
         left: px(8);
     }

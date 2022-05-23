@@ -9,7 +9,10 @@ const indexNotaText = dataNota => {
     const content = removeEmptyItems(cuerpo(dataNota));
 
     return content && content.length > 0
-        ? { ...storyTitleAndResume(dataNota), contenido: content.join('\n') }
+        ? {
+              ...storyTitleAndResume(dataNota),
+              contenido: content.concat('Fin de la nota').join('\n')
+          }
         : {};
 };
 

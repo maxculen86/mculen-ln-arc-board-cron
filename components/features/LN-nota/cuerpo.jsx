@@ -20,7 +20,6 @@ const cuerpo = props => {
     return <Cuerpo {...properties} />;
 };
 
-// TODO: improve this function's algorithm
 const groupBannerConfig = props => {
     const optionsSet = Object.keys(props.customFields);
 

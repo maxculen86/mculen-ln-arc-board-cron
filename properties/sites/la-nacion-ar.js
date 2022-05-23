@@ -969,6 +969,32 @@ export default {
                     ]
                 }
             },
+            wikiTag: {
+                promo_items: {
+                    sizes: [
+                        {
+                            width: 320,
+                            height: 480,
+                            proportion: '2:3'
+                        },
+                        {
+                            width: 420,
+                            height: 630,
+                            proportion: '2:3'
+                        },
+                        {
+                            width: 640,
+                            height: 960,
+                            proportion: '2:3'
+                        },
+                        {
+                            width: 840,
+                            height: 1260,
+                            proportion: '2:3'
+                        }
+                    ]
+                }
+            },
             zoom: {
                 promo_items: {
                     sizes: [
@@ -2180,7 +2206,8 @@ export default {
                         [120, 600],
                         [250, 600],
                         [160, 600],
-                        [300, 600]
+                        [300, 600],
+                        [300, 800]
                     ],
                     targeting: targetingHome
                 },
@@ -2191,7 +2218,8 @@ export default {
                         [120, 600],
                         [250, 600],
                         [160, 600],
-                        [300, 600]
+                        [300, 600],
+                        [300, 800]
                     ],
                     targeting: targetingHome
                 },
@@ -2202,7 +2230,8 @@ export default {
                         [120, 600],
                         [250, 600],
                         [160, 600],
-                        [300, 600]
+                        [300, 600],
+                        [300, 800]
                     ],
                     targeting: targetingHome
                 },
@@ -2245,6 +2274,11 @@ export default {
                         [920, 250],
                         [920, 300]
                     ],
+                    targeting: targetingHome
+                },
+                parallax_dsk: {
+                    slotName: `la_nacion_desktop/Home/parallax_dsk`,
+                    dimensions: [[1260, 300]],
                     targeting: targetingHome
                 }
             },
@@ -2339,6 +2373,14 @@ export default {
                     dimensions: [[1, 1]],
                     targeting: targetingHome,
                     hideForSubscriptor: true
+                },
+                parallax_mob: {
+                    slotName: `la_nacion_mobile/Home/parallax_mob`,
+                    dimensions: [
+                        [1, 1],
+                        [360, 450]
+                    ],
+                    targeting: targetingHome
                 }
             },
             tablet: {

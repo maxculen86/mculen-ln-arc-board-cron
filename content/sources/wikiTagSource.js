@@ -1,30 +1,24 @@
 /* eslint-disable prefer-destructuring */
-import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
+import { LANACION_SERVICES_URL } from 'fusion:environment';
 import getProperties from 'fusion:properties';
 import logger from '../../components/private/common/utils/logger';
-import wikiTypes from './utils/servicesSource/wiki/_config';
 import get from '../../components/private/common/utils/get';
 import getImageResized from '../../components/private/common/utils/getImageResized';
 import transformISODate from '../../components/private/common/utils/transformISODate';
+import getRequest from './utils/getRequest';
 
 const resolve = query => {
     const { slug = '' } = query;
-
-    return '';
+    return `${LANACION_SERVICES_URL}/api/v1/tags/${slug}`;
 };
 
 const fetch = query => {
-    const { id = '', uri = '', slug = '', type = '' } = query;
-
-    // return getRequest(resolve(query))
-    //     .then(response => response)
-    //     .catch(error => {
-    //         logger.push(error, { source: 'wikiTagSource', url: uri }, arcSite);
-    //     });
-
-    return {
-        ...wikiTypes[type]
-    };
+    const { id = '', uri = '', 'arc-site': arcSite = 'la-nacion-ar' } = query;
+    return getRequest(resolve(query))
+        .then(response => response)
+        .catch(error => {
+            logger.push(error, { source: 'wikiTagSource', url: uri }, arcSite);
+        });
 };
 
 const transform = (data, siteProps) => {
@@ -70,8 +64,8 @@ const transform = (data, siteProps) => {
 export default {
     fetch,
     transform,
+    resolve,
     params: {
-        type: 'text',
         slug: 'text',
         imageId: 'text',
         imageConfig: 'text'

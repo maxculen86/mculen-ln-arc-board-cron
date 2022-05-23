@@ -1,4 +1,4 @@
-import get from 'lodash.get';
+import get from '../../../../../common/utils/get';
 import { getAutorId } from '../../../../../common/utils/getElementId';
 import { getImageUrl } from '../image';
 

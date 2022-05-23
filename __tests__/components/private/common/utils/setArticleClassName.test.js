@@ -4,21 +4,24 @@ describe('components - private - common - utils - setArticleClassName', () => {
     const mocks = {
         default: {
             boxPosition: 'toi202',
+            withMedia: true,
             _id: 'SUW6AQPARNCGLBDM2YOUGGC474'
         },
         noMedia: {
             boxPosition: 'toi202',
-            noMedia: true,
+            withMedia: false,
             _id: 'SUW6AQPARNCGLBDM2YOUGGC474'
         },
         author: {
             boxPosition: 'toi202',
             isRenderAuthorOpinion: true,
+            withMedia: true,
             _id: 'SUW6AQPARNCGLBDM2YOUGGC474'
         },
         classCondition: {
             boxPosition: 'toi202',
             classCondition: '--some-class',
+            withMedia: true,
             _id: 'SUW6AQPARNCGLBDM2YOUGGC474'
         }
     };

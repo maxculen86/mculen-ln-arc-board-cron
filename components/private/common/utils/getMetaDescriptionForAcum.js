@@ -1,6 +1,6 @@
-import filter from '../../../../content/filters/LN/acumulado/articleAcuTitles';
 import getTitleText from './getTitleText';
-import getArticlesFromAcumSource from '../../LN/common/utils/getArticlesFromAcumSource';
+import filter from '../../../../content/filters/LN/acumulado/articleAcuTitles';
+import useGetArticlesFromAcumSource from '../../LN/common/hooks/useGetArticlesFromAcumSource';
 
 const extractDataFromTags = payload => {
     const tagId =
@@ -19,7 +19,7 @@ const extractDataFromTags = payload => {
     };
 };
 
-const getMetaDescriptionForAcum = (
+const useGetMetaDescriptionForAcum = (
     description,
     _id,
     payload,
@@ -29,7 +29,7 @@ const getMetaDescriptionForAcum = (
     layout
 ) => {
     const { tagId } = extractDataFromTags(payload);
-    const articles = getArticlesFromAcumSource(
+    const articles = useGetArticlesFromAcumSource(
         {
             sectionId: nodeType === 'section' ? _id : null,
             authorId: nodeType === 'author' ? _id : null,
@@ -62,4 +62,4 @@ const getMetaDescriptionForAcum = (
         : articlesWithOrWithoutDescription;
 };
 
-export default getMetaDescriptionForAcum;
+export default useGetMetaDescriptionForAcum;

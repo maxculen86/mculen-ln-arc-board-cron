@@ -1,8 +1,9 @@
-import get from 'lodash.get';
+import get from '../../../../../common/utils/get';
 import matchObject from '../utils/matchObject';
 import Apertura from './apertura/aperturaArticle';
 import ModificadorTemplate from './modificadorTemplate';
 import Relacionados from './relacionados';
+import Metadata from './metadata';
 import dateAndTimeUtil from '../../../../../common/utils/dateAndTimeUtil';
 import { getPrincipalCategory } from '../category';
 import { openComments } from './comments';
@@ -94,7 +95,8 @@ export const storyCommon = (dataNota, cuerpo) => {
         relacionados: Relacionados(dataNota),
         enviarApps,
         modificadorTemplate: ModificadorTemplate(distributor),
-        trust: !isTrust
+        trust: !isTrust,
+        metadata: Metadata(dataNota)
     };
 
     if (dataNota.subtype === '9') resp.HTML = cuerpo(dataNota);

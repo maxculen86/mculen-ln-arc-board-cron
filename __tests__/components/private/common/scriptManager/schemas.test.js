@@ -1,8 +1,33 @@
 import React from 'react';
 import Schemas from '../../../../../components/private/common/scriptManager/schemas';
 import { shallow } from 'enzyme';
+import Context from 'fusion:context';
+
+jest.mock('fusion:consumer', component => {
+    return function(component) {
+        return component;
+    };
+});
+
+jest.mock('fusion:context', () => () => ({
+    default: props => {
+        const mockAvailableProps = {
+            outputType: 'default',
+            arcSite: 'la-nacion-ar'
+        };
+
+        return props.children(mockAvailableProps);
+    }
+}));
+
+jest.mock('fusion:static', () => 'mock-static');
 
 describe('Private - Common - Schemas =>', () => {
+    Context.useAppContext = jest.fn(() => ({
+        globalContent: { subtype: '1' },
+        deployment: () => {},
+        contextPath: ''
+    }));
     const shallowSelf = props => shallow(<Schemas {...props} />);
     const verifyHtml = (wrapper, output = '', finder = 'html') => {
         const cleanOutput = output.toString().replace(/\s/g, '');
