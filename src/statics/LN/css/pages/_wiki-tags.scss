@@ -34,6 +34,10 @@
         grid-area: tags;
     }
 
+    & .mod-themes {
+        margin-left: 0;
+    }
+
     .placeholder.placeholder {
         width: calc(100% + 8px);
         max-height: px(440);
@@ -122,6 +126,7 @@
     }
 
     .tags-buttons {
+        margin-left: 0;
         margin-bottom: px(8);
     }
 
@@ -145,10 +150,7 @@
             }
         }
         .social-networks {
-            margin: px(16) 0 px(16) px(16);
-        }
-        .tags-buttons {
-            margin-left: px(16);
+            margin: 0 0 px(16) px(16);
         }
 
         &.--organization {
@@ -182,7 +184,7 @@
             }
         }
         .tags-buttons {
-            margin: 0 0 px(8) 0;
+            margin-bottom: px(8);
         }
     }
 
