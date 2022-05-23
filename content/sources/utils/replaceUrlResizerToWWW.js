@@ -1,7 +1,7 @@
 import { RESIZER_URL_PUBLIC, SITE_LANACION } from 'fusion:environment';
 
 const replaceUrlResizerToWWW = (originalPromoItems = {}) => {
-    const { url, type, resized_urls: resizedUrls } = originalPromoItems;
+    const { url = '', type, resized_urls: resizedUrls } = originalPromoItems;
 
     const replaceUrlToWWW = _url =>
         _url.replace(RESIZER_URL_PUBLIC, SITE_LANACION);
