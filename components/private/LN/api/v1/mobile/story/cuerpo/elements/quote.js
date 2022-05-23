@@ -1,4 +1,4 @@
-import get from 'lodash.get';
+import get from '../../../../../../../common/utils/get';
 import { validateValueText } from '../../../../common/utils/validateValue';
 
 const quote = (nodo, dataNota) => {

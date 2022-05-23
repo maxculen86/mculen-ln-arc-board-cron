@@ -320,15 +320,17 @@ const Default = props => {
                     arcSite={arcSite}
                     nodeType={nodeType}
                 />
-                <MetaTitle
-                    arcSite={arcSite}
-                    title={title}
-                    defaultTitle={siteProperties.longTitle}
-                    nodeType={nodeType}
-                    section={_nodeType}
-                    metaValue={title}
-                    ottMetaTitle={ottMetaTitle}
-                />
+                {layout !== 'LN-buscador' && (
+                    <MetaTitle
+                        arcSite={arcSite}
+                        title={title}
+                        defaultTitle={siteProperties.longTitle}
+                        nodeType={nodeType}
+                        section={_nodeType}
+                        metaValue={title}
+                        ottMetaTitle={ottMetaTitle}
+                    />
+                )}
                 {layout !== 'LN-buscador' && (
                     <MetaDescription
                         subtype={subtype}

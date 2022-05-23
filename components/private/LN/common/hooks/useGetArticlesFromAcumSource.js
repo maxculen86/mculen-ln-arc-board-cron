@@ -1,8 +1,7 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import { useContent } from 'fusion:content';
 import get from '../../../common/utils/get';
 
-const getArticlesFromAcumSource = (
+export default function useGetArticlesFromAcumSource(
     typesOfQuery,
     filter,
     imageConfig,
@@ -14,15 +13,15 @@ const getArticlesFromAcumSource = (
     website = 'la-nacion-ar',
     promoItemsOnly = false,
     staticMode = true
-) => {
+) {
     const { sectionId, tagId, authorId, distributorId, sectionsIds, subtype } =
         typesOfQuery || {};
 
-    if (!sectionId && !tagId && !authorId && !distributorId && !sectionsIds)
-        return [];
-
     const articleList = useContent({
-        source: 'acuArticlesSource',
+        source:
+            sectionId || tagId || authorId || distributorId || sectionsIds
+                ? 'acuArticlesSource'
+                : null,
         query: {
             website,
             sectionId,
@@ -43,6 +42,4 @@ const getArticlesFromAcumSource = (
         staticMode
     });
     return get(articleList, 'content_elements', []);
-};
-
-export default getArticlesFromAcumSource;
+}

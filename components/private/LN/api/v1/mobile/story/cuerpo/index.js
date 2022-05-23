@@ -8,6 +8,7 @@ import List from './elements/list';
 import Image from './elements/image';
 import Video from './elements/video';
 import Gallery from './elements/gallery';
+import CustomEmbed from './elements/custom_embed';
 import StoryBody from '../../../common/story/cuerpo/index';
 
 const cuerpoIndex = dataNota => {
@@ -21,7 +22,8 @@ const cuerpoIndex = dataNota => {
         List,
         Image,
         Video,
-        Gallery
+        Gallery,
+        CustomEmbed
     };
     return StoryBody(dataNota, storyBodyElements);
 };

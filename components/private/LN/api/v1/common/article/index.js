@@ -1,5 +1,5 @@
 /* eslint-disable eqeqeq */
-import get from 'lodash.get';
+import get from '../../../../../common/utils/get';
 import Image from '../image';
 import { authorHomeMobile, articleSignature } from '../author';
 import matchObject from '../utils/matchObject';

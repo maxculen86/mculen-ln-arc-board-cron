@@ -132,7 +132,8 @@
     }
 
     .home & {
-        &.--caja4_mob {
+        &.--caja4_mob,
+        &.--parallax_mob {
             height: px(450);
         }
     }
@@ -258,6 +259,10 @@
             &.--megalateral2_dsk,
             &.--megalateral3_dsk {
                 height: px(800);
+            }
+
+            &.--parallax_dsk {
+                height: px(300);
             }
         }
     }
