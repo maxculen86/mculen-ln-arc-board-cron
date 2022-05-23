@@ -12,9 +12,6 @@ const months = [
     'NOVIEMBRE',
     'DICIEMBRE'
 ];
-function getMonthAsText(date) {
-    return months[date.getMonth()];
-}
 
 function getVideoDateFormat(dateString) {
     const date = new Date(dateString);
@@ -32,7 +29,6 @@ function timeToIso8601(timestamp) {
 
 export default {
     months,
-    getMonthAsText,
     getVideoDateFormat,
     timeToIso8601
 };
