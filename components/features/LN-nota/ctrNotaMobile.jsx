@@ -6,11 +6,6 @@ import { isSubscribed } from '../../private/LN/common/utils/contextHelper';
 import get from '../../private/common/utils/get';
 
 const CTRNota = () => {
-    const sectionId = get(
-        useAppContext(),
-        'globalContent.taxonomy.primary_section.name',
-        {}
-    );
     const globalContent = get(useAppContext(), 'globalContent', {});
     const { _id: actualArticleId } = globalContent;
 
@@ -27,10 +22,6 @@ const CTRNota = () => {
                 website: 'la-nacion-ar'
             }
         }) || [];
-    console.log(
-        '🚀 ~ file: ctrNotaMobile.jsx ~ line 22 ~ CTRNota ~ data',
-        data
-    );
 
     const { articles = [] } = data;
     const articleToShow =
