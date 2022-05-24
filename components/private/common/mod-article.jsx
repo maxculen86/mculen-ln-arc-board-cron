@@ -9,6 +9,7 @@ import get from './utils/get';
 import ModDescription from './mod-description';
 import getAuthorsPhoto from './utils/getAuthorsPhoto';
 import setArticleClassName from './utils/setArticleClassName';
+import ComButton from './com-button';
 
 const ModArticle = props => {
     const {
@@ -45,7 +46,8 @@ const ModArticle = props => {
         handleClick,
         layout,
         isApertura,
-        registerSuccessEvent
+        registerSuccessEvent,
+        typeArticle
     } = props;
 
     const {
@@ -82,6 +84,10 @@ const ModArticle = props => {
         }
         return type === 'image' ? imagenDestacada : null;
     })();
+
+    const isBookmark = typeArticle === 'Bookmark';
+    const dataAuthors = isBookmark && get(articleData, 'credits.by', []);
+    const categoryNote = get(articleData, 'category', '');
 
     const onCLick = event => {
         typeof registerSuccessEvent === 'function' && registerSuccessEvent();
@@ -136,7 +142,11 @@ const ModArticle = props => {
                 category={category}
                 tags={tags}
                 contentRestrictions={contentRestrictions}
+                dataAuthors={dataAuthors}
+                categoryNote={categoryNote}
             />
+
+            {isBookmark && <ComButton iconName="bookmark" />}
         </article>
     );
 };
@@ -187,7 +197,8 @@ ModArticle.propTypes = {
         type: PropTypes.string
     }),
     withMedia: PropTypes.bool,
-    isApertura: PropTypes.bool
+    isApertura: PropTypes.bool,
+    typeArticle: PropTypes.string
 };
 
 ModArticle.defaultProps = {
@@ -222,7 +233,8 @@ ModArticle.defaultProps = {
     tags: undefined,
     videoBackground: undefined,
     withMedia: false,
-    isApertura: false
+    isApertura: false,
+    typeArticle: ''
 };
 
 export default ModArticle;

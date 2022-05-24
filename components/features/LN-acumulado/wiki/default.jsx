@@ -109,9 +109,11 @@ const WikiFeature = () => {
                     )}
                 </div>
                 <div className="social-networks">
-                    <Text font="sueca" size="2xs" weight="regular">
-                        Conectar:
-                    </Text>
+                    {socialNetworks && (
+                        <Text font="sueca" size="2xs" weight="regular">
+                            Conectar:
+                        </Text>
+                    )}
                     {socialNetworks.map(iconInfo => (
                         <div className="social-icons" key={iconInfo.type}>
                             <Icon
@@ -139,14 +141,16 @@ const WikiFeature = () => {
                         }}
                     />
                 </div>
-                <TaxonomyImportantList
-                    extraClass="tags-buttons"
-                    list={relatedTags.map(({ text, slug: tagSlug }) => ({
-                        text,
-                        path: tagSlug
-                    }))}
-                    showItems={5}
-                />
+                {relatedTags && (
+                    <TaxonomyImportantList
+                        extraClass="tags-buttons"
+                        list={relatedTags.map(({ text, slug: tagSlug }) => ({
+                            text,
+                            path: tagSlug
+                        }))}
+                        showItems={5}
+                    />
+                )}
             </article>
         </StaticValidation>
     );

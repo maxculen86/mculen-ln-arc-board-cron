@@ -72,7 +72,7 @@ describe('Features - LN-servicios - LN Loteria Detalle =>', () => {
             'Últimos resultados'
         );
     });
-    it.skip('should test lottery cards', () => {
+    it('should test lottery cards', () => {
         Object.keys(lotteriesDetailsHTML).forEach(lottery => {
             Context.useAppContext = jest.fn(() => ({
                 globalContent: {

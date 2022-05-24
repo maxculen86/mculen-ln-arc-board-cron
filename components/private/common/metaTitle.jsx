@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { getSectionOfRequestUri } from './utils/outputTypeHelper';
 
 const MetaTitle = ({
     arcSite,
@@ -8,12 +9,15 @@ const MetaTitle = ({
     section,
     defaultTitle,
     metaValue,
-    ottMetaTitle
+    ottMetaTitle,
+    requestUri
 }) => {
     if (!['la-nacion-ar', 'ott'].includes(arcSite)) return <></>;
 
     const setContent = () => {
         if (arcSite === 'ott') return ottMetaTitle;
+
+        if (getSectionOfRequestUri(requestUri) === 'mis-notas') return title;
 
         const acusWithMeta = ['section', 'author', 'distributor', 'tags'];
 
@@ -44,14 +48,16 @@ MetaTitle.propTypes = {
     section: PropTypes.string,
     defaultTitle: PropTypes.string,
     metaValue: PropTypes.string,
-    ottMetaTitle: PropTypes.string
+    ottMetaTitle: PropTypes.string,
+    requestUri: PropTypes.string
 };
 
 MetaTitle.defaultProps = {
     title: '',
     section: '',
     defaultTitle: '',
-    metaValue: ''
+    metaValue: '',
+    requestUri: ''
 };
 
 export default MetaTitle;

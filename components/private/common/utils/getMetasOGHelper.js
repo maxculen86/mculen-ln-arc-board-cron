@@ -2,6 +2,7 @@ import { ARC_STATIC } from 'fusion:environment';
 import addRelatedImage from '../../LN/common/utils/addRelatedImage';
 import getDomain from './getDomain';
 import { RECETA } from './subtypes/subtypeHelper';
+import { getSectionOfRequestUri } from './outputTypeHelper';
 
 export const getAppId = siteProperties =>
     siteProperties &&
@@ -99,10 +100,17 @@ export const setMetaDescription = ({
     data,
     section,
     arcSite,
-    ottMetaDescription
+    ottMetaDescription,
+    requestUri,
+    metaValue
 }) => {
     const options = {
         'la-nacion-ar': () => {
+            const defaultDescription =
+                data.description !== ''
+                    ? `${data.description}`
+                    : `${data.title}`;
+
             if (section === 'nota') {
                 if (data.subtype === RECETA) {
                     return data.description !== ''
@@ -112,9 +120,14 @@ export const setMetaDescription = ({
                         : `Encontrá acá la receta de ${data.title}`;
                 }
 
-                return data.description !== ''
-                    ? `${data.description}`
-                    : `${data.title}`;
+                return defaultDescription;
+            }
+
+            if (getSectionOfRequestUri(requestUri) === 'mis-notas') {
+                return (
+                    (metaValue && metaValue('description')) ||
+                    defaultDescription
+                );
             }
 
             return data.description;
