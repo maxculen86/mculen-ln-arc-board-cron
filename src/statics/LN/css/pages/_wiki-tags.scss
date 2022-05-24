@@ -190,7 +190,7 @@
 
     @media ($media-lg) {
         grid-template-areas:
-            'image blank blank'
+            'image info description'
             'image info description'
             'image rrss tags';
 
@@ -198,7 +198,6 @@
             padding: px(24) 0;
         }
         .social-networks {
-            height: px(100);
             margin-top: 0;
             margin-left: 0;
             .com-text {
