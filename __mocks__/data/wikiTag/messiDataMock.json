@@ -1,0 +1,109 @@
+{
+    "creation_date": "2022-05-09 09:54:59",
+    "type": 1,
+    "description": "Is an Argentine professional footballer who plays as a forward for Ligue 1 club Paris Saint-Germain and captains the Argentina national team. Often considered the best player in the world and widely regarded as one of the greatest players of all time, Messi has won a record seven Ballon d'Or awards, a record six European Golden Shoes, and in 2020 was named to the Ballon d'Or Dream Team. Until leaving the club in 2021, he had spent his entire professional career with Barcelona, where he won a club-record 35 trophies, including ten La Liga titles, seven Copa del Rey titles and four UEFA Champions Leagues. A prolific goalscorer and creative playmaker, Messi holds the records for most goals in La Liga (474), a La Liga and European league season (50), most hat-tricks in La Liga (36) and the UEFA Champions League (8), and most assists in La Liga (192), a La Liga season (21) and the Copa América (17). He also holds the record for most international goals by a South American male (81). Messi has scored over 750 senior career goals for club and country, and has the most goals by a player for a single club.",
+    "schemas_info": {
+        "additional_name": "Andrés",
+        "birth_date": "1989-06-24",
+        "family_name": "Messi Cuccittini",
+        "given_name": "Lionel",
+        "job_title": "Futbolista",
+        "birth_place": "Rosario, Santa Fe, Argentina"
+    },
+    "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Lionel_Messi_20180626.jpg/220px-Lionel_Messi_20180626.jpg",
+        "width": "320",
+        "height": "320",
+        "alt": "alt",
+        "resizedUrls": [
+            {
+                "resizedUrl": "https://resizer.glanacion.com/resizer/658qzPPrFogZLGel7qO0cr4gABM=/608x407/smart/filters:format(webp):quality(80)/upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Lionel_Messi_20180626.jpg/220px-Lionel_Messi_20180626.jpg",
+                "option": {
+                    "width": 608,
+                    "height": 407,
+                    "media": "(min-width: 1280px)",
+                    "useFullSize": true,
+                    "proportion": "3:2"
+                }
+            },
+            {
+                "resizedUrl": "https://resizer.glanacion.com/resizer/EZlgZXSf0uCW3YabSU-DmgX-aKw=/486x325/smart/filters:format(webp):quality(80)/upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Lionel_Messi_20180626.jpg/220px-Lionel_Messi_20180626.jpg",
+                "option": {
+                    "width": 486,
+                    "height": 325,
+                    "media": "(min-width: 1024px)",
+                    "useFullSize": true,
+                    "proportion": "3:2"
+                }
+            },
+            {
+                "resizedUrl": "https://resizer.glanacion.com/resizer/FcpMLiUtUrPdm2Z80Wd6T5iRgOQ=/358x240/smart/filters:format(webp):quality(80)/upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Lionel_Messi_20180626.jpg/220px-Lionel_Messi_20180626.jpg",
+                "option": {
+                    "width": 358,
+                    "height": 240,
+                    "media": "(min-width: 768px)",
+                    "useFullSize": true,
+                    "proportion": "3:2"
+                }
+            },
+            {
+                "resizedUrl": "https://resizer.glanacion.com/resizer/waQQuomhkc6zI0z2fR3u_FhjB1c=/375x250/smart/filters:format(webp):quality(80)/upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Lionel_Messi_20180626.jpg/220px-Lionel_Messi_20180626.jpg",
+                "option": {
+                    "width": 375,
+                    "height": 250,
+                    "useFullSize": true,
+                    "proportion": "3:2"
+                }
+            },
+            {
+                "resizedUrl": "https://resizer.glanacion.com/resizer/VP5Ajm259k6cPyHv0wv4DU9K9hU=/320x213/smart/filters:format(webp):quality(80)/upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Lionel_Messi_20180626.jpg/220px-Lionel_Messi_20180626.jpg",
+                "option": {
+                    "width": 320,
+                    "height": 213,
+                    "useFullSize": true,
+                    "proportion": "3:2"
+                }
+            }
+        ]
+    },
+    "related_tags": [
+        {
+            "text": "Barcelona campeón",
+            "slug": "barcelona-campeon-tid49357"
+        },
+        {
+            "text": "Qatar",
+            "slug": "qatar-tid14266"
+        },
+        {
+            "text": "Eliminatorias",
+            "slug": "eliminatorias-tid46984"
+        },
+        {
+            "text": "PSG",
+            "slug": "psg-tid50410"
+        },
+        {
+            "text": "Fútbol y TV",
+            "slug": "futbol-y-tv-tid58492"
+        }
+    ],
+    "social_networks": [
+        {
+            "type": "Instagram",
+            "name": "leomessi",
+            "url": "https://www.instagram.com/leomessi/?hl=en"
+        },
+        {
+            "type": "Facebook",
+            "name": "Leo Messi",
+            "url": "https://www.facebook.com/leomessi"
+        },
+        {
+            "type": "Twitter",
+            "name": "Ieomessiok",
+            "url": "https://twitter.com/Ieomessiok?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+        }
+    ],
+    "_id": "e5cfaeea3f6f8615b5dc29d4393ba9c10f5d210b2970f01a5b1e7a61f6047b72"
+}

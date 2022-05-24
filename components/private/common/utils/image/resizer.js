@@ -6,7 +6,12 @@ import { FOTOAL100, RECETA, STORYTELLING } from '../subtypes/subtypeHelper';
 import get from '../get';
 import { getAspectRatio } from '../../../../../content/sources/utils/getRatio';
 
-export const createResizer = (resizerKey, resizerUrl, isInApertura = false) => {
+export const createResizer = (
+    resizerKey,
+    resizerUrl,
+    isInApertura = false,
+    isAdmin = false
+) => {
     const Thumbor =
         // eslint-disable-next-line no-eval
         typeof window === 'undefined' ? eval('require("thumbor")') : () => {};
@@ -63,7 +68,7 @@ export const createResizer = (resizerKey, resizerUrl, isInApertura = false) => {
             .resize(newWidth, newHeight)
             .buildUrl();
 
-        return isInApertura
+        return isInApertura && !isAdmin
             ? url.replace(/^.*\/\/[^\/]+/, SITE_LANACION)
             : url.replace(/^.*\/\/[^\/]+/, RESIZER_URL_PUBLIC);
     };
@@ -325,7 +330,8 @@ export const addResizedUrls = (ansDoc, options) => {
         },
         presetsDefault,
         subtype,
-        isInApertura
+        isInApertura,
+        isAdmin
     } = options;
     const {
         promo_items: promoItems,
@@ -337,7 +343,12 @@ export const addResizedUrls = (ansDoc, options) => {
             'Debe proporcionar el resizerSecret, resizerUrl y presets'
         );
 
-    const resizer = createResizer(resizerSecret, resizerUrl, isInApertura);
+    const resizer = createResizer(
+        resizerSecret,
+        resizerUrl,
+        isInApertura,
+        isAdmin
+    );
 
     const { defaultResize } = getDefaultSize(subtype);
 

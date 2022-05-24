@@ -6,7 +6,6 @@ class Columnista {
         this.props = props;
         const { customFields } = props;
         const { id: authorSlug } = customFields;
-
         this.fetchContent({
             authorSource: {
                 source: 'authorSource',
@@ -15,11 +14,14 @@ class Columnista {
                 },
                 transform(data) {
                     const autor = data;
-                    autor.image = {
-                        ...autor.image,
-                        resized_urls: [{ resizedUrl: autor.image.url }]
-                    };
-                    return authorHomeMobile(autor);
+                    if (data) {
+                        autor.image = {
+                            ...autor.image,
+                            resized_urls: [{ resizedUrl: autor.image.url }]
+                        };
+                        return authorHomeMobile(autor);
+                    }
+                    return {};
                 }
             }
         });

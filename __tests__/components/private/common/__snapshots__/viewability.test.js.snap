@@ -357,6 +357,11 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                   authorSize="4xs"
                   authors=""
                   category={false}
+                  contentRestrictions={
+                    Object {
+                      "content_code": "comun",
+                    }
+                  }
                   dateText=""
                   label={
                     Object {
@@ -633,6 +638,11 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                   authorSize="4xs"
                   authors=""
                   category={false}
+                  contentRestrictions={
+                    Object {
+                      "content_code": "comun",
+                    }
+                  }
                   dateText=""
                   label={
                     Object {
@@ -909,6 +919,11 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                   authorSize="4xs"
                   authors=""
                   category={false}
+                  contentRestrictions={
+                    Object {
+                      "content_code": "comun",
+                    }
+                  }
                   dateText=""
                   label={
                     Object {

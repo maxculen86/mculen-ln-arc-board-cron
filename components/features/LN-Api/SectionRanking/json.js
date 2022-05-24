@@ -71,7 +71,7 @@ class SectionRanking {
             if (
                 !rankingArticleSource ||
                 !rankingArticleSource.articles ||
-                !rankingArticleSource.articles.length === 0
+                rankingArticleSource.articles.length === 0
             ) {
                 return null;
             }

@@ -11,7 +11,12 @@ const Columnista = props => {
         source: 'authorSource',
         query: { _id: Id, imageConfig: 'columnistas' }
     });
-    const { name, node_type: nodeType, image } = author || {
+    const {
+        name,
+        node_type: nodeType,
+        image,
+        canonical_url: canonicalUrl
+    } = author || {
         image: { url: '' }
     };
     const data = {
@@ -33,8 +38,8 @@ const Columnista = props => {
             isRenderAuthor
             classCondition="--columnista"
             authorSize="--twoxs"
-            link={author.canonical_url}
-            authors={author.name}
+            link={canonicalUrl}
+            authors={name}
         />
     );
 };

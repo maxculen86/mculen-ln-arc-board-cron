@@ -188,6 +188,10 @@ const labels = `
             text
             display
         }
+        eje_subeje{
+            text
+            display
+        }
     }
 `;
 const customParallax = `

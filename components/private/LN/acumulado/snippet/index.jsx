@@ -1,10 +1,13 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import SnippetAutor from './autor';
+import SnippetWiki from '../../nota/snippet/wiki';
 
 const acumulados = {
-    author: SnippetAutor
+    author: SnippetAutor,
+    tags: SnippetWiki
 };
 
 const SnippetAcumulado = props => {

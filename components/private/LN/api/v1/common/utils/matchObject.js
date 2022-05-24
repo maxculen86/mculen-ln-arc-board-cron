@@ -1,4 +1,4 @@
-import get from 'lodash.get';
+import get from '../../../../../common/utils/get';
 import Config from '../../../../../../layouts/config/LN-Notas.config.json';
 
 const matchObject = (obj, type) => {

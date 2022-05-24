@@ -1,0 +1,229 @@
+{
+    "bannerConfig": {
+        "dfp_id": 133919216,
+        "nota": {
+            "desktop": {
+                "middle_1_dsk": {
+                    "slotName": "la_nacion_desktop/Nota/middle_1_dsk",
+                    "withoutHide": true,
+                    "dimensions": [
+                        [1, 1],
+                        [640, 360],
+                        [640, 480],
+                        [728, 90],
+                        [468, 60]
+                    ],
+                    "targeting": {
+                        "sitio": "lanacion",
+                        "seccion": "nota"
+                    },
+                    "bidding": {
+                        "prebid": {
+                            "enabled": true
+                        }
+                    }
+                },
+                "middle_2_dsk": {
+                    "slotName": "la_nacion_desktop/Nota/middle_2_dsk",
+                    "withoutHide": true,
+                    "dimensions": [
+                        [468, 60],
+                        [640, 480],
+                        [728, 90],
+                        [1, 1]
+                    ],
+                    "targeting": {
+                        "sitio": "lanacion",
+                        "seccion": "nota"
+                    },
+                    "bidding": {
+                        "prebid": {
+                            "enabled": true
+                        }
+                    }
+                },
+                "middle_3_dsk": {
+                    "slotName": "la_nacion_desktop/Nota/middle_3_dsk",
+                    "withoutHide": true,
+                    "dimensions": [
+                        [728, 90],
+                        [640, 480],
+                        [468, 60],
+                        [1, 1]
+                    ],
+                    "targeting": {
+                        "sitio": "lanacion",
+                        "seccion": "nota"
+                    },
+                    "bidding": {
+                        "prebid": {
+                            "enabled": true
+                        }
+                    }
+                }
+            },
+            "mobile": {
+                "caja1_mob": {
+                    "slotName": "la_nacion_mobile/Nota/caja1_mob",
+                    "withoutHide": true,
+                    "dimensions": [
+                        [300, 250],
+                        [300, 450],
+                        [320, 100],
+                        [1, 1]
+                    ],
+                    "targeting": {
+                        "sitio": "lanacion",
+                        "seccion": "nota"
+                    },
+                    "bidding": {
+                        "prebid": {
+                            "enabled": true
+                        }
+                    }
+                },
+                "caja2_mob": {
+                    "slotName": "la_nacion_mobile/Nota/caja2_mob",
+                    "withoutHide": true,
+                    "dimensions": [
+                        [1, 1],
+                        [300, 250],
+                        [300, 450],
+                        [320, 50],
+                        [320, 100],
+                        [320, 180],
+                        [360, 270]
+                    ],
+                    "targeting": {
+                        "sitio": "lanacion",
+                        "seccion": "nota"
+                    },
+                    "bidding": {
+                        "prebid": {
+                            "enabled": true
+                        }
+                    }
+                },
+                "caja3_mob": {
+                    "slotName": "la_nacion_mobile/Nota/caja3_mob",
+                    "withoutHide": true,
+                    "dimensions": [
+                        [300, 250],
+                        [320, 100],
+                        [1, 1]
+                    ],
+                    "targeting": {
+                        "sitio": "lanacion",
+                        "seccion": "nota"
+                    },
+                    "bidding": {
+                        "prebid": {
+                            "enabled": true
+                        }
+                    }
+                },
+                "caja4_mob": {
+                    "slotName": "la_nacion_mobile/Nota/caja4_mob",
+                    "withoutHide": true,
+                    "dimensions": [
+                        [300, 250],
+                        [320, 100],
+                        [1, 1]
+                    ],
+                    "targeting": {
+                        "sitio": "lanacion",
+                        "seccion": "nota"
+                    },
+                    "bidding": {
+                        "prebid": {
+                            "enabled": true
+                        }
+                    }
+                },
+                "caja5_mob": {
+                    "slotName": "la_nacion_mobile/Nota/caja5_mob",
+                    "withoutHide": true,
+                    "dimensions": [
+                        [300, 250],
+                        [320, 100],
+                        [1, 1]
+                    ],
+                    "targeting": {
+                        "sitio": "lanacion",
+                        "seccion": "nota"
+                    },
+                    "bidding": {
+                        "prebid": {
+                            "enabled": true
+                        }
+                    }
+                }
+            },
+            "tablet": {
+                "middle_1_tab": {
+                    "device": "tab",
+                    "slotName": "la_nacion_tablet/Nota/middle_1_tab",
+                    "withoutHide": true,
+                    "dimensions": [
+                        [728, 90],
+                        [640, 480],
+                        [468, 60],
+                        [1, 1]
+                    ],
+                    "targeting": {
+                        "sitio": "lanacion",
+                        "seccion": "nota"
+                    },
+                    "bidding": {
+                        "prebid": {
+                            "enabled": true
+                        }
+                    }
+                },
+                "middle_2_tab": {
+                    "device": "tab",
+                    "slotName": "la_nacion_tablet/Nota/middle_2_tab",
+                    "withoutHide": true,
+                    "dimensions": [
+                        [728, 90],
+                        [640, 480],
+                        [468, 60],
+                        [1, 1]
+                    ],
+                    "targeting": {
+                        "sitio": "lanacion",
+                        "seccion": "nota"
+                    },
+                    "bidding": {
+                        "prebid": {
+                            "enabled": true
+                        }
+                    }
+                },
+                "middle_teads_tab": {
+                    "device": "tab",
+                    "slotName": "la_nacion_tablet/Nota/middle_teads_tab",
+                    "dimensions": [[1, 1]],
+                    "targeting": {
+                        "sitio": "lanacion",
+                        "seccion": "nota"
+                    }
+                }
+            },
+            "amp": {
+                "caja1_amp": {
+                    "slotName": "/133919216/AMP/ROS/caja1_amp",
+                    "dimensions": [[300, 250]]
+                },
+                "caja2_amp": {
+                    "slotName": "/133919216/AMP/ROS/caja2_amp",
+                    "dimensions": [[300, 250]]
+                },
+                "caja3_amp": {
+                    "slotName": "/133919216/AMP/ROS/caja3_amp",
+                    "dimensions": [[300, 250]]
+                }
+            }
+        }
+    }
+}

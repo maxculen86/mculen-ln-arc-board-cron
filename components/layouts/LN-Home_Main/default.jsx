@@ -33,10 +33,10 @@ import DivBannerSSR from '../../private/common/banners/DivBannerSSR';
 import { getScriptForComercial } from '../../private/common/banners/bannersRules';
 import PwaModals from '../../private/LN/common/pwaModals';
 import { homeLayoutsPropTypes } from '../../private/common/utils/propTypesHelper';
-import {
-    productClickFromServer,
-    createObservers
-} from '../../private/common/utils/viewability';
+// import {
+//     productClickFromServer,
+//     createObservers
+// } from '../../private/common/utils/viewability';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -207,7 +207,8 @@ const LNMainHome = props => {
             dispatch({ type: 'update', payload: 'bloque3' });
         }
 
-        createObservers();
+        // TODO: descomentar para habliitar observers
+        // createObservers();
 
         if (!lastSectionSaw || !lastScrollPosition) return;
         const lastBlockSaw = sectionsWithBlocks[lastSectionSaw];
@@ -568,6 +569,20 @@ const LNMainHome = props => {
                                 />
                             </div>
                         </div>
+                        <DivBannerSSR
+                            bannerConfiguration={{
+                                slotId: 'parallax_mob',
+                                withoutHide: true,
+                                classes: 'hlp-none'
+                            }}
+                        />
+                        <DivBannerSSR
+                            bannerConfiguration={{
+                                slotId: 'parallax_dsk',
+                                withoutHide: true,
+                                classes: 'hlp-none'
+                            }}
+                        />
                         {/* RANKING */}
                         {blocksToLoad.bloque3.loaded && (
                             <div data-section="ranking" className="lay">
@@ -711,7 +726,7 @@ const LNMainHome = props => {
             )}
             <Metarefresh />
             <PwaModals />
-            {productClickFromServer()}
+            {/* {productClickFromServer()} */}
         </GlobalProvider>
     );
 };

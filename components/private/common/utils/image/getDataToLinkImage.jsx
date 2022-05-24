@@ -6,31 +6,50 @@ import { getChildsFromSections } from '../../../LN/common/utils/homeHelper';
 import sectionsValidation from '../../../../layouts/config/LN-Home.config';
 import { FOTOAL100, STORYTELLING } from '../subtypes/subtypeHelper';
 import { LinkImagePreload } from '../../../LN/common/utils/mediaHelper';
+import getVideoPosterResized from '../video/getVideoPosterResized';
 
-const getSource = (imageID, noteID, imageConfig, isHideImage) => {
+const getSource = (
+    imageID = '',
+    noteID = '',
+    imageConfig,
+    isHideImage,
+    videoID,
+    isAdmin
+) => {
     const isInApertura = true;
-    return imageID
+    if (videoID) {
+        return getVideoPosterResized(
+            videoID,
+            imageConfig,
+            isInApertura,
+            isAdmin
+        );
+    }
+    return imageID.trim()
         ? getImage(
-              imageID,
-              sourceType[0],
+              imageID.trim(),
+              'relatedImageSource',
               imageConfig,
               isHideImage,
-              isInApertura
+              isInApertura,
+              isAdmin
           )
         : getImage(
-              noteID,
-              sourceType[1],
+              noteID.trim(),
+              'articleSourceNota',
               imageConfig,
               isHideImage,
-              isInApertura
+              isInApertura,
+              isAdmin
           );
 };
 
 const getcustomFieldsData = fieldsData => {
     return {
         isHideImage: get(fieldsData, 'props.customFields.hideImage', false),
-        imageID: get(fieldsData, 'props.customFields.imageId', ''),
-        noteID: get(fieldsData, 'props.customFields.noteId', '')
+        imageID: get(fieldsData, 'props.customFields.imageId', '').trim(),
+        noteID: get(fieldsData, 'props.customFields.noteId', '').trim(),
+        videoID: get(fieldsData, 'props.customFields.video', '')
     };
 };
 
@@ -44,8 +63,6 @@ const getPromoItems = items => {
         };
     });
 };
-
-const sourceType = ['relatedImageSource', 'articleSourceNota'];
 
 const getMediaBomba = (arcSite, bomba) => {
     const { isHideImage, imageID, noteID } = getcustomFieldsData(bomba[0]);
@@ -62,7 +79,7 @@ const getMediaBomba = (arcSite, bomba) => {
     );
 };
 
-const getMediaApertura = (renderables, arcSite) => {
+const getMediaApertura = (renderables, arcSite, isAdmin) => {
     const apertura =
         (renderables.length &&
             getChildsFromSections(
@@ -77,7 +94,9 @@ const getMediaApertura = (renderables, arcSite) => {
 
     const article = get(apertura, 'children', [])[0];
 
-    const { isHideImage, imageID, noteID } = getcustomFieldsData(article);
+    const { isHideImage, imageID, noteID, videoID } = getcustomFieldsData(
+        article
+    );
 
     const diagramacion = get(apertura, 'props.customFields.layout', '');
 
@@ -88,29 +107,25 @@ const getMediaApertura = (renderables, arcSite) => {
     );
 
     return (
-        getPromoItems(getSource(imageID, noteID, imageConfig, isHideImage)) ||
-        []
+        getPromoItems(
+            getSource(
+                imageID,
+                noteID,
+                imageConfig,
+                isHideImage,
+                videoID,
+                isAdmin
+            )
+        ) || []
     );
 };
-
-const mapResp = (links = []) =>
-    links.map(elem => {
-        return (
-            <link
-                id="preload-img"
-                rel="preload"
-                href={elem.resizedUrl}
-                as="image"
-                media={elem.media}
-            />
-        );
-    });
 
 const getDataToLinkImage = ({
     data = {},
     section = '',
     renderables = [],
-    arcSite = ''
+    arcSite = '',
+    isAdmin = false
 }) => {
     if (!data) return <></>;
     const sectionData = {
@@ -155,7 +170,7 @@ const getDataToLinkImage = ({
 
             const resizedUrls = bomba.length
                 ? getMediaBomba(arcSite, bomba)
-                : getMediaApertura(renderables, arcSite);
+                : getMediaApertura(renderables, arcSite, isAdmin);
 
             return Array.isArray(resizedUrls) && resizedUrls.length > 0 ? (
                 <LinkImagePreload resizedUrls={resizedUrls} />

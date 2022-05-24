@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
 import ModDescription from '../../../../components/private/common/mod-description';
+import Context from 'fusion:context';
 
 jest.mock(
     '../../../../components/private/common/com-title.jsx',
@@ -24,6 +25,12 @@ jest.mock(
     () => 'com-badge-mock'
 );
 
+jest.mock('fusion:context', Component => {
+    return function(Component) {
+        return props => <Component {...props} />;
+    };
+});
+
 describe('Private - Common - ModDescription', () => {
     const props = {
         link: 'http://google.com',
@@ -41,12 +48,19 @@ describe('Private - Common - ModDescription', () => {
         dateSize: '',
         marquesina: 'Por Carlos Pagni',
         category: { name: 'Comunidad', path: '/comunidad' },
+        contentRestrictions: {
+            content_code: 'comun'
+        },
         tags: [
             { text: 'Educación', slug: 'educacion-123' },
             { text: 'Inclusión', slug: 'inclusion-123' },
             { text: 'Sociedad', slug: 'sociedad-123' }
         ]
     };
+
+    Context.useAppContext = jest.fn(() => ({
+        layout: 'LN-Home_Main'
+    }));
 
     it('Render OK', () => {
         const component = mount(<ModDescription {...props} />);

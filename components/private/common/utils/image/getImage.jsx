@@ -7,7 +7,8 @@ const getImage = (
     sourceType = '',
     imageConfig = '',
     isHideImage = true,
-    isInApertura
+    isInApertura,
+    isAdmin
 ) => {
     const filter = {
         relatedImageSource: '',
@@ -26,7 +27,8 @@ const getImage = (
                         id: id.trim(),
                         published: true,
                         imageConfig,
-                        isInApertura
+                        isInApertura,
+                        isAdmin
                     },
                     filter: filter[sourceType]
                 })) ||

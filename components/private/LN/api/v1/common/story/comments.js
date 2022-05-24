@@ -1,4 +1,4 @@
-import get from 'lodash.get';
+import get from '../../../../../common/utils/get';
 
 export const displayComments = dataNota => {
     const optionDisplayComments = get(

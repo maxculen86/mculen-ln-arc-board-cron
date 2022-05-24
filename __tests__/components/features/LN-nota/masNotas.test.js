@@ -14,7 +14,7 @@ const mockArticlesFunc = jest.fn();
 jest.mock('fusion:static', () => 'mock-static');
 
 jest.mock(
-    '../../../../components/private/LN/common/utils/getArticlesFromAcumSource',
+    '../../../../components/private/LN/common/hooks/useGetArticlesFromAcumSource',
     () => () => mockArticlesFunc()
 );
 
@@ -51,7 +51,7 @@ describe('masNotas feature Test', () => {
         arcSite: 'la-nacion-ar'
     });
     it('should show masNotas feature "últimas noticias"', () => {
-        mockArticlesFunc.mockReturnValueOnce(mockArticles);
+        mockArticlesFunc.mockReturnValueOnce(mockArticles.content_elements);
         render(
             <MasNotas {...getMasNotasProps(30, '0', '1', taxonomySection)} />
         );
@@ -62,7 +62,7 @@ describe('masNotas feature Test', () => {
     });
 
     it('should show masNotas feature as "otras noticias de..."', () => {
-        mockArticlesFunc.mockReturnValueOnce(mockArticles);
+        mockArticlesFunc.mockReturnValueOnce(mockArticles.content_elements);
         render(<MasNotas {...getMasNotasProps(3, '1', '1', taxonomyTags)} />);
         expect(screen.getAllByRole('heading').shift()).toHaveTextContent(
             'Otras noticias'
@@ -71,7 +71,7 @@ describe('masNotas feature Test', () => {
     });
 
     it('should show masNotas feature as "Ultimas Recetas ..."', () => {
-        mockArticlesFunc.mockReturnValueOnce(mockArticles);
+        mockArticlesFunc.mockReturnValueOnce(mockArticles.content_elements);
         render(<MasNotas {...getMasNotasProps(30, '0', '7', taxonomyTags)} />);
         expect(screen.getAllByRole('heading').shift()).toHaveTextContent(
             'Últimas Recetas'
@@ -80,7 +80,7 @@ describe('masNotas feature Test', () => {
     });
 
     it('should show masNotas feature as "Más recetas de ..."', () => {
-        mockArticlesFunc.mockReturnValueOnce(mockArticles);
+        mockArticlesFunc.mockReturnValueOnce(mockArticles.content_elements);
         render(<MasNotas {...getMasNotasProps(6, '1', '7', taxonomyTags)} />);
         expect(screen.getAllByRole('heading').shift()).toHaveTextContent(
             'Más recetas'
@@ -88,7 +88,7 @@ describe('masNotas feature Test', () => {
         expect(screen.getAllByRole('article').length).toStrictEqual(6);
     });
     it('should not show same article and not to show articles without media destacada', () => {
-        mockArticlesFunc.mockReturnValueOnce(mockArticles);
+        mockArticlesFunc.mockReturnValueOnce(mockArticles.content_elements);
         render(
             <MasNotas {...getMasNotasProps(30, '0', '1', taxonomySection)} />
         );

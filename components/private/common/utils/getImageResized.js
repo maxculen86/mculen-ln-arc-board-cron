@@ -1,6 +1,8 @@
 import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
 import { createResizer } from './image/resizer';
+
 // TODO: Pasar a properties por site y tomar desde allí
+
 const defaultSizes = [
     {
         width: 1033,
@@ -9,16 +11,18 @@ const defaultSizes = [
         class: 'img-desktop'
     }
 ];
+
 const getImageResized = (
     url,
     originalWidth = 1033,
     originalHeight = 768,
     options = defaultSizes,
-    focalPoint
+    focalPoint,
+    isInApertura = false
 ) => {
     return (
         url &&
-        createResizer(RESIZER_KEY, RESIZER_URL).resizeUrls(
+        createResizer(RESIZER_KEY, RESIZER_URL, isInApertura).resizeUrls(
             url,
             originalWidth,
             originalHeight,

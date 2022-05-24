@@ -1,4 +1,4 @@
-import get from 'lodash.get';
+import get from '../../../../../../../components/private/common/utils/get';
 import articleFull from '../../../../../../../__mocks__/data/articles/2KOBND62KNFVVBFQZOADNN6WNY.json';
 import {
     getSubCategory,

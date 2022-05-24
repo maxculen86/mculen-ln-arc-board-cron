@@ -10,6 +10,7 @@ import urlForPrerollAds from '../utils/urlForPrerollAds';
 import get from '../../../common/utils/get';
 import ModVideo from '../../../common/mod-video';
 import getStreams from '../utils/getStreams';
+import getBiggestImage from '../utils/getBiggestImage';
 
 const video = ({
     videoId,
@@ -22,20 +23,27 @@ const video = ({
     href,
     isApertura
 }) => {
-    const { streams = [], promo_items: promoItems } = mediaData;
+    const {
+        streams = [],
+        promo_items: promoItems,
+        resizedUrl: urlsRezized
+    } = mediaData;
     const tituloVideo = get(mediaData, 'headlines.basic', '');
     if (streams.length === 0) return <div className="mod-video" />;
 
+    const { resizedUrl } = getBiggestImage({
+        resized_urls: urlsRezized
+    });
+
     const mainStream = getStreams(streams, isPowa ? '<' : '>');
+
+    const { url, stream_type: streamType, width, height } = mainStream;
 
     const adsURL = urlForPrerollAds(screenUtils.device);
 
     const videoSource = (
         <>
-            <source
-                src={mainStream.url}
-                type={`video/${mainStream.stream_type}`}
-            />
+            <source src={url} type={`video/${streamType}`} />
             <div fallback="fallback">
                 <p>Este navegador no soporta elementos de video.</p>
             </div>
@@ -43,8 +51,8 @@ const video = ({
     );
 
     const videoProps = {
-        width: mainStream.width,
-        height: mainStream.height,
+        width,
+        height,
         layout: 'responsive'
     };
 
@@ -91,7 +99,13 @@ const video = ({
             <figure className="mod-figure">
                 <a href={href}>
                     <div className="placeholder">
-                        <ModVideo video={mainStream.url} autoplay muted loop />
+                        <ModVideo
+                            video={url}
+                            image={resizedUrl}
+                            autoplay
+                            muted
+                            loop
+                        />
                     </div>
                 </a>
             </figure>
