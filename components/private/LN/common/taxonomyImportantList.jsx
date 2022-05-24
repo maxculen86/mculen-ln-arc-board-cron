@@ -5,9 +5,9 @@ import '../../../../resources/dist/css/ln/modules/mod-themes.css';
 import ComLink from '../../common/com-link';
 import textSelector from '../../common/utils/recetaDictionary';
 
-const TaxonomyImportantList = ({ list, showItems }) => {
+const TaxonomyImportantList = ({ list, showItems, extraClass }) => {
     return (
-        <section className="mod-themes">
+        <section className={`mod-themes ${extraClass}`}>
             {list.slice(0, showItems).map(item => {
                 const { path = '' } = item;
                 return (
@@ -46,11 +46,13 @@ TaxonomyImportantList.propTypes = {
             path: PropTypes.string
         })
     ).isRequired,
-    showItems: PropTypes.number
+    showItems: PropTypes.number,
+    extraClass: PropTypes.string
 };
 
 TaxonomyImportantList.defaultProps = {
-    showItems: undefined
+    showItems: undefined,
+    extraClass: ''
 };
 
 export default TaxonomyImportantList;

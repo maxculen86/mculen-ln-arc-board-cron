@@ -133,17 +133,6 @@ const HeaderDesktop = ({
                         className={`com-usuario${active} ${!token &&
                             loadingUserData}`}
                     >
-                        {/* Botón oculto para Experimentos ADQUISICION */}
-                        <a
-                            className={`com-button --special${loadingUserData}`}
-                            id="btnupselling"
-                            title="¡Mejorá tu plan!"
-                            href="#"
-                            rel="nofollow"
-                        >
-                            ¡MEJORÁ TU PLAN!
-                        </a>
-
                         {!loginData.subscription &&
                             typeof window !== 'undefined' && (
                                 <a
@@ -159,52 +148,64 @@ const HeaderDesktop = ({
                                 </a>
                             )}
                         {(logueado || token) && (
-                            <div
-                                onMouseUp={toggleMenu}
-                                tabIndex="0"
-                                role="button"
-                                id="menuUser"
-                                onBlur={() => setActive('')}
-                                onScroll={() => setActive('')}
-                            >
-                                <p
-                                    className="com-usuario__name"
-                                    title="Ir al menú de suscriptor o suscriptora digital"
+                            <>
+                                {/* Botón oculto para Experimentos ADQUISICION */}
+                                <a
+                                    className={`com-button --special${loadingUserData}`}
+                                    id="btnupselling"
+                                    title="¡Mejorá tu plan!"
+                                    href="#"
+                                    rel="nofollow"
                                 >
-                                    {loginData.userName}
-                                </p>
-                                {loginData.subscription ? (
-                                    <p className="com-usuario__valueSuscrib">
-                                        Suscriptor digital
+                                    ¡MEJORÁ TU PLAN!
+                                </a>
+                                <div
+                                    onMouseUp={toggleMenu}
+                                    tabIndex="0"
+                                    role="button"
+                                    id="menuUser"
+                                    onBlur={() => setActive('')}
+                                    onScroll={() => setActive('')}
+                                >
+                                    <p
+                                        className="com-usuario__name"
+                                        title="Ir al menú de suscriptor o suscriptora digital"
+                                    >
+                                        {loginData.userName}
                                     </p>
-                                ) : (
-                                    <p className="com-usuario__valueSuscrib">
-                                        Sin suscripción digital
-                                    </p>
-                                )}
-                                <ul className="com-desplegable">
-                                    {enlaces.map(({ url, text }) => (
-                                        <ItemAnchor
-                                            key={text}
-                                            url={url}
-                                            text={text}
-                                        />
-                                    ))}
-                                    <li>
-                                        <a
-                                            data-event="LinkClick"
-                                            data-section="MenuLN"
-                                            href="javascript:void(0);"
-                                            title="Desloguearse"
-                                            onMouseDown={() => {
-                                                goToLogout();
-                                            }}
-                                        >
-                                            Salir
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                                    {loginData.subscription ? (
+                                        <p className="com-usuario__valueSuscrib">
+                                            Suscriptor digital
+                                        </p>
+                                    ) : (
+                                        <p className="com-usuario__valueSuscrib">
+                                            Sin suscripción digital
+                                        </p>
+                                    )}
+                                    <ul className="com-desplegable">
+                                        {enlaces.map(({ url, text }) => (
+                                            <ItemAnchor
+                                                key={text}
+                                                url={url}
+                                                text={text}
+                                            />
+                                        ))}
+                                        <li>
+                                            <a
+                                                data-event="LinkClick"
+                                                data-section="MenuLN"
+                                                href="javascript:void(0);"
+                                                title="Desloguearse"
+                                                onMouseDown={() => {
+                                                    goToLogout();
+                                                }}
+                                            >
+                                                Salir
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </>
                         )}
                         {!token && (
                             <button

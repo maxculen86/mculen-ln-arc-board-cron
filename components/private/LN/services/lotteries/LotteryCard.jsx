@@ -46,7 +46,7 @@ const LotteryCard = ({
     );
     const isQuini6 = boxResultClass.includes('--quini-6');
 
-    const reorderedResults = reorderSubLotteries(results, getOrder);
+    const reorderedResults = reorderSubLotteries(results, getOrder, isDetail);
     const [firstResult = {}] = reorderedResults;
     const {
         result = [],
