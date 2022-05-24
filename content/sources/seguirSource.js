@@ -1,12 +1,6 @@
+import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import logger from '../../../../../components/private/common/utils/logger';
-
-let auth;
-if (ARC_ACCESS_TOKEN) {
-    auth = {
-        bearer: ARC_ACCESS_TOKEN
-    };
-}
 
 const sourceElementes = [
     '_id',
@@ -44,46 +38,51 @@ const mustElements = key => {
     return must;
 };
 
-const shouldElements = key => {
+const shouldElements = query => {
     const elem = {
         minimum_should_match: 1,
         should: []
     };
 
-    if (key.sections)
+    if (query.sections)
         elem.should.push({
             terms: {
-                'taxonomy.sections._id': key.sections
+                'taxonomy.sections._id': query.section
             }
         });
 
-    if (key.tags)
+    if (query.tags)
         elem.should.push({
             terms: {
-                'taxonomy.tags.slug': key.tags
+                'taxonomy.tags.slug': query.tag
             }
         });
 
-    if (key.authors)
+    if (query.authors)
         elem.should.push({
             terms: {
-                'credits.by._id': key.tags
+                'credits.by._id': query.author
             }
         });
 
     return elem;
 };
 
-const resolveUri = key => {
+const resolveUri = query => {
+    const { size, from } = query;
     const requestUri = `${CONTENT_BASE}/content/v4/search/published`;
-    const uriParams = [`website=${key['arc-site']}`, `&size=10`].join('&');
+    const uriParams = [
+        `website=${query['arc-site']}`,
+        `&size=${size}`,
+        `&from=${from}`
+    ].join('&');
 
     const body = {
         _source: sourceElementes,
         query: {
             bool: {
                 must: mustElements,
-                ...shouldElements(key)
+                ...shouldElements(query)
             }
         }
     };
@@ -92,10 +91,63 @@ const resolveUri = key => {
     return `${requestUri}?${uriParams}&body=${encodedBody}`;
 };
 
-const fetch = (query, { cachedCall }) => {
-    //Obtener datos de lo que el usuario sigue
-    //Llamada a ARC
-    //Return InfoArc
+const getElements = async query => {
+    if (!ARC_ACCESS_TOKEN) throw new Error();
+
+    const { url = '' } = query;
+    const arcSite = query['arc-site'];
+
+    const opt = {
+        auth: {
+            bearer: ARC_ACCESS_TOKEN
+        },
+        uri: resolveUri(query),
+        json: true
+    };
+
+    return request(opt)
+        .then(response => {
+            return response;
+        })
+        .catch(err => {
+            logger.push(err, { source: 'content/source', url }, arcSite);
+        });
+};
+
+const getUserFollowedItems = userToken => {
+    if (userToken) console.log('ola');
+
+    const resp = {
+        section: [],
+        author: ['carlos-pagni-8'],
+        tags: []
+    };
+
+    return resp;
+};
+
+const fetch = async (query, { cachedCall }) => {
+    const { userToken = '' } = query;
+    let { tag = '', section = '', author = '' } = query;
+
+    if (!userToken) {
+        const elem = getUserFollowedItems(userToken);
+        tag = elem.tags;
+        section = elem.section;
+        author = elem.author;
+    }
+
+    const resp = cachedCall(`elementSeguir`, getElements, {
+        query: {
+            ...query,
+            tag,
+            section,
+            author
+        },
+        ttl: 120
+    });
+
+    return Promise.all(resp);
 };
 
 export default {
@@ -107,6 +159,7 @@ export default {
         section: 'text',
         author: 'text',
         days: 'number',
-        page: 'number'
+        page: 'number',
+        size: 'number'
     }
 };
