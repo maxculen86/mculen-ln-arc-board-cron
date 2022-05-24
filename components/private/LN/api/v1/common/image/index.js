@@ -60,23 +60,6 @@ const imageCommon = image => {
                 });
             }
         });
-
-    // for (let index = 0; index < resizedUrls.length; index += 1) {
-    //     let { media } = resizedUrls[index].option;
-    //     if (media) {
-    //         media = parseInt(media.match(/\d+/)[0], 10);
-    //     } else {
-    //         media = resizedUrls[index].option.width;
-    //     }
-    //     resp.parametros.push({
-    //         media,
-    //         ancho: resizedUrls[index].option.width,
-    //         firma: resizedUrls[index].resizedUrl.match(regex)
-    //             ? resizedUrls[index].resizedUrl.replace(regex, '$1')
-    //             : ''
-    //     });
-    // }
-
     return resp;
 };
 
