@@ -22,11 +22,15 @@ const CTRNota = () => {
         getContent({
             source: 'rankingArticlesSource',
             query: {
-                sectionId: sectionId.toLowerCase(),
+                sectionId: 'inverse-home',
                 imageConfig: 'boxArticles',
                 website: 'la-nacion-ar'
             }
         }) || [];
+    console.log(
+        '🚀 ~ file: ctrNotaMobile.jsx ~ line 22 ~ CTRNota ~ data',
+        data
+    );
 
     const { articles = [] } = data;
     const articleToShow =
