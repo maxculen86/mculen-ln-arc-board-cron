@@ -4,7 +4,7 @@ import Media from '../../common/media';
 import ComFigcaption from '../../../common/com-figcaption';
 import { getEpigrafe } from '../../common/utils/mediaHelper';
 
-const image = ({ data, withZoom, outputType }) => {
+const image = ({ data, withZoom, insideBody, outputType }) => {
     const { caption, credit } = getEpigrafe(data);
     const [active, setActive] = useState(false);
 
@@ -23,6 +23,7 @@ const image = ({ data, withZoom, outputType }) => {
             handleClick={handleClick}
             active={active}
             outputType={outputType}
+            insideBody={insideBody}
         >
             {data && (
                 <ComFigcaption>
@@ -47,6 +48,7 @@ image.propTypes = {
         credits: PropTypes.shape(),
         type: PropTypes.string.isRequired
     }).isRequired,
+    insideBody: PropTypes.bool,
     withZoom: PropTypes.string.isRequired,
     outputType: PropTypes.string
 };

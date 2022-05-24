@@ -6,6 +6,45 @@ import { FOTOAL100, RECETA, STORYTELLING } from '../subtypes/subtypeHelper';
 import get from '../get';
 import { getAspectRatio } from '../../../../../content/sources/utils/getRatio';
 
+const setHeight = (width, height, proportions) => {
+    const [axisX, axisY] = proportions.split(':');
+
+    return (width / axisX) * axisY;
+};
+
+const setFilter = (thumbor, [type, value]) =>
+    thumbor.filter(`${type}(${value})`);
+
+const setStrFocal = (x, y) => `${x - 5}x${y + 5}:${x + 5}x${y - 5}`;
+
+const setCropMethod = ({
+    thumbor,
+    resizeOptions,
+    originalWidth,
+    originalHeight,
+    focalPoint,
+    smartCropExcluded
+}) => {
+    const { proportion, isNotSmart } = resizeOptions;
+    if (proportion) {
+        const aspectRatio = getAspectRatio(originalWidth, originalHeight);
+        const notEqualProportion = !(aspectRatio === proportion);
+
+        if (notEqualProportion) {
+            const [focalX, focalY] = focalPoint;
+            const hasFocalPoint = focalPoint.length === 2;
+            const hasAnyDimensions = originalWidth || originalHeight;
+
+            if (hasFocalPoint && hasAnyDimensions && isNotSmart) {
+                const focalFilter = setStrFocal(focalX, focalY);
+                setFilter(thumbor, ['focal', focalFilter]);
+            } else if (!smartCropExcluded) {
+                thumbor.smartCrop(true);
+            }
+        }
+    }
+};
+
 export const createResizer = (
     resizerKey,
     resizerUrl,
@@ -21,47 +60,37 @@ export const createResizer = (
         originalWidth,
         originalHeight,
         resizeOptions,
-        focalPoint,
+        focalPoint = [],
         smartCropExcluded,
         filterQuality = 80
     ) => {
-        const { isNotSmart, useFullSize, proportion } = resizeOptions;
-        let { height: newHeight = 0, width: newWidth = 0 } = resizeOptions;
+        const { useFullSize, proportion, width: newWidth = 0 } = resizeOptions;
+        let { height: newHeight = 0 } = resizeOptions;
+
+        newHeight = !useFullSize ? 0 : newHeight;
 
         if (!newHeight && !newWidth)
             throw new Error('Height and Width required');
 
+        const thumbor = new Thumbor(resizerKey, resizerUrl);
         const cleanedUrl = originalUrl.replace(
             /.*\/resizer\/[a-zA-Z0-9_\-=]+((?:\/[0-9x]+)?(?:\/smart)?(?:\/+(?:filters:.+?)?)?)?\/|(^\w+:\/\/|^)/,
             ''
         );
 
-        const thumbor = new Thumbor(resizerKey, resizerUrl);
-        thumbor.filter(`format(webp)`);
-        thumbor.filter(`quality(${filterQuality})`);
+        setFilter(thumbor, ['format', 'webp']);
+        setFilter(thumbor, ['quality', filterQuality]);
 
-        if (proportion) {
-            if (
-                !(getAspectRatio(originalWidth, originalHeight) === proportion)
-            ) {
-                if (
-                    focalPoint &&
-                    focalPoint[0] &&
-                    focalPoint[1] &&
-                    (originalWidth || originalHeight) &&
-                    isNotSmart
-                ) {
-                    thumbor.filter(
-                        `focal(${focalPoint[0] - 5}x${focalPoint[1] +
-                            5}:${focalPoint[0] + 5}x${focalPoint[1] - 5})`
-                    );
-                } else if (!smartCropExcluded) {
-                    thumbor.smartCrop(true);
-                }
-            }
-        } else {
-            newHeight = !useFullSize ? 0 : newHeight;
-        }
+        setCropMethod({
+            thumbor,
+            resizeOptions,
+            originalWidth,
+            originalHeight,
+            focalPoint,
+            smartCropExcluded
+        });
+
+        proportion && (newHeight = setHeight(newWidth, newHeight, proportion));
 
         const url = thumbor
             .setImagePath(cleanedUrl)
@@ -185,6 +214,7 @@ export const resizeArcImage = (
         'additional_properties.focal_point.min',
         undefined
     );
+
     const defaultResizeWithSmart = {
         ...defaultResize,
         isNotSmart: typeof fp !== 'undefined'
