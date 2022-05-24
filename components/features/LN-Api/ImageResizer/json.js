@@ -43,15 +43,10 @@ class ImageResizer {
                 browser.getApiType(this.props.requestUri)
             ][browser.getApiVersion(this.props.requestUri)];
 
-            return {
+            return indexImage({
                 ...globalContent,
                 resized_urls: imageResizeSource
-            };
-
-            // return indexImage({
-            //     ...globalContent,
-            //     resized_urls: imageResizeSource
-            // });
+            });
         } catch (err) {
             return { Success: false, Message: err.message };
         }
