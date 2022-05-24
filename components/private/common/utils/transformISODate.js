@@ -43,7 +43,7 @@ const dates = {
             monthNames[dateFormated[1]]
         }`;
     },
-    'yyyy/mm/dd': date => date.join('-')
+    'yyyy/mm/dd': date => date.join('-').split(' ')[0]
 };
 
 const transformISODate = (

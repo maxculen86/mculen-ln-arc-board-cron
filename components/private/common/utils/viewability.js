@@ -61,10 +61,11 @@ const getName = element => {
 };
 
 export const productClickFromClient = (element = {}) => {
-    const product = getDataSetProps(element.currentTarget);
-    if (product.id) {
-        window.dataLayer.push({ event: 'productClickTest', product });
-    }
+    // const product = getDataSetProps(element.currentTarget);
+    // if (product.id) {
+    //     window.dataLayer.push({ event: 'productClickTest', product });
+    // }
+    return true;
 };
 
 export const createIntersectionObserver = () => {

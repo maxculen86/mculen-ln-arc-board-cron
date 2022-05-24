@@ -1,0 +1,211 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.wiki-tags {
+    display: grid;
+    width: 100%;
+    max-width: px(428);
+    margin: 0 auto $spacing-lg auto;
+    padding: px(4);
+    border: 1px $light-neutral-400 solid;
+    border-radius: px(4);
+
+    column-gap: px(24);
+    grid-template-areas:
+        'image'
+        'info'
+        'description'
+        'rrss'
+        'tags';
+
+    & .placeholder {
+        grid-area: image;
+    }
+    & .extra-info {
+        grid-area: info;
+    }
+    & .social-networks {
+        grid-area: rrss;
+    }
+    & .wiki-description {
+        grid-area: description;
+    }
+    & .tags-buttons {
+        grid-area: tags;
+    }
+
+    & .mod-themes {
+        margin-left: 0;
+    }
+
+    .placeholder.placeholder {
+        width: calc(100% + 8px);
+        max-height: px(440);
+        padding-top: 100%;
+        margin: -4px 0 0 -4px;
+        border: none;
+        border-top-left-radius: px(4);
+        border-top-right-radius: px(4);
+
+        .com-image {
+            height: auto;
+            margin: 0;
+            background: white;
+        }
+
+        @media ($media-m) {
+            padding-top: calc(3 / 2 * 100%);
+            border-top-right-radius: 0;
+            width: 100%;
+            margin: 0;
+        }
+    }
+
+    &.--organization {
+        .placeholder.placeholder {
+            .com-image {
+                top: -25%;
+            }
+        }
+    }
+
+    .extra-info {
+        display: flex;
+        flex-direction: column;
+        margin: px(24) 0 px(8) 0;
+
+        .description {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            width: fit-content;
+            margin-bottom: px(16);
+
+            .label {
+                color: $light-neutral-500;
+            }
+            .com-link {
+                font-family: $font-SuecaSlab;
+                font-size: 16px;
+                font-weight: 400;
+            }
+        }
+    }
+
+    .social-networks {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin: px(24) 0 px(24) 0;
+
+        .com-text {
+            margin-right: px(12);
+            margin-top: px(8);
+        }
+
+        .social-icons {
+            background-color: $light-neutral-200;
+            margin: 0 8px;
+            padding: px(8);
+            border-radius: px(4);
+        }
+    }
+
+    .wiki-description {
+        font-family: $font-SuecaSlab;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        width: auto;
+        a {
+            color: $blue-500;
+        }
+        p {
+            margin-bottom: px(16);
+        }
+    }
+
+    .tags-buttons {
+        margin-left: 0;
+        margin-bottom: px(8);
+    }
+
+    @media ($media-m) {
+        grid-template-areas:
+            'image info info'
+            'image description description'
+            'rrss  tags tags';
+
+        grid-template-rows: auto;
+        grid-template-columns: px(293) px(265) 1fr;
+        padding: 0 px(16) 0 0;
+        max-width: none;
+
+        .extra-info {
+            flex-wrap: wrap;
+            max-height: px(250);
+            .description {
+                max-width: px(220);
+                margin-right: px(4);
+            }
+        }
+        .social-networks {
+            margin: 0 0 px(16) px(16);
+        }
+
+        &.--organization {
+            .placeholder.placeholder {
+                .com-image {
+                    top: 0;
+                }
+            }
+        }
+    }
+
+    @media ($media-l) {
+        grid-template-areas:
+            'image info info'
+            'image description description'
+            'blank description description'
+            'rrss tags tags';
+
+        .extra-info {
+            max-height: 100%;
+
+            .description {
+                max-width: 100%;
+            }
+        }
+
+        .social-networks {
+            margin: 0 px(24) 0 px(16);
+            .com-text {
+                margin-bottom: 0;
+            }
+        }
+        .tags-buttons {
+            margin-bottom: px(8);
+        }
+    }
+
+    @media ($media-lg) {
+        grid-template-areas:
+            'image info description'
+            'image info description'
+            'image rrss tags';
+
+        .wiki-description {
+            padding: px(24) 0;
+        }
+        .social-networks {
+            margin-top: 0;
+            margin-left: 0;
+            .com-text {
+                margin-left: 0;
+            }
+        }
+        .tags-buttons {
+            margin-top: 0;
+        }
+    }
+}

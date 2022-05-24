@@ -9,14 +9,12 @@ import TitleAndIconArticle from '../titleAndIconArticle';
 import WithScreenUtils from '../../../../common/hocs/withScreenUtils';
 import WithStorytellingData from '../../../common/hocs/WithStorytellingData';
 
-import {
-    FOTOAL100,
-    STORYTELLING
-} from '../../../../common/utils/subtypes/subtypeHelper';
+import { FOTOAL100 } from '../../../../common/utils/subtypes/subtypeHelper';
 
 import '../../../../../../resources/dist/css/ln/modules/mod-opening.css';
 import get from '../../../../common/utils/get';
 import { getAspectRatio } from '../../../../../../content/sources/utils/getRatio';
+import useProportions from '../../../../common/hooks/useProportions';
 
 export const filteredSources = (resizedUrls, device, isAmp) => {
     if (resizedUrls && device) {
@@ -43,7 +41,8 @@ const Component = props => {
         globalContent: { headlines, subtype }
     } = props;
 
-    const isMobile = outputType === 'amp' || device !== 'desktop';
+    const isAmp = outputType === 'amp';
+    const isMobile = isAmp || device !== 'desktop';
     const [data, setData] = useState(
         isMobile || subtype === FOTOAL100 ? storytellingData : {}
     );
@@ -64,12 +63,14 @@ const Component = props => {
         resizedUrls
     } = apertura;
 
-    const sourcesForDevice =
-        subtype === STORYTELLING
-            ? filteredSources(resizedUrls, device)
-            : resizedUrls.filter(x => x.option.width !== 1276);
+    const sourcesForDevice = useProportions({
+        resizedUrls,
+        device,
+        isAmp,
+        subtype
+    });
 
-    const sizes = outputType === 'amp' ? { width: 80, height: 537 } : {};
+    const sizes = isAmp ? { width: 80, height: 537 } : {};
 
     return (
         <section className="mod-opening">
@@ -80,7 +81,7 @@ const Component = props => {
                     src={src || ''}
                     alt={caption || altText || titleNote || ''}
                     video={video || ''}
-                    amp={outputType === 'amp'}
+                    amp={isAmp}
                     sizes={sizes}
                     sources={sourcesForDevice}
                     isApertura
