@@ -10,7 +10,13 @@ export const baseUrl = () =>
         API_ENV === 'sandbox' ? 'qa-' : ''
     }api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion`;
 
-export function toggleBookmark(token, _globalContent, isDelete, setBookmark) {
+export default function toggleBookmark(
+    token,
+    _globalContent,
+    isDelete,
+    setBookmark,
+    setToast
+) {
     const getDataFromAPI = async () => {
         const fetchBookmarkPath = isDelete ? `/${isDelete}` : '';
         const { _id: noteId = '' } = _globalContent || {};
@@ -20,49 +26,80 @@ export function toggleBookmark(token, _globalContent, isDelete, setBookmark) {
             ''
         );
 
-        const createBookmarkBody = {
-            bookmarkParent: noteId,
-            bookmarkType: 'story',
-            bookmarkTypeId: noteId,
-            bookmarkGroup: primarySectionName,
-            bookmarkContent: getBookmarkContent(_globalContent)
-        };
-        console.log(
-            '🚀 ~ file: bookmarkHelper.js ~ line 124 ~ getDataFromAPI ~ createBookmarkBody',
-            createBookmarkBody
-        );
+        const createBookmarkBody = isDelete
+            ? {}
+            : {
+                  bookmarkParent: noteId,
+                  bookmarkType: 'story',
+                  bookmarkTypeId: noteId,
+                  bookmarkGroup: primarySectionName,
+                  bookmarkContent: getBookmarkContent(_globalContent)
+              };
+
+        setToast(true);
+
         try {
             const res = await fetch(
                 `${baseUrl()}/bookmarks${fetchBookmarkPath}`,
                 {
-                    method: `${isDelete ? 'DELETE' : 'POST'}`,
+                    method: isDelete ? 'DELETE' : 'POST',
                     headers: {
                         Authorization: token
                     },
-                    body: `${
-                        isDelete ? '{}' : JSON.stringify(createBookmarkBody)
-                    }`
+                    body: JSON.stringify(createBookmarkBody)
                 }
             );
-            if (res.ok) {
+            if (res.status === 200) {
                 const datos = await res.json();
                 const { bookmarkId: id } = datos;
                 setBookmark(isDelete ? false : id);
-            } else {
-                // setToast('fail');
+                setToast(
+                    isDelete
+                        ? {
+                              status: 'success',
+                              description:
+                                  'Se borró de <strong>Mis notas, Guardadas.</strong>',
+                              timeout: 2750
+                          }
+                        : {
+                              status: 'success',
+                              description:
+                                  'Se agregó a <strong>Mis notas, Guardadas.</strong>',
+                              timeout: 2750
+                          }
+                );
+            } else if (res.status === 409) {
+                setToast({
+                    status: 'warning',
+                    description:
+                        'No se pudo guardar la nota porque llegaste al límite permitido.',
+                    buttonLabel: 'Ir a Mis Notas',
+                    buttonAction: () => {
+                        window.open('/mis-notas', '_self');
+                    },
+                    timeout: 2750
+                });
             }
         } catch (err) {
             console.log(err);
+
+            setToast({
+                status: 'danger',
+                description: 'Parece que hubo un problema',
+                buttonLabel: 'Reintentar',
+                buttonAction: getDataFromAPI,
+                timeout: 2750
+            });
         }
     };
 
     if (token && (isDelete || _globalContent)) {
         return getDataFromAPI();
     }
-    return false;
+    return null;
 }
 
-function getBookmarkContent(globalContent) {
+export function getBookmarkContent(globalContent) {
     const regexResizerUrl = new RegExp(
         /(https|http:\/\/)(.*)(.*\/resizer\/)([a-zA-Z0-9_\-=]+(?:\/[0-9x]+)?(?:\/smart)?(?:\/+(?:filters:.+?)?)?\/)(.*)/
     );

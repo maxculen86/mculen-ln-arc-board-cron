@@ -22,9 +22,12 @@ import Icon from '../../common/icon';
 import { conditionallyCallViafoura } from '../../common/utils/commentsHelper';
 import findTermica from '../../common/utils/findTermica';
 import getToken from '../../common/utils/getToken';
-import { toggleBookmark } from '../../common/utils/bookmarkHelper';
+import Toast from '../../common/toast/Toast';
+import { isSubscribed } from '../common/utils/contextHelper';
+import toggleBookmark from '../../common/utils/bookmarkHelper';
 import useCheckBookmark from '../../common/hooks/bookmark/useCheckBookmark';
 // import useListBookmarks from '../../common/hooks/bookmark/useListBookmarks';
+import Barrier from '../../common/barrier/Barrier';
 
 const Share = props => {
     const { arcSite = 'la-nacion-ar' } = useAppContext() || {};
@@ -51,26 +54,53 @@ const Share = props => {
     const termicaBookmark = findTermica('bookmark_web');
     const [bookmark, setBookmark] = useState(false);
     const [toast, setToast] = useState(false);
+    const [barrier, setBarrier] = useState(false);
+    const token = getToken();
+    const suscription = token ? isSubscribed() : false;
 
-    const checkBookmarkId = useCheckBookmark(termicaBookmark, getToken(), id);
+    const checkBookmarkId = useCheckBookmark(termicaBookmark, token, id);
 
-    // const listOfBookmarks = useListBookmarks(termicaBookmark, token);
-    // console.log('🚀 ~ file: share.jsx ~ line 58 ~ listOfBookmarks', listOfBookmarks);
+    // console.log('🚀 ~ file: share.jsx ~ line 54 ~ bookmark', bookmark);
+    // console.log('🚀 ~ file: share.jsx ~ line 55 ~ toast', toast);
+    // console.log(
+    //     '🚀 ~ file: share.jsx ~ line 59 ~ checkBookmarkId',
+    //     checkBookmarkId
+    // );
+
+    // const { bookmarks, morePages, getNextPage } = useListBookmarks(
+    //     termicaBookmark,
+    //     getToken()
+    // );
+    // console.log('🚀 ~ file: share.jsx ~ line 59 ~ morePages', morePages);
+    // console.log('🚀 ~ file: share.jsx ~ line 58 ~ listOfBookmarks', bookmarks);
+
     console.count('🚀 ~ file: share.jsx ~ line 79 ~~ RENDER Nº');
 
     const onButtonClicked = () => {
-        toggleBookmark(
-            getToken(),
-            globalContent,
-            bookmark,
-            setBookmark,
-            setToast
-        );
+        if (token && suscription && !toast) {
+            toggleBookmark(
+                token,
+                globalContent,
+                bookmark,
+                setBookmark,
+                setToast
+            );
+        } else if (!suscription && !toast) {
+            setBarrier(true);
+        }
+    };
+
+    const handleBookmarkTimeout = () => {
+        setToast(false);
+    };
+
+    const handleCloseBarrier = () => {
+        setBarrier(false);
     };
 
     useEffect(() => {
-        setBookmark(checkBookmarkId);
-    }, [checkBookmarkId]);
+        termicaBookmark && setBookmark(checkBookmarkId);
+    }, [termicaBookmark, checkBookmarkId]);
 
     // TODO: arreglar el tema de las URL's
     const mystyle = {
@@ -83,10 +113,22 @@ const Share = props => {
             id="v-share"
             className={`mod-share ${classesNames} ${classCondition}`}
         >
+            {termicaBookmark && toast && (
+                <Toast data={toast} handleTimeout={handleBookmarkTimeout} />
+            )}
+
+            {termicaBookmark && barrier && (
+                <Barrier
+                    show
+                    handleBarrier={handleCloseBarrier}
+                    type="exclusive-ln"
+                    isLogged={token}
+                    noteId={id}
+                />
+            )}
+
             <AmpContainer isForAmp={false}>
                 <div className="container --left">
-                    {/* Se oculta temporalmente para luego refactorizar */}
-                    {/* Bookmark para guardado de notas */}
                     {termicaBookmark && (
                         <ComButton
                             id="btnbookmark"
@@ -101,6 +143,7 @@ const Share = props => {
                             }`}
                         />
                     )}
+
                     {displayComments && (
                         <>
                             <ComButton

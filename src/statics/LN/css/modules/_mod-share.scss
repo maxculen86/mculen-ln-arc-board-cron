@@ -28,6 +28,20 @@
                 }
             }
         }
+        .com-button {
+            padding: 0;
+            margin-right: $spacing-md;
+            &:last-child {
+                margin-right: 0;
+            }
+            @media ($media-l) {
+                margin-right: 0;
+            }
+        }
+        .com-text {
+            order: 2;
+            color: $ln;
+        }
 
         .comment-btn {
             display: flex;

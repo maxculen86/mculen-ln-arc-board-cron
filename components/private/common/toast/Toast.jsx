@@ -1,39 +1,40 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-import React, { useState } from 'react';
-import PropTypes from 'fusion:prop-types';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Icon from '../icon';
 import Text from '../text';
 import ComButton from '../com-button';
 import '../../../../resources/dist/css/ln/components/toast.css';
-import GetDescription from './GetDescription';
 
-const Toast = ({
-    action,
-    buttonLabel,
-    description,
-    customDescription,
-    status
-}) => {
+const Toast = ({ data, handleTimeout }) => {
+    const { buttonLabel, description, status, buttonAction, timeout } =
+        data || {};
     const [showToast, setShowToast] = useState(true);
     const handleClose = () => {
         setShowToast(false);
     };
-    const handleRequest = () => {
-        // eslint-disable-next-line no-console
-        console.log('reintentar');
-        handleClose();
-    };
-    const className = `toast --${status}`;
+
+    useEffect(() => {
+        const hideTimeout = timeout
+            ? setTimeout(() => {
+                  handleTimeout();
+              }, 2750)
+            : null;
+        return () => clearTimeout(hideTimeout);
+    }, [handleTimeout, timeout]);
+
+    if (!status) return null;
+
     return (
         <>
             {showToast && (
-                <div className={className}>
+                <div className={`toast --${status}`}>
                     <div className="icon-container">
                         {
                             {
                                 success: <Icon name="checkmark" />,
                                 info: <Icon name="info" />,
-                                alert: <Icon name="alert" />,
+                                warning: <Icon name="alert" />,
                                 danger: <Icon name="error-warning" />
                             }[status]
                         }
@@ -44,19 +45,23 @@ const Toast = ({
                                 {
                                     success: '¡Listo!',
                                     info: 'Info',
-                                    alert: '¡Atención!',
+                                    warning: '¡Atención!',
                                     danger: '¡Ups!'
                                 }[status]
                             }
                         </Text>
-                        <GetDescription
-                            status={status}
-                            description={description}
-                            custom={customDescription}
-                        />
-                        {action && status === 'danger' && (
+                        {description && (
+                            <span
+                                className="--twoxs"
+                                // eslint-disable-next-line react/no-danger
+                                dangerouslySetInnerHTML={{
+                                    __html: description
+                                }}
+                            />
+                        )}
+                        {buttonAction && (
                             <ComButton
-                                onClick={handleRequest}
+                                onClick={buttonAction}
                                 title={buttonLabel}
                                 textname={buttonLabel}
                                 classCondition="--tertiary"
@@ -74,18 +79,22 @@ const Toast = ({
     );
 };
 Toast.propTypes = {
-    action: PropTypes.boolean,
-    buttonLabel: PropTypes.string,
-    description: PropTypes.string,
-    status: PropTypes.oneOf(['success', 'info', 'alert', 'danger']),
-    customDescription: PropTypes.oneOf(['bookmark'])
+    data: PropTypes.shape({
+        status: PropTypes.oneOf(['success', 'info', 'warning', 'danger'])
+            .isRequired,
+        description: PropTypes.string,
+        buttonLabel: PropTypes.string,
+        buttonAction: PropTypes.func
+    }),
+    handleTimeout: PropTypes.func
 };
 Toast.defaultProps = {
-    action: true,
-    buttonLabel: 'reintentar',
-    customDescription: '',
-    description: '',
-    status: 'success'
+    data: {
+        description: '',
+        buttonLabel: 'reintentar',
+        buttonAction: null
+    },
+    handleTimeout: null
 };
 
 export default Toast;

@@ -58,9 +58,6 @@
                 opacity: 0.8;
             }
         }
-        .--description {
-            text-transform: capitalize;
-        }
     }
     .icon-close {
         width: px(20);
@@ -118,6 +115,9 @@
             color: $dark-neutral-800;
         }
         &:disabled {
+            color: $dark-neutral-800;
+        }
+        &.--tertiary {
             color: $dark-neutral-800;
         }
     }

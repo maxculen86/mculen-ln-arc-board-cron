@@ -15,6 +15,7 @@ export default function useCheckBookmark(termicaBookmark, token, noteId) {
                     }
                 }
             );
+
             if (res.ok) {
                 const datos = await res.json();
                 const { bookmarkId = false } = datos;
