@@ -1,28 +1,39 @@
 import React from 'react';
+import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
-import ModArticle from '../mod-article';
 import EmptyBookmark from './EmptyBookmark';
-import ComButton from '../com-button';
+import ArticlesAcum from '../../LN/acumulado/articlesAcum';
+import LoadingIcon from '../../LN/common/loadingIcon';
+import BtnMasNotas from '../../LN/acumulado/botonVerMasNotas';
 
-const BookmarkList = ({ data }) => {
+const BookmarkList = ({ data = [] }) => {
+    const { siteProperties, outputType } = useAppContext();
+
     return (
         <section className="bookmark-list">
             {data.length === 0 ? (
                 <EmptyBookmark />
             ) : (
-                data.map(e => {
-                    return (
-                        <div className="item">
-                            <ModArticle
-                                withMedia
-                                titleText={e.title}
-                                articleData={data}
-                                dateText="2022-05-13T13:29:11.337Z"
-                            />
-                            <ComButton iconName="bookmark" />
-                        </div>
-                    );
-                })
+                <>
+                    <ArticlesAcum
+                        articles={data}
+                        hayMasNotas={10}
+                        globalContet={{}}
+                        siteProperties={siteProperties}
+                        outputType={outputType}
+                        typeArticle="Bookmark"
+                        textButton="Mas notas guardadas"
+                    />
+
+                    <BtnMasNotas
+                        onClickHandler={() => {
+                            console.log('Mas notas');
+                        }}
+                        loadingIcon={<LoadingIcon />}
+                        loading={false}
+                        textButton="Mas notas guardadas"
+                    />
+                </>
             )}
         </section>
     );

@@ -34,6 +34,7 @@ exports[`features - LaNacion - Acumulado - columnista Test de snapshot Columnist
   link="/autor/joaquin-morales-sola-51/"
   outputType="default"
   subheadText={false}
+  typeArticle=""
   withMedia={true}
 />
 `;

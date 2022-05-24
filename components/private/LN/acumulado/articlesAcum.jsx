@@ -22,6 +22,12 @@ const typeAcumRules = {
         titleSize: '--m',
         withCategory: true,
         withTags: true
+    },
+    Bookmark: {
+        withSubhead: false,
+        titleSize: '--m',
+        withCategory: true,
+        withTags: false
     }
 };
 
@@ -39,7 +45,7 @@ const ArticlesAcum = ({
             typeArticle={typeArticle}
         >
             {articles.map((art, i) => {
-                const banner = getBanner(i);
+                const banner = getBanner ? getBanner(i) : <></>;
                 return (
                     <ArticleAcum
                         key={art._id}

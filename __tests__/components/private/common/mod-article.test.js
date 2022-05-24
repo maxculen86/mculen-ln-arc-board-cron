@@ -47,7 +47,8 @@ describe('Private - Common - ModArticle', () => {
         isPowa: true,
         isRenderAuthor: false,
         isRenderAuthorOpinion: false,
-        isApertura: false
+        isApertura: false,
+        typeArticle: ''
     };
 
     it('Render OK', () => {
