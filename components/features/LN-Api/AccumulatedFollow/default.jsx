@@ -1,7 +1,7 @@
-// import React from 'react';
+import React from 'react';
 
-// const index = props => {
-//     return <h2>Cambiar a OutputType JSON para visualizar el contenido</h2>;
-// };
+const index = props => {
+    return <h2>Cambiar a OutputType JSON para visualizar el contenido</h2>;
+};
 
-// export default index;
+export default index;

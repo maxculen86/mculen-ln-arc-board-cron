@@ -1,6 +1,13 @@
 import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
-import logger from '../../../../../components/private/common/utils/logger';
+import logger from '../../components/private/common/utils/logger';
+
+let auth;
+if (ARC_ACCESS_TOKEN) {
+    auth = {
+        bearer: ARC_ACCESS_TOKEN
+    };
+}
 
 const sourceElementes = [
     '_id',
@@ -44,37 +51,37 @@ const shouldElements = query => {
         should: []
     };
 
-    if (query.sections)
+    if (query.section)
         elem.should.push({
             terms: {
                 'taxonomy.sections._id': query.section
             }
         });
 
-    if (query.tags)
+    if (query.tag)
         elem.should.push({
             terms: {
                 'taxonomy.tags.slug': query.tag
             }
         });
 
-    if (query.authors)
+    if (query.author)
         elem.should.push({
             terms: {
                 'credits.by._id': query.author
             }
         });
-
     return elem;
 };
 
 const resolveUri = query => {
-    const { size, from } = query;
+    const { size, page } = query;
     const requestUri = `${CONTENT_BASE}/content/v4/search/published`;
+
     const uriParams = [
         `website=${query['arc-site']}`,
-        `&size=${size}`,
-        `&from=${from}`
+        `size=${size}`,
+        `from=${page}`
     ].join('&');
 
     const body = {
@@ -86,21 +93,15 @@ const resolveUri = query => {
             }
         }
     };
-
     const encodedBody = encodeURI(JSON.stringify(body));
     return `${requestUri}?${uriParams}&body=${encodedBody}`;
 };
 
 const getElements = async query => {
-    if (!ARC_ACCESS_TOKEN) throw new Error();
-
     const { url = '' } = query;
     const arcSite = query['arc-site'];
-
     const opt = {
-        auth: {
-            bearer: ARC_ACCESS_TOKEN
-        },
+        auth,
         uri: resolveUri(query),
         json: true
     };
@@ -115,14 +116,13 @@ const getElements = async query => {
 };
 
 const getUserFollowedItems = userToken => {
-    if (userToken) console.log('ola');
+    // if (userToken) console.log('ola');
 
     const resp = {
         section: [],
-        author: ['carlos-pagni-8'],
-        tags: []
+        author: ['joaquin-morales-sola-51', 'carlos-pagni-81'],
+        tag: []
     };
-
     return resp;
 };
 
@@ -130,14 +130,14 @@ const fetch = async (query, { cachedCall }) => {
     const { userToken = '' } = query;
     let { tag = '', section = '', author = '' } = query;
 
-    if (!userToken) {
+    if (userToken) {
         const elem = getUserFollowedItems(userToken);
-        tag = elem.tags;
+        tag = elem.tag;
         section = elem.section;
         author = elem.author;
     }
 
-    const resp = cachedCall(`elementSeguir`, getElements, {
+    const resp = await cachedCall(`elementSeguir`, getElements, {
         query: {
             ...query,
             tag,
@@ -147,7 +147,7 @@ const fetch = async (query, { cachedCall }) => {
         ttl: 120
     });
 
-    return Promise.all(resp);
+    return resp;
 };
 
 export default {
@@ -155,11 +155,7 @@ export default {
     ttl: 300,
     params: {
         userToken: 'text',
-        tag: 'text',
-        section: 'text',
-        author: 'text',
-        days: 'number',
-        page: 'number',
-        size: 'number'
+        page: 'text',
+        size: 'text'
     }
 };
