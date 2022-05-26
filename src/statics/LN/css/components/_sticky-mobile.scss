@@ -1,0 +1,48 @@
+@import '../abstracts/variables';
+
+.sticky-mobile {
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    height: px(220);
+    width: 100%;
+    z-index: 10;
+    margin-left: px(-16);
+    box-shadow: 0px -8px px(16) rgba(0, 0, 0, 0.06);
+    border-radius: px(16) px(16) 0px 0px;
+    padding: px(8) px(16) px(16) px(16);
+
+    .header-sticky {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-right: px(-30);
+        color: $light-neutral-800;
+
+        :first-child {
+            display: flex;
+            justify-content: center;
+            width: 99%;
+        }
+        :last-child {
+            width: fit-content;
+            margin-right: px(12);
+        }
+    }
+
+    .com-link {
+        display: flex;
+        align-items: center;
+        margin-top: px(8);
+        margin-left: auto;
+        margin-right: auto;
+        max-width: px(400);
+        color: $neutral-black;
+
+        .com-image {
+            width: px(80);
+            height: px(80);
+            margin-right: px(8);
+        }
+    }
+}
