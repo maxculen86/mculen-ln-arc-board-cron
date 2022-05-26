@@ -1,3 +1,5 @@
+import { LOGIN_URL, SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
+
 const CONFIG = {
     'delete-note': {
         className: '--delete-note',
@@ -21,20 +23,18 @@ const CONFIG = {
         buttons: {
             label: 'suscribirme',
             style: '--tertiary',
-            link:
-                'https://suscripciones.lanacion.com.ar/suscribirme?cv=670&fc=744'
+            link: `${SITIO_SEGURO_REGISTRACION}/suscribirme?cv=670&fc=744&callback=`
         },
         unLogged: {
             text: '¿Ya sos suscriptor?',
             textLink: 'Iniciar Sesion',
-            href:
-                'https://ingresar.lanacion.com.ar/ingresar/D/1/?callback=aHR0cHM6Ly93d3cubGFuYWNpb24uY29tLmFyLw=='
+            href: LOGIN_URL
         },
         logged: {
             text: '¿Tenés Club LA NACION Black o Premium?',
             textLink: 'Vincular credencial',
             href:
-                'https://checkout.lanacion.com.ar/suscripcion/C/111/?cv=670&fc=744&productCategory=Voluntario'
+                'https://checkout.lanacion.com.ar/suscripcion/C/111/?cv=670&fc=744&productCategory=Voluntario&callback='
         }
     }
 };

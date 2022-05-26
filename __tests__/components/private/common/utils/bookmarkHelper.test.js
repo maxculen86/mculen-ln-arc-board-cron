@@ -48,7 +48,7 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
                     method: 'DELETE'
                 }
             );
-            expect(setToast).toBeCalledWith(true);
+            expect(setToast).toBeCalledWith({});
             // expect(setBookmark).toBeCalledWith(bookmarkId);
         });
 

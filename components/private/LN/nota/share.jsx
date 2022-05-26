@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 /* eslint-disable jsx-a11y/control-has-associated-label,jsx-a11y/label-has-associated-control,react/jsx-curly-newline */
 import React, { useEffect, useState } from 'react';
 import getProperties from 'fusion:properties';
@@ -26,7 +27,6 @@ import Toast from '../../common/toast/Toast';
 import { isSubscribed } from '../common/utils/contextHelper';
 import toggleBookmark from '../../common/utils/bookmarkHelper';
 import useCheckBookmark from '../../common/hooks/bookmark/useCheckBookmark';
-// import useListBookmarks from '../../common/hooks/bookmark/useListBookmarks';
 import Barrier from '../../common/barrier/Barrier';
 
 const Share = props => {
@@ -59,22 +59,6 @@ const Share = props => {
     const suscription = token ? isSubscribed() : false;
 
     const checkBookmarkId = useCheckBookmark(termicaBookmark, token, id);
-
-    // console.log('🚀 ~ file: share.jsx ~ line 54 ~ bookmark', bookmark);
-    // console.log('🚀 ~ file: share.jsx ~ line 55 ~ toast', toast);
-    // console.log(
-    //     '🚀 ~ file: share.jsx ~ line 59 ~ checkBookmarkId',
-    //     checkBookmarkId
-    // );
-
-    // const { bookmarks, morePages, getNextPage } = useListBookmarks(
-    //     termicaBookmark,
-    //     getToken()
-    // );
-    // console.log('🚀 ~ file: share.jsx ~ line 59 ~ morePages', morePages);
-    // console.log('🚀 ~ file: share.jsx ~ line 58 ~ listOfBookmarks', bookmarks);
-
-    console.count('🚀 ~ file: share.jsx ~ line 79 ~~ RENDER Nº');
 
     const onButtonClicked = () => {
         if (token && suscription && !toast) {
@@ -113,7 +97,7 @@ const Share = props => {
             id="v-share"
             className={`mod-share ${classesNames} ${classCondition}`}
         >
-            {termicaBookmark && toast && (
+            {termicaBookmark && toast.status && (
                 <Toast data={toast} handleTimeout={handleBookmarkTimeout} />
             )}
 
@@ -122,8 +106,12 @@ const Share = props => {
                     show
                     handleBarrier={handleCloseBarrier}
                     type="exclusive-ln"
-                    isLogged={token}
-                    noteId={id}
+                    isLogged={!!token}
+                    redirectCallback={
+                        typeof window !== 'undefined'
+                            ? window.btoa(location.href)
+                            : ''
+                    }
                 />
             )}
 

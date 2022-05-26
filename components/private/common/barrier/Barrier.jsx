@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import Text from '../text';
 import Icon from '../icon';
 import ComButton from '../com-button';
@@ -10,8 +10,7 @@ import get from '../utils/get';
 import '../../../../resources/dist/css/ln/components/barrier.css';
 import CONFIG from './_config';
 
-const Barrier = ({ show, handleBarrier, type, isLogged, noteId }) => {
-    console.log('🚀 ~ file: Barrier.jsx ~ line 14 ~ Barrier ~ noteId', noteId);
+const Barrier = ({ show, handleBarrier, type, isLogged, redirectCallback }) => {
     const classType = get(CONFIG, `${type}.className`, '');
     const buttons = get(CONFIG, `${type}.buttons`, '');
     const title = get(CONFIG, `${type}.title`, '');
@@ -21,7 +20,7 @@ const Barrier = ({ show, handleBarrier, type, isLogged, noteId }) => {
 
     const message = isLogged ? logged : unLogged;
     const Redirect = () => {
-        window.open(buttons.link, '_blank');
+        window.open(buttons.link + redirectCallback, '_blank');
     };
 
     return (
@@ -88,9 +87,9 @@ const Barrier = ({ show, handleBarrier, type, isLogged, noteId }) => {
                                     </Text>
                                     <Link
                                         size="--twoxs --font-bold"
-                                        href={message.href}
+                                        href={message.href + redirectCallback}
                                     >
-                                        {message.textLink}
+                                        {[message.textLink]}
                                     </Link>
                                 </>
                             )}
@@ -102,16 +101,18 @@ const Barrier = ({ show, handleBarrier, type, isLogged, noteId }) => {
     );
 };
 Barrier.propTypes = {
-    show: PropTypes.boolean,
+    show: PropTypes.bool,
     handleBarrier: PropTypes.func,
     type: PropTypes.oneOf(['delete-note', 'exclusive-ln']),
-    isLogged: PropTypes.boolean
+    isLogged: PropTypes.bool,
+    redirectCallback: PropTypes.string
 };
 Barrier.defaultProps = {
     show: false,
     handleBarrier: () => {},
     type: 'exclusive-ln',
-    isLogged: false
+    isLogged: false,
+    redirectCallback: ''
 };
 
 export default Barrier;

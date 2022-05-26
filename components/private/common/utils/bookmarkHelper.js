@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-// import { useContent } from 'fusion:content';
 import { API_ENV } from 'fusion:environment';
 import get from './get';
 import { getAutorId, getTagId } from './getElementId';
@@ -36,7 +34,7 @@ export default function toggleBookmark(
                   bookmarkContent: getBookmarkContent(_globalContent)
               };
 
-        setToast(true);
+        setToast({});
 
         try {
             const res = await fetch(
