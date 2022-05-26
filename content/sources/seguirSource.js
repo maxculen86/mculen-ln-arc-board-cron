@@ -15,7 +15,9 @@ const sourceElementes = [
     'promo_items',
     'taxonomy.tags',
     'taxonomy.primary_section',
-    'credits,headlines.basic',
+    'credits.by.name',
+    'credits.by.slug',
+    'headlines.basic',
     'headlines.mobile',
     'subheadlines',
     'display_date',
@@ -71,6 +73,7 @@ const shouldElements = query => {
                 'credits.by._id': query.author
             }
         });
+
     return elem;
 };
 
@@ -152,7 +155,7 @@ const fetch = async (query, { cachedCall }) => {
 
 export default {
     fetch,
-    ttl: 300,
+    ttl: 120,
     params: {
         userToken: 'text',
         page: 'text',
