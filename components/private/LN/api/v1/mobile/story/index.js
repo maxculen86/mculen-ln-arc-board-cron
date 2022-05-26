@@ -19,7 +19,7 @@ const indexNota = dataNota => {
                 const banner = { _t: 'banner' };
                 const type = get(element, '_t', null);
 
-                if (type === 'header' && i === boxElementValidate) {
+                if (type && type === 'header' && i === boxElementValidate) {
                     boxElementValidate += 1;
                 }
                 if (i === boxElementValidate && length >= boxElement) {
