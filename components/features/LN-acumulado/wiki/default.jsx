@@ -32,61 +32,71 @@ const WikiFeature = () => {
         description,
         schemas_info: schemasInfo = {},
         image = {},
-        _id: featureId
+        _id: featureId,
+        type
     } = wikiSourceData || {};
 
     const { url: imageUrl, resizedUrls } = image;
 
     const {
-        additional_name: additionalName,
-        family_name: familyName,
-        given_name: givenName,
+        additional_name: additionalName = '',
+        family_name: familyName = '',
+        given_name: givenName = '',
+        job_title: jobTitle = '',
+        birth_date: birthDate = '',
+        birth_place: birthPlace = '',
         location,
         address,
-        legal_name: legalName
+        legal_name: legalName = '',
+        founding_date: foundingDate = '',
+        founding_location: foundingLocation = ''
     } = schemasInfo;
 
     const schemaPerson = [
         {
             text: 'Nombre',
-            value: `${schemasInfo.given_name ||
-                ''} ${schemasInfo.additional_name ||
-                ''} ${schemasInfo.family_name || ''}`
+            value: `${givenName} ${additionalName} ${familyName}`
         },
-        { text: 'Profesión', value: `${schemasInfo.job_title || ''}` },
+        { text: 'Profesión', value: `${jobTitle}` },
         {
             text: 'Fecha de nacimiento',
-            value: `${schemasInfo.birth_date || ''}`
+            value: `${birthDate}`
         },
         {
             text: 'Lugar de nacimiento',
-            value: `${schemasInfo.birth_place || ''}`
+            value: `${birthPlace}`
         }
     ];
     const schemaOrganization = [
-        { text: 'Nombre', value: `${schemasInfo.legal_name || ''}` },
+        { text: 'Nombre', value: `${legalName}` },
         {
             text: 'Fecha de fundación',
-            value: `${schemasInfo.founding_date || ''}`
+            value: `${foundingDate}`
         },
         {
             text: 'Lugar de fundación',
-            value: `${schemasInfo.founding_location || ''}`
+            value: `${foundingLocation}`
         }
     ];
 
-    const isOrganization = location && address;
-
-    const altImg = !isOrganization
-        ? `${givenName} ${additionalName} ${familyName}`
-        : legalName;
+    const isOrganization = type === 2;
 
     return (
         <StaticValidation id={featureId} htmlOnly persistent>
             <article
                 className={`wiki-tags ${isOrganization && '--organization'}`}
             >
-                <ModPicture src={imageUrl} alt={altImg} sources={resizedUrls} />
+                <ModPicture
+                    src={imageUrl}
+                    alt={getAltImg(
+                        isOrganization,
+                        givenName,
+                        additionalName,
+                        familyName,
+                        legalName
+                    )}
+                    sources={resizedUrls}
+                />
                 <div className="extra-info">
                     {(isOrganization ? schemaOrganization : schemaPerson).map(
                         ({ text, value }) =>
@@ -114,25 +124,29 @@ const WikiFeature = () => {
                             Conectar:
                         </Text>
                     )}
-                    {socialNetworks.map(iconInfo => (
-                        <div className="social-icons" key={iconInfo.type}>
-                            <Icon
-                                name={iconInfo.type.toLowerCase()}
-                                href={
-                                    iconInfo.type === 'Instagram'
-                                        ? iconInfo.url.concat('/')
-                                        : iconInfo.url
-                                }
-                                title={
-                                    isOrganization
-                                        ? `Ir al ${iconInfo.type} de ${legalName}`
-                                        : `Ir al ${iconInfo.type} de ${givenName} ${familyName}`
-                                }
-                                target="_blank"
-                                rel="nofollow"
-                            />
-                        </div>
-                    ))}
+                    {socialNetworks.map(iconInfo => {
+                        const {
+                            type: iconType = '',
+                            url: iconUrl = ''
+                        } = iconInfo;
+                        return (
+                            <div className="social-icons" key={iconType}>
+                                <Icon
+                                    name={iconType.toLowerCase()}
+                                    href={getIconHref(iconType, iconUrl)}
+                                    title={getIconTitle(
+                                        isOrganization,
+                                        iconType,
+                                        legalName,
+                                        givenName,
+                                        familyName
+                                    )}
+                                    target="_blank"
+                                    rel="nofollow"
+                                />
+                            </div>
+                        );
+                    })}
                 </div>
                 <div className="wiki-description">
                     <div
@@ -156,20 +170,32 @@ const WikiFeature = () => {
     );
 };
 
+export const getAltImg = (
+    isOrganization,
+    givenName,
+    additionalName,
+    familyName,
+    legalName
+) =>
+    !isOrganization
+        ? `${givenName} ${additionalName} ${familyName}`
+        : legalName;
+
+export const getIconTitle = (
+    isOrganization,
+    iconType,
+    legalName,
+    givenName,
+    familyName
+) =>
+    isOrganization
+        ? `Ir al ${iconType} de ${legalName}`
+        : `Ir al ${iconType} de ${givenName} ${familyName}`;
+
+export const getIconHref = (iconType, url) =>
+    iconType === 'Instagram' ? url.concat('/') : url;
+
 WikiFeature.propTypes = {
-    schemas_info: PropTypes.shape({
-        job_title: PropTypes.string,
-        address: PropTypes.string,
-        founding_date: PropTypes.string,
-        birth_place: PropTypes.string,
-        founding_location: PropTypes.string,
-        legal_name: PropTypes.string,
-        location: PropTypes.string,
-        additional_name: PropTypes.string,
-        birth_date: PropTypes.string,
-        family_name: PropTypes.string,
-        given_name: PropTypes.string
-    }),
     isWiki: PropTypes.string
 };
 
