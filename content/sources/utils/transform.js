@@ -12,18 +12,18 @@ const transform = data => {
     return {
         ...dataResp,
         image: {
-            url: createResizer(RESIZER_KEY, RESIZER_URL).resizeUrl({
-                originalUrl: data.image,
-                originalWidth: 80,
-                originalHeight: 80,
-                resizeOptions: {
+            url: createResizer(RESIZER_KEY, RESIZER_URL).resizeUrl(
+                data.image,
+                80,
+                80,
+                {
                     width: 80,
                     height: 80,
                     media: '(min-width: 320px)',
                     class: '',
                     type: 'image'
                 }
-            })
+            )
         }
     };
 };

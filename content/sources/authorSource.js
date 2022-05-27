@@ -46,12 +46,12 @@ const transform = (data, query) => {
     return {
         ...dataResp,
         image: {
-            url: createResizer(RESIZER_KEY, RESIZER_URL).resizeUrl({
-                originalUrl: data.image,
-                originalWidth: 280,
-                originalHeight: 280,
-                resizeOptions: imagePreset
-            })
+            url: createResizer(RESIZER_KEY, RESIZER_URL).resizeUrl(
+                data.image,
+                280,
+                280,
+                imagePreset
+            )
         },
         node_type: 'author'
     };

@@ -6,10 +6,10 @@ import { FOTOAL100, RECETA, STORYTELLING } from '../subtypes/subtypeHelper';
 import get from '../get';
 import { getAspectRatio } from '../../../../../content/sources/utils/getRatio';
 
-export const setHeight = ({ width, height, proportions }) => {
-    const [axisX, axisY] = proportions.split(':');
+export const setHeight = (width, proportion) => {
+    const [axisX, axisY] = proportion.split(':');
 
-    return (width / axisX) * axisY;
+    return parseInt((width / axisX) * axisY, 10);
 };
 
 const setFilter = (thumbor, [type, value]) =>
@@ -56,15 +56,15 @@ export const createResizer = (
         // eslint-disable-next-line no-eval
         typeof window === 'undefined' ? eval('require("thumbor")') : () => {};
 
-    const resizeUrl = ({
+    const resizeUrl = (
         originalUrl,
         originalWidth,
         originalHeight,
-        resizeOptions,
+        resizeOptions = {},
         focalPoint = [],
         smartCropExcluded,
         filterQuality = 80
-    }) => {
+    ) => {
         const { useFullSize, proportion, width: newWidth = 0 } = resizeOptions;
         let { height: newHeight = 0 } = resizeOptions;
 
@@ -91,8 +91,7 @@ export const createResizer = (
             smartCropExcluded
         });
 
-        proportion &&
-            (newHeight = setHeight({ newWidth, newHeight, proportion }));
+        proportion && (newHeight = setHeight(newWidth, proportion));
 
         const url = thumbor
             .setImagePath(cleanedUrl)
@@ -116,14 +115,14 @@ export const createResizer = (
         const finalPreset = presets;
         finalPreset &&
             finalPreset.forEach(opt => {
-                const resizedUrl = resizeUrl({
+                const resizedUrl = resizeUrl(
                     originalUrl,
                     originalWidth,
                     originalHeight,
                     opt,
                     focalPoint,
                     smartCropExcluded
-                });
+                );
                 resp.push({
                     resizedUrl,
                     option: opt
@@ -237,14 +236,14 @@ export const resizeArcImage = (
         ...arcImage,
         width: fp || !smartCropExcluded ? 768 : arcImage.width,
         height: fp || !smartCropExcluded ? 513 : arcImage.height,
-        url: resizer.resizeUrl({
-            originalUrl: arcImage.url,
-            originalWidth: arcImage.width,
-            originalHeight: arcImage.height,
-            resizeOptions: defaultResizeWithSmart,
-            focalPoint: fp,
+        url: resizer.resizeUrl(
+            arcImage.url,
+            arcImage.width,
+            arcImage.height,
+            defaultResizeWithSmart,
+            fp,
             smartCropExcluded
-        }),
+        ),
         resized_urls: resizer.resizeUrls(
             arcImage.url,
             arcImage.width,
