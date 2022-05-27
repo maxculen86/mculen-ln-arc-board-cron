@@ -20,7 +20,7 @@ const Barrier = ({ show, handleBarrier, type, isLogged, redirectCallback }) => {
 
     const message = isLogged ? logged : unLogged;
     const Redirect = () => {
-        window.open(buttons.link + redirectCallback, '_blank');
+        window.open(buttons.link + redirectCallback, '_self');
     };
 
     return (

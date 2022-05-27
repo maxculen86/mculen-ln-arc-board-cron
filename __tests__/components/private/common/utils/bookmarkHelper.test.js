@@ -1,4 +1,5 @@
 import 'regenerator-runtime/runtime';
+import env from '../../../../../__mocks__/fusion:environment';
 import toggleBookmark, {
     getBookmarkContent
 } from '../../../../../components/private/common/utils/bookmarkHelper';
@@ -11,13 +12,6 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
         const bookmarkId = 'd08588de-88ef-48ca-8254-ee46860f25ee';
         const setToast = jest.fn();
         const setBookmark = jest.fn();
-
-        // global.fetch = jest.fn();
-        // fetch
-        //     .mockImplementationOnce(() => Promise.reject('API is down'))
-        //     .mockImplementationOnce(() =>
-        //         Promise.resolve({ bookmarkId: bookmarkId })
-        //     );
 
         global.fetch = jest.fn(() =>
             Promise.resolve({

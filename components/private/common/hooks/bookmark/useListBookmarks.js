@@ -1,5 +1,5 @@
+import { PERSONALIZACION_API } from 'fusion:environment';
 import { useState, useEffect, useCallback } from 'react';
-import { baseUrl } from '../../utils/bookmarkHelper';
 
 export default function useListBookmarks(termicaBookmark, token) {
     const [bookmarks, setBookmarks] = useState([]);
@@ -12,7 +12,7 @@ export default function useListBookmarks(termicaBookmark, token) {
     const getDataFromAPI = useCallback(async () => {
         try {
             const res = await fetch(
-                `${baseUrl()}/bookmarks?size=30${paginationQuery}`,
+                `${PERSONALIZACION_API}bookmarks?size=30${paginationQuery}`,
                 {
                     method: 'GET',
                     headers: {
@@ -28,7 +28,8 @@ export default function useListBookmarks(termicaBookmark, token) {
                 setMeta(metadata);
             }
         } catch (err) {
-            console.log(err);
+            // eslint-disable-next-line no-console
+            console.error(err);
         }
     }, [token, bookmarks, paginationQuery]);
 

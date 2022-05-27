@@ -1,4 +1,5 @@
 import 'regenerator-runtime/runtime';
+import env from '../../../../../__mocks__/fusion:environment';
 import React, { useState, useEffect, useCallback } from 'react';
 import useCheckBookmark from '../../../../../components/private/common/hooks/bookmark/useCheckBookmark';
 

@@ -1,12 +1,7 @@
-import { API_ENV } from 'fusion:environment';
+import { PERSONALIZACION_API } from 'fusion:environment';
 import get from './get';
 import { getAutorId, getTagId } from './getElementId';
 import dateAndTimeUtil from './dateAndTimeUtil';
-
-export const baseUrl = () =>
-    `https://${
-        API_ENV === 'sandbox' ? 'qa-' : ''
-    }api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion`;
 
 export default function toggleBookmark(
     token,
@@ -24,7 +19,7 @@ export default function toggleBookmark(
             ''
         );
 
-        const createBookmarkBody = isDelete
+        const bookmarkRequestBody = isDelete
             ? {}
             : {
                   bookmarkParent: noteId,
@@ -38,13 +33,13 @@ export default function toggleBookmark(
 
         try {
             const res = await fetch(
-                `${baseUrl()}/bookmarks${fetchBookmarkPath}`,
+                `${PERSONALIZACION_API}bookmarks${fetchBookmarkPath}`,
                 {
                     method: isDelete ? 'DELETE' : 'POST',
                     headers: {
                         Authorization: token
                     },
-                    body: JSON.stringify(createBookmarkBody)
+                    body: JSON.stringify(bookmarkRequestBody)
                 }
             );
             if (res.status === 200) {
@@ -79,7 +74,8 @@ export default function toggleBookmark(
                 });
             }
         } catch (err) {
-            console.log(err);
+            // eslint-disable-next-line no-console
+            console.error(err);
 
             setToast({
                 status: 'danger',
