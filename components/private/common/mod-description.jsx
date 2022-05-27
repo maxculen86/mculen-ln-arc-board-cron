@@ -64,10 +64,14 @@ const ModDescription = props => {
                     <>
                         {dataAuthors &&
                             dataAuthors.map(({ image, name = '' }) => {
-                                return !image ? (
-                                    <ComPicture href={image} />
+                                return !image || dataAuthors.length > 1 ? (
+                                    <></>
                                 ) : (
-                                    <ComImage src={image} alt={name} />
+                                    <ComImage
+                                        classCondition="--author"
+                                        src={image}
+                                        alt={name}
+                                    />
                                 );
                             })}
                         <Text

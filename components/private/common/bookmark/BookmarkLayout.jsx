@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Text from '../text';
 import ComButton from '../com-button';
@@ -7,6 +7,10 @@ import HelperBookmark from './HelperBookmark';
 import '../../../../resources/dist/css/ln/components/bookmark.css';
 
 const BookmarkLayout = ({ data }) => {
+    const [showHelper, setShowHelper] = useState(false);
+    const handleHelper = () => {
+        setShowHelper(!showHelper);
+    };
     return (
         <div className="bookmark-layout">
             <div className="bookmark-header">
@@ -21,12 +25,13 @@ const BookmarkLayout = ({ data }) => {
                     iconName="lamp"
                     size="--fivexs"
                     weight="bold"
+                    onClick={handleHelper}
                 >
                     AYUDA
                 </ComButton>
             </div>
             <BookmarkList data={data} />
-            <HelperBookmark />
+            <HelperBookmark show={showHelper} handleHelper={handleHelper} />
         </div>
     );
 };

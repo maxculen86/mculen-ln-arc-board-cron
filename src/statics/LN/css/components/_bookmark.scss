@@ -8,7 +8,7 @@
         .help {
             background: $light-neutral-200;
             border-radius: px(4);
-            padding: px(12) px(16);
+            padding: px(12) $spacing-sm;
             .icon-lamp {
                 width: px(10);
                 height: px(14);
@@ -21,7 +21,7 @@
         padding: px(144) 0px;
         text-align: center;
         .placeholder-bookmark {
-            margin-bottom: px(32);
+            margin-bottom: $spacing-lg;
         }
         .com-text {
             margin-bottom: $spacing-xs;
@@ -39,15 +39,23 @@
     .helper-bookmark {
         position: relative;
         @include flex(flex, column);
-        width: 100vw;
         height: 100vh;
         background-color: $light-neutral-50;
         padding: $spacing-md;
         padding-bottom: $spacing-lg;
         max-width: px(576);
         overflow-y: scroll;
-        @media ($media-m) {
+        animation: fadeInAnimation 0.2s;
+
+        @keyframes fadeInAnimation {
+            0% {
+                right: -100vw;
+            }
+            100% {
+                right: 0;
+            }
         }
+
         .helper-header {
             @include flex(flex, column);
             width: 100%;
@@ -70,7 +78,12 @@
             p {
                 margin-bottom: $spacing-md;
             }
-            .list-content {
+            .accordion-content {
+                .com-icon {
+                    display: inline-flex;
+                    width: px(15);
+                    height: px(15);
+                }
                 :last-child {
                     margin-bottom: 0;
                 }
@@ -88,18 +101,35 @@
             }
         }
     }
+
+    .placeholder-bookmark {
+        @include flex(flex, row, center, center);
+        img {
+            width: px(288);
+        }
+    }
     .bookmark-list {
         padding: $spacing-lg 0;
         .item {
             position: relative;
             display: flex;
-            border-bottom: px(1) solid $light-neutral-300;
-            margin-bottom: px(16);
+            margin-bottom: $spacing-sm;
+        }
+        .mod-article {
+            @include flex(flex, row);
+            padding-bottom: $spacing-sm;
+            margin-bottom: $spacing-sm;
+            &:not(:last-child) {
+                border-bottom: px(1) solid $light-neutral-300;
+            }
+            &:last-child {
+                margin-bottom: $spacing-lg;
+            }
             .com-button {
                 background-color: $blue-500;
                 padding: px(10);
-                width: px(32);
-                height: px(32);
+                width: $spacing-lg;
+                height: $spacing-lg;
                 .icon-bookmark {
                     width: px(10.67);
                     height: px(13.76);
@@ -108,10 +138,6 @@
                     }
                 }
             }
-        }
-        .mod-article {
-            @include flex(flex, row);
-            margin-bottom: px(16);
             .com-title {
                 font-weight: 400;
                 @media ($media-m) {
@@ -152,7 +178,21 @@
                 .com-date {
                     order: -1;
                 }
+                .--author {
+                    border-radius: 50%;
+                    width: $spacing-md;
+                    height: $spacing-md;
+                    margin-right: $spacing;
+                }
+                .mod-marquee {
+                    margin-bottom: 0;
+                    align-items: center;
+                }
             }
         }
+    }
+    .--loader {
+        display: flex;
+        justify-content: center;
     }
 }
