@@ -6,7 +6,7 @@ import { FOTOAL100, RECETA, STORYTELLING } from '../subtypes/subtypeHelper';
 import get from '../get';
 import { getAspectRatio } from '../../../../../content/sources/utils/getRatio';
 
-const setHeight = (width, height, proportions) => {
+export const setHeight = ({ width, height, proportions }) => {
     const [axisX, axisY] = proportions.split(':');
 
     return (width / axisX) * axisY;
@@ -15,9 +15,10 @@ const setHeight = (width, height, proportions) => {
 const setFilter = (thumbor, [type, value]) =>
     thumbor.filter(`${type}(${value})`);
 
-const setStrFocal = (x, y) => `${x - 5}x${y + 5}:${x + 5}x${y - 5}`;
+export const setStrFocal = (x = 5, y = 5) =>
+    `${x - 5}x${y + 5}:${x + 5}x${y - 5}`;
 
-const setCropMethod = ({
+export const setCropMethod = ({
     thumbor,
     resizeOptions,
     originalWidth,
@@ -55,7 +56,7 @@ export const createResizer = (
         // eslint-disable-next-line no-eval
         typeof window === 'undefined' ? eval('require("thumbor")') : () => {};
 
-    const resizeUrl = (
+    const resizeUrl = ({
         originalUrl,
         originalWidth,
         originalHeight,
@@ -63,7 +64,7 @@ export const createResizer = (
         focalPoint = [],
         smartCropExcluded,
         filterQuality = 80
-    ) => {
+    }) => {
         const { useFullSize, proportion, width: newWidth = 0 } = resizeOptions;
         let { height: newHeight = 0 } = resizeOptions;
 
@@ -90,7 +91,8 @@ export const createResizer = (
             smartCropExcluded
         });
 
-        proportion && (newHeight = setHeight(newWidth, newHeight, proportion));
+        proportion &&
+            (newHeight = setHeight({ newWidth, newHeight, proportion }));
 
         const url = thumbor
             .setImagePath(cleanedUrl)
@@ -114,14 +116,14 @@ export const createResizer = (
         const finalPreset = presets;
         finalPreset &&
             finalPreset.forEach(opt => {
-                const resizedUrl = resizeUrl(
+                const resizedUrl = resizeUrl({
                     originalUrl,
                     originalWidth,
                     originalHeight,
                     opt,
                     focalPoint,
                     smartCropExcluded
-                );
+                });
                 resp.push({
                     resizedUrl,
                     option: opt
@@ -235,14 +237,14 @@ export const resizeArcImage = (
         ...arcImage,
         width: fp || !smartCropExcluded ? 768 : arcImage.width,
         height: fp || !smartCropExcluded ? 513 : arcImage.height,
-        url: resizer.resizeUrl(
-            arcImage.url,
-            arcImage.width,
-            arcImage.height,
-            defaultResizeWithSmart,
-            fp,
+        url: resizer.resizeUrl({
+            originalUrl: arcImage.url,
+            originalWidth: arcImage.width,
+            originalHeight: arcImage.height,
+            resizeOptions: defaultResizeWithSmart,
+            focalPoint: fp,
             smartCropExcluded
-        ),
+        }),
         resized_urls: resizer.resizeUrls(
             arcImage.url,
             arcImage.width,
