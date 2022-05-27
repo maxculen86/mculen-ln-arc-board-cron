@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import '../../../../resources/dist/css/ln/components/sticky-mobile.css';
 import Text from '../../common/text';
@@ -13,13 +13,16 @@ const StickyMobile = ({
     urlImg,
     urlArticle
 }) => {
+    const [displaySticky, setDisplaySticky] = useState(true);
     return (
-        <section className="sticky-mobile">
+        <section className={`sticky-mobile ${!displaySticky && 'no-display'}`}>
             <div className="header-sticky">
                 <Text font="arial" size="2xs" weight="bold" tag="p">
                     {headerText}
                 </Text>
-                <Icon name="close" size="--xs" />
+                <div onClick={() => setDisplaySticky(false)} aria-hidden="true">
+                    <Icon name="close" size="--xs" />
+                </div>
             </div>
             <ComLink link={urlArticle} title={titleArticle}>
                 <Image
