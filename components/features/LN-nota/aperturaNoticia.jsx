@@ -14,11 +14,14 @@ import {
     getEpigrafe
 } from '../../private/LN/common/utils/mediaHelper';
 import { getViewport } from '../../private/LN/common/utils/homeHelper';
+import replaceUrlResizerToWWW from '../../../content/sources/utils/replaceUrlResizerToWWW';
+import get from '../../private/common/utils/get';
 
-const aperturaNoticia = props => {
+const AperturaNoticia = props => {
     const { globalContent, outputType, id: idFeature } = props;
     const { promo_items: promoItems = {}, subtype } = globalContent || {};
-    const { basic, apertura_multimedia: aperturaMultimedia } = promoItems;
+    const { apertura_multimedia: aperturaMultimedia } = promoItems;
+    const basic = replaceUrlResizerToWWW(get(promoItems, 'basic', {}));
     const { _id: idMedia, content, type: _type } =
         aperturaMultimedia || basic || {};
     const { isDesktop } = getViewport();
@@ -75,9 +78,9 @@ const aperturaNoticia = props => {
     );
 };
 
-aperturaNoticia.label = 'LN-Nota-AperturaNoticia';
+AperturaNoticia.label = 'LN-Nota-AperturaNoticia';
 
-aperturaNoticia.propTypes = {
+AperturaNoticia.propTypes = {
     id: PropTypes.string,
     outputType: PropTypes.string,
     globalContent: PropTypes.shape({
@@ -93,8 +96,8 @@ aperturaNoticia.propTypes = {
     isApertura: PropTypes.bool
 };
 
-aperturaNoticia.defaultProps = {
+AperturaNoticia.defaultProps = {
     isApertura: true
 };
 
-export default Consumer(aperturaNoticia);
+export default Consumer(AperturaNoticia);

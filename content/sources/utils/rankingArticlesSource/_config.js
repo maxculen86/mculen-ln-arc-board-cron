@@ -7,6 +7,10 @@ export default {
         endpoint: '/home',
         type: DEFAULT_SECTION
     },
+    'inverse-home': {
+        endpoint: '/inverse-home',
+        type: DEFAULT_SECTION
+    },
     'buenos-aires': {
         name: 'Buenos Aires',
         type: HOT_SECTION
