@@ -52,7 +52,6 @@ describe('Private - Common - Hooks - Bookmark - useListBookmarks', () => {
         const data = useListBookmarks(termicaBookmark, token);
         const { bookmarks, morePages, getNextPage } = data || {};
         expect(data).toBeDefined();
-        // expect(bookmarks).toBe([]);
         expect(fetch).toBeCalledWith(
             `https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/bookmarks?size=30`,
             {

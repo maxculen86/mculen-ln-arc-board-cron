@@ -31,19 +31,9 @@ export default function toggleBookmark(
 
         setToast({});
 
-        try {
-            const res = await fetch(
-                `${PERSONALIZACION_API}bookmarks${fetchBookmarkPath}`,
-                {
-                    method: isDelete ? 'DELETE' : 'POST',
-                    headers: {
-                        Authorization: token
-                    },
-                    body: JSON.stringify(bookmarkRequestBody)
-                }
-            );
-            if (res.status === 200) {
-                const datos = await res.json();
+        const statusActions = {
+            200: async response => {
+                const datos = await response.json();
                 const { bookmarkId: id } = datos;
                 setBookmark(isDelete ? false : id);
                 setToast(
@@ -61,7 +51,8 @@ export default function toggleBookmark(
                               timeout: 2750
                           }
                 );
-            } else if (res.status === 409) {
+            },
+            409: () => {
                 setToast({
                     status: 'warning',
                     description:
@@ -72,18 +63,37 @@ export default function toggleBookmark(
                     },
                     timeout: 2750
                 });
+            },
+            default: () => {
+                setToast({
+                    status: 'danger',
+                    description: 'Parece que hubo un problema',
+                    buttonLabel: 'Reintentar',
+                    buttonAction: getDataFromAPI,
+                    timeout: 2750
+                });
             }
+        };
+
+        try {
+            const res = await fetch(
+                `${PERSONALIZACION_API}bookmarks${fetchBookmarkPath}`,
+                {
+                    method: isDelete ? 'DELETE' : 'POST',
+                    headers: {
+                        Authorization: token
+                    },
+                    body: JSON.stringify(bookmarkRequestBody)
+                }
+            );
+            statusActions[res.status]
+                ? statusActions[res.status](res)
+                : statusActions.default();
         } catch (err) {
             // eslint-disable-next-line no-console
             console.error(err);
 
-            setToast({
-                status: 'danger',
-                description: 'Parece que hubo un problema',
-                buttonLabel: 'Reintentar',
-                buttonAction: getDataFromAPI,
-                timeout: 2750
-            });
+            statusActions.default();
         }
     };
 
@@ -127,7 +137,7 @@ export function getBookmarkContent(globalContent) {
     }));
 
     const enviarApps =
-        get(globalContent, 'label.enviar_a_apps.text', 'No') === 'Si' || false;
+        get(globalContent, 'label.enviar_a_apps.text', 'No') === 'Si';
 
     const imageApertura = get(globalContent, 'promo_items.basic', {});
     const {

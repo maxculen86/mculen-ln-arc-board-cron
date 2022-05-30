@@ -62,4 +62,40 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
             );
         });
     });
+    describe('getBookmarkContent', () => {
+        it('Should return note data according to personalizacion api structure', () => {
+            const dataForApi = getBookmarkContent(notaExample);
+            expect(dataForApi).toBeDefined();
+            const {
+                id,
+                templateId,
+                url,
+                categoria,
+                tags,
+                titulo,
+                bajada,
+                autores,
+                enviarApps,
+                fechaActualizacion,
+                fecha,
+                imagen
+            } = dataForApi;
+            expect(id).toBe(notaExample._id);
+            expect(templateId).toBe(notaExample.subtype);
+            expect(url).toBe(notaExample.canonical_url);
+            expect(categoria.slug).toBe(
+                notaExample.taxonomy.primary_section._id
+            );
+            expect(categoria.valor).toBe(
+                notaExample.taxonomy.primary_section.name
+            );
+            expect(tags).toHaveLength(4);
+            expect(titulo).toBe(notaExample.headlines.mobile);
+            expect(bajada).toBe(notaExample.subheadlines.basic);
+            expect(autores).toHaveLength(2);
+            expect(enviarApps).toBe(true);
+            expect(fecha).toBe('12 de mayo de 2020 • 08:24');
+            expect(fechaActualizacion).toBe('10 de noviembre de 2021 • 07:44');
+        });
+    });
 });

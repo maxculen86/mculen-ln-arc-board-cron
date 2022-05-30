@@ -10,7 +10,7 @@ import get from '../utils/get';
 import '../../../../resources/dist/css/ln/components/barrier.css';
 import CONFIG from './_config';
 
-const Barrier = ({ show, handleBarrier, type, isLogged, redirectCallback }) => {
+const Barrier = ({ handleBarrier, type, isLogged, redirectCallback }) => {
     const classType = get(CONFIG, `${type}.className`, '');
     const buttons = get(CONFIG, `${type}.buttons`, '');
     const title = get(CONFIG, `${type}.title`, '');
@@ -23,94 +23,88 @@ const Barrier = ({ show, handleBarrier, type, isLogged, redirectCallback }) => {
         window.open(buttons.link + redirectCallback, '_self');
     };
 
+    if (!handleBarrier && !type) return null;
+
     return (
-        <>
-            {show && (
-                <ModalBody>
-                    <div className={`barrier ${classType}`}>
-                        <ComButton
-                            onClick={handleBarrier}
-                            iconName="close"
-                            title="Cerrar"
+        <ModalBody>
+            <div className={`barrier ${classType}`}>
+                <ComButton
+                    onClick={handleBarrier}
+                    iconName="close"
+                    title="Cerrar"
+                />
+                {
+                    {
+                        'delete-note': (
+                            <div className="icon-container">
+                                <Icon name="alert" />
+                            </div>
+                        ),
+                        'exclusive-ln': (
+                            <Badge
+                                type="exclusive-ln"
+                                className="--large --dark"
+                            />
+                        )
+                    }[type]
+                }
+                <div className="description">
+                    {title && (
+                        <span
+                            className="com-text --sueca --m"
+                            // eslint-disable-next-line react/no-danger
+                            dangerouslySetInnerHTML={{ __html: title }}
                         />
-                        {
-                            {
-                                'delete-note': (
-                                    <div className="icon-container">
-                                        <Icon name="alert" />
-                                    </div>
-                                ),
-                                'exclusive-ln': (
-                                    <Badge
-                                        type="exclusive-ln"
-                                        className="--large --dark"
-                                    />
-                                )
-                            }[type]
-                        }
-                        <div className="description">
-                            {title && (
-                                <span
-                                    className="com-text --sueca --m"
-                                    // eslint-disable-next-line react/no-danger
-                                    dangerouslySetInnerHTML={{ __html: title }}
-                                />
-                            )}
-                            {subTitle && <Text size="2xs">{subTitle}</Text>}
-                        </div>
-                        <div className="interaction-container">
-                            {type === 'delete-note' && (
-                                <>
-                                    <ComButton
-                                        onClick={handleBarrier}
-                                        textname={buttons.cancel.label}
-                                        size="5xs"
-                                        classCondition={buttons.cancel.style}
-                                    />
-                                    <ComButton
-                                        textname={buttons.confirm.label}
-                                        size="5xs"
-                                        classCondition={buttons.confirm.style}
-                                    />
-                                </>
-                            )}
-                            {type === 'exclusive-ln' && (
-                                <>
-                                    <ComButton
-                                        onClick={Redirect}
-                                        textname={buttons.label}
-                                        size="5xs"
-                                        classCondition={buttons.style}
-                                    />
-                                    <Text size="2xs" weight="bold">
-                                        {message.text}
-                                    </Text>
-                                    <Link
-                                        size="--twoxs --font-bold"
-                                        href={message.href + redirectCallback}
-                                    >
-                                        {[message.textLink]}
-                                    </Link>
-                                </>
-                            )}
-                        </div>
-                    </div>
-                </ModalBody>
-            )}
-        </>
+                    )}
+                    {subTitle && <Text size="2xs">{subTitle}</Text>}
+                </div>
+                <div className="interaction-container">
+                    {type === 'delete-note' && (
+                        <>
+                            <ComButton
+                                onClick={handleBarrier}
+                                textname={buttons.cancel.label}
+                                size="5xs"
+                                classCondition={buttons.cancel.style}
+                            />
+                            <ComButton
+                                textname={buttons.confirm.label}
+                                size="5xs"
+                                classCondition={buttons.confirm.style}
+                            />
+                        </>
+                    )}
+                    {type === 'exclusive-ln' && (
+                        <>
+                            <ComButton
+                                onClick={Redirect}
+                                textname={buttons.label}
+                                size="5xs"
+                                classCondition={buttons.style}
+                            />
+                            <Text size="2xs" weight="bold">
+                                {message.text}
+                            </Text>
+                            <Link
+                                size="--twoxs --font-bold"
+                                href={message.href + redirectCallback}
+                            >
+                                {[message.textLink]}
+                            </Link>
+                        </>
+                    )}
+                </div>
+            </div>
+        </ModalBody>
     );
 };
 Barrier.propTypes = {
-    show: PropTypes.bool,
-    handleBarrier: PropTypes.func,
-    type: PropTypes.oneOf(['delete-note', 'exclusive-ln']),
+    handleBarrier: PropTypes.func.isRequired,
+    type: PropTypes.oneOf(['delete-note', 'exclusive-ln']).isRequired,
     isLogged: PropTypes.bool,
     redirectCallback: PropTypes.string
 };
 Barrier.defaultProps = {
-    show: false,
-    handleBarrier: () => {},
-    type: 'exclusive-ln',
     isLogged: false,
     redirectCallback: ''
 };
