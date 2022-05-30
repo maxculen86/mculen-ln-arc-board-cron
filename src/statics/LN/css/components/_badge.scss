@@ -55,5 +55,34 @@
             height: px(20);
             margin-right: px(4);
         }
+        &.--large {
+            padding: px(8) px(12) px(8) px(10);
+            border-radius: px(48);
+            margin-bottom: $spacing-md;
+            .com-icon {
+                width: px(28);
+                height: px(28);
+                background: $light-neutral-700;
+                svg {
+                    width: 28px;
+                    height: 28px;
+                    path {
+                        fill: $orange-400;
+                    }
+                }
+            }
+            span {
+                margin: 0 px(8);
+                font-size: px(16);
+                line-height: px(24);
+            }
+            &.--dark {
+                border: 1px solid $dark-neutral-300;
+                background: $light-neutral-700;
+                span {
+                    color: $neutral-white;
+                }
+            }
+        }
     }
 }

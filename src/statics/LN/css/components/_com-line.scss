@@ -6,7 +6,10 @@
     background: $light-neutral-400;
 
     .mod-share & {
-        display: none;
+        width: px(1);
+        height: px(40);
+        margin: 0 $spacing-sm;
+        background: $light-neutral-300;
     }
 
     &::after {
@@ -22,13 +25,10 @@
             margin-bottom: $spacing-md;
         }
     }
-}
-@media ($media-l) {
-    .com-line {
+
+    @media ($media-l) {
         .mod-share & {
-            display: flex;
-            background: $neutral-black;
-            margin-bottom: $spacing-sm;
+            transform: rotate(90deg);
         }
     }
 }
