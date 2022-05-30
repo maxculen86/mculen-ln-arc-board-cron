@@ -53,6 +53,7 @@ const CTRNota = () => {
             <StickyMobile
                 headerText="Te puede interesar"
                 urlImg={articleToShow.promo_items.basic.url}
+                resizedUrls={articleToShow.promo_items.basic.resized_urls}
                 urlArticle={articleToShow.website_url}
                 titleArticle={articleToShow.headlines.mobile}
             />
