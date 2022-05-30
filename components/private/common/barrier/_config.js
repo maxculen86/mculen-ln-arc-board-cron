@@ -27,7 +27,7 @@ const CONFIG = {
         },
         unLogged: {
             text: '¿Ya sos suscriptor?',
-            textLink: 'Iniciar Sesion',
+            textLink: 'Iniciar sesión',
             href: LOGIN_URL
         },
         logged: {

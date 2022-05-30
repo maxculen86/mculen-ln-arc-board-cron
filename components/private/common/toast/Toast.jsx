@@ -52,7 +52,7 @@ const Toast = ({ data, handleTimeout }) => {
                         </Text>
                         {description && (
                             <span
-                                className="--twoxs"
+                                className="description --twoxs"
                                 // eslint-disable-next-line react/no-danger
                                 dangerouslySetInnerHTML={{
                                     __html: description

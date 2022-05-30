@@ -1,122 +1,122 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 .mod-share {
-    @include flex(flex, row, center, center);
-    z-index: 100;
-    padding: 0 $spacing-sm;
-    width: calc(100% + 2rem);
-    margin-left: px(-16);
-    margin-right: auto;
-    margin-bottom: $spacing-lg;
-    .container {
+    display: flex;
+    justify-content: center;
+    .share {
         @include flex(flex, row, center, center);
+        z-index: 100;
+        padding: 0 $spacing-sm;
+        width: calc(100% + 2rem);
+        margin-left: px(-16);
+        margin-right: auto;
+        margin-bottom: $spacing-lg;
+        .container {
+            @include flex(flex, row, center, center);
+            .bookmark {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: $light-neutral-300;
+                border-radius: px(4);
+                width: px(40);
+                height: px(40);
+                padding: px(5.5);
 
-        .bookmark {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: $light-neutral-300;
-            border-radius: px(4);
-            width: px(40);
-            height: px(40);
-            padding: px(5.5);
-
-            &.--is-saved {
-                background-color: $blue-500;
-                .com-icon svg path {
-                    fill: $light-neutral-50;
+                &.--is-saved {
+                    background-color: $blue-500;
+                    .com-icon svg path {
+                        fill: $light-neutral-50;
+                    }
                 }
             }
-        }
-        .com-button {
-            padding: 0;
-            margin-right: $spacing-md;
-            &:last-child {
-                margin-right: 0;
+            .com-button {
+                padding: 0;
+                margin-right: $spacing-md;
+                &:last-child {
+                    margin-right: 0;
+                }
+                @media ($media-l) {
+                    margin-right: 0;
+                }
             }
-            @media ($media-l) {
-                margin-right: 0;
+            .com-text {
+                order: 2;
+                color: $ln;
             }
-        }
-        .com-text {
-            order: 2;
-            color: $ln;
-        }
-
-        .comment-btn {
-            display: flex;
-            align-items: center;
-            background-color: $light-neutral-300;
-            border-radius: px(4);
-            margin: 0 px(8);
-            width: fit-content;
-            height: px(40);
-            padding: px(10);
-            margin: 0;
-        }
-    }
-    .--photo100 & {
-        padding: 0 px(32);
-    }
-
-    amp-social-share {
-        &[type='facebook'],
-        &[type='twitter'],
-        &[type='whatsapp'],
-        &[type='email'] {
-            background: none;
-            @include flex(flex, row, center, center);
-            margin-right: $spacing-sm;
-            padding: px(4);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-
-            @media ($media-l) {
-                margin-bottom: $spacing-sm;
-                margin-right: 0;
-            }
-        }
-
-        &[type='email'] {
-            margin-right: 0;
-        }
-    }
-}
-
-@media ($media-l) {
-    .mod-share {
-        flex-direction: column;
-        padding: px(8);
-        position: sticky;
-        top: px(16);
-        transition: all 0.25s;
-        float: left;
-        border-radius: px(4);
-        width: fit-content;
-        background-color: $light-neutral-50;
-        box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.04);
-
-        .container {
-            flex-direction: column;
 
             .comment-btn {
-                width: px(40);
-                height: fit-content;
-                flex-direction: column;
+                display: flex;
+                align-items: center;
+                background-color: $light-neutral-300;
+                border-radius: px(4);
+                margin: 0 px(8);
+                width: fit-content;
+                height: px(40);
+                padding: px(10);
+                margin: 0;
             }
         }
-
         .--photo100 & {
-            padding: px(4);
+            padding: 0 px(32);
         }
 
-        .--scrollDown & {
-            top: (px(16) + $header-desktop);
-        }
+        amp-social-share {
+            &[type='facebook'],
+            &[type='twitter'],
+            &[type='whatsapp'],
+            &[type='email'] {
+                background: none;
+                @include flex(flex, row, center, center);
+                margin-right: $spacing-sm;
+                padding: px(4);
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
 
-        &:not(.--active) {
-            .--scrollUp & {
+                @media ($media-l) {
+                    margin-bottom: $spacing-sm;
+                    margin-right: 0;
+                }
+            }
+
+            &[type='email'] {
+                margin-right: 0;
+            }
+        }
+    }
+    @media ($media-l) {
+        .share {
+            flex-direction: column;
+            padding: px(8);
+            position: sticky;
+            top: px(16);
+            transition: all 0.25s;
+            float: left;
+            border-radius: px(4);
+            width: fit-content;
+            background-color: $light-neutral-50;
+            box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.04);
+            .container {
+                flex-direction: column;
+                .comment-btn {
+                    width: px(40);
+                    height: fit-content;
+                    flex-direction: column;
+                }
+            }
+
+            .--photo100 & {
+                padding: px(4);
+            }
+
+            .--scrollDown & {
                 top: (px(16) + $header-desktop);
+            }
+
+            &:not(.--active) {
+                .--scrollUp & {
+                    top: (px(16) + $header-desktop);
+                }
             }
         }
     }

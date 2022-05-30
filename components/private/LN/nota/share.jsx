@@ -114,136 +114,143 @@ const Share = props => {
                     }
                 />
             )}
-
-            <AmpContainer isForAmp={false}>
-                <div className="container --left">
-                    {termicaBookmark && (
-                        <ComButton
-                            id="btnbookmark"
-                            dataEvent="LinkClick"
-                            dataSection="Guardar Nota"
-                            onClick={onButtonClicked}
-                            size="--fourxs"
-                            iconName={bookmark ? 'bookmark-filled' : 'bookmark'}
-                            title="Notas guardadas"
-                            classCondition={`bookmark ${
-                                bookmark ? '--is-saved' : ''
-                            }`}
-                        />
-                    )}
-
-                    {displayComments && (
-                        <>
+            <div className="share">
+                <AmpContainer isForAmp={false}>
+                    <div className="container --left">
+                        {termicaBookmark && (
                             <ComButton
-                                id="btncomments"
+                                id="btnbookmark"
                                 dataEvent="LinkClick"
-                                dataSection="CompartirNotaLN"
-                                onClick={() => scrollToComments()}
-                                size="--fivexs"
-                                iconName="chat"
-                                title="Ir a los comentarios de la nota"
-                                classCondition="comment-btn"
-                                textname={`${totalVisibleContent}`}
+                                dataSection="Guardar Nota"
+                                onClick={onButtonClicked}
+                                size="--fourxs"
+                                iconName={
+                                    bookmark ? 'bookmark-filled' : 'bookmark'
+                                }
+                                title="Notas guardadas"
+                                classCondition={`bookmark ${
+                                    bookmark ? '--is-saved' : ''
+                                }`}
                             />
-                        </>
-                    )}
-                </div>
+                        )}
 
-                <ComLine />
+                        {displayComments && (
+                            <>
+                                <ComButton
+                                    id="btncomments"
+                                    dataEvent="LinkClick"
+                                    dataSection="CompartirNotaLN"
+                                    onClick={() => scrollToComments()}
+                                    size="--fivexs"
+                                    iconName="chat"
+                                    title="Ir a los comentarios de la nota"
+                                    classCondition="comment-btn"
+                                    textname={`${totalVisibleContent}`}
+                                />
+                            </>
+                        )}
+                    </div>
 
-                <div className="container --right">
-                    <ComButton
-                        dataEvent="LinkClick"
-                        dataSection="CompartirNotaLN"
-                        iconName="whatsapp"
-                        title="Compartir la nota en WhatsApp"
-                        id="whatsAppShareDesktop"
-                        onClick={() =>
-                            shareWhatsAppDesktop(requestUri, config.host)
-                        }
-                    />
-                    {/* Boton para copiar Link de la nota a compartir */}
-                    <ComButton
-                        dataEvent="LinkClick"
-                        dataSection="CompartirNotaLN"
-                        iconName="copy"
-                        title="Copiar link de la nota"
-                        id="copyLinkNote"
-                        onClick={() => copyToClipboard()}
-                    />
-                    <ComButton
-                        id="btnfacebook"
-                        dataEvent="LinkClick"
-                        dataSection="CompartirNotaLN"
-                        iconName="facebook"
-                        title="Compartir la nota en Facebook"
-                        onClick={() =>
-                            popUpCompartirNotaFB(requestUri, config.host, title)
-                        }
-                    />
-                    <ComButton
-                        id="btntwitter"
-                        dataEvent="LinkClick"
-                        dataSection="CompartirNotaLN"
-                        iconName="twitter"
-                        title="Compartir la nota en Twitter"
-                        onClick={() =>
-                            popUpCompartirNotaTW(
-                                requestUri,
-                                config.host,
-                                twiterTitle
-                            )
-                        }
-                    />
-                    <ComButton
-                        id="btnemail"
-                        dataEvent="LinkClick"
-                        dataSection="CompartirNotaLN"
-                        iconName="email"
-                        title="Compartir la nota por E-mail"
-                        onClick={() =>
-                            popUpCompartirMailTo(requestUri, config.host)
-                        }
-                    />
-                </div>
-            </AmpContainer>
+                    <ComLine />
 
-            <AmpContainer isForAmp>
-                <div className="container --left">
-                    <amp-social-share
-                        style={mystyle}
-                        type="facebook"
-                        data-param-app_id={facebookId}
-                    >
-                        <Icon name="facebook-filled" />
-                    </amp-social-share>
+                    <div className="container --right">
+                        <ComButton
+                            dataEvent="LinkClick"
+                            dataSection="CompartirNotaLN"
+                            iconName="whatsapp"
+                            title="Compartir la nota en WhatsApp"
+                            id="whatsAppShareDesktop"
+                            onClick={() =>
+                                shareWhatsAppDesktop(requestUri, config.host)
+                            }
+                        />
+                        {/* Boton para copiar Link de la nota a compartir */}
+                        <ComButton
+                            dataEvent="LinkClick"
+                            dataSection="CompartirNotaLN"
+                            iconName="copy"
+                            title="Copiar link de la nota"
+                            id="copyLinkNote"
+                            onClick={() => copyToClipboard()}
+                        />
+                        <ComButton
+                            id="btnfacebook"
+                            dataEvent="LinkClick"
+                            dataSection="CompartirNotaLN"
+                            iconName="facebook"
+                            title="Compartir la nota en Facebook"
+                            onClick={() =>
+                                popUpCompartirNotaFB(
+                                    requestUri,
+                                    config.host,
+                                    title
+                                )
+                            }
+                        />
+                        <ComButton
+                            id="btntwitter"
+                            dataEvent="LinkClick"
+                            dataSection="CompartirNotaLN"
+                            iconName="twitter"
+                            title="Compartir la nota en Twitter"
+                            onClick={() =>
+                                popUpCompartirNotaTW(
+                                    requestUri,
+                                    config.host,
+                                    twiterTitle
+                                )
+                            }
+                        />
+                        <ComButton
+                            id="btnemail"
+                            dataEvent="LinkClick"
+                            dataSection="CompartirNotaLN"
+                            iconName="email"
+                            title="Compartir la nota por E-mail"
+                            onClick={() =>
+                                popUpCompartirMailTo(requestUri, config.host)
+                            }
+                        />
+                    </div>
+                </AmpContainer>
 
-                    <amp-social-share
-                        style={mystyle}
-                        type="twitter"
-                        data-param-text={title}
-                    >
-                        <Icon name="twitter-filled" />
-                    </amp-social-share>
+                <AmpContainer isForAmp>
+                    <div className="container --left">
+                        <amp-social-share
+                            style={mystyle}
+                            type="facebook"
+                            data-param-app_id={facebookId}
+                        >
+                            <Icon name="facebook-filled" />
+                        </amp-social-share>
 
-                    <amp-social-share style={mystyle} type="whatsapp">
-                        <Icon name="whatsapp-filled" />
-                    </amp-social-share>
-                </div>
+                        <amp-social-share
+                            style={mystyle}
+                            type="twitter"
+                            data-param-text={title}
+                        >
+                            <Icon name="twitter-filled" />
+                        </amp-social-share>
 
-                <ComLine />
+                        <amp-social-share style={mystyle} type="whatsapp">
+                            <Icon name="whatsapp-filled" />
+                        </amp-social-share>
+                    </div>
 
-                <div className="container --right">
-                    <amp-social-share
-                        style={mystyle}
-                        type="email"
-                        data-param-subject="Te recomiendo esta nota de LA NACION"
-                        data-param-body={`Lee esta nota de LA NACION ${config.host}${requestUri}`}
-                    >
-                        <Icon name="email" />
-                    </amp-social-share>
-                </div>
-            </AmpContainer>
+                    <ComLine />
+
+                    <div className="container --right">
+                        <amp-social-share
+                            style={mystyle}
+                            type="email"
+                            data-param-subject="Te recomiendo esta nota de LA NACION"
+                            data-param-body={`Lee esta nota de LA NACION ${config.host}${requestUri}`}
+                        >
+                            <Icon name="email" />
+                        </amp-social-share>
+                    </div>
+                </AmpContainer>
+            </div>
         </div>
     );
 };
