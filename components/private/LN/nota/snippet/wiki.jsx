@@ -48,7 +48,7 @@ const SnippetWiki = () => {
         legalName,
         foundingLocation,
         foundingDate,
-        image: image.imageUrl
+        image: image.url
     };
     return <SnippetRender data={data} />;
 };

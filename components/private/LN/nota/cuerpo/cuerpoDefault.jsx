@@ -133,7 +133,7 @@ const Cuerpo = props => {
 
         const { arcType = '' } = Component || {};
         const extraProps = {
-            image: { withZoom: '--zoom' },
+            image: { withZoom: '--zoom', insideBody: true },
             gallery: { withZoom: '--zoom' },
             video: {
                 tituloNota,
