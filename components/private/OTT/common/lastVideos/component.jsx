@@ -4,7 +4,7 @@ import Carousell from '../../../common/carousell';
 import VideoArticle from '../videoArticle';
 import Title from '../../../common/title';
 
-export default function LastVideos({ videos }) {
+export default function LastVideos({ videos = [] }) {
     const currentItem = videos.map((video, index) => {
         const title = get(video, 'headlines.basic', null);
         const imgSrc = get(video, 'promo_items.basic.url', null);

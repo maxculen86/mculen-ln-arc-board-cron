@@ -225,6 +225,7 @@
     svg,
     img {
         height: 100%;
+        max-width: px(300);
     }
     .modal & {
         margin-bottom: $spacing-sm;

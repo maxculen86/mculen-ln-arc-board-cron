@@ -6,7 +6,7 @@ const replaceUrlResizerToWWW = (originalPromoItems = {}) => {
     const replaceUrlToWWW = _url =>
         _url.replace(RESIZER_URL_PUBLIC, SITE_LANACION);
 
-    const transformUrls = _resizedUrls =>
+    const transformUrls = (_resizedUrls = []) =>
         _resizedUrls.map(item => {
             return { ...item, resizedUrl: replaceUrlToWWW(item.resizedUrl) };
         });

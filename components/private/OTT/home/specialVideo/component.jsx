@@ -2,7 +2,7 @@ import React from 'react';
 import get from 'lodash.get';
 import VideoArticle from '../../common/videoArticle';
 
-export default function SpecialVideo({ videos }) {
+export default function SpecialVideo({ videos = [] }) {
     const specialVideos = videos.map((video, index) => {
         const title = get(video, 'headlines.basic', null);
         const href = get(video, 'website_url', null);
