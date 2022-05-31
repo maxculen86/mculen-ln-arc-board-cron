@@ -42,8 +42,6 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
                     method: 'DELETE'
                 }
             );
-            expect(setToast).toBeCalledWith({});
-            // expect(setBookmark).toBeCalledWith(bookmarkId);
         });
 
         it('Should call fetch with proper endpoint, token and POST method when bookmarkId is not defined (bookmark not saved -> action create bookmark)', () => {
@@ -78,7 +76,7 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
                 enviarApps,
                 fechaActualizacion,
                 fecha,
-                imagen
+                imagen: { absoluteUrl, parametros }
             } = dataForApi;
             expect(id).toBe(notaExample._id);
             expect(templateId).toBe(notaExample.subtype);
@@ -96,6 +94,13 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
             expect(enviarApps).toBe(true);
             expect(fecha).toBe('12 de mayo de 2020 • 08:24');
             expect(fechaActualizacion).toBe('10 de noviembre de 2021 • 07:44');
+            expect(parametros.length).toBe(
+                notaExample.promo_items.basic.resized_urls.length
+            );
+
+            expect(absoluteUrl).toBe(
+                'https://resizer.glanacion.com/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TWKBIKLZYBARBFLM5BOAXGYP3I.jpg'
+            );
         });
     });
 });

@@ -1,7 +1,12 @@
 import { PERSONALIZACION_API } from 'fusion:environment';
 import { useState, useEffect, useCallback } from 'react';
 
-export default function useCheckBookmark(termicaBookmark, token, noteId) {
+export default function useCheckBookmark(
+    termicaBookmark,
+    token,
+    noteId,
+    isSuscriber
+) {
     const [data, setData] = useState(false);
 
     const getDataFromAPI = useCallback(async () => {
@@ -29,17 +34,12 @@ export default function useCheckBookmark(termicaBookmark, token, noteId) {
         }
     }, [token, noteId]);
     useEffect(() => {
-        if (
-            !token ||
-            !noteId ||
-            typeof window === 'undefined' ||
-            !termicaBookmark
-        ) {
-            setData(false);
-        } else {
+        if (token && noteId && termicaBookmark && isSuscriber) {
             getDataFromAPI();
+        } else {
+            setData(false);
         }
-    }, [token, noteId, termicaBookmark, getDataFromAPI]);
+    }, [token, noteId, termicaBookmark, getDataFromAPI, isSuscriber]);
 
     return data;
 }

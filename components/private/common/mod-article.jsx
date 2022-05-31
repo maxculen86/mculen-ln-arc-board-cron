@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import '../../../resources/dist/css/ln/modules/mod-article.css';
 import Media from '../LN/common/media';
@@ -10,6 +10,7 @@ import ModDescription from './mod-description';
 import getAuthorsPhoto from './utils/getAuthorsPhoto';
 import setArticleClassName from './utils/setArticleClassName';
 import ComButton from './com-button';
+import { GlobalContext } from './context/globalContext';
 
 const ModArticle = props => {
     const {
@@ -50,10 +51,13 @@ const ModArticle = props => {
         typeArticle
     } = props;
 
+    const { dispatch } = useContext(GlobalContext);
+
     const {
         _id,
         website_url: websiteUrl,
-        content_restrictions: contentRestrictions
+        content_restrictions: contentRestrictions,
+        bookmarkId
     } = articleData || {};
 
     const extraOpts = {};
@@ -146,7 +150,19 @@ const ModArticle = props => {
                 categoryNote={categoryNote}
             />
 
-            {isBookmark && <ComButton iconName="bookmark" />}
+            {isBookmark && (
+                <ComButton
+                    onClick={() => {
+                        dispatch({
+                            type: 'SHOW_MODAL_BARRIER',
+                            payload: {
+                                bookmarkId
+                            }
+                        });
+                    }}
+                    iconName="bookmark"
+                />
+            )}
         </article>
     );
 };

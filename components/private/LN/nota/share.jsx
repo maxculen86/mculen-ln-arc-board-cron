@@ -61,7 +61,12 @@ const Share = props => {
     const token = getToken();
     const suscription = token ? isSubscribed() : false;
 
-    const checkBookmarkId = useCheckBookmark(termicaBookmark, token, id);
+    const checkBookmarkId = useCheckBookmark(
+        termicaBookmark,
+        token,
+        id,
+        suscription
+    );
 
     const onButtonClicked = () => {
         if (token && suscription && !toast) {
@@ -75,10 +80,6 @@ const Share = props => {
         } else if (!suscription && !toast) {
             setBarrier(true);
         }
-    };
-
-    const handleBookmarkTimeout = () => {
-        setToast(false);
     };
 
     const handleCloseBarrier = () => {
@@ -98,7 +99,7 @@ const Share = props => {
     return (
         <div className={`mod-share${classCondition}`}>
             {termicaBookmark && toast.status && (
-                <Toast data={toast} handleTimeout={handleBookmarkTimeout} />
+                <Toast data={toast} handleTimeout={() => setToast(false)} />
             )}
 
             {termicaBookmark && barrier && (

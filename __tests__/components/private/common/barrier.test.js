@@ -25,7 +25,7 @@ describe('Components - Private - Common - Barrier Modal =>', () => {
 
         expect(screen.queryByText('Vincular credencial')).toBeNull();
 
-        const loginLink = screen.getByText('Iniciar Sesion');
+        const loginLink = screen.getByText('Iniciar sesión');
         expect(loginLink).toBeDefined();
 
         const subscribeButton = screen.getByRole('button', {
@@ -39,7 +39,7 @@ describe('Components - Private - Common - Barrier Modal =>', () => {
     it('Should render barrier with subscribe button and credential link when user is logged in but non subscriber', () => {
         render(<Barrier type="exclusive-ln" isLogged />);
 
-        expect(screen.queryByText('Iniciar Sesion')).toBeNull();
+        expect(screen.queryByText('Iniciar sesión')).toBeNull();
 
         const credentialLink = screen.getByText('Vincular credencial');
         expect(credentialLink).toBeDefined();

@@ -35,7 +35,7 @@ export default function toggleBookmark(
             200: async response => {
                 const datos = await response.json();
                 const { bookmarkId: id } = datos;
-                setBookmark(isDelete ? false : id);
+                setBookmark && setBookmark(isDelete ? false : id);
                 setToast(
                     isDelete
                         ? {
@@ -89,6 +89,7 @@ export default function toggleBookmark(
             statusActions[res.status]
                 ? statusActions[res.status](res)
                 : statusActions.default();
+            return res.status;
         } catch (err) {
             // eslint-disable-next-line no-console
             console.error(err);

@@ -140,5 +140,79 @@
         "updatedDate": 1652733078963,
         "bookmarkParent": "NFOE7IE6FVEBLKW2EO3LCTAA2Y",
         "bookmarkGroup": "default"
+    },
+    {
+        "bookmarkId": "f5f4c1b5-e5f9-4c8b-b33e-88815d248255",
+        "bookmarkType": "story",
+        "bookmarkTypeId": "NFOE7IE6FVEBLKW2EO3LCTA32Y",
+        "bookmarkContent": {
+            "bajada": "La moneda estadounidense cotiza a 117,76 para la compra y 124,33 para la venta; este precio informado por el Banco Nación lo ubica 82,17 porciento por debajo de la cotización del dólar blue en el mercado paralelo.",
+            "fecha": "28 de diciembre de 2021 • 14:12",
+            "categoria": {
+                "valor": "Economia",
+                "slug": "/economia"
+            },
+            "titulo": "Dolar hoy: cuál es el precio de la moneda el 23 de mayo",
+            "enviarApps": true,
+            "fechaActualizacion": "23 de mayo de 2022 • 14:12",
+            "imagen": {
+                "baseUrl": "/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5UH2M5EWTZBIJE6LCGMRZCUEW4.jpg",
+                "id": "5UH2M5EWTZBIJE6LCGMRZCUEW4",
+                "_t": "img",
+                "parametros": [
+                    {
+                        "media": 1024,
+                        "ancho": 360
+                    },
+                    {
+                        "firma": "Rv5WizN4nrGJr-3G2t9vTs0O4ww=/768x512/filters:quality(80)",
+                        "media": 768,
+                        "ancho": 768
+                    },
+                    {
+                        "firma": "lW7qG2X_dHzU9b8TF0x9bIRQlTk=/351x234/filters:quality(80)",
+                        "media": 360,
+                        "ancho": 351
+                    },
+                    {
+                        "firma": "P4T41MmV3eifqiteLXmKuJcW_mw=/360x240/filters:quality(80)",
+                        "media": 320,
+                        "ancho": 360
+                    }
+                ],
+                "absoluteUrl": ""
+            },
+            "id": "NFOE7IE6FVEBLKW2EO3LCTAA2Y",
+            "autores": [
+                {
+                    "valor": "Jose Del Rio",
+                    "imagen": "/resizer/ZcQcAq3Npl33zoVxEdDDBIJ6p4k=/80x0/filters:quality(80)/bucket.glanacion.com/anexos/fotos/99/3401499.png",
+                    "tipo": 1,
+                    "id": 5481,
+                    "slug": "jose-Del-Rio-5480"
+                },
+                {
+                    "valor": "Carlos Pagni",
+                    "imagen": "/resizer/ZcQcAq3Npl33zoVxEdDDBIJ6p4k=/80x0/filters:quality(80)/bucket.glanacion.com/anexos/fotos/99/3401499.png",
+                    "tipo": 1,
+                    "id": 5481,
+                    "slug": "carlos-pagni-5481"
+                }
+            ],
+            "templateId": "1",
+            "url": "/economia/dolar-hoy-cual-es-el-precio-de-la-moneda-el-23-de-mayo-nid23052022/",
+            "tags": [
+                {
+                    "valor": "Dolar",
+                    "slug": "mendoza-tid193",
+                    "id": 193
+                }
+            ]
+        },
+        "bookmarkState": 100,
+        "createdDate": 1652733078963,
+        "updatedDate": 1652733078963,
+        "bookmarkParent": "NFOE7IE6FVEBLKW2EO3LCTAA2Y",
+        "bookmarkGroup": "default"
     }
 ]

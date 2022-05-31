@@ -1,4 +1,6 @@
-import trasformBookmarkContent from '../../../../../../components/private/common/utils/bookmark/trasformBookmarkContent';
+import trasformBookmarkContent, {
+    getHeightOfUrl
+} from '../../../../../../components/private/common/utils/bookmark/trasformBookmarkContent';
 import responseApiBookmark from '../../../../../../__mocks__/data/bookmark/responseApiBookmark.json';
 import responseTransformBookmarkContent from '../../../../../../__mocks__/data/bookmark/responseTransformBookmarkContent.json';
 
@@ -9,7 +11,7 @@ jest.mock('fusion:environment', () => {
 });
 
 describe('Tests transformBookmarkContent', () => {
-    const result = test('Return test when data exists', () => {
+    test('Return test when data exists', () => {
         expect(trasformBookmarkContent(responseApiBookmark)).toStrictEqual(
             responseTransformBookmarkContent
         );
@@ -17,5 +19,29 @@ describe('Tests transformBookmarkContent', () => {
 
     test('Return test when data not defined', () => {
         expect(trasformBookmarkContent()).toStrictEqual([]);
+    });
+
+    test('Return test when receiving a data type other than an array', () => {
+        expect(trasformBookmarkContent({})).toStrictEqual([]);
+    });
+});
+
+describe('Tests getHeightOfUrl', () => {
+    const url =
+        'https://resizer.glanacion.com/resizer/lW7qG2X_dHzU9b8TF0x9bIRQlTk=/351x234/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5UH2M5EWTZBIJE6LCGMRZCUEW4.jpg';
+
+    test('Test con url correcta', () => {
+        expect(getHeightOfUrl(url)).toStrictEqual(234);
+    });
+
+    test('Test cuando la url no esta definida', () => {
+        expect(getHeightOfUrl()).toStrictEqual('');
+    });
+
+    test('Test cuando la url no tiene medidas', () => {
+        const url =
+            'https://resizer.glanacion.com/resizer/lW7qG2X_dHzU9b8TFbIRQlTk=/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5UH2M5EWTZBIJE6LCGMRZCUEW4.jpg';
+
+        expect(getHeightOfUrl(url)).toStrictEqual('');
     });
 });

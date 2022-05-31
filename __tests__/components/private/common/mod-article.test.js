@@ -11,6 +11,14 @@ jest.mock('fusion:context', Component => {
     };
 });
 
+jest.mock('react', () => {
+    const ActualReact = require.requireActual('react');
+    return {
+        ...ActualReact,
+        useContext: () => ({})
+    };
+});
+
 describe('Private - Common - ModArticle', () => {
     Context.useAppContext = jest.fn(() => ({
         globalContent: { subtype: '1' }

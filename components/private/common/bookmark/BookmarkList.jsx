@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import EmptyBookmark from './EmptyBookmark';
@@ -6,8 +6,11 @@ import ArticlesAcum from '../../LN/acumulado/articlesAcum';
 import LoadingIcon from '../../LN/common/loadingIcon';
 import BtnMasNotas from '../../LN/acumulado/botonVerMasNotas';
 
-const BookmarkList = ({ data = [] }) => {
-    const { siteProperties, outputType } = useAppContext();
+const BookmarkList = ({ data, morePages, getNextPage, loading }) => {
+    const { outputType } = useAppContext();
+    const [loadingMorePages, setLoadingMorePages] = useState(false);
+
+    if (loading) return <LoadingIcon />;
 
     return (
         <section className="bookmark-list">
@@ -17,22 +20,24 @@ const BookmarkList = ({ data = [] }) => {
                 <>
                     <ArticlesAcum
                         articles={data}
-                        hayMasNotas={10}
-                        globalContet={{}}
-                        siteProperties={siteProperties}
                         outputType={outputType}
                         typeArticle="Bookmark"
-                        textButton="Mas notas guardadas"
+                        classCondition={morePages && 'hlp-degrade'}
                     />
-
-                    <BtnMasNotas
-                        onClickHandler={() => {
-                            console.log('Mas notas');
-                        }}
-                        loadingIcon={<LoadingIcon />}
-                        loading={false}
-                        textButton="Mas notas guardadas"
-                    />
+                    {morePages && (
+                        <section className="row">
+                            <BtnMasNotas
+                                onClickHandler={() => {
+                                    setLoadingMorePages(!loadingMorePages);
+                                    !loadingMorePages && getNextPage();
+                                }}
+                                loadingIcon={<LoadingIcon />}
+                                loading={loadingMorePages}
+                                textButton="Mas notas guardadas"
+                                title="Mas notas"
+                            />
+                        </section>
+                    )}
                 </>
             )}
         </section>
@@ -40,10 +45,15 @@ const BookmarkList = ({ data = [] }) => {
 };
 
 BookmarkList.propTypes = {
-    data: PropTypes.shape([{}])
+    data: PropTypes.shape([{}]),
+    morePages: PropTypes.bool,
+    getNextPage: PropTypes.func.isRequired,
+    loading: PropTypes.bool
 };
 BookmarkList.defaultProps = {
-    data: []
+    data: [],
+    morePages: false,
+    loading: true
 };
 
 export default BookmarkList;

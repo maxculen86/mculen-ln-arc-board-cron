@@ -9,8 +9,18 @@ import Link from '../link';
 import get from '../utils/get';
 import '../../../../resources/dist/css/ln/components/barrier.css';
 import CONFIG from './_config';
+import toggleBookmark from '../utils/bookmarkHelper';
+import getToken from '../utils/getToken';
 
-const Barrier = ({ handleBarrier, type, isLogged, redirectCallback }) => {
+const Barrier = ({
+    handleBarrier,
+    type,
+    isLogged,
+    redirectCallback,
+    bookmarkId,
+    setToast,
+    deleteArticle
+}) => {
     const classType = get(CONFIG, `${type}.className`, '');
     const buttons = get(CONFIG, `${type}.buttons`, '');
     const title = get(CONFIG, `${type}.title`, '');
@@ -71,6 +81,20 @@ const Barrier = ({ handleBarrier, type, isLogged, redirectCallback }) => {
                                 textname={buttons.confirm.label}
                                 size="5xs"
                                 classCondition={buttons.confirm.style}
+                                onClick={() => {
+                                    toggleBookmark(
+                                        getToken(),
+                                        {},
+                                        bookmarkId,
+                                        false,
+                                        setToast
+                                    ).then(
+                                        response =>
+                                            response === 200 &&
+                                            deleteArticle(bookmarkId)
+                                    );
+                                    handleBarrier();
+                                }}
                             />
                         </>
                     )}
@@ -102,11 +126,15 @@ Barrier.propTypes = {
     handleBarrier: PropTypes.func.isRequired,
     type: PropTypes.oneOf(['delete-note', 'exclusive-ln']).isRequired,
     isLogged: PropTypes.bool,
-    redirectCallback: PropTypes.string
+    redirectCallback: PropTypes.string,
+    bookmarkId: PropTypes.string,
+    setToast: PropTypes.func.isRequired,
+    deleteArticle: PropTypes.func.isRequired
 };
 Barrier.defaultProps = {
     isLogged: false,
-    redirectCallback: ''
+    redirectCallback: '',
+    bookmarkId: ''
 };
 
 export default Barrier;

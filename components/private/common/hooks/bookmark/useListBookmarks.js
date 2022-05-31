@@ -1,10 +1,11 @@
 import { PERSONALIZACION_API } from 'fusion:environment';
 import { useState, useEffect, useCallback } from 'react';
+import trasformBookmarkContent from '../../utils/bookmark/trasformBookmarkContent';
 
-export default function useListBookmarks(termicaBookmark, token) {
+export default function useListBookmarks(termicaBookmark, token, isSuscriber) {
     const [bookmarks, setBookmarks] = useState([]);
     const [meta, setMeta] = useState(false);
-
+    const [loading, setLoading] = useState(true);
     const paginationQuery = meta
         ? `&nextKeyPK=${meta.nextKeyPK}&nextKeySK=${meta.nextKeySK}`
         : '';
@@ -23,9 +24,10 @@ export default function useListBookmarks(termicaBookmark, token) {
             if (res.ok) {
                 const response = await res.json();
                 const { data, metadata } = response || {};
-                // Transformar data acá! :D
-                setBookmarks([...bookmarks, ...data]);
+                const transformedData = trasformBookmarkContent(data);
+                setBookmarks([...bookmarks, ...transformedData]);
                 setMeta(metadata);
+                setLoading(false);
             }
         } catch (err) {
             // eslint-disable-next-line no-console
@@ -33,17 +35,26 @@ export default function useListBookmarks(termicaBookmark, token) {
         }
     }, [token, bookmarks, paginationQuery]);
 
+    const deleteArticle = id => {
+        const newListBookmarks = bookmarks.filter(
+            ({ bookmarkId = '' }) => bookmarkId !== id
+        );
+        setBookmarks(newListBookmarks);
+    };
+
     useEffect(() => {
-        if (!token || typeof window === 'undefined' || !termicaBookmark) {
-            setBookmarks([]);
-        } else {
+        if (token && termicaBookmark && isSuscriber) {
             getDataFromAPI();
+        } else {
+            setBookmarks([]);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [token, termicaBookmark]);
+    }, [token, termicaBookmark, isSuscriber]);
 
     return {
         bookmarks,
+        loading,
+        deleteArticle,
         morePages: meta && meta.nextKeyPK !== null,
         getNextPage: getDataFromAPI
     };
