@@ -7,7 +7,7 @@ import VideoArticle from '../../common/videoArticle';
 import VideoOpeningTitle from '../../home/videoOpeningTitle';
 
 export default function LastVideosByProgams({
-    videos,
+    videos = [],
     nextPageHandler,
     hasNext,
     programName
