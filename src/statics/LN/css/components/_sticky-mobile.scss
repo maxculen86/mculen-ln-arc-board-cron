@@ -62,13 +62,14 @@
         }
 
         .placeholder {
-            margin-left: 0;
+            margin: 0;
             margin-right: px(8);
             width: fit-content;
 
             .com-image {
                 width: px(80);
                 height: px(80);
+                object-fit: cover;
             }
         }
     }
