@@ -5,7 +5,7 @@ import { DATADOG_CONFIG } from 'fusion:environment';
 import { useAppContext } from 'fusion:context';
 import handleCookie from '../../LN/common/utils/handleCookie';
 
-function DataDog({ location = 'head' }) {
+const Datadog = ({ location = 'head' }) => {
     const { deployment: version, arcSite = 'la-nacion-ar' } = useAppContext();
     const { getCookie } = handleCookie();
 
@@ -137,8 +137,8 @@ function DataDog({ location = 'head' }) {
             </>
         )
     );
-}
+};
 
-DataDog.propTypes = { location: PropTypes.string.isRequired };
+Datadog.propTypes = { location: PropTypes.string.isRequired };
 
-export default DataDog;
+export default Datadog;
