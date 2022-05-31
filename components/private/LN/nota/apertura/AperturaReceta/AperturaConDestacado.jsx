@@ -6,6 +6,8 @@ import DetalleReceta from '../detalleReceta';
 
 import '../../../../../../resources/dist/css/ln/layouts/grid.css';
 import Media from '../../../common/media';
+import replaceUrlResizerToWWW from '../../../../../../content/sources/utils/replaceUrlResizerToWWW';
+import get from '../../../../common/utils/get';
 
 const AperturaConDestacado = props => {
     const {
@@ -17,11 +19,15 @@ const AperturaConDestacado = props => {
         outputType
     } = props;
 
+    const promoItemsBasicWithWWW = replaceUrlResizerToWWW(
+        get(promoItems, 'basic', {})
+    );
+
     return (
         <>
             <div className="col-desksm-8">
                 <Media
-                    mediaData={promoItems.basic}
+                    mediaData={promoItemsBasicWithWWW}
                     outputType={outputType}
                     colNumber={8}
                     isApertura

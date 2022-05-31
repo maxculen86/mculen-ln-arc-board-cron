@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Private - Common - Hooks - replaceUrlResizer When has URL with www.lanacion.com.ar Should return orignal promoIteam 1`] = `
+Object {
+  "_id": "PXW6TKLMERBRXNSV2Z4BKAS3FY",
+  "additional_properties": Object {
+    "iptc_source": "LA NACION",
+  },
+  "caption": "Rodríguez Larreta, durante la conferencia de prensa",
+  "created_date": "2021-04-16T18:43:05Z",
+  "credits": Object {
+    "affiliation": Array [],
+    "by": Array [
+      Object {
+        "name": "Hernán Zenteno",
+        "type": "author",
+      },
+    ],
+  },
+  "height": 513,
+  "resized_urls": Array [
+    Object {
+      "option": Object {
+        "height": 206,
+        "media_preload": "(max-width: 375px)",
+        "width": 309,
+      },
+      "resizedUrl": "https://www.lanacion.com.ar/resizer/0h4iriwAuw2FzU1qBtay_4nLiZc=/309x206/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/PXW6TKLMERBRXNSV2Z4BKAS3FY.jpg",
+    },
+    Object {
+      "option": Object {
+        "height": 234,
+        "media_preload": "(min-width: 375.1px and max-width: 768px)",
+        "width": 351,
+      },
+      "resizedUrl": "https://www.lanacion.com.ar/resizer/kC7wUu0nOH1GaifYtw6II-vLHlo=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/PXW6TKLMERBRXNSV2Z4BKAS3FY.jpg",
+    },
+    Object {
+      "option": Object {
+        "height": 512,
+        "media_preload": "(min-width: 768.1px and max-width: 1024px)",
+        "width": 768,
+      },
+      "resizedUrl": "https://www.lanacion.com.ar/resizer/FG8eLd9oAh7j7glYd1H8YIkawnQ=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/PXW6TKLMERBRXNSV2Z4BKAS3FY.jpg",
+    },
+    Object {
+      "option": Object {
+        "height": 586,
+        "media": "(min-width: 1280px)",
+        "media_preload": "(min-width: 1280.1px)",
+        "width": 879,
+      },
+      "resizedUrl": "https://www.lanacion.com.ar/resizer/j0CsYva3u0OUNfs2Y45fbGSF2xM=/879x586/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/PXW6TKLMERBRXNSV2Z4BKAS3FY.jpg",
+    },
+    Object {
+      "option": Object {
+        "height": 746,
+        "media_preload": "(min-width: 1024.1px and max-width: 1280px)",
+        "width": 1200,
+      },
+      "resizedUrl": "https://www.lanacion.com.ar/resizer/oA1o086bJWuRZYV1Eb2iAQz0CQ4=/1200x746/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/PXW6TKLMERBRXNSV2Z4BKAS3FY.jpg",
+    },
+  ],
+  "type": "image",
+  "url": "https://www.lanacion.com.ar/resizer/GReOWaR7tDwI35oqOqmhgvpvD2E=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/PXW6TKLMERBRXNSV2Z4BKAS3FY.jpg",
+  "width": 768,
+}
+`;
+
+exports[`Private - Common - Hooks - replaceUrlResizer When has a promoItemas with resizer urls Should return with url with www.lanacion.com.ar 1`] = `
+Object {
+  "_id": "PXW6TKLMERBRXNSV2Z4BKAS3FY",
+  "additional_properties": Object {
+    "iptc_source": "LA NACION",
+  },
+  "caption": "Rodríguez Larreta, durante la conferencia de prensa",
+  "created_date": "2021-04-16T18:43:05Z",
+  "credits": Object {
+    "affiliation": Array [],
+    "by": Array [
+      Object {
+        "name": "Hernán Zenteno",
+        "type": "author",
+      },
+    ],
+  },
+  "height": 513,
+  "resized_urls": Array [
+    Object {
+      "option": Object {
+        "height": 206,
+        "media_preload": "(max-width: 375px)",
+        "width": 309,
+      },
+      "resizedUrl": "https://www.lanacion.com.ar/resizer/0h4iriwAuw2FzU1qBtay_4nLiZc=/309x206/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/PXW6TKLMERBRXNSV2Z4BKAS3FY.jpg",
+    },
+    Object {
+      "option": Object {
+        "height": 234,
+        "media_preload": "(min-width: 375.1px and max-width: 768px)",
+        "width": 351,
+      },
+      "resizedUrl": "https://www.lanacion.com.ar/resizer/kC7wUu0nOH1GaifYtw6II-vLHlo=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/PXW6TKLMERBRXNSV2Z4BKAS3FY.jpg",
+    },
+    Object {
+      "option": Object {
+        "height": 512,
+        "media_preload": "(min-width: 768.1px and max-width: 1024px)",
+        "width": 768,
+      },
+      "resizedUrl": "https://www.lanacion.com.ar/resizer/FG8eLd9oAh7j7glYd1H8YIkawnQ=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/PXW6TKLMERBRXNSV2Z4BKAS3FY.jpg",
+    },
+    Object {
+      "option": Object {
+        "height": 586,
+        "media": "(min-width: 1280px)",
+        "media_preload": "(min-width: 1280.1px)",
+        "width": 879,
+      },
+      "resizedUrl": "https://www.lanacion.com.ar/resizer/j0CsYva3u0OUNfs2Y45fbGSF2xM=/879x586/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/PXW6TKLMERBRXNSV2Z4BKAS3FY.jpg",
+    },
+    Object {
+      "option": Object {
+        "height": 746,
+        "media_preload": "(min-width: 1024.1px and max-width: 1280px)",
+        "width": 1200,
+      },
+      "resizedUrl": "https://www.lanacion.com.ar/resizer/oA1o086bJWuRZYV1Eb2iAQz0CQ4=/1200x746/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/PXW6TKLMERBRXNSV2Z4BKAS3FY.jpg",
+    },
+  ],
+  "type": "image",
+  "url": "https://www.lanacion.com.ar/resizer/GReOWaR7tDwI35oqOqmhgvpvD2E=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/PXW6TKLMERBRXNSV2Z4BKAS3FY.jpg",
+  "width": 768,
+}
+`;
