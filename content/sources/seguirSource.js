@@ -1,6 +1,11 @@
-import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
+import request from 'request-promise-native';
+import personalization from './utils/servicesSource/personalization';
 import logger from '../../components/private/common/utils/logger';
+import {
+    formatToISOString,
+    substractDays
+} from '../../components/private/common/utils/dateAndTimeUtil';
 
 let auth;
 if (ARC_ACCESS_TOKEN) {
@@ -30,9 +35,19 @@ const sourceElementes = [
     'label.recomendar.text'
 ];
 
-const mustElements = key => {
-    // Validacion de fecha y cualquier otro tipo de validacion
+const mustElements = days => {
+    const endDate = formatToISOString(new Date());
+    const startDate = formatToISOString(substractDays(new Date(), days));
+
     const must = [
+        {
+            range: {
+                first_publish_date: {
+                    gte: startDate,
+                    lte: endDate
+                }
+            }
+        },
         {
             term: {
                 type: 'story'
@@ -47,51 +62,58 @@ const mustElements = key => {
     return must;
 };
 
+const filterByType = (items, topicType) => {
+    const selectedTopic = items
+        .filter(topic => topic.type === topicType)
+        .map(topic => topic.slug);
+
+    if (!selectedTopic || selectedTopic.length === 0) return null;
+
+    const terms = {
+        seccion: { 'taxonomy.sections._id': selectedTopic },
+        tags: { 'taxonomy.tags.slug': selectedTopic },
+        autor: { 'credits.by._id': selectedTopic }
+    };
+
+    return { terms: terms[topicType] };
+};
+
 const shouldElements = query => {
+    const { followedItems } = query;
+    if (followedItems.length === 0)
+        throw new Error('debe de tener al menos un item a seguir');
+
     const elem = {
         minimum_should_match: 1,
         should: []
     };
+    const section = filterByType(followedItems, 'seccion');
+    section && elem.should.push(section);
 
-    if (query.section)
-        elem.should.push({
-            terms: {
-                'taxonomy.sections._id': query.section
-            }
-        });
+    const tags = filterByType(followedItems, 'tags');
+    tags && elem.should.push(tags);
 
-    if (query.tag)
-        elem.should.push({
-            terms: {
-                'taxonomy.tags.slug': query.tag
-            }
-        });
-
-    if (query.author)
-        elem.should.push({
-            terms: {
-                'credits.by._id': query.author
-            }
-        });
-
+    const autor = filterByType(followedItems, 'autor');
+    autor && elem.should.push(autor);
     return elem;
 };
 
 const resolveUri = query => {
-    const { size, page } = query;
-    const requestUri = `${CONTENT_BASE}/content/v4/search/published`;
+    const { size, page, days } = query;
 
+    const requestUri = `${CONTENT_BASE}/content/v4/search/published`;
     const uriParams = [
         `website=${query['arc-site']}`,
         `size=${size}`,
-        `from=${page}`
+        `from=${page}`,
+        `sort=display_date:des`
     ].join('&');
 
     const body = {
         _source: sourceElementes,
         query: {
             bool: {
-                must: mustElements,
+                must: mustElements(days),
                 ...shouldElements(query)
             }
         }
@@ -118,47 +140,51 @@ const getElements = async query => {
         });
 };
 
-const getUserFollowedItems = userToken => {
-    // if (userToken) console.log('ola');
-
-    const resp = {
-        section: [],
-        author: ['joaquin-morales-sola-51', 'carlos-pagni-81'],
-        tag: []
-    };
-    return resp;
-};
-
+//TODO: Validar con producto el default de dias, tamano (Puede que quieran una variable de configuracion global en caso de venir en null de front)
 const fetch = async (query, { cachedCall }) => {
-    const { userToken = '' } = query;
-    let { tag = '', section = '', author = '' } = query;
+    const {
+        token = '1F8794A8-BE03-48F9-B023-74356CE9C9F5',
+        size = 10,
+        days = 5,
+        page = 0,
+        'arc-site': arcSite = 'la-nacion-ar'
+    } = query;
 
-    if (userToken) {
-        const elem = getUserFollowedItems(userToken);
-        tag = elem.tag;
-        section = elem.section;
-        author = elem.author;
-    }
+    // TODO: validar que el user token sea distinto de null.
+    const followedItems = await cachedCall(
+        `PersonalizationUser-${token}`,
+        personalization.request,
+        {
+            query: {
+                token: '1F8794A8-BE03-48F9-B023-74356CE9C9F5',
+                size: 50
+            },
+            ttl: 120
+        }
+    );
 
-    const resp = await cachedCall(`elementSeguir`, getElements, {
+    // TODO: Colocar como clave de cache el string union de los tres elementos mas la pagina (Organizados por orden alfabetico).
+    const stories = await cachedCall(`elementSeguir`, getElements, {
         query: {
-            ...query,
-            tag,
-            section,
-            author
+            followedItems,
+            size,
+            days,
+            page,
+            arcSite
         },
         ttl: 120
     });
 
-    return resp;
+    return { ...stories, followed_items: followedItems };
 };
 
 export default {
     fetch,
     ttl: 120,
     params: {
-        userToken: 'text',
         page: 'text',
-        size: 'text'
+        size: 'text',
+        days: 'text',
+        token: 'text'
     }
 };
