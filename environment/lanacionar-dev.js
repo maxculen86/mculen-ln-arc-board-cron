@@ -17,16 +17,32 @@ export default {
     JSK_ID:
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygHPMCo5X02LqkaZLrXomkFvAAAAbjBsBgkqhkiG9w0BBwagXzBdAgEAMFgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM+Gs5pmF0+Umjtjx8AgEQgCs+4a1XWei5yHUiPhGKw2kBOg/pThoXc4ApUTb5YohOvC3E0oV5wFMUlJoo}', //NOSONAR
     DATADOG_CONFIG: {
-        clientToken: 'pubaa01cb67f0a687a6eba4718413593f4f',
-        applicationId: 'bcea4545-f033-4b09-ab27-30995db5acb0',
-        site: 'datadoghq.com',
-        forwardErrorsToLogs: true,
-        sampleRateLog: 100,
-        sampleRateRum: 100,
-        service: 'lanacion-arc',
-        env: 'dev',
-        trackInteractions: true,
-        trackSessionAcrossSubdomains: false
+        ott: {
+            clientTokenLogs: 'pubade9c9853f15148d022beacd85e783ca',
+            clientTokenRum: 'pub0d012ddef45dd12da168f6a3dfa65e8d',
+            applicationId: '4021f7bc-025e-422c-a79d-1fac9a7a0767',
+            site: 'datadoghq.com',
+            forwardErrorsToLogs: true,
+            sampleRateLog: 0.2,
+            sampleRateRum: 0.02,
+            service: 'lnmas',
+            env: 'dev',
+            trackInteractions: true,
+            trackSessionAcrossSubdomains: false
+        },
+        'la-nacion-ar': {
+            clientTokenLogs: 'pubaa01cb67f0a687a6eba4718413593f4f',
+            clientTokenRum: 'pubaa01cb67f0a687a6eba4718413593f4f',
+            applicationId: 'bcea4545-f033-4b09-ab27-30995db5acb0',
+            site: 'datadoghq.com',
+            forwardErrorsToLogs: true,
+            sampleRateLog: 100,
+            sampleRateRum: 100,
+            service: 'lanacion-arc',
+            env: 'dev',
+            trackInteractions: true,
+            trackSessionAcrossSubdomains: false
+        }
     },
     ARC_STATIC: '',
     VIAFOURA_UUID: '00000000-0000-4000-8000-43ce53965c44',

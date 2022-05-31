@@ -4,6 +4,7 @@ import { useAppContext } from 'fusion:context';
 import useViewportSize from '../../private/common/hooks/useViewportSize';
 import { isSubscribed } from '../../private/LN/common/utils/contextHelper';
 import get from '../../private/common/utils/get';
+import StickyMobile from '../../private/LN/nota/StickyMobile';
 
 const CTRNota = () => {
     const globalContent = get(useAppContext(), 'globalContent', {});
@@ -24,6 +25,7 @@ const CTRNota = () => {
         }) || [];
 
     const { articles = [] } = data;
+
     const articleToShow =
         articles.filter(art => {
             return art._id !== actualArticleId;
@@ -45,7 +47,18 @@ const CTRNota = () => {
     }, [trigger]);
 
     const showComponent = !isSub && device === 'mobile' && articleToShow !== {};
-    return showComponent && trigger && <>{articleToShow.headlines.basic}</>;
+    return (
+        showComponent &&
+        trigger && (
+            <StickyMobile
+                headerText="Te puede interesar"
+                urlImg={articleToShow.promo_items.basic.url}
+                resizedUrls={articleToShow.promo_items.basic.resized_urls}
+                urlArticle={articleToShow.website_url}
+                titleArticle={articleToShow.headlines.mobile}
+            />
+        )
+    );
 };
 
 CTRNota.label = 'LN-CTR-nota';
