@@ -1,16 +1,15 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 .mod-share {
-    display: flex;
-    justify-content: center;
     .share {
-        @include flex(flex, row, center, center);
+        @include flex(flex, row, start, center);
         z-index: 100;
-        padding: 0 $spacing-sm;
-        width: calc(100% + 2rem);
-        margin-left: px(-16);
+        width: 100%;
         margin-right: auto;
         margin-bottom: $spacing-lg;
+        @media (max-width: 379px) {
+            overflow-x: scroll;
+        }
         .container {
             @include flex(flex, row, center, center);
             .bookmark {
@@ -32,17 +31,25 @@
             }
             .com-button {
                 padding: 0;
-                margin-right: $spacing-md;
+                margin-right: $spacing-sm;
                 &:last-child {
                     margin-right: 0;
                 }
                 @media ($media-l) {
                     margin-right: 0;
+                    margin-bottom: $spacing-sm;
+                    #btnemail {
+                        margin-bottom: $spacing-sm;
+                    }
                 }
             }
             .com-text {
                 order: 2;
-                color: $ln;
+                color: $light-neutral-800;
+            }
+            .com-icon {
+                width: px(20);
+                height: px(20);
             }
 
             .comment-btn {
@@ -50,72 +57,58 @@
                 align-items: center;
                 background-color: $light-neutral-300;
                 border-radius: px(4);
-                margin: 0 px(8);
+                min-width: px(40);
                 width: fit-content;
                 height: px(40);
-                padding: px(10);
-                margin: 0;
+                padding: $spacing;
+                .com-text {
+                    margin-left: $spacing;
+                    @media ($media-l) {
+                        margin-left: 0;
+                        margin-top: $spacing;
+                    }
+                }
             }
         }
         .--photo100 & {
-            padding: 0 px(32);
-        }
-
-        amp-social-share {
-            &[type='facebook'],
-            &[type='twitter'],
-            &[type='whatsapp'],
-            &[type='email'] {
-                background: none;
-                @include flex(flex, row, center, center);
-                margin-right: $spacing-sm;
-                padding: px(4);
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-
-                @media ($media-l) {
-                    margin-bottom: $spacing-sm;
-                    margin-right: 0;
-                }
-            }
-
-            &[type='email'] {
-                margin-right: 0;
+            padding-left: $spacing-sm;
+            padding-right: $spacing-sm;
+            @media ($media-l) {
+                padding-left: 0;
+                padding-right: 0;
             }
         }
     }
     @media ($media-l) {
-        .share {
-            flex-direction: column;
-            padding: px(8);
-            position: sticky;
-            top: px(16);
-            transition: all 0.25s;
-            float: left;
-            border-radius: px(4);
-            width: fit-content;
-            background-color: $light-neutral-50;
-            box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.04);
-            .container {
+        &:not(.--video) {
+            height: 100%;
+            width: px(58);
+            .share {
                 flex-direction: column;
-                .comment-btn {
-                    width: px(40);
-                    height: fit-content;
+                position: sticky;
+                top: $spacing-sm;
+                transition: all 0.25s;
+                border-radius: px(4);
+                margin-left: -$spacing;
+                background-color: $light-neutral-50;
+                box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.04);
+                padding: $spacing 0 px(4) 0;
+                float: left;
+                .container {
                     flex-direction: column;
+                    .comment-btn {
+                        width: px(40);
+                        height: fit-content;
+                        flex-direction: column;
+                    }
                 }
-            }
-
-            .--photo100 & {
-                padding: px(4);
-            }
-
-            .--scrollDown & {
-                top: (px(16) + $header-desktop);
-            }
-
-            &:not(.--active) {
-                .--scrollUp & {
+                .--scrollDown & {
                     top: (px(16) + $header-desktop);
+                }
+                &:not(.--active) {
+                    .--scrollUp & {
+                        top: (px(16) + $header-desktop);
+                    }
                 }
             }
         }

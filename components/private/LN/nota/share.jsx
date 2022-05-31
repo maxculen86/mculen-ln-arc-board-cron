@@ -31,13 +31,16 @@ import Barrier from '../../common/barrier/Barrier';
 
 const Share = props => {
     const { arcSite = 'la-nacion-ar' } = useAppContext() || {};
-    const { classCondition, classesNames, requestUri, globalContent } = props;
+    const { requestUri, globalContent } = props;
     const {
         _id: id,
         headlines: { basic: title, mobile: mobileTitle },
         comments: { display_comments: displayComments = true } = {},
-        first_publish_date: firstPublishDate
+        first_publish_date: firstPublishDate,
+        subtype
     } = globalContent;
+
+    const classCondition = subtype === '5' ? ' --video' : '';
 
     const { totalVisibleContent = '' } =
         useContent({
@@ -93,10 +96,7 @@ const Share = props => {
     };
 
     return (
-        <div
-            id="v-share"
-            className={`mod-share ${classesNames} ${classCondition}`}
-        >
+        <div className={`mod-share${classCondition}`}>
             {termicaBookmark && toast.status && (
                 <Toast data={toast} handleTimeout={handleBookmarkTimeout} />
             )}
@@ -114,7 +114,7 @@ const Share = props => {
                     }
                 />
             )}
-            <div className="share">
+            <div id="v-share" className="share">
                 <AmpContainer isForAmp={false}>
                     <div className="container --left">
                         {termicaBookmark && (
@@ -257,8 +257,6 @@ const Share = props => {
 
 Share.propTypes = {
     requestUri: PropTypes.string.isRequired,
-    classesNames: PropTypes.string,
-    classCondition: PropTypes.string,
     globalContent: PropTypes.shape({
         _id: PropTypes.string,
         subtype: PropTypes.string,
@@ -271,11 +269,6 @@ Share.propTypes = {
             display_comments: PropTypes.bool
         })
     }).isRequired
-};
-
-Share.defaultProps = {
-    classesNames: '',
-    classCondition: ''
 };
 
 export default Share;

@@ -7,9 +7,13 @@
 
     .mod-share & {
         width: px(1);
+        min-width: px(1);
         height: px(40);
-        margin: 0 $spacing-sm;
+        margin: 0 $spacing-lg;
         background: $light-neutral-300;
+        @media ($media-l) {
+            margin-bottom: $spacing-sm;
+        }
     }
 
     &::after {
@@ -29,6 +33,10 @@
     @media ($media-l) {
         .mod-share & {
             transform: rotate(90deg);
+        }
+        .video & {
+            transform: none;
+            margin-bottom: 0;
         }
     }
 }
