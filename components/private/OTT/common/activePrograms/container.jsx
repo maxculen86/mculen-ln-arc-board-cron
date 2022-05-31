@@ -11,8 +11,8 @@ class Container extends PureComponent {
         this.style = style;
     }
 
-    getActiveProgramsItems = props => {
-        return props.navigations.map((elem, index) => {
+    getActiveProgramsItems = ({ navigations = [] }) => {
+        return navigations.map((elem, index) => {
             return {
                 href: elem.site ? elem.site.site_url : '/',
                 description: elem.name,

@@ -2,7 +2,7 @@ import React from 'react';
 import Video from './video';
 import VideoInfo from './videoInfo';
 
-export default function videoTab({ videoId, title, date, analytics }) {
+export default function videoTab({ videoId, title, date, analytics = [] }) {
     return (
         <>
             <div
