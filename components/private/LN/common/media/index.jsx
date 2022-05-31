@@ -29,7 +29,8 @@ const media = ({
     titleText,
     scriptForZoom,
     autoplay,
-    isPowa
+    isPowa,
+    insideBody
 }) => {
     const refContainer = useRef();
     const [zoom, setZoom] = useState(false);
@@ -40,20 +41,33 @@ const media = ({
 
     useEffect(() => {
         if (!itsGallery && withZoom) {
-            if (subtipo.id === FOTOAL100 || subtipo.id === STORYTELLING) {
-                setZoom(refContainer.current.clientWidth <= 768);
-            } else {
-                setZoom(width > refContainer.current.clientWidth);
-            }
+            setZoom(
+                [FOTOAL100, STORYTELLING].includes(subtipo.id)
+                    ? refContainer.current.clientWidth <= 768
+                    : width > refContainer.current.clientWidth
+            );
         }
+
         function handleResize() {
             if (!itsGallery && withZoom) {
                 setZoom(width > refContainer.current.clientWidth);
             }
         }
+
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, [itsGallery, withZoom, width, subtipo.id]);
+
+    const setClassCondition = () => {
+        const isFotoAl100 = subtipo.id === FOTOAL100;
+        const isZoomActive = withZoom && active;
+        const notFotoAl100Apertura = !(isApertura || isFotoAl100);
+
+        if (isVertical && (notFotoAl100Apertura || isZoomActive))
+            return '--vertical';
+
+        return !insideBody ? '--horizontal' : '';
+    };
 
     if (mediaData) {
         // TODO: Sacar switch
@@ -61,13 +75,7 @@ const media = ({
             case 'image':
                 item = (
                     <ComFigure
-                        classCondition={`${
-                            (isVertical &&
-                                !(isApertura || subtipo.id === FOTOAL100)) ||
-                            (isVertical && withZoom && active)
-                                ? '--vertical'
-                                : '--horizontal'
-                        }`}
+                        classCondition={setClassCondition()}
                         withZoom={withZoom}
                         width={width}
                         itsGallery={itsGallery}
@@ -168,7 +176,8 @@ media.propTypes = {
     titleText: PropTypes.string,
     scriptForZoom: PropTypes.node,
     autoplay: PropTypes.bool,
-    isPowa: PropTypes.bool
+    isPowa: PropTypes.bool,
+    insideBody: PropTypes.bool
 };
 
 media.defaultProps = {
