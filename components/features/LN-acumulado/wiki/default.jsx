@@ -1,9 +1,9 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-danger */
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
-import { useContent } from 'fusion:content';
 import get from '../../../private/common/utils/get';
 import ModPicture from '../../../private/common/mod-picture';
 import Text from '../../../private/common/text';
@@ -14,15 +14,8 @@ import StaticValidation from '../../../private/common/staticValidation';
 
 const WikiFeature = () => {
     const props = get(useAppContext(), 'globalContent', {});
-    const slug = get(useAppContext(), 'globalContentConfig.query.slug', '');
     const { isWiki } = props;
-    const wikiSourceData = useContent({
-        source: isWiki ? 'wikiTagSource' : null,
-        query: {
-            slug,
-            imageConfig: 'wikiTag'
-        }
-    });
+    const { wikiSourceData = {} } = props;
 
     if (!isWiki || !wikiSourceData) return <></>;
 
