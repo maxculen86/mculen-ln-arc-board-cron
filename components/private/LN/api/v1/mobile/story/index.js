@@ -1,6 +1,7 @@
 import { storyCommon, storyHeadline } from '../../common/story/storyCommon';
 import cuerpo from './cuerpo/index';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
+import get from '../../../../../../private/common/utils/get';
 
 const indexNota = dataNota => {
     const resp = {
@@ -16,8 +17,9 @@ const indexNota = dataNota => {
             let boxElementValidate = boxElement + elmentsAdd;
             resp.contenido.every((element, i) => {
                 const banner = { _t: 'banner' };
-                const { _t: type } = element;
-                if (type === 'header' && i === boxElementValidate) {
+                const type = get(element, '_t', null);
+
+                if (type && type === 'header' && i === boxElementValidate) {
                     boxElementValidate += 1;
                 }
                 if (i === boxElementValidate && length >= boxElement) {

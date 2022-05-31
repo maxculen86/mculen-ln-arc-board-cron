@@ -19,4 +19,5 @@ const ExclusiveLn = () => {
         </svg>
     );
 };
+
 export default ExclusiveLn;

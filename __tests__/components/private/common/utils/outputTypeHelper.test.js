@@ -1,6 +1,7 @@
 import {
     getTitle,
-    getMetaDescriptionDefault
+    getMetaDescriptionDefault,
+    getSectionOfRequestUri
 } from '../../../../../components/private/common/utils/outputTypeHelper';
 
 describe('Common - utils - getTitle', () => {
@@ -9,18 +10,30 @@ describe('Common - utils - getTitle', () => {
         longTitle: 'Últimas noticias de Argentina y el mundo - LA NACION',
         title: 'LA NACION'
     };
+    const requestUri = '/page/?_website=la-nacion-ar';
 
     test('Test de retorno para el caso de metaValue en undefined', () => {
         const metaValue = undefined;
         const _nodeType = undefined;
-        const title = getTitle(_nodeType, metaValue, siteProperties);
+
+        const title = getTitle(
+            metaValue,
+            requestUri,
+            siteProperties,
+            _nodeType
+        );
 
         expect(title).toStrictEqual('LA NACION');
     });
 
     test('Test de retorno para el caso de la home', () => {
         const _nodeType = 'home';
-        const title = getTitle(_nodeType, metaValue, siteProperties);
+        const title = getTitle(
+            metaValue,
+            requestUri,
+            siteProperties,
+            _nodeType
+        );
 
         expect(title).toStrictEqual(
             'Últimas noticias de Argentina y el mundo - LA NACION'
@@ -31,7 +44,12 @@ describe('Common - utils - getTitle', () => {
         const _nodeType = 'acumulado';
         const metaValue = 'Política - LA NACION';
         const layout = 'LN-acumulado';
-        const title = getTitle(_nodeType, metaValue, layout, siteProperties);
+        const title = getTitle(
+            metaValue,
+            requestUri,
+            siteProperties,
+            _nodeType
+        );
 
         expect(title).toStrictEqual('Política - LA NACION');
     });
@@ -40,13 +58,63 @@ describe('Common - utils - getTitle', () => {
         const _nodeType = 'nota';
         const metaValue =
             'Ola de calor: la temperatura superó los 40° en la ciudad y es la segunda más alta de la historia';
-        const layout = 'LN-nota-noticia';
 
-        const title = getTitle(_nodeType, metaValue, layout, siteProperties);
+        const title = getTitle(
+            metaValue,
+            requestUri,
+            siteProperties,
+            _nodeType
+        );
 
         expect(title).toStrictEqual(
             'Ola de calor: la temperatura superó los 40° en la ciudad y es la segunda más alta de la historia'
         );
+    });
+
+    test('Test de retorno para el acu Mis notas', () => {
+        const requestUri = '/mis-notas/?_website=la-nacion-ar';
+        const _nodeType = 'acumulado';
+        const metaValue = 'Mis Notas guardadas - LA NACION';
+
+        const title = getTitle(
+            metaValue,
+            requestUri,
+            siteProperties,
+            _nodeType
+        );
+
+        expect(title).toStrictEqual('Mis Notas guardadas - LA NACION');
+    });
+
+    test('Test de retorno cuando requesUri no esta definida', () => {
+        const requestUri = undefined;
+        const _nodeType = 'home';
+
+        const title = getTitle(
+            metaValue,
+            requestUri,
+            siteProperties,
+            _nodeType
+        );
+
+        expect(title).toStrictEqual(
+            'Últimas noticias de Argentina y el mundo - LA NACION'
+        );
+    });
+
+    test('Test de retorno para el acu Mis notas cuando el metaValue no esta definido', () => {
+        const requestUri = '/mis-notas/?_website=la-nacion-ar';
+        const _nodeType = 'acumulado';
+        const metaValue = undefined;
+
+        const title = getTitle(
+            metaValue,
+            requestUri,
+            siteProperties,
+            _nodeType
+        );
+
+        expect(title).toStrictEqual('LA NACION');
     });
 });
 
@@ -123,5 +191,63 @@ describe('Common Util getMetaDescriptionDefault', () => {
         expect(metaDescription).toStrictEqual(
             'Últimas noticias de Argentina y el mundo - LA NACION'
         );
+    });
+
+    test('Test de retorno para el acu Mis notas', () => {
+        const requestUri = '/mis-notas/?_website=la-nacion-ar';
+        const metaValue = 'Mis Notas guardadas - LA NACION';
+
+        const metaDescription = getMetaDescriptionDefault(
+            metaValue,
+            layout,
+            defaultDescription,
+            _nodeType,
+            _id,
+            Payload,
+            nodeType,
+            name,
+            arcSite,
+            requestUri
+        );
+
+        expect(metaDescription).toStrictEqual(
+            'Mis Notas guardadas - LA NACION'
+        );
+    });
+
+    test('Test de retorno para el acu Mis notas, cuando el metaValue no esta definido.', () => {
+        const requestUri = '/mis-notas/?_website=la-nacion-ar';
+        const metaValue = undefined;
+
+        const metaDescription = getMetaDescriptionDefault(
+            metaValue,
+            layout,
+            defaultDescription,
+            _nodeType,
+            _id,
+            Payload,
+            nodeType,
+            name,
+            arcSite,
+            requestUri
+        );
+
+        expect(metaDescription).toStrictEqual(
+            'Últimas noticias de Argentina y el mundo - LA NACION'
+        );
+    });
+});
+
+describe('Test getSectionOfRequestUri', () => {
+    const requestUri = '/mis-notas/?_website=la-nacion-ar';
+
+    test('Test de retorno cuando el requestUri es correcto ', () => {
+        expect(getSectionOfRequestUri(requestUri)).toStrictEqual('mis-notas');
+    });
+
+    test('Test de retorno cuando el requestUri no esta definido', () => {
+        const requestUri = undefined;
+
+        expect(getSectionOfRequestUri(requestUri)).toStrictEqual('');
     });
 });

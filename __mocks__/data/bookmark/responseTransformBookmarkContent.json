@@ -1,0 +1,148 @@
+[
+    {
+        "_id": "NFOE7IE6FVEBLKW2EO3LCTAA2Y",
+        "bookmarkId": "f5f4c1b5-e5f9-4c8b-b33e-99315d248255",
+        "category": "Deportes",
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": { "author_type": "" }
+                    },
+                    "image": "https://resizer.glanacion.com/resizer/ZcQcAq3Npl33zoVxEdDDBIJ6p4k=/80x0/filters:quality(80)/bucket.glanacion.com/anexos/fotos/99/3401499.png",
+                    "name": "Pablo Mannino",
+                    "type": "author"
+                }
+            ]
+        },
+        "headlines": {
+            "basic": "Mendoza: cómo la Justicia enterró el deseo de los intendentes eternos"
+        },
+        "label": {
+            "recomendar": { "text": "" },
+            "volanta": { "display": false, "text": "" }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 234,
+                "resized_urls": [
+                    {
+                        "option": { "width": 360 },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/P4T41MmV3eifqiteLXmKuJcW_mw=/360x240/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5UH2M5EWTZBIJE6LCGMRZCUEW4.jpg"
+                    },
+                    {
+                        "option": { "width": 768 },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/Rv5WizN4nrGJr-3G2t9vTs0O4ww=/768x512/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5UH2M5EWTZBIJE6LCGMRZCUEW4.jpg"
+                    },
+                    {
+                        "option": { "width": 351 },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/lW7qG2X_dHzU9b8TF0x9bIRQlTk=/351x234/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5UH2M5EWTZBIJE6LCGMRZCUEW4.jpg"
+                    },
+                    {
+                        "option": { "width": 360 },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/P4T41MmV3eifqiteLXmKuJcW_mw=/360x240/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5UH2M5EWTZBIJE6LCGMRZCUEW4.jpg"
+                    }
+                ],
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/lW7qG2X_dHzU9b8TF0x9bIRQlTk=/351x234/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5UH2M5EWTZBIJE6LCGMRZCUEW4.jpg",
+                "width": 351
+            }
+        },
+        "website_url": "/politica/mendoza-como-la-justicia-enterro-el-deseo-de-los-intendentes-eternos-nid28122021/"
+    },
+    {
+        "_id": "NFOE7IE6FVEBLKW2EO3LCTA32Y",
+        "bookmarkId": "f5f4c1b5-e5f9-4c8b-b33e-88815d248255",
+        "category": "Economia",
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": { "author_type": "" }
+                    },
+                    "image": "https://resizer.glanacion.com/resizer/ZcQcAq3Npl33zoVxEdDDBIJ6p4k=/80x0/filters:quality(80)/bucket.glanacion.com/anexos/fotos/99/3401499.png",
+                    "name": "Jose Del Rio",
+                    "type": "author"
+                },
+                {
+                    "additional_properties": {
+                        "original": { "author_type": "" }
+                    },
+                    "image": "https://resizer.glanacion.com/resizer/ZcQcAq3Npl33zoVxEdDDBIJ6p4k=/80x0/filters:quality(80)/bucket.glanacion.com/anexos/fotos/99/3401499.png",
+                    "name": "Carlos Pagni",
+                    "type": "author"
+                }
+            ]
+        },
+        "headlines": {
+            "basic": "Dolar hoy: cuál es el precio de la moneda el 23 de mayo"
+        },
+        "label": {
+            "recomendar": { "text": "" },
+            "volanta": { "display": false, "text": "" }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 234,
+                "resized_urls": [
+                    {
+                        "option": { "width": 360 },
+                        "resizedUrl": ""
+                    },
+                    {
+                        "option": { "width": 768 },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/Rv5WizN4nrGJr-3G2t9vTs0O4ww=/768x512/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5UH2M5EWTZBIJE6LCGMRZCUEW4.jpg"
+                    },
+                    {
+                        "option": { "width": 351 },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/lW7qG2X_dHzU9b8TF0x9bIRQlTk=/351x234/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5UH2M5EWTZBIJE6LCGMRZCUEW4.jpg"
+                    },
+                    {
+                        "option": { "width": 360 },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/P4T41MmV3eifqiteLXmKuJcW_mw=/360x240/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5UH2M5EWTZBIJE6LCGMRZCUEW4.jpg"
+                    }
+                ],
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/lW7qG2X_dHzU9b8TF0x9bIRQlTk=/351x234/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5UH2M5EWTZBIJE6LCGMRZCUEW4.jpg",
+                "width": 351
+            }
+        },
+        "website_url": "/economia/dolar-hoy-cual-es-el-precio-de-la-moneda-el-23-de-mayo-nid23052022/"
+    },
+    {
+        "_id": "NFOE7IE6FVEBLKW2EO3LCTA32Y",
+        "bookmarkId": "f5f4c1b5-e5f9-4c8b-b33e-88815d248255",
+        "category": "Economia",
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": { "author_type": "" }
+                    },
+                    "image": "https://resizer.glanacion.com/resizer/ZcQcAq3Npl33zoVxEdDDBIJ6p4k=/80x0/filters:quality(80)/bucket.glanacion.com/anexos/fotos/99/3401499.png",
+                    "name": "Jose Del Rio",
+                    "type": "author"
+                },
+                {
+                    "additional_properties": {
+                        "original": { "author_type": "" }
+                    },
+                    "image": "https://resizer.glanacion.com/resizer/ZcQcAq3Npl33zoVxEdDDBIJ6p4k=/80x0/filters:quality(80)/bucket.glanacion.com/anexos/fotos/99/3401499.png",
+                    "name": "Carlos Pagni",
+                    "type": "author"
+                }
+            ]
+        },
+        "headlines": {
+            "basic": "Dolar hoy: cuál es el precio de la moneda el 23 de mayo"
+        },
+        "label": {
+            "recomendar": { "text": "" },
+            "volanta": { "display": false, "text": "" }
+        },
+        "promo_items": {
+            "basic": {}
+        },
+        "website_url": "/economia/dolar-hoy-cual-es-el-precio-de-la-moneda-el-23-de-mayo-nid23052022/"
+    }
+]

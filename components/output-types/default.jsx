@@ -31,7 +31,7 @@ import getSectionName from '../private/LN/common/utils/getSectionName';
 import Syndication from '../private/common/syndication';
 import LinkAmpHTML from '../private/common/linkAmpHTML';
 import { pipe } from '../private/common/utils/functional';
-import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
+import GetDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
 import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 import addForwardSlash from '../private/LN/common/utils/addForwardSlash';
 import setMetasOtt from '../private/common/metaTags/setMetasHelper';
@@ -133,7 +133,8 @@ const Default = props => {
         renderables,
         globalContent,
         outputType,
-        isAdmin
+        isAdmin,
+        requestUri
     } = props;
 
     const {
@@ -182,7 +183,13 @@ const Default = props => {
 
     const getScriptsToBeLoaded = getScriptsFilterFunction(scriptList);
     const _nodeType = getSectionName({ nodeType, type, arcSite });
-    const title = getTitle(_nodeType, metaValue('title'), siteProperties);
+    const title = getTitle(
+        metaValue('title'),
+        requestUri,
+        siteProperties,
+        _nodeType,
+        renderables
+    );
 
     const {
         title: ottMetaTitle,
@@ -215,7 +222,8 @@ const Default = props => {
         Payload,
         nodeType,
         name,
-        arcSite
+        arcSite,
+        requestUri
     );
 
     return (
@@ -230,13 +238,13 @@ const Default = props => {
                 {layout !== 'LN-buscador' && (
                     <title>{arcSite === 'ott' ? ottMetaTitle : title}</title>
                 )}
-                {getDataToLinkImage({
-                    data: globalContent,
-                    section: _nodeType,
-                    renderables,
-                    arcSite,
-                    isAdmin
-                })}
+                <GetDataToLinkImage
+                    data={globalContent}
+                    section={_nodeType}
+                    renderables={renderables}
+                    arcSite={arcSite}
+                    isAdmin={isAdmin}
+                />
                 <FontPreloads />
                 <FontFaceDefault />
                 <CriticalCss />
@@ -329,6 +337,7 @@ const Default = props => {
                         section={_nodeType}
                         metaValue={title}
                         ottMetaTitle={ottMetaTitle}
+                        requestUri={requestUri}
                     />
                 )}
                 {layout !== 'LN-buscador' && (

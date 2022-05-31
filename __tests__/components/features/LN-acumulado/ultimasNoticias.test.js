@@ -8,6 +8,14 @@ import dateAndTimeUtil, {
 } from '../../../../components/private/common/utils/dateAndTimeUtil';
 // import UltimasNoticias from '../../../../components/features/LN-acumulado/ultimasNoticias';
 
+jest.mock('react', () => {
+    const ActualReact = require.requireActual('react');
+    return {
+        ...ActualReact,
+        useContext: () => ({})
+    };
+});
+
 describe('Features - LN-acumulado - Ultimas Noticias =>', () => {
     describe('Filtrado de articulos por varios criterios', () => {
         it('deberia filtrar notas con display_date a futuro', () => {

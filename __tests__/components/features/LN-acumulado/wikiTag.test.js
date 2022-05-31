@@ -3,8 +3,12 @@ import Context from 'fusion:context';
 import { useContent } from 'fusion:content';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { prettyDOM } from '@testing-library/dom';
-import WikiFeature from '../../../../components/features/LN-acumulado/wiki/default';
+
+import WikiFeature, {
+    getAltImg,
+    getIconHref,
+    getIconTitle
+} from '../../../../components/features/LN-acumulado/wiki/default';
 import mockWikiTagData from '../../../../__mocks__/data/wikiTag/wikiTagData.json';
 
 jest.mock('fusion:content', () => ({
@@ -55,5 +59,30 @@ describe('LN-Acumulado-WikiTag test', () => {
         }));
         const { container } = render(<WikiFeature />);
         expect(container).toMatchInlineSnapshot('<div />');
+    });
+    it('should test getAltImg func', () => {
+        expect(getAltImg(true, '', '', '', 'River Plate')).toStrictEqual(
+            'River Plate'
+        );
+        expect(
+            getAltImg(false, 'Diego', 'Armando', 'Maradona', '')
+        ).toStrictEqual('Diego Armando Maradona');
+    });
+
+    it('should test getIconTitle func', () => {
+        expect(
+            getIconTitle(true, 'Facebook', 'Boca Juniors', '', '')
+        ).toStrictEqual('Ir al Facebook de Boca Juniors');
+        expect(
+            getIconTitle(false, 'Facebook', '', 'Susana', 'Gimenez')
+        ).toStrictEqual('Ir al Facebook de Susana Gimenez');
+    });
+    it('should test getIconHref func', () => {
+        expect(
+            getIconHref('Instagram', 'instagram.com/leomessi')
+        ).toStrictEqual('instagram.com/leomessi/');
+        expect(getIconHref('Facebook', 'facebook.com/leomessi')).toStrictEqual(
+            'facebook.com/leomessi'
+        );
     });
 });

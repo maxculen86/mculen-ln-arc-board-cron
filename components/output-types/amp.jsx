@@ -17,14 +17,13 @@ import getCollectionsFromRenderables from '../private/common/utils/getCollection
 import dataLayerIndexAmp from '../private/common/dataLayerIndexAmp';
 import MetasOG from '../private/common/metaTags/metasOG';
 import ScriptLogoBBCAMP from '../private/common/scriptManager/scriptLogoBBCAMP';
-import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
 import getSectionName from '../private/LN/common/utils/getSectionName';
 import MeteringAMP from '../private/common/scriptManager/meteringAMP';
 import Favicon from '../private/common/favicon';
 import get from '../private/common/utils/get';
 import FontPreloads from '../private/common/fontsPreloads';
 import { LinkImagePreload } from '../private/LN/common/utils/mediaHelper';
-// import { getBiggestImage } from 'components/private/LN/nota/snippet/noticia';
+import replaceUrlResizerToWWW from '../../content/sources/utils/replaceUrlResizerToWWW';
 
 /**
  * TODO: Resolver el tema de las canonicas
@@ -85,11 +84,11 @@ const Amp = props => {
     const metaTitleValue = metaValue('title') || title || 'LA NACION';
     const dataLayerAmp = dataLayerIndexAmp(arcSite, layout, globalContent);
     const _nodeType = getSectionName({ nodeType, type });
-    const resizedUrls = get(
-        globalContent,
-        'promo_items.basic.resized_urls',
-        []
+    const basicPromoItems = replaceUrlResizerToWWW(
+        get(globalContent, 'promo_items.basic', {})
     );
+
+    const { resized_urls: resizedUrls } = basicPromoItems;
 
     return (
         <html amp={String.fromCodePoint(9889)} lang="es">

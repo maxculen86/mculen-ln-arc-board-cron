@@ -1,0 +1,47 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.delete-note {
+    @include flex(flex, column, center);
+    min-width: px(280);
+    width: px(328);
+    border-radius: px(4);
+    padding: px(16) px(21);
+    background-color: $light-neutral-50;
+    margin: 0 $spacing-sm;
+    .--icon {
+        padding: 0;
+        align-self: flex-end;
+        margin-bottom: $spacing-md;
+    }
+    .icon-close {
+        align-self: flex-end;
+    }
+    .com-text {
+        &.--m {
+            margin-bottom: px(4);
+        }
+        &.--twoxs {
+            margin-bottom: $spacing-md;
+        }
+    }
+    .icon-container {
+        @include flex(flex, row, center, center);
+        width: px(40);
+        height: px(40);
+        border-radius: 50%;
+        background-color: $orange-200;
+        margin-bottom: $spacing-md;
+        .icon-alert {
+            width: px(14);
+            height: px(12);
+        }
+    }
+    .buttons-container {
+        @include flex(flex, row, space-between);
+        width: 100%;
+        @media ($media-xs) {
+            padding: 0 $spacing;
+        }
+    }
+}

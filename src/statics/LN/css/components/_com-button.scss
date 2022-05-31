@@ -20,16 +20,6 @@
     &.--top {
         @include flex(flex, column, center, center);
     }
-    .mod-share & {
-        padding: 0;
-        margin-right: $spacing-md;
-        &:last-child {
-            margin-right: 0;
-        }
-        @media ($media-l) {
-            margin-right: 0;
-        }
-    }
 
     path {
         fill: $neutral-black;

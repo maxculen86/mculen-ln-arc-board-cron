@@ -14,7 +14,9 @@ const getMetasOG = props => {
         siteProperties,
         arcSite,
         ottMetaTitle,
-        ottMetaDescription
+        ottMetaDescription,
+        requestUri,
+        metaValue
     } = props;
 
     const metas = [
@@ -43,7 +45,9 @@ const getMetasOG = props => {
                 section,
                 siteProperties,
                 arcSite,
-                ottMetaDescription
+                ottMetaDescription,
+                requestUri,
+                metaValue
             })
         },
         {
