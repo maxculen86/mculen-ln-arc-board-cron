@@ -84,7 +84,8 @@ export const validateArticleFeature = (
 ) => {
     const { streams } = video || {};
     const { filesize } = getStreams(streams, '>') || '';
-    const maxVideoSize = 2000000;
+    const maxVideoSize = 3000000;
+    const oneMegabyte = 1048576;
 
     const rules = [
         {
@@ -108,7 +109,9 @@ export const validateArticleFeature = (
                 filesize &&
                 !['grilla1', 'grillaVideo1'].includes(layout) &&
                 filesize > maxVideoSize,
-            message: 'El tamaño del video debe ser inferior a 2MB (Megabytes).'
+            message: `El tamaño del video debe ser inferior a 3 MB. Peso actual ${(
+                filesize / oneMegabyte
+            ).toFixed(2)} MB`
         }
     ];
     const message = get(
