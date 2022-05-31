@@ -14,13 +14,6 @@ const Schemas = ({ section }) => {
         "@type": "NewsMediaOrganization",
         "name": "LA NACION",
         "url": "https://www.lanacion.com.ar/",
-        "logo": {
-            "@context": "https://schema.org",
-            "@type": "ImageObject",
-            "url": "https://arc-static.glanacion.com/pf/resources/images/placeholderLN-600_amp.jpg?d=851",
-            "height": 60,
-            "width": 600
-          }
         "description": "Últimas noticias de Argentina y el mundo – LA NACION",
         "alternateName": "LN",
         "diversityPolicy": "https://www.lanacion.com.ar/sociedad/diversidad-redaccion-nid2413327/",
