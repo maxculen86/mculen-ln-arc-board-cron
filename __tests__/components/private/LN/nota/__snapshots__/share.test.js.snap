@@ -2,11 +2,11 @@
 
 exports[`Share Matches snapshot 1`] = `
 <div
-  class="mod-share  "
-  id="v-share"
+  class="mod-share"
 >
   <div
     class="share"
+    id="v-share"
   >
     <div
       class="container --left"
@@ -227,11 +227,11 @@ exports[`Share Matches snapshot 1`] = `
 
 exports[`Share Note display comment in false  Matches snapshot 1`] = `
 <div
-  class="mod-share  "
-  id="v-share"
+  class="mod-share"
 >
   <div
     class="share"
+    id="v-share"
   >
     <div
       class="container --left"
