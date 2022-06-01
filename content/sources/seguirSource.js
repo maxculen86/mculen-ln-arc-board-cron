@@ -70,12 +70,27 @@ const filterByType = (items, topicType) => {
     if (!selectedTopic || selectedTopic.length === 0) return null;
 
     const terms = {
-        seccion: { 'taxonomy.sections._id': selectedTopic },
-        tags: { 'taxonomy.tags.slug': selectedTopic },
-        autor: { 'credits.by._id': selectedTopic }
+        seccion: {
+            nested: {
+                path: 'taxonomy.sections',
+                query: {
+                    bool: {
+                        must: [
+                            {
+                                terms: {
+                                    'taxonomy.sections._id': selectedTopic
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        tags: { terms: { 'taxonomy.tags.slug': selectedTopic } },
+        autor: { terms: { 'credits.by._id': selectedTopic } }
     };
 
-    return { terms: terms[topicType] };
+    return terms[topicType];
 };
 
 const shouldElements = query => {
@@ -140,7 +155,7 @@ const getElements = async query => {
         });
 };
 
-//TODO: Validar con producto el default de dias, tamano (Puede que quieran una variable de configuracion global en caso de venir en null de front)
+// TODO: Validar con producto el default de dias, tamano (Puede que quieran una variable de configuracion global en caso de venir en null de front)
 const fetch = async (query, { cachedCall }) => {
     const {
         token = '1F8794A8-BE03-48F9-B023-74356CE9C9F5',
