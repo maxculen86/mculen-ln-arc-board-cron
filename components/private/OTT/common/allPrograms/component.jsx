@@ -2,7 +2,7 @@ import React from 'react';
 import Program from '../program';
 import Title from '../../../common/title';
 
-export default function AllPrograms({ items }) {
+export default function AllPrograms({ items = [] }) {
     const currentItem = items.map((item, index) => {
         return (
             <Program

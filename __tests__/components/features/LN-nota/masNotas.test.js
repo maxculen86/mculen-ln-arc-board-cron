@@ -18,6 +18,14 @@ jest.mock(
     () => () => mockArticlesFunc()
 );
 
+jest.mock('react', () => {
+    const ActualReact = require.requireActual('react');
+    return {
+        ...ActualReact,
+        useContext: () => ({})
+    };
+});
+
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
         return props => <Component {...props} />;

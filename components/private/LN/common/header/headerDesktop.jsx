@@ -16,6 +16,7 @@ import dynamicallyLoadScript from '../utils/dynamicallyLoadScript';
 import BannerLogoHeader from '../../../common/banners/BannerLogoHeader';
 import handleCookie from '../utils/handleCookie';
 import LnLogoHeader from '../../../common/logos/LnLogoHeader';
+import findTermica from '../../../common/utils/findTermica';
 
 const ItemAnchor = ({ url, text, alt }) => {
     const callURL = address => {
@@ -190,6 +191,14 @@ const HeaderDesktop = ({
                                                 text={text}
                                             />
                                         ))}
+                                        {loginData.subscription &&
+                                            findTermica('bookmark_web') && (
+                                                <ItemAnchor
+                                                    url="https://www.lanacion.com.ar/mis-notas/"
+                                                    text="Mis Notas"
+                                                    alt="Ir a mis notas"
+                                                />
+                                            )}
                                         <li>
                                             <a
                                                 data-event="LinkClick"
