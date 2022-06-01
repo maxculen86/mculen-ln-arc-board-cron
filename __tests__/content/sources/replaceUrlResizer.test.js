@@ -1,4 +1,5 @@
 import React from 'react';
+import getProperties from 'fusion:properties';
 import promoItems from '../../../__mocks__/data/images/promoItems.json';
 import replaceUrlResizer from '../../../content/sources/utils/replaceUrlResizerToWWW';
 
@@ -8,6 +9,10 @@ jest.mock('fusion:environment', () => {
         SITE_LANACION: 'https://www.lanacion.com.ar'
     };
 });
+
+jest.mock('fusion:properties', () => () => ({
+    getProperties: () => ({ host: 'https://www.lanacion.com.ar' })
+}));
 
 describe('Private - Common - Hooks - replaceUrlResizer', () => {
     describe('When has a promoItemas with resizer urls', () => {

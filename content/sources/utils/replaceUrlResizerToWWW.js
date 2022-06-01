@@ -2,8 +2,8 @@ import { RESIZER_URL_PUBLIC } from 'fusion:environment';
 import getProperties from 'fusion:properties';
 
 const replaceUrlResizerToWWW = (originalPromoItems = {}) => {
-    const { host = '' } = getProperties('la-nacion-ar') || {};
-
+    const { host = 'https://www.lanacion.com.ar' } =
+        getProperties('la-nacion-ar') || {};
     const { url = '', type, resized_urls: resizedUrls } = originalPromoItems;
 
     const replaceUrlToWWW = _url => _url.replace(RESIZER_URL_PUBLIC, host);
