@@ -163,9 +163,11 @@ function WithAcuArticlesData(
                 const { articles, hayMasNotas, loading } = this.state;
                 let articlesArray = articles;
                 const {
-                    globalContent: { type, _id },
+                    globalContent = {},
                     customFields: { filter: filterFeature }
                 } = this.props;
+
+                const { type, _id } = globalContent;
 
                 if (type === 'story') {
                     const {
