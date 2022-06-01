@@ -29,7 +29,9 @@ const WikiFeature = () => {
         type
     } = wikiSourceData || {};
 
-    const { url: imageUrl, resizedUrls } = image;
+    const { resizedUrls } = image;
+
+    const { resizedUrl } = resizedUrls.find(e => e.option.width === 320) || '';
 
     const {
         additional_name: additionalName = '',
@@ -80,7 +82,7 @@ const WikiFeature = () => {
                 className={`wiki-tags ${isOrganization && '--organization'}`}
             >
                 <ModPicture
-                    src={imageUrl}
+                    src={resizedUrl}
                     alt={getAltImg(
                         isOrganization,
                         givenName,
