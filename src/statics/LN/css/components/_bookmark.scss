@@ -3,6 +3,7 @@
 
 .bookmark-layout {
     @include flex(flex, column);
+    min-height: 60vh;
     .bookmark-header {
         @include flex(flex, row, space-between, center);
         .help {
@@ -79,6 +80,9 @@
                 margin-bottom: $spacing-md;
             }
             .accordion-content {
+                .placeholder-bookmark {
+                    margin-bottom: $spacing-sm;
+                }
                 .com-icon {
                     display: inline-flex;
                     width: px(15);
@@ -88,10 +92,6 @@
                     margin-bottom: 0;
                 }
                 p {
-                    margin-bottom: $spacing-sm;
-                }
-                svg {
-                    margin: auto;
                     margin-bottom: $spacing-sm;
                 }
                 li {
@@ -127,14 +127,16 @@
             }
             .com-button {
                 background-color: $blue-500;
-                padding: px(10);
                 width: $spacing-lg;
                 height: $spacing-lg;
-                .icon-bookmark {
-                    width: px(10.67);
-                    height: px(13.76);
-                    path {
-                        fill: $light-neutral-50;
+                .icon-bookmark-filled {
+                    width: px(18);
+                    svg {
+                        width: px(18);
+                        height: px(18);
+                        path {
+                            fill: $light-neutral-50;
+                        }
                     }
                 }
             }
@@ -153,7 +155,7 @@
             .content-media {
                 .placeholder {
                     width: px(60);
-                    aspect-ratio: 1;
+                    padding-top: $box;
                 }
                 @media ($media-s) {
                     .placeholder {
@@ -165,9 +167,7 @@
                         margin-left: 0;
                     }
                     .placeholder {
-                        margin-right: $spacing-sm;
                         width: px(150);
-                        aspect-ratio: 3 / 2;
                     }
                 }
             }
@@ -188,11 +188,17 @@
                     margin-bottom: 0;
                     align-items: center;
                 }
+                .category-note {
+                    color: $light-neutral-600;
+                    margin-bottom: $spacing;
+                }
             }
         }
     }
     .--loader {
-        display: flex;
-        justify-content: center;
+        .loader {
+            margin-bottom: px(40);
+        }
+        text-align: center;
     }
 }

@@ -10,9 +10,14 @@ const MisNotasFeature = ({ id: featureId }) => {
             <section className="bookmark">
                 <div className="title">
                     <Text tag="h1" size="--l" font="--sueca" weight="bold">
-                        Mis notas
+                        Mis notas guardadas
                     </Text>
-                    <Text tag="a" size="--twoxs" font="--sueca" weight="bold">
+                    <Text
+                        extraClass="--saved"
+                        size="--twoxs"
+                        font="--sueca"
+                        weight="bold"
+                    >
                         Guardadas
                     </Text>
                 </div>

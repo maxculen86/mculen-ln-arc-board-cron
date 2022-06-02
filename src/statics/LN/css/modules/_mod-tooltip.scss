@@ -13,8 +13,46 @@
     box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2);
     position: relative;
     max-width: px(280);
-    // .--transparent & {
-    //     background: $neutral-black;
-    //     color: $neutral-white;
-    // }
+    .share & {
+        display: none;
+        position: absolute;
+        margin: 0;
+        .com-text {
+            color: #fefefe;
+        }
+        background: $blue-400;
+        padding: px(12);
+        border: none;
+        @media ($media-m) {
+            left: 0;
+            top: px(-55);
+            display: block;
+            &.--copy {
+                left: px(-10);
+            }
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                transform: rotate(45deg);
+                width: $spacing-sm;
+                height: $spacing-sm;
+                background: $blue-400;
+                border-radius: px(4);
+            }
+        }
+        @media ($media-l) {
+            left: px(55);
+            top: 0;
+            &:after {
+                transform: rotate(225deg);
+                left: px(-5.5);
+                top: px(14);
+            }
+            &.--copy {
+                left: px(45);
+                top: px(-11);
+            }
+        }
+    }
 }

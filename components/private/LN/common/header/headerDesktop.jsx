@@ -9,7 +9,6 @@ import Header from './headerBase';
 import Hamburger from './hamburger';
 import ComIcon from '../../../common/icon';
 
-import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../../../../resources/dist/css/ln/components/usuario.css';
 import '../../../../../resources/dist/css/ln/components/button.css';
 import dynamicallyLoadScript from '../utils/dynamicallyLoadScript';
@@ -186,11 +185,16 @@ const HeaderDesktop = ({
                                     <ul className="com-desplegable">
                                         {findTermica('bookmark_web') &&
                                             loginData.subscription && (
-                                                <ItemAnchor
-                                                    url={BOOKMARK_URL}
-                                                    text="Mis Notas"
-                                                    alt="Ir a mis notas"
-                                                />
+                                                <>
+                                                    <ItemAnchor
+                                                        url={BOOKMARK_URL}
+                                                        text="Mis notas"
+                                                        alt="Ir a mis notas"
+                                                    />
+                                                    <span className="new-feature --fivexs --font-bold">
+                                                        NUEVO
+                                                    </span>
+                                                </>
                                             )}
                                         {enlaces.map(({ url, text }) => (
                                             <ItemAnchor

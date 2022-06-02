@@ -160,7 +160,7 @@ const ModArticle = props => {
                             }
                         });
                     }}
-                    iconName="bookmark"
+                    iconName="bookmark-filled"
                 />
             )}
         </article>

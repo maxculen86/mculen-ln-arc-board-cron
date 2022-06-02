@@ -42,7 +42,13 @@ const ModDescription = props => {
     return (
         <section className="mod-description">
             {isHomeOrAcu && getBadge(contentCode, label)}
-            {categoryNote && <Text text={categoryNote} />}
+            {categoryNote && (
+                <Text
+                    extraClass="category-note"
+                    size="4xs"
+                    text={categoryNote}
+                />
+            )}
             <ComTitle
                 tag={titleTag}
                 size={titleSize}

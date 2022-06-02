@@ -28,6 +28,7 @@ import { isSubscribed } from '../common/utils/contextHelper';
 import toggleBookmark from '../../common/utils/bookmarkHelper';
 import useCheckBookmark from '../../common/hooks/bookmark/useCheckBookmark';
 import Barrier from '../../common/barrier/Barrier';
+import ModTooltip from '../../common/mod-tooltip';
 
 const Share = props => {
     const { arcSite = 'la-nacion-ar' } = useAppContext() || {};
@@ -119,20 +120,25 @@ const Share = props => {
                 <AmpContainer isForAmp={false}>
                     <div className="container --left">
                         {termicaBookmark && (
-                            <ComButton
-                                id="btnbookmark"
-                                dataEvent="LinkClick"
-                                dataSection="Guardar Nota"
-                                onClick={onButtonClicked}
-                                size="--fourxs"
-                                iconName={
-                                    bookmark ? 'bookmark-filled' : 'bookmark'
-                                }
-                                title="Notas guardadas"
-                                classCondition={`bookmark ${
-                                    bookmark ? '--is-saved' : ''
-                                }`}
-                            />
+                            <div className="btn-container">
+                                <ComButton
+                                    id="btnbookmark"
+                                    dataEvent="LinkClick"
+                                    dataSection="Guardar Nota"
+                                    onClick={onButtonClicked}
+                                    size="--fourxs"
+                                    iconName={
+                                        bookmark
+                                            ? 'bookmark-filled'
+                                            : 'bookmark'
+                                    }
+                                    title="Notas guardadas"
+                                    classCondition={`bookmark ${
+                                        bookmark ? '--is-saved' : ''
+                                    }`}
+                                />
+                                <ModTooltip label="Guardado" />
+                            </div>
                         )}
 
                         {displayComments && (
@@ -166,14 +172,17 @@ const Share = props => {
                             }
                         />
                         {/* Boton para copiar Link de la nota a compartir */}
-                        <ComButton
-                            dataEvent="LinkClick"
-                            dataSection="CompartirNotaLN"
-                            iconName="copy"
-                            title="Copiar link de la nota"
-                            id="copyLinkNote"
-                            onClick={() => copyToClipboard()}
-                        />
+                        <div className="btn-container">
+                            <ComButton
+                                dataEvent="LinkClick"
+                                dataSection="CompartirNotaLN"
+                                iconName="copy"
+                                title="Copiar link de la nota"
+                                id="copyLinkNote"
+                                onClick={() => copyToClipboard()}
+                            />
+                            <ModTooltip className="copy" label="Copiado" />
+                        </div>
                         <ComButton
                             id="btnfacebook"
                             dataEvent="LinkClick"
