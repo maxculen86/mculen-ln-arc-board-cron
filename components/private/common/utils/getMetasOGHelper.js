@@ -122,7 +122,9 @@ export const setMetaDescription = ({
         ott: () => ottMetaDescription
     };
 
-    return options[arcSite]();
+    const getMetaResult = options[arcSite] || options['la-nacion-ar'];
+
+    return getMetaResult();
 };
 
 export const setMetaTitle = ({ arcSite, pageBuilderTitle, ottMetaTitle }) => {
@@ -131,5 +133,7 @@ export const setMetaTitle = ({ arcSite, pageBuilderTitle, ottMetaTitle }) => {
         ott: () => ottMetaTitle
     };
 
-    return options[arcSite]();
+    const getMetaResult = options[arcSite] || options['la-nacion-ar'];
+
+    return getMetaResult();
 };
