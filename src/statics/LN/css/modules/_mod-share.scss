@@ -36,9 +36,7 @@
             .com-button {
                 padding: 0;
                 margin-right: $spacing-sm;
-                &:last-child {
-                    margin-right: 0;
-                }
+
                 @media ($media-l) {
                     margin-right: 0;
                     margin-bottom: $spacing-sm;
@@ -60,6 +58,7 @@
                 width: fit-content;
                 height: px(40);
                 padding: $spacing;
+                margin-right: 0;
                 .com-text {
                     margin-left: $spacing;
                     @media ($media-l) {

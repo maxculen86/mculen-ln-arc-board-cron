@@ -27,6 +27,7 @@ import Toast from '../../common/toast/Toast';
 import { isSubscribed } from '../common/utils/contextHelper';
 import toggleBookmark from '../../common/utils/bookmarkHelper';
 import useCheckBookmark from '../../common/hooks/bookmark/useCheckBookmark';
+import { getViewport } from '../common/utils/homeHelper';
 import Barrier from '../../common/barrier/Barrier';
 import ModTooltip from '../../common/mod-tooltip';
 
@@ -58,8 +59,10 @@ const Share = props => {
     const termicaBookmark = findTermica('bookmark_web');
     const [bookmark, setBookmark] = useState(false);
     const [toast, setToast] = useState(false);
+    const [copy, setCopy] = useState(false);
     const [barrier, setBarrier] = useState(false);
     const token = getToken();
+    const { isMobile } = getViewport();
     const suscription = token ? isSubscribed() : false;
 
     const checkBookmarkId = useCheckBookmark(
@@ -99,7 +102,7 @@ const Share = props => {
 
     return (
         <div className={`mod-share${classCondition}`}>
-            {termicaBookmark && toast.status && (
+            {termicaBookmark && toast.status && isMobile && (
                 <Toast data={toast} handleTimeout={() => setToast(false)} />
             )}
 
@@ -137,7 +140,14 @@ const Share = props => {
                                         bookmark ? '--is-saved' : ''
                                     }`}
                                 />
-                                <ModTooltip label="Guardado" />
+                                {!isMobile && toast.status === 'success' && (
+                                    <ModTooltip
+                                        label={
+                                            bookmark ? 'Guardado' : 'Borrado'
+                                        }
+                                        handleTimeout={() => setToast(false)}
+                                    />
+                                )}
                             </div>
                         )}
 
@@ -179,9 +189,18 @@ const Share = props => {
                                 iconName="copy"
                                 title="Copiar link de la nota"
                                 id="copyLinkNote"
-                                onClick={() => copyToClipboard()}
+                                onClick={() => {
+                                    copyToClipboard();
+                                    setCopy(true);
+                                }}
                             />
-                            <ModTooltip className="copy" label="Copiado" />
+                            {!isMobile && copy && (
+                                <ModTooltip
+                                    className="copy"
+                                    label="Copiado"
+                                    handleTimeout={() => setCopy(false)}
+                                />
+                            )}
                         </div>
                         <ComButton
                             id="btnfacebook"
