@@ -41,6 +41,7 @@ import CriticalCss from '../private/common/criticalcss';
 import MetaViafoura from '../private/common/metaViafoura';
 import Favicon from '../private/common/favicon';
 import ComscoreVideo from '../private/common/scriptManager/comscoreVideo';
+import AdblockDetector from '../private/common/scriptManager/adblockDetector';
 import {
     getTitle,
     getMetaDescriptionDefault
@@ -391,6 +392,7 @@ const Default = props => {
                 />
                 <ScriptLogoBBC distributorName={distributorName} />
                 <ScriptLogoEvent />
+                <AdblockDetector />
             </body>
         </html>
     );
