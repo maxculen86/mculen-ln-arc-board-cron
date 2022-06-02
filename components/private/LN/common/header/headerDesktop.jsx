@@ -187,7 +187,7 @@ const HeaderDesktop = ({
                                         {findTermica('bookmark_web') &&
                                             loginData.subscription && (
                                                 <ItemAnchor
-                                                    url={`${BOOKMARK_URL}`}
+                                                    url={BOOKMARK_URL}
                                                     text="Mis Notas"
                                                     alt="Ir a mis notas"
                                                 />

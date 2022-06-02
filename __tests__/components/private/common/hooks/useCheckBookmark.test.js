@@ -16,15 +16,13 @@ describe('Private - Common - Hooks - Bookmark - useCheckBookmark', () => {
     const isSuscriber = true;
 
     global.fetch = jest.fn();
-    fetch.mockImplementation(() =>
-        Promise.resolve({
-            ok: true,
-            status: 200,
-            json: async () => ({
-                bookmarkId
-            })
+    fetch.mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => ({
+            bookmarkId
         })
-    );
+    });
 
     afterEach(() => {
         setData.mockClear();
@@ -36,13 +34,11 @@ describe('Private - Common - Hooks - Bookmark - useCheckBookmark', () => {
         expect(useCheckBookmark(termicaBookmark, token, id, isSuscriber)).toBe(
             false
         );
-        expect(setData).toBeCalledWith(false);
         expect(fetch).not.toBeCalled();
     });
     it('Should return null when there is no token', () => {
         const token = null;
         expect(useCheckBookmark(termicaBookmark, token, id, false)).toBe(false);
-        expect(setData).toBeCalledWith(false);
         expect(fetch).not.toBeCalled();
     });
     it('Should return null when there is no noteId', () => {
@@ -50,11 +46,10 @@ describe('Private - Common - Hooks - Bookmark - useCheckBookmark', () => {
         expect(useCheckBookmark(termicaBookmark, token, id, isSuscriber)).toBe(
             false
         );
-        expect(setData).toBeCalledWith(false);
         expect(fetch).not.toBeCalled();
     });
-    it('Should call fetch correctly and return bookmarkId when note is saved', () => {
-        const data = useCheckBookmark(termicaBookmark, token, id, isSuscriber);
+    it('Should call fetch correctly and return bookmarkId when note is saved', async () => {
+        useCheckBookmark(termicaBookmark, token, id, isSuscriber);
         expect(fetch).toBeCalledWith(
             `https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/bookmarks-type/story/${id}`,
             {

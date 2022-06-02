@@ -19,7 +19,8 @@ const Barrier = ({
     redirectCallback,
     bookmarkId,
     setToast,
-    deleteArticle
+    deleteArticle,
+    substractOne
 }) => {
     const classType = get(CONFIG, `${type}.className`, '');
     const buttons = get(CONFIG, `${type}.buttons`, '');
@@ -88,11 +89,12 @@ const Barrier = ({
                                         bookmarkId,
                                         false,
                                         setToast
-                                    ).then(
-                                        response =>
-                                            response === 200 &&
-                                            deleteArticle(bookmarkId)
-                                    );
+                                    ).then(response => {
+                                        if (response === 200) {
+                                            deleteArticle(bookmarkId);
+                                            substractOne();
+                                        }
+                                    });
                                     handleBarrier();
                                 }}
                             />
@@ -129,12 +131,14 @@ Barrier.propTypes = {
     redirectCallback: PropTypes.string,
     bookmarkId: PropTypes.string,
     setToast: PropTypes.func.isRequired,
-    deleteArticle: PropTypes.func.isRequired
+    deleteArticle: PropTypes.func.isRequired,
+    substractOne: PropTypes.func
 };
 Barrier.defaultProps = {
     isLogged: false,
     redirectCallback: '',
-    bookmarkId: ''
+    bookmarkId: '',
+    substractOne: null
 };
 
 export default Barrier;
