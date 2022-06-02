@@ -54,6 +54,10 @@ const scriptList = [
         feature: 'none'
     },
     {
+        component: { name: 'AdblockDetector', function: AdblockDetector },
+        feature: 'none'
+    },
+    {
         component: { name: 'ScriptVideoPowa', function: ScriptVideoPowa },
         feature: 'none'
     },
@@ -392,7 +396,6 @@ const Default = props => {
                 />
                 <ScriptLogoBBC distributorName={distributorName} />
                 <ScriptLogoEvent />
-                <AdblockDetector />
             </body>
         </html>
     );

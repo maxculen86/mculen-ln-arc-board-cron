@@ -144,6 +144,10 @@ export default {
             props: {},
             location: ['head']
         },
+        AdblockDetector: {
+            props: {},
+            location: ['body-bottom']
+        },
         NewsMediaOrganization: {
             props: {},
             location: ['head']
