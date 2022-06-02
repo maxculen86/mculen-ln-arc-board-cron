@@ -99,3 +99,7 @@ export const shareWhatsAppMobile = (notaId, dominio, title, content) => {
 export const scrollToComments = () => {
     window.scrollTo(0, document.body.scrollHeight);
 };
+
+export const copyToClipboard = () => {
+    navigator.clipboard.writeText(window.location.href);
+};

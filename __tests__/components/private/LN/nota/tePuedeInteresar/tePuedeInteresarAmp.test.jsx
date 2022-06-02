@@ -9,6 +9,14 @@ import Context from 'fusion:context';
 Context.useAppContext = jest.fn(() => ({}));
 useContent.mockImplementation(() => articlesMock);
 
+jest.mock('react', () => {
+    const ActualReact = require.requireActual('react');
+    return {
+        ...ActualReact,
+        useContext: () => ({})
+    };
+});
+
 describe('TePuedeIneresarAmp', () => {
     const props = {
         cantidadNotas: 2,

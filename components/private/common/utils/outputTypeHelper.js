@@ -1,10 +1,19 @@
 import getMetaDescriptionForAcum from './getMetaDescriptionForAcum';
 
+export const getSectionOfRequestUri = (requestUri = '') => {
+    const [section] = requestUri.split('/').filter(item => item !== '');
+    return section || '';
+};
 export const getTitle = (
-    _nodeType = '',
     metaValue,
-    { longTitle, title: defaultTitle }
+    requestUri = '',
+    { longTitle, title: defaultTitle },
+    _nodeType = ''
 ) => {
+    if (getSectionOfRequestUri(requestUri) === 'mis-notas') {
+        return (metaValue && metaValue) || defaultTitle;
+    }
+
     return _nodeType === 'home' ? longTitle : metaValue || defaultTitle;
 };
 
@@ -17,8 +26,13 @@ export const getMetaDescriptionDefault = (
     Payload,
     nodeType,
     name,
-    arcSite
+    arcSite,
+    requestUri
 ) => {
+    if (getSectionOfRequestUri(requestUri) === 'mis-notas') {
+        return metaValue ? `${metaValue}` : defaultDescription;
+    }
+
     if (_nodeType === 'acumulado') {
         return (
             getMetaDescriptionForAcum(

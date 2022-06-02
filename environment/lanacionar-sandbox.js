@@ -16,16 +16,32 @@ export default {
     JSK_ID:
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygEVr42BnMp3X/xiq4mYxhNRAAAAbjBsBgkqhkiG9w0BBwagXzBdAgEAMFgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMMJkLlbI3ku0UaYK6AgEQgCsYTpwEAAWr+ASzy+7LguXottQzsdBvZxQgd0VZopz3OYzVquvzD0iZ2urE}', //NOSONAR
     DATADOG_CONFIG: {
-        clientToken: 'pubaa01cb67f0a687a6eba4718413593f4f',
-        applicationId: 'bcea4545-f033-4b09-ab27-30995db5acb0',
-        site: 'datadoghq.com',
-        forwardErrorsToLogs: true,
-        sampleRateLog: 100,
-        sampleRateRum: 100,
-        service: 'lanacion-arc',
-        env: 'sandbox',
-        trackInteractions: true,
-        trackSessionAcrossSubdomains: false
+        ott: {
+            clientTokenLogs: 'pubade9c9853f15148d022beacd85e783ca',
+            clientTokenRum: 'pub0d012ddef45dd12da168f6a3dfa65e8d',
+            applicationId: '4021f7bc-025e-422c-a79d-1fac9a7a0767',
+            site: 'datadoghq.com',
+            forwardErrorsToLogs: true,
+            sampleRateLog: 0.2,
+            sampleRateRum: 0.02,
+            service: 'lnmas',
+            env: 'sandbox',
+            trackInteractions: true,
+            trackSessionAcrossSubdomains: false
+        },
+        'la-nacion-ar': {
+            clientTokenLogs: 'pubaa01cb67f0a687a6eba4718413593f4f',
+            clientTokenRum: 'pubaa01cb67f0a687a6eba4718413593f4f',
+            applicationId: 'bcea4545-f033-4b09-ab27-30995db5acb0',
+            site: 'datadoghq.com',
+            forwardErrorsToLogs: true,
+            sampleRateLog: 1,
+            sampleRateRum: 0.15,
+            service: 'lanacion-arc',
+            env: 'sandbox',
+            trackInteractions: true,
+            trackSessionAcrossSubdomains: false
+        }
     },
     ARC_STATIC: 'https://sandbox.lanacion.com.ar',
     VIAFOURA_UUID: '00000000-0000-4000-8000-0236bd0ff826',
@@ -33,5 +49,9 @@ export default {
         '+A5uYQkKRlUYelDeXhW0I88A7/UVYGFtIugKIur9dtQE9dx7srvdJiI+ZSJZ2YsE',
     ARC_WIDGETS:
         'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/widgets/',
-    LANACION_SERVICES_URL: 'https://arcservices.lanacion.com.ar'
+    LANACION_SERVICES_URL: 'https://arcservices.lanacion.com.ar',
+    PERSONALIZACION_API:
+        'https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/',
+    BOOKMARK_URL:
+        'https://sandbox.lanacion.com.ar/pf/mis-notas/?_website=la-nacion-ar'
 };

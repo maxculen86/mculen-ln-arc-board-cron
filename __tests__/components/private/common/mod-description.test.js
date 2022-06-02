@@ -55,7 +55,9 @@ describe('Private - Common - ModDescription', () => {
             { text: 'Educación', slug: 'educacion-123' },
             { text: 'Inclusión', slug: 'inclusion-123' },
             { text: 'Sociedad', slug: 'sociedad-123' }
-        ]
+        ],
+        dataAuthors: undefined,
+        categoryNote: ''
     };
 
     Context.useAppContext = jest.fn(() => ({

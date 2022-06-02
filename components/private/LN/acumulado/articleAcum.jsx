@@ -27,6 +27,12 @@ const typeAcumRules = {
         withMedia: true,
         withAuthors: true,
         withHour: true
+    },
+    Bookmark: {
+        withMedia: true,
+        withAuthors: true,
+        withHour: false,
+        isBookmark: true
     }
 };
 

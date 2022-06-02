@@ -24,7 +24,8 @@ export default {
                 }
             },
             location: ['head']
-        }
+        },
+        Datadog: { props: {}, location: ['head'] }
     },
     sliderConfig: [
         {
