@@ -96,7 +96,8 @@ describe('Test of return validateArticleFeature', () => {
             )
         ).toStrictEqual({
             type,
-            message: 'El tamaño del video debe ser inferior a 2MB (Megabytes).'
+            message:
+                'El tamaño del video debe ser inferior a 3 MB. Peso actual 10.02 MB'
         });
     });
 

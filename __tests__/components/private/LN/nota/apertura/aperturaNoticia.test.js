@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount, shallow, render } from 'enzyme';
+import getProperties from 'fusion:properties';
 
 jest.mock('fusion:consumer', Component => {
     return function(Component) {

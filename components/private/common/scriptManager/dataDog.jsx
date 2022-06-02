@@ -5,9 +5,13 @@ import { DATADOG_CONFIG } from 'fusion:environment';
 import { useAppContext } from 'fusion:context';
 import handleCookie from '../../LN/common/utils/handleCookie';
 
-function DataDog({ location = 'head' }) {
+const Datadog = ({ location = 'head' }) => {
+    const { deployment: version, arcSite = 'la-nacion-ar' } = useAppContext();
+    const { getCookie } = handleCookie();
+
     const {
-        clientToken,
+        clientTokenLogs,
+        clientTokenRum,
         applicationId,
         site,
         forwardErrorsToLogs,
@@ -17,9 +21,7 @@ function DataDog({ location = 'head' }) {
         env,
         trackInteractions,
         trackSessionAcrossSubdomains
-    } = DATADOG_CONFIG;
-    const { deployment: version } = useAppContext();
-    const { getCookie } = handleCookie();
+    } = DATADOG_CONFIG[arcSite] || {};
 
     const scriptLog = `
     const getMyCookie = ${getCookie};
@@ -49,7 +51,7 @@ function DataDog({ location = 'head' }) {
       );
       DD_LOGS.onReady(function () {
         DD_LOGS.init({
-          clientToken: "${clientToken}",
+          clientToken: "${clientTokenLogs}",
           site: "${site}",
           forwardErrorsToLogs: ${forwardErrorsToLogs},
           sampleRate: ${sampleRateLog},
@@ -92,7 +94,7 @@ function DataDog({ location = 'head' }) {
       
       DD_RUM.onReady(function () {
         DD_RUM.init({
-          clientToken: "${clientToken}",
+          clientToken: "${clientTokenRum}",
           applicationId: "${applicationId}",
           site: "${site}",
           service: "${service}",
@@ -135,8 +137,8 @@ function DataDog({ location = 'head' }) {
             </>
         )
     );
-}
+};
 
-DataDog.propTypes = { location: PropTypes.string.isRequired };
+Datadog.propTypes = { location: PropTypes.string.isRequired };
 
-export default DataDog;
+export default Datadog;

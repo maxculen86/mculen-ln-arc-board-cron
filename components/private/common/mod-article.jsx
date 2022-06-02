@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import '../../../resources/dist/css/ln/modules/mod-article.css';
 import Media from '../LN/common/media';
@@ -9,6 +9,8 @@ import get from './utils/get';
 import ModDescription from './mod-description';
 import getAuthorsPhoto from './utils/getAuthorsPhoto';
 import setArticleClassName from './utils/setArticleClassName';
+import ComButton from './com-button';
+import { GlobalContext } from './context/globalContext';
 
 const ModArticle = props => {
     const {
@@ -45,13 +47,17 @@ const ModArticle = props => {
         handleClick,
         layout,
         isApertura,
-        registerSuccessEvent
+        registerSuccessEvent,
+        typeArticle
     } = props;
+
+    const { dispatch } = useContext(GlobalContext);
 
     const {
         _id,
         website_url: websiteUrl,
-        content_restrictions: contentRestrictions
+        content_restrictions: contentRestrictions,
+        bookmarkId
     } = articleData || {};
 
     const extraOpts = {};
@@ -82,6 +88,10 @@ const ModArticle = props => {
         }
         return type === 'image' ? imagenDestacada : null;
     })();
+
+    const isBookmark = typeArticle === 'Bookmark';
+    const dataAuthors = isBookmark && get(articleData, 'credits.by', []);
+    const categoryNote = get(articleData, 'category', '');
 
     const onCLick = event => {
         typeof registerSuccessEvent === 'function' && registerSuccessEvent();
@@ -136,7 +146,23 @@ const ModArticle = props => {
                 category={category}
                 tags={tags}
                 contentRestrictions={contentRestrictions}
+                dataAuthors={dataAuthors}
+                categoryNote={categoryNote}
             />
+
+            {isBookmark && (
+                <ComButton
+                    onClick={() => {
+                        dispatch({
+                            type: 'SHOW_MODAL_BARRIER',
+                            payload: {
+                                bookmarkId
+                            }
+                        });
+                    }}
+                    iconName="bookmark"
+                />
+            )}
         </article>
     );
 };
@@ -187,7 +213,8 @@ ModArticle.propTypes = {
         type: PropTypes.string
     }),
     withMedia: PropTypes.bool,
-    isApertura: PropTypes.bool
+    isApertura: PropTypes.bool,
+    typeArticle: PropTypes.string
 };
 
 ModArticle.defaultProps = {
@@ -222,7 +249,8 @@ ModArticle.defaultProps = {
     tags: undefined,
     videoBackground: undefined,
     withMedia: false,
-    isApertura: false
+    isApertura: false,
+    typeArticle: ''
 };
 
 export default ModArticle;

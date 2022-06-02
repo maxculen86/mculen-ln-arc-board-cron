@@ -133,7 +133,8 @@ const Default = props => {
         renderables,
         globalContent,
         outputType,
-        isAdmin
+        isAdmin,
+        requestUri
     } = props;
 
     const {
@@ -182,7 +183,13 @@ const Default = props => {
 
     const getScriptsToBeLoaded = getScriptsFilterFunction(scriptList);
     const _nodeType = getSectionName({ nodeType, type, arcSite });
-    const title = getTitle(_nodeType, metaValue('title'), siteProperties);
+    const title = getTitle(
+        metaValue('title'),
+        requestUri,
+        siteProperties,
+        _nodeType,
+        renderables
+    );
 
     const {
         title: ottMetaTitle,
@@ -215,7 +222,8 @@ const Default = props => {
         Payload,
         nodeType,
         name,
-        arcSite
+        arcSite,
+        requestUri
     );
 
     return (
@@ -329,6 +337,7 @@ const Default = props => {
                         section={_nodeType}
                         metaValue={title}
                         ottMetaTitle={ottMetaTitle}
+                        requestUri={requestUri}
                     />
                 )}
                 {layout !== 'LN-buscador' && (

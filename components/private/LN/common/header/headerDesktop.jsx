@@ -3,7 +3,7 @@
 /* eslint-disable no-script-url */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect, useCallback } from 'react';
-import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
+import { SITIO_SEGURO_REGISTRACION, BOOKMARK_URL } from 'fusion:environment';
 import PropTypes from 'prop-types';
 import Header from './headerBase';
 import Hamburger from './hamburger';
@@ -16,6 +16,7 @@ import dynamicallyLoadScript from '../utils/dynamicallyLoadScript';
 import BannerLogoHeader from '../../../common/banners/BannerLogoHeader';
 import handleCookie from '../utils/handleCookie';
 import LnLogoHeader from '../../../common/logos/LnLogoHeader';
+import findTermica from '../../../common/utils/findTermica';
 
 const ItemAnchor = ({ url, text, alt }) => {
     const callURL = address => {
@@ -183,6 +184,14 @@ const HeaderDesktop = ({
                                         </p>
                                     )}
                                     <ul className="com-desplegable">
+                                        {findTermica('bookmark_web') &&
+                                            loginData.subscription && (
+                                                <ItemAnchor
+                                                    url={BOOKMARK_URL}
+                                                    text="Mis Notas"
+                                                    alt="Ir a mis notas"
+                                                />
+                                            )}
                                         {enlaces.map(({ url, text }) => (
                                             <ItemAnchor
                                                 key={text}
@@ -200,7 +209,7 @@ const HeaderDesktop = ({
                                                     goToLogout();
                                                 }}
                                             >
-                                                Salir
+                                                Cerrar sesión
                                             </a>
                                         </li>
                                     </ul>

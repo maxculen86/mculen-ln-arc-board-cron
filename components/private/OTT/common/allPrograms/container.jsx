@@ -13,8 +13,8 @@ class Container extends PureComponent {
         this.items = this.getProgramsItems(nextProps);
     }
 
-    getProgramsItems = props => {
-        return props.sections
+    getProgramsItems = ({ sections = [] }) => {
+        return sections
             .filter(section => {
                 return (
                     section.parent &&

@@ -2,7 +2,7 @@ import React from 'react';
 import Carousell from '../../../common/carousell';
 import CurrentProgramItem from './currentProgramsItem';
 
-export default function CurrentPrograms({ items }) {
+export default function CurrentPrograms({ items = [] }) {
     const currentItem = items.map((item, index) => {
         return (
             <CurrentProgramItem
