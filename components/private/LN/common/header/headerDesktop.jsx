@@ -3,7 +3,7 @@
 /* eslint-disable no-script-url */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect, useCallback } from 'react';
-import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
+import { SITIO_SEGURO_REGISTRACION, BOOKMARK_URL } from 'fusion:environment';
 import PropTypes from 'prop-types';
 import Header from './headerBase';
 import Hamburger from './hamburger';
@@ -184,6 +184,14 @@ const HeaderDesktop = ({
                                         </p>
                                     )}
                                     <ul className="com-desplegable">
+                                        {findTermica('bookmark_web') &&
+                                            loginData.subscription && (
+                                                <ItemAnchor
+                                                    url={`${BOOKMARK_URL}`}
+                                                    text="Mis Notas"
+                                                    alt="Ir a mis notas"
+                                                />
+                                            )}
                                         {enlaces.map(({ url, text }) => (
                                             <ItemAnchor
                                                 key={text}
@@ -191,14 +199,6 @@ const HeaderDesktop = ({
                                                 text={text}
                                             />
                                         ))}
-                                        {loginData.subscription &&
-                                            findTermica('bookmark_web') && (
-                                                <ItemAnchor
-                                                    url="https://www.lanacion.com.ar/mis-notas/"
-                                                    text="Mis Notas"
-                                                    alt="Ir a mis notas"
-                                                />
-                                            )}
                                         <li>
                                             <a
                                                 data-event="LinkClick"
@@ -209,7 +209,7 @@ const HeaderDesktop = ({
                                                     goToLogout();
                                                 }}
                                             >
-                                                Salir
+                                                Cerrar sesión
                                             </a>
                                         </li>
                                     </ul>

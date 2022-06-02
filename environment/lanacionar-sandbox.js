@@ -51,5 +51,7 @@ export default {
         'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/widgets/',
     LANACION_SERVICES_URL: 'https://arcservices.lanacion.com.ar',
     PERSONALIZACION_API:
-        'https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/'
+        'https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/',
+    BOOKMARK_URL:
+        'https://sandbox.lanacion.com.ar/pf/mis-notas/?_website=la-nacion-ar'
 };

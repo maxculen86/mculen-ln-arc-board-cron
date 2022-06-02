@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-import PropTypes from 'fusion:prop-types';
 import Text from '../text';
 import ComButton from '../com-button';
 import BookmarkList from './BookmarkList';
@@ -7,17 +6,19 @@ import HelperBookmark from './HelperBookmark';
 import useListBookmarks from '../hooks/bookmark/useListBookmarks';
 import findTermica from '../utils/findTermica';
 import getToken from '../utils/getToken';
-import '../../../../resources/dist/css/ln/components/bookmark.css';
 import Barrier from '../barrier/Barrier';
 import { GlobalContext } from '../context/globalContext';
 import Toast from '../toast/Toast';
-import get from '../utils/get';
+import handleCookie from '../../LN/common/utils/handleCookie';
+import '../../../../resources/dist/css/ln/components/bookmark.css';
 
 const BookmarkLayout = () => {
     const [showHelper, setShowHelper] = useState(false);
     const [toast, setToast] = useState(false);
     const { state, dispatch } = useContext(GlobalContext);
-    const isSuscriber = get(state, 'loginData.subscription', false);
+    const { getCookie } = handleCookie();
+    const productoPremiumId = getCookie('ProductoPremiumId');
+    const isSubscribed = productoPremiumId && productoPremiumId.includes('2');
 
     const {
         bookmarks,
@@ -25,7 +26,7 @@ const BookmarkLayout = () => {
         getNextPage,
         loading,
         deleteArticle
-    } = useListBookmarks(findTermica('bookmark_web'), getToken(), isSuscriber);
+    } = useListBookmarks(findTermica('bookmark_web'), getToken(), isSubscribed);
 
     return (
         <div className="bookmark-layout">
@@ -82,10 +83,4 @@ const BookmarkLayout = () => {
     );
 };
 
-BookmarkLayout.propTypes = {
-    data: PropTypes.shape([])
-};
-BookmarkLayout.defaultProps = {
-    data: []
-};
 export default BookmarkLayout;
