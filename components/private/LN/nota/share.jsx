@@ -104,8 +104,8 @@ const Share = props => {
 
             {termicaBookmark && barrier && (
                 <Barrier
-                    show
                     type="exclusive-ln"
+                    handleBarrier={() => setBarrier(false)}
                     isLogged={!!token}
                     redirectCallback={
                         typeof window !== 'undefined'
