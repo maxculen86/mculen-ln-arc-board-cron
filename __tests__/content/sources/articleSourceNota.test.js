@@ -55,6 +55,23 @@ const query = {
     checkExclusiveAccess: false,
     imageConfig: 'm'
 };
+// Este test pasa, pero al ejecutarlo se rompen los test de validateExclusiveAcces y redirect. (Me quedo pendiente por revisar)
+// describe('Article source nota', () => {
+//     it('Return test when cachedcall is not defined', done => {
+//         articleSourceFetch(query).then(response => {
+//             // expect(response).toBeCalledTimes(1);
+//             expect(response).toEqual({
+//                 ...responseArticleSource,
+//                 paywallEnabled: "",
+//                 subscription: "A",
+//                 taxonomy: {
+//                     sections: null,
+//                 },
+//                 withFirmaDistributor: true,
+//             });
+//         }).then(done);
+//     });
+// });
 
 describe('Article source nota - validateExclusiveAccess', () => {
     afterEach(() => {
