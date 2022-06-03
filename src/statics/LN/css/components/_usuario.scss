@@ -82,6 +82,8 @@
         position: relative;
         &:first-child {
             margin-top: px(12);
+        }
+        .mis-notas {
             border-bottom: 1px solid $light-neutral-300;
         }
         &:last-child {

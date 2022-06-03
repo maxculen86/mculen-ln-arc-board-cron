@@ -155,7 +155,7 @@
             .content-media {
                 .placeholder {
                     width: px(60);
-                    padding-top: $box;
+                    aspect-ratio: 1;
                 }
                 @media ($media-s) {
                     .placeholder {
@@ -167,7 +167,9 @@
                         margin-left: 0;
                     }
                     .placeholder {
+                        margin-right: $spacing-sm;
                         width: px(150);
+                        aspect-ratio: 3 / 2;
                     }
                 }
             }

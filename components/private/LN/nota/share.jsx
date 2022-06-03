@@ -86,10 +86,6 @@ const Share = props => {
         }
     };
 
-    const handleCloseBarrier = () => {
-        setBarrier(false);
-    };
-
     useEffect(() => {
         termicaBookmark && setBookmark(checkBookmarkId);
     }, [termicaBookmark, checkBookmarkId]);
@@ -109,7 +105,6 @@ const Share = props => {
             {termicaBookmark && barrier && (
                 <Barrier
                     show
-                    handleBarrier={handleCloseBarrier}
                     type="exclusive-ln"
                     isLogged={!!token}
                     redirectCallback={
