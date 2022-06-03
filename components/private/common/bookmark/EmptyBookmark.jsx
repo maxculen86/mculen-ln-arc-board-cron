@@ -1,10 +1,10 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 import { useAppContext } from 'fusion:context';
-import Static from 'fusion:static';
 import getAssetsPath from '../utils/getAssetsPath';
 import Text from '../text';
 import Icon from '../icon';
+import ComImage from '../com-image';
 
 const EmptyBookmark = () => {
     const { contextPath, deployment } = useAppContext();
@@ -15,9 +15,7 @@ const EmptyBookmark = () => {
     return (
         <section className="empty-bookmark">
             <div className="placeholder-bookmark">
-                <Static id="empty-placeholder">
-                    <img src={placeholder} alt="Marcador de notas vacío" />
-                </Static>
+                <ComImage src={placeholder} alt="Marcador de notas vacío" />
             </div>
             <div>
                 <Text tag="h3" size="--m" weight="bold" font="--sueca">

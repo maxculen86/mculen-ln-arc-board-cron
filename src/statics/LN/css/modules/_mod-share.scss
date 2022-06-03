@@ -4,14 +4,18 @@
     .share {
         @include flex(flex, row, start, center);
         z-index: 100;
-        width: 100%;
         margin-right: auto;
         margin-bottom: $spacing-lg;
         @media (max-width: 379px) {
+            width: 100%;
             overflow-x: scroll;
         }
         .container {
             @include flex(flex, row, center, center);
+            .btn-container {
+                position: relative;
+                display: flex;
+            }
             .bookmark {
                 display: flex;
                 align-items: center;
@@ -32,9 +36,7 @@
             .com-button {
                 padding: 0;
                 margin-right: $spacing-sm;
-                &:last-child {
-                    margin-right: 0;
-                }
+
                 @media ($media-l) {
                     margin-right: 0;
                     margin-bottom: $spacing-sm;
@@ -43,15 +45,10 @@
                     }
                 }
             }
-            .com-text {
-                order: 2;
-                color: $light-neutral-800;
-            }
             .com-icon {
                 width: px(20);
                 height: px(20);
             }
-
             .comment-btn {
                 display: flex;
                 align-items: center;
@@ -61,6 +58,7 @@
                 width: fit-content;
                 height: px(40);
                 padding: $spacing;
+                margin-right: 0;
                 .com-text {
                     margin-left: $spacing;
                     @media ($media-l) {
@@ -98,6 +96,7 @@
                     flex-direction: column;
                     .comment-btn {
                         width: px(40);
+                        min-height: px(40);
                         height: fit-content;
                         flex-direction: column;
                     }

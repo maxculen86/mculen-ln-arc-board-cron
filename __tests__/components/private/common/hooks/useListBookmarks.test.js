@@ -1,36 +1,31 @@
 import 'regenerator-runtime/runtime';
 import env from '../../../../../__mocks__/fusion:environment';
-import React, { useState, useEffect, useCallback } from 'react';
+import React from 'react';
 import useListBookmarks from '../../../../../components/private/common/hooks/bookmark/useListBookmarks';
 
 describe('Private - Common - Hooks - Bookmark - useListBookmarks', () => {
     const setBookmarks = jest.fn().mockImplementation(x => x);
     React.useState = jest.fn().mockReturnValue([null, setBookmarks]);
-    const setMeta = jest.fn().mockImplementation(x => x);
-    React.useState = jest.fn().mockReturnValue([null, setMeta]);
     React.useEffect = jest.fn().mockImplementation(f => f());
     React.useCallback = jest.fn().mockImplementation(f => f);
 
     const termicaBookmark = true;
     const token = 'D5A09D56-8E4B-4BED-AD7E-65B73EBC8DF3';
-    const bookmarkId = '722cd2ae-3917-48f5-8c1d-775ab46a27fe';
     const isSuscriber = true;
 
     global.fetch = jest.fn();
-    fetch.mockImplementation(() =>
-        Promise.resolve({
-            ok: true,
-            status: 200,
-            json: async () => ({
-                data: [1, 2, 3],
-                metadata: {
-                    size: 3,
-                    nextKeyPK: '582f263c-be28-480b-a534-a511cc652c80',
-                    nextKeySK: 1652808573178
-                }
-            })
+    fetch.mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => ({
+            data: [1, 2, 3],
+            metadata: {
+                size: 3,
+                nextKeyPK: '582f263c-be28-480b-a534-a511cc652c80',
+                nextKeySK: 1652808573178
+            }
         })
-    );
+    });
 
     afterEach(() => {
         setBookmarks.mockClear();
@@ -47,7 +42,7 @@ describe('Private - Common - Hooks - Bookmark - useListBookmarks', () => {
         expect(data).toBeDefined();
         expect(fetch).not.toBeCalled();
     });
-    it('Should call fetch correctly and return bookmarks when called with termica and token', () => {
+    it('Should call fetch correctly and return bookmarks when called with termica and token', async () => {
         const data = useListBookmarks(termicaBookmark, token, isSuscriber);
         const { bookmarks, morePages, getNextPage } = data || {};
         expect(data).toBeDefined();

@@ -45,7 +45,7 @@ const BookmarkList = ({ data, morePages, getNextPage, loading }) => {
 };
 
 BookmarkList.propTypes = {
-    data: PropTypes.shape([{}]),
+    data: PropTypes.arrayOf([]),
     morePages: PropTypes.bool,
     getNextPage: PropTypes.func.isRequired,
     loading: PropTypes.bool
