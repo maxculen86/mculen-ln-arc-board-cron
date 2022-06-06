@@ -6,24 +6,22 @@ import '../../../resources/dist/css/ln/pages/bookmark.css';
 
 const MisNotasFeature = ({ id: featureId }) => {
     return (
-        <div id={featureId} htmlOnly persistent>
-            <section className="bookmark">
-                <div className="title">
-                    <Text tag="h1" size="--l" font="--sueca" weight="bold">
-                        Mis notas guardadas
-                    </Text>
-                    <Text
-                        extraClass="--saved"
-                        size="--twoxs"
-                        font="--sueca"
-                        weight="bold"
-                    >
-                        Guardadas
-                    </Text>
-                </div>
-                <BookmarkLayout />
-            </section>
-        </div>
+        <section className="bookmark">
+            <div className="title">
+                <Text tag="h1" size="--l" font="--sueca" weight="bold">
+                    Mis notas guardadas
+                </Text>
+                <Text
+                    extraClass="--saved"
+                    size="--twoxs"
+                    font="--sueca"
+                    weight="bold"
+                >
+                    Guardadas
+                </Text>
+            </div>
+            <BookmarkLayout />
+        </section>
     );
 };
 

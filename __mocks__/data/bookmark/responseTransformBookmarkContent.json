@@ -25,6 +25,7 @@
         "promo_items": {
             "basic": {
                 "height": 234,
+                "resized_urls": [],
                 "type": "image",
                 "url": "https://resizer.glanacion.com/resizer/lW7qG2X_dHzU9b8TF0x9bIRQlTk=/351x234/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5UH2M5EWTZBIJE6LCGMRZCUEW4.jpg",
                 "width": 351
@@ -66,6 +67,7 @@
         "promo_items": {
             "basic": {
                 "height": 234,
+                "resized_urls": [],
                 "type": "image",
                 "url": "https://resizer.glanacion.com/resizer/lW7qG2X_dHzU9b8TF0x9bIRQlTk=/351x234/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5UH2M5EWTZBIJE6LCGMRZCUEW4.jpg",
                 "width": 351
