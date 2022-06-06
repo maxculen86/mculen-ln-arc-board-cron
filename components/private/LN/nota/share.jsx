@@ -189,7 +189,7 @@ const Share = props => {
                                     setCopy(true);
                                 }}
                             />
-                            {!isMobile && copy && (
+                            {copy && (
                                 <ModTooltip
                                     className="copy"
                                     label="Copiado"

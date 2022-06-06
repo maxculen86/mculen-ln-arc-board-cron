@@ -38,7 +38,7 @@ const ListMenu = ({ toglleDesplegable, amp, isHome }) => {
                 ) : (
                     <button
                         type="button"
-                        className="col-3 item-foo"
+                        className={`${classCondition} item-foo`}
                         onClick={toglleDesplegable}
                     >
                         <Icon name="sections" />
