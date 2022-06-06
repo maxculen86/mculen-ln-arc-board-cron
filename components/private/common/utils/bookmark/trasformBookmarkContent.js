@@ -24,7 +24,6 @@ const getImages = objectImage => {
 
         return {
             height: getHeightOfUrl(resizedUrl),
-            resized_urls: resizedUrls,
             type: 'image',
             url: resizedUrl,
             width
