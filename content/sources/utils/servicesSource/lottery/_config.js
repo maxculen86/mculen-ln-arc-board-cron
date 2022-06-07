@@ -2,8 +2,10 @@ const getLotteryDate = (date, name) => {
     return quinielas[name] === '' ? `${name} - ${date}` : date;
 };
 
-export const reorderSubLotteries = (results, order) =>
-    results.sort((a, b) => order.indexOf(a.name) - order.indexOf(b.name));
+export const reorderSubLotteries = (results, order, isDetail) =>
+    !isDetail
+        ? results.sort((a, b) => order.indexOf(a.name) - order.indexOf(b.name))
+        : [];
 
 export const games = {
     Quiniela_Nacional: {

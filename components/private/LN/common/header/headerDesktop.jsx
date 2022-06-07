@@ -3,21 +3,21 @@
 /* eslint-disable no-script-url */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect, useCallback } from 'react';
-import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
+import { SITIO_SEGURO_REGISTRACION, BOOKMARK_URL } from 'fusion:environment';
 import PropTypes from 'prop-types';
 import Header from './headerBase';
 import Hamburger from './hamburger';
 import ComIcon from '../../../common/icon';
 
-import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../../../../resources/dist/css/ln/components/usuario.css';
 import '../../../../../resources/dist/css/ln/components/button.css';
 import dynamicallyLoadScript from '../utils/dynamicallyLoadScript';
 import BannerLogoHeader from '../../../common/banners/BannerLogoHeader';
 import handleCookie from '../utils/handleCookie';
 import LnLogoHeader from '../../../common/logos/LnLogoHeader';
+import findTermica from '../../../common/utils/findTermica';
 
-const ItemAnchor = ({ url, text, alt }) => {
+const ItemAnchor = ({ url, text, alt, className }) => {
     const callURL = address => {
         // eslint-disable-next-line no-restricted-globals
         location.href = address;
@@ -31,6 +31,7 @@ const ItemAnchor = ({ url, text, alt }) => {
                 data-event="LinkClick"
                 data-section="MenuLN"
                 title={alt}
+                className={className}
             >
                 {text}
             </a>
@@ -41,9 +42,12 @@ const ItemAnchor = ({ url, text, alt }) => {
 ItemAnchor.propTypes = {
     url: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired
+    alt: PropTypes.string.isRequired,
+    className: PropTypes.string
 };
-
+ItemAnchor.defaultProps = {
+    className: ''
+};
 const enlaces = [
     {
         url: 'https://myaccount.lanacion.com.ar/mi-usuario',
@@ -183,6 +187,20 @@ const HeaderDesktop = ({
                                         </p>
                                     )}
                                     <ul className="com-desplegable">
+                                        {findTermica('bookmark_web') &&
+                                            loginData.subscription && (
+                                                <>
+                                                    <ItemAnchor
+                                                        url={BOOKMARK_URL}
+                                                        text="Mis notas"
+                                                        alt="Ir a mis notas"
+                                                        className="mis-notas"
+                                                    />
+                                                    <span className="new-feature --fivexs --font-bold">
+                                                        NUEVO
+                                                    </span>
+                                                </>
+                                            )}
                                         {enlaces.map(({ url, text }) => (
                                             <ItemAnchor
                                                 key={text}
@@ -200,7 +218,7 @@ const HeaderDesktop = ({
                                                     goToLogout();
                                                 }}
                                             >
-                                                Salir
+                                                Cerrar sesión
                                             </a>
                                         </li>
                                     </ul>

@@ -1,0 +1,206 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.bookmark-layout {
+    @include flex(flex, column);
+    min-height: 60vh;
+    .bookmark-header {
+        @include flex(flex, row, space-between, center);
+        .help {
+            background: $light-neutral-200;
+            border-radius: px(4);
+            padding: px(12) $spacing-sm;
+            .icon-lamp {
+                width: px(10);
+                height: px(14);
+                margin: 0 px(10) 0 px(2);
+            }
+        }
+    }
+    .empty-bookmark {
+        @include flex(flex, column, center);
+        padding: px(144) 0px;
+        text-align: center;
+        .placeholder-bookmark {
+            margin-bottom: $spacing-lg;
+        }
+        .com-text {
+            margin-bottom: $spacing-xs;
+        }
+        .instruction {
+            display: inline-flex;
+            text-align: center;
+            .icon-bookmark {
+                display: inline-flex;
+                width: px(10);
+                height: px(14);
+            }
+        }
+    }
+    .helper-bookmark {
+        position: relative;
+        @include flex(flex, column);
+        height: 100vh;
+        background-color: $light-neutral-50;
+        padding: $spacing-md;
+        padding-bottom: $spacing-lg;
+        max-width: px(576);
+        overflow-y: scroll;
+        animation: fadeInAnimation 0.2s;
+
+        @keyframes fadeInAnimation {
+            0% {
+                right: -100vw;
+            }
+            100% {
+                right: 0;
+            }
+        }
+
+        .helper-header {
+            @include flex(flex, column);
+            width: 100%;
+            .--line {
+                padding-bottom: $spacing-sm;
+                margin-bottom: $spacing-md;
+            }
+            .com-button {
+                position: absolute;
+                top: px(18);
+                right: px(18);
+                padding: 0;
+            }
+        }
+        .helper-main {
+            position: relative;
+            .--italic {
+                font-style: italic;
+            }
+            p {
+                margin-bottom: $spacing-md;
+            }
+            .accordion-content {
+                .placeholder-bookmark {
+                    margin-bottom: $spacing-sm;
+                }
+                .com-icon {
+                    display: inline-flex;
+                    width: px(15);
+                    height: px(15);
+                }
+                :last-child {
+                    margin-bottom: 0;
+                }
+                p {
+                    margin-bottom: $spacing-sm;
+                }
+                li {
+                    list-style: disc;
+                    margin-left: $spacing-sm;
+                }
+            }
+        }
+    }
+
+    .placeholder-bookmark {
+        @include flex(flex, row, center, center);
+        img {
+            width: px(288);
+        }
+    }
+    .bookmark-list {
+        padding: $spacing-lg 0;
+        .item {
+            position: relative;
+            display: flex;
+            margin-bottom: $spacing-sm;
+        }
+        .mod-article {
+            @include flex(flex, row);
+            padding-bottom: $spacing-sm;
+            margin-bottom: $spacing-sm;
+            &:not(:last-child) {
+                border-bottom: px(1) solid $light-neutral-300;
+            }
+            &:last-child {
+                margin-bottom: $spacing-lg;
+            }
+            .com-button {
+                background-color: $blue-500;
+                width: $spacing-lg;
+                height: $spacing-lg;
+                .icon-bookmark-filled {
+                    width: px(18);
+                    svg {
+                        width: px(18);
+                        height: px(18);
+                        path {
+                            fill: $light-neutral-50;
+                        }
+                    }
+                }
+            }
+            .com-title {
+                font-weight: 400;
+                @media ($media-m) {
+                    font-weight: 700;
+                    font-size: px(20);
+                    line-height: px(28);
+                    letter-spacing: -0.2px;
+                }
+            }
+            .mod-media {
+                margin-left: $spacing-sm;
+            }
+            .content-media {
+                .placeholder {
+                    width: px(60);
+                    aspect-ratio: 1;
+                }
+                @media ($media-s) {
+                    .placeholder {
+                        width: px(100);
+                    }
+                }
+                @media ($media-m) {
+                    .mod-media {
+                        margin-left: 0;
+                    }
+                    .placeholder {
+                        margin-right: $spacing-sm;
+                        width: px(150);
+                        aspect-ratio: 3 / 2;
+                    }
+                }
+            }
+            .mod-description {
+                margin: 0 $spacing-sm;
+                display: flex;
+                flex-direction: column;
+                .com-date {
+                    order: -1;
+                }
+                .--author {
+                    border-radius: 50%;
+                    width: $spacing-md;
+                    height: $spacing-md;
+                    margin-right: $spacing;
+                }
+                .mod-marquee {
+                    margin-bottom: 0;
+                    align-items: center;
+                }
+                .category-note {
+                    color: $light-neutral-600;
+                    margin-bottom: $spacing;
+                }
+            }
+        }
+    }
+    .--loader {
+        .loader {
+            margin-bottom: px(40);
+        }
+        text-align: center;
+    }
+}

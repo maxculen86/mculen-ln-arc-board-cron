@@ -6,7 +6,9 @@ import ComTitle from './com-title';
 import ComDate from './com-date';
 import ComTag from './com-tag';
 import getBadge from './utils/getBadge';
+import ComImage from './com-image';
 import '../../../resources/dist/css/ln/components/mod-description.css';
+import ComPicture from './com-picture';
 
 const ModDescription = props => {
     const {
@@ -25,7 +27,9 @@ const ModDescription = props => {
         marquesina,
         category,
         tags,
-        contentRestrictions: { content_code: contentCode }
+        contentRestrictions: { content_code: contentCode },
+        dataAuthors,
+        categoryNote
     } = props;
     const { layout: layoutPageBuilder } = useAppContext();
     const withMarquee = !!(marquesina || authors);
@@ -38,6 +42,13 @@ const ModDescription = props => {
     return (
         <section className="mod-description">
             {isHomeOrAcu && getBadge(contentCode, label)}
+            {categoryNote && (
+                <Text
+                    extraClass="category-note"
+                    size="4xs"
+                    text={categoryNote}
+                />
+            )}
             <ComTitle
                 tag={titleTag}
                 size={titleSize}
@@ -56,13 +67,27 @@ const ModDescription = props => {
             )}
             <div>
                 {withMarquee && (
-                    <Text
-                        tag="strong"
-                        extraClass="mod-marquee"
-                        size={authorSize}
-                        text={marquesina || authors}
-                        link={link}
-                    />
+                    <>
+                        {dataAuthors &&
+                            dataAuthors.map(({ image, name = '' }) => {
+                                return !image || dataAuthors.length > 1 ? (
+                                    <></>
+                                ) : (
+                                    <ComImage
+                                        classCondition="--author"
+                                        src={image}
+                                        alt={name}
+                                    />
+                                );
+                            })}
+                        <Text
+                            tag="strong"
+                            extraClass="mod-marquee"
+                            size={authorSize}
+                            text={marquesina || authors}
+                            link={link}
+                        />
+                    </>
                 )}
                 {category && (
                     <ComTag
@@ -125,7 +150,9 @@ ModDescription.propTypes = {
         content_code: PropTypes.shape({
             contentCode: PropTypes.string
         })
-    })
+    }),
+    dataAuthors: PropTypes.arrayOf(PropTypes.object),
+    categoryNote: PropTypes.string
 };
 
 ModDescription.defaultProps = {
@@ -145,7 +172,9 @@ ModDescription.defaultProps = {
     titleTag: 'h2',
     contentRestrictions: {
         content_code: 'comun'
-    }
+    },
+    dataAuthors: undefined,
+    categoryNote: ''
 };
 
 export default ModDescription;

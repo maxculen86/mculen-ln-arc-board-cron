@@ -1,0 +1,72 @@
+{
+    "bookmarkParent": "2KOBND62KNFVVBFQZOADNN6WNY",
+    "bookmarkType": "story",
+    "bookmarkTypeId": "2KOBND62KNFVVBFQZOADNN6WNY",
+    "bookmarkGroup": "Boca Juniors",
+    "bookmarkContent": {
+        "id": "2KOBND62KNFVVBFQZOADNN6WNY",
+        "templateId": "1",
+        "url": "/deportes/prueba-ios-y-android-cuerpo-nid12052020/",
+        "categoria": {
+            "slug": "/deportes/futbol/boca-juniors",
+            "valor": "Boca Juniors"
+        },
+        "tags": [
+            { "id": 48666, "slug": "cebada-tid48666", "valor": "cebada" },
+            { "id": 47174, "slug": "cebolla-tid47174", "valor": "cebolla" },
+            {
+                "id": 48386,
+                "slug": "carne-de-estofado-tid48386",
+                "valor": "carne de estofado"
+            },
+            { "id": 47281, "slug": "palta-tid47281", "valor": "palta" }
+        ],
+        "titulo": "Prueba Mobile",
+        "bajada": "Esto es una bajada. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod...",
+        "autores": [
+            { "id": "", "slug": "", "valor": "Ignacio  Madrid", "tipo": 1 },
+            {
+                "id": 4189,
+                "slug": "max-fisher-4189",
+                "valor": "Max Fisher",
+                "tipo": 1
+            }
+        ],
+        "enviarApps": true,
+        "fechaActualizacion": "10 de noviembre de 2021 • 07:44",
+        "fecha": "12 de mayo de 2020 • 08:24",
+        "imagen": {
+            "id": "TWKBIKLZYBARBFLM5BOAXGYP3I",
+            "_t": "img",
+            "baseUrl": "/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TWKBIKLZYBARBFLM5BOAXGYP3I.jpg",
+            "absoluteUrl": "https://resizer.glanacion.com/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TWKBIKLZYBARBFLM5BOAXGYP3I.jpg",
+            "parametros": [
+                {
+                    "media": 879,
+                    "ancho": 879,
+                    "firma": "tzRJy6gGzKNkzpAEDUSO8TtRq4g=/879x586/filters:quality(80)"
+                },
+                {
+                    "media": 1200,
+                    "ancho": 1200,
+                    "firma": "61A1IlzRCwXWWeTdf5yYMiNFSWY=/1200x746/filters:quality(80)"
+                },
+                {
+                    "media": 768,
+                    "ancho": 768,
+                    "firma": "42B-DPd_xROEBwFTK5q6yyBh0r8=/768x512/filters:quality(80)"
+                },
+                {
+                    "media": 351,
+                    "ancho": 351,
+                    "firma": "jTn847PBblqM3bVoLo1ERL1VKA8=/351x234/filters:quality(80)"
+                },
+                {
+                    "media": 309,
+                    "ancho": 309,
+                    "firma": "DbdLaJqvFwNkhRfpEJZ0ZL5vlCI=/309x206/filters:quality(80)"
+                }
+            ]
+        }
+    }
+}

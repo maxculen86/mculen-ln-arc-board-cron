@@ -34,6 +34,10 @@
         grid-area: tags;
     }
 
+    & .mod-themes {
+        margin-left: 0;
+    }
+
     .placeholder.placeholder {
         width: calc(100% + 8px);
         max-height: px(440);
@@ -80,11 +84,6 @@
             .label {
                 color: $light-neutral-500;
             }
-
-            //.text {
-            //    margin-bottom: px(16);
-            //}
-
             .com-link {
                 font-family: $font-SuecaSlab;
                 font-size: 16px;
@@ -102,7 +101,6 @@
         .com-text {
             margin-right: px(12);
             margin-top: px(8);
-            //align-self: center;
         }
 
         .social-icons {
@@ -128,6 +126,7 @@
     }
 
     .tags-buttons {
+        margin-left: 0;
         margin-bottom: px(8);
     }
 
@@ -135,10 +134,8 @@
         grid-template-areas:
             'image info info'
             'image description description'
-            'rrss  description description'
-            'tags  description description';
+            'rrss  tags tags';
 
-        //grid-template-rows: px(200) px(250);
         grid-template-rows: auto;
         grid-template-columns: px(293) px(265) 1fr;
         padding: 0 px(16) 0 0;
@@ -153,10 +150,7 @@
             }
         }
         .social-networks {
-            margin: px(16) 0 px(16) px(16);
-        }
-        .tags-buttons {
-            margin-left: px(16);
+            margin: 0 0 px(16) px(16);
         }
 
         &.--organization {
@@ -170,12 +164,10 @@
 
     @media ($media-l) {
         grid-template-areas:
-            'image info info info'
-            'image description description description'
-            'blank description description description'
-            'rrss tags tags tags';
-
-        //grid-template-rows: px(200) px(260) px(20) px(130);
+            'image info info'
+            'image description description'
+            'blank description description'
+            'rrss tags tags';
 
         .extra-info {
             max-height: 100%;
@@ -186,24 +178,21 @@
         }
 
         .social-networks {
-            //justify-content: flex-start;
-            margin: px(16) px(24) 0 px(16);
+            margin: 0 px(24) 0 px(16);
             .com-text {
                 margin-bottom: 0;
             }
         }
         .tags-buttons {
-            margin: px(16) 0 px(8) 0;
+            margin-bottom: px(8);
         }
     }
 
     @media ($media-lg) {
         grid-template-areas:
-            'image info description description'
-            'image info description  description'
-            'image rrss tags tags';
-
-        //grid-template-rows: 200px 140px 100px;
+            'image info description'
+            'image info description'
+            'image rrss tags';
 
         .wiki-description {
             padding: px(24) 0;
@@ -213,7 +202,6 @@
             margin-left: 0;
             .com-text {
                 margin-left: 0;
-                //margin-bottom: px(65);
             }
         }
         .tags-buttons {

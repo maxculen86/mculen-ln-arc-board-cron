@@ -61,6 +61,13 @@ const actionType = {
             }
         };
     },
+    SHOW_MODAL_BARRIER: (state, action) => {
+        const { bookmarkId } = action.payload;
+        return {
+            ...state,
+            deleteBookmarkId: bookmarkId
+        };
+    },
     default: state => state
 };
 const reducer = (state, action) => {
@@ -136,6 +143,7 @@ const GlobalProvider = ({ children }) => {
         },
         tagsHome: [],
         logueado: false,
+        deleteBookmarkId: false,
         loginData: {
             subscription: false,
             userName: 'Sin nombre',

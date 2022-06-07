@@ -1338,7 +1338,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       role="button"
     >
       <figure
-        class="mod-figure --horizontal"
+        class="mod-figure "
         role="button"
       >
         <div
@@ -1658,7 +1658,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       role="button"
     >
       <figure
-        class="mod-figure --horizontal"
+        class="mod-figure "
         role="button"
       >
         <div
@@ -2674,7 +2674,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       role="button"
     >
       <figure
-        class="mod-figure --horizontal"
+        class="mod-figure "
         role="button"
       >
         <div
@@ -3987,7 +3987,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
       role="button"
     >
       <figure
-        class="mod-figure --horizontal"
+        class="mod-figure "
         role="button"
       >
         <div
@@ -4306,7 +4306,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
       role="button"
     >
       <figure
-        class="mod-figure --horizontal"
+        class="mod-figure "
         role="button"
       >
         <div
@@ -5065,7 +5065,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
       role="button"
     >
       <figure
-        class="mod-figure --horizontal"
+        class="mod-figure "
         role="button"
       >
         <div
@@ -6951,7 +6951,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       role="button"
     >
       <figure
-        class="mod-figure --horizontal"
+        class="mod-figure "
         role="button"
       >
         <div
@@ -7271,7 +7271,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       role="button"
     >
       <figure
-        class="mod-figure --horizontal"
+        class="mod-figure "
         role="button"
       >
         <div
@@ -8708,7 +8708,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       role="button"
     >
       <figure
-        class="mod-figure --horizontal"
+        class="mod-figure "
         role="button"
       >
         <div

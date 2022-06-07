@@ -1,0 +1,76 @@
+@import '../abstracts/variables';
+
+@keyframes bottomIn {
+    from {
+        bottom: px(-100);
+    }
+    to {
+        bottom: 0px;
+    }
+}
+
+.sticky-mobile {
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    min-height: px(226);
+    width: 100%;
+    z-index: 10;
+    margin-left: px(-16);
+    box-shadow: 0 px(-8) px(16) rgba(0, 0, 0, 0.06);
+    border-radius: px(16) px(16) 0px 0px;
+    padding: px(8) px(16) px(16) px(16);
+    animation: bottomIn 0.3s ease-in;
+
+    &.no-display {
+        display: none;
+    }
+
+    .header-sticky {
+        display: flex;
+        flex-direction: row;
+        margin-right: px(-24);
+        color: $light-neutral-800;
+        margin-bottom: px(8);
+
+        :first-child {
+            display: flex;
+            justify-content: center;
+            margin-right: px(-24);
+            width: 100%;
+        }
+        :last-child {
+            margin-right: px(12);
+        }
+    }
+
+    .com-link {
+        display: flex;
+        align-items: start;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: px(400);
+        color: $neutral-black;
+
+        .com-text {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-wrap: break-word;
+        }
+
+        .placeholder {
+            margin: 0;
+            margin-right: px(8);
+            width: fit-content;
+
+            .com-image {
+                width: px(80);
+                height: px(80);
+                object-fit: cover;
+            }
+        }
+    }
+}

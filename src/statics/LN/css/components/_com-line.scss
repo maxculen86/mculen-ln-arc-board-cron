@@ -6,7 +6,14 @@
     background: $light-neutral-400;
 
     .mod-share & {
-        display: none;
+        width: px(1);
+        min-width: px(1);
+        height: px(40);
+        margin: 0 $spacing-lg;
+        background: $light-neutral-300;
+        @media ($media-l) {
+            margin-bottom: $spacing-sm;
+        }
     }
 
     &::after {
@@ -22,13 +29,14 @@
             margin-bottom: $spacing-md;
         }
     }
-}
-@media ($media-l) {
-    .com-line {
+
+    @media ($media-l) {
         .mod-share & {
-            display: flex;
-            background: $neutral-black;
-            margin-bottom: $spacing-sm;
+            transform: rotate(90deg);
+        }
+        .video & {
+            transform: none;
+            margin-bottom: 0;
         }
     }
 }

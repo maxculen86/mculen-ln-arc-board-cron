@@ -27,11 +27,11 @@ const lnNotaVideo = ({ children, outputType, tree, isAdmin }) => {
                         {children[1]}
                         <div className="lay">
                             <div className="row">
-                                <div className="col-tablet-4">
+                                <div className="col-desksm-4">
                                     {/* Titulo, bajada, fecha, firma y share, */}
                                     {children[2]}
                                 </div>
-                                <div className="col-tablet-8">
+                                <div className="col-desksm-8">
                                     {/* Apertura Video */}
                                     {children[3]}
                                 </div>

@@ -25,16 +25,32 @@ export default {
     JSK_ID:
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygH+QyVcvBB00Xwj8urCVYyvAAAAbjBsBgkqhkiG9w0BBwagXzBdAgEAMFgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMUYQQ3RWuAEyjE8zpAgEQgCuj3dibucAuSygtWLyaaA65Q5kOwJBTbHqTgWH5Po4ut7uHf7lVCFSm7gwO}', //NOSONAR
     DATADOG_CONFIG: {
-        clientToken: 'pubaa01cb67f0a687a6eba4718413593f4f',
-        applicationId: 'bcea4545-f033-4b09-ab27-30995db5acb0',
-        site: 'datadoghq.com',
-        forwardErrorsToLogs: true,
-        sampleRateLog: 1,
-        sampleRateRum: 0.15,
-        service: 'lanacion-arc',
-        env: 'prod',
-        trackInteractions: true,
-        trackSessionAcrossSubdomains: false
+        ott: {
+            clientTokenLogs: 'pubade9c9853f15148d022beacd85e783ca',
+            clientTokenRum: 'pub0d012ddef45dd12da168f6a3dfa65e8d',
+            applicationId: '4021f7bc-025e-422c-a79d-1fac9a7a0767',
+            site: 'datadoghq.com',
+            forwardErrorsToLogs: true,
+            sampleRateLog: 0.2,
+            sampleRateRum: 0.02,
+            service: 'lnmas',
+            env: 'prod',
+            trackInteractions: true,
+            trackSessionAcrossSubdomains: false
+        },
+        'la-nacion-ar': {
+            clientTokenLogs: 'pubaa01cb67f0a687a6eba4718413593f4f',
+            clientTokenRum: 'pubaa01cb67f0a687a6eba4718413593f4f',
+            applicationId: 'bcea4545-f033-4b09-ab27-30995db5acb0',
+            site: 'datadoghq.com',
+            forwardErrorsToLogs: true,
+            sampleRateLog: 1,
+            sampleRateRum: 0.15,
+            service: 'lanacion-arc',
+            env: 'prod',
+            trackInteractions: true,
+            trackSessionAcrossSubdomains: false
+        }
     },
     ARC_STATIC: 'https://arc-static.glanacion.com',
     LAZY_OFFSETTOP: 500,
@@ -44,5 +60,8 @@ export default {
     ARC_WIDGETS: 'https://arc-widgets.lanacion.com.ar/widgets/',
     FONT_BOLD: '/resources/fonts/suecaslab-bold-webfont.woff2',
     FONT_MEDIUM: '/resources/fonts/suecaslab-medium-webfont.woff2',
-    LANACION_SERVICES_URL: 'https://arcservices.lanacion.com.ar'
+    LANACION_SERVICES_URL: 'https://arcservices.lanacion.com.ar',
+    PERSONALIZACION_API:
+        'https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/',
+    BOOKMARK_URL: 'https://www.lanacion.com.ar/mis-notas/'
 };

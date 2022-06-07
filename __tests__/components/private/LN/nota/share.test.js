@@ -82,13 +82,13 @@ describe('Share', () => {
     });
 
     it('Triggers defined twitter button click event function', () => {
-        const button = component.find('.icon-twitter-filled');
+        const button = component.find('.icon-twitter');
         button.simulate('click');
         expect(window.open).toHaveBeenCalled();
     });
 
     it('Triggers defined whatsapp button click function', () => {
-        const button = component.find('.icon-whatsapp-filled');
+        const button = component.find('.icon-whatsapp');
         button.simulate('click');
         expect(window.open).toHaveBeenCalled();
     });

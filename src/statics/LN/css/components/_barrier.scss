@@ -1,0 +1,92 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.barrier {
+    @include flex(flex, column, center);
+    border-radius: px(4);
+    padding: px(16) px(21);
+    align-items: center;
+    margin: 0 $spacing-sm;
+    width: 100%;
+    &.--delete-note {
+        min-width: px(280);
+        width: px(328);
+        background-color: $light-neutral-50;
+        .interaction-container {
+            @include flex(flex, row, space-between);
+            @media ($media-xs) {
+                padding: 0 $spacing;
+            }
+        }
+        .icon-container {
+            @include flex(flex, row, center, center);
+            width: px(40);
+            height: px(40);
+            border-radius: 50%;
+            background-color: $orange-200;
+            margin-bottom: $spacing-md;
+            .icon-alert {
+                width: px(14);
+                height: px(12);
+            }
+        }
+    }
+    &.--exclusive-ln {
+        background-color: $dark-neutral-200;
+        color: $dark-neutral-800;
+        .interaction-container {
+            @include flex(flex, column, center, center);
+            text-align: center;
+            .com-button:not(:last-child) {
+                margin-bottom: $spacing-sm;
+            }
+            .com-link {
+                color: $blue-200;
+            }
+        }
+        .icon-close {
+            path {
+                fill: $light-neutral-50;
+            }
+        }
+        .com-button:not(.--icon) {
+            width: px(250);
+            span {
+                font-size: px(14);
+                line-height: px(16);
+            }
+            @media ($media-s) {
+                width: px(296);
+            }
+        }
+        @media ($media-m) {
+            width: px(704);
+        }
+    }
+    .description {
+        text-align: center;
+    }
+    .--icon {
+        padding: 0;
+        align-self: flex-end;
+        margin-bottom: $spacing-md;
+    }
+    .icon-close {
+        align-self: flex-end;
+    }
+    .description {
+        margin-bottom: $spacing-sm;
+        .com-text {
+            display: block;
+            &.--m {
+                margin-bottom: px(4);
+            }
+        }
+    }
+    .badge {
+        margin-bottom: $spacing-md;
+    }
+    .interaction-container {
+        width: 100%;
+    }
+}

@@ -4,18 +4,25 @@ import {
     setMetaTitle,
     getData
 } from '../utils/getMetasOGHelper';
+import { getSectionOfRequestUri } from '../utils/outputTypeHelper';
 
 const getMetasOG = props => {
-    const data = getData(props);
-    const metaTitleFromPB = props.metaValue('title') || '';
-    const pageBuilderTitle = metaTitleFromPB.replace(' - LA NACION', '');
     const {
         section,
         siteProperties,
         arcSite,
         ottMetaTitle,
-        ottMetaDescription
+        ottMetaDescription,
+        requestUri,
+        metaValue
     } = props;
+
+    const data = getData(props);
+    const metaTitleFromPB = props.metaValue('title') || '';
+    const pageBuilderTitle =
+        getSectionOfRequestUri(requestUri) === 'mis-notas'
+            ? metaTitleFromPB
+            : metaTitleFromPB.replace(' - LA NACION', '');
 
     const metas = [
         {
@@ -43,7 +50,9 @@ const getMetasOG = props => {
                 section,
                 siteProperties,
                 arcSite,
-                ottMetaDescription
+                ottMetaDescription,
+                requestUri,
+                metaValue
             })
         },
         {
