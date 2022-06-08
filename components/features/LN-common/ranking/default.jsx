@@ -29,8 +29,8 @@ const getDataContent = (sectionId, sectionParentId, website) => {
     return (hasArticles(data) && data) || getRankingData(sectionParentId);
 };
 
-const getComponentForHome = (component, size = 4) =>
-    component || getPlaceholder(`ranking${size}`);
+const getComponentForHome = (component, size = 4, isInverse) =>
+    component || getPlaceholder(isInverse ? 'grilla6' : `ranking${size}`);
 
 const getComponentForSection = (component, featureId) =>
     (component && (
@@ -47,21 +47,24 @@ const RankingFeature = ({ id: featureId }) => {
     } = useAppContext();
     const { layoutsName = {} } = siteConfig;
     const isHome = layout === layoutsName.Home;
-    const sectionId = getSectionId(globalContent);
+    const isInverse = featureId === 'inverse-home';
+
+    const sectionId = isInverse ? 'inverse-home' : getSectionId(globalContent);
     const sectionParentId = getSectionParentId(sectionId);
     const { name, articles, size } =
         getDataContent(sectionId, sectionParentId, website || arcSite) || {};
+    const homeTitle = isInverse ? 'Te puede interesar' : 'Más leídas';
 
     const component = articles && articles.length && (
         <CajaTema
-            title={name ? `Más leídas de ${name}` : `Más leídas`}
-            notesQuantity={1}
-            sectionName="Ranking"
+            title={name ? `Más leídas de ${name}` : homeTitle}
+            notesQuantity={isInverse ? undefined : 1}
+            sectionName={isInverse ? 'TePuedeInteresarHome' : 'Ranking'}
             articles={articles}
             position="toi"
             dataSection={sectionId}
             outputType={outputType}
-            classCondition="com-ranking"
+            classCondition={isInverse ? '' : 'com-ranking'}
             titleSize="--xs"
             withVolanta
             layout={isHome ? 'Ranking' : undefined}
@@ -71,7 +74,7 @@ const RankingFeature = ({ id: featureId }) => {
     );
 
     return isHome
-        ? getComponentForHome(component, size)
+        ? getComponentForHome(component, size, isInverse)
         : getComponentForSection(component, featureId);
 };
 

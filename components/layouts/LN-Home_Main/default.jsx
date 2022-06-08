@@ -648,9 +648,7 @@ const LNMainHome = props => {
                                     </div>
                                 )}
                                 {blocksToLoad.bloque5.loaded && (
-                                    <TePuedeInteresar
-                                        customFields={{ cantidadNotas: 6 }}
-                                    />
+                                    <Ranking {...props} id="inverse-home" />
                                 )}
                                 <div className="acumulado">
                                     <section className="mod-linklist">

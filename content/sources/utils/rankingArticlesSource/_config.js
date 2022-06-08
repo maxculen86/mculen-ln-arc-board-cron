@@ -9,7 +9,8 @@ export default {
     },
     'inverse-home': {
         endpoint: '/inverse-home',
-        type: DEFAULT_SECTION
+        type: DEFAULT_SECTION,
+        size: 6
     },
     'buenos-aires': {
         name: 'Buenos Aires',
