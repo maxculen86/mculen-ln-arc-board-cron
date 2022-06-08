@@ -9,7 +9,9 @@ import { getAspectRatio } from '../../../../../content/sources/utils/getRatio';
 export const setHeight = (width, proportion) => {
     const [axisX, axisY] = proportion.split(':');
 
-    return parseInt((width / axisX) * axisY, 10);
+    return axisX > axisY
+        ? parseInt((width / axisX) * axisY, 10)
+        : parseInt((width / axisY) * axisX, 10);
 };
 
 const setFilter = (thumbor, [type, value]) =>
