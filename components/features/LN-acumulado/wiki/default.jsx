@@ -11,6 +11,7 @@ import Icon from '../../../private/common/icon';
 import TaxonomyImportantList from '../../../private/LN/common/taxonomyImportantList';
 import SchemaInfoWiki from '../../../private/LN/acumulado/wiki/SchemaInfoWiki';
 import StaticValidation from '../../../private/common/staticValidation';
+import { wikiImagesWithWWW } from '../../../private/LN/common/utils/mediaHelper';
 
 const WikiFeature = () => {
     const props = get(useAppContext(), 'globalContent', {});
@@ -24,12 +25,11 @@ const WikiFeature = () => {
         related_tags: relatedTags = [],
         description,
         schemas_info: schemasInfo = {},
-        image = {},
         _id: featureId,
         type
     } = wikiSourceData || {};
 
-    const { resizedUrls } = image;
+    const resizedUrls = wikiImagesWithWWW(wikiSourceData) || [];
 
     const { resizedUrl } = resizedUrls.find(e => e.option.width === 320) || '';
 

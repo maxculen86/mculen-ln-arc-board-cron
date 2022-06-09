@@ -24,6 +24,17 @@ jest.mock('fusion:context', () => () => ({
     useAppContext: jest.fn(() => ({}))
 }));
 
+jest.mock('fusion:environment', () => {
+    return {
+        RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com',
+        SITE_LANACION: 'https://www.lanacion.com.ar'
+    };
+});
+
+jest.mock('fusion:properties', () => () => ({
+    getProperties: () => ({ host: 'https://www.lanacion.com.ar' })
+}));
+
 describe('LN-Acumulado-WikiTag test', () => {
     it('Should render the feture when isWiki is true', () => {
         Context.useAppContext = jest.fn(() => ({
