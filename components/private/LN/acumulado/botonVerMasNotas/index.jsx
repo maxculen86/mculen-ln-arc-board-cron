@@ -14,7 +14,7 @@ const Button = ({ onClickHandler, name, loading, loadingIcon, textButton }) => {
                 disabled={loading}
                 title={`Ver más notas de ${name && name.toUpperCase()}`}
             >
-                {(textButton && textButton) || 'VER MÁS NOTAS'}
+                {textButton || 'VER MÁS NOTAS'}
                 {name && ` DE ${name.toUpperCase()}`}
             </button>
         </div>

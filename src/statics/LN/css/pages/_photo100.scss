@@ -63,6 +63,7 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
             .FirmaAutor,
             .com-unordered,
             .com-ordered,
+            .container-center-100,
             figcaption {
                 display: block;
                 width: 100%;
@@ -95,7 +96,6 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
                     right: $spacing;
                 }
                 .placeholder {
-                    height: 100vh;
                     width: 100%;
                     margin-left: 0;
                     border: none;
