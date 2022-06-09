@@ -107,6 +107,7 @@ const Barrier = ({
                                 textname={buttons.label}
                                 size="5xs"
                                 classCondition={buttons.style}
+                                title="Suscribirme"
                             />
                             <Text size="2xs" weight="bold">
                                 {message.text}
@@ -114,6 +115,7 @@ const Barrier = ({
                             <Link
                                 size="--twoxs --font-bold"
                                 href={message.href + redirectCallback}
+                                title="Iniciar sesión"
                             >
                                 {[message.textLink]}
                             </Link>

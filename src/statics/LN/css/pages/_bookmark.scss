@@ -1,23 +1,21 @@
 @import '../abstracts/variables';
 
 .bookmark {
+    .com-breadcrumb {
+        .com-text {
+            color: $light-neutral-600;
+        }
+    }
     .title {
         display: flex;
         flex-direction: column;
         margin-bottom: $spacing-lg;
         h1 {
+            color: $light-neutral-800;
             margin-bottom: px(28);
         }
-        @media ($media-m) {
-            margin-bottom: px(28);
-            h1 {
-                margin-bottom: 0;
-            }
-            .com-text {
-                margin-right: $spacing-sm;
-            }
-            flex-direction: row;
-            align-items: center;
-        }
+    }
+    .loader {
+        margin: auto;
     }
 }

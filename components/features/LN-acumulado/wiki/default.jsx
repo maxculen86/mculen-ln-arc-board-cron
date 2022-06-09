@@ -1,9 +1,9 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-danger */
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
-import { useContent } from 'fusion:content';
 import get from '../../../private/common/utils/get';
 import ModPicture from '../../../private/common/mod-picture';
 import Text from '../../../private/common/text';
@@ -11,18 +11,12 @@ import Icon from '../../../private/common/icon';
 import TaxonomyImportantList from '../../../private/LN/common/taxonomyImportantList';
 import SchemaInfoWiki from '../../../private/LN/acumulado/wiki/SchemaInfoWiki';
 import StaticValidation from '../../../private/common/staticValidation';
+import { wikiImagesWithWWW } from '../../../private/LN/common/utils/mediaHelper';
 
 const WikiFeature = () => {
     const props = get(useAppContext(), 'globalContent', {});
-    const slug = get(useAppContext(), 'globalContentConfig.query.slug', '');
     const { isWiki } = props;
-    const wikiSourceData = useContent({
-        source: isWiki ? 'wikiTagSource' : null,
-        query: {
-            slug,
-            imageConfig: 'wikiTag'
-        }
-    });
+    const { wikiSourceData = {} } = props;
 
     if (!isWiki || !wikiSourceData) return <></>;
 
@@ -31,12 +25,13 @@ const WikiFeature = () => {
         related_tags: relatedTags = [],
         description,
         schemas_info: schemasInfo = {},
-        image = {},
         _id: featureId,
         type
     } = wikiSourceData || {};
 
-    const { url: imageUrl, resizedUrls } = image;
+    const resizedUrls = wikiImagesWithWWW(wikiSourceData) || [];
+
+    const { resizedUrl } = resizedUrls.find(e => e.option.width === 320) || '';
 
     const {
         additional_name: additionalName = '',
@@ -87,7 +82,7 @@ const WikiFeature = () => {
                 className={`wiki-tags ${isOrganization && '--organization'}`}
             >
                 <ModPicture
-                    src={imageUrl}
+                    src={resizedUrl}
                     alt={getAltImg(
                         isOrganization,
                         givenName,

@@ -1,8 +1,8 @@
 import React from 'react';
 import Context from 'fusion:context';
-import { useContent } from 'fusion:content';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import wikiTagPersona from '../../../../__mocks__/data/wikiTag/wikiTagPersona.json';
 
 import WikiFeature, {
     getAltImg,
@@ -10,10 +10,6 @@ import WikiFeature, {
     getIconTitle
 } from '../../../../components/features/LN-acumulado/wiki/default';
 import mockWikiTagData from '../../../../__mocks__/data/wikiTag/wikiTagData.json';
-
-jest.mock('fusion:content', () => ({
-    useContent: jest.fn()
-}));
 
 jest.mock(
     '../../../../components/private/common/staticValidation',
@@ -28,12 +24,23 @@ jest.mock('fusion:context', () => () => ({
     useAppContext: jest.fn(() => ({}))
 }));
 
+jest.mock('fusion:environment', () => {
+    return {
+        RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com',
+        SITE_LANACION: 'https://www.lanacion.com.ar'
+    };
+});
+
+jest.mock('fusion:properties', () => () => ({
+    getProperties: () => ({ host: 'https://www.lanacion.com.ar' })
+}));
+
 describe('LN-Acumulado-WikiTag test', () => {
     it('Should render the feture when isWiki is true', () => {
-        useContent.mockReturnValueOnce(mockWikiTagData);
         Context.useAppContext = jest.fn(() => ({
             globalContent: {
-                isWiki: true
+                isWiki: true,
+                wikiSourceData: wikiTagPersona
             }
         }));
         const { container } = render(<WikiFeature />);
@@ -46,7 +53,7 @@ describe('LN-Acumulado-WikiTag test', () => {
         ).toBeVisible();
         expect(screen.getByRole('article')).toBeInTheDocument();
         expect(screen.getByRole('img')).toBeInTheDocument();
-        expect(screen.getAllByRole('link')).toHaveLength(10);
+        expect(screen.getAllByRole('link')).toHaveLength(5);
         expect(
             container.getElementsByClassName('description')
         ).toMatchSnapshot();

@@ -27,7 +27,9 @@ import Toast from '../../common/toast/Toast';
 import { isSubscribed } from '../common/utils/contextHelper';
 import toggleBookmark from '../../common/utils/bookmarkHelper';
 import useCheckBookmark from '../../common/hooks/bookmark/useCheckBookmark';
+import { getViewport } from '../common/utils/homeHelper';
 import Barrier from '../../common/barrier/Barrier';
+import ModTooltip from '../../common/mod-tooltip';
 
 const Share = props => {
     const { arcSite = 'la-nacion-ar' } = useAppContext() || {};
@@ -57,8 +59,10 @@ const Share = props => {
     const termicaBookmark = findTermica('bookmark_web');
     const [bookmark, setBookmark] = useState(false);
     const [toast, setToast] = useState(false);
+    const [copy, setCopy] = useState(false);
     const [barrier, setBarrier] = useState(false);
     const token = getToken();
+    const { isMobile } = getViewport();
     const suscription = token ? isSubscribed() : false;
 
     const checkBookmarkId = useCheckBookmark(
@@ -82,10 +86,6 @@ const Share = props => {
         }
     };
 
-    const handleCloseBarrier = () => {
-        setBarrier(false);
-    };
-
     useEffect(() => {
         termicaBookmark && setBookmark(checkBookmarkId);
     }, [termicaBookmark, checkBookmarkId]);
@@ -98,15 +98,14 @@ const Share = props => {
 
     return (
         <div className={`mod-share${classCondition}`}>
-            {termicaBookmark && toast.status && (
+            {termicaBookmark && toast.status && isMobile && (
                 <Toast data={toast} handleTimeout={() => setToast(false)} />
             )}
 
             {termicaBookmark && barrier && (
                 <Barrier
-                    show
-                    handleBarrier={handleCloseBarrier}
                     type="exclusive-ln"
+                    handleBarrier={() => setBarrier(false)}
                     isLogged={!!token}
                     redirectCallback={
                         typeof window !== 'undefined'
@@ -119,20 +118,32 @@ const Share = props => {
                 <AmpContainer isForAmp={false}>
                     <div className="container --left">
                         {termicaBookmark && (
-                            <ComButton
-                                id="btnbookmark"
-                                dataEvent="LinkClick"
-                                dataSection="Guardar Nota"
-                                onClick={onButtonClicked}
-                                size="--fourxs"
-                                iconName={
-                                    bookmark ? 'bookmark-filled' : 'bookmark'
-                                }
-                                title="Notas guardadas"
-                                classCondition={`bookmark ${
-                                    bookmark ? '--is-saved' : ''
-                                }`}
-                            />
+                            <div className="btn-container">
+                                <ComButton
+                                    id="btnbookmark"
+                                    dataEvent="LinkClick"
+                                    dataSection="Guardar Nota"
+                                    onClick={onButtonClicked}
+                                    size="--fourxs"
+                                    iconName={
+                                        bookmark
+                                            ? 'bookmark-filled'
+                                            : 'bookmark'
+                                    }
+                                    title="Notas guardadas"
+                                    classCondition={`bookmark ${
+                                        bookmark ? '--is-saved' : ''
+                                    }`}
+                                />
+                                {!isMobile && toast.status === 'success' && (
+                                    <ModTooltip
+                                        label={
+                                            bookmark ? 'Guardado' : 'Borrado'
+                                        }
+                                        handleTimeout={() => setToast(false)}
+                                    />
+                                )}
+                            </div>
                         )}
 
                         {displayComments && (
@@ -166,14 +177,26 @@ const Share = props => {
                             }
                         />
                         {/* Boton para copiar Link de la nota a compartir */}
-                        <ComButton
-                            dataEvent="LinkClick"
-                            dataSection="CompartirNotaLN"
-                            iconName="copy"
-                            title="Copiar link de la nota"
-                            id="copyLinkNote"
-                            onClick={() => copyToClipboard()}
-                        />
+                        <div className="btn-container">
+                            <ComButton
+                                dataEvent="LinkClick"
+                                dataSection="CompartirNotaLN"
+                                iconName="copy"
+                                title="Copiar link de la nota"
+                                id="copyLinkNote"
+                                onClick={() => {
+                                    copyToClipboard();
+                                    setCopy(true);
+                                }}
+                            />
+                            {copy && (
+                                <ModTooltip
+                                    className="copy"
+                                    label="Copiado"
+                                    handleTimeout={() => setCopy(false)}
+                                />
+                            )}
+                        </div>
                         <ComButton
                             id="btnfacebook"
                             dataEvent="LinkClick"

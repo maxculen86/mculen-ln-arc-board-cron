@@ -5,7 +5,10 @@ import getImage from './getImage';
 import { getChildsFromSections } from '../../../LN/common/utils/homeHelper';
 import sectionsValidation from '../../../../layouts/config/LN-Home.config';
 import { FOTOAL100, STORYTELLING } from '../subtypes/subtypeHelper';
-import { LinkImagePreload } from '../../../LN/common/utils/mediaHelper';
+import {
+    LinkImagePreload,
+    wikiImagesWithWWW
+} from '../../../LN/common/utils/mediaHelper';
 import getVideoPosterResized from '../video/getVideoPosterResized';
 import replaceUrlResizerToWWW from '../../../../../content/sources/utils/replaceUrlResizerToWWW';
 
@@ -128,7 +131,12 @@ const GetDataToLinkImage = ({
     arcSite = '',
     isAdmin = false
 }) => {
-    const { subtype, promo_items: promoItems } = data || {};
+    const {
+        subtype,
+        promo_items: promoItems,
+        wikiSourceData = {},
+        isWiki = false
+    } = data || {};
 
     const basic = replaceUrlResizerToWWW(get(data, 'promo_items.basic', {}));
 
@@ -150,6 +158,10 @@ const GetDataToLinkImage = ({
             );
         },
         acumulado: () => {
+            if (isWiki) {
+                const imagesToPreload = wikiImagesWithWWW(wikiSourceData);
+                return <LinkImagePreload resizedUrls={imagesToPreload} />;
+            }
             return [];
         },
         home: () => {
