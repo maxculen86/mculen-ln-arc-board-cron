@@ -37,28 +37,6 @@
         }
     }
 
-    &.--video {
-        order: -1;
-        amp-social-share {
-            &[type='facebook'],
-            &[type='twitter'],
-            &[type='whatsapp'],
-            &[type='email'] {
-                .com-icon path {
-                    fill: $neutral-white;
-                }
-                @media ($media-l) {
-                    margin-bottom: 0;
-                    margin-right: $spacing-sm;
-                }
-            }
-            &[type='whatsapp'] {
-                @media ($media-l) {
-                    margin-right: 0;
-                }
-            }
-        }
-    }
     @media ($media-l) {
         &:not(.--video) {
             height: 100%;
