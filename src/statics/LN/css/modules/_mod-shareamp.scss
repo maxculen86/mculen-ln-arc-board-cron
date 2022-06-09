@@ -7,6 +7,7 @@
         width: 100%;
         margin-right: auto;
         margin-bottom: $spacing-lg;
+        float: left;
         .container {
             @include flex(flex, row, center, center);
         }
@@ -18,7 +19,7 @@
                 background: none;
                 @include flex(flex, row, center, center);
                 margin-right: $spacing-sm;
-                padding: px(4);
+                padding: $spacing-2xs;
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
                 @media ($media-l) {
@@ -29,6 +30,32 @@
             &[type='email'],
             &[type='whatsapp'] {
                 margin-right: 0;
+            }
+        }
+        .--photo100 & {
+            margin-left: $spacing-sm;
+        }
+    }
+
+    &.--video {
+        order: -1;
+        amp-social-share {
+            &[type='facebook'],
+            &[type='twitter'],
+            &[type='whatsapp'],
+            &[type='email'] {
+                .com-icon path {
+                    fill: $neutral-white;
+                }
+                @media ($media-l) {
+                    margin-bottom: 0;
+                    margin-right: $spacing-sm;
+                }
+            }
+            &[type='whatsapp'] {
+                @media ($media-l) {
+                    margin-right: 0;
+                }
             }
         }
     }

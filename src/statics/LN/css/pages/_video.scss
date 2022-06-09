@@ -50,34 +50,8 @@
                     color: $light-neutral-400;
                 }
             }
-            .mod-share {
-                order: -1;
-                .toast {
-                    .description {
-                        color: $light-neutral-800;
-                    }
-                }
-                .share {
-                    .com-button {
-                        margin-bottom: 0;
-                        &:not(.comment-btn) {
-                            margin-right: $spacing-md;
-                        }
-                        &.bookmark,
-                        &.comment-btn {
-                            background: $dark-neutral-200;
-                        }
-                    }
-                    .com-icon path {
-                        fill: $neutral-white;
-                    }
-                }
-            }
+
             .mod-media {
-                // .powa-shadow {
-                //     // padding-bottom: $video;
-                //     // background: red;
-                // }
                 .mod-figcaption {
                     display: none;
                     .--credit {

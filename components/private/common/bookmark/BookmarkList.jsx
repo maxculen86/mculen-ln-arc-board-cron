@@ -34,8 +34,6 @@ const BookmarkList = ({ data, morePages, getNextPage, loading }) => {
                                 loadingIcon={<LoadingIcon />}
                                 loading={loadingMorePages}
                                 textButton="Mas notas guardadas"
-                                title="Mas notas"
-                                name="mas-notas"
                             />
                         </section>
                     )}
