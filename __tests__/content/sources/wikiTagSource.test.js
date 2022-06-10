@@ -41,10 +41,6 @@ describe('Content Sources - Wiki Tag Source', () => {
         );
     });
 
-    it('Should transform the data', () => {
-        expect(transform(mockWikiData, siteProps)).toStrictEqual(mockWikiData);
-    });
-
     it('Should reject request and log error', done => {
         mockGetReq.mockReturnValueOnce(Promise.reject());
         mockGetReq.mockImplementation(() => {
