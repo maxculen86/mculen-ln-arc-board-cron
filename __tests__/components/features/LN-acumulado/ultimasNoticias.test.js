@@ -1,65 +1,48 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
-import { shallow } from 'enzyme';
-import dateAndTimeUtil, {
-    addHoursAndFormat,
-    hasFutureDisplayDate,
-    isOlderThanXHoursAgo
-} from '../../../../components/private/common/utils/dateAndTimeUtil';
-// import UltimasNoticias from '../../../../components/features/LN-acumulado/ultimasNoticias';
+import Context from 'fusion:context';
+import Consumer from 'fusion:consumer';
+import UltimasNoticias, {
+    sectionsFormated
+} from '../../../../components/features/LN-acumulado/ultimasNoticias';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import mockArticlesHtml from '../../../../__mocks__/data/ultimasNoticias/mockArticlesHtml';
 
-jest.mock('react', () => {
-    const ActualReact = require.requireActual('react');
-    return {
-        ...ActualReact,
-        useContext: () => ({})
+jest.mock('fusion:context', Component => {
+    return function(Component) {
+        return props => <Component {...props} />;
     };
 });
 
-describe('Features - LN-acumulado - Ultimas Noticias =>', () => {
-    describe('Filtrado de articulos por varios criterios', () => {
-        it('deberia filtrar notas con display_date a futuro', () => {
-            const date1 = '2021-02-05T17:34:00.624Z';
-            const result1 = hasFutureDisplayDate(date1);
-            expect(result1).toBeFalsy();
-            /*
-            const date2 = '2021-02-18T17:34:00.624Z';
-            const result2 = hasFutureDisplayDate(date2);
-            expect(result2).toBeTruthy();
+jest.mock('fusion:consumer', Component => {
+    return function(Component) {
+        return props => <Component {...props} />;
+    };
+});
 
-            const date3 = '2021-02-17T13:34:00.624Z';
-            const result3 = hasFutureDisplayDate(date3);
-            expect(result3).toBeTruthy();
-            */
-        });
-
-        it('deberia filtrar notas con published_date mayor a 24 hs', () => {
-            const date1 = '2021-02-05T17:34:00.624Z';
-            const result1 = isOlderThanXHoursAgo(date1, 24);
-            expect(result1).toBeTruthy();
-            /*
-            const date2 = '2021-02-16T19:34:00.624Z';
-            const result2 = isOlderThanXHoursAgo(date2,24);
-            expect(result2).toBeFalsy();
-
-            const date3 = '2021-02-16T14:34:00.624Z';
-            const result3 = isOlderThanXHoursAgo(date3,24);
-            expect(result3).toBeFalsy();
-            */
-        });
-
-        test('deberia sumar 3 horas a una fecha en formato SQL', () => {
-            const date1 = '2021-02-05T17:34:00.624Z';
-            const result1 = addHoursAndFormat(6, date1);
-            expect(result1).toBe('2021-02-05T20:34:00');
-        });
-
-        test('Test Fecha del articulo dateAndTimeUtil', () => {
-            const date = '2021-02-18T17:34:00.624Z';
-            expect(dateAndTimeUtil('2021-02-18T17:34:00.624Z')).toEqual({
-                date: '18 de febrero de 2021',
-                time: '11:34'
-            });
-        });
+jest.mock(
+    '../../../../components/private/LN/common/hocs/WithAcuArticlesData',
+    () => () => () => mockArticlesHtml
+);
+describe('Features - LN-acumulado - Ultimas Noticias', () => {
+    it('should render ultimas noticias component', () => {
+        Context.useAppContext = jest.fn(() => ({
+            outputType: 'default',
+            siteProperties: {}
+        }));
+        const props = {
+            customFields: {
+                sections: [],
+                layout: 'Timeline',
+                size: 30
+            }
+        };
+        render(<UltimasNoticias {...props} />);
+        expect(screen.getByRole('article')).toBeInTheDocument();
+    });
+    it('should test sectionsFormated func', () => {
+        expect(sectionsFormated(['economia', 'politica'])).toStrictEqual(
+            '("economia","politica")'
+        );
     });
 });
