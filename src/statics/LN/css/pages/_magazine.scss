@@ -15,12 +15,9 @@
         #content {
             .com-breadcrumb a,
             .mod-autor .com-link,
-            // .com-cita .com-link,
-            // .keep-reading .com-link,
-            // .com-paragraph .com-link,
             .cuerpo__nota .com-link.com-link,
             .mod-keepreading a,
-            .mod-share .com-text,
+            .mod-share .comment-btn .com-text,
             .mod-share .com-button:hover {
                 color: $primario;
             }
@@ -48,14 +45,6 @@
                     background-color: $primario;
                 }
             }
-            // .--apertura {
-            //     .com-logo {
-            //         &:before {
-            //             content: $logo;
-            //             color: $primario;
-            //         }
-            //     }
-            // }
         }
     }
 }
@@ -114,18 +103,6 @@
     $logo: $logo-campo;
     @include magazine($logo, $primario);
 }
-
-// .nota.noticia {
-//     .mod-banner.--cabezal_dsk {
-//         position: absolute;
-//         width: 100%;
-//     }
-//     main {
-//         .--apertura {
-//             margin-top: px(202);
-//         }
-//     }
-// }
 
 .nota.nota {
     #content {

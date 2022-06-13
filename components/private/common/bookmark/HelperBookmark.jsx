@@ -45,7 +45,7 @@ const HelperBookmark = ({ show, handleHelper }) => {
                                 web de LA NACION. Seleccioná una opción para
                                 obtener más información:.
                             </Text>
-                            <Accordion text="Guardar/ Dejar de guardar una nota">
+                            <Accordion text="Guardar / Dejar de guardar una nota">
                                 <Text tag="p">
                                     Para guardar una nota, presioná el botón{' '}
                                     <strong>
@@ -68,7 +68,7 @@ const HelperBookmark = ({ show, handleHelper }) => {
                                     </strong>{' '}
                                     o ir al listado de notas guardadas en{' '}
                                     <ComLink
-                                        link="https:/lanacion.com.ar/mis-notas/"
+                                        link="https://www.lanacion.com.ar/mis-notas/"
                                         title="Ir a Mis notas - Guardadas"
                                         textname="Mis notas - Guardadas"
                                         classCondition="--font-bold"
@@ -87,7 +87,7 @@ const HelperBookmark = ({ show, handleHelper }) => {
                                 <ul>
                                     <li>
                                         <ComLink
-                                            link="https:/lanacion.com.ar/mis-notas/"
+                                            link="https://www.lanacion.com.ar/mis-notas/"
                                             title="Ir a Mis notas - Guardadas"
                                             textname="Mis notas - Guardadas"
                                             classCondition="--font-bold"

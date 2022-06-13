@@ -4,22 +4,23 @@ import { useAppContext } from 'fusion:context';
 import GrillaNotas from '../../private/LN/acumulado/grillaNotas/grillaNotas';
 import { GlobalContext } from '../../private/common/context/globalContext';
 
-const UltimasNoticias = props => {
-    const { customFields } = props;
-    const { sections, layout, size } = customFields;
-    const globalContext = useContext(GlobalContext);
-    const { siteProperties, outputType } = useAppContext();
-
-    const sectionsFormated = sections
+export const sectionsFormated = sections =>
+    sections
         ? JSON.stringify(sections)
               .replace('/,/g', '+OR+')
               .replace('[', '(')
               .replace(']', ')')
         : '';
 
+const UltimasNoticias = props => {
+    const { customFields } = props;
+    const { sections, layout, size } = customFields;
+    const globalContext = useContext(GlobalContext);
+    const { siteProperties, outputType } = useAppContext();
+
     return (
         <GrillaNotas
-            sectionsIds={sectionsFormated}
+            sectionsIds={sectionsFormated(sections)}
             sourceOrigin="composer"
             size={size}
             page={1}

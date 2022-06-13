@@ -225,11 +225,17 @@
     svg,
     img {
         height: 100%;
+        max-width: px(170);
     }
     .modal & {
         margin-bottom: $spacing-sm;
     }
     @media ($media-l) {
+        svg,
+        img {
+            max-width: px(300);
+        }
+
         .header & {
             height: px(30);
         }

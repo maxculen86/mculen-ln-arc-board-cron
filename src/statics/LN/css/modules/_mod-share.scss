@@ -76,7 +76,36 @@
                 padding-right: 0;
             }
         }
+        .mod-tooltip {
+            position: absolute;
+            z-index: 100;
+            margin: 0;
+            .com-text {
+                color: #fefefe;
+            }
+            background: $blue-400;
+            border: none;
+            left: px(55);
+            top: px(4);
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                transform: rotate(225deg);
+                width: $spacing-sm;
+                height: $spacing-sm;
+                background: $blue-400;
+                border-radius: px(4);
+                left: px(-5.5);
+                z-index: -1;
+            }
+            &.--copy {
+                left: px(32);
+                top: px(-4);
+            }
+        }
     }
+
     @media ($media-l) {
         &:not(.--video) {
             height: 100%;
