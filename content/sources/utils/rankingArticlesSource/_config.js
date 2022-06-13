@@ -9,7 +9,7 @@ export default {
     },
     'inverse-home': {
         endpoint: '/inverse-home',
-        type: DEFAULT_SECTION,
+        type: HOT_SECTION,
         size: 6
     },
     'buenos-aires': {

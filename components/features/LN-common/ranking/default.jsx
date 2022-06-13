@@ -4,8 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import { useContent as getContent } from 'fusion:content';
 import StaticValidation from '../../../private/common/staticValidation';
 import CajaTema from '../../../private/LN/common/cajaTema';
-import siteConfig from '../../../../properties/sites/la-nacion-ar';
-import { getSectionId, getSectionParentId, hasArticles } from './_helper';
+import { getRankingProps, getSectionParentId, hasArticles } from './_helper';
 import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
 
 import '../../../../resources/dist/css/ln/components/ranking.css';
@@ -29,8 +28,10 @@ const getDataContent = (sectionId, sectionParentId, website) => {
     return (hasArticles(data) && data) || getRankingData(sectionParentId);
 };
 
-const getComponentForHome = (component, size = 4, isInverse) =>
-    component || getPlaceholder(isInverse ? 'grilla6' : `ranking${size}`);
+const getComponentForHome = (component, size = 4, isInverse, hidePlaceholder) =>
+    component ||
+    (!hidePlaceholder &&
+        getPlaceholder(isInverse ? 'grilla6' : `ranking${size}`)) || <></>;
 
 const getComponentForSection = (component, featureId) =>
     (component && (
@@ -45,26 +46,32 @@ const RankingFeature = ({ id: featureId }) => {
         layout,
         globalContent
     } = useAppContext();
-    const { layoutsName = {} } = siteConfig;
-    const isHome = layout === layoutsName.Home;
-    const isInverse = featureId === 'inverse-home';
 
-    const sectionId = isInverse ? 'inverse-home' : getSectionId(globalContent);
+    const {
+        title,
+        sectionName,
+        sectionId,
+        isHome,
+        isInverse,
+        notesQuantity
+    } = getRankingProps(layout, featureId, globalContent);
+
     const sectionParentId = getSectionParentId(sectionId);
-    const { name, articles, size } =
+    const { _id, name, articles, size } =
         getDataContent(sectionId, sectionParentId, website || arcSite) || {};
-    const homeTitle = isInverse ? 'Te puede interesar' : 'Más leídas';
+
+    const hidePlaceholder = _id && !articles && isInverse;
 
     const component = articles && articles.length && (
         <CajaTema
-            title={name ? `Más leídas de ${name}` : homeTitle}
-            notesQuantity={isInverse ? undefined : 1}
-            sectionName={isInverse ? 'TePuedeInteresarHome' : 'Ranking'}
+            title={title || `Más leídas de ${name}`}
+            notesQuantity={notesQuantity}
+            sectionName={sectionName}
             articles={articles}
             position="toi"
             dataSection={sectionId}
             outputType={outputType}
-            classCondition={isInverse ? '' : 'com-ranking'}
+            classCondition="com-ranking"
             titleSize="--xs"
             withVolanta
             layout={isHome ? 'Ranking' : undefined}
@@ -74,7 +81,7 @@ const RankingFeature = ({ id: featureId }) => {
     );
 
     return isHome
-        ? getComponentForHome(component, size, isInverse)
+        ? getComponentForHome(component, size, isInverse, hidePlaceholder)
         : getComponentForSection(component, featureId);
 };
 
@@ -82,9 +89,9 @@ RankingFeature.label = 'LN-Common-Ranking';
 
 RankingFeature.propTypes = {
     id: PropTypes.string.isRequired,
-    outputType: PropTypes.string.isRequired,
-    website: PropTypes.string.isRequired,
-    arcSite: PropTypes.string.isRequired,
+    outputType: PropTypes.string,
+    website: PropTypes.string,
+    arcSite: PropTypes.string,
     layout: PropTypes.string.isRequired,
     globalContent: PropTypes.shape({
         _id: PropTypes.string,
@@ -96,6 +103,11 @@ RankingFeature.propTypes = {
             })
         })
     }).isRequired
+};
+
+RankingFeature.defaultProps = {
+    outputType: 'default',
+    arcSite: 'la-nacion-ar'
 };
 
 export default RankingFeature;

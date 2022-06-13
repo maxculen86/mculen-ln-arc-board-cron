@@ -1,5 +1,42 @@
 import get from '../../../private/common/utils/get';
 import getSectionName from '../../../private/LN/common/utils/getSectionName';
+import siteConfig from '../../../../properties/sites/la-nacion-ar';
+
+export const getRankingProps = (layout, featureId, globalContent) => {
+    const { layoutsName = {} } = siteConfig;
+    const isHome = layout === layoutsName.Home;
+    const isInverse = featureId === 'inverse-home';
+
+    const key =
+        (!isHome && !isInverse && 'acu') ||
+        (isHome && isInverse && 'inverseHome') ||
+        'home';
+
+    const rankingType = {
+        home: () => ({
+            title: 'Más leídas',
+            sectionName: 'Ranking',
+            sectionId: getSectionId(globalContent),
+            isHome,
+            notesQuantity: 1
+        }),
+        inverseHome: () => ({
+            title: 'Te puede interesar',
+            sectionName: 'RankingInverso',
+            sectionId: 'inverse-home',
+            isHome,
+            isInverse
+        }),
+        acu: () => ({
+            sectionName: 'Ranking',
+            sectionId: getSectionId(globalContent),
+            isHome,
+            notesQuantity: 1
+        })
+    };
+
+    return rankingType[key] ? rankingType[key]() : rankingType.home();
+};
 
 export const getSectionId = globalContent => {
     const rankingType = getRankingType(globalContent);
