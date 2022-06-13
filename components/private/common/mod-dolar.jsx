@@ -33,6 +33,7 @@ const ModDolar = ({ imageUrl, data = [] }) =>
             <div className="widget-carrousel-coins">
                 <ComLink
                     link="https://www.lanacion.com.ar/tema/criptomonedas-tid63718/"
+                    title="Ir a criptomonedas"
                     type="text/css"
                 >
                     <Text
