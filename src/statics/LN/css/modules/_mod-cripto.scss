@@ -1,27 +1,59 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 
+.gradient {
+    position: relative;
+
+    @media ($media-lg) {
+        &::after {
+            display: none;
+        }
+    }
+
+    &::after {
+        content: ' ';
+        position: absolute;
+        pointer-events: none;
+        height: 100%;
+        width: px(150);
+        right: px(-5);
+        top: 0;
+        background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(255, 255, 255, 1) 100%
+        );
+    }
+}
+
 .mod-cripto {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr 2fr;
     width: 100%;
 
-    min-width: 1024px;
+    min-width: $media-l;
     overflow-x: scroll;
 
     & > * {
-        min-width: 235px;
+        min-width: px(235);
     }
     .livecoinwatch-widget-1 {
-        max-width: 350px;
+        max-width: px(350);
     }
 
     .mini-widget {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        padding: px(4) 0 0 px(5);
+
+        .livecoinwatch-widget-6 {
+            margin: 0 px(5) 0 0 !important;
+        }
 
         & > * {
-            width: 250px !important;
+            width: px(250) !important;
+            height: px(60) !important;
         }
     }
 }

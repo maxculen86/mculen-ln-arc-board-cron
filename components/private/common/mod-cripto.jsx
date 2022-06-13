@@ -5,48 +5,20 @@ import '../../../resources/dist/css/ln/modules/mod-cripto.css';
 const ModCripto = () => {
     return (
         <>
-            <div className="mod-cripto">
-                <script
-                    defer
-                    src="https://www.livecoinwatch.com/static/lcw-widget.js"
-                />
-                <div
-                    className="livecoinwatch-widget-1"
-                    lcw-coin="BTC"
-                    lcw-base="USD"
-                    lcw-secondary="ETH"
-                    lcw-period="w"
-                    lcw-color-tx="#000000"
-                    lcw-color-pr="#126fff"
-                    lcw-color-bg="#ffffff"
-                    lcw-border-w="1"
-                />
-                <script
-                    defer
-                    src="https://www.livecoinwatch.com/static/lcw-widget.js"
-                />
-                <div
-                    className="livecoinwatch-widget-1"
-                    lcw-coin="ETH"
-                    lcw-base="USD"
-                    lcw-secondary="BTC"
-                    lcw-period="w"
-                    lcw-color-tx="#000000"
-                    lcw-color-pr="#126fff"
-                    lcw-color-bg="#ffffff"
-                    lcw-border-w="1"
-                />
-                <div className="mini-widget">
+            <div className="gradient">
+                <div className="mod-cripto">
                     <script
                         defer
                         src="https://www.livecoinwatch.com/static/lcw-widget.js"
                     />
                     <div
-                        className="livecoinwatch-widget-6"
-                        lcw-coin="BNB"
+                        className="livecoinwatch-widget-1"
+                        lcw-coin="BTC"
                         lcw-base="USD"
-                        lcw-period="d"
+                        lcw-secondary="ETH"
+                        lcw-period="w"
                         lcw-color-tx="#000000"
+                        lcw-color-pr="#126fff"
                         lcw-color-bg="#ffffff"
                         lcw-border-w="1"
                     />
@@ -55,68 +27,99 @@ const ModCripto = () => {
                         src="https://www.livecoinwatch.com/static/lcw-widget.js"
                     />
                     <div
-                        className="livecoinwatch-widget-6"
-                        lcw-coin="XRP"
+                        className="livecoinwatch-widget-1"
+                        lcw-coin="ETH"
                         lcw-base="USD"
-                        lcw-period="d"
+                        lcw-secondary="BTC"
+                        lcw-period="w"
                         lcw-color-tx="#000000"
+                        lcw-color-pr="#126fff"
                         lcw-color-bg="#ffffff"
                         lcw-border-w="1"
                     />
-                    <script
-                        defer
-                        src="https://www.livecoinwatch.com/static/lcw-widget.js"
-                    />
-                    <div
-                        className="livecoinwatch-widget-6"
-                        lcw-coin="ADA"
-                        lcw-base="USD"
-                        lcw-period="d"
-                        lcw-color-tx="#000000"
-                        lcw-color-bg="#ffffff"
-                        lcw-border-w="1"
-                    />
-                    <script
-                        defer
-                        src="https://www.livecoinwatch.com/static/lcw-widget.js"
-                    />
-                    <div
-                        className="livecoinwatch-widget-6"
-                        lcw-coin="SOL"
-                        lcw-base="USD"
-                        lcw-period="d"
-                        lcw-color-tx="#000000"
-                        lcw-color-bg="#ffffff"
-                        lcw-border-w="1"
-                    />
-                    <script
-                        defer
-                        src="https://www.livecoinwatch.com/static/lcw-widget.js"
-                    />
-                    <div
-                        className="livecoinwatch-widget-6"
-                        lcw-coin="DOT"
-                        lcw-base="USD"
-                        lcw-period="d"
-                        lcw-color-tx="#000000"
-                        lcw-color-bg="#ffffff"
-                        lcw-border-w="1"
-                    />
-                    <script
-                        defer
-                        src="https://www.livecoinwatch.com/static/lcw-widget.js"
-                    />
-                    <div
-                        className="livecoinwatch-widget-6"
-                        lcw-coin="TRX"
-                        lcw-base="USD"
-                        lcw-period="d"
-                        lcw-color-tx="#000000"
-                        lcw-color-bg="#ffffff"
-                        lcw-border-w="1"
-                    />
+                    <div className="mini-widget">
+                        <script
+                            defer
+                            src="https://www.livecoinwatch.com/static/lcw-widget.js"
+                        />
+                        <div
+                            className="livecoinwatch-widget-6"
+                            lcw-coin="BNB"
+                            lcw-base="USD"
+                            lcw-period="d"
+                            lcw-color-tx="#000000"
+                            lcw-color-bg="#ffffff"
+                            lcw-border-w="1"
+                        />
+                        <script
+                            defer
+                            src="https://www.livecoinwatch.com/static/lcw-widget.js"
+                        />
+                        <div
+                            className="livecoinwatch-widget-6"
+                            lcw-coin="XRP"
+                            lcw-base="USD"
+                            lcw-period="d"
+                            lcw-color-tx="#000000"
+                            lcw-color-bg="#ffffff"
+                            lcw-border-w="1"
+                        />
+                        <script
+                            defer
+                            src="https://www.livecoinwatch.com/static/lcw-widget.js"
+                        />
+                        <div
+                            className="livecoinwatch-widget-6"
+                            lcw-coin="ADA"
+                            lcw-base="USD"
+                            lcw-period="d"
+                            lcw-color-tx="#000000"
+                            lcw-color-bg="#ffffff"
+                            lcw-border-w="1"
+                        />
+                        <script
+                            defer
+                            src="https://www.livecoinwatch.com/static/lcw-widget.js"
+                        />
+                        <div
+                            className="livecoinwatch-widget-6"
+                            lcw-coin="SOL"
+                            lcw-base="USD"
+                            lcw-period="d"
+                            lcw-color-tx="#000000"
+                            lcw-color-bg="#ffffff"
+                            lcw-border-w="1"
+                        />
+                        <script
+                            defer
+                            src="https://www.livecoinwatch.com/static/lcw-widget.js"
+                        />
+                        <div
+                            className="livecoinwatch-widget-6"
+                            lcw-coin="DOT"
+                            lcw-base="USD"
+                            lcw-period="d"
+                            lcw-color-tx="#000000"
+                            lcw-color-bg="#ffffff"
+                            lcw-border-w="1"
+                        />
+                        <script
+                            defer
+                            src="https://www.livecoinwatch.com/static/lcw-widget.js"
+                        />
+                        <div
+                            className="livecoinwatch-widget-6"
+                            lcw-coin="TRX"
+                            lcw-base="USD"
+                            lcw-period="d"
+                            lcw-color-tx="#000000"
+                            lcw-color-bg="#ffffff"
+                            lcw-border-w="1"
+                        />
+                    </div>
                 </div>
             </div>
+
             <script
                 defer
                 src="https://www.livecoinwatch.com/static/lcw-widget.js"
