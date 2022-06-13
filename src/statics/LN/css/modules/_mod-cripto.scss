@@ -35,6 +35,13 @@
     min-width: $media-l;
     overflow-x: scroll;
 
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
     & > * {
         min-width: px(235);
     }
