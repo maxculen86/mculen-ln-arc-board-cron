@@ -22,25 +22,21 @@
     padding: px(8) px(16) px(16) px(16);
     animation: bottomIn 0.3s ease-in;
 
-    &.no-display {
-        display: none;
-    }
-
     .header-sticky {
-        display: flex;
-        flex-direction: row;
-        margin-right: px(-24);
+        position: relative;
         color: $light-neutral-800;
         margin-bottom: px(8);
 
         :first-child {
             display: flex;
             justify-content: center;
-            margin-right: px(-24);
             width: 100%;
         }
         :last-child {
-            margin-right: px(12);
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: px(24);
         }
     }
 
@@ -49,6 +45,7 @@
         align-items: start;
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: px(94);
         max-width: px(400);
         color: $neutral-black;
 

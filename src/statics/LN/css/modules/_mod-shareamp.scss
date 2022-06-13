@@ -7,6 +7,7 @@
         width: 100%;
         margin-right: auto;
         margin-bottom: $spacing-lg;
+        float: left;
         .container {
             @include flex(flex, row, center, center);
         }
@@ -18,7 +19,7 @@
                 background: none;
                 @include flex(flex, row, center, center);
                 margin-right: $spacing-sm;
-                padding: px(4);
+                padding: $spacing-2xs;
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
                 @media ($media-l) {
@@ -31,7 +32,11 @@
                 margin-right: 0;
             }
         }
+        .--photo100 & {
+            margin-left: $spacing-sm;
+        }
     }
+
     @media ($media-l) {
         &:not(.--video) {
             height: 100%;

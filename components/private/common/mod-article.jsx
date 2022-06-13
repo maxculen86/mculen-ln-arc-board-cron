@@ -51,7 +51,7 @@ const ModArticle = props => {
         typeArticle
     } = props;
 
-    const { dispatch } = useContext(GlobalContext);
+    const { dispatch } = useContext(GlobalContext) || {};
 
     const {
         _id,
