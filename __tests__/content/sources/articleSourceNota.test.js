@@ -22,10 +22,9 @@ const mockResponseRedirect = Promise.resolve({
     redirect_url: 'https://www.lanacion.com.ar/'
 });
 
-mockRequestResponse
-    .mockReturnValueOnce(mockResponse)
-    .mockReturnValueOnce(mockResponse)
-    .mockReturnValueOnce(mockResponseRedirect);
+beforeEach(() => {
+    mockRequestResponse.mockReturnValue(mockResponse);
+});
 
 jest.mock('request-promise-native', () => {
     return {
@@ -55,23 +54,6 @@ const query = {
     checkExclusiveAccess: false,
     imageConfig: 'm'
 };
-// Este test pasa, pero al ejecutarlo se rompen los test de validateExclusiveAcces y redirect. (Me quedo pendiente por revisar)
-// describe('Article source nota', () => {
-//     it('Return test when cachedcall is not defined', done => {
-//         articleSourceFetch(query).then(response => {
-//             // expect(response).toBeCalledTimes(1);
-//             expect(response).toEqual({
-//                 ...responseArticleSource,
-//                 paywallEnabled: "",
-//                 subscription: "A",
-//                 taxonomy: {
-//                     sections: null,
-//                 },
-//                 withFirmaDistributor: true,
-//             });
-//         }).then(done);
-//     });
-// });
 
 describe('Article source nota - validateExclusiveAccess', () => {
     afterEach(() => {
@@ -104,6 +86,10 @@ describe('Article source nota - validateExclusiveAccess', () => {
 });
 
 describe('Article source nota - redirect', () => {
+    beforeEach(() => {
+        mockRequestResponse.mockReturnValue(mockResponseRedirect);
+    });
+
     it('Must redirect to provided redirect_url with status code 301', done => {
         articleSourceFetch(query, {
             cachedCall: jest.fn()
@@ -114,6 +100,24 @@ describe('Article source nota - redirect', () => {
                     'https://www.lanacion.com.ar/',
                     301
                 );
+            })
+            .then(done);
+    });
+});
+
+describe('Article source nota - defensive cachedCall', () => {
+    it('Return test when cachedcall is not defined', done => {
+        articleSourceFetch(query)
+            .then(response => {
+                expect(response).toEqual({
+                    ...responseArticleSource,
+                    paywallEnabled: '',
+                    subscription: 'A',
+                    taxonomy: {
+                        sections: null
+                    },
+                    withFirmaDistributor: true
+                });
             })
             .then(done);
     });
