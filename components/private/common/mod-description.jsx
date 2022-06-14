@@ -8,7 +8,6 @@ import ComTag from './com-tag';
 import getBadge from './utils/getBadge';
 import ComImage from './com-image';
 import '../../../resources/dist/css/ln/components/mod-description.css';
-import ComPicture from './com-picture';
 
 const ModDescription = props => {
     const {
