@@ -31,9 +31,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 2fr;
     width: 100%;
-
-    min-width: $media-l;
-    overflow-x: scroll;
+    overflow-x: auto;
 
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -47,6 +45,10 @@
     }
     .livecoinwatch-widget-1 {
         max-width: px(350);
+
+        a {
+            pointer-events: none !important;
+        }
     }
 
     .mini-widget {
@@ -55,6 +57,7 @@
         padding: px(4) 0 0 px(5);
 
         .livecoinwatch-widget-6 {
+            pointer-events: none !important;
             margin: 0 px(5) 0 0 !important;
         }
 
@@ -63,4 +66,8 @@
             height: px(60) !important;
         }
     }
+}
+
+.livecoinwatch-widget-5 {
+    pointer-events: none !important;
 }
