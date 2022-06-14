@@ -155,7 +155,7 @@
             .content-media {
                 .placeholder {
                     width: px(60);
-                    aspect-ratio: 1;
+                    aspect-ratio: 1; // NOSONAR
                 }
                 @media ($media-s) {
                     .placeholder {
@@ -169,7 +169,7 @@
                     .placeholder {
                         margin-right: $spacing-sm;
                         width: px(150);
-                        aspect-ratio: 3 / 2;
+                        aspect-ratio: 3 / 2; // NOSONAR
                     }
                 }
             }

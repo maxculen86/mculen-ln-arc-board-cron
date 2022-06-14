@@ -1,10 +1,15 @@
-import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
+import {
+    CONTENT_BASE,
+    ARC_ACCESS_TOKEN,
+    LANACION_SERVICES_URL
+} from 'fusion:environment';
 import request from 'request-promise-native';
 import filter from '../filters/LN/acumulado/tag';
 import force404AMP from './utils/force404AMP';
 import logger from '../../components/private/common/utils/logger';
 import NotFoundError from './utils/notFoundError';
 import getRequest from './utils/getRequest';
+import transformWikiTagData from './utils/transformWikiTagData';
 
 const resolve = key => {
     const { slug, outputType } = key;
@@ -44,7 +49,7 @@ const fetch = async (query, { cachedCall }) => {
                 throw new NotFoundError('Tag no encontrado');
             }
 
-            return transform(resp, query, tagConfigData);
+            return transform(resp, query, tagConfigData, cachedCall);
         })
         .catch(error => {
             logger.push(
@@ -55,7 +60,7 @@ const fetch = async (query, { cachedCall }) => {
         });
 };
 
-const transform = (data, query, tagConfigData) => {
+const transform = async (data, query, tagConfigData, cachedCall) => {
     const { meteringVariant, slug } = query || {};
 
     const { tagConfigGroup } = tagConfigData || {};
@@ -73,6 +78,21 @@ const transform = (data, query, tagConfigData) => {
         collectionForTag: getDataForTag(collectionTag, slug)
     };
     const isWiki = typeof wikiList[slug] !== 'undefined';
+
+    const wikiTagData = isWiki
+        ? await cachedCall('wikiTagSource', getRequest, {
+              query: `${LANACION_SERVICES_URL}/api/v1/tags/${slug}`
+          })
+        : {};
+
+    const siteProps = {
+        imageConfig: 'wikiTag',
+        arcSite: 'la-nacion-ar'
+    };
+
+    const wikiDataTransformed =
+        transformWikiTagData(wikiTagData, siteProps) || {};
+
     return {
         ...data,
         node_type: 'tags',
@@ -81,7 +101,7 @@ const transform = (data, query, tagConfigData) => {
         subscription: meteringVariant,
         acumuladoGeneral,
         isWiki,
-        ...(isWiki && { imageId: wikiList[slug] })
+        ...(isWiki && { wikiSourceData: wikiDataTransformed })
     };
 };
 

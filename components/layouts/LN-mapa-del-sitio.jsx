@@ -219,8 +219,7 @@ const LNMapaDelSitio = ({ children }) => {
         },
         {
             text: 'Podcasts',
-            href:
-                'https://www.lanacion.com.ar/lifestyle/cuales-son-podcast-la-nacion-nid2165046/'
+            href: 'https://www.lanacion.com.ar/tema/podcasts-tid64878/'
         },
         { text: 'Sudoku', href: 'https://www.lanacion.com.ar/sudoku-online' },
         { text: 'RSS', href: 'https://www.lanacion.com.ar/arcio/rss/' },

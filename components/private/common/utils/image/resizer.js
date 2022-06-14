@@ -6,10 +6,10 @@ import { FOTOAL100, RECETA, STORYTELLING } from '../subtypes/subtypeHelper';
 import get from '../get';
 import { getAspectRatio } from '../../../../../content/sources/utils/getRatio';
 
-export const setHeight = (width, proportion) => {
+export const setHeight = (width, height, proportion) => {
     const [axisX, axisY] = proportion.split(':');
 
-    return parseInt((width / axisX) * axisY, 10);
+    return axisX > axisY ? parseInt((width / axisX) * axisY, 10) : height;
 };
 
 const setFilter = (thumbor, [type, value]) =>
@@ -91,7 +91,7 @@ export const createResizer = (
             smartCropExcluded
         });
 
-        proportion && (newHeight = setHeight(newWidth, proportion));
+        proportion && (newHeight = setHeight(newWidth, newHeight, proportion));
 
         const url = thumbor
             .setImagePath(cleanedUrl)

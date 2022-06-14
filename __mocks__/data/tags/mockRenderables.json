@@ -1,0 +1,623 @@
+[
+    {
+        "collection": "layouts",
+        "type": "LN-acumulado",
+        "props": {
+            "collection": "layouts",
+            "type": "LN-acumulado",
+            "id": "LN-acumulado",
+            "childProps": [
+                {
+                    "collection": "sections",
+                    "id": 0
+                },
+                {
+                    "collection": "sections",
+                    "id": 1
+                },
+                {
+                    "collection": "sections",
+                    "id": 2
+                },
+                {
+                    "collection": "sections",
+                    "id": 3
+                },
+                {
+                    "collection": "sections",
+                    "id": 4
+                },
+                {
+                    "collection": "sections",
+                    "id": 5
+                },
+                {
+                    "collection": "sections",
+                    "id": 6
+                },
+                {
+                    "collection": "sections",
+                    "id": 7
+                }
+            ]
+        },
+        "children": [
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 0
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-common/bannerRefactor",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/bannerRefactor",
+                            "id": "f0fg4PBI8Tea2qC",
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "group": "acumulado",
+                                "desktop": "comercial_dsk",
+                                "mobile": "comercial_mob"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 1
+                },
+                "children": []
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 2
+                },
+                "children": []
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 3
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-acumulado/breadcrumb",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-acumulado/breadcrumb",
+                            "id": "f0fagI1LvrFa2Bx",
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {},
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-acumulado/titulo",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-acumulado/titulo",
+                            "id": "f0fp9X72GMMa2TG",
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {},
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 4
+                },
+                "children": []
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 5
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-acumulado/tagList",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-acumulado/tagList",
+                            "id": "f0f3csF7HGs47So",
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {},
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 6
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-acumulado/ultimasNoticias",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-acumulado/ultimasNoticias",
+                            "id": "f0fmiJMRfZ3b2GO",
+                            "name": "ln-ultimas-noticias",
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "idCollection": "UQHQQQ357ZDD7G6EF3UMFNETVI",
+                                "sections": [
+                                    "/economia",
+                                    "/sociedad",
+                                    "/deportes",
+                                    "/politica",
+                                    "/espectaculos",
+                                    "/el-mundo",
+                                    "/turismo",
+                                    "/tecnologia",
+                                    "/transito",
+                                    "/propiedades",
+                                    "/dolar-hoy",
+                                    "/autos",
+                                    "/buenos-aires",
+                                    "/seguridad",
+                                    "/educacion",
+                                    "/cultura",
+                                    "/comunidad",
+                                    "/salud",
+                                    "/ciencia",
+                                    "/sabado"
+                                ],
+                                "layout": "Timeline",
+                                "size": 30
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 7
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-common/ranking",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/ranking",
+                            "id": "f0fFISCofLeb2B6",
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "size1": 3,
+                                "daysAgo1": 1,
+                                "weeksAgo1": 40,
+                                "size2": 3,
+                                "daysAgo2": 5,
+                                "weeksAgo2": 100
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 0
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-common/bannerRefactor",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/bannerRefactor",
+                    "id": "f0fg4PBI8Tea2qC",
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "group": "acumulado",
+                        "desktop": "comercial_dsk",
+                        "mobile": "comercial_mob"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 1
+        },
+        "children": []
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 2
+        },
+        "children": []
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 3
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-acumulado/breadcrumb",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-acumulado/breadcrumb",
+                    "id": "f0fagI1LvrFa2Bx",
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {},
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-acumulado/titulo",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-acumulado/titulo",
+                    "id": "f0fp9X72GMMa2TG",
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {},
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 4
+        },
+        "children": []
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 5
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-acumulado/tagList",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-acumulado/tagList",
+                    "id": "f0f3csF7HGs47So",
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {},
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 6
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-acumulado/ultimasNoticias",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-acumulado/ultimasNoticias",
+                    "id": "f0fmiJMRfZ3b2GO",
+                    "name": "ln-ultimas-noticias",
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "idCollection": "UQHQQQ357ZDD7G6EF3UMFNETVI",
+                        "sections": [
+                            "/economia",
+                            "/sociedad",
+                            "/deportes",
+                            "/politica",
+                            "/espectaculos",
+                            "/el-mundo",
+                            "/turismo",
+                            "/tecnologia",
+                            "/transito",
+                            "/propiedades",
+                            "/dolar-hoy",
+                            "/autos",
+                            "/buenos-aires",
+                            "/seguridad",
+                            "/educacion",
+                            "/cultura",
+                            "/comunidad",
+                            "/salud",
+                            "/ciencia",
+                            "/sabado"
+                        ],
+                        "layout": "Timeline",
+                        "size": 30
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 7
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-common/ranking",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/ranking",
+                    "id": "f0fFISCofLeb2B6",
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "size1": 3,
+                        "daysAgo1": 1,
+                        "weeksAgo1": 40,
+                        "size2": 3,
+                        "daysAgo2": 5,
+                        "weeksAgo2": 100
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/bannerRefactor",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/bannerRefactor",
+            "id": "f0fg4PBI8Tea2qC",
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "group": "acumulado",
+                "desktop": "comercial_dsk",
+                "mobile": "comercial_mob"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-acumulado/breadcrumb",
+        "props": {
+            "collection": "features",
+            "type": "LN-acumulado/breadcrumb",
+            "id": "f0fagI1LvrFa2Bx",
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {},
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-acumulado/titulo",
+        "props": {
+            "collection": "features",
+            "type": "LN-acumulado/titulo",
+            "id": "f0fp9X72GMMa2TG",
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {},
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-acumulado/tagList",
+        "props": {
+            "collection": "features",
+            "type": "LN-acumulado/tagList",
+            "id": "f0f3csF7HGs47So",
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {},
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-acumulado/ultimasNoticias",
+        "props": {
+            "collection": "features",
+            "type": "LN-acumulado/ultimasNoticias",
+            "id": "f0fmiJMRfZ3b2GO",
+            "name": "ln-ultimas-noticias",
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "idCollection": "UQHQQQ357ZDD7G6EF3UMFNETVI",
+                "sections": [
+                    "/economia",
+                    "/sociedad",
+                    "/deportes",
+                    "/politica",
+                    "/espectaculos",
+                    "/el-mundo",
+                    "/turismo",
+                    "/tecnologia",
+                    "/transito",
+                    "/propiedades",
+                    "/dolar-hoy",
+                    "/autos",
+                    "/buenos-aires",
+                    "/seguridad",
+                    "/educacion",
+                    "/cultura",
+                    "/comunidad",
+                    "/salud",
+                    "/ciencia",
+                    "/sabado"
+                ],
+                "layout": "Timeline",
+                "size": 30
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/ranking",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/ranking",
+            "id": "f0fFISCofLeb2B6",
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "size1": 3,
+                "daysAgo1": 1,
+                "weeksAgo1": 40,
+                "size2": 3,
+                "daysAgo2": 5,
+                "weeksAgo2": 100
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    }
+]

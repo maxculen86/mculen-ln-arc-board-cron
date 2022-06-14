@@ -17,7 +17,7 @@ import handleCookie from '../utils/handleCookie';
 import LnLogoHeader from '../../../common/logos/LnLogoHeader';
 import findTermica from '../../../common/utils/findTermica';
 
-const ItemAnchor = ({ url, text, alt, className }) => {
+const ItemAnchor = ({ url, text, title, className }) => {
     const callURL = address => {
         // eslint-disable-next-line no-restricted-globals
         location.href = address;
@@ -30,7 +30,7 @@ const ItemAnchor = ({ url, text, alt, className }) => {
                 href="javascript:void(0)"
                 data-event="LinkClick"
                 data-section="MenuLN"
-                title={alt}
+                title={title}
                 className={className}
             >
                 {text}
@@ -42,7 +42,7 @@ const ItemAnchor = ({ url, text, alt, className }) => {
 ItemAnchor.propTypes = {
     url: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
     className: PropTypes.string
 };
 ItemAnchor.defaultProps = {
@@ -50,19 +50,19 @@ ItemAnchor.defaultProps = {
 };
 const enlaces = [
     {
-        url: 'https://myaccount.lanacion.com.ar/mi-usuario',
+        url: 'https://myaccount.lanacion.com.ar/mi-usuario/',
         text: 'Mi cuenta',
-        alt: 'Ir a mi cuenta'
+        title: 'Ir a mi cuenta'
     },
     {
-        url: 'https://myaccount.lanacion.com.ar/datos-personales',
+        url: 'https://myaccount.lanacion.com.ar/datos-personales/',
         text: 'Mis datos',
-        alt: 'Ir a mis datos'
+        title: 'Ir a mis datos'
     },
     {
-        url: 'https://micuenta.lanacion.com.ar/mis-suscripciones',
+        url: 'https://micuenta.lanacion.com.ar/mis-suscripciones/',
         text: 'Mis suscripciones',
-        alt: 'Ir a mis suscripciones'
+        title: 'Ir a mis suscripciones'
     }
 ];
 
@@ -70,9 +70,7 @@ const HeaderDesktop = ({
     logueado,
     loginData,
     goToLogout,
-    isHome,
     section,
-    // headerDark,
     toglleDesplegable,
     isAdmin
 }) => {
@@ -193,7 +191,7 @@ const HeaderDesktop = ({
                                                     <ItemAnchor
                                                         url={BOOKMARK_URL}
                                                         text="Mis notas"
-                                                        alt="Ir a mis notas"
+                                                        title="Ir a mis notas"
                                                         className="mis-notas"
                                                     />
                                                     <span className="new-feature --fivexs --font-bold">
@@ -201,11 +199,12 @@ const HeaderDesktop = ({
                                                     </span>
                                                 </>
                                             )}
-                                        {enlaces.map(({ url, text }) => (
+                                        {enlaces.map(({ url, text, title }) => (
                                             <ItemAnchor
                                                 key={text}
                                                 url={url}
                                                 text={text}
+                                                title={title}
                                             />
                                         ))}
                                         <li>
@@ -213,7 +212,7 @@ const HeaderDesktop = ({
                                                 data-event="LinkClick"
                                                 data-section="MenuLN"
                                                 href="javascript:void(0);"
-                                                title="Desloguearse"
+                                                title="Cerrar sesión"
                                                 onMouseDown={() => {
                                                     goToLogout();
                                                 }}
@@ -261,8 +260,6 @@ HeaderDesktop.propTypes = {
         loading: PropTypes.bool
     }).isRequired,
     goToLogout: PropTypes.func.isRequired,
-    isHome: PropTypes.bool.isRequired,
-    // headerDark: PropTypes.string,
     toglleDesplegable: PropTypes.func.isRequired,
     section: PropTypes.string.isRequired
 };

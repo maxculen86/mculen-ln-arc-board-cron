@@ -19,7 +19,7 @@ const GrillaNotas = props => {
         articles = [],
         hayMasNotas,
         obtenerMasNotas,
-        globalContent,
+        globalContent = {},
         loading,
         typeArticle,
         outputType,

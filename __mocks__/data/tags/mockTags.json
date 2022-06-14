@@ -1,0 +1,246 @@
+[
+    {
+        "taxonomy": {
+            "tags": [
+                {
+                    "slug": "ketchup-tid47241",
+                    "text": "ketchup"
+                },
+                {
+                    "slug": "pera-tid47296",
+                    "text": "pera"
+                }
+            ]
+        }
+    },
+    {
+        "taxonomy": {
+            "tags": [
+                {
+                    "slug": "cous-cous-tid47203",
+                    "text": "cous cous"
+                },
+                {
+                    "slug": "soja",
+                    "text": "Soja"
+                },
+                {
+                    "slug": "cebolla-de-verdeo-tid47175",
+                    "text": "cebolla de verdeo"
+                }
+            ]
+        }
+    },
+    {
+        "taxonomy": {
+            "tags": [
+                {
+                    "slug": "chocolate-amargo-tid47185",
+                    "text": "chocolate amargo"
+                },
+                {
+                    "slug": "licor-de-naranja-tid48631",
+                    "text": "licor de naranja"
+                },
+                {
+                    "slug": "azucar-negra-tid47143",
+                    "text": "azúcar negra"
+                },
+                {
+                    "slug": "limon-tid47252",
+                    "text": "limón"
+                }
+            ]
+        }
+    },
+    {
+        "taxonomy": {
+            "tags": [
+                {
+                    "slug": "pollo-tid47399",
+                    "text": "pollo"
+                }
+            ]
+        }
+    },
+    {
+        "taxonomy": {
+            "tags": [
+                {
+                    "slug": "chocolate-tid47184",
+                    "text": "chocolate"
+                }
+            ]
+        }
+    },
+    {
+        "taxonomy": {
+            "tags": [
+                {
+                    "slug": "cebolla-tid47174",
+                    "text": "cebolla"
+                },
+                {
+                    "slug": "pollo-tid47399",
+                    "text": "pollo"
+                }
+            ]
+        }
+    },
+    {
+        "taxonomy": {
+            "tags": [
+                {
+                    "slug": "frutas-tid67217",
+                    "text": "Frutas"
+                },
+                {
+                    "slug": "castanas-de-caju-tid47172",
+                    "text": "Castañas de cajú"
+                },
+                {
+                    "slug": "coco-tid47193",
+                    "text": "Coco"
+                },
+                {
+                    "slug": "miel-tid47266",
+                    "text": "Miel"
+                },
+                {
+                    "slug": "aceite-tid47116",
+                    "text": "Aceite"
+                },
+                {
+                    "slug": "yogur-tid47351",
+                    "text": "Yogur"
+                },
+                {
+                    "slug": "almendras-tid47131",
+                    "text": "Almendras"
+                },
+                {
+                    "slug": "pasas-de-uva-tid47291",
+                    "text": "Pasas de uva"
+                },
+                {
+                    "slug": "avena-tid47139",
+                    "text": "Avena"
+                },
+                {
+                    "slug": "germen-de-trigo-tid49156",
+                    "text": "Germen de trigo"
+                }
+            ]
+        }
+    },
+    {
+        "taxonomy": {
+            "tags": [
+                {
+                    "slug": "frutas-tid67217",
+                    "text": "Frutas"
+                },
+                {
+                    "slug": "huevo-tid47236",
+                    "text": "Huevo"
+                },
+                {
+                    "slug": "harina-tid47230",
+                    "text": "Harina"
+                },
+                {
+                    "slug": "banana-tid47145",
+                    "text": "Banana"
+                },
+                {
+                    "slug": "manteca-tid47257",
+                    "text": "Manteca"
+                },
+                {
+                    "slug": "nueces-tid47275",
+                    "text": "Nueces"
+                },
+                {
+                    "slug": "polvo-de-hornear-tid47308",
+                    "text": "Polvo de hornear"
+                }
+            ]
+        }
+    },
+    {
+        "taxonomy": {
+            "tags": [
+                {
+                    "slug": "yema-tid47350",
+                    "text": "Yema"
+                },
+                {
+                    "slug": "manteca-tid47257",
+                    "text": "Manteca"
+                },
+                {
+                    "slug": "jugo-de-limon-tid49241",
+                    "text": "Jugo de limón"
+                }
+            ]
+        }
+    },
+    {
+        "taxonomy": {
+            "tags": [
+                {
+                    "slug": "ajo-tid47126",
+                    "text": "ajo"
+                },
+                {
+                    "slug": "tomate-perita-tid48282",
+                    "text": "tomate perita"
+                }
+            ]
+        }
+    },
+    {
+        "taxonomy": {
+            "tags": [
+                {
+                    "slug": "pescados-tid67216",
+                    "text": "Pescados"
+                },
+                {
+                    "slug": "cebolla-tid47174",
+                    "text": "Cebolla"
+                },
+                {
+                    "slug": "panceta-ahumada-tid47288",
+                    "text": "Panceta ahumada"
+                },
+                {
+                    "slug": "eneldo-tid47213",
+                    "text": "Eneldo"
+                },
+                {
+                    "slug": "queso-rallado-tid47317",
+                    "text": "Queso rallado"
+                }
+            ]
+        }
+    },
+    {
+        "taxonomy": {
+            "tags": [
+                {
+                    "slug": "yema-tid47350",
+                    "text": "Yema"
+                },
+                {
+                    "slug": "manteca-tid47257",
+                    "text": "Manteca"
+                },
+                {
+                    "slug": "jugo-de-limon-tid49241",
+                    "text": "Jugo de limón"
+                }
+            ]
+        }
+    }
+]
