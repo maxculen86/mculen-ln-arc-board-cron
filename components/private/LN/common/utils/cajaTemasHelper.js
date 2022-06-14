@@ -44,7 +44,8 @@ const featuredRules = {
             grilla3: 'Grilla 3',
             grilla6: 'Grilla 6',
             grilla9: 'Grilla 9',
-            grillaVideo1: 'Grilla 1 - Video'
+            grillaVideo1: 'Grilla 1 - Video',
+            grillaUltimasNoticias: 'Grilla Últimas Noticias'
         },
         defaultLayout: 'focalLeft3'
     },
@@ -71,10 +72,18 @@ const featuredRules = {
 };
 
 export const getLayoutType = (layout, artWithoutDate, _children) => {
+    const types = {
+        UltimasNoticias: 'Timeline',
+        opinion4: 'Opinion',
+        editoriales2: 'Editoriales',
+        focal: 'Focal'
+    };
+
+    const typesKeys = Object.keys(types);
+    const resultKeys = typesKeys.find(type => layout.includes(type));
+
     return (
-        (layout.includes('opinion4') && 'Opinion') ||
-        (layout.includes('editoriales2') && 'Editoriales') ||
-        (layout.includes('focal') && 'Focal') ||
+        (resultKeys && types[resultKeys]) ||
         (artWithoutDate && artWithoutDate.length && 'Grilla') ||
         (_children && _children.length && 'ArticleFeature')
     );
@@ -199,7 +208,8 @@ export const getCommonProps = props => {
         backgroundColor === 'default' || backgroundColor === null
             ? ''
             : '--bgcolor ';
-    const classCondition = (layout && cajaTemaConfig[layout].className) || '';
+    const classCondition =
+        (cajaTemaConfig[layout] && cajaTemaConfig[layout].className) || '';
 
     const position =
         renderables

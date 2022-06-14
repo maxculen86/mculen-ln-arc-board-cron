@@ -30,13 +30,15 @@ export const validateChainManual = (
             message: 'Se requiere que seleccione una diagramación'
         },
         {
-            validation: childrenProps.some(
-                x =>
-                    !(
-                        x.collection === 'features' &&
-                        x.type === 'LN-common/articulo'
-                    )
-            ),
+            validation:
+                layout !== 'grillaUltimasNoticias' &&
+                childrenProps.some(
+                    x =>
+                        !(
+                            x.collection === 'features' &&
+                            x.type === 'LN-common/articulo'
+                        )
+                ),
             message:
                 'El Chain Caja Manual sólo admite Features del tipo LN Artículo'
         },

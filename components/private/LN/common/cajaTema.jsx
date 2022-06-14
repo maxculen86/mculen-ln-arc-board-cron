@@ -99,6 +99,9 @@ const getComponentForLayout = (layoutName, props) => {
         },
         ArticleFeature: ({ _children = [], notesQuantity }) => {
             return _children.slice(0, notesQuantity);
+        },
+        Timeline: ({ _children = [], notesQuantity }) => {
+            return <p>Timeline</p>;
         }
     };
 
