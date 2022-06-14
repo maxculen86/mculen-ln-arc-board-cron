@@ -3,7 +3,7 @@ import VideoPlayer from '../../../../common/videoPlayer';
 
 export default function video({ videoId }) {
     return (
-        <section className="apertura --video">
+        <section>
             <VideoPlayer videoId={videoId} />
         </section>
     );

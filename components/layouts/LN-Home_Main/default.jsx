@@ -25,7 +25,6 @@ import sectionHelper from '../../private/LN/common/utils/sectionHelper';
 import getScrollPercent from '../../private/LN/common/utils/getScrollPercent';
 import Ranking from '../../features/LN-common/ranking/default';
 import SubHeader from '../../features/LN-common/subHeader';
-import TePuedeInteresar from '../../features/LN-nota/tePuedeInteresar/default';
 import pageBuilderSections from '../config/LN-PageBuilder.config.json';
 import TagsListFeature from '../../features/LN-acumulado/tagList';
 import CajaPromo from '../../features/LN-common/cajaPromo/default';
@@ -648,9 +647,7 @@ const LNMainHome = props => {
                                     </div>
                                 )}
                                 {blocksToLoad.bloque5.loaded && (
-                                    <TePuedeInteresar
-                                        customFields={{ cantidadNotas: 6 }}
-                                    />
+                                    <Ranking {...props} id="inverse-home" />
                                 )}
                                 <div className="acumulado">
                                     <section className="mod-linklist">
