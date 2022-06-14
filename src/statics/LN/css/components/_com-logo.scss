@@ -155,6 +155,16 @@
             height: px(32);
         }
     }
+    &.canchallena {
+        &.--xs {
+            width: px(166);
+            height: px(32);
+        }
+        &.--sm {
+            width: px(241);
+            height: px(50);
+        }
+    }
     &.salud,
     &.salud-blanco {
         &.--xs {
