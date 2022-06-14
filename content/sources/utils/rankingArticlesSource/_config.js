@@ -40,6 +40,10 @@ export default {
         name: 'Boxeo',
         type: HOT_SECTION
     },
+    'deportes/canchallena': {
+        name: 'Canchallena',
+        type: HOT_SECTION
+    },
     'deportes/ciclismo': {
         name: 'Ciclismo',
         type: HOT_SECTION

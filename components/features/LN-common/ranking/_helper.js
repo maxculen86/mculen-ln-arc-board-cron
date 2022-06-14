@@ -19,7 +19,8 @@ export const getRankingProps = (layout, featureId, globalContent) => {
             sectionId: getSectionId(globalContent),
             isHome,
             notesQuantity: 1,
-            classCondition: 'com-ranking'
+            classCondition: 'com-ranking',
+            rankingLayout: 'Ranking'
         }),
         inverseHome: () => ({
             title: 'Te puede interesar',
@@ -27,7 +28,8 @@ export const getRankingProps = (layout, featureId, globalContent) => {
             sectionId: 'inverse-home',
             isHome,
             isInverse,
-            classCondition: ''
+            classCondition: '',
+            rankingLayout: 'Ranking'
         }),
         acu: () => ({
             sectionName: 'Ranking',

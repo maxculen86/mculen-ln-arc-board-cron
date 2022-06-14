@@ -54,7 +54,8 @@ const RankingFeature = ({ id: featureId }) => {
         isHome,
         isInverse,
         notesQuantity,
-        classCondition
+        classCondition,
+        rankingLayout
     } = getRankingProps(layout, featureId, globalContent);
 
     const sectionParentId = getSectionParentId(sectionId);
@@ -75,7 +76,7 @@ const RankingFeature = ({ id: featureId }) => {
             classCondition={classCondition}
             titleSize="--xs"
             withVolanta
-            layout={isHome ? 'Ranking' : undefined}
+            layout={rankingLayout}
             isHome={isHome}
             handleClick={productClickFromClient}
         />
