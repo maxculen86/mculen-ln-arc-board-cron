@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CapitalizeFIrstLetter from '../common/utils/capitalizeFirstLetter';
+import capitalizeFirstLetter from './utils/capitalizeFirstLetter';
 import { VIDEO } from './utils/subtypes/subtypeHelper';
+import get from './utils/get';
 
 const validateCampo = id => (id.includes('/economia/campo') ? 'Campo' : false);
 
@@ -10,7 +11,7 @@ const getContent = id => {
 
     return isCampo
         ? isCampo
-        : CapitalizeFIrstLetter(
+        : capitalizeFirstLetter(
               id
                   .slice(1, id.length)
                   .replace(/[\/]/g, '|')
@@ -21,7 +22,8 @@ const getContent = id => {
 const MetaSectionParsely = ({ arcSite, taxonomy, subtype }) => {
     if (arcSite !== 'la-nacion-ar' || !taxonomy) return <></>;
     const content = getContent(
-        taxonomy.primary_section._id || taxonomy.sections[0]._id
+        get(taxonomy, 'primary_section._id', '') ||
+            get(taxonomy, 'sections[0]._id', '')
     );
 
     return subtype === VIDEO ? (
