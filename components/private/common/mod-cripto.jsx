@@ -6,10 +6,6 @@ const ModCripto = () => {
     return (
         <>
             <div className="gradient">
-                <script
-                    defer
-                    src="https://www.livecoinwatch.com/static/lcw-widget.js"
-                />
                 <div className="mod-cripto">
                     <div
                         className="livecoinwatch-widget-1"

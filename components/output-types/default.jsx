@@ -5,6 +5,7 @@ import ScriptManager from '../private/common/scriptManager';
 import ScriptLogoBBC from '../private/common/scriptManager/scriptLogoBBC';
 import ScriptVideoPowa from '../private/common/scriptManager/scriptVideoPowa';
 import ScriptVideoPowaHome from '../private/common/scriptManager/scriptVideoPowaHome';
+import ScriptCripto from '../private/common/scriptManager/scriptCripto';
 import GTM from '../private/common/scriptManager/googleTagManager';
 import Comscore from '../private/common/scriptManager/comscore';
 import Microdata from '../private/common/scriptManager/microdata';
@@ -60,6 +61,10 @@ const scriptList = [
     {
         component: { name: 'ScriptVideoPowa', function: ScriptVideoPowa },
         feature: 'none'
+    },
+    {
+        component: { name: 'ScriptCripto', function: ScriptCripto },
+        feature: ['LN-acumulado/cajaDolar', 'LN-acumulado/cajaCripto']
     },
     { component: { name: 'GTM', function: GTM }, feature: 'none' },
     { component: { name: 'Comscore', function: Comscore }, feature: 'none' },

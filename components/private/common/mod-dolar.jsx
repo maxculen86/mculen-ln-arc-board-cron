@@ -44,10 +44,6 @@ const ModDolar = ({ imageUrl, data = [] }) =>
                         text="Criptomonedas"
                     />
                 </ComLink>
-                <script
-                    defer
-                    src="https://www.livecoinwatch.com/static/lcw-widget.js"
-                />
                 <div
                     className="livecoinwatch-widget-5"
                     lcw-base="USD"
