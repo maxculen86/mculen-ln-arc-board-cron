@@ -17,7 +17,6 @@
             &[type='whatsapp'],
             &[type='email'] {
                 background: none;
-                @include flex(flex, row, center, center);
                 margin-right: $spacing-sm;
                 padding: $spacing-2xs;
                 -webkit-font-smoothing: antialiased;
@@ -26,10 +25,6 @@
                     margin-bottom: $spacing-sm;
                     margin-right: 0;
                 }
-            }
-            &[type='email'],
-            &[type='whatsapp'] {
-                margin-right: 0;
             }
         }
         .--photo100 & {
@@ -53,9 +48,6 @@
                 padding: $spacing 0 px(4) 0;
                 .container {
                     flex-direction: column;
-                }
-                .com-line {
-                    transform: rotate(90deg);
                 }
                 .--scrollDown & {
                     top: (px(16) + $header-desktop);
