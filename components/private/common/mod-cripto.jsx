@@ -6,11 +6,11 @@ const ModCripto = () => {
     return (
         <>
             <div className="gradient">
+                <script
+                    defer
+                    src="https://www.livecoinwatch.com/static/lcw-widget.js"
+                />
                 <div className="mod-cripto">
-                    <script
-                        defer
-                        src="https://www.livecoinwatch.com/static/lcw-widget.js"
-                    />
                     <div
                         className="livecoinwatch-widget-1"
                         lcw-coin="BTC"
@@ -21,10 +21,6 @@ const ModCripto = () => {
                         lcw-color-pr="#126fff"
                         lcw-color-bg="#ffffff"
                         lcw-border-w="1"
-                    />
-                    <script
-                        defer
-                        src="https://www.livecoinwatch.com/static/lcw-widget.js"
                     />
                     <div
                         className="livecoinwatch-widget-1"
@@ -38,10 +34,6 @@ const ModCripto = () => {
                         lcw-border-w="1"
                     />
                     <div className="mini-widget">
-                        <script
-                            defer
-                            src="https://www.livecoinwatch.com/static/lcw-widget.js"
-                        />
                         <div
                             className="livecoinwatch-widget-6"
                             lcw-coin="BNB"
@@ -50,10 +42,6 @@ const ModCripto = () => {
                             lcw-color-tx="#000000"
                             lcw-color-bg="#ffffff"
                             lcw-border-w="1"
-                        />
-                        <script
-                            defer
-                            src="https://www.livecoinwatch.com/static/lcw-widget.js"
                         />
                         <div
                             className="livecoinwatch-widget-6"
@@ -64,10 +52,6 @@ const ModCripto = () => {
                             lcw-color-bg="#ffffff"
                             lcw-border-w="1"
                         />
-                        <script
-                            defer
-                            src="https://www.livecoinwatch.com/static/lcw-widget.js"
-                        />
                         <div
                             className="livecoinwatch-widget-6"
                             lcw-coin="ADA"
@@ -76,10 +60,6 @@ const ModCripto = () => {
                             lcw-color-tx="#000000"
                             lcw-color-bg="#ffffff"
                             lcw-border-w="1"
-                        />
-                        <script
-                            defer
-                            src="https://www.livecoinwatch.com/static/lcw-widget.js"
                         />
                         <div
                             className="livecoinwatch-widget-6"
@@ -90,10 +70,6 @@ const ModCripto = () => {
                             lcw-color-bg="#ffffff"
                             lcw-border-w="1"
                         />
-                        <script
-                            defer
-                            src="https://www.livecoinwatch.com/static/lcw-widget.js"
-                        />
                         <div
                             className="livecoinwatch-widget-6"
                             lcw-coin="DOT"
@@ -102,10 +78,6 @@ const ModCripto = () => {
                             lcw-color-tx="#000000"
                             lcw-color-bg="#ffffff"
                             lcw-border-w="1"
-                        />
-                        <script
-                            defer
-                            src="https://www.livecoinwatch.com/static/lcw-widget.js"
                         />
                         <div
                             className="livecoinwatch-widget-6"
@@ -119,11 +91,6 @@ const ModCripto = () => {
                     </div>
                 </div>
             </div>
-
-            <script
-                defer
-                src="https://www.livecoinwatch.com/static/lcw-widget.js"
-            />
             <div
                 className="livecoinwatch-widget-5"
                 lcw-base="USD"
