@@ -4,11 +4,11 @@ import Static from 'fusion:static';
 import ModCripto from '../../private/common/mod-cripto';
 
 const CajaCripto = ({ id: featureId }) => {
-    return (
+    return featureId ? (
         <Static id={featureId}>
             <ModCripto />
         </Static>
-    );
+    ) : null;
 };
 
 CajaCripto.label = 'LN Acumulado Caja Criptomonedas';
