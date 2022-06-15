@@ -9,14 +9,15 @@ const validateCampo = id => (id.includes('/economia/campo') ? 'Campo' : false);
 const getContent = id => {
     const isCampo = validateCampo(id);
 
-    return isCampo
-        ? isCampo
-        : capitalizeFirstLetter(
-              id
-                  .slice(1, id.length)
-                  .replace(/[\/]/g, '|')
-                  .split('|')[0]
-          );
+    return (
+        isCampo ||
+        capitalizeFirstLetter(
+            id
+                .slice(1, id.length)
+                .replace(/[\/]/g, '|')
+                .split('|')[0]
+        )
+    );
 };
 
 const MetaSectionParsely = ({ arcSite, taxonomy, subtype }) => {
