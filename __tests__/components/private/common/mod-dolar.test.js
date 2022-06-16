@@ -1,4 +1,14 @@
-import { SITE_LANACION } from 'fusion:environment';
+import React from 'react';
+import Consumer from 'fusion:consumer';
+import ModDolar from '../../../../components/private/common/mod-dolar';
+import CurrencyData from '../../../../components/private/common/currencyData/CurrencyData';
+import API_RESPONSE from '../../../../__mocks__/data/apiDolar/apiDolar';
+import { shallow } from 'enzyme';
+
+jest.mock('fusion:environment', () => ({
+    SITE_LANACION: 'https://www.lanacion.com.ar'
+}));
+
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
         return props => <Component {...props} />;
@@ -9,13 +19,6 @@ jest.mock(
     '../../../../components/private/common/currencyData/CurrencyData',
     () => 'mock-currencyData'
 );
-
-import React from 'react';
-import Consumer from 'fusion:consumer';
-import ModDolar from '../../../../components/private/common/mod-dolar';
-import CurrencyData from '../../../../components/private/common/currencyData/CurrencyData';
-import API_RESPONSE from '../../../../__mocks__/data/apiDolar/apiDolar';
-import { shallow } from 'enzyme';
 
 describe('Private - Common - ModDolar =>', () => {
     it('with empty data list ', () => {
