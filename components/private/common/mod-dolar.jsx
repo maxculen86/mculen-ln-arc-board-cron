@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { SITE_LANACION } from 'fusion:environment';
 
 import CurrencyData from './currencyData/CurrencyData';
 
@@ -32,7 +33,7 @@ const ModDolar = ({ imageUrl, data = [] }) =>
             </ul>
             <div className="widget-carrousel-coins">
                 <ComLink
-                    link="https://www.lanacion.com.ar/tema/criptomonedas-tid63718/"
+                    link={`${SITE_LANACION}/tema/criptomonedas-tid63718/`}
                     title="Ir a criptomonedas"
                     type="text/css"
                 >
