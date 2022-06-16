@@ -505,6 +505,36 @@
         background-color: $campo;
     }
 }
+.salud.salud {
+    h1 .com-link.--black,
+    .com-breadcrumb .com-link,
+    //main .com-button .com-icon,
+    .--category .com-link,
+    .--tags .com-link,
+    .com-link.--tags,
+    //.mod-headersection .com-link,
+    .mod-description .com-lead {
+        color: $salud;
+    }
+    .mod-headersection.--bg.mod-headersection.--bg {
+        background-color: $salud;
+    }
+}
+.autos.autos {
+    h1 .com-link.--black,
+    .com-breadcrumb .com-link,
+    //main .com-button .com-icon,
+    .--category .com-link,
+    .--tags .com-link,
+    .com-link.--tags,
+    //.mod-headersection .com-link,
+    .mod-description .com-lead {
+        color: $autos;
+    }
+    .mod-headersection.--bg.mod-headersection.--bg {
+        background-color: $autos;
+    }
+}
 
 /*End: Estas va a afuera porque son page y no acu*/
 
