@@ -1,3 +1,4 @@
+import { SITE_LANACION } from 'fusion:environment';
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
         return props => <Component {...props} />;
