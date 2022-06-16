@@ -1,3 +1,4 @@
+import { PERSONALIZACION_API } from 'fusion:environment';
 import request from 'request-promise-native';
 import get from '../../../../../components/private/common/utils/get';
 import logger from '../../../../../components/private/common/utils/logger';
@@ -8,8 +9,8 @@ const ACCEPTED_TYPES = ['autor', 'seccion', 'tag', 'author', 'section'];
 //TODO: Configurar size por defecto y order (No es el mismo size que recibe el content source)
 
 const getUri = query => {
-    const { size = 50 } = query;
-    return `https://qa-api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/topics?size=${size}&sort=date`;
+    const { sizeFollow: size = 50 } = query;
+    return `${PERSONALIZACION_API}topics?size=${size}&sort=date`;
 };
 
 const requestFollowedItem = async query => {
