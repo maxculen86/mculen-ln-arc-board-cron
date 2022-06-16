@@ -15,7 +15,7 @@ const thumborMock = {
 
 describe('Common - Resizer', () => {
     it('should return height according proportion', () => {
-        const height = setHeight(1200, '3:2');
+        const height = setHeight(1200, 800, '3:2');
         expect(height).toBe(800);
     });
 

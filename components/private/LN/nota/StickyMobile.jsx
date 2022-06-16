@@ -16,7 +16,7 @@ const StickyMobile = ({
 }) => {
     const [displaySticky, setDisplaySticky] = useState(true);
     return (
-        <section className={`sticky-mobile ${!displaySticky && 'no-display'}`}>
+        <section className={`sticky-mobile ${!displaySticky && 'hlp-none'}`}>
             <div className="header-sticky">
                 <Text font="arial" size="2xs" weight="bold" tag="h3">
                     {headerText}

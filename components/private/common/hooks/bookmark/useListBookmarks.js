@@ -45,8 +45,10 @@ export default function useListBookmarks(termicaBookmark, token, isSuscriber) {
     useEffect(() => {
         if (token && termicaBookmark && isSuscriber) {
             getDataFromAPI();
-        } else {
-            setBookmarks([]);
+        }
+
+        if (!isSuscriber) {
+            setLoading(false);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token, termicaBookmark, isSuscriber]);

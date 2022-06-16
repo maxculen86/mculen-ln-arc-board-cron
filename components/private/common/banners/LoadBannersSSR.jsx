@@ -47,6 +47,7 @@ const LoadBannersSSR = ({ blocksBanners }) => {
         [
             'LN-common/banner',
             'LN-nota/cuerpo',
+            'LN-nota/body',
             'LN-acumulado/grillaNotas',
             'LN-common/bannerRefactor'
         ].includes(e.type)
@@ -96,7 +97,8 @@ const LoadBannersSSR = ({ blocksBanners }) => {
                                 : !bannerInPB.amp;
 
                         if (
-                            bannerConfig.type === 'LN-nota/cuerpo' &&
+                            (bannerConfig.type === 'LN-nota/cuerpo' ||
+                                bannerConfig.type === 'LN-nota/body') &&
                             slotGroup === 'nota'
                         ) {
                             Object.keys(bannerInPB)

@@ -25,8 +25,6 @@ export default function useCheckBookmark(
                 const datos = await res.json();
                 const { bookmarkId = false } = datos;
                 setData(bookmarkId);
-            } else {
-                setData(false);
             }
         } catch (err) {
             // eslint-disable-next-line no-console
@@ -36,8 +34,6 @@ export default function useCheckBookmark(
     useEffect(() => {
         if (token && noteId && termicaBookmark && isSuscriber) {
             getDataFromAPI();
-        } else {
-            setData(false);
         }
     }, [token, noteId, termicaBookmark, getDataFromAPI, isSuscriber]);
 

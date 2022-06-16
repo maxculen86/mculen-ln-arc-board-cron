@@ -41,6 +41,7 @@ import CriticalCss from '../private/common/criticalcss';
 import MetaViafoura from '../private/common/metaViafoura';
 import Favicon from '../private/common/favicon';
 import ComscoreVideo from '../private/common/scriptManager/comscoreVideo';
+import AdblockDetector from '../private/common/scriptManager/adblockDetector';
 import {
     getTitle,
     getMetaDescriptionDefault
@@ -50,6 +51,10 @@ import FontPreloads from '../private/common/fontsPreloads';
 const scriptList = [
     {
         component: { name: 'Datadog', function: Datadog },
+        feature: 'none'
+    },
+    {
+        component: { name: 'AdblockDetector', function: AdblockDetector },
         feature: 'none'
     },
     {

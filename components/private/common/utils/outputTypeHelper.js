@@ -11,7 +11,7 @@ export const getTitle = (
     _nodeType = ''
 ) => {
     if (getSectionOfRequestUri(requestUri) === 'mis-notas') {
-        return (metaValue && metaValue) || defaultTitle;
+        return metaValue || defaultTitle;
     }
 
     return _nodeType === 'home' ? longTitle : metaValue || defaultTitle;

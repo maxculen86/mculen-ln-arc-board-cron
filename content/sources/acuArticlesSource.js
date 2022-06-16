@@ -83,9 +83,10 @@ const resolve = key => {
             }
         }`;
 
-    const notSectionFiltered =
-        excludeSectionId &&
-        `,"must_not":[
+    let excludeSection = `"/newsletters"`;
+    if (excludeSectionId) excludeSection += `,"/recetas"`;
+
+    const notSectionFiltered = `,"must_not":[
             {
                 "nested":{
                     "path":"taxonomy.sections",
@@ -93,8 +94,8 @@ const resolve = key => {
                         "bool":{
                             "must":[
                                 {
-                                    "term":{
-                                        "taxonomy.sections._id":"/recetas"
+                                    "terms":{
+                                        "taxonomy.sections._id":[${excludeSection}]
                                     }
                                 }
                             ]
@@ -173,6 +174,7 @@ export default {
         sectionsIds: 'text',
         sourceOrigin: 'text',
         excludeSourceOrigin: 'text',
+        excludeSectionId: 'text',
         api: 'bool'
     },
     ttl: 120

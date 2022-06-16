@@ -155,6 +155,16 @@
             height: px(32);
         }
     }
+    &.canchallena {
+        &.--xs {
+            width: px(143);
+            height: px(30);
+        }
+        &.--sm {
+            width: px(239);
+            height: px(50);
+        }
+    }
     &.salud,
     &.salud-blanco {
         &.--xs {
@@ -225,11 +235,17 @@
     svg,
     img {
         height: 100%;
+        max-width: px(170);
     }
     .modal & {
         margin-bottom: $spacing-sm;
     }
     @media ($media-l) {
+        svg,
+        img {
+            max-width: px(300);
+        }
+
         .header & {
             height: px(30);
         }

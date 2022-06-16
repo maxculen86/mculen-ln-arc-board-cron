@@ -9,7 +9,8 @@ export default {
     },
     'inverse-home': {
         endpoint: '/inverse-home',
-        type: DEFAULT_SECTION
+        type: HOT_SECTION,
+        size: 6
     },
     'buenos-aires': {
         name: 'Buenos Aires',
@@ -37,6 +38,10 @@ export default {
     },
     'deportes/boxeo': {
         name: 'Boxeo',
+        type: HOT_SECTION
+    },
+    'deportes/canchallena': {
+        name: 'Canchallena',
         type: HOT_SECTION
     },
     'deportes/ciclismo': {

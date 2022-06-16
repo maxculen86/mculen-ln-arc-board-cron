@@ -1,6 +1,7 @@
 import React from 'react';
 import Context from 'fusion:context';
 import Consumer from 'fusion:consumer';
+import getProperties from 'fusion:properties';
 import { mount, render } from 'enzyme';
 import nota from '../../../../../__mocks__/data/articles/TWKFZQ6FCNF3ZKPHGGZPMSSOGQ';
 import AperturaConDestacado from '../../../../../components/private/LN/nota/apertura/AperturaReceta/AperturaConDestacado';
@@ -20,6 +21,13 @@ jest.mock('fusion:context', Component => {
 Context.useAppContext = jest.fn(() => ({
     subtype: 7
 }));
+
+jest.mock('fusion:environment', () => {
+    return {
+        RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com',
+        SITE_LANACION: 'https://www.lanacion.com.ar'
+    };
+});
 
 describe('features - La Nacion - Components - Nota - AperturaReceta', () => {
     it('Debe renderizar correctamente, con destacado', () => {

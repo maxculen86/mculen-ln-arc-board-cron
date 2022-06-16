@@ -11,34 +11,38 @@ exports[`Share Matches snapshot 1`] = `
     <div
       class="container --left"
     >
-      <button
-        class="com-button bookmark  --icon"
-        data-event="LinkClick"
-        data-section="Guardar Nota"
-        id="btnbookmark"
-        on=""
-        tabindex=""
-        title="Notas guardadas"
-        type="button"
+      <div
+        class="btn-container"
       >
-        <i
-          class="com-icon icon-bookmark"
+        <button
+          class="com-button bookmark  --icon"
+          data-event="LinkClick"
+          data-section="Guardar Nota"
+          id="btnbookmark"
+          on=""
+          tabindex=""
+          title="Notas guardadas"
+          type="button"
         >
-          <svg
-            class=""
-            fill="none"
-            height="15"
-            viewBox="0 0 12 15"
-            width="12"
-            xmlns="http://www.w3.org/2000/svg"
+          <i
+            class="com-icon icon-bookmark"
           >
-            <path
-              d="M1.33335 0.333374H10.6667C10.8435 0.333374 11.0131 0.403612 11.1381 0.528636C11.2631 0.65366 11.3334 0.82323 11.3334 1.00004V13.762C11.3334 13.8216 11.3175 13.8802 11.2873 13.9315C11.2571 13.9829 11.2136 14.0252 11.1614 14.0541C11.1093 14.083 11.0504 14.0973 10.9908 14.0957C10.9312 14.094 10.8732 14.0764 10.8227 14.0447L6.00002 11.02L1.17735 14.044C1.12693 14.0757 1.06895 14.0933 1.00942 14.095C0.949898 14.0967 0.891011 14.0824 0.838884 14.0536C0.786756 14.0248 0.743292 13.9826 0.713009 13.9313C0.682726 13.88 0.666731 13.8216 0.666687 13.762V1.00004C0.666687 0.82323 0.736925 0.65366 0.861949 0.528636C0.986974 0.403612 1.15654 0.333374 1.33335 0.333374ZM10 1.66671H2.00002V11.9547L6.00002 9.44737L10 11.9547V1.66671Z"
-              fill="#272727"
-            />
-          </svg>
-        </i>
-      </button>
+            <svg
+              class=""
+              fill="none"
+              height="15"
+              viewBox="0 0 12 15"
+              width="12"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.33335 0.333374H10.6667C10.8435 0.333374 11.0131 0.403612 11.1381 0.528636C11.2631 0.65366 11.3334 0.82323 11.3334 1.00004V13.762C11.3334 13.8216 11.3175 13.8802 11.2873 13.9315C11.2571 13.9829 11.2136 14.0252 11.1614 14.0541C11.1093 14.083 11.0504 14.0973 10.9908 14.0957C10.9312 14.094 10.8732 14.0764 10.8227 14.0447L6.00002 11.02L1.17735 14.044C1.12693 14.0757 1.06895 14.0933 1.00942 14.095C0.949898 14.0967 0.891011 14.0824 0.838884 14.0536C0.786756 14.0248 0.743292 13.9826 0.713009 13.9313C0.682726 13.88 0.666731 13.8216 0.666687 13.762V1.00004C0.666687 0.82323 0.736925 0.65366 0.861949 0.528636C0.986974 0.403612 1.15654 0.333374 1.33335 0.333374ZM10 1.66671H2.00002V11.9547L6.00002 9.44737L10 11.9547V1.66671Z"
+                fill="#272727"
+              />
+            </svg>
+          </i>
+        </button>
+      </div>
       <button
         class="com-button comment-btn --icon"
         data-event="LinkClick"
@@ -109,33 +113,37 @@ exports[`Share Matches snapshot 1`] = `
           </svg>
         </i>
       </button>
-      <button
-        class="com-button --icon"
-        data-event="LinkClick"
-        data-section="CompartirNotaLN"
-        id="copyLinkNote"
-        on=""
-        tabindex=""
-        title="Copiar link de la nota"
-        type="button"
+      <div
+        class="btn-container"
       >
-        <i
-          class="com-icon icon-copy"
+        <button
+          class="com-button --icon"
+          data-event="LinkClick"
+          data-section="CompartirNotaLN"
+          id="copyLinkNote"
+          on=""
+          tabindex=""
+          title="Copiar link de la nota"
+          type="button"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
+          <i
+            class="com-icon icon-copy"
           >
-            <path
-              d="M7 6V3C7 2.73478 7.10536 2.48043 7.29289 2.29289C7.48043 2.10536 7.73478 2 8 2H20C20.2652 2 20.5196 2.10536 20.7071 2.29289C20.8946 2.48043  21 2.73478 21 3V17C21 17.2652 20.8946 17.5196 20.7071 17.7071C20.5196 17.8946 20.2652 18 20 18H17V21C17 21.552 16.55 22 15.993 22H4.007C3.87513  22.0008 3.7444 21.9755 3.62232 21.9256C3.50025 21.8757 3.38923 21.8022 3.29566 21.7093C3.20208 21.6164 3.12779 21.5059 3.07705 21.3841C3.02632  21.2624 3.00013 21.1319 3 21L3.003 7C3.003 6.448 3.453 6 4.01 6H7ZM5.003 8L5 20H15V8H5.003ZM9 6H17V16H19V4H9V6Z"
-              fill="#272727"
-            />
-          </svg>
-        </i>
-      </button>
+            <svg
+              fill="none"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7 6V3C7 2.73478 7.10536 2.48043 7.29289 2.29289C7.48043 2.10536 7.73478 2 8 2H20C20.2652 2 20.5196 2.10536 20.7071 2.29289C20.8946 2.48043  21 2.73478 21 3V17C21 17.2652 20.8946 17.5196 20.7071 17.7071C20.5196 17.8946 20.2652 18 20 18H17V21C17 21.552 16.55 22 15.993 22H4.007C3.87513  22.0008 3.7444 21.9755 3.62232 21.9256C3.50025 21.8757 3.38923 21.8022 3.29566 21.7093C3.20208 21.6164 3.12779 21.5059 3.07705 21.3841C3.02632  21.2624 3.00013 21.1319 3 21L3.003 7C3.003 6.448 3.453 6 4.01 6H7ZM5.003 8L5 20H15V8H5.003ZM9 6H17V16H19V4H9V6Z"
+                fill="#272727"
+              />
+            </svg>
+          </i>
+        </button>
+      </div>
       <button
         class="com-button --icon"
         data-event="LinkClick"
@@ -236,34 +244,38 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
     <div
       class="container --left"
     >
-      <button
-        class="com-button bookmark  --icon"
-        data-event="LinkClick"
-        data-section="Guardar Nota"
-        id="btnbookmark"
-        on=""
-        tabindex=""
-        title="Notas guardadas"
-        type="button"
+      <div
+        class="btn-container"
       >
-        <i
-          class="com-icon icon-bookmark"
+        <button
+          class="com-button bookmark  --icon"
+          data-event="LinkClick"
+          data-section="Guardar Nota"
+          id="btnbookmark"
+          on=""
+          tabindex=""
+          title="Notas guardadas"
+          type="button"
         >
-          <svg
-            class=""
-            fill="none"
-            height="15"
-            viewBox="0 0 12 15"
-            width="12"
-            xmlns="http://www.w3.org/2000/svg"
+          <i
+            class="com-icon icon-bookmark"
           >
-            <path
-              d="M1.33335 0.333374H10.6667C10.8435 0.333374 11.0131 0.403612 11.1381 0.528636C11.2631 0.65366 11.3334 0.82323 11.3334 1.00004V13.762C11.3334 13.8216 11.3175 13.8802 11.2873 13.9315C11.2571 13.9829 11.2136 14.0252 11.1614 14.0541C11.1093 14.083 11.0504 14.0973 10.9908 14.0957C10.9312 14.094 10.8732 14.0764 10.8227 14.0447L6.00002 11.02L1.17735 14.044C1.12693 14.0757 1.06895 14.0933 1.00942 14.095C0.949898 14.0967 0.891011 14.0824 0.838884 14.0536C0.786756 14.0248 0.743292 13.9826 0.713009 13.9313C0.682726 13.88 0.666731 13.8216 0.666687 13.762V1.00004C0.666687 0.82323 0.736925 0.65366 0.861949 0.528636C0.986974 0.403612 1.15654 0.333374 1.33335 0.333374ZM10 1.66671H2.00002V11.9547L6.00002 9.44737L10 11.9547V1.66671Z"
-              fill="#272727"
-            />
-          </svg>
-        </i>
-      </button>
+            <svg
+              class=""
+              fill="none"
+              height="15"
+              viewBox="0 0 12 15"
+              width="12"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.33335 0.333374H10.6667C10.8435 0.333374 11.0131 0.403612 11.1381 0.528636C11.2631 0.65366 11.3334 0.82323 11.3334 1.00004V13.762C11.3334 13.8216 11.3175 13.8802 11.2873 13.9315C11.2571 13.9829 11.2136 14.0252 11.1614 14.0541C11.1093 14.083 11.0504 14.0973 10.9908 14.0957C10.9312 14.094 10.8732 14.0764 10.8227 14.0447L6.00002 11.02L1.17735 14.044C1.12693 14.0757 1.06895 14.0933 1.00942 14.095C0.949898 14.0967 0.891011 14.0824 0.838884 14.0536C0.786756 14.0248 0.743292 13.9826 0.713009 13.9313C0.682726 13.88 0.666731 13.8216 0.666687 13.762V1.00004C0.666687 0.82323 0.736925 0.65366 0.861949 0.528636C0.986974 0.403612 1.15654 0.333374 1.33335 0.333374ZM10 1.66671H2.00002V11.9547L6.00002 9.44737L10 11.9547V1.66671Z"
+                fill="#272727"
+              />
+            </svg>
+          </i>
+        </button>
+      </div>
     </div>
     <div
       class="com-line  "
@@ -300,33 +312,37 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
           </svg>
         </i>
       </button>
-      <button
-        class="com-button --icon"
-        data-event="LinkClick"
-        data-section="CompartirNotaLN"
-        id="copyLinkNote"
-        on=""
-        tabindex=""
-        title="Copiar link de la nota"
-        type="button"
+      <div
+        class="btn-container"
       >
-        <i
-          class="com-icon icon-copy"
+        <button
+          class="com-button --icon"
+          data-event="LinkClick"
+          data-section="CompartirNotaLN"
+          id="copyLinkNote"
+          on=""
+          tabindex=""
+          title="Copiar link de la nota"
+          type="button"
         >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
+          <i
+            class="com-icon icon-copy"
           >
-            <path
-              d="M7 6V3C7 2.73478 7.10536 2.48043 7.29289 2.29289C7.48043 2.10536 7.73478 2 8 2H20C20.2652 2 20.5196 2.10536 20.7071 2.29289C20.8946 2.48043  21 2.73478 21 3V17C21 17.2652 20.8946 17.5196 20.7071 17.7071C20.5196 17.8946 20.2652 18 20 18H17V21C17 21.552 16.55 22 15.993 22H4.007C3.87513  22.0008 3.7444 21.9755 3.62232 21.9256C3.50025 21.8757 3.38923 21.8022 3.29566 21.7093C3.20208 21.6164 3.12779 21.5059 3.07705 21.3841C3.02632  21.2624 3.00013 21.1319 3 21L3.003 7C3.003 6.448 3.453 6 4.01 6H7ZM5.003 8L5 20H15V8H5.003ZM9 6H17V16H19V4H9V6Z"
-              fill="#272727"
-            />
-          </svg>
-        </i>
-      </button>
+            <svg
+              fill="none"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7 6V3C7 2.73478 7.10536 2.48043 7.29289 2.29289C7.48043 2.10536 7.73478 2 8 2H20C20.2652 2 20.5196 2.10536 20.7071 2.29289C20.8946 2.48043  21 2.73478 21 3V17C21 17.2652 20.8946 17.5196 20.7071 17.7071C20.5196 17.8946 20.2652 18 20 18H17V21C17 21.552 16.55 22 15.993 22H4.007C3.87513  22.0008 3.7444 21.9755 3.62232 21.9256C3.50025 21.8757 3.38923 21.8022 3.29566 21.7093C3.20208 21.6164 3.12779 21.5059 3.07705 21.3841C3.02632  21.2624 3.00013 21.1319 3 21L3.003 7C3.003 6.448 3.453 6 4.01 6H7ZM5.003 8L5 20H15V8H5.003ZM9 6H17V16H19V4H9V6Z"
+                fill="#272727"
+              />
+            </svg>
+          </i>
+        </button>
+      </div>
       <button
         class="com-button --icon"
         data-event="LinkClick"

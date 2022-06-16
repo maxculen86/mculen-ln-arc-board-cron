@@ -62,5 +62,6 @@ export default {
     FONT_MEDIUM: '/resources/fonts/suecaslab-medium-webfont.woff2',
     LANACION_SERVICES_URL: 'https://arcservices.lanacion.com.ar',
     PERSONALIZACION_API:
-        'https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/'
+        'https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/',
+    BOOKMARK_URL: 'https://www.lanacion.com.ar/mis-notas/'
 };

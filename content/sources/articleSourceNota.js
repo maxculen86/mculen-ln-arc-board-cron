@@ -42,7 +42,7 @@ const resolve = (key, a) => {
     throw new Error('Debe definir url o id para obtener la nota');
 };
 
-const fetch = (query, { cachedCall }) => {
+const fetch = (query, { cachedCall } = {}) => {
     const {
         url = '',
         imageConfig,

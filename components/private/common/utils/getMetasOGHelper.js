@@ -99,7 +99,7 @@ export const getData = ({
 export const setMetaDescription = ({
     data,
     section,
-    arcSite,
+    arcSite = 'la-nacion-ar',
     ottMetaDescription,
     requestUri,
     metaValue
@@ -138,7 +138,11 @@ export const setMetaDescription = ({
     return options[arcSite]();
 };
 
-export const setMetaTitle = ({ arcSite, pageBuilderTitle, ottMetaTitle }) => {
+export const setMetaTitle = ({
+    arcSite = 'la-nacion-ar',
+    pageBuilderTitle,
+    ottMetaTitle
+}) => {
     const options = {
         'la-nacion-ar': () => pageBuilderTitle,
         ott: () => ottMetaTitle

@@ -142,6 +142,16 @@ export const getMarkupForDatalayer = (
                 'data-module': 'tema_ranking'
             }
         },
+        RankingInverso: {
+            extraOpts: {
+                'data-block-name': 'h_ranking_seo',
+                ...extraOptsdefault,
+                'data-diagramacion-id': 'grilla6'
+            },
+            extraOptsDiv: {
+                'data-module': 'tema_ranking_inverso'
+            }
+        },
         Default: (pos, section, lay) => {
             if (!pos) return {};
             return {

@@ -1,10 +1,12 @@
-import { RESIZER_URL_PUBLIC, SITE_LANACION } from 'fusion:environment';
+import { RESIZER_URL_PUBLIC } from 'fusion:environment';
+import getProperties from 'fusion:properties';
 
 const replaceUrlResizerToWWW = (originalPromoItems = {}) => {
+    const { host = 'https://www.lanacion.com.ar' } =
+        getProperties('la-nacion-ar') || {};
     const { url = '', type, resized_urls: resizedUrls } = originalPromoItems;
 
-    const replaceUrlToWWW = _url =>
-        _url.replace(RESIZER_URL_PUBLIC, SITE_LANACION);
+    const replaceUrlToWWW = _url => _url.replace(RESIZER_URL_PUBLIC, host);
 
     const transformUrls = (_resizedUrls = []) =>
         _resizedUrls.map(item => {
