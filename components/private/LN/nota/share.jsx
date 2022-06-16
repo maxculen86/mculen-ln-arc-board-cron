@@ -239,13 +239,13 @@ const Share = props => {
                 </AmpContainer>
 
                 <AmpContainer isForAmp>
-                    <div className="container --left">
+                    <div className="container">
                         <amp-social-share
                             style={mystyle}
                             type="facebook"
                             data-param-app_id={facebookId}
                         >
-                            <Icon name="facebook-filled" />
+                            <Icon name="facebook" />
                         </amp-social-share>
 
                         <amp-social-share
@@ -253,17 +253,13 @@ const Share = props => {
                             type="twitter"
                             data-param-text={title}
                         >
-                            <Icon name="twitter-filled" />
+                            <Icon name="twitter" />
                         </amp-social-share>
 
                         <amp-social-share style={mystyle} type="whatsapp">
-                            <Icon name="whatsapp-filled" />
+                            <Icon name="whatsapp" />
                         </amp-social-share>
-                    </div>
 
-                    <ComLine />
-
-                    <div className="container --right">
                         <amp-social-share
                             style={mystyle}
                             type="email"
