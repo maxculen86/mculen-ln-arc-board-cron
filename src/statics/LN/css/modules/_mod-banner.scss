@@ -121,7 +121,6 @@
     }
 
     &.--adhesion_mob {
-        height: fit-content;
         padding: px(10) px(20);
         background-color: rgba(0, 0, 0, 0.3);
         &:before {
@@ -174,7 +173,6 @@
         }
 
         &.--adhesion_tab {
-            height: fit-content;
             padding: px(20) px(20) 0 px(20);
             background-color: rgba(0, 0, 0, 0.3);
             &:before {
@@ -258,7 +256,6 @@
                 height: px(100);
             }
             &.--adhesion_dsk {
-                height: fit-content;
                 padding: px(20) px(20) 0 px(20);
                 background-color: rgba(0, 0, 0, 0.3);
                 &:before {
