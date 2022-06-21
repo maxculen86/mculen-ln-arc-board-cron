@@ -61,10 +61,10 @@ const getName = element => {
 };
 
 export const productClickFromClient = (element = {}) => {
-    // const product = getDataSetProps(element.currentTarget);
-    // if (product.id) {
-    //     window.dataLayer.push({ event: 'productClickTest', product });
-    // }
+    const product = getDataSetProps(element.currentTarget);
+    if (product.id) {
+        window.dataLayer.push({ event: 'productClickScore', product });
+    }
     return true;
 };
 
@@ -73,7 +73,7 @@ export const createIntersectionObserver = () => {
         const callback = (entries, observer) => {
             const articlesToAdd = [];
             const articlesSeen =
-                JSON.parse(sessionStorage.getItem('seenArticlesTest')) || [];
+                JSON.parse(sessionStorage.getItem('seenArticlesScore')) || [];
 
             entries.forEach(entry => {
                 if (shouldAddArticle(entry, articlesSeen)) {
@@ -123,14 +123,14 @@ const addEventImpressionToDataLayer = (
 ) => {
     if (articlesToAdd.length > 0) {
         window.dataLayer.push({
-            event: 'impressionsTest',
+            event: 'impressionsScore',
             products: articlesToAdd
         });
 
         articlesSeen.push(...articlesToAdd);
 
         sessionStorage.setItem(
-            'seenArticlesTest',
+            'seenArticlesScore',
             JSON.stringify(
                 articlesSeen.map(art => {
                     return { id: art.id, name: art.name };
