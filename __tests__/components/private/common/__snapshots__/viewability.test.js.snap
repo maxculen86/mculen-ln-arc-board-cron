@@ -357,11 +357,13 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                   authorSize="4xs"
                   authors=""
                   category={false}
+                  categoryNote=""
                   contentRestrictions={
                     Object {
                       "content_code": "comun",
                     }
                   }
+                  dataAuthors={false}
                   dateText=""
                   label={
                     Object {
@@ -638,11 +640,13 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                   authorSize="4xs"
                   authors=""
                   category={false}
+                  categoryNote=""
                   contentRestrictions={
                     Object {
                       "content_code": "comun",
                     }
                   }
+                  dataAuthors={false}
                   dateText=""
                   label={
                     Object {
@@ -919,11 +923,13 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                   authorSize="4xs"
                   authors=""
                   category={false}
+                  categoryNote=""
                   contentRestrictions={
                     Object {
                       "content_code": "comun",
                     }
                   }
+                  dataAuthors={false}
                   dateText=""
                   label={
                     Object {
