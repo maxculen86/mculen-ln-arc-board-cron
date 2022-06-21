@@ -116,12 +116,19 @@
     }
 
     //ALTURAS FIJAS
-    &.--sticky2_mob,
+    &.--sticky2_mob {
+        height: px(50);
+    }
+
     &.--adhesion_mob {
         height: fit-content;
         padding: px(10) px(20);
         display: flex;
         align-items: end;
+        background-color: rgba(0, 0, 0, 0.3);
+        &:before {
+            margin: px(16) auto;
+        }
     }
 
     &.--caja1_mob,
@@ -173,6 +180,10 @@
             padding: px(20) px(20) 0 px(20);
             display: flex;
             align-items: end;
+            background-color: rgba(0, 0, 0, 0.3);
+            &:before {
+                margin: px(20) auto;
+            }
         }
 
         &.--caja1_tab,
@@ -255,6 +266,10 @@
                 padding: px(20) px(20) 0 px(20);
                 display: flex;
                 align-items: end;
+                background-color: rgba(0, 0, 0, 0.3);
+                &:before {
+                    margin: px(20) auto;
+                }
             }
             &.--middle_1_dsk,
             &.--caja1_dsk,
