@@ -96,7 +96,7 @@
         position: fixed;
         bottom: px(56);
         z-index: 100;
-        left: calc((100% - 320px) / 2);
+        left: calc((100% - 350px) / 2);
         background: $neutral-white;
         margin: 0;
     }
@@ -118,7 +118,7 @@
     //ALTURAS FIJAS
     &.--sticky2_mob,
     &.--adhesion_mob {
-        height: px(50);
+        height: fit-content;
         padding: px(10) px(20);
         display: flex;
         align-items: end;
@@ -158,7 +158,7 @@
     @media ($media-m) {
         &.--fixed {
             bottom: px(56);
-            left: calc((100% - 728px) / 2);
+            left: calc((100% - 760px) / 2);
         }
 
         //ALTURAS FIJAS
@@ -216,9 +216,9 @@
 
         &.--fixed {
             bottom: 0;
-            left: calc((100% - 920px) / 2);
+            left: calc((100% - 940px) / 2);
             &.--small {
-                left: calc((100% - 728px) / 2);
+                left: calc((100% - 760px) / 2);
             }
         }
 
@@ -284,9 +284,9 @@
     //DESKTOP XL
     @media ($media-lm) {
         &.--fixed {
-            left: calc((100% - 1260px) / 2);
+            left: calc((100% - 940px) / 2);
             &.--small {
-                left: calc((100% - 1068px) / 2);
+                left: calc((100% - 1098px) / 2);
             }
         }
     }
