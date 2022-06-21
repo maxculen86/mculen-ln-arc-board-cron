@@ -122,7 +122,7 @@
 
     &.--adhesion_mob {
         padding: px(10) px(20);
-        background-color: rgba(0, 0, 0, 0.3);
+        background-color: transparent;
         &:before {
             margin: px(16) auto;
         }
@@ -174,7 +174,7 @@
 
         &.--adhesion_tab {
             padding: px(20) px(20) 0 px(20);
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: transparent;
             &:before {
                 margin: px(20) auto 0 auto;
             }
@@ -257,7 +257,7 @@
             }
             &.--adhesion_dsk {
                 padding: px(20) px(20) 0 px(20);
-                background-color: rgba(0, 0, 0, 0.3);
+                background-color: transparent;
                 &:before {
                     margin: px(20) auto 0 auto;
                 }
