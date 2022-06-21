@@ -182,7 +182,7 @@
             align-items: end;
             background-color: rgba(0, 0, 0, 0.3);
             &:before {
-                margin: px(20) auto;
+                margin: px(20) auto 0 auto;
             }
         }
 
@@ -268,7 +268,7 @@
                 align-items: end;
                 background-color: rgba(0, 0, 0, 0.3);
                 &:before {
-                    margin: px(20) auto;
+                    margin: px(20) auto 0 auto;
                 }
             }
             &.--middle_1_dsk,
