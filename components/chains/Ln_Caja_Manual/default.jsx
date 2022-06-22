@@ -26,7 +26,7 @@ const CajaManual = props => {
         outputType,
         childProps,
         children,
-        renderables
+        renderables = []
     } = props;
 
     if (hideCaja)

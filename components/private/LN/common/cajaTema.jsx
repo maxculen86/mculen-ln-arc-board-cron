@@ -14,7 +14,6 @@ import {
     getMarkupForDatalayer
 } from './utils/cajaTemasHelper';
 import OrderedList from './lists/ordered';
-import Timeline from '../home/timeline';
 import '../../../../resources/dist/css/ln/components/timeline.css';
 
 const getComponentForLayout = (layoutName, props) => {
@@ -109,14 +108,18 @@ const getComponentForLayout = (layoutName, props) => {
                 feature.type.includes('timeline')
             );
             const timeline = _children[timelineIndex];
-            const articles = _children
+            const gridArticles = _children
                 .filter((_, index) => index !== timelineIndex)
                 .splice(0, 4);
 
             const isLast = timelineIndex === features.length - 1;
-            const position = isLast ? '--right-bottom' : '--left-top';
+            const orderClass = isLast ? '--right-bottom' : '--left-top';
 
-            return [timeline, articles, position];
+            return {
+                timeline,
+                gridArticles,
+                orderClass
+            };
         }
     };
 
@@ -152,16 +155,17 @@ const CajaTema = props => {
         sectionName
     );
 
-    const childrenComponent = getComponentForLayout(layoutName, {
-        ...props,
-        articles: artWithoutDate
-    });
+    const childrenComponent =
+        getComponentForLayout(layoutName, {
+            ...props,
+            articles: artWithoutDate
+        }) || {};
 
     const isTimeline = layoutName === 'Timeline';
     const isRanking = sectionName === 'Ranking';
     const withHeaderSection = !hideTitle && layoutName !== 'Editoriales';
     const withGridFour = isHome ? 'row-gap-tablet-4' : '';
-    const [timeline, gridArticles, tlPosition] = childrenComponent;
+    const { timeline, gridArticles, orderClass } = childrenComponent;
 
     return (
         <div {...extraOptsDiv}>
@@ -179,7 +183,7 @@ const CajaTema = props => {
                 )}
 
                 {(isTimeline && (
-                    <ModRowGap classCondition={`timeline-home ${tlPosition}`}>
+                    <ModRowGap classCondition={`timeline-home ${orderClass}`}>
                         <div className="timeline-content">{timeline}</div>
                         <div className="row-gap-tablet-2">{gridArticles}</div>
                     </ModRowGap>
