@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable react/no-danger */
 import React from 'react';
+import get from './get';
 
 export const productClickFromServer = () => {
     return (
@@ -73,7 +74,9 @@ export const createIntersectionObserver = () => {
         const callback = (entries, observer) => {
             const articlesToAdd = [];
             const articlesSeen =
-                JSON.parse(sessionStorage.getItem('seenArticlesScore')) || [];
+                (sessionStorage &&
+                    JSON.parse(sessionStorage.getItem('seenArticlesScore'))) ||
+                [];
 
             entries.forEach(entry => {
                 if (shouldAddArticle(entry, articlesSeen)) {
@@ -146,7 +149,7 @@ export const createObservers = () => {
     const mutationCallback = (mutationsList, observer) => {
         mutationsList.forEach(mutation => {
             mutation.addedNodes.forEach(node => {
-                if (node.dataset.module) {
+                if (get(node, 'dataset.module')) {
                     const arts = document.querySelectorAll(
                         `div[data-module=${node.dataset.module}] article`
                     );
