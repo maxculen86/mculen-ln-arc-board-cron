@@ -12,12 +12,24 @@ import {
 } from '../../private/common/utils/tags';
 import getSectionName from '../../private/LN/common/utils/getSectionName';
 import ComTitle from '../../private/common/com-title';
+import sectionsFormated from '../../private/common/utils/sectionsFormated';
+
+export const getUltimasNoticiasSectionsIds = renderables => {
+    const ultimasNoticiasFeature = renderables.find(
+        element => get(element, 'type', '') === 'LN-acumulado/ultimasNoticias'
+    );
+    return sectionsFormated(
+        get(ultimasNoticiasFeature, 'props.customFields.sections', [])
+    );
+};
 
 const TagsListFeature = ({ id, title }) => {
     const {
         globalContent: { _id: sectionId, node_type: nodeType, type } = {},
+        renderables = [],
         arcSite = 'la-nacion-ar'
     } = useAppContext() || {};
+
     const {
         acumuladoGeneral: { hidetagslist = false } = {},
         acumuladoColor: { navigation_color_tags: colorTags } = {}
@@ -38,6 +50,17 @@ const TagsListFeature = ({ id, title }) => {
             []
     );
 
+    const ultimasNoticiasQueryProps =
+        sectionId === '/ultimas-noticias'
+            ? {
+                  sectionsIds: getUltimasNoticiasSectionsIds(renderables),
+                  sourceOrigin: 'composer'
+              }
+            : {
+                  sectionsIds: undefined,
+                  sourceOrigin: undefined
+              };
+
     useEffect(() => {
         setArticlesInHome(
             (sectionIsHome &&
@@ -56,7 +79,8 @@ const TagsListFeature = ({ id, title }) => {
                   website: arcSite,
                   sectionId,
                   page: 0,
-                  promoItemsOnly: false
+                  promoItemsOnly: false,
+                  ...ultimasNoticiasQueryProps
               },
               filter: `{
                         content_elements {
@@ -76,7 +100,6 @@ const TagsListFeature = ({ id, title }) => {
           });
 
     const tagList = transformTagsForAcu(orderAndCountTags, colorTags);
-
     const Component = (hidetagslist !== 'true' && tagList.length && (
         <>
             {title && <ComTitle size="--twoxs" content={title} />}

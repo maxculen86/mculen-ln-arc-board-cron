@@ -6,7 +6,7 @@ import { useAppContext } from 'fusion:context';
 import Article from '../../private/common/mod-article';
 import ComHour from '../../private/common/com-hour';
 import ComTitle from '../../private/common/com-title';
-import sectionsFormated from '../../private/common/utils/sectionFormatted';
+import sectionsFormated from '../../private/common/utils/sectionsFormated';
 import useGetArticlesFromAcumSource from '../../private/LN/common/hooks/useGetArticlesFromAcumSource';
 import { cajaTemasCustomsFields } from '../../private/LN/common/utils/cajaTemasHelper';
 import filter from '../../../content/filters/LN/acumulado/articleTimeline';
