@@ -10,6 +10,7 @@ import sectionsFormated from '../../private/common/utils/sectionFormatted';
 import useGetArticlesFromAcumSource from '../../private/LN/common/hooks/useGetArticlesFromAcumSource';
 import { cajaTemasCustomsFields } from '../../private/LN/common/utils/cajaTemasHelper';
 import filter from '../../../content/filters/LN/acumulado/articleTimeline';
+import { LIVEBLOG } from '../../private/common/utils/subtypes/subtypeHelper';
 
 const {
     layout,
@@ -48,7 +49,8 @@ const Timeline = ({ customFields = {} }) => {
             content_restrictions: contentRestrictions,
             subtype
         } = article;
-        const isLiveblog = subtype === '6';
+
+        const isLiveblog = subtype === LIVEBLOG;
 
         return {
             key: _id,
