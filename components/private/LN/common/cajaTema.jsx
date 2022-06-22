@@ -14,6 +14,8 @@ import {
     getMarkupForDatalayer
 } from './utils/cajaTemasHelper';
 import OrderedList from './lists/ordered';
+import Timeline from '../home/timeline';
+import '../../../../resources/dist/css/ln/components/timeline.css';
 
 const getComponentForLayout = (layoutName, props) => {
     const types = {
@@ -97,11 +99,24 @@ const getComponentForLayout = (layoutName, props) => {
                 );
             });
         },
+
         ArticleFeature: ({ _children = [], notesQuantity }) => {
             return _children.slice(0, notesQuantity);
         },
-        Timeline: ({ _children = [], notesQuantity }) => {
-            return <p>Timeline</p>;
+
+        Timeline: ({ _children = [], notesQuantity, features }) => {
+            const timelineIndex = features.findIndex(feature =>
+                feature.type.includes('timeline')
+            );
+            const timeline = _children[timelineIndex];
+            const articles = _children
+                .filter((_, index) => index !== timelineIndex)
+                .splice(0, 4);
+
+            const isLast = timelineIndex === features.length - 1;
+            const position = isLast ? '--right-bottom' : '--left-top';
+
+            return [timeline, articles, position];
         }
     };
 
@@ -142,13 +157,19 @@ const CajaTema = props => {
         articles: artWithoutDate
     });
 
+    const isTimeline = layoutName === 'Timeline';
+    const isRanking = sectionName === 'Ranking';
+    const withHeaderSection = !hideTitle && layoutName !== 'Editoriales';
+    const withGridFour = isHome ? 'row-gap-tablet-4' : '';
+    const [timeline, gridArticles, tlPosition] = childrenComponent;
+
     return (
         <div {...extraOptsDiv}>
             <section
                 {...extraOpts}
                 className={`box-articles ${backgroundColor} ${classCondition}`}
             >
-                {!hideTitle && layoutName !== 'Editoriales' && (
+                {withHeaderSection && (
                     <ModHeaderSection
                         imageId={imageId}
                         title={title}
@@ -156,17 +177,23 @@ const CajaTema = props => {
                         customTitle={!hideTitle && title}
                     />
                 )}
-                <ModRowGap typeArticle={layoutName} column={notesQuantity}>
-                    {sectionName === 'Ranking' ? (
-                        <OrderedList
-                            extraClass={isHome ? 'row-gap-tablet-4' : ''}
-                        >
-                            {childrenComponent}
-                        </OrderedList>
-                    ) : (
-                        childrenComponent
-                    )}
-                </ModRowGap>
+
+                {(isTimeline && (
+                    <ModRowGap classCondition={`timeline-home ${tlPosition}`}>
+                        <div className="timeline-content">{timeline}</div>
+                        <div className="row-gap-tablet-2">{gridArticles}</div>
+                    </ModRowGap>
+                )) || (
+                    <ModRowGap column={notesQuantity} typeArticle={layoutName}>
+                        {isRanking ? (
+                            <OrderedList extraClass={withGridFour}>
+                                {childrenComponent}
+                            </OrderedList>
+                        ) : (
+                            childrenComponent
+                        )}
+                    </ModRowGap>
+                )}
             </section>
         </div>
     );

@@ -3,7 +3,7 @@
 
 .timeline-home {
     margin-bottom: $spacing-lg;
-    .techo {
+    .roof {
         display: block;
         margin-bottom: $spacing-md;
     }
@@ -19,9 +19,16 @@
             }
         }
     }
+
     &.--left-top {
         .timeline-content {
             order: -1;
+        }
+    }
+
+    &.--right-bottom {
+        .timeline-content {
+            order: 1;
         }
     }
 
@@ -34,22 +41,22 @@
             padding: 0 $spacing $spacing-sm $spacing-md;
             border-top: none;
             &:not(article:last-of-type) {
-                border-left: 1px solid $link;
+                border-left: px(1) solid $link;
             }
             .com-title {
                 font-weight: 400;
             }
             .com-hour {
                 color: $link;
-                margin: px(-2) 0 px(4);
+                margin: px(1) 0 px(4);
                 &:before {
                     content: '';
                     width: $spacing-sm;
                     height: $spacing-sm;
                     border-radius: $spacing-sm;
-                    border: 1px solid $link;
+                    border: px(1) solid $link;
                     background: $neutral-white;
-                    left: -14.5px;
+                    left: px(-14.5);
                     top: 0;
                     z-index: 2;
                     position: absolute;
@@ -60,10 +67,23 @@
                     height: $spacing;
                     border-radius: $spacing;
                     background: $link;
-                    top: 5px;
-                    left: -4.5px;
+                    top: px(5);
+                    left: px(-4.5);
                     z-index: 2;
                     position: absolute;
+                }
+            }
+            .mod-description {
+                h2 {
+                    font-family: Arial, Helvetica, sans-serif;
+                }
+                .badge {
+                    color: $red-600;
+                    background: none;
+                    border: none;
+                    padding: 0;
+                    top: px(-20);
+                    left: px(36);
                 }
             }
         }

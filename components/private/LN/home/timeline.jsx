@@ -7,25 +7,12 @@ import ModRowGap from '../../common/mod-rowgap';
 import Link from '../../common/link';
 import '../../../../resources/dist/css/ln/components/timeline.css';
 
-const Timeline = ({ techo = '', techoLink = '', order = '' }) => {
-    const MOCK_ARTICLES = [
-        {
-            title:
-                'Lead. Title, este es un titular especial de nota noticia con unos 110 caracteres máximo y varias líneas que ocupar.'
-        },
-        {
-            title:
-                'Lead. Title, este es un titular especial de nota noticia con unos 110 caracteres máximo y varias líneas que ocupar.'
-        },
-        {
-            title:
-                'Lead. Title, este es un titular especial de nota noticia con unos 110 caracteres máximo y varias líneas que ocupar.'
-        },
-        {
-            title:
-                'Lead. Title, este es un titular especial de nota noticia con unos 110 caracteres máximo y varias líneas que ocupar.'
-        }
-    ];
+const Timeline = ({
+    articles = [],
+    techo = '',
+    techoLink = '',
+    order = ''
+}) => {
     const MOCK_TIMELINE = [
         {
             title:
@@ -87,8 +74,14 @@ const Timeline = ({ techo = '', techoLink = '', order = '' }) => {
     return (
         <ModRowGap classCondition={`timeline-home ${classCondition}`}>
             <div className="row-gap-tablet-2">
-                {MOCK_ARTICLES.map(({ title }) => {
-                    return <Article key={title} withMedia titleText={title} />;
+                {articles.map(({ headlines, ...rest }) => {
+                    return (
+                        <Article
+                            key={headlines.basic}
+                            titleText={headlines.basic}
+                            withMedia
+                        />
+                    );
                 })}
             </div>
             <div className="timeline-content">
@@ -123,7 +116,8 @@ const Timeline = ({ techo = '', techoLink = '', order = '' }) => {
 Timeline.propTypes = {
     techo: PropTypes.string,
     techoLink: PropTypes.string,
-    order: PropTypes.string
+    order: PropTypes.string,
+    articles: PropTypes.Array
 };
 
 export default Timeline;

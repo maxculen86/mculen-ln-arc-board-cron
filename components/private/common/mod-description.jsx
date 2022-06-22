@@ -31,6 +31,7 @@ const ModDescription = props => {
         categoryNote
     } = props;
     const { layout: layoutPageBuilder } = useAppContext();
+
     const withMarquee = !!(marquesina || authors);
     const { name: categoryName, path: categoryPath } = category || {};
 

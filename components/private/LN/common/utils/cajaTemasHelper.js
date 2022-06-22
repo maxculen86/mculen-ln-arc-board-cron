@@ -73,17 +73,17 @@ const featuredRules = {
 
 export const getLayoutType = (layout, artWithoutDate, _children) => {
     const types = {
-        UltimasNoticias: 'Timeline',
+        grillaUltimasNoticias: 'Timeline',
         opinion4: 'Opinion',
         editoriales2: 'Editoriales',
         focal: 'Focal'
     };
 
     const typesKeys = Object.keys(types);
-    const resultKeys = typesKeys.find(type => layout.includes(type));
+    const resultKey = typesKeys.find(type => layout.includes(type));
 
     return (
-        (resultKeys && types[resultKeys]) ||
+        (resultKey && types[resultKey]) ||
         (artWithoutDate && artWithoutDate.length && 'Grilla') ||
         (_children && _children.length && 'ArticleFeature')
     );
@@ -149,16 +149,6 @@ export const getMarkupForDatalayer = (
             },
             extraOptsDiv: {
                 'data-module': 'tema_ranking'
-            }
-        },
-        RankingInverso: {
-            extraOpts: {
-                'data-block-name': 'h_ranking_seo',
-                ...extraOptsdefault,
-                'data-diagramacion-id': 'grilla6'
-            },
-            extraOptsDiv: {
-                'data-module': 'tema_ranking_inverso'
             }
         },
         Default: (pos, section, lay) => {
@@ -277,9 +267,6 @@ export const getChildrenFromAperturaHome = (renderables, childProps) => {
               ...getChildrenFromSectionHome(renderables, 'Apertura_1', 3),
               ...getChildrenFromSectionHome(renderables, 'Apertura_2', 4)
           ];
-    // return getChildrenFromSectionHome(renderables, 'Apertura_1', 3).concat(
-    //     getChildrenFromSectionHome(renderables, 'Apertura_2', 4)
-    // );
 };
 
 export const isInApertura = (idFeature, tree = {}) => {
