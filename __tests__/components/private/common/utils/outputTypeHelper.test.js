@@ -1,7 +1,9 @@
+import React from 'react';
 import {
     getTitle,
     getMetaDescriptionDefault,
-    getSectionOfRequestUri
+    getSectionOfRequestUri,
+    metasFromSiteServices
 } from '../../../../../components/private/common/utils/outputTypeHelper';
 
 describe('Common - utils - getTitle', () => {
@@ -249,5 +251,36 @@ describe('Test getSectionOfRequestUri', () => {
         const requestUri = undefined;
 
         expect(getSectionOfRequestUri(requestUri)).toStrictEqual('');
+    });
+});
+
+describe('Tests - metasFromSiteServices', () => {
+    const metaTags = {
+        robots: 'noindex',
+        title: 'La Nacion'
+    };
+
+    test('Return test when metaTags is defined', () => {
+        expect(metasFromSiteServices(metaTags)).toStrictEqual([
+            <meta content="noindex" name="robots" />,
+            <meta content="La Nacion" name="title" />
+        ]);
+    });
+
+    test('Return test when metaTags is not defined', () => {
+        expect(metasFromSiteServices(undefined)).toStrictEqual(<></>);
+    });
+
+    test('Return test when one of the properties does not have a value', () => {
+        expect(
+            metasFromSiteServices({
+                ...metaTags,
+                title: ''
+            })
+        ).toStrictEqual([<meta content="noindex" name="robots" />, '']);
+    });
+
+    test('Return tests when the parameter received is an array', () => {
+        expect(metasFromSiteServices([{}])).toStrictEqual(<></>);
     });
 });
