@@ -125,7 +125,7 @@
         background-color: transparent;
         .icon-close {
             top: auto;
-            max-height: px(20);
+            height: auto;
         }
         &:before {
             margin: px(16) auto;
@@ -181,7 +181,7 @@
             background-color: transparent;
             .icon-close {
                 top: auto;
-                max-height: px(20);
+                height: auto;
             }
             &:before {
                 margin: px(20) auto 0 auto;
@@ -268,7 +268,7 @@
                 background-color: transparent;
                 .icon-close {
                     top: auto;
-                    max-height: px(20);
+                    height: auto;
                 }
                 &:before {
                     margin: px(20) auto 0 auto;
