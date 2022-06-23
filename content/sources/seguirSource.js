@@ -2,7 +2,6 @@ import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import request from 'request-promise-native';
 import personalization from './utils/servicesSource/personalization';
 import logger from '../../components/private/common/utils/logger';
-import NotFoundError from './utils/notFoundError';
 import OrderElements from './utils/orderElements';
 import transform from './utils/acuArticlesSource/transform';
 import get from '../../components/private/common/utils/get';
@@ -96,8 +95,6 @@ const filterByType = (items, topicType) => {
 
 const shouldElements = query => {
     const { followedItems } = query;
-    if (followedItems.length === 0)
-        throw new Error('debe de tener al menos un item a seguir');
 
     const elem = {
         minimum_should_match: 1,
@@ -225,7 +222,7 @@ const fetch = async (query, { cachedCall }) => {
     const keyQuery = keyParams.filter(x => x.slug !== '');
 
     if (keyQuery.length !== 1) {
-        throw new NotFoundError('Cantidad de parámetros inválidos');
+        throw new Error('Cantidad de parámetros inválidos');
     }
 
     // TODO: validar que el user token sea distinto de null.
