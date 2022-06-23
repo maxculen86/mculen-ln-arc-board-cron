@@ -84,7 +84,7 @@ const Timeline = ({
                     );
                 })}
             </div>
-            <div className="timeline-content">
+            <div className="timeline-contentxx">
                 <>
                     {techo && (
                         <Link

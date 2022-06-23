@@ -112,7 +112,7 @@ const getComponentForLayout = (layoutName, props) => {
                 .filter((_, index) => index !== timelineIndex)
                 .splice(0, 4);
 
-            const isLast = timelineIndex === features.length - 1;
+            const isLast = timelineIndex === gridArticles.length;
             const orderClass = isLast ? '--right-bottom' : '--left-top';
 
             return {

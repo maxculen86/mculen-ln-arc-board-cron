@@ -63,7 +63,7 @@ const Timeline = ({ customFields = {} }) => {
     });
 
     return (
-        <div className="timeline-content">
+        <>
             {withRoof && (
                 <ComTitle
                     tag="h2"
@@ -76,11 +76,11 @@ const Timeline = ({ customFields = {} }) => {
             {articles.map(article => (
                 <Article {...article} titleSize="--twoxs" />
             ))}
-        </div>
+        </>
     );
 };
 
-Timeline.label = 'LN Acumulado Timeline';
+Timeline.label = 'LN Timeline';
 
 Timeline.propTypes = {
     customFields: PropTypes.shape({
