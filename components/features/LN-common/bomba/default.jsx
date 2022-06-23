@@ -22,7 +22,8 @@ const BombaFeature = props => {
 
     const Component = (
         <section
-            className={`mod-opening --bomba${(hideImage && ' --no-image') ||
+            className={`mod-opening box-articles --bomba${(hideImage &&
+                ' --no-image') ||
                 ''}`}
             id="tema_00"
             data-is-block="true"

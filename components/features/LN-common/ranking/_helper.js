@@ -6,9 +6,10 @@ export const getRankingProps = (layout, featureId, globalContent) => {
     const { layoutsName = {} } = siteConfig;
     const isHome = layout === layoutsName.Home;
     const isInverse = featureId === 'inverse-home';
+    const isAcuTag = get(globalContent, 'node_type', '') === 'tags';
 
     const key =
-        (!isHome && !isInverse && 'acu') ||
+        (!isHome && !isInverse && !isAcuTag && 'acu') ||
         (isHome && isInverse && 'inverseHome') ||
         'home';
 

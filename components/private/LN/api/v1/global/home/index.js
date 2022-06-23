@@ -41,9 +41,9 @@ const featureInformation = (information, feature) => {
 
     if (!information.hideTitle && feature !== 'Apertura') {
         const image = get(information.image, 'promo_items.basic', null);
-
+        const imagenUrl = get(image, 'additional_properties.originalUrl', null);
         if (image && image.type === 'image') res.imagen = Image(image);
-
+        if (imagenUrl) res.imagenUrl = imagenUrl;
         return {
             ...res,
             tituloCaja: information.title,

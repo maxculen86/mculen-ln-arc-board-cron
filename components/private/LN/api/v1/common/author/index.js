@@ -63,6 +63,16 @@ export const authorAcu = (author, page) => {
     };
 };
 
+export const authorAcuFollow = (authorFollow, page) => {
+    const author = {
+        ...authorFollow,
+        name: get(authorFollow, 'valor', null),
+        _id: get(authorFollow, 'slug', null),
+        image: { url: get(authorFollow, 'imagen', null) }
+    };
+    return authorAcu(author);
+};
+
 export const authorHomeMobile = author => {
     const authorData = getAuthorData(author);
     const { email, twitter } = author;

@@ -2,9 +2,7 @@
 @import '../abstracts/mixins';
 .mod-share {
     .share {
-        @include flex(flex, row, start, center);
         z-index: 100;
-        width: 100%;
         margin-right: auto;
         margin-bottom: $spacing-lg;
         float: left;
@@ -17,7 +15,6 @@
             &[type='whatsapp'],
             &[type='email'] {
                 background: none;
-                @include flex(flex, row, center, center);
                 margin-right: $spacing-sm;
                 padding: $spacing-2xs;
                 -webkit-font-smoothing: antialiased;
@@ -27,13 +24,14 @@
                     margin-right: 0;
                 }
             }
-            &[type='email'],
-            &[type='whatsapp'] {
-                margin-right: 0;
-            }
         }
         .--photo100 & {
-            margin-left: $spacing-sm;
+            @media ($media-s) {
+                margin-left: $spacing;
+            }
+            @media ($media-l) {
+                margin-left: $spacing-sm;
+            }
         }
     }
 
@@ -45,6 +43,7 @@
                 flex-direction: column;
                 position: sticky;
                 top: $spacing-sm;
+                width: px(56);
                 transition: all 0.25s;
                 border-radius: px(4);
                 margin-left: -$spacing;
@@ -53,9 +52,6 @@
                 padding: $spacing 0 px(4) 0;
                 .container {
                     flex-direction: column;
-                }
-                .com-line {
-                    transform: rotate(90deg);
                 }
                 .--scrollDown & {
                     top: (px(16) + $header-desktop);
