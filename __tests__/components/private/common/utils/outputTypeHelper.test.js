@@ -256,13 +256,13 @@ describe('Test getSectionOfRequestUri', () => {
 
 describe('Tests - metasFromSiteServices', () => {
     const metaTags = {
-        robots: 'noindex',
+        robots: 'noindex, nofollow',
         title: 'La Nacion'
     };
 
     test('Return test when metaTags is defined', () => {
         expect(metasFromSiteServices(metaTags)).toStrictEqual([
-            <meta content="noindex" name="robots" />,
+            <meta content="noindex, nofollow" name="robots" />,
             <meta content="La Nacion" name="title" />
         ]);
     });
@@ -277,7 +277,10 @@ describe('Tests - metasFromSiteServices', () => {
                 ...metaTags,
                 title: ''
             })
-        ).toStrictEqual([<meta content="noindex" name="robots" />, '']);
+        ).toStrictEqual([
+            <meta content="noindex, nofollow" name="robots" />,
+            ''
+        ]);
     });
 
     test('Return tests when the parameter received is an array', () => {
