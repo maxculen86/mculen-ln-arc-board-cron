@@ -2,7 +2,6 @@ import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import request from 'request-promise-native';
 import personalization from './utils/servicesSource/personalization';
 import logger from '../../components/private/common/utils/logger';
-import NotFoundError from './utils/notFoundError';
 import OrderElements from './utils/orderElements';
 import transform from './utils/acuArticlesSource/transform';
 import get from '../../components/private/common/utils/get';
@@ -189,7 +188,6 @@ const getElements = async query => {
         });
 };
 
-// TODO: Validar con producto el default de dias, tamano (Puede que quieran una variable de configuracion global en caso de venir en null de front)
 const fetch = async (query, { cachedCall }) => {
     const {
         token,
@@ -226,7 +224,6 @@ const fetch = async (query, { cachedCall }) => {
         throw new Error('Cantidad de parámetros inválidos');
     }
 
-    // TODO: validar que el user token sea distinto de null.
     let followedItems = [];
     if (token) {
         const optRequest = {
@@ -253,7 +250,6 @@ const fetch = async (query, { cachedCall }) => {
         .replace(/__/, '_')
         .concat('_', page);
 
-    // TODO: Colocar como clave de cache el string union de los tres elementos mas la pagina (Organizados por orden alfabetico).
     const stories = await cachedCall(keyCacheSeguir, getElements, {
         query: {
             followedItems,
