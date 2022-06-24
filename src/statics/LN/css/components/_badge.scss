@@ -10,6 +10,7 @@
     overflow: hidden;
     max-width: 95%;
     white-space: nowrap;
+    border-radius: px(16);
 
     &.--sponsored {
         background: $neutral-white;
@@ -30,7 +31,7 @@
             content: '';
             display: list-item;
             position: relative;
-            top: px(4.65);
+            top: px(4.5);
             width: px(5.33);
             height: px(5.33);
             border-radius: 50%;
