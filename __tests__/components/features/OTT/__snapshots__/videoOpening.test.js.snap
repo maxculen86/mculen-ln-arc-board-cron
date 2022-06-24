@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VideoOpening OTT - live Return test when hideVideoFeature is false 1`] = `
+HTMLCollection [
+  <section
+    class="apertura"
+  >
+    <iframe
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      frameborder="0"
+      src="https://www.youtube.com/embed/HYxWurJ3ejE?frameborder=0&mute=1&autoplay=1&amp;rel=0&amp;showinfo=0"
+      title="live"
+      width="100%"
+    />
+  </section>,
+]
+`;
