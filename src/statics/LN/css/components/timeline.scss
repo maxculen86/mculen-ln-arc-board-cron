@@ -3,6 +3,9 @@
 
 .timeline-home {
     margin-bottom: $spacing-lg;
+    .row-gap-tablet-2 {
+        height: fit-content;
+    }
     .roof {
         display: block;
         margin-bottom: $spacing-md;
