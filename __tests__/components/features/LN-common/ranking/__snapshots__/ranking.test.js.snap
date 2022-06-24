@@ -397,7 +397,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking home 1
                 class="mod-description"
               >
                 
-                <h3
+                <h2
                   class="com-title --xs"
                 >
                   <a
@@ -412,7 +412,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking home 1
                     </em>
                     Biden sorprendió con un duro reproche a Zelensky y recibió una contundente respuesta
                   </a>
-                </h3>
+                </h2>
                 <div />
                 
               </section>
@@ -466,7 +466,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking home 1
                 class="mod-description"
               >
                 
-                <h3
+                <h2
                   class="com-title --xs"
                 >
                   <a
@@ -481,7 +481,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking home 1
                     </em>
                     Pidieron que la Justicia ordene de urgencia el abastecimiento de combustible al avión de los iraníes
                   </a>
-                </h3>
+                </h2>
                 <div />
                 
               </section>
@@ -535,7 +535,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking home 1
                 class="mod-description"
               >
                 
-                <h3
+                <h2
                   class="com-title --xs"
                 >
                   <a
@@ -550,7 +550,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking home 1
                     </em>
                     Revelan un detalle de la supuesta amante de Piqué que devastaría a Shakira
                   </a>
-                </h3>
+                </h2>
                 <div />
                 
               </section>
@@ -604,7 +604,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking home 1
                 class="mod-description"
               >
                 
-                <h3
+                <h2
                   class="com-title --xs"
                 >
                   <a
@@ -619,7 +619,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking home 1
                     </em>
                     Le preguntaron qué haría si ganaba el dinero y su respuesta emocionó a todos
                   </a>
-                </h3>
+                </h2>
                 <div />
                 
               </section>
