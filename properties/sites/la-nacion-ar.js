@@ -115,6 +115,10 @@ export default {
             props: {},
             location: ['head']
         },
+        ScriptCripto: {
+            props: {},
+            location: ['body-bottom']
+        },
         GTM: {
             props: { id: 'GTM-GHV6', idAMP: 'GTM-PRT86FH' },
             location: ['head', 'body-top']

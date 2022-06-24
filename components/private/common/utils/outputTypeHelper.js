@@ -1,3 +1,4 @@
+import React from 'react';
 import getMetaDescriptionForAcum from './getMetaDescriptionForAcum';
 
 export const getSectionOfRequestUri = (requestUri = '') => {
@@ -48,4 +49,15 @@ export const getMetaDescriptionDefault = (
     }
 
     return defaultDescription;
+};
+
+export const metasFromSiteServices = (metaTags = {}) => {
+    const metas =
+        metaTags && !Array.isArray(metaTags) && Object.entries(metaTags);
+
+    if (!metas || metas.length === 0) return <></>;
+
+    return metas.map(([name, content]) => {
+        return name && content && <meta name={name} content={content} />;
+    });
 };

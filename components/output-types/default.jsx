@@ -5,6 +5,7 @@ import ScriptManager from '../private/common/scriptManager';
 import ScriptLogoBBC from '../private/common/scriptManager/scriptLogoBBC';
 import ScriptVideoPowa from '../private/common/scriptManager/scriptVideoPowa';
 import ScriptVideoPowaHome from '../private/common/scriptManager/scriptVideoPowaHome';
+import ScriptCripto from '../private/common/scriptManager/scriptCripto';
 import GTM from '../private/common/scriptManager/googleTagManager';
 import Comscore from '../private/common/scriptManager/comscore';
 import Microdata from '../private/common/scriptManager/microdata';
@@ -44,7 +45,8 @@ import ComscoreVideo from '../private/common/scriptManager/comscoreVideo';
 import AdblockDetector from '../private/common/scriptManager/adblockDetector';
 import {
     getTitle,
-    getMetaDescriptionDefault
+    getMetaDescriptionDefault,
+    metasFromSiteServices
 } from '../private/common/utils/outputTypeHelper';
 import FontPreloads from '../private/common/fontsPreloads';
 
@@ -60,6 +62,10 @@ const scriptList = [
     {
         component: { name: 'ScriptVideoPowa', function: ScriptVideoPowa },
         feature: 'none'
+    },
+    {
+        component: { name: 'ScriptCripto', function: ScriptCripto },
+        feature: ['LN-acumulado/cajaDolar', 'LN-acumulado/cajaCripto']
     },
     { component: { name: 'GTM', function: GTM }, feature: 'none' },
     { component: { name: 'Comscore', function: Comscore }, feature: 'none' },
@@ -156,7 +162,8 @@ const Default = props => {
         Payload,
         _id,
         taxonomy,
-        first_publish_date: firstPublishDate
+        first_publish_date: firstPublishDate,
+        acumuladoGeneral: { metas } = {}
     } = globalContent || {};
 
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
@@ -243,6 +250,7 @@ const Default = props => {
                 {layout !== 'LN-buscador' && (
                     <title>{arcSite === 'ott' ? ottMetaTitle : title}</title>
                 )}
+                {metasFromSiteServices(metas)}
                 <GetDataToLinkImage
                     data={globalContent}
                     section={_nodeType}

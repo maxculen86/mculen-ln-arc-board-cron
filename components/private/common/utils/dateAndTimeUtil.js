@@ -165,6 +165,11 @@ export function differenceInMinutes(firstDate, secondDate) {
     return Math.ceil((date2 - date1) / (1000 * 60));
 }
 
+export const substractDays = (date, days) =>
+    new Date(date.setDate(date.getDate() - days));
+
+export const formatToISOString = date => date.toISOString().split('T')[0];
+
 export function restMinutes(date, minutes) {
     return new Date(date.getTime() - minutes * 60000);
 }

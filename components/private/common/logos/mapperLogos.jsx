@@ -34,5 +34,7 @@ export const mapperLogos = {
     'ln-mas': 'lnmas.svg',
     'lnmas-blanco': 'lnmas-blanco.svg',
     'logo-club': 'club.svg',
-    'club-la-nacion': 'club-la-nacion.svg'
+    'club-la-nacion': 'club-la-nacion.svg',
+    canchallena: 'canchallena.svg',
+    'canchallena-blanco': 'canchallena.svg'
 };

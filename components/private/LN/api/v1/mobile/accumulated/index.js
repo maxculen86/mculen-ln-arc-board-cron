@@ -3,7 +3,23 @@ import Configuration from '../../common/accumulated/configuration';
 import { articleItem } from '../../common/article/index';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
 import { getTag } from '../../common/tag';
-import { authorAcu } from '../../common/author';
+import { authorAcu, authorAcuFollow } from '../../common/author';
+import { getSubCategory } from '../../common/category';
+
+const topics = {
+    autor: {
+        keyName: 'autores',
+        method: authorAcuFollow
+    },
+    tags: {
+        keyName: 'tags',
+        method: getTag
+    },
+    seccion: {
+        keyName: 'secciones',
+        method: getSubCategory
+    }
+};
 
 const banners = acuData => {
     const sectionsElements = [
@@ -55,6 +71,18 @@ const index = acuData => {
             return result;
         }, []);
     }
+
+    if (acuData.followedItemsValidate && acuData.followedItemsValidate.length) {
+        acuData.followedItemsValidate.forEach(elem => {
+            resp[topics[elem.type].keyName] = [];
+        });
+        acuData.followedItemsValidate.forEach(elem => {
+            resp[topics[elem.type].keyName].push(
+                topics[elem.type].method(elem)
+            );
+        });
+    }
+
     if (acuData.author) {
         resp.autor = authorAcu(acuData.author, acuData.page);
     }
