@@ -121,7 +121,8 @@
     }
 
     &.--adhesion_mob {
-        padding: px(10) px(20);
+        padding: px(10) px(20) 0 px(20);
+        border-bottom: px(10) solid $neutral-white;
         background-color: transparent;
         .icon-close {
             top: auto;
