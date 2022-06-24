@@ -36,10 +36,6 @@ const SnippetLiveblog = props => {
         const { subtype = 'default', type = '' } = elem;
         return type === 'custom_embed' && subtype === 'custom-liveblog';
     });
-    console.log(
-        '🚀 ~ file: liveblog.jsx ~ line 39 ~ checkForLiveBlogElements',
-        checkForLiveBlogElements
-    );
 
     const { image } = extractDataFromPromoItems(promoItems, PLACEHOLDER);
 

@@ -37,20 +37,12 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
         content_elements: contentElements,
         credits: { by }
     } = globalContent || {};
-    console.log(
-        '🚀 ~ file: generatePostObject.js ~ line 27 ~ generatePostObject ~ contentElements',
-        contentElements
-    );
 
     const { authors } = extracDataFromCredits(by);
     const postingStart = contentElements.findIndex(elem => {
         const { subtype = 'default', type = '' } = elem;
         return type === 'custom_embed' && subtype === 'custom-liveblog';
     });
-    console.log(
-        '🚀 ~ file: generatePostObject.js ~ line 35 ~ generatePostObject ~ potingStart',
-        postingStart
-    );
     let post = {};
     const postElements = contentElements
         .slice(postingStart)
@@ -77,10 +69,6 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
 
             return acc;
         }, []);
-    console.log(
-        '🚀 ~ file: generatePostObject.js ~ line 65 ~ generatePostObject ~ postElements',
-        postElements
-    );
 
     return postElements.map((elem, i) => {
         const { config = {}, content = '', url = '' } = elem;
