@@ -15,7 +15,7 @@ import {
 } from './utils/cajaTemasHelper';
 import OrderedList from './lists/ordered';
 
-const getComponentForLayout = (layoutName, props) => {
+const getComponentForLayout = (layoutName, isHome, props) => {
     const types = {
         Opinion: ({ articles, layout, handleClick }) => {
             return (
@@ -68,7 +68,10 @@ const getComponentForLayout = (layoutName, props) => {
             sectionName,
             withVolanta = true
         }) => {
-            const customTitleTag = customHeading[sectionName] || 'h2';
+            const customTitleTag =
+                sectionName === 'Ranking' && isHome
+                    ? 'h2'
+                    : customHeading[sectionName] || 'h2';
             return articles.map((art, i) => {
                 const artPosition = `0${Number(i) + 1}`.slice(-2);
                 const isRenderAuthor = layout.includes('author');
@@ -134,7 +137,7 @@ const CajaTema = props => {
         sectionName
     );
 
-    const childrenComponent = getComponentForLayout(layoutName, {
+    const childrenComponent = getComponentForLayout(layoutName, isHome, {
         ...props,
         articles: artWithoutDate
     });
