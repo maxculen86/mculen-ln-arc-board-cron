@@ -99,25 +99,39 @@ const getComponentForLayout = (layoutName, props) => {
             });
         },
 
-        ArticleFeature: ({ _children = [], notesQuantity }) => {
+        ArticleFeature: ({ _children, notesQuantity }) => {
             return _children.slice(0, notesQuantity);
         },
 
-        Timeline: ({ _children = [], notesQuantity, features }) => {
-            const timelineIndex = features.findIndex(feature =>
-                feature.type.includes('timeline')
-            );
-            const timeline = _children[timelineIndex];
-            const gridArticles = _children
-                .filter((_, index) => index !== timelineIndex)
-                .splice(0, 4);
+        Timeline: ({ _children, features = [] }) => {
+            const lowerLayout = layoutName.toLowerCase();
+            let timeline = { articles: [] };
 
-            const isLast = timelineIndex === gridArticles.length;
+            const LNTimeline = features.find(feature =>
+                feature.type.includes(lowerLayout)
+            );
+
+            const timelineId = LNTimeline.props && LNTimeline.props.id;
+
+            _children.forEach((child, index) => {
+                const { articles } = timeline;
+                const isTimeline = child.key === timelineId;
+                const missingArticles = articles.length < 4 && !isTimeline;
+
+                timeline = {
+                    ...timeline,
+                    ...(missingArticles && {
+                        articles: [...articles, child]
+                    }),
+                    ...(isTimeline && { content: child, index })
+                };
+            });
+
+            const isLast = timeline.index === timeline.articles.length;
             const orderClass = isLast ? '--right-bottom' : '--left-top';
 
             return {
                 timeline,
-                gridArticles,
                 orderClass
             };
         }
@@ -165,7 +179,7 @@ const CajaTema = props => {
     const isRanking = sectionName === 'Ranking';
     const withHeaderSection = !hideTitle && layoutName !== 'Editoriales';
     const withGridFour = isHome ? 'row-gap-tablet-4' : '';
-    const { timeline, gridArticles, orderClass } = childrenComponent;
+    const { timeline, orderClass } = childrenComponent;
 
     return (
         <div {...extraOptsDiv}>
@@ -184,8 +198,12 @@ const CajaTema = props => {
 
                 {(isTimeline && (
                     <ModRowGap classCondition={`timeline-home ${orderClass}`}>
-                        <div className="timeline-content">{timeline}</div>
-                        <div className="row-gap-tablet-2">{gridArticles}</div>
+                        <div className="timeline-content">
+                            {timeline.content}
+                        </div>
+                        <div className="row-gap-tablet-2">
+                            {timeline.articles}
+                        </div>
                     </ModRowGap>
                 )) || (
                     <ModRowGap column={notesQuantity} typeArticle={layoutName}>

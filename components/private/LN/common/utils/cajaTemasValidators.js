@@ -14,6 +14,15 @@ export const validateFeature = (idCollection, articles, layout) => {
     return message && { type: 'warning', message };
 };
 
+const setMinimum = layout => {
+    const options = {
+        grillaUltimasNoticias: 4,
+        default: Number(layout.slice(-1)) || 3
+    };
+
+    return options[layout] || options.default;
+};
+
 export const validateChainManual = (
     childrenProps,
     layout,
@@ -21,8 +30,18 @@ export const validateChainManual = (
     isVideoBackground,
     containsHTML
 ) => {
-    const minimun = (layout && Number(layout.slice(-1))) || 3;
-    const childrenPropsLength = get(childrenProps, 'length');
+    const LN_COMMON_ARTICLE = 'LN-common/articulo';
+    const LN_TIMELINE = 'LN-acumulado/timeline';
+    const COLLECTION_FEATURES = 'features';
+
+    const isTimeline = layout === 'grillaUltimasNoticias';
+    const minimum = setMinimum(layout);
+    const childrenArticles = childrenProps.filter(
+        child =>
+            child.collection === COLLECTION_FEATURES &&
+            child.type === LN_COMMON_ARTICLE
+    );
+    const childrenPropsLength = get(childrenArticles, 'length');
 
     const rules = [
         {
@@ -31,12 +50,12 @@ export const validateChainManual = (
         },
         {
             validation:
-                layout !== 'grillaUltimasNoticias' &&
+                !isTimeline &&
                 childrenProps.some(
                     x =>
                         !(
-                            x.collection === 'features' &&
-                            x.type === 'LN-common/articulo'
+                            x.collection === COLLECTION_FEATURES &&
+                            x.type === LN_COMMON_ARTICLE
                         )
                 ),
             message:
@@ -50,10 +69,10 @@ export const validateChainManual = (
                 'Con vídeo background solo se permite la diagramación Grilla 1 o Grilla 1 - Video'
         },
         {
-            validation: childrenPropsLength < minimun,
-            message: `Se requiere la carga de ${minimun -
+            validation: childrenPropsLength < minimum,
+            message: `Se requiere la carga de ${minimum -
                 childrenPropsLength} artículo${
-                minimun - childrenPropsLength > 1 ? 's' : ''
+                minimum - childrenPropsLength > 1 ? 's' : ''
             }`
         },
         {
@@ -63,6 +82,16 @@ export const validateChainManual = (
         {
             validation: containsHTML && layout !== 'grillaVideo1',
             message: 'Esta diagramación no permite iframe HTML'
+        },
+        {
+            validation:
+                isTimeline &&
+                !childrenProps.find(
+                    x =>
+                        x.collection === COLLECTION_FEATURES &&
+                        x.type === LN_TIMELINE
+                ),
+            message: 'Esta diagramación requiere el feature LN Timeline'
         }
     ];
 

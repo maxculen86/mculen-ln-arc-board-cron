@@ -11,6 +11,7 @@ import useGetArticlesFromAcumSource from '../../private/LN/common/hooks/useGetAr
 import { cajaTemasCustomsFields } from '../../private/LN/common/utils/cajaTemasHelper';
 import filter from '../../../content/filters/LN/acumulado/articleTimeline';
 import { LIVEBLOG } from '../../private/common/utils/subtypes/subtypeHelper';
+import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
 const {
     layout,
@@ -21,9 +22,9 @@ const {
     ...cajaTemaCustomFields
 } = cajaTemasCustomsFields('cajaManual');
 
-const Timeline = ({ customFields = {} }) => {
+const Timeline = ({ id: featureId, customFields = {} }) => {
     const { sections, title: roof, url, hideTitle } = customFields;
-    const { arcSite } = useAppContext();
+    const { arcSite, isAdmin } = useAppContext();
 
     const sectionsIds = sectionsFormated(sections);
     const withRoof = roof && !hideTitle;
@@ -41,7 +42,7 @@ const Timeline = ({ customFields = {} }) => {
     };
 
     const response = useGetArticlesFromAcumSource(...Object.values(searchArgs));
-    const articles = response.map(article => {
+    const articles = response.map((article, index) => {
         const {
             _id,
             headlines = {},
@@ -51,13 +52,18 @@ const Timeline = ({ customFields = {} }) => {
         } = article;
 
         const isLiveblog = subtype === LIVEBLOG;
+        const artPosition = `0${index + 1}`;
 
         return {
+            artPosition,
             key: _id,
             titleText: headlines.basic,
             hour: <ComHour display_date={displayDate} size="--fivexs" />,
             link: article.website_url,
-            articleData: { content_restrictions: contentRestrictions },
+            articleData: {
+                _id,
+                content_restrictions: contentRestrictions
+            },
             label: { ...(isLiveblog && { text: 'En Vivo' }) }
         };
     });
@@ -73,8 +79,16 @@ const Timeline = ({ customFields = {} }) => {
                 />
             )}
 
-            {articles.map(article => (
-                <Article {...article} titleSize="--twoxs" />
+            {isAdmin && !articles.length && (
+                <PageBuilderMessage
+                    key={featureId}
+                    type="warning"
+                    message="No se encontraron notas"
+                />
+            )}
+
+            {articles.map((article, index) => (
+                <Article {...article} boxPosition="tl" titleSize="--twoxs" />
             ))}
         </>
     );
