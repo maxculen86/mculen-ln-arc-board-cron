@@ -23,6 +23,10 @@ const fetch = async (query, { cachedCall }) => {
     const sectionSourceData = await cachedCall('sectionSource', getRequest, {
         query: `${CONTENT_BASE}${sectionSourceResolve(query)}`
     });
+    console.log(
+        '🚀 ~ file: servicesSource.js ~ line 26 ~ fetch ~ sectionSourceData',
+        sectionSourceData
+    );
 
     const { request: serviceRequest, resolve, reject } =
         SERVICES[service] || SERVICES.default;
