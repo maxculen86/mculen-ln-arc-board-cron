@@ -222,7 +222,7 @@
             }
         }
         &.icon-arrow-right {
-            right: 0;
+            right: px(-16);
             @media ($media-m) {
                 right: 0;
             }
