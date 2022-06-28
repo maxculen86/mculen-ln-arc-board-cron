@@ -7,10 +7,13 @@ import Article from '../../private/common/mod-article';
 import ComHour from '../../private/common/com-hour';
 import ComTitle from '../../private/common/com-title';
 import sectionsFormated from '../../private/common/utils/sectionsFormated';
-import useGetArticlesFromAcumSource from '../../private/LN/common/hooks/useGetArticlesFromAcumSource';
+import useTimeline from '../../private/LN/common/hooks/useTimeline';
 import { cajaTemasCustomsFields } from '../../private/LN/common/utils/cajaTemasHelper';
+import {
+    setTLQuantity,
+    setTLArticles
+} from '../../private/LN/common/utils/timeline';
 import filter from '../../../content/filters/LN/acumulado/articleTimeline';
-import { LIVEBLOG } from '../../private/common/utils/subtypes/subtypeHelper';
 import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
 const {
@@ -23,50 +26,22 @@ const {
 } = cajaTemasCustomsFields('cajaManual');
 
 const Timeline = ({ id: featureId, customFields = {} }) => {
-    const { sections, title: roof, url, hideTitle } = customFields;
+    const { sections, title: roof, url, hideTitle, size = 5 } = customFields;
     const { arcSite, isAdmin } = useAppContext();
 
     const sectionsIds = sectionsFormated(sections);
+    const { articlesQuantity, articlesQuantityBackup } = setTLQuantity(size);
     const withRoof = roof && !hideTitle;
 
-    const searchArgs = {
-        typesOfQuery: { sectionsIds },
+    const articlesResponse = useTimeline({
+        sectionsIds,
         filter,
-        imageConfig: 'm',
-        size: 6,
-        sourceOrigin: 'composer',
-        excludeSectionId: false,
-        type: 'story',
-        shouldNotFilter: false,
-        website: arcSite
-    };
-
-    const response = useGetArticlesFromAcumSource(...Object.values(searchArgs));
-    const articles = response.map((article, index) => {
-        const {
-            _id,
-            headlines = {},
-            display_date: displayDate,
-            content_restrictions: contentRestrictions,
-            subtype
-        } = article;
-
-        const isLiveblog = subtype === LIVEBLOG;
-        const artPosition = `0${index + 1}`;
-
-        return {
-            artPosition,
-            key: _id,
-            titleText: headlines.basic,
-            hour: <ComHour display_date={displayDate} size="--fivexs" />,
-            link: article.website_url,
-            articleData: {
-                _id,
-                content_restrictions: contentRestrictions
-            },
-            label: { ...(isLiveblog && { text: 'En Vivo' }) }
-        };
+        articlesQuantity,
+        articlesQuantityBackup,
+        arcSite
     });
+
+    const articles = setTLArticles(articlesResponse);
 
     return (
         <>
@@ -101,6 +76,10 @@ Timeline.propTypes = {
         sections: PropTypes.list.tag({
             label: 'Secciones'
         }).isRequired,
+        size: PropTypes.number.tag({
+            label: 'Cantidad de notas',
+            defaultValue: 5
+        }),
         ...cajaTemaCustomFields
     }).isRequired
 };

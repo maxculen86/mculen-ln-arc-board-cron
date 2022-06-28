@@ -13,6 +13,11 @@ import {
     getLayoutType,
     getMarkupForDatalayer
 } from './utils/cajaTemasHelper';
+import {
+    setTLDistribution,
+    setTLOrderClass,
+    getTLFeature
+} from './utils/timeline';
 import OrderedList from './lists/ordered';
 import '../../../../resources/dist/css/ln/components/timeline.css';
 
@@ -104,31 +109,14 @@ const getComponentForLayout = (layoutName, props) => {
         },
 
         Timeline: ({ _children, features = [] }) => {
-            const lowerLayout = layoutName.toLowerCase();
-            let timeline = { articles: [] };
-
-            const LNTimeline = features.find(feature =>
-                feature.type.includes(lowerLayout)
+            const { id: tlFeatureId } = getTLFeature(
+                features,
+                _children,
+                layoutName
             );
 
-            const timelineId = LNTimeline.props && LNTimeline.props.id;
-
-            _children.forEach((child, index) => {
-                const { articles } = timeline;
-                const isTimeline = child.key === timelineId;
-                const missingArticles = articles.length < 4 && !isTimeline;
-
-                timeline = {
-                    ...timeline,
-                    ...(missingArticles && {
-                        articles: [...articles, child]
-                    }),
-                    ...(isTimeline && { content: child, index })
-                };
-            });
-
-            const isLast = timeline.index === timeline.articles.length;
-            const orderClass = isLast ? '--right-bottom' : '--left-top';
+            const timeline = setTLDistribution(_children, tlFeatureId);
+            const orderClass = setTLOrderClass(timeline);
 
             return {
                 timeline,

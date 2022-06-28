@@ -75,6 +75,8 @@ const transform = (data, siteProps) => {
         };
     });
 
+    console.log({ respDataBefore: respData });
+
     // Si viene de Ultimas Noticias
     if (sectionsIds) {
         respData.content_elements = respData.content_elements
@@ -91,6 +93,8 @@ const transform = (data, siteProps) => {
             respData.next = 0;
         }
     }
+
+    console.log({ respDataAfter: respData });
 
     return respData;
 };
