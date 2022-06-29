@@ -1,5 +1,135 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Liveblog Snippet with liveblog power up Check render of liveblog posting object schema 1`] = `
+<script
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "{
+  \\"@context\\": \\"https://schema.org\\",
+  \\"@type\\": \\"LiveBlogPosting\\",
+  \\"publisher\\": {
+    \\"@type\\": \\"Organization\\",
+    \\"name\\": \\"\\",
+    \\"url\\": \\"https://www.lanacion.com.ar\\",
+    \\"logo\\": {
+      \\"@context\\": \\"https://schema.org\\",
+      \\"@type\\": \\"ImageObject\\",
+      \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN-600_amp.jpg$LATEST\\",
+      \\"height\\": 60,
+      \\"width\\": 600
+    }
+  },
+  \\"about\\": {
+    \\"@type\\": \\"Event\\",
+    \\"name\\": \\"Paaawer ap dos\\",
+    \\"startDate\\": \\"2022-06-15T15:50:21.667Z\\",
+    \\"endDate\\": \\"2022-06-22T03:53:00.000Z\\",
+    \\"location\\": {
+      \\"@type\\": \\"place\\",
+      \\"name\\": \\"LA NACION\\",
+      \\"address\\": {
+        \\"@type\\": \\"PostalAddress\\",
+        \\"addressLocality\\": \\"Buenos Aires\\",
+        \\"addressRegion\\": \\"AR\\"
+      }
+    },
+    \\"description\\": \\"Lo pibe\\",
+    \\"image\\": {
+      \\"@context\\": \\"https://schema.org\\",
+      \\"@type\\": \\"ImageObject\\",
+      \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN-600_amp.jpg$LATEST\\",
+      \\"height\\": \\"800\\",
+      \\"width\\": \\"1200\\"
+    }
+  },
+  \\"url\\": \\"https://www.lanacion.com.ar/ciencia/paaawer-ap-dos-nid15062022/\\",
+  \\"@id\\": \\"#liveBlogPosting\\",
+  \\"description\\": \\"Lo pibe\\",
+  \\"coverageStartTime\\": \\"2022-06-15T15:50:21.667Z\\",
+  \\"coverageEndTime\\": \\"2022-06-22T03:53:00.000Z\\",
+  \\"headline\\": \\"Paaawer ap dos\\",
+  \\"liveBlogUpdate\\": [
+    {
+      \\"@type\\": \\"BlogPosting\\",
+      \\"headline\\": \\"Gym 1 Ciudad Plateada\\",
+      \\"url\\": \\"https://www.lanacion.com.ar/ciencia/paaawer-ap-dos-nid15062022#parrafo_1\\",
+      \\"@id\\": \\"#parrafo_1\\",
+      \\"mainEntityOfPage\\": {
+        \\"@type\\": \\"WebPage\\"
+      },
+      \\"datePublished\\": \\"2022-06-21T11:46:00.000Z\\",
+      \\"dateModified\\": \\"2022-06-21T11:46:00.000Z\\",
+      \\"articleBody\\": \\"El gimnasio de Plateada es el primer gimnasio de Kanto. Su tipo dominante es el roca. El líder de gimnasio es Brock. Los entrenadores que lo derrotan reciben la medalla Roca.\\",
+      \\"image\\": {
+        \\"@type\\": \\"ImageObject\\",
+        \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN-600_amp.jpg$LATEST\\"
+      },
+      \\"author\\": {
+        \\"@type\\": \\"PERSON\\",
+        \\"name\\": \\"Redacción LA NACION\\"
+      },
+      \\"publisher\\": {
+        \\"name\\": \\"LA NACION\\",
+        \\"@type\\": \\"Organization\\"
+      }
+    },
+    {
+      \\"@type\\": \\"BlogPosting\\",
+      \\"headline\\": \\"Gym 2 ciudad Celeste\\",
+      \\"url\\": \\"https://www.lanacion.com.ar/ciencia/paaawer-ap-dos-nid15062022#parrafo_2\\",
+      \\"@id\\": \\"#parrafo_2\\",
+      \\"mainEntityOfPage\\": {
+        \\"@type\\": \\"WebPage\\"
+      },
+      \\"datePublished\\": \\"2022-06-23T02:49:00.000Z\\",
+      \\"dateModified\\": \\"2022-06-23T02:49:00.000Z\\",
+      \\"articleBody\\": \\"El Gimnasio Celeste es el segundo de la región de Kanto. Se encuentra en Ciudad Celeste y su líder es Misty, experta en los Pokémon de tipo agua.\\",
+      \\"image\\": {
+        \\"@type\\": \\"ImageObject\\",
+        \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN-600_amp.jpg$LATEST\\"
+      },
+      \\"author\\": {
+        \\"@type\\": \\"PERSON\\",
+        \\"name\\": \\"Redacción LA NACION\\"
+      },
+      \\"publisher\\": {
+        \\"name\\": \\"LA NACION\\",
+        \\"@type\\": \\"Organization\\"
+      }
+    },
+    {
+      \\"@type\\": \\"BlogPosting\\",
+      \\"headline\\": \\"Gym 3 ciudad Carmin\\",
+      \\"url\\": \\"https://www.lanacion.com.ar/ciencia/paaawer-ap-dos-nid15062022#parrafo_3\\",
+      \\"@id\\": \\"#parrafo_3\\",
+      \\"mainEntityOfPage\\": {
+        \\"@type\\": \\"WebPage\\"
+      },
+      \\"datePublished\\": \\"2022-06-29T14:49:00.000Z\\",
+      \\"dateModified\\": \\"2022-06-29T14:49:00.000Z\\",
+      \\"articleBody\\": \\"El gimnasio Carmín (Vermilion Gym en inglés, クチバジム en japonés) es el tercer gimnasio de la región de Kanto. El líder de este gimnasio es un ex-soldado llamado Lt. Surge, y sus Pokémon son de tipo eléctrico. Se ubica en Ciudad Carmín.\\",
+      \\"image\\": {
+        \\"@type\\": \\"ImageObject\\",
+        \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN-600_amp.jpg$LATEST\\"
+      },
+      \\"author\\": {
+        \\"@type\\": \\"PERSON\\",
+        \\"name\\": \\"Redacción LA NACION\\"
+      },
+      \\"publisher\\": {
+        \\"name\\": \\"LA NACION\\",
+        \\"@type\\": \\"Organization\\"
+      }
+    }
+  ]
+}",
+    }
+  }
+  id="Schema_LiveBlog"
+  type="application/ld+json"
+/>
+`;
+
 exports[`Private - LN - nota - snippet - liveblog  Snapshot Snippet Liveblog 1`] = `
 <script
   dangerouslySetInnerHTML={

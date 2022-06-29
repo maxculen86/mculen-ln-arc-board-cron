@@ -8,7 +8,11 @@ import {
     formatDateTreeHoursMore,
     addHours
 } from '../../../../../../components/private/common/utils/dateAndTimeUtil';
-
+import {
+    generatePostObject,
+    generatePostObjectWithoutPowerUp
+} from '../../../../../../components/private/common/utils/schema/liveBlog/generatePostObject';
+import articleWithLiveBlogPowerUp from '../../../../../../__mocks__/data/articles/6IDQHDUT6RB6XEHG2F424TMNXI.json';
 jest.mock('fusion:environment', () => {
     return {
         IS_SANDBOX: 'true',
@@ -146,5 +150,25 @@ describe('Private - LN - nota - snippet - liveblog ', () => {
         );
 
         expect(minutes).toEqual(60);
+    });
+});
+
+describe('Liveblog Snippet with liveblog power up', () => {
+    const props = {
+        siteProperties: {
+            host: 'https://www.lanacion.com.ar'
+        },
+        deployment: props => {
+            return `${props}$LATEST`;
+        },
+        contextPath: '',
+        requestUri:
+            '/arquitectura/nota-de-prueba-foto-al-100-nid25062020/?_website=la-nacion-ar',
+        globalContent: articleWithLiveBlogPowerUp
+    };
+    const component = mount(<SnippetLiveblog {...props} />);
+
+    it('Check render of liveblog posting object schema', () => {
+        expect(component.find('script')).toMatchSnapshot();
     });
 });

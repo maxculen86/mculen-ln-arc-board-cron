@@ -3,95 +3,16 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
-import getAuthorByline from '../../../common/utils/getAuthorByline';
-import get from '../../../common/utils/get';
-import {
-    restMinutes,
-    differenceInMinutes,
-    addHours
-} from '../../../common/utils/dateAndTimeUtil';
+import { addHours } from '../../../common/utils/dateAndTimeUtil';
 import {
     extractDataFromPromoItems,
     urlShema
 } from '../../common/utils/extractDataFromPromoItems';
 import addRelatedImage from '../../common/utils/addRelatedImage';
-
-const extracDataFromCredits = by => {
-    let authors = [];
-
-    if (by) {
-        authors = by
-            .filter(v => v.type === 'author')
-            .map(author => getAuthorByline(author));
-    }
-    return { authors: authors.length ? authors : ['Redacción LA NACION'] };
-};
-
-const calculateDateModified = (
-    lastUpdatedDate,
-    minutes,
-    totalElements,
-    index
-) => {
-    if (index === 1) return new Date(lastUpdatedDate);
-
-    const minutesToAdd = (minutes / totalElements) * index;
-
-    return restMinutes(new Date(lastUpdatedDate), minutesToAdd);
-};
-
-const buildBlogObjects = (globalContent, url, PLACEHOLDER) => {
-    const {
-        content_elements: contentElements,
-        credits: { by },
-        first_publish_date: firstPublishDate,
-        last_updated_date: lastUpdatedDate
-    } = globalContent || {};
-
-    const { authors } = extracDataFromCredits(by);
-
-    const headline = get(
-        globalContent,
-        'headlines.basic',
-        'LA NACION - Noticia'
-    );
-
-    const minutes = differenceInMinutes(firstPublishDate, lastUpdatedDate);
-
-    const textElements = contentElements.filter(elem => elem.type === 'text');
-
-    return textElements.map((elem, i) => {
-        const dateModified = calculateDateModified(
-            lastUpdatedDate,
-            minutes,
-            textElements.length,
-            i + 1
-        );
-
-        return {
-            '@type': 'BlogPosting',
-            headline,
-            url: `${url.slice(0, -1)}#parrafo_${i + 1}`,
-            '@id': `#parrafo_${i + 1}`,
-            mainEntityOfPage: { '@type': 'WebPage' },
-            datePublished: dateModified,
-            dateModified,
-            articleBody: elem.content,
-            image: {
-                '@type': 'ImageObject',
-                url: PLACEHOLDER
-            },
-            author: {
-                '@type': 'PERSON',
-                name: authors.join(',')
-            },
-            publisher: {
-                name: 'LA NACION',
-                '@type': 'Organization'
-            }
-        };
-    });
-};
+import {
+    generatePostObject,
+    generatePostObjectWithoutPowerUp
+} from '../../../common/utils/schema/liveBlog/generatePostObject';
 
 const SnippetLiveblog = props => {
     const { siteProperties, globalContent, contextPath, deployment } = props;
@@ -99,6 +20,7 @@ const SnippetLiveblog = props => {
     const {
         canonical_url: canonicalUrl,
         headlines,
+        content_elements: contentElements,
         subheadlines,
         first_publish_date: firstPublishDate,
         display_date: displayDate
@@ -110,10 +32,18 @@ const SnippetLiveblog = props => {
         'placeholderLN-600_amp.jpg'
     );
 
+    const checkForLiveBlogElements = contentElements.findIndex(elem => {
+        const { subtype = 'default', type = '' } = elem;
+        return type === 'custom_embed' && subtype === 'custom-liveblog';
+    });
+
     const { image } = extractDataFromPromoItems(promoItems, PLACEHOLDER);
 
     const url = `${siteProperties.host}${canonicalUrl || ''}`;
-    const blogObjects = buildBlogObjects(globalContent, url, PLACEHOLDER);
+    const blogObjects =
+        checkForLiveBlogElements === -1
+            ? generatePostObjectWithoutPowerUp(globalContent, url, PLACEHOLDER)
+            : generatePostObject(globalContent, url, PLACEHOLDER);
     const converageStart = new Date(firstPublishDate);
     const coverageEnd = addHours(12, displayDate);
     const noteTitle =

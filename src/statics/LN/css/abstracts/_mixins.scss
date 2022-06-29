@@ -372,3 +372,31 @@ $guion: '-';
         rgba(0, 0, 0, 0.15) 6px
     );
 }
+
+@mixin AcuColors {
+    @each $section,
+        $color
+            in (
+                'economia': $economia,
+                'deportes': $deportes,
+                'salud': $salud,
+                'autos': $autos,
+                'campo': $campo
+            )
+    {
+        .#{$section}.#{$section} {
+            h1 .com-link.--black,
+            .com-breadcrumb .com-link,
+            .--category .com-link,
+            .--tags .com-link,
+            º .com-link.--tags,
+            .mod-description .com-lead {
+                color: $color;
+            }
+
+            .mod-headersection.--bg.mod-headersection.--bg {
+                background-color: $color;
+            }
+        }
+    }
+}

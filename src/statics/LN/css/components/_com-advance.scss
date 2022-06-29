@@ -1,18 +1,27 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 .com-advance {
-    @include flex(flex, row, start);
+    @include flex(flex, column, start);
     background: $light-neutral-900;
     padding: $spacing-md;
     border-bottom: 1px solid $light-neutral-200;
+    .badge {
+        height: fit-content;
+        min-width: fit-content;
+        width: fit-content;
+        margin-bottom: $spacing;
+    }
     .com-title {
         color: $blanco;
         margin-bottom: 0;
     }
-}
-
-@media ($media-l) {
-    .com-advance {
+    @media ($media-m) {
+        align-items: center;
+        .badge {
+            margin-bottom: 0;
+            margin-right: $spacing;
+        }
+        flex-direction: row;
         justify-content: center;
     }
 }
