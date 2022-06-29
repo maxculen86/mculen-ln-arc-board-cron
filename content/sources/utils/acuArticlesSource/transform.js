@@ -15,9 +15,9 @@ import {
 
 const transform = (data, siteProps) => {
     const respData = data;
+    const { sectionsIds, type, size, shouldNotFilter } = siteProps;
     const { content_elements: contentElements } = data || {};
     const { presets, presetsDefault } = getPresets(siteProps);
-    const { sectionsIds, type, size, shouldNotFilter } = siteProps;
 
     const presetsPromoItems = get(presets, 'promo_items', null);
 
@@ -75,8 +75,6 @@ const transform = (data, siteProps) => {
         };
     });
 
-    console.log({ respDataBefore: respData });
-
     // Si viene de Ultimas Noticias
     if (sectionsIds) {
         respData.content_elements = respData.content_elements
@@ -93,8 +91,6 @@ const transform = (data, siteProps) => {
             respData.next = 0;
         }
     }
-
-    console.log({ respDataAfter: respData });
 
     return respData;
 };

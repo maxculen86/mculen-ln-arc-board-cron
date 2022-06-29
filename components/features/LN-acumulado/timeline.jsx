@@ -4,15 +4,9 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import Article from '../../private/common/mod-article';
-import ComHour from '../../private/common/com-hour';
 import ComTitle from '../../private/common/com-title';
-import sectionsFormated from '../../private/common/utils/sectionsFormated';
 import useTimeline from '../../private/LN/common/hooks/useTimeline';
 import { cajaTemasCustomsFields } from '../../private/LN/common/utils/cajaTemasHelper';
-import {
-    setTLQuantity,
-    setTLArticles
-} from '../../private/LN/common/utils/timeline';
 import filter from '../../../content/filters/LN/acumulado/articleTimeline';
 import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
@@ -29,19 +23,14 @@ const Timeline = ({ id: featureId, customFields = {} }) => {
     const { sections, title: roof, url, hideTitle, size = 5 } = customFields;
     const { arcSite, isAdmin } = useAppContext();
 
-    const sectionsIds = sectionsFormated(sections);
-    const { articlesQuantity, articlesQuantityBackup } = setTLQuantity(size);
-    const withRoof = roof && !hideTitle;
-
-    const articlesResponse = useTimeline({
-        sectionsIds,
+    const articles = useTimeline({
+        sections,
         filter,
-        articlesQuantity,
-        articlesQuantityBackup,
+        size,
         arcSite
     });
 
-    const articles = setTLArticles(articlesResponse);
+    const withRoof = roof && !hideTitle;
 
     return (
         <>
@@ -62,8 +51,13 @@ const Timeline = ({ id: featureId, customFields = {} }) => {
                 />
             )}
 
-            {articles.map((article, index) => (
-                <Article {...article} boxPosition="tl" titleSize="--twoxs" />
+            {articles.map(article => (
+                <Article
+                    {...article}
+                    boxPosition="tl"
+                    titleSize="--twoxs"
+                    titleTag="h3"
+                />
             ))}
         </>
     );

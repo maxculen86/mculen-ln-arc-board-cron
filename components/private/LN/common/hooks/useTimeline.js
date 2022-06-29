@@ -1,12 +1,11 @@
 import useGetArticlesFromAcumSource from './useGetArticlesFromAcumSource';
+import sectionsFormated from '../../../common/utils/sectionsFormated';
+import { setTLQuantity, setTLArticles } from '../utils/timeline';
 
-const useTimeline = ({
-    sectionsIds,
-    filter,
-    articlesQuantity,
-    articlesQuantityBackup = 0,
-    arcSite
-}) => {
+const useTimeline = ({ sections, filter, size, arcSite }) => {
+    const sectionsIds = sectionsFormated(sections);
+    const { articlesQuantity, articlesQuantityBackup } = setTLQuantity(size);
+
     const searchArgs = {
         typesOfQuery: { sectionsIds },
         filter,
@@ -16,7 +15,9 @@ const useTimeline = ({
         excludeSectionId: false,
         type: '',
         shouldNotFilter: false,
-        website: arcSite
+        website: arcSite,
+        promoItemsOnly: false,
+        staticMode: false
     };
 
     const response = useGetArticlesFromAcumSource(...Object.values(searchArgs));
@@ -28,7 +29,7 @@ const useTimeline = ({
         )
         .slice(0, articlesQuantity);
 
-    return justCommonArticles;
+    return setTLArticles(justCommonArticles);
 };
 
 export default useTimeline;
