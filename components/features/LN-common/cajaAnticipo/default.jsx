@@ -3,9 +3,16 @@ import PropTypes from 'fusion:prop-types';
 import ComAdvance from '../../../private/common/com-advance';
 import { groupCustomFields } from '../../../private/common/utils/propTypesHelper';
 
-const CajaAnticipo = ({ customFields: { hide, title, link } }) => {
+const CajaAnticipo = ({
+    customFields: { hide, title, link, hideBadge } = {}
+}) => {
     return !hide && title ? (
-        <ComAdvance title={title} link={link} size="--md" />
+        <ComAdvance
+            title={title}
+            link={link}
+            size="--md"
+            withBadgeLiveblog={hideBadge}
+        />
     ) : (
         <></>
     );
@@ -31,6 +38,12 @@ CajaAnticipo.propTypes = {
             name: 'Ocultar',
             description: 'Definí la visibilidad del anticipo',
             default: true,
+            group: groupCustomFields
+        }),
+        hideBadge: PropTypes.bool.tag({
+            name: 'Mostrar chapita',
+            description: 'Definí la visibilidad de la chapita anticipo',
+            default: false,
             group: groupCustomFields
         })
     })

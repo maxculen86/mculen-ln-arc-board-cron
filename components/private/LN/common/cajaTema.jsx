@@ -74,7 +74,10 @@ const getComponentForLayout = (layoutName, props) => {
             sectionName,
             withVolanta = true
         }) => {
-            const customTitleTag = customHeading[sectionName] || 'h2';
+            const customTitleTag =
+                sectionName === 'Ranking' && props.isHome
+                    ? 'h2'
+                    : customHeading[sectionName] || 'h2';
             return articles.map((art, i) => {
                 const artPosition = `0${Number(i) + 1}`.slice(-2);
                 const isRenderAuthor = layout.includes('author');

@@ -45,7 +45,8 @@ import ComscoreVideo from '../private/common/scriptManager/comscoreVideo';
 import AdblockDetector from '../private/common/scriptManager/adblockDetector';
 import {
     getTitle,
-    getMetaDescriptionDefault
+    getMetaDescriptionDefault,
+    metasFromSiteServices
 } from '../private/common/utils/outputTypeHelper';
 import FontPreloads from '../private/common/fontsPreloads';
 
@@ -161,7 +162,8 @@ const Default = props => {
         Payload,
         _id,
         taxonomy,
-        first_publish_date: firstPublishDate
+        first_publish_date: firstPublishDate,
+        acumuladoGeneral: { metas } = {}
     } = globalContent || {};
 
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
@@ -248,6 +250,7 @@ const Default = props => {
                 {layout !== 'LN-buscador' && (
                     <title>{arcSite === 'ott' ? ottMetaTitle : title}</title>
                 )}
+                {metasFromSiteServices(metas)}
                 <GetDataToLinkImage
                     data={globalContent}
                     section={_nodeType}

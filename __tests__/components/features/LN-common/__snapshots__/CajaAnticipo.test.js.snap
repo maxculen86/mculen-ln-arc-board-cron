@@ -1,9 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Private - Feature - CajaAnticipo => with a valid response Snapshot Caja Anticipo 1`] = `
-<ComAdvance
-  link="https://www.lanacion.com.ar/"
-  size="--md"
-  title="Prueba Anticipo"
-/>
+exports[`Private - Feature - CajaAnticipo => with a valid response Snapshot Feature CajaAnticipo 1`] = `
+<div>
+  <section
+    class="com-advance "
+  >
+    <span
+      class="badge --sixxs --arial  --liveblog-red"
+    >
+      EN VIVO
+    </span>
+    <h2
+      class="com-title --md"
+    >
+      <a
+        class="com-link"
+        href="https://www.lanacion.com.ar/"
+        title="Prueba Anticipo"
+      >
+        Prueba Anticipo
+      </a>
+    </h2>
+  </section>
+</div>
 `;
