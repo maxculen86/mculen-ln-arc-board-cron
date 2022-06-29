@@ -62,11 +62,12 @@ const RankingFeature = ({ id: featureId }) => {
     const { _id, name, articles, size } =
         getDataContent(sectionId, sectionParentId, website || arcSite) || {};
 
+    const customTitle = name ? `Más leídas de ${name}` : 'Más leídas';
     const hidePlaceholder = _id && !articles && isInverse;
 
     const component = articles && articles.length && (
         <CajaTema
-            title={title || `Más leídas de ${name}`}
+            title={title || customTitle}
             notesQuantity={notesQuantity}
             sectionName={sectionName}
             articles={articles}
