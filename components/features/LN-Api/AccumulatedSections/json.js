@@ -108,9 +108,15 @@ class AccumulatedSections {
             if (!acuArticlesSource || !acuArticlesSource.content_elements) {
                 return null;
             }
+            let title = get(
+                this.props.globalContent,
+                'acumuladoGeneral.hierarchy_navigation',
+                null
+            );
+            if (title == null) title = name;
             const acuData = {
                 tipoAcumulado: 1,
-                name,
+                name: title,
                 articles: acuArticlesSource.content_elements,
                 paginator: acuArticlesSource.next,
                 total: acuArticlesSource.count,

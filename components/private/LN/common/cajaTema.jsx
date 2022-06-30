@@ -13,7 +13,13 @@ import {
     getLayoutType,
     getMarkupForDatalayer
 } from './utils/cajaTemasHelper';
+import {
+    setTLDistribution,
+    setTLOrderClass,
+    getTLFeature
+} from './utils/timeline';
 import OrderedList from './lists/ordered';
+import '../../../../resources/dist/css/ln/components/timeline.css';
 
 const getComponentForLayout = (layoutName, props) => {
     const types = {
@@ -68,7 +74,10 @@ const getComponentForLayout = (layoutName, props) => {
             sectionName,
             withVolanta = true
         }) => {
-            const customTitleTag = customHeading[sectionName] || 'h2';
+            const customTitleTag =
+                sectionName === 'Ranking' && props.isHome
+                    ? 'h2'
+                    : customHeading[sectionName] || 'h2';
             return articles.map((art, i) => {
                 const artPosition = `0${Number(i) + 1}`.slice(-2);
                 const isRenderAuthor = layout.includes('author');
@@ -97,8 +106,25 @@ const getComponentForLayout = (layoutName, props) => {
                 );
             });
         },
-        ArticleFeature: ({ _children = [], notesQuantity }) => {
+
+        ArticleFeature: ({ _children, notesQuantity }) => {
             return _children.slice(0, notesQuantity);
+        },
+
+        Timeline: ({ _children, features = [] }) => {
+            const { id: tlFeatureId } = getTLFeature(
+                features,
+                _children,
+                layoutName
+            );
+
+            const timeline = setTLDistribution(_children, tlFeatureId);
+            const orderClass = setTLOrderClass(timeline);
+
+            return {
+                timeline,
+                orderClass
+            };
         }
     };
 
@@ -134,10 +160,17 @@ const CajaTema = props => {
         sectionName
     );
 
-    const childrenComponent = getComponentForLayout(layoutName, {
-        ...props,
-        articles: artWithoutDate
-    });
+    const childrenComponent =
+        getComponentForLayout(layoutName, {
+            ...props,
+            articles: artWithoutDate
+        }) || {};
+
+    const isTimeline = layoutName === 'Timeline';
+    const isRanking = sectionName === 'Ranking';
+    const withHeaderSection = !hideTitle && layoutName !== 'Editoriales';
+    const withGridFour = isHome ? 'row-gap-tablet-4' : '';
+    const { timeline, orderClass } = childrenComponent;
 
     return (
         <div {...extraOptsDiv}>
@@ -145,7 +178,7 @@ const CajaTema = props => {
                 {...extraOpts}
                 className={`box-articles ${backgroundColor} ${classCondition}`}
             >
-                {!hideTitle && layoutName !== 'Editoriales' && (
+                {withHeaderSection && (
                     <ModHeaderSection
                         imageId={imageId}
                         title={title}
@@ -153,17 +186,27 @@ const CajaTema = props => {
                         customTitle={!hideTitle && title}
                     />
                 )}
-                <ModRowGap typeArticle={layoutName} column={notesQuantity}>
-                    {sectionName === 'Ranking' ? (
-                        <OrderedList
-                            extraClass={isHome ? 'row-gap-tablet-4' : ''}
-                        >
-                            {childrenComponent}
-                        </OrderedList>
-                    ) : (
-                        childrenComponent
-                    )}
-                </ModRowGap>
+
+                {(isTimeline && (
+                    <ModRowGap classCondition={`timeline-home ${orderClass}`}>
+                        <div className="timeline-content">
+                            {timeline.content}
+                        </div>
+                        <div className="row-gap-tablet-2">
+                            {timeline.articles}
+                        </div>
+                    </ModRowGap>
+                )) || (
+                    <ModRowGap column={notesQuantity} typeArticle={layoutName}>
+                        {isRanking ? (
+                            <OrderedList extraClass={withGridFour}>
+                                {childrenComponent}
+                            </OrderedList>
+                        ) : (
+                            childrenComponent
+                        )}
+                    </ModRowGap>
+                )}
             </section>
         </div>
     );

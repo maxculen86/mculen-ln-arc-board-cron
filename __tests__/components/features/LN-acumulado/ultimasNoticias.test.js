@@ -1,12 +1,11 @@
 import React from 'react';
 import Context from 'fusion:context';
 import Consumer from 'fusion:consumer';
-import UltimasNoticias, {
-    sectionsFormated
-} from '../../../../components/features/LN-acumulado/ultimasNoticias';
+import UltimasNoticias from '../../../../components/features/LN-acumulado/ultimasNoticias';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import mockArticlesHtml from '../../../../__mocks__/data/ultimasNoticias/mockArticlesHtml';
+import sectionsFormated from '../../../../components/private/common/utils/sectionsFormated';
 
 jest.mock('fusion:context', Component => {
     return function(Component) {

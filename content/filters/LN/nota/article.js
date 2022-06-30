@@ -233,6 +233,20 @@ const customReceta = `
         }
     }
 `;
+
+const customLiveBlog = `
+    subtype
+    embed {
+        config {
+            title
+            typeList
+            date
+            time
+            isoDate
+        }
+    }
+`;
+
 const gallery = `
     subtype
     _id
@@ -429,6 +443,7 @@ export default `
         ${image}
         ${customReceta}
         ${customParallax}
+        ${customLiveBlog}
         ${gallery}
         ${video}
         ${oembed}

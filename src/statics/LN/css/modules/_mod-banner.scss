@@ -96,7 +96,7 @@
         position: fixed;
         bottom: px(56);
         z-index: 100;
-        left: calc((100% - 320px) / 2);
+        left: calc((100% - 350px) / 2);
         background: $neutral-white;
         margin: 0;
     }
@@ -116,9 +116,23 @@
     }
 
     //ALTURAS FIJAS
-    &.--sticky2_mob,
-    &.--adhesion_mob {
+    &.--sticky2_mob {
         height: px(50);
+    }
+
+    &.--adhesion_mob {
+        padding: px(10) px(20) 0 px(20);
+        background-color: transparent;
+        .com-banner {
+            border-bottom: px(10) solid $neutral-white;
+        }
+        .icon-close {
+            top: auto;
+            height: auto;
+        }
+        &:before {
+            margin: px(16) auto;
+        }
     }
 
     &.--caja1_mob,
@@ -155,15 +169,26 @@
     @media ($media-m) {
         &.--fixed {
             bottom: px(56);
-            left: calc((100% - 728px) / 2);
+            left: calc((100% - 760px) / 2);
         }
 
         //ALTURAS FIJAS
-        &.--adhesion_tab,
         &.--cabezal_tab,
         &.--middle_1_tab,
         &.--middle_2_tab {
             height: px(90);
+        }
+
+        &.--adhesion_tab {
+            padding: px(20) px(20) 0 px(20);
+            background-color: transparent;
+            .icon-close {
+                top: auto;
+                height: auto;
+            }
+            &:before {
+                margin: px(20) auto 0 auto;
+            }
         }
 
         &.--caja1_tab,
@@ -207,9 +232,9 @@
 
         &.--fixed {
             bottom: 0;
-            left: calc((100% - 920px) / 2);
+            left: calc((100% - 940px) / 2);
             &.--small {
-                left: calc((100% - 728px) / 2);
+                left: calc((100% - 760px) / 2);
             }
         }
 
@@ -238,11 +263,20 @@
         }
 
         .home & {
-            &.--cabezal_dsk,
-            &.--adhesion_dsk {
+            &.--cabezal_dsk {
                 height: px(100);
             }
-
+            &.--adhesion_dsk {
+                padding: px(20) px(20) 0 px(20);
+                background-color: transparent;
+                .icon-close {
+                    top: auto;
+                    height: auto;
+                }
+                &:before {
+                    margin: px(20) auto 0 auto;
+                }
+            }
             &.--middle_1_dsk,
             &.--caja1_dsk,
             &.--caja2_dsk,
@@ -271,9 +305,9 @@
     //DESKTOP XL
     @media ($media-lm) {
         &.--fixed {
-            left: calc((100% - 1260px) / 2);
+            left: calc((100% - 940px) / 2);
             &.--small {
-                left: calc((100% - 1068px) / 2);
+                left: calc((100% - 1098px) / 2);
             }
         }
     }
