@@ -9,16 +9,19 @@ import getTooltip from '../../common/utils/getTooltip';
 import { GlobalContext } from '../../../common/context/globalContext';
 
 const getPrimaryTree = (sections, section, resultSections) => {
-    resultSections.push({
-        name: section.name,
-        path: section.path
-    });
-    if (section.parent_id && section.parent_id !== '/') {
-        getPrimaryTree(
-            sections,
-            sections.find(parent => parent._id === section.parent_id),
-            resultSections
-        );
+    if (section) {
+        resultSections.push({
+            name: section.name,
+            path: section.path
+        });
+
+        section.parent_id &&
+            section.parent_id !== '/' &&
+            getPrimaryTree(
+                sections,
+                sections.find(parent => parent._id === section.parent_id),
+                resultSections
+            );
     }
 };
 
