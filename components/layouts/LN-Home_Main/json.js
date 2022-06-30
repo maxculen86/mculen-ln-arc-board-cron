@@ -26,7 +26,7 @@ const sectionbyLayout = {
     grillaUltimasNoticias: {
         id: 3000,
         type: 3,
-        feature: 'grillaUltimasNoticias_Timeline'
+        feature: 'Tema'
     }
 };
 
@@ -68,10 +68,11 @@ const segmentbyLayout = elements => {
     elements &&
         elements.forEach(e => {
             if (e && e.information) {
+                const layout = get(e.information, 'layout', null);
                 if (
                     e.articles &&
                     Array.isArray(e.articles) &&
-                    sectionbyLayout[e.information.layout]
+                    sectionbyLayout[layout]
                 ) {
                     const subElement = {
                         ...e,
@@ -95,9 +96,9 @@ const segmentbyLayout = elements => {
                                         subElement.information,
                                         'hideCaja',
                                         null
-                                    ),
-                                    ...sectionbyLayout[e.information.layout]
-                                }
+                                    )
+                                },
+                                ...sectionbyLayout[layout]
                             };
                             elemArray.push(subElementArray);
                             elementsValidate.push(
