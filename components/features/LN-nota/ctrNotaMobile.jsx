@@ -46,16 +46,16 @@ const CTRNota = () => {
         };
     }, [trigger]);
 
-    const showComponent = !isSub && device === 'mobile' && articleToShow !== {};
+    const showComponent =
+        !isSub &&
+        device === 'mobile' &&
+        trigger &&
+        Object.keys(articleToShow).length > 0;
     return (
-        showComponent &&
-        trigger && (
+        showComponent && (
             <StickyMobile
                 headerText="Te puede interesar"
-                urlImg={articleToShow.promo_items.basic.url}
-                resizedUrls={articleToShow.promo_items.basic.resized_urls}
-                urlArticle={articleToShow.website_url}
-                titleArticle={articleToShow.headlines.mobile}
+                articleToShow={articleToShow}
             />
         )
     );
