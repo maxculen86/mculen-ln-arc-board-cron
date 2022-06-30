@@ -1,6 +1,7 @@
 import Consumer from 'fusion:consumer';
 import home from '../../private/LN/api/v1/global/home';
 import pageBuilderSections from '../config/LN-PageBuilder.config.json';
+import get from '../../private/common/utils/get';
 
 import {
     checkIfValid,
@@ -19,6 +20,14 @@ const boxPosition = {
 const boxMovePosition = {
     App_Anexo_1: { type: 2, feature: 'Apertura_1', position: 'start' },
     App_Anexo_2: { type: 2, feature: 'Apertura_1', position: 'bottom' }
+};
+
+const sectionbyLayout = {
+    grillaUltimasNoticias: {
+        id: 3000,
+        type: 3,
+        feature: 'grillaUltimasNoticias_Timeline'
+    }
 };
 
 const homeMobileSections = [
@@ -50,12 +59,75 @@ const homeMobileSections = [
     'AnexoMobile'
 ];
 
+const segmentbyLayout = elements => {
+    if (!elements || !Array.isArray(elements)) {
+        return elements;
+    }
+    const elementsValidate = [];
+
+    elements &&
+        elements.forEach(e => {
+            if (e && e.information) {
+                if (
+                    e.articles &&
+                    Array.isArray(e.articles) &&
+                    sectionbyLayout[e.information.layout]
+                ) {
+                    const subElement = {
+                        ...e,
+                        articles: [
+                            ...e.articles.filter(
+                                x => x && !Array.isArray(x.articles)
+                            )
+                        ]
+                    };
+                    elementsValidate.push(subElement);
+
+                    e.articles
+                        .filter(x => x && Array.isArray(x.articles))
+                        .forEach(elem => {
+                            const elemArray = [];
+                            const subElementArray = {
+                                ...elem,
+                                information: {
+                                    ...get(elem, 'information', null),
+                                    hideCaja: get(
+                                        subElement.information,
+                                        'hideCaja',
+                                        null
+                                    ),
+                                    ...sectionbyLayout[e.information.layout]
+                                }
+                            };
+                            elemArray.push(subElementArray);
+                            elementsValidate.push(
+                                segmentbyLayout(elemArray)[0]
+                            );
+                        });
+                    /* 
+                    elementsValidate.push(
+                        e.articles.filter(x => Array.isArray(x))
+                    ); */
+                } else {
+                    elementsValidate.push(e);
+                }
+            } else {
+                elementsValidate.push(e);
+            }
+        });
+    return elementsValidate;
+};
+
 const validateSections = (section, name, position, renderables) => {
     const sectionChildren = findSectionChildren(renderables, position);
 
-    const elements =
+    let elements =
         checkIfValid(name, sectionChildren) === true ? section : null;
+
     const banner = boxPosition[name];
+    if (elements && elements.length > 0) {
+        elements = segmentbyLayout(elements);
+    }
     if (elements && elements.length > 0 && banner) {
         switch (banner.position) {
             case 'middle':
@@ -111,7 +183,11 @@ const getHomeElements = props => {
         arcSite
     };
     return pageBuilderSections.reduce((r, e, i) => {
+        if (e === 'Breaking_1') {
+            const yyyy = 0;
+        }
         const child = validateSections(children[i], e, i, renderables);
+
         const banner = boxPosition[e];
         if (child && Array.isArray(child) && child.length > 0) {
             return moveSections(
