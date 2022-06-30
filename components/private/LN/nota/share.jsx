@@ -98,7 +98,7 @@ const Share = props => {
 
     return (
         <div className={`mod-share${classCondition}`}>
-            {termicaBookmark && toast.status && isMobile && (
+            {termicaBookmark && toast.status && (
                 <Toast data={toast} handleTimeout={() => setToast(false)} />
             )}
 
@@ -135,14 +135,6 @@ const Share = props => {
                                         bookmark ? '--is-saved' : ''
                                     }`}
                                 />
-                                {!isMobile && toast.status === 'success' && (
-                                    <ModTooltip
-                                        label={
-                                            bookmark ? 'Guardado' : 'Borrado'
-                                        }
-                                        handleTimeout={() => setToast(false)}
-                                    />
-                                )}
                             </div>
                         )}
 
