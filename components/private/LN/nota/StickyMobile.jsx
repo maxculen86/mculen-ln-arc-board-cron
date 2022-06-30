@@ -6,15 +6,25 @@ import Icon from '../../common/icon';
 import ComLink from '../../common/com-link';
 import ModPicture from '../../common/mod-picture';
 
-const StickyMobile = ({
-    headerText,
-    alt,
-    titleArticle,
-    urlImg,
-    urlArticle,
-    resizedUrls
-}) => {
+const StickyMobile = ({ headerText, alt, articleToShow }) => {
+    const {
+        promo_items: promoItems = {},
+        website_url: websiteUrl = '',
+        headlines = {}
+    } = articleToShow;
+
+    const {
+        basic: { url = '', resized_urls: resizedUrls = [] } = {}
+    } = promoItems;
+
+    const {
+        mobile: headlinesMobile = '',
+        basic: headlinesBasic = ''
+    } = headlines;
+
+    const headlineToUse = headlinesMobile || headlinesBasic;
     const [displaySticky, setDisplaySticky] = useState(true);
+
     return (
         <section className={`sticky-mobile ${!displaySticky && 'hlp-none'}`}>
             <div className="header-sticky">
@@ -25,14 +35,14 @@ const StickyMobile = ({
                     <Icon name="close" size="--xs" />
                 </div>
             </div>
-            <ComLink link={urlArticle} title={titleArticle}>
+            <ComLink link={websiteUrl} title={headlineToUse}>
                 <ModPicture
-                    src={urlImg}
-                    alt={alt || titleArticle}
+                    src={url}
+                    alt={alt || headlineToUse}
                     sources={resizedUrls}
                 />
                 <Text font="sueca" size="2xs" weight="regular" tag="h2">
-                    {titleArticle}
+                    {headlineToUse}
                 </Text>
             </ComLink>
         </section>
@@ -42,19 +52,25 @@ const StickyMobile = ({
 StickyMobile.propTypes = {
     headerText: PropTypes.string,
     alt: PropTypes.string,
-    titleArticle: PropTypes.string,
-    urlImg: PropTypes.string,
-    urlArticle: PropTypes.string,
-    resizedUrls: PropTypes.string
+    articleToShow: PropTypes.shape({
+        promo_items: PropTypes.shape({
+            basic: PropTypes.shape({
+                url: PropTypes.string,
+                resized_urls: PropTypes.array
+            })
+        }),
+        website_url: PropTypes.string,
+        headlines: PropTypes.shape({
+            mobile: PropTypes.string,
+            basic: PropTypes.string
+        })
+    })
 };
 
 StickyMobile.defaultProps = {
     headerText: '',
     alt: '',
-    titleArticle: '',
-    urlImg: '',
-    urlArticle: '',
-    resizedUrls: ''
+    articleToShow: {}
 };
 
 export default StickyMobile;
