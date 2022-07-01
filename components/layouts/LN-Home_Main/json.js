@@ -25,7 +25,8 @@ const boxMovePosition = {
 const sectionbyLayout = {
     grillaUltimasNoticias: {
         type: 3,
-        feature: 'Timeline'
+        feature: 'Timeline',
+        subLayout: 'LN-acumulado/timeline'
     }
 };
 
@@ -58,7 +59,7 @@ const homeMobileSections = [
     'AnexoMobile'
 ];
 
-const segmentbyLayout = elements => {
+const segmentbyLayout = (elements, sectionChildren) => {
     if (!elements || !Array.isArray(elements)) {
         return elements;
     }
@@ -74,7 +75,7 @@ const segmentbyLayout = elements => {
                     sectionbyLayout[layout]
                 ) {
                     const subElementNoIncludeIndex = e.articles.findIndex(
-                        x => x && Array.isArray(x.articles)
+                        x => x && x.articles && Array.isArray(x.articles)
                     );
                     if (subElementNoIncludeIndex >= 0) {
                         const subElement = {
@@ -105,7 +106,8 @@ const segmentbyLayout = elements => {
                                 };
                                 elemArray.push(subElementArray);
                                 const subElementLayout = segmentbyLayout(
-                                    elemArray
+                                    elemArray,
+                                    sectionChildren
                                 );
                                 if (
                                     subElementLayout &&
@@ -126,7 +128,22 @@ const segmentbyLayout = elements => {
                                 }
                             });
                     } else {
-                        elementsValidate.push(e);
+                        const subChilds = sectionChildren
+                            .filter(
+                                x =>
+                                    x && x.children && Array.isArray(x.children)
+                            )
+                            .map(x => {
+                                return x.children;
+                            });
+
+                        subChilds &&
+                            subChilds.length &&
+                            subChilds[0].filter(
+                                s =>
+                                    s.type === sectionbyLayout[layout].subLayout
+                            ).length > 0 &&
+                            elementsValidate.push(e);
                     }
                 } else {
                     elementsValidate.push(e);
@@ -147,7 +164,7 @@ const validateSections = (section, name, position, renderables) => {
     const banner = boxPosition[name];
 
     if (elements && Array.isArray(elements) && elements.length > 0) {
-        elements = segmentbyLayout(elements);
+        elements = segmentbyLayout(elements, sectionChildren);
     }
     if (elements && elements.length > 0 && banner) {
         switch (banner.position) {

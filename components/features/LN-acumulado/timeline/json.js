@@ -10,9 +10,9 @@ class Timeline {
         const { customFields, arcSite } = props;
         this.state = {};
 
-        const { sections } = customFields;
+        const { sections, size } = customFields;
 
-        const query = this.getQueryElement(sections, arcSite);
+        const query = this.getQueryElement(sections, size + 3, arcSite);
 
         this.fetch(query);
     }
@@ -26,17 +26,17 @@ class Timeline {
         });
     }
 
-    getQueryElement = (sections, arcSite) => {
+    getQueryElement = (sections, size, arcSite) => {
         let sectionsValidate = sections || [];
         const resp = {
             page: 1,
             imageConfig: 'm',
             api: true,
-            size: null,
+            size,
             website: arcSite
         };
         if (!sections) {
-            sectionsValidate = ['/ultimas-noticias'];
+            sectionsValidate = ['/ultimas-noticias3'];
         }
         const sectionsIds = sectionsFormated(sectionsValidate);
 
@@ -57,6 +57,7 @@ class Timeline {
                 return null;
             }
             const results = acuArticlesSource;
+
             const { content_elements: contentElements } =
                 acuArticlesSource || {};
             results.content_elements =
@@ -79,7 +80,7 @@ class Timeline {
                     ...this.props.customFields,
                     layout: 'timeline'
                 },
-                children: results.content_elements
+                children: results.content_elements || []
             };
 
             return respChain(null, props);
