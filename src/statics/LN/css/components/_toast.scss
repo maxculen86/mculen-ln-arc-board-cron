@@ -16,13 +16,9 @@
         right: px(16);
     }
     @media ($media-m) {
-        width: px(355);
-        top: px(61);
-    }
-    @media ($media-l) {
         width: px(450);
         top: auto;
-        bottom: px(16);
+        bottom: px(100);
         right: calc(((100% - 100px) / 2) - 180px);
     }
     @media ($media-lm) {

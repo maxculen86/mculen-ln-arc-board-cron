@@ -47,7 +47,7 @@ export default function toggleBookmark(
                         : {
                               status: 'success',
                               description:
-                                  'Podés acceder desde <strong>Mis notas</strong>',
+                                  'Podés acceder desde <b>Menú de usuario, <a class="com-link" href="https://www.lanacion.com.ar/mis-notas/">Mis notas</a></b>',
                               timeout: 2750
                           }
                 );
@@ -56,11 +56,7 @@ export default function toggleBookmark(
                 setToast({
                     status: 'warning',
                     description:
-                        'No se pudo guardar porque llegaste al límite permitido.',
-                    buttonLabel: 'Ir a Mis Notas',
-                    buttonAction: () => {
-                        window.open('/mis-notas', '_self');
-                    },
+                        'No se pudo guardar porque llegaste al límite permitido. <a class="com-link" href="https://www.lanacion.com.ar/mis-notas/">Ir a mis notas</a>',
                     timeout: 2750
                 });
             },
