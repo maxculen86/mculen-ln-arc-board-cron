@@ -80,6 +80,6 @@ describe('components - chains - Ln_Caja_Collection - json', () => {
         CajaCollection.state.articleList = null;
         CajaCollection.state.containerImage = null;
         const result = CajaCollection.render();
-        expect(result.Message).toBe(`Cannot read property 'length' of null`);
+        expect(result).toBe(null);
     });
 });

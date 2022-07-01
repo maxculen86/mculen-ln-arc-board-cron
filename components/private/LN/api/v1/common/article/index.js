@@ -2,7 +2,7 @@
 import get from '../../../../../common/utils/get';
 import Image from '../image';
 import { authorHomeMobile, articleSignature } from '../author';
-import matchObject from '../utils/matchObject';
+import sentToApps from '../utils/sentToApps';
 
 const getArticleImage = article => {
     const imagedefault =
@@ -69,11 +69,7 @@ export const articleItem = article => {
     const autores = getArticleAuthor(article);
     const autor = autores ? autores[0] : null;
     const signature = get(article, 'additionalProperties.authors', null);
-    const sentToApps = get(article, 'label.enviar_a_apps.text', null);
-    const enviarApps =
-        matchObject(article, 'contains') === false
-            ? matchObject(article, 'contains')
-            : !(sentToApps && sentToApps.toLowerCase() === 'no');
+    const enviarApps = sentToApps(article);
     return {
         id,
         templateId: Number.isInteger(templateId)

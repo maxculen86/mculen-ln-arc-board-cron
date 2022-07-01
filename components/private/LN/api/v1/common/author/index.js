@@ -65,12 +65,11 @@ export const authorAcu = (author, page) => {
 
 export const authorAcuFollow = (authorFollow, page) => {
     const author = {
-        ...authorFollow,
-        name: get(authorFollow, 'valor', null),
-        _id: get(authorFollow, 'slug', null),
-        image: { url: get(authorFollow, 'imagen', null) }
+        absoluteUrl: get(authorFollow, 'absoluteUrl', null),
+        valor: get(authorFollow, 'valor', null),
+        slug: get(authorFollow, 'slug', null)
     };
-    return authorAcu(author);
+    return author;
 };
 
 export const authorHomeMobile = author => {
