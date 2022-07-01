@@ -25,6 +25,7 @@ const typeSection = {
         url: 'https://www.lanacion.com.ar/economia/dolar/'
     },
     Multimedia: { tipoSeccion: 'tema', idSeccion: 305 },
+    Timeline: { tipoSeccion: 'tema', idSeccion: 3000 },
     default: { tipoSeccion: 'tema', idSeccion: 305 }
 };
 

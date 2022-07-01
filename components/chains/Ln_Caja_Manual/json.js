@@ -30,41 +30,7 @@ class CajaManual {
     render() {
         try {
             const { containerImage } = this.state || {};
-            const resp = respChain(containerImage, this.props);
-            return resp;
-            /*             const { children, customFields } = this.props;
-
-            const layout = get(customFields, 'layout', null);
-            let storiesQuantity = 0;
-            if (layout) {
-                storiesQuantity = parseInt(
-                    layout.charAt(layout.length - 1),
-                    10
-                );
-
-                storiesQuantity = storiesQuantity || children.length;
-            }
-            const sources = getSources(children, storiesQuantity); */
-
-            /*  const sources = children.reduce((result, article) => {
-                if (
-                    article &&
-                    article.type &&
-                    (storiesQuantity === 0 || result.length < storiesQuantity)
-                ) {
-                    return result.concat(article);
-                }
-                return result;
-            }, []);
- */
-            /*   if (!sources.length) {
-                return null;
-            }
-
-            return {
-                information: { ...customFields, image: containerImage },
-                articles: sources
-            }; */
+            return respChain(containerImage, this.props);
         } catch (err) {
             return { Success: false, Message: err.message };
         }

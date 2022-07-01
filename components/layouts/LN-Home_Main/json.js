@@ -24,9 +24,8 @@ const boxMovePosition = {
 
 const sectionbyLayout = {
     grillaUltimasNoticias: {
-        id: 3000,
         type: 3,
-        feature: 'Tema'
+        feature: 'Timeline'
     }
 };
 
@@ -74,41 +73,61 @@ const segmentbyLayout = elements => {
                     Array.isArray(e.articles) &&
                     sectionbyLayout[layout]
                 ) {
-                    const subElement = {
-                        ...e,
-                        articles: [
-                            ...e.articles.filter(
-                                x => x && !Array.isArray(x.articles)
-                            )
-                        ]
-                    };
-                    elementsValidate.push(subElement);
+                    const subElementNoIncludeIndex = e.articles.findIndex(
+                        x => x && Array.isArray(x.articles)
+                    );
+                    if (subElementNoIncludeIndex >= 0) {
+                        const subElement = {
+                            ...e,
+                            articles: [
+                                ...e.articles.filter(
+                                    x => x && !Array.isArray(x.articles)
+                                )
+                            ]
+                        };
+                        elementsValidate.push(subElement);
 
-                    e.articles
-                        .filter(x => x && Array.isArray(x.articles))
-                        .forEach(elem => {
-                            const elemArray = [];
-                            const subElementArray = {
-                                ...elem,
-                                information: {
-                                    ...get(elem, 'information', null),
-                                    hideCaja: get(
-                                        subElement.information,
-                                        'hideCaja',
-                                        null
-                                    )
-                                },
-                                ...sectionbyLayout[layout]
-                            };
-                            elemArray.push(subElementArray);
-                            elementsValidate.push(
-                                segmentbyLayout(elemArray)[0]
-                            );
-                        });
-                    /* 
-                    elementsValidate.push(
-                        e.articles.filter(x => Array.isArray(x))
-                    ); */
+                        e.articles
+                            .filter(x => x && Array.isArray(x.articles))
+                            .forEach(elem => {
+                                const elemArray = [];
+                                const subElementArray = {
+                                    ...elem,
+                                    information: {
+                                        ...get(elem, 'information', null),
+                                        hideCaja: get(
+                                            subElement.information,
+                                            'hideCaja',
+                                            null
+                                        )
+                                    },
+                                    ...sectionbyLayout[layout]
+                                };
+                                elemArray.push(subElementArray);
+                                const subElementLayout = segmentbyLayout(
+                                    elemArray
+                                );
+                                if (
+                                    subElementLayout &&
+                                    subElementLayout.length &&
+                                    subElementLayout.length > 0
+                                ) {
+                                    if (subElementNoIncludeIndex > 0) {
+                                        elementsValidate.push(
+                                            subElementLayout[0]
+                                        );
+                                    } else {
+                                        elementsValidate.splice(
+                                            0,
+                                            0,
+                                            subElementLayout[0]
+                                        );
+                                    }
+                                }
+                            });
+                    } else {
+                        elementsValidate.push(e);
+                    }
                 } else {
                     elementsValidate.push(e);
                 }
@@ -126,7 +145,8 @@ const validateSections = (section, name, position, renderables) => {
         checkIfValid(name, sectionChildren) === true ? section : null;
 
     const banner = boxPosition[name];
-    if (elements && elements.length > 0) {
+
+    if (elements && Array.isArray(elements) && elements.length > 0) {
         elements = segmentbyLayout(elements);
     }
     if (elements && elements.length > 0 && banner) {
@@ -184,9 +204,6 @@ const getHomeElements = props => {
         arcSite
     };
     return pageBuilderSections.reduce((r, e, i) => {
-        if (e === 'Breaking_1') {
-            const yyyy = 0;
-        }
         const child = validateSections(children[i], e, i, renderables);
 
         const banner = boxPosition[e];

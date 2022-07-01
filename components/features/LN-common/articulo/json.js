@@ -65,25 +65,6 @@ class ArticleFeature {
                 return null;
             }
             return resultArticle(articleSourceNota, articleImage, this.props);
-            /*  const {
-                noteId,
-                title,
-                authors,
-                lead,
-                chapita,
-                opinion
-            } = this.props.customFields;
-
-            const additionalProperties = {
-                noteId,
-                title,
-                authors,
-                lead,
-                chapita,
-                opinion,
-                image: articleImage || null
-            };
-            return { ...articleSourceNota, additionalProperties }; */
         } catch (err) {
             return { Success: false, Message: err.message };
         }
