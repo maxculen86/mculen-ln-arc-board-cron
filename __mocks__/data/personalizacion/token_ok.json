@@ -1,0 +1,83 @@
+{
+    "data": [
+        {
+            "topicId": "f891d27e-e674-4361-90f9-5a185b59ed8b",
+            "createdDate": 1654016509831,
+            "updatedDate": 1654016509831,
+            "topicState": 100,
+            "topicType": "autor",
+            "topicTypeId": "205",
+            "topicName": "Claudio Cerviño",
+            "topicContent": {
+                "tipo": 1,
+                "twitter": "@ccervino",
+                "mail": "ccervino@lanacion.com.ar",
+                "absoluteUrl": "https://resizer.glanacion.com/resizer/DefW7EIe1ijOuJNVjg-QM4uq_Vs=/280x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2089216.png",
+                "valor": "Claudio Cerviño",
+                "imagen": "/resizer/DefW7EIe1ijOuJNVjg-QM4uq_Vs=/280x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2089216.png",
+                "id": 205,
+                "slug": "claudio-cervino-205"
+            }
+        },
+        {
+            "topicId": "545e63f6-ab14-4ebe-afd7-bd5c7c53ecad",
+            "createdDate": 1654016492708,
+            "updatedDate": 1654016492708,
+            "topicState": 100,
+            "topicType": "autor",
+            "topicTypeId": "230",
+            "topicName": "Cristian Mira",
+            "topicContent": {
+                "tipo": 1,
+                "twitter": "@cgmira",
+                "mail": "cmira@lanacion.com.ar",
+                "absoluteUrl": "https://resizer.glanacion.com/resizer/jyT1_KVpU-eAxS1uqzHBwkadVnI=/280x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/b23e859d-9247-4325-b018-5d4b24e81e8e.png",
+                "valor": "Cristian Mira",
+                "imagen": "/resizer/jyT1_KVpU-eAxS1uqzHBwkadVnI=/280x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/b23e859d-9247-4325-b018-5d4b24e81e8e.png",
+                "id": 230,
+                "slug": "cristian-mira-230"
+            }
+        },
+        {
+            "topicId": "c60db474-21f2-40c3-b28e-3d457f593c18",
+            "createdDate": 1654016462877,
+            "updatedDate": 1654016462877,
+            "topicState": 100,
+            "topicType": "autor",
+            "topicTypeId": "84",
+            "topicName": "Orlando J. Ferreres",
+            "topicContent": {
+                "valor": "Orlando J. Ferreres",
+                "imagen": "/resizer/OzGVjjQr-0ZOHtx0gY_sD8JtRDc=/280x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2089295.png",
+                "tipo": 1,
+                "id": 84,
+                "slug": "orlando-j-ferreres-84",
+                "absoluteUrl": "https://resizer.glanacion.com/resizer/OzGVjjQr-0ZOHtx0gY_sD8JtRDc=/280x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2089295.png"
+            }
+        },
+        {
+            "topicId": "2b4fb731-8697-475a-81ac-e79fd5a3f827",
+            "createdDate": 1654016445875,
+            "updatedDate": 1654016445875,
+            "topicState": 100,
+            "topicType": "autor",
+            "topicTypeId": "137",
+            "topicName": "Graciela Guadalupe",
+            "topicContent": {
+                "tipo": 1,
+                "twitter": "@gguadalupeg",
+                "mail": "gguadalupe@lanacion.com.ar",
+                "absoluteUrl": "https://resizer.glanacion.com/resizer/plKDYizG2R-27xQqh9ZafZCFkWY=/280x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2865492.png",
+                "valor": "Graciela Guadalupe",
+                "imagen": "/resizer/plKDYizG2R-27xQqh9ZafZCFkWY=/280x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2865492.png",
+                "id": 137,
+                "slug": "graciela-guadalupe-137"
+            }
+        }
+    ],
+    "metadata": {
+        "size": 4,
+        "nextKeyPK": "5588cbaf-b02c-4e1f-b1d6-1e18e94e3f46",
+        "nextKeySK": 1654016427133
+    }
+}

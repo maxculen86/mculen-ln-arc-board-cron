@@ -2689,7 +2689,8 @@ export default {
     },
     layoutsName: {
         Home: 'LN-Home_Main',
-        Columnistas: 'LN-acumulado-columnistas'
+        Columnistas: 'LN-acumulado-columnistas',
+        FotoAl100: 'LN-nota-foto-al-100'
     },
     notRecommendedSections: ['recetas']
 };

@@ -41,13 +41,13 @@ export default function toggleBookmark(
                         ? {
                               status: 'success',
                               description:
-                                  'Se borró de <strong>Mis notas, Guardadas.</strong>',
+                                  'Se borró de <strong>Mis notas</strong>',
                               timeout: 2750
                           }
                         : {
                               status: 'success',
                               description:
-                                  'Se agregó a <strong>Mis notas, Guardadas.</strong>',
+                                  'Podés acceder desde <strong>Mis notas</strong>',
                               timeout: 2750
                           }
                 );
@@ -56,7 +56,7 @@ export default function toggleBookmark(
                 setToast({
                     status: 'warning',
                     description:
-                        'No se pudo guardar la nota porque llegaste al límite permitido.',
+                        'No se pudo guardar porque llegaste al límite permitido.',
                     buttonLabel: 'Ir a Mis Notas',
                     buttonAction: () => {
                         window.open('/mis-notas', '_self');
@@ -67,9 +67,8 @@ export default function toggleBookmark(
             default: () => {
                 setToast({
                     status: 'danger',
-                    description: 'Parece que hubo un problema',
-                    buttonLabel: 'Reintentar',
-                    buttonAction: getDataFromAPI,
+                    description:
+                        'Hubo un problema de conexión. Reintenta más tarde.',
                     timeout: 2750
                 });
             }

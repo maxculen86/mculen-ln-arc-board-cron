@@ -4,7 +4,7 @@ import { authorCommon as Author } from '../../common/author';
 import { getTag } from '../../common/tag';
 import { dateAndTimeForAppsUtil } from '../../../../../common/utils/dateAndTimeUtil';
 import { getPrincipalCategory } from '../../common/category';
-import matchObject from '../../common/utils/matchObject';
+import sentToApps from '../../common/utils/sentToApps';
 
 const articleItem = article => {
     const {
@@ -34,7 +34,7 @@ const articleItem = article => {
         fechaActualizacion: dateAndTimeForAppsUtil(lastUpdatedDate),
         url,
         bajada,
-        enviarApps: matchObject(article, 'contains')
+        enviarApps: sentToApps(article)
     };
 
     if (image && image.type === 'image') {

@@ -1,63 +1,68 @@
-jest.mock(
-    '../../../../components/private/common/com-advance',
-    () => 'ComAdvance'
-);
-
 import React from 'react';
 import CajaAnticipo from '../../../../components/features/LN-common/cajaAnticipo/default';
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 describe('Private - Feature - CajaAnticipo =>', () => {
     const mock = {
         title: 'Prueba Anticipo',
         link: 'https://www.lanacion.com.ar/',
-        hide: false
+        hide: false,
+        hideBadge: false
     };
 
-    const { title: titleMock, link: linkMock } = mock;
-
     describe('with empty location or type', () => {
-        const wrapper1 = shallow(<CajaAnticipo />);
-        const wrapper2 = shallow(
-            <CajaAnticipo customFields={{ title: titleMock, hide: true }} />
-        );
-        const wrapper3 = shallow(
-            <CajaAnticipo customFields={{ hide: false }} />
-        );
-        const wrapper4 = shallow(
-            <CajaAnticipo
-                customFields={{ title: titleMock, link: linkMock, hide: true }}
-            />
-        );
+        it('should returns fragment when prop customField is not defined', () => {
+            const { container } = render(<CajaAnticipo />);
+            expect(container).toMatchInlineSnapshot('<div />');
+        });
 
-        it('should returns null', () => {
-            expect(
-                wrapper1.html() &&
-                    wrapper2.html() &&
-                    wrapper3.html() &&
-                    wrapper4.html()
-            ).toEqual('');
+        it('should returns fragment when prop hide is true', () => {
+            const { container } = render(
+                <CajaAnticipo customFields={{ ...mock, hide: true }} />
+            );
+            expect(container).toMatchInlineSnapshot('<div />');
+        });
+
+        it('should returns fragment when prop title is not defined', () => {
+            const { container } = render(
+                <CajaAnticipo customFields={{ ...mock, title: undefined }} />
+            );
+            expect(container).toMatchInlineSnapshot('<div />');
         });
     });
 
     describe('with a valid response', () => {
-        const wrapper = shallow(<CajaAnticipo customFields={{ ...mock }} />);
-
-        const result = wrapper.first();
-        const ComAdvanceComponent = result.find('ComAdvance');
-
         it('should render ComAdvance component with correctly props', () => {
-            const { title, link } = ComAdvanceComponent.props();
-
-            expect(title).toStrictEqual(titleMock);
-            expect(link).toStrictEqual(linkMock);
-        });
-
-        it('Snapshot Caja Anticipo', () => {
-            const component = shallow(
+            const { container } = render(
                 <CajaAnticipo customFields={{ ...mock }} />
             );
-            expect(component).toMatchSnapshot();
+
+            expect(container).toHaveTextContent('Prueba Anticipo');
+            expect(screen.getByRole('link').href).toEqual(
+                'https://www.lanacion.com.ar/'
+            );
+        });
+
+        it('should render ComAdvance component when prop hideBadge is true', () => {
+            const { container } = render(
+                <CajaAnticipo customFields={{ ...mock, hideBadge: true }} />
+            );
+            const badge = container.querySelector('span');
+
+            expect(container).toHaveTextContent('Prueba Anticipo');
+            expect(screen.getByRole('link').href).toEqual(
+                'https://www.lanacion.com.ar/'
+            );
+            expect(badge).toHaveTextContent('EN VIVO');
+        });
+
+        it('Snapshot Feature CajaAnticipo', () => {
+            const { container } = render(
+                <CajaAnticipo customFields={{ ...mock, hideBadge: true }} />
+            );
+
+            expect(container).toMatchSnapshot();
         });
     });
 });

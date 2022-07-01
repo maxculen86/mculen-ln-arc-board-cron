@@ -3,15 +3,12 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
-
 import Article from '../../../private/common/mod-article';
-import ComHour from '../../../private/common/com-hour';
 import ComTitle from '../../../private/common/com-title';
-import sectionsFormated from '../../../private/common/utils/sectionsFormated';
-import useGetArticlesFromAcumSource from '../../../private/LN/common/hooks/useGetArticlesFromAcumSource';
+import useTimeline from '../../../private/LN/common/hooks/useTimeline';
 import { cajaTemasCustomsFields } from '../../../private/LN/common/utils/cajaTemasHelper';
 import filter from '../../../../content/filters/LN/acumulado/articleTimeline';
-import { LIVEBLOG } from '../../../private/common/utils/subtypes/subtypeHelper';
+import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
 const {
     layout,
@@ -22,46 +19,18 @@ const {
     ...cajaTemaCustomFields
 } = cajaTemasCustomsFields('cajaManual');
 
-const Timeline = ({ customFields = {} }) => {
-    const { sections, title: roof, url, hideTitle } = customFields;
-    const { arcSite } = useAppContext();
+const Timeline = ({ id: featureId, customFields = {} }) => {
+    const { sections, title: roof, url, hideTitle, size = 5 } = customFields;
+    const { arcSite, isAdmin } = useAppContext();
 
-    const sectionsIds = sectionsFormated(sections);
-    const withRoof = roof && !hideTitle;
-
-    const searchArgs = {
-        typesOfQuery: { sectionsIds },
+    const articles = useTimeline({
+        sections,
         filter,
-        imageConfig: 'm',
-        size: 6,
-        sourceOrigin: 'composer',
-        excludeSectionId: false,
-        type: 'story',
-        shouldNotFilter: false,
-        website: arcSite
-    };
-
-    const response = useGetArticlesFromAcumSource(...Object.values(searchArgs));
-    const articles = response.map(article => {
-        const {
-            _id,
-            headlines = {},
-            display_date: displayDate,
-            content_restrictions: contentRestrictions,
-            subtype
-        } = article;
-
-        const isLiveblog = subtype === LIVEBLOG;
-
-        return {
-            key: _id,
-            titleText: headlines.basic,
-            hour: <ComHour display_date={displayDate} size="--fivexs" />,
-            link: article.website_url,
-            articleData: { content_restrictions: contentRestrictions },
-            label: { ...(isLiveblog && { text: 'En Vivo' }) }
-        };
+        size,
+        arcSite
     });
+
+    const withRoof = roof && !hideTitle;
 
     return (
         <>
@@ -74,8 +43,21 @@ const Timeline = ({ customFields = {} }) => {
                 />
             )}
 
+            {isAdmin && !articles.length && (
+                <PageBuilderMessage
+                    key={featureId}
+                    type="warning"
+                    message="No se encontraron notas"
+                />
+            )}
+
             {articles.map(article => (
-                <Article {...article} titleSize="--twoxs" />
+                <Article
+                    {...article}
+                    boxPosition="tl"
+                    titleSize="--twoxs"
+                    titleTag="h3"
+                />
             ))}
         </>
     );
@@ -88,6 +70,10 @@ Timeline.propTypes = {
         sections: PropTypes.list.tag({
             label: 'Secciones'
         }).isRequired,
+        size: PropTypes.number.tag({
+            label: 'Cantidad de notas',
+            defaultValue: 5
+        }),
         ...cajaTemaCustomFields
     }).isRequired
 };

@@ -5,6 +5,7 @@ import Consumer from 'fusion:consumer';
 
 import Image from '../private/common/com-image';
 import Copyright from '../private/LN/common/footer/copyright';
+import ComLogo from '../private/common/com-logo';
 
 import '../../resources/dist/css/ln/pages/error.css';
 
@@ -27,7 +28,10 @@ const ErrorPage = props => {
                                 className="header__middle__logo"
                                 title="Ir a la página principal"
                             >
-                                <i className="logo-la-nacion" />
+                                <ComLogo
+                                    logoName="la-nacion"
+                                    classCondition="--md"
+                                />
                             </a>
                         </div>
                         <div className="col-12 col-desksm-7">
@@ -41,15 +45,6 @@ const ErrorPage = props => {
                                 >
                                     LA NACION
                                 </a>
-                                {/* <a className="--btn --secondary" href={host || '/'}>
-                                Buscador
-                            </a>
-                            <a
-                                className="--btn"
-                                href="http://especiales.lanacion.com.ar/varios/mapa-sitio/index.html"
-                            >
-                                MAPA DEL SITIO
-                            </a> */}
                             </nav>
                         </div>
                     </div>
@@ -78,15 +73,6 @@ const ErrorPage = props => {
             <footer>
                 <div className="lay">
                     <div className="row footer-copyright">
-                        {/* <div className="col-12 col-desksm-6 col-desk-6 footer-humor">
-                        <p>
-                            Visitá&nbsp;
-                            <a href="https://www.lanacion.com.ar/humor">
-                                Humor
-                            </a>
-                            &nbsp; en LA NACION
-                        </p>
-                    </div> */}
                         <div className="col-12 footer-copyright__reserved">
                             <Copyright />
                         </div>

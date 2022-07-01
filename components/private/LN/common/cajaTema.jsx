@@ -13,6 +13,11 @@ import {
     getLayoutType,
     getMarkupForDatalayer
 } from './utils/cajaTemasHelper';
+import {
+    setTLDistribution,
+    setTLOrderClass,
+    getTLFeature
+} from './utils/timeline';
 import OrderedList from './lists/ordered';
 import '../../../../resources/dist/css/ln/components/timeline.css';
 
@@ -69,7 +74,10 @@ const getComponentForLayout = (layoutName, props) => {
             sectionName,
             withVolanta = true
         }) => {
-            const customTitleTag = customHeading[sectionName] || 'h2';
+            const customTitleTag =
+                sectionName === 'Ranking' && props.isHome
+                    ? 'h2'
+                    : customHeading[sectionName] || 'h2';
             return articles.map((art, i) => {
                 const artPosition = `0${Number(i) + 1}`.slice(-2);
                 const isRenderAuthor = layout.includes('author');
@@ -99,25 +107,22 @@ const getComponentForLayout = (layoutName, props) => {
             });
         },
 
-        ArticleFeature: ({ _children = [], notesQuantity }) => {
+        ArticleFeature: ({ _children, notesQuantity }) => {
             return _children.slice(0, notesQuantity);
         },
 
-        Timeline: ({ _children = [], notesQuantity, features }) => {
-            const timelineIndex = features.findIndex(feature =>
-                feature.type.includes('timeline')
+        Timeline: ({ _children, features = [] }) => {
+            const { id: tlFeatureId } = getTLFeature(
+                features,
+                _children,
+                layoutName
             );
-            const timeline = _children[timelineIndex];
-            const gridArticles = _children
-                .filter((_, index) => index !== timelineIndex)
-                .splice(0, 4);
 
-            const isLast = timelineIndex === gridArticles.length;
-            const orderClass = isLast ? '--right-bottom' : '--left-top';
+            const timeline = setTLDistribution(_children, tlFeatureId);
+            const orderClass = setTLOrderClass(timeline);
 
             return {
                 timeline,
-                gridArticles,
                 orderClass
             };
         }
@@ -165,7 +170,7 @@ const CajaTema = props => {
     const isRanking = sectionName === 'Ranking';
     const withHeaderSection = !hideTitle && layoutName !== 'Editoriales';
     const withGridFour = isHome ? 'row-gap-tablet-4' : '';
-    const { timeline, gridArticles, orderClass } = childrenComponent;
+    const { timeline, orderClass } = childrenComponent;
 
     return (
         <div {...extraOptsDiv}>
@@ -184,8 +189,12 @@ const CajaTema = props => {
 
                 {(isTimeline && (
                     <ModRowGap classCondition={`timeline-home ${orderClass}`}>
-                        <div className="timeline-content">{timeline}</div>
-                        <div className="row-gap-tablet-2">{gridArticles}</div>
+                        <div className="timeline-content">
+                            {timeline.content}
+                        </div>
+                        <div className="row-gap-tablet-2">
+                            {timeline.articles}
+                        </div>
                     </ModRowGap>
                 )) || (
                     <ModRowGap column={notesQuantity} typeArticle={layoutName}>
