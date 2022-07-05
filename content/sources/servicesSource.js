@@ -26,51 +26,14 @@ const fetch = async (query, { cachedCall }) => {
     const sectionSourceData = await cachedCall('sectionSource', getRequest, {
         query: `${CONTENT_BASE}${sectionSourceResolve(query)}`
     });
-    console.log(
-        '🚀 ~ file: servicesSource.js ~ line 29 ~ fetch ~ sectionSourceData',
-        sectionSourceData
-    );
 
-    const selectTemplate = (
-        _service,
-        _serviceItem,
-        _serviceSubItem,
-        cityChildren
-    ) => {
-        if (_serviceSubItem) return 'detalle-clima';
-
-        if (_service === 'clima' && !_serviceItem) {
-            return 'home-clima';
-        }
-
-        if (_service === 'clima' && _serviceItem) {
-            return cityChildren.length ? 'home-clima' : 'detalle-clima';
-        }
-
-        if (_service === 'loterias' && _serviceItem) {
-            return 'detalle-loterias';
-        }
-        // const services = {
-        //     clima: {
-        //         mendoza: () => {
-        //             return 'detalle-clima';
-        //         }
-        //     },
-        //     loterias: {}
-        // };
-        return 'home-loterias';
-    };
-
-    const { request: serviceRequest, resolve, reject } =
+    const { request: serviceRequest, resolve, reject, getTemplates } =
         SERVICES[service] || SERVICES.default;
 
-    const { _id: sectionSourceId } = sectionSourceData;
-
-    const { children: cityChildren = [] } = sectionSourceData;
-    console.log(
-        '🚀 ~ file: servicesSource.js ~ line 47 ~ fetch ~ cityChildren',
-        cityChildren
-    );
+    const {
+        _id: sectionSourceId,
+        children: sectionChildrens
+    } = sectionSourceData;
 
     if (sectionSourceId !== id) {
         throw new NotFoundError(
@@ -87,11 +50,10 @@ const fetch = async (query, { cachedCall }) => {
                 response: {
                     sectionSourceData,
                     dataService: response,
-                    serviceType: selectTemplate(
-                        service,
+                    serviceType: getTemplates(
                         serviceItem,
                         serviceSubItem,
-                        cityChildren
+                        sectionChildrens
                     )
                 },
                 query
