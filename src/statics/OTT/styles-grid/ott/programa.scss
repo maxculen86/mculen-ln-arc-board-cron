@@ -49,16 +49,16 @@
 }
 
 .info-programa:after {
-    content: '';
-    position: absolute;
-    width: 1000%;
-    left: -500%;
-    right: 100%;
-    top: 0;
-    bottom: 0;
-    z-index: -1;
-    background: #1a1a1a;
-    background: radial-gradient(ellipse at center, #1a1a1a 0, #1a1a1a 100%);
+    // content: '';
+    // position: absolute;
+    // width: 1000%;
+    // left: -500%;
+    // right: 100%;
+    // top: 0;
+    // bottom: 0;
+    // z-index: -1;
+    // background: #1a1a1a;
+    // background: radial-gradient(ellipse at center, #1a1a1a 0, #1a1a1a 100%);
 }
 
 .meta-programa {

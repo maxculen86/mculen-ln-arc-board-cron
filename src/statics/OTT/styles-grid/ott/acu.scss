@@ -15,14 +15,7 @@
     z-index: 2;
 }
 #acumulado main > section:first-of-type:after {
-    content: '';
-    position: absolute;
-    width: 1000%;
-    left: -500%;
-    right: 100%;
-    top: 0;
-    bottom: -400px;
-    z-index: -1;
+    bottom: -450px;
     background: #1a1a1a;
 }
 #acumulado .ultimos-videos .slider:after {
@@ -30,9 +23,6 @@
 }
 #acumulado .ultimos-videos .section-title {
     color: $blanco;
-}
-#acumulado .ultimos-videos .section-title:after {
-    background: #1a1a1a;
 }
 #acumulado .ultimos-videos .title a {
     color: $blanco;
