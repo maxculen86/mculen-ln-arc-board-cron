@@ -6,8 +6,8 @@
 }
 
 .main {
-    max-width: 1140px;
     margin: 0 auto;
+    padding: 0 10px;
 }
 
 #acumulado .apertura .powa-shadow {
@@ -55,4 +55,10 @@ button.mas:hover {
 }
 .--verde {
     background: #1ed9c4;
+}
+
+@media (min-width: 1040px) {
+    main {
+        max-width: 1140px;
+    }
 }

@@ -5,6 +5,10 @@
     background-color: #1a1a1a;
 }
 
+#acumulado main {
+    padding: 0;
+}
+
 #programa .apertura picture:before {
     content: '';
     position: absolute;
@@ -20,12 +24,15 @@
 }
 
 #acumulado .apertura {
-    @include full-width-ott;
+    background: #1a1a1a;
 }
 
 #acumulado .ultimos-videos {
-    @include full-width-ott;
+    background: #1a1a1a;
+    padding-left: 10px;
+    padding-right: 10px;
 }
+
 #acumulado .ultimos-videos {
     .slider,
     .section-title {
@@ -34,11 +41,18 @@
     }
 }
 
+#acumulado .programas {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 .info-programa {
     margin: 0 auto;
     padding-top: 30px;
     @include grilla;
-    @include full-width-ott;
+    background: #1a1a1a;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .meta-programa {
@@ -109,6 +123,31 @@
 
 .categorias ul li a:hover {
     opacity: 0.75;
+}
+
+@media (min-width: 1060px) {
+    #acumulado .apertura {
+        @include full-width-ott;
+    }
+
+    #acumulado .ultimos-videos {
+        @include full-width-ott;
+    }
+
+    #acumulado .ultimos-videos {
+        .slider,
+        .section-title {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+    }
+
+    .info-programa {
+        margin: 0 auto;
+        padding-top: 30px;
+        @include grilla;
+        @include full-width-ott;
+    }
 }
 
 @media (max-width: 1025px) {
