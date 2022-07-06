@@ -15,10 +15,22 @@
     z-index: 2;
 }
 #acumulado main > section:first-of-type:after {
+    content: '';
+    position: absolute;
+    width: 113%;
+    left: -10%;
+    top: 0;
     bottom: -450px;
     background: #1a1a1a;
 }
 #acumulado .ultimos-videos .slider:after {
+    content: '';
+    position: absolute;
+    width: 113%;
+    left: -10%;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
     background: #1a1a1a;
 }
 #acumulado .ultimos-videos .section-title {

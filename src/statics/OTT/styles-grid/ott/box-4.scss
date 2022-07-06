@@ -39,6 +39,18 @@ main > .mas-vistos > .section-title:after {
     background: $negro;
 }
 
+main > section > .section-title:after {
+    content: '';
+    position: absolute;
+    width: 1000%;
+    left: -500%;
+    right: 100%;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    background: #eae6e2;
+}
+
 .box-4 .article {
     @include flex;
     @include flex-row;
