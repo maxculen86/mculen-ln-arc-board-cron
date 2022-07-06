@@ -10,8 +10,10 @@ class OTTDefaultLayout extends Component {
             <>
                 {this.props.children[0]}
                 <div className="wrapper">
-                    <main className="main">{this.props.children[1]}</main>
-                    <Footer />
+                    <main className="main">
+                        {this.props.children[1]}
+                        <Footer />
+                    </main>
                 </div>
             </>
         );
