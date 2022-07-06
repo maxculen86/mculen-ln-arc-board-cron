@@ -1,3 +1,10 @@
+@mixin full-width-ott {
+    position: relative;
+    width: 100vw;
+    right: calc((100vw - 100%) / 2);
+    background-color: #1a1a1a;
+}
+
 #programa .apertura picture:before {
     content: '';
     position: absolute;
@@ -13,16 +20,25 @@
 }
 
 #acumulado .apertura {
-    width: 100%;
-    background: #f00;
+    @include full-width-ott;
+}
+
+#acumulado .ultimos-videos {
+    @include full-width-ott;
+}
+#acumulado .ultimos-videos {
+    .slider,
+    .section-title {
+        max-width: 1140px;
+        margin: 0 auto;
+    }
 }
 
 .info-programa {
-    position: relative;
     margin: 0 auto;
     padding-top: 30px;
-    background-color: blueviolet;
     @include grilla;
+    @include full-width-ott;
 }
 
 .meta-programa {
@@ -93,10 +109,6 @@
 
 .categorias ul li a:hover {
     opacity: 0.75;
-}
-
-#programa .ultimos-videos .article:last-of-type {
-    @include flex;
 }
 
 @media (max-width: 1025px) {
