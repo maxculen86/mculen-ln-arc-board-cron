@@ -28,10 +28,7 @@ const ErrorPage = props => {
                                 className="header__middle__logo"
                                 title="Ir a la página principal"
                             >
-                                <ComLogo
-                                    logoName="la-nacion"
-                                    classCondition="--md"
-                                />
+                                <ComLogo logoName="la-nacion" />
                             </a>
                         </div>
                         <div className="col-12 col-desksm-7">

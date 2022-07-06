@@ -6,11 +6,12 @@ import ComHour from '../../../common/com-hour';
 export const getTLFeature = (features, children, layoutName) => {
     const lowerLayout = layoutName.toLowerCase();
     const featureKeys = children.map(c => c.key);
-    const tlFeature = features.find(
-        feature =>
-            feature.type.includes(lowerLayout) &&
-            featureKeys.includes(feature.props.id)
-    );
+    const tlFeature =
+        features.find(
+            feature =>
+                feature.type.includes(lowerLayout) &&
+                featureKeys.includes(feature.props.id)
+        ) || {};
 
     return {
         tlFeature,

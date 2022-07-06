@@ -1,6 +1,7 @@
 // LN_Caja_Manual
 import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
+import respChain from '../../private/LN/api/v1/global/home/chains/respCajaCollection';
 
 class CajaManual {
     constructor(props) {
@@ -29,37 +30,7 @@ class CajaManual {
     render() {
         try {
             const { containerImage } = this.state || {};
-            const { children, customFields } = this.props;
-
-            const layout = get(customFields, 'layout', null);
-            let storiesQuantity = 0;
-            if (layout) {
-                storiesQuantity = parseInt(
-                    layout.charAt(layout.length - 1),
-                    10
-                );
-
-                storiesQuantity = storiesQuantity || children.length;
-            }
-
-            const sources = children.reduce((result, article) => {
-                if (
-                    article &&
-                    (storiesQuantity === 0 || result.length < storiesQuantity)
-                ) {
-                    return result.concat(article);
-                }
-                return result;
-            }, []);
-
-            if (!sources.length) {
-                return null;
-            }
-
-            return {
-                information: { ...customFields, image: containerImage },
-                articles: sources
-            };
+            return respChain(containerImage, this.props);
         } catch (err) {
             return { Success: false, Message: err.message };
         }
