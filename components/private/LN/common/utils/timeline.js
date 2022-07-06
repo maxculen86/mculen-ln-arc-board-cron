@@ -2,6 +2,7 @@ import React from 'react';
 import { addHours } from '../../../common/utils/dateAndTimeUtil';
 import { LIVEBLOG } from '../../../common/utils/subtypes/subtypeHelper';
 import ComHour from '../../../common/com-hour';
+import pageBuilderValidator from '../../../common/utils/pageBuilderValidator';
 
 export const getTLFeature = (features, children, layoutName) => {
     const lowerLayout = layoutName.toLowerCase();
@@ -92,4 +93,50 @@ export const setTLArticles = (articles = []) => {
             label: { ...(isLiveblog && { text: 'En Vivo' }) }
         };
     });
+};
+
+export const setTypeOfQuery = ({
+    source,
+    sectionTagType,
+    sectionTagValue,
+    sectionsIds
+}) => {
+    const options = {
+        byTagSection: { [`${sectionTagType}Id`]: sectionTagValue },
+        byLastNews: { sectionsIds }
+    };
+
+    return options[source] || {};
+};
+
+const setTLValidationRules = ({
+    articles,
+    source,
+    sectionTagValue,
+    sections
+}) => {
+    const isTagSection = source === 'byTagSection';
+    const isLastNews = source === 'byLastNews';
+
+    const hasArticles = articles.length;
+    const hasSections = sections.length;
+
+    const emptySectionTag = isTagSection && !sectionTagValue;
+    const emptyLastNews = isLastNews && !hasSections;
+
+    return [
+        {
+            validation: emptySectionTag || emptyLastNews,
+            message: 'Debe especificar un tag, seccíon o id de collection'
+        },
+        {
+            validation: !hasArticles,
+            message: 'No se encontraron notas'
+        }
+    ];
+};
+
+export const validateTL = options => {
+    const rules = setTLValidationRules(options);
+    return pageBuilderValidator(rules);
 };

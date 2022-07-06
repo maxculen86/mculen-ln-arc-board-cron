@@ -1,13 +1,32 @@
 import useGetArticlesFromAcumSource from './useGetArticlesFromAcumSource';
 import sectionsFormated from '../../../common/utils/sectionsFormated';
-import { setTLQuantity, setTLArticles } from '../utils/timeline';
+import {
+    setTLQuantity,
+    setTLArticles,
+    setTypeOfQuery
+} from '../utils/timeline';
 
-const useTimeline = ({ sections, filter, size, arcSite }) => {
+const useTimeline = ({
+    sections,
+    filter,
+    size,
+    arcSite,
+    source,
+    sectionTagType,
+    sectionTagValue
+}) => {
     const sectionsIds = sectionsFormated(sections);
     const { articlesQuantity, articlesQuantityBackup } = setTLQuantity(size);
 
+    const typesOfQuery = setTypeOfQuery({
+        source,
+        sectionTagType,
+        sectionTagValue,
+        sectionsIds
+    });
+
     const searchArgs = {
-        typesOfQuery: { sectionsIds },
+        typesOfQuery,
         filter,
         imageConfig: 'm',
         size: articlesQuantityBackup,

@@ -7,8 +7,10 @@ import Article from '../../../private/common/mod-article';
 import ComTitle from '../../../private/common/com-title';
 import useTimeline from '../../../private/LN/common/hooks/useTimeline';
 import { cajaTemasCustomsFields } from '../../../private/LN/common/utils/cajaTemasHelper';
+import { validateTL } from '../../../private/LN/common/utils/timeline';
 import filter from '../../../../content/filters/LN/acumulado/articleTimeline';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
+import pageBuilderValidator from '../../../private/common/utils/pageBuilderValidator';
 
 const {
     layout,
@@ -19,18 +21,40 @@ const {
     ...cajaTemaCustomFields
 } = cajaTemasCustomsFields('cajaManual');
 
+const sources = {
+    byLastNews: 'Últimas Noticias',
+    byTagSection: 'Seccíon o Tag',
+    byColleciton: 'Caja Collection'
+};
+
 const Timeline = ({ id: featureId, customFields = {} }) => {
-    const { sections, title: roof, url, hideTitle, size = 5 } = customFields;
+    const {
+        title: roof,
+        url,
+        hideTitle,
+        source,
+        sections,
+        sectionTagValue,
+        ...restCustomFields
+    } = customFields;
+
+    const commonProps = {
+        source,
+        sections,
+        sectionTagValue
+    };
+
     const { arcSite, isAdmin } = useAppContext();
 
     const articles = useTimeline({
-        sections,
+        arcSite,
         filter,
-        size,
-        arcSite
+        ...commonProps,
+        ...restCustomFields
     });
 
     const withRoof = roof && !hideTitle;
+    const error = validateTL({ articles, ...commonProps });
 
     return (
         <>
@@ -43,11 +67,11 @@ const Timeline = ({ id: featureId, customFields = {} }) => {
                 />
             )}
 
-            {isAdmin && !articles.length && (
+            {isAdmin && error && (
                 <PageBuilderMessage
                     key={featureId}
-                    type="warning"
-                    message="No se encontraron notas"
+                    type={error.type}
+                    message={error.message}
                 />
             )}
 
@@ -67,12 +91,34 @@ Timeline.label = 'LN Timeline';
 
 Timeline.propTypes = {
     customFields: PropTypes.shape({
-        sections: PropTypes.list.tag({
-            label: 'Secciones'
-        }).isRequired,
         size: PropTypes.number.tag({
             label: 'Cantidad de notas',
             defaultValue: 5
+        }),
+        source: PropTypes.oneOf(Object.keys(sources)).tag({
+            label: 'Fuente',
+            defaultValue: 'Últimas Noticias',
+            description: 'Origen de datos para obtención de notas',
+            labels: sources
+        }).isRequired,
+        sections: PropTypes.list.tag({
+            label: 'Secciones',
+            group: 'Últimas Noticias'
+        }).isRequired,
+        sectionTagType: PropTypes.oneOf(
+            Object.keys({ tag: 'Tag', section: 'Sección' })
+        ).tag({
+            label: 'Tipo',
+            defaultValue: 'Tag',
+            group: 'Sección o Tag',
+            labels: { tag: 'Tag', section: 'Sección' },
+            description: 'Origen de datos para obtención de notas'
+        }).isRequired,
+        sectionTagValue: PropTypes.string.tag({
+            name: 'Tag o Sección',
+            description: 'Tag o sección para obtención de notas',
+            defaultValue: '',
+            group: 'Sección o Tag'
         }),
         ...cajaTemaCustomFields
     }).isRequired
