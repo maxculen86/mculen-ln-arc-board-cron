@@ -1,0 +1,4195 @@
+[
+    {
+        "_id": "/clima/mendoza",
+        "social": {
+            "rss": null,
+            "twitter": null,
+            "facebook": null,
+            "instagram": null
+        },
+        "site": {
+            "site_url": null,
+            "site_tagline": null,
+            "site_description": null,
+            "pagebuilder_path_for_native_apps": null,
+            "site_title": null,
+            "site_about": null,
+            "site_keywords": null
+        },
+        "navigation": {
+            "nav_title": null
+        },
+        "site_topper": {
+            "site_logo_image": null
+        },
+        "acumuladoColor": {
+            "header_class_name": "No"
+        },
+        "acumuladoGeneral": {
+            "mostrar_en_acu_apps": "true"
+        },
+        "_admin": {
+            "alias_ids": ["/clima/mendoza"]
+        },
+        "_website": "la-nacion-ar",
+        "name": "Mendoza",
+        "parent": {
+            "default": "/clima"
+        },
+        "ancestors": {
+            "default": ["/clima"]
+        },
+        "inactive": false,
+        "node_type": "section",
+        "children": [
+            {
+                "_id": "/clima/mendoza/malargue",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Malargue",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/mendoza"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/mendoza"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/mendoza/malargue"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/mendoza/mendoza",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Mendoza",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/mendoza"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/mendoza"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/mendoza/mendoza"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/mendoza/san-rafael",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "San Rafael",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/mendoza"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/mendoza"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/mendoza/san-rafael"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            }
+        ]
+    },
+    {
+        "_id": "/clima/neuquen",
+        "social": {
+            "rss": null,
+            "twitter": null,
+            "facebook": null,
+            "instagram": null
+        },
+        "site": {
+            "site_url": null,
+            "site_tagline": null,
+            "site_description": null,
+            "pagebuilder_path_for_native_apps": null,
+            "site_title": null,
+            "site_about": null,
+            "site_keywords": null
+        },
+        "navigation": {
+            "nav_title": null
+        },
+        "site_topper": {
+            "site_logo_image": null
+        },
+        "acumuladoColor": {
+            "header_class_name": "No"
+        },
+        "acumuladoGeneral": {
+            "mostrar_en_acu_apps": "true"
+        },
+        "_admin": {
+            "alias_ids": ["/clima/neuqquen", "/clima/neuquen"]
+        },
+        "_website": "la-nacion-ar",
+        "name": "Neuquen",
+        "parent": {
+            "default": "/clima"
+        },
+        "ancestors": {
+            "default": ["/clima"]
+        },
+        "inactive": false,
+        "node_type": "section",
+        "children": [
+            {
+                "_id": "/clima/neuquen/neuquen",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Neuquen",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/neuquen"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/neuquen"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/neuquen/neuquen"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/neuquen/san-martin-de-los-andes",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "San Martin de los Andes",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/neuquen"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/neuquen"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/neuquen/san-martin-de-los-andes"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            }
+        ]
+    },
+    {
+        "_id": "/clima/buenos-aires",
+        "social": {
+            "rss": null,
+            "twitter": null,
+            "facebook": null,
+            "instagram": null
+        },
+        "site": {
+            "site_url": null,
+            "site_tagline": null,
+            "site_description": null,
+            "pagebuilder_path_for_native_apps": null,
+            "site_title": null,
+            "site_about": null,
+            "site_keywords": null
+        },
+        "navigation": {
+            "nav_title": null
+        },
+        "site_topper": {
+            "site_logo_image": null
+        },
+        "acumuladoColor": {
+            "header_class_name": "No"
+        },
+        "acumuladoGeneral": {
+            "mostrar_en_acu_apps": "true"
+        },
+        "name": "Buenos Aires",
+        "_website": "la-nacion-ar",
+        "parent": {
+            "default": "/clima"
+        },
+        "ancestors": {
+            "default": ["/clima"]
+        },
+        "_admin": {
+            "alias_ids": ["/clima/buenos-aires"]
+        },
+        "inactive": false,
+        "node_type": "section",
+        "children": [
+            {
+                "_id": "/clima/buenos-aires/ciudad-de-buenos-aires",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Ciudad de Buenos Aires",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/ciudad-de-buenos-aires"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/avellaneda",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Avellaneda",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/avellaneda"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/azul",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Azul",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/azul"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/bahia-blanca",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/bahia-blanca"]
+                },
+                "_website": "la-nacion-ar",
+                "name": "Bahía Blanca",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/banfield",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Banfield",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/banfield"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/don-torcuato",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Don Torcuato",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/don-torcuato"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/el-palomar",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "El Palomar",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/el-palomar"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/ezeiza",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Ezeiza",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/ezeiza"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/junin",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Junin",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/junin"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/la-plata",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "La Plata",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/la-plata"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/lomas-de-zamora",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Lomas de Zamora",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/lomas-de-zamora"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/mar-del-plata",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Mar Del Plata",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/mar-del-plata"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/merlo",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Merlo",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/merlo"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/miramar",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Miramar",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/miramar"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/moreno",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Moreno",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/moreno"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/moron",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Moron",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/moron"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/necochea",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Necochea",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/necochea"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/pehuajo",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Pehuajo",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/pehuajo"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/pergamino",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Pergamino",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/pergamino"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/pinamar",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Pinamar",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/pinamar"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/quilmes",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Quilmes",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/quilmes"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/olavarria",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Olavarria",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/olavarria"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/san-clemente-del-tuyu",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "San Clemente del Tuyu",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/san-clemente-del-tuyu"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/san-fernando",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "San Fernando",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/san-fernando"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/san-isidro",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "San Isidro",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/san-isidro"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/san-miguel",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "San Miguel",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/san-miguel"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/san-pedro",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "San Pedro",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/san-pedro"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/santa-teresita",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Santa Teresita",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/santa-teresita"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/tandil",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Tandil",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/tandil"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/tigre",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Tigre",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/tigre"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/trenque-lauquen",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Trenque Lauquen",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/trenque-lauquen"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/tres-arroyos",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Tres Arroyos",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/tres-arroyos"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/villa-gesel",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Villa Gesel",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/villa-gesel"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/buenos-aires/zarate",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Zarate",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/buenos-aires"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/buenos-aires"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/buenos-aires/zarate"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            }
+        ]
+    },
+    {
+        "_id": "/clima/catamarca",
+        "social": {
+            "rss": null,
+            "twitter": null,
+            "facebook": null,
+            "instagram": null
+        },
+        "site": {
+            "site_url": null,
+            "site_tagline": null,
+            "site_description": null,
+            "pagebuilder_path_for_native_apps": null,
+            "site_title": null,
+            "site_about": null,
+            "site_keywords": null
+        },
+        "navigation": {
+            "nav_title": null
+        },
+        "site_topper": {
+            "site_logo_image": null
+        },
+        "acumuladoColor": {
+            "header_class_name": "No"
+        },
+        "acumuladoGeneral": {
+            "mostrar_en_acu_apps": "true"
+        },
+        "name": "Catamarca",
+        "_website": "la-nacion-ar",
+        "parent": {
+            "default": "/clima"
+        },
+        "ancestors": {
+            "default": ["/clima"]
+        },
+        "_admin": {
+            "alias_ids": ["/clima/catamarca"]
+        },
+        "inactive": false,
+        "node_type": "section",
+        "children": []
+    },
+    {
+        "_id": "/clima/chaco",
+        "social": {
+            "rss": null,
+            "twitter": null,
+            "facebook": null,
+            "instagram": null
+        },
+        "site": {
+            "site_url": null,
+            "site_tagline": null,
+            "site_description": null,
+            "pagebuilder_path_for_native_apps": null,
+            "site_title": null,
+            "site_about": null,
+            "site_keywords": null
+        },
+        "navigation": {
+            "nav_title": null
+        },
+        "site_topper": {
+            "site_logo_image": null
+        },
+        "acumuladoColor": {
+            "header_class_name": "No"
+        },
+        "acumuladoGeneral": {
+            "mostrar_en_acu_apps": "true"
+        },
+        "name": "Chaco",
+        "_website": "la-nacion-ar",
+        "parent": {
+            "default": "/clima"
+        },
+        "ancestors": {
+            "default": ["/clima"]
+        },
+        "_admin": {
+            "alias_ids": ["/clima/chaco"]
+        },
+        "inactive": false,
+        "node_type": "section",
+        "children": []
+    },
+    {
+        "_id": "/clima/chubut",
+        "social": {
+            "rss": null,
+            "twitter": null,
+            "facebook": null,
+            "instagram": null
+        },
+        "site": {
+            "site_url": null,
+            "site_tagline": null,
+            "site_description": null,
+            "pagebuilder_path_for_native_apps": null,
+            "site_title": null,
+            "site_about": null,
+            "site_keywords": null
+        },
+        "navigation": {
+            "nav_title": null
+        },
+        "site_topper": {
+            "site_logo_image": null
+        },
+        "acumuladoColor": {
+            "header_class_name": "No"
+        },
+        "acumuladoGeneral": {
+            "mostrar_en_acu_apps": "true"
+        },
+        "name": "Chubut",
+        "_website": "la-nacion-ar",
+        "parent": {
+            "default": "/clima"
+        },
+        "ancestors": {
+            "default": ["/clima"]
+        },
+        "_admin": {
+            "alias_ids": ["/clima/chubut"]
+        },
+        "inactive": false,
+        "node_type": "section",
+        "children": [
+            {
+                "_id": "/clima/chubut/comodoro-rivadavia",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Comodoro Rivadavia",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/chubut"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/chubut"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/chubut/comodoro-rivadavia"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/chubut/esquel",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Esquel",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/chubut"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/chubut"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/chubut/esquel"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/chubut/puerto-madryn",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Puerto Madryn",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/chubut"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/chubut"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/chubut/puerto-madryn"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/chubut/rawson",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Rawson",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/chubut"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/chubut"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/chubut/rawson"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/chubut/trelew",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Trelew",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/chubut"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/chubut"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/chubut/trelew"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            }
+        ]
+    },
+    {
+        "_id": "/clima/cordoba",
+        "social": {
+            "rss": null,
+            "twitter": null,
+            "facebook": null,
+            "instagram": null
+        },
+        "site": {
+            "site_url": null,
+            "site_tagline": null,
+            "site_description": null,
+            "pagebuilder_path_for_native_apps": null,
+            "site_title": null,
+            "site_about": null,
+            "site_keywords": null
+        },
+        "navigation": {
+            "nav_title": null
+        },
+        "site_topper": {
+            "site_logo_image": null
+        },
+        "acumuladoColor": {
+            "header_class_name": "No"
+        },
+        "acumuladoGeneral": {
+            "mostrar_en_acu_apps": "true"
+        },
+        "name": "Cordoba",
+        "_website": "la-nacion-ar",
+        "parent": {
+            "default": "/clima"
+        },
+        "ancestors": {
+            "default": ["/clima"]
+        },
+        "_admin": {
+            "alias_ids": ["/clima/cordoba"]
+        },
+        "inactive": false,
+        "node_type": "section",
+        "children": [
+            {
+                "_id": "/clima/cordoba/cordoba",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Cordoba",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/cordoba"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/cordoba"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/cordoba/cordoba"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/cordoba/rio-cuarto",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Rio Cuarto",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/cordoba"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/cordoba"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/cordoba/rio-cuarto"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/cordoba/villa-carlos-paz",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Villa Carlos Paz",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/cordoba"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/cordoba"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/cordoba/villa-carlos-paz"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/cordoba/villa-dolores",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Villa Dolores",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/cordoba"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/cordoba"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/cordoba/villa-dolores"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/cordoba/villa-maria",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Villa Maria",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/cordoba"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/cordoba"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/cordoba/villa-maria"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            }
+        ]
+    },
+    {
+        "_id": "/clima/corrientes",
+        "social": {
+            "rss": null,
+            "twitter": null,
+            "facebook": null,
+            "instagram": null
+        },
+        "site": {
+            "site_url": null,
+            "site_tagline": null,
+            "site_description": null,
+            "pagebuilder_path_for_native_apps": null,
+            "site_title": null,
+            "site_about": null,
+            "site_keywords": null
+        },
+        "navigation": {
+            "nav_title": null
+        },
+        "site_topper": {
+            "site_logo_image": null
+        },
+        "acumuladoColor": {
+            "header_class_name": "No"
+        },
+        "acumuladoGeneral": {
+            "mostrar_en_acu_apps": "true"
+        },
+        "name": "Corrientes",
+        "_website": "la-nacion-ar",
+        "parent": {
+            "default": "/clima"
+        },
+        "ancestors": {
+            "default": ["/clima"]
+        },
+        "_admin": {
+            "alias_ids": ["/clima/corrientes"]
+        },
+        "inactive": false,
+        "node_type": "section",
+        "children": []
+    },
+    {
+        "_id": "/clima/entre-rios",
+        "social": {
+            "rss": null,
+            "twitter": null,
+            "facebook": null,
+            "instagram": null
+        },
+        "site": {
+            "site_url": null,
+            "site_tagline": null,
+            "site_description": null,
+            "pagebuilder_path_for_native_apps": null,
+            "site_title": null,
+            "site_about": null,
+            "site_keywords": null
+        },
+        "navigation": {
+            "nav_title": null
+        },
+        "site_topper": {
+            "site_logo_image": null
+        },
+        "acumuladoColor": {
+            "header_class_name": "No"
+        },
+        "acumuladoGeneral": {
+            "mostrar_en_acu_apps": "true"
+        },
+        "name": "Entre Rios",
+        "_website": "la-nacion-ar",
+        "parent": {
+            "default": "/clima"
+        },
+        "ancestors": {
+            "default": ["/clima"]
+        },
+        "_admin": {
+            "alias_ids": ["/clima/entre-rios"]
+        },
+        "inactive": false,
+        "node_type": "section",
+        "children": [
+            {
+                "_id": "/clima/entre-rios/colon",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Colon",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/entre-rios"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/entre-rios"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/entre-rios/colon"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/entre-rios/concordia",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Concordia",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/entre-rios"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/entre-rios"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/entre-rios/concordia"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/entre-rios/gualeguaychu",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Gualeguaychu",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/entre-rios"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/entre-rios"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/entre-rios/gualeguaychu"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/entre-rios/parana",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "parana",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/entre-rios"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/entre-rios"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/entre-rios/parana"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            }
+        ]
+    },
+    {
+        "_id": "/clima/formosa",
+        "social": {
+            "rss": null,
+            "twitter": null,
+            "facebook": null,
+            "instagram": null
+        },
+        "site": {
+            "site_url": null,
+            "site_tagline": null,
+            "site_description": null,
+            "pagebuilder_path_for_native_apps": null,
+            "site_title": null,
+            "site_about": null,
+            "site_keywords": null
+        },
+        "navigation": {
+            "nav_title": null
+        },
+        "site_topper": {
+            "site_logo_image": null
+        },
+        "acumuladoColor": {
+            "header_class_name": "No"
+        },
+        "acumuladoGeneral": {
+            "mostrar_en_acu_apps": "true"
+        },
+        "name": "Formosa",
+        "_website": "la-nacion-ar",
+        "parent": {
+            "default": "/clima"
+        },
+        "ancestors": {
+            "default": ["/clima"]
+        },
+        "_admin": {
+            "alias_ids": ["/clima/formosa"]
+        },
+        "inactive": false,
+        "node_type": "section",
+        "children": []
+    },
+    {
+        "_id": "/clima/jujuy",
+        "social": {
+            "rss": null,
+            "twitter": null,
+            "facebook": null,
+            "instagram": null
+        },
+        "site": {
+            "site_url": null,
+            "site_tagline": null,
+            "site_description": null,
+            "pagebuilder_path_for_native_apps": null,
+            "site_title": null,
+            "site_about": null,
+            "site_keywords": null
+        },
+        "navigation": {
+            "nav_title": null
+        },
+        "site_topper": {
+            "site_logo_image": null
+        },
+        "acumuladoColor": {
+            "header_class_name": "No"
+        },
+        "acumuladoGeneral": {
+            "mostrar_en_acu_apps": "true"
+        },
+        "name": "Jujuy",
+        "_website": "la-nacion-ar",
+        "parent": {
+            "default": "/clima"
+        },
+        "ancestors": {
+            "default": ["/clima"]
+        },
+        "_admin": {
+            "alias_ids": ["/clima/jujuy"]
+        },
+        "inactive": false,
+        "node_type": "section",
+        "children": []
+    },
+    {
+        "_id": "/clima/la-pampa",
+        "social": {
+            "rss": null,
+            "twitter": null,
+            "facebook": null,
+            "instagram": null
+        },
+        "site": {
+            "site_url": null,
+            "site_tagline": null,
+            "site_description": null,
+            "pagebuilder_path_for_native_apps": null,
+            "site_title": null,
+            "site_about": null,
+            "site_keywords": null
+        },
+        "navigation": {
+            "nav_title": null
+        },
+        "site_topper": {
+            "site_logo_image": null
+        },
+        "acumuladoColor": {
+            "header_class_name": "No"
+        },
+        "acumuladoGeneral": {
+            "mostrar_en_acu_apps": "true"
+        },
+        "name": "La Pampa",
+        "_website": "la-nacion-ar",
+        "parent": {
+            "default": "/clima"
+        },
+        "ancestors": {
+            "default": ["/clima"]
+        },
+        "_admin": {
+            "alias_ids": ["/clima/la-pampa"]
+        },
+        "inactive": false,
+        "node_type": "section",
+        "children": []
+    },
+    {
+        "_id": "/clima/la-rioja",
+        "social": {
+            "rss": null,
+            "twitter": null,
+            "facebook": null,
+            "instagram": null
+        },
+        "site": {
+            "site_url": null,
+            "site_tagline": null,
+            "site_description": null,
+            "pagebuilder_path_for_native_apps": null,
+            "site_title": null,
+            "site_about": null,
+            "site_keywords": null
+        },
+        "navigation": {
+            "nav_title": null
+        },
+        "site_topper": {
+            "site_logo_image": null
+        },
+        "acumuladoColor": {
+            "header_class_name": "No"
+        },
+        "acumuladoGeneral": {
+            "mostrar_en_acu_apps": "true"
+        },
+        "name": "La Rioja",
+        "_website": "la-nacion-ar",
+        "parent": {
+            "default": "/clima"
+        },
+        "ancestors": {
+            "default": ["/clima"]
+        },
+        "_admin": {
+            "alias_ids": ["/clima/la-rioja"]
+        },
+        "inactive": false,
+        "node_type": "section",
+        "children": [
+            {
+                "_id": "/clima/la-rioja/chilecito",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Chilecito",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/la-rioja"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/la-rioja"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/la-rioja/chilecito"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/la-rioja/la-rioja",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "La Rioja",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/la-rioja"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/la-rioja"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/la-rioja/la-rioja"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            }
+        ]
+    },
+    {
+        "_id": "/clima/misiones",
+        "social": {
+            "rss": null,
+            "twitter": null,
+            "facebook": null,
+            "instagram": null
+        },
+        "site": {
+            "site_url": null,
+            "site_tagline": null,
+            "site_description": null,
+            "pagebuilder_path_for_native_apps": null,
+            "site_title": null,
+            "site_about": null,
+            "site_keywords": null
+        },
+        "navigation": {
+            "nav_title": null
+        },
+        "site_topper": {
+            "site_logo_image": null
+        },
+        "acumuladoColor": {
+            "header_class_name": "No"
+        },
+        "acumuladoGeneral": {
+            "mostrar_en_acu_apps": "true"
+        },
+        "name": "Misiones",
+        "_website": "la-nacion-ar",
+        "parent": {
+            "default": "/clima"
+        },
+        "ancestors": {
+            "default": ["/clima"]
+        },
+        "_admin": {
+            "alias_ids": ["/clima/misiones"]
+        },
+        "inactive": false,
+        "node_type": "section",
+        "children": [
+            {
+                "_id": "/clima/misiones/obera",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Obera",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/misiones"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/misiones"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/misiones/obera"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/misiones/posadas",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Posadas",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/misiones"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/misiones"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/misiones/posadas"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/misiones/puerto-iguazu",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Puerto Iguazu",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/misiones"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/misiones"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/misiones/puerto-iguazu"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            }
+        ]
+    },
+    {
+        "_id": "/clima/rio-negro",
+        "social": {
+            "rss": null,
+            "twitter": null,
+            "facebook": null,
+            "instagram": null
+        },
+        "site": {
+            "site_url": null,
+            "site_tagline": null,
+            "site_description": null,
+            "pagebuilder_path_for_native_apps": null,
+            "site_title": null,
+            "site_about": null,
+            "site_keywords": null
+        },
+        "navigation": {
+            "nav_title": null
+        },
+        "site_topper": {
+            "site_logo_image": null
+        },
+        "acumuladoColor": {
+            "header_class_name": "No"
+        },
+        "acumuladoGeneral": {
+            "mostrar_en_acu_apps": "true"
+        },
+        "name": "Rio Negro",
+        "_website": "la-nacion-ar",
+        "parent": {
+            "default": "/clima"
+        },
+        "ancestors": {
+            "default": ["/clima"]
+        },
+        "_admin": {
+            "alias_ids": ["/clima/rio-negro"]
+        },
+        "inactive": false,
+        "node_type": "section",
+        "children": [
+            {
+                "_id": "/clima/rio-negro/bariloche",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Bariloche",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/rio-negro"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/rio-negro"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/rio-negro/bariloche"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/rio-negro/cipolletti",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Cipolletti",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/rio-negro"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/rio-negro"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/rio-negro/cipolletti"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/rio-negro/viedma",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Viedma",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/rio-negro"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/rio-negro"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/rio-negro/viedma"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            }
+        ]
+    },
+    {
+        "_id": "/clima/salta",
+        "social": {
+            "rss": null,
+            "twitter": null,
+            "facebook": null,
+            "instagram": null
+        },
+        "site": {
+            "site_url": null,
+            "site_tagline": null,
+            "site_description": null,
+            "pagebuilder_path_for_native_apps": null,
+            "site_title": null,
+            "site_about": null,
+            "site_keywords": null
+        },
+        "navigation": {
+            "nav_title": null
+        },
+        "site_topper": {
+            "site_logo_image": null
+        },
+        "acumuladoColor": {
+            "header_class_name": "No"
+        },
+        "acumuladoGeneral": {
+            "mostrar_en_acu_apps": "true"
+        },
+        "name": "Salta",
+        "_website": "la-nacion-ar",
+        "parent": {
+            "default": "/clima"
+        },
+        "ancestors": {
+            "default": ["/clima"]
+        },
+        "_admin": {
+            "alias_ids": ["/clima/salta"]
+        },
+        "inactive": false,
+        "node_type": "section",
+        "children": []
+    },
+    {
+        "_id": "/clima/san-juan",
+        "social": {
+            "rss": null,
+            "twitter": null,
+            "facebook": null,
+            "instagram": null
+        },
+        "site": {
+            "site_url": null,
+            "site_tagline": null,
+            "site_description": null,
+            "pagebuilder_path_for_native_apps": null,
+            "site_title": null,
+            "site_about": null,
+            "site_keywords": null
+        },
+        "navigation": {
+            "nav_title": null
+        },
+        "site_topper": {
+            "site_logo_image": null
+        },
+        "acumuladoColor": {
+            "header_class_name": "No"
+        },
+        "acumuladoGeneral": {
+            "mostrar_en_acu_apps": "true"
+        },
+        "name": "San Juan",
+        "_website": "la-nacion-ar",
+        "parent": {
+            "default": "/clima"
+        },
+        "ancestors": {
+            "default": ["/clima"]
+        },
+        "_admin": {
+            "alias_ids": ["/clima/san-juan"]
+        },
+        "inactive": false,
+        "node_type": "section",
+        "children": []
+    },
+    {
+        "_id": "/clima/san-luis",
+        "social": {
+            "rss": null,
+            "twitter": null,
+            "facebook": null,
+            "instagram": null
+        },
+        "site": {
+            "site_url": null,
+            "site_tagline": null,
+            "site_description": null,
+            "pagebuilder_path_for_native_apps": null,
+            "site_title": null,
+            "site_about": null,
+            "site_keywords": null
+        },
+        "navigation": {
+            "nav_title": null
+        },
+        "site_topper": {
+            "site_logo_image": null
+        },
+        "acumuladoColor": {
+            "header_class_name": "No"
+        },
+        "acumuladoGeneral": {
+            "mostrar_en_acu_apps": "true"
+        },
+        "name": "San Luis",
+        "_website": "la-nacion-ar",
+        "parent": {
+            "default": "/clima"
+        },
+        "ancestors": {
+            "default": ["/clima"]
+        },
+        "_admin": {
+            "alias_ids": ["/clima/san-luis"]
+        },
+        "inactive": false,
+        "node_type": "section",
+        "children": [
+            {
+                "_id": "/clima/san-luis/merlo",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Merlo",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/san-luis"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/san-luis"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/san-luis/merlo"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/san-luis/san-luis",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "San Luis",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/san-luis"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/san-luis"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/san-luis/san-luis"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            }
+        ]
+    },
+    {
+        "_id": "/clima/santa-cruz",
+        "social": {
+            "rss": null,
+            "twitter": null,
+            "facebook": null,
+            "instagram": null
+        },
+        "site": {
+            "site_url": null,
+            "site_tagline": null,
+            "site_description": null,
+            "pagebuilder_path_for_native_apps": null,
+            "site_title": null,
+            "site_about": null,
+            "site_keywords": null
+        },
+        "navigation": {
+            "nav_title": null
+        },
+        "site_topper": {
+            "site_logo_image": null
+        },
+        "acumuladoColor": {
+            "header_class_name": "No"
+        },
+        "acumuladoGeneral": {
+            "mostrar_en_acu_apps": "true"
+        },
+        "name": "Santa Cruz",
+        "_website": "la-nacion-ar",
+        "parent": {
+            "default": "/clima"
+        },
+        "ancestors": {
+            "default": ["/clima"]
+        },
+        "_admin": {
+            "alias_ids": ["/clima/santa-cruz"]
+        },
+        "inactive": false,
+        "node_type": "section",
+        "children": [
+            {
+                "_id": "/clima/santa-cruz/calafate",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Calafate",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/santa-cruz"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/santa-cruz"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/santa-cruz/calafate"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/santa-cruz/rio-gallegos",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Rio Gallegos",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/santa-cruz"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/santa-cruz"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/santa-cruz/rio-gallegos"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            }
+        ]
+    },
+    {
+        "_id": "/clima/santa-fe",
+        "social": {
+            "rss": null,
+            "twitter": null,
+            "facebook": null,
+            "instagram": null
+        },
+        "site": {
+            "site_url": null,
+            "site_tagline": null,
+            "site_description": null,
+            "pagebuilder_path_for_native_apps": null,
+            "site_title": null,
+            "site_about": null,
+            "site_keywords": null
+        },
+        "navigation": {
+            "nav_title": null
+        },
+        "site_topper": {
+            "site_logo_image": null
+        },
+        "acumuladoColor": {
+            "header_class_name": "No"
+        },
+        "acumuladoGeneral": {
+            "mostrar_en_acu_apps": "true"
+        },
+        "name": "Santa Fe",
+        "_website": "la-nacion-ar",
+        "parent": {
+            "default": "/clima"
+        },
+        "ancestors": {
+            "default": ["/clima"]
+        },
+        "_admin": {
+            "alias_ids": ["/clima/santa-fe"]
+        },
+        "inactive": false,
+        "node_type": "section",
+        "children": [
+            {
+                "_id": "/clima/santa-fe/rafaela",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Rafaela",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/santa-fe"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/santa-fe"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/santa-fe/rafaela"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/santa-fe/reconquista",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Reconquista",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/santa-fe"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/santa-fe"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/santa-fe/reconquista"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/santa-fe/rosario",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Rosario",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/santa-fe"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/santa-fe"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/santa-fe/rosario"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/santa-fe/santa-fe",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Santa Fe",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/santa-fe"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/santa-fe"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/santa-fe/santa-fe"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/santa-fe/venado-tuerto",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Venado Tuerto",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/santa-fe"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/santa-fe"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/santa-fe/venado-tuerto"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            }
+        ]
+    },
+    {
+        "_id": "/clima/santiago-del-estero",
+        "social": {
+            "rss": null,
+            "twitter": null,
+            "facebook": null,
+            "instagram": null
+        },
+        "site": {
+            "site_url": null,
+            "site_tagline": null,
+            "site_description": null,
+            "pagebuilder_path_for_native_apps": null,
+            "site_title": null,
+            "site_about": null,
+            "site_keywords": null
+        },
+        "navigation": {
+            "nav_title": null
+        },
+        "site_topper": {
+            "site_logo_image": null
+        },
+        "acumuladoColor": {
+            "header_class_name": "No"
+        },
+        "acumuladoGeneral": {
+            "mostrar_en_acu_apps": "true"
+        },
+        "name": "Santiago del Estero",
+        "_website": "la-nacion-ar",
+        "parent": {
+            "default": "/clima"
+        },
+        "ancestors": {
+            "default": ["/clima"]
+        },
+        "_admin": {
+            "alias_ids": ["/clima/santiago-del-estero"]
+        },
+        "inactive": false,
+        "node_type": "section",
+        "children": []
+    },
+    {
+        "_id": "/clima/tierra-del-fuego",
+        "social": {
+            "rss": null,
+            "twitter": null,
+            "facebook": null,
+            "instagram": null
+        },
+        "site": {
+            "site_url": null,
+            "site_tagline": null,
+            "site_description": null,
+            "pagebuilder_path_for_native_apps": null,
+            "site_title": null,
+            "site_about": null,
+            "site_keywords": null
+        },
+        "navigation": {
+            "nav_title": null
+        },
+        "site_topper": {
+            "site_logo_image": null
+        },
+        "acumuladoColor": {
+            "header_class_name": "No"
+        },
+        "acumuladoGeneral": {
+            "mostrar_en_acu_apps": "true"
+        },
+        "name": "Tierra del Fuego",
+        "_website": "la-nacion-ar",
+        "parent": {
+            "default": "/clima"
+        },
+        "ancestors": {
+            "default": ["/clima"]
+        },
+        "_admin": {
+            "alias_ids": ["/clima/tierra-del-fuego"]
+        },
+        "inactive": false,
+        "node_type": "section",
+        "children": [
+            {
+                "_id": "/clima/tierra-del-fuego/ushuaia",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Ushuaia",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/tierra-del-fuego"
+                },
+                "ancestors": {
+                    "default": ["/clima", "/clima/tierra-del-fuego"]
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/tierra-del-fuego/ushuaia"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            }
+        ]
+    },
+    {
+        "_id": "/clima/tucuman",
+        "social": {
+            "rss": null,
+            "twitter": null,
+            "facebook": null,
+            "instagram": null
+        },
+        "site": {
+            "site_url": null,
+            "site_tagline": null,
+            "site_description": null,
+            "pagebuilder_path_for_native_apps": null,
+            "site_title": null,
+            "site_about": null,
+            "site_keywords": null
+        },
+        "navigation": {
+            "nav_title": null
+        },
+        "site_topper": {
+            "site_logo_image": null
+        },
+        "acumuladoColor": {
+            "header_class_name": "No"
+        },
+        "acumuladoGeneral": {
+            "mostrar_en_acu_apps": "true"
+        },
+        "name": "Tucuman",
+        "_website": "la-nacion-ar",
+        "parent": {
+            "default": "/clima"
+        },
+        "ancestors": {
+            "default": ["/clima"]
+        },
+        "_admin": {
+            "alias_ids": ["/clima/tucuman"]
+        },
+        "inactive": false,
+        "node_type": "section",
+        "children": []
+    },
+    {
+        "_id": "/clima/antartida",
+        "social": {
+            "rss": null,
+            "twitter": null,
+            "facebook": null,
+            "instagram": null
+        },
+        "site": {
+            "site_url": null,
+            "site_tagline": null,
+            "site_description": null,
+            "pagebuilder_path_for_native_apps": null,
+            "site_title": null,
+            "site_about": null,
+            "site_keywords": null
+        },
+        "navigation": {
+            "nav_title": null
+        },
+        "site_topper": {
+            "site_logo_image": null
+        },
+        "acumuladoColor": {
+            "header_class_name": "No"
+        },
+        "acumuladoGeneral": {
+            "mostrar_en_acu_apps": "true"
+        },
+        "name": "Antartida",
+        "_website": "la-nacion-ar",
+        "parent": {
+            "default": "/clima"
+        },
+        "ancestors": {
+            "default": ["/clima"]
+        },
+        "_admin": {
+            "alias_ids": ["/clima/antartida"]
+        },
+        "inactive": false,
+        "node_type": "section",
+        "children": []
+    }
+]
