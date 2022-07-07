@@ -1,4 +1,13 @@
+@mixin full-width-apertura {
+    position: relative;
+    width: 100vw;
+    right: calc((100vw - 100%) / 2);
+    background: #322d59;
+    background: radial-gradient(ellipse at center, #322d59 0, #08142d 100%);
+}
+
 .apertura {
+    @include full-width-apertura;
     position: relative;
     padding-bottom: 56.25%;
     /* 16/9 ratio */
@@ -16,4 +25,6 @@
     width: 100%;
     height: 100%;
     z-index: 2;
+    max-width: 1140px;
+    margin: 0 auto;
 }
