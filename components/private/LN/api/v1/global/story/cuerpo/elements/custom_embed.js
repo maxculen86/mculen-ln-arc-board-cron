@@ -13,19 +13,19 @@ const customEmbed = (nodo, dataNota) => {
     const typeList = get(nodo, 'embed.config.typeList', null);
     const time = get(nodo, 'embed.config.time', null);
     if (titleElement) {
-        const obj = {
+        const objTitle = {
             type: 'header',
             content: titleElement
         };
         if (typeList === 'liveblog') {
-            obj.level = 1;
+            objTitle.level = 1;
             if (time) {
-                obj.content = time.concat(' '.concat(titleElement));
+                objTitle.content = time.concat(' '.concat(titleElement));
             }
         } else {
-            obj.level = 2;
+            objTitle.level = 2;
         }
-        res.push(header(obj));
+        res.push(header(objTitle));
     }
 
     const imageElement = get(nodo, 'embed.config.imageId', null);
