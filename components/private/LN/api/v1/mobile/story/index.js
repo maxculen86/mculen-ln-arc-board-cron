@@ -1,7 +1,7 @@
+import get from '../../../../../common/utils/get';
 import { storyCommon, storyHeadline } from '../../common/story/storyCommon';
 import cuerpo from './cuerpo/index';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
-import get from '../../../../../../private/common/utils/get';
 
 const indexNota = dataNota => {
     const resp = {

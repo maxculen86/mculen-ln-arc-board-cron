@@ -4,19 +4,28 @@ import htmlText from '../../../../common/story/cuerpo/elements/htmlText';
 import image from './image';
 
 const customEmbed = (nodo, dataNota) => {
-    if (!nodo || nodo.subtype !== 'custom-parallax') return null;
+    if (!nodo || !['custom-parallax', 'custom-liveblog'].includes(nodo.subtype))
+        return null;
 
     const res = [];
 
     const titleElement = get(nodo, 'embed.config.title', null);
+    const typeList = get(nodo, 'embed.config.typeList', null);
+    const time = get(nodo, 'embed.config.time', null);
     if (titleElement) {
-        res.push(
-            header({
-                type: 'header',
-                level: 2,
-                content: titleElement
-            })
-        );
+        const obj = {
+            type: 'header',
+            content: titleElement
+        };
+        if (typeList === 'liveblog') {
+            obj.level = 1;
+            if (time) {
+                obj.content = time.concat(' '.concat(titleElement));
+            }
+        } else {
+            obj.level = 2;
+        }
+        res.push(header(obj));
     }
 
     const imageElement = get(nodo, 'embed.config.imageId', null);
