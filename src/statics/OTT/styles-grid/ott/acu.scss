@@ -7,7 +7,6 @@
 
 .main {
     margin: 0 auto;
-    padding: 0 10px;
 }
 
 #acumulado .apertura .powa-shadow {
@@ -19,6 +18,10 @@
     position: absolute;
     width: 100%;
     z-index: 2;
+}
+#acumulado .ultimos-videos {
+    padding-left: 10px;
+    padding-right: 10px;
 }
 #acumulado .ultimos-videos .section-title {
     color: $blanco;

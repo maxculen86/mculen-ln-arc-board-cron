@@ -16,7 +16,7 @@ export default function ActivePrograms({ items, type }) {
         );
     });
     return type === 'Carousel' ? (
-        <section>
+        <section className="todos-los-programas">
             <Title
                 className="section-title"
                 title="Todos los programas"

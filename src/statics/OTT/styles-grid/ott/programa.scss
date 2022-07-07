@@ -1,26 +1,8 @@
-#programa .apertura:after {
-    background: $negro;
-    background: -webkit-radial-gradient(center, ellipse, $negro 0, $negro 100%);
-    background: -o-radial-gradient(center, ellipse, $negro 0, $negro 100%);
-    background: radial-gradient(ellipse at center, $negro 0, $negro 100%);
-}
-
-#programa .header-wrapper {
-    background: $negro;
-    background: -webkit-radial-gradient(center, ellipse, $negro 0, $negro 100%);
-    background: -o-radial-gradient(center, ellipse, $negro 0, $negro 100%);
-    background: radial-gradient(ellipse at center, $negro 0, $negro 100%);
-}
-
 @mixin full-width-ott {
     position: relative;
     width: 100vw;
     right: calc((100vw - 100%) / 2);
     background-color: #1a1a1a;
-}
-
-#acumulado main {
-    padding: 0;
 }
 
 #programa .apertura picture:before {
@@ -61,6 +43,8 @@
 .info-programa {
     margin: 0 auto;
     padding-top: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
     @include grilla;
     background: #1a1a1a;
 }
@@ -135,24 +119,25 @@
     opacity: 0.75;
 }
 
-@media (max-width: 1140px) {
-    #acumulado .ultimos-videos {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-    .info-programa {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
+.programas {
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 @media (min-width: 1140px) {
+    #acumulado .programas {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
     #acumulado .apertura {
         @include full-width-ott;
     }
 
     #acumulado .ultimos-videos {
         @include full-width-ott;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     #acumulado .ultimos-videos {
@@ -165,6 +150,8 @@
 
     .info-programa {
         margin: 0 auto;
+        padding-left: 0;
+        padding-right: 0;
         padding-top: 30px;
         @include grilla;
         @include full-width-ott;

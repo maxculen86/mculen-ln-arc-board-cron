@@ -15,6 +15,12 @@
     /* IE6 workaround*/
     height: 0;
 }
+.todos-los-programas,
+.especiales,
+.ultimos-videos {
+    padding-left: 10px;
+    padding-right: 10px;
+}
 
 .apertura iframe,
 .apertura object,
@@ -27,4 +33,13 @@
     z-index: 2;
     max-width: 1140px;
     margin: 0 auto;
+}
+
+@media (min-width: 1080px) {
+    .todos-los-programas,
+    .especiales,
+    .ultimos-videos {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
