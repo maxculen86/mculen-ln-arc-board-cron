@@ -1,15 +1,18 @@
 // import request from 'request-promise-native';
 import logger from '../../../../../components/private/common/utils/logger';
 import weatherData from './_config';
+import getWeatherMetaData from './weatherHelper';
 
-const weatherRequest = ({ queryData, auth } = {}) => {
+const weatherRequest = ({ queryData, auth, sectionChildrens } = {}) => {
     const { serviceItem = '', serviceSubItem = '' } = queryData;
 
     if (serviceSubItem) {
         return Promise.resolve(weatherData.ciudad);
     }
     if (serviceItem) {
-        return Promise.resolve(weatherData['provincia-ciudad']);
+        return sectionChildrens.length > 0
+            ? Promise.resolve(weatherData['provincia-ciudad'])
+            : Promise.resolve(weatherData.provincia);
     }
     // const opt = {
     //     uri: getUri(queryData),
@@ -18,14 +21,27 @@ const weatherRequest = ({ queryData, auth } = {}) => {
     // };
     return Promise.resolve(weatherData['home-clima']);
 };
+const resolve = ({ response = {} }) => transform(response);
 
-const resolve = ({ response }) => {
+const transform = data => {
     const {
-        sectionSourceData = {},
         dataService = {},
+        sectionSourceData = {},
+        serviceItem = '',
+        serviceSubItem = '',
         serviceType = ''
-    } = response;
-    return { dataService, serviceType, ...sectionSourceData };
+    } = data;
+    const { children = [], name = '' } = sectionSourceData;
+
+    return {
+        dataService,
+        ...sectionSourceData,
+        metaData: getWeatherMetaData(serviceItem, serviceSubItem)(
+            name,
+            children
+        ),
+        serviceType
+    };
 };
 
 const reject = ({ error, uri, arcSite }) => {

@@ -43,12 +43,15 @@ const fetch = async (query, { cachedCall }) => {
 
     return serviceRequest({
         queryData: query,
-        auth: getAuthForRequest(ARC_ACCESS_TOKEN)
+        auth: getAuthForRequest(ARC_ACCESS_TOKEN),
+        sectionChildrens
     })
         .then(response =>
             resolve({
                 response: {
                     sectionSourceData,
+                    serviceItem,
+                    serviceSubItem,
                     dataService: response,
                     serviceType: getTemplates(
                         serviceItem,
