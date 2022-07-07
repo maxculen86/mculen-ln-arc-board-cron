@@ -3,16 +3,13 @@ import PropTypes from 'prop-types';
 // import get from '../../../common/utils/get';
 
 const WeatherCard = ({ id, data }) => {
-    console.log(
-        '🚀 ~ file: WeatherCard.jsx ~ line 6 ~ WeatherCard ~ data',
-        data
-    );
     const {
         location_name: locationName,
         weather: { id: idDescription, description } = {},
         temp_min: minTemp,
         temp_max: maxTemp
     } = data;
+
     return (
         <div style={{ padding: '10px' }}>
             <h2>{`Nombre: ${locationName}`}</h2>

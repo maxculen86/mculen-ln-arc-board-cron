@@ -3,10 +3,6 @@ import PropTypes from 'prop-types';
 import get from '../../../common/utils/get';
 
 const ForecastByDay = ({ id, title, data }) => {
-    console.log(
-        '🚀 ~ file: ForecastByDay.jsx ~ line 6 ~ ForecastByDay ~ data',
-        data
-    );
     const {
         humidity,
         rain_prob_range: rainRange = [],
@@ -37,9 +33,9 @@ const ForecastByDay = ({ id, title, data }) => {
             <p>{`Temp promedio: ${temperature} º C`}</p>
             <p>{`Icono nº: ${weather.id}`}</p>
             <p>{`Descripcion: ${weather.description}`}</p>
-            <p>{`Humedad promedio: ${humidity}`}</p>
+            <p>{`Humedad promedio: ${humidity} %`}</p>
             <p>{`Viento: ${parsedWindDir} ${windSpeed} Km/h`}</p>
-            <p>{`Precipitaciones: ${rain}`}</p>
+            <p>{`Precipitaciones: ${rain} %`}</p>
         </div>
     );
 };

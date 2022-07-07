@@ -10,10 +10,7 @@ const WeatherList = ({ id: featureId }) => {
         'globalContent.dataService.locations',
         []
     );
-    console.log(
-        '🚀 ~ file: default.jsx ~ line 8 ~ WeatherCard ~ locations',
-        locations
-    );
+
     if (!locations.length) return null;
 
     return (
@@ -25,7 +22,7 @@ const WeatherList = ({ id: featureId }) => {
     );
 };
 
-WeatherList.label = 'LN Clima Lista';
+WeatherList.label = 'LN Clima Listado';
 
 WeatherList.propTypes = { id: PropTypes.string.isRequired };
 

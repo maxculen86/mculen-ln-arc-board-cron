@@ -9,10 +9,6 @@ const WeatherForecast = ({ id: featureId }) => {
     const forecast = get(globalContent, 'dataService.forecast', []);
     const sectionName = get(globalContent, 'name', '');
 
-    console.log(
-        '🚀 ~ file: default.jsx ~ line 8 ~ ForecastByDay ~ forecast',
-        forecast
-    );
     if (!forecast.length) return null;
 
     return (
@@ -20,7 +16,7 @@ const WeatherForecast = ({ id: featureId }) => {
             <h2>{`Pronóstico del tiempo extendido para ${sectionName}`}</h2>
             {forecast.map((day, index) => (
                 <ForecastByDay
-                    key={day.location_id}
+                    key={day.date}
                     data={day}
                     section={sectionName}
                     index={index}
