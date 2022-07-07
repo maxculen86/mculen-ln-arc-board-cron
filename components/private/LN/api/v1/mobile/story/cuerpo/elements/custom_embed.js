@@ -9,14 +9,13 @@ const customEmbed = (nodo, dataNota) => {
     const res = [];
 
     const titleElement = get(nodo, 'embed.config.title', null);
-    const typeList = get(nodo, 'embed.config.typeList', null);
     const time = get(nodo, 'embed.config.time', null);
     if (titleElement) {
         const objTitle = {
             type: 'header',
             content: titleElement
         };
-        if (typeList === 'liveblog') {
+        if (nodo.subtype === 'custom-liveblog') {
             objTitle.level = 1;
             if (time) {
                 objTitle.content = time.concat(' '.concat(titleElement));
