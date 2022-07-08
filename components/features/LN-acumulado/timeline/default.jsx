@@ -54,7 +54,7 @@ const Timeline = ({ id: featureId, customFields = {} }) => {
             {articles.map(article => (
                 <Article
                     {...article}
-                    boxPosition="tl"
+                    // boxPosition="tl"
                     titleSize="--twoxs"
                     titleTag="h3"
                 />
