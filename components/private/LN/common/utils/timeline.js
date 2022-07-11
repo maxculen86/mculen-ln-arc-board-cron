@@ -123,7 +123,7 @@ const setTLValidationRules = ({
     articles,
     source,
     sectionTagValue,
-    sections,
+    sections = [],
     collectionId
 }) => {
     const emptyRules = {

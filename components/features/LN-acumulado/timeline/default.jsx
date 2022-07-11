@@ -96,7 +96,6 @@ Timeline.propTypes = {
         }),
         source: PropTypes.oneOf(Object.keys(tlSources)).tag({
             label: 'Fuente',
-            defaultValue: 'Últimas Noticias',
             description: 'Origen de datos para obtención de notas',
             labels: tlSources
         }).isRequired,

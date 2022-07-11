@@ -1,4 +1,4 @@
-import get from './../';
+import get from '../../../common/utils/get';
 
 const pageBuilderValidator = ({ rules }) => {
     const message = get(
@@ -8,3 +8,5 @@ const pageBuilderValidator = ({ rules }) => {
     );
     return message && { type: 'warning', message };
 };
+
+export default pageBuilderValidator;
