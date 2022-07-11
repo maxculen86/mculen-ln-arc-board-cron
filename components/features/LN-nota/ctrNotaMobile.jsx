@@ -6,32 +6,48 @@ import { isSubscribed } from '../../private/LN/common/utils/contextHelper';
 import get from '../../private/common/utils/get';
 import StickyMobile from '../../private/LN/nota/StickyMobile';
 
+const ctrRecommendNote = (articleList, articlesSeen, actualArticleId) => {
+    const notCurrent = articleList.filter(art => {
+        return art._id !== actualArticleId;
+    });
+
+    const notSeenBefore = notCurrent.filter(art => {
+        return !articlesSeen.includes(art.canonical_url);
+    });
+
+    return notSeenBefore.length > 0
+        ? notSeenBefore[0]
+        : notCurrent.sort(() => (Math.random() > 0.5 ? 1 : -1))[0] || {};
+};
+
 const CTRNota = () => {
     const globalContent = get(useAppContext(), 'globalContent', {});
-    const { _id: actualArticleId } = globalContent;
+    const { _id } = globalContent;
 
     const [trigger, setTrigger] = useState(false);
-    const device = useViewportSize();
-    const isSub = isSubscribed();
+    const [excludeItems, setExcludeItems] = useState([]);
 
-    const data =
+    const device = useViewportSize();
+    const showCtr = !isSubscribed() && device === 'mobile';
+
+    const { articles = [] } =
         getContent({
-            source: 'rankingArticlesSource',
+            source: showCtr ? 'rankingArticlesSource' : null,
             query: {
                 sectionId: 'inverse-home',
                 imageConfig: 'boxArticles',
                 website: 'la-nacion-ar'
             }
-        }) || [];
+        }) || {};
 
-    const { articles = [] } = data;
-
-    const articleToShow =
-        articles.filter(art => {
-            return art._id !== actualArticleId;
-        })[0] || {};
-
+    const articleToShow = ctrRecommendNote(articles, excludeItems, _id);
     useEffect(() => {
+        if (localStorage) {
+            const seenNotes =
+                JSON.parse(localStorage.getItem('excludeItems')) || [];
+
+            setExcludeItems(seenNotes.map(note => new URL(note).pathname));
+        }
         const handleScroll = () => {
             const scrolledInAxisY = window.scrollY;
 
@@ -46,16 +62,13 @@ const CTRNota = () => {
         };
     }, [trigger]);
 
-    const showComponent = !isSub && device === 'mobile' && articleToShow !== {};
+    const showComponent =
+        showCtr && trigger && Object.keys(articleToShow).length > 0;
     return (
-        showComponent &&
-        trigger && (
+        showComponent && (
             <StickyMobile
                 headerText="Te puede interesar"
-                urlImg={articleToShow.promo_items.basic.url}
-                resizedUrls={articleToShow.promo_items.basic.resized_urls}
-                urlArticle={articleToShow.website_url}
-                titleArticle={articleToShow.headlines.mobile}
+                articleToShow={articleToShow}
             />
         )
     );

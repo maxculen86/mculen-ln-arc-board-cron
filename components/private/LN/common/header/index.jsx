@@ -16,6 +16,7 @@ import { getLoginData, isLoggedIn } from '../utils/contextHelper';
 const CLASS_SCROLL_UP = '--scrollUp';
 const CLASS_SCROLL_DOWN = '--scrollDown';
 const CLASS_ACTIVE = '--active';
+const CLASS_HANDLE_SHARE = '--handle-share';
 let lastScrollPosition = 0;
 
 const Index = props => {
@@ -41,7 +42,14 @@ const Index = props => {
             window.addEventListener(
                 'scroll',
                 debounce(() => {
-                    onScrollHandler(header, headerHeigth, userMenu, wrapper);
+                    onScrollHandler(
+                        header,
+                        headerHeigth,
+                        userMenu,
+                        wrapper,
+                        layout,
+                        layoutsName
+                    );
                 })
             );
         }
@@ -99,14 +107,26 @@ const toglleDesplegable = () => {
         : document.body.classList.add('dropdown');
 };
 
-const onScrollHandler = (header, height, userMenu, wrapper) => {
+const onScrollHandler = (
+    header,
+    height,
+    userMenu,
+    wrapper,
+    layout,
+    layoutsName
+) => {
     const { isScrollUp, isScrollDown } = Scroll.getScrollDirection(
         lastScrollPosition
     );
     const scrollPos = window.scrollY;
     const { classList } = header;
-    const vshare = document.getElementById('v-share');
-
+    if (layout === layoutsName.FotoAl100) {
+        const vshare = document.getElementById('v-share');
+        const { 1: img } = Array.from(document.querySelectorAll('.com-image'));
+        img.getBoundingClientRect().y < 0
+            ? vshare.classList.add(CLASS_HANDLE_SHARE)
+            : vshare.classList.remove(CLASS_HANDLE_SHARE);
+    }
     if (userMenu) userMenu.classList.remove(CLASS_ACTIVE);
     if (scrollPos) {
         if (scrollPos > height) {
@@ -116,7 +136,6 @@ const onScrollHandler = (header, height, userMenu, wrapper) => {
         }
         if (isScrollUp) {
             classList.remove(CLASS_ACTIVE);
-            if (vshare) vshare.classList.remove(CLASS_ACTIVE);
 
             if (wrapper) {
                 wrapper.classList.remove(CLASS_SCROLL_DOWN);
@@ -124,7 +143,6 @@ const onScrollHandler = (header, height, userMenu, wrapper) => {
             }
         } else {
             classList.remove(CLASS_ACTIVE);
-            if (vshare) vshare.classList.remove(CLASS_ACTIVE);
 
             if (wrapper) {
                 wrapper.classList.remove(CLASS_SCROLL_UP);
@@ -133,7 +151,6 @@ const onScrollHandler = (header, height, userMenu, wrapper) => {
         }
         if (scrollPos < 65) {
             classList.add(CLASS_ACTIVE);
-            if (vshare) vshare.classList.add(CLASS_ACTIVE);
         }
     }
 
