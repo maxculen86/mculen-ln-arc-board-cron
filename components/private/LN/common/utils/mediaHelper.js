@@ -132,10 +132,12 @@ export const LinkImagePreload = ({ resizedUrls = [], isAmp }) => {
 };
 
 export const wikiImagesWithWWW = data => {
-    const { image } = data;
-    const { resizedUrls } = image;
+    const { image = {} } = data;
+    const { resizedUrls = [] } = image;
+    const smallImage = resizedUrls.find(e => e.option.width === 320) || {};
+
     const promoItemsWiki = {
-        url: resizedUrls.find(e => e.option.width === 320).resizedUrl || '',
+        url: smallImage.resizedUrl || '',
         type: 'image',
         resized_urls: resizedUrls
     };

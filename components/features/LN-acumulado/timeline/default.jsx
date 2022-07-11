@@ -3,12 +3,12 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
-import Article from '../../private/common/mod-article';
-import ComTitle from '../../private/common/com-title';
-import useTimeline from '../../private/LN/common/hooks/useTimeline';
-import { cajaTemasCustomsFields } from '../../private/LN/common/utils/cajaTemasHelper';
-import filter from '../../../content/filters/LN/acumulado/articleTimeline';
-import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
+import Article from '../../../private/common/mod-article';
+import ComTitle from '../../../private/common/com-title';
+import useTimeline from '../../../private/LN/common/hooks/useTimeline';
+import { cajaTemasCustomsFields } from '../../../private/LN/common/utils/cajaTemasHelper';
+import filter from '../../../../content/filters/LN/acumulado/articleTimeline';
+import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
 const {
     layout,
@@ -54,7 +54,7 @@ const Timeline = ({ id: featureId, customFields = {} }) => {
             {articles.map(article => (
                 <Article
                     {...article}
-                    boxPosition="tl"
+                    // boxPosition="tl"
                     titleSize="--twoxs"
                     titleTag="h3"
                 />
