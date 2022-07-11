@@ -77,7 +77,8 @@ const setExtraProps = ({ tituloNota, capitalIndex, contentElements }) => {
         gallery: { withZoom: '--zoom' },
         video: {
             tituloNota,
-            primerParrafo: (capitalIndex && contentElements[capitalIndex]) || ''
+            primerParrafo:
+                (capitalIndex !== -1 && contentElements[capitalIndex]) || ''
         }
     };
 };

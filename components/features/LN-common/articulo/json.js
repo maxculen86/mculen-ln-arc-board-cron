@@ -1,6 +1,7 @@
 import Consumer from 'fusion:consumer';
 import getProperties from 'fusion:properties';
 import getCajaTemaConfig from '../../../private/LN/home/components/noteCard/noteCardImageHelper';
+import resultArticle from '../../../private/LN/api/v1/global/home/article/index';
 import get from '../../../private/common/utils/get';
 
 class ArticleFeature {
@@ -15,7 +16,6 @@ class ArticleFeature {
         const renderables = get(props, 'renderables', null);
         let imageConfig = null;
         this.state = {};
-
         if (renderables) {
             const { cajaTemaConfig } = getProperties(arcSite);
 
@@ -60,29 +60,11 @@ class ArticleFeature {
     render() {
         try {
             const { articleSourceNota, articleImage } = this.state || {};
-            const {
-                noteId,
-                title,
-                authors,
-                lead,
-                chapita,
-                opinion
-            } = this.props.customFields;
 
             if (!articleSourceNota) {
                 return null;
             }
-
-            const additionalProperties = {
-                noteId,
-                title,
-                authors,
-                lead,
-                chapita,
-                opinion,
-                image: articleImage || null
-            };
-            return { ...articleSourceNota, additionalProperties };
+            return resultArticle(articleSourceNota, articleImage, this.props);
         } catch (err) {
             return { Success: false, Message: err.message };
         }

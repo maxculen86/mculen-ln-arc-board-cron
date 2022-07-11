@@ -77,4 +77,59 @@ describe('features - LaNacion - Nota - ', () => {
 
         expect(component.find('a').length).toBe(1);
     });
+
+    it('Test when section is not defined on recursive execution.', () => {
+        const note = {
+            ...nota,
+            taxonomy: {
+                primary_section: {
+                    _id: '/seguridad',
+                    parent_id: '/seguridad',
+                    path: '/seguridad',
+                    name: 'Seguridad'
+                },
+                sections: [
+                    {
+                        _id: '/deportes',
+                        path: '/deportes',
+                        parent_id: '/deportes'
+                    }
+                ]
+            }
+        };
+
+        const component = render(
+            <Breadcrumb globalContent={note} siteProperties={siteProps} />
+        );
+
+        expect(component.find('a').length).toBe(2);
+    });
+
+    it('Test when the section is defined in recursive execution', () => {
+        const note = {
+            ...nota,
+            taxonomy: {
+                primary_section: {
+                    _id: '/seguridad',
+                    parent_id: '/seguridad',
+                    path: '/seguridad',
+                    name: 'Seguridad'
+                },
+                sections: [
+                    {
+                        _id: '/seguridad',
+                        path: '/seguridad-deportes',
+                        name: 'Seguridad en deportes',
+                        parent_id: '/deportes'
+                    }
+                ]
+            }
+        };
+
+        const component = render(
+            <Breadcrumb globalContent={note} siteProperties={siteProps} />
+        );
+
+        expect(component.find('a').length).toBe(3);
+    });
 });

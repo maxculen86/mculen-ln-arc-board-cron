@@ -8,7 +8,7 @@ export const validateFeature = (idCollection, articles, layout) => {
         (!idCollection &&
             'Se requiere el id de la colección de la caja de temas') ||
         (idCollection &&
-            articles.length === 0 &&
+            (!articles || articles.length === 0) &&
             `La colección ${idCollection} no encontró notas`);
 
     return message && { type: 'warning', message };

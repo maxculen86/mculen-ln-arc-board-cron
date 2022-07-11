@@ -53,14 +53,7 @@
                 .container {
                     flex-direction: column;
                 }
-                .--scrollDown & {
-                    top: (px(16) + $header-desktop);
-                }
-                &:not(.--active) {
-                    .--scrollUp & {
-                        top: (px(16) + $header-desktop);
-                    }
-                }
+                top: (px(16) + $header-desktop);
             }
         }
     }

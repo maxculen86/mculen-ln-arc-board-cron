@@ -113,10 +113,12 @@ export const createIntersectionObserver = () => {
 };
 
 const shouldAddArticle = (entry, articlesSeen) => {
+    const idArticle = get(entry, 'target.dataset.id');
     return (
         entry.isIntersecting &&
+        idArticle &&
         Array.isArray(articlesSeen) &&
-        !articlesSeen.find(art => art.id === entry.target.dataset.id)
+        !articlesSeen.find(art => art.id === idArticle)
     );
 };
 

@@ -16,15 +16,15 @@
         right: px(16);
     }
     @media ($media-m) {
-        width: px(355);
-        top: px(61);
+        width: px(450);
+        top: auto;
+        bottom: px(100);
+        right: calc(((100% - 100px) / 2) - 180px);
     }
-    @media ($media-l) {
-        top: px(89);
+    @media ($media-lm) {
+        right: calc(((100% - 100px) / 2) - 50px);
     }
-    @media ($media-xl) {
-        right: calc(((100% - 55.83333rem) / 2) - 185px);
-    }
+
     .icon-container {
         @include flex(flex, row, center, center);
         width: px(40);
