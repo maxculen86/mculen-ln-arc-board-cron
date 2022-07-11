@@ -125,7 +125,6 @@ header.sticky .header__logo img {
     }
     .header.open .wrapper {
         @include flex-column;
-        width: auto;
     }
     .header__nav {
         height: 0;
