@@ -13,8 +13,13 @@ const reject = ({ error, uri, arcSite, source } = {}) => {
     );
 };
 
+const getTemplates = () => {
+    return '';
+};
+
 export default {
     request: defaultRequest,
     resolve,
-    reject
+    reject,
+    getTemplates
 };
