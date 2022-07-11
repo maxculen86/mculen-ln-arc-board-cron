@@ -4,6 +4,12 @@ import { LIVEBLOG } from '../../../common/utils/subtypes/subtypeHelper';
 import ComHour from '../../../common/com-hour';
 import pageBuilderValidator from '../../../common/utils/pageBuilderValidator';
 
+export const tlSources = {
+    byLastNews: 'Últimas Noticias',
+    byTagSection: 'Seccíon o Tag',
+    byCollection: 'Caja Collection'
+};
+
 export const getTLFeature = (features, children, layoutName) => {
     const lowerLayout = layoutName.toLowerCase();
     const featureKeys = children.map(c => c.key);
@@ -61,7 +67,9 @@ export const setTLQuantity = size => {
     };
 };
 
-export const setTLArticles = (articles = []) => {
+export const setTLArticles = (articles = [], source) => {
+    const isCollection = source === 'byCollection';
+
     return articles.map((article, index) => {
         const {
             _id,
@@ -79,7 +87,9 @@ export const setTLArticles = (articles = []) => {
             artPosition,
             key: _id,
             titleText: headlines.basic,
-            hour: (
+            hour: isCollection ? (
+                <></>
+            ) : (
                 <ComHour
                     display_date={displayDateWithThreeHours}
                     size="--fivexs"
@@ -113,24 +123,26 @@ const setTLValidationRules = ({
     articles,
     source,
     sectionTagValue,
-    sections
+    sections,
+    collectionId
 }) => {
-    const isTagSection = source === 'byTagSection';
-    const isLastNews = source === 'byLastNews';
-
-    const hasArticles = articles.length;
-    const hasSections = sections.length;
-
-    const emptySectionTag = isTagSection && !sectionTagValue;
-    const emptyLastNews = isLastNews && !hasSections;
+    const emptyRules = {
+        byLastNews: !sections.length,
+        byTagSection: !sectionTagValue,
+        byCollection: !collectionId
+    };
 
     return [
         {
-            validation: emptySectionTag || emptyLastNews,
+            validation: !source,
+            message: 'Debe especificar una fuente de notas'
+        },
+        {
+            validation: emptyRules[source],
             message: 'Debe especificar un tag, seccíon o id de collection'
         },
         {
-            validation: !hasArticles,
+            validation: !articles.length,
             message: 'No se encontraron notas'
         }
     ];

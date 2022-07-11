@@ -13,7 +13,8 @@ const useTimeline = ({
     arcSite,
     source,
     sectionTagType,
-    sectionTagValue
+    sectionTagValue,
+    collectionId
 }) => {
     const sectionsIds = sectionsFormated(sections);
     const { articlesQuantity, articlesQuantityBackup } = setTLQuantity(size);
@@ -36,10 +37,12 @@ const useTimeline = ({
         shouldNotFilter: false,
         website: arcSite,
         promoItemsOnly: false,
-        staticMode: false
+        staticMode: false,
+        collectionId
     };
 
     const response = useGetArticlesFromAcumSource(...Object.values(searchArgs));
+
     const justCommonArticles = response
         .filter(
             article =>
@@ -48,7 +51,7 @@ const useTimeline = ({
         )
         .slice(0, articlesQuantity);
 
-    return setTLArticles(justCommonArticles);
+    return setTLArticles(justCommonArticles, source);
 };
 
 export default useTimeline;

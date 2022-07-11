@@ -7,10 +7,12 @@ import Article from '../../../private/common/mod-article';
 import ComTitle from '../../../private/common/com-title';
 import useTimeline from '../../../private/LN/common/hooks/useTimeline';
 import { cajaTemasCustomsFields } from '../../../private/LN/common/utils/cajaTemasHelper';
-import { validateTL } from '../../../private/LN/common/utils/timeline';
+import {
+    validateTL,
+    tlSources
+} from '../../../private/LN/common/utils/timeline';
 import filter from '../../../../content/filters/LN/acumulado/articleTimeline';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
-import pageBuilderValidator from '../../../private/common/utils/pageBuilderValidator';
 
 const {
     layout,
@@ -21,13 +23,7 @@ const {
     ...cajaTemaCustomFields
 } = cajaTemasCustomsFields('cajaManual');
 
-const sources = {
-    byLastNews: 'Últimas Noticias',
-    byTagSection: 'Seccíon o Tag',
-    byColleciton: 'Caja Collection'
-};
-
-const Timeline = ({ id: featureId, customFields = {} }) => {
+const Timeline = ({ id: featureId, customFields = {}, ...restProps }) => {
     const {
         title: roof,
         url,
@@ -35,13 +31,15 @@ const Timeline = ({ id: featureId, customFields = {} }) => {
         source,
         sections,
         sectionTagValue,
+        collectionId,
         ...restCustomFields
     } = customFields;
 
     const commonProps = {
         source,
         sections,
-        sectionTagValue
+        sectionTagValue,
+        collectionId
     };
 
     const { arcSite, isAdmin } = useAppContext();
@@ -75,14 +73,15 @@ const Timeline = ({ id: featureId, customFields = {} }) => {
                 />
             )}
 
-            {articles.map(article => (
-                <Article
-                    {...article}
-                    boxPosition="tl"
-                    titleSize="--twoxs"
-                    titleTag="h3"
-                />
-            ))}
+            {source &&
+                articles.map(article => (
+                    <Article
+                        {...article}
+                        boxPosition="tl"
+                        titleSize="--twoxs"
+                        titleTag="h3"
+                    />
+                ))}
         </>
     );
 };
@@ -95,11 +94,11 @@ Timeline.propTypes = {
             label: 'Cantidad de notas',
             defaultValue: 5
         }),
-        source: PropTypes.oneOf(Object.keys(sources)).tag({
+        source: PropTypes.oneOf(Object.keys(tlSources)).tag({
             label: 'Fuente',
             defaultValue: 'Últimas Noticias',
             description: 'Origen de datos para obtención de notas',
-            labels: sources
+            labels: tlSources
         }).isRequired,
         sections: PropTypes.list.tag({
             label: 'Secciones',
@@ -119,6 +118,12 @@ Timeline.propTypes = {
             description: 'Tag o sección para obtención de notas',
             defaultValue: '',
             group: 'Sección o Tag'
+        }),
+        collectionId: PropTypes.string.tag({
+            name: 'ID collection',
+            description: 'Id de la collection para obtención de notas',
+            defaultValue: '',
+            group: 'Collection'
         }),
         ...cajaTemaCustomFields
     }).isRequired
