@@ -19,6 +19,12 @@ const createISODate = (date, time) => {
     return dateAndTime !== '' ? dateAndTime.toISOString() : '';
 };
 
+const concatenateBullets = bullets => {
+    return bullets.map(bullet => {
+        return bullet.content.replace('\n', '') || '';
+    });
+};
+
 const calculateDateModified = (
     lastUpdatedDate,
     minutes,
@@ -44,19 +50,28 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
         return type === 'custom_embed' && subtype === 'custom-liveblog';
     });
     let post = {};
+    let description = [];
     const postElements = contentElements
         .slice(postingStart)
         .reduce((acc, elem, i) => {
-            const { subtype = 'default' } = elem;
+            const { subtype = 'default', type = '' } = elem;
 
             if (subtype === 'custom-liveblog') {
                 post = {};
+                description = [];
+            }
+            if (type === 'text' || type === 'list') {
+                type === 'list'
+                    ? elem.items &&
+                      description.push(
+                          concatenateBullets(elem.items).join('; ')
+                      )
+                    : elem.content && description.push(elem.content);
             }
 
             Object.assign(post, {
-                content: elem.content && elem.content,
                 ...(elem.embed && elem.embed),
-                ...(post.content && { content: post.content })
+                ...(elem.url && { url: elem.url })
             });
 
             if (
@@ -64,6 +79,10 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
                     contentElements[i + 1].type === 'custom_embed') ||
                 i + 1 === contentElements.length
             ) {
+                post = {
+                    ...post,
+                    content: description.join()
+                };
                 acc.push(post);
             }
 
@@ -83,7 +102,7 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
             mainEntityOfPage: { '@type': 'WebPage' },
             datePublished: isoDate,
             dateModified: isoDate,
-            articleBody: content,
+            articleBody: content.replace(/<[^>]*>/gm, ''),
             image: {
                 '@type': 'ImageObject',
                 url: url || PLACEHOLDER
