@@ -1,6 +1,7 @@
 import React from 'react';
 import { useContent } from 'fusion:content';
 import PropTypes from 'fusion:prop-types';
+import '../../../../resources/dist/css/ln/components/weather.css';
 // import get from '../../../private/common/utils/get';
 
 const WeatherProvinces = ({ id: featureId }) => {

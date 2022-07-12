@@ -3,6 +3,7 @@ import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import get from '../../../private/common/utils/get';
 import WeatherCard from '../../../private/LN/services/weather/WeatherCard';
+import '../../../../resources/dist/css/ln/components/weather.css';
 
 const WeatherList = ({ id: featureId }) => {
     const locations = get(

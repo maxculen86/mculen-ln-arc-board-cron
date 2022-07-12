@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import ForecastCard from './ForecastCard';
 import { addHoursAndFormat } from '../../../common/utils/dateAndTimeUtil';
 import { weekDays } from '../../../common/utils/transformISODate';
+import Text from '../../../common/text';
 
 const ForecastByDay = ({ id, index, section, data }) => {
     const { morning, afternoon, night, date } = data;
@@ -27,11 +28,15 @@ const ForecastByDay = ({ id, index, section, data }) => {
     )}`;
 
     return (
-        <div style={{ padding: '10px' }}>
-            <h2>{customSubtitle}</h2>
-            {morning && <ForecastCard title="Mañana" data={morning} />}
-            {afternoon && <ForecastCard title="Tarde" data={afternoon} />}
-            {night && <ForecastCard title="Noche" data={night} />}
+        <div className="extend-forecast">
+            <Text tag="h2" weight="bold" size="--l">
+                {customSubtitle}
+            </Text>
+            <div className="content-forecast">
+                {morning && <ForecastCard title="Mañana" data={morning} />}
+                {afternoon && <ForecastCard title="Tarde" data={afternoon} />}
+                {night && <ForecastCard title="Noche" data={night} />}
+            </div>
         </div>
     );
 };

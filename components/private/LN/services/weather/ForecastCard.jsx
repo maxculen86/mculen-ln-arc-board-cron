@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from '../../../common/utils/get';
+import Text from '../../../common/text';
+import Icon from '../../../common/icon';
 
 const ForecastByDay = ({ id, title, data }) => {
     const {
@@ -28,14 +30,33 @@ const ForecastByDay = ({ id, title, data }) => {
     const rain = getHigher(rainRange);
 
     return (
-        <div style={{ padding: '10px' }}>
-            <p>{title}</p>
-            <p>{`Temp promedio: ${temperature} º C`}</p>
-            <p>{`Icono nº: ${weather.id}`}</p>
-            <p>{`Descripcion: ${weather.description}`}</p>
-            <p>{`Humedad promedio: ${humidity} %`}</p>
-            <p>{`Viento: ${parsedWindDir} ${windSpeed} Km/h`}</p>
-            <p>{`Precipitaciones: ${rain} %`}</p>
+        <div className="forecast-card">
+            <div className="labeled">
+                <Text tag="h2" weight="bold">
+                    {title}
+                </Text>
+                <Text tag="p" weight="bold" size="--xl">
+                    {`${temperature} º C`}
+                </Text>
+            </div>
+            <div className="icon">
+                <Icon name="sun" size="--xl" />
+                <Text tag="p" weight="light">
+                    {`Icono nº: ${weather.id}`}
+                </Text>
+                <Text tag="p" weight="light">
+                    {weather.description}
+                </Text>
+            </div>
+            <Text tag="p" weight="light">
+                {`Humedad promedio: ${humidity} %`}
+            </Text>
+            <Text tag="p" weight="light">
+                {`Viento: ${parsedWindDir} ${windSpeed} Km/h`}
+            </Text>
+            <Text tag="p" weight="light">
+                {`Precipitaciones: ${rain} %`}
+            </Text>
         </div>
     );
 };

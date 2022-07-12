@@ -1,0 +1,62 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+
+@mixin common-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid $dark-neutral-600;
+    border-radius: 4px;
+    height: px(340);
+    min-width: px(234);
+    width: 100%;
+    padding: $spacing-sm $spacing-sm px(20) $spacing-sm;
+}
+
+.extend-forecast {
+    display: flex;
+    flex-direction: column;
+    margin: px(20) 0;
+
+    .com-text{
+        margin-bottom: px(16);
+    }
+
+    .content-forecast {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+
+.weather-card{
+    @include common-card;
+
+    .com-link{
+        align-self: center;
+    }
+    .com-link .com-text {
+        color: $neutral-black;
+    }
+    .icon {
+        @include flex(flex, column, center,  center);
+    }
+    .temperature {
+        @include flex(flex, row, space-around, center);        
+    }
+}
+
+.forecast-card{
+    @include common-card;
+    display: flex;
+    flex-direction: column;
+
+    .labeled {
+        @include flex(flex, column, center,  center);  
+    }
+
+    .icon {
+        @include flex(flex, column, center,  center);
+    }
+}

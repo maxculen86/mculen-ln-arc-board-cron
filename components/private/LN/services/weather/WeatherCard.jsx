@@ -1,5 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Link from '../../../common/com-link';
+import Text from '../../../common/text';
+import Icon from '../../../common/icon';
+
 // import get from '../../../common/utils/get';
 
 const WeatherCard = ({ id, data }) => {
@@ -11,12 +15,41 @@ const WeatherCard = ({ id, data }) => {
     } = data;
 
     return (
-        <div style={{ padding: '10px' }}>
-            <h2>{`Nombre: ${locationName}`}</h2>
-            <p>{`Icono nº: ${idDescription}`}</p>
-            <p>{`Descripcion: ${description}`}</p>
-            <p>{`Min temp: ${minTemp} º C`}</p>
-            <p>{`Max temp: ${maxTemp} º C`}</p>
+        <div className="weather-card">
+            <Link link="#" title={`Ir a clima en ${locationName}`}>
+                <Text tag="h2" weight="bold">
+                    {locationName}
+                </Text>
+            </Link>
+            <div className="icon">
+                <Icon name="sun" size="--xl" />
+                {/* se supone que el idDescription es el nombre del icono, hace falta diccionario porque viene un numero y se vuela esto */}
+                <p>{idDescription}</p>
+                <Text tag="p" weight="light">
+                    {description}
+                </Text>
+            </div>
+            <div className="temperature">
+                <Text>
+                    <Text tag="p" weight="bold" size="--xl">
+                        {`${minTemp} ºC`}
+                    </Text>
+                    Min
+                </Text>
+                <Text>
+                    <Text tag="p" weight="bold" size="--xl">
+                        {`${maxTemp} ºC`}
+                    </Text>
+                    Max
+                </Text>
+            </div>
+            <Text tag="h3" size="5xs">
+                <Link
+                    link="#"
+                    title={`Ir a clima en ${locationName}`}
+                    textname={`Ver clima en ${locationName}`}
+                />
+            </Text>
         </div>
     );
 };
