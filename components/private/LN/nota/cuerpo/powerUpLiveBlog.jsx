@@ -6,7 +6,19 @@ const PowerUpLiveBlog = ({ data = {} }) => {
     const { embed = {} } = data;
     const { config = {} } = embed;
     const { time = '', title = '' } = config;
-    return <ComTitle tag="h2" size="--l" content={`${time} ${title}`} />;
+
+    const timeWithoutSeconds = (timeString = '') => {
+        const timeArray = timeString.split(':');
+        timeArray.length > 2 && timeArray.pop();
+        return timeArray.join(':');
+    };
+    return (
+        <ComTitle
+            tag="h2"
+            size="--l"
+            content={`${timeWithoutSeconds(time)} ${title}`}
+        />
+    );
 };
 
 PowerUpLiveBlog.arcType = 'custom-liveblog';
