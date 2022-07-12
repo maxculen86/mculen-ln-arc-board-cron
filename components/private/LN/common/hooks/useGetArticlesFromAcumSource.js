@@ -41,5 +41,6 @@ export default function useGetArticlesFromAcumSource(
         filter,
         staticMode
     });
+
     return get(articleList, 'content_elements', []);
 }

@@ -6,8 +6,9 @@
     color: gray;
     font-size: 12px;
     width: 100%;
-    margin: 10px 0;
+    padding: 20px 0;
     font-family: $font-arial;
+    background: white;
 }
 
 .footer a {
@@ -15,6 +16,7 @@
     font-family: $font-arial;
     font-size: 12px;
     text-decoration: none;
+    margin-left: 10px;
 }
 
 .footer__left,
@@ -33,12 +35,20 @@
 .footer__bottom {
     @include flex;
     @include alit-end;
+    padding: 0 20px;
+    max-width: 600px;
 }
 
 .footer__center {
+    max-width: 600px;
     @include flex;
     @include flex-column;
     @include alit-center;
+}
+
+.footer__left {
+    display: flex;
+    justify-content: end;
 }
 
 .footer__left .footer__up button {
@@ -131,6 +141,12 @@
     width: 39px;
 }
 
+@media (min-width: 1026px) {
+    .footer__right {
+        display: flex;
+    }
+}
+
 @media (max-width: 1025px) {
     .footer {
         @include flex-column;
@@ -205,11 +221,5 @@
     }
     .footer__center .footer__up a:first-of-type {
         padding: $px-15;
-    }
-}
-
-@media (max-width: 330px) {
-    .footer__center .footer__bottom p {
-        width: 70%;
     }
 }

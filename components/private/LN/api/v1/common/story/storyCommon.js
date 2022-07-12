@@ -1,5 +1,5 @@
 import get from '../../../../../common/utils/get';
-import matchObject from '../utils/matchObject';
+import sentToApps from '../utils/sentToApps';
 import Apertura from './apertura/aperturaArticle';
 import ModificadorTemplate from './modificadorTemplate';
 import Relacionados from './relacionados';
@@ -60,11 +60,7 @@ export const storyCommon = (dataNota, cuerpo) => {
 
     const showBanners = get(dataNota, 'label.mostrar_banners.text', null);
 
-    const sentToApps = get(dataNota, 'label.enviar_a_apps.text', null);
-    const enviarApps =
-        matchObject(dataNota, 'contains') === false
-            ? matchObject(dataNota, 'contains')
-            : !(sentToApps && sentToApps.toLowerCase() === 'no');
+    const enviarApps = sentToApps(dataNota);
 
     const distributor = get(dataNota, 'distributor', null);
 

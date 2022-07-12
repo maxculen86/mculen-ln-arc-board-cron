@@ -38,6 +38,15 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
 }
 
 .--photo100 {
+    &.--scrollDown {
+        #v-share {
+            &.--handle-share {
+                @media ($media-l) {
+                    transform: translateY(px(-500));
+                }
+            }
+        }
+    }
     #content {
         padding-top: 0;
         .mod-opening {

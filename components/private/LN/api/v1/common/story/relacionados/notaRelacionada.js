@@ -1,5 +1,5 @@
 import get from '../../../../../../common/utils/get';
-import matchObject from '../../../common/utils/matchObject';
+import sentToApps from '../../utils/sentToApps';
 
 const notaRelacionada = dataNota => {
     if (!dataNota) return null;
@@ -16,7 +16,7 @@ const notaRelacionada = dataNota => {
         titulo,
         url: websiteUrl || canonicalUrl,
         // TODO: pendiente revisar validacion para match
-        enviarApps: matchObject(dataNota, 'regex')
+        enviarApps: sentToApps(dataNota)
     };
 
     const volanta = get(dataNota, 'label.volanta');

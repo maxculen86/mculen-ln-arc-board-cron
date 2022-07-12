@@ -182,7 +182,7 @@ export const getScriptForComercial = slodId => {
                 window.addEventListener('DOMContentLoaded', () => {
                     setTimeout(function(){
                         document.getElementById("${slodId}").parentNode.classList.add('hlp-none');
-                      },10000)
+                      },12000)
                 })
             `
             }}

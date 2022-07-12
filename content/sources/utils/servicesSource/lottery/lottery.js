@@ -49,10 +49,15 @@ const transform = data => {
     };
 };
 
+const getTemplates = serviceItem => {
+    return serviceItem ? 'detalle-loterias' : 'home-loterias';
+};
+
 export default {
     getUri,
     request: lotteryRequest,
     resolve,
     reject,
-    transform
+    transform,
+    getTemplates
 };

@@ -1,0 +1,272 @@
+{
+    "_id": "f2c4fe95-d7ca-438c-bf74-7d46e6ed4ce1",
+    "type": "video",
+    "version": "0.8.0",
+    "subtype": "ott---programa-completo",
+    "language": "es",
+    "canonical_url": "/video/mesa-chica-21-de-junio-2022-vidf2c4fe95",
+    "canonical_website": "ott",
+    "short_url": "/video/mesa-chica-21-de-junio-2022-vidf2c4fe95",
+    "created_date": "2022-06-22T14:08:10Z",
+    "last_updated_date": "2022-06-22T14:28:36Z",
+    "publish_date": "2022-06-22T14:28:44Z",
+    "first_publish_date": "2022-06-22T14:28:44Z",
+    "display_date": "2022-06-22T14:28:44Z",
+    "headlines": {
+        "basic": "Mesa chica - 21 de Junio 2022"
+    },
+    "credits": {},
+    "taxonomy": {
+        "tags": [],
+        "primary_site": {
+            "type": "reference",
+            "additional_properties": {},
+            "_id": "/mesa-chica",
+            "referent": {
+                "type": "site",
+                "id": "/mesa-chica",
+                "provider": ""
+            }
+        },
+        "sites": [
+            {
+                "type": "reference",
+                "additional_properties": {},
+                "_id": "/mesa-chica",
+                "referent": {
+                    "type": "site",
+                    "id": "/mesa-chica",
+                    "provider": ""
+                }
+            }
+        ],
+        "primary_section": {
+            "_id": "/mesa-chica",
+            "_website": "ott",
+            "type": "section",
+            "version": "0.6.0",
+            "name": "Mesa chica",
+            "path": "/mesa-chica",
+            "parent_id": "/",
+            "parent": {
+                "default": "/"
+            },
+            "additional_properties": {
+                "original": {
+                    "_id": "/mesa-chica",
+                    "site": {
+                        "site_url": "/programas/mesa-chica/"
+                    },
+                    "OTT_Program": {
+                        "image_program_id": "IDTL7DHY5RA3BJGVEWL6Z3TFS4",
+                        "small_image_program_id": "FY2WGLNCVNEELD7QNJITG2XXAY"
+                    },
+                    "_website": "ott",
+                    "name": "Mesa chica",
+                    "order": {
+                        "default": 1017,
+                        "ActivePrograms": 1013
+                    },
+                    "parent": {
+                        "ActivePrograms": "/",
+                        "Header": null,
+                        "default": "/"
+                    },
+                    "ancestors": {
+                        "ActivePrograms": ["/"],
+                        "Header": [],
+                        "default": ["/"]
+                    },
+                    "inactive": false,
+                    "node_type": "section"
+                }
+            }
+        },
+        "sections": [
+            {
+                "_id": "/mesa-chica",
+                "_website": "ott",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Mesa chica",
+                "path": "/mesa-chica",
+                "parent_id": "/",
+                "parent": {
+                    "default": "/"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/mesa-chica",
+                        "site": {
+                            "site_url": "/programas/mesa-chica/"
+                        },
+                        "OTT_Program": {
+                            "image_program_id": "IDTL7DHY5RA3BJGVEWL6Z3TFS4",
+                            "small_image_program_id": "FY2WGLNCVNEELD7QNJITG2XXAY"
+                        },
+                        "_website": "ott",
+                        "name": "Mesa chica",
+                        "order": {
+                            "default": 1017,
+                            "ActivePrograms": 1013
+                        },
+                        "parent": {
+                            "ActivePrograms": "/",
+                            "Header": null,
+                            "default": "/"
+                        },
+                        "ancestors": {
+                            "ActivePrograms": ["/"],
+                            "Header": [],
+                            "default": ["/"]
+                        },
+                        "inactive": false,
+                        "node_type": "section"
+                    }
+                },
+                "_website_section_id": "ott./mesa-chica"
+            }
+        ],
+        "seo_keywords": []
+    },
+    "promo_items": {
+        "basic": {
+            "type": "image",
+            "version": "0.5.8",
+            "credits": {},
+            "caption": "a",
+            "url": "https://d3us6z9haan6vf.cloudfront.net/06-22-2022/t_b8765941fe0149ddb914c3540a27234a_name_file_1280x720_2000_v3_1_.jpg",
+            "width": 1280,
+            "height": 720
+        }
+    },
+    "related_content": {
+        "redirect": [],
+        "basic": []
+    },
+    "owner": {
+        "sponsored": false,
+        "id": "lanacionar"
+    },
+    "planning": {
+        "scheduling": {}
+    },
+    "revision": {
+        "published": true,
+        "branch": "default"
+    },
+    "syndication": {
+        "search": true
+    },
+    "source": {
+        "system": "video center",
+        "edit_url": ""
+    },
+    "distributor": {
+        "category": "staff"
+    },
+    "tracking": {
+        "in_url_headline": "video"
+    },
+    "additional_properties": {
+        "subsection": "Mesa chica",
+        "videoCategory": "ott---programa-completo",
+        "workflowStatus": "PUBLISHED",
+        "videoId": "62b3224a32efa15b96e7157b",
+        "vertical": false,
+        "embedContinuousPlay": true,
+        "imageResizerUrls": [],
+        "advertising": {
+            "allowPrerollOnDomain": false,
+            "autoPlayPreroll": false,
+            "commercialAdNode": "/mesa-chica",
+            "enableAdInsertion": false,
+            "enableAutoPreview": false,
+            "enableServerSideFallback": false,
+            "forceAd": false,
+            "playAds": false,
+            "playVideoAds": false,
+            "videoAdZone": ""
+        },
+        "disableUpNext": false,
+        "videoAdZone": "",
+        "platform": "desktop",
+        "playVideoAds": false,
+        "useVariants": false,
+        "has_published_copy": true,
+        "playlistTags": [],
+        "firstPublishedBy": {
+            "name": "Federico Iribarren",
+            "email": "firibarren@lanacion.com.ar",
+            "lastname": ""
+        },
+        "anglerfishArcId": "ZDJJSI2M6FFEHE5DTRYKBDJBV4",
+        "isWire": false,
+        "gifAsThumbnail": false,
+        "published": true,
+        "ZDJJSI2M6FFEHE5DTRYKBDJBV4": "06-22-2022/t_b8765941fe0149ddb914c3540a27234a_name_file_1280x720_2000_v3_1_.jpg",
+        "lastPublishedBy": {
+            "name": "Federico Iribarren",
+            "email": "firibarren@lanacion.com.ar",
+            "lastname": ""
+        },
+        "permalinkUrl": "/video/mesa-chica-21-de-junio-2022-vidf2c4fe95",
+        "forceClosedCaptionsOn": false,
+        "doNotShowTranscripts": false
+    },
+    "duration": 3566848,
+    "video_type": "clip",
+    "streams": [
+        {
+            "height": 720,
+            "width": 1280,
+            "filesize": 952067624,
+            "stream_type": "mp4",
+            "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/20220622/62b3224a32efa15b96e7157b/t_b38e9a2c05cc4b1d9c5e1dc37cfb5c54_name_Mesa_chica___21_de_Junio_2022/file_1280x720-2000-v3_1.mp4",
+            "bitrate": 2000,
+            "provider": "mediaconvert"
+        },
+        {
+            "height": 360,
+            "width": 640,
+            "filesize": 327685649,
+            "stream_type": "mp4",
+            "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/20220622/62b3224a32efa15b96e7157b/t_b38e9a2c05cc4b1d9c5e1dc37cfb5c54_name_Mesa_chica___21_de_Junio_2022/file_640x360-600.mp4",
+            "bitrate": 600,
+            "provider": "mediaconvert"
+        }
+    ],
+    "subtitles": {},
+    "promo_image": {
+        "type": "image",
+        "version": "0.5.8",
+        "credits": {},
+        "caption": "a",
+        "url": "https://d3us6z9haan6vf.cloudfront.net/06-22-2022/t_b8765941fe0149ddb914c3540a27234a_name_file_1280x720_2000_v3_1_.jpg",
+        "width": 1280,
+        "height": 720
+    },
+    "embed_html": "<div class=\"powa\" id=\"powa-f2c4fe95-d7ca-438c-bf74-7d46e6ed4ce1\" data-org=\"lanacionar\" data-uuid=\"f2c4fe95-d7ca-438c-bf74-7d46e6ed4ce1\" data-ad-companion=\"coAd\" data-aspect-ratio=\"0.562\"><script src=\"https://lanacionar.video-player.arcpublishing.com/prod/powaBoot.js\"></script></div>",
+    "websites": {
+        "ott": {
+            "website_section": {
+                "path": "/mesa-chica",
+                "_website": "ott",
+                "name": "Mesa chica",
+                "_id": "/mesa-chica",
+                "type": "section",
+                "version": "0.6.0",
+                "primary": true
+            },
+            "website_url": "/video/mesa-chica-21-de-junio-2022-vidf2c4fe95"
+        }
+    },
+    "publishing": {
+        "scheduled_operations": {
+            "publish_edition": [],
+            "unpublish_edition": []
+        }
+    },
+    "website": "ott",
+    "website_url": "/video/mesa-chica-21-de-junio-2022-vidf2c4fe95"
+}

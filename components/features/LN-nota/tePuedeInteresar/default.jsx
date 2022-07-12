@@ -80,7 +80,6 @@ const tePuedeInteresar = props => {
 };
 
 tePuedeInteresar.label = 'LN-Nota-tePuedeInteresar';
-tePuedeInteresar.lazy = true;
 
 tePuedeInteresar.propTypes = {
     customFields: PropTypes.shape({
