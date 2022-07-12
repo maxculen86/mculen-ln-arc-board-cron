@@ -81,7 +81,7 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
             ) {
                 post = {
                     ...post,
-                    content: description.join()
+                    content: description.join(' ')
                 };
                 acc.push(post);
             }
