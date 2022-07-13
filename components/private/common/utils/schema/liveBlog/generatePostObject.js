@@ -19,9 +19,10 @@ const createISODate = (date, time) => {
     return dateAndTime !== '' ? dateAndTime.toISOString() : '';
 };
 
-const concatenateBullets = bullets => {
-    return bullets.map(bullet => {
-        return bullet.content.replace('\n', '') || '';
+const concatenateBullets = (bullets = []) => {
+    return bullets.map((bullet = {}) => {
+        const { content = '' } = bullet;
+        return content.replace('\n', '');
     });
 };
 
@@ -60,15 +61,11 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
                 post = {};
                 description = [];
             }
-            if (type === 'text' || type === 'list') {
-                type === 'list'
-                    ? elem.items &&
-                      description.push(
-                          concatenateBullets(elem.items).join('; ')
-                      )
-                    : elem.content && description.push(elem.content);
-            }
+            type === 'list' &&
+                elem.items &&
+                description.push(concatenateBullets(elem.items).join('; '));
 
+            type === 'text' && elem.content && description.push(elem.content);
             Object.assign(post, {
                 ...(elem.embed && elem.embed),
                 ...(elem.url && { url: elem.url })
