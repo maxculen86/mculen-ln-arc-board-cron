@@ -63,3 +63,26 @@
         }
     }
 }
+
+.icon-references {
+    @include common-card;
+    @include flex(flex, row, space-around, center);
+    height: 200px;
+    .card-icon {
+        @include flex(flex, column, space-around, center);
+    }
+}
+
+.province-list {
+    @include flex(flex, row, space-between);
+    flex-wrap: wrap;
+
+    .province {
+        @include flex(flex, column, center, center);
+        border: 1px solid $light-neutral-400;
+        border-radius: px(4);
+        height: px(80);
+        width: 100%;
+        max-width: px(150);
+    }
+}

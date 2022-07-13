@@ -2,6 +2,7 @@ import React from 'react';
 import { useContent } from 'fusion:content';
 import PropTypes from 'fusion:prop-types';
 import '../../../../resources/dist/css/ln/components/weather.css';
+import ProvincesList from '../../../private/LN/services/weather/ProvincesList';
 // import get from '../../../private/common/utils/get';
 
 const WeatherProvinces = ({ id: featureId }) => {
@@ -13,16 +14,11 @@ const WeatherProvinces = ({ id: featureId }) => {
     });
     const { children: provinces = [] } = data || {};
 
-    const listToShow = provinces.map(province => province.name).join(', ');
+    // const listToShow = provinces.map(province => province.name).join(', ');
 
     if (!provinces.length) return null;
 
-    return (
-        <>
-            <h3>Listado de provincias:</h3>
-            <p>{listToShow}</p>
-        </>
-    );
+    return <ProvincesList provinces={provinces} />;
 };
 
 WeatherProvinces.label = 'LN Clima Provincias';
