@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ComTitle from '../../../common/com-title';
+import StaticValidation from '../../../common/staticValidation';
 
 const PowerUpLiveBlog = ({ data = {} }) => {
     const { embed = {} } = data;
@@ -13,16 +14,17 @@ const PowerUpLiveBlog = ({ data = {} }) => {
         return timeArray.join(':');
     };
     return (
-        <ComTitle
-            tag="h2"
-            size="--l"
-            content={`${timeWithoutSeconds(time)} ${title}`}
-        />
+        <StaticValidation>
+            <ComTitle
+                tag="h2"
+                size="--l"
+                content={`${timeWithoutSeconds(time)} ${title}`}
+            />
+        </StaticValidation>
     );
 };
 
 PowerUpLiveBlog.arcType = 'custom-liveblog';
-PowerUpLiveBlog.isStatic = true;
 
 PowerUpLiveBlog.propTypes = {
     data: PropTypes.shape({
