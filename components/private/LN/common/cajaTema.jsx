@@ -19,7 +19,6 @@ import {
     getTLFeature
 } from './utils/timeline';
 import OrderedList from './lists/ordered';
-import '../../../../resources/dist/css/ln/components/timeline.css';
 
 const getComponentForLayout = (layoutName, props) => {
     const types = {
