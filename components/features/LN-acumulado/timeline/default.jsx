@@ -13,6 +13,7 @@ import {
 } from '../../../private/LN/common/utils/timeline';
 import filter from '../../../../content/filters/LN/acumulado/articleTimeline';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
+import '../../../../resources/dist/css/ln/components/timeline.css';
 
 const {
     layout,
