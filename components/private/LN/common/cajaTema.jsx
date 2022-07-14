@@ -13,11 +13,8 @@ import {
     getLayoutType,
     getMarkupForDatalayer
 } from './utils/cajaTemasHelper';
-import {
-    setTLDistribution,
-    setTLOrderClass,
-    getTLFeature
-} from './utils/timeline';
+import { setTLDistribution, setTLOrderClass } from './utils/timeline';
+import getFeatureByLayout from './utils/getFeatureByLayout';
 import OrderedList from './lists/ordered';
 import '../../../../resources/dist/css/ln/components/timeline.css';
 
@@ -112,13 +109,11 @@ const getComponentForLayout = (layoutName, props) => {
         },
 
         Timeline: ({ _children, features = [] }) => {
-            const { id: tlFeatureId } = getTLFeature(
-                features,
-                _children,
-                layoutName
-            );
+            const feature = getFeatureByLayout(features, _children, layoutName);
 
-            const timeline = setTLDistribution(_children, tlFeatureId);
+            if (!feature) return {};
+
+            const timeline = setTLDistribution(_children, feature.props.id);
             const orderClass = setTLOrderClass(timeline);
 
             return {
@@ -170,7 +165,7 @@ const CajaTema = props => {
     const isRanking = sectionName === 'Ranking';
     const withHeaderSection = !hideTitle && layoutName !== 'Editoriales';
     const withGridFour = isHome ? 'row-gap-tablet-4' : '';
-    const { timeline, orderClass } = childrenComponent;
+    const { timeline = {}, orderClass = '' } = childrenComponent;
 
     return (
         <div {...extraOptsDiv}>

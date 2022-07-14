@@ -10,29 +10,15 @@ export const tlSources = {
     byCollection: 'Caja Collection'
 };
 
-export const getTLFeature = (features, children, layoutName) => {
-    const lowerLayout = layoutName.toLowerCase();
-    const featureKeys = children.map(c => c.key);
-    const tlFeature =
-        features.find(
-            feature =>
-                feature.type.includes(lowerLayout) &&
-                featureKeys.includes(feature.props.id)
-        ) || {};
-
-    return {
-        tlFeature,
-        id: tlFeature.props && tlFeature.props.id
-    };
+export const setTLOrderClass = (timeline = {}) => {
+    const isFirst = timeline.index === 0;
+    return isFirst ? '--left-top' : '--right-bottom';
 };
 
-export const setTLOrderClass = timeline => {
-    const isLast = timeline.index === timeline.articles.length;
-    return isLast ? '--right-bottom' : '--left-top';
-};
-
-export const setTLDistribution = (children, tlFeatureId) => {
+export const setTLDistribution = (children = [], tlFeatureId) => {
     let timeline = { articles: [] };
+
+    if (!tlFeatureId) return null;
 
     children.forEach((child, index) => {
         const { articles } = timeline;
@@ -51,19 +37,15 @@ export const setTLDistribution = (children, tlFeatureId) => {
     return timeline;
 };
 
-export const setTLQuantity = size => {
-    const BACKUP_ARTICLES = 3;
-    const MIN_ARTICLES = 1;
-    const MAX_ARTICLES = 7;
-
+export const setTLQuantity = (size = 5, max = 7, min = 1, backup = 3) => {
     let articlesQuantity = size;
 
-    if (size > MAX_ARTICLES) articlesQuantity = MAX_ARTICLES;
-    if (size < MIN_ARTICLES) articlesQuantity = MAX_ARTICLES;
+    if (size > max) articlesQuantity = max;
+    if (size < min) articlesQuantity = min;
 
     return {
         articlesQuantity,
-        articlesQuantityBackup: articlesQuantity + BACKUP_ARTICLES
+        articlesQuantityBackup: articlesQuantity + backup
     };
 };
 
