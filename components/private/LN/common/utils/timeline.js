@@ -69,9 +69,7 @@ export const setTLArticles = (articles = [], source) => {
             artPosition,
             key: _id,
             titleText: headlines.basic,
-            hour: isCollection ? (
-                <></>
-            ) : (
+            hour: !isCollection && (
                 <ComHour
                     display_date={displayDateWithThreeHours}
                     size="--fivexs"
@@ -82,7 +80,12 @@ export const setTLArticles = (articles = [], source) => {
                 _id,
                 content_restrictions: contentRestrictions
             },
-            label: { ...(isLiveblog && { text: 'En Vivo' }) }
+            label: {
+                ...(isLiveblog && {
+                    text: 'En Vivo',
+                    className: isCollection && '--withoutHour'
+                })
+            }
         };
     });
 };
