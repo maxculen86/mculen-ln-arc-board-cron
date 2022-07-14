@@ -5,6 +5,7 @@ import get from '../../../private/common/utils/get';
 import ForecastByDay from '../../../private/LN/services/weather/ForecastByDay';
 import IconsReferences from '../../../private/LN/services/weather/IconsReferences';
 import '../../../../resources/dist/css/ln/components/weather.css';
+import Text from '../../../private/common/text';
 
 const WeatherForecast = ({ id: featureId }) => {
     const { globalContent = {} } = useAppContext() || {};
@@ -12,16 +13,20 @@ const WeatherForecast = ({ id: featureId }) => {
     const sectionName = get(globalContent, 'name', '');
     const icons = [
         { id: 'sun', description: 'soleado' },
-        { id: 'sun', description: 'soleado' },
-        { id: 'sun', description: 'soleado' },
-        { id: 'sun', description: 'soleado' }
+        { id: 'windy', description: 'ventoso' },
+        { id: 'snow-cloudy', description: 'tormenta nieve' },
+        { id: 'windy', description: 'ventoso' },
+        { id: 'snow-cloudy', description: 'tormenta nieve' },
+        { id: 'rain', description: 'lluvioso' }
     ];
 
     if (!forecast.length) return null;
 
     return (
         <>
-            <h2>{`Pronóstico del tiempo extendido para ${sectionName}`}</h2>
+            <Text tag="h2" size="--l">
+                {`Pronóstico del tiempo extendido para ${sectionName}`}
+            </Text>
             {forecast.map((day, index) => (
                 <ForecastByDay
                     key={day.date}

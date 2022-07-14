@@ -22,8 +22,7 @@ const WeatherCard = ({ id, data }) => {
                 </Text>
             </Link>
             <div className="icon">
-                <Icon name="sun" size="--xl" />
-                {/* se supone que el idDescription es el nombre del icono, hace falta diccionario porque viene un numero y se vuela esto */}
+                <Icon name="windy" size="--xl" />
                 <p>{idDescription}</p>
                 <Text tag="p" weight="light">
                     {description}

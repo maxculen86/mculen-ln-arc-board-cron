@@ -9,8 +9,7 @@ const IconsReferences = ({ icons }) => {
             {icons &&
                 icons.map(({ id, description }) => (
                     <div className="card-icon">
-                        <Icon name="sun" size="--xl" />
-                        <p>{id}</p>
+                        <Icon name={id} size="--xl" />
                         <Text tag="p" weight="light">
                             {description}
                         </Text>

@@ -14,8 +14,6 @@ const WeatherProvinces = ({ id: featureId }) => {
     });
     const { children: provinces = [] } = data || {};
 
-    // const listToShow = provinces.map(province => province.name).join(', ');
-
     if (!provinces.length) return null;
 
     return <ProvincesList provinces={provinces} />;

@@ -13,20 +13,20 @@ const ForecastByDay = ({ id, title, data }) => {
         wind
     } = data;
 
-    const windDirections = {
-        N: 'Norte',
-        S: 'Sur',
-        E: 'Este',
-        O: 'Oeste',
-        NO: 'Noroeste',
-        NE: 'Noreste',
-        SE: 'Sudeste',
-        SO: 'Sudoeste'
-    };
+    // const windDirections = {
+    //     N: 'Norte',
+    //     S: 'Sur',
+    //     E: 'Este',
+    //     O: 'Oeste',
+    //     NO: 'Noroeste',
+    //     NE: 'Noreste',
+    //     SE: 'Sudeste',
+    //     SO: 'Sudoeste'
+    // };
 
     const getHigher = array => Math.max.apply(0, array);
     const windSpeed = getHigher(get(wind, 'speed_range', []));
-    const parsedWindDir = windDirections[wind.direction] || '';
+    // const parsedWindDir = windDirections[wind.direction] || '';
     const rain = getHigher(rainRange);
 
     return (
@@ -40,23 +40,31 @@ const ForecastByDay = ({ id, title, data }) => {
                 </Text>
             </div>
             <div className="icon">
-                <Icon name="sun" size="--xl" />
-                <Text tag="p" weight="light">
-                    {`Icono nº: ${weather.id}`}
-                </Text>
+                <Icon name="snow-cloudy" />
                 <Text tag="p" weight="light">
                     {weather.description}
                 </Text>
             </div>
-            <Text tag="p" weight="light">
-                {`Humedad promedio: ${humidity} %`}
-            </Text>
-            <Text tag="p" weight="light">
-                {`Viento: ${parsedWindDir} ${windSpeed} Km/h`}
-            </Text>
-            <Text tag="p" weight="light">
-                {`Precipitaciones: ${rain} %`}
-            </Text>
+            <div className="detail-province-icons">
+                <div className="box-icon-text">
+                    <Icon name="cloudy" size="--xl" />
+                    <Text tag="p" weight="light">
+                        {`${humidity} %`}
+                    </Text>
+                </div>
+                <div className="box-icon-text">
+                    <Icon name="windy" size="--xl" />
+                    <Text tag="p" weight="light">
+                        {`${windSpeed} Km/h`}
+                    </Text>
+                </div>
+                <div className="box-icon-text">
+                    <Icon name="rain" size="--xl" />
+                    <Text tag="p" weight="light">
+                        {`${rain} %`}
+                    </Text>
+                </div>
+            </div>
         </div>
     );
 };

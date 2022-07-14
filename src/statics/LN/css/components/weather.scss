@@ -25,6 +25,10 @@
     }
     .icon {
         @include flex(flex, column, center, center);
+        .com-icon {
+            width: px(50);
+            height: px(50);
+        }
     }
     .temperature {
         @include flex(flex, row, space-around, center);
@@ -42,6 +46,15 @@
 
     .icon {
         @include flex(flex, column, center, center);
+        .com-icon {
+            width: px(50);
+            height: px(50);
+        }
+    }
+    .detail-province-icons {
+        @include flex(flex, row, space-around, center);
+        border-top: 1px solid $light-neutral-400;
+        padding-top: px(8);
     }
 }
 
@@ -65,11 +78,31 @@
 }
 
 .icon-references {
-    @include common-card;
     @include flex(flex, row, space-around, center);
-    height: 200px;
+    border: 1px solid $dark-neutral-600;
+    flex-wrap: wrap;
+    border-radius: 4px;
+    padding: px(16);
+    margin-bottom: px(24);
+
     .card-icon {
         @include flex(flex, column, space-around, center);
+        margin: px(8);
+
+        .com-icon {
+            height: 40px;
+            width: 40px;
+        }
+        .com-text {
+            margin-top: px(16);
+        }
+    }
+
+    @media (max-width: 375px) {
+        flex-direction: column;
+        .com-icon {
+            margin-top: px(16);
+        }
     }
 }
 
