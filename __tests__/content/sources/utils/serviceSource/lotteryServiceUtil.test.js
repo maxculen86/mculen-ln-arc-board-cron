@@ -23,7 +23,14 @@ import outputLotoPLus from '../../../../../__mocks__/data/lottery/transformDetai
 
 const mockResponse = Promise.resolve(lotteryMock);
 
-const { getUri, request: lotteryRequest, resolve, reject, transform } = lottery;
+const {
+    getUri,
+    request: lotteryRequest,
+    resolve,
+    reject,
+    transform,
+    getTemplates
+} = lottery;
 
 jest.mock('request-promise-native', () => {
     return {
@@ -118,5 +125,14 @@ describe('Tests resolve function', () => {
             dataService: { lotteries: [] },
             serviceType: 'home'
         });
+    });
+});
+
+describe('Tests getTemplates function', () => {
+    it('Should return string "detalle-loterias" as serviceType', () => {
+        expect(getTemplates('Telekino')).toStrictEqual('detalle-loterias');
+    });
+    it('Should return string "home-loterias" as serviceType', () => {
+        expect(getTemplates('')).toStrictEqual('home-loterias');
     });
 });

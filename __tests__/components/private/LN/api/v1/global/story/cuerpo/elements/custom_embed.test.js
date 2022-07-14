@@ -67,3 +67,17 @@ describe('Test de los elementos parallax en el cuerpo de una nota', () => {
         expect(resp).toBe(null);
     });
 });
+
+describe('Test de los elementos liveblog en el cuerpo de una nota', () => {
+    it('Test de liveblog sin time es null', () => {
+        const resp = CustomEmbed(ElementCustomEmbed[6]);
+        expect(resp[0]['_t']).toBe('sub1');
+        expect(resp[0]['valor']).toBe('Gym 1 Ciudad Plateada');
+    });
+
+    it('Test custom embed de de liveblog valores completos', () => {
+        const resp = CustomEmbed(ElementCustomEmbed[7]);
+        expect(resp[0]['_t']).toBe('sub1');
+        expect(resp[0]['valor']).toBe('08:46 Gym 1 Ciudad Plateada');
+    });
+});
