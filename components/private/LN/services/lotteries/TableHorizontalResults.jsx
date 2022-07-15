@@ -19,6 +19,7 @@ const TableHorizontalResults = ({
     const classes = `table-horizontal-results ${className}`;
     const formatIndex = index => (index < 10 ? `0${index}` : index);
     const meaningNumber = get(results, '[0].length') && results[0].slice(-2);
+    const meaningClass = isMeaning && '--meaning-table';
 
     return (
         <div className={classes} data-testid={`${id}-test`}>
@@ -50,25 +51,19 @@ const TableHorizontalResults = ({
                     </div>
                 </div>
             )}
-            <div className={`body-table ${isMeaning && '--meaning-table'}`}>
+            <div className={`body-table ${meaningClass}`}>
                 {results.map((number, index) => (
-                    <div
-                        className={`number-box ${isMeaning &&
-                            '--meaning-table'}`}
-                        key={number}
-                    >
+                    <div className={`number-box ${meaningClass}`} key={number}>
                         <Text
                             size="4xs"
-                            extraClass={`numerator-table ${isMeaning &&
-                                '--meaning-table'}`}
+                            extraClass={`numerator-table ${meaningClass}`}
                         >
                             {formatIndex(isMeaning ? index : index + 1)}
                         </Text>
                         <Text
                             key={number}
                             size="4xs"
-                            extraClass={`number-table-horizontal ${isMeaning &&
-                                '--meaning-table'}`}
+                            extraClass={`number-table-horizontal ${meaningClass}`}
                         >
                             {number}
                         </Text>
