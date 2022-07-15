@@ -2152,9 +2152,7 @@ export default {
                     dimensions: [
                         [1, 1],
                         [728, 90],
-                        [920, 100],
-                        [970, 90],
-                        [1260, 100]
+                        [920, 100]
                     ],
                     targeting: targetingHome
                 },
@@ -2197,16 +2195,6 @@ export default {
                     ],
                     targeting: targetingHome,
                     closeButton: true
-                },
-                middle1_dsk: {
-                    slotName: `la_nacion_desktop/Home/middle1_dsk`,
-                    dimensions: [
-                        [1, 1],
-                        [920, 120],
-                        [920, 250],
-                        [728, 90]
-                    ],
-                    targeting: targetingHome
                 },
                 megalateral_dsk: {
                     slotName: `la_nacion_desktop/Home/megalateral_dsk`,
