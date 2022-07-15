@@ -19,7 +19,7 @@ const TableHorizontalResults = ({
     const classes = `table-horizontal-results ${className}`;
     const formatIndex = index => (index < 10 ? `0${index}` : index);
     const meaningNumber = get(results, '[0].length') && results[0].slice(-2);
-    const meaningClass = isMeaning && '--meaning-table';
+    const meaningClass = isMeaning ? '--meaning-table' : '';
 
     return (
         <div className={classes} data-testid={`${id}-test`}>
