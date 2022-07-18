@@ -58,5 +58,19 @@ Array [
       lcw-marquee-items="20"
     />
   </div>,
+  <span
+    class="com-text --fivexs"
+  >
+    Información provista por 
+    <a
+      class="com-link"
+      href="https://www.livecoinwatch.com/"
+      rel="nofollow"
+      target="_blank"
+      title="Ir a Live Coin Watch"
+    >
+      Live Coin Watch
+    </a>
+  </span>,
 ]
 `;
