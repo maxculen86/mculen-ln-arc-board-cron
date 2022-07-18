@@ -542,13 +542,6 @@ const LNMainHome = props => {
                                 <div data-section="breaking4">
                                     {blocksToLoad.bloque3.loaded && breaking4}
                                 </div>
-                                {/* BANNER MIDDLE 1 */}
-                                <DivBannerSSR
-                                    bannerConfiguration={{
-                                        slotId: 'middle1_dsk',
-                                        withoutHide: true
-                                    }}
-                                />
 
                                 <div data-section="breaking5">
                                     {blocksToLoad.bloque3.loaded && breaking5}

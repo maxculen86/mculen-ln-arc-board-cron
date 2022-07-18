@@ -95,10 +95,6 @@ export default {
         },
         {
             slotGroup: 'home',
-            desktop: 'middle1_dsk'
-        },
-        {
-            slotGroup: 'home',
             mobile: 'caja5_mob'
         },
         {
