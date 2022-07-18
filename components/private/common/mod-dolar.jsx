@@ -54,6 +54,18 @@ const ModDolar = ({ imageUrl, data = [] }) =>
                     lcw-marquee-items="20"
                 />
             </div>
+            <Text size="5xs">
+                Información provista por
+                {`${' '}`}
+                <ComLink
+                    link="https://www.livecoinwatch.com/"
+                    target="_blank"
+                    rel="nofollow"
+                    title="Ir a Live Coin Watch"
+                >
+                    Live Coin Watch
+                </ComLink>
+            </Text>
         </>
     )) ||
     null;

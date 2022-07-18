@@ -22,7 +22,6 @@
 .widget-carrousel-coins {
     background-color: $light-neutral-200;
     min-height: px(88);
-    margin-bottom: $spacing-lg;
     padding: px(8) 0 px(8) 0;
     position: relative;
 
@@ -51,4 +50,8 @@
             margin-left: px(16);
         }
     }
+}
+
+.--color .com-unordered.--tags {
+    padding-top: px(32) !important;
 }
