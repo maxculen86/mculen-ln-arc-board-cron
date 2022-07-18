@@ -73,7 +73,7 @@ const LotteryDetailOpening = ({ id: featureId }) => {
                         );
                     })}
                 </div>
-                <Text size="5xs">
+                <Text size="5xs" extraClass="lottery-data-factory">
                     Información provista por
                     {`${' '}`}
                     <ComLink
