@@ -10,7 +10,7 @@ import Text from './text';
 
 const ModDolar = ({ imageUrl, data = [] }) =>
     (data.length && (
-        <>
+        <div className="dolar">
             <ul className="mod-dolar">
                 {data.map((item, index) => {
                     const { sourceName, title, compra, venta } = item;
@@ -66,7 +66,7 @@ const ModDolar = ({ imageUrl, data = [] }) =>
                     Live Coin Watch
                 </ComLink>
             </Text>
-        </>
+        </div>
     )) ||
     null;
 

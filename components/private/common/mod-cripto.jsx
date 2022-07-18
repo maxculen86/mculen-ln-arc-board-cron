@@ -6,7 +6,7 @@ import Link from './com-link';
 
 const ModCripto = () => {
     return (
-        <div>
+        <div className="cripto">
             <div className="gradient">
                 <div className="mod-cripto">
                     <div
