@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`with data list snapshot 1`] = `
-Array [
+<div
+  class="dolar"
+>
   <ul
     class="mod-dolar"
   >
@@ -34,7 +36,7 @@ Array [
         urlbrand="https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/Lzu3CsxaJkufzPN4fOxQjod_yik=/314x0/filters:quality(100)/especiales.lanacion.com.ar/LN/dolar/anexo-dolar/logo-invertir.png"
       />
     </li>
-  </ul>,
+  </ul>
   <div
     class="widget-carrousel-coins"
   >
@@ -57,7 +59,7 @@ Array [
       lcw-marquee-2="none"
       lcw-marquee-items="20"
     />
-  </div>,
+  </div>
   <span
     class="com-text --fivexs"
   >
@@ -71,6 +73,6 @@ Array [
     >
       Live Coin Watch
     </a>
-  </span>,
-]
+  </span>
+</div>
 `;
