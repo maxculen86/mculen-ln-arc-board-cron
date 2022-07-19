@@ -64,6 +64,18 @@ export default {
             caja2_mob: {
                 validateInclusion: ({ subscription }) => subscription !== 'S'
             },
+            caja7_mob: {
+                validateInclusion: ({ subscription }) => subscription !== 'S'
+            },
+            caja8_mob: {
+                validateInclusion: ({ subscription }) => subscription !== 'S'
+            },
+            caja9_mob: {
+                validateInclusion: ({ subscription }) => subscription !== 'S'
+            },
+            caja10_mob: {
+                validateInclusion: ({ subscription }) => subscription !== 'S'
+            },
             '1x1_mob': {
                 validateInclusion: ({ subscription }) => subscription !== 'S'
             }
