@@ -22,7 +22,7 @@ export const storyTitleAndResume = article => {
     };
 };
 
-export const aperturaContenido = (article, image, video, type) => {
+export const promoItemArticle = article => {
     const { subtype: template } = article;
     let promoItem = get(article, 'promo_items.apertura_multimedia', null);
     promoItem =
@@ -31,26 +31,7 @@ export const aperturaContenido = (article, image, video, type) => {
     if (template === '4' || template === '8') {
         promoItem = get(article, 'promo_items.storytelling_mobile', null);
     }
-    const resp = {};
-    if (promoItem) {
-        // eslint-disable-next-line default-case
-        switch (promoItem.type) {
-            case 'image':
-                // eslint-disable-next-line no-case-declarations
-                const images = [];
-                images.push(image(promoItem));
-                resp.imagenes = images;
-                break;
-            case 'video':
-                if (type === 'mobile') {
-                    resp.video = video(promoItem);
-                } else {
-                    resp.multimedio = video(promoItem).valor;
-                }
-                break;
-        }
-    }
-    return resp;
+    return promoItem;
 };
 
 export const apertura = article => {
