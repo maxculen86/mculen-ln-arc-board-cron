@@ -385,7 +385,7 @@ $guion: '-';
                 'campo': $campo
             )
     {
-        .#{$section}.#{$section} {
+        .acumulado.#{$section} {
             h1 .com-link.--black,
             .com-breadcrumb .com-link,
             .--category .com-link,
