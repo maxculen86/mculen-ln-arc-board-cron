@@ -43,6 +43,7 @@ const LotteryDetailRules = ({ id: featureId }) => {
 };
 
 LotteryDetailRules.label = 'LN Loteria Detalle Reglas';
+LotteryDetailRules.lazy = true;
 
 LotteryDetailRules.propTypes = { id: PropTypes.string.isRequired };
 
