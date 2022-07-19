@@ -1,5 +1,7 @@
 import get from '../../../../../../common/utils/get';
 import AperturaReceta from './aperturaReceta';
+import Image from '../image';
+
 import {
     authorCommon as Author,
     articleSignature as Signature
