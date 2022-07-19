@@ -22,7 +22,7 @@ export const storyTitleAndResume = article => {
     };
 };
 
-export const aperturaContenido = (article, image, video) => {
+export const aperturaContenido = (article, image, video, type) => {
     const { subtype: template } = article;
     let promoItem = get(article, 'promo_items.apertura_multimedia', null);
     promoItem =
@@ -42,7 +42,11 @@ export const aperturaContenido = (article, image, video) => {
                 resp.imagenes = images;
                 break;
             case 'video':
-                resp.multimedio = video(promoItem);
+                if (type === 'mobile') {
+                    resp.video = video(promoItem);
+                } else {
+                    resp.multimedio = video(promoItem).valor;
+                }
                 break;
         }
     }

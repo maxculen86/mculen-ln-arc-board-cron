@@ -9,7 +9,7 @@ const apertura2 = article => {
     return {
         apertura: {
             ...apertura(article),
-            ...aperturaContenido(article, image, video, 'mobile')
+            ...aperturaContenido(article, image, video)
         }
     };
 };

@@ -10,7 +10,7 @@ const indexNota = dataNota => {
     const resp = {
         ...storyCommon(dataNota, cuerpo),
         ...storyHeadline(dataNota, 'mobile'),
-        ...apertura(dataNota, image, video)
+        ...apertura(dataNota, image, video, 'mobile')
     };
 
     let elmentsAdd = 0;
