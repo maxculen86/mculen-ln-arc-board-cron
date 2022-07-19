@@ -23,10 +23,8 @@ const aperturaArticle = article => {
         }
     }
     return {
-        apertura: {
-            ...apertura(article),
-            ...resp
-        }
+        ...apertura(article),
+        ...resp
     };
 };
 export default aperturaArticle;

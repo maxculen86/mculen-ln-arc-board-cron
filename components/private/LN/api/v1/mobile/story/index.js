@@ -8,7 +8,7 @@ const indexNota = dataNota => {
     const resp = {
         ...storyCommon(dataNota, cuerpo),
         ...storyHeadline(dataNota, 'mobile'),
-        ...apertura(dataNota)
+        apertura: apertura(dataNota)
     };
 
     let elmentsAdd = 0;

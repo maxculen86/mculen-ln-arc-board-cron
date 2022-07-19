@@ -75,3 +75,4 @@ export const apertura = article => {
 
     return resp;
 };
+export default apertura;
