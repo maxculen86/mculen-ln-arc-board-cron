@@ -5,7 +5,8 @@ import {
 import video from '../cuerpo/elements/video';
 import image from '../cuerpo/elements/image';
 
-const aperturaArticle = article => {
+const aperturaArticle = (article, type) => {
+    if (article.subtype === '9' && type === 'global') return null;
     const promoItem = promoItemArticle(article);
     const resp = {};
     if (promoItem) {

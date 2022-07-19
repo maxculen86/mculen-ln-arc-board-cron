@@ -10,7 +10,7 @@ const indexNota = dataNota => {
     const resp = {
         ...storyCommon(dataNota, cuerpo),
         ...storyHeadline(dataNota, 'global'),
-        apertura: aperturaArticle(dataNota),
+        apertura: aperturaArticle(dataNota, 'global'),
         comentariosId: comentariosId || id,
         abiertoComentarios: false
     };
