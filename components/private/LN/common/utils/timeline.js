@@ -2,7 +2,6 @@ import React from 'react';
 import { addHours } from '../../../common/utils/dateAndTimeUtil';
 import { LIVEBLOG } from '../../../common/utils/subtypes/subtypeHelper';
 import ComHour from '../../../common/com-hour';
-import pageBuilderValidator from '../../../common/utils/pageBuilderValidator';
 
 export const tlSources = {
     byLastNews: 'Últimas Noticias',
@@ -104,8 +103,8 @@ export const setTypeOfQuery = ({
     return options[source] || {};
 };
 
-const setTLValidationRules = ({
-    articles,
+export const setTLValidationRules = ({
+    articles = [],
     source,
     sectionTagValue,
     sections = [],
@@ -131,9 +130,4 @@ const setTLValidationRules = ({
             message: 'No se encontraron notas'
         }
     ];
-};
-
-export const validateTL = options => {
-    const rules = setTLValidationRules(options);
-    return pageBuilderValidator(rules);
 };

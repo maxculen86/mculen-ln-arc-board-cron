@@ -7,9 +7,10 @@ import Article from '../../../private/common/mod-article';
 import ComTitle from '../../../private/common/com-title';
 import useTimeline from '../../../private/LN/common/hooks/useTimeline';
 import { cajaTemasCustomsFields } from '../../../private/LN/common/utils/cajaTemasHelper';
+import pageBuilderValidator from '../../../private/common/utils/pageBuilderValidator';
 import {
-    validateTL,
-    tlSources
+    tlSources,
+    setTLValidationRules
 } from '../../../private/LN/common/utils/timeline';
 import filter from '../../../../content/filters/LN/acumulado/articleTimeline';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
@@ -53,7 +54,8 @@ const Timeline = ({ id: featureId, customFields = {}, ...restProps }) => {
     });
 
     const withRoof = roof && !hideTitle;
-    const error = validateTL({ articles, ...commonProps });
+    const rules = setTLValidationRules({ articles, ...commonProps });
+    const error = pageBuilderValidator(rules);
 
     return (
         <>

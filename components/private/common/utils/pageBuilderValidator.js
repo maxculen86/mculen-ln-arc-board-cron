@@ -1,12 +1,13 @@
 import get from './get';
 
-const pageBuilderValidator = rules => {
+const pageBuilderValidator = (rules, type = 'warning') => {
     const message = get(
         rules.find(({ validation }) => validation),
         'message',
         null
     );
-    return message && { type: 'warning', message };
+
+    return message && { type, message };
 };
 
 export default pageBuilderValidator;
