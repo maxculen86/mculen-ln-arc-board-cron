@@ -1,6 +1,4 @@
 import get from '../../../../../../common/utils/get';
-import Image from '../image';
-import Video from '../video';
 import AperturaReceta from './aperturaReceta';
 import {
     authorCommon as Author,
@@ -24,17 +22,37 @@ export const storyTitleAndResume = article => {
     };
 };
 
-const apertura = article => {
+export const aperturaContenido = (article, image, video) => {
     const { subtype: template } = article;
-
     let promoItem = get(article, 'promo_items.apertura_multimedia', null);
-    let acuImage = null;
-
     promoItem =
         promoItem == null ? get(article, 'promo_items.basic', null) : promoItem;
 
     if (template === '4' || template === '8') {
         promoItem = get(article, 'promo_items.storytelling_mobile', null);
+    }
+    const resp = {};
+    if (promoItem) {
+        // eslint-disable-next-line default-case
+        switch (promoItem.type) {
+            case 'image':
+                // eslint-disable-next-line no-case-declarations
+                const images = [];
+                images.push(image(promoItem));
+                resp.imagenes = images;
+                break;
+            case 'video':
+                resp.multimedio = video(promoItem);
+                break;
+        }
+    }
+    return resp;
+};
+
+export const apertura = article => {
+    const { subtype: template } = article;
+    let acuImage = null;
+    if (template === '4' || template === '8') {
         acuImage = get(article, 'promo_items.basic', null);
     }
 
@@ -51,22 +69,6 @@ const apertura = article => {
         images.push(Image(acuImage));
         resp.imagenesAcumulado = images;
     }
-
-    if (promoItem) {
-        // eslint-disable-next-line default-case
-        switch (promoItem.type) {
-            case 'image':
-                // eslint-disable-next-line no-case-declarations
-                const images = [];
-                images.push(Image(promoItem));
-                resp.imagenes = images;
-                break;
-            case 'video':
-                resp.multimedio = Video(promoItem);
-                break;
-        }
-    }
-
     if (
         article.subtype === '7' &&
         recetaPromoItem &&
@@ -88,5 +90,3 @@ const apertura = article => {
 
     return resp;
 };
-
-export default apertura;

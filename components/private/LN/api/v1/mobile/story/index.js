@@ -1,12 +1,16 @@
 import { storyCommon, storyHeadline } from '../../common/story/storyCommon';
+import apertura from './apertura/aperturaArticle';
 import cuerpo from './cuerpo/index';
+import video from './cuerpo/elements/video';
+import image from './cuerpo/elements/image';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
-import get from '../../../../../../private/common/utils/get';
+import get from '../../../../../common/utils/get';
 
 const indexNota = dataNota => {
     const resp = {
         ...storyCommon(dataNota, cuerpo),
-        ...storyHeadline(dataNota, 'mobile')
+        ...storyHeadline(dataNota, 'mobile'),
+        ...apertura(dataNota, image, video)
     };
 
     let elmentsAdd = 0;
