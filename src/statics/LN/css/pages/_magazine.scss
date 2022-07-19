@@ -11,7 +11,6 @@
 @each $name,
     $var
         in (
-            'propiedades': $propiedades,
             'brando': $brando,
             'ohlala': $ohlala,
             'lugares': $lugares,
@@ -19,7 +18,11 @@
             'hola': $hola,
             'jardin': $jardin,
             'rolling': $rolling,
-            'campo': $campo
+            'propiedades': $propiedades,
+            'campo': $campo,
+            'salud': $salud,
+            'deportes': $deportes,
+            'economia': $economia
         )
 {
     .#{$name} {
