@@ -91,6 +91,7 @@ const WikiFeature = () => {
                         legalName
                     )}
                     sources={resizedUrls}
+                    isApertura
                 />
                 <div className="extra-info">
                     {(isOrganization ? schemaOrganization : schemaPerson).map(

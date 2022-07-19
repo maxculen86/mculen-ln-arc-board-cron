@@ -62,18 +62,26 @@ class Timeline {
                 acuArticlesSource || {};
             results.content_elements =
                 contentElements &&
-                contentElements.slice(0, size).map(elem => {
-                    const propsElem = {
-                        ...this.props,
-                        customFields: {
-                            ...get(this.props, 'customFields', null),
-                            noteId: get(elem, '_id', null),
-                            title: null
-                        }
-                    };
-                    const element = resultArticle(elem, null, propsElem);
-                    return element;
-                });
+                contentElements
+                    .filter(
+                        article =>
+                            article.content_restrictions &&
+                            article.content_restrictions.content_code !==
+                                'cerrada'
+                    )
+                    .slice(0, size)
+                    .map(elem => {
+                        const propsElem = {
+                            ...this.props,
+                            customFields: {
+                                ...get(this.props, 'customFields', null),
+                                noteId: get(elem, '_id', null),
+                                title: null
+                            }
+                        };
+                        const element = resultArticle(elem, null, propsElem);
+                        return element;
+                    });
             const props = {
                 ...this.props,
                 customFields: {

@@ -11,7 +11,7 @@ export default class error404 extends Component {
                     <p className="error-text">
                         <span>
                             Para ir a la página principal hacé
-                            <a href="/">click aquí</a>,
+                            <a href="/"> click aquí,</a>
                         </span>
                         <span>
                             {' '}
