@@ -3,13 +3,7 @@ import PropTypes from 'prop-types';
 import get from '../../../common/utils/get';
 
 const ForecastByDay = ({ id, title, data }) => {
-    const {
-        humidity,
-        rain_prob_range: rainRange = [],
-        temperature,
-        weather,
-        wind
-    } = data;
+    const { humidity, rain_prob: rainProb, temperature, weather, wind } = data;
 
     const windDirections = {
         N: 'Norte',
@@ -22,10 +16,8 @@ const ForecastByDay = ({ id, title, data }) => {
         SO: 'Sudoeste'
     };
 
-    const getHigher = array => Math.max.apply(0, array);
-    const windSpeed = getHigher(get(wind, 'speed_range', []));
+    const windSpeed = get(wind, 'speed', '-');
     const parsedWindDir = windDirections[wind.direction] || '';
-    const rain = getHigher(rainRange);
 
     return (
         <div style={{ padding: '10px' }}>
@@ -35,7 +27,7 @@ const ForecastByDay = ({ id, title, data }) => {
             <p>{`Descripcion: ${weather.description}`}</p>
             <p>{`Humedad promedio: ${humidity} %`}</p>
             <p>{`Viento: ${parsedWindDir} ${windSpeed} Km/h`}</p>
-            <p>{`Precipitaciones: ${rain} %`}</p>
+            <p>{`Precipitaciones: ${rainProb} %`}</p>
         </div>
     );
 };
@@ -45,7 +37,7 @@ ForecastByDay.propTypes = {
     title: PropTypes.string.isRequired,
     data: PropTypes.shape({
         humidity: PropTypes.number,
-        rain_prob_range: PropTypes.arrayOf(PropTypes.number),
+        rain_prob: PropTypes.number,
         temperature: PropTypes.number,
         weather: PropTypes.shape({
             id: PropTypes.number,
@@ -53,7 +45,7 @@ ForecastByDay.propTypes = {
         }),
         wind: PropTypes.shape({
             direction: PropTypes.string,
-            speed_range: PropTypes.arrayOf(PropTypes.number)
+            speed: PropTypes.number
         })
     }).isRequired
 };

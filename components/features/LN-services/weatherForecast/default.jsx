@@ -13,7 +13,6 @@ const WeatherForecast = ({ id: featureId }) => {
 
     return (
         <>
-            <h2>{`Pronóstico del tiempo extendido para ${sectionName}`}</h2>
             {forecast.map((day, index) => (
                 <ForecastByDay
                     key={day.date}

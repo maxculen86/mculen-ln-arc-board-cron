@@ -1,7 +1,12 @@
 // import request from 'request-promise-native';
 import logger from '../../../../../components/private/common/utils/logger';
 import weatherData from './_config';
-import getWeatherMetaData from './weatherHelper';
+import {
+    transformWeatherHome,
+    transformWeatherDetail,
+    getWeatherMetaData
+} from './weatherHelper';
+import get from '../../../../../components/private/common/utils/get';
 
 const weatherRequest = ({ queryData, auth, sectionChildrens } = {}) => {
     const { serviceItem = '', serviceSubItem = '' } = queryData;
@@ -31,10 +36,28 @@ const transform = data => {
         serviceSubItem = '',
         serviceType = ''
     } = data;
+    const { created_date: createdDate } = dataService;
     const { children = [], name = '' } = sectionSourceData;
 
     return {
-        dataService,
+        dataService: {
+            created_date: createdDate,
+            ...(serviceType.includes('home')
+                ? {
+                      locations: [
+                          ...transformWeatherHome(
+                              get(dataService, 'locations', [])
+                          )
+                      ]
+                  }
+                : {
+                      forecast: [
+                          ...transformWeatherDetail(
+                              get(dataService, 'forecast', [])
+                          )
+                      ]
+                  })
+        },
         ...sectionSourceData,
         metaData: getWeatherMetaData(serviceItem, serviceSubItem)(
             name,
