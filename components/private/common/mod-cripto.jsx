@@ -1,10 +1,12 @@
 import React from 'react';
 
 import '../../../resources/dist/css/ln/modules/mod-cripto.css';
+import Text from './text';
+import Link from './com-link';
 
 const ModCripto = () => {
     return (
-        <>
+        <div className="cripto">
             <div className="gradient">
                 <div className="mod-cripto">
                     <div
@@ -95,7 +97,19 @@ const ModCripto = () => {
                 lcw-marquee-2="none"
                 lcw-marquee-items="30"
             />
-        </>
+            <Text size="5xs">
+                Información provista por
+                {`${' '}`}
+                <Link
+                    link="https://www.livecoinwatch.com/"
+                    target="_blank"
+                    rel="nofollow"
+                    title="Ir a Live Coin Watch"
+                >
+                    Live Coin Watch
+                </Link>
+            </Text>
+        </div>
     );
 };
 
