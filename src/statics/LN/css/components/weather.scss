@@ -1,31 +1,12 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 
-@mixin common-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border: 1px solid $dark-neutral-600;
-    border-radius: 4px;
-    padding: $spacing-sm;
-    height: px(224);
-    width: 100%;
-    max-width: px(430);
-}
-
 .grid-weather-home {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    @media ($media-m) {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        row-gap: px(16);
-    }
-    @media ($media-m) {
-        column-gap: px(16);
+    margin-bottom: px(32);
+   @include grid-weather;
+   @media ($media-m) {
+    row-gap: px(16);
+    column-gap: px(16);
     }
     @media ($media-xl) {
         column-gap: px(40);
@@ -35,6 +16,8 @@
 .weather-card {
     @include common-card;
     margin: px(8) 0;
+    height: px(224);
+    max-width: px(430);
 
     .com-link .com-text {
         color: $neutral-black;
@@ -72,6 +55,8 @@
     @include common-card;
     display: flex;
     flex-direction: column;
+    height: px(224);
+    max-width: px(430);
 
     .labeled {
         @include flex(flex, column, center, center);
@@ -140,15 +125,22 @@
 }
 
 .province-list {
-    @include flex(flex, row, space-between);
-    flex-wrap: wrap;
+    @include grid-weather;
+    row-gap: px(8);
+    column-gap: px(8);
+    margin-bottom: px(32);
 
     .province {
-        @include flex(flex, column, center, center);
+        @include flex(flex, column, center, start);
         border: 1px solid $light-neutral-400;
         border-radius: px(4);
-        height: px(80);
+        height: px(56);
+        padding: px(16);
         width: 100%;
-        max-width: px(150);
+        max-width: px(430);
+
+        .com-link{
+            color: $violet-900;
+        }
     }
 }
