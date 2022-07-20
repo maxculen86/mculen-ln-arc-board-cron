@@ -6,32 +6,65 @@
     flex-direction: column;
     justify-content: space-between;
     border: 1px solid $dark-neutral-600;
-    margin-right: px(8);
     border-radius: 4px;
-    height: px(340);
-    min-width: px(234);
+    padding: $spacing-sm;
+    height: px(224);
     width: 100%;
-    padding: $spacing-sm $spacing-sm px(20) $spacing-sm;
+    max-width: px(430);
+}
+
+.grid-weather-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @media ($media-m) {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        row-gap: px(16);
+    }
+    @media ($media-m) {
+        column-gap: px(16);
+    }
+    @media ($media-xl) {
+        column-gap: px(40);
+    }
 }
 
 .weather-card {
     @include common-card;
+    margin: px(8) 0;
 
-    .com-link {
-        align-self: center;
-    }
     .com-link .com-text {
         color: $neutral-black;
     }
-    .icon {
-        @include flex(flex, column, center, center);
+    .description {
+        color: $light-neutral-600;
+    }
+    .box-icon {
+        @include flex(flex, row, center, center);
         .com-icon {
-            width: px(50);
-            height: px(50);
+            width: px(56);
+            height: px(56);
+        }
+        p {
+            margin-left: px(20);
         }
     }
     .temperature {
-        @include flex(flex, row, space-around, center);
+        @include flex(flex, row, center, center);
+
+        .com-text {
+            color: $light-neutral-600;
+            margin-left: px(4);
+            &:nth-child(2) {
+                color: $red-400;
+            }
+            &:nth-child(4) {
+                color: $blue-400;
+            }
+        }
     }
 }
 

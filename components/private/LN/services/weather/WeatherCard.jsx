@@ -16,30 +16,36 @@ const WeatherCard = ({ id, data }) => {
 
     return (
         <div className="weather-card">
-            <Link link="#" title={`Ir a clima en ${locationName}`}>
-                <Text tag="h2" weight="bold">
-                    {locationName}
-                </Text>
-            </Link>
-            <div className="icon">
-                <Icon name="windy" size="--xl" />
-                <p>{idDescription}</p>
-                <Text tag="p" weight="light">
+            <div>
+                <Link link="#" title={`Ir a clima en ${locationName}`}>
+                    <Text tag="h2" size="--2xs" weight="bold">
+                        {locationName}
+                    </Text>
+                </Link>
+                <Text
+                    tag="p"
+                    size="5xs"
+                    weight="light"
+                    extraClass="description"
+                >
                     {description}
                 </Text>
             </div>
-            <div className="temperature">
-                <Text>
-                    <Text tag="p" weight="bold" size="--xl">
-                        {`${minTemp} ºC`}
-                    </Text>
-                    Min
+            <div className="box-icon">
+                <Icon name="windy" />
+                <Text tag="p" weight="bold" size="--twoxl">
+                    {idDescription}
+                    <Text size="--m">ºc</Text>
                 </Text>
-                <Text>
-                    <Text tag="p" weight="bold" size="--xl">
-                        {`${maxTemp} ºC`}
-                    </Text>
-                    Max
+            </div>
+            <div className="temperature">
+                <Text size="--5xs">Min</Text>
+                <Text weight="bold" size="--4xs">
+                    {`${minTemp}º`}
+                </Text>
+                <Text size="--5xs">Max</Text>
+                <Text weight="bold" size="--4xs">
+                    {`${maxTemp}º`}
                 </Text>
             </div>
             <Text tag="h3" size="5xs">
