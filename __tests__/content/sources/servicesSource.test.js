@@ -12,8 +12,6 @@ jest.mock('../../../components/private/common/utils/logger', () => {
 const loggerPush = jest.spyOn(logger, 'push');
 
 describe('Content Sources - Services Source', () => {
-    jest.setTimeout(30000);
-
     const { fetch } = servicesSource;
 
     const query = {
@@ -60,14 +58,9 @@ describe('Content Sources - Services Source', () => {
     });
 
     it('Should reject request', done => {
-        const requestMock = jest.spyOn(lottery, 'resolve');
+        query.uri = 'mockedUri';
         const requestMockReq = jest.spyOn(lottery, 'request');
-
-        requestMockReq.mockReturnValueOnce(Promise.reject());
-
-        requestMock.mockImplementation(() => {
-            throw new Error();
-        });
+        requestMockReq.mockReturnValueOnce(Promise.reject('Mocked Error'));
 
         fetch(query, {
             cachedCall: jest.fn(() => {
@@ -77,7 +70,14 @@ describe('Content Sources - Services Source', () => {
                 return sectionSourceData;
             })
         })
-            .then(() => expect(loggerPush).toBeCalledTimes(1))
+            .then(() => {
+                expect(loggerPush).toBeCalledTimes(1);
+                expect(loggerPush).toBeCalledWith(
+                    'Mocked Error',
+                    { source: 'serviceSource', url: 'mockedUri' },
+                    'la-nacion-ar'
+                );
+            })
             .then(done);
     });
 });

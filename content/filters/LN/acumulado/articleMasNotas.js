@@ -49,7 +49,7 @@ export default `
             }
         }
         related_content {
-            basic{
+            basic {
                 _id
                 type
                 referent {

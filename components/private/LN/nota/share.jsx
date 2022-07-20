@@ -27,7 +27,6 @@ import Toast from '../../common/toast/Toast';
 import { isSubscribed } from '../common/utils/contextHelper';
 import toggleBookmark from '../../common/utils/bookmarkHelper';
 import useCheckBookmark from '../../common/hooks/bookmark/useCheckBookmark';
-import { getViewport } from '../common/utils/homeHelper';
 import Barrier from '../../common/barrier/Barrier';
 import ModTooltip from '../../common/mod-tooltip';
 
@@ -62,7 +61,6 @@ const Share = props => {
     const [copy, setCopy] = useState(false);
     const [barrier, setBarrier] = useState(false);
     const token = getToken();
-    const { isMobile } = getViewport();
     const suscription = token ? isSubscribed() : false;
 
     const checkBookmarkId = useCheckBookmark(
@@ -98,7 +96,7 @@ const Share = props => {
 
     return (
         <div className={`mod-share${classCondition}`}>
-            {termicaBookmark && toast.status && isMobile && (
+            {termicaBookmark && toast.status && (
                 <Toast data={toast} handleTimeout={() => setToast(false)} />
             )}
 
@@ -135,14 +133,6 @@ const Share = props => {
                                         bookmark ? '--is-saved' : ''
                                     }`}
                                 />
-                                {!isMobile && toast.status === 'success' && (
-                                    <ModTooltip
-                                        label={
-                                            bookmark ? 'Guardado' : 'Borrado'
-                                        }
-                                        handleTimeout={() => setToast(false)}
-                                    />
-                                )}
                             </div>
                         )}
 

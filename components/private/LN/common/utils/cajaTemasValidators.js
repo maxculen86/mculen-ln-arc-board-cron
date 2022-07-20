@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import get from '../../../common/utils/get';
+import pageBuilderValidator from '../../../common/utils/pageBuilderValidator';
 import getStreams from './getStreams';
 
 export const validateFeature = (idCollection, articles, layout) => {
@@ -8,10 +9,19 @@ export const validateFeature = (idCollection, articles, layout) => {
         (!idCollection &&
             'Se requiere el id de la colección de la caja de temas') ||
         (idCollection &&
-            articles.length === 0 &&
+            (!articles || articles.length === 0) &&
             `La colección ${idCollection} no encontró notas`);
 
     return message && { type: 'warning', message };
+};
+
+const setMinimum = layout => {
+    const options = {
+        grillaUltimasNoticias: 4,
+        default: Number(layout.slice(-1)) || 3
+    };
+
+    return options[layout] || options.default;
 };
 
 export const validateChainManual = (
@@ -21,8 +31,18 @@ export const validateChainManual = (
     isVideoBackground,
     containsHTML
 ) => {
-    const minimun = (layout && Number(layout.slice(-1))) || 3;
-    const childrenPropsLength = get(childrenProps, 'length');
+    const LN_COMMON_ARTICLE = 'LN-common/articulo';
+    const LN_TIMELINE = 'LN-acumulado/timeline';
+    const COLLECTION_FEATURES = 'features';
+
+    const isTimeline = layout === 'grillaUltimasNoticias';
+    const minimum = setMinimum(layout);
+    const childrenArticles = childrenProps.filter(
+        child =>
+            child.collection === COLLECTION_FEATURES &&
+            child.type === LN_COMMON_ARTICLE
+    );
+    const childrenPropsLength = get(childrenArticles, 'length');
 
     const rules = [
         {
@@ -30,13 +50,15 @@ export const validateChainManual = (
             message: 'Se requiere que seleccione una diagramación'
         },
         {
-            validation: childrenProps.some(
-                x =>
-                    !(
-                        x.collection === 'features' &&
-                        x.type === 'LN-common/articulo'
-                    )
-            ),
+            validation:
+                !isTimeline &&
+                childrenProps.some(
+                    x =>
+                        !(
+                            x.collection === COLLECTION_FEATURES &&
+                            x.type === LN_COMMON_ARTICLE
+                        )
+                ),
             message:
                 'El Chain Caja Manual sólo admite Features del tipo LN Artículo'
         },
@@ -48,10 +70,10 @@ export const validateChainManual = (
                 'Con vídeo background solo se permite la diagramación Grilla 1 o Grilla 1 - Video'
         },
         {
-            validation: childrenPropsLength < minimun,
-            message: `Se requiere la carga de ${minimun -
+            validation: childrenPropsLength < minimum,
+            message: `Se requiere la carga de ${minimum -
                 childrenPropsLength} artículo${
-                minimun - childrenPropsLength > 1 ? 's' : ''
+                minimum - childrenPropsLength > 1 ? 's' : ''
             }`
         },
         {
@@ -61,16 +83,20 @@ export const validateChainManual = (
         {
             validation: containsHTML && layout !== 'grillaVideo1',
             message: 'Esta diagramación no permite iframe HTML'
+        },
+        {
+            validation:
+                isTimeline &&
+                !childrenProps.find(
+                    x =>
+                        x.collection === COLLECTION_FEATURES &&
+                        x.type === LN_TIMELINE
+                ),
+            message: 'Esta diagramación requiere el feature LN Timeline'
         }
     ];
 
-    const message = get(
-        rules.find(x => x.validation),
-        'message',
-        null
-    );
-
-    return message && { type: 'warning', message };
+    return pageBuilderValidator(rules);
 };
 
 export const validateArticleFeature = (
@@ -114,12 +140,8 @@ export const validateArticleFeature = (
             ).toFixed(2)} MB`
         }
     ];
-    const message = get(
-        rules.find(({ validation }) => validation),
-        'message',
-        null
-    );
-    return message && { type: 'warning', message };
+
+    return pageBuilderValidator(rules);
 };
 
 export const getCajaTemaConfig = (featureId, renderables, cajaTemaConfig) => {

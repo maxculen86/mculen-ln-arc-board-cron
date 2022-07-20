@@ -1,21 +1,19 @@
 @import '../abstracts/variables';
-html {
-    height: 100%;
-}
 
 .error404 {
-    //margin: 0 auto;
-
     header {
         background-color: rgba(255, 255, 255, 0.9);
         padding: 30px 0;
         .row {
-            .logo-la-nacion {
-                color: #006998;
-                margin-bottom: 30px;
-                font-size: 17px;
-                @media (min-width: 1023px) {
-                    font-size: 29px;
+            .com-logo {
+                &.la-nacion {
+                    margin-bottom: $spacing-md;
+                    width: px(215);
+                    height: px(21);
+                    @media ($media-m) {
+                        width: px(306);
+                        height: px(30);
+                    }
                 }
             }
             @media (min-width: 1023px) {
@@ -74,7 +72,6 @@ html {
                     text-align: center;
                     background: url(https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SDR7NBVY7BA6PNIKYEPCUNT5HY.jpg)
                         no-repeat;
-                    //height: 100vh;
                     background-position: bottom 0px right 0px;
                     background-size: 90%;
                     margin-bottom: 64px;
@@ -83,21 +80,15 @@ html {
                     }
                     @media (min-width: 1023px) {
                         background: none;
-                        // display: grid;
-                        // justify-content: center;
-                        // align-items: center;
-                        // height: 100%;
                     }
 
                     .img-404 {
-                        //display: none;
                         visibility: hidden;
                         margin: 0 auto;
                         width: auto;
                         height: 360px;
                         margin-bottom: px(64);
                         @media (min-width: 1023px) {
-                            //display: block;
                             visibility: visible;
                             height: auto;
                         }
@@ -109,13 +100,7 @@ html {
     footer {
         font-size: 14px;
         line-height: 24px;
-        //position: absolute;
-        //bottom: 0;
         width: 100%;
-        // @media (min-width: 1023px) {
-        //     position: relative;
-        //     bottom: auto;
-        // }
         .row {
             padding: 20px 0;
             .footer-copyright__reserved {

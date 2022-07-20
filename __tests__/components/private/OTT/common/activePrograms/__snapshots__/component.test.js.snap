@@ -18,7 +18,9 @@ exports[`OTT - layout - activePrograms - components Snapshot Test 1`] = `
   }
   type="Carousel"
 >
-  <section>
+  <section
+    className="todos-los-programas"
+  >
     <mock-title
       TitleTag="h3"
       className="section-title"

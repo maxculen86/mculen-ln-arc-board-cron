@@ -26,7 +26,7 @@ const CajaManual = props => {
         outputType,
         childProps,
         children,
-        renderables
+        renderables = []
     } = props;
 
     if (hideCaja)
@@ -58,6 +58,7 @@ const CajaManual = props => {
         sectionChildren: aperturasChildren
     });
 
+    const features = renderables.filter(r => r.collection === 'features');
     const multimediaCustomFields = ['video', 'html'];
 
     const [isVideoBackground, containsHTML] = multimediaCustomFields.map(
@@ -114,6 +115,7 @@ const CajaManual = props => {
             sectionName={sectionName}
             _children={children}
             handleClick={productClickFromClient}
+            features={features}
         />
     );
     return isInApertura && !isAdmin ? (

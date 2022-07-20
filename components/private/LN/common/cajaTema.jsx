@@ -13,6 +13,8 @@ import {
     getLayoutType,
     getMarkupForDatalayer
 } from './utils/cajaTemasHelper';
+import { setTLDistribution, setTLOrderClass } from './utils/timeline';
+import getFeatureByLayout from './utils/getFeatureByLayout';
 import OrderedList from './lists/ordered';
 
 const getComponentForLayout = (layoutName, props) => {
@@ -100,8 +102,23 @@ const getComponentForLayout = (layoutName, props) => {
                 );
             });
         },
-        ArticleFeature: ({ _children = [], notesQuantity }) => {
+
+        ArticleFeature: ({ _children, notesQuantity }) => {
             return _children.slice(0, notesQuantity);
+        },
+
+        Timeline: ({ _children, features = [] }) => {
+            const feature = getFeatureByLayout(features, _children, layoutName);
+
+            if (!feature) return {};
+
+            const timeline = setTLDistribution(_children, feature.props.id);
+            const orderClass = setTLOrderClass(timeline);
+
+            return {
+                timeline,
+                orderClass
+            };
         }
     };
 
@@ -137,10 +154,17 @@ const CajaTema = props => {
         sectionName
     );
 
-    const childrenComponent = getComponentForLayout(layoutName, {
-        ...props,
-        articles: artWithoutDate
-    });
+    const childrenComponent =
+        getComponentForLayout(layoutName, {
+            ...props,
+            articles: artWithoutDate
+        }) || {};
+
+    const isTimeline = layoutName === 'Timeline';
+    const isRanking = sectionName === 'Ranking';
+    const withHeaderSection = !hideTitle && layoutName !== 'Editoriales';
+    const withGridFour = isHome ? 'row-gap-tablet-4' : '';
+    const { timeline = {}, orderClass = '' } = childrenComponent;
 
     return (
         <div {...extraOptsDiv}>
@@ -148,7 +172,7 @@ const CajaTema = props => {
                 {...extraOpts}
                 className={`box-articles ${backgroundColor} ${classCondition}`}
             >
-                {!hideTitle && layoutName !== 'Editoriales' && (
+                {withHeaderSection && (
                     <ModHeaderSection
                         imageId={imageId}
                         title={title}
@@ -156,17 +180,27 @@ const CajaTema = props => {
                         customTitle={!hideTitle && title}
                     />
                 )}
-                <ModRowGap typeArticle={layoutName} column={notesQuantity}>
-                    {sectionName === 'Ranking' ? (
-                        <OrderedList
-                            extraClass={isHome ? 'row-gap-tablet-4' : ''}
-                        >
-                            {childrenComponent}
-                        </OrderedList>
-                    ) : (
-                        childrenComponent
-                    )}
-                </ModRowGap>
+
+                {(isTimeline && (
+                    <ModRowGap classCondition={`timeline-home ${orderClass}`}>
+                        <div className="timeline-content">
+                            {timeline.content}
+                        </div>
+                        <div className="row-gap-tablet-2">
+                            {timeline.articles}
+                        </div>
+                    </ModRowGap>
+                )) || (
+                    <ModRowGap column={notesQuantity} typeArticle={layoutName}>
+                        {isRanking ? (
+                            <OrderedList extraClass={withGridFour}>
+                                {childrenComponent}
+                            </OrderedList>
+                        ) : (
+                            childrenComponent
+                        )}
+                    </ModRowGap>
+                )}
             </section>
         </div>
     );

@@ -12,7 +12,7 @@ import {
 } from '../../private/common/utils/tags';
 import getSectionName from '../../private/LN/common/utils/getSectionName';
 import ComTitle from '../../private/common/com-title';
-import { sectionsFormated } from './ultimasNoticias';
+import sectionsFormated from '../../private/common/utils/sectionsFormated';
 
 export const getUltimasNoticiasSectionsIds = renderables => {
     const ultimasNoticiasFeature = renderables.find(

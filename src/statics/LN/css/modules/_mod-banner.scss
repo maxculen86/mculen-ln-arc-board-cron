@@ -137,7 +137,12 @@
 
     &.--caja1_mob,
     &.--caja2_mob,
-    &.--caja3_mob {
+    &.--caja3_mob,
+    &.--caja6_mob,
+    &.--caja7_mob,
+    &.--caja8_mob,
+    &.--caja9_mob,
+    &.--caja10_mob {
         height: px(450);
     }
 
@@ -297,7 +302,7 @@
             }
 
             &.--parallax_dsk {
-                height: px(300);
+                height: px(250);
             }
         }
     }

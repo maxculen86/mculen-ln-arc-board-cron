@@ -12,17 +12,25 @@ export default function useGetArticlesFromAcumSource(
     shouldNotFilter,
     website = 'la-nacion-ar',
     promoItemsOnly = false,
-    staticMode = true
+    staticMode = true,
+    collectionId = ''
 ) {
     const { sectionId, tagId, authorId, distributorId, sectionsIds, subtype } =
         typesOfQuery || {};
 
+    const setSource = () => {
+        if (sectionId || tagId || authorId || distributorId || sectionsIds)
+            return 'acuArticlesSource';
+
+        if (collectionId) return 'collectionsSource';
+
+        return null;
+    };
+
     const articleList = useContent({
-        source:
-            sectionId || tagId || authorId || distributorId || sectionsIds
-                ? 'acuArticlesSource'
-                : null,
+        source: setSource(),
         query: {
+            ...(collectionId && { id: collectionId }),
             website,
             sectionId,
             authorId,
@@ -41,5 +49,6 @@ export default function useGetArticlesFromAcumSource(
         filter,
         staticMode
     });
+
     return get(articleList, 'content_elements', []);
 }

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`programSnippet test Check render for program snippet 1`] = `
+<div>
+  <script
+    type="application/ld+json"
+  >
+    {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Mesa chica - 21 de Junio 2022",
+  "description": "Mira el programa Mesa chica en su edición del 21 de Junio 2022",
+  "thumbnailUrl": [
+    "https://d3us6z9haan6vf.cloudfront.net/06-22-2022/t_b8765941fe0149ddb914c3540a27234a_name_file_1280x720_2000_v3_1_.jpg"
+  ],
+  "uploadDate": "2022-06-22 14:08:10",
+  "embedUrl": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/20220622/62b3224a32efa15b96e7157b/t_b38e9a2c05cc4b1d9c5e1dc37cfb5c54_name_Mesa_chica___21_de_Junio_2022/file_640x360-600.mp4",
+  "duration": "T59M26S"
+}
+  </script>
+</div>
+`;
