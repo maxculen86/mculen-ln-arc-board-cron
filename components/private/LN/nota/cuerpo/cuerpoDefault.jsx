@@ -165,61 +165,73 @@ const Cuerpo = props => {
                             ) &&
                             banners
                                 .filter(banner => banner.position === counter)
-                                .map(value => {
-                                    const slotId =
-                                        value.desktop ||
-                                        value.mobile ||
-                                        value.tablet ||
-                                        '';
+                                .map(
+                                    ({
+                                        desktop = '',
+                                        mobile = '',
+                                        tablet = ''
+                                    } = {}) => {
+                                        return [desktop, mobile, tablet].map(
+                                            slotId => {
+                                                const bannerConfiguration =
+                                                    slotId &&
+                                                    getBannerConfiguration(
+                                                        globalContent,
+                                                        { group: 'nota' },
+                                                        {},
+                                                        {
+                                                            device: Object.keys(
+                                                                suffixDevice
+                                                            ).find(key =>
+                                                                slotId.includes(
+                                                                    suffixDevice[
+                                                                        key
+                                                                    ]
+                                                                )
+                                                            ),
+                                                            slotId
+                                                        }
+                                                    );
 
-                                    const bannerConfiguration = getBannerConfiguration(
-                                        globalContent,
-                                        { group: 'nota' },
-                                        {},
-                                        {
-                                            device: Object.keys(
-                                                suffixDevice
-                                            ).find(key =>
-                                                slotId.includes(
-                                                    suffixDevice[key]
+                                                if (
+                                                    !bannerConfiguration ||
+                                                    (outputType === 'amp' &&
+                                                        !slotId.includes(
+                                                            '_amp'
+                                                        ))
                                                 )
-                                            ),
-                                            slotId
-                                        }
-                                    );
-
-                                    if (
-                                        !bannerConfiguration ||
-                                        (outputType === 'amp' &&
-                                            !slotId.includes('_amp'))
-                                    )
-                                        return <></>;
-
-                                    return (
-                                        elementsCount > counter && (
-                                            <StaticValidation
-                                                id={slotId}
-                                                htmlOnly
-                                                persistent
-                                            >
-                                                {outputType === 'amp' &&
-                                                slotId.includes('_amp') ? (
-                                                    <DivBannerAMP
-                                                        bannerConfiguration={
-                                                            bannerConfiguration
-                                                        }
-                                                    />
-                                                ) : (
-                                                    <DivBannerSSR
-                                                        bannerConfiguration={
-                                                            bannerConfiguration
-                                                        }
-                                                    />
-                                                )}
-                                            </StaticValidation>
-                                        )
-                                    );
-                                })}
+                                                    return <></>;
+                                                return (
+                                                    elementsCount > counter && (
+                                                        <StaticValidation
+                                                            id={slotId}
+                                                            htmlOnly
+                                                            persistent
+                                                        >
+                                                            {outputType ===
+                                                                'amp' &&
+                                                            slotId.includes(
+                                                                '_amp'
+                                                            ) ? (
+                                                                <DivBannerAMP
+                                                                    bannerConfiguration={
+                                                                        bannerConfiguration
+                                                                    }
+                                                                />
+                                                            ) : (
+                                                                <DivBannerSSR
+                                                                    bannerConfiguration={
+                                                                        bannerConfiguration
+                                                                    }
+                                                                />
+                                                            )}
+                                                        </StaticValidation>
+                                                    )
+                                                );
+                                            }
+                                        );
+                                    }
+                                )}
                     </>
                 );
             }

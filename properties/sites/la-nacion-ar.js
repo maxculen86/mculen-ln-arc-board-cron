@@ -1684,6 +1684,78 @@ export default {
                         }
                     }
                 },
+                caja7_mob: {
+                    slotName: 'la_nacion_mobile/Nota/caja7_mob',
+                    withoutHide: true,
+                    hideForSubscriptor: true,
+                    dimensions: [
+                        [300, 250],
+                        [320, 50],
+                        [300, 450],
+                        [1, 1],
+                        [320, 100]
+                    ],
+                    targeting: targetingNota,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
+                caja8_mob: {
+                    slotName: 'la_nacion_mobile/Nota/caja8_mob',
+                    withoutHide: true,
+                    hideForSubscriptor: true,
+                    dimensions: [
+                        [300, 250],
+                        [320, 50],
+                        [300, 450],
+                        [1, 1],
+                        [320, 100]
+                    ],
+                    targeting: targetingNota,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
+                caja9_mob: {
+                    slotName: 'la_nacion_mobile/Nota/caja9_mob',
+                    withoutHide: true,
+                    hideForSubscriptor: true,
+                    dimensions: [
+                        [300, 250],
+                        [320, 50],
+                        [300, 450],
+                        [1, 1],
+                        [320, 100]
+                    ],
+                    targeting: targetingNota,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
+                caja10_mob: {
+                    slotName: 'la_nacion_mobile/Nota/caja10_mob',
+                    withoutHide: true,
+                    hideForSubscriptor: true,
+                    dimensions: [
+                        [300, 250],
+                        [320, 50],
+                        [300, 450],
+                        [1, 1],
+                        [320, 100]
+                    ],
+                    targeting: targetingNota,
+                    bidding: {
+                        prebid: {
+                            enabled: true
+                        }
+                    }
+                },
                 inread_mob: {
                     slotName: 'la_nacion_mobile/Nota/inread_mob',
                     dimensions: [

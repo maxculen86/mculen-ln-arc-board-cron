@@ -22,36 +22,38 @@ export const BuildBanners = ({
         banners.some(banner => banner.position === elementPosition) &&
         banners
             .filter(banner => banner.position === elementPosition)
-            .map(value => {
-                const slotId = setSlotId(value);
+            .map(({ desktop = '', mobile = '', tablet = '' } = {}) => {
+                return [desktop, mobile, tablet].map(slotId => {
+                    const bannerConfiguration =
+                        slotId &&
+                        getBannerConfiguration(
+                            globalContent,
+                            { group: 'nota' },
+                            {},
+                            {
+                                device: Object.keys(suffixDevice).find(key =>
+                                    slotId.includes(suffixDevice[key])
+                                ),
+                                slotId
+                            }
+                        );
 
-                const bannerConfiguration = getBannerConfiguration(
-                    globalContent,
-                    { group: 'nota' },
-                    {},
-                    {
-                        device: Object.keys(suffixDevice).find(key =>
-                            slotId.includes(suffixDevice[key])
-                        ),
-                        slotId
-                    }
-                );
-
-                return isAmpWithoutSlotIdAmpValidator({
-                    bannerConfiguration,
-                    outputType,
-                    slotId
-                }) ? (
-                    <></>
-                ) : (
-                    DivBannerRender({
-                        elementsCount,
-                        elementPosition,
-                        slotId,
+                    return isAmpWithoutSlotIdAmpValidator({
+                        bannerConfiguration,
                         outputType,
-                        bannerConfiguration
-                    })
-                );
+                        slotId
+                    }) ? (
+                        <></>
+                    ) : (
+                        DivBannerRender({
+                            elementsCount,
+                            elementPosition,
+                            slotId,
+                            outputType,
+                            bannerConfiguration
+                        })
+                    );
+                });
             })
     );
 };
@@ -84,8 +86,6 @@ const DivBannerRender = ({
         )
     );
 };
-
-const setSlotId = value => value.desktop || value.mobile || value.tablet || '';
 
 export const getElementsCount = ({ contentElements }) => {
     return contentElements.filter(el => supportedTypes.includes(el.type))
