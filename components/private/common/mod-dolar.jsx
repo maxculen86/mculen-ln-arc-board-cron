@@ -10,7 +10,7 @@ import Text from './text';
 
 const ModDolar = ({ imageUrl, data = [] }) =>
     (data.length && (
-        <>
+        <div className="dolar">
             <ul className="mod-dolar">
                 {data.map((item, index) => {
                     const { sourceName, title, compra, venta } = item;
@@ -54,7 +54,19 @@ const ModDolar = ({ imageUrl, data = [] }) =>
                     lcw-marquee-items="20"
                 />
             </div>
-        </>
+            <Text size="5xs">
+                Información provista por
+                {`${' '}`}
+                <ComLink
+                    link="https://www.livecoinwatch.com/"
+                    target="_blank"
+                    rel="nofollow"
+                    title="Ir a Live Coin Watch"
+                >
+                    Live Coin Watch
+                </ComLink>
+            </Text>
+        </div>
     )) ||
     null;
 

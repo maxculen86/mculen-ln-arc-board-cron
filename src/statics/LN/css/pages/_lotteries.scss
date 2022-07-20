@@ -33,6 +33,13 @@
         &.row-gap-tablet-2 {
             row-gap: px(32);
         }
-        margin-bottom: px(32);
+    }
+}
+
+.lottery-data-factory {
+    display: flex;
+    margin-bottom: px(32);
+    a {
+        margin-left: px(5);
     }
 }
