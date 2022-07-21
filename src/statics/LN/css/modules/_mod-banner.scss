@@ -262,9 +262,11 @@
         &.--middle_1_dsk {
             height: px(480);
         }
-        &.--middle_2_dsk,
-        &.--middle_3_dsk {
+        &.--middle_2_dsk {
             height: px(90);
+        }
+        &.--middle_3_dsk {
+            height: px(360);
         }
 
         .home & {
