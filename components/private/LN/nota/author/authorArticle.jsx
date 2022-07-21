@@ -8,8 +8,8 @@ const authorArticle = ({
     }
 }) => {
     const concatAuthors = (index, authors) => {
-        if (index < authors.length - 2) return ',';
-        if (index === authors.length - 2) return 'y';
+        if (index < authors.length - 2) return ', ';
+        if (index === authors.length - 2) return ' y ';
         return '';
     };
 
@@ -17,10 +17,10 @@ const authorArticle = ({
     const authors = by.filter(author => author.type === 'author');
     return (
         <>
-            {authors.length > 0 ? <span>Por</span> : ''}
+            {authors.length > 0 ? <span>Por </span> : ''}
             {authors.map((authorNota, i) => (
-                <span key={authorNota._id} className="">
-                    {authorNota.url && authorNota.url !== '' ? (
+                <span key={authorNota._id}>
+                    {authorNota.url ? (
                         <a href={authorNota.url}>{authorNota.name}</a>
                     ) : (
                         <span>{authorNota.name}</span>
