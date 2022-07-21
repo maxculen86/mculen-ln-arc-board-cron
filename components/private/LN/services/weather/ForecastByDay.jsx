@@ -22,15 +22,11 @@ const ForecastByDay = ({ id, index, section, data }) => {
         return dateFactory[i] || dateFactory.default;
     };
 
-    const customSubtitle = `Pronóstico del tiempo en ${section} ${getDate(
-        date,
-        index
-    )}`;
-
     return (
         <div className="extend-forecast">
-            <Text tag="h2" weight="bold" size="--l">
-                {customSubtitle}
+            <Text tag="h2" size="--l">
+                Pronóstico del tiempo en
+                <strong>{` ${section} ${getDate(date, index)}`}</strong>
             </Text>
             <div className="content-forecast">
                 {morning && <ForecastCard title="Mañana" data={morning} />}

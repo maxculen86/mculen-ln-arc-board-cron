@@ -13,20 +13,9 @@ const ForecastByDay = ({ id, title, data }) => {
         wind
     } = data;
 
-    // const windDirections = {
-    //     N: 'Norte',
-    //     S: 'Sur',
-    //     E: 'Este',
-    //     O: 'Oeste',
-    //     NO: 'Noroeste',
-    //     NE: 'Noreste',
-    //     SE: 'Sudeste',
-    //     SO: 'Sudoeste'
-    // };
-
     const getHigher = array => Math.max.apply(0, array);
     const windSpeed = getHigher(get(wind, 'speed_range', []));
-    // const parsedWindDir = windDirections[wind.direction] || '';
+    const parsedWindDir = wind.direction || '-';
     const rain = getHigher(rainRange);
 
     return (
@@ -35,34 +24,34 @@ const ForecastByDay = ({ id, title, data }) => {
                 <Text tag="h2" weight="bold">
                     {title}
                 </Text>
-                <Text tag="p" weight="bold" size="--xl">
-                    {`${temperature} º C`}
+                <Text size="--fivexs" weight="light" extraClass="description">
+                    {weather.description ? weather.description : '-'}
                 </Text>
             </div>
-            <div className="icon">
+            <div className="icon-content">
                 <Icon name="snow-cloudy" />
-                <Text tag="p" weight="light">
-                    {weather.description}
+                <Text weight="bold" size="--xl">
+                    {temperature ? `${temperature}ºc` : '-'}
                 </Text>
             </div>
             <div className="detail-province-icons">
                 <div className="box-icon-text">
-                    <Icon name="cloudy" size="--xl" />
-                    <Text tag="p" weight="light">
-                        {`${humidity} %`}
+                    <Icon name="cloudy" />
+                    <Text weight="light">
+                        {humidity ? `${humidity}%` : '-'}
                     </Text>
                 </div>
                 <div className="box-icon-text">
-                    <Icon name="windy" size="--xl" />
-                    <Text tag="p" weight="light">
-                        {`${windSpeed} Km/h`}
+                    <Icon name="windy" />
+                    <Text weight="light">
+                        {parsedWindDir && windSpeed
+                            ? `${parsedWindDir} ${windSpeed}Km/h`
+                            : '-'}
                     </Text>
                 </div>
                 <div className="box-icon-text">
-                    <Icon name="rain" size="--xl" />
-                    <Text tag="p" weight="light">
-                        {`${rain} %`}
-                    </Text>
+                    <Icon name="rain" />
+                    <Text weight="light">{rain ? `${rain}%` : '-'}</Text>
                 </div>
             </div>
         </div>
