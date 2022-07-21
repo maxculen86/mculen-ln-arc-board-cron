@@ -2,19 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Text from '../../../common/text';
 import Icon from '../../../common/icon';
+import ModHeaderSection from '../../../common/mod-headerSection';
 
 const IconsReferences = ({ icons }) => {
     return (
-        <div className="icon-references">
-            {icons &&
-                icons.map(({ id, description }) => (
-                    <div className="card-icon">
-                        <Icon name={id} size="--xl" />
-                        <Text tag="p" weight="light">
-                            {description}
-                        </Text>
-                    </div>
-                ))}
+        <div className="content-icon">
+            <ModHeaderSection
+                tag="h2"
+                title="Referencias de las imagenes del clima con descripcion"
+            />
+            <div className="icon-references">
+                {icons &&
+                    icons.map(({ id, description }) => (
+                        <div className="card-icon">
+                            <Icon name={id} size="--xl" />
+                            <Text size="--2xs">{description}</Text>
+                        </div>
+                    ))}
+            </div>
         </div>
     );
 };

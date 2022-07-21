@@ -3,10 +3,10 @@
 
 .grid-weather-home {
     margin-bottom: px(32);
-   @include grid-weather;
-   @media ($media-m) {
-    row-gap: px(16);
-    column-gap: px(16);
+    @include grid-weather;
+    @media ($media-m) {
+        row-gap: px(16);
+        column-gap: px(16);
     }
     @media ($media-xl) {
         column-gap: px(40);
@@ -55,7 +55,7 @@
     @include common-card;
     display: flex;
     flex-direction: column;
-    height: px(224);
+    height: 100%;
     max-width: px(430);
 
     .labeled {
@@ -95,31 +95,46 @@
     }
 }
 
-.icon-references {
-    @include flex(flex, row, space-around, center);
-    border: 1px solid $dark-neutral-600;
-    flex-wrap: wrap;
-    border-radius: 4px;
-    padding: px(16);
-    margin-bottom: px(24);
+.content-icon {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: px(32);
 
-    .card-icon {
-        @include flex(flex, column, space-around, center);
-        margin: px(8);
+    .icon-references {
+        align-self: center;
+        border: 1px solid $dark-neutral-600;
+        border-radius: 4px;
+        padding: px(16);
+        width: 100%;
+        max-width: px(430);
 
-        .com-icon {
-            height: 40px;
-            width: 40px;
+        .card-icon {
+            @include flex(flex, row, start, center);
+            width: 100%;
+            padding: px(16);
+
+            .com-icon {
+                border-radius: px(20);
+                padding: px(8);
+                background: $light-neutral-200;
+                height: px(40);
+                width: px(40);
+            }
+            .com-text {
+                margin-left: px(8);
+            }
         }
-        .com-text {
-            margin-top: px(16);
-        }
-    }
 
-    @media (max-width: 375px) {
-        flex-direction: column;
-        .com-icon {
-            margin-top: px(16);
+        @media ($media-m) {
+            @include grid-weather;
+            column-gap: px(8);
+            row-gap: px(8);
+            max-width: 100%;
+
+            .com-icon {
+                margin-top: 0;
+            }
         }
     }
 }
@@ -139,7 +154,7 @@
         width: 100%;
         max-width: px(430);
 
-        .com-link{
+        .com-link {
             color: $violet-900;
         }
     }
