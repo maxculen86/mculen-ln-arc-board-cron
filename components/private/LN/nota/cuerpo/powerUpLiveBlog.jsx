@@ -4,7 +4,7 @@ import ComTitle from '../../../common/com-title';
 import StaticValidation from '../../../common/staticValidation';
 
 const PowerUpLiveBlog = ({ data = {} }) => {
-    const { embed = {} } = data;
+    const { embed = {}, _id = '' } = data;
     const { config = {} } = embed;
     const { time = '', title = '' } = config;
 
@@ -14,7 +14,7 @@ const PowerUpLiveBlog = ({ data = {} }) => {
         return timeArray.join(':');
     };
     return (
-        <StaticValidation>
+        <StaticValidation id={_id} htmlOnly persistent>
             <ComTitle
                 tag="h2"
                 size="--l"
