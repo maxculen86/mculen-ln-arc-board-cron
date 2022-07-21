@@ -3,21 +3,17 @@
 exports[`features - LaNacion - Nota - AuthorNota Test de snapshot TituloNota 1`] = `
 Array [
   <span>
-    Por
+    Por 
   </span>,
-  <span
-    class=""
-  >
+  <span>
     <a
       href="/autor/agustina__++**''''''¿¿_lomuto/"
     >
       Agustina Lomuto
     </a>
-    y
+     y 
   </span>,
-  <span
-    class=""
-  >
+  <span>
     <a
       href="/autor/diego-cabot"
     >

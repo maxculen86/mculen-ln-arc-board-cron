@@ -27,7 +27,7 @@ describe('features - LaNacion - Nota - AuthorNota', () => {
     };
     it('Displays accurately 1 author', () => {
         const wrapper = mount(<AuthorArticle {...props} />);
-        expect(wrapper.find('authorArticle').text()).toBe('PorJuan');
+        expect(wrapper.find('authorArticle').text()).toBe('Por Juan');
         expect(wrapper.find('.com-author')).toHaveLength(0);
         expect(wrapper.find('span')).toHaveLength(2);
         expect(wrapper.find('a')).toHaveLength(1);
@@ -41,7 +41,7 @@ describe('features - LaNacion - Nota - AuthorNota', () => {
             url: ''
         });
         const wrapper = mount(<AuthorArticle {...props} />);
-        expect(wrapper.find('authorArticle').text()).toBe('PorJuanyMaria');
+        expect(wrapper.find('authorArticle').text()).toBe('Por Juan y Maria');
         expect(wrapper.find('.com-author')).toHaveLength(0);
         expect(wrapper.find('span')).toHaveLength(4);
         expect(wrapper.find('a')).toHaveLength(1);
@@ -55,7 +55,9 @@ describe('features - LaNacion - Nota - AuthorNota', () => {
             url: 'https://www.lanacion.com.ar'
         });
         const wrapper = mount(<AuthorArticle {...props} />);
-        expect(wrapper.find('authorArticle').text()).toBe('PorJuan,MariayPepe');
+        expect(wrapper.find('authorArticle').text()).toBe(
+            'Por Juan, Maria y Pepe'
+        );
         expect(wrapper.find('.com-author')).toHaveLength(0);
         expect(wrapper.find('span')).toHaveLength(5);
         expect(wrapper.find('a')).toHaveLength(2);
