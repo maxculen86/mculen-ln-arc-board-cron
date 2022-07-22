@@ -82,19 +82,10 @@ export const transformWeatherHome = data => {
 
 export const transformWeatherDetail = data => {
     return data.map((forecast = {}, i) => {
-        const {
-            date,
-            early_morning: earlyMorning,
-            morning,
-            afternoon,
-            night
-        } = forecast;
+        const { date, morning, afternoon, night } = forecast;
 
         return {
             ...(date && { date }),
-            ...(earlyMorning && {
-                early_morning: getDaytimeData(earlyMorning)
-            }),
             ...(morning && { morning: getDaytimeData(morning) }),
             ...(afternoon && { afternoon: getDaytimeData(afternoon) }),
             ...(night && { night: getDaytimeData(night) })
