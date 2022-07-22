@@ -5,6 +5,7 @@ import { removeEmptyItems } from '../../common/utils/responseCleaner';
 import { getTag } from '../../common/tag';
 import { authorAcu, authorAcuFollow } from '../../common/author';
 import { getSubCategory } from '../../common/category';
+import get from '../../../../../common/utils/get';
 
 const topics = {
     autor: {
@@ -51,7 +52,8 @@ const index = acuData => {
         titulo: acuData.name
     };
     if (acuData.articles) {
-        resp.banners = banners(acuData);
+        const showBanners = get(acuData, 'showBanner', true);
+        if (showBanners) resp.banners = banners(acuData);
         resp.notas = acuData.articles.reduce((result, f) => {
             try {
                 if (f) {

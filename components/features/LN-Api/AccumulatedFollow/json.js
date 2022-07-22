@@ -52,7 +52,8 @@ class AccumulatedFollow {
                 paginator,
                 page,
                 total: globalContent.count,
-                followedItemsValidate
+                followedItemsValidate,
+                showBanner: false
             };
 
             return indexAcu(acuData);
