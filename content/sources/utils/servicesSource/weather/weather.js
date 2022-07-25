@@ -1,25 +1,27 @@
-// import request from 'request-promise-native';
+import request from 'request-promise-native';
+import { LANACION_SERVICES_URL } from 'fusion:environment';
 import logger from '../../../../../components/private/common/utils/logger';
 import weatherData from './_config';
 import getWeatherMetaData from './weatherHelper';
 
-const weatherRequest = ({ queryData, auth, sectionChildrens } = {}) => {
-    const { serviceItem = '', serviceSubItem = '' } = queryData;
+const getUri = ({ service = '', serviceItem = '', serviceSubItem = '' }) => {
+    if (serviceSubItem)
+        return `${LANACION_SERVICES_URL}/api/v1/forecast/${serviceItem}/${serviceSubItem}`;
 
-    if (serviceSubItem) {
-        return Promise.resolve(weatherData.ciudad);
-    }
-    if (serviceItem) {
-        return sectionChildrens.length > 0
-            ? Promise.resolve(weatherData['provincia-ciudad'])
-            : Promise.resolve(weatherData.provincia);
-    }
-    // const opt = {
-    //     uri: getUri(queryData),
-    //     json: true,
-    //     ...auth
-    // };
-    return Promise.resolve(weatherData['home-clima']);
+    if (service)
+        return `${LANACION_SERVICES_URL}/api/v1/forecast/`.concat(serviceItem);
+
+    throw new Error(
+        'No esta solicitado ningun clima o el clima que desea solicitar no existe.'
+    );
+};
+const weatherRequest = ({ queryData, auth } = {}) => {
+    const opt = {
+        uri: getUri(queryData),
+        json: true,
+        ...auth
+    };
+    return request(opt).then(data => data);
 };
 const resolve = ({ response = {} }) => transform(response);
 
