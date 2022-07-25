@@ -8,7 +8,7 @@ import useProportions from '../../../common/hooks/useProportions';
 import Text from '../../../common/text';
 
 const Parallax = ({ data = {} }) => {
-    const { outputType } = useAppContext();
+    const { outputType, globalContent: { subtype = 8 } = {} } = useAppContext();
     const isAmp = outputType === 'amp';
     const dev = useViewportSize();
     const [device, setDevice] = useState(dev);
@@ -30,7 +30,12 @@ const Parallax = ({ data = {} }) => {
         height
     } = imageId;
 
-    const sourcesForDevice = useProportions({ imagesResized, device, isAmp });
+    const sourcesForDevice = useProportions({
+        resizedUrls: imagesResized,
+        device,
+        isAmp,
+        subtype
+    });
 
     if (!imageId || (!title && !paragraph)) return null;
 
