@@ -41,11 +41,11 @@ const WeatherCard = ({ id, data }) => {
                 </Text>
             </div>
             <div className="temperature">
-                <Text size="--5xs">Min</Text>
+                <Text size="--5xs">Máx:</Text>
                 <Text weight="bold" size="--4xs">
                     {defaultValue(minTemp, `${minTemp}º`)}
                 </Text>
-                <Text size="--5xs">Max</Text>
+                <Text size="--5xs">Mín:</Text>
                 <Text weight="bold" size="--4xs">
                     {defaultValue(maxTemp, `${maxTemp}º`)}
                 </Text>

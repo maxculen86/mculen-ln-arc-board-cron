@@ -32,8 +32,9 @@ const ForecastByDay = ({ id, title, data }) => {
             </div>
             <div className="icon-content">
                 <Icon name="snow-cloudy" />
-                <Text weight="bold" size="--xl">
-                    {defaultValue(temperature, `${temperature}ºc`)}
+                <Text tag="p" weight="bold" size="--xl">
+                    {defaultValue(temperature, temperature)}
+                    <Text size="--m">ºc</Text>
                 </Text>
             </div>
             <div className="detail-province-icons">
