@@ -13,6 +13,8 @@ const ForecastByDay = ({ id, title, data }) => {
         wind
     } = data;
 
+    const defaultValue = (condition, value) => (condition ? value : '-');
+
     const getHigher = array => Math.max.apply(0, array);
     const windSpeed = getHigher(get(wind, 'speed_range', []));
     const parsedWindDir = wind.direction || '-';
@@ -25,33 +27,34 @@ const ForecastByDay = ({ id, title, data }) => {
                     {title}
                 </Text>
                 <Text size="--fivexs" weight="light" extraClass="description">
-                    {weather.description ? weather.description : '-'}
+                    {defaultValue(weather.description, weather.description)}
                 </Text>
             </div>
             <div className="icon-content">
                 <Icon name="snow-cloudy" />
                 <Text weight="bold" size="--xl">
-                    {temperature ? `${temperature}ºc` : '-'}
+                    {defaultValue(temperature, `${temperature}ºc`)}
                 </Text>
             </div>
             <div className="detail-province-icons">
                 <div className="box-icon-text">
                     <Icon name="cloudy" />
                     <Text weight="light">
-                        {humidity ? `${humidity}%` : '-'}
+                        {defaultValue(humidity, `${humidity}%`)}
                     </Text>
                 </div>
                 <div className="box-icon-text">
                     <Icon name="windy" />
                     <Text weight="light">
-                        {parsedWindDir && windSpeed
-                            ? `${parsedWindDir} ${windSpeed}Km/h`
-                            : '-'}
+                        {defaultValue(
+                            parsedWindDir && windSpeed,
+                            `${parsedWindDir} ${windSpeed}Km/h`
+                        )}
                     </Text>
                 </div>
                 <div className="box-icon-text">
                     <Icon name="rain" />
-                    <Text weight="light">{rain ? `${rain}%` : '-'}</Text>
+                    <Text weight="light">{defaultValue(rain, `${rain}%`)}</Text>
                 </div>
             </div>
         </div>

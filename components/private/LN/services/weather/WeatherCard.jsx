@@ -14,6 +14,8 @@ const WeatherCard = ({ id, data }) => {
         temp_max: maxTemp
     } = data;
 
+    const defaultValue = (condition, value) => (condition ? value : '-');
+
     return (
         <div className="weather-card">
             <div>
@@ -34,18 +36,18 @@ const WeatherCard = ({ id, data }) => {
             <div className="box-icon">
                 <Icon name="windy" />
                 <Text tag="p" weight="bold" size="--twoxl">
-                    {idDescription}
+                    {defaultValue(idDescription, idDescription)}
                     <Text size="--m">ºc</Text>
                 </Text>
             </div>
             <div className="temperature">
                 <Text size="--5xs">Min</Text>
                 <Text weight="bold" size="--4xs">
-                    {`${minTemp}º`}
+                    {defaultValue(minTemp, `${minTemp}º`)}
                 </Text>
                 <Text size="--5xs">Max</Text>
                 <Text weight="bold" size="--4xs">
-                    {`${maxTemp}º`}
+                    {defaultValue(maxTemp, `${maxTemp}º`)}
                 </Text>
             </div>
             <Text tag="h3" size="5xs">
