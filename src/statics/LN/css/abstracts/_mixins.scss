@@ -395,6 +395,7 @@ $guion: '-';
     );
 }
 
+/* ACUMULADOS SECCIONES */
 @mixin AcuColors {
     @each $section,
         $color
@@ -406,18 +407,56 @@ $guion: '-';
                 'campo': $campo
             )
     {
-        .#{$section}.#{$section} {
+        .acumulado.#{$section} {
             h1 .com-link.--black,
             .com-breadcrumb .com-link,
             .--category .com-link,
             .--tags .com-link,
-            º .com-link.--tags,
+            .com-link.--tags,
             .mod-description .com-lead {
                 color: $color;
             }
 
             .mod-headersection.--bg.mod-headersection.--bg {
                 background-color: $color;
+            }
+        }
+    }
+}
+
+/* REVISTAS */
+@mixin magazine($primario) {
+    &.nota {
+        #content {
+            .com-breadcrumb a,
+            .mod-autor .com-link,
+            .cuerpo__nota .com-link.com-link,
+            .mod-keepreading a {
+                color: $primario;
+            }
+            .cuerpo__nota .com-button {
+                &.--secondary {
+                    color: $primario;
+                    border-color: $primario;
+                    &:hover {
+                        background-color: $primario;
+                        color: $neutral-white;
+                        .com-icon {
+                            path {
+                                fill: $neutral-white;
+                            }
+                        }
+                    }
+                    .com-icon {
+                        path {
+                            fill: $primario;
+                        }
+                    }
+                }
+                &.--primary {
+                    border-color: $primario;
+                    background-color: $primario;
+                }
             }
         }
     }

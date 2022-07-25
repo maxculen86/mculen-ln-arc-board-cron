@@ -8,100 +8,26 @@
         }
     }
 }
-
-/* REVISTAS */
-@mixin magazine($logo, $primario) {
-    &.nota {
-        #content {
-            .com-breadcrumb a,
-            .mod-autor .com-link,
-            .cuerpo__nota .com-link.com-link,
-            .mod-keepreading a,
-            .mod-share .comment-btn .com-text,
-            .mod-share .com-button:hover {
-                color: $primario;
-            }
-            .cuerpo__nota .com-button {
-                &.--secondary {
-                    color: $primario;
-                    border-color: $primario;
-                    &:hover {
-                        background-color: $primario;
-                        color: $neutral-white;
-                        .com-icon {
-                            path {
-                                fill: $neutral-white;
-                            }
-                        }
-                    }
-                    .com-icon {
-                        path {
-                            fill: $primario;
-                        }
-                    }
-                }
-                &.--primary {
-                    border-color: $primario;
-                    background-color: $primario;
-                }
-            }
-        }
+@each $name,
+    $var
+        in (
+            'brando': $brando,
+            'ohlala': $ohlala,
+            'lugares': $lugares,
+            'living': $living,
+            'hola': $hola,
+            'jardin': $jardin,
+            'rolling': $rolling,
+            'propiedades': $propiedades,
+            'campo': $campo,
+            'salud': $salud,
+            'deportes': $deportes,
+            'economia': $economia
+        )
+{
+    .#{$name} {
+        @include magazine($var);
     }
-}
-
-.propiedades {
-    $primario: $propiedades;
-    $logo: $logo-propiedades;
-    @include magazine($logo, $primario);
-}
-
-.brando {
-    $primario: $brando;
-    $logo: $logo-brando;
-    @include magazine($logo, $primario);
-}
-
-.ohlala {
-    $primario: $ohlala;
-    $logo: $logo-ohlala;
-    @include magazine($logo, $primario);
-}
-
-.lugares {
-    $primario: $lugares;
-    $logo: $logo-lugares;
-    @include magazine($logo, $primario);
-}
-
-.living {
-    $primario: $ln;
-    $logo: $logo-living;
-    @include magazine($logo, $primario);
-}
-
-.hola {
-    $primario: $hola;
-    $logo: $logo-hola;
-    @include magazine($logo, $primario);
-}
-
-.jardin {
-    $primario: $jardin;
-    $logo: $logo-jardin;
-    @include magazine($logo, $primario);
-}
-
-//.rolling-stone,
-.rolling {
-    $primario: $rolling;
-    $logo: $logo-rolling;
-    @include magazine($logo, $primario);
-}
-
-.campo {
-    $primario: $teal-700;
-    $logo: $logo-campo;
-    @include magazine($logo, $primario);
 }
 
 .nota.nota {

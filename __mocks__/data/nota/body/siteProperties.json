@@ -60,6 +60,23 @@
                             "enabled": true
                         }
                     }
+                },
+                "caja1_dsk": {
+                    "slotName": "la_nacion_desktop/Nota/caja1_dsk",
+                    "withoutHide": true,
+                    "dimensions": [
+                        [300, 600],
+                        [300, 250]
+                    ],
+                    "targeting": {
+                        "sitio": "lanacion",
+                        "seccion": "nota"
+                    },
+                    "bidding": {
+                        "prebid": {
+                            "enabled": true
+                        }
+                    }
                 }
             },
             "mobile": {

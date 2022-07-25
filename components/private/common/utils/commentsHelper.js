@@ -107,7 +107,7 @@ export const getLoginAndRegistrationURLS = () => {
 
     return {
         loginUrl: `${LOGIN_URL}${urlBase64}`,
-        registracionUrl: `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${urlBase64}`
+        registracionUrl: `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${urlBase64}&cv=670&fc=744#`
     };
 };
 

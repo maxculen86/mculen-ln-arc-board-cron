@@ -42,14 +42,14 @@
         "position": 6
     },
     "Breaking_1": {
-        "quantity": 1,
-        "operatorToUse": "!==",
+        "quantity": 2,
+        "operatorToUse": "<=",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 7
     },
     "Breaking_2": {
-        "quantity": 1,
-        "operatorToUse": "!==",
+        "quantity": 2,
+        "operatorToUse": "<=",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 8
     },

@@ -194,7 +194,7 @@ const labels = `
         }
     }
 `;
-const customParallax = `
+const customPowerUps = `
     subtype
     embed {
         config {
@@ -215,6 +215,10 @@ const customParallax = `
             }
             title
             paragraph
+            typeList
+            date
+            time
+            isoDate
         }
     }
 `;
@@ -230,19 +234,6 @@ const customReceta = `
             cookTime
             counterTime
             counterPortion
-        }
-    }
-`;
-
-const customLiveBlog = `
-    subtype
-    embed {
-        config {
-            title
-            typeList
-            date
-            time
-            isoDate
         }
     }
 `;
@@ -424,7 +415,6 @@ export default `
             subtype
             embed{
                 config{
-
                     items{
                         text
                         value
@@ -434,16 +424,13 @@ export default `
                     typeList
                 }
             }
-
         }
         citation {
             type
             content
         }
         ${image}
-        ${customReceta}
-        ${customParallax}
-        ${customLiveBlog}
+        ${customPowerUps}
         ${gallery}
         ${video}
         ${oembed}

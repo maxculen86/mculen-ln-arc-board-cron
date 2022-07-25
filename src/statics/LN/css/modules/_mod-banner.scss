@@ -137,7 +137,12 @@
 
     &.--caja1_mob,
     &.--caja2_mob,
-    &.--caja3_mob {
+    &.--caja3_mob,
+    &.--caja6_mob,
+    &.--caja7_mob,
+    &.--caja8_mob,
+    &.--caja9_mob,
+    &.--caja10_mob {
         height: px(450);
     }
 
@@ -257,9 +262,11 @@
         &.--middle_1_dsk {
             height: px(480);
         }
-        &.--middle_2_dsk,
-        &.--middle_3_dsk {
+        &.--middle_2_dsk {
             height: px(90);
+        }
+        &.--middle_3_dsk {
+            height: px(360);
         }
 
         .home & {
