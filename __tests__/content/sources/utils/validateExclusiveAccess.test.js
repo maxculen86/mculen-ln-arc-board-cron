@@ -26,6 +26,12 @@ describe('content - sources - ultils - validateArticleAccess', () => {
             host: BASE_URL,
             path: API_PATH
         },
+        composerPreview: {
+            contentCode: 'cerrada',
+            meteringVariant: 'QSP',
+            host: BASE_URL,
+            path: PATH
+        },
         default: {
             contentCode: 'comun',
             meteringVariant: 'S',
@@ -44,6 +50,10 @@ describe('content - sources - ultils - validateArticleAccess', () => {
 
     it('should be default access by api', () => {
         expect(() => validateExclusiveAccess(mocks.api)).toBeTruthy();
+    });
+
+    it('should have access with QSP', () => {
+        expect(validateExclusiveAccess(mocks.composerPreview)).toBeTruthy();
     });
 
     it('should be default access', () => {
