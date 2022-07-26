@@ -1,4 +1,4 @@
-const weekDays = [
+export const weekDays = [
     'Domingo',
     'Lunes',
     'Martes',

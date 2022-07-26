@@ -6,12 +6,13 @@ import get from './get';
 const getBadge = (contentCode, label) => {
     const text = get(label, 'text', '');
     const style = get(label, 'style', '');
+    const className = get(label, 'className', '');
 
     const validations = {
         comun: () => {
             return (
                 (text && text.trim() && (
-                    <Badge className="com-label" type={style}>
+                    <Badge className={`com-label ${className}`} type={style}>
                         {text.trim()}
                     </Badge>
                 )) || <></>

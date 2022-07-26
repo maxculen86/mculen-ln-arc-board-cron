@@ -4,35 +4,27 @@
     background: -o-radial-gradient(center, ellipse, $negro 0, $negro 100%);
     background: radial-gradient(ellipse at center, $negro 0, $negro 100%);
 }
-#acumulado .apertura {
-    padding-bottom: 40.25%;
+
+.main {
+    margin: 0 auto;
 }
+
+#acumulado .apertura .powa-shadow {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
 #acumulado .apertura picture img {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     z-index: 2;
 }
-#acumulado main > section:first-of-type:after {
-    content: '';
-    position: absolute;
-    width: 1000%;
-    left: -500%;
-    right: 100%;
-    top: 0;
-    bottom: -400px;
-    z-index: -1;
-    background: #1a1a1a;
-}
-#acumulado .ultimos-videos .slider:after {
-    background: #1a1a1a;
+#acumulado .ultimos-videos {
+    padding-left: 10px;
+    padding-right: 10px;
 }
 #acumulado .ultimos-videos .section-title {
     color: $blanco;
-}
-#acumulado .ultimos-videos .section-title:after {
-    background: #1a1a1a;
 }
 #acumulado .ultimos-videos .title a {
     color: $blanco;
@@ -66,4 +58,10 @@ button.mas:hover {
 }
 .--verde {
     background: #1ed9c4;
+}
+
+@media (min-width: 1040px) {
+    main {
+        max-width: 1140px;
+    }
 }

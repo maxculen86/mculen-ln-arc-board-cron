@@ -7,8 +7,14 @@ import Article from '../../../private/common/mod-article';
 import ComTitle from '../../../private/common/com-title';
 import useTimeline from '../../../private/LN/common/hooks/useTimeline';
 import { cajaTemasCustomsFields } from '../../../private/LN/common/utils/cajaTemasHelper';
+import pageBuilderValidator from '../../../private/common/utils/pageBuilderValidator';
+import {
+    tlSources,
+    setTLValidationRules
+} from '../../../private/LN/common/utils/timeline';
 import filter from '../../../../content/filters/LN/acumulado/articleTimeline';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
+import '../../../../resources/dist/css/ln/components/timeline.css';
 
 const {
     layout,
@@ -19,18 +25,37 @@ const {
     ...cajaTemaCustomFields
 } = cajaTemasCustomsFields('cajaManual');
 
-const Timeline = ({ id: featureId, customFields = {} }) => {
-    const { sections, title: roof, url, hideTitle, size = 5 } = customFields;
+const Timeline = ({ id: featureId, customFields = {}, ...restProps }) => {
+    const {
+        title: roof,
+        url,
+        hideTitle,
+        source,
+        sections,
+        sectionTagValue,
+        collectionId,
+        ...restCustomFields
+    } = customFields;
+
+    const commonProps = {
+        source,
+        sections,
+        sectionTagValue,
+        collectionId
+    };
+
     const { arcSite, isAdmin } = useAppContext();
 
     const articles = useTimeline({
-        sections,
+        arcSite,
         filter,
-        size,
-        arcSite
+        ...commonProps,
+        ...restCustomFields
     });
 
     const withRoof = roof && !hideTitle;
+    const rules = setTLValidationRules({ articles, ...commonProps });
+    const error = pageBuilderValidator(rules);
 
     return (
         <>
@@ -43,22 +68,23 @@ const Timeline = ({ id: featureId, customFields = {} }) => {
                 />
             )}
 
-            {isAdmin && !articles.length && (
+            {isAdmin && error && (
                 <PageBuilderMessage
                     key={featureId}
-                    type="warning"
-                    message="No se encontraron notas"
+                    type={error.type}
+                    message={error.message}
                 />
             )}
 
-            {articles.map(article => (
-                <Article
-                    {...article}
-                    // boxPosition="tl"
-                    titleSize="--twoxs"
-                    titleTag="h3"
-                />
-            ))}
+            {source &&
+                articles.map(article => (
+                    <Article
+                        {...article}
+                        boxPosition="tl"
+                        titleSize="--twoxs"
+                        titleTag="h3"
+                    />
+                ))}
         </>
     );
 };
@@ -67,12 +93,39 @@ Timeline.label = 'LN Timeline';
 
 Timeline.propTypes = {
     customFields: PropTypes.shape({
-        sections: PropTypes.list.tag({
-            label: 'Secciones'
-        }).isRequired,
         size: PropTypes.number.tag({
             label: 'Cantidad de notas',
             defaultValue: 5
+        }),
+        source: PropTypes.oneOf(Object.keys(tlSources)).tag({
+            label: 'Fuente',
+            description: 'Origen de datos para obtención de notas',
+            labels: tlSources
+        }).isRequired,
+        sections: PropTypes.list.tag({
+            label: 'Secciones',
+            group: 'Últimas Noticias'
+        }).isRequired,
+        sectionTagType: PropTypes.oneOf(
+            Object.keys({ tag: 'Tag', section: 'Sección' })
+        ).tag({
+            label: 'Tipo',
+            defaultValue: 'Tag',
+            group: 'Sección o Tag',
+            labels: { tag: 'Tag', section: 'Sección' },
+            description: 'Origen de datos para obtención de notas'
+        }).isRequired,
+        sectionTagValue: PropTypes.string.tag({
+            name: 'Tag o Sección',
+            description: 'Tag o sección para obtención de notas',
+            defaultValue: '',
+            group: 'Sección o Tag'
+        }),
+        collectionId: PropTypes.string.tag({
+            name: 'ID collection',
+            description: 'Id de la collection para obtención de notas',
+            defaultValue: '',
+            group: 'Collection'
         }),
         ...cajaTemaCustomFields
     }).isRequired

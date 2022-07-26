@@ -46,34 +46,37 @@
             &:not(article:last-of-type) {
                 border-left: px(1) solid $link;
             }
+            &:before {
+                content: '';
+                width: $spacing-sm;
+                height: $spacing-sm;
+                border-radius: $spacing-sm;
+                border: px(1) solid $link;
+                background: $neutral-white;
+                left: px(-10);
+                top: 0;
+                z-index: 2;
+                position: absolute;
+            }
+            &:after {
+                content: '';
+                width: $spacing;
+                height: $spacing;
+                border-radius: $spacing;
+                background: $link;
+                top: px(5);
+                left: px(-5);
+                z-index: 2;
+                position: absolute;
+            }
             .com-title {
                 font-weight: 400;
             }
             .com-hour {
                 color: $link;
-                margin: px(1) 0 px(4);
+                margin: px(1) 0 $spacing-2xs;
                 &:before {
-                    content: '';
-                    width: $spacing-sm;
-                    height: $spacing-sm;
-                    border-radius: $spacing-sm;
-                    border: px(1) solid $link;
-                    background: $neutral-white;
-                    left: px(-14.5);
-                    top: 0;
-                    z-index: 2;
-                    position: absolute;
-                }
-                &:after {
-                    content: '';
-                    width: $spacing;
-                    height: $spacing;
-                    border-radius: $spacing;
-                    background: $link;
-                    top: px(5);
-                    left: px(-4.5);
-                    z-index: 2;
-                    position: absolute;
+                    display: none;
                 }
             }
             .mod-description {
@@ -87,6 +90,12 @@
                     padding: 0;
                     top: px(-20);
                     left: px(36);
+                    &.--withoutHour {
+                        position: relative;
+                        top: 0;
+                        left: 0;
+                        margin-bottom: $spacing-2xs;
+                    }
                 }
             }
         }

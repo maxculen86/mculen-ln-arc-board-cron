@@ -220,6 +220,62 @@
             "type": "image",
             "url": "https://resizer.glanacion.com/resizer/av26y64NWYetao2gcdBB_PMqJtg=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QPBCCE3TCFAQXA2ZKVH5NZXCFQ.jpg",
             "width": 976
+        },
+        {
+            "_id": "O72TJVYHHFHG5FVYLSHF25OYWI",
+            "items": [
+                {
+                    "_id": "JV4Z2J56IRBI3G5LXCS75EL3AU",
+                    "content": "18 obuses de 155 mm.<br/>\n",
+                    "type": "text"
+                },
+                {
+                    "_id": "IVU76SREAJFPZPB4HD4V634P2Y",
+                    "content": "36.000 cartuchos de munición de 155 mm.<br/>\n",
+                    "type": "text"
+                },
+                {
+                    "_id": "ZQ2UFEXAFZFFXECWAIUSJNHGAE",
+                    "content": "18 vehículos tácticos para remolcar obuses de 155 mm.<br/>\n",
+                    "type": "text"
+                },
+                {
+                    "_id": "MKJU6P56FRADJDBXGKUBU4ZWAA",
+                    "content": "Munición adicional para sistemas de cohetes de artillería de alta movilidad.<br/>\n",
+                    "type": "text"
+                },
+                {
+                    "_id": "MMFR27SDR5DYPEJ2CCMGPVOC6M",
+                    "content": "Cuatro vehículos tácticos para recuperar equipos.<br/>\n",
+                    "type": "text"
+                },
+                {
+                    "_id": "GAA7D3R7BBDPDPTZVBPH43JAEQ",
+                    "content": "Repuestos y otros equipos.<br/>\n",
+                    "type": "text"
+                },
+                {
+                    "_id": "JTP2KZAX7RAWHA67F2YN6WOXJE",
+                    "content": "Dos sistemas de defensa costera Harpoon.<br/>\n",
+                    "type": "text"
+                },
+                {
+                    "_id": "ANMBZJGBENG5ZCVPBZKMOUZOAE",
+                    "content": "Miles de radios de seguridad.<br/>\n",
+                    "type": "text"
+                },
+                {
+                    "_id": "BDMYBP35HZCG3JKC53MCXWTHWI",
+                    "content": "Miles de dispositivos de visión nocturna, visores térmicos y otras ópticas<br/>\n",
+                    "type": "text"
+                },
+                {
+                    "_id": "CCAMNVAHB5DTDBBJBCX52ZL2QU",
+                    "type": "text"
+                }
+            ],
+            "list_type": "unordered",
+            "type": "list"
         }
     ],
     "content_restrictions": {

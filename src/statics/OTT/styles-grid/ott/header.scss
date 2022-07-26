@@ -2,20 +2,17 @@
 header {
     @include flex;
     @include flex-row;
-    max-width: 1140px;
+    width: 100%;
     padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 3;
     transition: padding 0.2s ease;
-    margin: auto;
-    min-width: 1140px;
     background: none;
 }
 
 .header-wrapper {
     background: radial-gradient(ellipse at center, #322d59 0, #08142d 100%);
-    max-width: 100%;
     position: sticky;
     top: 0;
     z-index: 3;
@@ -23,8 +20,11 @@ header {
 }
 
 header .wrapper {
+    background-color: transparent;
     @include flex-row;
-    margin: 0;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0;
 }
 
 header.sticky {
@@ -80,10 +80,9 @@ header.sticky .header__logo img {
 
 .header__logo {
     margin-right: 20px;
-    z-index: 2;
     background: url(../img/logo-lnmas.png) no-repeat;
     background-size: 55px;
-    text-indent: -9999px;
+    color: transparent;
     height: 38px;
     width: 65px;
     transition: all 0.2s ease;
@@ -108,7 +107,7 @@ header.sticky .header__logo img {
 @media (max-width: 1200px) {
     .header {
         min-width: initial;
-        max-width: 100%;
+        width: -webkit-fill-available;
         margin: 0 30px;
     }
 }
@@ -126,7 +125,6 @@ header.sticky .header__logo img {
     }
     .header.open .wrapper {
         @include flex-column;
-        width: auto;
     }
     .header__nav {
         height: 0;
