@@ -8,6 +8,11 @@
 #programa .apertura picture {
     display: flex;
     justify-content: center;
+
+    .img-desktop {
+        width: 100%;
+        max-width: 1140px;
+    }
 }
 
 #acumulado .apertura {
