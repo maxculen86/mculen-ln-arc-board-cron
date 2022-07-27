@@ -2,6 +2,7 @@ import {
     promoItemArticle,
     apertura
 } from '../../../common/story/apertura/aperturaArticle';
+import get from '../../../../../../common/utils/get';
 import video from '../cuerpo/elements/video';
 import image from '../cuerpo/elements/image';
 
@@ -20,6 +21,12 @@ const aperturaArticle = article => {
             case 'video':
                 resp.video = video(promoItem);
                 break;
+        }
+    }
+    if (resp.video && resp.imagenes === undefined) {
+        const basic = get(article, 'promo_items.basic', null);
+        if (basic) {
+            resp.imagenes = [image(basic)];
         }
     }
     return {
