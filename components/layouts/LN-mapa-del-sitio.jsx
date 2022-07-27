@@ -183,12 +183,29 @@ const LNMapaDelSitio = ({ children }) => {
     ];
 
     const listado8 = [
-        { text: 'Twitter', href: 'https://twitter.com/LANACION' },
-        { text: 'Facebook', href: 'https://www.facebook.com/lanacion' },
-        { text: 'Instagram', href: 'https://www.instagram.com/lanacioncom/' },
+        {
+            text: 'Twitter',
+            href: 'https://twitter.com/LANACION',
+            rel: 'nofollow',
+            target: '_blank'
+        },
+        {
+            text: 'Facebook',
+            href: 'https://www.facebook.com/lanacion',
+            rel: 'nofollow',
+            target: '_blank'
+        },
+        {
+            text: 'Instagram',
+            href: 'https://www.instagram.com/lanacioncom/',
+            rel: 'nofollow',
+            target: '_blank'
+        },
         {
             text: 'Youtube',
-            href: 'https://www.youtube.com/channel/UCba3hpU7EFBSk817y9qZkiA'
+            href: 'https://www.youtube.com/channel/UCba3hpU7EFBSk817y9qZkiA',
+            rel: 'nofollow',
+            target: '_blank'
         }
     ];
 
