@@ -1,4 +1,6 @@
+/* eslint-disable no-underscore-dangle */
 import get from '../../../../../components/private/common/utils/get';
+import homeUrls from './_config';
 
 export const getWeatherMetaData = (serviceItem, serviceSubItem) => {
     if (serviceSubItem)
@@ -50,7 +52,21 @@ const metaDataFactory = {
     }
 };
 
-export const transformWeatherHome = data => {
+const getSectionLink = (service, sections, location) => {
+    if (service) {
+        const sectionLink =
+            sections.find(e => {
+                const { name = '' } = e;
+
+                return name === location;
+            }) || {};
+        const { _id: url = '' } = sectionLink;
+        return url;
+    }
+    return homeUrls[location];
+};
+
+export const transformWeatherHome = (data, children, serviceItem) => {
     if (!data.length) return data;
 
     return data.map((location = {}, i) => {
@@ -61,6 +77,8 @@ export const transformWeatherHome = data => {
             temp_max: tempMax,
             weather = {}
         } = location;
+
+        const sectionId = getSectionLink(serviceItem, children, locationName);
 
         const { description, id: iconId } = weather;
         const newIcon = convertIcon(iconId);
@@ -75,7 +93,8 @@ export const transformWeatherHome = data => {
                     ...(description && { description }),
                     ...(newIcon && { id: newIcon })
                 }
-            })
+            }),
+            ...(sectionId && { link: sectionId })
         };
     });
 };
@@ -139,43 +158,43 @@ const getDaytimeData = (dayTime = {}) => {
 
 const convertIcon = oldIcon => {
     const iconConverter = {
-        19: 2,
-        20: 2,
-        74: 4,
-        3: 1,
-        5: 9,
-        13: 2,
-        14: 2,
-        71: 4,
-        77: 7,
-        84: 7,
-        73: 5,
-        72: 5,
-        93: 5,
-        83: 5,
-        37: 3,
-        38: 3,
-        61: 3,
-        79: 8,
-        75: 8,
-        85: 8,
-        80: 8,
-        67: 3,
-        69: 3,
-        119: 3,
-        43: 3,
-        25: 2,
-        26: 2,
-        81: 6,
-        76: 6,
-        99: 6,
-        89: 6,
-        94: 8,
-        88: 8,
-        92: 8,
-        96: 8,
-        51: 11,
-        118: 11
+        19: 'sun-cloudy',
+        20: 'sun-cloudy',
+        74: 'rainy-cloudy',
+        3: 'sun',
+        5: 'clear-night',
+        13: 'sun-cloudy',
+        14: 'sun-cloudy',
+        71: 'rainy-cloudy',
+        77: 'snow-cloudy',
+        84: 'snow-cloudy',
+        73: 'rain',
+        72: 'rain',
+        93: 'rain',
+        83: 'rain',
+        37: 'cloudy',
+        38: 'cloudy',
+        61: 'cloudy',
+        79: 'snow',
+        75: 'snow',
+        85: 'snow',
+        80: 'snow',
+        67: 'cloudy',
+        69: 'cloudy',
+        119: 'cloudy',
+        43: 'cloudy',
+        25: 'sun-cloudy',
+        26: 'sun-cloudy',
+        81: 'storm',
+        76: 'storm',
+        99: 'storm',
+        89: 'storm',
+        94: 'snow',
+        88: 'snow',
+        92: 'snow',
+        96: 'snow',
+        51: 'windy',
+        118: 'windy'
     };
     if (oldIcon && Object.keys(iconConverter).includes(oldIcon.toString()))
         return iconConverter[oldIcon];
