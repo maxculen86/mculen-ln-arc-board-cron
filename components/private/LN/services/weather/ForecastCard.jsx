@@ -25,7 +25,7 @@ const ForecastByDay = ({ id, title, data }) => {
                 </Text>
             </div>
             <div className="icon-content">
-                <Icon name="snow-cloudy" title="clima hoy" />
+                <Icon name={weather.id} title={weather.description} />
                 <Text tag="p" weight="bold" size="--xl">
                     {defaultValue(temperature, temperature)}
                     <Text size="--m">ºc</Text>
@@ -48,7 +48,7 @@ const ForecastByDay = ({ id, title, data }) => {
                     </Text>
                 </div>
                 <div className="box-icon-text">
-                    <Icon name="rain" title="Probabilidad lluvia" />
+                    <Icon name="rain" title="Probabilidad de lluvia" />
                     <Text weight="light">{defaultValue(rain, `${rain}%`)}</Text>
                 </div>
             </div>
