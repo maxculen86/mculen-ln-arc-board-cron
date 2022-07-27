@@ -62,7 +62,7 @@ const getInfographicElement = (
         infographic &&
         contentElements.filter(
             x => get(x, '_id', '-1') === get(infographic, '_id', null)
-        )?.length === 0
+        ).length === 0
     ) {
         contentElements.unshift(infographic);
     }
@@ -71,7 +71,7 @@ const getInfographicElement = (
         aperturaMultimedia &&
         contentElements.filter(
             x => get(x, '_id', '-1') === get(aperturaMultimedia, '_id', null)
-        )?.length === 0
+        ).length === 0
     ) {
         contentElements.unshift(aperturaMultimedia);
     }
