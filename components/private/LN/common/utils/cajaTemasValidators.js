@@ -56,7 +56,7 @@ export const validateChainManual = (
                     x =>
                         !(
                             x.collection === COLLECTION_FEATURES &&
-                            x.type === LN_COMMON_ARTICLE
+                            [LN_COMMON_ARTICLE, LN_TIMELINE].includes(x.type)
                         )
                 ),
             message:
