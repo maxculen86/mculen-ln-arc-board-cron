@@ -75,5 +75,6 @@ const CTRNota = () => {
 };
 
 CTRNota.label = 'LN-CTR-nota';
+CTRNota.lazy = true;
 
 export default CTRNota;

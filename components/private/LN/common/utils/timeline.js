@@ -3,29 +3,21 @@ import { addHours } from '../../../common/utils/dateAndTimeUtil';
 import { LIVEBLOG } from '../../../common/utils/subtypes/subtypeHelper';
 import ComHour from '../../../common/com-hour';
 
-export const getTLFeature = (features, children, layoutName) => {
-    const lowerLayout = layoutName.toLowerCase();
-    const featureKeys = children.map(c => c.key);
-    const tlFeature =
-        features.find(
-            feature =>
-                feature.type.includes(lowerLayout) &&
-                featureKeys.includes(feature.props.id)
-        ) || {};
-
-    return {
-        tlFeature,
-        id: tlFeature.props && tlFeature.props.id
-    };
+export const tlSources = {
+    byLastNews: 'Últimas Noticias',
+    byTagSection: 'Seccíon o Tag',
+    byCollection: 'Caja Collection'
 };
 
-export const setTLOrderClass = timeline => {
-    const isLast = timeline.index === timeline.articles.length;
-    return isLast ? '--right-bottom' : '--left-top';
+export const setTLOrderClass = (timeline = {}) => {
+    const isFirst = timeline.index === 0;
+    return isFirst ? '--left-top' : '--right-bottom';
 };
 
-export const setTLDistribution = (children, tlFeatureId) => {
+export const setTLDistribution = (children = [], tlFeatureId) => {
     let timeline = { articles: [] };
+
+    if (!tlFeatureId) return null;
 
     children.forEach((child, index) => {
         const { articles } = timeline;
@@ -44,23 +36,21 @@ export const setTLDistribution = (children, tlFeatureId) => {
     return timeline;
 };
 
-export const setTLQuantity = size => {
-    const BACKUP_ARTICLES = 3;
-    const MIN_ARTICLES = 1;
-    const MAX_ARTICLES = 7;
-
+export const setTLQuantity = (size = 5, max = 7, min = 1, backup = 3) => {
     let articlesQuantity = size;
 
-    if (size > MAX_ARTICLES) articlesQuantity = MAX_ARTICLES;
-    if (size < MIN_ARTICLES) articlesQuantity = MAX_ARTICLES;
+    if (size > max) articlesQuantity = max;
+    if (size < min) articlesQuantity = min;
 
     return {
         articlesQuantity,
-        articlesQuantityBackup: articlesQuantity + BACKUP_ARTICLES
+        articlesQuantityBackup: articlesQuantity + backup
     };
 };
 
-export const setTLArticles = (articles = []) => {
+export const setTLArticles = (articles = [], source) => {
+    const isCollection = source === 'byCollection';
+
     return articles.map((article, index) => {
         const {
             _id,
@@ -78,7 +68,7 @@ export const setTLArticles = (articles = []) => {
             artPosition,
             key: _id,
             titleText: headlines.basic,
-            hour: (
+            hour: !isCollection && (
                 <ComHour
                     display_date={displayDateWithThreeHours}
                     size="--fivexs"
@@ -89,7 +79,55 @@ export const setTLArticles = (articles = []) => {
                 _id,
                 content_restrictions: contentRestrictions
             },
-            label: { ...(isLiveblog && { text: 'En Vivo' }) }
+            label: {
+                ...(isLiveblog && {
+                    text: 'En Vivo',
+                    className: isCollection && '--withoutHour'
+                })
+            }
         };
     });
+};
+
+export const setTypeOfQuery = ({
+    source,
+    sectionTagType,
+    sectionTagValue,
+    sectionsIds
+}) => {
+    const options = {
+        byTagSection: { [`${sectionTagType}Id`]: sectionTagValue },
+        byLastNews: { sectionsIds }
+    };
+
+    return options[source] || {};
+};
+
+export const setTLValidationRules = ({
+    articles = [],
+    source,
+    sectionTagValue,
+    sections = [],
+    collectionId
+}) => {
+    const emptyRules = {
+        byLastNews: !sections.length,
+        byTagSection: !sectionTagValue,
+        byCollection: !collectionId
+    };
+
+    return [
+        {
+            validation: !source,
+            message: 'Debe especificar una fuente de notas'
+        },
+        {
+            validation: emptyRules[source],
+            message: 'Debe especificar un tag, seccíon o id de collection'
+        },
+        {
+            validation: !articles.length,
+            message: 'No se encontraron notas'
+        }
+    ];
 };

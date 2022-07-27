@@ -6,18 +6,6 @@
     position: relative;
 }
 
-.slider:after {
-    content: '';
-    position: absolute;
-    width: 1000%;
-    left: -500%;
-    right: 100%;
-    top: 0;
-    bottom: 0;
-    z-index: -1;
-    background: #eae6e2;
-}
-
 .section-title {
     color: $negro;
     width: 100%;

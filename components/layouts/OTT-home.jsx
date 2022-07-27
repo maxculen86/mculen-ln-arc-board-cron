@@ -22,8 +22,8 @@ const OTTHomeLayout = ({ children } = {}) => {
                     {bloque1}
                     <LastVideos />
                     {bloque2}
-                    <Footer />
                 </main>
+                <Footer />
             </div>
         </>
     );

@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import get from '../../../common/utils/get';
+import pageBuilderValidator from '../../../common/utils/pageBuilderValidator';
 import getStreams from './getStreams';
 
 export const validateFeature = (idCollection, articles, layout) => {
@@ -55,7 +56,7 @@ export const validateChainManual = (
                     x =>
                         !(
                             x.collection === COLLECTION_FEATURES &&
-                            x.type === LN_COMMON_ARTICLE
+                            [LN_COMMON_ARTICLE, LN_TIMELINE].includes(x.type)
                         )
                 ),
             message:
@@ -95,13 +96,7 @@ export const validateChainManual = (
         }
     ];
 
-    const message = get(
-        rules.find(x => x.validation),
-        'message',
-        null
-    );
-
-    return message && { type: 'warning', message };
+    return pageBuilderValidator(rules);
 };
 
 export const validateArticleFeature = (
@@ -145,12 +140,8 @@ export const validateArticleFeature = (
             ).toFixed(2)} MB`
         }
     ];
-    const message = get(
-        rules.find(({ validation }) => validation),
-        'message',
-        null
-    );
-    return message && { type: 'warning', message };
+
+    return pageBuilderValidator(rules);
 };
 
 export const getCajaTemaConfig = (featureId, renderables, cajaTemaConfig) => {
