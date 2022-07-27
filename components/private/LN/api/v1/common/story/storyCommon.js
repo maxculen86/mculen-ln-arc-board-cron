@@ -1,6 +1,5 @@
 import get from '../../../../../common/utils/get';
 import sentToApps from '../utils/sentToApps';
-import Apertura from './apertura/aperturaArticle';
 import ModificadorTemplate from './modificadorTemplate';
 import Relacionados from './relacionados';
 import Metadata from './metadata';
@@ -44,8 +43,7 @@ export const storyHeadline = (dataNota, type) => {
         }`,
         fecha: `${formatPublishDate}${
             !isPrintEdition ? ` • ${formatUpdateTime}` : ''
-        }`,
-        apertura: Apertura(dataNota)
+        }`
     };
 };
 

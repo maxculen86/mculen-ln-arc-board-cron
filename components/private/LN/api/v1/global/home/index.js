@@ -29,10 +29,15 @@ const typeSection = {
     default: { tipoSeccion: 'tema', idSeccion: 305 }
 };
 
+const typeSubSection = {
+    timeline: { idSeccion: 3000 }
+};
+
 const featureInformation = (information, feature) => {
     const type = typeSection[feature] || typeSection.default;
     const res = {
         ...type,
+        ...(typeSubSection[information.layout] || null),
         diagramacion: information.layout || null
     };
 

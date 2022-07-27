@@ -5,20 +5,14 @@ import Text from '../../../common/text';
 import Icon from '../../../common/icon';
 
 const ForecastByDay = ({ id, title, data }) => {
-    const {
-        humidity,
-        rain_prob_range: rainRange = [],
-        temperature,
-        weather,
-        wind
-    } = data;
+    const { humidity, rain_prob: rainProb, temperature, weather, wind } = data;
+    const windSpeed = get(wind, 'speed', '-');
+    const parsedWindDir = wind.direction || '';
 
     const defaultValue = (condition, value) => (condition ? value : '-');
 
     const getHigher = array => Math.max.apply(0, array);
-    const windSpeed = getHigher(get(wind, 'speed_range', []));
-    const parsedWindDir = wind.direction || '-';
-    const rain = getHigher(rainRange);
+    const rain = getHigher(rainProb);
 
     return (
         <div className="forecast-card">
@@ -67,7 +61,7 @@ ForecastByDay.propTypes = {
     title: PropTypes.string.isRequired,
     data: PropTypes.shape({
         humidity: PropTypes.number,
-        rain_prob_range: PropTypes.arrayOf(PropTypes.number),
+        rain_prob: PropTypes.number,
         temperature: PropTypes.number,
         weather: PropTypes.shape({
             id: PropTypes.number,
@@ -75,7 +69,7 @@ ForecastByDay.propTypes = {
         }),
         wind: PropTypes.shape({
             direction: PropTypes.string,
-            speed_range: PropTypes.arrayOf(PropTypes.number)
+            speed: PropTypes.number
         })
     }).isRequired
 };
