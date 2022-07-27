@@ -64,11 +64,8 @@ export const authorAcu = (author, page) => {
 };
 
 export const authorAcuFollow = (authorFollow, page) => {
-    const author = {
-        absoluteUrl: get(authorFollow, 'absoluteUrl', null),
-        valor: get(authorFollow, 'valor', null),
-        slug: get(authorFollow, 'slug', null)
-    };
+    const author = authorFollow;
+    delete author.type;
     return author;
 };
 

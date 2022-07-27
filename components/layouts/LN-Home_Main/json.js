@@ -25,7 +25,6 @@ const boxMovePosition = {
 const sectionbyLayout = {
     grillaUltimasNoticias: {
         type: 3,
-        feature: 'Timeline',
         subLayout: 'LN-acumulado/timeline'
     }
 };

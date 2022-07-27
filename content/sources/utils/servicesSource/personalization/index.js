@@ -5,9 +5,6 @@ import logger from '../../../../../components/private/common/utils/logger';
 
 const ACCEPTED_TYPES = ['autor', 'seccion', 'tag', 'author', 'section'];
 
-//TODO: Configurar url Global para personalizacion
-//TODO: Configurar size por defecto y order (No es el mismo size que recibe el content source)
-
 const getUri = query => {
     const { sizeFollow: size = 50 } = query;
     return `${PERSONALIZACION_API}topics?size=${size}&sort=date`;
@@ -43,11 +40,13 @@ const reject = ({ error, uri, arcSite, source }) => {
 };
 const transform = response =>
     response.reduce((acc, topic) => {
+        const topicId = get(topic, 'topicId', '');
         const type = get(topic, 'topicType', '');
         const content = get(topic, 'topicContent', '');
         if (ACCEPTED_TYPES.includes(type) && content && content.slug) {
             acc.push({
                 type,
+                topicId,
                 ...content
             });
         }

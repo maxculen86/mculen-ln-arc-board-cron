@@ -14,9 +14,7 @@ const getUri = ({ service = '', serviceItem = '', serviceSubItem = '' }) => {
         return `${LANACION_SERVICES_URL}/api/v1/forecast/${serviceItem}/${serviceSubItem}`;
 
     if (service)
-        return `${LANACION_SERVICES_URL}/api/v1/forecast/`.concat(
-            serviceItem || ''
-        );
+        return `${LANACION_SERVICES_URL}/api/v1/forecast/`.concat(serviceItem);
 
     throw new Error(
         'No esta solicitado ningun clima o el clima que desea solicitar no existe.'

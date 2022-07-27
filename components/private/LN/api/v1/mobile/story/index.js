@@ -1,12 +1,14 @@
 import get from '../../../../../common/utils/get';
 import { storyCommon, storyHeadline } from '../../common/story/storyCommon';
+import apertura from './apertura/aperturaArticle';
 import cuerpo from './cuerpo/index';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
 
 const indexNota = dataNota => {
     const resp = {
         ...storyCommon(dataNota, cuerpo),
-        ...storyHeadline(dataNota, 'mobile')
+        ...storyHeadline(dataNota, 'mobile'),
+        apertura: apertura(dataNota)
     };
 
     let elmentsAdd = 0;
