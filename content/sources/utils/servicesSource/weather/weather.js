@@ -1,7 +1,6 @@
 import request from 'request-promise-native';
 import { LANACION_SERVICES_URL } from 'fusion:environment';
 import logger from '../../../../../components/private/common/utils/logger';
-import weatherData from './_config';
 import {
     transformWeatherHome,
     transformWeatherDetail,
