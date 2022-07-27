@@ -31,7 +31,7 @@ const ForecastByDay = ({ id, title, data }) => {
                 </Text>
             </div>
             <div className="icon-content">
-                <Icon name="snow-cloudy" />
+                <Icon name="snow-cloudy" title="clima hoy" />
                 <Text tag="p" weight="bold" size="--xl">
                     {defaultValue(temperature, temperature)}
                     <Text size="--m">ºc</Text>
@@ -39,13 +39,13 @@ const ForecastByDay = ({ id, title, data }) => {
             </div>
             <div className="detail-province-icons">
                 <div className="box-icon-text">
-                    <Icon name="cloudy" />
+                    <Icon name="cloudy" title="Humedad" />
                     <Text weight="light">
                         {defaultValue(humidity, `${humidity}%`)}
                     </Text>
                 </div>
                 <div className="box-icon-text">
-                    <Icon name="windy" />
+                    <Icon name="windy" title="Direccion del viento" />
                     <Text weight="light">
                         {defaultValue(
                             parsedWindDir && windSpeed,
@@ -54,7 +54,7 @@ const ForecastByDay = ({ id, title, data }) => {
                     </Text>
                 </div>
                 <div className="box-icon-text">
-                    <Icon name="rain" />
+                    <Icon name="rain" title="Probabilidad lluvia" />
                     <Text weight="light">{defaultValue(rain, `${rain}%`)}</Text>
                 </div>
             </div>
