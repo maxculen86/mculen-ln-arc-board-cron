@@ -10,14 +10,6 @@ const WeatherForecast = ({ id: featureId }) => {
     const { globalContent = {} } = useAppContext() || {};
     const forecast = get(globalContent, 'dataService.forecast', []);
     const sectionName = get(globalContent, 'name', '');
-    const icons = [
-        { id: 'sun', description: 'soleado' },
-        { id: 'windy', description: 'ventoso' },
-        { id: 'snow-cloudy', description: 'tormenta nieve' },
-        { id: 'windy', description: 'ventoso' },
-        { id: 'snow-cloudy', description: 'tormenta nieve' },
-        { id: 'rain', description: 'lluvioso' }
-    ];
 
     if (!forecast.length) return null;
 
@@ -31,7 +23,7 @@ const WeatherForecast = ({ id: featureId }) => {
                     index={index}
                 />
             ))}
-            <IconsReferences icons={icons} />
+            <IconsReferences />
         </>
     );
 };

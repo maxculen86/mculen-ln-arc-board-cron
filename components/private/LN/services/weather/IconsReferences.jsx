@@ -1,10 +1,22 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Text from '../../../common/text';
 import Icon from '../../../common/icon';
 import ModHeaderSection from '../../../common/mod-headerSection';
 
-const IconsReferences = ({ icons }) => {
+const IconsReferences = () => {
+    const icons = [
+        { id: 'sun', description: 'Despejado' },
+        { id: 'snow-cloudy', description: 'Lluvia y Nevada' },
+        { id: 'rain', description: 'Lluvias Fuertes' },
+        { id: 'snow', description: 'Nevadas Fuertes' },
+        { id: 'storm-cloudy', description: 'Lluvias Fuertes' },
+        { id: 'sun-cloudy', description: 'Parcialmente nublado' },
+        { id: 'cloudy', description: 'Mayormente nublado' },
+        { id: 'clear-night', description: 'Despejado' },
+        { id: 'rainy-cloudy', description: 'Llovizna' },
+        { id: 'windy', description: 'Ventoso' }
+    ];
+
     return (
         <div className="content-icon">
             <ModHeaderSection
@@ -22,19 +34,6 @@ const IconsReferences = ({ icons }) => {
             </div>
         </div>
     );
-};
-
-IconsReferences.propTypes = {
-    icons: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.number,
-            description: PropTypes.string
-        })
-    )
-};
-
-IconsReferences.defaultProps = {
-    icons: []
 };
 
 export default IconsReferences;
