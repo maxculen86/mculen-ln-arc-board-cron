@@ -48,6 +48,12 @@ export default `
                 display
             }
         }
+        taxonomy {
+            tags {
+                description
+                slug
+            }
+        }
         related_content {
             basic {
                 _id
