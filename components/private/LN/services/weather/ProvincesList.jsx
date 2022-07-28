@@ -10,11 +10,11 @@ const ProvincesList = ({ provinces }) => {
             <ModHeaderSection tag="h2" title="Listado de provincias" />
             <div className="province-list">
                 {provinces &&
-                    provinces.map(({ name }) => (
+                    provinces.map(({ name, _id }) => (
                         <div className="province" key={name}>
                             <Text size="--md" weight="bold">
                                 <ComLink
-                                    link="#" // TODO agregar linkeo a la provincia
+                                    link={_id}
                                     title={`Ir a detalle clima de ${name}`}
                                 >
                                     {name}
