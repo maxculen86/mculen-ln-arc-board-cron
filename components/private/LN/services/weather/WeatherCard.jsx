@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ARC_STATIC } from 'fusion:environment';
-import { useAppContext } from 'fusion:context';
 import Link from '../../../common/com-link';
 import Text from '../../../common/text';
 import Icon from '../../../common/icon';
@@ -12,22 +10,15 @@ const WeatherCard = ({ id, data }) => {
         weather: { id: idDescription, description } = {},
         temp_min: minTemp,
         temp_max: maxTemp,
-        url_location: urlLocation
+        link
     } = data;
 
     const defaultValue = (condition, value) => (condition ? value : '-');
-    const { contextPath, deployment } = useAppContext();
-    const urlLocationParse = `${ARC_STATIC}${deployment(
-        `${contextPath}${urlLocation}`
-    )}`;
 
     return (
         <div className="weather-card">
             <div>
-                <Link
-                    link={urlLocationParse}
-                    title={`Ir a clima en ${locationName}`}
-                >
+                <Link link={link} title={`Ir a clima en ${locationName}`}>
                     <Text tag="h2" size="--2xs" weight="bold">
                         {locationName}
                     </Text>
@@ -44,7 +35,7 @@ const WeatherCard = ({ id, data }) => {
             <div className="box-icon">
                 <Icon name={idDescription} />
                 <Text tag="p" weight="bold" size="--twoxl">
-                    {defaultValue(idDescription, idDescription)}
+                    {defaultValue(minTemp, minTemp)}
                     <Text size="--m">ºc</Text>
                 </Text>
             </div>
@@ -60,7 +51,7 @@ const WeatherCard = ({ id, data }) => {
             </div>
             <Text tag="h3" size="5xs">
                 <Link
-                    link={urlLocationParse}
+                    link={link}
                     title={`Ir a clima en ${locationName}`}
                     textname={`Ver clima en ${locationName}`}
                 />
@@ -73,9 +64,9 @@ WeatherCard.propTypes = {
     id: PropTypes.string,
     data: PropTypes.shape({
         location_name: PropTypes.string,
-        url_location: PropTypes.string,
+        link: PropTypes.string,
         weather: PropTypes.shape({
-            id: PropTypes.number,
+            id: PropTypes.string,
             description: PropTypes.string
         }),
         temp_min: PropTypes.number,

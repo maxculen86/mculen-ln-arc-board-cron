@@ -8,7 +8,7 @@ const homeUrls = {
     Corrientes: '/clima/corrientes/',
     Paraná: '/clima/entre-rios/',
     Formosa: '/clima/formosa/',
-    'San Salvador de Jujuy': '/clima/formosa/',
+    'San Salvador de Jujuy': '/clima/jujuy/',
     'Santa Rosa': '/clima/la-pampa/',
     'La Rioja': '/clima/la-rioja/',
     Mendoza: '/clima/mendoza/',

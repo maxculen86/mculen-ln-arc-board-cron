@@ -24,7 +24,7 @@ const ForecastByDay = ({ id, index, section, data }) => {
 
     return (
         <div className="extend-forecast">
-            <Text tag="h2" size="--l">
+            <Text font="sueca" tag="h2" size="--l">
                 Pronóstico del tiempo en
                 <strong>{` ${section} ${getDate(date, index)}`}</strong>
             </Text>

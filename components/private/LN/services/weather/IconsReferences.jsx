@@ -9,12 +9,13 @@ const IconsReferences = () => {
         { id: 'snow-cloudy', description: 'Lluvia y Nevada' },
         { id: 'rain', description: 'Lluvias Fuertes' },
         { id: 'snow', description: 'Nevadas Fuertes' },
-        { id: 'storm-cloudy', description: 'Lluvias Fuertes' },
+        { id: 'storm-cloudy', description: 'Tormentas fuertes' },
         { id: 'sun-cloudy', description: 'Parcialmente nublado' },
         { id: 'cloudy', description: 'Mayormente nublado' },
         { id: 'clear-night', description: 'Despejado' },
         { id: 'rainy-cloudy', description: 'Llovizna' },
-        { id: 'windy', description: 'Ventoso' }
+        { id: 'windy', description: 'Ventoso' },
+        { id: 'storm', description: 'Tormentas' }
     ];
 
     return (
@@ -26,7 +27,7 @@ const IconsReferences = () => {
             <div className="icon-references">
                 {icons &&
                     icons.map(({ id, description }) => (
-                        <div className="card-icon">
+                        <div className="card-icon" key={id}>
                             <Icon name={id} size="--xl" />
                             <Text size="--2xs">{description}</Text>
                         </div>

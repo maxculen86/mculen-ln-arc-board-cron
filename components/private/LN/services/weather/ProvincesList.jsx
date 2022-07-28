@@ -11,7 +11,7 @@ const ProvincesList = ({ provinces }) => {
             <div className="province-list">
                 {provinces &&
                     provinces.map(({ name }) => (
-                        <div className="province">
+                        <div className="province" key={name}>
                             <Text size="--md" weight="bold">
                                 <ComLink
                                     link="#" // TODO agregar linkeo a la provincia
