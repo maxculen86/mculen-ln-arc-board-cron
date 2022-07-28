@@ -6,13 +6,11 @@ import Icon from '../../../common/icon';
 
 const ForecastByDay = ({ id, title, data }) => {
     const { humidity, rain_prob: rainProb, temperature, weather, wind } = data;
+
     const windSpeed = get(wind, 'speed', '-');
     const parsedWindDir = wind.direction || '';
 
     const defaultValue = (condition, value) => (condition ? value : '-');
-
-    const getHigher = array => Math.max.apply(0, array);
-    const rain = getHigher(rainProb);
 
     return (
         <div className="forecast-card">
@@ -25,7 +23,7 @@ const ForecastByDay = ({ id, title, data }) => {
                 </Text>
             </div>
             <div className="icon-content">
-                <Icon name={weather.id} title={weather.description} />
+                <Icon name="snow-cloudy" title="clima hoy" />
                 <Text tag="p" weight="bold" size="--xl">
                     {defaultValue(temperature, temperature)}
                     <Text size="--m">ºc</Text>
@@ -34,13 +32,13 @@ const ForecastByDay = ({ id, title, data }) => {
             <div className="detail-province-icons">
                 <div className="box-icon-text">
                     <Icon name="cloudy" title="Humedad" />
-                    <Text weight="bold" size="--4xs">
+                    <Text weight="light">
                         {defaultValue(humidity, `${humidity}%`)}
                     </Text>
                 </div>
                 <div className="box-icon-text">
                     <Icon name="windy" title="Direccion del viento" />
-                    <Text weight="bold" size="--4xs">
+                    <Text weight="light">
                         {defaultValue(
                             parsedWindDir && windSpeed,
                             `${parsedWindDir} ${windSpeed}Km/h`
@@ -48,9 +46,9 @@ const ForecastByDay = ({ id, title, data }) => {
                     </Text>
                 </div>
                 <div className="box-icon-text">
-                    <Icon name="rain" title="Probabilidad de lluvia" />
-                    <Text weight="bold" size="--4xs">
-                        {defaultValue(rain, `${rain}%`)}
+                    <Icon name="rain" title="Probabilidad lluvia" />
+                    <Text weight="light">
+                        {defaultValue(rainProb, `${rainProb}%`)}
                     </Text>
                 </div>
             </div>
