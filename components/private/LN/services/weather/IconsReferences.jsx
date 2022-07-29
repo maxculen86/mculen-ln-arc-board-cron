@@ -15,15 +15,12 @@ const IconsReferences = () => {
         { id: 'clear-night', description: 'Despejado' },
         { id: 'rainy-cloudy', description: 'Llovizna' },
         { id: 'windy', description: 'Ventoso' },
-        { id: 'storm', description: 'Tormentas' }
+        { id: 'drop', description: 'Humedad' }
     ];
 
     return (
         <div className="content-icon">
-            <ModHeaderSection
-                tag="h2"
-                title="Referencias de las imagenes del clima con descripcion"
-            />
+            <ModHeaderSection tag="h3" title="Referencias del clima" />
             <div className="icon-references">
                 {icons &&
                     icons.map(({ id, description }) => (

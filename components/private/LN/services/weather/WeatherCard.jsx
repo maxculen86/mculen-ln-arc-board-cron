@@ -18,7 +18,7 @@ const WeatherCard = ({ id, data }) => {
     return (
         <div className="weather-card">
             <div>
-                <Link link={link} title={`Ir a clima en ${locationName}`}>
+                <Link link={link} title={`Ver clima en ${locationName}`}>
                     <Text tag="h2" size="--2xs" weight="bold">
                         {locationName}
                     </Text>
@@ -40,19 +40,19 @@ const WeatherCard = ({ id, data }) => {
                 </Text>
             </div>
             <div className="temperature">
-                <Text size="--5xs">Máx:</Text>
-                <Text weight="bold" size="--4xs">
-                    {defaultValue(minTemp, `${minTemp}º`)}
-                </Text>
                 <Text size="--5xs">Mín:</Text>
                 <Text weight="bold" size="--4xs">
                     {defaultValue(maxTemp, `${maxTemp}º`)}
+                </Text>
+                <Text size="--5xs">Máx:</Text>
+                <Text weight="bold" size="--4xs">
+                    {defaultValue(minTemp, `${minTemp}º`)}
                 </Text>
             </div>
             <Text tag="h3" size="5xs">
                 <Link
                     link={link}
-                    title={`Ir a clima en ${locationName}`}
+                    title={`Ver a clima en ${locationName}`}
                     textname={`Ver clima en ${locationName}`}
                 />
             </Text>

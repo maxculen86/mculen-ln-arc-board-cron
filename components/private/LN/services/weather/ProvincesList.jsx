@@ -7,15 +7,15 @@ import ModHeaderSection from '../../../common/mod-headerSection';
 const ProvincesList = ({ provinces }) => {
     return (
         <>
-            <ModHeaderSection tag="h2" title="Listado de provincias" />
+            <ModHeaderSection tag="h3" title="Provincias" />
             <div className="province-list">
                 {provinces &&
                     provinces.map(({ name, _id }) => (
                         <div className="province" key={name}>
-                            <Text size="--md" weight="bold">
+                            <Text tag="h2" size="--md" weight="bold">
                                 <ComLink
                                     link={_id}
-                                    title={`Ir a detalle clima de ${name}`}
+                                    title={`Ir al clima de ${name}`}
                                 >
                                     {name}
                                 </ComLink>

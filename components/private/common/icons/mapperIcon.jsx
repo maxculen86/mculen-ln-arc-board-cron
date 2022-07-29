@@ -142,7 +142,7 @@ const listIcons = {
     'rainy-cloudy': RainyCloudy,
     'storm-cloudy': StormCloudy,
     'clear-night': ClearNight,
-    gota: WaterDrop,
+    drop: WaterDrop,
 
     // Lotteries Icons
     animals: AnimalsLotteries,

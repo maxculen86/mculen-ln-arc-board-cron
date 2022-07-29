@@ -8,8 +8,17 @@ const ForecastByDay = ({ id, title, data }) => {
     const { humidity, rain_prob: rainProb, temperature, weather, wind } = data;
 
     const windSpeed = get(wind, 'speed', '-');
-    const parsedWindDir = wind.direction || '';
-
+    const windDirections = {
+        N: 'Norte',
+        S: 'Sur',
+        E: 'Este',
+        O: 'Oeste',
+        NO: 'Noroeste',
+        NE: 'Noreste',
+        SE: 'Sudeste',
+        SO: 'Sudoeste'
+    };
+    const parsedWindDir = windDirections[wind.direction] || '';
     const defaultValue = (condition, value) => (condition ? value : '-');
 
     return (
@@ -23,7 +32,7 @@ const ForecastByDay = ({ id, title, data }) => {
                 </Text>
             </div>
             <div className="icon-content">
-                <Icon name="snow-cloudy" title="clima hoy" />
+                <Icon name="snow-cloudy" />
                 <Text tag="p" weight="bold" size="--xl">
                     {defaultValue(temperature, temperature)}
                     <Text size="--m">ºc</Text>
@@ -31,22 +40,25 @@ const ForecastByDay = ({ id, title, data }) => {
             </div>
             <div className="detail-province-icons">
                 <div className="box-icon-text">
-                    <Icon name="cloudy" title="Humedad" />
+                    <Icon name="drop" title="Humedad" />
                     <Text weight="light">
                         {defaultValue(humidity, `${humidity}%`)}
                     </Text>
                 </div>
                 <div className="box-icon-text">
-                    <Icon name="windy" title="Direccion del viento" />
-                    <Text weight="light">
+                    <Icon name="windy" title="Dirección del viento" />
+                    <Text
+                        weight="light"
+                        title={`${parsedWindDir} ${windSpeed}%`}
+                    >
                         {defaultValue(
-                            parsedWindDir && windSpeed,
-                            `${parsedWindDir} ${windSpeed}Km/h`
+                            wind.direction && windSpeed,
+                            `${wind.direction} ${windSpeed}Km/h`
                         )}
                     </Text>
                 </div>
                 <div className="box-icon-text">
-                    <Icon name="rain" title="Probabilidad lluvia" />
+                    <Icon name="rain" title="Probabilidad de lluvia" />
                     <Text weight="light">
                         {defaultValue(rainProb, `${rainProb}%`)}
                     </Text>
