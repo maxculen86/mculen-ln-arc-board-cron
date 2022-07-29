@@ -4,6 +4,8 @@ import ComLink from './com-link';
 
 const ComWeather = props => {
     const { iconName, sizeIcon, size, weatherPlace, temperature } = props;
+    const hasData = Object.values(props).every(Boolean);
+
     return (
         <ComLink
             classCondition="--weather"
@@ -12,15 +14,19 @@ const ComWeather = props => {
             link="https://servicios.lanacion.com.ar/pronostico-del-tiempo"
         >
             <div className="com-weather">
-                {iconName ? (
-                    <ComIco name={iconName} sizeIcon={sizeIcon} />
-                ) : null}
-                <span id="spanTemperatura" className={size}>
-                    {temperature ? `${temperature}°` : '0°'}
-                </span>
-                <span id="spanPlace" className={size}>
-                    {weatherPlace ? weatherPlace : 'Capital Federal'}
-                </span>
+                {hasData && (
+                    <>
+                        {iconName ? (
+                            <ComIco name={iconName} sizeIcon={sizeIcon} />
+                        ) : null}
+                        <span id="spanTemperatura" className={size}>
+                            {temperature ? `${temperature}°` : '0°'}
+                        </span>
+                        <span id="spanPlace" className={size}>
+                            {weatherPlace || 'Capital Federal'}
+                        </span>
+                    </>
+                )}
             </div>
         </ComLink>
     );
