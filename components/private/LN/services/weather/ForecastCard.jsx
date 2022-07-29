@@ -41,25 +41,22 @@ const ForecastByDay = ({ id, title, data }) => {
             <div className="detail-province-icons">
                 <div className="box-icon-text">
                     <Icon name="drop" title="Humedad" />
-                    <Text weight="light">
+                    <Text weight="bold" size="--4xs">
                         {defaultValue(humidity, `${humidity}%`)}
                     </Text>
                 </div>
                 <div className="box-icon-text">
                     <Icon name="windy" title="Dirección del viento" />
-                    <Text
-                        weight="light"
-                        title={`${parsedWindDir} ${windSpeed}%`}
-                    >
+                    <span title={`${parsedWindDir} ${windSpeed}Km/h`}>
                         {defaultValue(
                             wind.direction && windSpeed,
                             `${wind.direction} ${windSpeed}Km/h`
                         )}
-                    </Text>
+                    </span>
                 </div>
                 <div className="box-icon-text">
                     <Icon name="rain" title="Probabilidad de lluvia" />
-                    <Text weight="light">
+                    <Text weight="bold" size="--4xs">
                         {defaultValue(rainProb, `${rainProb}%`)}
                     </Text>
                 </div>

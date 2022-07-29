@@ -12,8 +12,7 @@ const Text = ({
     font,
     size,
     weight,
-    styles,
-    title
+    styles
 }) => {
     const CustomTag = tag;
     const _content = children || text;
@@ -32,7 +31,7 @@ const Text = ({
     if (!_content) return null;
 
     return (
-        <CustomTag id={id} className={_className} style={styles} title={title}>
+        <CustomTag id={id} className={_className} style={styles}>
             {link ? (
                 <a href={link} title={_content}>
                     {_content}
@@ -54,8 +53,7 @@ Text.propTypes = {
     font: PropTypes.string,
     size: PropTypes.string,
     weight: PropTypes.string,
-    styles: PropTypes.string,
-    title: PropTypes.string
+    styles: PropTypes.string
 };
 
 Text.defaultProps = {
@@ -68,7 +66,6 @@ Text.defaultProps = {
     font: '',
     size: '',
     weight: '',
-    title: '',
     styles: undefined
 };
 
