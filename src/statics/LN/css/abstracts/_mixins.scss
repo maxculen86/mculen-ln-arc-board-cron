@@ -1,5 +1,27 @@
 @import '../abstracts/variables';
 
+@mixin common-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid $dark-neutral-600;
+    border-radius: 4px;
+    padding: $spacing-sm;
+    width: 100%;
+}
+
+@mixin grid-weather {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @media ($media-m) {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
 @mixin font-face($name, $file, $weight) {
     @font-face {
         font-family: '#{$name}';

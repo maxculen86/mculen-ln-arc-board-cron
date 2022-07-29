@@ -40,7 +40,7 @@ const metaDataFactory = {
         return {
             title: `Clima en ${name} y pronóstico extendido en LA NACION`,
             description: `El tiempo en ${name} encontrá el pronóstico extendido y la temperatura de hoy para ${name} del Servicio Meteorológico Nacional en LA NACION`,
-            headline: `Clima en ${name} hoy`
+            headline: `Clima de hoy en ${name}`
         };
     },
     default: (name = '') => {
@@ -202,10 +202,10 @@ const convertIcon = oldIcon => {
         43: 'cloudy',
         25: 'sun-cloudy',
         26: 'sun-cloudy',
-        81: 'storm',
-        76: 'storm',
-        99: 'storm',
-        89: 'storm',
+        81: 'storm-cloudy',
+        76: 'storm-cloudy',
+        99: 'storm-cloudy',
+        89: 'storm-cloudy',
         94: 'snow',
         88: 'snow',
         92: 'snow',

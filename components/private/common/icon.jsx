@@ -42,7 +42,7 @@ const Icon = ({
                     {children}
                 </Link>
             ) : (
-                <i className={className}>
+                <i className={className} title={title}>
                     <MapperIcon name={name} {...r} />
                 </i>
             )}

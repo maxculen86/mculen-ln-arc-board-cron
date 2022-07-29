@@ -3,6 +3,8 @@ import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import get from '../../../private/common/utils/get';
 import ForecastByDay from '../../../private/LN/services/weather/ForecastByDay';
+import IconsReferences from '../../../private/LN/services/weather/IconsReferences';
+import '../../../../resources/dist/css/ln/components/weather.css';
 
 const WeatherForecast = ({ id: featureId }) => {
     const { globalContent = {} } = useAppContext() || {};
@@ -21,6 +23,7 @@ const WeatherForecast = ({ id: featureId }) => {
                     index={index}
                 />
             ))}
+            <IconsReferences />
         </>
     );
 };

@@ -64,6 +64,9 @@ export default {
             caja2_mob: {
                 validateInclusion: ({ subscription }) => subscription !== 'S'
             },
+            caja5_mob: {
+                validateInclusion: ({ subscription }) => subscription !== 'S'
+            },
             caja7_mob: {
                 validateInclusion: ({ subscription }) => subscription !== 'S'
             },
