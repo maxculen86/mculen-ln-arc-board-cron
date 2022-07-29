@@ -277,6 +277,7 @@ export default {
         seccion: 'text',
         tags: 'text',
         api: 'bool',
-        sizeFollow: 'text'
+        sizeFollow: 'text',
+        timestamp: 'text'
     }
 };
