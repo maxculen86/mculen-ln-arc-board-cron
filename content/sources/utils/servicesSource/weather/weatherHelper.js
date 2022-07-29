@@ -66,6 +66,21 @@ const getSectionLink = (service, sections, location) => {
     return homeUrls[location];
 };
 
+export const extractTime = (isoString = '') => {
+    const splitString = isoString.split('T');
+    const time = splitString.pop() || '';
+    const cleanTime = time.split('-') || [];
+    return cleanTime[0] || '';
+};
+
+export const getHomeUpdateTime = (data = {}) => {
+    const { locations = [] } = data;
+    const { updated = '' } = locations.find(loc => {
+        return loc && loc.updated;
+    });
+    return extractTime(updated);
+};
+
 export const transformWeatherHome = (data, children, serviceItem) => {
     if (!data.length) return data;
 
@@ -75,7 +90,8 @@ export const transformWeatherHome = (data, children, serviceItem) => {
             location_id: locationId,
             temp_min: tempMin,
             temp_max: tempMax,
-            weather = {}
+            weather = {},
+            current_temp: currentTemp
         } = location;
 
         const sectionId = getSectionLink(serviceItem, children, locationName);
@@ -94,7 +110,8 @@ export const transformWeatherHome = (data, children, serviceItem) => {
                     ...(newIcon && { id: newIcon })
                 }
             }),
-            ...(sectionId && { link: sectionId })
+            ...(sectionId && { link: sectionId }),
+            ...(currentTemp && { current_temp: currentTemp })
         };
     });
 };
