@@ -3,6 +3,16 @@ import header from './header';
 import htmlText from '../../../../common/story/cuerpo/elements/htmlText';
 import image from './image';
 
+const getTime = time => {
+    if (time) {
+        const timeSplit = time.split(':');
+        if (timeSplit && timeSplit[1]) {
+            return timeSplit[0].concat(':').concat(timeSplit[1]);
+        }
+    }
+
+    return null;
+};
 const customEmbed = (nodo, dataNota) => {
     if (!nodo || !['custom-parallax', 'custom-liveblog'].includes(nodo.subtype))
         return null;
@@ -10,7 +20,7 @@ const customEmbed = (nodo, dataNota) => {
     const res = [];
 
     const titleElement = get(nodo, 'embed.config.title', null);
-    const time = get(nodo, 'embed.config.time', null);
+    const time = getTime(get(nodo, 'embed.config.time', null));
     if (titleElement) {
         const objTitle = {
             type: 'header',

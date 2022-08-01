@@ -57,10 +57,22 @@ const getInfographicElement = (
 ) => {
     if (!contentElements) throw new Error('The story does not have body');
 
-    if (subtypeInfographic && infographic) {
+    if (
+        subtypeInfographic &&
+        infographic &&
+        contentElements.filter(
+            x => get(x, '_id', '-1') === get(infographic, '_id', null)
+        ).length === 0
+    ) {
         contentElements.unshift(infographic);
     }
-    if (subtypeInfographic && aperturaMultimedia) {
+    if (
+        subtypeInfographic &&
+        aperturaMultimedia &&
+        contentElements.filter(
+            x => get(x, '_id', '-1') === get(aperturaMultimedia, '_id', null)
+        ).length === 0
+    ) {
         contentElements.unshift(aperturaMultimedia);
     }
     return contentElements;

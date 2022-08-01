@@ -1,0 +1,151 @@
+{
+    "arcSite": "la-nacion-ar",
+    "contextPath": "/pf",
+    "globalContent": "undefined",
+    "globalContentConfig": { "source": "undefined", "query": "undefined" },
+    "isAdmin": false,
+    "layout": "LN-Home_Main",
+    "outputType": "json",
+    "requestUri": "/homepage/?_website=la-nacion-ar&outputType=json",
+    "template": "page/pWucuzZgevMwF3ys",
+    "renderables": [
+        {
+            "collection": "sections",
+            "props": { "collection": "sections", "id": 3 },
+            "children": [
+                {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Manual",
+                    "props": {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Manual",
+                        "id": "c0f39lpq2E3l6rf",
+                        "name": null,
+                        "customFields": {
+                            "layout": "grillaUltimasNoticias",
+                            "initialPosition": 1,
+                            "hideTitle": false,
+                            "hideCaja": false,
+                            "title": "timelineApertura"
+                        },
+                        "displayProperties": {}
+                    },
+                    "children": [
+                        {
+                            "collection": "features",
+                            "type": "LN-acumulado/timeline",
+                            "props": []
+                        },
+                        {
+                            "collection": "features",
+                            "type": "LN-common/articulo",
+                            "props": []
+                        },
+                        {
+                            "collection": "features",
+                            "type": "LN-common/articulo",
+                            "props": []
+                        },
+                        {
+                            "collection": "features",
+                            "type": "LN-common/articulo",
+                            "props": []
+                        },
+                        {
+                            "collection": "features",
+                            "type": "LN-common/articulo",
+                            "props": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "collection": "layouts",
+    "type": "LN-Home_Main",
+    "id": "LN-Home_Main",
+    "children": [
+        [],
+        [],
+        [],
+        [
+            {
+                "information": {
+                    "layout": "grillaUltimasNoticias",
+                    "initialPosition": 1,
+                    "hideTitle": false,
+                    "hideCaja": false,
+                    "title": "timelineApertura",
+                    "image": null
+                },
+                "articles": [
+                    {
+                        "information": {
+                            "size": 5,
+                            "url": "",
+                            "title": "timeline",
+                            "hideTitle": false,
+                            "sections": [],
+                            "layout": "timeline",
+                            "image": null
+                        },
+                        "articles": [
+                            {
+                                "_id": "PXZB476PNZD2HLJGQHYB5R7P11",
+                                "canonical_url": "/politica/alberto-fernandez-critico-el-paro-del-campo-por-la-falta-de-gasoil-dejenme-de-embromar-nid30062011/",
+                                "comments": [],
+                                "content_elements": []
+                            },
+                            {
+                                "_id": "PXZB476PNZD2HLJGQHYB5R7P12",
+                                "canonical_url": "/politica/alberto-fernandez-critico-el-paro-del-campo-por-la-falta-de-gasoil-dejenme-de-embromar-nid30062012/",
+                                "comments": [],
+                                "content_elements": []
+                            }
+                        ]
+                    },
+                    {
+                        "_id": "PXZB476PNZD2HLJGQHYB5R7P4M",
+                        "canonical_url": "/politica/alberto-fernandez-critico-el-paro-del-campo-por-la-falta-de-gasoil-dejenme-de-embromar-nid30062022/",
+                        "comments": [],
+                        "content_elements": []
+                    },
+                    {
+                        "_id": "PXZB476PNZD2HLJGQHYB5R7P42",
+                        "canonical_url": "/politica/alberto-fernandez-critico-el-paro-del-campo-por-la-falta-de-gasoil-dejenme-de-embromar-nid30062023/",
+                        "comments": [],
+                        "content_elements": []
+                    },
+                    {
+                        "_id": "PXZB476PNZD2HLJGQHYB5R7P43",
+                        "canonical_url": "/politica/alberto-fernandez-critico-el-paro-del-campo-por-la-falta-de-gasoil-dejenme-de-embromar-nid30062024/",
+                        "comments": [],
+                        "content_elements": []
+                    }
+                ]
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ]
+}

@@ -1,10 +1,6 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 
-.weather-hour {
-    margin-bottom: px(16);
-}
-
 .grid-weather-home {
     margin-bottom: px(32);
     @include grid-weather;
