@@ -4,7 +4,9 @@ import logger from '../../../../../components/private/common/utils/logger';
 import {
     transformWeatherHome,
     transformWeatherDetail,
-    getWeatherMetaData
+    getWeatherMetaData,
+    getHomeUpdateTime,
+    extractTime
 } from './weatherHelper';
 import get from '../../../../../components/private/common/utils/get';
 
@@ -37,7 +39,7 @@ const transform = data => {
         serviceSubItem = '',
         serviceType = ''
     } = data;
-    const { created_date: createdDate } = dataService;
+    const { created_date: createdDate, updated = '' } = dataService;
     const { children = [], name = '' } = sectionSourceData;
 
     return {
@@ -51,14 +53,16 @@ const transform = data => {
                               children,
                               serviceItem
                           )
-                      ]
+                      ],
+                      updateTime: getHomeUpdateTime(dataService)
                   }
                 : {
                       forecast: [
                           ...transformWeatherDetail(
                               get(dataService, 'forecast', [])
                           )
-                      ]
+                      ],
+                      ...(updated && { updateTime: extractTime(updated) })
                   })
         },
         ...sectionSourceData,

@@ -40,7 +40,7 @@ const metaDataFactory = {
         return {
             title: `Clima en ${name} y pronóstico extendido en LA NACION`,
             description: `El tiempo en ${name} encontrá el pronóstico extendido y la temperatura de hoy para ${name} del Servicio Meteorológico Nacional en LA NACION`,
-            headline: `Clima en ${name} hoy`
+            headline: `Clima de hoy en ${name}`
         };
     },
     default: (name = '') => {
@@ -66,6 +66,21 @@ const getSectionLink = (service, sections, location) => {
     return homeUrls[location];
 };
 
+export const extractTime = (isoString = '') => {
+    const splitString = isoString.split('T');
+    const time = splitString.pop() || '';
+    const cleanTime = time.split('-') || [];
+    return cleanTime[0] || '';
+};
+
+export const getHomeUpdateTime = (data = {}) => {
+    const { locations = [] } = data;
+    const { updated = '' } = locations.find(loc => {
+        return loc && loc.updated;
+    });
+    return extractTime(updated);
+};
+
 export const transformWeatherHome = (data, children, serviceItem) => {
     if (!data.length) return data;
 
@@ -75,7 +90,8 @@ export const transformWeatherHome = (data, children, serviceItem) => {
             location_id: locationId,
             temp_min: tempMin,
             temp_max: tempMax,
-            weather = {}
+            weather = {},
+            current_temp: currentTemp
         } = location;
 
         const sectionId = getSectionLink(serviceItem, children, locationName);
@@ -94,7 +110,8 @@ export const transformWeatherHome = (data, children, serviceItem) => {
                     ...(newIcon && { id: newIcon })
                 }
             }),
-            ...(sectionId && { link: sectionId })
+            ...(sectionId && { link: sectionId }),
+            ...(currentTemp && { current_temp: currentTemp })
         };
     });
 };
@@ -185,10 +202,10 @@ const convertIcon = oldIcon => {
         43: 'cloudy',
         25: 'sun-cloudy',
         26: 'sun-cloudy',
-        81: 'storm',
-        76: 'storm',
-        99: 'storm',
-        89: 'storm',
+        81: 'storm-cloudy',
+        76: 'storm-cloudy',
+        99: 'storm-cloudy',
+        89: 'storm-cloudy',
         94: 'snow',
         88: 'snow',
         92: 'snow',
