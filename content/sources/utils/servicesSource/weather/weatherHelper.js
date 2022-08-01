@@ -188,7 +188,7 @@ const convertIcon = oldIcon => {
         81: 'storm-cloudy',
         76: 'storm-cloudy',
         99: 'storm-cloudy',
-        89: 'storm-cloudy',
+        89: 'storm',
         94: 'snow',
         88: 'snow',
         92: 'snow',

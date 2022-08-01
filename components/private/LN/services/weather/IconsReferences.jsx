@@ -5,16 +5,17 @@ import ModHeaderSection from '../../../common/mod-headerSection';
 
 const IconsReferences = () => {
     const icons = [
-        { id: 'sun', description: 'Despejado' },
-        { id: 'snow-cloudy', description: 'Lluvia y Nevada' },
-        { id: 'rain', description: 'Lluvias Fuertes' },
-        { id: 'snow', description: 'Nevadas Fuertes' },
-        { id: 'storm-cloudy', description: 'Tormentas fuertes' },
+        { id: 'sun', description: 'Despejado (día)' },
+        { id: 'clear-night', description: 'Despejado (noche)' },
+        { id: 'windy', description: 'Ventoso' },
         { id: 'sun-cloudy', description: 'Parcialmente nublado' },
         { id: 'cloudy', description: 'Mayormente nublado' },
-        { id: 'clear-night', description: 'Despejado' },
         { id: 'rainy-cloudy', description: 'Llovizna' },
-        { id: 'windy', description: 'Ventoso' },
+        { id: 'rain', description: 'Lluvias Fuertes' },
+        { id: 'storm-cloudy', description: 'Tormentas' },
+        { id: 'storm', description: 'Tormentas fuertes' },
+        { id: 'snow-cloudy', description: 'Lluvia y Nevada' },
+        { id: 'snow', description: 'Nevadas Fuertes' },
         { id: 'drop', description: 'Humedad' }
     ];
 
