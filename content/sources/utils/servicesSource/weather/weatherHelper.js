@@ -81,9 +81,9 @@ export const getHomeUpdateTime = (data = {}) => {
     return extractTime(updated);
 };
 
-const reorderLocations = (endpointData, children, serviceItem) => {
+const reorderLocations = (endpointData, children = [], serviceItem = '') => {
     if (!serviceItem) return endpointData;
-    const reorder = children.reduce((acc, loc) => {
+    const reorder = children.reduce((acc, loc = {}) => {
         const province = endpointData.find(e => {
             return e.location_name === loc.name;
         });
