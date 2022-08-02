@@ -143,10 +143,10 @@ describe('components - private - LN - common - hook - useTermica', () => {
         expect(result).toEqual(true);
     });
 
-    it('returns false if the switch is setted in false', () => {
-        createImplementation('weather', false);
+    it('returns undefined if the switch is setted in false', () => {
+        createImplementation('weather', undefined);
 
         const result = useTermica('weather', generalMock.weather);
-        expect(result).toEqual(false);
+        expect(result).toEqual(undefined);
     });
 });

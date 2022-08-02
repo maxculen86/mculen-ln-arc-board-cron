@@ -8,8 +8,8 @@ const useTermica = (key, value) => {
     const element = termicas.find(ter => ter.key === key) || { value: 'true' };
     const result = element.value && element.value.toString() === 'true';
 
-    if (!key) return undefined;
-    if (!value || !result) return result;
+    if (!key || !result) return undefined;
+    if (!value) return result;
 
     return value;
 };
