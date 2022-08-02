@@ -81,10 +81,27 @@ export const getHomeUpdateTime = (data = {}) => {
     return extractTime(updated);
 };
 
+const reorderLocations = (endpointData, children, serviceItem) => {
+    if (!serviceItem) return endpointData;
+    const reorder = children.reduce((acc, loc) => {
+        const province = endpointData.find(e => {
+            return e.location_name === loc.name;
+        });
+
+        province && acc.push(province);
+
+        return acc;
+    }, []);
+
+    return reorder;
+};
+
 export const transformWeatherHome = (data, children, serviceItem) => {
     if (!data.length) return data;
 
-    return data.map((location = {}, i) => {
+    const orderedLocations = reorderLocations(data, children, serviceItem);
+
+    return orderedLocations.map((location = {}, i) => {
         const {
             location_name: locationName,
             location_id: locationId,
