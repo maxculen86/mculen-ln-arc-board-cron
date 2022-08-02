@@ -1,16 +1,19 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
+import { useContent } from 'fusion:content';
 import Static from 'fusion:static';
 import Subheader from '../../private/LN/common/header/subHeader';
-import useTermica from '../../private/LN/common/hooks/useTermica';
+import useTermica from '../../private/common/hooks/useTermica';
 
 const SubHeader = () => {
-    const dollar = useTermica({ name: 'dolar', responseKey: 'data' });
-    const weather = useTermica({ name: 'weather' });
+    const { data: dollar } = useContent({ source: 'dolarSource' }) || {};
+    const { weather } = useContent({ source: 'weatherSource' }) || {};
+
+    const dollarValue = useTermica('dolar', dollar);
+    const weatherValue = useTermica('weather', weather);
 
     return (
         <Static id="StaticSubHeader" htmlOnly persistent>
-            <Subheader dollar={dollar} weather={weather} />
+            <Subheader dollar={dollarValue} weather={weatherValue} />
         </Static>
     );
 };

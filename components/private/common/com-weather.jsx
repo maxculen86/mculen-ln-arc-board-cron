@@ -16,14 +16,12 @@ const ComWeather = props => {
             <div className="com-weather">
                 {hasData && (
                     <>
-                        {iconName ? (
-                            <ComIco name={iconName} sizeIcon={sizeIcon} />
-                        ) : null}
+                        <ComIco name={iconName} sizeIcon={sizeIcon} />
                         <span id="spanTemperatura" className={size}>
-                            {temperature ? `${temperature}°` : '0°'}
+                            {`${temperature}°`}
                         </span>
                         <span id="spanPlace" className={size}>
-                            {weatherPlace || 'Capital Federal'}
+                            {weatherPlace}
                         </span>
                     </>
                 )}

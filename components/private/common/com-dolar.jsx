@@ -28,11 +28,11 @@ const ComDolar = props => {
                             Dólar hoy:
                         </ComLink>
                         <span id="precioCompraBna" className="precioDolar">
-                            {precioCompraBna ? `$${precioCompraBna}` : '$00,00'}
+                            {`$${precioCompraBna}`}
                         </span>
                         <i>/</i>
                         <span id="precioVentaBna" className="precioDolar">
-                            {precioVentaBna ? `$${precioVentaBna}` : '$00,00'}
+                            {`$${precioVentaBna}`}
                         </span>
                     </li>
                     <li>
@@ -46,13 +46,11 @@ const ComDolar = props => {
                             Dólar blue:
                         </ComLink>
                         <span id="precioCompraBlue" className="precioDolar">
-                            {precioCompraBlue
-                                ? `$${precioCompraBlue}`
-                                : '$00,00'}
+                            {`$${precioCompraBlue}`}
                         </span>
                         <i>/</i>
                         <span id="precioVentaBlue" className="precioDolar">
-                            {precioVentaBlue ? `$${precioVentaBlue}` : '$00,00'}
+                            {`$${precioVentaBlue}`}
                         </span>
                     </li>
                 </>
@@ -65,8 +63,7 @@ ComDolar.propTypes = {
     precioCompraBna: PropTypes.string,
     precioVentaBna: PropTypes.string,
     precioCompraBlue: PropTypes.string,
-    precioVentaBlue: PropTypes.string,
-    size: PropTypes.string
+    precioVentaBlue: PropTypes.string
 };
 
 export default ComDolar;

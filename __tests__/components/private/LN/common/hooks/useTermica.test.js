@@ -1,15 +1,14 @@
 import { useContent } from 'fusion:content';
-import { useContext } from 'react';
-import useTermica from '../../../../../../components/private/LN/common/hooks/useTermica';
-import findTermica from '../../../../../../components/private/common/utils/findTermica';
+import React, { useContext } from 'react';
+import useTermica from '../../../../../../components/private/common/hooks/useTermica';
 
-jest.mock('fusion:content', () => ({
-    useContent: jest.fn()
-}));
-
-jest.mock('../../../../../../components/private/common/utils/findTermica', () =>
-    jest.fn(() => true)
-);
+jest.mock('react', () => {
+    const ActualReact = require.requireActual('react');
+    return {
+        ...ActualReact,
+        useContext: () => ({})
+    };
+});
 
 describe('components - private - LN - common - hook - useTermica', () => {
     const generalMock = {
@@ -49,7 +48,7 @@ describe('components - private - LN - common - hook - useTermica', () => {
             sigla: '',
             icon_name: 'sun'
         },
-        dolar: {
+        dollar: {
             data: [
                 {
                     fuente: 'InvertirOnline',
@@ -93,27 +92,61 @@ describe('components - private - LN - common - hook - useTermica', () => {
         }
     };
 
-    useContent.mockImplementation(() => generalMock);
+    const createImplementation = (key, value) =>
+        jest.spyOn(React, 'useContext').mockImplementation(() => ({
+            state: {
+                siteService: {
+                    termicas: [{ key, value }]
+                }
+            }
+        }));
 
-    it('works in weather case', () => {
-        const result = useTermica({ name: 'weather' });
+    it('works in regular case', () => {
+        createImplementation('weather', true);
+
+        const result = useTermica('weather');
+        expect(result).toEqual(true);
+    });
+
+    it('works in bookmark_web case', () => {
+        createImplementation('bookmark_web', true);
+
+        const result = useTermica('bookmark_web');
+        expect(result).toEqual(true);
+    });
+
+    it('works in weather case with value', () => {
+        createImplementation('weather', true);
+
+        const result = useTermica('weather', generalMock.weather);
         expect(result).toEqual(generalMock.weather);
     });
 
-    it('works in dollar case', () => {
-        const result = useTermica({ name: 'dolar' });
-        expect(result).toEqual(generalMock.dolar);
+    it('works in dollar case with value', () => {
+        createImplementation('dolar', true);
+
+        const result = useTermica('dolar', generalMock.dollar);
+        expect(result).toEqual(generalMock.dollar);
     });
 
-    it('returns undefined if not pass name', () => {
+    it('returns undefined if not pass key', () => {
+        createImplementation();
+
         const result = useTermica();
         expect(result).toEqual(undefined);
     });
 
-    it('returns undefined if the switch is setted in false', () => {
-        findTermica.mockImplementation(() => false);
+    it('returns true if not found a value on termicas', () => {
+        createImplementation();
 
-        const result = useTermica({ name: 'weather' });
-        expect(result).toEqual(undefined);
+        const result = useTermica('keyNotValid');
+        expect(result).toEqual(true);
+    });
+
+    it('returns false if the switch is setted in false', () => {
+        createImplementation('weather', false);
+
+        const result = useTermica('weather', generalMock.weather);
+        expect(result).toEqual(false);
     });
 });

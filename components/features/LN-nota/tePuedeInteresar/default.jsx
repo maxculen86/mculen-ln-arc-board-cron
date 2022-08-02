@@ -5,12 +5,12 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import TePuedeInteresar from '../../../private/LN/nota/tePuedeInteresar';
-import findTermica from '../../../private/common/utils/findTermica';
+import useTermica from '../../../private/common/hooks/useTermica';
 import config from '../../../../properties/sites/la-nacion-ar';
 import getScrollPercent from '../../../private/LN/common/utils/getScrollPercent';
 
 const tePuedeInteresar = props => {
-    const showLiftigniter = findTermica('liftigniter');
+    const showLiftigniter = useTermica('liftigniter');
     if (!showLiftigniter) return <></>;
 
     const {

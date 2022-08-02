@@ -5,7 +5,7 @@ import BookmarkList from './BookmarkList';
 import HelperBookmark from './HelperBookmark';
 import useListBookmarks from '../hooks/bookmark/useListBookmarks';
 import useCountBookmarks from '../hooks/bookmark/useCountBookmarks';
-import findTermica from '../utils/findTermica';
+import useTermica from '../hooks/useTermica';
 import getToken from '../utils/getToken';
 import Barrier from '../barrier/Barrier';
 import { GlobalContext } from '../context/globalContext';
@@ -18,7 +18,7 @@ const BookmarkLayout = () => {
     const [showHelper, setShowHelper] = useState(false);
     const [toast, setToast] = useState(false);
     const token = getToken();
-    const termica = findTermica('bookmark_web');
+    const termica = useTermica('bookmark_web');
     const { getCookie } = handleCookie();
     const productoPremiumId = getCookie('ProductoPremiumId');
     const isSubscribed = productoPremiumId && productoPremiumId.includes('2');

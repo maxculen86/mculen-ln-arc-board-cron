@@ -21,7 +21,7 @@ import AmpContainer from '../../common/ampContainer';
 import get from '../../common/utils/get';
 import Icon from '../../common/icon';
 import { conditionallyCallViafoura } from '../../common/utils/commentsHelper';
-import findTermica from '../../common/utils/findTermica';
+import useTermica from '../../common/hooks/useTermica';
 import getToken from '../../common/utils/getToken';
 import Toast from '../../common/toast/Toast';
 import { isSubscribed } from '../common/utils/contextHelper';
@@ -55,7 +55,7 @@ const Share = props => {
 
     const facebookId = get(siteVars, 'shareConfig.facebook.appID', undefined);
 
-    const termicaBookmark = findTermica('bookmark_web');
+    const termicaBookmark = useTermica('bookmark_web');
     const [bookmark, setBookmark] = useState(false);
     const [toast, setToast] = useState(false);
     const [copy, setCopy] = useState(false);

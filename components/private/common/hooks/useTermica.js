@@ -1,12 +1,17 @@
 import { useContext } from 'react';
 import { GlobalContext } from '../context/globalContext';
-import get from './get';
+import get from '../utils/get';
 
-const findTermica = key => {
+const useTermica = (key, value) => {
     const gc = useContext(GlobalContext);
     const termicas = get(gc, 'state.siteService.termicas', []);
     const element = termicas.find(ter => ter.key === key) || { value: 'true' };
-    return element && element.value && element.value.toString() === 'true';
+    const result = element.value && element.value.toString() === 'true';
+
+    if (!key) return undefined;
+    if (!value || !result) return result;
+
+    return value;
 };
 
-export default findTermica;
+export default useTermica;
