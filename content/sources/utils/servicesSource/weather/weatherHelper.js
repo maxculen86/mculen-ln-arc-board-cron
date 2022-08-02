@@ -75,6 +75,7 @@ export const extractTime = (isoString = '') => {
 
 export const getHomeUpdateTime = (data = {}) => {
     const { locations = [] } = data;
+    if (!locations.length) return '';
     const { updated = '' } = locations.find(loc => {
         return loc && loc.updated;
     });
