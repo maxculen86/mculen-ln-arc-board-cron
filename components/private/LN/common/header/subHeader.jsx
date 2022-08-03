@@ -9,8 +9,8 @@ import ComLink from '../../../common/com-link';
 import Club from '../../../common/icons/system/Club';
 
 const ModSubheader = props => {
-    const { dolar = [], weather = {} } = props;
-    const [dolarBna = {}, dolarBlue = {}] = dolar;
+    const { dollar = [], weather = {} } = props;
+    const [dolarBna = {}, dolarBlue = {}] = dollar;
     const { icon_name: iconName, temperatura, nombre } = weather;
 
     return (
@@ -60,7 +60,7 @@ const ModSubheader = props => {
 };
 
 ModSubheader.propTypes = {
-    dolar: PropTypes.arrayOf(PropTypes.object).isRequired,
+    dollar: PropTypes.arrayOf(PropTypes.object).isRequired,
     weather: PropTypes.shape({
         icon_name: PropTypes.string.isRequired,
         temperatura: PropTypes.string.isRequired,

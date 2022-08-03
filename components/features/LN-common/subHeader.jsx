@@ -1,15 +1,19 @@
 import React from 'react';
-import Static from 'fusion:static';
 import { useContent } from 'fusion:content';
+import Static from 'fusion:static';
 import Subheader from '../../private/LN/common/header/subHeader';
+import useTermica from '../../private/common/hooks/useTermica';
 
 const SubHeader = () => {
-    const { data: dolar } = useContent({ source: 'dolarSource' }) || {};
+    const { data: dollar } = useContent({ source: 'dolarSource' }) || {};
     const { weather } = useContent({ source: 'weatherSource' }) || {};
+
+    const dollarValue = useTermica('dolar', dollar);
+    const weatherValue = useTermica('weather', weather);
 
     return (
         <Static id="StaticSubHeader" htmlOnly persistent>
-            <Subheader dolar={dolar} weather={weather} />
+            <Subheader dollar={dollarValue} weather={weatherValue} />
         </Static>
     );
 };
