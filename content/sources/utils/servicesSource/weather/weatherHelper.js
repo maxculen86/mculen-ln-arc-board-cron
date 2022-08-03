@@ -70,7 +70,9 @@ export const extractTime = (isoString = '') => {
     const splitString = isoString.split('T');
     const time = splitString.pop() || '';
     const cleanTime = time.split('-') || [];
-    return cleanTime[0] || '';
+    const timeWithoutSeconds = cleanTime[0].split(':');
+    timeWithoutSeconds.pop();
+    return `${timeWithoutSeconds.join(':')}.`;
 };
 
 export const getHomeUpdateTime = (data = {}) => {
