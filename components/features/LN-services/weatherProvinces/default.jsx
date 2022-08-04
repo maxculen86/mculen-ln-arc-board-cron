@@ -6,6 +6,8 @@ import ProvincesList from '../../../private/LN/services/weather/ProvincesList';
 // import get from '../../../private/common/utils/get';
 
 const WeatherProvinces = ({ id: featureId }) => {
+    const parseQueryString = new URL(window.location);
+    const { pathname = '' } = parseQueryString;
     const data = useContent({
         source: 'sectionSource',
         query: {
@@ -14,7 +16,7 @@ const WeatherProvinces = ({ id: featureId }) => {
     });
     const { children: provinces = [] } = data || {};
 
-    if (!provinces.length) return null;
+    if (!provinces.length || pathname === '/clima/') return null;
 
     return <ProvincesList provinces={provinces} />;
 };

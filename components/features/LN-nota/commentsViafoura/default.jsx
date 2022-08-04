@@ -18,7 +18,7 @@ import handleCookie from '../../../private/LN/common/utils/handleCookie';
 import LoadingIcon from '../../../private/LN/common/loadingIcon';
 import { isSubscribed } from '../../../private/LN/common/utils/contextHelper';
 import HeaderComments from '../../../private/LN/nota/comments/header';
-import findTermica from '../../../private/common/utils/findTermica';
+import useTermica from '../../../private/common/hooks/useTermica';
 import get from '../../../private/common/utils/get';
 import '../../../../resources/dist/css/ln/modules/comments.css';
 
@@ -26,7 +26,7 @@ const CommentsViafouraFeature = props => {
     const { outputType } = props;
     const subscription = isSubscribed();
     const { messageType, shouldLoad } = validateComments(props, subscription);
-    const termicaLivefyre = findTermica('livefyre');
+    const termicaLivefyre = useTermica('livefyre');
     const { getCookie } = handleCookie();
     const [isReady, setIsReady] = useState(false);
     const [messageProps, setMessage] = useState(

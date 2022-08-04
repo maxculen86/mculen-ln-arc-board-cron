@@ -290,22 +290,3 @@ $facebook: #3b5998;
 $twitter: #049aff;
 
 /* End: Variables viejas de COLORES */
-
-//=======================================
-// Margenes para common text pagebuilder
-//=======================================
-
-.margin-bottom {
-    &.xs {
-        margin-bottom: px(16);
-    }
-    &.m {
-        margin-bottom: px(24);
-    }
-    &.l {
-        margin-bottom: px(32);
-    }
-    &.xl {
-        margin-bottom: px(40);
-    }
-}
