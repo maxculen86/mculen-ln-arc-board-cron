@@ -7,10 +7,10 @@ import '../../../resources/dist/css/ln/modules/mod-article.css';
 import Media from '../LN/common/media';
 import get from './utils/get';
 import ModDescription from './mod-description';
-import getAuthorsPhoto from './utils/getAuthorsPhoto';
 import setArticleClassName from './utils/setArticleClassName';
 import ComButton from './com-button';
 import { GlobalContext } from './context/globalContext';
+import getMediaData from '../LN/common/utils/modArticleHelper';
 
 const ModArticle = props => {
     const {
@@ -48,7 +48,8 @@ const ModArticle = props => {
         layout,
         isApertura,
         registerSuccessEvent,
-        typeArticle
+        typeArticle,
+        mobileImageForMultimediaBox
     } = props;
 
     const { dispatch } = useContext(GlobalContext) || {};
@@ -71,23 +72,18 @@ const ModArticle = props => {
         extraOpts['data-notaid'] = _id;
         extraOpts['data-source'] = 'editor';
     }
-    const imagenDestacada =
-        isRenderAuthor || isRenderAuthorOpinion
-            ? getAuthorsPhoto(articleData)
-            : get(articleData, 'promo_items.basic', null);
+
     const marquesina = get(articleData, 'marquesina', null);
 
-    const type = get(imagenDestacada, 'type', null);
-
-    const mediaData = (() => {
-        if (videoBackground) {
-            if (layout === 'grilla1' && device === 'mobile') {
-                return type === 'image' ? imagenDestacada : null;
-            }
-            return videoBackground;
-        }
-        return type === 'image' ? imagenDestacada : null;
-    })();
+    const mediaData = getMediaData(
+        videoBackground,
+        device,
+        mobileImageForMultimediaBox,
+        layout,
+        isRenderAuthor,
+        isRenderAuthorOpinion,
+        articleData
+    );
 
     const isBookmark = typeArticle === 'Bookmark';
     const dataAuthors = isBookmark && get(articleData, 'credits.by', []);
@@ -214,7 +210,13 @@ ModArticle.propTypes = {
     }),
     withMedia: PropTypes.bool,
     isApertura: PropTypes.bool,
-    typeArticle: PropTypes.string
+    typeArticle: PropTypes.string,
+    mobileImageForMultimediaBox: PropTypes.shape({
+        _id: PropTypes.string,
+        promo_items: PropTypes.shape({
+            basic: PropTypes.object
+        })
+    })
 };
 
 ModArticle.defaultProps = {
@@ -250,7 +252,8 @@ ModArticle.defaultProps = {
     videoBackground: undefined,
     withMedia: false,
     isApertura: false,
-    typeArticle: ''
+    typeArticle: '',
+    mobileImageForMultimediaBox: undefined
 };
 
 export default ModArticle;
