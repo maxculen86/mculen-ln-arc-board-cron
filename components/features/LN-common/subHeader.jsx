@@ -8,8 +8,8 @@ const SubHeader = () => {
     const { data: dollar } = useContent({ source: 'dolarSource' }) || {};
     const { weather } = useContent({ source: 'weatherSource' }) || {};
 
-    const dollarValue = useTermica('dolar', dollar);
-    const weatherValue = useTermica('weather', weather);
+    const dollarValue = useTermica('dolar', dollar || []);
+    const weatherValue = useTermica('weather', weather || {});
 
     return (
         <Static id="StaticSubHeader" htmlOnly persistent>
