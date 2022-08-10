@@ -1,6 +1,5 @@
 {
     "dataService": {
-        "created_date": "2022-08-08 17:00:39",
         "locations": [
             {
                 "location_name": "Malargüe",
@@ -39,7 +38,7 @@
                 "current_temp": 7
             }
         ],
-        "updateTime": "06:04."
+        "updateTime": "17:00"
     },
     "_id": "/clima/mendoza",
     "social": {
@@ -248,7 +247,8 @@
     "metaData": {
         "title": "Clima en Mendoza y pronóstico del tiempo en LA NACION",
         "description": "Temperatura actual en Mendoza y sus principales ciudades, el clima de Mendoza por el Servicio Meteorológico Nacional - LA NACION",
-        "headline": "Clima de hoy en Mendoza"
+        "headline": "Clima de hoy en Mendoza",
+        "latestNewsTitle": "Últimas noticias del clima en Mendoza"
     },
     "serviceType": "home-clima"
 }

@@ -6,7 +6,7 @@ import ForecastByDay from '../../../private/LN/services/weather/ForecastByDay';
 import IconsReferences from '../../../private/LN/services/weather/IconsReferences';
 import '../../../../resources/dist/css/ln/components/weather.css';
 
-const WeatherForecast = ({ id: featureId }) => {
+const WeatherForecast = ({ id: _featureId }) => {
     const { globalContent = {} } = useAppContext() || {};
     const forecast = get(globalContent, 'dataService.forecast', []);
     const sectionName = get(globalContent, 'name', '');
@@ -28,6 +28,7 @@ const WeatherForecast = ({ id: featureId }) => {
     );
 };
 
+WeatherForecast.static = true;
 WeatherForecast.label = 'LN Clima Pronostico';
 
 WeatherForecast.propTypes = { id: PropTypes.string.isRequired };

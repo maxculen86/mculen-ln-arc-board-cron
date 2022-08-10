@@ -1,6 +1,5 @@
 /* eslint-disable no-underscore-dangle */
 import get from '../../../../../components/private/common/utils/get';
-import homeUrls from './_config';
 
 export const getWeatherMetaData = (serviceItem, serviceSubItem) => {
     if (serviceSubItem)
@@ -59,18 +58,15 @@ const metaDataFactory = {
     }
 };
 
-const getSectionLink = (service, sections, location) => {
-    if (service) {
-        const sectionLink =
-            sections.find(e => {
-                const { name = '' } = e;
+const getSectionLink = (sections, location) => {
+    const sectionLink =
+        sections.find(e => {
+            const { name = '' } = e;
 
-                return name === location;
-            }) || {};
-        const { _id: url = '' } = sectionLink;
-        return url;
-    }
-    return homeUrls[location];
+            return name === location;
+        }) || {};
+    const { _id: url = '' } = sectionLink;
+    return url;
 };
 
 export const extractTime = (isoString = '') => {
@@ -110,7 +106,7 @@ export const transformWeatherHome = (data, children, serviceItem) => {
             current_temp: currentTemp
         } = location || {};
 
-        const sectionId = getSectionLink(serviceItem, children, locationName);
+        const sectionId = getSectionLink(children, locationName);
 
         const { description, id: iconId } = weather;
         const newIcon = convertIcon(iconId);

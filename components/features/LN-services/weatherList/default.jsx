@@ -6,7 +6,7 @@ import WeatherCard from '../../../private/LN/services/weather/WeatherCard';
 import '../../../../resources/dist/css/ln/components/weather.css';
 import IconsReferences from '../../../private/LN/services/weather/IconsReferences';
 
-const WeatherList = ({ id: featureId }) => {
+const WeatherList = ({ id: _featureId }) => {
     const locations = get(
         useAppContext(),
         'globalContent.dataService.locations',
@@ -27,6 +27,7 @@ const WeatherList = ({ id: featureId }) => {
     );
 };
 
+WeatherList.static = true;
 WeatherList.label = 'LN Clima Listado';
 
 WeatherList.propTypes = { id: PropTypes.string.isRequired };

@@ -75,7 +75,8 @@ describe('Tests resolve function', () => {
         const res = {
             response: {
                 dataService: {
-                    forecast: []
+                    forecast: [],
+                    created_date: '2022-08-10 14:59:56'
                 },
                 sectionSourceData: {},
                 serviceType: 'detalle-clima'
@@ -83,13 +84,14 @@ describe('Tests resolve function', () => {
         };
         expect(resolve(res)).toStrictEqual({
             dataService: {
-                created_date: undefined,
-                forecast: []
+                forecast: [],
+                updateTime: '14:59'
             },
             metaData: {
                 description:
                     'Encontrá el pronóstico del tiempo en Argentina, condiciones climáticas, temperatura actual y pronóstico extendido del clima en Capital Federal, Buenos Aires y todo el país por el Servicio Meteorológico Nacional - LA NACION',
                 headline: 'Clima de hoy en Argentina',
+                latestNewsTitle: 'Últimas noticias del clima',
                 title:
                     'Clima de hoy en Argentina, el pronóstico del tiempo en LA NACION'
             },

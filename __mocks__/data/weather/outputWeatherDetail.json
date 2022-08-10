@@ -1,6 +1,5 @@
 {
     "dataService": {
-        "created_date": "2022-08-08 17:12:55",
         "forecast": [
             {
                 "date": "2022-08-08T00:00:00",
@@ -218,7 +217,7 @@
                 }
             }
         ],
-        "updateTime": "06:04."
+        "updateTime": "17:12"
     },
     "_id": "/clima/chaco",
     "social": {
@@ -273,7 +272,9 @@
     "metaData": {
         "title": "Clima en Chaco y pronóstico del tiempo en LA NACION",
         "description": "El tiempo en Chaco encontrá el pronóstico extendido y la temperatura de hoy para Chaco del Servicio Meteorológico Nacional en LA NACION",
-        "headline": "Clima de hoy en Chaco"
+        "headline": "Clima de hoy en Chaco",
+        "latestNewsTitle": "Últimas noticias del clima en Chaco",
+        "subtitle": "Pronóstico del tiempo extendido para Chaco"
     },
     "serviceType": "detalle-clima"
 }

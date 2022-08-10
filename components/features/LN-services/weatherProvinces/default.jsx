@@ -22,6 +22,7 @@ const WeatherProvinces = ({ id: _featureId }) => {
     return <ProvincesList provinces={provinces} />;
 };
 
+WeatherProvinces.static = true;
 WeatherProvinces.label = 'LN Clima Provincias';
 
 WeatherProvinces.propTypes = { id: PropTypes.string.isRequired };
