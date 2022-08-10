@@ -1,13 +1,14 @@
 import React from 'react';
 import { useContent } from 'fusion:content';
+import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import '../../../../resources/dist/css/ln/components/weather.css';
 import ProvincesList from '../../../private/LN/services/weather/ProvincesList';
-// import get from '../../../private/common/utils/get';
 
 const WeatherProvinces = ({ id: featureId }) => {
-    const parseQueryString = new URL(window.location);
-    const { pathname = '' } = parseQueryString;
+    const { globalContent = {} } = useAppContext() || {};
+    const { _id: sectionId = '' } = globalContent;
+
     const data = useContent({
         source: 'sectionSource',
         query: {
@@ -16,7 +17,7 @@ const WeatherProvinces = ({ id: featureId }) => {
     });
     const { children: provinces = [] } = data || {};
 
-    if (!provinces.length || pathname === '/clima/') return null;
+    if (!provinces.length || sectionId === '/clima') return null;
 
     return <ProvincesList provinces={provinces} />;
 };

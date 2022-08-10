@@ -8,12 +8,14 @@ const WeatherCard = ({ id, data }) => {
     const {
         location_name: locationName,
         weather: { id: idDescription, description } = {},
+        current_temp: currentTemp,
         temp_min: minTemp,
         temp_max: maxTemp,
         link
     } = data;
 
-    const defaultValue = (condition, value) => (condition ? value : '-');
+    const defaultValue = (condition, value) =>
+        condition || condition === 0 ? value : '-';
 
     return (
         <div className="weather-card">
@@ -35,7 +37,7 @@ const WeatherCard = ({ id, data }) => {
             <div className="box-icon">
                 <Icon name={idDescription} />
                 <Text tag="p" weight="bold" size="--twoxl">
-                    {defaultValue(minTemp, minTemp)}
+                    {defaultValue(currentTemp, currentTemp)}
                     <Text size="--m">ºc</Text>
                 </Text>
             </div>
@@ -69,6 +71,7 @@ WeatherCard.propTypes = {
             id: PropTypes.string,
             description: PropTypes.string
         }),
+        current_temp: PropTypes.number,
         temp_min: PropTypes.number,
         temp_max: PropTypes.number
     }).isRequired

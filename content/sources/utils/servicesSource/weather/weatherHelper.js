@@ -19,7 +19,8 @@ const metaDataFactory = {
                 'Clima de hoy en Argentina, el pronóstico del tiempo en LA NACION',
             description:
                 'Encontrá el pronóstico del tiempo en Argentina, condiciones climáticas, temperatura actual y pronóstico extendido del clima en Capital Federal, Buenos Aires y todo el país por el Servicio Meteorológico Nacional - LA NACION',
-            headline: 'Clima de hoy en Argentina'
+            headline: 'Clima de hoy en Argentina',
+            latestNewsTitle: 'Últimas noticias del clima'
         };
     },
     provincia: (name = '', children = []) => {
@@ -27,27 +28,33 @@ const metaDataFactory = {
             return {
                 title: `Clima en ${name} y pronóstico del tiempo en LA NACION`,
                 description: `Temperatura actual en ${name} y sus principales ciudades, el clima de ${name} por el Servicio Meteorológico Nacional - LA NACION`,
-                headline: `Clima de hoy en ${name}`
+                headline: `Clima de hoy en ${name}`,
+                latestNewsTitle: `Últimas noticias del clima en ${name}`
             };
         }
         return {
             title: `Clima en ${name} y pronóstico del tiempo en LA NACION`,
+            subtitle: `Pronóstico del tiempo extendido para ${name}`,
             description: `El tiempo en ${name} encontrá el pronóstico extendido y la temperatura de hoy para ${name} del Servicio Meteorológico Nacional en LA NACION`,
-            headline: `Clima de hoy en ${name}`
+            headline: `Clima de hoy en ${name}`,
+            latestNewsTitle: `Últimas noticias del clima en ${name}`
         };
     },
     ciudad: (name = '') => {
         return {
             title: `Clima en ${name} y pronóstico extendido en LA NACION`,
+            subtitle: `Pronóstico del tiempo extendido para ${name}`,
             description: `El tiempo en ${name} encontrá el pronóstico extendido y la temperatura de hoy para ${name} del Servicio Meteorológico Nacional en LA NACION`,
-            headline: `Clima de hoy en ${name}`
+            headline: `Clima de hoy en ${name}`,
+            latestNewsTitle: `Últimas noticias del clima en ${name}`
         };
     },
     default: (name = '') => {
         return {
             title: 'Clima por LA NACION',
             description: 'Clima por LA NACION',
-            headline: name
+            headline: name,
+            latestNewsTitle: `Últimas noticias del clima`
         };
     }
 };
@@ -67,36 +74,26 @@ const getSectionLink = (service, sections, location) => {
 };
 
 export const extractTime = (isoString = '') => {
-    const splitString = isoString.split('T');
-    const time = splitString.pop() || '';
-    const cleanTime = time.split('-') || [];
-    const timeWithoutSeconds = cleanTime[0].split(':');
-    timeWithoutSeconds.pop();
-    return `${timeWithoutSeconds.join(':')}.`;
+    const newDate = new Date(isoString).toLocaleTimeString();
+    return `${newDate.slice(0, 5)}`;
 };
 
-export const getHomeUpdateTime = (data = {}) => {
-    const { locations = [] } = data;
-    if (!locations.length) return '';
-    const { updated = '' } = locations.find(loc => {
-        return loc && loc.updated;
-    });
-    return extractTime(updated);
+const removeAccents = str => {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 };
 
 const reorderLocations = (endpointData, children = [], serviceItem = '') => {
     if (!serviceItem) return endpointData;
-    const reorder = children.reduce((acc, loc = {}) => {
+
+    return children.reduce((acc, loc = {}) => {
         const province = endpointData.find(e => {
-            return e.location_name === loc.name;
+            return removeAccents(e.location_name) === removeAccents(loc.name);
         });
 
         province && acc.push(province);
 
         return acc;
     }, []);
-
-    return reorder;
 };
 
 export const transformWeatherHome = (data, children, serviceItem) => {
@@ -104,7 +101,7 @@ export const transformWeatherHome = (data, children, serviceItem) => {
 
     const orderedLocations = reorderLocations(data, children, serviceItem);
 
-    return orderedLocations.map((location = {}, i) => {
+    return orderedLocations.map(location => {
         const {
             location_name: locationName,
             location_id: locationId,
@@ -112,7 +109,7 @@ export const transformWeatherHome = (data, children, serviceItem) => {
             temp_max: tempMax,
             weather = {},
             current_temp: currentTemp
-        } = location;
+        } = location || {};
 
         const sectionId = getSectionLink(serviceItem, children, locationName);
 
@@ -122,8 +119,12 @@ export const transformWeatherHome = (data, children, serviceItem) => {
         return {
             ...(locationName && { location_name: locationName }),
             ...(locationId && { location_id: locationId }),
-            ...(tempMin && { temp_min: tempMin }),
-            ...(tempMax && { temp_max: tempMax }),
+            ...((tempMin || tempMin === 0) && {
+                temp_min: tempMin
+            }),
+            ...((tempMax || tempMax === 0) && {
+                temp_max: tempMax
+            }),
             ...((description || newIcon) && {
                 weather: {
                     ...(description && { description }),
@@ -131,14 +132,16 @@ export const transformWeatherHome = (data, children, serviceItem) => {
                 }
             }),
             ...(sectionId && { link: sectionId }),
-            ...(currentTemp && { current_temp: currentTemp })
+            ...((currentTemp || currentTemp === 0) && {
+                current_temp: currentTemp
+            })
         };
     });
 };
 
 export const transformWeatherDetail = data => {
-    return data.map((forecast = {}, i) => {
-        const { date, morning, afternoon, night } = forecast;
+    return data.map(forecast => {
+        const { date, morning, afternoon, night } = forecast || {};
 
         return {
             ...(date && { date }),
@@ -167,9 +170,13 @@ const getDaytimeData = (dayTime = {}) => {
     const weatherIconNew = convertIcon(weatherIconId);
 
     return {
-        ...(humidity && { humidity }),
-        ...(rain && { rain_prob: getHigher(rain) }),
-        ...(temperature && { temperature }),
+        ...((humidity || humidity === 0) && { humidity }),
+        ...((rain || rain === 0) && {
+            rain_prob: getHigher(rain)
+        }),
+        ...((temperature || temperature === 0) && {
+            temperature
+        }),
         ...((weatherDescription || weatherIconNew) && {
             weather: {
                 ...(weatherDescription && {
