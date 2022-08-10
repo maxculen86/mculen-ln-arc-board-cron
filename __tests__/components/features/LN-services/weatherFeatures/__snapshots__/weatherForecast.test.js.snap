@@ -158,7 +158,7 @@ exports[`Components- Features - WeatherForecast - default.jsx - test Should rend
             <span
               class="com-text --font-bold --4xs"
             >
-              -
+              0%
             </span>
           </div>
         </div>
@@ -305,7 +305,7 @@ exports[`Components- Features - WeatherForecast - default.jsx - test Should rend
             <span
               class="com-text --font-bold --4xs"
             >
-              -
+              0%
             </span>
           </div>
         </div>
@@ -468,7 +468,7 @@ exports[`Components- Features - WeatherForecast - default.jsx - test Should rend
             <span
               class="com-text --font-bold --4xs"
             >
-              -
+              0%
             </span>
           </div>
         </div>
@@ -615,7 +615,7 @@ exports[`Components- Features - WeatherForecast - default.jsx - test Should rend
             <span
               class="com-text --font-bold --4xs"
             >
-              -
+              0%
             </span>
           </div>
         </div>
@@ -762,7 +762,7 @@ exports[`Components- Features - WeatherForecast - default.jsx - test Should rend
             <span
               class="com-text --font-bold --4xs"
             >
-              -
+              0%
             </span>
           </div>
         </div>
@@ -1692,7 +1692,7 @@ exports[`Components- Features - WeatherForecast - default.jsx - test Should rend
             <span
               class="com-text --font-bold --4xs"
             >
-              -
+              0%
             </span>
           </div>
         </div>
@@ -1855,7 +1855,7 @@ exports[`Components- Features - WeatherForecast - default.jsx - test Should rend
             <span
               class="com-text --font-bold --4xs"
             >
-              -
+              0%
             </span>
           </div>
         </div>
@@ -2002,7 +2002,7 @@ exports[`Components- Features - WeatherForecast - default.jsx - test Should rend
             <span
               class="com-text --font-bold --4xs"
             >
-              -
+              0%
             </span>
           </div>
         </div>
@@ -2165,7 +2165,7 @@ exports[`Components- Features - WeatherForecast - default.jsx - test Should rend
             <span
               class="com-text --font-bold --4xs"
             >
-              -
+              0%
             </span>
           </div>
         </div>
@@ -2312,7 +2312,7 @@ exports[`Components- Features - WeatherForecast - default.jsx - test Should rend
             <span
               class="com-text --font-bold --4xs"
             >
-              -
+              0%
             </span>
           </div>
         </div>

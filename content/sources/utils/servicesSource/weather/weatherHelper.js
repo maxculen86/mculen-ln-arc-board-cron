@@ -74,8 +74,7 @@ const getSectionLink = (service, sections, location) => {
 };
 
 export const extractTime = (isoString = '') => {
-    const newDate = new Date(isoString).toLocaleTimeString();
-    return `${newDate.slice(0, 5)}`;
+    return isoString.slice(11, 16);
 };
 
 const removeAccents = str => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import Context from 'fusion:context';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import WeatherForecast from '../../../../../components/features/LN-services/weatherForecast/default';
 import mendozaCiudad from '../../../../../__mocks__/data/weather/mendozaCiudad.json';
@@ -29,7 +29,7 @@ Context.useAppContext = jest.fn(() => ({
     globalContent: {
         dataService: {
             forecast: mendozaCiudad,
-            updateTime: '11:39.'
+            updateTime: '11:39'
         },
         name: 'Mendoza'
     }
