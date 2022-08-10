@@ -2,12 +2,12 @@ import React from 'react';
 import { SITE_LANACION, API_ENV } from 'fusion:environment';
 import PropTypes from 'prop-types';
 import Icon from '../../../common/icon';
-import findTermica from '../../../common/utils/findTermica';
+import useTermica from '../../../common/hooks/useTermica';
 import { isSubscribed } from '../utils/contextHelper';
 import '../../../../../resources/dist/css/ln/components/nav-mobile.css';
 
 const ListMenu = ({ toglleDesplegable, amp, isHome }) => {
-    const withBookmark = findTermica('bookmark_web') && isSubscribed();
+    const withBookmark = useTermica('bookmark_web') && isSubscribed();
     const classCondition = withBookmark ? 'col-2' : 'col-3';
     const bookmarkUrl =
         API_ENV === 'prod'

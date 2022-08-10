@@ -3,7 +3,7 @@
 import { LOGIN_URL, SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import { useContext } from 'react';
 import { GlobalContext } from '../context/globalContext';
-import findTermica from './findTermica';
+import useTermica from '../hooks/useTermica';
 import get from './get';
 
 export const CLOSED_BY_TERMIC = 'CLOSED_BY_TERMIC';
@@ -86,7 +86,7 @@ export const validateComments = (props, subscription = false) => {
     const allow = get(props, 'globalContent.comments.allow_comments', true);
     const show = get(props, 'globalContent.comments.display_comments', true);
     const firstPublishDate = get(props, 'globalContent.first_publish_date');
-    const termicaLivefyre = findTermica('livefyre');
+    const termicaLivefyre = useTermica('livefyre');
     const shouldLoad =
         allowComments(props) && shouldLoadViafoura(firstPublishDate);
     return {

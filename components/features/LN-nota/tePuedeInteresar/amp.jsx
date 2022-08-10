@@ -3,11 +3,11 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import TePuedeInteresarAmp from '../../../private/LN/nota/tePuedeInteresar/tePuedeInteresarAmp';
-import findTermica from '../../../private/common/utils/findTermica';
+import useTermica from '../../../private/common/hooks/useTermica';
 import config from '../../../../properties/sites/la-nacion-ar';
 
 const tePuedeInteresar = props => {
-    const showLiftigniter = findTermica('liftigniter');
+    const showLiftigniter = useTermica('liftigniter');
     if (!showLiftigniter) return <></>;
 
     const {

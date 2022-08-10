@@ -61,6 +61,7 @@ import {
     RainyCloudy,
     StormCloudy,
     ClearNight,
+    WaterDrop,
     Ln,
     AnimalsLotteries,
     NamesLotteries,
@@ -141,6 +142,7 @@ const listIcons = {
     'rainy-cloudy': RainyCloudy,
     'storm-cloudy': StormCloudy,
     'clear-night': ClearNight,
+    drop: WaterDrop,
 
     // Lotteries Icons
     animals: AnimalsLotteries,

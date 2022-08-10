@@ -42,7 +42,6 @@
             .share {
                 flex-direction: column;
                 position: sticky;
-                top: $spacing-sm;
                 width: px(56);
                 transition: all 0.25s;
                 border-radius: px(4);
@@ -50,10 +49,10 @@
                 background-color: $light-neutral-50;
                 box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.04);
                 padding: $spacing 0 px(4) 0;
+                top: (px(16) + $header-desktop);
                 .container {
                     flex-direction: column;
                 }
-                top: (px(16) + $header-desktop);
             }
         }
     }

@@ -1,16 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from '../../../common/utils/get';
+import Text from '../../../common/text';
+import Icon from '../../../common/icon';
 
 const ForecastByDay = ({ id, title, data }) => {
-    const {
-        humidity,
-        rain_prob_range: rainRange = [],
-        temperature,
-        weather,
-        wind
-    } = data;
+    const { humidity, rain_prob: rainProb, temperature, weather, wind } = data;
 
+    const windSpeed = get(wind, 'speed', '-');
     const windDirections = {
         N: 'Norte',
         S: 'Sur',
@@ -21,21 +18,49 @@ const ForecastByDay = ({ id, title, data }) => {
         SE: 'Sudeste',
         SO: 'Sudoeste'
     };
-
-    const getHigher = array => Math.max.apply(0, array);
-    const windSpeed = getHigher(get(wind, 'speed_range', []));
     const parsedWindDir = windDirections[wind.direction] || '';
-    const rain = getHigher(rainRange);
+    const defaultValue = (condition, value) => (condition ? value : '-');
 
     return (
-        <div style={{ padding: '10px' }}>
-            <p>{title}</p>
-            <p>{`Temp promedio: ${temperature} º C`}</p>
-            <p>{`Icono nº: ${weather.id}`}</p>
-            <p>{`Descripcion: ${weather.description}`}</p>
-            <p>{`Humedad promedio: ${humidity} %`}</p>
-            <p>{`Viento: ${parsedWindDir} ${windSpeed} Km/h`}</p>
-            <p>{`Precipitaciones: ${rain} %`}</p>
+        <div className="forecast-card">
+            <div className="labeled">
+                <Text tag="h2" weight="bold">
+                    {title}
+                </Text>
+                <Text size="--fivexs" weight="light" extraClass="description">
+                    {defaultValue(weather.description, weather.description)}
+                </Text>
+            </div>
+            <div className="icon-content">
+                <Icon name="snow-cloudy" />
+                <Text tag="p" weight="bold" size="--xl">
+                    {defaultValue(temperature, temperature)}
+                    <Text size="--m">ºc</Text>
+                </Text>
+            </div>
+            <div className="detail-province-icons">
+                <div className="box-icon-text">
+                    <Icon name="drop" title="Humedad" />
+                    <Text weight="bold" size="--4xs">
+                        {defaultValue(humidity, `${humidity}%`)}
+                    </Text>
+                </div>
+                <div className="box-icon-text">
+                    <Icon name="windy" title="Dirección del viento" />
+                    <span title={`${parsedWindDir} ${windSpeed}Km/h`}>
+                        {defaultValue(
+                            wind.direction && windSpeed,
+                            `${wind.direction} ${windSpeed}Km/h`
+                        )}
+                    </span>
+                </div>
+                <div className="box-icon-text">
+                    <Icon name="rain" title="Probabilidad de lluvia" />
+                    <Text weight="bold" size="--4xs">
+                        {defaultValue(rainProb, `${rainProb}%`)}
+                    </Text>
+                </div>
+            </div>
         </div>
     );
 };
@@ -45,7 +70,7 @@ ForecastByDay.propTypes = {
     title: PropTypes.string.isRequired,
     data: PropTypes.shape({
         humidity: PropTypes.number,
-        rain_prob_range: PropTypes.arrayOf(PropTypes.number),
+        rain_prob: PropTypes.number,
         temperature: PropTypes.number,
         weather: PropTypes.shape({
             id: PropTypes.number,
@@ -53,7 +78,7 @@ ForecastByDay.propTypes = {
         }),
         wind: PropTypes.shape({
             direction: PropTypes.string,
-            speed_range: PropTypes.arrayOf(PropTypes.number)
+            speed: PropTypes.number
         })
     }).isRequired
 };

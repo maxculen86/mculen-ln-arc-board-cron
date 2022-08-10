@@ -15,7 +15,7 @@ import dynamicallyLoadScript from '../utils/dynamicallyLoadScript';
 import BannerLogoHeader from '../../../common/banners/BannerLogoHeader';
 import handleCookie from '../utils/handleCookie';
 import LnLogoHeader from '../../../common/logos/LnLogoHeader';
-import findTermica from '../../../common/utils/findTermica';
+import useTermica from '../../../common/hooks/useTermica';
 
 const ItemAnchor = ({ url, text, title, className }) => {
     const callURL = address => {
@@ -77,6 +77,7 @@ const HeaderDesktop = ({
     const { loading, goToLoginUrl } = loginData;
     const { getCookie } = handleCookie();
     const getCookieCallback = useCallback(getCookie, []);
+    const bookmarkWeb = useTermica('bookmark_web');
 
     const [token, setToken] = useState(getCookie('token'));
     const [active, setActive] = useState('');
@@ -185,20 +186,19 @@ const HeaderDesktop = ({
                                         </p>
                                     )}
                                     <ul className="com-desplegable">
-                                        {findTermica('bookmark_web') &&
-                                            loginData.subscription && (
-                                                <>
-                                                    <ItemAnchor
-                                                        url={BOOKMARK_URL}
-                                                        text="Mis notas"
-                                                        title="Ir a mis notas"
-                                                        className="mis-notas"
-                                                    />
-                                                    <span className="new-feature --fivexs --font-bold">
-                                                        NUEVO
-                                                    </span>
-                                                </>
-                                            )}
+                                        {bookmarkWeb && loginData.subscription && (
+                                            <>
+                                                <ItemAnchor
+                                                    url={BOOKMARK_URL}
+                                                    text="Mis notas"
+                                                    title="Ir a mis notas"
+                                                    className="mis-notas"
+                                                />
+                                                <span className="new-feature --fivexs --font-bold">
+                                                    NUEVO
+                                                </span>
+                                            </>
+                                        )}
                                         {enlaces.map(({ url, text, title }) => (
                                             <ItemAnchor
                                                 key={text}

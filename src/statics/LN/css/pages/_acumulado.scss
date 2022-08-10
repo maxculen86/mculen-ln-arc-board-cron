@@ -78,6 +78,21 @@
         }
     }
     .lay {
+        .com-text {
+            &.--mb-xs {
+                margin-bottom: $spacing-sm;
+            }
+            &.--mb-md {
+                margin-bottom: $spacing-md;
+            }
+            &.--mb-lg {
+                margin-bottom: $spacing-lg;
+            }
+            &.--mb-xl {
+                margin-bottom: $spacing-xl;
+            }
+        }
+
         @media ($media-lg) {
             .horoscope-box {
                 .zodiaco {

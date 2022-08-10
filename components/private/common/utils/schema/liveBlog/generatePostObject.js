@@ -67,7 +67,8 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
 
             type === 'text' && elem.content && description.push(elem.content);
             Object.assign(post, {
-                ...(elem.embed && elem.embed),
+                ...(elem.embed &&
+                    elem.embed.config && { config: elem.embed.config }),
                 ...(elem.url && { url: elem.url })
             });
 

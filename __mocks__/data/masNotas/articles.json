@@ -18,6 +18,14 @@
                     "text": "Si"
                 }
             },
+            "taxonomy": {
+                "tags": [
+                    {
+                        "description": "Alberto Fernández",
+                        "slug": "alberto-fernandez-tid849"
+                    }
+                ]
+            },
             "promo_items": {
                 "basic": {
                     "height": 513,
