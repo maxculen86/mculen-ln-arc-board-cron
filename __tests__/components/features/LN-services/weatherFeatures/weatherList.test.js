@@ -1,6 +1,6 @@
 import React from 'react';
 import Context from 'fusion:context';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import WeatherList from '../../../../../components/features/LN-services/weatherList/default';
 import weatherHome from '../../../../../__mocks__/data/weather/weatherHome.json';
@@ -17,6 +17,11 @@ jest.mock('fusion:consumer', component => {
         };
     };
 });
+
+jest.mock(
+    '../../../../../components/private/common/staticValidation',
+    () => 'mock-static-validation'
+);
 
 jest.mock('fusion:context', () => () => ({
     default: props => {

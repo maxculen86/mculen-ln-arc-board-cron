@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
+import StaticValidation from '../../../private/common/staticValidation';
 import get from '../../../private/common/utils/get';
 import WeatherCard from '../../../private/LN/services/weather/WeatherCard';
 import '../../../../resources/dist/css/ln/components/weather.css';
@@ -16,18 +17,17 @@ const WeatherList = ({ id: _featureId }) => {
     if (!locations.length) return null;
 
     return (
-        <>
+        <StaticValidation id={_featureId} htmlOnly persistent>
             <div className="grid-weather-home">
                 {locations.map(location => (
                     <WeatherCard key={location.location_id} data={location} />
                 ))}
             </div>
             <IconsReferences />
-        </>
+        </StaticValidation>
     );
 };
 
-WeatherList.static = true;
 WeatherList.label = 'LN Clima Listado';
 
 WeatherList.propTypes = { id: PropTypes.string.isRequired };

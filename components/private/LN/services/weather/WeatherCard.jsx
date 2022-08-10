@@ -4,7 +4,7 @@ import Link from '../../../common/com-link';
 import Text from '../../../common/text';
 import Icon from '../../../common/icon';
 
-const WeatherCard = ({ id, data }) => {
+const WeatherCard = ({ _id, data }) => {
     const {
         location_name: locationName,
         weather: { id: idDescription, description } = {},
@@ -63,7 +63,7 @@ const WeatherCard = ({ id, data }) => {
 };
 
 WeatherCard.propTypes = {
-    id: PropTypes.string,
+    _id: PropTypes.string,
     data: PropTypes.shape({
         location_name: PropTypes.string,
         link: PropTypes.string,
@@ -78,7 +78,7 @@ WeatherCard.propTypes = {
 };
 
 WeatherCard.defaultProps = {
-    id: ''
+    _id: ''
 };
 
 export default WeatherCard;
