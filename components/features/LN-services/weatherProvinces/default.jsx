@@ -5,7 +5,7 @@ import PropTypes from 'fusion:prop-types';
 import '../../../../resources/dist/css/ln/components/weather.css';
 import ProvincesList from '../../../private/LN/services/weather/ProvincesList';
 
-const WeatherProvinces = ({ id: featureId }) => {
+const WeatherProvinces = ({ id: _featureId }) => {
     const { globalContent = {} } = useAppContext() || {};
     const { _id: sectionId = '' } = globalContent;
 
