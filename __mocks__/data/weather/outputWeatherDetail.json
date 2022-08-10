@@ -1,0 +1,279 @@
+{
+    "dataService": {
+        "created_date": "2022-08-08 17:12:55",
+        "forecast": [
+            {
+                "date": "2022-08-08T00:00:00",
+                "afternoon": {
+                    "humidity": 63,
+                    "rain_prob": 10,
+                    "temperature": 17,
+                    "weather": {
+                        "description": "Nublado",
+                        "id": "cloudy"
+                    },
+                    "wind": {
+                        "direction": "S",
+                        "speed": 22
+                    }
+                },
+                "night": {
+                    "humidity": 79,
+                    "rain_prob": 40,
+                    "temperature": 13,
+                    "weather": {
+                        "description": "Lluvias aisladas",
+                        "id": "rain"
+                    },
+                    "wind": {
+                        "direction": "S",
+                        "speed": 22
+                    }
+                }
+            },
+            {
+                "date": "2022-08-09T00:00:00",
+                "morning": {
+                    "humidity": 64,
+                    "rain_prob": 40,
+                    "temperature": 10,
+                    "weather": {
+                        "description": "Lluvias aisladas",
+                        "id": "rain"
+                    },
+                    "wind": {
+                        "direction": "S",
+                        "speed": 22
+                    }
+                },
+                "afternoon": {
+                    "humidity": 80,
+                    "rain_prob": 40,
+                    "temperature": 15,
+                    "weather": {
+                        "description": "Lluvias aisladas",
+                        "id": "rain"
+                    },
+                    "wind": {
+                        "direction": "S",
+                        "speed": 22
+                    }
+                },
+                "night": {
+                    "humidity": 81,
+                    "rain_prob": 40,
+                    "temperature": 12,
+                    "weather": {
+                        "description": "Lluvias aisladas",
+                        "id": "rain"
+                    },
+                    "wind": {
+                        "direction": "S",
+                        "speed": 22
+                    }
+                }
+            },
+            {
+                "date": "2022-08-10T00:00:00",
+                "morning": {
+                    "humidity": 79,
+                    "rain_prob": 0,
+                    "temperature": 5,
+                    "weather": {
+                        "description": "Algo nublado",
+                        "id": "sun-cloudy"
+                    },
+                    "wind": {
+                        "direction": "S",
+                        "speed": 22
+                    }
+                },
+                "afternoon": {
+                    "humidity": 42,
+                    "rain_prob": 0,
+                    "temperature": 19,
+                    "weather": {
+                        "description": "Parcialmente nublado",
+                        "id": "sun-cloudy"
+                    },
+                    "wind": {
+                        "direction": "SE",
+                        "speed": 22
+                    }
+                }
+            },
+            {
+                "date": "2022-08-11T00:00:00",
+                "morning": {
+                    "humidity": 86,
+                    "rain_prob": 0,
+                    "temperature": 8,
+                    "weather": {
+                        "description": "Parcialmente nublado",
+                        "id": "sun-cloudy"
+                    },
+                    "wind": {
+                        "direction": "SE",
+                        "speed": 22
+                    }
+                },
+                "afternoon": {
+                    "humidity": 40,
+                    "rain_prob": 0,
+                    "temperature": 22,
+                    "weather": {
+                        "description": "Parcialmente nublado",
+                        "id": "sun-cloudy"
+                    },
+                    "wind": {
+                        "direction": "SE",
+                        "speed": 12
+                    }
+                }
+            },
+            {
+                "date": "2022-08-12T00:00:00",
+                "morning": {
+                    "humidity": 76,
+                    "rain_prob": 0,
+                    "temperature": 11,
+                    "weather": {
+                        "description": "Parcialmente nublado",
+                        "id": "sun-cloudy"
+                    },
+                    "wind": {
+                        "direction": "NE",
+                        "speed": 12
+                    }
+                },
+                "afternoon": {
+                    "humidity": 42,
+                    "rain_prob": 0,
+                    "temperature": 25,
+                    "weather": {
+                        "description": "Parcialmente nublado",
+                        "id": "sun-cloudy"
+                    },
+                    "wind": {
+                        "direction": "NE",
+                        "speed": 22
+                    }
+                }
+            },
+            {
+                "date": "2022-08-13T00:00:00",
+                "morning": {
+                    "humidity": 70,
+                    "rain_prob": 0,
+                    "temperature": 15,
+                    "weather": {
+                        "description": "Parcialmente nublado",
+                        "id": "sun-cloudy"
+                    },
+                    "wind": {
+                        "direction": "NE",
+                        "speed": 22
+                    }
+                },
+                "afternoon": {
+                    "humidity": 38,
+                    "rain_prob": 10,
+                    "temperature": 29,
+                    "weather": {
+                        "description": "Parcialmente nublado",
+                        "id": "sun-cloudy"
+                    },
+                    "wind": {
+                        "direction": "NE",
+                        "speed": 12
+                    }
+                }
+            },
+            {
+                "date": "2022-08-14T00:00:00",
+                "morning": {
+                    "rain_prob": 10,
+                    "temperature": 18,
+                    "weather": {
+                        "description": "Mayormente nublado",
+                        "id": "cloudy"
+                    },
+                    "wind": {
+                        "direction": "E",
+                        "speed": 12
+                    }
+                },
+                "afternoon": {
+                    "humidity": 55,
+                    "rain_prob": 10,
+                    "temperature": 25,
+                    "weather": {
+                        "description": "Parcialmente nublado",
+                        "id": "sun-cloudy"
+                    },
+                    "wind": {
+                        "direction": "E",
+                        "speed": 12
+                    }
+                }
+            }
+        ],
+        "updateTime": "06:04."
+    },
+    "_id": "/clima/chaco",
+    "social": {
+        "rss": null,
+        "twitter": null,
+        "facebook": null,
+        "instagram": null
+    },
+    "site": {
+        "site_url": null,
+        "site_tagline": null,
+        "site_description": null,
+        "pagebuilder_path_for_native_apps": null,
+        "site_title": null,
+        "site_about": null,
+        "site_keywords": null
+    },
+    "navigation": {
+        "nav_title": null
+    },
+    "site_topper": {
+        "site_logo_image": null
+    },
+    "acumuladoColor": {
+        "header_class_name": "No"
+    },
+    "acumuladoGeneral": {
+        "mostrar_en_acu_apps": "true"
+    },
+    "name": "Chaco",
+    "_website": "la-nacion-ar",
+    "parent": {
+        "default": "/clima",
+        "navigationRedaccion": "/clima",
+        "pruebaTecnica": null
+    },
+    "ancestors": {
+        "default": ["/", "/clima"],
+        "navigationRedaccion": ["/", "/clima"],
+        "pruebaTecnica": []
+    },
+    "_admin": {
+        "alias_ids": ["/clima/chaco"]
+    },
+    "inactive": false,
+    "node_type": "section",
+    "order": {
+        "navigationRedaccion": 2003,
+        "default": 2003
+    },
+    "children": [],
+    "metaData": {
+        "title": "Clima en Chaco y pronóstico del tiempo en LA NACION",
+        "description": "El tiempo en Chaco encontrá el pronóstico extendido y la temperatura de hoy para Chaco del Servicio Meteorológico Nacional en LA NACION",
+        "headline": "Clima de hoy en Chaco"
+    },
+    "serviceType": "detalle-clima"
+}

@@ -83,8 +83,10 @@ const getTemplates = (serviceItem, serviceSubItem, sectionChildrens = []) => {
 };
 
 export default {
+    getUri,
     request: weatherRequest,
     resolve,
     reject,
+    transform,
     getTemplates
 };
