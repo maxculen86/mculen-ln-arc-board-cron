@@ -5,8 +5,7 @@ jest.mock('fusion:environment', () => {
         IS_DEV: false,
         IS_SANDBOX: false,
         API_ENV: 'prod',
-        RESIZER_URL:
-            'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer',
+        RESIZER_URL: 'https://resizer.glanacion.com',
         RESIZER_KEY: 'Fmkgru2rZ2uPZ5wXs7B2HbVDJHDkdoi5',
         API_INGRESAR: 'https://api-ingresar.lanacion.com.ar',
         RELOGIN_VALIDATION: '8121600000',
