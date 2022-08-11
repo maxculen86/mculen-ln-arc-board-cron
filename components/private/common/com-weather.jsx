@@ -3,11 +3,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ComIco from './icon';
 import ComLink from './com-link';
-import useVisibility from './hooks/useVisibility';
+import setVisibility from './utils/setVisibility';
 
 const ComWeather = props => {
     const { iconName, sizeIcon, size, weatherPlace, temperature } = props;
-    const visibility = useVisibility(props);
+    const visibility = setVisibility(props);
 
     return (
         <ComLink

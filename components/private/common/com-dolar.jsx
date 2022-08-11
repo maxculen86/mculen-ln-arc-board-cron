@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ComLink from './com-link';
-import useVisibility from './hooks/useVisibility';
+import setVisibility from './utils/setVisibility';
 
 const ComDolar = props => {
     const {
@@ -12,7 +12,7 @@ const ComDolar = props => {
         precioVentaBlue
     } = props;
 
-    const visibility = useVisibility(props);
+    const visibility = setVisibility(props);
 
     return (
         <ul className="com-dolar" style={{ visibility }}>
