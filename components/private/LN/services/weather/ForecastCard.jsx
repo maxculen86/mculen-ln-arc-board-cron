@@ -5,6 +5,7 @@ import Text from '../../../common/text';
 import Icon from '../../../common/icon';
 
 const ForecastByDay = ({ id, title, data }) => {
+    if ([title, data].some(e => e === undefined)) return null;
     const { humidity, rain_prob: rainProb, temperature, weather, wind } = data;
 
     const windSpeed = get(wind, 'speed', '-');
