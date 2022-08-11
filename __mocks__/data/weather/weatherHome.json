@@ -1,0 +1,280 @@
+{
+    "created_date": "2022-08-04 16:28:27",
+    "locations": [
+        {
+            "location_name": "Ciudad de Buenos Aires",
+            "location_id": "ciudad-de-buenos-aires",
+            "temp_min": 8,
+            "temp_max": 13,
+            "weather": {
+                "description": "Mayormente nublado",
+                "id": "cloudy"
+            },
+            "link": "/clima/buenos-aires/",
+            "current_temp": 13
+        },
+        {
+            "location_name": "San Fernando del Valle de Catamarca",
+            "location_id": "san-fernando-del-valle-de-catamarca",
+            "temp_min": 4,
+            "temp_max": 22,
+            "weather": {
+                "description": "Algo nublado",
+                "id": "sun-cloudy"
+            },
+            "link": "/clima/catamarca/",
+            "current_temp": 22
+        },
+        {
+            "location_name": "Resistencia",
+            "location_id": "resistencia",
+            "temp_min": 13,
+            "temp_max": 19,
+            "weather": {
+                "description": "Mayormente nublado",
+                "id": "cloudy"
+            },
+            "link": "/clima/chaco/",
+            "current_temp": 19
+        },
+        {
+            "location_name": "Rawson",
+            "location_id": "rawson",
+            "temp_max": 11,
+            "weather": {
+                "description": "Ventoso",
+                "id": "windy"
+            },
+            "link": "/clima/chubut/",
+            "current_temp": 11
+        },
+        {
+            "location_name": "Córdoba",
+            "location_id": "cordoba",
+            "temp_min": 8,
+            "temp_max": 17,
+            "weather": {
+                "description": "Parcialmente nublado",
+                "id": "sun-cloudy"
+            },
+            "link": "/clima/cordoba/",
+            "current_temp": 17
+        },
+        {
+            "location_name": "Corrientes",
+            "location_id": "corrientes",
+            "temp_min": 15,
+            "temp_max": 19,
+            "weather": {
+                "description": "Lluvias aisladas",
+                "id": "rain"
+            },
+            "link": "/clima/corrientes/",
+            "current_temp": 19
+        },
+        {
+            "location_name": "Paraná",
+            "location_id": "parana",
+            "temp_min": 10,
+            "temp_max": 14,
+            "weather": {
+                "description": "Mayormente nublado",
+                "id": "cloudy"
+            },
+            "link": "/clima/entre-rios/",
+            "current_temp": 14
+        },
+        {
+            "location_name": "Formosa",
+            "location_id": "formosa",
+            "temp_min": 14,
+            "temp_max": 20,
+            "weather": {
+                "description": "Nublado",
+                "id": "cloudy"
+            },
+            "link": "/clima/formosa/",
+            "current_temp": 20
+        },
+        {
+            "location_name": "San Salvador de Jujuy",
+            "location_id": "san-salvador-de-jujuy",
+            "temp_min": 10,
+            "temp_max": 18,
+            "weather": {
+                "description": "Parcialmente nublado",
+                "id": "sun-cloudy"
+            },
+            "link": "/clima/jujuy/",
+            "current_temp": 18
+        },
+        {
+            "location_name": "Santa Rosa",
+            "location_id": "santa-rosa",
+            "temp_min": 3,
+            "temp_max": 16,
+            "weather": {
+                "description": "Parcialmente nublado",
+                "id": "sun-cloudy"
+            },
+            "link": "/clima/la-pampa/",
+            "current_temp": 16
+        },
+        {
+            "location_name": "La Rioja",
+            "location_id": "la-rioja",
+            "temp_min": 6,
+            "temp_max": 22,
+            "weather": {
+                "description": "Despejado",
+                "id": "sun"
+            },
+            "link": "/clima/la-rioja/",
+            "current_temp": 22
+        },
+        {
+            "location_name": "Mendoza",
+            "location_id": "mendoza",
+            "temp_min": 4,
+            "temp_max": 18,
+            "weather": {
+                "description": "Ligeramente nublado",
+                "id": "sun-cloudy"
+            },
+            "link": "/clima/mendoza/",
+            "current_temp": 18
+        },
+        {
+            "location_name": "Posadas",
+            "location_id": "posadas",
+            "temp_min": 16,
+            "temp_max": 23,
+            "weather": {
+                "description": "Lluvias aisladas",
+                "id": "rain"
+            },
+            "link": "/clima/misiones/",
+            "current_temp": 20
+        },
+        {
+            "location_name": "Neuquén",
+            "location_id": "neuquen",
+            "temp_min": -1,
+            "temp_max": 13,
+            "weather": {
+                "description": "Mayormente nublado",
+                "id": "cloudy"
+            },
+            "link": "/clima/neuquen/",
+            "current_temp": 13
+        },
+        {
+            "location_name": "Viedma",
+            "location_id": "viedma",
+            "temp_max": 12,
+            "weather": {
+                "description": "Parcialmente nublado",
+                "id": "sun-cloudy"
+            },
+            "link": "/clima/rio-negro/",
+            "current_temp": 12
+        },
+        {
+            "location_name": "Salta",
+            "location_id": "salta",
+            "temp_min": 7,
+            "temp_max": 16,
+            "weather": {
+                "description": "Parcialmente nublado",
+                "id": "sun-cloudy"
+            },
+            "link": "/clima/salta/",
+            "current_temp": 16
+        },
+        {
+            "location_name": "San Juan",
+            "location_id": "san-juan",
+            "temp_min": 2,
+            "temp_max": 19,
+            "weather": {
+                "description": "Despejado",
+                "id": "sun"
+            },
+            "link": "/clima/san-juan/",
+            "current_temp": 19
+        },
+        {
+            "location_name": "San Luis",
+            "location_id": "san-luis",
+            "temp_min": 5,
+            "temp_max": 20,
+            "weather": {
+                "description": "Parcialmente nublado",
+                "id": "sun-cloudy"
+            },
+            "link": "/clima/san-luis/",
+            "current_temp": 20
+        },
+        {
+            "location_name": "Río Gallegos",
+            "location_id": "rio-gallegos",
+            "temp_min": 2,
+            "temp_max": 5,
+            "weather": {
+                "description": "Lluvias",
+                "id": "rain"
+            },
+            "link": "/clima/santa-cruz",
+            "current_temp": 5
+        },
+        {
+            "location_name": "Santa Fe",
+            "location_id": "santa-fe",
+            "temp_min": 11,
+            "temp_max": 15,
+            "weather": {
+                "description": "Mayormente nublado",
+                "id": "cloudy"
+            },
+            "link": "/clima/santa-fe",
+            "current_temp": 15
+        },
+        {
+            "location_name": "Santiago del Estero",
+            "location_id": "santiago-del-estero",
+            "temp_min": 8,
+            "temp_max": 21,
+            "weather": {
+                "description": "Algo nublado",
+                "id": "sun-cloudy"
+            },
+            "link": "/clima/santiago-del-estero",
+            "current_temp": 21
+        },
+        {
+            "location_name": "Ushuaia",
+            "location_id": "ushuaia",
+            "temp_min": 2,
+            "temp_max": 5,
+            "weather": {
+                "description": "Nublado",
+                "id": "cloudy"
+            },
+            "link": "/clima/tierra-del-fuego",
+            "current_temp": 5
+        },
+        {
+            "location_name": "San Miguel de Tucumán",
+            "location_id": "san-miguel-de-tucuman",
+            "temp_min": 7,
+            "temp_max": 21,
+            "weather": {
+                "description": "Parcialmente nublado",
+                "id": "sun-cloudy"
+            },
+            "link": "/clima/tucuman",
+            "current_temp": 21
+        }
+    ],
+    "updateTime": "11:39."
+}

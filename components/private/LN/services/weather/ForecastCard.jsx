@@ -20,7 +20,8 @@ const ForecastByDay = ({ id, title, data }) => {
         SO: 'Sudoeste'
     };
     const parsedWindDir = windDirections[wind.direction] || '';
-    const defaultValue = (condition, value) => (condition ? value : '-');
+    const defaultValue = (condition, value) =>
+        condition || condition === 0 ? value : '-';
 
     return (
         <div className="forecast-card">
@@ -74,7 +75,7 @@ ForecastByDay.propTypes = {
         rain_prob: PropTypes.number,
         temperature: PropTypes.number,
         weather: PropTypes.shape({
-            id: PropTypes.number,
+            id: PropTypes.string,
             description: PropTypes.string
         }),
         wind: PropTypes.shape({

@@ -32,24 +32,20 @@ const SnippetWiki = () => {
     const data = {
         '@context': 'https://schema.org',
         '@type': type === 1 ? 'Person' : 'Organization',
-        givenName,
-        additionalName,
-        familyName,
-        jobTitle,
-        location,
-        address,
-        birthDate,
-        birthPlace,
-        legalName,
-        foundingLocation,
-        foundingDate,
-        image: resizedUrl
+        ...(givenName && { givenName }),
+        ...(additionalName && { additionalName }),
+        ...(familyName && { familyName }),
+        ...(jobTitle && { jobTitle }),
+        ...(location && { location }),
+        ...(address && { address }),
+        ...(birthDate && { birthDate }),
+        ...(birthPlace && { birthPlace }),
+        ...(legalName && { legalName }),
+        ...(foundingLocation && { foundingLocation }),
+        ...(foundingDate && { foundingDate }),
+        ...(resizedUrl && { image: resizedUrl })
     };
     return <SnippetRender data={data} />;
 };
 
 export default SnippetWiki;
-
-SnippetWiki.propTypes = {
-    isWiki: PropTypes.string
-};
