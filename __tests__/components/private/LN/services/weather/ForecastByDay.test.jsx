@@ -11,7 +11,7 @@ describe('Components - private - services - weather - ForecastByDay =>', () => {
             temperature: 80,
             weather: {
                 description: 'sun',
-                id: 0
+                id: 'sun'
             },
             wind: {
                 direction: 'NO',
@@ -24,7 +24,7 @@ describe('Components - private - services - weather - ForecastByDay =>', () => {
             temperature: 80,
             weather: {
                 description: 'sun',
-                id: 0
+                id: 'sun'
             },
             wind: {
                 direction: 'NO',
@@ -37,7 +37,7 @@ describe('Components - private - services - weather - ForecastByDay =>', () => {
             temperature: 80,
             weather: {
                 description: 'sun',
-                id: 0
+                id: 'sun'
             },
             wind: {
                 direction: 'NO',

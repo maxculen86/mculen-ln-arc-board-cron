@@ -13,7 +13,7 @@ describe('Components - private - services - weather - ForecastCard =>', () => {
             temperature: 8,
             weather: {
                 description: 'sun',
-                id: 0
+                id: 'sun'
             },
             wind: {
                 direction: 'NO',
@@ -50,13 +50,14 @@ describe('Components - private - services - weather - ForecastCard =>', () => {
     });
 
     it('Test when data comes without humidity - rainProb - teperature ', () => {
+        const title = 'Mañana';
         const data = {
             humidity: 0,
             rain_prob: 0,
             temperature: 0,
             weather: {
                 description: 'sun',
-                id: 0
+                id: 'sun'
             },
             wind: {
                 direction: 'NO',
@@ -66,7 +67,6 @@ describe('Components - private - services - weather - ForecastCard =>', () => {
         const { container } = render(
             <ForecastCard data={data} title={title} />
         );
-
         expect(container).toMatchSnapshot();
         expect(
             container.innerHTML.includes(
@@ -75,7 +75,7 @@ describe('Components - private - services - weather - ForecastCard =>', () => {
         ).toBe(true);
         expect(
             container.innerHTML.includes(
-                '<p class="com-text --font-bold --xl">-'
+                '<p class="com-text --font-bold --xl">'
             )
         ).toBe(true);
         expect(
