@@ -153,10 +153,6 @@ const listIcons = {
 };
 
 const MapperIcon = ({ name = '', extraProps = {} }) => {
-    console.log(
-        '🚀 ~ file: mapperIcon.jsx ~ line 156 ~ MapperIcon ~ extraProps',
-        extraProps
-    );
     if (!name) return <></>;
     const Component = listIcons[name];
 
