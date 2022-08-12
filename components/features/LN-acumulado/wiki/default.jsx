@@ -115,7 +115,7 @@ const WikiFeature = () => {
                     )}
                 </div>
                 <div className="social-networks">
-                    {socialNetworks && (
+                    {socialNetworks.length > 0 && (
                         <Text font="sueca" size="2xs" weight="regular">
                             Conectar:
                         </Text>

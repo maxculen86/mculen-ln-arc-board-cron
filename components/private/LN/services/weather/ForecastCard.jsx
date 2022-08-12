@@ -26,7 +26,7 @@ const ForecastByDay = ({ id, title, data }) => {
     return (
         <div className="forecast-card">
             <div className="labeled">
-                <Text tag="h2" weight="bold">
+                <Text tag="h4" weight="bold">
                     {title}
                 </Text>
                 <Text size="--fivexs" weight="light" extraClass="description">
