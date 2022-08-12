@@ -27,7 +27,7 @@ describe('Components - private - services - weather - ForecastCard =>', () => {
         expect(container).toMatchSnapshot();
         expect(
             container.innerHTML.includes(
-                '<h2 class="com-text --font-bold">Mañana</h2>'
+                '<h4 class="com-text --font-bold">Mañana</h4>'
             )
         ).toBe(true);
         expect(
@@ -70,7 +70,7 @@ describe('Components - private - services - weather - ForecastCard =>', () => {
         expect(container).toMatchSnapshot();
         expect(
             container.innerHTML.includes(
-                '<h2 class="com-text --font-bold">Mañana</h2>'
+                '<h4 class="com-text --font-bold">Mañana</h4>'
             )
         ).toBe(true);
         expect(

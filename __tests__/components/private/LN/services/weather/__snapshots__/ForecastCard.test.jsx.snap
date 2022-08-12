@@ -8,11 +8,11 @@ exports[`Components - private - services - weather - ForecastCard => Test when d
     <div
       class="labeled"
     >
-      <h2
+      <h4
         class="com-text --font-bold"
       >
         Mañana
-      </h2>
+      </h4>
       <span
         class="description --font-light --fivexs"
       >
@@ -143,11 +143,11 @@ exports[`Components - private - services - weather - ForecastCard => Test when d
     <div
       class="labeled"
     >
-      <h2
+      <h4
         class="com-text --font-bold"
       >
         Mañana
-      </h2>
+      </h4>
       <span
         class="description --font-light --fivexs"
       >

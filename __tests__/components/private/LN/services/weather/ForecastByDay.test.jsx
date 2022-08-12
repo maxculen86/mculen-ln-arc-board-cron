@@ -85,17 +85,17 @@ describe('Components - private - services - weather - ForecastByDay =>', () => {
         ).toBe(1);
         expect(
             container.innerHTML.includes(
-                '<h2 class="com-text --font-bold">Mañana</h2>'
+                '<h4 class="com-text --font-bold">Mañana</h4>'
             )
         ).toBe(true);
         expect(
             container.innerHTML.includes(
-                '<h2 class="com-text --font-bold">Tarde</h2>'
+                '<h4 class="com-text --font-bold">Tarde</h4>'
             )
         ).toBe(true);
         expect(
             container.innerHTML.includes(
-                '<h2 class="com-text --font-bold">Noche</h2>'
+                '<h4 class="com-text --font-bold">Noche</h4>'
             )
         ).toBe(true);
         expect(container.getElementsByClassName(expectedClassCard).length).toBe(

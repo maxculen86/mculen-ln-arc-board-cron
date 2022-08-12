@@ -55,7 +55,10 @@ const WikiFeature = () => {
         { text: 'Profesión', value: `${jobTitle}` },
         {
             text: 'Fecha de nacimiento',
-            value: `${birthDate}`
+            value: `${birthDate
+                .split('-')
+                .reverse()
+                .join('/')}`
         },
         {
             text: 'Lugar de nacimiento',

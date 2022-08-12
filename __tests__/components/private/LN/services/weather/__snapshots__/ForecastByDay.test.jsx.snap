@@ -22,11 +22,11 @@ exports[`Components - private - services - weather - ForecastByDay => Test forec
         <div
           class="labeled"
         >
-          <h2
+          <h4
             class="com-text --font-bold"
           >
             Mañana
-          </h2>
+          </h4>
           <span
             class="description --font-light --fivexs"
           >
@@ -152,11 +152,11 @@ exports[`Components - private - services - weather - ForecastByDay => Test forec
         <div
           class="labeled"
         >
-          <h2
+          <h4
             class="com-text --font-bold"
           >
             Tarde
-          </h2>
+          </h4>
           <span
             class="description --font-light --fivexs"
           >
@@ -282,11 +282,11 @@ exports[`Components - private - services - weather - ForecastByDay => Test forec
         <div
           class="labeled"
         >
-          <h2
+          <h4
             class="com-text --font-bold"
           >
             Noche
-          </h2>
+          </h4>
           <span
             class="description --font-light --fivexs"
           >
@@ -433,11 +433,11 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
         <div
           class="labeled"
         >
-          <h2
+          <h4
             class="com-text --font-bold"
           >
             Mañana
-          </h2>
+          </h4>
           <span
             class="description --font-light --fivexs"
           >
@@ -563,11 +563,11 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
         <div
           class="labeled"
         >
-          <h2
+          <h4
             class="com-text --font-bold"
           >
             Tarde
-          </h2>
+          </h4>
           <span
             class="description --font-light --fivexs"
           >
@@ -693,11 +693,11 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
         <div
           class="labeled"
         >
-          <h2
+          <h4
             class="com-text --font-bold"
           >
             Noche
-          </h2>
+          </h4>
           <span
             class="description --font-light --fivexs"
           >
@@ -844,11 +844,11 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
         <div
           class="labeled"
         >
-          <h2
+          <h4
             class="com-text --font-bold"
           >
             Mañana
-          </h2>
+          </h4>
           <span
             class="description --font-light --fivexs"
           >
@@ -974,11 +974,11 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
         <div
           class="labeled"
         >
-          <h2
+          <h4
             class="com-text --font-bold"
           >
             Tarde
-          </h2>
+          </h4>
           <span
             class="description --font-light --fivexs"
           >
@@ -1104,11 +1104,11 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
         <div
           class="labeled"
         >
-          <h2
+          <h4
             class="com-text --font-bold"
           >
             Noche
-          </h2>
+          </h4>
           <span
             class="description --font-light --fivexs"
           >
