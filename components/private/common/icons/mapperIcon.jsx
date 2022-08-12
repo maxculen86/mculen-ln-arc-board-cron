@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -151,18 +152,20 @@ const listIcons = {
     traditional: TraditionalLotteries
 };
 
-const MapperIcon = ({ name, r }) => {
+const MapperIcon = ({ name = '', extraProps = {} }) => {
+    console.log(
+        '🚀 ~ file: mapperIcon.jsx ~ line 156 ~ MapperIcon ~ extraProps',
+        extraProps
+    );
+    if (!name) return <></>;
     const Component = listIcons[name];
 
-    return <Component {...r} />;
+    return <Component {...extraProps} />;
 };
 
 MapperIcon.propTypes = {
     name: PropTypes.string.isRequired,
-    r: PropTypes.objectOf(PropTypes.string)
+    extraProps: PropTypes.objectOf(PropTypes.string)
 };
 
-MapperIcon.defaultProps = {
-    r: {}
-};
 export default MapperIcon;
