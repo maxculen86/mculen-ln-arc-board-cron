@@ -15,11 +15,7 @@ const ModSubheader = props => {
         dataService: { locations = [] }
     } = weather;
 
-    const {
-        current_temp: temperatura = '',
-        location_name: nombre = '',
-        weather: weatherInfo = {}
-    } =
+    const { current_temp: temperatura = '', weather: weatherInfo = {} } =
         locations.find(e => {
             const { location_id: locationId } = e;
 
@@ -39,10 +35,10 @@ const ModSubheader = props => {
                     />
 
                     <ComWeather
-                        iconName={weatherInfo.id}
+                        iconName={weatherInfo.id || ''}
                         size="--fourxs"
                         temperature={temperatura}
-                        weatherPlace={nombre}
+                        weatherPlace="Capital Federal"
                     />
 
                     <ComLink
