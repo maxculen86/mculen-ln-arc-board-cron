@@ -28,7 +28,7 @@ const getMediaData = (
 
     const type = get(imagenDestacada, 'type', null);
     const isMobile = device === 'mobile';
-    const isGrilla1 = layout === 'grilla1';
+    const isMobileAndGrilla1 = isMobile && layout === 'grilla1';
     const image = type === 'image' ? imagenDestacada : null;
 
     const rules = [
@@ -37,20 +37,23 @@ const getMediaData = (
             data: videoBackground
         },
         {
-            validation: videoBackground && isMobile && isGrilla1,
+            validation: videoBackground && isMobileAndGrilla1,
             data: get(mobileImageForMultimediaBox, 'promo_items.basic', image)
         },
         {
-            validation: mobileImageForMultimediaBox && isMobile && isGrilla1,
+            validation: mobileImageForMultimediaBox && isMobileAndGrilla1,
             data: get(mobileImageForMultimediaBox, 'promo_items.basic', image)
         }
     ];
 
-    return get(
-        rules.find(({ validation }) => validation),
-        'data',
-        image
-    );
+    return {
+        mediaData: get(
+            rules.find(({ validation }) => validation),
+            'data',
+            image
+        ),
+        withMobileImage: mobileImageForMultimediaBox && isMobileAndGrilla1
+    };
 };
 
 export default getMediaData;

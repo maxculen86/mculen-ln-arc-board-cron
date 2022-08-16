@@ -162,7 +162,7 @@ const ArticleFeature = ({
                     isPowa={layout === 'grillaVideo1'}
                     handleClick={productClickFromClient}
                     registerSuccessEvent={registerSuccessEvent}
-                    mobileImageForMultimediaBox={mobileImage}
+                    mobileImage={mobileImage}
                 />
             </ErrorBoundary>
         )) ||

@@ -60,7 +60,10 @@ describe('Test - getMediaData', () => {
                 isRenderAuthorOpinion,
                 articleData
             )
-        ).toStrictEqual(mobileImage.promo_items.basic);
+        ).toStrictEqual({
+            mediaData: mobileImage.promo_items.basic,
+            withMobileImage: true
+        });
     });
 
     test('Should return the mobile image data when videoBackground is not defined in multimedia box', () => {
@@ -74,7 +77,10 @@ describe('Test - getMediaData', () => {
                 isRenderAuthorOpinion,
                 articleData
             )
-        ).toStrictEqual(mobileImage.promo_items.basic);
+        ).toStrictEqual({
+            mediaData: mobileImage.promo_items.basic,
+            withMobileImage: true
+        });
     });
 
     test('Should return the data of the featured image when mobileImage is not defined', () => {
@@ -88,7 +94,10 @@ describe('Test - getMediaData', () => {
                 isRenderAuthorOpinion,
                 articleData
             )
-        ).toStrictEqual(articleData.promo_items.basic);
+        ).toStrictEqual({
+            mediaData: articleData.promo_items.basic,
+            withMobileImage: undefined
+        });
     });
 
     test('Should return the data of the featured image when layout is different from Grilla 1', () => {
@@ -103,7 +112,10 @@ describe('Test - getMediaData', () => {
                 isRenderAuthorOpinion,
                 articleData
             )
-        ).toStrictEqual(articleData.promo_items.basic);
+        ).toStrictEqual({
+            mediaData: articleData.promo_items.basic,
+            withMobileImage: undefined
+        });
     });
 
     test('Should return the data of the featured image when videoBackground and mobileImage is not defined', () => {
@@ -117,7 +129,10 @@ describe('Test - getMediaData', () => {
                 isRenderAuthorOpinion,
                 articleData
             )
-        ).toStrictEqual(articleData.promo_items.basic);
+        ).toStrictEqual({
+            mediaData: articleData.promo_items.basic,
+            withMobileImage: undefined
+        });
     });
 
     test('should return null when there is no data', () => {
@@ -131,7 +146,10 @@ describe('Test - getMediaData', () => {
                 isRenderAuthorOpinion,
                 undefined
             )
-        ).toBeNull();
+        ).toStrictEqual({
+            mediaData: null,
+            withMobileImage: undefined
+        });
     });
 
     test('should return video data when device is desktop', () => {
@@ -146,7 +164,10 @@ describe('Test - getMediaData', () => {
                 isRenderAuthorOpinion,
                 articleData
             )
-        ).toStrictEqual(videoBackground);
+        ).toStrictEqual({
+            mediaData: videoBackground,
+            withMobileImage: false
+        });
     });
 
     test('Should return the data of the featured image when device is desktop and videoBackground is not defined', () => {
@@ -161,7 +182,10 @@ describe('Test - getMediaData', () => {
                 isRenderAuthorOpinion,
                 articleData
             )
-        ).toStrictEqual(articleData.promo_items.basic);
+        ).toStrictEqual({
+            mediaData: articleData.promo_items.basic,
+            withMobileImage: false
+        });
     });
 
     test('Should return the photo of the author', () => {
@@ -208,22 +232,25 @@ describe('Test - getMediaData', () => {
                 dataAuthors
             )
         ).toStrictEqual({
-            altText: 'Foto de Jorge Fernández Díaz',
-            height: 80,
-            resized_urls: [
-                {
-                    resizedUrl:
-                        'https://resizer.glanacion.com/resizer/sAWtYLpCf60HZM-pSOuv4VDCNWs=/80x0/filters:quality(80)/bucket.glanacion.com/anexos/fotos/55/2089255.png'
-                },
-                {
-                    resizedUrl:
-                        'https://resizer.glanacion.com/resizer/PNjDoOm_Gkxjqpjax5_jKzkLX6k=/80x0/filters:quality(80)/bucket.glanacion.com/anexos/fotos/91/2219591.png'
-                }
-            ],
-            type: 'image',
-            url:
-                'https://resizer.glanacion.com/resizer/sAWtYLpCf60HZM-pSOuv4VDCNWs=/80x0/filters:quality(80)/bucket.glanacion.com/anexos/fotos/55/2089255.png',
-            width: 80
+            mediaData: {
+                altText: 'Foto de Jorge Fernández Díaz',
+                height: 80,
+                resized_urls: [
+                    {
+                        resizedUrl:
+                            'https://resizer.glanacion.com/resizer/sAWtYLpCf60HZM-pSOuv4VDCNWs=/80x0/filters:quality(80)/bucket.glanacion.com/anexos/fotos/55/2089255.png'
+                    },
+                    {
+                        resizedUrl:
+                            'https://resizer.glanacion.com/resizer/PNjDoOm_Gkxjqpjax5_jKzkLX6k=/80x0/filters:quality(80)/bucket.glanacion.com/anexos/fotos/91/2219591.png'
+                    }
+                ],
+                type: 'image',
+                url:
+                    'https://resizer.glanacion.com/resizer/sAWtYLpCf60HZM-pSOuv4VDCNWs=/80x0/filters:quality(80)/bucket.glanacion.com/anexos/fotos/55/2089255.png',
+                width: 80
+            },
+            withMobileImage: undefined
         });
     });
 });

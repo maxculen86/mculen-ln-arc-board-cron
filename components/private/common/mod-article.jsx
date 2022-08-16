@@ -49,7 +49,7 @@ const ModArticle = props => {
         isApertura,
         registerSuccessEvent,
         typeArticle,
-        mobileImageForMultimediaBox
+        mobileImage
     } = props;
 
     const { dispatch } = useContext(GlobalContext) || {};
@@ -75,10 +75,10 @@ const ModArticle = props => {
 
     const marquesina = get(articleData, 'marquesina', null);
 
-    const mediaData = getMediaData(
+    const { mediaData, withMobileImage } = getMediaData(
         videoBackground,
         device,
-        mobileImageForMultimediaBox,
+        mobileImage,
         layout,
         isRenderAuthor,
         isRenderAuthorOpinion,
@@ -120,6 +120,7 @@ const ModArticle = props => {
                     titleText={titleText}
                     isPowa={isPowa}
                     isApertura={isApertura}
+                    withMobileImage={withMobileImage}
                     // labelArticle="La Chapita solo se tiene que ver con foto o placeholder"
                 />
             )}
@@ -211,7 +212,7 @@ ModArticle.propTypes = {
     withMedia: PropTypes.bool,
     isApertura: PropTypes.bool,
     typeArticle: PropTypes.string,
-    mobileImageForMultimediaBox: PropTypes.shape({
+    mobileImage: PropTypes.shape({
         _id: PropTypes.string,
         promo_items: PropTypes.shape({
             basic: PropTypes.object
@@ -253,7 +254,7 @@ ModArticle.defaultProps = {
     withMedia: false,
     isApertura: false,
     typeArticle: '',
-    mobileImageForMultimediaBox: undefined
+    mobileImage: undefined
 };
 
 export default ModArticle;

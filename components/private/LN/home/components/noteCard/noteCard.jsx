@@ -29,7 +29,7 @@ const NoteCard = ({
     isPowa,
     handleClick,
     registerSuccessEvent,
-    mobileImageForMultimediaBox
+    mobileImage
 }) => {
     const [article, setArticle] = useState(
         transform(content, customFields, promoItems)
@@ -112,7 +112,7 @@ const NoteCard = ({
                     get(articleProps, 'isApertura', false)
                 }
                 registerSuccessEvent={registerSuccessEvent}
-                mobileImageForMultimediaBox={mobileImageForMultimediaBox}
+                mobileImage={mobileImage}
             />
         )) || <></>
     );

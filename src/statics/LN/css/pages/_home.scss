@@ -925,6 +925,14 @@ $rank-dsk: px(400);
         margin-top: px(64);
         margin-bottom: px(64);
 
+        .mod-figure {
+            &.--vertical {
+                .placeholder {
+                    aspect-ratio: 2 / 3; // NOSONAR
+                }
+            }
+        }
+
         &:first-child {
             margin-top: 0;
         }
