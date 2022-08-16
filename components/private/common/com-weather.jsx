@@ -14,7 +14,7 @@ const ComWeather = props => {
             classCondition="--weather"
             dataEvent="LinkClick"
             dataSection="MenuLN"
-            link="https://www.lanacion.com/clima/"
+            link="https://www.lanacion.com.ar/clima/"
             style={{ visibility }}
         >
             <div className="com-weather">

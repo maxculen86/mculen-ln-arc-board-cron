@@ -213,7 +213,7 @@ const LNMapaDelSitio = ({ children }) => {
         { text: 'Horóscopo', href: 'https://www.lanacion.com.ar/horoscopo/' },
         {
             text: 'Clima',
-            href: 'https://www.lanacion.com/clima/'
+            href: 'https://www.lanacion.com.ar/clima/'
         },
         { text: 'Tránsito', href: 'https://www.lanacion.com.ar/transito/' },
         { text: 'Dólar hoy', href: 'https://www.lanacion.com.ar/dolar-hoy/' },
