@@ -42,6 +42,7 @@ import CriticalCss from '../private/common/criticalcss';
 import MetaViafoura from '../private/common/metaViafoura';
 import Favicon from '../private/common/favicon';
 import ComscoreVideo from '../private/common/scriptManager/comscoreVideo';
+import DevReactTracker from '../private/common/scriptManager/DevReactTracker';
 import AdblockDetector from '../private/common/scriptManager/adblockDetector';
 import {
     getTitle,
@@ -116,6 +117,13 @@ const scriptList = [
         component: {
             name: 'ComscoreVideo',
             function: ComscoreVideo
+        },
+        feature: 'none'
+    },
+    {
+        component: {
+            name: 'DevReactTracker',
+            function: DevReactTracker
         },
         feature: 'none'
     }

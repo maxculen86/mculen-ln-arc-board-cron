@@ -191,6 +191,10 @@ export default {
         ComscoreVideo: {
             props: {},
             location: ['body-top']
+        },
+        DevReactTracker: {
+            props: {},
+            location: ['head']
         }
     },
     imageConfig: {
