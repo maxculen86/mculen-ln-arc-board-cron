@@ -6,6 +6,8 @@ import { weekDays } from '../../../common/utils/transformISODate';
 import Text from '../../../common/text';
 
 const ForecastByDay = ({ _id, index, section, data }) => {
+    if ([index, section, data].some(e => e === undefined)) return null;
+
     const { morning, afternoon, night, date } = data;
 
     const getDate = (fecha, i) => {

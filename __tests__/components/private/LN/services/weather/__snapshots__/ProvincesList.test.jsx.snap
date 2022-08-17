@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - private - services - weather - ProvincesList => Test provinces list when provinces data is correct and have id 1`] = `
+<div>
+  <section
+    class="mod-headersection  --line"
+    role="contentinfo"
+  >
+    <h3
+      class="com-title --l"
+    >
+      Provincias
+    </h3>
+  </section>
+  <div
+    class="province-list"
+  >
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="1"
+          title="Ir al clima de mendoza"
+        >
+          mendoza
+        </a>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="2"
+          title="Ir al clima de mendoza"
+        >
+          mendoza
+        </a>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="3"
+          title="Ir al clima de mendoza"
+        >
+          mendoza
+        </a>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="4"
+          title="Ir al clima de mendoza"
+        >
+          mendoza
+        </a>
+      </h2>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Components - private - services - weather - ProvincesList => Test when dont have data 1`] = `<div />`;
+
+exports[`Components - private - services - weather - ProvincesList => Test when id props is invalid  1`] = `
+<div>
+  <section
+    class="mod-headersection  --line"
+    role="contentinfo"
+  >
+    <h3
+      class="com-title --l"
+    >
+      Provincias
+    </h3>
+  </section>
+  <div
+    class="province-list"
+  >
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <span
+          class="com-text"
+        >
+          mendoza
+        </span>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <span
+          class="com-text"
+        >
+          mendoza
+        </span>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <span
+          class="com-text"
+        >
+          mendoza
+        </span>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <span
+          class="com-text"
+        >
+          mendoza
+        </span>
+      </h2>
+    </div>
+  </div>
+</div>
+`;

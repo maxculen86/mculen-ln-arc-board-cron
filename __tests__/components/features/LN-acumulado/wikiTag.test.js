@@ -92,4 +92,28 @@ describe('LN-Acumulado-WikiTag test', () => {
             'facebook.com/leomessi'
         );
     });
+    it('When sotialNetworks is empty', () => {
+        Context.useAppContext = jest.fn(() => ({
+            globalContent: {
+                isWiki: true,
+                wikiSourceData: mockWikiTagData
+            }
+        }));
+        const { container } = render(<WikiFeature />);
+
+        expect(
+            screen.getByText(
+                (content, element) =>
+                    element.tagName.toLowerCase() === 'mock-static-validation'
+            )
+        ).toBeVisible();
+        expect(screen.getByRole('article')).toBeInTheDocument();
+        expect(screen.getAllByRole('link')).toHaveLength(7);
+        expect(container.innerHTML.includes('<div class="social-icons')).toBe(
+            false
+        );
+        expect(
+            container.getElementsByClassName('description')
+        ).toMatchSnapshot();
+    });
 });
