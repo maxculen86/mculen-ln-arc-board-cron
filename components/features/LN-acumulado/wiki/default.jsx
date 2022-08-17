@@ -55,7 +55,10 @@ const WikiFeature = () => {
         { text: 'Profesión', value: `${jobTitle}` },
         {
             text: 'Fecha de nacimiento',
-            value: `${birthDate}`
+            value: `${birthDate
+                .split('-')
+                .reverse()
+                .join('/')}`
         },
         {
             text: 'Lugar de nacimiento',
@@ -114,36 +117,36 @@ const WikiFeature = () => {
                         />
                     )}
                 </div>
-                <div className="social-networks">
-                    {socialNetworks && (
+                {socialNetworks.length > 0 && (
+                    <div className="social-networks">
                         <Text font="sueca" size="2xs" weight="regular">
                             Conectar:
                         </Text>
-                    )}
-                    {socialNetworks.map(iconInfo => {
-                        const {
-                            type: iconType = '',
-                            url: iconUrl = ''
-                        } = iconInfo;
-                        return (
-                            <div className="social-icons" key={iconType}>
-                                <Icon
-                                    name={iconType.toLowerCase()}
-                                    href={getIconHref(iconType, iconUrl)}
-                                    title={getIconTitle(
-                                        isOrganization,
-                                        iconType,
-                                        legalName,
-                                        givenName,
-                                        familyName
-                                    )}
-                                    target="_blank"
-                                    rel="nofollow"
-                                />
-                            </div>
-                        );
-                    })}
-                </div>
+                        {socialNetworks.map(iconInfo => {
+                            const {
+                                type: iconType = '',
+                                url: iconUrl = ''
+                            } = iconInfo;
+                            return (
+                                <div className="social-icons" key={iconType}>
+                                    <Icon
+                                        name={iconType.toLowerCase()}
+                                        href={getIconHref(iconType, iconUrl)}
+                                        title={getIconTitle(
+                                            isOrganization,
+                                            iconType,
+                                            legalName,
+                                            givenName,
+                                            familyName
+                                        )}
+                                        target="_blank"
+                                        rel="nofollow"
+                                    />
+                                </div>
+                            );
+                        })}
+                    </div>
+                )}
                 <div className="wiki-description">
                     <div
                         dangerouslySetInnerHTML={{

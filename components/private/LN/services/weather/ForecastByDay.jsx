@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import get from '../../../common/utils/get';
 import ForecastCard from './ForecastCard';
 import { addHoursAndFormat } from '../../../common/utils/dateAndTimeUtil';
 import { weekDays } from '../../../common/utils/transformISODate';
 import Text from '../../../common/text';
 
-const ForecastByDay = ({ id, index, section, data }) => {
+const ForecastByDay = ({ _id, index, section, data }) => {
+    if ([index, section, data].some(e => e === undefined)) return null;
+
     const { morning, afternoon, night, date } = data;
 
     const getDate = (fecha, i) => {
         const weekDayName = weekDays[
-            new Date(addHoursAndFormat(3, date)).getDay()
+            new Date(addHoursAndFormat(3, fecha)).getDay()
         ].toLowerCase();
 
         const dateFactory = {
@@ -38,7 +39,7 @@ const ForecastByDay = ({ id, index, section, data }) => {
 };
 
 ForecastByDay.propTypes = {
-    id: PropTypes.string,
+    _id: PropTypes.string,
     index: PropTypes.number.isRequired,
     data: PropTypes.shape({
         morning: PropTypes.shape(),
@@ -50,7 +51,7 @@ ForecastByDay.propTypes = {
 };
 
 ForecastByDay.defaultProps = {
-    id: ''
+    _id: ''
 };
 
 export default ForecastByDay;

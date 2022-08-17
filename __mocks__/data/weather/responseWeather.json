@@ -1,0 +1,252 @@
+{
+    "sectionSourceData": {
+        "_id": "/clima/mendoza",
+        "social": {
+            "rss": null,
+            "twitter": null,
+            "facebook": null,
+            "instagram": null
+        },
+        "site": {
+            "site_url": null,
+            "site_tagline": null,
+            "site_description": null,
+            "pagebuilder_path_for_native_apps": null,
+            "site_title": null,
+            "site_about": null,
+            "site_keywords": null
+        },
+        "navigation": {
+            "nav_title": null
+        },
+        "site_topper": {
+            "site_logo_image": null
+        },
+        "acumuladoColor": {
+            "header_class_name": "No"
+        },
+        "acumuladoGeneral": {
+            "mostrar_en_acu_apps": "true"
+        },
+        "_admin": {
+            "alias_ids": ["/clima/mendoza"]
+        },
+        "_website": "la-nacion-ar",
+        "name": "Mendoza",
+        "parent": {
+            "default": "/clima",
+            "navigationRedaccion": "/clima",
+            "pruebaTecnica": null
+        },
+        "ancestors": {
+            "default": ["/", "/clima"],
+            "navigationRedaccion": ["/", "/clima"],
+            "pruebaTecnica": []
+        },
+        "inactive": false,
+        "node_type": "section",
+        "order": {
+            "navigationRedaccion": 2012,
+            "default": 2012
+        },
+        "children": [
+            {
+                "_id": "/clima/mendoza/malargue",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/mendoza/malargue"]
+                },
+                "_website": "la-nacion-ar",
+                "name": "Malargüe",
+                "order": {
+                    "default": 3001
+                },
+                "parent": {
+                    "default": "/clima/mendoza",
+                    "navigationRedaccion": null,
+                    "pruebaTecnica": null
+                },
+                "ancestors": {
+                    "default": ["/", "/clima", "/clima/mendoza"],
+                    "navigationRedaccion": [],
+                    "pruebaTecnica": []
+                },
+                "inactive": false,
+                "node_type": "section",
+                "children": []
+            },
+            {
+                "_id": "/clima/mendoza/mendoza",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "Mendoza",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/mendoza",
+                    "navigationRedaccion": null,
+                    "pruebaTecnica": null
+                },
+                "ancestors": {
+                    "default": ["/", "/clima", "/clima/mendoza"],
+                    "navigationRedaccion": [],
+                    "pruebaTecnica": []
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/mendoza/mendoza"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "order": {
+                    "default": 3002
+                },
+                "children": []
+            },
+            {
+                "_id": "/clima/mendoza/san-rafael",
+                "social": {
+                    "rss": null,
+                    "twitter": null,
+                    "facebook": null,
+                    "instagram": null
+                },
+                "site": {
+                    "site_url": null,
+                    "site_tagline": null,
+                    "site_description": null,
+                    "pagebuilder_path_for_native_apps": null,
+                    "site_title": null,
+                    "site_about": null,
+                    "site_keywords": null
+                },
+                "navigation": {
+                    "nav_title": null
+                },
+                "site_topper": {
+                    "site_logo_image": null
+                },
+                "acumuladoColor": {
+                    "header_class_name": "No"
+                },
+                "acumuladoGeneral": {
+                    "mostrar_en_acu_apps": "true"
+                },
+                "name": "San Rafael",
+                "_website": "la-nacion-ar",
+                "parent": {
+                    "default": "/clima/mendoza",
+                    "navigationRedaccion": null,
+                    "pruebaTecnica": null
+                },
+                "ancestors": {
+                    "default": ["/", "/clima", "/clima/mendoza"],
+                    "navigationRedaccion": [],
+                    "pruebaTecnica": []
+                },
+                "_admin": {
+                    "alias_ids": ["/clima/mendoza/san-rafael"]
+                },
+                "inactive": false,
+                "node_type": "section",
+                "order": {
+                    "default": 3003
+                },
+                "children": []
+            }
+        ]
+    },
+    "serviceItem": "mendoza",
+    "serviceSubItem": "",
+    "dataService": {
+        "locations": [
+            {
+                "updated": "2022-08-08T06:04:22-03:00",
+                "location_name": "Malargüe",
+                "location_id": "malargue",
+                "temp_min": -6,
+                "temp_max": 6,
+                "weather": {
+                    "description": "Mayormente nublado",
+                    "id": 37
+                },
+                "current_temp": 6
+            },
+            {
+                "updated": "2022-08-08T06:04:22-03:00",
+                "location_name": "Mendoza",
+                "location_id": "mendoza",
+                "temp_min": 1,
+                "temp_max": 10,
+                "weather": {
+                    "description": "Mayormente nublado",
+                    "id": 37
+                },
+                "current_temp": 10
+            },
+            {
+                "updated": "2022-08-08T06:04:22-03:00",
+                "location_name": "San Rafael",
+                "location_id": "san-rafael",
+                "temp_min": -2,
+                "temp_max": 7,
+                "weather": {
+                    "description": "Nublado",
+                    "id": 43
+                },
+                "current_temp": 7
+            }
+        ],
+        "created_date": "2022-08-08 17:00:39"
+    },
+    "serviceType": "home-clima"
+}
