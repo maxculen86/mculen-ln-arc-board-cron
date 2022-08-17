@@ -41,6 +41,7 @@ export default `
             additional_name
             birth_date
             birth_place
+            alternate_name
             family_name
             given_name
             job_title
