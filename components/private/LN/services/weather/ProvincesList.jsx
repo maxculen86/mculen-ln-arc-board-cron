@@ -5,6 +5,8 @@ import ComLink from '../../../common/com-link';
 import ModHeaderSection from '../../../common/mod-headerSection';
 
 const ProvincesList = ({ provinces }) => {
+    if (provinces.length <= 0) return null;
+
     return (
         <>
             <ModHeaderSection tag="h3" title="Provincias" />
