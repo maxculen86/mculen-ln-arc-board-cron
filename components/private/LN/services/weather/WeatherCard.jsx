@@ -4,16 +4,18 @@ import Link from '../../../common/com-link';
 import Text from '../../../common/text';
 import Icon from '../../../common/icon';
 
-const WeatherCard = ({ id, data }) => {
+const WeatherCard = ({ _id, data }) => {
     const {
         location_name: locationName,
         weather: { id: idDescription, description } = {},
+        current_temp: currentTemp,
         temp_min: minTemp,
         temp_max: maxTemp,
         link
     } = data;
 
-    const defaultValue = (condition, value) => (condition ? value : '-');
+    const defaultValue = (condition, value) =>
+        condition || condition === 0 ? value : '-';
 
     return (
         <div className="weather-card">
@@ -35,7 +37,7 @@ const WeatherCard = ({ id, data }) => {
             <div className="box-icon">
                 <Icon name={idDescription} />
                 <Text tag="p" weight="bold" size="--twoxl">
-                    {defaultValue(minTemp, minTemp)}
+                    {defaultValue(currentTemp, currentTemp)}
                     <Text size="--m">ºc</Text>
                 </Text>
             </div>
@@ -50,18 +52,22 @@ const WeatherCard = ({ id, data }) => {
                 </Text>
             </div>
             <Text tag="h3" size="5xs">
-                <Link
-                    link={link}
-                    title={`Ver clima en ${locationName}`}
-                    textname={`Ver clima en ${locationName}`}
-                />
+                {link && (
+                    <Text tag="h3" size="5xs">
+                        <Link
+                            link={link}
+                            title={`Ver clima en ${locationName}`}
+                            textname={`Ver clima en ${locationName}`}
+                        />
+                    </Text>
+                )}
             </Text>
         </div>
     );
 };
 
 WeatherCard.propTypes = {
-    id: PropTypes.string,
+    _id: PropTypes.string,
     data: PropTypes.shape({
         location_name: PropTypes.string,
         link: PropTypes.string,
@@ -69,13 +75,14 @@ WeatherCard.propTypes = {
             id: PropTypes.string,
             description: PropTypes.string
         }),
+        current_temp: PropTypes.number,
         temp_min: PropTypes.number,
         temp_max: PropTypes.number
     }).isRequired
 };
 
 WeatherCard.defaultProps = {
-    id: ''
+    _id: ''
 };
 
 export default WeatherCard;

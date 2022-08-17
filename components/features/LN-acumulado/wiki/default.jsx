@@ -55,7 +55,10 @@ const WikiFeature = () => {
         { text: 'Profesión', value: `${jobTitle}` },
         {
             text: 'Fecha de nacimiento',
-            value: `${birthDate}`
+            value: `${birthDate
+                .split('-')
+                .reverse()
+                .join('/')}`
         },
         {
             text: 'Lugar de nacimiento',
@@ -115,7 +118,7 @@ const WikiFeature = () => {
                     )}
                 </div>
                 <div className="social-networks">
-                    {socialNetworks && (
+                    {socialNetworks.length > 0 && (
                         <Text font="sueca" size="2xs" weight="regular">
                             Conectar:
                         </Text>

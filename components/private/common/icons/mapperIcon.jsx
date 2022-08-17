@@ -151,18 +151,16 @@ const listIcons = {
     traditional: TraditionalLotteries
 };
 
-const MapperIcon = ({ name, r }) => {
+const MapperIcon = ({ name = '', extraProps = {} }) => {
+    if (!name) return <></>;
     const Component = listIcons[name];
 
-    return <Component {...r} />;
+    return <Component {...extraProps} />;
 };
 
 MapperIcon.propTypes = {
     name: PropTypes.string.isRequired,
-    r: PropTypes.objectOf(PropTypes.string)
+    extraProps: PropTypes.objectOf(PropTypes.string)
 };
 
-MapperIcon.defaultProps = {
-    r: {}
-};
 export default MapperIcon;

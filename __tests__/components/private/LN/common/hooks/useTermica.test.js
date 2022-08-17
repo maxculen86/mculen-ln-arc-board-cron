@@ -152,7 +152,6 @@ describe('components - private - LN - common - hook - useTermica', () => {
 
     it('returns default value if not found a value', () => {
         createImplementation();
-
         const result = useTermica('weather', undefined || {});
         expect(result).toEqual({});
     });

@@ -1,0 +1,189 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - private - CardDetails => Test when detail is false and hasJackpot is true 1`] = `
+<div>
+  <div
+    class="extra-results --loto-plus"
+  >
+    <div
+      class="result-item"
+    >
+      <span
+        class="labeled --fivexs"
+      >
+        subLottery
+      </span>
+      <div
+        class="results-secondary "
+      >
+        <span
+          class="com-text --font-bold --fourxs"
+        >
+          1
+        </span>
+        <span
+          class="com-text --font-bold --fourxs"
+        >
+          3
+        </span>
+        <span
+          class="com-text --font-bold --fourxs"
+        >
+          88
+        </span>
+        <span
+          class="com-text --font-bold --fourxs"
+        >
+          88123
+        </span>
+        <span
+          class="com-text --font-bold --fourxs"
+        >
+          1234
+        </span>
+        <span
+          class="com-text --font-bold --fourxs"
+        >
+          333
+        </span>
+      </div>
+    </div>
+    <div
+      class="result-item"
+    >
+      <span
+        class="labeled --fivexs"
+      >
+        subLottery
+      </span>
+      <div
+        class="results-secondary "
+      >
+        <span
+          class="com-text --font-bold --fourxs"
+        >
+          1
+        </span>
+        <span
+          class="com-text --font-bold --fourxs"
+        >
+          3
+        </span>
+        <span
+          class="com-text --font-bold --fourxs"
+        >
+          88
+        </span>
+        <span
+          class="com-text --font-bold --fourxs"
+        >
+          88123
+        </span>
+        <span
+          class="com-text --font-bold --fourxs"
+        >
+          1234
+        </span>
+        <span
+          class="com-text --font-bold --fourxs"
+        >
+          333
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Components - private - CardDetails => Test when detail is false and have jackpot 1`] = `<div />`;
+
+exports[`Components - private - CardDetails => Test when detail is true and hasExtraResults is true 1`] = `<div />`;
+
+exports[`Components - private - CardDetails => Test when detail is true and hasJackpot is true 1`] = `<div />`;
+
+exports[`Components - private - CardDetails => Test when detail is true and have jackpot 1`] = `
+<div>
+  <div
+    class="extra-results --jackpot-details"
+  >
+    <span
+      class="label-text jackpot-text-details --font-bold --fourxs"
+    >
+      Jackpot
+    </span>
+    <div
+      class="jackpot-result-details"
+    >
+      <div
+        class="--twoxs --font-bold ball --blue"
+      >
+        88123
+      </div>
+      <div
+        class="--twoxs --font-bold ball --blue"
+      >
+        1234
+      </div>
+      <div
+        class="--twoxs --font-bold ball --blue"
+      >
+        333
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Components - private - CardDetails => Test when isQuiniela is false and detail is false 1`] = `
+<div>
+  <div
+    class="extra-results"
+  >
+    <div
+      class="result-item"
+    >
+      <span
+        class="labeled --fivexs"
+      >
+        loteria
+      </span>
+      <div
+        class="results-secondary extra-results-modificator"
+      >
+        <span
+          class="com-text --font-bold --fourxs"
+        >
+          0
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Components - private - CardDetails => Test when isQuiniela is true and detail is false 1`] = `
+<div>
+  <div
+    class="extra-results"
+  >
+    <div
+      class="result-item"
+    >
+      <span
+        class="labeled --fivexs"
+      >
+        hoy - loteria
+      </span>
+      <div
+        class="results-secondary "
+      >
+        <span
+          class="com-text --font-bold --fourxs"
+        >
+          0
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
