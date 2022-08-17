@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import get from '../../../../../components/private/common/utils/get';
+import addForwardSlash from '../../../../../components/private/LN/common/utils/addForwardSlash';
 
 export const getWeatherMetaData = (serviceItem, serviceSubItem) => {
     if (serviceSubItem)
@@ -66,7 +67,9 @@ const getSectionLink = (sections, location) => {
             return name === location;
         }) || {};
     const { _id: url = '' } = sectionLink;
-    return url;
+
+    if (url) return addForwardSlash(url);
+    return null;
 };
 
 export const extractTime = (isoString = '') => {

@@ -103,12 +103,12 @@ describe('Tests resolve function', () => {
 describe('Test transform function', () => {
     it('Check transform function for weather home template', () => {
         expect(transform(inputHomeTemplate)).toStrictEqual(outHomeTemplate);
-    }),
-        it('Check transform function for weather detail template', () => {
-            expect(transform(inputDetailTemplate)).toStrictEqual(
-                outputDetailTemplate
-            );
-        });
+    });
+    it('Check transform function for weather detail template', () => {
+        expect(transform(inputDetailTemplate)).toStrictEqual(
+            outputDetailTemplate
+        );
+    });
 });
 
 describe('Tests reject function', () => {
