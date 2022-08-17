@@ -71,7 +71,11 @@ import {
     Alert,
     Info,
     Checkmark,
-    ErrorWarning
+    ErrorWarning,
+    TenBackSecs,
+    TenForwardSecs,
+    Pause,
+    Play
 } from './index';
 
 const listIcons = {
@@ -129,6 +133,10 @@ const listIcons = {
     info: Info,
     checkmark: Checkmark,
     'error-warning': ErrorWarning,
+    'ten-back-secs': TenBackSecs,
+    'ten-forward-secs': TenForwardSecs,
+    pause: Pause,
+    play: Play,
 
     // Weather Icons
     sun: Sun,

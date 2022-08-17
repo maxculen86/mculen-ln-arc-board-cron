@@ -52,6 +52,10 @@ export { default as Alert } from './system/Alert';
 export { default as Info } from './system/Info';
 export { default as Checkmark } from './system/Checkmark';
 export { default as ErrorWarning } from './system/ErrorWarning';
+export { default as TenBackSecs } from './system/TenBackSecs';
+export { default as TenForwardSecs } from './system/TenForwardSecs';
+export { default as Pause } from './system/Pause';
+export { default as Play } from './system/Play';
 
 // Weather Icons
 export { default as ClearNight } from './weather/ClearNight';
