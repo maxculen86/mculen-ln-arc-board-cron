@@ -8,11 +8,10 @@ class ArticleFeature {
     constructor(props) {
         this.props = props;
         const {
-            customFields: { noteId, imageId },
+            customFields: { noteId, imageId, video },
             id: featureId,
             arcSite
         } = props;
-
         const renderables = get(props, 'renderables', null);
         let imageConfig = null;
         this.state = {};
@@ -26,6 +25,17 @@ class ArticleFeature {
                 false
             ).imageConfig;
         }
+        video &&
+            video.trim() &&
+            this.fetchContent({
+                articleVideo: {
+                    source: 'videoSource',
+                    query: {
+                        id: video && video.trim(),
+                        website: 'la-nacion-ar'
+                    }
+                }
+            });
 
         noteId &&
             this.fetchContent({
@@ -59,12 +69,17 @@ class ArticleFeature {
 
     render() {
         try {
-            const { articleSourceNota, articleImage } = this.state || {};
-
+            const { articleSourceNota, articleImage, articleVideo } =
+                this.state || {};
             if (!articleSourceNota) {
                 return null;
             }
-            return resultArticle(articleSourceNota, articleImage, this.props);
+            return resultArticle(
+                articleSourceNota,
+                articleImage,
+                articleVideo,
+                this.props
+            );
         } catch (err) {
             return { Success: false, Message: err.message };
         }
