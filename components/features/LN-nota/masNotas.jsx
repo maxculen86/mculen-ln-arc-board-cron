@@ -71,7 +71,6 @@ const masNotas = props => {
             {!error ? (
                 <CajaTema
                     title={title}
-                    notesQuantity={cantidadNotas}
                     sectionName={sectionTitle}
                     articles={articles}
                     position="toi"

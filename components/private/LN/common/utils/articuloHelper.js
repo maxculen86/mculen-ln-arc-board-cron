@@ -1,4 +1,5 @@
 import PropTypes from 'fusion:prop-types';
+import { useContent } from 'fusion:content';
 
 const featuredRules = {
     articuloGeneral: {
@@ -9,6 +10,33 @@ const featuredRules = {
         hideFeature: false,
         hideOpinion: true
     }
+};
+
+const conditionallyCallImageSource = idImage => {
+    return (idImage && idImage.trim() && 'relatedImageSource') || null;
+};
+
+export const GetImage = ({
+    imageId,
+    imageConfig,
+    id,
+    onlyOneApeturaValidateForWWW,
+    isAdmin
+}) => {
+    return (
+        useContent({
+            source: conditionallyCallImageSource(imageId),
+            query: {
+                id: imageId && imageId.trim(),
+                published: true,
+                imageConfig,
+                nid: id,
+                boxType: 'ArticleFeature',
+                isInApertura: onlyOneApeturaValidateForWWW,
+                isAdmin
+            }
+        }) || null
+    );
 };
 
 const featureArticleCustomsFields = featuredName => {
@@ -84,6 +112,11 @@ const featureArticleCustomsFields = featuredName => {
         html: PropTypes.string.tag({
             name: 'Tablero / HTML',
             description: 'Ingrese aquí el html del tablero',
+            default: ''
+        }),
+        mobileImageId: PropTypes.string.tag({
+            name: 'Foto Mobile',
+            description: 'Ingrese aquí el ID de imagen Vertical.',
             default: ''
         })
     };

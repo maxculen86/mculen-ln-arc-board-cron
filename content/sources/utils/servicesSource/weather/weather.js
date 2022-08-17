@@ -5,7 +5,6 @@ import {
     transformWeatherHome,
     transformWeatherDetail,
     getWeatherMetaData,
-    getHomeUpdateTime,
     extractTime
 } from './weatherHelper';
 import get from '../../../../../components/private/common/utils/get';
@@ -39,12 +38,11 @@ const transform = data => {
         serviceSubItem = '',
         serviceType = ''
     } = data;
-    const { created_date: createdDate, updated = '' } = dataService;
+    const { created_date: createdDate = '' } = dataService;
     const { children = [], name = '' } = sectionSourceData;
 
     return {
         dataService: {
-            created_date: createdDate,
             ...(serviceType.includes('home')
                 ? {
                       locations: [
@@ -54,7 +52,7 @@ const transform = data => {
                               serviceItem
                           )
                       ],
-                      updateTime: getHomeUpdateTime(dataService)
+                      updateTime: extractTime(createdDate)
                   }
                 : {
                       forecast: [
@@ -62,7 +60,7 @@ const transform = data => {
                               get(dataService, 'forecast', [])
                           )
                       ],
-                      ...(updated && { updateTime: extractTime(updated) })
+                      updateTime: extractTime(createdDate)
                   })
         },
         ...sectionSourceData,
@@ -85,8 +83,10 @@ const getTemplates = (serviceItem, serviceSubItem, sectionChildrens = []) => {
 };
 
 export default {
+    getUri,
     request: weatherRequest,
     resolve,
     reject,
+    transform,
     getTemplates
 };

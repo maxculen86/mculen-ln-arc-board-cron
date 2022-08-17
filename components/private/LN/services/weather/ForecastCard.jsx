@@ -5,6 +5,7 @@ import Text from '../../../common/text';
 import Icon from '../../../common/icon';
 
 const ForecastByDay = ({ id, title, data }) => {
+    if ([title, data].some(e => e === undefined)) return null;
     const { humidity, rain_prob: rainProb, temperature, weather, wind } = data;
 
     const windSpeed = get(wind, 'speed', '-');
@@ -19,12 +20,13 @@ const ForecastByDay = ({ id, title, data }) => {
         SO: 'Sudoeste'
     };
     const parsedWindDir = windDirections[wind.direction] || '';
-    const defaultValue = (condition, value) => (condition ? value : '-');
+    const defaultValue = (condition, value) =>
+        condition || condition === 0 ? value : '-';
 
     return (
         <div className="forecast-card">
             <div className="labeled">
-                <Text tag="h2" weight="bold">
+                <Text tag="h4" weight="bold">
                     {title}
                 </Text>
                 <Text size="--fivexs" weight="light" extraClass="description">
@@ -32,7 +34,7 @@ const ForecastByDay = ({ id, title, data }) => {
                 </Text>
             </div>
             <div className="icon-content">
-                <Icon name="snow-cloudy" />
+                <Icon name={weather.id} />
                 <Text tag="p" weight="bold" size="--xl">
                     {defaultValue(temperature, temperature)}
                     <Text size="--m">ºc</Text>
@@ -73,7 +75,7 @@ ForecastByDay.propTypes = {
         rain_prob: PropTypes.number,
         temperature: PropTypes.number,
         weather: PropTypes.shape({
-            id: PropTypes.number,
+            id: PropTypes.string,
             description: PropTypes.string
         }),
         wind: PropTypes.shape({

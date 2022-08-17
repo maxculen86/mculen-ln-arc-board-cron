@@ -30,7 +30,8 @@ const media = ({
     scriptForZoom,
     autoplay,
     isPowa,
-    insideBody
+    insideBody,
+    withMobileImage
 }) => {
     const refContainer = useRef();
     const [zoom, setZoom] = useState(false);
@@ -63,7 +64,10 @@ const media = ({
         const isZoomActive = withZoom && active;
         const notFotoAl100Apertura = !(isApertura || isFotoAl100);
 
-        if (isVertical && (notFotoAl100Apertura || isZoomActive))
+        if (
+            withMobileImage ||
+            (isVertical && (notFotoAl100Apertura || isZoomActive))
+        )
             return '--vertical';
 
         return !insideBody ? '--horizontal' : '';
@@ -177,7 +181,8 @@ media.propTypes = {
     scriptForZoom: PropTypes.node,
     autoplay: PropTypes.bool,
     isPowa: PropTypes.bool,
-    insideBody: PropTypes.bool
+    insideBody: PropTypes.bool,
+    withMobileImage: PropTypes.bool
 };
 
 media.defaultProps = {
@@ -196,7 +201,8 @@ media.defaultProps = {
     active: undefined,
     children: undefined,
     isPowa: true,
-    handleClick: () => {}
+    handleClick: () => {},
+    withMobileImage: false
 };
 
 media.defaultProps = {

@@ -1,0 +1,41 @@
+{
+    "created_date": "2022-08-05 12:39:13",
+    "locations": [
+        {
+            "location_name": "Malargüe",
+            "location_id": "malargue",
+            "temp_max": 13,
+            "weather": {
+                "description": "Mayormente nublado",
+                "id": "cloudy"
+            },
+            "link": "/clima/mendoza/malargue",
+            "current_temp": 13
+        },
+        {
+            "location_name": "Mendoza",
+            "location_id": "mendoza",
+            "temp_min": 6,
+            "temp_max": 16,
+            "weather": {
+                "description": "Parcialmente nublado",
+                "id": "sun-cloudy"
+            },
+            "link": "/clima/mendoza/mendoza",
+            "current_temp": 16
+        },
+        {
+            "location_name": "San Rafael",
+            "location_id": "san-rafael",
+            "temp_min": 4,
+            "temp_max": 16,
+            "weather": {
+                "description": "Mayormente nublado",
+                "id": "cloudy"
+            },
+            "link": "/clima/mendoza/san-rafael",
+            "current_temp": 16
+        }
+    ],
+    "updateTime": "09:39."
+}

@@ -1,0 +1,367 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WeatherProvince with home data Should not render in home weather 1`] = `<div />`;
+
+exports[`WeatherProvince with home data Should render in mendoza weather 1`] = `
+<div>
+  <section
+    class="mod-headersection  --line"
+    role="contentinfo"
+  >
+    <h3
+      class="com-title --l"
+    >
+      Provincias
+    </h3>
+  </section>
+  <div
+    class="province-list"
+  >
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="/clima/buenos-aires"
+          title="Ir al clima de Buenos Aires"
+        >
+          Buenos Aires
+        </a>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="/clima/catamarca"
+          title="Ir al clima de Catamarca"
+        >
+          Catamarca
+        </a>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="/clima/chaco"
+          title="Ir al clima de Chaco"
+        >
+          Chaco
+        </a>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="/clima/chubut"
+          title="Ir al clima de Chubut"
+        >
+          Chubut
+        </a>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="/clima/cordoba"
+          title="Ir al clima de Córdoba"
+        >
+          Córdoba
+        </a>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="/clima/corrientes"
+          title="Ir al clima de Corrientes"
+        >
+          Corrientes
+        </a>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="/clima/entre-rios"
+          title="Ir al clima de Entre Ríos"
+        >
+          Entre Ríos
+        </a>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="/clima/formosa"
+          title="Ir al clima de Formosa"
+        >
+          Formosa
+        </a>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="/clima/jujuy"
+          title="Ir al clima de Jujuy"
+        >
+          Jujuy
+        </a>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="/clima/la-pampa"
+          title="Ir al clima de La Pampa"
+        >
+          La Pampa
+        </a>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="/clima/la-rioja"
+          title="Ir al clima de La Rioja"
+        >
+          La Rioja
+        </a>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="/clima/mendoza"
+          title="Ir al clima de Mendoza"
+        >
+          Mendoza
+        </a>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="/clima/misiones"
+          title="Ir al clima de Misiones"
+        >
+          Misiones
+        </a>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="/clima/neuquen"
+          title="Ir al clima de Neuquén"
+        >
+          Neuquén
+        </a>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="/clima/rio-negro"
+          title="Ir al clima de Río Negro"
+        >
+          Río Negro
+        </a>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="/clima/salta"
+          title="Ir al clima de Salta"
+        >
+          Salta
+        </a>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="/clima/san-juan"
+          title="Ir al clima de San Juan"
+        >
+          San Juan
+        </a>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="/clima/san-luis"
+          title="Ir al clima de San Luis"
+        >
+          San Luis
+        </a>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="/clima/santa-cruz"
+          title="Ir al clima de Santa Cruz"
+        >
+          Santa Cruz
+        </a>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="/clima/santa-fe"
+          title="Ir al clima de Santa Fe"
+        >
+          Santa Fe
+        </a>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="/clima/santiago-del-estero"
+          title="Ir al clima de Santiago del Estero"
+        >
+          Santiago del Estero
+        </a>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="/clima/tierra-del-fuego"
+          title="Ir al clima de Tierra del Fuego"
+        >
+          Tierra del Fuego
+        </a>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="/clima/tucuman"
+          title="Ir al clima de Tucumán"
+        >
+          Tucumán
+        </a>
+      </h2>
+    </div>
+  </div>
+</div>
+`;
