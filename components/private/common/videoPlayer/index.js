@@ -129,6 +129,7 @@ const VideoPlayer = props => {
               )
             : firstArticleVideo;
 
+    const _firstVideoId = get(firstVideoId, '_id');
     const siteVars = getProperties(arcSite);
     const { organizationId } = siteVars || {};
     const apiEnv = API_ENV || 'sandbox';
@@ -186,7 +187,7 @@ const VideoPlayer = props => {
                 data-controls={enableControls}
                 data-muted={
                     (firstVideoId &&
-                        videoId === firstVideoId._id &&
+                        videoId === _firstVideoId &&
                         device === 'desktop') ||
                     isApertura
                         ? true
@@ -196,19 +197,17 @@ const VideoPlayer = props => {
                 data-api={apiEnv}
                 data-env="prod"
             />
-            {firstVideoId &&
-                videoId === firstVideoId._id &&
-                device === 'desktop' && (
-                    <script
-                        dangerouslySetInnerHTML={{
-                            __html: `
+            {firstVideoId && videoId === _firstVideoId && device === 'desktop' && (
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
                         ${deviceType}
                         deviceType() === 'desktop' &&
                             window.addEventListener('load', () => {
                                 const [{ shadowRoot } = {}] = document.querySelectorAll('.powa-shadow');
                                 const divFirstPowa =
                                     shadowRoot.querySelector &&
-                                    shadowRoot.querySelector('[data-uuid="${firstVideoId._id}"]');
+                                    shadowRoot.querySelector('[data-uuid="${_firstVideoId}"]');
                                 let userPause = false;
                                 
                                 if (divFirstPowa && window.powas) {
@@ -219,9 +218,9 @@ const VideoPlayer = props => {
                                 }
                             });
                         `
-                        }}
-                    />
-                )}
+                    }}
+                />
+            )}
         </>
     );
 };
