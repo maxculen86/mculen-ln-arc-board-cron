@@ -1,6 +1,5 @@
 /* eslint-disable no-underscore-dangle */
 import get from '../../../../../components/private/common/utils/get';
-import homeUrls from './_config';
 
 export const getWeatherMetaData = (serviceItem, serviceSubItem) => {
     if (serviceSubItem)
@@ -18,8 +17,10 @@ const metaDataFactory = {
             title:
                 'Clima de hoy en Argentina, el pronóstico del tiempo en LA NACION',
             description:
-                'Encontrá el pronóstico del tiempo en Argentina, condiciones climáticas, temperatura actual y pronóstico extendido del clima en Capital Federal, Buenos Aires y todo el país por el Servicio Meteorológico Nacional - LA NACION',
-            headline: 'Clima de hoy en Argentina'
+                'Encontrá el pronóstico del tiempo en Argentina, condiciones climáticas, temperatura actual y pronóstico extendido del clima en Capital Federal,' +
+                ' Buenos Aires y todo el país por el Servicio Meteorológico Nacional - LA NACION',
+            headline: 'Clima de hoy en Argentina',
+            latestNewsTitle: 'Últimas noticias del clima'
         };
     },
     provincia: (name = '', children = []) => {
@@ -27,76 +28,68 @@ const metaDataFactory = {
             return {
                 title: `Clima en ${name} y pronóstico del tiempo en LA NACION`,
                 description: `Temperatura actual en ${name} y sus principales ciudades, el clima de ${name} por el Servicio Meteorológico Nacional - LA NACION`,
-                headline: `Clima de hoy en ${name}`
+                headline: `Clima de hoy en ${name}`,
+                latestNewsTitle: `Últimas noticias del clima en ${name}`
             };
         }
         return {
             title: `Clima en ${name} y pronóstico del tiempo en LA NACION`,
+            subtitle: `Pronóstico del tiempo extendido para ${name}`,
             description: `El tiempo en ${name} encontrá el pronóstico extendido y la temperatura de hoy para ${name} del Servicio Meteorológico Nacional en LA NACION`,
-            headline: `Clima de hoy en ${name}`
+            headline: `Clima de hoy en ${name}`,
+            latestNewsTitle: `Últimas noticias del clima en ${name}`
         };
     },
     ciudad: (name = '') => {
         return {
             title: `Clima en ${name} y pronóstico extendido en LA NACION`,
+            subtitle: `Pronóstico del tiempo extendido para ${name}`,
             description: `El tiempo en ${name} encontrá el pronóstico extendido y la temperatura de hoy para ${name} del Servicio Meteorológico Nacional en LA NACION`,
-            headline: `Clima de hoy en ${name}`
+            headline: `Clima de hoy en ${name}`,
+            latestNewsTitle: `Últimas noticias del clima en ${name}`
         };
     },
     default: (name = '') => {
         return {
             title: 'Clima por LA NACION',
             description: 'Clima por LA NACION',
-            headline: name
+            headline: name,
+            latestNewsTitle: `Últimas noticias del clima`
         };
     }
 };
 
-const getSectionLink = (service, sections, location) => {
-    if (service) {
-        const sectionLink =
-            sections.find(e => {
-                const { name = '' } = e;
+const getSectionLink = (sections, location) => {
+    const sectionLink =
+        sections.find(e => {
+            const { name = '' } = e;
 
-                return name === location;
-            }) || {};
-        const { _id: url = '' } = sectionLink;
-        return url;
-    }
-    return homeUrls[location];
+            return name === location;
+        }) || {};
+    const { _id: url = '' } = sectionLink;
+    return url;
 };
 
 export const extractTime = (isoString = '') => {
-    const splitString = isoString.split('T');
-    const time = splitString.pop() || '';
-    const cleanTime = time.split('-') || [];
-    const timeWithoutSeconds = cleanTime[0].split(':');
-    timeWithoutSeconds.pop();
-    return `${timeWithoutSeconds.join(':')}.`;
+    return isoString.slice(11, 16);
 };
 
-export const getHomeUpdateTime = (data = {}) => {
-    const { locations = [] } = data;
-    if (!locations.length) return '';
-    const { updated = '' } = locations.find(loc => {
-        return loc && loc.updated;
-    });
-    return extractTime(updated);
+const removeAccents = str => {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 };
 
 const reorderLocations = (endpointData, children = [], serviceItem = '') => {
     if (!serviceItem) return endpointData;
-    const reorder = children.reduce((acc, loc = {}) => {
+
+    return children.reduce((acc, loc = {}) => {
         const province = endpointData.find(e => {
-            return e.location_name === loc.name;
+            return removeAccents(e.location_name) === removeAccents(loc.name);
         });
 
         province && acc.push(province);
 
         return acc;
     }, []);
-
-    return reorder;
 };
 
 export const transformWeatherHome = (data, children, serviceItem) => {
@@ -104,7 +97,7 @@ export const transformWeatherHome = (data, children, serviceItem) => {
 
     const orderedLocations = reorderLocations(data, children, serviceItem);
 
-    return orderedLocations.map((location = {}, i) => {
+    return orderedLocations.map(location => {
         const {
             location_name: locationName,
             location_id: locationId,
@@ -112,9 +105,9 @@ export const transformWeatherHome = (data, children, serviceItem) => {
             temp_max: tempMax,
             weather = {},
             current_temp: currentTemp
-        } = location;
+        } = location || {};
 
-        const sectionId = getSectionLink(serviceItem, children, locationName);
+        const sectionId = getSectionLink(children, locationName);
 
         const { description, id: iconId } = weather;
         const newIcon = convertIcon(iconId);
@@ -122,8 +115,12 @@ export const transformWeatherHome = (data, children, serviceItem) => {
         return {
             ...(locationName && { location_name: locationName }),
             ...(locationId && { location_id: locationId }),
-            ...(tempMin && { temp_min: tempMin }),
-            ...(tempMax && { temp_max: tempMax }),
+            ...((tempMin || tempMin === 0) && {
+                temp_min: tempMin
+            }),
+            ...((tempMax || tempMax === 0) && {
+                temp_max: tempMax
+            }),
             ...((description || newIcon) && {
                 weather: {
                     ...(description && { description }),
@@ -131,14 +128,16 @@ export const transformWeatherHome = (data, children, serviceItem) => {
                 }
             }),
             ...(sectionId && { link: sectionId }),
-            ...(currentTemp && { current_temp: currentTemp })
+            ...((currentTemp || currentTemp === 0) && {
+                current_temp: currentTemp
+            })
         };
     });
 };
 
 export const transformWeatherDetail = data => {
-    return data.map((forecast = {}, i) => {
-        const { date, morning, afternoon, night } = forecast;
+    return data.map(forecast => {
+        const { date, morning, afternoon, night } = forecast || {};
 
         return {
             ...(date && { date }),
@@ -167,9 +166,13 @@ const getDaytimeData = (dayTime = {}) => {
     const weatherIconNew = convertIcon(weatherIconId);
 
     return {
-        ...(humidity && { humidity }),
-        ...(rain && { rain_prob: getHigher(rain) }),
-        ...(temperature && { temperature }),
+        ...((humidity || humidity === 0) && { humidity }),
+        ...((rain || rain === 0) && {
+            rain_prob: getHigher(rain)
+        }),
+        ...((temperature || temperature === 0) && {
+            temperature
+        }),
         ...((weatherDescription || weatherIconNew) && {
             weather: {
                 ...(weatherDescription && {
@@ -194,44 +197,53 @@ const getDaytimeData = (dayTime = {}) => {
 };
 
 const convertIcon = oldIcon => {
+    const sunCloudy = 'sun-cloudy';
+    const rainyCloudy = 'rainy-cloudy';
+    const snow = 'snow';
+    const rain = 'rain';
+    const cloudy = 'cloudy';
+    const stormCloudy = 'storm-cloudy';
+    const snowCloudy = 'snow-cloudy';
+    const windy = 'windy';
+
     const iconConverter = {
-        19: 'sun-cloudy',
-        20: 'sun-cloudy',
-        74: 'rainy-cloudy',
+        19: sunCloudy,
+        20: sunCloudy,
+        74: rainyCloudy,
         3: 'sun',
         5: 'clear-night',
-        13: 'sun-cloudy',
-        14: 'sun-cloudy',
-        71: 'rainy-cloudy',
-        77: 'snow-cloudy',
-        84: 'snow-cloudy',
-        73: 'rain',
-        72: 'rain',
-        93: 'rain',
-        83: 'rain',
-        37: 'cloudy',
-        38: 'cloudy',
-        61: 'cloudy',
-        79: 'snow',
-        75: 'snow',
-        85: 'snow',
-        80: 'snow',
-        67: 'cloudy',
-        69: 'cloudy',
-        119: 'cloudy',
-        43: 'cloudy',
-        25: 'sun-cloudy',
-        26: 'sun-cloudy',
-        81: 'storm-cloudy',
-        76: 'storm-cloudy',
-        99: 'storm-cloudy',
+        13: sunCloudy,
+        14: sunCloudy,
+        71: rainyCloudy,
+        77: snowCloudy,
+        84: snowCloudy,
+        73: rain,
+        72: rain,
+        93: rain,
+        83: rain,
+        37: cloudy,
+        38: cloudy,
+        61: cloudy,
+        79: snow,
+        75: snow,
+        85: snow,
+        80: snow,
+        67: cloudy,
+        69: cloudy,
+        119: cloudy,
+        43: cloudy,
+        25: sunCloudy,
+        26: sunCloudy,
+        81: stormCloudy,
+        76: stormCloudy,
+        99: stormCloudy,
         89: 'storm',
-        94: 'snow',
-        88: 'snow',
-        92: 'snow',
-        96: 'snow',
-        51: 'windy',
-        118: 'windy'
+        94: snow,
+        88: snow,
+        92: snow,
+        96: snow,
+        51: windy,
+        118: windy
     };
     if (oldIcon && Object.keys(iconConverter).includes(oldIcon.toString()))
         return iconConverter[oldIcon];
