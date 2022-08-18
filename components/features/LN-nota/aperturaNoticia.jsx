@@ -4,16 +4,12 @@ import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import StaticValidation from '../../private/common/staticValidation';
 import Media from '../../private/LN/common/media';
-import {
-    VIDEO,
-    INFOGRAFIA
-} from '../../private/common/utils/subtypes/subtypeHelper';
+import { INFOGRAFIA } from '../../private/common/utils/subtypes/subtypeHelper';
 import {
     // buildScriptResizeSSRInfography,
     buildScriptForZoom,
     getEpigrafe
 } from '../../private/LN/common/utils/mediaHelper';
-import { getViewport } from '../../private/LN/common/utils/homeHelper';
 import replaceUrlResizerToWWW from '../../../content/sources/utils/replaceUrlResizerToWWW';
 import get from '../../private/common/utils/get';
 
@@ -22,10 +18,7 @@ const AperturaNoticia = props => {
     const { promo_items: promoItems = {}, subtype } = globalContent || {};
     const { apertura_multimedia: aperturaMultimedia } = promoItems;
     const basic = replaceUrlResizerToWWW(get(promoItems, 'basic', {}));
-    const { _id: idMedia, content, type: _type } =
-        aperturaMultimedia || basic || {};
-    const { isDesktop } = getViewport();
-    const isVideo = subtype === VIDEO && _type === 'video';
+    const { _id: idMedia, content } = aperturaMultimedia || basic || {};
 
     const Component = (
         <section className="mod-opening">
@@ -51,7 +44,7 @@ const AperturaNoticia = props => {
                         withZoom="--zoom"
                         idMedia={idMedia}
                         scriptForZoom={scriptForZoom}
-                        autoplay={isVideo && isDesktop}
+                        autoplay={false}
                         isApertura
                         outputType={outputType}
                         parrafo={firstText || 'LA NACION'}
@@ -70,7 +63,7 @@ const AperturaNoticia = props => {
     );
 
     return (
-        ((isVideo || subtype === INFOGRAFIA) && Component) || (
+        (subtype === INFOGRAFIA && Component) || (
             <StaticValidation id={idFeature} persistent>
                 {Component}
             </StaticValidation>

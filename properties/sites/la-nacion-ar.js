@@ -1003,6 +1003,30 @@ export default {
                     ]
                 }
             },
+            boxMultimediaMobile: {
+                promo_items: {
+                    sizes: [
+                        {
+                            width: 736,
+                            height: 1104,
+                            useFullSize: true,
+                            proportion: '2:3'
+                        },
+                        {
+                            width: 375,
+                            height: 563,
+                            useFullSize: true,
+                            proportion: '2:3'
+                        },
+                        {
+                            width: 320,
+                            height: 480,
+                            useFullSize: true,
+                            proportion: '2:3'
+                        }
+                    ]
+                }
+            },
             zoom: {
                 promo_items: {
                     sizes: [
