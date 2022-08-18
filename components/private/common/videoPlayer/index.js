@@ -12,6 +12,7 @@ import {
 } from './comscoreStreamingTag';
 import deviceType from '../../LN/common/utils/deviceType';
 import get from '../utils/get';
+import { VIDEO } from '../utils/subtypes/subtypeHelper';
 
 const setPrerollAdsForPowa = adsURL => {
     window.PoWaSettings = window.PoWaSettings || {};
@@ -119,6 +120,15 @@ const VideoPlayer = props => {
             ? get(globalContent, 'promo_items.basic')
             : firstBodyVideo;
 
+    const firstVideoId =
+        globalContent.subtype === VIDEO
+            ? get(
+                  globalContent,
+                  'promo_items.apertura_multimedia',
+                  get(globalContent, 'promo_items.basic')
+              )
+            : firstArticleVideo;
+
     const siteVars = getProperties(arcSite);
     const { organizationId } = siteVars || {};
     const apiEnv = API_ENV || 'sandbox';
@@ -175,8 +185,8 @@ const VideoPlayer = props => {
                 data-autoplay-muted={autoPlay}
                 data-controls={enableControls}
                 data-muted={
-                    (firstArticleVideo &&
-                        videoId === firstArticleVideo._id &&
+                    (firstVideoId &&
+                        videoId === firstVideoId._id &&
                         device === 'desktop') ||
                     isApertura
                         ? true
@@ -186,8 +196,8 @@ const VideoPlayer = props => {
                 data-api={apiEnv}
                 data-env="prod"
             />
-            {firstArticleVideo &&
-                videoId === firstArticleVideo._id &&
+            {firstVideoId &&
+                videoId === firstVideoId._id &&
                 device === 'desktop' && (
                     <script
                         dangerouslySetInnerHTML={{
@@ -198,7 +208,7 @@ const VideoPlayer = props => {
                                 const [{ shadowRoot } = {}] = document.querySelectorAll('.powa-shadow');
                                 const divFirstPowa =
                                     shadowRoot.querySelector &&
-                                    shadowRoot.querySelector('[data-uuid="${firstArticleVideo._id}"]');
+                                    shadowRoot.querySelector('[data-uuid="${firstVideoId._id}"]');
                                 let userPause = false;
                                 
                                 if (divFirstPowa && window.powas) {
