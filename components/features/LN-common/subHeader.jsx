@@ -1,6 +1,5 @@
 import React from 'react';
 import { useContent } from 'fusion:content';
-import Static from 'fusion:static';
 import Subheader from '../../private/LN/common/header/subHeader';
 import useTermica from '../../private/common/hooks/useTermica';
 
@@ -11,12 +10,10 @@ const SubHeader = () => {
     const dollarValue = useTermica('dolar', dollar);
     const weatherValue = useTermica('weather', weather);
 
-    return (
-        <Static id="StaticSubHeader" htmlOnly persistent>
-            <Subheader dollar={dollarValue} weather={weatherValue} />
-        </Static>
-    );
+    return <Subheader dollar={dollarValue} weather={weatherValue} />;
 };
+
+SubHeader.static = true;
 
 SubHeader.label = 'LN Subheader Home';
 

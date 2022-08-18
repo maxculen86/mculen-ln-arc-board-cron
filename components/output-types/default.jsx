@@ -50,6 +50,7 @@ import {
     metasFromSiteServices
 } from '../private/common/utils/outputTypeHelper';
 import FontPreloads from '../private/common/fontsPreloads';
+import get from '../private/common/utils/get';
 
 const scriptList = [
     {
@@ -246,6 +247,10 @@ const Default = props => {
         requestUri
     );
 
+    const configHydrate = {};
+    if (layout === get(siteProperties, 'layoutsName.Home'))
+        configHydrate.hydrateOnly = true;
+
     return (
         <html lang="es">
             <head>
@@ -406,7 +411,7 @@ const Default = props => {
                     globalContent={globalContent}
                 />
                 <div id="fusion-app">{children}</div>
-                <Fusion />
+                <Fusion {...configHydrate} />
                 <Scripts
                     location="body-bottom"
                     section={_nodeType}

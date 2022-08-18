@@ -4,12 +4,12 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
-import StaticValidation from '../../../private/common/staticValidation';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import get from '../../../private/common/utils/get';
 import { getChildsFromSections } from '../../../private/LN/common/utils/homeHelper';
 import sectionsValidation from '../../../layouts/config/LN-Home.config.json';
 import { adjustByURL } from '../../../private/common/utils/propTypesHelper';
+import StaticContent from '../../../private/common/staticContent';
 
 const AnexoFeature = props => {
     const { id, customFields = {} } = props;
@@ -39,31 +39,35 @@ const AnexoFeature = props => {
         handleIframeProps(id);
     }, [id, comp]);
 
-    return _type === 'Iframe' ? (
+    const iframeURLContent = (
         <div
             id={`anexo-responsive-${id}`}
             className={`com-anexo ${EXTRA_CLASS}`}
             style={{ overflow: 'hidden', width: '100%' }}
         >
-            <StaticValidation id={id} htmlOnly isStatic={isApertura}>
-                <style>
-                    {`#anexo-responsive-${id}{height:${parseInt(
-                        heightMobile,
-                        10
-                    )}px}@media(min-width:768px){#anexo-responsive-${id}{height:${
-                        // eslint-disable-next-line prettier/prettier
-                        parseInt(heightTablet, 10)
-                    }px}}@media(min-width:1024px){#anexo-responsive-${id}{height:${
-                        // eslint-disable-next-line prettier/prettier
-                        parseInt(heightDesktop, 10)
-                    }px}}`}
-                </style>
-                {comp()}
-            </StaticValidation>
+            <style>
+                {`#anexo-responsive-${id}{height:${parseInt(
+                    heightMobile,
+                    10
+                )}px}@media(min-width:768px){#anexo-responsive-${id}{height:${
+                    // eslint-disable-next-line prettier/prettier
+                    parseInt(heightTablet, 10)
+                }px}}@media(min-width:1024px){#anexo-responsive-${id}{height:${
+                    // eslint-disable-next-line prettier/prettier
+                    parseInt(heightDesktop, 10)
+                }px}}`}
+            </style>
+            {comp()}
         </div>
-    ) : (
-        comp()
     );
+
+    const iframeFinal = isApertura ? (
+        <StaticContent>{iframeURLContent}</StaticContent>
+    ) : (
+        iframeURLContent
+    );
+
+    return _type === 'Iframe' ? iframeFinal : comp();
 };
 
 const getComponentFromConfig = (_type, _props) => {
