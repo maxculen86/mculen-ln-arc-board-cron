@@ -100,20 +100,6 @@ const getComponentForLayout = (layoutName, props) => {
 
         ArticleFeature: ({ _children, notesQuantity }) => {
             return _children.slice(0, notesQuantity);
-        },
-
-        Timeline: ({ _children, features = [] }) => {
-            const feature = getFeatureByLayout(features, _children, layoutName);
-
-            if (!feature) return {};
-
-            const timeline = setTLDistribution(_children, feature.props.id);
-            const orderClass = setTLOrderClass(timeline);
-
-            return {
-                timeline,
-                orderClass
-            };
         }
     };
 

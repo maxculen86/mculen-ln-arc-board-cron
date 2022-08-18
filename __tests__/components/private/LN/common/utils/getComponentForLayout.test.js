@@ -88,47 +88,4 @@ describe('private - LN - common - utils - getComponentForLayout', () => {
         expect(result[0]).toBe(articleFeatureMock.props._children[0]);
         expect(result).toHaveLength(articleFeatureMock.props.notesQuantity);
     });
-
-    it('returns timeline data object', () => {
-        const timelineMock = {
-            layoutName: 'Timeline',
-            props: {
-                _children: [
-                    { key: 'f0fj1U7I4DQq82U' },
-                    { key: 'f0fj1U7I4DQq821' },
-                    { key: 'f0fj1U7I4DQq822' },
-                    { key: 'f0fj1U7I4DQq823' },
-                    { key: 'f0fj1U7I4DQq824' },
-                    { key: 'f0fj1U7I4DQq825' }
-                ],
-                features: [
-                    { props: { id: 'f0fj1U7I4DQq82U' } },
-                    { props: { id: 'f0fj1U7I4DQq821' } },
-                    { props: { id: 'f0fj1U7I4DQq822' } },
-                    { props: { id: 'f0fj1U7I4DQq823' } },
-                    { props: { id: 'f0fj1U7I4DQq824' } },
-                    { props: { id: 'f0fj1U7I4DQq825' } }
-                ]
-            }
-        };
-
-        const result = getComponentForLayout(...Object.values(timelineMock));
-
-        expect(result).toBeInstanceOf(Object);
-        expect(Object.keys(result)).toStrictEqual(['timeline', 'orderClass']);
-        expect(result.orderClass).toBe('--left-top');
-
-        expect(result.timeline).toMatchObject({
-            articles: [
-                { key: 'f0fj1U7I4DQq82U' },
-                { key: 'f0fj1U7I4DQq821' },
-                { key: 'f0fj1U7I4DQq822' },
-                { key: 'f0fj1U7I4DQq823' },
-                { key: 'f0fj1U7I4DQq824' },
-                { key: 'f0fj1U7I4DQq825' }
-            ],
-
-            content: { key: 'f0fj1U7I4DQq82U' }
-        });
-    });
 });

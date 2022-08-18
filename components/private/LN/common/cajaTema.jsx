@@ -8,6 +8,8 @@ import ModHeaderSection from '../../common/mod-headerSection';
 import { getLayoutType, getMarkupForDatalayer } from './utils/cajaTemasHelper';
 import getComponentForLayout from './utils/getComponentForLayout';
 import clearArticleKey from './utils/clearArticleKey';
+import getFeatureByLayout from './utils/getFeatureByLayout';
+import { setTLDistribution, setTLOrderClass } from './utils/timeline';
 
 const CajaTema = props => {
     const {
@@ -23,7 +25,8 @@ const CajaTema = props => {
         position,
         sectionName = '',
         _children = [],
-        isHome = false
+        isHome = false,
+        features
     } = props;
 
     const artWithoutDate = clearArticleKey(articles, 'display_date');
@@ -47,14 +50,15 @@ const CajaTema = props => {
         className: `box-articles ${backgroundColor} ${classCondition}`
     };
 
-    const isRanking = sectionName === 'Ranking';
-    const withHeaderSection = !hideTitle && layoutName !== 'Editoriales';
-    const withGridFour = isHome ? 'row-gap-tablet-4' : '';
-
-    const { timeline = {}, orderClass = '' } = childrenComponent;
-
     const options = {
         Timeline: () => {
+            const feature = getFeatureByLayout(features, _children, layoutName);
+
+            if (!feature) return null;
+
+            const timeline = setTLDistribution(_children, feature.props.id);
+            const orderClass = setTLOrderClass(timeline);
+
             return (
                 <Timeline
                     content={timeline.content}
@@ -64,6 +68,10 @@ const CajaTema = props => {
             );
         }
     };
+
+    const isRanking = sectionName === 'Ranking';
+    const withHeaderSection = !hideTitle && layoutName !== 'Editoriales';
+    const withGridFour = isHome ? 'row-gap-tablet-4' : '';
 
     const mainComponent =
         (options[layoutName] && options[layoutName]()) || null;
