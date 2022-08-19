@@ -4,7 +4,7 @@ import IndexAcuV2 from '../../../private/LN/api/v2/global/accumulated';
 import IndexAcuV1Mobile from '../../../private/LN/api/v1/mobile/accumulated';
 import browser from '../../../private/common/utils/browser';
 import getSizesFrom from '../../../private/common/utils/getSizesFrom';
-import get from 'lodash.get';
+import get from '../../../private/common/utils/get';
 
 // URL de ejemplo: http://localhost/api/v1/notas/byTag/cronicas-tid61570/params=size:1;page:1/?_website=la-nacion-ar&outputType=json
 // Resolver: ^\/api\/v([1]+)\/notas\/byTag\/((?!params).+)\/(.*\/)$ , donde "params" dependera del customField "paramUrlId" configurado

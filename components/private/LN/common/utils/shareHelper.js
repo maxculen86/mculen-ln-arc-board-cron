@@ -9,7 +9,7 @@ import toggleBookmark from '../../../common/utils/bookmarkHelper';
 import Barrier from '../../../common/barrier/Barrier';
 import { conditionallyCallViafoura } from '../../../common/utils/commentsHelper';
 import { isSubscribed } from './contextHelper';
-import VIDEO from '../../../common/utils/subtypes/subtypeHelper';
+import { VIDEO } from '../../../common/utils/subtypes/subtypeHelper';
 
 export function popUpCompartirNotaTW(notaId, dominio, titulo) {
     if (notaId.length > 0) {

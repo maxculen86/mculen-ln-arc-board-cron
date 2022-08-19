@@ -1,7 +1,7 @@
 'use strict';
 
 import PropTypes from 'fusion:prop-types';
-import get from 'lodash.get';
+import get from '../../../common/utils/get';
 
 const buildSpecialVideoCustomFields = count => {
     const resp = {};
