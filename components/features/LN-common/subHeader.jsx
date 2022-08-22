@@ -4,8 +4,10 @@ import Subheader from '../../private/LN/common/header/subHeader';
 import useTermica from '../../private/common/hooks/useTermica';
 
 const SubHeader = () => {
-    const { data: dollar = [] } = useContent({ source: 'dolarSource' }) || {};
-    const { weather = {} } = useContent({ source: 'weatherSource' }) || {};
+    const { data: dollar = [] } =
+        useContent({ source: 'dolarSource', staticMode: true }) || {};
+    const { weather = {} } =
+        useContent({ source: 'weatherSource', staticMode: true }) || {};
 
     const dollarValue = useTermica('dolar', dollar);
     const weatherValue = useTermica('weather', weather);

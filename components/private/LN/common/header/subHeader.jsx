@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import StaticContent from '../../../common/staticContent';
 
 import '../../../../../resources/dist/css/ln/modules/mod-subheader.css';
 
@@ -8,13 +9,17 @@ import ComDolar from '../../../common/com-dolar';
 import ComLink from '../../../common/com-link';
 import Club from '../../../common/icons/system/Club';
 
+/**
+ * Optimizar uso del StaticContent
+ */
+
 const ModSubheader = props => {
     const { dollar = [], weather = {} } = props;
     const [dolarBna = {}, dolarBlue = {}] = dollar;
     const { icon_name: iconName, temperatura, nombre } = weather;
 
     return (
-        <section className="mod-subheader">
+        <StaticContent tag="section" className="mod-subheader">
             <div className="lay">
                 <nav className="row">
                     <ComDolar
@@ -55,7 +60,7 @@ const ModSubheader = props => {
                     </ComLink>
                 </nav>
             </div>
-        </section>
+        </StaticContent>
     );
 };
 
