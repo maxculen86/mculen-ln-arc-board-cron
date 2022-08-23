@@ -12,9 +12,11 @@ const videoPlayerSnippet = ({ mediaData, minStream, parrafo, tituloNota }) => {
         created_date: createdDate = '',
         duration
     } = mediaData || {};
+
     const notaTitle = tituloNota || '';
     const caption = get(promoItems, 'basic.caption', null);
-    const epigrafe = get(mediaData, 'headlines.basic') || caption;
+    const epigrafe = get(mediaData, 'headlines.basic', '').trim() || caption;
+
     const data = {
         '@context': 'https://schema.org',
         '@type': 'VideoObject',
