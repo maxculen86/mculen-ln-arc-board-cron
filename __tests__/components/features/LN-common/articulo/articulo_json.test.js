@@ -108,7 +108,8 @@ describe('components - features - LN-common - articulo - json.js', () => {
                     'noteId',
                     'opinion',
                     'html',
-                    'title'
+                    'title',
+                    'video'
                 ].sort()
             );
 

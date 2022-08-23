@@ -1,6 +1,7 @@
 /* eslint-disable eqeqeq */
 import get from '../../../../../common/utils/get';
 import Image from '../image';
+import Video from '../video';
 import { authorHomeMobile, articleSignature } from '../author';
 import sentToApps from '../utils/sentToApps';
 import getEmbedHref from '../../../../../common/utils/getEmbedHref';
@@ -15,7 +16,13 @@ const getArticleImage = article => {
 
     return null;
 };
-
+const getArticleVideo = article => {
+    const videoDefault = get(article, 'additionalProperties.video', null);
+    if (videoDefault && videoDefault.type === 'video') {
+        return Video(videoDefault.streams);
+    }
+    return null;
+};
 const getArticleTitle = article => {
     const title = get(article, 'additionalProperties.title', null);
     const originalTitle =
@@ -97,6 +104,7 @@ export const articleItem = article => {
         marquesina: articleSignature(autores, signature),
         seccionPadre: getArticleOpinionSubtype(article),
         imagen: getArticleImage(article),
+        video: getArticleVideo(article),
         opinion: get(article, 'additionalProperties.opinion', false),
         videoYouTube: getYouTubeVideoLink(article),
         enviarApps

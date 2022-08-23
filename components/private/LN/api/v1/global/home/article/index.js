@@ -1,4 +1,4 @@
-const index = (articleSourceNota, articleImage, props) => {
+const index = (articleSourceNota, articleImage, articleVideo, props) => {
     if (!articleSourceNota) {
         return null;
     }
@@ -20,9 +20,9 @@ const index = (articleSourceNota, articleImage, props) => {
         chapita,
         opinion,
         image: articleImage || null,
+        video: articleVideo || null,
         html
     };
-
     return { ...articleSourceNota, additionalProperties };
 };
 export default index;
