@@ -23,7 +23,22 @@ exports[`Components - private - services - weather - ProvincesList => Test provi
       >
         <a
           class="com-link"
-          href="1"
+          href="pathurl/algo/"
+          title="Ir al clima de Este "
+        >
+          Este 
+        </a>
+      </h2>
+    </div>
+    <div
+      class="province"
+    >
+      <h2
+        class="com-text --font-bold --md"
+      >
+        <a
+          class="com-link"
+          href="pathurl/algo/mendoza/"
           title="Ir al clima de mendoza"
         >
           mendoza
@@ -38,7 +53,7 @@ exports[`Components - private - services - weather - ProvincesList => Test provi
       >
         <a
           class="com-link"
-          href="2"
+          href="pathurl/algo/mendoza/otrasinbarra/"
           title="Ir al clima de mendoza"
         >
           mendoza
@@ -51,28 +66,11 @@ exports[`Components - private - services - weather - ProvincesList => Test provi
       <h2
         class="com-text --font-bold --md"
       >
-        <a
-          class="com-link"
-          href="3"
-          title="Ir al clima de mendoza"
+        <span
+          class="com-text"
         >
           mendoza
-        </a>
-      </h2>
-    </div>
-    <div
-      class="province"
-    >
-      <h2
-        class="com-text --font-bold --md"
-      >
-        <a
-          class="com-link"
-          href="4"
-          title="Ir al clima de mendoza"
-        >
-          mendoza
-        </a>
+        </span>
       </h2>
     </div>
   </div>

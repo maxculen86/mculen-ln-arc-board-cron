@@ -1,4 +1,4 @@
-const index = (articleSourceNota, articleImage, props) => {
+const index = (articleSourceNota, articleImage, articleVideo, props) => {
     if (!articleSourceNota) {
         return null;
     }
@@ -8,7 +8,8 @@ const index = (articleSourceNota, articleImage, props) => {
         authors,
         lead,
         chapita,
-        opinion
+        opinion,
+        html
     } = props.customFields;
 
     const additionalProperties = {
@@ -18,7 +19,9 @@ const index = (articleSourceNota, articleImage, props) => {
         lead,
         chapita,
         opinion,
-        image: articleImage || null
+        image: articleImage || null,
+        video: articleVideo || null,
+        html
     };
     return { ...articleSourceNota, additionalProperties };
 };

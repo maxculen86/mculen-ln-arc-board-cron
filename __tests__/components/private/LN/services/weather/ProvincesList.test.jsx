@@ -39,21 +39,22 @@ describe('Components - private - services - weather - ProvincesList =>', () => {
         }));
         const modHeaderSectionClass = 'mod-headersection  --line';
         const expectedClass = 'province-list';
+        const noEsString = 1000;
         const provinces = [
             {
-                _id: 1,
+                _id: 'pathurl/algo',
+                name: 'Este '
+            },
+            {
+                _id: 'pathurl/algo/mendoza',
                 name: 'mendoza'
             },
             {
-                _id: 2,
+                _id: 'pathurl/algo/mendoza/otrasinbarra',
                 name: 'mendoza'
             },
             {
-                _id: 3,
-                name: 'mendoza'
-            },
-            {
-                _id: 4,
+                _id: noEsString,
                 name: 'mendoza'
             }
         ];
@@ -69,7 +70,7 @@ describe('Components - private - services - weather - ProvincesList =>', () => {
         ).toBe(true);
         expect(container.innerHTML.includes('<a href=')).toBe(true);
         expect(container.getElementsByClassName(expectedClass).length).toBe(1);
-        expect(container.getElementsByClassName('com-link').length).toBe(4);
+        expect(container.getElementsByClassName('com-link').length).toBe(3);
         expect(
             container.getElementsByClassName('com-text --font-bold --md').length
         ).toBe(4);
