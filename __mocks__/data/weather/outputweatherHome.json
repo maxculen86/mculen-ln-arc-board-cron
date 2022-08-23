@@ -10,7 +10,7 @@
                     "description": "Mayormente nublado",
                     "id": "cloudy"
                 },
-                "link": "/clima/mendoza/malargue",
+                "link": "/clima/mendoza/malargue/",
                 "current_temp": 6
             },
             {
@@ -22,7 +22,7 @@
                     "description": "Mayormente nublado",
                     "id": "cloudy"
                 },
-                "link": "/clima/mendoza/mendoza",
+                "link": "/clima/mendoza/mendoza/",
                 "current_temp": 10
             },
             {
@@ -34,7 +34,7 @@
                     "description": "Nublado",
                     "id": "cloudy"
                 },
-                "link": "/clima/mendoza/san-rafael",
+                "link": "/clima/mendoza/san-rafael/",
                 "current_temp": 7
             }
         ],

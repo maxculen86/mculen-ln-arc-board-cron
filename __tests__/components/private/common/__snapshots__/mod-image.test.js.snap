@@ -11,7 +11,7 @@ exports[`ModImage Matches snapshot 1`] = `
     alt="Random pic"
     class="com-image "
     decoding="async"
-    importance="low"
+    fetchpriority="low"
     loading="lazy"
     src="http://lorempixel.com/400/200"
   />

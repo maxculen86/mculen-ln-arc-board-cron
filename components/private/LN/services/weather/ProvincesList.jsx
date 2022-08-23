@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Text from '../../../common/text';
 import ComLink from '../../../common/com-link';
 import ModHeaderSection from '../../../common/mod-headerSection';
+import addForwardSlash from '../../common/utils/addForwardSlash';
 
 const ProvincesList = ({ provinces }) => {
     if (provinces.length <= 0) return null;
@@ -16,7 +17,7 @@ const ProvincesList = ({ provinces }) => {
                         <div className="province" key={name}>
                             <Text tag="h2" size="--md" weight="bold">
                                 <ComLink
-                                    link={_id}
+                                    link={addForwardSlash(_id)}
                                     title={`Ir al clima de ${name}`}
                                 >
                                     {name}
