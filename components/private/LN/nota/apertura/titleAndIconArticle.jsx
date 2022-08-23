@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
-import get from 'lodash.get';
-
+import get from '../../../common/utils/get';
 import LogoBase from '../../common/logoBase';
 import TitleArticle from './titleArticle';
 import '../../../../../resources/dist/css/ln/components/title.css';

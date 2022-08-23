@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-import get from 'lodash.get';
+import get from './get';
 
 // TODO: Revisar si actualmente la función getSectionStyle está en uso
 export const getSectionStyle = sections => {
