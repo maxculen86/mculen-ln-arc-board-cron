@@ -3,6 +3,7 @@ import get from '../../../../../common/utils/get';
 import Image from '../image';
 import { authorHomeMobile, articleSignature } from '../author';
 import sentToApps from '../utils/sentToApps';
+import getEmbedHref from '../../../../../common/utils/getEmbedHref';
 
 const getArticleImage = article => {
     const imagedefault =
@@ -47,6 +48,13 @@ const getArticleOpinionSubtype = article => {
     return get(article, 'additionalProperties.subtype', null);
 };
 
+const getYouTubeVideoLink = article => {
+    const htmlAttr = get(article, 'additionalProperties.html', null);
+    const videoLink = getEmbedHref('src', htmlAttr);
+
+    return videoLink;
+};
+
 export const articleItem = article => {
     const { subtype: templateId, label } = article;
 
@@ -70,6 +78,7 @@ export const articleItem = article => {
     const autor = autores ? autores[0] : null;
     const signature = get(article, 'additionalProperties.authors', null);
     const enviarApps = sentToApps(article);
+
     return {
         id,
         templateId: Number.isInteger(templateId)
@@ -89,6 +98,7 @@ export const articleItem = article => {
         seccionPadre: getArticleOpinionSubtype(article),
         imagen: getArticleImage(article),
         opinion: get(article, 'additionalProperties.opinion', false),
+        videoYouTube: getYouTubeVideoLink(article),
         enviarApps
     };
 };
