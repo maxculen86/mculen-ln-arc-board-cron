@@ -1,6 +1,7 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { SITE_LANACION } from 'fusion:environment';
 import ComIco from './icon';
 import ComLink from './com-link';
 import setVisibility from './utils/setVisibility';
@@ -14,7 +15,7 @@ const ComWeather = props => {
             classCondition="--weather"
             dataEvent="LinkClick"
             dataSection="MenuLN"
-            link="https://servicios.lanacion.com.ar/pronostico-del-tiempo"
+            link={`${SITE_LANACION}/clima/`}
             style={{ visibility }}
         >
             <div className="com-weather">
