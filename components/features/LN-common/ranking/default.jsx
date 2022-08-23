@@ -6,7 +6,6 @@ import StaticValidation from '../../../private/common/staticValidation';
 import CajaTema from '../../../private/LN/common/cajaTema';
 import { getRankingProps, getSectionParentId, hasArticles } from './_helper';
 import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
-import useViewportSize from '../../../private/common/hooks/useViewportSize';
 
 import '../../../../resources/dist/css/ln/components/ranking.css';
 import { productClickFromClient } from '../../../private/common/utils/viewability';
@@ -65,7 +64,6 @@ const RankingFeature = ({ id: featureId }) => {
 
     const customTitle = name ? `Más leídas de ${name}` : 'Más leídas';
     const hidePlaceholder = _id && !articles && isInverse;
-    const device = useViewportSize();
 
     const component = articles && articles.length && (
         <CajaTema
@@ -84,7 +82,7 @@ const RankingFeature = ({ id: featureId }) => {
             handleClick={productClickFromClient}
         />
     );
-    if (device === 'mobile' && layout.includes('nota')) return <></>;
+
     return isHome
         ? getComponentForHome(component, size, isInverse, hidePlaceholder)
         : getComponentForSection(component, featureId);
