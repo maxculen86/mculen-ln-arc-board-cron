@@ -14,7 +14,7 @@ const SubHeader = () => {
             source: 'dolarSource',
             staticMode: true
         }) || {};
-    const { weather = {} } =
+    const weather =
         useContent({
             source: 'servicesSource',
             query: {
@@ -24,10 +24,6 @@ const SubHeader = () => {
             staticMode: true,
             filter
         }) || {};
-    console.log(
-        '🚀 ~ file: subHeader.jsx ~ line 18 ~ SubHeader ~ weather',
-        weather
-    );
 
     const dollarValue = useTermica('dolar', dollar);
     const weatherValue = useTermica('weather', weather);
