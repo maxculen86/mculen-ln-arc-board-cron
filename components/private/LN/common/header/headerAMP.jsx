@@ -88,7 +88,7 @@ const headerAMP = props => {
                                         </a>
                                     </li>
                                     <li className="menu_secciones">
-                                        <a href="https://servicios.lanacion.com.ar/pronostico-del-tiempo">
+                                        <a href="https://www.lanacion.com.ar/clima/">
                                             Clima
                                         </a>
                                     </li>

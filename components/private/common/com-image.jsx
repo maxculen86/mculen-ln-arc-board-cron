@@ -40,7 +40,7 @@ const ComImage = props => {
             className={classes}
             srcSet={srcset}
             loading={isApertura ? 'eager' : 'lazy'}
-            importance={isApertura ? 'high' : 'low'}
+            fetchPriority={isApertura ? 'high' : 'low'}
             decoding="async"
         />
     );
