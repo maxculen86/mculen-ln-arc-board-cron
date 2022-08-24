@@ -124,6 +124,7 @@ export const LinkImagePreload = ({ resizedUrls = [], isAmp }) => {
             <link
                 rel="preload"
                 as="image"
+                fetchPriority="high"
                 href={isAmp ? `${resizedUrl} ${_width}w` : resizedUrl}
                 imagesrcset={imagesrcset}
             />
