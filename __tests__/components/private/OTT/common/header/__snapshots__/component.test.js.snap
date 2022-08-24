@@ -12,12 +12,12 @@ exports[`OTT - layout - header - components Snapshot Test 1`] = `
       Object {
         "alt": "alt 1",
         "description": "description 1",
-        "href": "href 1",
+        "href": "href 1/",
       },
       Object {
         "alt": "alt 2",
         "description": "description 2",
-        "href": "href 2",
+        "href": "href 2/",
       },
     ]
   }
@@ -36,12 +36,12 @@ exports[`OTT - layout - header - components Snapshot Test 1`] = `
         Object {
           "alt": "alt 1",
           "description": "description 1",
-          "href": "href 1",
+          "href": "href 1/",
         },
         Object {
           "alt": "alt 2",
           "description": "description 2",
-          "href": "href 2",
+          "href": "href 2/",
         },
       ]
     }
@@ -84,7 +84,7 @@ exports[`OTT - layout - header - components Snapshot Test 1`] = `
                 }
               }
               description="description 1"
-              href="href 1"
+              href="href 1/"
               key="0"
             />
             <mock-component
@@ -95,7 +95,7 @@ exports[`OTT - layout - header - components Snapshot Test 1`] = `
                 }
               }
               description="description 2"
-              href="href 2"
+              href="href 2/"
               key="1"
             />
           </nav>
