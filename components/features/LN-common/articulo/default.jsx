@@ -14,6 +14,8 @@ import getCajaTemaConfig from '../../../private/LN/home/components/noteCard/note
 import NoteCard from '../../../private/LN/home/components/noteCard/noteCard';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
+import filterImage from '../../../../content/filters/LN/home/imageFilter';
+import filterVideo from '../../../../content/filters/LN/home/videoFilter';
 import featureArticleCustomsFields from '../../../private/LN/common/utils/articuloHelper';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
@@ -21,6 +23,7 @@ import { productClickFromClient } from '../../../private/common/utils/viewabilit
 import ErrorBoundary from '../../../private/common/ErrorBoundary';
 import { getChildrenFromSectionHome } from '../../../private/LN/common/utils/cajaTemasHelper';
 import get from '../../../private/common/utils/get';
+import isSSR from '../../../private/LN/common/utils/isSSR';
 
 const ArticleFeature = ({
     id: featureId,
@@ -85,18 +88,21 @@ const ArticleFeature = ({
     const videoBackground =
         useContent({
             source: (videoId && videoId.trim() && 'videoSource') || null,
+            staticMode: isSSR(),
             query: {
                 id: videoId && videoId.trim(),
                 website: 'la-nacion-ar',
                 imageConfig,
                 isInApertura: onlyOneApeturaValidateForWWW,
                 isAdmin
-            }
+            },
+            filter: filterVideo
         }) || null;
 
     const image =
         useContent({
             source: conditionallyCallImageSource(imageId),
+            staticMode: isSSR(),
             query: {
                 id: imageId && imageId.trim(),
                 published: true,
@@ -105,7 +111,8 @@ const ArticleFeature = ({
                 boxType: 'ArticleFeature',
                 isInApertura: onlyOneApeturaValidateForWWW,
                 isAdmin
-            }
+            },
+            filter: filterImage
         }) || null;
 
     const error = validateArticleFeature(

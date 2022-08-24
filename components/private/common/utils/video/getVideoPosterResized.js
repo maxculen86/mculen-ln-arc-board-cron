@@ -1,4 +1,6 @@
 import { useContent } from 'fusion:content';
+import videoFilter from '../../../../../content/filters/LN/home/videoFilter';
+import isSSR from '../../../LN/common/utils/isSSR';
 
 export const fetchVideo = (videoID, imageConfig, isInApertura, isAdmin) => {
     return (
@@ -10,7 +12,9 @@ export const fetchVideo = (videoID, imageConfig, isInApertura, isAdmin) => {
                 imageConfig,
                 isInApertura,
                 isAdmin
-            }
+            },
+            staticMode: isSSR(),
+            filter: videoFilter
         }) || {}
     );
 };
