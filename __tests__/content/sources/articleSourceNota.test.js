@@ -9,6 +9,7 @@ import {
 } from '../../../content/sources/utils/powerUp';
 import contentElementRecipe from '../../../__mocks__/data/articles/contentElementsRecipe.json';
 import articleSourceNota from '../../../content/sources/articleSourceNota';
+import { resolve } from '../../../content/sources/articleSourceNota';
 import responseArticleSource from '../../../__mocks__/data/articles/responseArticleSource.json';
 import validateExclusiveAccess from '../../../content/sources/utils/validateExclusiveAccess';
 
@@ -376,5 +377,28 @@ describe('Content - sources - utils - removeParallaxPowerUp', () => {
         ];
         const wrapper = removeParallaxPowerUp(contentElementsRecipeParallax);
         expect(wrapper).toStrictEqual(expectedResult);
+    });
+});
+
+describe('ByUrl regex', () => {
+    const key = {
+        'arc-site': 'la-nacion-ar',
+        url:
+            '/api/v1/notas/byUrl/deportes/futbol/river-campeon-como-quedo-la-tabla-historica-del-futbol-argentino-y-asi-esta-la-pelea-con-boca-nid25112021/'
+    };
+    it('Return url ok when url is not clear', () => {
+        expect(resolve(key)).toEqual(
+            '/content/v4/stories/?website=la-nacion-ar&website_url=/deportes/futbol/river-campeon-como-quedo-la-tabla-historica-del-futbol-argentino-y-asi-esta-la-pelea-con-boca-nid25112021/'
+        );
+    });
+    const key_ = {
+        'arc-site': 'la-nacion-ar',
+        url:
+            '/deportes/futbol/river-campeon-como-quedo-la-tabla-historica-del-futbol-argentino-y-asi-esta-la-pelea-con-boca-nid25112021/'
+    };
+    it('Return url ok when url is clear', () => {
+        expect(resolve(key_)).toEqual(
+            '/content/v4/stories/?website=la-nacion-ar&website_url=/deportes/futbol/river-campeon-como-quedo-la-tabla-historica-del-futbol-argentino-y-asi-esta-la-pelea-con-boca-nid25112021/'
+        );
     });
 });
