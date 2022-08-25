@@ -9,7 +9,7 @@ import toggleBookmark from '../../../common/utils/bookmarkHelper';
 import Barrier from '../../../common/barrier/Barrier';
 import { conditionallyCallViafoura } from '../../../common/utils/commentsHelper';
 import { isSubscribed } from './contextHelper';
-import VIDEO from '../../../common/utils/subtypes/subtypeHelper';
+import { VIDEO } from '../../../common/utils/subtypes/subtypeHelper';
 
 export function popUpCompartirNotaTW(notaId, dominio, titulo) {
     if (notaId.length > 0) {
@@ -237,6 +237,40 @@ export const buttonsList = [
         id: 'btnemail',
         handleClick: ({ requestUri, host, title }) => {
             popUpCompartirMailTo(requestUri, host, title);
-        }
+        },
+        className: 'email'
     }
 ];
+
+export const scrollAddClass = (shareContainer, share) => {
+    if (shareContainer && share) {
+        if (share.scrollWidth + 16 > window.innerWidth) {
+            shareContainer.classList.add('--scroll');
+        }
+    }
+};
+
+export const scrollShare = (shareContainer, share) => {
+    const leftArrow = document.querySelector('.icon-arrow-left') || {};
+    const rightArrow = document.querySelector('.icon-arrow-right') || {};
+    if (shareContainer && share) {
+        if (shareContainer.scrollLeft >= 20) {
+            leftArrow.classList.remove('--idle');
+            leftArrow.classList.add('--active');
+        } else if (leftArrow.classList.contains('--active')) {
+            leftArrow.classList.remove('--active');
+            leftArrow.classList.add('--idle');
+        }
+
+        if (
+            shareContainer.scrollLeft + window.innerWidth >
+            shareContainer.scrollWidth
+        ) {
+            rightArrow.classList.add('--idle');
+            rightArrow.classList.remove('--active');
+        } else {
+            rightArrow.classList.add('--active');
+            rightArrow.classList.remove('--idle');
+        }
+    }
+};

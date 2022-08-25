@@ -1,0 +1,34 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.second-buttons-group {
+    @include flex(flex, row, center, center);
+    position: relative;
+    @media ($media-l) {
+        flex-direction: column;
+    }
+    .com-button {
+        margin-right: $spacing-sm;
+        padding: 0;
+        @media ($media-l) {
+            margin-right: 0;
+            margin-bottom: $spacing-sm;
+        }
+        &.email {
+            margin-right: $spacing-md;
+            @media ($media-l) {
+                margin-right: 0;
+            }
+        }
+    }
+    .--video & {
+        flex-direction: row;
+        .com-button {
+            margin-bottom: 0;
+            margin-right: $spacing-sm;
+        }
+        .com-icon path {
+            fill: $light-neutral-50;
+        }
+    }
+}

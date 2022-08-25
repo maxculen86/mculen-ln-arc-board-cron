@@ -3,12 +3,14 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import ComButton from '../../../../private/common/com-button';
+import AudioPlayerButton from './AudioPlayerButton';
 import {
     scrollToComments,
     onButtonClicked,
     GetNumberOfComments,
     addEventToDataLayer
 } from '../../../../private/LN/common/utils/shareHelper';
+import '../../../../../resources/dist/css/ln/components/build-first-buttons-group.css';
 
 const BuildFirtsButtonsGroup = ({
     termicaBookmark,
@@ -35,33 +37,30 @@ const BuildFirtsButtonsGroup = ({
     );
 
     return (
-        <div className="container --left">
+        <div className="first-buttons-group">
+            <AudioPlayerButton />
             {termicaBookmark && (
-                <div className="btn-container">
-                    <ComButton
-                        id="btnbookmark"
-                        dataEvent="LinkClick"
-                        dataSection="Guardar Nota"
-                        onClick={() => {
-                            onButtonClicked(
-                                token,
-                                suscription,
-                                toast,
-                                globalContent,
-                                bookmark,
-                                setBookmark,
-                                setToast,
-                                setBarrier
-                            );
-                        }}
-                        size="--fourxs"
-                        iconName={bookmark ? 'bookmark-filled' : 'bookmark'}
-                        title="Notas guardadas"
-                        classCondition={`bookmark ${
-                            bookmark ? '--is-saved' : ''
-                        }`}
-                    />
-                </div>
+                <ComButton
+                    id="btnbookmark"
+                    dataEvent="LinkClick"
+                    dataSection="Guardar Nota"
+                    onClick={() => {
+                        onButtonClicked(
+                            token,
+                            suscription,
+                            toast,
+                            globalContent,
+                            bookmark,
+                            setBookmark,
+                            setToast,
+                            setBarrier
+                        );
+                    }}
+                    size="--fourxs"
+                    iconName={bookmark ? 'bookmark-filled' : 'bookmark'}
+                    title="Notas guardadas"
+                    classCondition={`bookmark ${bookmark ? '--is-saved' : ''}`}
+                />
             )}
 
             {displayComments && (

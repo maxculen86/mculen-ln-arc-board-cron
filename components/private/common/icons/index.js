@@ -56,6 +56,7 @@ export { default as TenBackSecs } from './system/TenBackSecs';
 export { default as TenForwardSecs } from './system/TenForwardSecs';
 export { default as Pause } from './system/Pause';
 export { default as Play } from './system/Play';
+export { default as Headset } from './system/Headset';
 
 // Weather Icons
 export { default as ClearNight } from './weather/ClearNight';

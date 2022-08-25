@@ -4,18 +4,6 @@
     width: 100%;
     height: px(1);
     background: $light-neutral-400;
-
-    .mod-share & {
-        width: px(1);
-        min-width: px(1);
-        height: px(40);
-        margin: 0 $spacing-lg;
-        background: $light-neutral-300;
-        @media ($media-l) {
-            margin-bottom: $spacing-sm;
-        }
-    }
-
     &::after {
         .mod-opening.--recipe & {
             content: '';

@@ -1,0 +1,7 @@
+@import '../abstracts/variables';
+
+.audio-player-button {
+    &[disabled] {
+        opacity: 0.4;
+    }
+}

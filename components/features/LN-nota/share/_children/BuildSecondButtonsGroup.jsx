@@ -3,11 +3,13 @@ import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import ComButton from '../../../../private/common/com-button';
 import ModTooltip from '../../../../private/common/mod-tooltip';
+
 import {
     buttonsList,
     BtnContainer,
     addEventToDataLayer
 } from '../../../../private/LN/common/utils/shareHelper';
+import '../../../../../resources/dist/css/ln/components/build-second-buttons-group.css';
 
 const BuildSecondButtonsGroup = ({
     requestUri,
@@ -18,7 +20,7 @@ const BuildSecondButtonsGroup = ({
     const [copy, setCopy] = useState(false);
 
     return (
-        <div className="container --right">
+        <div className="second-buttons-group">
             {buttonsList.map(
                 ({
                     withContainer = false,
@@ -27,7 +29,8 @@ const BuildSecondButtonsGroup = ({
                     dataSection,
                     iconName,
                     title,
-                    handleClick
+                    handleClick,
+                    className = ''
                 } = {}) => {
                     return (
                         <BtnContainer withContainer={withContainer} key={id}>
@@ -47,6 +50,7 @@ const BuildSecondButtonsGroup = ({
                                     });
                                     addEventToDataLayer(title);
                                 }}
+                                classCondition={className}
                             />
                             {id === 'copyLinkNote' && copy && (
                                 <ModTooltip

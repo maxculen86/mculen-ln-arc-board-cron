@@ -116,11 +116,15 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
                 }
             }
 
-            .mod-share {
+            .mod-share-container {
+                margin: 0 $spacing;
+                position: relative;
+                @media ($media-s) {
+                    margin: 0 $spacing-sm;
+                }
                 @media ($media-l) {
+                    margin: 0;
                     position: sticky;
-                    z-index: 101;
-                    top: (px(16) + $header-desktop);
                     left: calc(((100% - #{$width_nota100_l}) / 2) - 133px);
                 }
                 @media ($media-lm) {

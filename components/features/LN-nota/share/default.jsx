@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/require-default-props */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import config from '../../../../properties/sites/la-nacion-ar';
@@ -11,11 +12,14 @@ import {
     getClassCondition,
     showToast,
     showBarrier,
-    isSuscription
+    isSuscription,
+    scrollAddClass,
+    scrollShare
 } from '../../../private/LN/common/utils/shareHelper';
 import BuildSecondButtonsGroup from './_children/BuildSecondButtonsGroup';
-import BuildFirtsButtonsGroup from './_children/BuildFirtsButtonsGroup';
+import BuildFirstButtonsGroup from './_children/BuildFirstButtonsGroup';
 import '../../../../resources/dist/css/ln/modules/mod-share.css';
+import Icon from '../../../private/common/icon';
 
 const Share = () => {
     const { globalContent, requestUri } = useAppContext() || {};
@@ -45,32 +49,48 @@ const Share = () => {
         termicaBookmark && setBookmark(checkBookmarkId);
     }, [termicaBookmark, checkBookmarkId]);
 
+    const shareContainer = useRef();
+    const share = useRef();
+
+    useEffect(() => {
+        scrollAddClass(shareContainer.current, share.current);
+    }, []);
+
     return (
-        <div className={`mod-share${classCondition}`}>
-            {showToast(termicaBookmark, toast, setToast)}
-            {showBarrier(termicaBookmark, barrier, token, setBarrier)}
+        <div className={`mod-share-container${classCondition}`}>
+            <div
+                className="mod-share"
+                ref={shareContainer}
+                onScroll={() => {
+                    scrollShare(shareContainer.current, share.current);
+                }}
+            >
+                {<Icon name="arrow-left" />}
+                {showToast(termicaBookmark, toast, setToast)}
+                {showBarrier(termicaBookmark, barrier, token, setBarrier)}
+                <div id="v-share" className="share" ref={share}>
+                    <BuildFirstButtonsGroup
+                        bookmark={bookmark}
+                        setBookmark={setBookmark}
+                        termicaBookmark={termicaBookmark}
+                        globalContent={globalContent}
+                        token={token}
+                        toast={toast}
+                        setToast={setToast}
+                        setBarrier={setBarrier}
+                        suscription={suscription}
+                    />
 
-            <div id="v-share" className="share">
-                <BuildFirtsButtonsGroup
-                    bookmark={bookmark}
-                    setBookmark={setBookmark}
-                    termicaBookmark={termicaBookmark}
-                    globalContent={globalContent}
-                    token={token}
-                    toast={toast}
-                    setToast={setToast}
-                    setBarrier={setBarrier}
-                    suscription={suscription}
-                />
+                    <ComLine />
 
-                <ComLine />
-
-                <BuildSecondButtonsGroup
-                    requestUri={requestUri}
-                    host={config.host}
-                    title={title}
-                    mobileTitle={mobileTitle}
-                />
+                    <BuildSecondButtonsGroup
+                        requestUri={requestUri}
+                        host={config.host}
+                        title={title}
+                        mobileTitle={mobileTitle}
+                    />
+                </div>
+                <Icon name="arrow-right" />
             </div>
         </div>
     );

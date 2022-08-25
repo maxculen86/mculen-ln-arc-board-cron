@@ -6,6 +6,8 @@
     border-radius: $spacing-2xs;
     padding: $spacing-xs;
     align-items: center;
+    margin-bottom: $spacing-md;
+    background: $light-neutral-100;
     .com-button {
         &.action-player {
             width: $spacing-xl;
@@ -36,6 +38,7 @@
         }
     }
     .counter {
+        color: $light-neutral-800;
         margin-right: $spacing-xs;
     }
 
