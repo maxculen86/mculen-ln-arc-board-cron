@@ -39,8 +39,12 @@ function createCorrectHref(href, arcSite, contextPath = '') {
         .join('/')
         .replace(RE_REMOVE_SLASH, '');
 
-    return `/${addForwardSlash(url)}${
-        isOriginURL ? `?_website=${arcSite}` : ''
+    return `/${!url ? '' : addForwardSlash(url)}${
+        (!isOriginURL
+          ? ''
+          : addForwardSlash(isOriginURL))
+            ? `?_website=${arcSite}`
+            : ''
     }`;
 }
 export default { createCorrectHref };
