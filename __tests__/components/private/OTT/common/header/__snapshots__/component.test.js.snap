@@ -59,7 +59,7 @@ exports[`OTT - layout - header - components Snapshot Test 1`] = `
           <a
             alt="lnmas.com.ar"
             className="header__logo"
-            href="/contextPath/homepage/?_website=ott"
+            href="/contextPath/homepage/"
             title="lnmas.com.ar"
           >
             LN+
