@@ -271,8 +271,8 @@ const Default = props => {
                     arcSite={arcSite}
                     isAdmin={isAdmin}
                 />
-                <FontPreloads />
-                <FontFaceDefault />
+                {/* <FontPreloads />
+                <FontFaceDefault /> */}
                 <CriticalCss />
                 {arcSite === 'ott' ? (
                     <link
