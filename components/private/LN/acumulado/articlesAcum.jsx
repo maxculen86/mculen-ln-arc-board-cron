@@ -1,7 +1,9 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ArticleAcum from './articleAcum';
 import ModRowGap from '../../common/mod-rowgap';
+import checkIsApertura from '../common/utils/checkIsApertura';
 
 const DATA_SECTION = 'CuerpoAcu';
 const typeAcumRules = {
@@ -36,7 +38,9 @@ const ArticlesAcum = ({
     getBanner,
     typeArticle,
     classCondition,
-    outputType
+    outputType,
+    nodeType = '',
+    articlesInCollection = []
 }) => {
     return (
         <ModRowGap
@@ -44,8 +48,14 @@ const ArticlesAcum = ({
             classCondition={classCondition}
             typeArticle={typeArticle}
         >
-            {articles.map((art, i) => {
-                const banner = getBanner ? getBanner(i) : <></>;
+            {articles.map((art, index) => {
+                const banner = getBanner ? getBanner(index) : <></>;
+                const isApertura = checkIsApertura(
+                    nodeType,
+                    index,
+                    articlesInCollection
+                );
+
                 return (
                     <ArticleAcum
                         key={art._id}
@@ -57,7 +67,7 @@ const ArticlesAcum = ({
                         withSubhead={typeAcumRules[typeArticle].withSubhead}
                         withCategory={typeAcumRules[typeArticle].withCategory}
                         withTags={typeAcumRules[typeArticle].withTags}
-                        isApertura={i === 0}
+                        isApertura={isApertura}
                     >
                         {banner}
                     </ArticleAcum>
@@ -72,7 +82,9 @@ ArticlesAcum.propTypes = {
     getBanner: PropTypes.func.isRequired,
     typeArticle: PropTypes.string.isRequired,
     outputType: PropTypes.string,
-    classCondition: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
+    classCondition: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    nodeType: PropTypes.string,
+    articlesInCollection: PropTypes.arrayOf(PropTypes.object)
 };
 
 ArticlesAcum.defaultProps = {

@@ -13,9 +13,9 @@ const ImagePreloadlAcu = ({ arcSite, accumulated, nodeType }) => {
     const searchArgs = {
         typesOfQuery,
         filter,
-        imageConfig: 'm',
+        imageConfig: 'boxArticles',
         size: 1,
-        sourceOrigin: 'composer',
+        sourceOrigin: '',
         excludeSectionId: false,
         type: '',
         shouldNotFilter: false,

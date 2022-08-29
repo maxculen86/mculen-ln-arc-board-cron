@@ -1,0 +1,1103 @@
+[
+    {
+        "collection": "layouts",
+        "type": "LN-acumulado",
+        "props": {
+            "collection": "layouts",
+            "type": "LN-acumulado",
+            "id": "LN-acumulado",
+            "childProps": [
+                {
+                    "collection": "sections",
+                    "id": 0
+                },
+                {
+                    "collection": "sections",
+                    "id": 1
+                },
+                {
+                    "collection": "sections",
+                    "id": 2
+                },
+                {
+                    "collection": "sections",
+                    "id": 3
+                },
+                {
+                    "collection": "sections",
+                    "id": 4
+                },
+                {
+                    "collection": "sections",
+                    "id": 5
+                },
+                {
+                    "collection": "sections",
+                    "id": 6
+                },
+                {
+                    "collection": "sections",
+                    "id": 7
+                }
+            ]
+        },
+        "children": [
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 0
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-common/bannerRefactor",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/bannerRefactor",
+                            "id": "f0ffgYYbFnLtbaw",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "group": "acumulado",
+                                "desktop": "comercial_dsk",
+                                "mobile": "comercial_mob"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 1
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-common/bannerRefactor",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/bannerRefactor",
+                            "id": "f0fHMmVVsZUo3QF",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "group": "acumulado",
+                                "desktop": null,
+                                "mobile": "sticky2_mob",
+                                "background": true,
+                                "sticky": true
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 2
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-common/bannerRefactor",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/bannerRefactor",
+                            "id": "f0fkdWhJZuTU1B7",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "group": "acumulado",
+                                "desktop": "cabezal_dsk",
+                                "tablet": "cabezal_tab",
+                                "sticky": false,
+                                "background": true
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 3
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-acumulado/breadcrumb",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-acumulado/breadcrumb",
+                            "id": "f0fP5GArIggw84c",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {},
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 4
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-acumulado/wikiAutor",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-acumulado/wikiAutor",
+                            "id": "f0flczhPxZzW15D",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {},
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 5
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-acumulado/tagList",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-acumulado/tagList",
+                            "id": "f0fKkJSZKryx8Pz",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {},
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 6
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-acumulado/grillaNotas",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-acumulado/grillaNotas",
+                            "id": "f0fHamsbeZDX1YO",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "desktop1": "caja1_amp",
+                                "position1": 1,
+                                "desktop2": "caja2_amp",
+                                "position2": 3,
+                                "tablet3": "caja1_tab",
+                                "position3": 6,
+                                "tablet4": "caja2_tab",
+                                "position4": 12,
+                                "mobile5": "caja1_mob",
+                                "position5": 4,
+                                "mobile6": "caja2_mob",
+                                "position6": 9,
+                                "mobile7": "caja3_mob",
+                                "position7": 14,
+                                "mobile8": "caja4_mob",
+                                "position8": 15
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/bannerRefactor",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/bannerRefactor",
+                            "id": "f0fH2wdOjFaZ6wt",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "group": "acumulado",
+                                "desktop": "adhesion_dsk",
+                                "mobile": "adhesion_mob",
+                                "tablet": "adhesion_tab",
+                                "fixed": true
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 7
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-common/bannerRefactor",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/bannerRefactor",
+                            "id": "f0f9b3MqND1Y1Mx",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "group": "acumulado",
+                                "desktop": "caja1_dsk"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/bannerRefactor",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/bannerRefactor",
+                            "id": "f0fynqFtLqmY1bA",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "group": "acumulado",
+                                "desktop": "caja2_dsk"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/ranking",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/ranking",
+                            "id": "f0f1KUVDT96P8CV",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "size1": 3,
+                                "daysAgo1": 1,
+                                "size2": 3,
+                                "daysAgo2": 5
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/bannerRefactor",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/bannerRefactor",
+                            "id": "f0fwPU1YG10z8Kt",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "group": "acumulado",
+                                "desktop": "caja3_dsk"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/bannerRefactor",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/bannerRefactor",
+                            "id": "f0fYyP4UkD4Z1t6",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "group": "acumulado",
+                                "desktop": "caja4_dsk",
+                                "sticky": true
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 0
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-common/bannerRefactor",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/bannerRefactor",
+                    "id": "f0ffgYYbFnLtbaw",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "group": "acumulado",
+                        "desktop": "comercial_dsk",
+                        "mobile": "comercial_mob"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 1
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-common/bannerRefactor",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/bannerRefactor",
+                    "id": "f0fHMmVVsZUo3QF",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "group": "acumulado",
+                        "desktop": null,
+                        "mobile": "sticky2_mob",
+                        "background": true,
+                        "sticky": true
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 2
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-common/bannerRefactor",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/bannerRefactor",
+                    "id": "f0fkdWhJZuTU1B7",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "group": "acumulado",
+                        "desktop": "cabezal_dsk",
+                        "tablet": "cabezal_tab",
+                        "sticky": false,
+                        "background": true
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 3
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-acumulado/breadcrumb",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-acumulado/breadcrumb",
+                    "id": "f0fP5GArIggw84c",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {},
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 4
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-acumulado/wikiAutor",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-acumulado/wikiAutor",
+                    "id": "f0flczhPxZzW15D",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {},
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 5
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-acumulado/tagList",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-acumulado/tagList",
+                    "id": "f0fKkJSZKryx8Pz",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {},
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 6
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-acumulado/grillaNotas",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-acumulado/grillaNotas",
+                    "id": "f0fHamsbeZDX1YO",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "desktop1": "caja1_amp",
+                        "position1": 1,
+                        "desktop2": "caja2_amp",
+                        "position2": 3,
+                        "tablet3": "caja1_tab",
+                        "position3": 6,
+                        "tablet4": "caja2_tab",
+                        "position4": 12,
+                        "mobile5": "caja1_mob",
+                        "position5": 4,
+                        "mobile6": "caja2_mob",
+                        "position6": 9,
+                        "mobile7": "caja3_mob",
+                        "position7": 14,
+                        "mobile8": "caja4_mob",
+                        "position8": 15
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-common/bannerRefactor",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/bannerRefactor",
+                    "id": "f0fH2wdOjFaZ6wt",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "group": "acumulado",
+                        "desktop": "adhesion_dsk",
+                        "mobile": "adhesion_mob",
+                        "tablet": "adhesion_tab",
+                        "fixed": true
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 7
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-common/bannerRefactor",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/bannerRefactor",
+                    "id": "f0f9b3MqND1Y1Mx",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "group": "acumulado",
+                        "desktop": "caja1_dsk"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-common/bannerRefactor",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/bannerRefactor",
+                    "id": "f0fynqFtLqmY1bA",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "group": "acumulado",
+                        "desktop": "caja2_dsk"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-common/ranking",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/ranking",
+                    "id": "f0f1KUVDT96P8CV",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "size1": 3,
+                        "daysAgo1": 1,
+                        "size2": 3,
+                        "daysAgo2": 5
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-common/bannerRefactor",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/bannerRefactor",
+                    "id": "f0fwPU1YG10z8Kt",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "group": "acumulado",
+                        "desktop": "caja3_dsk"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-common/bannerRefactor",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/bannerRefactor",
+                    "id": "f0fYyP4UkD4Z1t6",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "group": "acumulado",
+                        "desktop": "caja4_dsk",
+                        "sticky": true
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/bannerRefactor",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/bannerRefactor",
+            "id": "f0ffgYYbFnLtbaw",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "group": "acumulado",
+                "desktop": "comercial_dsk",
+                "mobile": "comercial_mob"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/bannerRefactor",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/bannerRefactor",
+            "id": "f0fHMmVVsZUo3QF",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "group": "acumulado",
+                "desktop": null,
+                "mobile": "sticky2_mob",
+                "background": true,
+                "sticky": true
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/bannerRefactor",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/bannerRefactor",
+            "id": "f0fkdWhJZuTU1B7",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "group": "acumulado",
+                "desktop": "cabezal_dsk",
+                "tablet": "cabezal_tab",
+                "sticky": false,
+                "background": true
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-acumulado/breadcrumb",
+        "props": {
+            "collection": "features",
+            "type": "LN-acumulado/breadcrumb",
+            "id": "f0fP5GArIggw84c",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {},
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-acumulado/wikiAutor",
+        "props": {
+            "collection": "features",
+            "type": "LN-acumulado/wikiAutor",
+            "id": "f0flczhPxZzW15D",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {},
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-acumulado/tagList",
+        "props": {
+            "collection": "features",
+            "type": "LN-acumulado/tagList",
+            "id": "f0fKkJSZKryx8Pz",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {},
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-acumulado/grillaNotas",
+        "props": {
+            "collection": "features",
+            "type": "LN-acumulado/grillaNotas",
+            "id": "f0fHamsbeZDX1YO",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "desktop1": "caja1_amp",
+                "position1": 1,
+                "desktop2": "caja2_amp",
+                "position2": 3,
+                "tablet3": "caja1_tab",
+                "position3": 6,
+                "tablet4": "caja2_tab",
+                "position4": 12,
+                "mobile5": "caja1_mob",
+                "position5": 4,
+                "mobile6": "caja2_mob",
+                "position6": 9,
+                "mobile7": "caja3_mob",
+                "position7": 14,
+                "mobile8": "caja4_mob",
+                "position8": 15
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/bannerRefactor",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/bannerRefactor",
+            "id": "f0fH2wdOjFaZ6wt",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "group": "acumulado",
+                "desktop": "adhesion_dsk",
+                "mobile": "adhesion_mob",
+                "tablet": "adhesion_tab",
+                "fixed": true
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/bannerRefactor",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/bannerRefactor",
+            "id": "f0f9b3MqND1Y1Mx",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "group": "acumulado",
+                "desktop": "caja1_dsk"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/bannerRefactor",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/bannerRefactor",
+            "id": "f0fynqFtLqmY1bA",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "group": "acumulado",
+                "desktop": "caja2_dsk"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/ranking",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/ranking",
+            "id": "f0f1KUVDT96P8CV",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "size1": 3,
+                "daysAgo1": 1,
+                "size2": 3,
+                "daysAgo2": 5
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/bannerRefactor",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/bannerRefactor",
+            "id": "f0fwPU1YG10z8Kt",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "group": "acumulado",
+                "desktop": "caja3_dsk"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/bannerRefactor",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/bannerRefactor",
+            "id": "f0fYyP4UkD4Z1t6",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "group": "acumulado",
+                "desktop": "caja4_dsk",
+                "sticky": true
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    }
+]

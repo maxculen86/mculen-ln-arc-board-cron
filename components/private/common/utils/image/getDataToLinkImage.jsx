@@ -13,6 +13,8 @@ import getVideoPosterResized from '../video/getVideoPosterResized';
 import replaceUrlResizerToWWW from '../../../../../content/sources/utils/replaceUrlResizerToWWW';
 import capitalizeFirstLetter from '../capitalizeFirstLetter';
 import ImagePreloadlAcu from '../../../LN/acumulado/imagePreloadAcu';
+import verifyChainsBeforeGrid from '../verifyChainsBeforeGrid';
+import getIdCollectionFromGC from '../getIdCollectionFromGC';
 
 const getSource = ({
     imageID = '',
@@ -146,6 +148,7 @@ const GetDataToLinkImage = ({
     } = data || {};
 
     const basic = replaceUrlResizerToWWW(get(data, 'promo_items.basic', {}));
+    const isAuthor = nodeType === 'author';
 
     if (!data) return <></>;
 
@@ -170,6 +173,12 @@ const GetDataToLinkImage = ({
                 const imagesToPreload = wikiImagesWithWWW(wikiSourceData);
                 return <LinkImagePreload resizedUrls={imagesToPreload} />;
             }
+
+            const hasChainBeforeGrid = verifyChainsBeforeGrid(renderables);
+            const idCollectionApertura = getIdCollectionFromGC(data);
+
+            if (isAuthor || hasChainBeforeGrid || idCollectionApertura)
+                return <></>;
 
             return (
                 <ImagePreloadlAcu

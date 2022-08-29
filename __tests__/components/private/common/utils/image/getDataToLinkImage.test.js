@@ -1,11 +1,18 @@
+import React from 'react';
 import * as fusionConsumer from 'fusion:consumer';
 import { shallow, mount } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import getProperties from 'fusion:properties';
+
 import GetDataToLinkImage from '../../../../../../components/private/common/utils/image/getDataToLinkImage';
 import getImage from '../../../../../../components/private/common/utils/image/getImage';
 import getVideoPosterResized from '../../../../../../components/private/common/utils/video/getVideoPosterResized';
 
 // Data
+import dataAccumulatedAuthor from '../../../../../../__mocks__/data/renderables/dataAccumulatedAuthor.json';
+import dataAccumulatedEconomy from '../../../../../../__mocks__/data/renderables/dataAccumulatedEconomy.json';
+import dataAccumulatedCulture from '../../../../../../__mocks__/data/renderables/dataAccumulatedCulture.json';
 import bombaOculta from '../../../../../../__mocks__/data/renderables/bomba/bombaOculta';
 import bombaVisible from '../../../../../../__mocks__/data/renderables/bomba/bombaVisible';
 import dataApertura from '../../../../../../__mocks__/data/renderables/dataApertura2.json';
@@ -198,6 +205,30 @@ describe('Common - GetDataToLinkImage', () => {
         it('without defined parameters, return empty', () => {
             const wrapper = mount(GetDataToLinkImage({}));
             expect(wrapper).toEqual({});
+        });
+    });
+
+    describe.only('Accumulated flow', () => {
+        describe('Empty cases', () => {
+            const cases = [
+                ['When is author', dataAccumulatedAuthor],
+                [
+                    'When has chains before the grid feature',
+                    dataAccumulatedEconomy
+                ],
+                ['When has a collection in apertura', dataAccumulatedCulture]
+            ];
+
+            test.each(cases)('%s', (message, renderables) => {
+                const props = {
+                    renderables,
+                    data: globalContent,
+                    section: 'acumulado'
+                };
+
+                const { container } = render(<GetDataToLinkImage {...props} />);
+                expect(container).toBeEmptyDOMElement();
+            });
         });
     });
 });
