@@ -41,16 +41,20 @@ const WeatherCard = ({ _id, data }) => {
                     <Text size="--m">ºc</Text>
                 </Text>
             </div>
-            <div className="temperature">
-                <Text size="--5xs">Mín:</Text>
-                <Text weight="bold" size="--4xs">
-                    {defaultValue(minTemp, `${minTemp}º`)}
-                </Text>
-                <Text size="--5xs">Máx:</Text>
-                <Text weight="bold" size="--4xs">
-                    {defaultValue(maxTemp, `${maxTemp}º`)}
-                </Text>
-            </div>
+            {minTemp && maxTemp ? (
+                <div className="temperature">
+                    <Text size="--5xs">Mín:</Text>
+                    <Text weight="bold" size="--4xs">
+                        {defaultValue(minTemp, `${minTemp}º`)}
+                    </Text>
+                    <Text size="--5xs">Máx:</Text>
+                    <Text weight="bold" size="--4xs">
+                        {defaultValue(maxTemp, `${maxTemp}º`)}
+                    </Text>
+                </div>
+            ) : (
+                ''
+            )}
             <Text tag="h3" size="5xs">
                 {link && (
                     <Text tag="h3" size="5xs">
