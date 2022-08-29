@@ -15,7 +15,7 @@ const FontPreloads = () => {
                 href={getWebFont({ font: FONT_BOLD, contextPath, deployment })}
                 crossOrigin=""
             />
-            <link
+            {/* <link
                 rel="preload"
                 as="font"
                 type="font/woff2"
@@ -25,7 +25,7 @@ const FontPreloads = () => {
                     deployment
                 })}
                 crossOrigin=""
-            />
+            /> */}
         </>
     );
 };

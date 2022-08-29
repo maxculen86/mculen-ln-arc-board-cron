@@ -37,7 +37,7 @@ import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 import addForwardSlash from '../private/LN/common/utils/addForwardSlash';
 import setMetasOtt from '../private/common/metaTags/setMetasHelper';
 import AmazonPublisherServices from '../private/common/scriptManager/amazonPublisherServices';
-import FontFaceDefault from '../private/common/fontfaceDefault';
+// import FontFaceDefault from '../private/common/fontfaceDefault';
 import CriticalCss from '../private/common/criticalcss';
 import MetaViafoura from '../private/common/metaViafoura';
 import Favicon from '../private/common/favicon';
@@ -271,8 +271,8 @@ const Default = props => {
                     arcSite={arcSite}
                     isAdmin={isAdmin}
                 />
-                {/* <FontPreloads />
-                <FontFaceDefault /> */}
+                <FontPreloads />
+                {/* <FontFaceDefault /> */}
                 <CriticalCss />
                 {arcSite === 'ott' ? (
                     <link
