@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - private - BallLotteries => Test snapshot and check className 1`] = `
+<div>
+  <div
+    class="--twoxs --font-bold ball --small --blue"
+  >
+    3
+  </div>
+</div>
+`;
+
+exports[`Components - private - BallLotteries => testing components ballLoteries without params 1`] = `
+<div>
+  <div
+    class="--twoxs --font-bold ball"
+  />
+</div>
+`;

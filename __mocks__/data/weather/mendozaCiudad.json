@@ -1,0 +1,218 @@
+[
+    {
+        "date": "2022-08-04T00:00:00",
+        "afternoon": {
+            "humidity": 60,
+            "rain_prob": 0,
+            "temperature": 18,
+            "weather": {
+                "description": "Ligeramente nublado",
+                "id": "sun-cloudy"
+            },
+            "wind": {
+                "direction": "E",
+                "speed": 22
+            }
+        },
+        "night": {
+            "humidity": 43,
+            "rain_prob": 0,
+            "temperature": 9,
+            "weather": {
+                "description": "Ligeramente nublado",
+                "id": "sun-cloudy"
+            },
+            "wind": {
+                "direction": "SO",
+                "speed": 2
+            }
+        }
+    },
+    {
+        "date": "2022-08-05T00:00:00",
+        "morning": {
+            "humidity": 61,
+            "rain_prob": 0,
+            "temperature": 7,
+            "weather": {
+                "description": "Parcialmente nublado",
+                "id": "sun-cloudy"
+            },
+            "wind": {
+                "direction": "S",
+                "speed": 22
+            }
+        },
+        "afternoon": {
+            "humidity": 48,
+            "rain_prob": 0,
+            "temperature": 18,
+            "weather": {
+                "description": "Parcialmente nublado",
+                "id": "sun-cloudy"
+            },
+            "wind": {
+                "direction": "E",
+                "speed": 22
+            }
+        },
+        "night": {
+            "humidity": 52,
+            "rain_prob": 0,
+            "temperature": 13,
+            "weather": {
+                "description": "Mayormente nublado",
+                "id": "cloudy"
+            },
+            "wind": {
+                "direction": "SO",
+                "speed": 22
+            }
+        }
+    },
+    {
+        "date": "2022-08-06T00:00:00",
+        "morning": {
+            "humidity": 63,
+            "rain_prob": 10,
+            "temperature": 5,
+            "weather": {
+                "description": "Mayormente nublado",
+                "id": "cloudy"
+            },
+            "wind": {
+                "direction": "S",
+                "speed": 22
+            }
+        },
+        "afternoon": {
+            "humidity": 55,
+            "rain_prob": 40,
+            "temperature": 13,
+            "weather": {
+                "description": "Lluvias aisladas",
+                "id": "rain"
+            },
+            "wind": {
+                "direction": "SE",
+                "speed": 22
+            }
+        }
+    },
+    {
+        "date": "2022-08-07T00:00:00",
+        "morning": {
+            "humidity": 93,
+            "rain_prob": 40,
+            "temperature": 1,
+            "weather": {
+                "description": "Lluvias aisladas",
+                "id": "rain"
+            },
+            "wind": {
+                "direction": "S",
+                "speed": 22
+            }
+        },
+        "afternoon": {
+            "humidity": 51,
+            "rain_prob": 40,
+            "temperature": 8,
+            "weather": {
+                "description": "Lluvias aisladas",
+                "id": "rain"
+            },
+            "wind": {
+                "direction": "SE",
+                "speed": 22
+            }
+        }
+    },
+    {
+        "date": "2022-08-08T00:00:00",
+        "morning": {
+            "humidity": 95,
+            "rain_prob": 10,
+            "temperature": -1,
+            "weather": {
+                "description": "Mayormente nublado",
+                "id": "cloudy"
+            },
+            "wind": {
+                "direction": "SO",
+                "speed": 2
+            }
+        },
+        "afternoon": {
+            "humidity": 54,
+            "rain_prob": 0,
+            "temperature": 8,
+            "weather": {
+                "description": "Parcialmente nublado",
+                "id": "sun-cloudy"
+            },
+            "wind": {
+                "direction": "SE",
+                "speed": 12
+            }
+        }
+    },
+    {
+        "date": "2022-08-09T00:00:00",
+        "morning": {
+            "humidity": 78,
+            "rain_prob": 0,
+            "temperature": 2,
+            "weather": {
+                "description": "Parcialmente nublado",
+                "id": "sun-cloudy"
+            },
+            "wind": {
+                "direction": "N",
+                "speed": 12
+            }
+        },
+        "afternoon": {
+            "humidity": 47,
+            "rain_prob": 0,
+            "temperature": 13,
+            "weather": {
+                "description": "Parcialmente nublado",
+                "id": "sun-cloudy"
+            },
+            "wind": {
+                "direction": "N",
+                "speed": 22
+            }
+        }
+    },
+    {
+        "date": "2022-08-10T00:00:00",
+        "morning": {
+            "humidity": 58,
+            "rain_prob": 0,
+            "temperature": 5,
+            "weather": {
+                "description": "Nublado",
+                "id": "cloudy"
+            },
+            "wind": {
+                "direction": "S",
+                "speed": 12
+            }
+        },
+        "afternoon": {
+            "humidity": 45,
+            "rain_prob": 0,
+            "temperature": 17,
+            "weather": {
+                "description": "Parcialmente nublado",
+                "id": "sun-cloudy"
+            },
+            "wind": {
+                "direction": "NE",
+                "speed": 12
+            }
+        }
+    }
+]

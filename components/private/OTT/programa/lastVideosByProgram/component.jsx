@@ -1,13 +1,13 @@
 import React from 'react';
 import Proptypes from 'prop-types';
-import get from 'lodash.get';
+import get from '../../../common/utils/get';
 import ShowMoreVideos from './showMoreVideos';
 import Title from '../../../common/title';
 import VideoArticle from '../../common/videoArticle';
 import VideoOpeningTitle from '../../home/videoOpeningTitle';
 
 export default function LastVideosByProgams({
-    videos,
+    videos = [],
     nextPageHandler,
     hasNext,
     programName

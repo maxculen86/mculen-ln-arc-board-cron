@@ -14,7 +14,9 @@ import getCajaTemaConfig from '../../../private/LN/home/components/noteCard/note
 import NoteCard from '../../../private/LN/home/components/noteCard/noteCard';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
-import featureArticleCustomsFields from '../../../private/LN/common/utils/articuloHelper';
+import featureArticleCustomsFields, {
+    GetImage
+} from '../../../private/LN/common/utils/articuloHelper';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
 import { productClickFromClient } from '../../../private/common/utils/viewability';
@@ -26,7 +28,7 @@ const ArticleFeature = ({
     id: featureId,
     customFields,
     searchableField,
-    customFields: { noteId: id, imageId, video: videoId },
+    customFields: { noteId: id, imageId, video: videoId, mobileImageId },
     isBomba = false
 }) => {
     const {
@@ -48,10 +50,6 @@ const ArticleFeature = ({
         layout,
         imageConfig
     } = getCajaTemaConfig(featureId, renderables, cajaTemaConfig, isBomba);
-
-    const conditionallyCallImageSource = idImage => {
-        return (idImage && idImage.trim() && 'relatedImageSource') || null;
-    };
 
     const isBombaHidden = () => {
         const bomba = getChildrenFromSectionHome(renderables, 'Bomba', 2) || [];
@@ -94,19 +92,21 @@ const ArticleFeature = ({
             }
         }) || null;
 
-    const image =
-        useContent({
-            source: conditionallyCallImageSource(imageId),
-            query: {
-                id: imageId && imageId.trim(),
-                published: true,
-                imageConfig,
-                nid: id,
-                boxType: 'ArticleFeature',
-                isInApertura: onlyOneApeturaValidateForWWW,
-                isAdmin
-            }
-        }) || null;
+    const image = GetImage({
+        imageId,
+        imageConfig,
+        id,
+        onlyOneApeturaValidateForWWW,
+        isAdmin
+    });
+
+    const mobileImage = GetImage({
+        imageId: mobileImageId,
+        imageConfig: 'boxMultimediaMobile',
+        id,
+        onlyOneApeturaValidateForWWW,
+        isAdmin
+    });
 
     const error = validateArticleFeature(
         id,
@@ -115,7 +115,9 @@ const ArticleFeature = ({
         videoBackground,
         layout,
         imageId,
-        videoId
+        videoId,
+        mobileImage,
+        mobileImageId
     );
 
     if (isAdmin && !!error) {
@@ -160,6 +162,7 @@ const ArticleFeature = ({
                     isPowa={layout === 'grillaVideo1'}
                     handleClick={productClickFromClient}
                     registerSuccessEvent={registerSuccessEvent}
+                    mobileImage={mobileImage}
                 />
             </ErrorBoundary>
         )) ||

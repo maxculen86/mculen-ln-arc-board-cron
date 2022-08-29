@@ -16,7 +16,7 @@ import MetasFBNews from '../private/common/metaTags/metasFBNews';
 import getSectionName from '../private/LN/common/utils/getSectionName';
 import Syndication from '../private/common/syndication';
 import LinkAmpHTML from '../private/common/linkAmpHTML';
-import getDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
+import GetDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
 import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 import addForwardSlash from '../private/LN/common/utils/addForwardSlash';
 import setMetasOtt from '../private/common/metaTags/setMetasHelper';
@@ -26,10 +26,12 @@ import MetaViafoura from '../private/common/metaViafoura';
 import Favicon from '../private/common/favicon';
 import {
     getTitle,
-    getMetaDescriptionDefault
+    getMetaDescriptionDefault,
+    metasFromSiteServices
 } from '../private/common/utils/outputTypeHelper';
 import FontPreloads from '../private/common/fontsPreloads';
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
+import get from '../private/common/utils/get';
 
 const getBodyClass = props => {
     const { className = {} } = props;
@@ -54,7 +56,8 @@ const Default = props => {
         renderables,
         globalContent,
         outputType,
-        isAdmin
+        isAdmin,
+        requestUri
     } = props;
 
     const {
@@ -71,7 +74,8 @@ const Default = props => {
         Payload,
         _id,
         taxonomy,
-        first_publish_date: firstPublishDate
+        first_publish_date: firstPublishDate,
+        acumuladoGeneral: { metas } = {}
     } = globalContent || {};
 
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
@@ -82,7 +86,13 @@ const Default = props => {
     const metaTitleBasic = metaTitle || basicTitle;
 
     const _nodeType = getSectionName({ nodeType, type, arcSite });
-    const title = getTitle(_nodeType, metaValue('title'), siteProperties);
+    const title = getTitle(
+        metaValue('title'),
+        requestUri,
+        siteProperties,
+        _nodeType,
+        renderables
+    );
 
     const {
         title: ottMetaTitle,
@@ -110,8 +120,13 @@ const Default = props => {
         Payload,
         nodeType,
         name,
-        arcSite
+        arcSite,
+        requestUri
     );
+
+    const configHydrate = {};
+    if (layout === get(siteProperties, 'layoutsName.Home'))
+        configHydrate.hydrateOnly = true;
 
     return (
         <html lang="es">
@@ -125,13 +140,14 @@ const Default = props => {
                 {layout !== 'LN-buscador' && (
                     <title>{arcSite === 'ott' ? ottMetaTitle : title}</title>
                 )}
-                {getDataToLinkImage({
-                    data: globalContent,
-                    section: _nodeType,
-                    renderables,
-                    arcSite,
-                    isAdmin
-                })}
+                {metasFromSiteServices(metas)}
+                <GetDataToLinkImage
+                    data={globalContent}
+                    section={_nodeType}
+                    renderables={renderables}
+                    arcSite={arcSite}
+                    isAdmin={isAdmin}
+                />
                 <FontPreloads />
                 <FontFaceDefault />
                 <CriticalCss />
@@ -224,6 +240,7 @@ const Default = props => {
                         section={_nodeType}
                         metaValue={title}
                         ottMetaTitle={ottMetaTitle}
+                        requestUri={requestUri}
                     />
                 )}
                 {layout !== 'LN-buscador' && (
@@ -271,7 +288,7 @@ const Default = props => {
                     globalContent={globalContent}
                 />
                 <div id="fusion-app">{children}</div>
-                <Fusion />
+                <Fusion {...configHydrate} />
                 <Scripts
                     location="body-bottom"
                     section={_nodeType}

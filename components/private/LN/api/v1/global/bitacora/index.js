@@ -1,4 +1,4 @@
-import { get } from 'lodash';
+import get from '../../../../../common/utils/get';
 
 const getArticles = articles => {
     let posnum = 0;

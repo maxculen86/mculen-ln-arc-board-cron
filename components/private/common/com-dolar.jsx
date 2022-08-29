@@ -1,6 +1,8 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import ComLink from './com-link';
+import setVisibility from './utils/setVisibility';
 
 const ComDolar = props => {
     const {
@@ -9,8 +11,11 @@ const ComDolar = props => {
         precioCompraBlue,
         precioVentaBlue
     } = props;
+
+    const visibility = setVisibility(props);
+
     return (
-        <ul className="com-dolar">
+        <ul className="com-dolar" style={{ visibility }}>
             <li>
                 <ComLink
                     classCondition="--dolar"
@@ -22,11 +27,11 @@ const ComDolar = props => {
                     Dólar hoy:
                 </ComLink>
                 <span id="precioCompraBna" className="precioDolar">
-                    {precioCompraBna ? `$${precioCompraBna}` : '$00,00'}
+                    {`$${precioCompraBna}`}
                 </span>
                 <i>/</i>
                 <span id="precioVentaBna" className="precioDolar">
-                    {precioVentaBna ? `$${precioVentaBna}` : '$00,00'}
+                    {`$${precioVentaBna}`}
                 </span>
             </li>
             <li>
@@ -40,11 +45,11 @@ const ComDolar = props => {
                     Dólar blue:
                 </ComLink>
                 <span id="precioCompraBlue" className="precioDolar">
-                    {precioCompraBlue ? `$${precioCompraBlue}` : '$00,00'}
+                    {`$${precioCompraBlue}`}
                 </span>
                 <i>/</i>
                 <span id="precioVentaBlue" className="precioDolar">
-                    {precioVentaBlue ? `$${precioVentaBlue}` : '$00,00'}
+                    {`$${precioVentaBlue}`}
                 </span>
             </li>
         </ul>
@@ -55,8 +60,7 @@ ComDolar.propTypes = {
     precioCompraBna: PropTypes.string,
     precioVentaBna: PropTypes.string,
     precioCompraBlue: PropTypes.string,
-    precioVentaBlue: PropTypes.string,
-    size: PropTypes.string
+    precioVentaBlue: PropTypes.string
 };
 
 export default ComDolar;

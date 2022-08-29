@@ -1,15 +1,15 @@
 import React from 'react';
 import Context from 'fusion:context';
-import { useContent } from 'fusion:content';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { prettyDOM } from '@testing-library/dom';
-import WikiFeature from '../../../../components/features/LN-acumulado/wiki/default';
-import mockWikiTagData from '../../../../__mocks__/data/wikiTag/wikiTagData.json';
+import wikiTagPersona from '../../../../__mocks__/data/wikiTag/wikiTagPersona.json';
 
-jest.mock('fusion:content', () => ({
-    useContent: jest.fn()
-}));
+import WikiFeature, {
+    getAltImg,
+    getIconHref,
+    getIconTitle
+} from '../../../../components/features/LN-acumulado/wiki/default';
+import mockWikiTagData from '../../../../__mocks__/data/wikiTag/wikiTagData.json';
 
 jest.mock(
     '../../../../components/private/common/staticValidation',
@@ -24,12 +24,23 @@ jest.mock('fusion:context', () => () => ({
     useAppContext: jest.fn(() => ({}))
 }));
 
+jest.mock('fusion:environment', () => {
+    return {
+        RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com',
+        SITE_LANACION: 'https://www.lanacion.com.ar'
+    };
+});
+
+jest.mock('fusion:properties', () => () => ({
+    getProperties: () => ({ host: 'https://www.lanacion.com.ar' })
+}));
+
 describe('LN-Acumulado-WikiTag test', () => {
     it('Should render the feture when isWiki is true', () => {
-        useContent.mockReturnValueOnce(mockWikiTagData);
         Context.useAppContext = jest.fn(() => ({
             globalContent: {
-                isWiki: true
+                isWiki: true,
+                wikiSourceData: wikiTagPersona
             }
         }));
         const { container } = render(<WikiFeature />);
@@ -42,7 +53,7 @@ describe('LN-Acumulado-WikiTag test', () => {
         ).toBeVisible();
         expect(screen.getByRole('article')).toBeInTheDocument();
         expect(screen.getByRole('img')).toBeInTheDocument();
-        expect(screen.getAllByRole('link')).toHaveLength(10);
+        expect(screen.getAllByRole('link')).toHaveLength(5);
         expect(
             container.getElementsByClassName('description')
         ).toMatchSnapshot();
@@ -55,5 +66,54 @@ describe('LN-Acumulado-WikiTag test', () => {
         }));
         const { container } = render(<WikiFeature />);
         expect(container).toMatchInlineSnapshot('<div />');
+    });
+    it('should test getAltImg func', () => {
+        expect(getAltImg(true, '', '', '', 'River Plate')).toStrictEqual(
+            'River Plate'
+        );
+        expect(
+            getAltImg(false, 'Diego', 'Armando', 'Maradona', '')
+        ).toStrictEqual('Diego Armando Maradona');
+    });
+
+    it('should test getIconTitle func', () => {
+        expect(
+            getIconTitle(true, 'Facebook', 'Boca Juniors', '', '')
+        ).toStrictEqual('Ir al Facebook de Boca Juniors');
+        expect(
+            getIconTitle(false, 'Facebook', '', 'Susana', 'Gimenez')
+        ).toStrictEqual('Ir al Facebook de Susana Gimenez');
+    });
+    it('should test getIconHref func', () => {
+        expect(
+            getIconHref('Instagram', 'instagram.com/leomessi')
+        ).toStrictEqual('instagram.com/leomessi/');
+        expect(getIconHref('Facebook', 'facebook.com/leomessi')).toStrictEqual(
+            'facebook.com/leomessi'
+        );
+    });
+    it('When sotialNetworks is empty', () => {
+        Context.useAppContext = jest.fn(() => ({
+            globalContent: {
+                isWiki: true,
+                wikiSourceData: mockWikiTagData
+            }
+        }));
+        const { container } = render(<WikiFeature />);
+
+        expect(
+            screen.getByText(
+                (content, element) =>
+                    element.tagName.toLowerCase() === 'mock-static-validation'
+            )
+        ).toBeVisible();
+        expect(screen.getByRole('article')).toBeInTheDocument();
+        expect(screen.getAllByRole('link')).toHaveLength(7);
+        expect(container.innerHTML.includes('<div class="social-icons')).toBe(
+            false
+        );
+        expect(
+            container.getElementsByClassName('description')
+        ).toMatchSnapshot();
     });
 });

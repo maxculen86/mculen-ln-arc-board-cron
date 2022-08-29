@@ -124,6 +124,7 @@ describe('getScriptsToLoad', () => {
         const result = getScriptsToLoad(renderables);
         expect(Object.keys(getScriptsToLoad(undefined))).toEqual([
             'Datadog',
+            'AdblockDetector',
             'ScriptVideoPowa',
             'GTM',
             'Comscore',
@@ -136,10 +137,12 @@ describe('getScriptsToLoad', () => {
             'ScriptHtmlLibre',
             'Blockthrough',
             'AmazonPublisherServices',
-            'ComscoreVideo'
+            'ComscoreVideo',
+            'DevReactTracker'
         ]);
         expect(Object.keys(result)).toEqual([
             'Datadog',
+            'AdblockDetector',
             'ScriptVideoPowa',
             'GTM',
             'Comscore',
@@ -154,7 +157,8 @@ describe('getScriptsToLoad', () => {
             'ScriptHtmlLibre',
             'Blockthrough',
             'AmazonPublisherServices',
-            'ComscoreVideo'
+            'ComscoreVideo',
+            'DevReactTracker'
         ]);
         expect(result.Datadog).toBeDefined();
     });

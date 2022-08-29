@@ -6,10 +6,13 @@ import NoticiaSnippet from '../../LN/nota/snippet/noticia';
 import LiveblogSnippet from '../../LN/nota/snippet/liveblog';
 import PaywallSnippet from '../../LN/nota/snippet/paywall';
 import SnippetAcumulado from '../../LN/acumulado/snippet';
+import ProgramSnippet from '../../OTT/programa/snippet/programSnippet';
 import { LIVEBLOG } from '../utils/subtypes/subtypeHelper';
 
 const config = {
-    OTT: {},
+    ott: {
+        'OTT-ficha': ProgramSnippet
+    },
     'la-nacion-ar': {
         'LN-nota-receta': NotaSnippet,
         'LN-nota-noticia': NoticiaSnippet,

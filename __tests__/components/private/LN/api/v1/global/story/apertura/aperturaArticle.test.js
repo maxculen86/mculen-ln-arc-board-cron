@@ -1,5 +1,5 @@
 import Video from '../../../../../../../../../components/private/LN/api/v1/common/story/video';
-import Apertura from '../../../../../../../../../components/private/LN/api/v1/common/story/apertura/aperturaArticle';
+import Apertura from '../../../../../../../../../components/private/LN/api/v1/global/story/apertura/aperturaArticle';
 import ArticleApertura from '../../../../../../../../../__mocks__/data/nota/apertura/apertura.json';
 import HistoryTellingArticle from '../../../../../../../../../__mocks__/data/articles/4HFO7YPZBFEYVB6K5XY6IFV3XY.json';
 import HistoryFotoAlCienArticle from '../../../../../../../../../__mocks__/data/articles/PTAOLSGRDBEZLG6A6T43M7A7PU.json';
@@ -119,7 +119,9 @@ describe('Test de JSON de apertura en article', () => {
         expect(resp.imagenes[0].parametros[0].firma).toBe(
             'll9UIKBF1TEj9aV7Fvgnp39l3KM=/1260x840/smart'
         );
-        expect(resp.imagenes[0].parametros[1].firma).toBe('');
+        expect(resp.imagenes[0].parametros[1].firma).toBe(
+            'vtffL1SBl_VEgLefu5k5MrXVvzg=/768x512/smart'
+        );
         expect(resp.imagenes[0].epigrafe).toBe(imageData.caption);
 
         console.log(resp.imagenes[0].parametros[1].firma);

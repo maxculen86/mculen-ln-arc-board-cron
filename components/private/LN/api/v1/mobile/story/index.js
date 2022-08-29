@@ -1,11 +1,14 @@
+import get from '../../../../../common/utils/get';
 import { storyCommon, storyHeadline } from '../../common/story/storyCommon';
+import apertura from './apertura/aperturaArticle';
 import cuerpo from './cuerpo/index';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
 
 const indexNota = dataNota => {
     const resp = {
         ...storyCommon(dataNota, cuerpo),
-        ...storyHeadline(dataNota, 'mobile')
+        ...storyHeadline(dataNota, 'mobile'),
+        apertura: apertura(dataNota)
     };
 
     let elmentsAdd = 0;
@@ -16,8 +19,9 @@ const indexNota = dataNota => {
             let boxElementValidate = boxElement + elmentsAdd;
             resp.contenido.every((element, i) => {
                 const banner = { _t: 'banner' };
-                const { _t: type } = element;
-                if (type === 'header' && i === boxElementValidate) {
+                const type = get(element, '_t', null);
+
+                if (type && type === 'header' && i === boxElementValidate) {
                     boxElementValidate += 1;
                 }
                 if (i === boxElementValidate && length >= boxElement) {

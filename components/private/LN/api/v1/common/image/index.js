@@ -5,17 +5,20 @@ const imageCommon = image => {
     if (!image) return null;
     const { _id: id, resized_urls: resizedUrls } = image;
     if (!resizedUrls || resizedUrls.length === 0) return null;
+
     const newRegex = /.*\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/;
+    const hrefRegex = new RegExp(
+        /\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/
+    );
+
     const absoluteUrl = resizedUrls[0].resizedUrl.replace(
         newRegex,
         (str, match) => {
             return str.replace(match, '{{param}}');
         }
     );
-    const hrefRegex = new RegExp(
-        /\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/
-    );
     const regexResult = hrefRegex.exec(resizedUrls[0].resizedUrl);
+
     const resp = {
         id,
         _t: 'img',
@@ -28,27 +31,35 @@ const imageCommon = image => {
     const regex = /.*\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/;
     Object.keys(resizedUrls)
         .sort(function orderPhotos(a, b) {
-            const mediaA = resizedUrls[a].option.width;
-            const mediaB = resizedUrls[b].option.width;
-
+            const mediaA = get(resizedUrls, `[${a}].option.width`, 0);
+            const mediaB = get(resizedUrls, `[${b}].option.width`, 0);
             return orderPattern(mediaA, mediaB);
         })
         .forEach((element, index) => {
-            let { media } = resizedUrls[index].option;
+            let { media } = get(resizedUrls, `[${index}].option`, {});
             if (media) {
                 media = parseInt(media.match(/\d+/)[0], 10);
             } else {
-                media = resizedUrls[index].option.width;
+                media = get(resizedUrls, `[${index}].option.width`, 0);
             }
-            resp.parametros.push({
-                media,
-                ancho: resizedUrls[index].option.width,
-                firma: resizedUrls[index].resizedUrl.match(regex)
-                    ? resizedUrls[index].resizedUrl.replace(regex, '$1')
-                    : ''
-            });
-        });
+            const ancho = get(resizedUrls, `[${index}].option.width`, 0);
+            const alto = get(resizedUrls, `[${index}].option.height`, 0);
+            const firma =
+                (resizedUrls[index] &&
+                    resizedUrls[index].resizedUrl &&
+                    resizedUrls[index].resizedUrl.match(regex) &&
+                    resizedUrls[index].resizedUrl.replace(regex, '$1')) ||
+                '';
 
+            if (firma) {
+                resp.parametros.push({
+                    media,
+                    ancho,
+                    alto,
+                    firma
+                });
+            }
+        });
     return resp;
 };
 

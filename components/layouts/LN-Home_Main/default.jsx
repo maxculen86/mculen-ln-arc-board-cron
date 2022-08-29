@@ -5,7 +5,6 @@
 import React, { useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
-import Static from 'fusion:static';
 import StaticValidation from '../../private/common/staticValidation';
 import get from '../../private/common/utils/get';
 import throttle from '../../private/common/utils/throttle';
@@ -25,7 +24,6 @@ import sectionHelper from '../../private/LN/common/utils/sectionHelper';
 import getScrollPercent from '../../private/LN/common/utils/getScrollPercent';
 import Ranking from '../../features/LN-common/ranking/default';
 import SubHeader from '../../features/LN-common/subHeader';
-import TePuedeInteresar from '../../features/LN-nota/tePuedeInteresar/default';
 import pageBuilderSections from '../config/LN-PageBuilder.config.json';
 import TagsListFeature from '../../features/LN-acumulado/tagList';
 import CajaPromo from '../../features/LN-common/cajaPromo/default';
@@ -33,10 +31,10 @@ import DivBannerSSR from '../../private/common/banners/DivBannerSSR';
 import { getScriptForComercial } from '../../private/common/banners/bannersRules';
 import PwaModals from '../../private/LN/common/pwaModals';
 import { homeLayoutsPropTypes } from '../../private/common/utils/propTypesHelper';
-// import {
-//     productClickFromServer,
-//     createObservers
-// } from '../../private/common/utils/viewability';
+import {
+    productClickFromServer,
+    createObservers
+} from '../../private/common/utils/viewability';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -79,22 +77,24 @@ const findBlockToLoad = blocksToLoad => {
 
 const BannerCabezal = () => {
     return (
-        <Static id="bannersCabezal">
+        <>
             <div className="container --ads">
                 <DivBannerSSR
                     bannerConfiguration={{
                         slotId: 'cabezal_dsk',
-                        classes: '--dark'
+                        classes: '--dark',
+                        isStatic: true
                     }}
                 />
                 <DivBannerSSR
                     bannerConfiguration={{
                         slotId: 'cabezal_tab',
-                        classes: '--dark'
+                        classes: '--dark',
+                        isStatic: true
                     }}
                 />
             </div>
-        </Static>
+        </>
     );
 };
 
@@ -207,8 +207,7 @@ const LNMainHome = props => {
             dispatch({ type: 'update', payload: 'bloque3' });
         }
 
-        // TODO: descomentar para habliitar observers
-        // createObservers();
+        createObservers();
 
         if (!lastSectionSaw || !lastScrollPosition) return;
         const lastBlockSaw = sectionsWithBlocks[lastSectionSaw];
@@ -226,39 +225,41 @@ const LNMainHome = props => {
     return (
         <GlobalProvider>
             {/* 1x1 */}
-            <Static id="banner1x1">
+            <>
                 <DivBannerSSR
                     bannerConfiguration={{
                         slotId: '1x1_dsk',
-                        hideForSubscriptor: true
+                        hideForSubscriptor: true,
+                        isStatic: true
                     }}
                 />
                 <DivBannerSSR
                     bannerConfiguration={{
                         slotId: '1x1_mob',
-                        hideForSubscriptor: true
+                        hideForSubscriptor: true,
+                        isStatic: true
                     }}
                 />
-            </Static>
+            </>
             {/* COMERCIAL */}
-            <Static id="bannerComercial">
-                <DivBannerSSR
-                    bannerConfiguration={{
-                        slotId: 'comercial_dsk',
-                        classes: '--comercial hlp-none',
-                        closeButton: true
-                    }}
-                />
-                {getScriptForComercial('comercial_dsk')}
-                <DivBannerSSR
-                    bannerConfiguration={{
-                        slotId: 'comercial_mob',
-                        classes: '--comercial hlp-none',
-                        closeButton: true
-                    }}
-                />
-                {getScriptForComercial('comercial_mob')}
-            </Static>
+            <DivBannerSSR
+                bannerConfiguration={{
+                    slotId: 'comercial_dsk',
+                    classes: '--comercial hlp-none',
+                    closeButton: true,
+                    isStatic: true
+                }}
+            />
+            {getScriptForComercial('comercial_dsk')}
+            <DivBannerSSR
+                bannerConfiguration={{
+                    slotId: 'comercial_mob',
+                    classes: '--comercial hlp-none',
+                    closeButton: true,
+                    isStatic: true
+                }}
+            />
+            {getScriptForComercial('comercial_mob')}
 
             <div id="wrapper" className="home">
                 <Header />
@@ -282,14 +283,13 @@ const LNMainHome = props => {
                 {bomba}
                 <main id="content">
                     {/* STICKY MOB */}
-                    <Static id="sticky2">
-                        <DivBannerSSR
-                            bannerConfiguration={{
-                                slotId: 'sticky2_mob',
-                                classes: '--sticky2_mob --sticky'
-                            }}
-                        />
-                    </Static>
+                    <DivBannerSSR
+                        bannerConfiguration={{
+                            slotId: 'sticky2_mob',
+                            classes: '--sticky2_mob --sticky',
+                            isStatic: true
+                        }}
+                    />
 
                     <div className="">
                         <div id="content-main" className="lay-sidebar">
@@ -302,14 +302,13 @@ const LNMainHome = props => {
                                 <div data-section="apertura">
                                     {apertura1}
                                     {/* BANNER CAJA 1 MOB */}
-                                    <Static id="caja1_mob">
-                                        <DivBannerSSR
-                                            bannerConfiguration={{
-                                                slotId: 'caja1_mob',
-                                                withoutHide: true
-                                            }}
-                                        />
-                                    </Static>
+                                    <DivBannerSSR
+                                        bannerConfiguration={{
+                                            slotId: 'caja1_mob',
+                                            withoutHide: true,
+                                            isStatic: true
+                                        }}
+                                    />
 
                                     {apertura2}
                                 </div>
@@ -318,7 +317,8 @@ const LNMainHome = props => {
                                 <DivBannerSSR
                                     bannerConfiguration={{
                                         slotId: 'billboard_dsk',
-                                        withoutHide: true
+                                        withoutHide: true,
+                                        isStatic: true
                                     }}
                                 />
 
@@ -326,7 +326,8 @@ const LNMainHome = props => {
                                 <DivBannerSSR
                                     bannerConfiguration={{
                                         slotId: 'caja2_mob',
-                                        withoutHide: true
+                                        withoutHide: true,
+                                        isStatic: true
                                     }}
                                 />
 
@@ -544,13 +545,6 @@ const LNMainHome = props => {
                                 <div data-section="breaking4">
                                     {blocksToLoad.bloque3.loaded && breaking4}
                                 </div>
-                                {/* BANNER MIDDLE 1 */}
-                                <DivBannerSSR
-                                    bannerConfiguration={{
-                                        slotId: 'middle1_dsk',
-                                        withoutHide: true
-                                    }}
-                                />
 
                                 <div data-section="breaking5">
                                     {blocksToLoad.bloque3.loaded && breaking5}
@@ -564,7 +558,8 @@ const LNMainHome = props => {
                                 <DivBannerSSR
                                     bannerConfiguration={{
                                         slotId: 'megalateral_dsk',
-                                        classes: megaLateralSticky
+                                        classes: megaLateralSticky,
+                                        isStatic: true
                                     }}
                                 />
                             </div>
@@ -648,9 +643,7 @@ const LNMainHome = props => {
                                     </div>
                                 )}
                                 {blocksToLoad.bloque5.loaded && (
-                                    <TePuedeInteresar
-                                        customFields={{ cantidadNotas: 6 }}
-                                    />
+                                    <Ranking {...props} id="inverse-home" />
                                 )}
                                 <div className="acumulado">
                                     <section className="mod-linklist">
@@ -726,7 +719,7 @@ const LNMainHome = props => {
             )}
             <Metarefresh />
             <PwaModals />
-            {/* {productClickFromServer()} */}
+            {productClickFromServer()}
         </GlobalProvider>
     );
 };

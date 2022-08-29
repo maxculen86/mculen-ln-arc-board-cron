@@ -51,54 +51,30 @@
                 }
             }
             .mod-share {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-                z-index: 100;
-                padding: 0;
-                width: 100%;
-                margin: 0;
-                background: none;
-                .container {
-                    flex-direction: row;
-                    .counterComments {
-                        color: $neutral-white;
-                    }
-                }
-                .com-line {
-                    display: none;
-                }
-                .com-button {
-                    margin-bottom: 0;
-                    margin-right: $spacing-md;
-                    &.comment {
-                        margin-right: 0;
-                        flex-direction: row;
-                        .com-icon {
-                            margin-right: px(4);
+                order: -1;
+                amp-social-share {
+                    &[type='facebook'],
+                    &[type='twitter'],
+                    &[type='whatsapp'],
+                    &[type='email'] {
+                        .com-icon path {
+                            fill: $neutral-white;
                         }
-                        .com-text {
-                            color: $blue-300;
+                        @media ($media-l) {
+                            margin-bottom: 0;
+                            margin-right: $spacing-sm;
                         }
                     }
-                }
-                .com-icon path {
-                    fill: $neutral-white;
                 }
             }
             .mod-media {
-                // .powa-shadow {
-                //     // padding-bottom: $video;
-                //     // background: red;
-                // }
                 .mod-figcaption {
                     display: none;
                     .--credit {
                         color: $light-neutral-400;
                     }
                 }
-                @media ($media-m) {
+                @media ($media-l) {
                     margin-bottom: 0;
                     .mod-figcaption {
                         display: block;
@@ -114,16 +90,21 @@
                     color: $neutral-white;
                 }
             }
-            .col-tablet-4 {
+            .col-desksm-4 {
                 order: 2;
-                @media ($media-m) {
+                display: flex;
+                flex-direction: column;
+                @media ($media-l) {
+                    .mod-share {
+                        order: initial;
+                    }
                     padding-right: px(20);
                     order: 1;
                 }
             }
-            .col-tablet-8 {
+            .col-desksm-8 {
                 order: 1;
-                @media ($media-m) {
+                @media ($media-l) {
                     padding-left: px(20);
                     order: 2;
                 }

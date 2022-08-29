@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import { SITE_LANACION } from 'fusion:environment';
 import get from './utils/get';
 import { allowComments } from './utils/commentsHelper';
-import findTermica from './utils/findTermica';
+import useTermica from './hooks/useTermica';
 
 const MetaViafoura = props => {
     const { globalContent = {} } = props;
     const { canonical_url: canonicalUrl = '' } = globalContent;
-    const allow = Boolean(allowComments(props) && findTermica('livefyre'));
+    const allow = useTermica('livefyre') && allowComments(props);
+
     return (
         (allow && (
             <>

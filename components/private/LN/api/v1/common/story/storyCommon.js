@@ -1,6 +1,5 @@
 import get from '../../../../../common/utils/get';
-import matchObject from '../utils/matchObject';
-import Apertura from './apertura/aperturaArticle';
+import sentToApps from '../utils/sentToApps';
 import ModificadorTemplate from './modificadorTemplate';
 import Relacionados from './relacionados';
 import Metadata from './metadata';
@@ -44,8 +43,7 @@ export const storyHeadline = (dataNota, type) => {
         }`,
         fecha: `${formatPublishDate}${
             !isPrintEdition ? ` • ${formatUpdateTime}` : ''
-        }`,
-        apertura: Apertura(dataNota)
+        }`
     };
 };
 
@@ -60,11 +58,7 @@ export const storyCommon = (dataNota, cuerpo) => {
 
     const showBanners = get(dataNota, 'label.mostrar_banners.text', null);
 
-    const sentToApps = get(dataNota, 'label.enviar_a_apps.text', null);
-    const enviarApps =
-        matchObject(dataNota, 'contains') === false
-            ? matchObject(dataNota, 'contains')
-            : !(sentToApps && sentToApps.toLowerCase() === 'no');
+    const enviarApps = sentToApps(dataNota);
 
     const distributor = get(dataNota, 'distributor', null);
 

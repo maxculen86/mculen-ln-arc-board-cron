@@ -3,20 +3,38 @@ import header from './header';
 import htmlText from '../../../../common/story/cuerpo/elements/htmlText';
 import image from './image';
 
+const getTime = time => {
+    if (time) {
+        const timeSplit = time.split(':');
+        if (timeSplit && timeSplit[1]) {
+            return timeSplit[0].concat(':').concat(timeSplit[1]);
+        }
+    }
+
+    return null;
+};
 const customEmbed = (nodo, dataNota) => {
-    if (!nodo || nodo.subtype !== 'custom-parallax') return null;
+    if (!nodo || !['custom-parallax', 'custom-liveblog'].includes(nodo.subtype))
+        return null;
 
     const res = [];
 
     const titleElement = get(nodo, 'embed.config.title', null);
+    const time = getTime(get(nodo, 'embed.config.time', null));
     if (titleElement) {
-        res.push(
-            header({
-                type: 'header',
-                level: 2,
-                content: titleElement
-            })
-        );
+        const objTitle = {
+            type: 'header',
+            content: titleElement
+        };
+        if (nodo.subtype === 'custom-liveblog') {
+            objTitle.level = 1;
+            if (time) {
+                objTitle.content = time.concat(' '.concat(titleElement));
+            }
+        } else {
+            objTitle.level = 2;
+        }
+        res.push(header(objTitle));
     }
 
     const imageElement = get(nodo, 'embed.config.imageId', null);

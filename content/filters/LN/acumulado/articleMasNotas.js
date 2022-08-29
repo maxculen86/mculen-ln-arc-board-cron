@@ -48,8 +48,14 @@ export default `
                 display
             }
         }
+        taxonomy {
+            tags {
+                description
+                slug
+            }
+        }
         related_content {
-            basic{
+            basic {
                 _id
                 type
                 referent {

@@ -7,16 +7,27 @@ import Context from 'fusion:context';
 import taxonomySection from '../../../../__mocks__/data/masNotas/taxonomySection';
 import taxonomyTags from '../../../../__mocks__/data/masNotas/taxonomyTags';
 import mockArticles from '../../../../__mocks__/data/masNotas/articles';
+import useGetArticlesFromAcumSource from '../../../../components/private/LN/common/hooks/useGetArticlesFromAcumSource';
 import '@testing-library/jest-dom';
-
-const mockArticlesFunc = jest.fn();
 
 jest.mock('fusion:static', () => 'mock-static');
 
 jest.mock(
     '../../../../components/private/LN/common/hooks/useGetArticlesFromAcumSource',
-    () => () => mockArticlesFunc()
+    () => jest.fn()
 );
+
+useGetArticlesFromAcumSource.mockImplementation(
+    () => mockArticles.content_elements
+);
+
+jest.mock('react', () => {
+    const ActualReact = require.requireActual('react');
+    return {
+        ...ActualReact,
+        useContext: () => ({})
+    };
+});
 
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
@@ -39,9 +50,15 @@ Context.useAppContext = jest.fn(() => ({
 }));
 
 describe('masNotas feature Test', () => {
-    const getMasNotasProps = (cantidadNotas, filter, subtype, taxonomy) => ({
+    const getMasNotasProps = (
+        cantidadNotas,
+        filter,
+        subtype,
+        taxonomy,
+        sectionOrTag
+    ) => ({
         id: '0fqAkhiaPrV',
-        customFields: { cantidadNotas, filter },
+        customFields: { cantidadNotas, filter, sectionOrTag },
         globalContent: {
             _id: 'AVYWDWDAVVESZGD7HXMW46GTYA',
             subtype,
@@ -51,9 +68,10 @@ describe('masNotas feature Test', () => {
         arcSite: 'la-nacion-ar'
     });
     it('should show masNotas feature "últimas noticias"', () => {
-        mockArticlesFunc.mockReturnValueOnce(mockArticles.content_elements);
         render(
-            <MasNotas {...getMasNotasProps(30, '0', '1', taxonomySection)} />
+            <MasNotas
+                {...getMasNotasProps(30, 'byLastNews', '1', taxonomySection)}
+            />
         );
         expect(screen.getAllByRole('heading').shift()).toHaveTextContent(
             'Últimas Noticias'
@@ -62,8 +80,9 @@ describe('masNotas feature Test', () => {
     });
 
     it('should show masNotas feature as "otras noticias de..."', () => {
-        mockArticlesFunc.mockReturnValueOnce(mockArticles.content_elements);
-        render(<MasNotas {...getMasNotasProps(3, '1', '1', taxonomyTags)} />);
+        render(
+            <MasNotas {...getMasNotasProps(3, 'byTags', '1', taxonomyTags)} />
+        );
         expect(screen.getAllByRole('heading').shift()).toHaveTextContent(
             'Otras noticias'
         );
@@ -71,8 +90,11 @@ describe('masNotas feature Test', () => {
     });
 
     it('should show masNotas feature as "Ultimas Recetas ..."', () => {
-        mockArticlesFunc.mockReturnValueOnce(mockArticles.content_elements);
-        render(<MasNotas {...getMasNotasProps(30, '0', '7', taxonomyTags)} />);
+        render(
+            <MasNotas
+                {...getMasNotasProps(30, 'byLastNews', '7', taxonomyTags)}
+            />
+        );
         expect(screen.getAllByRole('heading').shift()).toHaveTextContent(
             'Últimas Recetas'
         );
@@ -80,17 +102,20 @@ describe('masNotas feature Test', () => {
     });
 
     it('should show masNotas feature as "Más recetas de ..."', () => {
-        mockArticlesFunc.mockReturnValueOnce(mockArticles.content_elements);
-        render(<MasNotas {...getMasNotasProps(6, '1', '7', taxonomyTags)} />);
+        render(
+            <MasNotas {...getMasNotasProps(6, 'byTags', '7', taxonomyTags)} />
+        );
         expect(screen.getAllByRole('heading').shift()).toHaveTextContent(
             'Más recetas'
         );
         expect(screen.getAllByRole('article').length).toStrictEqual(6);
     });
+
     it('should not show same article and not to show articles without media destacada', () => {
-        mockArticlesFunc.mockReturnValueOnce(mockArticles.content_elements);
         render(
-            <MasNotas {...getMasNotasProps(30, '0', '1', taxonomySection)} />
+            <MasNotas
+                {...getMasNotasProps(30, 'byLastNews', '1', taxonomySection)}
+            />
         );
         const articles = screen.getAllByRole('article');
         articles.forEach(article => {
@@ -98,10 +123,61 @@ describe('masNotas feature Test', () => {
             expect(article).not.toContain('no-media-article-id');
         });
     });
-    it('should not render feature', () => {
-        mockArticlesFunc.mockReturnValueOnce([]);
+
+    it('Searc by tag - Should show masNotas feature as "otras noticias de [the tag]', () => {
         render(
-            <MasNotas {...getMasNotasProps(30, '0', '1', taxonomySection)} />
+            <MasNotas
+                {...getMasNotasProps(
+                    6,
+                    'bySectionOrTag',
+                    '1',
+                    taxonomySection,
+                    'alberto-fernandez-tid849'
+                )}
+            />
+        );
+
+        expect(screen.getAllByRole('heading').shift()).toHaveTextContent(
+            'Otras noticias'
+        );
+
+        expect(screen.getAllByRole('link').shift()).toHaveTextContent(
+            'Alberto Fernández'
+        );
+
+        expect(screen.getAllByRole('article').length).toStrictEqual(6);
+    });
+
+    it('Searc by section - Should show masNotas feature as "otras noticias de [the section]', () => {
+        render(
+            <MasNotas
+                {...getMasNotasProps(
+                    4,
+                    'bySectionOrTag',
+                    '1',
+                    taxonomySection,
+                    '/el-mundo'
+                )}
+            />
+        );
+
+        expect(screen.getAllByRole('heading').shift()).toHaveTextContent(
+            'Últimas notas de El mundo'
+        );
+
+        expect(screen.getAllByRole('link').shift()).toHaveTextContent(
+            'El mundo'
+        );
+
+        expect(screen.getAllByRole('article').length).toStrictEqual(4);
+    });
+
+    it('should not render feature', () => {
+        useGetArticlesFromAcumSource.mockImplementation(() => [undefined]);
+        render(
+            <MasNotas
+                {...getMasNotasProps(30, 'byLastNews', '1', taxonomySection)}
+            />
         );
         expect(screen.queryByRole('heading')).toBeNull();
         expect(screen.queryByRole('article')).toBeNull();

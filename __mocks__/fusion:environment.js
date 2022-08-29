@@ -5,8 +5,7 @@ jest.mock('fusion:environment', () => {
         IS_DEV: false,
         IS_SANDBOX: false,
         API_ENV: 'prod',
-        RESIZER_URL:
-            'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer',
+        RESIZER_URL: 'https://resizer.glanacion.com/resizer',
         RESIZER_KEY: 'Fmkgru2rZ2uPZ5wXs7B2HbVDJHDkdoi5',
         API_INGRESAR: 'https://api-ingresar.lanacion.com.ar',
         RELOGIN_VALIDATION: '8121600000',
@@ -21,6 +20,8 @@ jest.mock('fusion:environment', () => {
             'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com',
         SITE_LANACION: 'https://www.lanacion.com.ar',
         SITE_RECETAS: 'https://www.lanacion.com.ar/recetas/',
-        LANACION_SERVICES_URL: 'https://arcservices.lanacion.com.ar'
+        LANACION_SERVICES_URL: 'https://arcservices.lanacion.com.ar',
+        PERSONALIZACION_API:
+            'https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/'
     };
 });

@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable react/no-danger */
 import React from 'react';
+import get from './get';
 
 export const productClickFromServer = () => {
     return (
@@ -61,10 +62,10 @@ const getName = element => {
 };
 
 export const productClickFromClient = (element = {}) => {
-    // const product = getDataSetProps(element.currentTarget);
-    // if (product.id) {
-    //     window.dataLayer.push({ event: 'productClickTest', product });
-    // }
+    const product = getDataSetProps(element.currentTarget);
+    if (product.id) {
+        window.dataLayer.push({ event: 'productClickScore', product });
+    }
     return true;
 };
 
@@ -73,7 +74,9 @@ export const createIntersectionObserver = () => {
         const callback = (entries, observer) => {
             const articlesToAdd = [];
             const articlesSeen =
-                JSON.parse(sessionStorage.getItem('seenArticlesTest')) || [];
+                (sessionStorage &&
+                    JSON.parse(sessionStorage.getItem('seenArticlesScore'))) ||
+                [];
 
             entries.forEach(entry => {
                 if (shouldAddArticle(entry, articlesSeen)) {
@@ -110,10 +113,12 @@ export const createIntersectionObserver = () => {
 };
 
 const shouldAddArticle = (entry, articlesSeen) => {
+    const idArticle = get(entry, 'target.dataset.id');
     return (
         entry.isIntersecting &&
+        idArticle &&
         Array.isArray(articlesSeen) &&
-        !articlesSeen.find(art => art.id === entry.target.dataset.id)
+        !articlesSeen.find(art => art.id === idArticle)
     );
 };
 
@@ -123,14 +128,14 @@ const addEventImpressionToDataLayer = (
 ) => {
     if (articlesToAdd.length > 0) {
         window.dataLayer.push({
-            event: 'impressionsTest',
+            event: 'impressionsScore',
             products: articlesToAdd
         });
 
         articlesSeen.push(...articlesToAdd);
 
         sessionStorage.setItem(
-            'seenArticlesTest',
+            'seenArticlesScore',
             JSON.stringify(
                 articlesSeen.map(art => {
                     return { id: art.id, name: art.name };
@@ -146,7 +151,7 @@ export const createObservers = () => {
     const mutationCallback = (mutationsList, observer) => {
         mutationsList.forEach(mutation => {
             mutation.addedNodes.forEach(node => {
-                if (node.dataset.module) {
+                if (get(node, 'dataset.module')) {
                     const arts = document.querySelectorAll(
                         `div[data-module=${node.dataset.module}] article`
                     );

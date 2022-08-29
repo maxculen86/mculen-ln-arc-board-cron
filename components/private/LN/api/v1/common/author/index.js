@@ -63,6 +63,12 @@ export const authorAcu = (author, page) => {
     };
 };
 
+export const authorAcuFollow = (authorFollow, page) => {
+    const author = authorFollow;
+    delete author.type;
+    return author;
+};
+
 export const authorHomeMobile = author => {
     const authorData = getAuthorData(author);
     const { email, twitter } = author;

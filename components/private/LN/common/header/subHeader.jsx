@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import StaticContent from '../../../common/staticContent';
 
 import '../../../../../resources/dist/css/ln/modules/mod-subheader.css';
 
@@ -8,13 +9,24 @@ import ComDolar from '../../../common/com-dolar';
 import ComLink from '../../../common/com-link';
 import Club from '../../../common/icons/system/Club';
 
+/**
+ * Optimizar uso del StaticContent
+ */
+
 const ModSubheader = props => {
-    const { dolar = [], weather = {} } = props;
-    const [dolarBna = {}, dolarBlue = {}] = dolar;
-    const { icon_name: iconName, temperatura, nombre } = weather;
+    const { dollar = [], weather = {} } = props;
+    const [dolarBna = {}, dolarBlue = {}] = dollar;
+    const { dataService: { locations = [] } = {} } = weather;
+
+    const { current_temp: temperatura = '', weather: weatherInfo = {} } =
+        locations.find(e => {
+            const { location_id: locationId = '' } = e;
+
+            return locationId === 'ciudad-de-buenos-aires';
+        }) || {};
 
     return (
-        <section className="mod-subheader">
+        <StaticContent tag="section" className="mod-subheader">
             <div className="lay">
                 <nav className="row">
                     <ComDolar
@@ -26,10 +38,10 @@ const ModSubheader = props => {
                     />
 
                     <ComWeather
-                        iconName={iconName}
+                        iconName={weatherInfo.id || ''}
                         size="--fourxs"
                         temperature={temperatura}
-                        weatherPlace={nombre}
+                        weatherPlace="Capital Federal"
                     />
 
                     <ComLink
@@ -55,12 +67,12 @@ const ModSubheader = props => {
                     </ComLink>
                 </nav>
             </div>
-        </section>
+        </StaticContent>
     );
 };
 
 ModSubheader.propTypes = {
-    dolar: PropTypes.arrayOf(PropTypes.object).isRequired,
+    dollar: PropTypes.arrayOf(PropTypes.object).isRequired,
     weather: PropTypes.shape({
         icon_name: PropTypes.string.isRequired,
         temperatura: PropTypes.string.isRequired,

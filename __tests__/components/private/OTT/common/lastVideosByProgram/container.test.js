@@ -10,7 +10,7 @@ import { mount } from 'enzyme';
 import LastVideosByProgramContainer, {
     pageSize
 } from '../../../../../../components/private/OTT/programa/lastVideosByProgram';
-import get from 'lodash.get';
+import get from '../../../../../../components/private/common/utils/get';
 import testHelper from '../../../../../utils/testHelper';
 import jsonConNext from '../../../../../../__mocks__/data/videos/videosConNext.json';
 import jsonSinNext from '../../../../../../__mocks__/data/videos/videosSinNext.json';

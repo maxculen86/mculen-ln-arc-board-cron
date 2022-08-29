@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { SITE_LANACION } from 'fusion:environment';
 import List from '../private/common/mod-list';
 import Title from '../private/common/com-title';
 import Copyright from '../private/LN/common/footer/copyright';
@@ -10,21 +11,21 @@ import ComLogo from '../private/common/com-logo';
 
 const LNMapaDelSitio = ({ children }) => {
     const listado1 = [
-        { text: 'LA NACION', href: 'https://www.lanacion.com.ar/' },
+        { text: 'LA NACION', href: `${SITE_LANACION}/` },
         {
             text: 'Últimas noticias',
-            href: 'https://www.lanacion.com.ar/ultimas-noticias/'
+            href: `${SITE_LANACION}/ultimas-noticias/`
         },
-        { text: 'Política', href: 'https://www.lanacion.com.ar/politica/' },
-        { text: 'Economía', href: 'https://www.lanacion.com.ar/economía/' },
-        { text: 'El mundo', href: 'https://www.lanacion.com.ar/el-mundo/' },
-        { text: 'Sociedad', href: 'https://www.lanacion.com.ar/sociedad/' },
-        { text: 'Opinión', href: 'https://www.lanacion.com.ar/opinion/' },
-        { text: 'Deportes', href: 'https://www.lanacion.com.ar/deportes/' },
-        { text: 'Lifestyle', href: 'https://www.lanacion.com.ar/lifestyle/' },
+        { text: 'Política', href: `${SITE_LANACION}/politica/` },
+        { text: 'Economía', href: `${SITE_LANACION}/economía/` },
+        { text: 'El mundo', href: `${SITE_LANACION}/el-mundo/` },
+        { text: 'Sociedad', href: `${SITE_LANACION}/sociedad/` },
+        { text: 'Opinión', href: `${SITE_LANACION}/opinion/` },
+        { text: 'Deportes', href: `${SITE_LANACION}/deportes/` },
+        { text: 'Lifestyle', href: `${SITE_LANACION}/lifestyle/` },
         {
             text: 'Espectáculos',
-            href: 'https://www.lanacion.com.ar/espectaculos/'
+            href: `${SITE_LANACION}/espectaculos/`
         },
         {
             text: 'Edición impresa',
@@ -55,37 +56,36 @@ const LNMapaDelSitio = ({ children }) => {
     ];
 
     const listado4 = [
-        { text: 'Autos', href: 'https://www.lanacion.com.ar/autos/' },
+        { text: 'Autos', href: `${SITE_LANACION}/autos/` },
         {
             text: 'Al volante',
-            href: 'https://www.lanacion.com.ar/autos/al-volante/'
+            href: `${SITE_LANACION}/autos/al-volante/`
         },
-        { text: 'Campo', href: 'https://www.lanacion.com.ar/economia/campo/' },
+        { text: 'Campo', href: `${SITE_LANACION}/economia/campo/` },
         {
             text: 'Comercio exterior',
-            href: 'https://www.lanacion.com.ar/economia/comercio-exterior/'
+            href: `${SITE_LANACION}/economia/comercio-exterior/`
         },
-        { text: 'Comunidad', href: 'https://www.lanacion.com.ar/comunidad/' },
-        { text: 'Ideas', href: 'https://www.lanacion.com.ar/ideas/' },
+        { text: 'Comunidad', href: `${SITE_LANACION}/comunidad/` },
+        { text: 'Ideas', href: `${SITE_LANACION}/ideas/` },
         {
             text: 'Propiedades',
-            href: 'https://www.lanacion.com.ar/propiedades/'
+            href: `${SITE_LANACION}/propiedades/`
         },
         {
             text: 'Inmuebles comerciales',
-            href:
-                'https://www.lanacion.com.ar/propiedades/inmuebles-comerciales/'
+            href: `${SITE_LANACION}/propiedades/inmuebles-comerciales/`
         },
         {
             text: 'La Nacion revista',
-            href: 'https://www.lanacion.com.ar/la-nacion-revista/'
+            href: `${SITE_LANACION}/la-nacion-revista/`
         },
         {
             text: 'Moda y belleza',
-            href: 'https://www.lanacion.com.ar/moda-y-belleza/'
+            href: `${SITE_LANACION}/moda-y-belleza/`
         },
-        { text: 'Sábado', href: 'https://www.lanacion.com.ar/sabado/' },
-        { text: 'Turismo', href: 'https://www.lanacion.com.ar/turismo/' }
+        { text: 'Sábado', href: `${SITE_LANACION}/sabado/` },
+        { text: 'Turismo', href: `${SITE_LANACION}/turismo/` }
     ];
 
     const listado5 = [
@@ -104,23 +104,23 @@ const LNMapaDelSitio = ({ children }) => {
     const listado6 = [
         {
             text: 'OHLALÁ!',
-            href: 'https://www.lanacion.com.ar/revista-ohlala/'
+            href: `${SITE_LANACION}/revista-ohlala/`
         },
         {
             text: '¡HOLA! Argentina',
-            href: 'https://www.lanacion.com.ar/revista-hola/'
+            href: `${SITE_LANACION}/revista-hola/`
         },
         {
             text: 'Rolling Stone',
-            href: 'https://www.lanacion.com.ar/revista-rolling-stone/'
+            href: `${SITE_LANACION}/revista-rolling-stone/`
         },
         {
             text: 'Lugares',
-            href: 'https://www.lanacion.com.ar/revista-lugares/'
+            href: `${SITE_LANACION}/revista-lugares/`
         },
-        { text: 'Living', href: 'https://www.lanacion.com.ar/revista-living/' },
-        { text: 'Brando', href: 'https://www.lanacion.com.ar/revista-brando/' },
-        { text: 'Jardín', href: 'https://www.lanacion.com.ar/revista-jardin/' }
+        { text: 'Living', href: `${SITE_LANACION}/revista-living/` },
+        { text: 'Brando', href: `${SITE_LANACION}/revista-brando/` },
+        { text: 'Jardín', href: `${SITE_LANACION}/revista-jardin/` }
     ];
 
     const listado7 = [
@@ -183,48 +183,64 @@ const LNMapaDelSitio = ({ children }) => {
     ];
 
     const listado8 = [
-        { text: 'Twitter', href: 'https://twitter.com/LANACION' },
-        { text: 'Facebook', href: 'https://www.facebook.com/lanacion' },
-        { text: 'Instagram', href: 'https://www.instagram.com/lanacioncom/' },
+        {
+            text: 'Twitter',
+            href: 'https://twitter.com/LANACION',
+            rel: 'nofollow',
+            target: '_blank'
+        },
+        {
+            text: 'Facebook',
+            href: 'https://www.facebook.com/lanacion',
+            rel: 'nofollow',
+            target: '_blank'
+        },
+        {
+            text: 'Instagram',
+            href: 'https://www.instagram.com/lanacioncom/',
+            rel: 'nofollow',
+            target: '_blank'
+        },
         {
             text: 'Youtube',
-            href: 'https://www.youtube.com/channel/UCba3hpU7EFBSk817y9qZkiA'
+            href: 'https://www.youtube.com/channel/UCba3hpU7EFBSk817y9qZkiA',
+            rel: 'nofollow',
+            target: '_blank'
         }
     ];
 
     const listado9 = [
-        { text: 'Horóscopo', href: 'https://www.lanacion.com.ar/horoscopo/' },
+        { text: 'Horóscopo', href: `${SITE_LANACION}/horoscopo/` },
         {
-            text: 'Pronóstico',
-            href: 'https://servicios.lanacion.com.ar/pronostico-del-tiempo'
+            text: 'Clima',
+            href: `${SITE_LANACION}/clima/`
         },
-        { text: 'Tránsito', href: 'https://www.lanacion.com.ar/transito/' },
-        { text: 'Dólar hoy', href: 'https://www.lanacion.com.ar/dolar-hoy/' },
-        { text: 'Feriados', href: 'https://www.lanacion.com.ar/feriados' },
+        { text: 'Tránsito', href: `${SITE_LANACION}/transito/` },
+        { text: 'Dólar hoy', href: `${SITE_LANACION}/dolar-hoy/` },
+        { text: 'Feriados', href: `${SITE_LANACION}/feriados` },
         {
             text: 'Loterías y quinielas',
-            href: 'https://www.lanacion.com.ar/loterias/'
+            href: `${SITE_LANACION}/loterias/`
         },
         {
             text: 'Cartelera de cine',
-            href: 'https://www.lanacion.com.ar/cartelera-de-cine/'
+            href: `${SITE_LANACION}/cartelera-de-cine/`
         },
         {
             text: 'Cartelera de teatro',
-            href: 'https://www.lanacion.com.ar/cartelera-de-teatro/'
+            href: `${SITE_LANACION}/cartelera-de-teatro/`
         },
         {
             text: 'Recetas',
-            href: 'https://www.lanacion.com.ar/recetas/'
+            href: `${SITE_LANACION}/recetas/`
         },
         {
             text: 'Podcasts',
-            href:
-                'https://www.lanacion.com.ar/lifestyle/cuales-son-podcast-la-nacion-nid2165046/'
+            href: `${SITE_LANACION}/tema/podcasts-tid64878/`
         },
-        { text: 'Sudoku', href: 'https://www.lanacion.com.ar/sudoku-online' },
-        { text: 'RSS', href: 'https://www.lanacion.com.ar/arcio/rss/' },
-        { text: 'Agencias', href: 'https://www.lanacion.com.ar/agencias/' }
+        { text: 'Sudoku', href: `${SITE_LANACION}/sudoku-online` },
+        { text: 'RSS', href: `${SITE_LANACION}/arcio/rss/` },
+        { text: 'Agencias', href: `${SITE_LANACION}/agencias/` }
     ];
 
     const listado10 = [
@@ -251,7 +267,7 @@ const LNMapaDelSitio = ({ children }) => {
                     <div className="lay">
                         <ComLogo
                             logoName="la-nacion"
-                            href="https://www.lanacion.com.ar/"
+                            href="SITE_LANACION/"
                             title="LA NACION"
                         />
                     </div>

@@ -11,6 +11,8 @@ import {
     comscorePlayEvent
 } from './comscoreStreamingTag';
 import deviceType from '../../LN/common/utils/deviceType';
+import get from '../utils/get';
+import { VIDEO } from '../utils/subtypes/subtypeHelper';
 
 const setPrerollAdsForPowa = adsURL => {
     window.PoWaSettings = window.PoWaSettings || {};
@@ -109,10 +111,25 @@ const VideoPlayer = props => {
         isApertura
     } = props;
 
-    const firstVideo = globalContent.content_elements
-        ? globalContent.content_elements.find(x => x.type === 'video')
-        : null;
+    const firstBodyVideo =
+        globalContent.content_elements &&
+        globalContent.content_elements.find(x => x.type === 'video');
 
+    const firstArticleVideo =
+        get(globalContent, 'promo_items.basic.type') === 'video'
+            ? get(globalContent, 'promo_items.basic')
+            : firstBodyVideo;
+
+    const firstVideoId =
+        globalContent.subtype === VIDEO
+            ? get(
+                  globalContent,
+                  'promo_items.apertura_multimedia',
+                  get(globalContent, 'promo_items.basic')
+              )
+            : firstArticleVideo;
+
+    const _firstVideoId = get(firstVideoId, '_id');
     const siteVars = getProperties(arcSite);
     const { organizationId } = siteVars || {};
     const apiEnv = API_ENV || 'sandbox';
@@ -169,8 +186,8 @@ const VideoPlayer = props => {
                 data-autoplay-muted={autoPlay}
                 data-controls={enableControls}
                 data-muted={
-                    (firstVideo &&
-                        videoId === firstVideo._id &&
+                    (firstVideoId &&
+                        videoId === _firstVideoId &&
                         device === 'desktop') ||
                     isApertura
                         ? true
@@ -180,17 +197,17 @@ const VideoPlayer = props => {
                 data-api={apiEnv}
                 data-env="prod"
             />
-            {firstVideo && videoId === firstVideo._id && device === 'desktop' && (
+            {firstVideoId && videoId === _firstVideoId && device === 'desktop' && (
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `
                         ${deviceType}
                         deviceType() === 'desktop' &&
                             window.addEventListener('load', () => {
-                                const [{ shadowRoot } = {}] = document.querySelectorAll('.cuerpo__nota .powa-shadow');
+                                const [{ shadowRoot } = {}] = document.querySelectorAll('.powa-shadow');
                                 const divFirstPowa =
                                     shadowRoot.querySelector &&
-                                    shadowRoot.querySelector('[data-uuid="${firstVideo._id}"]');
+                                    shadowRoot.querySelector('[data-uuid="${_firstVideoId}"]');
                                 let userPause = false;
                                 
                                 if (divFirstPowa && window.powas) {

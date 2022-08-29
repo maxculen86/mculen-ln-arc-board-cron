@@ -40,7 +40,9 @@
 
 .com-desplegable {
     display: none;
-    width: 200px;
+    padding: 0 px(12);
+    padding-bottom: px(12);
+    width: px(200);
     border: 1px solid $light-neutral-200;
     background: $neutral-white;
     border-radius: 3px;
@@ -48,7 +50,7 @@
     position: absolute;
     right: 0;
     top: px(50);
-    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 4px 0 rgba(167, 164, 164, 0.2);
     z-index: 100;
     &:before {
         content: '';
@@ -78,19 +80,41 @@
     li {
         z-index: 2;
         position: relative;
+        &:first-child {
+            margin-top: px(12);
+        }
+        .mis-notas {
+            border-bottom: 1px solid $light-neutral-300;
+        }
         &:last-child {
-            border-top: 1px solid $light-neutral-400;
+            border-top: 1px solid $light-neutral-300;
+            a,
+            a:hover {
+                color: $red-700;
+            }
         }
         a {
             font-size: px(14);
-            padding: 0.8em 2em;
+            padding: px(12);
             width: auto;
             display: block;
             color: $link;
             &:hover {
-                background: $light-neutral-200;
+                background: $blue-100;
+                border-radius: px(4);
+                color: $blue-400;
             }
         }
+    }
+    .new-feature {
+        position: absolute;
+        z-index: 110;
+        top: px(26);
+        right: $spacing-md;
+        padding: px(4) $spacing;
+        color: $neutral-white;
+        background: $blue-500;
+        border-radius: px(4);
     }
     .com-usuario.--active & {
         display: block;

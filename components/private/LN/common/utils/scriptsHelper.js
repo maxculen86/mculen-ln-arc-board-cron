@@ -2,29 +2,40 @@ import ScriptManager from '../../../common/scriptManager';
 import AmazonPublisherServices from '../../../common/scriptManager/amazonPublisherServices';
 import Blockthrough from '../../../common/scriptManager/blockthrough';
 import Comscore from '../../../common/scriptManager/comscore';
-import comscoreVideo from '../../../common/scriptManager/comscoreVideo';
-import DataDog from '../../../common/scriptManager/dataDog';
+import ComscoreVideo from '../../../common/scriptManager/comscoreVideo';
+import Datadog from '../../../common/scriptManager/dataDog';
 import GooglePublisherTag from '../../../common/scriptManager/googlePublisherTag';
-import googlePublisherTagAcumulado from '../../../common/scriptManager/googlePublisherTagAcumulado';
+import GooglePublisherTagAcumulado from '../../../common/scriptManager/googlePublisherTagAcumulado';
 import GTM from '../../../common/scriptManager/googleTagManager';
 import LiftIgniter from '../../../common/scriptManager/Liftigniter';
 import Microdata from '../../../common/scriptManager/microdata';
-import optaEmbed from '../../../common/scriptManager/optaEmbed';
+import OptaEmbed from '../../../common/scriptManager/optaEmbed';
 import Petametrics from '../../../common/scriptManager/petametrics';
 import PostBid from '../../../common/scriptManager/postbid';
-import scriptHtmlLibre from '../../../common/scriptManager/scriptHtmlLibre';
+import ScriptHtmlLibre from '../../../common/scriptManager/scriptHtmlLibre';
 import ScriptVideoPowa from '../../../common/scriptManager/scriptVideoPowa';
-import socialEmbeds from '../../../common/scriptManager/socialEmbeds';
+import SocialEmbeds from '../../../common/scriptManager/socialEmbeds';
+import DevReactTracker from '../../../common/scriptManager/DevReactTracker';
+import AdblockDetector from '../../../common/scriptManager/adblockDetector';
+import ScriptCripto from '../../../common/scriptManager/scriptCripto';
 import { pipe } from '../../../common/utils/functional';
 
 const scriptList = [
     {
-        component: { name: 'Datadog', function: DataDog },
+        component: { name: 'Datadog', function: Datadog },
+        feature: 'none'
+    },
+    {
+        component: { name: 'AdblockDetector', function: AdblockDetector },
         feature: 'none'
     },
     {
         component: { name: 'ScriptVideoPowa', function: ScriptVideoPowa },
         feature: 'none'
+    },
+    {
+        component: { name: 'ScriptCripto', function: ScriptCripto },
+        feature: ['LN-acumulado/cajaDolar', 'LN-acumulado/cajaCripto']
     },
     { component: { name: 'GTM', function: GTM }, feature: 'none' },
     { component: { name: 'Comscore', function: Comscore }, feature: 'none' },
@@ -40,7 +51,7 @@ const scriptList = [
     {
         component: {
             name: 'GooglePublisherTagAcumulado',
-            function: googlePublisherTagAcumulado
+            function: GooglePublisherTagAcumulado
         },
         feature: 'none'
     },
@@ -53,15 +64,15 @@ const scriptList = [
         feature: ['LN-nota/tePuedeInteresar']
     },
     {
-        component: { name: 'SocialEmbeds', function: socialEmbeds },
+        component: { name: 'SocialEmbeds', function: SocialEmbeds },
         feature: 'none'
     },
     {
-        component: { name: 'OptaEmbed', function: optaEmbed },
+        component: { name: 'OptaEmbed', function: OptaEmbed },
         feature: 'none'
     },
     {
-        component: { name: 'ScriptHtmlLibre', function: scriptHtmlLibre },
+        component: { name: 'ScriptHtmlLibre', function: ScriptHtmlLibre },
         feature: 'none'
     },
     {
@@ -78,7 +89,14 @@ const scriptList = [
     {
         component: {
             name: 'ComscoreVideo',
-            function: comscoreVideo
+            function: ComscoreVideo
+        },
+        feature: 'none'
+    },
+    {
+        component: {
+            name: 'DevReactTracker',
+            function: DevReactTracker
         },
         feature: 'none'
     }

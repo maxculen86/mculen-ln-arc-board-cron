@@ -9,6 +9,7 @@ import propsAppAnexo1 from '../../../../__mocks__/data/renderables/dataAppAnexo1
 import propsAppAnexo2 from '../../../../__mocks__/data/renderables/dataAppAnexo2';
 import propsAppAnexowithoutApertura from '../../../../__mocks__/data/renderables/dataAppAnexoswithoutApertura';
 import propsApertura from '../../../../__mocks__/data/renderables/dataApertura.json';
+import propsAperturaTimeline from '../../../../__mocks__/data/renderables/dataAperturaTimeline.json';
 
 jest.mock('.../../../../../../components/private/LN/api/v1/global/home', () => {
     return function(component) {
@@ -163,6 +164,61 @@ describe('components - layouts - LN-Home_Main - json', () => {
                 ].sort()
             );
             expect(homeSections[0].feature).toBe('Apertura');
+        });
+    });
+
+    describe('Test Section Apertura Timeline', () => {
+        test('Ok', () => {
+            const homeSections = LayoutLNMainHome.default(
+                propsAperturaTimeline
+            );
+            expect(homeSections.length).toBe(8);
+            expect(Object.keys(homeSections[0]).sort()).toEqual(
+                [
+                    'articles',
+                    'configurations',
+                    'feature',
+                    'information',
+                    'type',
+                    'nameFeature',
+                    'subLayout'
+                ].sort()
+            );
+            expect(homeSections[0].feature).toBe('Apertura');
+            expect(homeSections[0].subLayout).toBe('LN-acumulado/timeline');
+            expect(Object.keys(homeSections[1]).sort()).toEqual(
+                [
+                    'articles',
+                    'configurations',
+                    'feature',
+                    'information',
+                    'type',
+                    'nameFeature'
+                ].sort()
+            );
+            expect(homeSections[1].feature).toBe('Apertura');
+            expect(homeSections[1].subLayout).toBeUndefined();
+        });
+
+        test('Ok timeline without articles', () => {
+            const propsAperturaTimelineNoArticles = propsAperturaTimeline;
+            propsAperturaTimelineNoArticles.children[3][0].articles = [];
+            const homeSections = LayoutLNMainHome.default(
+                propsAperturaTimelineNoArticles
+            );
+            expect(homeSections.length).toBe(7);
+            expect(Object.keys(homeSections[0]).sort()).toEqual(
+                [
+                    'articles',
+                    'configurations',
+                    'feature',
+                    'information',
+                    'type',
+                    'nameFeature'
+                ].sort()
+            );
+            expect(homeSections[0].feature).toBe('Apertura');
+            expect(homeSections[0].subLayout).toBeUndefined();
         });
     });
 

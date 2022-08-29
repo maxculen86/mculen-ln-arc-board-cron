@@ -1,6 +1,7 @@
 import Consumer from 'fusion:consumer';
 import home from '../../private/LN/api/v1/global/home';
 import pageBuilderSections from '../config/LN-PageBuilder.config.json';
+import get from '../../private/common/utils/get';
 
 import {
     checkIfValid,
@@ -19,6 +20,13 @@ const boxPosition = {
 const boxMovePosition = {
     App_Anexo_1: { type: 2, feature: 'Apertura_1', position: 'start' },
     App_Anexo_2: { type: 2, feature: 'Apertura_1', position: 'bottom' }
+};
+
+const sectionbyLayout = {
+    grillaUltimasNoticias: {
+        type: 3,
+        subLayout: 'LN-acumulado/timeline'
+    }
 };
 
 const homeMobileSections = [
@@ -50,12 +58,113 @@ const homeMobileSections = [
     'AnexoMobile'
 ];
 
+const segmentbyLayout = (elements, sectionChildren) => {
+    if (!elements || !Array.isArray(elements)) {
+        return elements;
+    }
+    const elementsValidate = [];
+
+    elements &&
+        elements.forEach(e => {
+            if (e && e.information) {
+                const layout = get(e.information, 'layout', null);
+                if (
+                    e.articles &&
+                    Array.isArray(e.articles) &&
+                    sectionbyLayout[layout]
+                ) {
+                    const subElementNoIncludeIndex = e.articles.findIndex(
+                        x => x && x.articles && Array.isArray(x.articles)
+                    );
+                    if (subElementNoIncludeIndex >= 0) {
+                        const subElement = {
+                            ...e,
+                            articles: [
+                                ...e.articles.filter(
+                                    x => x && !Array.isArray(x.articles)
+                                )
+                            ]
+                        };
+                        elementsValidate.push(subElement);
+
+                        e.articles
+                            .filter(x => x && Array.isArray(x.articles))
+                            .forEach(elem => {
+                                const elemArray = [];
+                                const subElementArray = {
+                                    ...elem,
+                                    information: {
+                                        ...get(elem, 'information', null),
+                                        hideCaja: get(
+                                            subElement.information,
+                                            'hideCaja',
+                                            null
+                                        )
+                                    },
+                                    ...sectionbyLayout[layout]
+                                };
+                                elemArray.push(subElementArray);
+                                const subElementLayout = segmentbyLayout(
+                                    elemArray,
+                                    sectionChildren
+                                );
+                                if (
+                                    subElementLayout &&
+                                    subElementLayout.length &&
+                                    subElementLayout.length > 0
+                                ) {
+                                    if (subElementNoIncludeIndex > 0) {
+                                        elementsValidate.push(
+                                            subElementLayout[0]
+                                        );
+                                    } else {
+                                        elementsValidate.splice(
+                                            0,
+                                            0,
+                                            subElementLayout[0]
+                                        );
+                                    }
+                                }
+                            });
+                    } else {
+                        const subChilds = sectionChildren
+                            .filter(
+                                x =>
+                                    x && x.children && Array.isArray(x.children)
+                            )
+                            .map(x => {
+                                return x.children;
+                            });
+
+                        subChilds &&
+                            subChilds.length &&
+                            subChilds[0].filter(
+                                s =>
+                                    s.type === sectionbyLayout[layout].subLayout
+                            ).length > 0 &&
+                            elementsValidate.push(e);
+                    }
+                } else {
+                    elementsValidate.push(e);
+                }
+            } else {
+                elementsValidate.push(e);
+            }
+        });
+    return elementsValidate;
+};
+
 const validateSections = (section, name, position, renderables) => {
     const sectionChildren = findSectionChildren(renderables, position);
 
-    const elements =
+    let elements =
         checkIfValid(name, sectionChildren) === true ? section : null;
+
     const banner = boxPosition[name];
+
+    if (elements && Array.isArray(elements) && elements.length > 0) {
+        elements = segmentbyLayout(elements, sectionChildren);
+    }
     if (elements && elements.length > 0 && banner) {
         switch (banner.position) {
             case 'middle':
@@ -112,6 +221,7 @@ const getHomeElements = props => {
     };
     return pageBuilderSections.reduce((r, e, i) => {
         const child = validateSections(children[i], e, i, renderables);
+
         const banner = boxPosition[e];
         if (child && Array.isArray(child) && child.length > 0) {
             return moveSections(

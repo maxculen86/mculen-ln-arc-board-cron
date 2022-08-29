@@ -1,17 +1,4 @@
-import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
-import {
-    FOTOAL100,
-    STORYTELLING
-} from '../../components/private/common/utils/subtypes/subtypeHelper';
-import get from '../../components/private/common/utils/get';
-import getPresets from './utils/presets';
-import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
-import {
-    addHoursAndFormat,
-    hasFutureDisplayDate,
-    isOlderThanXHoursAgo
-} from '../../components/private/common/utils/dateAndTimeUtil';
-import { isNotRecommend } from './utils/collectionsHelper';
+import transform from './utils/acuArticlesSource/transform';
 
 const resolve = key => {
     const {
@@ -43,7 +30,8 @@ const resolve = key => {
     if (sectionsIds) {
         const includeField =
             '_id,subtype,promo_items,taxonomy.tags,taxonomy.primary_section,credits,headlines.basic,headlines.mobile,subheadlines,content_elements,' +
-            'display_date,publish_date,first_publish_date,website_url,display_date,canonical_url,marquesina,label.recomendar.text,related_content';
+            'display_date,publish_date,first_publish_date,website_url,display_date,canonical_url,marquesina,label.recomendar.text,related_content,content_restrictions.content_code';
+
         return `${basePath}&q=type:story+AND+source.system:${sourceOrigin}+AND+taxonomy.sites._id:${sectionsIds}
             &sort=display_date:desc&size=${cant}&from=${from}&_sourceInclude=${includeField}`;
     }
@@ -96,9 +84,10 @@ const resolve = key => {
             }
         }`;
 
-    const notSectionFiltered =
-        excludeSectionId &&
-        `,"must_not":[
+    let excludeSection = `"/newsletters"`;
+    if (excludeSectionId) excludeSection += `,"/recetas"`;
+
+    const notSectionFiltered = `,"must_not":[
             {
                 "nested":{
                     "path":"taxonomy.sections",
@@ -106,8 +95,8 @@ const resolve = key => {
                         "bool":{
                             "must":[
                                 {
-                                    "term":{
-                                        "taxonomy.sections._id":"/recetas"
+                                    "terms":{
+                                        "taxonomy.sections._id":[${excludeSection}]
                                     }
                                 }
                             ]
@@ -167,90 +156,9 @@ const resolve = key => {
                 }
             }
     }`;
+
     return `${basePath}${query}&size=${cant}&from=${from}
             &sort=display_date:desc`;
-};
-
-const transform = (data, siteProps) => {
-    const respData = data;
-    const { content_elements: contentElements } = data || {};
-    const { presets, presetsDefault } = getPresets(siteProps);
-    const { sectionsIds, type, size, shouldNotFilter } = siteProps;
-
-    const presetsPromoItems = get(presets, 'promo_items', null);
-
-    respData.content_elements =
-        contentElements &&
-        contentElements.map(elem => {
-            const promoItems = get(elem, `promo_items`, null);
-            const subtype = get(elem, `subtype`, null);
-            const presetsCredits = get(presets, 'credits', null);
-            const credits = get(elem, 'credits', null);
-            const api = get(siteProps, 'api', false);
-            const isFotoAl100orStorytelling =
-                subtype === FOTOAL100 || subtype === STORYTELLING;
-            return {
-                ...elem,
-                ...addResizedUrls(
-                    {
-                        ...(promoItems && { promo_items: promoItems }),
-                        ...(api && credits && { credits })
-                    },
-                    {
-                        resizerSecret: RESIZER_KEY,
-                        resizerUrl: RESIZER_URL,
-                        presets: {
-                            promoItems: presetsPromoItems,
-                            ...(api && credits && { credits: presetsCredits }),
-                            presetsDefault
-                        },
-                        // Se pasa el subtype para que las notas de foto al 100
-                        // y storytelling no sean excluidas de las validaciones del resizer
-                        // y pueda aplicarse 3:2, focal point o smartcrop
-                        subtype: isFotoAl100orStorytelling ? '-1' : subtype
-                    }
-                )
-            };
-        });
-
-    // Si viene de mas notas return solo las necesarias mas 1 por si se excluye misma nota
-    if (type === 'story') {
-        const originalSize = Math.floor(size / 1.5);
-        respData.content_elements = respData.content_elements
-            .filter(art => (shouldNotFilter ? art : !isNotRecommend(art)))
-            .slice(0, Number(originalSize) + 1);
-    }
-    // De todos los Content Elements, solo traigo el primero que sea parrafo
-    // (para no mandar mas info innecesaria)
-    respData.content_elements = respData.content_elements.map(story => {
-        return {
-            ...story,
-            content_elements: [
-                (story.content_elements &&
-                    story.content_elements.find(e => e.type === 'text')) ||
-                    {}
-            ]
-        };
-    });
-
-    // Si viene de Ultimas Noticias
-    if (sectionsIds) {
-        respData.content_elements = respData.content_elements
-            .filter(story => !isOlderThanXHoursAgo(story.display_date, 24))
-            .filter(story => !hasFutureDisplayDate(story.display_date))
-            .map(story => {
-                return {
-                    ...story,
-                    display_date: addHoursAndFormat(-3, story.display_date),
-                    website_url: story.canonical_url
-                };
-            });
-        if (respData.content_elements.length === 0) {
-            respData.next = 0;
-        }
-    }
-
-    return respData;
 };
 
 export default {
@@ -268,6 +176,7 @@ export default {
         sectionsIds: 'text',
         sourceOrigin: 'text',
         excludeSourceOrigin: 'text',
+        excludeSectionId: 'text',
         api: 'bool'
     },
     ttl: 120

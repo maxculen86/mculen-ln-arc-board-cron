@@ -73,11 +73,12 @@ export default BuildBody;
 
 const setExtraProps = ({ tituloNota, capitalIndex, contentElements }) => {
     return {
-        image: { withZoom: '--zoom' },
+        image: { withZoom: '--zoom', insideBody: true },
         gallery: { withZoom: '--zoom' },
         video: {
             tituloNota,
-            primerParrafo: (capitalIndex && contentElements[capitalIndex]) || ''
+            primerParrafo:
+                (capitalIndex !== -1 && contentElements[capitalIndex]) || ''
         }
     };
 };

@@ -17,4 +17,46 @@ export default `
     }
     isWiki
     imageId
+    wikiSourceData {
+        creation_date
+        description
+        image {
+            alt
+            height
+            resizedUrls {
+                option {
+                    height
+                    proportion
+                    width
+                }
+                resizedUrl
+            }
+            url
+        }
+        related_tags {
+            text
+            slug
+        }
+        schemas_info {
+            additional_name
+            birth_date
+            birth_place
+            alternate_name
+            family_name
+            given_name
+            job_title
+            address
+            founding_date
+            founding_location
+            legal_name
+            location
+        }
+        social_networks {
+            type
+            name
+            url
+        }
+        type
+        _id
+    }
 }`;

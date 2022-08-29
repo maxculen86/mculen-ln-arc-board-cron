@@ -1,5 +1,5 @@
 import React from 'react';
-import get from 'lodash.get';
+import get from '../../../common/utils/get';
 import PictureSource from '../../../common/pictureSource';
 
 export default function Program({ href, description, image }) {

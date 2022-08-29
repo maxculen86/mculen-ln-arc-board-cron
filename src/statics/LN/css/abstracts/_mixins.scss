@@ -1,5 +1,27 @@
 @import '../abstracts/variables';
 
+@mixin common-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid $dark-neutral-600;
+    border-radius: 4px;
+    padding: $spacing-sm;
+    width: 100%;
+}
+
+@mixin grid-weather {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @media ($media-m) {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
 @mixin font-face($name, $file, $weight) {
     @font-face {
         font-family: '#{$name}';
@@ -371,4 +393,71 @@ $guion: '-';
         rgba(255, 255, 255, 0.1) 4px,
         rgba(0, 0, 0, 0.15) 6px
     );
+}
+
+/* ACUMULADOS SECCIONES */
+@mixin AcuColors {
+    @each $section,
+        $color
+            in (
+                'economia': $economia,
+                'deportes': $deportes,
+                'salud': $salud,
+                'autos': $autos,
+                'campo': $campo
+            )
+    {
+        .acumulado.#{$section} {
+            h1 .com-link.--black,
+            .com-breadcrumb .com-link,
+            .--category .com-link,
+            .--tags .com-link,
+            .com-link.--tags,
+            .mod-description .com-lead {
+                color: $color;
+            }
+
+            .mod-headersection.--bg.mod-headersection.--bg {
+                background-color: $color;
+            }
+        }
+    }
+}
+
+/* REVISTAS */
+@mixin magazine($primario) {
+    &.nota {
+        #content {
+            .com-breadcrumb a,
+            .mod-autor .com-link,
+            .cuerpo__nota .com-link.com-link,
+            .mod-keepreading a {
+                color: $primario;
+            }
+            .cuerpo__nota .com-button {
+                &.--secondary {
+                    color: $primario;
+                    border-color: $primario;
+                    &:hover {
+                        background-color: $primario;
+                        color: $neutral-white;
+                        .com-icon {
+                            path {
+                                fill: $neutral-white;
+                            }
+                        }
+                    }
+                    .com-icon {
+                        path {
+                            fill: $primario;
+                        }
+                    }
+                }
+                &.--primary {
+                    border-color: $primario;
+                    background-color: $primario;
+                }
+            }
+        }
+    }
 }

@@ -1,8 +1,10 @@
 /* eslint-disable eqeqeq */
 import get from '../../../../../common/utils/get';
 import Image from '../image';
+import Video from '../video';
 import { authorHomeMobile, articleSignature } from '../author';
-import matchObject from '../utils/matchObject';
+import sentToApps from '../utils/sentToApps';
+import getEmbedHref from '../../../../../common/utils/getEmbedHref';
 
 const getArticleImage = article => {
     const imagedefault =
@@ -14,7 +16,13 @@ const getArticleImage = article => {
 
     return null;
 };
-
+const getArticleVideo = article => {
+    const videoDefault = get(article, 'additionalProperties.video', null);
+    if (videoDefault && videoDefault.type === 'video') {
+        return Video(videoDefault.streams);
+    }
+    return null;
+};
 const getArticleTitle = article => {
     const title = get(article, 'additionalProperties.title', null);
     const originalTitle =
@@ -47,6 +55,13 @@ const getArticleOpinionSubtype = article => {
     return get(article, 'additionalProperties.subtype', null);
 };
 
+const getYouTubeVideoLink = article => {
+    const htmlAttr = get(article, 'additionalProperties.html', null);
+    const videoLink = getEmbedHref('src', htmlAttr);
+
+    return videoLink;
+};
+
 export const articleItem = article => {
     const { subtype: templateId, label } = article;
 
@@ -69,11 +84,8 @@ export const articleItem = article => {
     const autores = getArticleAuthor(article);
     const autor = autores ? autores[0] : null;
     const signature = get(article, 'additionalProperties.authors', null);
-    const sentToApps = get(article, 'label.enviar_a_apps.text', null);
-    const enviarApps =
-        matchObject(article, 'contains') === false
-            ? matchObject(article, 'contains')
-            : !(sentToApps && sentToApps.toLowerCase() === 'no');
+    const enviarApps = sentToApps(article);
+
     return {
         id,
         templateId: Number.isInteger(templateId)
@@ -92,7 +104,9 @@ export const articleItem = article => {
         marquesina: articleSignature(autores, signature),
         seccionPadre: getArticleOpinionSubtype(article),
         imagen: getArticleImage(article),
+        video: getArticleVideo(article),
         opinion: get(article, 'additionalProperties.opinion', false),
+        videoYouTube: getYouTubeVideoLink(article),
         enviarApps
     };
 };

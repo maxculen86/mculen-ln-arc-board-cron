@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../../../resources/dist/css/ln/components/com-button.css';
-import ComIco from './icon';
+import ComIcon from './icon';
 import ComText from './text';
 import setBtnClassName from './utils/setBtnClassName';
 
@@ -21,6 +21,7 @@ const ComButton = props => {
         textname,
         iconName,
         iconPosition,
+        iconExtraClass,
         size,
         title,
         style
@@ -50,7 +51,9 @@ const ComButton = props => {
             on={on || ''}
             {...conditionalProps}
         >
-            {iconName && <ComIco name={iconName} />}
+            {iconName && (
+                <ComIcon name={iconName} extraClass={iconExtraClass} />
+            )}
             {(children || textname) && (
                 <ComText size={size || ''}>
                     {children || ''}
@@ -77,7 +80,8 @@ ComButton.propTypes = {
     dataEvent: PropTypes.string,
     dataSection: PropTypes.string,
     tabIndex: PropTypes.string,
-    style: PropTypes.node
+    style: PropTypes.node,
+    iconExtraClass: PropTypes.string
 };
 
 ComButton.defaultProps = {
@@ -96,7 +100,8 @@ ComButton.defaultProps = {
     tabIndex: '',
     onClick: () => {},
     onMouseDown: () => {},
-    children: undefined
+    children: undefined,
+    iconExtraClass: ''
 };
 
 export default ComButton;

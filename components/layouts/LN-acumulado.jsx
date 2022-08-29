@@ -42,7 +42,7 @@ const revistas = [
     'jardin',
     'rolling-stone'
 ];
-const sections = ['economia', 'deportes', 'opinion'];
+const sections = ['economia', 'deportes', 'opinion', 'salud', 'autos', 'campo'];
 
 const acumToSearchAperturaChain = ['tags'];
 

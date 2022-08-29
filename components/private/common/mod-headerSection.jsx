@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -18,12 +19,13 @@ const ModheaderSection = props => {
         classCondition,
         link,
         outputType,
-        customTitle
+        customTitle,
+        isVisible = true
     } = props;
     const { caption, width, height, url } = image;
     const roofTitle = title || caption || 'LA NACION';
 
-    if (!title && !url) return null;
+    if ((!title && !url) || !isVisible) return null;
 
     const Image = url && (
         <ComImage
@@ -78,7 +80,8 @@ ModheaderSection.propTypes = {
         height: PropTypes.number,
         url: PropTypes.string
     }),
-    customTitle: PropTypes.string
+    customTitle: PropTypes.string,
+    isVisible: PropTypes.bool
 };
 
 ModheaderSection.defaultProps = {

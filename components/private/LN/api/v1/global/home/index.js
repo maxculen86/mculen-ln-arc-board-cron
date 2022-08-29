@@ -25,13 +25,19 @@ const typeSection = {
         url: 'https://www.lanacion.com.ar/economia/dolar/'
     },
     Multimedia: { tipoSeccion: 'tema', idSeccion: 305 },
+    Timeline: { tipoSeccion: 'tema', idSeccion: 3000 },
     default: { tipoSeccion: 'tema', idSeccion: 305 }
+};
+
+const typeSubSection = {
+    timeline: { idSeccion: 3000 }
 };
 
 const featureInformation = (information, feature) => {
     const type = typeSection[feature] || typeSection.default;
     const res = {
         ...type,
+        ...(typeSubSection[information.layout] || null),
         diagramacion: information.layout || null
     };
 
@@ -41,9 +47,9 @@ const featureInformation = (information, feature) => {
 
     if (!information.hideTitle && feature !== 'Apertura') {
         const image = get(information.image, 'promo_items.basic', null);
-
+        const imagenUrl = get(image, 'additional_properties.originalUrl', null);
         if (image && image.type === 'image') res.imagen = Image(image);
-
+        if (imagenUrl) res.imagenUrl = imagenUrl;
         return {
             ...res,
             tituloCaja: information.title,
@@ -130,7 +136,8 @@ const anexoMobile = element => {
 const typeBox = {
     0: storyBox,
     1: bannerBox,
-    2: anexoMobile
+    2: anexoMobile,
+    3: storyBox
 };
 
 const index = children => {

@@ -36,6 +36,9 @@ export { default as Timer } from './system/Timer';
 export { default as Group } from './system/Group';
 export { default as Zoom } from './system/Zoom';
 export { default as Copy } from './system/Copy';
+export { default as Chat } from './system/Chat';
+export { default as Bookmark } from './system/Bookmark';
+export { default as BookmarkFilled } from './system/BookmarkFilled';
 export { default as Download } from './system/Download';
 export { default as Filter } from './system/Filter';
 export { default as Fire } from './system/Fire';
@@ -44,6 +47,11 @@ export { default as ShareAndroid } from './system/ShareAndroid';
 export { default as Share } from './system/Share';
 export { default as Ln } from './system/Ln';
 export { default as ExclusiveLn } from './system/ExclusiveLn';
+export { default as Lamp } from './system/Lamp';
+export { default as Alert } from './system/Alert';
+export { default as Info } from './system/Info';
+export { default as Checkmark } from './system/Checkmark';
+export { default as ErrorWarning } from './system/ErrorWarning';
 
 // Weather Icons
 export { default as ClearNight } from './weather/ClearNight';
@@ -57,6 +65,7 @@ export { default as Storm } from './weather/Storm';
 export { default as StormCloudy } from './weather/StormCloudy';
 export { default as SunCloudy } from './weather/SunCloudy';
 export { default as Windy } from './weather/Windy';
+export { default as WaterDrop } from './weather/WaterDrop';
 
 // Lotteries Icons
 export { default as AnimalsLotteries } from './lotteries/AnimalsLotteries';

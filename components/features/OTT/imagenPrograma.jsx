@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import get from 'lodash.get';
 import Consumer from 'fusion:consumer';
+import get from '../../private/common/utils/get';
 import ImagenProgramComponent from '../../private/OTT/programa/programImage';
 
 class ImagenPrograma extends Component {

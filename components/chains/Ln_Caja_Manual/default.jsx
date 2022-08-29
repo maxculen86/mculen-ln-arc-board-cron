@@ -2,7 +2,6 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import Static from 'fusion:static';
 import {
     cajaTemasCustomsFields,
     getCommonProps,
@@ -17,6 +16,8 @@ import {
     childrenValidation
 } from '../utils/contentValidations';
 import { productClickFromClient } from '../../private/common/utils/viewability';
+import StaticContent from '../../private/common/staticContent';
+import setFilteredChildren from '../../private/LN/common/utils/setFilteredChildren';
 
 const CajaManual = props => {
     const {
@@ -26,14 +27,14 @@ const CajaManual = props => {
         outputType,
         childProps,
         children,
-        renderables
+        renderables = []
     } = props;
 
     if (hideCaja)
         return (
-            <Static id={featureId}>
+            <StaticContent id={featureId}>
                 <></>
-            </Static>
+            </StaticContent>
         );
 
     const {
@@ -58,7 +59,16 @@ const CajaManual = props => {
         sectionChildren: aperturasChildren
     });
 
+    const features = renderables.filter(r => r.collection === 'features');
     const multimediaCustomFields = ['video', 'html'];
+    const filteredChildren = setFilteredChildren({
+        features,
+        children,
+        conditions: {
+            feature: f => f.type !== 'LN-acumulado/timeline',
+            children: layout !== 'grillaUltimasNoticias'
+        }
+    });
 
     const [isVideoBackground, containsHTML] = multimediaCustomFields.map(
         customField =>
@@ -112,12 +122,13 @@ const CajaManual = props => {
             notesQuantity={notesQuantity}
             position={position}
             sectionName={sectionName}
-            _children={children}
+            _children={filteredChildren}
             handleClick={productClickFromClient}
+            features={features}
         />
     );
     return isInApertura && !isAdmin ? (
-        <Static id={featureId}>{Component}</Static>
+        <StaticContent id={featureId}>{Component}</StaticContent>
     ) : (
         Component
     );

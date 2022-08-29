@@ -1,123 +1,165 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 .mod-share {
-    //top: 0;
-    //position: fixed;
-    @include flex(flex, row, between, center);
-    z-index: 100;
-    //background: $neutral-white;
-    //width: 100%;
-    //left: 0;
-    padding: 0 $spacing-sm;
-    //border-bottom: 1px solid $light-neutral-400;
-    //display: none;
-
-    width: calc(100% + 2rem);
-    margin-left: px(-16);
-    margin-bottom: $spacing-lg;
-
-    .container {
-        @include flex(flex, row, center, center);
-        .comment-btn {
-            margin-right: 0;
+    .share {
+        @include flex(flex, row, start, center);
+        z-index: 100;
+        margin-right: auto;
+        margin-bottom: $spacing-lg;
+        @media (max-width: 379px) {
+            width: 100%;
+            overflow-x: scroll;
         }
-        .counterComments {
-            font-weight: 700;
-            color: $ln;
-        }
-    }
-    .--photo100 & {
-        padding: 0 px(32);
-    }
-
-    amp-social-share {
-        &[type='facebook'],
-        &[type='twitter'],
-        &[type='whatsapp'],
-        &[type='email'] {
-            background: none;
-            @include flex(flex, row, center, center);
-            //margin-bottom: $spacing-sm;
-            margin-right: $spacing-sm;
-            // font-family: $font-icons;
-            // font-size: px(24);
-            padding: px(4);
-            /* Better Font Rendering =========== */
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            // &:hover {
-            //     background: transparent;
-            //     color: $ln;
-            // }
-            @media ($media-l) {
-                margin-bottom: $spacing-sm;
-                margin-right: 0;
-            }
-        }
-
-        // &[type='facebook']:before {
-        //     content: $icon-facebook-filled;
-        // }
-        // &[type='twitter']:before {
-        //     content: $icon-twitter-filled;
-        // }
-        // &[type='whatsapp']:before {
-        //     content: $icon-whatsapp-filled;
-        // }
-
-        &[type='email'] {
-            margin-right: 0;
-            // &:before {
-            //     content: $icon-email;
-            // }
-        }
-    }
-}
-@media ($media-l) {
-    .mod-share {
-        flex-direction: column;
-        width: px(32);
-        padding: px(4);
-        position: sticky;
-        //top: (px(16) + $header-desktop);
-        top: px(16);
-        transition: all 0.25s;
-        background: rgba(255, 255, 255, 0.8);
-        float: left;
-        display: block;
-        border-radius: px(4);
-        margin: 0;
-
         .container {
-            flex-direction: column;
+            @include flex(flex, row, center, center);
+            .btn-container {
+                position: relative;
+                display: flex;
+            }
+            .bookmark {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: $light-neutral-300;
+                border-radius: px(4);
+                width: px(40);
+                height: px(40);
+                padding: px(5.5);
+
+                &.--is-saved {
+                    background-color: $blue-500;
+                    .com-icon svg path {
+                        fill: $light-neutral-50;
+                    }
+                }
+            }
+            .com-button {
+                padding: 0;
+                margin-right: $spacing-sm;
+
+                @media ($media-l) {
+                    margin-right: 0;
+                    margin-bottom: $spacing-sm;
+                    #btnemail {
+                        margin-bottom: $spacing-sm;
+                    }
+                }
+            }
+            .com-icon {
+                width: px(20);
+                height: px(20);
+            }
             .comment-btn {
-                margin-bottom: 0;
+                display: flex;
+                align-items: center;
+                background-color: $light-neutral-300;
+                border-radius: $spacing-2xs;
+                min-width: px(40);
+                width: fit-content;
+                height: px(40);
+                padding: $spacing;
+                margin-right: 0;
+                .com-text {
+                    margin-left: $spacing;
+                    @media ($media-l) {
+                        margin-left: 0;
+                        margin-top: $spacing;
+                    }
+                }
             }
         }
-
         .--photo100 & {
-            padding: px(4);
-        }
-
-        .--scrollDown & {
-            top: (px(16) + $header-desktop);
-        }
-
-        // &.--block.--block {
-        //     display: none;
-        // }
-        // .amp & {
-        //     position: sticky;
-        // }
-        &:not(.--active) {
-            .--scrollUp & {
-                top: (px(16) + $header-desktop);
+            padding-left: $spacing-sm;
+            padding-right: $spacing-sm;
+            @media ($media-l) {
+                padding-left: 0;
+                padding-right: 0;
             }
         }
-        // &:not(.--block) {
-        //     .--scrollDown & {
-        //         display: flex;
-        //     }
-        // }
+        .mod-tooltip {
+            position: absolute;
+            z-index: 100;
+            margin: 0;
+            .com-text {
+                color: $light-neutral-50;
+            }
+            background: $blue-400;
+            border: none;
+            left: px(55);
+            top: $spacing-2xs;
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                transform: rotate(225deg);
+                width: $spacing-sm;
+                height: $spacing-sm;
+                background: $blue-400;
+                border-radius: $spacing-2xs;
+                left: px(-5.5);
+                z-index: -1;
+            }
+            &.--copy {
+                left: px(32);
+                top: -$spacing-2xs;
+            }
+        }
+    }
+
+    @media ($media-l) {
+        &:not(.--video) {
+            height: 100%;
+            width: px(58);
+            .share {
+                flex-direction: column;
+                position: sticky;
+                transition: all 0.25s;
+                border-radius: px(4);
+                margin-left: -$spacing;
+                background-color: $light-neutral-50;
+                box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.04);
+                padding: $spacing 0 px(4) 0;
+                float: left;
+                top: (px(16) + $header-desktop);
+                .container {
+                    flex-direction: column;
+                    .comment-btn {
+                        width: px(40);
+                        min-height: px(40);
+                        height: fit-content;
+                        flex-direction: column;
+                    }
+                }
+            }
+        }
+    }
+    &.--video {
+        order: -1;
+        .toast {
+            .description {
+                color: $light-neutral-800;
+            }
+        }
+        .share {
+            .com-button {
+                margin-bottom: 0;
+                margin-right: $spacing-sm;
+                &.bookmark,
+                &.comment-btn {
+                    background: $dark-neutral-200;
+                    .com-text {
+                        color: $neutral-white;
+                        margin-top: 0;
+                        margin-left: $spacing;
+                    }
+                }
+                &.comment-btn {
+                    margin-right: 0;
+                }
+            }
+            .com-icon path {
+                fill: $neutral-white;
+            }
+        }
     }
 }

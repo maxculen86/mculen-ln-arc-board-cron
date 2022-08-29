@@ -1,9 +1,9 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-danger */
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
-import { useContent } from 'fusion:content';
 import get from '../../../private/common/utils/get';
 import ModPicture from '../../../private/common/mod-picture';
 import Text from '../../../private/common/text';
@@ -11,18 +11,12 @@ import Icon from '../../../private/common/icon';
 import TaxonomyImportantList from '../../../private/LN/common/taxonomyImportantList';
 import SchemaInfoWiki from '../../../private/LN/acumulado/wiki/SchemaInfoWiki';
 import StaticValidation from '../../../private/common/staticValidation';
+import { wikiImagesWithWWW } from '../../../private/LN/common/utils/mediaHelper';
 
 const WikiFeature = () => {
     const props = get(useAppContext(), 'globalContent', {});
-    const slug = get(useAppContext(), 'globalContentConfig.query.slug', '');
     const { isWiki } = props;
-    const wikiSourceData = useContent({
-        source: isWiki ? 'wikiTagSource' : null,
-        query: {
-            slug,
-            imageConfig: 'wikiTag'
-        }
-    });
+    const { wikiSourceData = {} } = props;
 
     if (!isWiki || !wikiSourceData) return <></>;
 
@@ -31,62 +25,77 @@ const WikiFeature = () => {
         related_tags: relatedTags = [],
         description,
         schemas_info: schemasInfo = {},
-        image = {},
-        _id: featureId
+        _id: featureId,
+        type
     } = wikiSourceData || {};
 
-    const { url: imageUrl, resizedUrls } = image;
+    const resizedUrls = wikiImagesWithWWW(wikiSourceData) || [];
+
+    const { resizedUrl } = resizedUrls.find(e => e.option.width === 320) || '';
 
     const {
-        additional_name: additionalName,
-        family_name: familyName,
-        given_name: givenName,
+        additional_name: additionalName = '',
+        family_name: familyName = '',
+        given_name: givenName = '',
+        job_title: jobTitle = '',
+        birth_date: birthDate = '',
+        birth_place: birthPlace = '',
         location,
         address,
-        legal_name: legalName
+        legal_name: legalName = '',
+        founding_date: foundingDate = '',
+        founding_location: foundingLocation = ''
     } = schemasInfo;
 
     const schemaPerson = [
         {
             text: 'Nombre',
-            value: `${schemasInfo.given_name ||
-                ''} ${schemasInfo.additional_name ||
-                ''} ${schemasInfo.family_name || ''}`
+            value: `${givenName} ${additionalName} ${familyName}`
         },
-        { text: 'Profesión', value: `${schemasInfo.job_title || ''}` },
+        { text: 'Profesión', value: `${jobTitle}` },
         {
             text: 'Fecha de nacimiento',
-            value: `${schemasInfo.birth_date || ''}`
+            value: `${birthDate
+                .split('-')
+                .reverse()
+                .join('/')}`
         },
         {
             text: 'Lugar de nacimiento',
-            value: `${schemasInfo.birth_place || ''}`
+            value: `${birthPlace}`
         }
     ];
     const schemaOrganization = [
-        { text: 'Nombre', value: `${schemasInfo.legal_name || ''}` },
+        { text: 'Nombre', value: `${legalName}` },
         {
             text: 'Fecha de fundación',
-            value: `${schemasInfo.founding_date || ''}`
+            value: `${foundingDate}`
         },
         {
             text: 'Lugar de fundación',
-            value: `${schemasInfo.founding_location || ''}`
+            value: `${foundingLocation}`
         }
     ];
 
-    const isOrganization = location && address;
-
-    const altImg = !isOrganization
-        ? `${givenName} ${additionalName} ${familyName}`
-        : legalName;
+    const isOrganization = type === 2;
 
     return (
         <StaticValidation id={featureId} htmlOnly persistent>
             <article
                 className={`wiki-tags ${isOrganization && '--organization'}`}
             >
-                <ModPicture src={imageUrl} alt={altImg} sources={resizedUrls} />
+                <ModPicture
+                    src={resizedUrl}
+                    alt={getAltImg(
+                        isOrganization,
+                        givenName,
+                        additionalName,
+                        familyName,
+                        legalName
+                    )}
+                    sources={resizedUrls}
+                    isApertura
+                />
                 <div className="extra-info">
                     {(isOrganization ? schemaOrganization : schemaPerson).map(
                         ({ text, value }) =>
@@ -108,30 +117,36 @@ const WikiFeature = () => {
                         />
                     )}
                 </div>
-                <div className="social-networks">
-                    <Text font="sueca" size="2xs" weight="regular">
-                        Conectar:
-                    </Text>
-                    {socialNetworks.map(iconInfo => (
-                        <div className="social-icons" key={iconInfo.type}>
-                            <Icon
-                                name={iconInfo.type.toLowerCase()}
-                                href={
-                                    iconInfo.type === 'Instagram'
-                                        ? iconInfo.url.concat('/')
-                                        : iconInfo.url
-                                }
-                                title={
-                                    isOrganization
-                                        ? `Ir al ${iconInfo.type} de ${legalName}`
-                                        : `Ir al ${iconInfo.type} de ${givenName} ${familyName}`
-                                }
-                                target="_blank"
-                                rel="nofollow"
-                            />
-                        </div>
-                    ))}
-                </div>
+                {socialNetworks.length > 0 && (
+                    <div className="social-networks">
+                        <Text font="sueca" size="2xs" weight="regular">
+                            Conectar:
+                        </Text>
+                        {socialNetworks.map(iconInfo => {
+                            const {
+                                type: iconType = '',
+                                url: iconUrl = ''
+                            } = iconInfo;
+                            return (
+                                <div className="social-icons" key={iconType}>
+                                    <Icon
+                                        name={iconType.toLowerCase()}
+                                        href={getIconHref(iconType, iconUrl)}
+                                        title={getIconTitle(
+                                            isOrganization,
+                                            iconType,
+                                            legalName,
+                                            givenName,
+                                            familyName
+                                        )}
+                                        target="_blank"
+                                        rel="nofollow"
+                                    />
+                                </div>
+                            );
+                        })}
+                    </div>
+                )}
                 <div className="wiki-description">
                     <div
                         dangerouslySetInnerHTML={{
@@ -139,33 +154,47 @@ const WikiFeature = () => {
                         }}
                     />
                 </div>
-                <TaxonomyImportantList
-                    extraClass="tags-buttons"
-                    list={relatedTags.map(({ text, slug: tagSlug }) => ({
-                        text,
-                        path: tagSlug
-                    }))}
-                    showItems={5}
-                />
+                {relatedTags && (
+                    <TaxonomyImportantList
+                        extraClass="tags-buttons"
+                        list={relatedTags.map(({ text, slug: tagSlug }) => ({
+                            text,
+                            path: tagSlug
+                        }))}
+                        showItems={5}
+                    />
+                )}
             </article>
         </StaticValidation>
     );
 };
 
+export const getAltImg = (
+    isOrganization,
+    givenName,
+    additionalName,
+    familyName,
+    legalName
+) =>
+    !isOrganization
+        ? `${givenName} ${additionalName} ${familyName}`
+        : legalName;
+
+export const getIconTitle = (
+    isOrganization,
+    iconType,
+    legalName,
+    givenName,
+    familyName
+) =>
+    isOrganization
+        ? `Ir al ${iconType} de ${legalName}`
+        : `Ir al ${iconType} de ${givenName} ${familyName}`;
+
+export const getIconHref = (iconType, url) =>
+    iconType === 'Instagram' ? url.concat('/') : url;
+
 WikiFeature.propTypes = {
-    schemas_info: PropTypes.shape({
-        job_title: PropTypes.string,
-        address: PropTypes.string,
-        founding_date: PropTypes.string,
-        birth_place: PropTypes.string,
-        founding_location: PropTypes.string,
-        legal_name: PropTypes.string,
-        location: PropTypes.string,
-        additional_name: PropTypes.string,
-        birth_date: PropTypes.string,
-        family_name: PropTypes.string,
-        given_name: PropTypes.string
-    }),
     isWiki: PropTypes.string
 };
 

@@ -6,6 +6,7 @@ import { useAppContext } from 'fusion:context';
 import get from '../../../common/utils/get';
 import { GlobalContext } from '../../../common/context/globalContext';
 import bannersRules from '../../../common/banners/bannersRules';
+import isWebview from '../../../common/utils/isWebview';
 
 export const suffixDevice = {
     desktop: '_dsk',
@@ -46,6 +47,10 @@ export const BANNERS_MOBILE = [
     'caja4_mob',
     'caja5_mob',
     'caja6_mob',
+    'caja7_mob',
+    'caja8_mob',
+    'caja9_mob',
+    'caja10_mob',
     'inread_mob',
     'caja1_amp',
     'caja2_amp',
@@ -411,12 +416,13 @@ export const queueGoogletagCommand = bannersToLoad => {
             });
         };
 
-        pbjs.que.push(function() {
-            pbjs.rp.requestBids({
-                callback: sendAdServerRequest,
-                gptSlotObjects: headerBiddingSlots
+        !isWebview(navigator.userAgent) &&
+            pbjs.que.push(function() {
+                pbjs.rp.requestBids({
+                    callback: sendAdServerRequest,
+                    gptSlotObjects: headerBiddingSlots
+                });
             });
-        });
 
         // this timeout is a failsafe
         // the ad ops team can set lower thresholds that will be respected by Prebid

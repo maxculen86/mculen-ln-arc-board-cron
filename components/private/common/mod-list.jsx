@@ -14,13 +14,14 @@ const List = ({ children, order, inline, mod, size }) => {
     return (
         <CustomTag className={className}>
             {children.map((item, index) => (
-                <li key={index}>
+                <li key={item.text}>
                     {item.href ? (
                         <Link
                             textname={item.text}
                             title={item.alt || item.text}
                             link={item.href}
                             target={item.target}
+                            rel={item.rel}
                         />
                     ) : (
                         item.text

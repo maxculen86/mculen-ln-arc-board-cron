@@ -1,23 +1,24 @@
+/* eslint-disable react/no-danger */
 /* eslint-disable no-restricted-globals */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-script-url */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useEffect, useCallback } from 'react';
-import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
+import React, { useState, useEffect } from 'react';
+import { SITIO_SEGURO_REGISTRACION, BOOKMARK_URL } from 'fusion:environment';
 import PropTypes from 'prop-types';
 import Header from './headerBase';
 import Hamburger from './hamburger';
 import ComIcon from '../../../common/icon';
 
-import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../../../../resources/dist/css/ln/components/usuario.css';
 import '../../../../../resources/dist/css/ln/components/button.css';
 import dynamicallyLoadScript from '../utils/dynamicallyLoadScript';
 import BannerLogoHeader from '../../../common/banners/BannerLogoHeader';
-import handleCookie from '../utils/handleCookie';
+// import handleCookie from '../utils/handleCookie';
 import LnLogoHeader from '../../../common/logos/LnLogoHeader';
+import useTermica from '../../../common/hooks/useTermica';
 
-const ItemAnchor = ({ url, text, alt }) => {
+const ItemAnchor = ({ url, text, title, className }) => {
     const callURL = address => {
         // eslint-disable-next-line no-restricted-globals
         location.href = address;
@@ -30,7 +31,8 @@ const ItemAnchor = ({ url, text, alt }) => {
                 href="javascript:void(0)"
                 data-event="LinkClick"
                 data-section="MenuLN"
-                title={alt}
+                title={title}
+                className={className}
             >
                 {text}
             </a>
@@ -41,24 +43,27 @@ const ItemAnchor = ({ url, text, alt }) => {
 ItemAnchor.propTypes = {
     url: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    className: PropTypes.string
 };
-
+ItemAnchor.defaultProps = {
+    className: ''
+};
 const enlaces = [
     {
-        url: 'https://myaccount.lanacion.com.ar/mi-usuario',
+        url: 'https://myaccount.lanacion.com.ar/mi-usuario/',
         text: 'Mi cuenta',
-        alt: 'Ir a mi cuenta'
+        title: 'Ir a mi cuenta'
     },
     {
-        url: 'https://myaccount.lanacion.com.ar/datos-personales',
+        url: 'https://myaccount.lanacion.com.ar/datos-personales/',
         text: 'Mis datos',
-        alt: 'Ir a mis datos'
+        title: 'Ir a mis datos'
     },
     {
-        url: 'https://micuenta.lanacion.com.ar/mis-suscripciones',
+        url: 'https://micuenta.lanacion.com.ar/mis-suscripciones/',
         text: 'Mis suscripciones',
-        alt: 'Ir a mis suscripciones'
+        title: 'Ir a mis suscripciones'
     }
 ];
 
@@ -66,29 +71,30 @@ const HeaderDesktop = ({
     logueado,
     loginData,
     goToLogout,
-    isHome,
     section,
-    // headerDark,
     toglleDesplegable,
     isAdmin
 }) => {
     const { loading, goToLoginUrl } = loginData;
-    const { getCookie } = handleCookie();
-    const getCookieCallback = useCallback(getCookie, []);
+    // const { getCookie } = handleCookie();
+    // const getCookieCallback = useCallback(getCookie, []);
+    const bookmarkWeb = useTermica('bookmark_web');
 
-    const [token, setToken] = useState(getCookie('token'));
-    const [active, setActive] = useState('');
+    // const [token, setToken] = useState(getCookie('token'));
+    const [active, setActive] = useState('com-usuario');
     const [loadingUserData, setLoadingUserData] = useState(
         loading ? ' hlp-none' : ''
     );
 
     const toggleMenu = () =>
-        active === '' ? setActive(' --active') : setActive('');
+        active === 'com-usuario'
+            ? setActive('com-usuario --active')
+            : setActive('com-usuario');
 
     useEffect(() => {
         setLoadingUserData(loading ? ' hlp-none' : '');
-        setToken(getCookieCallback('token'));
-    }, [loading, logueado, getCookieCallback]);
+        // setToken(getCookieCallback('token'));
+    }, [loading, logueado]);
 
     const handleClickBuscar = () => {
         dynamicallyLoadScript(
@@ -130,13 +136,12 @@ const HeaderDesktop = ({
                 <div className="col-4 header__right">
                     <div
                         id="user-menu"
-                        className={`com-usuario${active} ${!token &&
-                            loadingUserData}`}
+                        className={`${active} ${loadingUserData}`}
                     >
                         {!loginData.subscription &&
                             typeof window !== 'undefined' && (
                                 <a
-                                    className={`com-button --special${loadingUserData}`}
+                                    className="com-button --special"
                                     id="btnsuscribite"
                                     title="Suscribite a LA NACION"
                                     href={`${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
@@ -147,11 +152,11 @@ const HeaderDesktop = ({
                                     SUSCRIBITE
                                 </a>
                             )}
-                        {(logueado || token) && (
+                        {logueado && (
                             <>
                                 {/* Botón oculto para Experimentos ADQUISICION */}
                                 <a
-                                    className={`com-button --special${loadingUserData}`}
+                                    className="com-button --special hlp-none"
                                     id="btnupselling"
                                     title="¡Mejorá tu plan!"
                                     href="#"
@@ -164,8 +169,8 @@ const HeaderDesktop = ({
                                     tabIndex="0"
                                     role="button"
                                     id="menuUser"
-                                    onBlur={() => setActive('')}
-                                    onScroll={() => setActive('')}
+                                    onBlur={() => setActive('com-usuario')}
+                                    onScroll={() => setActive('com-usuario')}
                                 >
                                     <p
                                         className="com-usuario__name"
@@ -183,31 +188,47 @@ const HeaderDesktop = ({
                                         </p>
                                     )}
                                     <ul className="com-desplegable">
-                                        {enlaces.map(({ url, text }) => (
+                                        {bookmarkWeb && loginData.subscription && (
+                                            <>
+                                                <ItemAnchor
+                                                    url={BOOKMARK_URL}
+                                                    text="Mis notas"
+                                                    title="Ir a mis notas"
+                                                    className="mis-notas"
+                                                />
+                                                <span className="new-feature --fivexs --font-bold">
+                                                    NUEVO
+                                                </span>
+                                            </>
+                                        )}
+                                        {enlaces.map(({ url, text, title }) => (
                                             <ItemAnchor
                                                 key={text}
                                                 url={url}
                                                 text={text}
+                                                title={title}
                                             />
                                         ))}
                                         <li>
                                             <a
+                                                id="btnCerrar"
                                                 data-event="LinkClick"
                                                 data-section="MenuLN"
                                                 href="javascript:void(0);"
-                                                title="Desloguearse"
+                                                title="Cerrar sesión"
                                                 onMouseDown={() => {
                                                     goToLogout();
                                                 }}
                                             >
-                                                Salir
+                                                Cerrar sesión
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
                             </>
                         )}
-                        {!token && (
+
+                        {!logueado && (
                             <button
                                 className="com-button --secondary"
                                 id="btningresar"
@@ -243,8 +264,6 @@ HeaderDesktop.propTypes = {
         loading: PropTypes.bool
     }).isRequired,
     goToLogout: PropTypes.func.isRequired,
-    isHome: PropTypes.bool.isRequired,
-    // headerDark: PropTypes.string,
     toglleDesplegable: PropTypes.func.isRequired,
     section: PropTypes.string.isRequired
 };

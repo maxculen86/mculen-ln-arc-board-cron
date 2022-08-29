@@ -64,6 +64,21 @@ export default {
             caja2_mob: {
                 validateInclusion: ({ subscription }) => subscription !== 'S'
             },
+            caja5_mob: {
+                validateInclusion: ({ subscription }) => subscription !== 'S'
+            },
+            caja7_mob: {
+                validateInclusion: ({ subscription }) => subscription !== 'S'
+            },
+            caja8_mob: {
+                validateInclusion: ({ subscription }) => subscription !== 'S'
+            },
+            caja9_mob: {
+                validateInclusion: ({ subscription }) => subscription !== 'S'
+            },
+            caja10_mob: {
+                validateInclusion: ({ subscription }) => subscription !== 'S'
+            },
             '1x1_mob': {
                 validateInclusion: ({ subscription }) => subscription !== 'S'
             }
@@ -182,7 +197,7 @@ export const getScriptForComercial = slodId => {
                 window.addEventListener('DOMContentLoaded', () => {
                     setTimeout(function(){
                         document.getElementById("${slodId}").parentNode.classList.add('hlp-none');
-                      },10000)
+                      },12000)
                 })
             `
             }}

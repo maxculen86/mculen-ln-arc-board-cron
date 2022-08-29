@@ -80,7 +80,7 @@ describe('Private - Common - ModheaderSection => ', () => {
         expect(component.find('div.mod-logo')).toHaveLength(1);
         expect(component.find('a.com-link')).toHaveLength(0);
         expect(component.find('div.mod-logo').html()).toContain(
-            '<img src="https://lanacion.com.ar/mock.jpeg" alt="Titulo Separador" width="100" height="100" class="com-image " loading="lazy" importance="low" decoding="async">'
+            '<img src="https://lanacion.com.ar/mock.jpeg" alt="Titulo Separador" width="100" height="100" class="com-image " loading="lazy" fetchpriority="low" decoding="async">'
         );
         expect(component).toMatchSnapshot();
     });
@@ -97,7 +97,7 @@ describe('Private - Common - ModheaderSection => ', () => {
         expect(component.find('div.mod-logo')).toHaveLength(1);
         expect(component.find('a.com-link')).toHaveLength(1);
         expect(component.find('a.com-link').html()).toContain(
-            '<img src="https://lanacion.com.ar/mock.jpeg" alt="Titulo Separador" width="100" height="100" class="com-image " loading="lazy" importance="low" decoding="async">'
+            '<img src="https://lanacion.com.ar/mock.jpeg" alt="Titulo Separador" width="100" height="100" class="com-image " loading="lazy" fetchpriority="low" decoding="async">'
         );
         expect(component).toMatchSnapshot();
     });

@@ -3,7 +3,24 @@ import Configuration from '../../common/accumulated/configuration';
 import { articleItem } from '../../common/article/index';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
 import { getTag } from '../../common/tag';
-import { authorAcu } from '../../common/author';
+import { authorAcu, authorAcuFollow } from '../../common/author';
+import { getSubCategory } from '../../common/category';
+import get from '../../../../../common/utils/get';
+
+const topics = {
+    autor: {
+        keyName: 'autores',
+        method: authorAcuFollow
+    },
+    tags: {
+        keyName: 'tags',
+        method: getTag
+    },
+    seccion: {
+        keyName: 'secciones',
+        method: getSubCategory
+    }
+};
 
 const banners = acuData => {
     const sectionsElements = [
@@ -35,7 +52,8 @@ const index = acuData => {
         titulo: acuData.name
     };
     if (acuData.articles) {
-        resp.banners = banners(acuData);
+        const showBanners = get(acuData, 'showBanner', true);
+        if (showBanners) resp.banners = banners(acuData);
         resp.notas = acuData.articles.reduce((result, f) => {
             try {
                 if (f) {
@@ -55,6 +73,18 @@ const index = acuData => {
             return result;
         }, []);
     }
+
+    if (acuData.followedItemsValidate && acuData.followedItemsValidate.length) {
+        acuData.followedItemsValidate.forEach(elem => {
+            resp[topics[elem.type].keyName] = [];
+        });
+        acuData.followedItemsValidate.forEach(elem => {
+            resp[topics[elem.type].keyName].push(
+                topics[elem.type].method(elem)
+            );
+        });
+    }
+
     if (acuData.author) {
         resp.autor = authorAcu(acuData.author, acuData.page);
     }

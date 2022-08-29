@@ -212,5 +212,41 @@
         },
         "subtype": "custom-parallax",
         "type": "custom_embed"
+    },
+    {
+        "_id": "H7OWLMOOFVDR7E6IRIRWNQOIZZ",
+        "type": "custom_embed",
+        "subtype": "custom-liveblog",
+        "additional_properties": {
+            "_id": "GXTAZADBKRBFXLA4ECNVNVUEZZ",
+            "comments": []
+        },
+        "embed": {
+            "config": {
+                "title": "Gym 1 Ciudad Plateada",
+                "typeList": "liveblog"
+            },
+            "id": "b2f81e789757d",
+            "url": "https://www.lanacion.com.ar/"
+        }
+    },
+    {
+        "_id": "H7OWLMOOFVDR7E6IRIRWNQOIZY",
+        "type": "custom_embed",
+        "subtype": "custom-liveblog",
+        "additional_properties": {
+            "_id": "GXTAZADBKRBFXLA4ECNVNVUEZY",
+            "comments": []
+        },
+        "embed": {
+            "config": {
+                "date": "2022-06-21",
+                "time": "08:46:12",
+                "title": "Gym 1 Ciudad Plateada",
+                "typeList": "liveblog"
+            },
+            "id": "b2f81e789757d",
+            "url": "https://www.lanacion.com.ar/"
+        }
     }
 ]

@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-import get from 'lodash.get';
+import get from './get';
 
 // TODO: Revisar si actualmente la función getSectionStyle está en uso
 export const getSectionStyle = sections => {
@@ -48,6 +48,8 @@ const getRegex = sectionId => {
         /^\/(economia\/campo)(?:\/.+)?/,
         /^\/(salud)(?:\/.+)?/,
         /^\/(autos)(?:\/.+)?/,
+        /^\/(canchallena)(?:\/.+)?/,
+        /^\/(deportes\/canchallena)(?:\/.+)?/,
         /\/revista-(.\w+[^\W]?)/
     ];
 
@@ -71,6 +73,7 @@ const getLogoData = sections => {
         const logoName =
             ($1 === 'lnmas' && 'ln-mas') ||
             ($1 === 'economia/campo' && 'campo') ||
+            ($1 === 'deportes/canchallena' && 'canchallena') ||
             $1;
 
         const path =

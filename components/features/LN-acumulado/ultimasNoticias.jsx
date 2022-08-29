@@ -3,6 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import GrillaNotas from '../../private/LN/acumulado/grillaNotas/grillaNotas';
 import { GlobalContext } from '../../private/common/context/globalContext';
+import sectionsFormated from '../../private/common/utils/sectionsFormated';
 
 const UltimasNoticias = props => {
     const { customFields } = props;
@@ -10,16 +11,9 @@ const UltimasNoticias = props => {
     const globalContext = useContext(GlobalContext);
     const { siteProperties, outputType } = useAppContext();
 
-    const sectionsFormated = sections
-        ? JSON.stringify(sections)
-              .replace('/,/g', '+OR+')
-              .replace('[', '(')
-              .replace(']', ')')
-        : '';
-
     return (
         <GrillaNotas
-            sectionsIds={sectionsFormated}
+            sectionsIds={sectionsFormated(sections)}
             sourceOrigin="composer"
             size={size}
             page={1}

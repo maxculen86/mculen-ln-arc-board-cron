@@ -7,6 +7,7 @@ import {
     FOTOAL100,
     STORYTELLING
 } from '../../../common/utils/subtypes/subtypeHelper';
+import replaceUrlResizerToWWW from '../../../../../content/sources/utils/replaceUrlResizerToWWW';
 
 export const getEpigrafe = basic => {
     const { type, promo_items: promoItemsBasic, caption } = basic || {};
@@ -128,6 +129,25 @@ export const LinkImagePreload = ({ resizedUrls = [], isAmp }) => {
             />
         )
     );
+};
+
+export const wikiImagesWithWWW = data => {
+    const { image = {} } = data;
+    const { resizedUrls = [] } = image;
+    const smallImage = resizedUrls.find(e => e.option.width === 320) || {};
+
+    const promoItemsWiki = {
+        url: smallImage.resizedUrl || '',
+        type: 'image',
+        resized_urls: resizedUrls
+    };
+    const imagesToPreload = get(
+        replaceUrlResizerToWWW(promoItemsWiki),
+        'resized_urls',
+        []
+    );
+
+    return imagesToPreload;
 };
 
 export const buildScriptForZoom = (mediaData, subtype) => {

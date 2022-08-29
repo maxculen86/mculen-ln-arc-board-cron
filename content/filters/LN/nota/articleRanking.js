@@ -23,25 +23,16 @@ export default `{
                     ${image}
                 }
             }
-            credits {
-                by {
-                    name
-                    type
-                }
-            }
             headlines {
                 basic
                 mobile
             }
-            related_content
             label {
                 volanta {
                     text
                 }
             }
-            subheadlines
             canonical_url
-            display_date
             website_url
         }
 }`;

@@ -194,7 +194,7 @@ const labels = `
         }
     }
 `;
-const customParallax = `
+const customPowerUps = `
     subtype
     embed {
         config {
@@ -215,6 +215,10 @@ const customParallax = `
             }
             title
             paragraph
+            typeList
+            date
+            time
+            isoDate
         }
     }
 `;
@@ -233,6 +237,7 @@ const customReceta = `
         }
     }
 `;
+
 const gallery = `
     subtype
     _id
@@ -410,7 +415,6 @@ export default `
             subtype
             embed{
                 config{
-
                     items{
                         text
                         value
@@ -420,15 +424,13 @@ export default `
                     typeList
                 }
             }
-
         }
         citation {
             type
             content
         }
         ${image}
-        ${customReceta}
-        ${customParallax}
+        ${customPowerUps}
         ${gallery}
         ${video}
         ${oembed}

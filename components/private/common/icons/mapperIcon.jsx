@@ -41,6 +41,9 @@ import {
     Group,
     Zoom,
     Copy,
+    Chat,
+    Bookmark,
+    BookmarkFilled,
     Download,
     Filter,
     Fire,
@@ -58,11 +61,17 @@ import {
     RainyCloudy,
     StormCloudy,
     ClearNight,
+    WaterDrop,
     Ln,
     AnimalsLotteries,
     NamesLotteries,
     NationalLotteries,
-    TraditionalLotteries
+    TraditionalLotteries,
+    Lamp,
+    Alert,
+    Info,
+    Checkmark,
+    ErrorWarning
 } from './index';
 
 const listIcons = {
@@ -101,6 +110,9 @@ const listIcons = {
     'arrow-left': ArrowLeft,
     'exclusive-ln': ExclusiveLn,
     comment: Comment,
+    chat: Chat,
+    bookmark: Bookmark,
+    'bookmark-filled': BookmarkFilled,
     timer: Timer,
     group: Group,
     zoom: Zoom,
@@ -112,6 +124,11 @@ const listIcons = {
     'share-android': ShareAndroid,
     share: Share,
     ln: Ln,
+    lamp: Lamp,
+    alert: Alert,
+    info: Info,
+    checkmark: Checkmark,
+    'error-warning': ErrorWarning,
 
     // Weather Icons
     sun: Sun,
@@ -125,6 +142,7 @@ const listIcons = {
     'rainy-cloudy': RainyCloudy,
     'storm-cloudy': StormCloudy,
     'clear-night': ClearNight,
+    drop: WaterDrop,
 
     // Lotteries Icons
     animals: AnimalsLotteries,
@@ -133,18 +151,16 @@ const listIcons = {
     traditional: TraditionalLotteries
 };
 
-const MapperIcon = ({ name, r }) => {
+const MapperIcon = ({ name = '', extraProps = {} }) => {
+    if (!name) return <></>;
     const Component = listIcons[name];
 
-    return <Component {...r} />;
+    return <Component {...extraProps} />;
 };
 
 MapperIcon.propTypes = {
     name: PropTypes.string.isRequired,
-    r: PropTypes.objectOf(PropTypes.string)
+    extraProps: PropTypes.objectOf(PropTypes.string)
 };
 
-MapperIcon.defaultProps = {
-    r: {}
-};
 export default MapperIcon;

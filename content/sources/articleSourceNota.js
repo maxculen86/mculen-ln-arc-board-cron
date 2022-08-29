@@ -17,6 +17,7 @@ import relatedSource from './relatedSource';
 import Redirect from './utils/redirect';
 import validateExclusiveAccess from './utils/validateExclusiveAccess';
 import replaceTagInTextListRaw from './utils/replaceTagInTextListRaw';
+import removeInvalidRelated from './utils/removeInvalidRelated';
 import {
     FOTOAL100,
     RECETA,
@@ -42,7 +43,7 @@ const resolve = (key, a) => {
     throw new Error('Debe definir url o id para obtener la nota');
 };
 
-const fetch = (query, { cachedCall }) => {
+const fetch = (query, { cachedCall } = {}) => {
     const {
         url = '',
         imageConfig,
@@ -336,6 +337,10 @@ const transformContent = async (
     }
 
     return Promise.all(promiseArr).then(() => {
+        const relatedContent = get(resp, 'related_content.basic', []);
+        relatedContent.length &&
+            (resp.related_content.basic = removeInvalidRelated(relatedContent));
+
         return resp;
     });
 };
@@ -370,8 +375,16 @@ const addFollowAnotherNoteData = async (anotherNoteData, arcSite, i) => {
         const fetchedRelated = await relatedSource.fetch({
             id,
             'arc-site': arcSite,
-            includedFields: 'headlines,label,website_url,type'
+            includedFields:
+                'headlines,label,website_url,type,additional_properties',
+            notPublished: true
         });
+        const published = get(
+            fetchedRelated,
+            'additional_properties.has_published_copy',
+            false
+        );
+        if (!published) return null;
 
         const {
             headlines,

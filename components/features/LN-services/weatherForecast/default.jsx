@@ -1,0 +1,36 @@
+import React from 'react';
+import { useAppContext } from 'fusion:context';
+import PropTypes from 'fusion:prop-types';
+import get from '../../../private/common/utils/get';
+import ForecastByDay from '../../../private/LN/services/weather/ForecastByDay';
+import IconsReferences from '../../../private/LN/services/weather/IconsReferences';
+import '../../../../resources/dist/css/ln/components/weather.css';
+
+const WeatherForecast = ({ id: _featureId }) => {
+    const { globalContent = {} } = useAppContext() || {};
+    const forecast = get(globalContent, 'dataService.forecast', []);
+    const sectionName = get(globalContent, 'name', '');
+
+    if (!forecast.length) return null;
+
+    return (
+        <>
+            {forecast.map((day, index) => (
+                <ForecastByDay
+                    key={day.date}
+                    data={day}
+                    section={sectionName}
+                    index={index}
+                />
+            ))}
+            <IconsReferences />
+        </>
+    );
+};
+
+WeatherForecast.static = true;
+WeatherForecast.label = 'LN Clima Pronostico';
+
+WeatherForecast.propTypes = { id: PropTypes.string.isRequired };
+
+export default WeatherForecast;
