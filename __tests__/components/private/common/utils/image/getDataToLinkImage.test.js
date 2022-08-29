@@ -178,21 +178,6 @@ describe('Common - GetDataToLinkImage', () => {
         });
     });
 
-    /////////// ACUMULADOS ///////////
-    describe('When section is acumulado, return empty Array', () => {
-        it('GetDataToLinkImage - acumulados', () => {
-            const globalContent = {};
-            const renderables = [];
-            expect(
-                GetDataToLinkImage({
-                    data: globalContent,
-                    section: 'acumulado',
-                    renderables
-                })
-            ).toEqual([]);
-        });
-    });
-
     /////////// DEFAULT ///////////
     describe('When section is undefined return empty', () => {
         it('GetDataToLinkImage - nuevaSeccion', () => {

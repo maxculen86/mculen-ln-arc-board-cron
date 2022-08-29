@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Private - LN - Acumulado - ImagePreloadAcu render correctly 1`] = `
+<DocumentFragment>
+  <link
+    as="image"
+    href="https://www.lanacion.com.ar/resizer/PKvYWtapw096AielvEcSPtG8wls=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/6AOT7FFVEFBGTAHJDGINZ3RHKI.jpg"
+    imagesrcset="https://www.lanacion.com.ar/resizer/EoAVN415NnJ_hhSCYZlSa_o2oYs=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/6AOT7FFVEFBGTAHJDGINZ3RHKI.jpg 360w,https://www.lanacion.com.ar/resizer/_15l66F4uJzOU0PiP0Fo-zcCkAY=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/6AOT7FFVEFBGTAHJDGINZ3RHKI.jpg 768w,https://www.lanacion.com.ar/resizer/PKvYWtapw096AielvEcSPtG8wls=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/6AOT7FFVEFBGTAHJDGINZ3RHKI.jpg 351w,https://www.lanacion.com.ar/resizer/EoAVN415NnJ_hhSCYZlSa_o2oYs=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/6AOT7FFVEFBGTAHJDGINZ3RHKI.jpg 360w"
+    rel="preload"
+  />
+</DocumentFragment>
+`;

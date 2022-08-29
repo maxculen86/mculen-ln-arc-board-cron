@@ -11,6 +11,8 @@ import {
 } from '../../../LN/common/utils/mediaHelper';
 import getVideoPosterResized from '../video/getVideoPosterResized';
 import replaceUrlResizerToWWW from '../../../../../content/sources/utils/replaceUrlResizerToWWW';
+import capitalizeFirstLetter from '../capitalizeFirstLetter';
+import ImagePreloadlAcu from '../../../LN/acumulado/imagePreloadAcu';
 
 const getSource = (
     imageID = '',
@@ -132,10 +134,14 @@ const GetDataToLinkImage = ({
     isAdmin = false
 }) => {
     const {
+        _id: id,
+        name,
         subtype,
         promo_items: promoItems,
+        canonical_url: canonicalUrl,
         wikiSourceData = {},
-        isWiki = false
+        isWiki = false,
+        node_type: nodeType
     } = data || {};
 
     const basic = replaceUrlResizerToWWW(get(data, 'promo_items.basic', {}));
@@ -143,7 +149,7 @@ const GetDataToLinkImage = ({
     if (!data) return <></>;
 
     const sectionData = {
-        nota: () => {
+        Nota: () => {
             const shouldExclude = !!(
                 (subtype === FOTOAL100 || subtype === STORYTELLING) &&
                 get(promoItems, 'storytelling_mobile.resized_urls.length')
@@ -157,14 +163,23 @@ const GetDataToLinkImage = ({
                 <></>
             );
         },
-        acumulado: () => {
+
+        Acumulado: () => {
             if (isWiki) {
                 const imagesToPreload = wikiImagesWithWWW(wikiSourceData);
                 return <LinkImagePreload resizedUrls={imagesToPreload} />;
             }
-            return [];
+
+            return (
+                <ImagePreloadlAcu
+                    arcSite={arcSite}
+                    accumulated={{ id, canonicalUrl, name }}
+                    nodeType={nodeType}
+                />
+            );
         },
-        home: () => {
+
+        Home: () => {
             const bomba =
                 (renderables.length &&
                     getChildsFromSections(
@@ -198,7 +213,12 @@ const GetDataToLinkImage = ({
         }
     } || <></>;
 
-    return (sectionData[section] && sectionData[section]()) || <></>;
+    const sectionAsComponent = capitalizeFirstLetter(section);
+
+    return (
+        (sectionData[sectionAsComponent] &&
+            sectionData[sectionAsComponent]()) || <></>
+    );
 };
 
 export default GetDataToLinkImage;

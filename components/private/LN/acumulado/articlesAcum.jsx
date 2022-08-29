@@ -57,6 +57,7 @@ const ArticlesAcum = ({
                         withSubhead={typeAcumRules[typeArticle].withSubhead}
                         withCategory={typeAcumRules[typeArticle].withCategory}
                         withTags={typeAcumRules[typeArticle].withTags}
+                        isApertura={i === 0}
                     >
                         {banner}
                     </ArticleAcum>
