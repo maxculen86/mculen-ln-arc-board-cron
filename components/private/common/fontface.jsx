@@ -12,12 +12,12 @@ export const getStyleFontsInLine = ({ contextPath, deployment }) => `
     font: FONT_BOLD,
     contextPath,
     deployment
-})}') format('woff2');font-weight: 700;font-style: normal;font-display: swap;}
+})}') format('woff2');font-weight: 700;font-style: normal;font-display: auto;}
 @font-face {font-family:'SuecaSlab';src:url('${getWebFont({
     font: FONT_MEDIUM,
     contextPath,
     deployment
-})}') format('woff2');font-weight: 500;font-style: normal;font-display: swap;}
+})}') format('woff2');font-weight: 500;font-style: normal;font-display: auto;}
 `; // NOSONAR;
 
 const FontFace = props => {

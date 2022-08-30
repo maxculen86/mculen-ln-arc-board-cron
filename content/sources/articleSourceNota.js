@@ -30,16 +30,20 @@ import isNotShowcase from './utils/isNotShowcase';
 import { recipePowerUps, removeParallaxPowerUp } from './utils/powerUp';
 import firmaDistributorValidation from './utils/firmaDistributorValidator';
 
-const resolve = (key, a) => {
+export const resolve = (key, a) => {
     const { url, id, published } = key;
+
     const arcSite = key['arc-site'];
     let basePath = `/content/v4/stories/?website=${arcSite}`;
-
     if (published) basePath = `${basePath}&published=${published}`;
-
     if (id) return `${basePath}&_id=${id}`;
-    if (url) return `${basePath}&website_url=${url}`;
-
+    if (url) {
+        let urlClear = url;
+        const regexUrl = /^\/api\/(?:mobile\/)?v([1-2]+)\/notas\/(byUrl(\/.+\/$)|byId\/(.+)\/$)/;
+        const groups = regexUrl.exec(url);
+        if (groups) urlClear = groups[3];
+        return `${basePath}&website_url=${urlClear}`;
+    }
     throw new Error('Debe definir url o id para obtener la nota');
 };
 
@@ -53,6 +57,7 @@ const fetch = (query, { cachedCall } = {}) => {
         isInApertura = false,
         isAdmin = false
     } = query;
+
     const arcSite = query['arc-site'];
     const properties = getProperties(arcSite);
     const opt = {
