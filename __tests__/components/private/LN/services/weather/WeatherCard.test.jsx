@@ -11,9 +11,9 @@ describe('Components - private - services - weather - WeatherCard =>', () => {
         const data = {
             location_name: 'mendoza',
             weather: { id: 'sun', description: 'sun' },
-            current_temp: '29',
-            temp_min: '25',
-            temp_max: '25',
+            current_temp: 29,
+            temp_min: 0,
+            temp_max: 25,
             link: 'www.com'
         };
         const { container } = render(<WeatherCard data={data} />);
@@ -55,9 +55,9 @@ describe('Components - private - services - weather - WeatherCard =>', () => {
         const data = {
             location_name: 'mendoza',
             weather: { id: 'sun', description: 'sun' },
-            current_temp: '29',
-            temp_min: '25',
-            temp_max: '',
+            current_temp: 29,
+            temp_min: 25,
+            temp_max: undefined,
             link: 'www.com'
         };
         const { container } = render(<WeatherCard data={data} />);
@@ -90,9 +90,9 @@ describe('Components - private - services - weather - WeatherCard =>', () => {
         const data = {
             location_name: 'mendoza',
             weather: { id: 'sun', description: 'sun' },
-            current_temp: '29',
-            temp_min: '',
-            temp_max: '',
+            current_temp: 29,
+            temp_min: undefined,
+            temp_max: undefined,
             link: ''
         };
         const { container } = render(<WeatherCard data={data} />);
@@ -126,9 +126,9 @@ describe('Components - private - services - weather - WeatherCard =>', () => {
         const data = {
             location_name: 'mendoza',
             weather: { id: '', description: '' },
-            current_temp: '25',
-            temp_min: '18',
-            temp_max: '18',
+            current_temp: 25,
+            temp_min: 18,
+            temp_max: 18,
             link: 'www.www'
         };
         const { container } = render(<WeatherCard data={data} />);
@@ -154,6 +154,6 @@ describe('Components - private - services - weather - WeatherCard =>', () => {
         const { container } = render(<WeatherCard data={data} />);
 
         expect(container).toMatchSnapshot();
-        expect(container.innerHTML).toBe('');
+        expect(container).toBeEmptyDOMElement();
     });
 });

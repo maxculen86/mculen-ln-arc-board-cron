@@ -16,8 +16,7 @@ const WeatherCard = ({ _id, data }) => {
 
     if (!locationName) return null;
 
-    const defaultValue = (condition, value) =>
-        condition || condition === 0 ? value : '-';
+    const isValidNumber = number => typeof number === 'number';
 
     return (
         <div className="weather-card">
@@ -39,23 +38,21 @@ const WeatherCard = ({ _id, data }) => {
             <div className="box-icon">
                 {idDescription && <Icon name={idDescription} />}
                 <Text tag="p" weight="bold" size="--twoxl">
-                    {defaultValue(currentTemp, currentTemp)}
+                    {isValidNumber(currentTemp) ? currentTemp : '-'}
                     <Text size="--m">ºc</Text>
                 </Text>
             </div>
-            {minTemp && maxTemp ? (
+            {isValidNumber(minTemp) && isValidNumber(maxTemp) && (
                 <div className="temperature">
                     <Text size="--5xs">Mín:</Text>
                     <Text weight="bold" size="--4xs">
-                        {defaultValue(minTemp, `${minTemp}º`)}
+                        {`${minTemp}º`}
                     </Text>
                     <Text size="--5xs">Máx:</Text>
                     <Text weight="bold" size="--4xs">
-                        {defaultValue(maxTemp, `${maxTemp}º`)}
+                        {`${maxTemp}º`}
                     </Text>
                 </div>
-            ) : (
-                ''
             )}
             <Text tag="h3" size="5xs">
                 {link && (

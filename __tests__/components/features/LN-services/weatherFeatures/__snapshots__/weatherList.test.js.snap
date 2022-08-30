@@ -333,7 +333,6 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
             </span>
           </p>
         </div>
-        
         <h3
           class="com-text --fivexs"
         >
@@ -1311,7 +1310,6 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
             </span>
           </p>
         </div>
-        
         <h3
           class="com-text --fivexs"
         >
@@ -2460,7 +2458,6 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
             </span>
           </p>
         </div>
-        
         <h3
           class="com-text --fivexs"
         >

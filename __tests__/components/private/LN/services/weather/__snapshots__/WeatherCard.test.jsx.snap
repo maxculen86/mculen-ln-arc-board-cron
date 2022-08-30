@@ -129,7 +129,6 @@ exports[`Components - private - services - weather - WeatherCard => Test when do
         </span>
       </p>
     </div>
-    
   </div>
 </div>
 `;
@@ -187,7 +186,6 @@ exports[`Components - private - services - weather - WeatherCard => Test when do
         </span>
       </p>
     </div>
-    
     <h3
       class="com-text --fivexs"
     >
@@ -271,7 +269,7 @@ exports[`Components - private - services - weather - WeatherCard => Test when ha
       <span
         class="com-text --font-bold --4xs"
       >
-        25º
+        0º
       </span>
       <span
         class="com-text --5xs"
