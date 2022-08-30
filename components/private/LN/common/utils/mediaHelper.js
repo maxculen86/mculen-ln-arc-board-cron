@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/no-danger */
 import React from 'react';
 import { parse } from 'node-html-parser';
@@ -119,11 +120,14 @@ export const LinkImagePreload = ({ resizedUrls = [], isAmp }) => {
         );
     });
 
+    const fetchPriorityAttr = isAmp ? {} : { fetchPriority: 'high' };
+
     return (
         imagesrcset.length && (
             <link
                 rel="preload"
                 as="image"
+                {...fetchPriorityAttr}
                 href={isAmp ? `${resizedUrl} ${_width}w` : resizedUrl}
                 imagesrcset={imagesrcset}
             />
