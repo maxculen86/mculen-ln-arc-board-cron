@@ -79,15 +79,6 @@ describe('Components - private - services - weather - WeatherCard =>', () => {
                 '<p class="com-text --font-bold --twoxl">29<span class="com-text --m">ºc</span></p>'
             )
         ).toBe(true);
-        expect(container.getElementsByClassName('com-text --5xs').length).toBe(
-            2
-        );
-        expect(
-            container.getElementsByClassName('com-text --font-bold --4xs')
-                .length
-        ).toBe(2);
-        expect(container.innerHTML.includes('25º')).toBe(true);
-        expect(container.innerHTML.includes('>-<')).toBe(true);
         expect(
             container.innerHTML.includes(
                 '<a href="www.com" title="Ver clima en mendoza" class="com-link">Ver clima en mendoza</a>'
@@ -123,15 +114,7 @@ describe('Components - private - services - weather - WeatherCard =>', () => {
                 '<p class="com-text --font-bold --twoxl">29<span class="com-text --m">ºc</span></p>'
             )
         ).toBe(true);
-        expect(container.getElementsByClassName('com-text --5xs').length).toBe(
-            2
-        );
-        expect(
-            container.getElementsByClassName('com-text --font-bold --4xs')
-                .length
-        ).toBe(2);
         expect(container.innerHTML.includes('25º')).toBe(false);
-        expect(container.innerHTML.includes('>-<')).toBe(true);
         expect(
             container.innerHTML.includes(
                 '<a href="www.com" title="Ver clima en mendoza" class="com-link">Ver clima en mendoza</a>'
