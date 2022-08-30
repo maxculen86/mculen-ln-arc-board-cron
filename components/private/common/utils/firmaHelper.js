@@ -1,4 +1,4 @@
-import get from 'lodash.get';
+import get from './get';
 
 export const place = Object.freeze({ Top: 'Top', Bottom: 'Bottom' });
 

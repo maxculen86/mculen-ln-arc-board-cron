@@ -17,7 +17,7 @@ const ctrRecommendNote = (articleList, articlesSeen, actualArticleId) => {
 
     return notSeenBefore.length > 0
         ? notSeenBefore[0]
-        : notCurrent.sort(() => (Math.random() > 0.5 ? 1 : -1))[0] || {};
+        : notCurrent[Math.round(Math.random() * notCurrent.length)] || {}; // NOSONAR
 };
 
 const CTRNota = () => {
@@ -27,20 +27,6 @@ const CTRNota = () => {
     const [trigger, setTrigger] = useState(false);
     const [excludeItems, setExcludeItems] = useState([]);
 
-    const device = useViewportSize();
-    const showCtr = !isSubscribed() && device === 'mobile';
-
-    const { articles = [] } =
-        getContent({
-            source: showCtr ? 'rankingArticlesSource' : null,
-            query: {
-                sectionId: 'inverse-home',
-                imageConfig: 'boxArticles',
-                website: 'la-nacion-ar'
-            }
-        }) || {};
-
-    const articleToShow = ctrRecommendNote(articles, excludeItems, _id);
     useEffect(() => {
         if (localStorage) {
             const seenNotes =
@@ -61,6 +47,23 @@ const CTRNota = () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, [trigger]);
+
+    const device = useViewportSize();
+    const showCtr = !isSubscribed() && device === 'mobile';
+
+    const { articles = [] } =
+        getContent({
+            source: showCtr ? 'rankingArticlesSource' : null,
+            query: {
+                sectionId: 'inverse-home',
+                imageConfig: 'boxArticles',
+                website: 'la-nacion-ar'
+            }
+        }) || {};
+
+    if (!showCtr) return null;
+
+    const articleToShow = ctrRecommendNote(articles, excludeItems, _id);
 
     const showComponent =
         showCtr && trigger && Object.keys(articleToShow).length > 0;

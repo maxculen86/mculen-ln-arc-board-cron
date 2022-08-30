@@ -16,7 +16,9 @@ import PageBuilderMessage from '../../../private/LN/home/common/components/pageB
 import filter from '../../../../content/filters/LN/nota/articleAcu';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
 import filterVideo from '../../../../content/filters/LN/home/videoFilter';
-import featureArticleCustomsFields from '../../../private/LN/common/utils/articuloHelper';
+import featureArticleCustomsFields, {
+    GetImage
+} from '../../../private/LN/common/utils/articuloHelper';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
 import { productClickFromClient } from '../../../private/common/utils/viewability';
@@ -29,7 +31,7 @@ const ArticleFeature = ({
     id: featureId,
     customFields,
     searchableField,
-    customFields: { noteId: id, imageId, video: videoId },
+    customFields: { noteId: id, imageId, video: videoId, mobileImageId },
     isBomba = false
 }) => {
     const {
@@ -51,10 +53,6 @@ const ArticleFeature = ({
         layout,
         imageConfig
     } = getCajaTemaConfig(featureId, renderables, cajaTemaConfig, isBomba);
-
-    const conditionallyCallImageSource = idImage => {
-        return (idImage && idImage.trim() && 'relatedImageSource') || null;
-    };
 
     const isBombaHidden = () => {
         const bomba = getChildrenFromSectionHome(renderables, 'Bomba', 2) || [];
@@ -99,21 +97,23 @@ const ArticleFeature = ({
             filter: filterVideo
         }) || null;
 
-    const image =
-        useContent({
-            source: conditionallyCallImageSource(imageId),
-            staticMode: isSSR(),
-            query: {
-                id: imageId && imageId.trim(),
-                published: true,
-                imageConfig,
-                nid: id,
-                boxType: 'ArticleFeature',
-                isInApertura: onlyOneApeturaValidateForWWW,
-                isAdmin
-            },
-            filter: filterImage
-        }) || null;
+    const image = GetImage({
+        imageId,
+        imageConfig,
+        id,
+        onlyOneApeturaValidateForWWW,
+        isAdmin,
+        filterImage
+    });
+
+    const mobileImage = GetImage({
+        imageId: mobileImageId,
+        imageConfig: 'boxMultimediaMobile',
+        id,
+        onlyOneApeturaValidateForWWW,
+        isAdmin,
+        filterImage
+    });
 
     const error = validateArticleFeature(
         id,
@@ -122,7 +122,9 @@ const ArticleFeature = ({
         videoBackground,
         layout,
         imageId,
-        videoId
+        videoId,
+        mobileImage,
+        mobileImageId
     );
 
     if (isAdmin && !!error) {
@@ -167,6 +169,7 @@ const ArticleFeature = ({
                     isPowa={layout === 'grillaVideo1'}
                     handleClick={productClickFromClient}
                     registerSuccessEvent={registerSuccessEvent}
+                    mobileImage={mobileImage}
                 />
             </ErrorBoundary>
         )) ||

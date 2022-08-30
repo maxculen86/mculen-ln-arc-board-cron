@@ -12,7 +12,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import testHelper from '../../../../../utils/testHelper';
 import LastVideosByProgramContainer from '../../../../../../components/private/OTT/programa/lastVideosByProgram/component';
-import get from 'lodash.get';
+import get from '../../../../../../components/private/common/utils/get';
 
 describe('private - OTT - feature - LastVideosByPrograms component', () => {
     function nextPage() {}

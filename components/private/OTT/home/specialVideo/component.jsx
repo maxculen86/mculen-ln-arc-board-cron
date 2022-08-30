@@ -1,5 +1,5 @@
 import React from 'react';
-import get from 'lodash.get';
+import get from '../../../common/utils/get';
 import VideoArticle from '../../common/videoArticle';
 
 export default function SpecialVideo({ videos = [] }) {

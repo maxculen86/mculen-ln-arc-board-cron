@@ -14,6 +14,8 @@ const WeatherCard = ({ _id, data }) => {
         link
     } = data;
 
+    if (!locationName) return null;
+
     const defaultValue = (condition, value) =>
         condition || condition === 0 ? value : '-';
 
@@ -35,7 +37,7 @@ const WeatherCard = ({ _id, data }) => {
                 </Text>
             </div>
             <div className="box-icon">
-                <Icon name={idDescription} />
+                {idDescription && <Icon name={idDescription} />}
                 <Text tag="p" weight="bold" size="--twoxl">
                     {defaultValue(currentTemp, currentTemp)}
                     <Text size="--m">ºc</Text>
