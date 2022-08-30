@@ -54,7 +54,7 @@ const lnNotaFotoAl100 = ({
                     >
                         <AperturaStorytelling />
                     </StaticValidation>
-                    <div className="row">
+                    <div className="row" id="prueba">
                         {leftCuerpo}
                         {cuerpo}
                     </div>

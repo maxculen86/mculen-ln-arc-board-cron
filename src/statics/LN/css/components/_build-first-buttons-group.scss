@@ -36,6 +36,9 @@
             path {
                 fill: $light-neutral-50;
             }
+            span {
+                display: none;
+            }
         }
 
         &.comment-btn {
@@ -87,6 +90,9 @@
                 background: $light-neutral-50;
                 path {
                     fill: $light-neutral-800;
+                }
+                span {
+                    display: none;
                 }
             }
             &.bookmark {

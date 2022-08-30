@@ -27,7 +27,8 @@ const BuildFirtsButtonsGroup = ({
     const {
         _id: id,
         comments: { display_comments: displayComments = true } = {},
-        first_publish_date: firstPublishDate
+        first_publish_date: firstPublishDate,
+        subtype
     } = globalContent;
 
     const { totalVisibleContent = '' } = GetNumberOfComments(
@@ -38,7 +39,7 @@ const BuildFirtsButtonsGroup = ({
 
     return (
         <div className="first-buttons-group">
-            <AudioPlayerButton />
+            <AudioPlayerButton subtype={subtype} />
             {termicaBookmark && (
                 <ComButton
                     id="btnbookmark"

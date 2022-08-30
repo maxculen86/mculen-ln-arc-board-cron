@@ -8,6 +8,15 @@
     align-items: center;
     margin-bottom: $spacing-md;
     background: $light-neutral-100;
+    @keyframes fadeInPlayer {
+        0% {
+            width: 25%;
+        }
+        100% {
+            width: 100%;
+        }
+    }
+    animation: fadeInPlayer 0.4s;
     .com-button {
         &.action-player {
             width: $spacing-xl;
@@ -54,5 +63,10 @@
             height: $spacing-2xs;
             background-color: black;
         }
+    }
+    @media ($media-l) {
+        width: 100%;
+        max-width: px(502);
+        margin-bottom: 0;
     }
 }

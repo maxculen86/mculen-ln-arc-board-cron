@@ -29,16 +29,13 @@ const NotaMain = ({ children }) => {
                         </div>
                         <section className="cuerpo__nota">
                             <div className="row">
-                                <div
-                                    className="col-12 col-desksm-1"
-                                    id="prueba"
-                                >
+                                <div className="col-12 col-desksm-1">
                                     {/* hlp-mobile-show */}
                                     {/* Left-Cuerpo Shared */}
                                     {children[4]}
                                 </div>
                                 <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
-                                    <div className="row">
+                                    <div className="row" id="prueba">
                                         <div className="col-12">
                                             {/* Pos-Apertura */}
                                             {children[5]}

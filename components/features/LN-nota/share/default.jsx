@@ -65,7 +65,7 @@ const Share = () => {
                     scrollShare(shareContainer.current, share.current);
                 }}
             >
-                {<Icon name="arrow-left" />}
+                <Icon name="arrow-left" />
                 {showToast(termicaBookmark, toast, setToast)}
                 {showBarrier(termicaBookmark, barrier, token, setBarrier)}
                 <div id="v-share" className="share" ref={share}>

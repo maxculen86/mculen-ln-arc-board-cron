@@ -170,9 +170,13 @@ export const showBarrier = (termicaBookmark, barrier, token, setBarrier) => {
     );
 };
 
-export const BtnContainer = ({ children, withContainer }) => {
+export const BtnContainer = ({ children, withContainer, id }) => {
     if (withContainer) {
-        return <div className="btn-container">{children}</div>;
+        return (
+            <div className="btn-container" id={id}>
+                {children}
+            </div>
+        );
     }
 
     return children;
