@@ -6,6 +6,7 @@ import weather from './utils/servicesSource/weather/weather';
 import getRequest from './utils/getRequest';
 import { getAuthForRequest } from './utils/widgets/helper';
 import NotFoundError from './utils/notFoundError';
+import force404AMP from './utils/force404AMP';
 
 const SERVICES = {
     loterias: lottery,
@@ -20,7 +21,8 @@ const fetch = async (query, { cachedCall }) => {
         serviceItem = '',
         serviceSubItem = '',
         uri = '',
-        'arc-site': arcSite = 'la-nacion-ar'
+        'arc-site': arcSite = 'la-nacion-ar',
+        outputType = ''
     } = query;
 
     const sectionSourceData = await cachedCall('sectionSource', getRequest, {
@@ -40,6 +42,8 @@ const fetch = async (query, { cachedCall }) => {
             `La sección '${id}' que intenta consultar no existe`
         );
     }
+
+    force404AMP({ outputType });
 
     return serviceRequest({
         queryData: query,

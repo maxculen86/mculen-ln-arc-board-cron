@@ -1,5 +1,5 @@
 import Consumer from 'fusion:consumer';
-import get from 'lodash.get';
+import get from '../../../private/common/utils/get';
 
 class Services {
     constructor(props) {

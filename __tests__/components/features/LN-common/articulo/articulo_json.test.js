@@ -58,7 +58,12 @@ describe('components - features - LN-common - articulo - json.js', () => {
         arcSite: 'la-nacion-ar',
         children: [],
         collection: 'features',
-        customFields: { noteId: '2KOBND62KNFVVBFQZOADNN6WNY', title: 'Nota1' },
+        customFields: {
+            noteId: '2KOBND62KNFVVBFQZOADNN6WNY',
+            title: 'Nota1',
+            html:
+                '<iframe width="560" height="315" src="https://www.youtube.com/embed/mGcFszPShHQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+        },
         id: 'f0f9g3fKOoHW25c',
         isAdmin: false,
         key: 0,
@@ -102,14 +107,25 @@ describe('components - features - LN-common - articulo - json.js', () => {
                     'lead',
                     'noteId',
                     'opinion',
-                    'title'
+                    'html',
+                    'title',
+                    'video'
                 ].sort()
             );
 
             expect(result.additionalProperties).toEqual(
                 expect.objectContaining({
                     noteId: '2KOBND62KNFVVBFQZOADNN6WNY',
-                    title: 'Nota1'
+                    title: 'Nota1',
+                    html:
+                        '<iframe width="560" height="315" src="https://www.youtube.com/embed/mGcFszPShHQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+                })
+            );
+
+            result.additionalProperties.html = undefined;
+            expect(result.additionalProperties).toEqual(
+                expect.objectContaining({
+                    html: undefined
                 })
             );
         });

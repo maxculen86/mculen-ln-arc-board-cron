@@ -1,8 +1,7 @@
-/* eslint-disable react/require-default-props */
+/* eslint-disable react/no-danger */
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const AdblockDetector = ({ location = 'body-bottom' }) => {
+const AdblockDetector = () => {
     const script = `
     window.addEventListener('load', () => {
       const check = new Request(
@@ -14,21 +13,14 @@ const AdblockDetector = ({ location = 'body-bottom' }) => {
         .catch((err) => {
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({
-            'event' : 'adblock-detected'
+            'event' : 'adblock-detected',
+            'detectado': 'true'
           });
         });
     });
   `;
 
-    return (
-        <>
-            <script defer dangerouslySetInnerHTML={{ __html: script }} />
-        </>
-    );
-};
-
-AdblockDetector.propTypes = {
-    location: PropTypes.string
+    return <script defer dangerouslySetInnerHTML={{ __html: script }} />;
 };
 
 export default AdblockDetector;

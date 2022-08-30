@@ -6,6 +6,8 @@ import ModHeaderSection from '../../../common/mod-headerSection';
 import addForwardSlash from '../../common/utils/addForwardSlash';
 
 const ProvincesList = ({ provinces }) => {
+    if (provinces.length <= 0) return null;
+
     return (
         <>
             <ModHeaderSection tag="h3" title="Provincias" />
