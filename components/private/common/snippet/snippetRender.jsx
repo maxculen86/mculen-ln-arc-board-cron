@@ -1,7 +1,9 @@
+/* eslint-disable react/no-danger */
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-const snippetRender = ({ data, id = null }) => {
+const snippetRender = ({ data = {}, id = null }) => {
     const stringData = JSON.stringify(data, null, 2);
 
     return (
@@ -17,7 +19,7 @@ snippetRender.propTypes = {
     data: PropTypes.shape({
         '@context': PropTypes.string,
         '@type': PropTypes.string
-    }).isRequired,
+    }),
     id: PropTypes.string
 };
 
