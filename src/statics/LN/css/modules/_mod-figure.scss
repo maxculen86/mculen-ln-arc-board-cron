@@ -57,6 +57,14 @@
     }
     .--active & {
         width: 50%;
+        margin: auto;
+
+        .placeholder .com-image {
+            width: auto;
+            margin: auto;
+            max-height: px(800);
+        }
+
         @media (min-height: 400px) {
             width: 100%;
         }
@@ -64,7 +72,6 @@
         @media ($media-l) {
             //width: 90%;
             //max-width: 1000px;
-
             width: 50%;
             max-width: px(1000);
 
@@ -82,9 +89,6 @@
                 width: 85%;
                 max-width: px(1100);
             }
-        }
-        .placeholder .com-image {
-            max-height: px(850);
         }
         .icon-close {
             display: flex;
