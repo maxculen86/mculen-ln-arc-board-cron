@@ -1,6 +1,7 @@
 import React from 'react';
 import get from '../../../common/utils/get';
 import PictureSource from '../../../common/pictureSource';
+import addForwardSlash from '../../../LN/common/utils/addForwardSlash';
 
 export default function Program({ href, description, image }) {
     const alt = `Ir a ${description}`;
@@ -9,7 +10,7 @@ export default function Program({ href, description, image }) {
         <article className="article">
             <a
                 className="figure"
-                href={href}
+                href={addForwardSlash(href)}
                 alt={alt}
                 data-event="LinkClick"
                 data-section="LinksOTT"
