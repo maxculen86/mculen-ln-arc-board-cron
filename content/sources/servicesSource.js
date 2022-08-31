@@ -7,6 +7,7 @@ import getRequest from './utils/getRequest';
 import { getAuthForRequest } from './utils/widgets/helper';
 import NotFoundError from './utils/notFoundError';
 import force404AMP from './utils/force404AMP';
+import filter from '../filters/LN/services/filter';
 
 const SERVICES = {
     loterias: lottery,
@@ -83,5 +84,6 @@ export default {
         redirectUrl: 'text',
         meteringVariant: 'text'
     },
+    filter,
     ttl: 120
 };

@@ -1,6 +1,11 @@
 import React from 'react';
 import { useContent } from 'fusion:content';
 import filterArticle from '../../../../../content/filters/LN/nota/articleAcu';
+import isSSR from '../../../LN/common/utils/isSSR';
+
+const conditionallyCallSource = (id, sourceType, isHideImage) =>
+    (id && sourceType && isHideImage === false && id.trim() && sourceType) ||
+    null;
 
 const getImage = ({
     id = '',
@@ -17,22 +22,18 @@ const getImage = ({
 
     const fetchSourceData = () => {
         return (
-            (id &&
-                sourceType &&
-                isHideImage === false &&
-                id.trim() &&
-                useContent({
-                    source: sourceType,
-                    query: {
-                        id: id.trim(),
-                        published: true,
-                        imageConfig,
-                        isInApertura,
-                        isAdmin
-                    },
-                    filter: filter[sourceType]
-                })) ||
-            {}
+            useContent({
+                source: conditionallyCallSource(id, sourceType, isHideImage),
+                query: {
+                    id: id.trim(),
+                    published: true,
+                    imageConfig,
+                    isInApertura,
+                    isAdmin
+                },
+                filter: filter[sourceType],
+                staticMode: isSSR()
+            }) || {}
         );
     };
 
