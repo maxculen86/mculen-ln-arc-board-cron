@@ -1,4 +1,5 @@
 @import '../abstracts/variables';
+@import '../abstracts/mixins';
 
 .audio-player-button {
     display: none;
@@ -46,7 +47,7 @@
         align-items: center;
         transition: 1s ease-in all;
         .--photo100 & {
-            width: 66.6%;
+            @include width-nota100;
             margin: auto;
         }
     }

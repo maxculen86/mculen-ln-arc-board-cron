@@ -11,18 +11,19 @@ import '../../../../../resources/dist/css/ln/components/audio-player-button.css'
 
 const AudioPlayerButton = ({ subtype = '' }) => {
     const [openPortal, setOpenPortal] = useState(false);
-    const [prueba, setPrueba] = useState([]);
+    const [prueba, setPrueba] = useState(false);
     const [targetRenderButton, setTargetRenderButton] = useState(false);
+    const [widthContainer, setWidthContainer] = useState(false);
 
     const viewport = getViewportSize();
-    const widthContainer = viewport === 'desktop' && subtype !== VIDEO && true;
 
     useEffect(() => {
-        if (viewport === 'desktop') {
+        if (viewport === 'desktop' && subtype !== VIDEO) {
             const cuerpoNota = document.querySelector('#prueba') || false;
             setTargetRenderButton(cuerpoNota);
+            setWidthContainer(true);
         }
-    }, [viewport]);
+    }, [viewport, subtype]);
 
     const audioPlayerRender = () => {
         // logica que deberia ocurrir solo en mobile y tablet

@@ -12,5 +12,9 @@
                 color: $neutral-white;
             }
         }
+        #prueba {
+            display: flex;
+            flex-direction: column;
+        }
     }
 }

@@ -2,22 +2,6 @@
 @import '../abstracts/mixins';
 
 .mod-share-container {
-    @media ($media-l) {
-        position: sticky;
-        float: left;
-        z-index: 101;
-        top: (px(16) + $header-desktop);
-    }
-
-    .--photo100 {
-        margin: 0 $spacing;
-        position: relative;
-
-        @media ($media-s) {
-            margin: 0 $spacing-sm;
-        }
-    }
-
     .mod-share {
         height: px(40);
         margin-bottom: $spacing-sm;
@@ -210,21 +194,37 @@
             }
         }
     }
+    .--photo100 {
+        position: relative;
+        margin: 0 $spacing;
+        @media ($media-s) {
+            margin: 0 $spacing-sm;
+        }
+    }
 
     &:not(.--video) {
         @media ($media-l) {
+            position: sticky;
+            float: left;
+            z-index: 101;
+            transition: all 0.25s;
+            top: (px(16) + $header-desktop);
+
             .share {
                 border-radius: px(4);
                 padding: $spacing;
                 background-color: $light-neutral-50;
                 box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.06);
+
                 .headset {
                     display: none;
                 }
+
                 #audio-player-container {
                     display: none;
                 }
             }
+
             .audio-player {
                 display: none;
             }
@@ -257,6 +257,7 @@
                 .icon-headset {
                     margin-right: 0;
                 }
+
                 &.icon-arrow-left,
                 &.icon-arrow-right {
                     path {
