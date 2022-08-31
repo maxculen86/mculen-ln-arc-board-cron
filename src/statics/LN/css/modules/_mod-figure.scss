@@ -59,6 +59,15 @@
         width: 50%;
         margin: auto;
 
+        .placeholder {
+            .com-image {
+                width: auto;
+                margin: auto;
+                max-height: px(800);
+                max-width: 100%;
+            }
+        }
+
         @media (min-height: 400px) {
             width: 100%;
         }

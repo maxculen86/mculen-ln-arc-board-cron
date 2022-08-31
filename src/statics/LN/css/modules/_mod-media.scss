@@ -22,14 +22,6 @@
         align-items: center;
         display: flex;
 
-        .placeholder {
-            .com-image {
-                width: auto;
-                margin: auto;
-                max-height: px(800);
-            }
-        }
-
         .slide {
             width: 50%;
             @media (min-height: 400px) {
