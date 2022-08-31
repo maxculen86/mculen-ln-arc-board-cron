@@ -14,7 +14,7 @@ export const setTLOrderClass = (timeline = {}) => {
     return isFirst ? '--left-top' : '--right-bottom';
 };
 
-export const setTLDistribution = (children = [], tlFeatureId) => {
+export const setTLDistribution = (tlFeatureId, children = []) => {
     let timeline = { articles: [] };
 
     if (!tlFeatureId) return null;

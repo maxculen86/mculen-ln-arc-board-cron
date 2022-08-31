@@ -7,8 +7,8 @@ export const getSectionOfRequestUri = (requestUri = '') => {
 };
 export const getTitle = (
     metaValue,
-    requestUri = '',
     { longTitle, title: defaultTitle },
+    requestUri = '',
     _nodeType = ''
 ) => {
     if (getSectionOfRequestUri(requestUri) === 'mis-notas') {

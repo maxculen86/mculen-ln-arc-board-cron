@@ -20,8 +20,8 @@ describe('Common - utils - getTitle', () => {
 
         const title = getTitle(
             metaValue,
-            requestUri,
             siteProperties,
+            requestUri,
             _nodeType
         );
 
@@ -32,8 +32,8 @@ describe('Common - utils - getTitle', () => {
         const _nodeType = 'home';
         const title = getTitle(
             metaValue,
-            requestUri,
             siteProperties,
+            requestUri,
             _nodeType
         );
 
@@ -48,8 +48,8 @@ describe('Common - utils - getTitle', () => {
         const layout = 'LN-acumulado';
         const title = getTitle(
             metaValue,
-            requestUri,
             siteProperties,
+            requestUri,
             _nodeType
         );
 
@@ -63,8 +63,8 @@ describe('Common - utils - getTitle', () => {
 
         const title = getTitle(
             metaValue,
-            requestUri,
             siteProperties,
+            requestUri,
             _nodeType
         );
 
@@ -80,8 +80,8 @@ describe('Common - utils - getTitle', () => {
 
         const title = getTitle(
             metaValue,
-            requestUri,
             siteProperties,
+            requestUri,
             _nodeType
         );
 
@@ -94,8 +94,8 @@ describe('Common - utils - getTitle', () => {
 
         const title = getTitle(
             metaValue,
-            requestUri,
             siteProperties,
+            requestUri,
             _nodeType
         );
 
@@ -111,8 +111,8 @@ describe('Common - utils - getTitle', () => {
 
         const title = getTitle(
             metaValue,
-            requestUri,
             siteProperties,
+            requestUri,
             _nodeType
         );
 

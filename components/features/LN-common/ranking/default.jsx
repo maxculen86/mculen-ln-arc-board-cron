@@ -28,7 +28,7 @@ const getDataContent = (sectionId, sectionParentId, website) => {
     return (hasArticles(data) && data) || getRankingData(sectionParentId);
 };
 
-const getComponentForHome = (component, size = 4, isInverse, hidePlaceholder) =>
+const getComponentForHome = (component, isInverse, hidePlaceholder, size = 4) =>
     component ||
     (!hidePlaceholder &&
         getPlaceholder(isInverse ? 'grilla6' : `ranking${size}`)) || <></>;
@@ -84,7 +84,7 @@ const RankingFeature = ({ id: featureId }) => {
     );
 
     return isHome
-        ? getComponentForHome(component, size, isInverse, hidePlaceholder)
+        ? getComponentForHome(component, isInverse, hidePlaceholder, size)
         : getComponentForSection(component, featureId);
 };
 

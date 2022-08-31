@@ -206,8 +206,8 @@ const Default = props => {
     const _nodeType = getSectionName({ nodeType, type, arcSite });
     const title = getTitle(
         metaValue('title'),
-        requestUri,
         siteProperties,
+        requestUri,
         _nodeType,
         renderables
     );

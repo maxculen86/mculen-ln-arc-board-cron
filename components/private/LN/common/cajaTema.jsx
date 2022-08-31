@@ -56,7 +56,7 @@ const CajaTema = props => {
 
             if (!feature) return null;
 
-            const timeline = setTLDistribution(_children, feature.props.id);
+            const timeline = setTLDistribution(feature.props.id, _children);
             const orderClass = setTLOrderClass(timeline);
 
             return (

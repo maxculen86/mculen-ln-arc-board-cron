@@ -2,14 +2,14 @@ import React from 'react';
 import { useContent } from 'fusion:content';
 import filterArticle from '../../../../../content/filters/LN/nota/articleAcu';
 
-const getImage = (
+const getImage = ({
     id = '',
     sourceType = '',
     imageConfig = '',
     isHideImage = true,
     isInApertura,
     isAdmin
-) => {
+}) => {
     const filter = {
         relatedImageSource: '',
         articleSourceNota: filterArticle
