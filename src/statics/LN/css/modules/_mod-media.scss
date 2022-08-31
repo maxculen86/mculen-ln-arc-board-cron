@@ -22,6 +22,14 @@
         align-items: center;
         display: flex;
 
+        .placeholder {
+            .com-image {
+                width: auto;
+                margin: auto;
+                max-height: px(800);
+            }
+        }
+
         .slide {
             width: 50%;
             @media (min-height: 400px) {
@@ -65,11 +73,6 @@
 
         @media ($media-l) {
             //1024
-            .mod-figure .placeholder .com-image {
-                width: auto;
-                margin: auto;
-                max-height: px(800);
-            }
             background: rgba(0, 0, 0, 0.9);
         }
     }
