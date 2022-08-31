@@ -1,10 +1,11 @@
 import React from 'react';
 import LinkedTitle from '../../../common/linkedTitle';
+import addForwardSlash from '../../../LN/common/utils/addForwardSlash';
 
 export default function VideoArticle({ href, description, imgSrc, date }) {
     return (
         <article className="article">
-            <a className="figure" href={href}>
+            <a className="figure" href={addForwardSlash(href)}>
                 <picture className="content-picture">
                     <source srcSet={imgSrc} />
                     <img
