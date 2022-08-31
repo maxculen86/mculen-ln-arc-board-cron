@@ -1,5 +1,5 @@
 import Consumer from 'fusion:consumer';
-import get from 'lodash.get';
+import get from '../../../../../../components/private/common/utils/get';
 
 jest.mock(
     '../../../../../../components/private/OTT/common/lastVideos/component',

@@ -60,3 +60,64 @@ HTMLCollection [
   </div>,
 ]
 `;
+
+exports[`LN-Acumulado-WikiTag test When sotialNetworks is empty 1`] = `
+HTMLCollection [
+  <div
+    class="description"
+  >
+    <span
+      class="label --arial --font-regular --fourxs"
+    >
+      Nombre
+    </span>
+    <span
+      class="text --sueca --font-regular --twoxs"
+    >
+      Lionel Andrés Messi Cuccittini leo 
+    </span>
+  </div>,
+  <div
+    class="description"
+  >
+    <span
+      class="label --arial --font-regular --fourxs"
+    >
+      Profesión
+    </span>
+    <span
+      class="text --sueca --font-regular --twoxs"
+    >
+      Futbolista
+    </span>
+  </div>,
+  <div
+    class="description"
+  >
+    <span
+      class="label --arial --font-regular --fourxs"
+    >
+      Fecha de nacimiento
+    </span>
+    <span
+      class="text --sueca --font-regular --twoxs"
+    >
+      01T19:00:00/05/01T19:00:002022/05/2022
+    </span>
+  </div>,
+  <div
+    class="description"
+  >
+    <span
+      class="label --arial --font-regular --fourxs"
+    >
+      Lugar de nacimiento
+    </span>
+    <span
+      class="text --sueca --font-regular --twoxs"
+    >
+      Rosario, Santa Fe, Argentina
+    </span>
+  </div>,
+]
+`;

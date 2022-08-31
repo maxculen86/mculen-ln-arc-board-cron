@@ -10,6 +10,7 @@ describe('Test of return validateArticleFeature', () => {
     const type = 'warning';
     const imageId = 'abc-123';
     const videoId = '123-abc';
+    const mobileImageId = '456-cba';
 
     test('Test return when id is undefiend', () => {
         const id = undefined;
@@ -62,6 +63,48 @@ describe('Test of return validateArticleFeature', () => {
         ).toStrictEqual({
             type,
             message: 'El ID de la imagen es incorrecto.'
+        });
+    });
+
+    test('Return test when using the mobile photo field in a layout other than Grilla 1', () => {
+        const mobileImage = {};
+        expect(
+            validateArticleFeature(
+                id,
+                content,
+                image,
+                video,
+                layout,
+                imageId,
+                videoId,
+                mobileImage,
+                mobileImageId
+            )
+        ).toStrictEqual({
+            type,
+            message:
+                'El campo "Foto Mobile" solo puede usarse con la diagramación Grilla 1'
+        });
+    });
+
+    test('Test return when mobileImage is null and layout is Grilla 1', () => {
+        const mobileImage = null;
+        const layout = 'grilla1';
+        expect(
+            validateArticleFeature(
+                id,
+                content,
+                image,
+                video,
+                layout,
+                imageId,
+                videoId,
+                mobileImage,
+                mobileImageId
+            )
+        ).toStrictEqual({
+            type,
+            message: 'El ID de la imagen para mobile es incorrecto.'
         });
     });
 

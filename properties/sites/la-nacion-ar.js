@@ -1007,6 +1007,30 @@ export default {
                     ]
                 }
             },
+            boxMultimediaMobile: {
+                promo_items: {
+                    sizes: [
+                        {
+                            width: 736,
+                            height: 1104,
+                            useFullSize: true,
+                            proportion: '2:3'
+                        },
+                        {
+                            width: 375,
+                            height: 563,
+                            useFullSize: true,
+                            proportion: '2:3'
+                        },
+                        {
+                            width: 320,
+                            height: 480,
+                            useFullSize: true,
+                            proportion: '2:3'
+                        }
+                    ]
+                }
+            },
             zoom: {
                 promo_items: {
                     sizes: [
@@ -2311,6 +2335,8 @@ export default {
                     slotName: `la_nacion_desktop/Home/billboard_dsk`,
                     dimensions: [
                         [728, 90],
+                        [920, 100],
+                        [920, 170],
                         [920, 250],
                         [1, 1]
                     ],
@@ -2331,7 +2357,9 @@ export default {
                     dimensions: [
                         [1, 1],
                         [728, 90],
+                        [920, 100],
                         [920, 120],
+                        [920, 170],
                         [920, 250],
                         [920, 300]
                     ],
@@ -2342,7 +2370,9 @@ export default {
                     dimensions: [
                         [1, 1],
                         [728, 90],
+                        [920, 100],
                         [920, 120],
+                        [920, 170],
                         [920, 250],
                         [920, 300]
                     ],
@@ -2350,7 +2380,15 @@ export default {
                 },
                 parallax_dsk: {
                     slotName: `la_nacion_desktop/Home/parallax_dsk`,
-                    dimensions: [[1260, 300]],
+                    dimensions: [
+                        [1, 1],
+                        [728, 90],
+                        [920, 100],
+                        [920, 170],
+                        [920, 250],
+                        [970, 250],
+                        [1260, 300]
+                    ],
                     targeting: targetingHome
                 }
             },

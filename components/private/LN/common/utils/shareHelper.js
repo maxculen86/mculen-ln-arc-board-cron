@@ -1,6 +1,15 @@
+/* eslint-disable no-restricted-globals */
+import React from 'react';
+import { useContent } from 'fusion:content';
 import dynamicallyLoadScript from './dynamicallyLoadScript';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import get from '../../../common/utils/get';
+import Toast from '../../../common/toast/Toast';
+import toggleBookmark from '../../../common/utils/bookmarkHelper';
+import Barrier from '../../../common/barrier/Barrier';
+import { conditionallyCallViafoura } from '../../../common/utils/commentsHelper';
+import { isSubscribed } from './contextHelper';
+import { VIDEO } from '../../../common/utils/subtypes/subtypeHelper';
 
 export function popUpCompartirNotaTW(notaId, dominio, titulo) {
     if (notaId.length > 0) {
@@ -103,3 +112,131 @@ export const scrollToComments = () => {
 export const copyToClipboard = () => {
     navigator.clipboard.writeText(window.location.href);
 };
+
+export const getClassCondition = subtype =>
+    subtype === VIDEO ? ' --video' : '';
+
+export const isSuscription = token => (token ? isSubscribed() : false);
+export const GetNumberOfComments = (firstPublishDate, arcSite, id) => {
+    return (
+        useContent({
+            source: conditionallyCallViafoura(firstPublishDate),
+            query: { arcSite, id, firstPublishDate }
+        }) || {}
+    );
+};
+
+export const getTwitterTitle = (mobileTitle, title) =>
+    !mobileTitle ? title : mobileTitle;
+
+export const onButtonClicked = (
+    token,
+    suscription,
+    toast,
+    globalContent,
+    bookmark,
+    setBookmark,
+    setToast,
+    setBarrier
+) => {
+    addEventToDataLayer('Guardar Nota');
+    if (token && suscription && !toast) {
+        toggleBookmark(token, globalContent, bookmark, setBookmark, setToast);
+    }
+
+    !toast && !suscription && setBarrier(true);
+};
+
+export const showToast = (termicaBookmark, toast, setToast) => {
+    return termicaBookmark && toast.status ? (
+        <Toast data={toast} handleTimeout={() => setToast(false)} />
+    ) : (
+        <></>
+    );
+};
+
+export const showBarrier = (termicaBookmark, barrier, token, setBarrier) => {
+    return termicaBookmark && barrier ? (
+        <Barrier
+            type="exclusive-ln"
+            handleBarrier={() => setBarrier(false)}
+            isLogged={!!token}
+            redirectCallback={
+                typeof window !== 'undefined' ? window.btoa(location.href) : ''
+            }
+        />
+    ) : (
+        <></>
+    );
+};
+
+export const BtnContainer = ({ children, withContainer }) => {
+    if (withContainer) {
+        return <div className="btn-container">{children}</div>;
+    }
+
+    return children;
+};
+
+export const addEventToDataLayer = clickText => {
+    window.dataLayer.push({
+        event: 'gtm.linkClick',
+        clickText
+    });
+};
+
+export const buttonsList = [
+    {
+        dataEvent: 'LinkClick',
+        dataSection: 'CompartirNotaLN',
+        iconName: 'whatsapp',
+        title: 'Compartir la nota en WhatsApp',
+        id: 'whatsAppShareDesktop',
+        handleClick: ({ requestUri, host }) => {
+            shareWhatsAppDesktop(requestUri, host);
+        }
+    },
+    {
+        dataEvent: 'LinkClick',
+        dataSection: 'CompartirNotaLN',
+        iconName: 'copy',
+        title: 'Copiar link de la nota',
+        id: 'copyLinkNote',
+        handleClick: ({ setCopy }) => {
+            copyToClipboard();
+            setCopy(true);
+        },
+        withContainer: true
+    },
+    {
+        dataEvent: 'LinkClick',
+        dataSection: 'CompartirNotaLN',
+        iconName: 'facebook',
+        title: 'Compartir la nota en Facebook',
+        id: 'btnfacebook',
+        handleClick: ({ requestUri, host, title }) => {
+            popUpCompartirNotaFB(requestUri, host, title);
+        }
+    },
+    {
+        dataEvent: 'LinkClick',
+        dataSection: 'CompartirNotaLN',
+        iconName: 'twitter',
+        title: 'Compartir la nota en Twitter',
+        id: 'btntwitter',
+        handleClick: ({ requestUri, host, basic: title, mobileTitle }) => {
+            const twitterTitle = getTwitterTitle(mobileTitle, title);
+            popUpCompartirNotaTW(requestUri, host, twitterTitle);
+        }
+    },
+    {
+        dataEvent: 'LinkClick',
+        dataSection: 'CompartirNotaLN',
+        iconName: 'email',
+        title: 'Compartir la nota por E-mail',
+        id: 'btnemail',
+        handleClick: ({ requestUri, host }) => {
+            popUpCompartirMailTo(requestUri, host);
+        }
+    }
+];
