@@ -15,6 +15,7 @@ import {
     sectionWithNoCollectionAndNoAnexo
 } from '../../../../__mocks__/data/renderables/sectionsComercialData';
 import Context from 'fusion:context';
+import { getArticlesIdsFromApertura } from '../../../../components/private/LN/common/utils/cajaTemasHelper';
 
 jest.mock('fusion:context', () => () => ({
     default: props => {
@@ -507,5 +508,15 @@ describe('Test return function sectionHelper', () => {
         expect(
             sectionHelper(null, undefined, false, [], 'default', false)
         ).toStrictEqual(null);
+    });
+});
+
+describe('Test de funcion getArticlesIdsFromApertura que se usa en tagList', () => {
+    it('Deberia traer los ids de los articulos de Apertura1 y Apertura2 de la home', () => {
+        expect(getArticlesIdsFromApertura([])).toEqual('');
+        expect(getArticlesIdsFromApertura(undefined)).toEqual('');
+        expect(getArticlesIdsFromApertura(renderables1)).toEqual(
+            'ILXGTYXUWNF3HKJ3ROQQCQPRVE,Z62GTRQMINHNRDLWGGMKGE3ZCE'
+        );
     });
 });
