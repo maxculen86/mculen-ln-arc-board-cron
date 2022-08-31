@@ -1,5 +1,6 @@
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
+import isSSR from './isSSR';
 
 const featuredRules = {
     articuloGeneral: {
@@ -21,11 +22,13 @@ export const GetImage = ({
     imageConfig,
     id,
     onlyOneApeturaValidateForWWW,
-    isAdmin
+    isAdmin,
+    filterImage
 }) => {
     return (
         useContent({
             source: conditionallyCallImageSource(imageId),
+            staticMode: isSSR(),
             query: {
                 id: imageId && imageId.trim(),
                 published: true,
@@ -34,7 +37,8 @@ export const GetImage = ({
                 boxType: 'ArticleFeature',
                 isInApertura: onlyOneApeturaValidateForWWW,
                 isAdmin
-            }
+            },
+            filter: filterImage
         }) || null
     );
 };

@@ -1,25 +1,27 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import Video from './video';
 import VideoInfo from './videoInfo';
 
-export default function videoTab({ videoId, title, date, analytics = [] }) {
+export default function VideoTab({ videoId, title, date, analytics = [] }) {
     return (
         <>
-            <div
-                itemScope
-                itemType="http://schema.org/VideoObject"
-                style={{ display: 'none' }}
-            >
-                {analytics.map((elem, index) => (
-                    <meta
-                        itemProp={elem.itemProp}
-                        content={elem.content}
-                        key={index}
-                    />
-                ))}
-            </div>
+            {analytics.map((elem, index) => (
+                <meta
+                    itemProp={elem.itemProp}
+                    content={elem.content}
+                    key={index}
+                />
+            ))}
             <Video videoId={videoId} />
             <VideoInfo title={title} date={date} />
         </>
     );
 }
+
+VideoTab.propTypes = {
+    videoId: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    analytics: PropTypes.arrayOf(PropTypes.shape()).isRequired
+};

@@ -1,6 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import get from '../../../../../components/private/common/utils/get';
 import addForwardSlash from '../../../../../components/private/LN/common/utils/addForwardSlash';
+import removeAccents from '../../../../../components/private/common/utils/removeAccents';
 
 export const getWeatherMetaData = (serviceItem, serviceSubItem) => {
     if (serviceSubItem)
@@ -65,7 +66,7 @@ const getSectionLink = (sections, location) => {
         sections.find(e => {
             const { name = '' } = e;
 
-            return name === location;
+            return removeAccents(name) === removeAccents(location);
         }) || {};
     const { _id: url = '' } = sectionLink;
 
@@ -75,10 +76,6 @@ const getSectionLink = (sections, location) => {
 
 export const extractTime = (isoString = '') => {
     return isoString.slice(11, 16);
-};
-
-const removeAccents = str => {
-    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 };
 
 const reorderLocations = (endpointData, children = [], serviceItem = '') => {
