@@ -17,7 +17,12 @@ const transformWikiTagData = (data, siteProps) => {
         imageSizesDefault
     );
 
-    const transformedImage = getImageResized(url, width, height, imageSizes);
+    const transformedImage = getImageResized({
+        url,
+        originalWidth: width,
+        originalHeight: height,
+        options: imageSizes
+    });
 
     return {
         ...data,

@@ -33,7 +33,8 @@ export const regularFlow = ({ loggerExcludedErrors, error, customsProps }) => {
 };
 
 const logger = (() => {
-    const push = (error = {}, config, site, justWarning) => {
+    const push = (errorData, config, site, justWarning) => {
+        const error = errorData || {};
         const { loggerExcludedErrors } = getProperties(site) || {
             loggerExcludedErrors: [301, 302, 404]
         };
