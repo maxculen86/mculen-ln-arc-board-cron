@@ -57,13 +57,13 @@ const resizeImageParallax = (image, presets) => {
         isNotSmart: true
     }));
 
-    const imageResized = getImageResized(
+    const imageResized = getImageResized({
         url,
-        width,
-        height,
-        sizesNew,
+        originalWidth: width,
+        originalHeight: height,
+        options: sizesNew,
         focalPoint
-    );
+    });
 
     return {
         id,

@@ -5,7 +5,6 @@
 import React, { useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
-import Static from 'fusion:static';
 import StaticValidation from '../../private/common/staticValidation';
 import get from '../../private/common/utils/get';
 import throttle from '../../private/common/utils/throttle';
@@ -78,22 +77,24 @@ const findBlockToLoad = blocksToLoad => {
 
 const BannerCabezal = () => {
     return (
-        <Static id="bannersCabezal">
+        <>
             <div className="container --ads">
                 <DivBannerSSR
                     bannerConfiguration={{
                         slotId: 'cabezal_dsk',
-                        classes: '--dark'
+                        classes: '--dark',
+                        isStatic: true
                     }}
                 />
                 <DivBannerSSR
                     bannerConfiguration={{
                         slotId: 'cabezal_tab',
-                        classes: '--dark'
+                        classes: '--dark',
+                        isStatic: true
                     }}
                 />
             </div>
-        </Static>
+        </>
     );
 };
 
@@ -224,39 +225,41 @@ const LNMainHome = props => {
     return (
         <GlobalProvider>
             {/* 1x1 */}
-            <Static id="banner1x1">
+            <>
                 <DivBannerSSR
                     bannerConfiguration={{
                         slotId: '1x1_dsk',
-                        hideForSubscriptor: true
+                        hideForSubscriptor: true,
+                        isStatic: true
                     }}
                 />
                 <DivBannerSSR
                     bannerConfiguration={{
                         slotId: '1x1_mob',
-                        hideForSubscriptor: true
+                        hideForSubscriptor: true,
+                        isStatic: true
                     }}
                 />
-            </Static>
+            </>
             {/* COMERCIAL */}
-            <Static id="bannerComercial">
-                <DivBannerSSR
-                    bannerConfiguration={{
-                        slotId: 'comercial_dsk',
-                        classes: '--comercial hlp-none',
-                        closeButton: true
-                    }}
-                />
-                {getScriptForComercial('comercial_dsk')}
-                <DivBannerSSR
-                    bannerConfiguration={{
-                        slotId: 'comercial_mob',
-                        classes: '--comercial hlp-none',
-                        closeButton: true
-                    }}
-                />
-                {getScriptForComercial('comercial_mob')}
-            </Static>
+            <DivBannerSSR
+                bannerConfiguration={{
+                    slotId: 'comercial_dsk',
+                    classes: '--comercial hlp-none',
+                    closeButton: true,
+                    isStatic: true
+                }}
+            />
+            {getScriptForComercial('comercial_dsk')}
+            <DivBannerSSR
+                bannerConfiguration={{
+                    slotId: 'comercial_mob',
+                    classes: '--comercial hlp-none',
+                    closeButton: true,
+                    isStatic: true
+                }}
+            />
+            {getScriptForComercial('comercial_mob')}
 
             <div id="wrapper" className="home">
                 <Header />
@@ -280,14 +283,13 @@ const LNMainHome = props => {
                 {bomba}
                 <main id="content">
                     {/* STICKY MOB */}
-                    <Static id="sticky2">
-                        <DivBannerSSR
-                            bannerConfiguration={{
-                                slotId: 'sticky2_mob',
-                                classes: '--sticky2_mob --sticky'
-                            }}
-                        />
-                    </Static>
+                    <DivBannerSSR
+                        bannerConfiguration={{
+                            slotId: 'sticky2_mob',
+                            classes: '--sticky2_mob --sticky',
+                            isStatic: true
+                        }}
+                    />
 
                     <div className="">
                         <div id="content-main" className="lay-sidebar">
@@ -300,14 +302,13 @@ const LNMainHome = props => {
                                 <div data-section="apertura">
                                     {apertura1}
                                     {/* BANNER CAJA 1 MOB */}
-                                    <Static id="caja1_mob">
-                                        <DivBannerSSR
-                                            bannerConfiguration={{
-                                                slotId: 'caja1_mob',
-                                                withoutHide: true
-                                            }}
-                                        />
-                                    </Static>
+                                    <DivBannerSSR
+                                        bannerConfiguration={{
+                                            slotId: 'caja1_mob',
+                                            withoutHide: true,
+                                            isStatic: true
+                                        }}
+                                    />
 
                                     {apertura2}
                                 </div>
@@ -316,7 +317,8 @@ const LNMainHome = props => {
                                 <DivBannerSSR
                                     bannerConfiguration={{
                                         slotId: 'billboard_dsk',
-                                        withoutHide: true
+                                        withoutHide: true,
+                                        isStatic: true
                                     }}
                                 />
 
@@ -324,7 +326,8 @@ const LNMainHome = props => {
                                 <DivBannerSSR
                                     bannerConfiguration={{
                                         slotId: 'caja2_mob',
-                                        withoutHide: true
+                                        withoutHide: true,
+                                        isStatic: true
                                     }}
                                 />
 
@@ -555,7 +558,8 @@ const LNMainHome = props => {
                                 <DivBannerSSR
                                     bannerConfiguration={{
                                         slotId: 'megalateral_dsk',
-                                        classes: megaLateralSticky
+                                        classes: megaLateralSticky,
+                                        isStatic: true
                                     }}
                                 />
                             </div>

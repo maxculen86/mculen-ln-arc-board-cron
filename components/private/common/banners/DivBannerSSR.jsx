@@ -5,6 +5,7 @@ import get from '../utils/get';
 import flatArray from '../utils/flatArray';
 import ComButton from '../com-button';
 import Icon from '../icon';
+import StaticContent from '../staticContent';
 
 const DivBannerSSR = ({ bannerConfiguration }) => {
     const {
@@ -19,11 +20,12 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
         bidding,
         hideForSubscriptor,
         closeButton,
-        classes
+        classes,
+        isStatic = false
     } = bannerConfiguration;
-
-    return (
-        <div className={`mod-banner --${slotId} ${classes || ''} `}>
+    const ClassNames = `mod-banner --${slotId} ${classes || ''} `;
+    const Comp = (
+        <>
             {closeButton && (
                 <>
                     {slotId.includes('comercial') ? (
@@ -71,7 +73,13 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
                 data-sizemap={JSON.stringify([])}
                 data-prebid-enabled={get(bidding, 'prebid.enabled', false)}
             />
-        </div>
+        </>
+    );
+
+    return isStatic ? (
+        <StaticContent className={ClassNames}>{Comp}</StaticContent>
+    ) : (
+        <div className={ClassNames}>{Comp}</div>
     );
 };
 
@@ -104,7 +112,8 @@ DivBannerSSR.propTypes = {
         closeButton: PropTypes.bool,
         slotGroup: PropTypes.string,
         withoutHide: PropTypes.bool,
-        hideForSubscriptor: PropTypes.bool
+        hideForSubscriptor: PropTypes.bool,
+        isStatic: PropTypes.bool
     }).isRequired
 };
 

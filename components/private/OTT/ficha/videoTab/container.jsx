@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import Consumer from 'fusion:consumer';
-import get from 'lodash.get';
+import get from '../../../common/utils/get';
 import VideoTabComponent from './component';
 import dateHelper from '../../common/utils/dateHelper';
 

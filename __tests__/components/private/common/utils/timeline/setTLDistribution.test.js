@@ -2,14 +2,14 @@ import { setTLDistribution } from '../../../../../../components/private/LN/commo
 
 describe('Private - Common - Utils - timeline - setTLDistribution', () => {
     const globalMock = {
+        tlFeatureId: 'f0fjM9doXQoV5c8',
         children: [
             { key: 'f0fKNiPSPWOa8fK' },
             { key: 'f0fbLKekQWOa87j' },
             { key: 'f0f3dZ8rQWOa8PV' },
             { key: 'f0fjuAqyQWOa87j' },
             { key: 'f0fjM9doXQoV5c8' }
-        ],
-        tlFeatureId: 'f0fjM9doXQoV5c8'
+        ]
     };
 
     const { children: globalChildren, tlFeatureId } = globalMock;

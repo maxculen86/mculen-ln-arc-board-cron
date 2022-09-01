@@ -191,6 +191,10 @@ export default {
         ComscoreVideo: {
             props: {},
             location: ['body-top']
+        },
+        DevReactTracker: {
+            props: {},
+            location: ['head']
         }
     },
     imageConfig: {
@@ -1157,17 +1161,17 @@ export default {
                         },
                         {
                             width: 768,
-                            height: 1152,
+                            height: 512,
                             //media: minWidth360,
                             useFullSize: true,
-                            proportion: '2:3'
+                            proportion: '3:2'
                         },
                         {
                             width: 360,
-                            height: 540,
+                            height: 240,
                             //media: minWidth320,
                             useFullSize: true,
-                            proportion: '2:3'
+                            proportion: '3:2'
                         }
                     ]
                 }

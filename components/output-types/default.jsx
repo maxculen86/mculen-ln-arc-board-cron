@@ -37,11 +37,11 @@ import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 import addForwardSlash from '../private/LN/common/utils/addForwardSlash';
 import setMetasOtt from '../private/common/metaTags/setMetasHelper';
 import AmazonPublisherServices from '../private/common/scriptManager/amazonPublisherServices';
-import FontFaceDefault from '../private/common/fontfaceDefault';
 import CriticalCss from '../private/common/criticalcss';
 import MetaViafoura from '../private/common/metaViafoura';
 import Favicon from '../private/common/favicon';
 import ComscoreVideo from '../private/common/scriptManager/comscoreVideo';
+import DevReactTracker from '../private/common/scriptManager/DevReactTracker';
 import AdblockDetector from '../private/common/scriptManager/adblockDetector';
 import {
     getTitle,
@@ -49,6 +49,7 @@ import {
     metasFromSiteServices
 } from '../private/common/utils/outputTypeHelper';
 import FontPreloads from '../private/common/fontsPreloads';
+import get from '../private/common/utils/get';
 
 const scriptList = [
     {
@@ -116,6 +117,13 @@ const scriptList = [
         component: {
             name: 'ComscoreVideo',
             function: ComscoreVideo
+        },
+        feature: 'none'
+    },
+    {
+        component: {
+            name: 'DevReactTracker',
+            function: DevReactTracker
         },
         feature: 'none'
     }
@@ -197,8 +205,8 @@ const Default = props => {
     const _nodeType = getSectionName({ nodeType, type, arcSite });
     const title = getTitle(
         metaValue('title'),
-        requestUri,
         siteProperties,
+        requestUri,
         _nodeType,
         renderables
     );
@@ -238,6 +246,10 @@ const Default = props => {
         requestUri
     );
 
+    const configHydrate = {};
+    if (layout === get(siteProperties, 'layoutsName.Home'))
+        configHydrate.hydrateOnly = true;
+
     return (
         <html lang="es">
             <head>
@@ -258,9 +270,8 @@ const Default = props => {
                     arcSite={arcSite}
                     isAdmin={isAdmin}
                 />
-                <FontPreloads />
-                <FontFaceDefault />
                 <CriticalCss />
+                <FontPreloads />
                 {arcSite === 'ott' ? (
                     <link
                         rel="stylesheet"
@@ -398,7 +409,7 @@ const Default = props => {
                     globalContent={globalContent}
                 />
                 <div id="fusion-app">{children}</div>
-                <Fusion />
+                <Fusion {...configHydrate} />
                 <Scripts
                     location="body-bottom"
                     section={_nodeType}

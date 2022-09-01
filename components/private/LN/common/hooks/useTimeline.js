@@ -18,6 +18,7 @@ const useTimeline = ({
 }) => {
     const sectionsIds = sectionsFormated(sections);
     const { articlesQuantity, articlesQuantityBackup } = setTLQuantity(size);
+    const isSSR = typeof window === 'undefined';
 
     const typesOfQuery = setTypeOfQuery({
         source,
@@ -37,7 +38,7 @@ const useTimeline = ({
         shouldNotFilter: false,
         website: arcSite,
         promoItemsOnly: false,
-        staticMode: false,
+        staticMode: isSSR,
         collectionId
     };
 
