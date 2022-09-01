@@ -61,10 +61,14 @@
 
         .placeholder {
             .com-image {
-                width: auto;
-                margin: auto;
-                max-height: px(800);
-                max-width: 100%;
+                width: 100%;
+
+                @media ($media-l) {
+                    width: auto;
+                    margin: auto;
+                    max-height: 80vh;
+                    max-width: 100%;
+                }
             }
         }
 
