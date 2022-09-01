@@ -16,12 +16,12 @@ describe('OTT - layout - header - components', () => {
     let items = [
         {
             description: 'description 1',
-            href: 'href 1',
+            href: 'href 1/',
             alt: 'alt 1'
         },
         {
             description: 'description 2',
-            href: 'href 2',
+            href: 'href 2/',
             alt: 'alt 2'
         }
     ];
@@ -57,12 +57,12 @@ describe('OTT - layout - header - components - cambio de items', () => {
     let items = [
         {
             description: 'description 1',
-            href: 'href 1',
+            href: 'href 1/',
             alt: 'alt 1'
         },
         {
             description: 'description 2',
-            href: 'href 2',
+            href: 'href 2/',
             alt: 'alt 2'
         }
     ];
@@ -73,7 +73,7 @@ describe('OTT - layout - header - components - cambio de items', () => {
     items = [
         {
             description: 'description 3',
-            href: 'href 3',
+            href: 'href 3/',
             alt: 'alt 3'
         }
     ];

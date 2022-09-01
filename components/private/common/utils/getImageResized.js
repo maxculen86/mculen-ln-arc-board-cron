@@ -12,23 +12,23 @@ const defaultSizes = [
     }
 ];
 
-const getImageResized = (
+const getImageResized = ({
     url,
     originalWidth = 1033,
     originalHeight = 768,
     options = defaultSizes,
     focalPoint,
-    isInApertura = false
-) => {
+    isInApertura = false,
+    isAdmin = false
+}) => {
     return (
         url &&
-        createResizer(RESIZER_KEY, RESIZER_URL, isInApertura).resizeUrls(
-            url,
-            originalWidth,
-            originalHeight,
-            options,
-            focalPoint
-        )
+        createResizer(
+            RESIZER_KEY,
+            RESIZER_URL,
+            isInApertura,
+            isAdmin
+        ).resizeUrls(url, originalWidth, originalHeight, options, focalPoint)
     );
 };
 export default getImageResized;

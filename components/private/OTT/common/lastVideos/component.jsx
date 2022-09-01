@@ -3,6 +3,7 @@ import get from '../../../common/utils/get';
 import Carousell from '../../../common/carousell';
 import VideoArticle from '../videoArticle';
 import Title from '../../../common/title';
+import addForwardSlash from '../../../LN/common/utils/addForwardSlash';
 
 export default function LastVideos({ videos = [] }) {
     const currentItem = videos.map((video, index) => {
@@ -14,7 +15,7 @@ export default function LastVideos({ videos = [] }) {
                 key={index}
                 description={title}
                 imgSrc={imgSrc}
-                href={href}
+                href={addForwardSlash(href)}
             />
         );
     });

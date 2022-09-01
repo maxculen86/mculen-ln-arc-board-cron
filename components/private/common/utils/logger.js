@@ -4,7 +4,7 @@ import getProperties from 'fusion:properties';
 import NotFoundError from '../../../../content/sources/utils/notFoundError';
 import LnError from './LN-Error';
 
-const setLNError = ({ statusCode, message }) => {
+export const setLNError = ({ statusCode, message }) => {
     const code = statusCode ? `${statusCode} - ` : '';
     return [code, message].join(' ');
 };
@@ -21,15 +21,20 @@ const flow404 = ({ customsProps, error, justWarning }) => {
     return justWarning ? false : pushError();
 };
 
-const regularFlow = ({ loggerExcludedErrors, error, customsProps }) => {
+export const regularFlow = ({ loggerExcludedErrors, error, customsProps }) => {
     const { statusCode, message = '' } = error;
 
-    if (loggerExcludedErrors.includes(Number(statusCode))) throw error;
+    if (
+        Array.isArray(loggerExcludedErrors) &&
+        loggerExcludedErrors.includes(Number(statusCode))
+    )
+        throw error;
     throw new LnError(setLNError({ statusCode, message }), customsProps);
 };
 
 const logger = (() => {
-    const push = (error = {}, config, site, justWarning) => {
+    const push = (errorData, config, site, justWarning) => {
+        const error = errorData || {};
         const { loggerExcludedErrors } = getProperties(site) || {
             loggerExcludedErrors: [301, 302, 404]
         };

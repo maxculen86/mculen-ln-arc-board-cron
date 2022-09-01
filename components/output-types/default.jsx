@@ -20,7 +20,6 @@ import GetDataToLinkImage from '../private/common/utils/image/getDataToLinkImage
 import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 import addForwardSlash from '../private/LN/common/utils/addForwardSlash';
 import setMetasOtt from '../private/common/metaTags/setMetasHelper';
-import FontFaceDefault from '../private/common/fontfaceDefault';
 import CriticalCss from '../private/common/criticalcss';
 import MetaViafoura from '../private/common/metaViafoura';
 import Favicon from '../private/common/favicon';
@@ -88,8 +87,8 @@ const Default = props => {
     const _nodeType = getSectionName({ nodeType, type, arcSite });
     const title = getTitle(
         metaValue('title'),
-        requestUri,
         siteProperties,
+        requestUri,
         _nodeType,
         renderables
     );
@@ -148,9 +147,8 @@ const Default = props => {
                     arcSite={arcSite}
                     isAdmin={isAdmin}
                 />
-                <FontPreloads />
-                <FontFaceDefault />
                 <CriticalCss />
+                <FontPreloads />
                 {arcSite === 'ott' ? (
                     <link
                         rel="stylesheet"
@@ -322,7 +320,8 @@ Default.propTypes = {
     outputType: PropTypes.string.isRequired,
     siteProperties: PropTypes.isRequired,
     layout: PropTypes.string.isRequired,
-    requestUri: PropTypes.string.isRequired
+    requestUri: PropTypes.string.isRequired,
+    isAdmin: PropTypes.boolean.isRequired
 };
 
 export default Default;
