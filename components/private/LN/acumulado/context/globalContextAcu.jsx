@@ -4,6 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
+import isAnyGrilla1 from '../../../common/utils/isAnyGrilla1';
 
 const GlobalContext = React.createContext([{}, () => {}]);
 
@@ -16,19 +17,13 @@ const reducer = (state, action) => {
 
 const getCollectionsInPage = (idCollectionsInPage = []) => {
     const { renderables = [] } = useAppContext();
-    const isAnyGrilla1 = renderables.some((elem = {}) => {
-        const { props = {}, type = '' } = elem;
-        const { customFields = {} } = props;
-        const { layout = '' } = customFields;
-        return type === 'Ln_Caja_Collection' && layout === 'grilla1';
-    });
     const listOfCollections = [];
     idCollectionsInPage.forEach(id => {
         const collectionsProps = {
             id: id && id.trim(),
             size: 20,
             website: 'la-nacion-ar',
-            imageConfig: isAnyGrilla1 ? 'l' : 'm'
+            imageConfig: isAnyGrilla1(renderables) ? 'l' : 'm'
         };
         const collect =
             id &&
