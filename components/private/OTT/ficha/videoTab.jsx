@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import Consumer from 'fusion:consumer';
-import get from '../../../common/utils/get';
-import VideoTabComponent from './component';
-import dateHelper from '../../common/utils/dateHelper';
+import dateHelper from '../common/utils/dateHelper';
+import Video from './video';
+import VideoInfo from './videoInfo';
+import get from '../../common/utils/get';
 
 class VideoTab extends PureComponent {
     constructor(props) {
@@ -51,12 +52,23 @@ class VideoTab extends PureComponent {
 
     render() {
         return (
-            <VideoTabComponent
-                videoId={this.videoId}
-                title={this.title}
-                date={this.date}
-                analytics={this.analytics}
-            />
+            <>
+                <div
+                    itemScope
+                    itemType="http://schema.org/VideoObject"
+                    style={{ display: 'none' }}
+                >
+                    {this.analytics.map(elem => (
+                        <meta
+                            itemProp={elem.itemProp}
+                            content={elem.content}
+                            key={this.videoId}
+                        />
+                    ))}
+                </div>
+                <Video videoId={this.videoId} />
+                <VideoInfo title={this.title} date={this.date} />
+            </>
         );
     }
 }
