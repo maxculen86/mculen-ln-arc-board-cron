@@ -12,14 +12,14 @@ import {
 
 const BuildFirtsButtonsGroup = ({
     termicaBookmark,
-    bookmark,
     globalContent,
     token,
     setBookmark,
     setToast,
     setBarrier,
     suscription,
-    toast
+    bookmark = '',
+    toast = {}
 } = {}) => {
     const { arcSite = 'la-nacion-ar' } = useAppContext() || {};
     const {
@@ -100,9 +100,13 @@ BuildFirtsButtonsGroup.propTypes = {
         })
     }),
     token: PropTypes.string,
-    bookmark: PropTypes.bool,
+    bookmark: PropTypes.string,
     setBookmark: PropTypes.func,
-    toast: PropTypes.bool,
+    toast: PropTypes.shape({
+        status: PropTypes.string,
+        description: PropTypes.string,
+        timeout: PropTypes.number
+    }),
     setToast: PropTypes.func,
     setBarrier: PropTypes.func,
     suscription: PropTypes.bool,

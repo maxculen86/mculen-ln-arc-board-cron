@@ -85,7 +85,6 @@ const Barrier = ({
                                 onClick={() => {
                                     toggleBookmark(
                                         getToken(),
-                                        {},
                                         bookmarkId,
                                         false,
                                         setToast

@@ -7,7 +7,7 @@ export default function useCheckBookmark(
     noteId,
     isSuscriber
 ) {
-    const [data, setData] = useState(false);
+    const [data, setData] = useState('');
 
     const getDataFromAPI = useCallback(async () => {
         try {
@@ -23,7 +23,7 @@ export default function useCheckBookmark(
 
             if (res.ok) {
                 const datos = await res.json();
-                const { bookmarkId = false } = datos;
+                const { bookmarkId = '' } = datos;
                 setData(bookmarkId);
             }
         } catch (err) {

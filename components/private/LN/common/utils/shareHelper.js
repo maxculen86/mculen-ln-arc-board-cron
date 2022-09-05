@@ -141,15 +141,15 @@ export const onButtonClicked = (
 ) => {
     addEventToDataLayer('Guardar Nota');
     if (token && suscription && !toast) {
-        toggleBookmark(token, globalContent, bookmark, setBookmark, setToast);
+        toggleBookmark(token, bookmark, setBookmark, setToast, globalContent);
     }
 
     !toast && !suscription && setBarrier(true);
 };
 
 export const showToast = (termicaBookmark, toast, setToast) => {
-    return termicaBookmark && toast.status ? (
-        <Toast data={toast} handleTimeout={() => setToast(false)} />
+    return termicaBookmark && toast && toast.status ? (
+        <Toast data={toast} handleTimeout={() => setToast(null)} />
     ) : (
         <></>
     );
