@@ -72,7 +72,6 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
             .FirmaAutor,
             .com-unordered,
             .com-ordered,
-            .container-center-100,
             figcaption {
                 display: block;
                 width: 100%;
@@ -113,6 +112,17 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
             .--active.--active {
                 .mod-figure .placeholder {
                     height: auto;
+                }
+            }
+            > .com-link.--logo {
+                @include padding_rl;
+                @media ($media-l) {
+                    display: block;
+                    width: 100%;
+                    margin-right: auto;
+                    margin-left: auto;
+
+                    @include width-nota100;
                 }
             }
 
