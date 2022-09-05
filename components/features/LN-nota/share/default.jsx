@@ -25,15 +25,14 @@ const Share = () => {
         subtype
     } = globalContent;
 
-    const [bookmark, setBookmark] = useState(false);
-    const [toast, setToast] = useState(false);
+    const [bookmark, setBookmark] = useState('');
+    const [toast, setToast] = useState(null);
     const [barrier, setBarrier] = useState(false);
     const token = getToken();
     const termicaBookmark = useTermica('bookmark_web');
-
     const classCondition = getClassCondition(subtype);
-
     const suscription = isSuscription(token);
+
     const checkBookmarkId = useCheckBookmark(
         termicaBookmark,
         token,
