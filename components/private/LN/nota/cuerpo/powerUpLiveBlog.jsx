@@ -13,12 +13,15 @@ const PowerUpLiveBlog = ({ data = {} }) => {
         timeArray.length > 2 && timeArray.pop();
         return timeArray.join(':');
     };
+
+    if (time === '' || title === '') return <></>;
+
     return (
         <StaticValidation id={_id} htmlOnly persistent>
             <ComTitle
                 tag="h2"
                 size="--l"
-                content={`${timeWithoutSeconds(time)} ${title}`}
+                content={`${timeWithoutSeconds(time)} | ${title}`}
             />
         </StaticValidation>
     );
