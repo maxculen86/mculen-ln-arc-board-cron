@@ -182,7 +182,7 @@ export default {
         },
         Blockthrough: {
             props: {},
-            location: ['head']
+            location: ['body-bottom']
         },
         Queryly: {
             props: {},
