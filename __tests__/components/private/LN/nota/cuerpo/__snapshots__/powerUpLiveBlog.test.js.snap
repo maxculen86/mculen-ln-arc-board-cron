@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - private - LN - nota - cuerpo. Liveblog powerUp test Should return the correct render with the given data. Static validator must be visible 1`] = `
+<div>
+  <mock-static-validation
+    htmlonly="true"
+    id=""
+    persistent="true"
+  >
+    <h2
+      class="com-title --l"
+    >
+      02:27 | Dos combatientes de EE.UU desaparecidos en Ucrania: se teme que los hayan capturado
+    </h2>
+  </mock-static-validation>
+</div>
+`;
