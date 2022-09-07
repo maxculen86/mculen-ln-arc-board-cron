@@ -1,518 +1,523 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Features - LN-acumulado - Caja Horoscopos Feature => Render feature CajaHoroscopos and child components - snapshot Should match snapshot 1`] = `
-<mock-static
-  id="f0fTek5ovhrk51V"
->
-  <article
-    class="horoscope-box "
+exports[`Features - LN-acumulado - Caja Horoscopos Feature => With a valid response Render feature CajaHoroscopos and child components must be 12 1`] = `
+<div>
+  <mock-static-validation
+    htmlonly="true"
+    id="f0fTek5ovhrk51V"
+    persistent="true"
   >
-    <h3
-      class="com-title --m"
+    <article
+      class="horoscope-box "
     >
-      Seleccioná tu signo...
-    </h3>
-    <div
-      class="--items"
-    >
-      <div
-        class="zodiaco row-gap-2 row-gap-tablet-3 row-gap-desksm-4 row-gap-deskxl-6"
+      <h3
+        class="com-title --m"
       >
-        <article
-          class="horoscope-item --zodiaco"
-        >
-          <a
-            class="com-link"
-            href="https://www.lanacion.com.ar/horoscopo/aries/"
-            title="Ir al horóscopo de Aries"
-          >
-            <div
-              class="container-svg"
-            >
-              <img
-                alt="Aries"
-                class="com-image "
-                decoding="async"
-                fetchpriority="low"
-                height="100%"
-                loading="lazy"
-                src="undefined/pf/resources/images/horoscope-logos/aries.svg"
-                width="100%"
-              />
-            </div>
-            <div
-              class="container-text"
-            >
-              <h2
-                class="title --twoxs"
-              >
-                Aries
-              </h2>
-              <time
-                class="text --fivexs"
-              >
-                21/3 al 20/4
-              </time>
-            </div>
-          </a>
-        </article>
-        <article
-          class="horoscope-item --zodiaco"
-        >
-          <a
-            class="com-link"
-            href="https://www.lanacion.com.ar/horoscopo/tauro/"
-            title="Ir al horóscopo de Tauro"
-          >
-            <div
-              class="container-svg"
-            >
-              <img
-                alt="Tauro"
-                class="com-image "
-                decoding="async"
-                fetchpriority="low"
-                height="100%"
-                loading="lazy"
-                src="undefined/pf/resources/images/horoscope-logos/tauro.svg"
-                width="100%"
-              />
-            </div>
-            <div
-              class="container-text"
-            >
-              <h2
-                class="title --twoxs"
-              >
-                Tauro
-              </h2>
-              <time
-                class="text --fivexs"
-              >
-                21/4 al 21/5
-              </time>
-            </div>
-          </a>
-        </article>
-        <article
-          class="horoscope-item --zodiaco"
-        >
-          <a
-            class="com-link"
-            href="https://www.lanacion.com.ar/horoscopo/geminis/"
-            title="Ir al horóscopo de Geminis"
-          >
-            <div
-              class="container-svg"
-            >
-              <img
-                alt="Geminis"
-                class="com-image "
-                decoding="async"
-                fetchpriority="low"
-                height="100%"
-                loading="lazy"
-                src="undefined/pf/resources/images/horoscope-logos/geminis.svg"
-                width="100%"
-              />
-            </div>
-            <div
-              class="container-text"
-            >
-              <h2
-                class="title --twoxs"
-              >
-                Geminis
-              </h2>
-              <time
-                class="text --fivexs"
-              >
-                22/5 al 21/6
-              </time>
-            </div>
-          </a>
-        </article>
-        <article
-          class="horoscope-item --zodiaco"
-        >
-          <a
-            class="com-link"
-            href="https://www.lanacion.com.ar/horoscopo/cancer/"
-            title="Ir al horóscopo de Cancer"
-          >
-            <div
-              class="container-svg"
-            >
-              <img
-                alt="Cancer"
-                class="com-image "
-                decoding="async"
-                fetchpriority="low"
-                height="100%"
-                loading="lazy"
-                src="undefined/pf/resources/images/horoscope-logos/cancer.svg"
-                width="100%"
-              />
-            </div>
-            <div
-              class="container-text"
-            >
-              <h2
-                class="title --twoxs"
-              >
-                Cancer
-              </h2>
-              <time
-                class="text --fivexs"
-              >
-                22/6 al 23/7
-              </time>
-            </div>
-          </a>
-        </article>
-        <article
-          class="horoscope-item --zodiaco"
-        >
-          <a
-            class="com-link"
-            href="https://www.lanacion.com.ar/horoscopo/leo/"
-            title="Ir al horóscopo de Leo"
-          >
-            <div
-              class="container-svg"
-            >
-              <img
-                alt="Leo"
-                class="com-image "
-                decoding="async"
-                fetchpriority="low"
-                height="100%"
-                loading="lazy"
-                src="undefined/pf/resources/images/horoscope-logos/leo.svg"
-                width="100%"
-              />
-            </div>
-            <div
-              class="container-text"
-            >
-              <h2
-                class="title --twoxs"
-              >
-                Leo
-              </h2>
-              <time
-                class="text --fivexs"
-              >
-                24/7 al 23/8
-              </time>
-            </div>
-          </a>
-        </article>
-        <article
-          class="horoscope-item --zodiaco"
-        >
-          <a
-            class="com-link"
-            href="https://www.lanacion.com.ar/horoscopo/virgo/"
-            title="Ir al horóscopo de Virgo"
-          >
-            <div
-              class="container-svg"
-            >
-              <img
-                alt="Virgo"
-                class="com-image "
-                decoding="async"
-                fetchpriority="low"
-                height="100%"
-                loading="lazy"
-                src="undefined/pf/resources/images/horoscope-logos/virgo.svg"
-                width="100%"
-              />
-            </div>
-            <div
-              class="container-text"
-            >
-              <h2
-                class="title --twoxs"
-              >
-                Virgo
-              </h2>
-              <time
-                class="text --fivexs"
-              >
-                24/8 al 23/9
-              </time>
-            </div>
-          </a>
-        </article>
-        <article
-          class="horoscope-item --zodiaco"
-        >
-          <a
-            class="com-link"
-            href="https://www.lanacion.com.ar/horoscopo/libra/"
-            title="Ir al horóscopo de Libra"
-          >
-            <div
-              class="container-svg"
-            >
-              <img
-                alt="Libra"
-                class="com-image "
-                decoding="async"
-                fetchpriority="low"
-                height="100%"
-                loading="lazy"
-                src="undefined/pf/resources/images/horoscope-logos/libra.svg"
-                width="100%"
-              />
-            </div>
-            <div
-              class="container-text"
-            >
-              <h2
-                class="title --twoxs"
-              >
-                Libra
-              </h2>
-              <time
-                class="text --fivexs"
-              >
-                24/9 al 23/10
-              </time>
-            </div>
-          </a>
-        </article>
-        <article
-          class="horoscope-item --zodiaco"
-        >
-          <a
-            class="com-link"
-            href="https://www.lanacion.com.ar/horoscopo/escorpio/"
-            title="Ir al horóscopo de Escorpio"
-          >
-            <div
-              class="container-svg"
-            >
-              <img
-                alt="Escorpio"
-                class="com-image "
-                decoding="async"
-                fetchpriority="low"
-                height="100%"
-                loading="lazy"
-                src="undefined/pf/resources/images/horoscope-logos/escorpio.svg"
-                width="100%"
-              />
-            </div>
-            <div
-              class="container-text"
-            >
-              <h2
-                class="title --twoxs"
-              >
-                Escorpio
-              </h2>
-              <time
-                class="text --fivexs"
-              >
-                24/10 al 22/11
-              </time>
-            </div>
-          </a>
-        </article>
-        <article
-          class="horoscope-item --zodiaco"
-        >
-          <a
-            class="com-link"
-            href="https://www.lanacion.com.ar/horoscopo/sagitario/"
-            title="Ir al horóscopo de Sagitario"
-          >
-            <div
-              class="container-svg"
-            >
-              <img
-                alt="Sagitario"
-                class="com-image "
-                decoding="async"
-                fetchpriority="low"
-                height="100%"
-                loading="lazy"
-                src="undefined/pf/resources/images/horoscope-logos/sagitario.svg"
-                width="100%"
-              />
-            </div>
-            <div
-              class="container-text"
-            >
-              <h2
-                class="title --twoxs"
-              >
-                Sagitario
-              </h2>
-              <time
-                class="text --fivexs"
-              >
-                23/11 al 22/12
-              </time>
-            </div>
-          </a>
-        </article>
-        <article
-          class="horoscope-item --zodiaco"
-        >
-          <a
-            class="com-link"
-            href="https://www.lanacion.com.ar/horoscopo/capricornio/"
-            title="Ir al horóscopo de Capricornio"
-          >
-            <div
-              class="container-svg"
-            >
-              <img
-                alt="Capricornio"
-                class="com-image "
-                decoding="async"
-                fetchpriority="low"
-                height="100%"
-                loading="lazy"
-                src="undefined/pf/resources/images/horoscope-logos/capricornio.svg"
-                width="100%"
-              />
-            </div>
-            <div
-              class="container-text"
-            >
-              <h2
-                class="title --twoxs"
-              >
-                Capricornio
-              </h2>
-              <time
-                class="text --fivexs"
-              >
-                23/12 al 20/12
-              </time>
-            </div>
-          </a>
-        </article>
-        <article
-          class="horoscope-item --zodiaco"
-        >
-          <a
-            class="com-link"
-            href="https://www.lanacion.com.ar/horoscopo/acuario/"
-            title="Ir al horóscopo de Acuario"
-          >
-            <div
-              class="container-svg"
-            >
-              <img
-                alt="Acuario"
-                class="com-image "
-                decoding="async"
-                fetchpriority="low"
-                height="100%"
-                loading="lazy"
-                src="undefined/pf/resources/images/horoscope-logos/acuario.svg"
-                width="100%"
-              />
-            </div>
-            <div
-              class="container-text"
-            >
-              <h2
-                class="title --twoxs"
-              >
-                Acuario
-              </h2>
-              <time
-                class="text --fivexs"
-              >
-                21/1 al 19/2
-              </time>
-            </div>
-          </a>
-        </article>
-        <article
-          class="horoscope-item --zodiaco"
-        >
-          <a
-            class="com-link"
-            href="https://www.lanacion.com.ar/horoscopo/piscis/"
-            title="Ir al horóscopo de Piscis"
-          >
-            <div
-              class="container-svg"
-            >
-              <img
-                alt="Piscis"
-                class="com-image "
-                decoding="async"
-                fetchpriority="low"
-                height="100%"
-                loading="lazy"
-                src="undefined/pf/resources/images/horoscope-logos/piscis.svg"
-                width="100%"
-              />
-            </div>
-            <div
-              class="container-text"
-            >
-              <h2
-                class="title --twoxs"
-              >
-                Piscis
-              </h2>
-              <time
-                class="text --fivexs"
-              >
-                20/2 al 20/3
-              </time>
-            </div>
-          </a>
-        </article>
-      </div>
+        Seleccioná tu signo...
+      </h3>
       <div
-        class="chino"
+        class="--items"
       >
-        <article
-          class="horoscope-item --chino"
+        <div
+          class="zodiaco row-gap-2 row-gap-tablet-3 row-gap-desksm-4 row-gap-deskxl-6"
         >
-          <a
-            class="com-link"
-            href="https://www.lanacion.com.ar/horoscopo/horoscopo-chino-2022/"
-            title="Ir al horóscopo de Horóscopo Chino"
+          <article
+            class="horoscope-item --zodiaco"
           >
-            <div
-              class="container-svg"
+            <a
+              class="com-link"
+              href="https://www.lanacion.com.ar/horoscopo/aries/"
+              title="Ir al horóscopo de Aries"
             >
-              <img
-                alt="Horóscopo Chino"
-                class="com-image "
-                decoding="async"
-                fetchpriority="low"
-                height="100%"
-                loading="lazy"
-                src="undefined/pf/resources/images/horoscope-logos/rata.svg"
-                width="100%"
-              />
-            </div>
-            <div
-              class="container-text"
-            >
-              <h2
-                class="title --twoxs"
+              <div
+                class="container-svg"
               >
-                Horóscopo Chino
-              </h2>
-            </div>
-          </a>
-        </article>
+                <img
+                  alt="Aries"
+                  class="com-image "
+                  decoding="async"
+                  fetchpriority="low"
+                  height="100%"
+                  loading="lazy"
+                  src="undefinedundefined/resources/images/horoscope-logos/aries.svg"
+                  width="100%"
+                />
+              </div>
+              <div
+                class="container-text"
+              >
+                <h2
+                  class="title --twoxs"
+                >
+                  Aries
+                </h2>
+                <time
+                  class="text --fivexs"
+                >
+                  21/3 al 20/4
+                </time>
+              </div>
+            </a>
+          </article>
+          <article
+            class="horoscope-item --zodiaco"
+          >
+            <a
+              class="com-link"
+              href="https://www.lanacion.com.ar/horoscopo/tauro/"
+              title="Ir al horóscopo de Tauro"
+            >
+              <div
+                class="container-svg"
+              >
+                <img
+                  alt="Tauro"
+                  class="com-image "
+                  decoding="async"
+                  fetchpriority="low"
+                  height="100%"
+                  loading="lazy"
+                  src="undefinedundefined/resources/images/horoscope-logos/tauro.svg"
+                  width="100%"
+                />
+              </div>
+              <div
+                class="container-text"
+              >
+                <h2
+                  class="title --twoxs"
+                >
+                  Tauro
+                </h2>
+                <time
+                  class="text --fivexs"
+                >
+                  21/4 al 21/5
+                </time>
+              </div>
+            </a>
+          </article>
+          <article
+            class="horoscope-item --zodiaco"
+          >
+            <a
+              class="com-link"
+              href="https://www.lanacion.com.ar/horoscopo/geminis/"
+              title="Ir al horóscopo de Geminis"
+            >
+              <div
+                class="container-svg"
+              >
+                <img
+                  alt="Geminis"
+                  class="com-image "
+                  decoding="async"
+                  fetchpriority="low"
+                  height="100%"
+                  loading="lazy"
+                  src="undefinedundefined/resources/images/horoscope-logos/geminis.svg"
+                  width="100%"
+                />
+              </div>
+              <div
+                class="container-text"
+              >
+                <h2
+                  class="title --twoxs"
+                >
+                  Geminis
+                </h2>
+                <time
+                  class="text --fivexs"
+                >
+                  22/5 al 21/6
+                </time>
+              </div>
+            </a>
+          </article>
+          <article
+            class="horoscope-item --zodiaco"
+          >
+            <a
+              class="com-link"
+              href="https://www.lanacion.com.ar/horoscopo/cancer/"
+              title="Ir al horóscopo de Cancer"
+            >
+              <div
+                class="container-svg"
+              >
+                <img
+                  alt="Cancer"
+                  class="com-image "
+                  decoding="async"
+                  fetchpriority="low"
+                  height="100%"
+                  loading="lazy"
+                  src="undefinedundefined/resources/images/horoscope-logos/cancer.svg"
+                  width="100%"
+                />
+              </div>
+              <div
+                class="container-text"
+              >
+                <h2
+                  class="title --twoxs"
+                >
+                  Cancer
+                </h2>
+                <time
+                  class="text --fivexs"
+                >
+                  22/6 al 23/7
+                </time>
+              </div>
+            </a>
+          </article>
+          <article
+            class="horoscope-item --zodiaco"
+          >
+            <a
+              class="com-link"
+              href="https://www.lanacion.com.ar/horoscopo/leo/"
+              title="Ir al horóscopo de Leo"
+            >
+              <div
+                class="container-svg"
+              >
+                <img
+                  alt="Leo"
+                  class="com-image "
+                  decoding="async"
+                  fetchpriority="low"
+                  height="100%"
+                  loading="lazy"
+                  src="undefinedundefined/resources/images/horoscope-logos/leo.svg"
+                  width="100%"
+                />
+              </div>
+              <div
+                class="container-text"
+              >
+                <h2
+                  class="title --twoxs"
+                >
+                  Leo
+                </h2>
+                <time
+                  class="text --fivexs"
+                >
+                  24/7 al 23/8
+                </time>
+              </div>
+            </a>
+          </article>
+          <article
+            class="horoscope-item --zodiaco"
+          >
+            <a
+              class="com-link"
+              href="https://www.lanacion.com.ar/horoscopo/virgo/"
+              title="Ir al horóscopo de Virgo"
+            >
+              <div
+                class="container-svg"
+              >
+                <img
+                  alt="Virgo"
+                  class="com-image "
+                  decoding="async"
+                  fetchpriority="low"
+                  height="100%"
+                  loading="lazy"
+                  src="undefinedundefined/resources/images/horoscope-logos/virgo.svg"
+                  width="100%"
+                />
+              </div>
+              <div
+                class="container-text"
+              >
+                <h2
+                  class="title --twoxs"
+                >
+                  Virgo
+                </h2>
+                <time
+                  class="text --fivexs"
+                >
+                  24/8 al 23/9
+                </time>
+              </div>
+            </a>
+          </article>
+          <article
+            class="horoscope-item --zodiaco"
+          >
+            <a
+              class="com-link"
+              href="https://www.lanacion.com.ar/horoscopo/libra/"
+              title="Ir al horóscopo de Libra"
+            >
+              <div
+                class="container-svg"
+              >
+                <img
+                  alt="Libra"
+                  class="com-image "
+                  decoding="async"
+                  fetchpriority="low"
+                  height="100%"
+                  loading="lazy"
+                  src="undefinedundefined/resources/images/horoscope-logos/libra.svg"
+                  width="100%"
+                />
+              </div>
+              <div
+                class="container-text"
+              >
+                <h2
+                  class="title --twoxs"
+                >
+                  Libra
+                </h2>
+                <time
+                  class="text --fivexs"
+                >
+                  24/9 al 23/10
+                </time>
+              </div>
+            </a>
+          </article>
+          <article
+            class="horoscope-item --zodiaco"
+          >
+            <a
+              class="com-link"
+              href="https://www.lanacion.com.ar/horoscopo/escorpio/"
+              title="Ir al horóscopo de Escorpio"
+            >
+              <div
+                class="container-svg"
+              >
+                <img
+                  alt="Escorpio"
+                  class="com-image "
+                  decoding="async"
+                  fetchpriority="low"
+                  height="100%"
+                  loading="lazy"
+                  src="undefinedundefined/resources/images/horoscope-logos/escorpio.svg"
+                  width="100%"
+                />
+              </div>
+              <div
+                class="container-text"
+              >
+                <h2
+                  class="title --twoxs"
+                >
+                  Escorpio
+                </h2>
+                <time
+                  class="text --fivexs"
+                >
+                  24/10 al 22/11
+                </time>
+              </div>
+            </a>
+          </article>
+          <article
+            class="horoscope-item --zodiaco"
+          >
+            <a
+              class="com-link"
+              href="https://www.lanacion.com.ar/horoscopo/sagitario/"
+              title="Ir al horóscopo de Sagitario"
+            >
+              <div
+                class="container-svg"
+              >
+                <img
+                  alt="Sagitario"
+                  class="com-image "
+                  decoding="async"
+                  fetchpriority="low"
+                  height="100%"
+                  loading="lazy"
+                  src="undefinedundefined/resources/images/horoscope-logos/sagitario.svg"
+                  width="100%"
+                />
+              </div>
+              <div
+                class="container-text"
+              >
+                <h2
+                  class="title --twoxs"
+                >
+                  Sagitario
+                </h2>
+                <time
+                  class="text --fivexs"
+                >
+                  23/11 al 22/12
+                </time>
+              </div>
+            </a>
+          </article>
+          <article
+            class="horoscope-item --zodiaco"
+          >
+            <a
+              class="com-link"
+              href="https://www.lanacion.com.ar/horoscopo/capricornio/"
+              title="Ir al horóscopo de Capricornio"
+            >
+              <div
+                class="container-svg"
+              >
+                <img
+                  alt="Capricornio"
+                  class="com-image "
+                  decoding="async"
+                  fetchpriority="low"
+                  height="100%"
+                  loading="lazy"
+                  src="undefinedundefined/resources/images/horoscope-logos/capricornio.svg"
+                  width="100%"
+                />
+              </div>
+              <div
+                class="container-text"
+              >
+                <h2
+                  class="title --twoxs"
+                >
+                  Capricornio
+                </h2>
+                <time
+                  class="text --fivexs"
+                >
+                  23/12 al 20/12
+                </time>
+              </div>
+            </a>
+          </article>
+          <article
+            class="horoscope-item --zodiaco"
+          >
+            <a
+              class="com-link"
+              href="https://www.lanacion.com.ar/horoscopo/acuario/"
+              title="Ir al horóscopo de Acuario"
+            >
+              <div
+                class="container-svg"
+              >
+                <img
+                  alt="Acuario"
+                  class="com-image "
+                  decoding="async"
+                  fetchpriority="low"
+                  height="100%"
+                  loading="lazy"
+                  src="undefinedundefined/resources/images/horoscope-logos/acuario.svg"
+                  width="100%"
+                />
+              </div>
+              <div
+                class="container-text"
+              >
+                <h2
+                  class="title --twoxs"
+                >
+                  Acuario
+                </h2>
+                <time
+                  class="text --fivexs"
+                >
+                  21/1 al 19/2
+                </time>
+              </div>
+            </a>
+          </article>
+          <article
+            class="horoscope-item --zodiaco"
+          >
+            <a
+              class="com-link"
+              href="https://www.lanacion.com.ar/horoscopo/piscis/"
+              title="Ir al horóscopo de Piscis"
+            >
+              <div
+                class="container-svg"
+              >
+                <img
+                  alt="Piscis"
+                  class="com-image "
+                  decoding="async"
+                  fetchpriority="low"
+                  height="100%"
+                  loading="lazy"
+                  src="undefinedundefined/resources/images/horoscope-logos/piscis.svg"
+                  width="100%"
+                />
+              </div>
+              <div
+                class="container-text"
+              >
+                <h2
+                  class="title --twoxs"
+                >
+                  Piscis
+                </h2>
+                <time
+                  class="text --fivexs"
+                >
+                  20/2 al 20/3
+                </time>
+              </div>
+            </a>
+          </article>
+        </div>
+        <div
+          class="chino"
+        >
+          <article
+            class="horoscope-item --chino"
+          >
+            <a
+              class="com-link"
+              href="https://www.lanacion.com.ar/horoscopo/horoscopo-chino-2022/"
+              title="Ir al horóscopo de Horóscopo Chino"
+            >
+              <div
+                class="container-svg"
+              >
+                <img
+                  alt="Horóscopo Chino"
+                  class="com-image "
+                  decoding="async"
+                  fetchpriority="low"
+                  height="100%"
+                  loading="lazy"
+                  src="undefinedundefined/resources/images/horoscope-logos/rata.svg"
+                  width="100%"
+                />
+              </div>
+              <div
+                class="container-text"
+              >
+                <h2
+                  class="title --twoxs"
+                >
+                  Horóscopo Chino
+                </h2>
+                
+              </div>
+            </a>
+          </article>
+        </div>
       </div>
-    </div>
-  </article>
-</mock-static>
+    </article>
+  </mock-static-validation>
+</div>
 `;

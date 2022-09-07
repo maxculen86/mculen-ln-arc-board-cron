@@ -2,35 +2,51 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import { useAppContext } from 'fusion:context';
-import Static from 'fusion:static';
 import HoroscopeBox from '../../private/common/horoscopeBox';
+import StaticValidation from '../../private/common/staticValidation';
 
 const CajaHoroscopos = ({ id: featureId, customFields }) => {
     const { globalContent, deployment, contextPath, arcSite } = useAppContext();
     const { title } = customFields;
     const { _id = '' } = globalContent || {};
     const path = _id.split('/').slice(1);
+    const Component = (
+        <>
+            {(() => {
+                const { data } =
+                    useContent({
+                        source: 'horoscopeSource',
+                        query: {
+                            arcSite,
+                            horoscope: path.length ? path[0] : ''
+                        },
+                        staticMode: true
+                    }) || {};
 
-    const { data } =
-        useContent({
-            source: 'horoscopeSource',
-            query: { arcSite, horoscope: path.length ? path[0] : '' }
-        }) || {};
+                return data ? (
+                    <HoroscopeBox
+                        signos={data.signos}
+                        title={title}
+                        deployment={deployment}
+                        contextPath={contextPath}
+                    />
+                ) : null;
+            })()}
+        </>
+    );
+    const { props = {} } = Component;
+    const { children } = props;
 
-    return data ? (
-        <Static id={featureId}>
-            <HoroscopeBox
-                signos={data.signos}
-                title={title}
-                deployment={deployment}
-                contextPath={contextPath}
-            />
-        </Static>
-    ) : null;
+    return (
+        children && (
+            <StaticValidation id={featureId} htmlOnly persistent>
+                {Component}
+            </StaticValidation>
+        )
+    );
 };
 
 CajaHoroscopos.label = 'LN Acumulado Caja Horoscopos';
-CajaHoroscopos.lazy = true;
 
 CajaHoroscopos.propTypes = {
     id: PropTypes.string.isRequired,
