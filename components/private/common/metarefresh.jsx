@@ -23,7 +23,11 @@ const getInterval = (type, resolution, config) => {
     return parseInt(seconds, 10) * 1000;
 };
 
-const shouldBeExcluded = (contentElements, promoItem) =>
+export const shouldBeExcluded = ({
+    contentElements,
+    promoItem,
+    labelMetarefresh
+}) =>
     (contentElements &&
         contentElements.some(
             contentElement =>
@@ -31,9 +35,15 @@ const shouldBeExcluded = (contentElements, promoItem) =>
                 contentElement.type === 'oembed_response' ||
                 contentElement.type === 'video'
         )) ||
-    (promoItem && promoItem.type === 'video');
+    (promoItem && promoItem.type === 'video') ||
+    (labelMetarefresh && labelMetarefresh.text === 'No');
 
 const Component = props => {
+    const labelMetarefresh = get(
+        props,
+        'globalContent.label.metarefresh',
+        null
+    );
     const contentElements = get(props, 'globalContent.content_elements', null);
     const promoItem = get(props, 'globalContent.promo_items.basic', null);
     const type = get(props, 'globalContent.type', null);
@@ -64,7 +74,7 @@ const Component = props => {
             outputType === 'amp' ||
             (subscription && template !== 'home') ||
             interval < 1 ||
-            shouldBeExcluded(contentElements, promoItem)
+            shouldBeExcluded({ contentElements, promoItem, labelMetarefresh })
         ) {
             return;
         }
@@ -86,6 +96,7 @@ const Component = props => {
         cookieProductoPremium,
         interval,
         isAdmin,
+        labelMetarefresh,
         metarefresh,
         outputType,
         promoItem,
