@@ -35,6 +35,7 @@ import {
     productClickFromServer,
     createObservers
 } from '../../private/common/utils/viewability';
+import createBannersIntersectionObserver from '../../private/common/banners/createBannersIntersectionObserver';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -143,7 +144,7 @@ const LNMainHome = props => {
 
     const [blocksToLoad, dispatch] = useReducer(reducer, {
         bloque1: { loaded: true, loadPercent: 70 },
-        bloque2: { loaded: isAdmin, loadPercent: 25 },
+        bloque2: { loaded: true, loadPercent: 25 },
         bloque3: { loaded: isAdmin, loadPercent: 70 },
         bloque4: { loaded: isAdmin, loadPercent: 70 },
         bloque5: { loaded: isAdmin, loadPercent: 70 }
@@ -208,6 +209,7 @@ const LNMainHome = props => {
         }
 
         createObservers();
+        createBannersIntersectionObserver();
 
         if (!lastSectionSaw || !lastScrollPosition) return;
         const lastBlockSaw = sectionsWithBlocks[lastSectionSaw];
@@ -313,12 +315,15 @@ const LNMainHome = props => {
                                     {apertura2}
                                 </div>
 
+                                {/* 2ndo Bloque */}
+
                                 {/* BANNER BILLBOARD */}
                                 <DivBannerSSR
                                     bannerConfiguration={{
                                         slotId: 'billboard_dsk',
                                         withoutHide: true,
-                                        isStatic: true
+                                        isStatic: true,
+                                        lazyClass: 'lazy'
                                     }}
                                 />
 
@@ -327,49 +332,50 @@ const LNMainHome = props => {
                                     bannerConfiguration={{
                                         slotId: 'caja2_mob',
                                         withoutHide: true,
-                                        isStatic: true
+                                        isStatic: true,
+                                        lazyClass: 'lazy'
                                     }}
                                 />
 
-                                {blocksToLoad.bloque2.loaded && (
-                                    <section data-section="multimedia">
-                                        {multimedia}
-                                    </section>
-                                )}
+                                <section data-section="multimedia">
+                                    {multimedia}
+                                </section>
 
-                                {blocksToLoad.bloque2.loaded && (
-                                    <section
-                                        data-section="anexo2"
-                                        data-block-name="h_anexo-2"
-                                        data-diagramacion-id="9999"
-                                        data-is-block="true"
-                                    >
-                                        {anexo2}
-                                    </section>
-                                )}
+                                <section
+                                    data-section="anexo2"
+                                    data-block-name="h_anexo-2"
+                                    data-diagramacion-id="9999"
+                                    data-is-block="true"
+                                >
+                                    {anexo2}
+                                </section>
 
-                                <div data-section="breaking1">
-                                    {blocksToLoad.bloque2.loaded && breaking1}
-                                </div>
+                                <div data-section="breaking1">{breaking1}</div>
                                 {/* BANNER CAJA 3 MOB */}
                                 <>
                                     <DivBannerSSR
                                         bannerConfiguration={{
                                             slotId: 'caja3_mob',
-                                            withoutHide: true
+                                            withoutHide: true,
+                                            isStatic: true,
+                                            lazyClass: 'lazy'
                                         }}
                                     />
                                     <div className="row-gap-tablet-2 --ads">
                                         <DivBannerSSR
                                             bannerConfiguration={{
                                                 slotId: 'caja1_tab',
-                                                withoutHide: true
+                                                withoutHide: true,
+                                                isStatic: true,
+                                                lazyClass: 'lazy'
                                             }}
                                         />
                                         <DivBannerSSR
                                             bannerConfiguration={{
                                                 slotId: 'caja2_tab',
-                                                withoutHide: true
+                                                withoutHide: true,
+                                                isStatic: true,
+                                                lazyClass: 'lazy'
                                             }}
                                         />
                                     </div>
@@ -379,37 +385,45 @@ const LNMainHome = props => {
                                     <DivBannerSSR
                                         bannerConfiguration={{
                                             slotId: 'caja1_dsk',
-                                            withoutHide: true
+                                            withoutHide: true,
+                                            isStatic: true,
+                                            lazyClass: 'lazy'
                                         }}
                                     />
                                     <DivBannerSSR
                                         bannerConfiguration={{
                                             slotId: 'caja_producto1_dsk',
-                                            withoutHide: true
+                                            withoutHide: true,
+                                            isStatic: true,
+                                            lazyClass: 'lazy'
                                         }}
                                     />
                                     <DivBannerSSR
                                         bannerConfiguration={{
                                             slotId: 'caja2_dsk',
-                                            withoutHide: true
+                                            withoutHide: true,
+                                            isStatic: true,
+                                            lazyClass: 'lazy'
                                         }}
                                     />
                                 </div>
-                                <div data-section="breaking2">
-                                    {blocksToLoad.bloque2.loaded && breaking2}
-                                </div>
+                                <div data-section="breaking2">{breaking2}</div>
                                 {/* BANNER CAJA 4 MOB */}
                                 <>
                                     <DivBannerSSR
                                         bannerConfiguration={{
                                             slotId: 'caja4_mob',
-                                            withoutHide: true
+                                            withoutHide: true,
+                                            isStatic: true,
+                                            lazyClass: 'lazy'
                                         }}
                                     />
                                     <DivBannerSSR
                                         bannerConfiguration={{
                                             slotId: 'middle1_tab',
-                                            withoutHide: true
+                                            withoutHide: true,
+                                            isStatic: true,
+                                            lazyClass: 'lazy'
                                         }}
                                     />
                                 </>
@@ -417,13 +431,16 @@ const LNMainHome = props => {
                                 <DivBannerSSR
                                     bannerConfiguration={{
                                         slotId: 'cinturon1_dsk',
-                                        withoutHide: true
+                                        withoutHide: true,
+                                        isStatic: true,
+                                        lazyClass: 'lazy'
                                     }}
                                 />
 
-                                <div data-section="breaking3">
-                                    {blocksToLoad.bloque2.loaded && breaking3}
-                                </div>
+                                <div data-section="breaking3">{breaking3}</div>
+
+                                {/* 3er Bloque */}
+
                                 {blocksToLoad.bloque3.loaded && (
                                     <section className="container --promos">
                                         <div className="row-gap-tablet-2">
@@ -675,7 +692,8 @@ const LNMainHome = props => {
                                         classes:
                                             '--adhesion_dsk --fixed --close',
                                         hideForSubscriptor: true,
-                                        closeButton: true
+                                        closeButton: true,
+                                        isStatic: true
                                     }}
                                 />
                                 <DivBannerSSR
@@ -684,7 +702,8 @@ const LNMainHome = props => {
                                         classes:
                                             '--adhesion_mob --fixed --close',
                                         hideForSubscriptor: true,
-                                        closeButton: true
+                                        closeButton: true,
+                                        isStatic: true
                                     }}
                                 />
                                 <DivBannerSSR
@@ -693,7 +712,8 @@ const LNMainHome = props => {
                                         classes:
                                             '--adhesion_tab --fixed --close',
                                         hideForSubscriptor: true,
-                                        closeButton: true
+                                        closeButton: true,
+                                        isStatic: true
                                     }}
                                 />
                             </div>
@@ -705,9 +725,6 @@ const LNMainHome = props => {
                 </StaticValidation>
             </div>
             <LoadBanners blocksBanners={blocksBanners.bloque1} />
-            {blocksToLoad.bloque2.loaded && (
-                <LoadBanners blocksBanners={blocksBanners.bloque2} />
-            )}
             {blocksToLoad.bloque3.loaded && (
                 <LoadBanners blocksBanners={blocksBanners.bloque3} />
             )}
