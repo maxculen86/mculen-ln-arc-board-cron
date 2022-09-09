@@ -11,27 +11,30 @@ import ComLine from '../../../private/common/com-line';
 import {
     getClassCondition,
     showToast,
-    showBarrier,
     isSuscription,
     scrollAddClass,
     scrollShare
 } from '../../../private/LN/common/utils/shareHelper';
 import BuildSecondButtonsGroup from './_children/BuildSecondButtonsGroup';
 import BuildFirstButtonsGroup from './_children/BuildFirstButtonsGroup';
-import '../../../../resources/dist/css/ln/modules/mod-share.css';
 import Icon from '../../../private/common/icon';
+import ShowBarrier from '../../../private/LN/common/utils/showBarrier';
+import BuildAudioPlayer from '../../../private/common/audioNews/BuildAudioPlayer';
+import '../../../../resources/dist/css/ln/modules/mod-share.css';
 
 const Share = () => {
     const { globalContent, requestUri } = useAppContext() || {};
     const {
         _id: id,
         headlines: { basic: title, mobile: mobileTitle } = {},
-        subtype
+        subtype,
+        last_updated_date: date
     } = globalContent;
 
     const [bookmark, setBookmark] = useState(false);
     const [toast, setToast] = useState(false);
-    const [barrier, setBarrier] = useState(false);
+    const [openPlayer, setOpenPlayer] = useState(false);
+
     const token = getToken();
     const termicaBookmark = useTermica('bookmark_web');
 
@@ -58,6 +61,8 @@ const Share = () => {
 
     return (
         <div className={`mod-share-container${classCondition}`}>
+            {showToast(termicaBookmark, toast, setToast)}
+            <ShowBarrier token={token} />
             <div
                 className="mod-share"
                 ref={shareContainer}
@@ -66,8 +71,7 @@ const Share = () => {
                 }}
             >
                 <Icon name="arrow-left" />
-                {showToast(termicaBookmark, toast, setToast)}
-                {showBarrier(termicaBookmark, barrier, token, setBarrier)}
+                {/* {showBarrier(termicaBookmark, barrier, token, setBarrier)} */}
                 <div id="v-share" className="share" ref={share}>
                     <BuildFirstButtonsGroup
                         bookmark={bookmark}
@@ -77,8 +81,9 @@ const Share = () => {
                         token={token}
                         toast={toast}
                         setToast={setToast}
-                        setBarrier={setBarrier}
                         suscription={suscription}
+                        openPlayer={openPlayer}
+                        setOpenPlayer={setOpenPlayer}
                     />
 
                     <ComLine />
@@ -92,6 +97,7 @@ const Share = () => {
                 </div>
                 <Icon name="arrow-right" />
             </div>
+            {openPlayer && <BuildAudioPlayer publishDate={date} noteId={id} />}
         </div>
     );
 };

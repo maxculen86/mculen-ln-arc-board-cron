@@ -6,7 +6,6 @@ import config from '../../../../../properties/sites/la-nacion-ar';
 import get from '../../../common/utils/get';
 import Toast from '../../../common/toast/Toast';
 import toggleBookmark from '../../../common/utils/bookmarkHelper';
-import Barrier from '../../../common/barrier/Barrier';
 import { conditionallyCallViafoura } from '../../../common/utils/commentsHelper';
 import { isSubscribed } from './contextHelper';
 import { VIDEO } from '../../../common/utils/subtypes/subtypeHelper';
@@ -137,34 +136,28 @@ export const onButtonClicked = (
     bookmark,
     setBookmark,
     setToast,
-    setBarrier
+    dispatch
 ) => {
     addEventToDataLayer('Guardar Nota');
     if (token && suscription && !toast) {
         toggleBookmark(token, globalContent, bookmark, setBookmark, setToast);
     }
 
-    !toast && !suscription && setBarrier(true);
+    !toast &&
+        !suscription &&
+        dispatch({
+            type: 'SHOW_MODAL_BARRIER',
+            payload: {
+                open: true,
+                origin: 'bookmark',
+                typeAlert: 'exclusive-ln'
+            }
+        });
 };
 
 export const showToast = (termicaBookmark, toast, setToast) => {
     return termicaBookmark && toast.status ? (
         <Toast data={toast} handleTimeout={() => setToast(false)} />
-    ) : (
-        <></>
-    );
-};
-
-export const showBarrier = (termicaBookmark, barrier, token, setBarrier) => {
-    return termicaBookmark && barrier ? (
-        <Barrier
-            type="exclusive-ln"
-            handleBarrier={() => setBarrier(false)}
-            isLogged={!!token}
-            redirectCallback={
-                typeof window !== 'undefined' ? window.btoa(location.href) : ''
-            }
-        />
     ) : (
         <></>
     );

@@ -22,7 +22,6 @@ const BookmarkLayout = () => {
     const { getCookie } = handleCookie();
     const productoPremiumId = getCookie('ProductoPremiumId');
     const isSubscribed = productoPremiumId && productoPremiumId.includes('2');
-
     const {
         bookmarks,
         morePages,
@@ -70,18 +69,18 @@ const BookmarkLayout = () => {
             />
             <HelperBookmark />
 
-            {state.deleteBookmarkId && (
+            {state.showBarrier.origin === 'bookmark' && (
                 <Barrier
-                    type="delete-note"
+                    type={state.showBarrier.typeAlert}
                     handleBarrier={() => {
                         dispatch({
                             type: 'SHOW_MODAL_BARRIER',
                             payload: {
-                                bookmarkId: false
+                                open: false
                             }
                         });
                     }}
-                    bookmarkId={state.deleteBookmarkId}
+                    bookmarkId={state.showBarrier.data}
                     setToast={setToast}
                     deleteArticle={deleteArticle}
                     substractOne={substractOne}

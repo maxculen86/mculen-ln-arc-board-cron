@@ -150,10 +150,19 @@ const ModArticle = props => {
             {isBookmark && (
                 <ComButton
                     onClick={() => {
+                        // dispatch({
+                        //     type: 'SHOW_MODAL_BARRIER',
+                        //     payload: {
+                        //         bookmarkId
+                        //     }
+                        // });
                         dispatch({
                             type: 'SHOW_MODAL_BARRIER',
                             payload: {
-                                bookmarkId
+                                open: true,
+                                origin: 'bookmark',
+                                typeAlert: 'delete-note',
+                                data: bookmarkId
                             }
                         });
                     }}

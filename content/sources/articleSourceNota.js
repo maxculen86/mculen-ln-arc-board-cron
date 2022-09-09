@@ -29,6 +29,7 @@ import removeInvalidUrlTagA from '../../components/private/common/utils/removeIn
 import isNotShowcase from './utils/isNotShowcase';
 import { recipePowerUps, removeParallaxPowerUp } from './utils/powerUp';
 import firmaDistributorValidation from './utils/firmaDistributorValidator';
+import isNoteListenable from './utils/audioNews/helper';
 
 export const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -165,6 +166,8 @@ const transform = (
         sponsored
     );
 
+    // const isListenable = isNoteListenable(data);
+
     // Presets
     const presetsDefault = get(properties, `imageConfig.resize.default`, null);
     const presetsZoom = get(
@@ -207,6 +210,7 @@ const transform = (
         ...data,
         subscription: meteringVariant,
         withFirmaDistributor,
+        isListenable: isNoteListenable(data),
         ...addResizedUrls(data, {
             resizerSecret: RESIZER_KEY,
             resizerUrl: RESIZER_URL,

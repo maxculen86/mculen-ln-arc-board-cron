@@ -1,15 +1,16 @@
 /* eslint-disable react/require-default-props */
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
+import { GlobalContext } from '../../../../private/common/context/globalContext';
 import ComButton from '../../../../private/common/com-button';
-import AudioPlayerButton from './AudioPlayerButton';
 import {
     scrollToComments,
     onButtonClicked,
     GetNumberOfComments,
     addEventToDataLayer
 } from '../../../../private/LN/common/utils/shareHelper';
+import { handleClickAudioNews } from '../../../../private/common/audioNews/helpers';
 import '../../../../../resources/dist/css/ln/components/build-first-buttons-group.css';
 
 const BuildFirtsButtonsGroup = ({
@@ -19,16 +20,19 @@ const BuildFirtsButtonsGroup = ({
     token,
     setBookmark,
     setToast,
-    setBarrier,
     suscription,
-    toast
+    toast,
+    openPlayer,
+    setOpenPlayer
 } = {}) => {
     const { arcSite = 'la-nacion-ar' } = useAppContext() || {};
+    const { dispatch } = useContext(GlobalContext) || {};
+
     const {
         _id: id,
         comments: { display_comments: displayComments = true } = {},
         first_publish_date: firstPublishDate,
-        subtype
+        isListenable
     } = globalContent;
 
     const { totalVisibleContent = '' } = GetNumberOfComments(
@@ -39,7 +43,26 @@ const BuildFirtsButtonsGroup = ({
 
     return (
         <div className="first-buttons-group">
-            <AudioPlayerButton subtype={subtype} />
+            {isListenable && (
+                <ComButton
+                    size="--fourxs"
+                    iconName="headset"
+                    title="Escuchar nota"
+                    classCondition="headset audio-player-button --tertiary --mobile"
+                    onClick={() =>
+                        handleClickAudioNews(
+                            token,
+                            suscription,
+                            setOpenPlayer,
+                            dispatch
+                        )
+                    }
+                    id="headset"
+                    textname="escuchar"
+                    disabled={openPlayer}
+                />
+            )}
+
             {termicaBookmark && (
                 <ComButton
                     id="btnbookmark"
@@ -54,7 +77,7 @@ const BuildFirtsButtonsGroup = ({
                             bookmark,
                             setBookmark,
                             setToast,
-                            setBarrier
+                            dispatch
                         );
                     }}
                     size="--fourxs"
@@ -97,16 +120,18 @@ BuildFirtsButtonsGroup.propTypes = {
         }),
         comments: PropTypes.shape({
             display_comments: PropTypes.bool
-        })
+        }),
+        isListenable: PropTypes.bool
     }),
     token: PropTypes.string,
     bookmark: PropTypes.bool,
     setBookmark: PropTypes.func,
     toast: PropTypes.bool,
     setToast: PropTypes.func,
-    setBarrier: PropTypes.func,
     suscription: PropTypes.bool,
-    termicaBookmark: PropTypes.bool
+    termicaBookmark: PropTypes.bool,
+    openPlayer: PropTypes.bool,
+    setOpenPlayer: PropTypes.func
 };
 
 export default BuildFirtsButtonsGroup;
