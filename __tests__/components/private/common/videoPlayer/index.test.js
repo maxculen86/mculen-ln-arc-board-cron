@@ -30,30 +30,30 @@ describe('private - common - videoPlayer', () => {
             { key: 'data-api', val: 'sandbox' },
             { key: 'data-env', val: 'prod' }
         ];
-        render(<VideoPlayer videoId={'powa-video'} arcSite={'la-nacion-ar'} />);
-        expect(screen.getByTestId('powa-video')).toHaveClass('powa');
+        const { container } = render(
+            <VideoPlayer videoId={'powa-video'} arcSite={'la-nacion-ar'} />
+        );
+        const videoPlayer = container.getElementsByClassName('powa')[0];
+        expect(videoPlayer).toHaveClass('powa');
         powaAttrs.forEach(attr =>
-            expect(screen.getByTestId('powa-video')).toHaveAttribute(
-                attr.key,
-                attr.val
-            )
+            expect(videoPlayer).toHaveAttribute(attr.key, attr.val)
         );
     });
     it('should validate auto init prop', () => {
-        render(
+        const { container } = render(
             <VideoPlayer
                 videoId={'powa-video'}
                 arcSite={'la-nacion-ar'}
                 loadVideoOnInit={false}
             />
         );
-        expect(screen.getByTestId('powa-video')).toHaveAttribute(
+        expect(container.getElementsByClassName('powa')[0]).toHaveAttribute(
             'data-autoinit',
             'false'
         );
     });
     it('should have an apertura video', () => {
-        render(
+        const { container } = render(
             <VideoPlayer
                 videoId={'apertura_video_basic'}
                 arcSite={'la-nacion-ar'}
@@ -67,7 +67,7 @@ describe('private - common - videoPlayer', () => {
                 isApertura={true}
             />
         );
-        expect(screen.getByTestId('apertura_video_basic')).toHaveAttribute(
+        expect(container.getElementsByClassName('powa')[0]).toHaveAttribute(
             'data-muted',
             'true'
         );

@@ -110,7 +110,6 @@ const VideoPlayer = props => {
         <>
             <div
                 className="powa"
-                data-testid={videoId}
                 data-org={organizationId}
                 data-uuid={videoId}
                 data-ads={enableAds}
