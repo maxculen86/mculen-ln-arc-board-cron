@@ -8,7 +8,7 @@ import { handleClickAudioNews } from './helpers';
 import BuildAudioPlayer from './BuildAudioPlayer';
 import { isSubscribed } from '../../LN/common/utils/contextHelper';
 import { GlobalContext } from '../context/globalContext';
-import '../../../../resources/dist/css/ln/components/audio-player-button.css';
+import '../../../../resources/dist/css/ln/components/audio-player-desktop.css';
 
 const AudioPlayerDesktop = ({
     publishDate = '',
@@ -24,32 +24,29 @@ const AudioPlayerDesktop = ({
     return (
         <>
             {isListenable && (
-                <BtnContainer withContainer id="audio-player-container">
-                    <>
-                        <ComButton
-                            size="--fourxs"
-                            iconName="headset"
-                            title="Escuchar nota"
-                            // classCondition="headset audio-player-button --tertiary --desktop"
-                            onClick={() =>
-                                handleClickAudioNews(
-                                    token,
-                                    suscription,
-                                    setOpenPlayer,
-                                    dispatch
-                                )
-                            }
-                            id="headset"
-                            textname="escuchar"
-                            disabled={openPlayer}
+                <BtnContainer withContainer id="audio-player-desktop">
+                    <ComButton
+                        size="--fivexs"
+                        iconName="headset"
+                        title="Escuchar nota"
+                        classCondition="headset --tertiary"
+                        onClick={() =>
+                            handleClickAudioNews(
+                                token,
+                                suscription,
+                                setOpenPlayer,
+                                dispatch
+                            )
+                        }
+                        textname="escuchar"
+                        disabled={openPlayer}
+                    />
+                    {openPlayer && (
+                        <BuildAudioPlayer
+                            publishDate={publishDate}
+                            noteId={noteId}
                         />
-                        {openPlayer && (
-                            <BuildAudioPlayer
-                                publishDate={publishDate}
-                                noteId={noteId}
-                            />
-                        )}
-                    </>
+                    )}
                 </BtnContainer>
             )}
         </>

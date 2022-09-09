@@ -4,7 +4,7 @@
 .mod-share-container {
     .mod-share {
         height: px(40);
-        margin-bottom: $spacing-sm;
+        margin-bottom: $spacing-md;
 
         @media ($media-l) {
             height: initial;
@@ -63,7 +63,6 @@
                 width: px(20);
                 height: px(20);
             }
-
             .btn-container {
                 display: flex;
                 position: relative;
@@ -219,10 +218,6 @@
                 .headset {
                     display: none;
                 }
-
-                #audio-player-container {
-                    display: none;
-                }
             }
 
             .audio-player {
@@ -247,17 +242,11 @@
         .mod-share {
             .share {
                 flex-direction: row;
-
                 @media ($media-l) {
                     margin-bottom: $spacing;
                 }
             }
-
             .com-icon {
-                .icon-headset {
-                    margin-right: 0;
-                }
-
                 &.icon-arrow-left,
                 &.icon-arrow-right {
                     path {
@@ -287,6 +276,18 @@
                     );
                 }
             }
+        }
+    }
+    .loader {
+        margin: 0 0 $spacing-sm;
+        @media ($media-l) {
+            margin: 0 0 $spacing-md;
+        }
+    }
+    .audio-player {
+        margin-top: -$spacing-xs;
+        @media ($media-m) {
+            margin-top: 0;
         }
     }
 }

@@ -6,7 +6,6 @@ import useFetch from '../hooks/useFetch';
 import LoadingIcon from '../../LN/common/loadingIcon';
 import get from '../utils/get';
 import { parseDate } from './helpers';
-import '../../../../resources/dist/css/ln/components/audio-player-button.css';
 
 const AUDIO_NEWS_URL =
     'https://qa-audionews.lanacion.com.ar/api/v1/audio/status/';

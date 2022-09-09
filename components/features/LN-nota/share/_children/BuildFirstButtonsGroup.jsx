@@ -48,7 +48,7 @@ const BuildFirtsButtonsGroup = ({
                     size="--fourxs"
                     iconName="headset"
                     title="Escuchar nota"
-                    classCondition="headset audio-player-button --tertiary --mobile"
+                    classCondition="headset --tertiary"
                     onClick={() =>
                         handleClickAudioNews(
                             token,
@@ -57,7 +57,6 @@ const BuildFirtsButtonsGroup = ({
                             dispatch
                         )
                     }
-                    id="headset"
                     textname="escuchar"
                     disabled={openPlayer}
                 />

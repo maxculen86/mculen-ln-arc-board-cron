@@ -16,7 +16,6 @@
         }
         &.bookmark,
         &.headset {
-            border-radius: px(4);
             width: px(40);
             height: px(40);
         }
@@ -33,6 +32,7 @@
         &.headset {
             padding: 0;
             background-color: $dark-neutral-200;
+            border: px(1);
             path {
                 fill: $light-neutral-50;
             }
@@ -47,8 +47,8 @@
             background-color: $light-neutral-300;
             border-radius: $spacing-2xs;
             min-width: px(40);
-            width: fit-content;
             height: px(40);
+            width: fit-content;
             padding: $spacing;
             margin-right: 0;
             .com-text {

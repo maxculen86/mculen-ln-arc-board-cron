@@ -9,7 +9,6 @@ import getToken from '../utils/getToken';
 import useFetch from '../hooks/useFetch';
 import LoadingIcon from '../../LN/common/loadingIcon';
 import get from '../utils/get';
-import '../../../../resources/dist/css/ln/components/audio-player-button.css';
 import { parseDate, handleClickAudioNews } from './helpers';
 import { GlobalContext } from '../context/globalContext';
 
