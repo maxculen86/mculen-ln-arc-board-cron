@@ -61,18 +61,6 @@ const actionType = {
             }
         };
     },
-    SHOW_MODAL_BARRIER: (state, action) => {
-        const { typeAlert, open, origin, data } = action.payload;
-        return {
-            ...state,
-            showBarrier: {
-                typeAlert,
-                open,
-                origin,
-                data
-            }
-        };
-    },
     SHOW_MODAL: (state, action) => {
         const { typeModal, typeAlert, open, origin, data } = action.payload;
         return {
@@ -161,13 +149,6 @@ const GlobalProvider = ({ children }) => {
         },
         tagsHome: [],
         logueado: false,
-        deleteBookmarkId: false,
-        showBarrier: {
-            typeAlert: '',
-            open: false,
-            origin: '',
-            data: undefined
-        },
         showModal: {
             typeModal: '',
             typeAlert: '',

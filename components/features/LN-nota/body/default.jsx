@@ -10,7 +10,7 @@ import BuildBody from './_children/_buildBody';
 import addEventListener from '../../../private/common/hooks/useEventListener';
 import handleScrollForNota from '../../../private/LN/nota/dataLayer/handleScrollForNota';
 import { setStorageConfiguration } from '../../../private/common/utils/storage';
-import AudioPlayerDesktop from '../../../private/common/audioNews/audioPlayerDesktop';
+import AudioPlayerDesktop from '../../../private/common/audioNews/AudioPlayerDesktop';
 
 const body = ({ customFields }) => {
     const { outputType, globalContent = {} } = useAppContext();

@@ -11,12 +11,13 @@ import Barrier from '../barrier/Barrier';
 import { GlobalContext } from '../context/globalContext';
 import Toast from '../toast/Toast';
 import handleCookie from '../../LN/common/utils/handleCookie';
+import ShowToast from '../../LN/common/utils/showToast';
 import '../../../../resources/dist/css/ln/components/bookmark.css';
 
 const BookmarkLayout = () => {
     const { state, dispatch } = useContext(GlobalContext);
     const [showHelper, setShowHelper] = useState(false);
-    const [toast, setToast] = useState(false);
+    // const [toast, setToast] = useState(false);
     const token = getToken();
     const termica = useTermica('bookmark_web');
     const { getCookie } = handleCookie();
@@ -69,27 +70,30 @@ const BookmarkLayout = () => {
             />
             <HelperBookmark />
 
-            {state.showBarrier.origin === 'bookmark' && (
+            {state.showModal.origin === 'bookmark' && (
                 <Barrier
-                    type={state.showBarrier.typeAlert}
+                    type={state.showModal.typeAlert}
                     handleBarrier={() => {
                         dispatch({
-                            type: 'SHOW_MODAL_BARRIER',
+                            type: 'SHOW_MODAL',
                             payload: {
                                 open: false
                             }
                         });
                     }}
-                    bookmarkId={state.showBarrier.data}
-                    setToast={setToast}
+                    bookmarkId={state.showModal.data}
+                    // setToast={setToast}
                     deleteArticle={deleteArticle}
                     substractOne={substractOne}
+                    dispatch={dispatch}
                 />
             )}
 
-            {toast && toast.status && (
+            <ShowToast />
+
+            {/* {toast && toast.status && (
                 <Toast data={toast} handleTimeout={() => setToast(false)} />
-            )}
+            )} */}
         </div>
     );
 };

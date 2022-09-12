@@ -10,7 +10,7 @@ describe('Test - isNoteListenable', () => {
         },
         taxonomy: {
             primary_section: {
-                _id: '/deportes'
+                _id: '/espectaculos'
             }
         },
         subtype: '1'
@@ -62,7 +62,7 @@ describe('Test - isNoteListenable', () => {
             ...data,
             taxonomy: {
                 primary_section: {
-                    _id: '/deportes/futbol'
+                    _id: '/espectaculos/cartelera-de-cine/'
                 }
             }
         };

@@ -135,28 +135,36 @@ export const onButtonClicked = (
     globalContent,
     bookmark,
     setBookmark,
-    setToast,
+    // setToast,
     dispatch
 ) => {
     addEventToDataLayer('Guardar Nota');
     if (token && suscription && !toast) {
-        toggleBookmark(token, globalContent, bookmark, setBookmark, setToast);
+        toggleBookmark(
+            token,
+            globalContent,
+            bookmark,
+            setBookmark,
+            // setToast,
+            dispatch
+        );
     }
 
     !toast &&
         !suscription &&
         dispatch({
-            type: 'SHOW_MODAL_BARRIER',
+            type: 'SHOW_MODAL',
             payload: {
                 open: true,
                 origin: 'bookmark',
-                typeAlert: 'exclusive-ln'
+                typeAlert: 'exclusive-ln',
+                typeModal: 'barrier'
             }
         });
 };
 
 export const showToast = (termicaBookmark, toast, setToast) => {
-    return termicaBookmark && toast.status ? (
+    return toast.status ? (
         <Toast data={toast} handleTimeout={() => setToast(false)} />
     ) : (
         <></>
@@ -250,6 +258,7 @@ export const scrollAddClass = (shareContainer, share) => {
 export const scrollShare = (shareContainer, share) => {
     const leftArrow = document.querySelector('.icon-arrow-left') || {};
     const rightArrow = document.querySelector('.icon-arrow-right') || {};
+
     if (shareContainer && share) {
         if (shareContainer.scrollLeft >= 20) {
             leftArrow.classList.remove('--idle');

@@ -21,11 +21,11 @@ export default function useFetch(
                 setLoading(false);
             }
         } catch (err) {
-            setError(err);
             setLoading(false);
+            setError({ statusCode: 404 });
             console.error(err);
         }
-    }, [url, options]);
+    }, [url, options, transform]);
 
     useEffect(() => {
         url && getData();

@@ -19,6 +19,7 @@ const Barrier = ({
     redirectCallback,
     bookmarkId,
     setToast,
+    dispatch,
     deleteArticle,
     substractOne
 }) => {
@@ -88,7 +89,8 @@ const Barrier = ({
                                         {},
                                         bookmarkId,
                                         false,
-                                        setToast
+                                        // setToast,
+                                        dispatch
                                     ).then(response => {
                                         if (response === 200) {
                                             deleteArticle(bookmarkId);

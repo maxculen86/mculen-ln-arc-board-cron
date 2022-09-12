@@ -19,7 +19,7 @@ const BuildFirtsButtonsGroup = ({
     globalContent,
     token,
     setBookmark,
-    setToast,
+    // setToast,
     suscription,
     toast,
     openPlayer,
@@ -75,7 +75,7 @@ const BuildFirtsButtonsGroup = ({
                             globalContent,
                             bookmark,
                             setBookmark,
-                            setToast,
+                            // setToast,
                             dispatch
                         );
                     }}

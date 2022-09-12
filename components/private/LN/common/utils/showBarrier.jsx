@@ -7,14 +7,14 @@ import get from '../../../common/utils/get';
 
 const ShowBarrier = ({ token }) => {
     const { state, dispatch } = useContext(GlobalContext) || {};
-    const { typeAlert, open } = get(state, 'showBarrier', {});
+    const { typeAlert, open, typeModal } = get(state, 'showModal', {});
 
-    return open ? (
+    return typeModal === 'barrier' && open ? (
         <Barrier
             type={typeAlert}
             handleBarrier={() => {
                 dispatch({
-                    type: 'SHOW_MODAL_BARRIER',
+                    type: 'SHOW_MODAL',
                     payload: {
                         open: false
                     }

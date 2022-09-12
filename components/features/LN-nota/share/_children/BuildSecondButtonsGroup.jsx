@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import ComButton from '../../../../private/common/com-button';
 import ModTooltip from '../../../../private/common/mod-tooltip';
-
 import {
     buttonsList,
     BtnContainer,

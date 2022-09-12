@@ -1,3 +1,5 @@
+import { AUDIO_NEWS_URL } from 'fusion:environment';
+
 const calculateTime = secs => {
     const minutes = Math.floor(secs / 60);
     const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
@@ -6,7 +8,8 @@ const calculateTime = secs => {
     return `${returnedMinutes}:${returnedSeconds}`;
 };
 
-export const parseDate = date => date.replace(/-|:|[a-z]|\.[^\/]+/gi, '');
+export const parseDate = (date = '') =>
+    date.replace(/-|:|[a-z]|\.[^\/]+/gi, '');
 
 export const handleClickAudioNews = (
     token,
@@ -18,13 +21,22 @@ export const handleClickAudioNews = (
 
     (!suscription || !token) &&
         dispatch({
-            type: 'SHOW_MODAL_BARRIER',
+            type: 'SHOW_MODAL',
             payload: {
                 open: true,
                 origin: 'audioNews',
-                typeAlert: 'exclusive-ln'
+                typeAlert: 'exclusive-ln',
+                typeModal: 'barrier'
             }
         });
+};
+
+// const AUDIO_NEWS_URL =
+//     'https://qa-audionews.lanacion.com.ar/api/v1/audio/status/';
+
+export const getEndpointAudioNews = (publishDate, noteId) => {
+    const date = parseDate(publishDate);
+    return date && noteId ? `${AUDIO_NEWS_URL}${date}/${noteId}/` : null;
 };
 
 export const getMessageError = (error = {}, dispatch) => {
@@ -37,8 +49,7 @@ export const getMessageError = (error = {}, dispatch) => {
                     open: true,
                     data: {
                         status: 'danger',
-                        description:
-                            'Hubo un problema de conexión. Reintenta más tarde.',
+                        description: 'Parece que hubo un problema.',
                         timeout: 2750
                     }
                 }

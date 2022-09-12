@@ -41,10 +41,12 @@ const AudioPlayerDesktop = ({
                         textname="escuchar"
                         disabled={openPlayer}
                     />
+
                     {openPlayer && (
                         <BuildAudioPlayer
                             publishDate={publishDate}
                             noteId={noteId}
+                            setOpenPlayer={setOpenPlayer}
                         />
                     )}
                 </BtnContainer>

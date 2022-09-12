@@ -8,7 +8,6 @@ const ShowToast = () => {
     const { state, dispatch } = useContext(GlobalContext) || {};
     const { open, typeModal, data } = get(state, 'showModal', {});
 
-    console.count('Prueba de ejecucion del toast');
     return typeModal === 'toast' && data.status && open ? (
         <Toast
             data={data}

@@ -8,7 +8,8 @@ export default function toggleBookmark(
     _globalContent,
     isDelete,
     setBookmark,
-    setToast
+    // setToast,
+    dispatch
 ) {
     const getDataFromAPI = async () => {
         const fetchBookmarkPath = isDelete ? `/${isDelete}` : '';
@@ -29,44 +30,98 @@ export default function toggleBookmark(
                   bookmarkContent: getBookmarkContent(_globalContent)
               };
 
-        setToast({});
+        // setToast({})
+        dispatch({
+            type: 'SHOW_MODAL',
+            payload: {
+                typeModal: 'toast',
+                open: false,
+                data: {}
+            }
+        });
 
         const statusActions = {
             200: async response => {
                 const datos = await response.json();
                 const { bookmarkId: id } = datos;
                 setBookmark && setBookmark(isDelete ? false : id);
-                setToast(
-                    isDelete
-                        ? {
-                              status: 'success',
-                              description:
-                                  'Se borró de <strong>Mis notas</strong>',
-                              timeout: 2750
-                          }
-                        : {
-                              status: 'success',
-                              description:
-                                  'Podés acceder desde <b>Menú de usuario, <a class="com-link" href="https://www.lanacion.com.ar/mis-notas/">Mis notas</a></b>',
-                              timeout: 2750
-                          }
-                );
+                dispatch({
+                    type: 'SHOW_MODAL',
+                    payload: {
+                        typeModal: 'toast',
+                        open: true,
+                        data: isDelete
+                            ? {
+                                  status: 'success',
+                                  description:
+                                      'Se borró de <strong>Mis notas</strong>',
+                                  timeout: 2750
+                              }
+                            : {
+                                  status: 'success',
+                                  description:
+                                      'Podés acceder desde <b>Menú de usuario, <a class="com-link" href="https://www.lanacion.com.ar/mis-notas/">Mis notas</a></b>',
+                                  timeout: 2750
+                              }
+                    }
+                });
+                // setToast(
+                //     isDelete
+                //         ? {
+                //               status: 'success',
+                //               description:
+                //                   'Se borró de <strong>Mis notas</strong>',
+                //               timeout: 2750
+                //           }
+                //         : {
+                //               status: 'success',
+                //               description:
+                //                   'Podés acceder desde <b>Menú de usuario, <a class="com-link" href="https://www.lanacion.com.ar/mis-notas/">Mis notas</a></b>',
+                //               timeout: 2750
+                //           }
+                // );
             },
             409: () => {
-                setToast({
-                    status: 'warning',
-                    description:
-                        'No se pudo guardar porque llegaste al límite permitido. <a class="com-link" href="https://www.lanacion.com.ar/mis-notas/">Ir a mis notas</a>',
-                    timeout: 2750
+                dispatch({
+                    type: 'SHOW_MODAL',
+                    payload: {
+                        typeModal: 'toast',
+                        open: true,
+                        data: {
+                            status: 'warning',
+                            description:
+                                'No se pudo guardar porque llegaste al límite permitido. <a class="com-link" href="https://www.lanacion.com.ar/mis-notas/">Ir a mis notas</a>',
+                            timeout: 2750
+                        }
+                    }
                 });
+                // setToast({
+                //     status: 'warning',
+                //     description:
+                //         'No se pudo guardar porque llegaste al límite permitido. <a class="com-link" href="https://www.lanacion.com.ar/mis-notas/">Ir a mis notas</a>',
+                //     timeout: 2750
+                // });
             },
             default: () => {
-                setToast({
-                    status: 'danger',
-                    description:
-                        'Hubo un problema de conexión. Reintenta más tarde.',
-                    timeout: 2750
+                dispatch({
+                    type: 'SHOW_MODAL',
+                    payload: {
+                        typeModal: 'toast',
+                        open: true,
+                        data: {
+                            status: 'danger',
+                            description:
+                                'Hubo un problema de conexión. Reintenta más tarde.',
+                            timeout: 2750
+                        }
+                    }
                 });
+                // setToast({
+                //     status: 'danger',
+                //     description:
+                //         'Hubo un problema de conexión. Reintenta más tarde.',
+                //     timeout: 2750
+                // });
             }
         };
 

@@ -5,6 +5,7 @@ import Button from '../com-button';
 import Text from '../text';
 import calculateTime from './helpers';
 import '../../../../resources/dist/css/ln/components/audio-player.css';
+import get from '../utils/get';
 
 const AudioPlayer = ({ audio = '' }) => {
     const [isPlaying, setIsPlaying] = useState(false);
@@ -13,6 +14,7 @@ const AudioPlayer = ({ audio = '' }) => {
     const [playBackRate, setPlayBackRate] = useState(1);
     const audioPlayer = useRef();
     const progressBar = useRef();
+
     const handleEnded = () => {
         setIsPlaying(!isPlaying);
         setCurrentTime(0);
@@ -32,21 +34,22 @@ const AudioPlayer = ({ audio = '' }) => {
     };
 
     const backTenSecs = () => {
-        audioPlayer.current.currentTime =
-            audioPlayer?.current?.currentTime - 10;
+        audioPlayer.current.currentTime -= 10;
+
+        // audioPlayer?.current?.currentTime - 10;
         handleProgressBar();
     };
 
     const forwardTenSecs = () => {
-        if (audioPlayer?.current?.currentTime + 10 < duration) {
-            audioPlayer.current.currentTime =
-                audioPlayer?.current?.currentTime + 10;
+        if (audioPlayer && audioPlayer.current.currentTime + 10 < duration) {
+            audioPlayer.current.currentTime += 10;
             handleProgressBar();
         }
     };
     const handlePlaybackRate = () => {
         audioPlayer.current.playbackRate = playBackRate + 0.5;
-        setPlayBackRate(audioPlayer?.current?.playbackRate);
+        const playBack = get(audioPlayer, 'current.playbackRate', 0);
+        setPlayBackRate(playBack);
         if (audioPlayer.current.playbackRate > 2) {
             audioPlayer.current.playbackRate = 1;
             setPlayBackRate(1);

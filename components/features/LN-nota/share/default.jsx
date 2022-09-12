@@ -10,7 +10,6 @@ import useCheckBookmark from '../../../private/common/hooks/bookmark/useCheckBoo
 import ComLine from '../../../private/common/com-line';
 import {
     getClassCondition,
-    showToast,
     isSuscription,
     scrollAddClass,
     scrollShare
@@ -20,6 +19,7 @@ import BuildFirstButtonsGroup from './_children/BuildFirstButtonsGroup';
 import Icon from '../../../private/common/icon';
 import ShowBarrier from '../../../private/LN/common/utils/showBarrier';
 import BuildAudioPlayer from '../../../private/common/audioNews/BuildAudioPlayer';
+import ShowToast from '../../../private/LN/common/utils/showToast';
 import '../../../../resources/dist/css/ln/modules/mod-share.css';
 
 const Share = () => {
@@ -32,7 +32,6 @@ const Share = () => {
     } = globalContent;
 
     const [bookmark, setBookmark] = useState(false);
-    const [toast, setToast] = useState(false);
     const [openPlayer, setOpenPlayer] = useState(false);
 
     const token = getToken();
@@ -61,7 +60,7 @@ const Share = () => {
 
     return (
         <div className={`mod-share-container${classCondition}`}>
-            {showToast(termicaBookmark, toast, setToast)}
+            <ShowToast />
             <ShowBarrier token={token} />
             <div
                 className="mod-share"
@@ -71,7 +70,6 @@ const Share = () => {
                 }}
             >
                 <Icon name="arrow-left" />
-                {/* {showBarrier(termicaBookmark, barrier, token, setBarrier)} */}
                 <div id="v-share" className="share" ref={share}>
                     <BuildFirstButtonsGroup
                         bookmark={bookmark}
@@ -79,8 +77,6 @@ const Share = () => {
                         termicaBookmark={termicaBookmark}
                         globalContent={globalContent}
                         token={token}
-                        toast={toast}
-                        setToast={setToast}
                         suscription={suscription}
                         openPlayer={openPlayer}
                         setOpenPlayer={setOpenPlayer}
@@ -97,7 +93,14 @@ const Share = () => {
                 </div>
                 <Icon name="arrow-right" />
             </div>
-            {openPlayer && <BuildAudioPlayer publishDate={date} noteId={id} />}
+            {openPlayer && (
+                <BuildAudioPlayer
+                    openPlayer={openPlayer}
+                    setOpenPlayer={setOpenPlayer}
+                    publishDate={date}
+                    noteId={id}
+                />
+            )}
         </div>
     );
 };
