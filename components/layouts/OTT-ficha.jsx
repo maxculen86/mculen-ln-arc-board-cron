@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Consumer from 'fusion:consumer';
 import Footer from '../private/OTT/common/footer';
-import LastVideos from '../private/OTT/common/lastVideos';
+import LastVideos from '../private/OTT/common/lastVideos/lastVideos';
 import loadHeaderEvents from '../private/OTT/common/header/layoutEvents';
 import loadOTTVideoAnalytics from '../private/OTT/ficha/ottVideoAnalytics';
 import loadOTTVideoStyles from '../private/OTT/ficha/ottVideoStyles';

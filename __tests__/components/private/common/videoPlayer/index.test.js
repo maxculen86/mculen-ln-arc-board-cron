@@ -1,60 +1,75 @@
-jest.mock(
-    '../../../../../components/private/common/videoPlayer',
-    () => 'mocked-component'
-);
-
 import React from 'react';
-import { mount } from 'enzyme';
 import Context from 'fusion:context';
 import getProperties from 'fusion:properties';
-import Container from '../../../../../components/private/common/videoPlayer';
-import video from '../../../../../__mocks__/data/videos/videoParaPlayer';
-import TestHelper from '../../../../utils/testHelper';
+import VideoPlayer from '../../../../../components/private/common/videoPlayer';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
-describe('private - common - videoPlayer - container', () => {
-    //Agrego esta definicion vacia de funcion para que no pinche cuando la llama.
+jest.mock('fusion:context', Component => {
+    return function(Component) {
+        return props => <Component {...props} />;
+    };
+});
+
+describe('private - common - videoPlayer', () => {
+    const _globalContent = promoItem => ({ promo_items: promoItem });
+
     window.powaBoot = () => {};
     window.dataLayer = [];
-    // const multipleVideos = mount(
-    //     <>
-    //         <Container {...video}></Container>
-    //         <Container {...video}></Container>
-    //     </>
-    // );
-    const child = <h1>Soy un child</h1>;
-    const container = mount(<Container {...video}>{child}</Container>);
-
-    TestHelper.testDoNotRenderChildren(container, 'child');
-
-    it('Testeo que las props le lleguen bien', () => {
-        TestHelper.expectSameValue(
-            container.prop('videoId'),
-            video.globalContent._id
+    it('should correctly render video player', () => {
+        const powaAttrs = [
+            { key: 'data-uuid', val: 'powa-video' },
+            { key: 'data-ads', val: 'true' },
+            { key: 'data-ad-bar', val: 'true' },
+            { key: 'data-autoinit', val: 'native-hls' },
+            { key: 'data-autoplay', val: 'false' },
+            { key: 'data-autoplay-muted', val: 'false' },
+            { key: 'data-controls', val: 'true' },
+            { key: 'data-muted', val: 'false' },
+            { key: 'data-sticky', val: 'false' },
+            { key: 'data-api', val: 'sandbox' },
+            { key: 'data-env', val: 'prod' }
+        ];
+        const { container } = render(
+            <VideoPlayer videoId={'powa-video'} arcSite={'la-nacion-ar'} />
         );
-        TestHelper.expectSameValue(
-            container.prop('loadVideoOnInit'),
-            video.loadVideoOnInit
-        );
-    });
-
-    const component = container.find('mocked-component');
-
-    it('Testeo que las props sean las mismas en el componente que el container', () => {
-        TestHelper.expectSameValue(
-            component.prop('videoId'),
-            container.prop('videoId')
-        );
-        TestHelper.expectSameValue(
-            component.prop('enableAdBar'),
-            container.prop('enableAdBar')
-        );
-        TestHelper.expectSameValue(
-            component.prop('enableAds'),
-            container.prop('enableAds')
+        const videoPlayer = container.getElementsByClassName('powa')[0];
+        expect(videoPlayer).toHaveClass('powa');
+        powaAttrs.forEach(attr =>
+            expect(videoPlayer).toHaveAttribute(attr.key, attr.val)
         );
     });
-
-    // it('Test script powa una sola vez', () => {
-    //     expect(multipleVideos.find('script').length).toBe(1);
-    // });
+    it('should validate auto init prop', () => {
+        const { container } = render(
+            <VideoPlayer
+                videoId={'powa-video'}
+                arcSite={'la-nacion-ar'}
+                loadVideoOnInit={false}
+            />
+        );
+        expect(container.getElementsByClassName('powa')[0]).toHaveAttribute(
+            'data-autoinit',
+            'false'
+        );
+    });
+    it('should have an apertura video', () => {
+        const { container } = render(
+            <VideoPlayer
+                videoId={'apertura_video_basic'}
+                arcSite={'la-nacion-ar'}
+                globalContent={_globalContent({
+                    basic: {
+                        type: 'video',
+                        _id: 'apertura_video_basic'
+                    }
+                })}
+                device={'desktop'}
+                isApertura={true}
+            />
+        );
+        expect(container.getElementsByClassName('powa')[0]).toHaveAttribute(
+            'data-muted',
+            'true'
+        );
+    });
 });

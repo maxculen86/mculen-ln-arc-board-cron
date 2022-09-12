@@ -131,27 +131,29 @@ export const getTwitterTitle = (mobileTitle, title) =>
 export const onButtonClicked = (
     token,
     suscription,
-    toast,
+    // toast,
     globalContent,
     bookmark,
     setBookmark,
     // setToast,
-    dispatch
+    dispatch,
+    state
 ) => {
     addEventToDataLayer('Guardar Nota');
-    if (token && suscription && !toast) {
+    const { open } = get(state, 'showModal', {});
+    if (token && suscription && !open) {
         toggleBookmark(
             token,
-            globalContent,
             bookmark,
             setBookmark,
             // setToast,
-            dispatch
+            dispatch,
+            globalContent
         );
     }
 
-    !toast &&
-        !suscription &&
+    // !toast &&
+    !suscription &&
         dispatch({
             type: 'SHOW_MODAL',
             payload: {
@@ -163,13 +165,15 @@ export const onButtonClicked = (
         });
 };
 
-export const showToast = (termicaBookmark, toast, setToast) => {
-    return toast.status ? (
-        <Toast data={toast} handleTimeout={() => setToast(false)} />
-    ) : (
-        <></>
-    );
-};
+// export const showToast = (termicaBookmark, toast, setToast) => {
+//     return toast.status ? (
+//         <Toast data={toast} handleTimeout={() => setToast(false)} />
+//     return termicaBookmark && toast && toast.status ? (
+//         <Toast data={toast} handleTimeout={() => setToast(null)} />
+//     ) : (
+//         <></>
+//     );
+// };
 
 export const BtnContainer = ({ children, withContainer, id }) => {
     if (withContainer) {

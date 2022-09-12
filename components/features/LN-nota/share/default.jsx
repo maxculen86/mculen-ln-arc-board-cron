@@ -31,15 +31,14 @@ const Share = () => {
         last_updated_date: date
     } = globalContent;
 
-    const [bookmark, setBookmark] = useState(false);
+    const [bookmark, setBookmark] = useState('');
     const [openPlayer, setOpenPlayer] = useState(false);
 
     const token = getToken();
     const termicaBookmark = useTermica('bookmark_web');
-
     const classCondition = getClassCondition(subtype);
-
     const suscription = isSuscription(token);
+
     const checkBookmarkId = useCheckBookmark(
         termicaBookmark,
         token,

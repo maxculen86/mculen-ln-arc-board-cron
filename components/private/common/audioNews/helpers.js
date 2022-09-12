@@ -1,4 +1,4 @@
-import { AUDIO_NEWS_URL } from 'fusion:environment';
+// import { AUDIO_NEWS_URL } from 'fusion:environment';
 
 const calculateTime = secs => {
     const minutes = Math.floor(secs / 60);
@@ -31,8 +31,8 @@ export const handleClickAudioNews = (
         });
 };
 
-// const AUDIO_NEWS_URL =
-//     'https://qa-audionews.lanacion.com.ar/api/v1/audio/status/';
+const AUDIO_NEWS_URL =
+    'https://qa-audionews.lanacion.com.ar/api/v1/audio/status/';
 
 export const getEndpointAudioNews = (publishDate, noteId) => {
     const date = parseDate(publishDate);

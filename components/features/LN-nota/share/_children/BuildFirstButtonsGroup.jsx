@@ -15,18 +15,18 @@ import '../../../../../resources/dist/css/ln/components/build-first-buttons-grou
 
 const BuildFirtsButtonsGroup = ({
     termicaBookmark,
-    bookmark,
     globalContent,
     token,
     setBookmark,
     // setToast,
     suscription,
-    toast,
     openPlayer,
-    setOpenPlayer
+    setOpenPlayer,
+    bookmark = ''
+    // toast = {}
 } = {}) => {
     const { arcSite = 'la-nacion-ar' } = useAppContext() || {};
-    const { dispatch } = useContext(GlobalContext) || {};
+    const { dispatch, state } = useContext(GlobalContext) || {};
 
     const {
         _id: id,
@@ -71,12 +71,13 @@ const BuildFirtsButtonsGroup = ({
                         onButtonClicked(
                             token,
                             suscription,
-                            toast,
+                            // toast,
                             globalContent,
                             bookmark,
                             setBookmark,
                             // setToast,
-                            dispatch
+                            dispatch,
+                            state
                         );
                     }}
                     size="--fourxs"
@@ -123,10 +124,14 @@ BuildFirtsButtonsGroup.propTypes = {
         isListenable: PropTypes.bool
     }),
     token: PropTypes.string,
-    bookmark: PropTypes.bool,
+    bookmark: PropTypes.string,
     setBookmark: PropTypes.func,
-    toast: PropTypes.bool,
-    setToast: PropTypes.func,
+    toast: PropTypes.shape({
+        status: PropTypes.string,
+        description: PropTypes.string,
+        timeout: PropTypes.number
+    }),
+    // setToast: PropTypes.func,
     suscription: PropTypes.bool,
     termicaBookmark: PropTypes.bool,
     openPlayer: PropTypes.bool,

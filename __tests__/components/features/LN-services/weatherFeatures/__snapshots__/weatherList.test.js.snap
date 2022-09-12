@@ -87,17 +87,13 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <h3
           class="com-text --fivexs"
         >
-          <h3
-            class="com-text --fivexs"
+          <a
+            class="com-link"
+            href="/clima/buenos-aires/"
+            title="Ver clima en Ciudad de Buenos Aires"
           >
-            <a
-              class="com-link"
-              href="/clima/buenos-aires/"
-              title="Ver clima en Ciudad de Buenos Aires"
-            >
-              Ver clima en Ciudad de Buenos Aires
-            </a>
-          </h3>
+            Ver clima en Ciudad de Buenos Aires
+          </a>
         </h3>
       </div>
       <div
@@ -178,17 +174,13 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <h3
           class="com-text --fivexs"
         >
-          <h3
-            class="com-text --fivexs"
+          <a
+            class="com-link"
+            href="/clima/catamarca/"
+            title="Ver clima en San Fernando del Valle de Catamarca"
           >
-            <a
-              class="com-link"
-              href="/clima/catamarca/"
-              title="Ver clima en San Fernando del Valle de Catamarca"
-            >
-              Ver clima en San Fernando del Valle de Catamarca
-            </a>
-          </h3>
+            Ver clima en San Fernando del Valle de Catamarca
+          </a>
         </h3>
       </div>
       <div
@@ -269,17 +261,13 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <h3
           class="com-text --fivexs"
         >
-          <h3
-            class="com-text --fivexs"
+          <a
+            class="com-link"
+            href="/clima/chaco/"
+            title="Ver clima en Resistencia"
           >
-            <a
-              class="com-link"
-              href="/clima/chaco/"
-              title="Ver clima en Resistencia"
-            >
-              Ver clima en Resistencia
-            </a>
-          </h3>
+            Ver clima en Resistencia
+          </a>
         </h3>
       </div>
       <div
@@ -360,17 +348,13 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <h3
           class="com-text --fivexs"
         >
-          <h3
-            class="com-text --fivexs"
+          <a
+            class="com-link"
+            href="/clima/chubut/"
+            title="Ver clima en Rawson"
           >
-            <a
-              class="com-link"
-              href="/clima/chubut/"
-              title="Ver clima en Rawson"
-            >
-              Ver clima en Rawson
-            </a>
-          </h3>
+            Ver clima en Rawson
+          </a>
         </h3>
       </div>
       <div
@@ -451,17 +435,13 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <h3
           class="com-text --fivexs"
         >
-          <h3
-            class="com-text --fivexs"
+          <a
+            class="com-link"
+            href="/clima/cordoba/"
+            title="Ver clima en Córdoba"
           >
-            <a
-              class="com-link"
-              href="/clima/cordoba/"
-              title="Ver clima en Córdoba"
-            >
-              Ver clima en Córdoba
-            </a>
-          </h3>
+            Ver clima en Córdoba
+          </a>
         </h3>
       </div>
       <div
@@ -542,17 +522,13 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <h3
           class="com-text --fivexs"
         >
-          <h3
-            class="com-text --fivexs"
+          <a
+            class="com-link"
+            href="/clima/corrientes/"
+            title="Ver clima en Corrientes"
           >
-            <a
-              class="com-link"
-              href="/clima/corrientes/"
-              title="Ver clima en Corrientes"
-            >
-              Ver clima en Corrientes
-            </a>
-          </h3>
+            Ver clima en Corrientes
+          </a>
         </h3>
       </div>
       <div
@@ -633,17 +609,13 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <h3
           class="com-text --fivexs"
         >
-          <h3
-            class="com-text --fivexs"
+          <a
+            class="com-link"
+            href="/clima/entre-rios/"
+            title="Ver clima en Paraná"
           >
-            <a
-              class="com-link"
-              href="/clima/entre-rios/"
-              title="Ver clima en Paraná"
-            >
-              Ver clima en Paraná
-            </a>
-          </h3>
+            Ver clima en Paraná
+          </a>
         </h3>
       </div>
       <div
@@ -724,17 +696,13 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <h3
           class="com-text --fivexs"
         >
-          <h3
-            class="com-text --fivexs"
+          <a
+            class="com-link"
+            href="/clima/formosa/"
+            title="Ver clima en Formosa"
           >
-            <a
-              class="com-link"
-              href="/clima/formosa/"
-              title="Ver clima en Formosa"
-            >
-              Ver clima en Formosa
-            </a>
-          </h3>
+            Ver clima en Formosa
+          </a>
         </h3>
       </div>
       <div
@@ -815,17 +783,13 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <h3
           class="com-text --fivexs"
         >
-          <h3
-            class="com-text --fivexs"
+          <a
+            class="com-link"
+            href="/clima/jujuy/"
+            title="Ver clima en San Salvador de Jujuy"
           >
-            <a
-              class="com-link"
-              href="/clima/jujuy/"
-              title="Ver clima en San Salvador de Jujuy"
-            >
-              Ver clima en San Salvador de Jujuy
-            </a>
-          </h3>
+            Ver clima en San Salvador de Jujuy
+          </a>
         </h3>
       </div>
       <div
@@ -906,17 +870,13 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <h3
           class="com-text --fivexs"
         >
-          <h3
-            class="com-text --fivexs"
+          <a
+            class="com-link"
+            href="/clima/la-pampa/"
+            title="Ver clima en Santa Rosa"
           >
-            <a
-              class="com-link"
-              href="/clima/la-pampa/"
-              title="Ver clima en Santa Rosa"
-            >
-              Ver clima en Santa Rosa
-            </a>
-          </h3>
+            Ver clima en Santa Rosa
+          </a>
         </h3>
       </div>
       <div
@@ -997,17 +957,13 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <h3
           class="com-text --fivexs"
         >
-          <h3
-            class="com-text --fivexs"
+          <a
+            class="com-link"
+            href="/clima/la-rioja/"
+            title="Ver clima en La Rioja"
           >
-            <a
-              class="com-link"
-              href="/clima/la-rioja/"
-              title="Ver clima en La Rioja"
-            >
-              Ver clima en La Rioja
-            </a>
-          </h3>
+            Ver clima en La Rioja
+          </a>
         </h3>
       </div>
       <div
@@ -1088,17 +1044,13 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <h3
           class="com-text --fivexs"
         >
-          <h3
-            class="com-text --fivexs"
+          <a
+            class="com-link"
+            href="/clima/mendoza/"
+            title="Ver clima en Mendoza"
           >
-            <a
-              class="com-link"
-              href="/clima/mendoza/"
-              title="Ver clima en Mendoza"
-            >
-              Ver clima en Mendoza
-            </a>
-          </h3>
+            Ver clima en Mendoza
+          </a>
         </h3>
       </div>
       <div
@@ -1179,17 +1131,13 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <h3
           class="com-text --fivexs"
         >
-          <h3
-            class="com-text --fivexs"
+          <a
+            class="com-link"
+            href="/clima/misiones/"
+            title="Ver clima en Posadas"
           >
-            <a
-              class="com-link"
-              href="/clima/misiones/"
-              title="Ver clima en Posadas"
-            >
-              Ver clima en Posadas
-            </a>
-          </h3>
+            Ver clima en Posadas
+          </a>
         </h3>
       </div>
       <div
@@ -1270,17 +1218,13 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <h3
           class="com-text --fivexs"
         >
-          <h3
-            class="com-text --fivexs"
+          <a
+            class="com-link"
+            href="/clima/neuquen/"
+            title="Ver clima en Neuquén"
           >
-            <a
-              class="com-link"
-              href="/clima/neuquen/"
-              title="Ver clima en Neuquén"
-            >
-              Ver clima en Neuquén
-            </a>
-          </h3>
+            Ver clima en Neuquén
+          </a>
         </h3>
       </div>
       <div
@@ -1361,17 +1305,13 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <h3
           class="com-text --fivexs"
         >
-          <h3
-            class="com-text --fivexs"
+          <a
+            class="com-link"
+            href="/clima/rio-negro/"
+            title="Ver clima en Viedma"
           >
-            <a
-              class="com-link"
-              href="/clima/rio-negro/"
-              title="Ver clima en Viedma"
-            >
-              Ver clima en Viedma
-            </a>
-          </h3>
+            Ver clima en Viedma
+          </a>
         </h3>
       </div>
       <div
@@ -1452,17 +1392,13 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <h3
           class="com-text --fivexs"
         >
-          <h3
-            class="com-text --fivexs"
+          <a
+            class="com-link"
+            href="/clima/salta/"
+            title="Ver clima en Salta"
           >
-            <a
-              class="com-link"
-              href="/clima/salta/"
-              title="Ver clima en Salta"
-            >
-              Ver clima en Salta
-            </a>
-          </h3>
+            Ver clima en Salta
+          </a>
         </h3>
       </div>
       <div
@@ -1543,17 +1479,13 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <h3
           class="com-text --fivexs"
         >
-          <h3
-            class="com-text --fivexs"
+          <a
+            class="com-link"
+            href="/clima/san-juan/"
+            title="Ver clima en San Juan"
           >
-            <a
-              class="com-link"
-              href="/clima/san-juan/"
-              title="Ver clima en San Juan"
-            >
-              Ver clima en San Juan
-            </a>
-          </h3>
+            Ver clima en San Juan
+          </a>
         </h3>
       </div>
       <div
@@ -1634,17 +1566,13 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <h3
           class="com-text --fivexs"
         >
-          <h3
-            class="com-text --fivexs"
+          <a
+            class="com-link"
+            href="/clima/san-luis/"
+            title="Ver clima en San Luis"
           >
-            <a
-              class="com-link"
-              href="/clima/san-luis/"
-              title="Ver clima en San Luis"
-            >
-              Ver clima en San Luis
-            </a>
-          </h3>
+            Ver clima en San Luis
+          </a>
         </h3>
       </div>
       <div
@@ -1725,17 +1653,13 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <h3
           class="com-text --fivexs"
         >
-          <h3
-            class="com-text --fivexs"
+          <a
+            class="com-link"
+            href="/clima/santa-cruz"
+            title="Ver clima en Río Gallegos"
           >
-            <a
-              class="com-link"
-              href="/clima/santa-cruz"
-              title="Ver clima en Río Gallegos"
-            >
-              Ver clima en Río Gallegos
-            </a>
-          </h3>
+            Ver clima en Río Gallegos
+          </a>
         </h3>
       </div>
       <div
@@ -1816,17 +1740,13 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <h3
           class="com-text --fivexs"
         >
-          <h3
-            class="com-text --fivexs"
+          <a
+            class="com-link"
+            href="/clima/santa-fe"
+            title="Ver clima en Santa Fe"
           >
-            <a
-              class="com-link"
-              href="/clima/santa-fe"
-              title="Ver clima en Santa Fe"
-            >
-              Ver clima en Santa Fe
-            </a>
-          </h3>
+            Ver clima en Santa Fe
+          </a>
         </h3>
       </div>
       <div
@@ -1907,17 +1827,13 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <h3
           class="com-text --fivexs"
         >
-          <h3
-            class="com-text --fivexs"
+          <a
+            class="com-link"
+            href="/clima/santiago-del-estero"
+            title="Ver clima en Santiago del Estero"
           >
-            <a
-              class="com-link"
-              href="/clima/santiago-del-estero"
-              title="Ver clima en Santiago del Estero"
-            >
-              Ver clima en Santiago del Estero
-            </a>
-          </h3>
+            Ver clima en Santiago del Estero
+          </a>
         </h3>
       </div>
       <div
@@ -1998,17 +1914,13 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <h3
           class="com-text --fivexs"
         >
-          <h3
-            class="com-text --fivexs"
+          <a
+            class="com-link"
+            href="/clima/tierra-del-fuego"
+            title="Ver clima en Ushuaia"
           >
-            <a
-              class="com-link"
-              href="/clima/tierra-del-fuego"
-              title="Ver clima en Ushuaia"
-            >
-              Ver clima en Ushuaia
-            </a>
-          </h3>
+            Ver clima en Ushuaia
+          </a>
         </h3>
       </div>
       <div
@@ -2089,17 +2001,13 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <h3
           class="com-text --fivexs"
         >
-          <h3
-            class="com-text --fivexs"
+          <a
+            class="com-link"
+            href="/clima/tucuman"
+            title="Ver clima en San Miguel de Tucumán"
           >
-            <a
-              class="com-link"
-              href="/clima/tucuman"
-              title="Ver clima en San Miguel de Tucumán"
-            >
-              Ver clima en San Miguel de Tucumán
-            </a>
-          </h3>
+            Ver clima en San Miguel de Tucumán
+          </a>
         </h3>
       </div>
     </div>
@@ -2533,17 +2441,13 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <h3
           class="com-text --fivexs"
         >
-          <h3
-            class="com-text --fivexs"
+          <a
+            class="com-link"
+            href="/clima/mendoza/malargue"
+            title="Ver clima en Malargüe"
           >
-            <a
-              class="com-link"
-              href="/clima/mendoza/malargue"
-              title="Ver clima en Malargüe"
-            >
-              Ver clima en Malargüe
-            </a>
-          </h3>
+            Ver clima en Malargüe
+          </a>
         </h3>
       </div>
       <div
@@ -2624,17 +2528,13 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <h3
           class="com-text --fivexs"
         >
-          <h3
-            class="com-text --fivexs"
+          <a
+            class="com-link"
+            href="/clima/mendoza/mendoza"
+            title="Ver clima en Mendoza"
           >
-            <a
-              class="com-link"
-              href="/clima/mendoza/mendoza"
-              title="Ver clima en Mendoza"
-            >
-              Ver clima en Mendoza
-            </a>
-          </h3>
+            Ver clima en Mendoza
+          </a>
         </h3>
       </div>
       <div
@@ -2715,17 +2615,13 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <h3
           class="com-text --fivexs"
         >
-          <h3
-            class="com-text --fivexs"
+          <a
+            class="com-link"
+            href="/clima/mendoza/san-rafael"
+            title="Ver clima en San Rafael"
           >
-            <a
-              class="com-link"
-              href="/clima/mendoza/san-rafael"
-              title="Ver clima en San Rafael"
-            >
-              Ver clima en San Rafael
-            </a>
-          </h3>
+            Ver clima en San Rafael
+          </a>
         </h3>
       </div>
     </div>

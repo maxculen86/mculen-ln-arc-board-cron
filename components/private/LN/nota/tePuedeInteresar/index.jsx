@@ -76,7 +76,9 @@ class Index extends Component {
         const fetched = this.registerActivity('widget_click', articles);
         fetched.then(response => {
             if (typeof window === 'object') {
-                window.location.href = nextUrl;
+                event.ctrlKey || event.type === 'auxclick'
+                    ? window.open(nextUrl, '_blank')
+                    : (window.location.href = nextUrl);
             }
         });
     };
