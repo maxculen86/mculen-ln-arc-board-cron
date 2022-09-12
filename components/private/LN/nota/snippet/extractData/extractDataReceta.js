@@ -37,14 +37,13 @@ export const extractDataFromContentElements = contentElements => {
                         })
                     });
 
-                get(e, `${embedConfigTypeList}`, '') === 'nutritional-info' &&
-                    (nutritionItems =
-                        nutritionItems.concat(e.embed.config.items) || []);
+                get(e, 'subtype', '') === 'custom-nutrition' &&
+                    (nutritionItems = nutritionItems.concat(e.rows) || []);
 
                 nutritionItems.forEach(item => {
-                    newProperty = `${item.value} ${item.unit}`;
+                    newProperty = `${item[1].content}`;
                     nutritionInfo.forEach(i => {
-                        item.text === i.name &&
+                        item[0].content === i.name &&
                             (nutrition[i.property] = newProperty);
                     });
                 });

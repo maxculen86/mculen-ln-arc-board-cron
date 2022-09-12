@@ -5331,127 +5331,125 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
       </div>
     </div>
     <div
-      class="col-tablet-6 --nutrition"
+      class="col-tablet-6"
     >
       <h3
         class="com-title --l"
       >
         Información nutricional
       </h3>
-      <div>
-        <table
-          class="com-table"
-        >
-          <thead>
-            <tr>
-              <th>
-                Propiedad
-              </th>
-              <th>
-                Cantidad por porción
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                Calorías
-              </td>
-              <td>
-                200 kcal
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Carbohidratos
-              </td>
-              <td>
-                300 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Colesterol
-              </td>
-              <td>
-                200 mg
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Grasas
-              </td>
-              <td>
-                200 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Fibras
-              </td>
-              <td>
-                10 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Proteínas
-              </td>
-              <td>
-                200 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Grasas saturadas
-              </td>
-              <td>
-                8 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Tamaño de porcion
-              </td>
-              <td>
-                5 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Sodio
-              </td>
-              <td>
-                200 mg
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Azúcar
-              </td>
-              <td>
-                100 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Grasas trans
-              </td>
-              <td>
-                50 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Grasas insaturadas
-              </td>
-              <td>
-                3 g
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <table
+        class="table"
+      >
+        <thead>
+          <tr>
+            <th>
+              Propiedad
+            </th>
+            <th>
+              Cantidad por porción
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Calorías
+            </td>
+            <td>
+              200 kcal
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Carbohidratos
+            </td>
+            <td>
+              300 g
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Colesterol
+            </td>
+            <td>
+              200 mg
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Grasas
+            </td>
+            <td>
+              200 g
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Fibras
+            </td>
+            <td>
+              10 g
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Proteínas
+            </td>
+            <td>
+              200 g
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Grasas saturadas
+            </td>
+            <td>
+              8 g
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Tamaño de porcion
+            </td>
+            <td>
+              5 g
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Sodio
+            </td>
+            <td>
+              200 mg
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Azúcar
+            </td>
+            <td>
+              100 g
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Grasas trans
+            </td>
+            <td>
+              50 g
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Grasas insaturadas
+            </td>
+            <td>
+              3 g
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
   <div
@@ -9316,127 +9314,125 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       </div>
     </div>
     <div
-      class="col-tablet-6 --nutrition"
+      class="col-tablet-6"
     >
       <h3
         class="com-title --l"
       >
         Información nutricional
       </h3>
-      <div>
-        <table
-          class="com-table"
-        >
-          <thead>
-            <tr>
-              <th>
-                Propiedad
-              </th>
-              <th>
-                Cantidad por porción
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                Calorías
-              </td>
-              <td>
-                200 kcal
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Carbohidratos
-              </td>
-              <td>
-                300 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Colesterol
-              </td>
-              <td>
-                200 mg
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Grasas
-              </td>
-              <td>
-                200 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Fibras
-              </td>
-              <td>
-                10 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Proteínas
-              </td>
-              <td>
-                200 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Grasas saturadas
-              </td>
-              <td>
-                8 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Tamaño de porcion
-              </td>
-              <td>
-                5 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Sodio
-              </td>
-              <td>
-                200 mg
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Azúcar
-              </td>
-              <td>
-                100 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Grasas trans
-              </td>
-              <td>
-                50 g
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Grasas insaturadas
-              </td>
-              <td>
-                3 g
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <table
+        class="table"
+      >
+        <thead>
+          <tr>
+            <th>
+              Propiedad
+            </th>
+            <th>
+              Cantidad por porción
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Calorías
+            </td>
+            <td>
+              200 kcal
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Carbohidratos
+            </td>
+            <td>
+              300 g
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Colesterol
+            </td>
+            <td>
+              200 mg
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Grasas
+            </td>
+            <td>
+              200 g
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Fibras
+            </td>
+            <td>
+              10 g
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Proteínas
+            </td>
+            <td>
+              200 g
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Grasas saturadas
+            </td>
+            <td>
+              8 g
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Tamaño de porcion
+            </td>
+            <td>
+              5 g
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Sodio
+            </td>
+            <td>
+              200 mg
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Azúcar
+            </td>
+            <td>
+              100 g
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Grasas trans
+            </td>
+            <td>
+              50 g
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Grasas insaturadas
+            </td>
+            <td>
+              3 g
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
   <div

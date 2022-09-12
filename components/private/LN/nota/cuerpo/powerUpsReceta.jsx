@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ListItems from '../../../common/listItems';
 import ComTitle from '../../../common/com-title';
+import Table from './table';
 
 const powerUpsReceta = ({ data }) => {
-    const { powerUp } = data;
+    const { powerUp = [] } = data;
     const nutritionTableData = powerUp.find(
         e => e.subtype === 'custom-nutrition'
     );
+
     return (
         <div className="row --steps">
             <div className="col-tablet-3 --ingredients">
@@ -41,38 +43,13 @@ const powerUpsReceta = ({ data }) => {
                 })}
             </div>
             {nutritionTableData ? (
-                <div className="col-tablet-6 --nutrition">
+                <div className="col-tablet-6">
                     <ComTitle
                         tag="h3"
                         size="--l"
                         content="Información nutricional"
                     />
-                    <div>
-                        <table className="com-table">
-                            <thead>
-                                <tr>
-                                    <th>Propiedad</th>
-                                    <th>Cantidad por porción</th>
-                                </tr>
-                            </thead>
-                            {powerUp.map(e => {
-                                return e.subtype === 'custom-nutrition' ? (
-                                    <tbody>
-                                        {e.embed.config.items.map(item => {
-                                            return (
-                                                <tr>
-                                                    <td>{item.text}</td>
-                                                    <td>{`${item.value} ${item.unit}`}</td>
-                                                </tr>
-                                            );
-                                        })}
-                                    </tbody>
-                                ) : (
-                                    <></>
-                                );
-                            })}
-                        </table>
-                    </div>
+                    <Table data={nutritionTableData} />
                 </div>
             ) : (
                 <></>
@@ -80,6 +57,7 @@ const powerUpsReceta = ({ data }) => {
         </div>
     );
 };
+powerUpsReceta.static = true;
 powerUpsReceta.arcType = 'power-up-receta';
 powerUpsReceta.propTypes = {
     data: PropTypes.shape({
@@ -87,7 +65,12 @@ powerUpsReceta.propTypes = {
             PropTypes.shape({
                 embed: PropTypes.shape({
                     config: PropTypes.shape({
-                        items: PropTypes.arrayOf(PropTypes.string),
+                        items: PropTypes.arrayOf(
+                            PropTypes.oneOfType([
+                                PropTypes.string,
+                                PropTypes.shape
+                            ])
+                        ),
                         titleList: PropTypes.string,
                         typeList: PropTypes.string
                     })

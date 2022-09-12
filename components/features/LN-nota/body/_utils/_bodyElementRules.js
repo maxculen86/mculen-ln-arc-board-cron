@@ -14,6 +14,7 @@ import OembedAMP from '../../../../private/LN/nota/cuerpo/oembedAMP';
 import BotonLink from '../../../../private/LN/nota/cuerpo/botonLink';
 import Html from '../../../../private/LN/nota/cuerpo/html';
 import OptaAMP from '../../../../private/LN/nota/cuerpo/optaAMP';
+import Table from '../../../../private/LN/nota/cuerpo/table';
 import powerUpsReceta from '../../../../private/LN/nota/cuerpo/powerUpsReceta';
 import HtmlAMP from '../../../../private/LN/nota/cuerpo/htmlAMP';
 import Divider from '../../../../private/LN/nota/cuerpo/divider';
@@ -37,6 +38,7 @@ const bodyComponents = [
     BotonLink,
     Html,
     OptaAMP,
+    Table,
     powerUpsReceta,
     HtmlAMP,
     Parallax,
