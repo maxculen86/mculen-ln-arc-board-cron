@@ -54,17 +54,15 @@ const WeatherCard = ({ _id, data }) => {
                     </Text>
                 </div>
             )}
-            <Text tag="h3" size="5xs">
-                {link && (
-                    <Text tag="h3" size="5xs">
-                        <Link
-                            link={link}
-                            title={`Ver clima en ${locationName}`}
-                            textname={`Ver clima en ${locationName}`}
-                        />
-                    </Text>
-                )}
-            </Text>
+            {link && (
+                <Text tag="h3" size="5xs">
+                    <Link
+                        link={link}
+                        title={`Ver clima en ${locationName}`}
+                        textname={`Ver clima en ${locationName}`}
+                    />
+                </Text>
+            )}
         </div>
     );
 };
