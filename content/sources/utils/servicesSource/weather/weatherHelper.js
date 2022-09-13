@@ -61,6 +61,10 @@ const metaDataFactory = {
     }
 };
 
+const eliminateDecimals = (number = undefined) => {
+    return number && Math.floor(number);
+};
+
 const getSectionLink = (sections, location) => {
     const sectionLink =
         sections.find(e => {
@@ -116,10 +120,16 @@ export const transformWeatherHome = (data, children, serviceItem) => {
             ...(locationName && { location_name: locationName }),
             ...(locationId && { location_id: locationId }),
             ...((tempMin || tempMin === 0) && {
-                temp_min: tempMin
+                temp_min:
+                    tempMin > currentTemp
+                        ? eliminateDecimals(currentTemp)
+                        : tempMin
             }),
             ...((tempMax || tempMax === 0) && {
-                temp_max: tempMax
+                temp_max:
+                    tempMax < currentTemp
+                        ? eliminateDecimals(currentTemp)
+                        : tempMax
             }),
             ...((description || newIcon) && {
                 weather: {
