@@ -89,7 +89,7 @@ const BookmarkLayout = () => {
             )}
 
             {toast && toast.status && (
-                <Toast data={toast} handleTimeout={() => setToast(false)} />
+                <Toast data={toast} handleTimeout={() => setToast(null)} />
             )}
         </div>
     );

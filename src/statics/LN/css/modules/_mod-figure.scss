@@ -57,6 +57,21 @@
     }
     .--active & {
         width: 50%;
+        margin: auto;
+
+        .placeholder {
+            .com-image {
+                width: 100%;
+
+                @media ($media-l) {
+                    width: auto;
+                    margin: auto;
+                    max-height: 80vh;
+                    max-width: 100%;
+                }
+            }
+        }
+
         @media (min-height: 400px) {
             width: 100%;
         }
@@ -64,7 +79,6 @@
         @media ($media-l) {
             //width: 90%;
             //max-width: 1000px;
-
             width: 50%;
             max-width: px(1000);
 

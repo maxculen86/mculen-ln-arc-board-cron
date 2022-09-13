@@ -246,6 +246,7 @@
         //ALTURAS FIJAS
         &.--cabezal_dsk {
             height: px(170);
+            z-index: 10;
         }
 
         &.--caja2_dsk,

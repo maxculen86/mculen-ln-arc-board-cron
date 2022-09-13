@@ -4,8 +4,9 @@
     "bookmarkTypeId": "2KOBND62KNFVVBFQZOADNN6WNY",
     "bookmarkGroup": "Boca Juniors",
     "bookmarkContent": {
+        "origen": "web",
         "id": "2KOBND62KNFVVBFQZOADNN6WNY",
-        "templateId": "1",
+        "templateId": 1,
         "url": "/deportes/prueba-ios-y-android-cuerpo-nid12052020/",
         "categoria": {
             "slug": "/deportes/futbol/boca-juniors",
@@ -36,9 +37,6 @@
         "fechaActualizacion": "10 de noviembre de 2021 • 07:44",
         "fecha": "12 de mayo de 2020 • 08:24",
         "imagen": {
-            "id": "TWKBIKLZYBARBFLM5BOAXGYP3I",
-            "_t": "img",
-            "baseUrl": "/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TWKBIKLZYBARBFLM5BOAXGYP3I.jpg",
             "absoluteUrl": "https://resizer.glanacion.com/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TWKBIKLZYBARBFLM5BOAXGYP3I.jpg",
             "parametros": [
                 {

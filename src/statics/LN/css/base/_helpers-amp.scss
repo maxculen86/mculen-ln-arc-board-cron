@@ -1,5 +1,12 @@
 @import '../abstracts/variables';
 
+//oculto hasta 1100
+@media (max-width: 68.75em) {
+    .hlp-tabletlm-none {
+        display: none;
+    }
+}
+
 @media (max-width: 64em - 1) {
     .hlp-tablet-none {
         display: none;
