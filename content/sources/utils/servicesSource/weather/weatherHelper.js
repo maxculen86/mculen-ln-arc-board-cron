@@ -61,10 +61,6 @@ const metaDataFactory = {
     }
 };
 
-const eliminateDecimals = (number = undefined) => {
-    return number && Math.floor(number);
-};
-
 const getSectionLink = (sections, location) => {
     const sectionLink =
         sections.find(e => {
@@ -95,6 +91,15 @@ const reorderLocations = (endpointData, children = [], serviceItem = '') => {
         return acc;
     }, []);
 };
+export const isValidNumber = number => typeof number === 'number';
+
+export const validateMinTemperature = (tempMin, currTemp) => {
+    return tempMin > currTemp ? Math.floor(currTemp) : tempMin;
+};
+
+export const validateMaxTemperature = (tempMax, currTemp) => {
+    return tempMax < currTemp ? Math.ceil(currTemp) : tempMax;
+};
 
 export const transformWeatherHome = (data, children, serviceItem) => {
     if (!data.length) return data;
@@ -119,18 +124,14 @@ export const transformWeatherHome = (data, children, serviceItem) => {
         return {
             ...(locationName && { location_name: locationName }),
             ...(locationId && { location_id: locationId }),
-            ...((tempMin || tempMin === 0) && {
-                temp_min:
-                    tempMin > currentTemp
-                        ? eliminateDecimals(currentTemp)
-                        : tempMin
-            }),
-            ...((tempMax || tempMax === 0) && {
-                temp_max:
-                    tempMax < currentTemp
-                        ? eliminateDecimals(currentTemp)
-                        : tempMax
-            }),
+            ...(isValidNumber(tempMin) &&
+                isValidNumber(currentTemp) && {
+                    temp_min: validateMinTemperature(tempMin, currentTemp)
+                }),
+            ...(isValidNumber(tempMax) &&
+                isValidNumber(currentTemp) && {
+                    temp_max: validateMaxTemperature(tempMax, currentTemp)
+                }),
             ...((description || newIcon) && {
                 weather: {
                     ...(description && { description }),
