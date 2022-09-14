@@ -80,6 +80,7 @@ const ArticleFeature = ({
             isInApertura: onlyOneApeturaValidateForWWW,
             isAdmin
         },
+        staticMode: isSSR(),
         filter
     });
 
