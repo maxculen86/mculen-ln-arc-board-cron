@@ -22,7 +22,7 @@ export default function useFetch(
             }
         } catch (err) {
             setLoading(false);
-            setError({ statusCode: 404 });
+            setError('err');
             console.error(err);
         }
     }, [url, options, transform]);

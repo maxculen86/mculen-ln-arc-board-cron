@@ -11,7 +11,6 @@ import ComLine from '../../../private/common/com-line';
 import {
     getClassCondition,
     isSuscription,
-    scrollAddClass,
     scrollShare
 } from '../../../private/LN/common/utils/shareHelper';
 import BuildSecondButtonsGroup from './_children/BuildSecondButtonsGroup';
@@ -28,11 +27,13 @@ const Share = () => {
         _id: id,
         headlines: { basic: title, mobile: mobileTitle } = {},
         subtype,
-        last_updated_date: date
+        last_updated_date: date,
+        isListenable
     } = globalContent;
 
     const [bookmark, setBookmark] = useState('');
     const [openPlayer, setOpenPlayer] = useState(false);
+    const [enableButton, setEnableButton] = useState(false);
 
     const token = getToken();
     const termicaBookmark = useTermica('bookmark_web');
@@ -53,16 +54,12 @@ const Share = () => {
     const shareContainer = useRef();
     const share = useRef();
 
-    useEffect(() => {
-        scrollAddClass(shareContainer.current, share.current);
-    }, []);
-
     return (
         <div className={`mod-share-container${classCondition}`}>
             <ShowToast />
             <ShowBarrier token={token} />
             <div
-                className="mod-share"
+                className={`mod-share ${isListenable ? '--scroll' : ''}`}
                 ref={shareContainer}
                 onScroll={() => {
                     scrollShare(shareContainer.current, share.current);
@@ -78,6 +75,7 @@ const Share = () => {
                         token={token}
                         suscription={suscription}
                         openPlayer={openPlayer}
+                        enableButton={enableButton}
                         setOpenPlayer={setOpenPlayer}
                     />
 
@@ -94,7 +92,7 @@ const Share = () => {
             </div>
             {openPlayer && (
                 <BuildAudioPlayer
-                    openPlayer={openPlayer}
+                    setEnableButton={setEnableButton}
                     setOpenPlayer={setOpenPlayer}
                     publishDate={date}
                     noteId={id}

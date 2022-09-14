@@ -166,8 +166,6 @@ const transform = (
         sponsored
     );
 
-    // const isListenable = isNoteListenable(data);
-
     // Presets
     const presetsDefault = get(properties, `imageConfig.resize.default`, null);
     const presetsZoom = get(

@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 import { GlobalContext } from '../../../common/context/globalContext';
 import get from '../../../common/utils/get';
 import Toast from '../../../common/toast/Toast';
@@ -11,14 +10,14 @@ const ShowToast = () => {
     return typeModal === 'toast' && data.status && open ? (
         <Toast
             data={data}
-            handleTimeout={() =>
+            handleTimeout={() => {
                 dispatch({
                     type: 'SHOW_MODAL',
                     payload: {
                         open: false
                     }
-                })
-            }
+                });
+            }}
         />
     ) : (
         <></>

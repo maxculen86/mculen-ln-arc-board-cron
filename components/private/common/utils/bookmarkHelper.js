@@ -7,9 +7,7 @@ export default function toggleBookmark(
     token,
     isDelete,
     setBookmark,
-    // setToast,
     dispatch,
-    // setToast,
     _globalContent = {}
 ) {
     const getDataFromAPI = async () => {
@@ -31,7 +29,6 @@ export default function toggleBookmark(
                   bookmarkContent: getBookmarkContent(_globalContent)
               };
 
-        // setToast(null);
         dispatch({
             type: 'SHOW_MODAL',
             payload: {
@@ -97,20 +94,6 @@ const statusActions = {
                       }
             }
         });
-        // setterToast(
-        //     bookmarkContent
-        //         ? {
-        //               status: 'success',
-        //               description:
-        //                   'Podés acceder desde <b>Menú de usuario, <a class="com-link" href="https://www.lanacion.com.ar/mis-notas/">Mis notas</a></b>',
-        //               timeout: 2750
-        //           }
-        //         : {
-        //               status: 'success',
-        //               description: 'Se borró de <strong>Mis notas</strong>',
-        //               timeout: 2750
-        //           }
-        // );
     },
     409: ({ dispatch }) => {
         dispatch({
@@ -126,12 +109,6 @@ const statusActions = {
                 }
             }
         });
-        // setterToast({
-        //     status: 'warning',
-        //     description:
-        //         'No se pudo guardar porque llegaste al límite permitido. <a class="com-link" href="https://www.lanacion.com.ar/mis-notas/">Ir a mis notas</a>',
-        //     timeout: 2750
-        // });
     },
     default: ({ dispatch }) => {
         dispatch({
@@ -147,11 +124,6 @@ const statusActions = {
                 }
             }
         });
-        // dispatch({
-        //     status: 'danger',
-        //     description: 'Hubo un problema de conexión. Reintenta más tarde.',
-        //     timeout: 2750
-        // });
     }
 };
 

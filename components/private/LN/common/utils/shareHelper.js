@@ -4,7 +4,6 @@ import { useContent } from 'fusion:content';
 import dynamicallyLoadScript from './dynamicallyLoadScript';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import get from '../../../common/utils/get';
-import Toast from '../../../common/toast/Toast';
 import toggleBookmark from '../../../common/utils/bookmarkHelper';
 import { conditionallyCallViafoura } from '../../../common/utils/commentsHelper';
 import { isSubscribed } from './contextHelper';
@@ -112,8 +111,16 @@ export const copyToClipboard = () => {
     navigator.clipboard.writeText(window.location.href);
 };
 
-export const getClassCondition = subtype =>
-    subtype === VIDEO ? ' --video' : '';
+// export const getClassCondition = subtype =>
+//     subtype === VIDEO ? ' --video' : '';
+
+export const getClassCondition = (subtype, isListenable) => {
+    if (subtype === VIDEO) {
+        return isListenable ? ' --video --scroll' : ' --video';
+    }
+
+    return isListenable ? ' --scroll' : '';
+};
 
 export const isSuscription = token => (token ? isSubscribed() : false);
 export const GetNumberOfComments = (firstPublishDate, arcSite, id) => {
@@ -131,28 +138,18 @@ export const getTwitterTitle = (mobileTitle, title) =>
 export const onButtonClicked = (
     token,
     suscription,
-    // toast,
     globalContent,
     bookmark,
     setBookmark,
-    // setToast,
     dispatch,
     state
 ) => {
     addEventToDataLayer('Guardar Nota');
     const { open } = get(state, 'showModal', {});
     if (token && suscription && !open) {
-        toggleBookmark(
-            token,
-            bookmark,
-            setBookmark,
-            // setToast,
-            dispatch,
-            globalContent
-        );
+        toggleBookmark(token, bookmark, setBookmark, dispatch, globalContent);
     }
 
-    // !toast &&
     !suscription &&
         dispatch({
             type: 'SHOW_MODAL',
@@ -164,16 +161,6 @@ export const onButtonClicked = (
             }
         });
 };
-
-// export const showToast = (termicaBookmark, toast, setToast) => {
-//     return toast.status ? (
-//         <Toast data={toast} handleTimeout={() => setToast(false)} />
-//     return termicaBookmark && toast && toast.status ? (
-//         <Toast data={toast} handleTimeout={() => setToast(null)} />
-//     ) : (
-//         <></>
-//     );
-// };
 
 export const BtnContainer = ({ children, withContainer, id }) => {
     if (withContainer) {
@@ -251,13 +238,13 @@ export const buttonsList = [
     }
 ];
 
-export const scrollAddClass = (shareContainer, share) => {
-    if (shareContainer && share) {
-        if (share.scrollWidth + 16 > window.innerWidth) {
-            shareContainer.classList.add('--scroll');
-        }
-    }
-};
+// export const scrollAddClass = (shareContainer, share) => {
+//     if (shareContainer && share) {
+//         if (share.scrollWidth + 16 > window.innerWidth) {
+//             shareContainer.classList.add('--scroll');
+//         }
+//     }
+// };
 
 export const scrollShare = (shareContainer, share) => {
     const leftArrow = document.querySelector('.icon-arrow-left') || {};

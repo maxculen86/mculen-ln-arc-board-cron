@@ -7,8 +7,8 @@ const isNoteListenable = data => {
     const subtype = get(data, 'subtype', '');
 
     if (sourceOrigin === 'composer') {
-        const { enableNotes, enableSections } = config;
-        const isEnableSubtype = enableNotes.includes(subtype);
+        const { enableSubtypes, enableSections } = config;
+        const isEnableSubtype = enableSubtypes.includes(subtype);
         const isEnabledSection = enableSections.some(section =>
             sectionId.includes(section)
         );

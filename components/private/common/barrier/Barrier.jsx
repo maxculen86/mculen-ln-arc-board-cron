@@ -18,7 +18,6 @@ const Barrier = ({
     isLogged,
     redirectCallback,
     bookmarkId,
-    setToast,
     dispatch,
     deleteArticle,
     substractOne
@@ -88,7 +87,6 @@ const Barrier = ({
                                         getToken(),
                                         bookmarkId,
                                         false,
-                                        // setToast,
                                         dispatch
                                     ).then(response => {
                                         if (response === 200) {
@@ -133,7 +131,7 @@ Barrier.propTypes = {
     isLogged: PropTypes.bool,
     redirectCallback: PropTypes.string,
     bookmarkId: PropTypes.string,
-    setToast: PropTypes.func.isRequired,
+    dispatch: PropTypes.func.isRequired,
     deleteArticle: PropTypes.func.isRequired,
     substractOne: PropTypes.func
 };

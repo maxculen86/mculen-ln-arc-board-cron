@@ -2,7 +2,6 @@
 import React, { useState, useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
 import ComButton from '../com-button';
-import { BtnContainer } from '../../LN/common/utils/shareHelper';
 import getToken from '../utils/getToken';
 import { handleClickAudioNews } from './helpers';
 import BuildAudioPlayer from './BuildAudioPlayer';
@@ -16,40 +15,41 @@ const AudioPlayerDesktop = ({
     isListenable
 }) => {
     const { dispatch } = useContext(GlobalContext) || {};
-
     const [openPlayer, setOpenPlayer] = useState(false);
+    const [enableButton, setEnableButton] = useState(false);
     const token = getToken();
     const suscription = isSubscribed();
 
     return (
         <>
             {isListenable && (
-                <BtnContainer withContainer id="audio-player-desktop">
+                <div className="btn-container" id="audio-player-desktop">
                     <ComButton
                         size="--fivexs"
                         iconName="headset"
                         title="Escuchar nota"
                         classCondition="headset --tertiary"
-                        onClick={() =>
+                        onClick={() => {
                             handleClickAudioNews(
                                 token,
                                 suscription,
                                 setOpenPlayer,
                                 dispatch
-                            )
-                        }
+                            );
+                        }}
                         textname="escuchar"
-                        disabled={openPlayer}
+                        disabled={enableButton || openPlayer}
                     />
 
                     {openPlayer && (
                         <BuildAudioPlayer
+                            setEnableButton={setEnableButton}
                             publishDate={publishDate}
                             noteId={noteId}
                             setOpenPlayer={setOpenPlayer}
                         />
                     )}
-                </BtnContainer>
+                </div>
             )}
         </>
     );

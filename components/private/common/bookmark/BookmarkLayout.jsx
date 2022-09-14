@@ -9,7 +9,6 @@ import useTermica from '../hooks/useTermica';
 import getToken from '../utils/getToken';
 import Barrier from '../barrier/Barrier';
 import { GlobalContext } from '../context/globalContext';
-import Toast from '../toast/Toast';
 import handleCookie from '../../LN/common/utils/handleCookie';
 import ShowToast from '../../LN/common/utils/showToast';
 import '../../../../resources/dist/css/ln/components/bookmark.css';
@@ -17,7 +16,6 @@ import '../../../../resources/dist/css/ln/components/bookmark.css';
 const BookmarkLayout = () => {
     const { state, dispatch } = useContext(GlobalContext);
     const [showHelper, setShowHelper] = useState(false);
-    // const [toast, setToast] = useState(false);
     const token = getToken();
     const termica = useTermica('bookmark_web');
     const { getCookie } = handleCookie();
@@ -82,7 +80,6 @@ const BookmarkLayout = () => {
                         });
                     }}
                     bookmarkId={state.showModal.data}
-                    // setToast={setToast}
                     deleteArticle={deleteArticle}
                     substractOne={substractOne}
                     dispatch={dispatch}
@@ -90,10 +87,6 @@ const BookmarkLayout = () => {
             )}
 
             <ShowToast />
-
-            {/* {toast && toast.status && (
-                <Toast data={toast} handleTimeout={() => setToast(false)} />
-            )} */}
         </div>
     );
 };

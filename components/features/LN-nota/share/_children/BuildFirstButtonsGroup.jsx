@@ -18,12 +18,11 @@ const BuildFirtsButtonsGroup = ({
     globalContent,
     token,
     setBookmark,
-    // setToast,
     suscription,
     openPlayer,
     setOpenPlayer,
+    enableButton,
     bookmark = ''
-    // toast = {}
 } = {}) => {
     const { arcSite = 'la-nacion-ar' } = useAppContext() || {};
     const { dispatch, state } = useContext(GlobalContext) || {};
@@ -49,16 +48,16 @@ const BuildFirtsButtonsGroup = ({
                     iconName="headset"
                     title="Escuchar nota"
                     classCondition="headset --tertiary"
-                    onClick={() =>
+                    onClick={() => {
                         handleClickAudioNews(
                             token,
                             suscription,
                             setOpenPlayer,
                             dispatch
-                        )
-                    }
+                        );
+                    }}
                     textname="escuchar"
-                    disabled={openPlayer}
+                    disabled={openPlayer || enableButton}
                 />
             )}
 
@@ -71,11 +70,9 @@ const BuildFirtsButtonsGroup = ({
                         onButtonClicked(
                             token,
                             suscription,
-                            // toast,
                             globalContent,
                             bookmark,
                             setBookmark,
-                            // setToast,
                             dispatch,
                             state
                         );
@@ -88,22 +85,20 @@ const BuildFirtsButtonsGroup = ({
             )}
 
             {displayComments && (
-                <>
-                    <ComButton
-                        id="btncomments"
-                        dataEvent="LinkClick"
-                        dataSection="CompartirNotaLN"
-                        onClick={() => {
-                            scrollToComments();
-                            addEventToDataLayer('Ir a los comentarios');
-                        }}
-                        size="--fivexs"
-                        iconName="chat"
-                        title="Ir a los comentarios de la nota"
-                        classCondition="comment-btn"
-                        textname={`${totalVisibleContent}`}
-                    />
-                </>
+                <ComButton
+                    id="btncomments"
+                    dataEvent="LinkClick"
+                    dataSection="CompartirNotaLN"
+                    onClick={() => {
+                        scrollToComments();
+                        addEventToDataLayer('Ir a los comentarios');
+                    }}
+                    size="--fivexs"
+                    iconName="chat"
+                    title="Ir a los comentarios de la nota"
+                    classCondition="comment-btn"
+                    textname={`${totalVisibleContent}`}
+                />
             )}
         </div>
     );
@@ -131,11 +126,11 @@ BuildFirtsButtonsGroup.propTypes = {
         description: PropTypes.string,
         timeout: PropTypes.number
     }),
-    // setToast: PropTypes.func,
     suscription: PropTypes.bool,
     termicaBookmark: PropTypes.bool,
     openPlayer: PropTypes.bool,
-    setOpenPlayer: PropTypes.func
+    setOpenPlayer: PropTypes.func,
+    enableButton: PropTypes.bool
 };
 
 export default BuildFirtsButtonsGroup;
