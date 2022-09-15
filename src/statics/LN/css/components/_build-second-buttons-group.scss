@@ -10,14 +10,20 @@
     .com-button {
         margin-right: $spacing-sm;
         padding: 0;
+        &.email {
+            margin-right: $spacing-lg;
+            @media ($media-l) {
+                margin-right: 0;
+            }
+        }
+        .icon-whatsapp {
+            margin-top: 0;
+        }
         @media ($media-l) {
             margin-right: 0;
             margin-bottom: $spacing-sm;
-        }
-        &.email {
-            margin-right: $spacing-md;
-            @media ($media-l) {
-                margin-right: 0;
+            .icon-whatsapp {
+                margin-top: $spacing-2xs;
             }
         }
     }
@@ -26,6 +32,9 @@
         .com-button {
             margin-bottom: 0;
             margin-right: $spacing-sm;
+            .icon-whatsapp {
+                margin-top: 0;
+            }
         }
         .com-icon path {
             fill: $light-neutral-50;
