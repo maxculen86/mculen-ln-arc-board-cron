@@ -146,12 +146,14 @@ const GetDataToLinkImage = ({
     const sectionData = {
         nota: () => {
             const shouldExclude = !!(
-                (subtype === FOTOAL100 || subtype === STORYTELLING) &&
+                subtype === FOTOAL100 &&
                 get(promoItems, 'storytelling_mobile.resized_urls.length')
             );
 
-            const resizedUrls = get(basic, 'resized_urls', []);
-
+            const resizedUrls =
+                subtype === STORYTELLING
+                    ? get(promoItems, 'storytelling_mobile.resized_urls', [])
+                    : get(basic, 'resized_urls', []);
             return !shouldExclude ? (
                 <LinkImagePreload resizedUrls={resizedUrls} />
             ) : (
