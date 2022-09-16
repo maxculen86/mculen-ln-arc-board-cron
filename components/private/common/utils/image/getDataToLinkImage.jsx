@@ -152,7 +152,9 @@ const GetDataToLinkImage = ({
 
             const resizedUrls =
                 subtype === STORYTELLING
-                    ? get(promoItems, 'storytelling_mobile.resized_urls', [])
+                    ? replaceUrlResizerToWWW(
+                          get(promoItems, 'storytelling_mobile', [])
+                      ).resized_urls
                     : get(basic, 'resized_urls', []);
             return !shouldExclude ? (
                 <LinkImagePreload resizedUrls={resizedUrls} />
