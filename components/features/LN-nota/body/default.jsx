@@ -43,8 +43,6 @@ const body = ({ customFields }) => {
 
 body.label = 'LN-Nota-Body';
 
-body.lazy = true;
-
 body.propTypes = {
     customFields: PropTypes.shape(buildBodyCustomFields())
 };

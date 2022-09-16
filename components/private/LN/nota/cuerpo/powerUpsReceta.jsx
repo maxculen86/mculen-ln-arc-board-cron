@@ -43,7 +43,7 @@ const powerUpsReceta = ({ data }) => {
                 })}
             </div>
             {nutritionTableData ? (
-                <div className="col-tablet-6">
+                <div className="--nutrition">
                     <ComTitle
                         tag="h3"
                         size="--l"
@@ -57,7 +57,7 @@ const powerUpsReceta = ({ data }) => {
         </div>
     );
 };
-powerUpsReceta.static = true;
+
 powerUpsReceta.arcType = 'power-up-receta';
 powerUpsReceta.propTypes = {
     data: PropTypes.shape({

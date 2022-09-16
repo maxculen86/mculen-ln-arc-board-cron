@@ -1,26 +1,43 @@
-.table {
-    border: 1px solid #e4e4e4;
+@import '../abstracts/variables';
+
+.table-wrapper {
+    overflow-x: auto;
     width: 100%;
-    thead {
-        border-bottom: 1px solid #e4e4e4;
+    .table {
+        width: 100%;
+        border: 1px solid $light-neutral-300;
+        thead {
+            border-bottom: 1px solid $light-neutral-300;
+        }
+        tr {
+            th {
+                padding: $spacing-sm;
+                color: $neutral-black;
+                font-weight: 700;
+                background-color: inherit;
+            }
+            td {
+                padding: $spacing-sm;
+            }
+            th,
+            td {
+                text-align: start;
+                vertical-align: middle;
+            }
+        }
+        tr:not(:last-child) {
+            border-bottom: 1px solid $light-neutral-300;
+        }
     }
-    tr {
+    &.--two-columns {
+        @media (min-width: 48em) {
+            width: 50%;
+        }
+        tr,
         th {
-            text-align: start;
-            padding: 1rem;
-            color: #000;
-            font-weight: 700;
+            td {
+                width: 50%;
+            }
         }
-        td {
-            padding: 1rem;
-        }
-        th,
-        td {
-            display: table-cell;
-            vertical-align: middle;
-        }
-    }
-    tr:not(:last-child) {
-        border-bottom: 1px solid #e4e4e4;
     }
 }
