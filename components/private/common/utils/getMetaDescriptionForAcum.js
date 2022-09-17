@@ -19,6 +19,13 @@ const extractDataFromTags = payload => {
     };
 };
 
+export const isInPVS = (id = '') => {
+    const pvsServices = ['horoscopo', 'clima', 'loterias'];
+    const currentAcu = id !== '' ? id.match(/([^/]+)/g)[0] : id;
+
+    return pvsServices.includes(currentAcu);
+};
+
 const useGetMetaDescriptionForAcum = (
     description,
     _id,
@@ -57,7 +64,7 @@ const useGetMetaDescriptionForAcum = (
 
     return _id === '/recetas' ||
         layout === 'LN-acumulado-columnistas' ||
-        _id.includes('/horoscopo')
+        isInPVS(_id)
         ? description
         : articlesWithOrWithoutDescription;
 };

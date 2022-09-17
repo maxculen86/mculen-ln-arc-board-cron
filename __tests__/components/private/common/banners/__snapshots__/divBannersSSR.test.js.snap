@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Private - Common - Banners - Div Banners SSR should return div banner with correct tags 1`] = `
+<div>
+  <div
+    class="mod-banner --random_banner --random_banner --fixed --close "
+  >
+    <button
+      aria-label="Close"
+      class="icon-close"
+      id="random_banner_btnCloseAd"
+      type="button"
+    >
+      <i
+        class="com-icon icon-close  --negative"
+      >
+        <svg
+          fill="none"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
+            fill="#272727"
+            fill-rule="evenodd"
+            xmlns="http://www.w3.org/2000/svg"
+          />
+        </svg>
+      </i>
+    </button>
+    <script>
+      
+                            window.addEventListener('DOMContentLoaded', () =&gt; {
+                                document.getElementById('random_banner_btnCloseAd').onclick = function() {
+                                    this.parentNode.classList.add('hlp-none')
+                                };
+                            });
+                            
+    </script>
+    <div
+      class="com-banner "
+      data-prebid-enabled="false"
+      data-size="[]"
+      data-sizemap="[]"
+      data-subscription="true"
+      data-without-hide="false"
+      id="random_banner"
+    />
+  </div>
+</div>
+`;
