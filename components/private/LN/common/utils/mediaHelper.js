@@ -156,7 +156,7 @@ export const wikiImagesWithWWW = data => {
     return imagesToPreload;
 };
 
-export const replaceAllUrlResizedToWWW = data => {
+export const replaceAllUrlResizedToWWW = (data = {}) => {
     const { host = 'https://www.lanacion.com.ar' } =
         getProperties('la-nacion-ar') || {};
     const resizersReplaced = JSON.stringify(data)
