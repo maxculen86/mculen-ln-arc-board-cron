@@ -8,6 +8,11 @@ describe('Test - isNoteListenable', () => {
             ...responseArticleSource.source,
             system: 'composer'
         },
+        label: {
+            republicar_audio: {
+                display: true
+            }
+        },
         taxonomy: {
             primary_section: {
                 _id: '/espectaculos'
@@ -67,5 +72,18 @@ describe('Test - isNoteListenable', () => {
             }
         };
         expect(isNoteListenable(resp)).toStrictEqual(true);
+    });
+
+    test('should return false when the prop republicar_audio is not defiend ', () => {
+        const resp = {
+            ...data,
+            label: {},
+            taxonomy: {
+                primary_section: {
+                    _id: '/espectaculos/cartelera-de-cine/'
+                }
+            }
+        };
+        expect(isNoteListenable(resp)).toStrictEqual(false);
     });
 });

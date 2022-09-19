@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { GlobalContext } from '../../../common/context/globalContext';
-import get from '../../../common/utils/get';
-import Toast from '../../../common/toast/Toast';
+import { GlobalContext } from '../context/globalContext';
+import get from '../utils/get';
+import Toast from './Toast';
 
 const ShowToast = () => {
     const { state, dispatch } = useContext(GlobalContext) || {};

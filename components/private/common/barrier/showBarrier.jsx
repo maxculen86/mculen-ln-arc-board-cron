@@ -1,9 +1,9 @@
 /* eslint-disable no-restricted-globals */
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { GlobalContext } from '../../../common/context/globalContext';
-import Barrier from '../../../common/barrier/Barrier';
-import get from '../../../common/utils/get';
+import { GlobalContext } from '../context/globalContext';
+import Barrier from './Barrier';
+import get from '../utils/get';
 
 const ShowBarrier = ({ token }) => {
     const { state, dispatch } = useContext(GlobalContext) || {};

@@ -1,6 +1,6 @@
 /* eslint-disable react/require-default-props */
 import React, { useState, useContext } from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import ComButton from '../com-button';
 import getToken from '../utils/getToken';
 import { handleClickAudioNews } from './helpers';

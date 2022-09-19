@@ -8,7 +8,8 @@ import {
     scrollToComments,
     onButtonClicked,
     GetNumberOfComments,
-    addEventToDataLayer
+    addEventToDataLayer,
+    getClassAndIconByBookmark
 } from '../../../../private/LN/common/utils/shareHelper';
 import { handleClickAudioNews } from '../../../../private/common/audioNews/helpers';
 import '../../../../../resources/dist/css/ln/components/build-first-buttons-group.css';
@@ -39,6 +40,8 @@ const BuildFirtsButtonsGroup = ({
         arcSite,
         id
     );
+
+    const { className, icon } = getClassAndIconByBookmark(bookmark);
 
     return (
         <div className="first-buttons-group">
@@ -78,9 +81,9 @@ const BuildFirtsButtonsGroup = ({
                         );
                     }}
                     size="--fourxs"
-                    iconName={bookmark ? 'bookmark-filled' : 'bookmark'}
+                    iconName={icon}
                     title="Notas guardadas"
-                    classCondition={`bookmark ${bookmark ? '--is-saved' : ''}`}
+                    classCondition={`bookmark ${className}`}
                 />
             )}
 

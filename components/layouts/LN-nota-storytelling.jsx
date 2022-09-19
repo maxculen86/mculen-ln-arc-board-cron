@@ -51,7 +51,7 @@ const lnNotaStorytelling = ({
                                     </div>
                                     <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
                                         <div className="row">
-                                            <div className="col-12" id="prueba">
+                                            <div className="col-12">
                                                 {children[3]}
                                             </div>
                                         </div>

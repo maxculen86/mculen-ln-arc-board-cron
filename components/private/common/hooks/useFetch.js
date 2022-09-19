@@ -6,7 +6,7 @@ export default function useFetch(
 ) {
     const [data, setData] = useState();
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState();
 
     const getData = useCallback(async () => {
         try {
@@ -22,14 +22,24 @@ export default function useFetch(
             }
         } catch (err) {
             setLoading(false);
-            setError('err');
+            setError(err);
+            // eslint-disable-next-line no-console
             console.error(err);
         }
     }, [url, options, transform]);
 
     useEffect(() => {
+        if (!url) {
+            setLoading(false);
+            const err = 'Debe definir una URL válida';
+            setError({
+                meessage: err
+            });
+            // eslint-disable-next-line no-console
+            console.error(err);
+        }
         url && getData();
     }, dependencies);
 
-    return [data, loading, error];
+    return { data, loading, error };
 }

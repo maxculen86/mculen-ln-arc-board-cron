@@ -1,5 +1,7 @@
-// import { AUDIO_NEWS_URL } from 'fusion:environment';
+/* eslint-disable no-param-reassign */
+import { AUDIO_NEWS_URL } from 'fusion:environment';
 import { addEventToDataLayer } from '../../LN/common/utils/shareHelper';
+import get from '../utils/get';
 
 export const calculateTime = secs => {
     const minutes = Math.floor(secs / 60);
@@ -9,11 +11,16 @@ export const calculateTime = secs => {
     return `${returnedMinutes}:${returnedSeconds}`;
 };
 
-export const startAudio = audioPlayer =>
-    audioPlayer && audioPlayer.current && audioPlayer.current.play();
+export const getTime = (duration, currentTime) =>
+    !isNaN(duration) ? calculateTime(duration - currentTime) : '00:00';
+
+export const getTitleAndIcon = isPlaying =>
+    isPlaying
+        ? { title: 'Pausar', icon: 'pause' }
+        : { title: 'Reproducir', icon: 'play' };
 
 export const parseDate = (date = '') =>
-    date.replace(/-|:|[a-z]|\.[^\/]+/gi, '');
+    date && date.replace(/-|:|[a-z]|\.[^\/]+/gi, '');
 
 export const handleClickAudioNews = (
     token,
@@ -36,10 +43,57 @@ export const handleClickAudioNews = (
         });
 };
 
-const AUDIO_NEWS_URL =
-    'https://qa-audionews.lanacion.com.ar/api/v1/audio/status/';
-
 export const getEndpointAudioNews = (publishDate, noteId) => {
     const date = parseDate(publishDate);
     return date && noteId ? `${AUDIO_NEWS_URL}${date}/${noteId}/` : null;
+};
+
+export const handleEnded = (
+    isPlaying,
+    setIsPlaying,
+    setCurrentTime,
+    progressBar
+) => {
+    setIsPlaying(!isPlaying);
+    setCurrentTime(0);
+    progressBar.current.style.setProperty('width', '0');
+};
+
+export const togglePlayPause = (isPlaying, setIsPlaying, audioPlayer = {}) => {
+    setIsPlaying(!isPlaying);
+    !isPlaying ? audioPlayer.current.play() : audioPlayer.current.pause();
+};
+
+export const handleProgressBar = (progressBar, duration, audioPlayer = {}) => {
+    progressBar.current.style.setProperty(
+        'width',
+        `${(audioPlayer.current.currentTime / duration) * 100}%`
+    );
+};
+
+export const backTenSecs = (audioPlayer = {}) => {
+    audioPlayer.current.currentTime -= 10;
+    handleProgressBar();
+};
+
+export const forwardTenSecs = (duration, audioPlayer = {}) => {
+    if (audioPlayer && audioPlayer.current.currentTime + 10 < duration) {
+        audioPlayer.current.currentTime += 10;
+        handleProgressBar();
+    }
+};
+
+export const handlePlaybackRate = (
+    playBackRate,
+    setPlayBackRate,
+    audioPlayer = {}
+) => {
+    audioPlayer.current.playbackRate = playBackRate + 0.25;
+    const playBack = get(audioPlayer, 'current.playbackRate', 0);
+    setPlayBackRate(playBack);
+
+    if (audioPlayer.current.playbackRate > 2) {
+        audioPlayer.current.playbackRate = 1;
+        setPlayBackRate(1);
+    }
 };

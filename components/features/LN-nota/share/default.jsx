@@ -16,9 +16,9 @@ import {
 import BuildSecondButtonsGroup from './_children/BuildSecondButtonsGroup';
 import BuildFirstButtonsGroup from './_children/BuildFirstButtonsGroup';
 import Icon from '../../../private/common/icon';
-import ShowBarrier from '../../../private/LN/common/utils/showBarrier';
+import ShowBarrier from '../../../private/common/barrier/showBarrier';
 import BuildAudioPlayer from '../../../private/common/audioNews/BuildAudioPlayer';
-import ShowToast from '../../../private/LN/common/utils/showToast';
+import ShowToast from '../../../private/common/toast/showToast';
 import '../../../../resources/dist/css/ln/modules/mod-share.css';
 
 const Share = () => {

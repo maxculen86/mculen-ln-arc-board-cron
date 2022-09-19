@@ -10,7 +10,7 @@ import getToken from '../utils/getToken';
 import Barrier from '../barrier/Barrier';
 import { GlobalContext } from '../context/globalContext';
 import handleCookie from '../../LN/common/utils/handleCookie';
-import ShowToast from '../../LN/common/utils/showToast';
+import ShowToast from '../toast/showToast';
 import '../../../../resources/dist/css/ln/components/bookmark.css';
 
 const BookmarkLayout = () => {

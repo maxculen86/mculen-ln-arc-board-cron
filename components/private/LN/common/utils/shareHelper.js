@@ -111,16 +111,8 @@ export const copyToClipboard = () => {
     navigator.clipboard.writeText(window.location.href);
 };
 
-// export const getClassCondition = subtype =>
-//     subtype === VIDEO ? ' --video' : '';
-
-export const getClassCondition = (subtype, isListenable) => {
-    if (subtype === VIDEO) {
-        return isListenable ? ' --video --scroll' : ' --video';
-    }
-
-    return isListenable ? ' --scroll' : '';
-};
+export const getClassCondition = subtype =>
+    subtype === VIDEO ? ' --video' : '';
 
 export const isSuscription = token => (token ? isSubscribed() : false);
 export const GetNumberOfComments = (firstPublishDate, arcSite, id) => {
@@ -134,6 +126,11 @@ export const GetNumberOfComments = (firstPublishDate, arcSite, id) => {
 
 export const getTwitterTitle = (mobileTitle, title) =>
     !mobileTitle ? title : mobileTitle;
+
+export const getClassAndIconByBookmark = bookmark =>
+    bookmark
+        ? { className: '--is-saved', icon: 'bookmark-filled' }
+        : { className: '', icon: 'bookmark' };
 
 export const onButtonClicked = (
     token,
@@ -237,14 +234,6 @@ export const buttonsList = [
         className: 'email'
     }
 ];
-
-// export const scrollAddClass = (shareContainer, share) => {
-//     if (shareContainer && share) {
-//         if (share.scrollWidth + 16 > window.innerWidth) {
-//             shareContainer.classList.add('--scroll');
-//         }
-//     }
-// };
 
 export const scrollShare = (shareContainer, share) => {
     const leftArrow = document.querySelector('.icon-arrow-left') || {};

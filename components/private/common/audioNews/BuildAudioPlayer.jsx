@@ -1,7 +1,7 @@
 /* eslint-disable react/require-default-props */
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
-import AudioPlayer from '.';
+import AudioPlayer from './player';
 import useFetch from '../hooks/useFetch';
 import LoadingIcon from '../../LN/common/loadingIcon';
 import get from '../utils/get';
@@ -16,31 +16,40 @@ const BuildAudioPlayer = ({
 }) => {
     const { dispatch } = useContext(GlobalContext) || {};
 
-    const [data, loading, error] = useFetch({
+    const { data, error } = useFetch({
         url: getEndpointAudioNews(publishDate, noteId)
     });
 
-    const audioUrl = get(data, 'audio_url');
+    const audioUrl = get(data, 'audio_url', '');
 
-    if (error) {
-        dispatch({
-            type: 'SHOW_MODAL',
-            payload: {
-                typeModal: 'toast',
-                open: true,
-                data: {
-                    status: 'danger',
-                    description: 'Parece que hubo un problema.',
-                    timeout: 2750
+    useEffect(() => {
+        if (error) {
+            dispatch({
+                type: 'SHOW_MODAL',
+                payload: {
+                    typeModal: 'toast',
+                    open: true,
+                    data: {
+                        status: 'danger',
+                        description: 'Parece que hubo un problema.',
+                        timeout: 2750
+                    }
                 }
-            }
-        });
-        setEnableButton(true);
-        setOpenPlayer(false);
-        return <></>;
-    }
+            });
+            setEnableButton(true);
+            setOpenPlayer(false);
+        }
+    }, [error, dispatch, setEnableButton, setOpenPlayer]);
 
-    return <>{loading ? <LoadingIcon /> : <AudioPlayer audio={audioUrl} />}</>;
+    return (
+        <>
+            {!error && data ? (
+                <AudioPlayer audio={audioUrl} />
+            ) : (
+                <LoadingIcon />
+            )}
+        </>
+    );
 };
 
 BuildAudioPlayer.propTypes = {
