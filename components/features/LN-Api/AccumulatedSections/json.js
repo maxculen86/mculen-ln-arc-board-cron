@@ -105,7 +105,14 @@ class AccumulatedSections {
             const indexAcu = this.apiData[browser.getApiType(requestUri)][
                 browser.getApiVersion(requestUri)
             ];
+
             if (!acuArticlesSource || !acuArticlesSource.content_elements) {
+                // eslint-disable-next-line no-console
+                console.warn(
+                    `Empty content result. Global content info: ${JSON.stringify(
+                        this.props.globalContent
+                    )}`
+                );
                 return null;
             }
             let title = get(
