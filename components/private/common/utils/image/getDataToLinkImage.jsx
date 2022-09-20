@@ -7,7 +7,8 @@ import sectionsValidation from '../../../../layouts/config/LN-Home.config';
 import { FOTOAL100, STORYTELLING } from '../subtypes/subtypeHelper';
 import {
     LinkImagePreload,
-    wikiImagesWithWWW
+    wikiImagesWithWWW,
+    replaceAllUrlResizedToWWW
 } from '../../../LN/common/utils/mediaHelper';
 import getVideoPosterResized from '../video/getVideoPosterResized';
 import replaceUrlResizerToWWW from '../../../../../content/sources/utils/replaceUrlResizerToWWW';
@@ -152,9 +153,13 @@ const GetDataToLinkImage = ({
 
             const resizedUrls =
                 subtype === STORYTELLING
-                    ? replaceUrlResizerToWWW(
-                          get(promoItems, 'storytelling_mobile', [])
-                      ).resized_urls
+                    ? replaceAllUrlResizedToWWW(
+                          get(
+                              promoItems,
+                              'storytelling_mobile.resized_urls',
+                              []
+                          )
+                      )
                     : get(basic, 'resized_urls', []);
             return !shouldExclude ? (
                 <LinkImagePreload resizedUrls={resizedUrls} />
