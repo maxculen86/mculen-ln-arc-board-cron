@@ -29,19 +29,21 @@ class AccumulatedFollow {
                 requestUri,
                 globalContent: { followedItems }
             } = this.props;
-
             const indexAcu = this.apiData[browser.getApiType(requestUri)][
                 browser.getApiVersion(requestUri)
             ];
-
-            if (!globalContent || !globalContent.content_elements) {
+            const isAPI = this.props.globalContentConfig.query.api || false;
+            if ((!globalContent || !globalContent.content_elements) && isAPI) {
                 // eslint-disable-next-line no-console
                 console.warn(
                     `Empty content result. Global content info: ${JSON.stringify(
                         this.props.globalContent
                     )}`
                 );
-                return null;
+
+                throw new Error(
+                    'Data query response cannot be null or undefined'
+                );
             }
             const followedItemsValidate = followedItems.filter(x => x.id !== 0);
             const paginator = globalContent.next;
