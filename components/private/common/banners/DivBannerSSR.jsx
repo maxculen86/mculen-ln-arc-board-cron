@@ -21,7 +21,8 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
         hideForSubscriptor,
         closeButton,
         classes,
-        isStatic = false
+        isStatic = false,
+        lazyClass = ''
     } = bannerConfiguration;
     const ClassNames = `mod-banner --${slotId} ${classes || ''} `;
     const Comp = (
@@ -62,7 +63,7 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
             )}
             <div
                 id={slotId}
-                className="com-banner"
+                className={`com-banner ${lazyClass}`}
                 data-slot-group={slotGroup}
                 data-device={device}
                 data-subscription={hideForSubscriptor || false}
@@ -113,7 +114,8 @@ DivBannerSSR.propTypes = {
         slotGroup: PropTypes.string,
         withoutHide: PropTypes.bool,
         hideForSubscriptor: PropTypes.bool,
-        isStatic: PropTypes.bool
+        isStatic: PropTypes.bool,
+        lazyClass: PropTypes.string
     }).isRequired
 };
 

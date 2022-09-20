@@ -60,7 +60,6 @@ describe('Components- Features - WeatherList - default.jsx - test', () => {
             }));
 
             const { container, debug } = render(<WeatherList />);
-            debug();
             const cards = container.getElementsByTagName('h2');
 
             expect(container).toMatchSnapshot();

@@ -464,4 +464,5 @@ export default `
     subscription,
     paywallEnabled,
     withFirmaDistributor
+    isListenable
 }`;

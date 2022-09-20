@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import getMetaDescription from './utils/getMetaDescription';
+import { isInPVS } from './utils/getMetaDescriptionForAcum';
 
 const MetaDescription = ({
     subtype,
@@ -46,7 +47,7 @@ const MetaDescription = ({
                 content={
                     _id === '/recetas' ||
                     acuRecetaRegExp.test(_id) ||
-                    _id.includes('/horoscopo')
+                    isInPVS(_id)
                         ? metaDescription
                         : `${metaDescription} - LA NACION`
                 }

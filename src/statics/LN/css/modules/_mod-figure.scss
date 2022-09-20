@@ -118,7 +118,9 @@
     &.--vertical {
         .--active & {
             height: 100%;
+            overflow-y: scroll;
             @media ($media-m) {
+                overflow-y: hidden;
                 height: auto;
             }
         }
