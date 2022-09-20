@@ -279,6 +279,22 @@ export const getChildrenFromAperturaHome = (renderables, childProps) => {
           ];
 };
 
+export const getArticlesIdsFromApertura = (renderables = []) => {
+    const childrenFromApertura = getChildrenFromAperturaHome(renderables);
+    const ids = [];
+    childrenFromApertura.forEach(section => {
+        get(section, 'children', []).forEach(child => {
+            if (
+                child.collection === 'features' &&
+                get(child, 'props.type') === 'LN-common/articulo'
+            ) {
+                ids.push(get(child, 'props.customFields.noteId', ''));
+            }
+        });
+    });
+    return ids.join();
+};
+
 export const isInApertura = (idFeature, tree = {}) => {
     const sectionApertura = get(tree, 'children[4].children', []);
     return sectionApertura.find(child => child.props.id === idFeature);

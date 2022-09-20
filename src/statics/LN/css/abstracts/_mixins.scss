@@ -461,3 +461,21 @@ $guion: '-';
         }
     }
 }
+
+// width nota foto al 100
+
+@mixin width-nota100 {
+    @media ($media-l) {
+        width: 66.666666%;
+        max-width: $width_nota100_l;
+    }
+    @media ($media-lm) {
+        max-width: $width_nota100_lm;
+    }
+    @media ($media-lg) {
+        max-width: $width_nota100_lg;
+    }
+    @media ($media-xl) {
+        max-width: $width_nota100_xl;
+    }
+}

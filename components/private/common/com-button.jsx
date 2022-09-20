@@ -24,7 +24,8 @@ const ComButton = props => {
         iconExtraClass,
         size,
         title,
-        style
+        style,
+        disabled
     } = props;
 
     const conditionalProps = {
@@ -49,6 +50,7 @@ const ComButton = props => {
             style={style}
             title={title}
             on={on || ''}
+            disabled={disabled}
             {...conditionalProps}
         >
             {iconName && (
@@ -81,7 +83,8 @@ ComButton.propTypes = {
     dataSection: PropTypes.string,
     tabIndex: PropTypes.string,
     style: PropTypes.node,
-    iconExtraClass: PropTypes.string
+    iconExtraClass: PropTypes.string,
+    disabled: PropTypes.bool
 };
 
 ComButton.defaultProps = {
@@ -101,7 +104,8 @@ ComButton.defaultProps = {
     onClick: () => {},
     onMouseDown: () => {},
     children: undefined,
-    iconExtraClass: ''
+    iconExtraClass: '',
+    disabled: false
 };
 
 export default ComButton;
