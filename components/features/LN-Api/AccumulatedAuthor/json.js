@@ -62,15 +62,21 @@ class AccumulatedAuthor {
             const indexAcu = this.apiData[browser.getApiType(requestUri)][
                 browser.getApiVersion(requestUri)
             ];
-
-            if (!acuArticlesSource || !acuArticlesSource.content_elements) {
+            const isAPI = this.props.globalContentConfig.query.api || false;
+            if (
+                (!acuArticlesSource || !acuArticlesSource.content_elements) &&
+                isAPI
+            ) {
                 // eslint-disable-next-line no-console
                 console.warn(
                     `Empty content result. Global content info: ${JSON.stringify(
                         this.props.globalContent
                     )}`
                 );
-                return null;
+
+                throw new Error(
+                    'Data query response cannot be null or undefined'
+                );
             }
             const paginator = acuArticlesSource.next;
             let page = 1;

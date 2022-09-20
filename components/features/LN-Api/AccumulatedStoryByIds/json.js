@@ -32,14 +32,21 @@ class AccumulatedStoryByIds {
             const indexAcu = this.apiData[browser.getApiType(requestUri)][
                 browser.getApiVersion(requestUri)
             ];
-            if (!acuArticlesSource || !acuArticlesSource.content_elements) {
+            const isAPI = this.props.globalContentConfig.query.api || false;
+            if (
+                (!acuArticlesSource || !acuArticlesSource.content_elements) &&
+                isAPI
+            ) {
                 // eslint-disable-next-line no-console
                 console.warn(
                     `Empty content result. Props info: ${JSON.stringify(
                         this.props
                     )}`
                 );
-                return null;
+
+                throw new Error(
+                    'Data query response cannot be null or undefined'
+                );
             }
             const acuData = {
                 tipoAcumulado: 4,
