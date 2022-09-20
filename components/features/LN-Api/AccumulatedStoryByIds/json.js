@@ -33,6 +33,12 @@ class AccumulatedStoryByIds {
                 browser.getApiVersion(requestUri)
             ];
             if (!acuArticlesSource || !acuArticlesSource.content_elements) {
+                // eslint-disable-next-line no-console
+                console.warn(
+                    `Empty content result. Props info: ${JSON.stringify(
+                        this.props
+                    )}`
+                );
                 return null;
             }
             const acuData = {

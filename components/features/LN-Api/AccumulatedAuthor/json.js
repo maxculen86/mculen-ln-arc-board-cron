@@ -64,6 +64,12 @@ class AccumulatedAuthor {
             ];
 
             if (!acuArticlesSource || !acuArticlesSource.content_elements) {
+                // eslint-disable-next-line no-console
+                console.warn(
+                    `Empty content result. Global content info: ${JSON.stringify(
+                        this.props.globalContent
+                    )}`
+                );
                 return null;
             }
             const paginator = acuArticlesSource.next;

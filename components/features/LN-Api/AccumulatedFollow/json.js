@@ -35,6 +35,12 @@ class AccumulatedFollow {
             ];
 
             if (!globalContent || !globalContent.content_elements) {
+                // eslint-disable-next-line no-console
+                console.warn(
+                    `Empty content result. Global content info: ${JSON.stringify(
+                        this.props.globalContent
+                    )}`
+                );
                 return null;
             }
             const followedItemsValidate = followedItems.filter(x => x.id !== 0);
