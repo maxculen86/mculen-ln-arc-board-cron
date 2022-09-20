@@ -23,19 +23,25 @@ const getInterval = (type, resolution, config) => {
     return parseInt(seconds, 10) * 1000;
 };
 
-const shouldBeExcluded = (contentElements, promoItem) =>
-    (contentElements &&
-        contentElements.some(
-            contentElement =>
-                contentElement.type === 'raw_html' ||
-                contentElement.type === 'oembed_response' ||
-                contentElement.type === 'video'
-        )) ||
-    (promoItem && promoItem.type === 'video');
+export const shouldBeExcluded = ({ globalContent }) => {
+    const labelMetarefresh = get(globalContent, 'label.metarefresh.text', null);
+    const contentElements = get(globalContent, 'content_elements', null);
+    const promoItem = get(globalContent, 'promo_items.basic', null);
+    return (
+        (contentElements &&
+            contentElements.some(
+                contentElement =>
+                    contentElement.type === 'raw_html' ||
+                    contentElement.type === 'oembed_response' ||
+                    contentElement.type === 'video'
+            )) ||
+        (promoItem && promoItem.type === 'video') ||
+        labelMetarefresh === 'No'
+    );
+};
 
 const Component = props => {
-    const contentElements = get(props, 'globalContent.content_elements', null);
-    const promoItem = get(props, 'globalContent.promo_items.basic', null);
+    const globalContent = get(props, 'globalContent', null);
     const type = get(props, 'globalContent.type', null);
     const _id = get(props, 'globalContent._id', null);
     const subscription = isSubscribed();
@@ -64,7 +70,7 @@ const Component = props => {
             outputType === 'amp' ||
             (subscription && template !== 'home') ||
             interval < 1 ||
-            shouldBeExcluded(contentElements, promoItem)
+            shouldBeExcluded({ globalContent })
         ) {
             return;
         }
@@ -82,13 +88,12 @@ const Component = props => {
             }
         }, interval);
     }, [
-        contentElements,
         cookieProductoPremium,
+        globalContent,
         interval,
         isAdmin,
         metarefresh,
         outputType,
-        promoItem,
         subscription,
         template
     ]);

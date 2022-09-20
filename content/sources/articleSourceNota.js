@@ -29,6 +29,7 @@ import removeInvalidUrlTagA from '../../components/private/common/utils/removeIn
 import isNotShowcase from './utils/isNotShowcase';
 import { recipePowerUps, removeParallaxPowerUp } from './utils/powerUp';
 import firmaDistributorValidation from './utils/firmaDistributorValidator';
+import isNoteListenable from './utils/audioNews/helper';
 
 export const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -207,6 +208,7 @@ const transform = (
         ...data,
         subscription: meteringVariant,
         withFirmaDistributor,
+        isListenable: isNoteListenable(data),
         ...addResizedUrls(data, {
             resizerSecret: RESIZER_KEY,
             resizerUrl: RESIZER_URL,

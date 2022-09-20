@@ -72,7 +72,10 @@ describe('features - LN-common - anexo - default', () => {
             );
             expect(component.find('iframe').props().src).toBe(undefined);
             expect(
-                component.find('div').hasClass('com-anexo skeleton-box')
+                component
+                    .find('div')
+                    .at(1)
+                    .hasClass('com-anexo skeleton-box')
             ).toBeTruthy();
         });
         it('Should generate style tag with media queries correctly', () => {

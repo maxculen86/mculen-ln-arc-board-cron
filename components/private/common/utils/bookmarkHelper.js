@@ -7,7 +7,7 @@ export default function toggleBookmark(
     token,
     isDelete,
     setBookmark,
-    setToast,
+    dispatch,
     _globalContent = {}
 ) {
     const getDataFromAPI = async () => {
@@ -29,7 +29,14 @@ export default function toggleBookmark(
                   bookmarkContent: getBookmarkContent(_globalContent)
               };
 
-        setToast(null);
+        dispatch({
+            type: 'SHOW_MODAL',
+            payload: {
+                typeModal: 'toast',
+                open: false,
+                data: {}
+            }
+        });
 
         try {
             const res = await fetch(
@@ -43,14 +50,18 @@ export default function toggleBookmark(
                 }
             );
             statusActions[res.status]
-                ? statusActions[res.status](res, setToast, setBookmark)
-                : statusActions.default(setToast);
+                ? statusActions[res.status]({
+                      response: res,
+                      dispatch,
+                      setBookmark
+                  })
+                : statusActions.default({ dispatch });
             return res.status;
         } catch (err) {
             // eslint-disable-next-line no-console
             console.error(err);
 
-            return statusActions.default(setToast);
+            return statusActions.default({ dispatch });
         }
     };
 
@@ -61,37 +72,57 @@ export default function toggleBookmark(
 }
 
 const statusActions = {
-    200: async (response, setterToast, setterBookmark) => {
+    200: async ({ response, dispatch, setBookmark }) => {
         const { bookmarkId: id, bookmarkContent } = await response.json();
-        setterBookmark && setterBookmark(bookmarkContent ? id : '');
-        setterToast(
-            bookmarkContent
-                ? {
-                      status: 'success',
-                      description:
-                          'Podés acceder desde <b>Menú de usuario, <a class="com-link" href="https://www.lanacion.com.ar/mis-notas/">Mis notas</a></b>',
-                      timeout: 2750
-                  }
-                : {
-                      status: 'success',
-                      description: 'Se borró de <strong>Mis notas</strong>',
-                      timeout: 2750
-                  }
-        );
-    },
-    409: (response, setterToast, setterBookmark) => {
-        setterToast({
-            status: 'warning',
-            description:
-                'No se pudo guardar porque llegaste al límite permitido. <a class="com-link" href="https://www.lanacion.com.ar/mis-notas/">Ir a mis notas</a>',
-            timeout: 2750
+        setBookmark && setBookmark(bookmarkContent ? id : '');
+        dispatch({
+            type: 'SHOW_MODAL',
+            payload: {
+                typeModal: 'toast',
+                open: true,
+                data: !bookmarkContent
+                    ? {
+                          status: 'success',
+                          description: 'Se borró de <strong>Mis notas</strong>',
+                          timeout: 2750
+                      }
+                    : {
+                          status: 'success',
+                          description:
+                              'Podés acceder desde <b>Menú de usuario, <a class="com-link" href="https://www.lanacion.com.ar/mis-notas/">Mis notas</a></b>',
+                          timeout: 2750
+                      }
+            }
         });
     },
-    default: setterToast => {
-        setterToast({
-            status: 'danger',
-            description: 'Hubo un problema de conexión. Reintenta más tarde.',
-            timeout: 2750
+    409: ({ dispatch }) => {
+        dispatch({
+            type: 'SHOW_MODAL',
+            payload: {
+                typeModal: 'toast',
+                open: true,
+                data: {
+                    status: 'warning',
+                    description:
+                        'No se pudo guardar porque llegaste al límite permitido. <a class="com-link" href="https://www.lanacion.com.ar/mis-notas/">Ir a mis notas</a>',
+                    timeout: 2750
+                }
+            }
+        });
+    },
+    default: ({ dispatch }) => {
+        dispatch({
+            type: 'SHOW_MODAL',
+            payload: {
+                typeModal: 'toast',
+                open: true,
+                data: {
+                    status: 'danger',
+                    description:
+                        'Hubo un problema de conexión. Reintenta más tarde.',
+                    timeout: 2750
+                }
+            }
         });
     }
 };

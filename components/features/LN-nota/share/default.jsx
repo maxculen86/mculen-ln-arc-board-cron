@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/require-default-props */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import config from '../../../../properties/sites/la-nacion-ar';
@@ -9,12 +10,15 @@ import useCheckBookmark from '../../../private/common/hooks/bookmark/useCheckBoo
 import ComLine from '../../../private/common/com-line';
 import {
     getClassCondition,
-    showToast,
-    showBarrier,
-    isSuscription
+    isSuscription,
+    scrollShare
 } from '../../../private/LN/common/utils/shareHelper';
 import BuildSecondButtonsGroup from './_children/BuildSecondButtonsGroup';
-import BuildFirtsButtonsGroup from './_children/BuildFirtsButtonsGroup';
+import BuildFirstButtonsGroup from './_children/BuildFirstButtonsGroup';
+import Icon from '../../../private/common/icon';
+import ShowBarrier from '../../../private/common/barrier/showBarrier';
+import BuildAudioPlayer from '../../../private/common/audioNews/BuildAudioPlayer';
+import ShowToast from '../../../private/common/toast/showToast';
 import '../../../../resources/dist/css/ln/modules/mod-share.css';
 
 const Share = () => {
@@ -22,12 +26,15 @@ const Share = () => {
     const {
         _id: id,
         headlines: { basic: title, mobile: mobileTitle } = {},
-        subtype
+        subtype,
+        last_updated_date: date,
+        isListenable
     } = globalContent;
 
     const [bookmark, setBookmark] = useState('');
-    const [toast, setToast] = useState(null);
-    const [barrier, setBarrier] = useState(false);
+    const [openPlayer, setOpenPlayer] = useState(false);
+    const [enableButton, setEnableButton] = useState(false);
+
     const token = getToken();
     const termicaBookmark = useTermica('bookmark_web');
     const classCondition = getClassCondition(subtype);
@@ -44,33 +51,53 @@ const Share = () => {
         termicaBookmark && setBookmark(checkBookmarkId);
     }, [termicaBookmark, checkBookmarkId]);
 
+    const shareContainer = useRef();
+    const share = useRef();
+
     return (
-        <div className={`mod-share${classCondition}`}>
-            {showToast(termicaBookmark, toast, setToast)}
-            {showBarrier(termicaBookmark, barrier, token, setBarrier)}
+        <div className={`mod-share-container${classCondition}`}>
+            <ShowToast />
+            <ShowBarrier token={token} />
+            <div
+                className={`mod-share ${isListenable ? '--scroll' : ''}`}
+                ref={shareContainer}
+                onScroll={() => {
+                    scrollShare(shareContainer.current, share.current);
+                }}
+            >
+                <Icon name="arrow-left" />
+                <div id="v-share" className="share" ref={share}>
+                    <BuildFirstButtonsGroup
+                        bookmark={bookmark}
+                        setBookmark={setBookmark}
+                        termicaBookmark={termicaBookmark}
+                        globalContent={globalContent}
+                        token={token}
+                        suscription={suscription}
+                        openPlayer={openPlayer}
+                        enableButton={enableButton}
+                        setOpenPlayer={setOpenPlayer}
+                    />
 
-            <div id="v-share" className="share">
-                <BuildFirtsButtonsGroup
-                    bookmark={bookmark}
-                    setBookmark={setBookmark}
-                    termicaBookmark={termicaBookmark}
-                    globalContent={globalContent}
-                    token={token}
-                    toast={toast}
-                    setToast={setToast}
-                    setBarrier={setBarrier}
-                    suscription={suscription}
-                />
+                    <ComLine />
 
-                <ComLine />
-
-                <BuildSecondButtonsGroup
-                    requestUri={requestUri}
-                    host={config.host}
-                    title={title}
-                    mobileTitle={mobileTitle}
-                />
+                    <BuildSecondButtonsGroup
+                        requestUri={requestUri}
+                        host={config.host}
+                        title={title}
+                        mobileTitle={mobileTitle}
+                    />
+                </div>
+                <Icon name="arrow-right" />
             </div>
+            {openPlayer && (
+                <BuildAudioPlayer
+                    setEnableButton={setEnableButton}
+                    setOpenPlayer={setOpenPlayer}
+                    publishDate={date}
+                    noteId={id}
+                />
+            )}
         </div>
     );
 };

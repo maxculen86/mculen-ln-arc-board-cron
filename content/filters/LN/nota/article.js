@@ -168,6 +168,10 @@ const labels = `
             text
             display
         }
+        metarefresh {
+            text
+            display
+        }
         mostrar_banners {
             url
             text
@@ -464,4 +468,5 @@ export default `
     subscription,
     paywallEnabled,
     withFirmaDistributor
+    isListenable
 }`;
