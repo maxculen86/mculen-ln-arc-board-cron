@@ -18,7 +18,10 @@ const seguirLeyendo = ({ globalContent, outputType }) => {
         content.map(article =>
             useContent({
                 source: 'articleSourceNota',
-                query: { id: article._id },
+                query: {
+                    id: article._id,
+                    imageConfig: 'boxArticles'
+                },
                 filter
             })
         );
