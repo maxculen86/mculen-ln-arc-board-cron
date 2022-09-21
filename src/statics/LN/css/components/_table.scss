@@ -5,9 +5,9 @@
     width: 100%;
     .table {
         width: 100%;
-        border: 1px solid $light-neutral-300;
+        border: px(1) solid $light-neutral-300;
         thead {
-            border-bottom: 1px solid $light-neutral-300;
+            border-bottom: px(1) solid $light-neutral-300;
         }
         tr {
             th {
@@ -26,11 +26,11 @@
             }
         }
         tr:not(:last-child) {
-            border-bottom: 1px solid $light-neutral-300;
+            border-bottom: px(1) solid $light-neutral-300;
         }
     }
     &.--two-columns {
-        @media (min-width: 48em) {
+        @media ($media-m) {
             width: 50%;
         }
         tr,
