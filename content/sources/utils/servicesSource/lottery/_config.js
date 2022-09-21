@@ -131,6 +131,8 @@ export const games = {
     Brinco: {
         url: '/loterias/brinco/',
         boxResultClass: 'box-result --brinco',
+        hasExtraResults: true,
+        sublotteriesOrder: ['Tradicional', 'Junior'],
         showVacantPot: true,
         getLotteryDate
     }

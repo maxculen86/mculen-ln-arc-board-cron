@@ -1,27 +1,6 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 
-$width_nota100_l: px(1024 / $cant-col * 8);
-$width_nota100_lm: px(1100 / $cant-col * 8);
-$width_nota100_lg: px(1280 / $cant-col * 8);
-$width_nota100_xl: px(1340 / $cant-col * 8);
-
-@mixin width-nota100 {
-    @media ($media-l) {
-        width: 66.666666%;
-        max-width: $width_nota100_l;
-    }
-    @media ($media-lm) {
-        max-width: $width_nota100_lm;
-    }
-    @media ($media-lg) {
-        max-width: $width_nota100_lg;
-    }
-    @media ($media-xl) {
-        max-width: $width_nota100_xl;
-    }
-}
-
 @mixin padding_rl {
     padding-right: $spacing;
     padding-left: $spacing;
@@ -39,7 +18,7 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
 
 .--photo100 {
     &.--scrollDown {
-        #v-share {
+        .mod-share-container {
             &.--handle-share {
                 @media ($media-l) {
                     transform: translateY(px(-500));
@@ -115,12 +94,28 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
                     height: auto;
                 }
             }
-
-            .mod-share {
+            > .com-link.--logo {
+                @include padding_rl;
                 @media ($media-l) {
+                    display: block;
+                    width: 100%;
+                    margin-right: auto;
+                    margin-left: auto;
+
+                    @include width-nota100;
+                }
+            }
+
+            .mod-share-container {
+                margin: 0 $spacing;
+                position: relative;
+                @media ($media-s) {
+                    margin: 0 $spacing-sm;
+                }
+                @media ($media-l) {
+                    margin: 0;
+                    margin-bottom: px(-350);
                     position: sticky;
-                    z-index: 101;
-                    top: (px(16) + $header-desktop);
                     left: calc(((100% - #{$width_nota100_l}) / 2) - 133px);
                 }
                 @media ($media-lm) {

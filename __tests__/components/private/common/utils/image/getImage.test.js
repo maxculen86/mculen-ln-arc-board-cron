@@ -12,25 +12,36 @@ describe('Common - getImage', () => {
     const isHideImage = false;
 
     it('when property is empty, return {}', () => {
-        expect(getImage()).toEqual({});
+        expect(getImage({})).toEqual({});
     });
 
     it('when id is empty, return {}', () => {
         const id = '';
         expect(
-            getImage('', sourceType[0], imageConfig[0], isHideImage)
+            getImage({
+                sourceType: sourceType[0],
+                imageConfig: imageConfig[0],
+                isHideImage
+            })
         ).toEqual({});
     });
 
     it('when sourceType is empty, return {}', () => {
         const sourceType = '';
-        expect(getImage(id, '', imageConfig[0], isHideImage)).toEqual({});
+        expect(
+            getImage({ id, imageConfig: imageConfig[0], isHideImage })
+        ).toEqual({});
     });
 
     it('when isHideImage is true, return {}', () => {
         const isHideImage = true;
         expect(
-            getImage(id, sourceType[0], imageConfig[0], isHideImage)
+            getImage({
+                id,
+                sourceType: sourceType[0],
+                imageConfig: imageConfig[0],
+                isHideImage
+            })
         ).toEqual({});
     });
 
@@ -38,7 +49,12 @@ describe('Common - getImage', () => {
         useContent.mockReturnValueOnce(articleMock);
         const isHideImage = false;
         expect(
-            getImage(id, sourceType[0], imageConfig[0], isHideImage)
+            getImage({
+                id,
+                sourceType: sourceType[0],
+                imageConfig: imageConfig[0],
+                isHideImage
+            })
         ).toEqual(articleMock);
     });
 });

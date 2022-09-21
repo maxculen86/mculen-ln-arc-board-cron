@@ -117,6 +117,7 @@ describe('Article source nota - defensive cachedCall', () => {
                     taxonomy: {
                         sections: null
                     },
+                    isListenable: false,
                     withFirmaDistributor: true
                 });
             })

@@ -13,7 +13,12 @@ import StaticContent from '../../../private/common/staticContent';
 
 const AnexoFeature = props => {
     const { id, customFields = {} } = props;
-    const { renderables = [], isAdmin } = useAppContext();
+    const {
+        renderables = [],
+        isAdmin,
+        layout,
+        siteProperties
+    } = useAppContext();
     const { heightDesktop, heightTablet, heightMobile } = customFields;
 
     const isApertura = isInSection({ sectionName: 'Anexo_1', id, renderables });
@@ -61,12 +66,12 @@ const AnexoFeature = props => {
         </div>
     );
 
-    const iframeFinal = isApertura ? (
-        <StaticContent>{iframeURLContent}</StaticContent>
-    ) : (
-        iframeURLContent
-    );
-
+    const iframeFinal =
+        layout === get(siteProperties, 'layoutsName.Home') ? (
+            <StaticContent>{iframeURLContent}</StaticContent>
+        ) : (
+            iframeURLContent
+        );
     return _type === 'Iframe' ? iframeFinal : comp();
 };
 

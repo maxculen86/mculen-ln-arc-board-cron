@@ -14,14 +14,14 @@ import replaceUrlResizerToWWW from '../../../../../content/sources/utils/replace
 import capitalizeFirstLetter from '../capitalizeFirstLetter';
 import ImagePreloadlAcu from '../../../LN/acumulado/imagePreloadAcu';
 
-const getSource = (
+const getSource = ({
     imageID = '',
     noteID = '',
     imageConfig,
     isHideImage,
     videoID,
     isAdmin
-) => {
+}) => {
     const isInApertura = true;
     if (videoID) {
         return getVideoPosterResized(
@@ -32,22 +32,22 @@ const getSource = (
         );
     }
     return imageID.trim()
-        ? getImage(
-              imageID.trim(),
-              'relatedImageSource',
+        ? getImage({
+              id: imageID.trim(),
+              sourceType: 'relatedImageSource',
               imageConfig,
               isHideImage,
               isInApertura,
               isAdmin
-          )
-        : getImage(
-              noteID.trim(),
-              'articleSourceNota',
+          })
+        : getImage({
+              id: noteID.trim(),
+              sourceType: 'articleSourceNota',
               imageConfig,
               isHideImage,
               isInApertura,
               isAdmin
-          );
+          });
 };
 
 const getcustomFieldsData = fieldsData => {
@@ -80,8 +80,9 @@ const getMediaBomba = (arcSite, bomba) => {
     );
 
     return (
-        getPromoItems(getSource(imageID, noteID, imageConfig, isHideImage)) ||
-        []
+        getPromoItems(
+            getSource({ imageID, noteID, imageConfig, isHideImage })
+        ) || []
     );
 };
 
@@ -114,14 +115,14 @@ const getMediaApertura = (renderables, arcSite, isAdmin) => {
 
     return (
         getPromoItems(
-            getSource(
+            getSource({
                 imageID,
                 noteID,
                 imageConfig,
                 isHideImage,
                 videoID,
                 isAdmin
-            )
+            })
         ) || []
     );
 };

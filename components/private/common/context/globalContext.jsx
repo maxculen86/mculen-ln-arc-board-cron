@@ -61,11 +61,17 @@ const actionType = {
             }
         };
     },
-    SHOW_MODAL_BARRIER: (state, action) => {
-        const { bookmarkId } = action.payload;
+    SHOW_MODAL: (state, action) => {
+        const { typeModal, typeAlert, open, origin, data } = action.payload;
         return {
             ...state,
-            deleteBookmarkId: bookmarkId
+            showModal: {
+                typeModal,
+                typeAlert,
+                open,
+                origin,
+                data
+            }
         };
     },
     default: state => state
@@ -143,7 +149,13 @@ const GlobalProvider = ({ children }) => {
         },
         tagsHome: [],
         logueado: false,
-        deleteBookmarkId: false,
+        showModal: {
+            typeModal: '',
+            typeAlert: '',
+            open: false,
+            origin: '',
+            data: undefined
+        },
         loginData: {
             subscription: false,
             userName: 'Sin nombre',

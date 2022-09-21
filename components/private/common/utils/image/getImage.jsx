@@ -7,14 +7,14 @@ const conditionallyCallSource = (id, sourceType, isHideImage) =>
     (id && sourceType && isHideImage === false && id.trim() && sourceType) ||
     null;
 
-const getImage = (
+const getImage = ({
     id = '',
     sourceType = '',
     imageConfig = '',
     isHideImage = true,
     isInApertura,
     isAdmin
-) => {
+}) => {
     const filter = {
         relatedImageSource: '',
         articleSourceNota: filterArticle

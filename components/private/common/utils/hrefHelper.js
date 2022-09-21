@@ -1,4 +1,5 @@
 import Environment from 'fusion:environment';
+import addForwardSlash from '../../LN/common/utils/addForwardSlash';
 
 const isTrue = env =>
     env === true || String(env).toLocaleLowerCase() === 'true';
@@ -38,6 +39,9 @@ function createCorrectHref(href, arcSite, contextPath = '') {
         .join('/')
         .replace(RE_REMOVE_SLASH, '');
 
-    return `/${url}${isOriginURL ? `?_website=${arcSite}` : ''}`;
+    const slashToOriginUrl = !isOriginURL ? '' : addForwardSlash(isOriginURL);
+    const slashToUrl = !url ? '' : addForwardSlash(url);
+
+    return `/${slashToUrl}${slashToOriginUrl ? `?_website=${arcSite}` : ''}`;
 }
 export default { createCorrectHref };

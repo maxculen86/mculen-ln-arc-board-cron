@@ -28,15 +28,15 @@ const transform = (data, siteProps) => {
 
         return {
             ...data,
-            resizedUrl: getImageResized(
+            resizedUrl: getImageResized({
                 url,
-                height,
-                width,
-                configSizes,
+                originalHeight: height,
+                originalWidth: width,
+                options: configSizes,
                 focalPoint,
                 isInApertura,
                 isAdmin
-            )
+            })
         };
     }
 

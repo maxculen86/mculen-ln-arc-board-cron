@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import LastVideos from '../private/OTT/common/lastVideos';
+import LastVideos from '../private/OTT/common/lastVideos/lastVideos';
 import Footer from '../private/OTT/common/footer';
 import loadHeaderEvents from '../private/OTT/common/header/layoutEvents';
 
@@ -32,7 +32,7 @@ const OTTHomeLayout = ({ children } = {}) => {
 OTTHomeLayout.sections = layoutItems;
 
 OTTHomeLayout.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.node)
+    children: PropTypes.arrayOf(PropTypes.node).isRequired
 };
 
 export default OTTHomeLayout;
