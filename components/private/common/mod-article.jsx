@@ -151,9 +151,13 @@ const ModArticle = props => {
                 <ComButton
                     onClick={() => {
                         dispatch({
-                            type: 'SHOW_MODAL_BARRIER',
+                            type: 'SHOW_MODAL',
                             payload: {
-                                bookmarkId
+                                open: true,
+                                origin: 'bookmark',
+                                typeAlert: 'delete-note',
+                                data: bookmarkId,
+                                typeModal: 'barrier'
                             }
                         });
                     }}
