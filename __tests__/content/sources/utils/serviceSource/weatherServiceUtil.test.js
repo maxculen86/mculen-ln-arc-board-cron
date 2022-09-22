@@ -13,6 +13,13 @@ import outHomeTemplate from '../../../../../__mocks__/data/weather/outputweather
 import inputDetailTemplate from '../../../../../__mocks__/data/weather/responseWeatherDetail.json';
 import outputDetailTemplate from '../../../../../__mocks__/data/weather/outputWeatherDetail.json';
 
+// Helper functions
+import {
+    validateMaxTemperature,
+    validateMinTemperature,
+    isValidNumber
+} from '../../../../../content/sources/utils/servicesSource/weather/weatherHelper';
+
 const mockResponse = Promise.resolve(mockHome);
 
 const {
@@ -136,5 +143,26 @@ describe('Tests getTemplates function', () => {
         expect(getTemplates('Mendoza', 'Malargue', [])).toStrictEqual(
             'detalle-clima'
         );
+    });
+});
+
+describe('Testing validate util helpers for weather', () => {
+    it('isValidNumber must check for numeric values', () => {
+        expect(isValidNumber(undefined)).toBe(false);
+        expect(isValidNumber('22')).toBe(false);
+        expect(isValidNumber(22)).toBe(true);
+        expect(isValidNumber(66.6)).toBe(true);
+    });
+    it('ValidateMaxTemperature should return the correct values', () => {
+        expect(validateMaxTemperature(15, 25.4)).toBe(26);
+        expect(validateMaxTemperature(15, 14)).toBe(15);
+        expect(validateMaxTemperature(15, 15)).toBe(15);
+    });
+
+    it('ValidateMinTemperature should return the correct values', () => {
+        expect(validateMinTemperature(1, 0)).toBe(0);
+        expect(validateMinTemperature(4, 6)).toBe(4);
+        expect(validateMinTemperature(3, 2.5)).toBe(2);
+        expect(validateMinTemperature(1, 1)).toBe(1);
     });
 });
