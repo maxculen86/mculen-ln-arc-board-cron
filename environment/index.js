@@ -62,5 +62,6 @@ export default {
     LANACION_SERVICES_URL: 'https://arcservices.lanacion.com.ar',
     PERSONALIZACION_API:
         'https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/',
-    BOOKMARK_URL: 'https://www.lanacion.com.ar/mis-notas/'
+    BOOKMARK_URL: 'https://www.lanacion.com.ar/mis-notas/',
+    AUDIO_NEWS_URL: 'https://audionews.lanacion.com.ar/api/v1/audio/status/'
 };

@@ -1,14 +1,31 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import Context from 'fusion:context';
 import Content from 'fusion:content';
 import Share from '../../../../../../components/features/LN-nota/share/default';
+import getToken from '../../../../../../components/private/common/utils/getToken';
+import toggleBookmark from '../../../../../../components/private/common/utils/bookmarkHelper';
+import useCheckBookmark from '../../../../../../components/private/common/hooks/bookmark/useCheckBookmark';
 
 jest.mock('fusion:context', Component => {
     return function(Component) {
         return props => <Component {...props} />;
     };
 });
+
+jest.mock('../../../../../../components/private/common/utils/getToken', () =>
+    jest.fn()
+);
+
+jest.mock(
+    '../../../../../../components/private/common/utils/bookmarkHelper',
+    () => jest.fn()
+);
+
+jest.mock(
+    '../../../../../../components/private/common/hooks/bookmark/useCheckBookmark',
+    () => jest.fn()
+);
 
 const props = {
     outputType: 'default',
@@ -43,7 +60,8 @@ jest.mock('react', () => {
                 loginData: {
                     subscription: true
                 }
-            }
+            },
+            dispatch: jest.fn()
         })
     };
 });
@@ -61,6 +79,11 @@ describe('Share', () => {
     let component;
 
     beforeEach(() => {
+        toggleBookmark.mockImplementation(() => 200);
+        useCheckBookmark.mockImplementation(
+            () => '2aa355fd-2679-4e54-b552-ea404096c323'
+        );
+
         component = render(<Share />);
         global.window.dataLayer = [];
     });
@@ -76,9 +99,14 @@ describe('Share', () => {
     });
 
     test('Should scroll to the comments section. ', () => {
-        const { container } = component;
-        const button = container.querySelector('#btncomments');
-        button.click();
+        const button = screen.getByRole('button', {
+            name: 'Ir a los comentarios de la nota'
+        });
+
+        expect(button).toBeTruthy();
+
+        fireEvent.click(button);
+
         expect(window.dataLayer).toStrictEqual([
             {
                 event: 'gtm.linkClick',
@@ -90,9 +118,14 @@ describe('Share', () => {
     });
 
     test('Should open whatsapp in a new window and record the click on dataLayer', () => {
-        const { container } = component;
-        const button = container.querySelector('#whatsAppShareDesktop');
-        button.click();
+        const button = screen.getByRole('button', {
+            name: 'Compartir la nota en WhatsApp'
+        });
+
+        expect(button).toBeTruthy();
+
+        fireEvent.click(button);
+
         expect(window.dataLayer).toStrictEqual([
             {
                 event: 'gtm.linkClick',
@@ -109,8 +142,15 @@ describe('Share', () => {
             }
         });
         const { container } = component;
-        const button = container.querySelector('#copyLinkNote');
-        button.click();
+
+        const button = screen.getByRole('button', {
+            name: 'Copiar link de la nota'
+        });
+
+        expect(button).toBeTruthy();
+
+        fireEvent.click(button);
+
         expect(window.dataLayer).toStrictEqual([
             {
                 event: 'gtm.linkClick',
@@ -124,9 +164,14 @@ describe('Share', () => {
     });
 
     test('should open facebook in a new window and record the click on dataLayer', () => {
-        const { container } = component;
-        const button = container.querySelector('#btnfacebook');
-        button.click();
+        const button = screen.getByRole('button', {
+            name: 'Compartir la nota en Facebook'
+        });
+
+        expect(button).toBeTruthy();
+
+        fireEvent.click(button);
+
         expect(window.dataLayer).toStrictEqual([
             {
                 event: 'gtm.linkClick',
@@ -137,9 +182,13 @@ describe('Share', () => {
     });
 
     test('should open Twitter in a new window and record the click on dataLayer', () => {
-        const { container } = component;
-        const button = container.querySelector('#btntwitter');
-        button.click();
+        const button = screen.getByRole('button', {
+            name: 'Compartir la nota en Twitter'
+        });
+
+        expect(button).toBeTruthy();
+
+        fireEvent.click(button);
         expect(window.dataLayer).toStrictEqual([
             {
                 event: 'gtm.linkClick',
@@ -150,9 +199,14 @@ describe('Share', () => {
     });
 
     test('should open E-mail in a new window and record the click on dataLayer', () => {
-        const { container } = component;
-        const button = container.querySelector('#btnemail');
-        button.click();
+        const button = screen.getByRole('button', {
+            name: 'Compartir la nota por E-mail'
+        });
+
+        expect(button).toBeTruthy();
+
+        fireEvent.click(button);
+
         expect(window.dataLayer).toStrictEqual([
             {
                 event: 'gtm.linkClick',
@@ -162,16 +216,20 @@ describe('Share', () => {
         expect(window.open).toHaveBeenCalled();
     });
 
-    test('Test click button bookmark when the user is not subscriber', () => {
+    test('Test click button bookmark', () => {
+        getToken.mockImplementation(
+            () => '9B979333-C7F4-4F46-8EA8-8BBCBB3F14DF'
+        );
+
         const { container } = component;
-        const button = container.querySelector('#btnbookmark');
+        const button = screen.getByRole('button', {
+            name: 'Notas guardadas'
+        });
+
+        expect(button).toBeTruthy();
+        expect(button.classList.contains('--is-saved')).toBeTruthy();
 
         button.click();
-
-        const badge = document.querySelector('.barrier .badge');
-        const descriptionBarrier = document.querySelector(
-            '.barrier .description .com-text'
-        );
 
         expect(window.dataLayer).toStrictEqual([
             {
@@ -179,15 +237,7 @@ describe('Share', () => {
                 clickText: 'Guardar Nota'
             }
         ]);
-
-        expect(badge.querySelector('span').innerHTML).toStrictEqual(
-            'Exclusivo suscriptor'
-        );
-
-        expect(descriptionBarrier.innerHTML).toStrictEqual(
-            'Para realizar esta acción adquirí una <strong> suscripción.</strong>'
-        );
-
+        expect(useCheckBookmark).toHaveBeenCalled();
         expect(container).toMatchSnapshot();
     });
 });

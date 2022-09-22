@@ -58,7 +58,8 @@
 
     .mod-logo & {
         max-height: px(46);
-        max-width: fit-content;
+        width: auto;
+        max-width: 100%;
     }
 }
 

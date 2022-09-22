@@ -9,20 +9,18 @@ import useTermica from '../hooks/useTermica';
 import getToken from '../utils/getToken';
 import Barrier from '../barrier/Barrier';
 import { GlobalContext } from '../context/globalContext';
-import Toast from '../toast/Toast';
 import handleCookie from '../../LN/common/utils/handleCookie';
+import ShowToast from '../toast/showToast';
 import '../../../../resources/dist/css/ln/components/bookmark.css';
 
 const BookmarkLayout = () => {
     const { state, dispatch } = useContext(GlobalContext);
     const [showHelper, setShowHelper] = useState(false);
-    const [toast, setToast] = useState(false);
     const token = getToken();
     const termica = useTermica('bookmark_web');
     const { getCookie } = handleCookie();
     const productoPremiumId = getCookie('ProductoPremiumId');
     const isSubscribed = productoPremiumId && productoPremiumId.includes('2');
-
     const {
         bookmarks,
         morePages,
@@ -70,27 +68,25 @@ const BookmarkLayout = () => {
             />
             <HelperBookmark />
 
-            {state.deleteBookmarkId && (
+            {state.showModal.origin === 'bookmark' && (
                 <Barrier
-                    type="delete-note"
+                    type={state.showModal.typeAlert}
                     handleBarrier={() => {
                         dispatch({
-                            type: 'SHOW_MODAL_BARRIER',
+                            type: 'SHOW_MODAL',
                             payload: {
-                                bookmarkId: false
+                                open: false
                             }
                         });
                     }}
-                    bookmarkId={state.deleteBookmarkId}
-                    setToast={setToast}
+                    bookmarkId={state.showModal.data}
                     deleteArticle={deleteArticle}
                     substractOne={substractOne}
+                    dispatch={dispatch}
                 />
             )}
 
-            {toast && toast.status && (
-                <Toast data={toast} handleTimeout={() => setToast(null)} />
-            )}
+            <ShowToast />
         </div>
     );
 };
