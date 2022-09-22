@@ -121,11 +121,11 @@ const onScrollHandler = (
     const scrollPos = window.scrollY;
     const { classList } = header;
     if (layout === layoutsName.FotoAl100) {
-        const vshare = document.getElementById('v-share');
+        const share = document.querySelector('.mod-share-container');
         const { 1: img } = Array.from(document.querySelectorAll('.com-image'));
         img.getBoundingClientRect().y < 0
-            ? vshare.classList.add(CLASS_HANDLE_SHARE)
-            : vshare.classList.remove(CLASS_HANDLE_SHARE);
+            ? share.classList.add(CLASS_HANDLE_SHARE)
+            : share.classList.remove(CLASS_HANDLE_SHARE);
     }
     if (userMenu) userMenu.classList.remove(CLASS_ACTIVE);
     if (scrollPos) {

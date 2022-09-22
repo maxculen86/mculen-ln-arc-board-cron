@@ -1,0 +1,43 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.second-buttons-group {
+    @include flex(flex, row, center, center);
+    position: relative;
+    @media ($media-l) {
+        flex-direction: column;
+    }
+    .com-button {
+        margin-right: $spacing-sm;
+        padding: 0;
+        &.email {
+            margin-right: $spacing-lg;
+            @media ($media-l) {
+                margin-right: 0;
+            }
+        }
+        .icon-whatsapp {
+            margin-top: 0;
+        }
+        @media ($media-l) {
+            margin-right: 0;
+            margin-bottom: $spacing-sm;
+            .icon-whatsapp {
+                margin-top: $spacing-2xs;
+            }
+        }
+    }
+    .--video & {
+        flex-direction: row;
+        .com-button {
+            margin-bottom: 0;
+            margin-right: $spacing-sm;
+            .icon-whatsapp {
+                margin-top: 0;
+            }
+        }
+        .com-icon path {
+            fill: $light-neutral-50;
+        }
+    }
+}

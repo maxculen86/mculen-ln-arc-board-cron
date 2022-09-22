@@ -62,11 +62,15 @@ const media = ({
     const setClassCondition = () => {
         const isFotoAl100 = subtipo.id === FOTOAL100;
         const isZoomActive = withZoom && active;
-        const notFotoAl100Apertura = !(isApertura || isFotoAl100);
+        const notFotoAl100AperturaInsideBody = !(
+            isApertura ||
+            isFotoAl100 ||
+            insideBody
+        );
 
         if (
             withMobileImage ||
-            (isVertical && (notFotoAl100Apertura || isZoomActive))
+            (isVertical && (notFotoAl100AperturaInsideBody || isZoomActive))
         )
             return '--vertical';
 

@@ -32,6 +32,7 @@ describe('Common - GetDataToLinkImage', () => {
     /////////// NOTA ///////////
     describe('When section is note,', () => {
         const expected = `<link rel=\"preload\" as=\"image\" fetchPriority=\"high\" href=\"https://resizer.glanacion.com/resizer/AtNn5RZblCnaBE4JRqbP8O5lCyw=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg\" imagesrcset=\"https://resizer.glanacion.com/resizer/TH-VryessnZukr7fPtHGAp_SeKc=/879x586/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg 879w,https://resizer.glanacion.com/resizer/Gx0v-uWdmqOZawzhVCa09zILHio=/1119x746/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg 1119w,https://resizer.glanacion.com/resizer/AtNn5RZblCnaBE4JRqbP8O5lCyw=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg 768w\"/>`;
+        const expectedHistoryTelling = `<link rel=\"preload\" as=\"image\" fetchPriority=\"high\" href=\"https://resizer.glanacion.com/resizer/TH-VryessnZukr7fPtHGAp_SeKc=/879x586/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg\" imagesrcset=\"https://resizer.glanacion.com/resizer/TH-VryessnZukr7fPtHGAp_SeKc=/879x586/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg 879w,https://resizer.glanacion.com/resizer/Gx0v-uWdmqOZawzhVCa09zILHio=/1119x746/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UE652CZMVBB3ROMJOPCJABEESU.jpg 1119w\"/>`;
 
         it('with resized Media, return array media data', () => {
             const wrapper = shallow(
@@ -50,15 +51,7 @@ describe('Common - GetDataToLinkImage', () => {
             expect(wrapper.isEmptyRender()).toEqual(true);
         });
 
-        it('STORYTELLING or FOTOAL100 without promo_items.storytelling_mobile, return array media data', () => {
-            const wrapper1 = shallow(
-                GetDataToLinkImage({
-                    data: { ...globalContent, subtype: '4' },
-                    section: 'nota'
-                })
-            );
-            expect(wrapper1.html()).toEqual(expected);
-
+        it('FOTOAL100 without promo_items.storytelling_mobile, return array media data', () => {
             const wrapper2 = shallow(
                 GetDataToLinkImage({
                     data: { ...globalContent, subtype: '8' },
@@ -68,15 +61,8 @@ describe('Common - GetDataToLinkImage', () => {
             expect(wrapper2.html()).toEqual(expected);
         });
 
-        it('STORYTELLING or FOTOAL100 with promo_items.storytelling_mobile, return empty Array', () => {
+        it('FOTOAL100 with promo_items.storytelling_mobile, return empty Array', () => {
             const wrapper1 = mount(
-                GetDataToLinkImage({
-                    data: { ...articleToExclude, subtype: '4' },
-                    section: 'nota'
-                })
-            );
-
-            const wrapper2 = mount(
                 GetDataToLinkImage({
                     data: { ...articleToExclude, subtype: '8' },
                     section: 'nota'
@@ -84,8 +70,26 @@ describe('Common - GetDataToLinkImage', () => {
             );
 
             expect(wrapper1).toEqual({});
+        });
+        it('STORYTELLING without promo_items.storytelling_mobile, return empty array', () => {
+            const wrapper1 = shallow(
+                GetDataToLinkImage({
+                    data: { ...globalContent, subtype: '4' },
+                    section: 'nota'
+                })
+            );
+            expect(wrapper1.isEmptyRender()).toEqual(true);
+        });
 
-            expect(wrapper2).toEqual({});
+        it('STORYTELLING with promo_items.storytelling_mobile, return mobile preload', () => {
+            const wrapper1 = shallow(
+                GetDataToLinkImage({
+                    data: { ...articleToExclude, subtype: '4' },
+                    section: 'nota'
+                })
+            );
+
+            expect(wrapper1.html()).toEqual(expectedHistoryTelling);
         });
     });
 

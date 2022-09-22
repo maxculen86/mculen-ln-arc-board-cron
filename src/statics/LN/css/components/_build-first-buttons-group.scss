@@ -1,0 +1,111 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.first-buttons-group {
+    @include flex(flex, row, center, center);
+    position: relative;
+    @media ($media-l) {
+        flex-direction: column;
+    }
+
+    .com-button {
+        margin-right: $spacing-sm;
+        @media ($media-l) {
+            margin-right: 0;
+            margin-bottom: $spacing-sm;
+        }
+        &.bookmark,
+        &.headset {
+            width: px(40);
+            height: px(40);
+        }
+        &.bookmark {
+            background-color: $light-neutral-300;
+            padding: px(5.5);
+            &.--is-saved {
+                background-color: $blue-500;
+                .com-icon svg path {
+                    fill: $light-neutral-50;
+                }
+            }
+        }
+        &.headset {
+            padding: 0;
+            background-color: $dark-neutral-200;
+            border: px(1);
+            path {
+                fill: $light-neutral-50;
+            }
+            span {
+                display: none;
+            }
+        }
+
+        &.comment-btn {
+            display: flex;
+            align-items: center;
+            background-color: $light-neutral-300;
+            border-radius: $spacing-2xs;
+            min-width: px(40);
+            height: px(40);
+            width: fit-content;
+            padding: $spacing;
+            margin-right: 0;
+            .com-text {
+                margin-left: $spacing;
+            }
+            @media ($media-l) {
+                flex-direction: column;
+                height: fit-content;
+                margin-bottom: $spacing;
+                .com-text {
+                    margin-left: 0;
+                    margin-top: $spacing;
+                }
+            }
+        }
+    }
+    .--video & {
+        @media ($media-l) {
+            flex-direction: row;
+        }
+        .com-button {
+            margin-bottom: 0;
+            margin-right: $spacing-sm;
+            &.bookmark,
+            &.comment-btn {
+                background: $dark-neutral-200;
+                .com-text {
+                    color: $light-neutral-50;
+                    margin-top: 0;
+                    margin-left: $spacing;
+                }
+            }
+            &.comment-btn {
+                flex-direction: row;
+                margin-right: 0;
+                min-width: px(40);
+            }
+            &.headset {
+                background: $light-neutral-50;
+                path {
+                    fill: $light-neutral-800;
+                }
+                span {
+                    display: none;
+                }
+            }
+            &.bookmark {
+                &.--is-saved {
+                    background-color: $dark-neutral-900;
+                    .com-icon svg path {
+                        fill: $dark-neutral-50;
+                    }
+                }
+            }
+        }
+        .com-icon path {
+            fill: $light-neutral-50;
+        }
+    }
+}

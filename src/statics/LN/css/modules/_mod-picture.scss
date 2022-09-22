@@ -99,7 +99,7 @@
     .placeholder {
         padding-top: calc((4 / 3) * 100%);
         .com-image {
-            height: auto;
+            height: 100%;
         }
     }
     @media ($media-m) {
