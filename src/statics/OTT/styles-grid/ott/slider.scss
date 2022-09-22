@@ -83,17 +83,16 @@ section > article > .figure:after {
 }
 
 section > article > .figure:before {
-    content: '';
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-image: url('../img/placeholder.png');
+    top: 50%;
+    transform: translateY(-50%);
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTkiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA1OSA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yOS40OTE1IDBDMTMuMjA4OCAwIDAgMTMuNDI1MiAwIDMwQzAgNDYuNTc0OCAxMy4xOTc3IDYwIDI5LjQ5MTUgNjBDNDUuNzc0MiA2MCA1OC45ODMxIDQ2LjU3NDggNTguOTgzMSAzMEM1OC45ODMxIDEzLjQyNTIgNDUuNzc0MiAwIDI5LjQ5MTUgMFpNMjcuMTUyNyAzOC44MDNIMTEuNjE2MlYzNy42MDIxSDE0LjJWMjIuMzc1NUgxMS42MTYyVjIxLjE2MzNIMjEuOTg1VjIyLjM3NTVIMTkuMTMzOFYzNy41OTA4SDE5Ljc0NjRDMjMuMTU0NCAzNy41OTA4IDI1Ljg3MTkgMzYuNTQ4NSAyNS44NzE5IDMyLjUzNzlWMzEuNzc4OEgyNy4xNTI3VjM4LjgwM1pNNDcuNzU2NyAyMi4zNzU1SDQ4LjA2ODVWMjEuMTYzM0g0MS42NjQ2VjIyLjM3NTVINDIuMTMyM0M0My40MjQzIDIyLjM3NTUgNDQuMTI1OSAyMi44NTEzIDQ0LjEyNTkgMjMuODAzVjMxLjI2OUwzNi4xMTgyIDIxLjE3NDZIMjguNjMzOVYyMi4zODY4SDI4Ljc1NjVDMjkuNzM2NSAyMi4zODY4IDMwLjcyNzcgMjMuMTU3MiAzMC43Mjc3IDI0LjM1ODFWMzUuNzg5NEMzMC43Mjc3IDM3LjMxODkgMjkuODgxMyAzNy41OTA4IDI4Ljk3OTIgMzcuNTkwOEgyOC41NDQ4VjM4Ljc5MTdMMzUuMDA0NSAzOC44MTQzTDM0LjkzNzYgMzcuNTkwOEgzNC43NDgzQzMzLjEyMjMgMzcuNTkwOCAzMi40NzYzIDM3LjM1MjggMzIuNDc2MyAzNS45MjU0VjI0LjkyNDZMNDMuNDQ2NSAzOC43OTE3SDQ1Ljg5NjdWMjMuNzIzN0M0NS44OTY3IDIzLjA4OTMgNDYuNDQyNSAyMi4zNzU1IDQ3Ljc1NjcgMjIuMzc1NVoiIGZpbGw9IiNkOWQ5ZDkiLz4KPC9zdmc+Cg==);
     background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    transition: 0.2s ease opacity;
+    background-size: contain;
+    background-position: center;
+    width: 4.2rem;
+    height: 4.2rem;
+    content: '';
 }
 
 .programas .article .figure:after {
@@ -188,6 +187,7 @@ section > article > .figure:before {
     .slider .title a {
         font-size: 0.9em;
     }
+
     .programas .article .figure:after {
         line-height: 1.8em;
     }
@@ -197,21 +197,27 @@ section > article > .figure:before {
     .slider .title a {
         font-size: 0.97em;
     }
+
     .section-title {
         font-size: 1.5em;
     }
+
     section:not(.programas) > section > article > .figure::after {
         background-size: 5em;
     }
+
     #all .slider .article:last-of-type {
         @include flex;
     }
+
     .slider .article {
         width: calc((100% - 1rem) / 3);
     }
+
     .slider .article:nth-of-type(4n + 4) {
         padding-right: 0.5em;
     }
+
     .slider .article:nth-of-type(3n + 3) {
         padding-right: 0;
     }
@@ -222,6 +228,7 @@ section > article > .figure:before {
     .previous:after {
         font-size: 1.2rem;
     }
+
     .programas .article .figure:after {
         content: '';
         background-color: rgba(45, 45, 45, 0);
@@ -233,15 +240,19 @@ section > article > .figure:before {
         font-size: 1.4em;
         line-height: 1.6em;
     }
+
     .slider .article {
         width: calc((100% - 0.5rem) / 2);
     }
+
     .slider .article:nth-of-type(3n + 3) {
         padding-right: 0.5em;
     }
+
     .slider .article:nth-of-type(2n + 2) {
         padding-right: 0;
     }
+
     .next,
     .previous {
         z-index: 2;
