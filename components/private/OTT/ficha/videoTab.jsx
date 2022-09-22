@@ -53,19 +53,14 @@ class VideoTab extends PureComponent {
     render() {
         return (
             <>
-                <div
-                    itemScope
-                    itemType="http://schema.org/VideoObject"
-                    style={{ display: 'none' }}
-                >
-                    {this.analytics.map(elem => (
-                        <meta
-                            itemProp={elem.itemProp}
-                            content={elem.content}
-                            key={this.videoId}
-                        />
-                    ))}
-                </div>
+                {this.analytics.map(elem => (
+                    <meta
+                        itemProp={elem.itemProp}
+                        content={elem.content}
+                        key={this.videoId}
+                    />
+                ))}
+
                 <Video videoId={this.videoId} />
                 <VideoInfo title={this.title} date={this.date} />
             </>

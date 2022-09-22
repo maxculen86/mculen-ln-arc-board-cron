@@ -321,30 +321,6 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
             </span>
           </p>
         </div>
-        <div
-          class="temperature"
-        >
-          <span
-            class="com-text --5xs"
-          >
-            Mín:
-          </span>
-          <span
-            class="com-text --font-bold --4xs"
-          >
-            -
-          </span>
-          <span
-            class="com-text --5xs"
-          >
-            Máx:
-          </span>
-          <span
-            class="com-text --font-bold --4xs"
-          >
-            11º
-          </span>
-        </div>
         <h3
           class="com-text --fivexs"
         >
@@ -1277,30 +1253,6 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
               ºc
             </span>
           </p>
-        </div>
-        <div
-          class="temperature"
-        >
-          <span
-            class="com-text --5xs"
-          >
-            Mín:
-          </span>
-          <span
-            class="com-text --font-bold --4xs"
-          >
-            -
-          </span>
-          <span
-            class="com-text --5xs"
-          >
-            Máx:
-          </span>
-          <span
-            class="com-text --font-bold --4xs"
-          >
-            12º
-          </span>
         </div>
         <h3
           class="com-text --fivexs"
@@ -2413,30 +2365,6 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
               ºc
             </span>
           </p>
-        </div>
-        <div
-          class="temperature"
-        >
-          <span
-            class="com-text --5xs"
-          >
-            Mín:
-          </span>
-          <span
-            class="com-text --font-bold --4xs"
-          >
-            -
-          </span>
-          <span
-            class="com-text --5xs"
-          >
-            Máx:
-          </span>
-          <span
-            class="com-text --font-bold --4xs"
-          >
-            13º
-          </span>
         </div>
         <h3
           class="com-text --fivexs"
