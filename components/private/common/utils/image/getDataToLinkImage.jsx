@@ -4,11 +4,11 @@ import get from '../get';
 import getImage from './getImage';
 import { getChildsFromSections } from '../../../LN/common/utils/homeHelper';
 import sectionsValidation from '../../../../layouts/config/LN-Home.config';
-import { FOTOAL100, STORYTELLING } from '../subtypes/subtypeHelper';
+import { STORYTELLING } from '../subtypes/subtypeHelper';
 import {
     LinkImagePreload,
     wikiImagesWithWWW,
-    replaceAllUrlResizedToWWW
+    replaceAllUrlsResizerArray
 } from '../../../LN/common/utils/mediaHelper';
 import getVideoPosterResized from '../video/getVideoPosterResized';
 import replaceUrlResizerToWWW from '../../../../../content/sources/utils/replaceUrlResizerToWWW';
@@ -146,14 +146,9 @@ const GetDataToLinkImage = ({
 
     const sectionData = {
         nota: () => {
-            const shouldExclude = !!(
-                subtype === FOTOAL100 &&
-                get(promoItems, 'storytelling_mobile.resized_urls.length')
-            );
-
             const resizedUrls =
                 subtype === STORYTELLING
-                    ? replaceAllUrlResizedToWWW(
+                    ? replaceAllUrlsResizerArray(
                           get(
                               promoItems,
                               'storytelling_mobile.resized_urls',
@@ -161,11 +156,7 @@ const GetDataToLinkImage = ({
                           )
                       )
                     : get(basic, 'resized_urls', []);
-            return !shouldExclude ? (
-                <LinkImagePreload resizedUrls={resizedUrls} />
-            ) : (
-                <></>
-            );
+            return <LinkImagePreload resizedUrls={resizedUrls} />;
         },
         acumulado: () => {
             if (isWiki) {

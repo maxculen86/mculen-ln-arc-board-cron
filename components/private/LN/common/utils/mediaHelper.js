@@ -156,13 +156,17 @@ export const wikiImagesWithWWW = data => {
     return imagesToPreload;
 };
 
-export const replaceAllUrlResizedToWWW = (data = {}) => {
+export const replaceAllUrlsResizerObject = (object = {}) => {
     const { host = 'https://www.lanacion.com.ar' } =
         getProperties('la-nacion-ar') || {};
-    const resizersReplaced = JSON.stringify(data)
+    const resizersReplaced = JSON.stringify(object)
         .split(RESIZER_URL_PUBLIC)
         .join(host);
     return JSON.parse(resizersReplaced);
+};
+
+export const replaceAllUrlsResizerArray = (array = []) => {
+    return array.map(data => replaceAllUrlsResizerObject(data));
 };
 
 export const buildScriptForZoom = (mediaData, subtype) => {
