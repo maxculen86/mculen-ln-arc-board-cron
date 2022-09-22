@@ -1,6 +1,6 @@
 import React from 'react';
-
-import { render } from 'enzyme';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import WikiAuthor from '../../../../../components/private/LN/acumulado/author/wikiAuthor';
 
 describe('private - LN - acumulado - Author - wikiAuthor', () => {
@@ -8,6 +8,7 @@ describe('private - LN - acumulado - Author - wikiAuthor', () => {
         byline: 'Joaquín Morales Solá',
         bio_page: 'https://google.com',
         location: 'Argentina',
+        expertise: 'Politica',
         image: {
             url: 'https://bucket2.glanacion.com/anexos/fotos/95/3037695h320.png'
         },
@@ -82,9 +83,9 @@ describe('private - LN - acumulado - Author - wikiAuthor', () => {
         tumblr: '@moralessola'
     };
 
-    const component = render(<WikiAuthor data={globalContent1} />);
     it('Test de snapshot Bio Author', () => {
-        expect(component).toMatchSnapshot();
+        const { container } = render(<WikiAuthor data={globalContent1} />);
+        expect(container).toMatchSnapshot();
     });
 
     const globalContent2 = {
@@ -110,8 +111,8 @@ describe('private - LN - acumulado - Author - wikiAuthor', () => {
         twitter: '@moralessola'
     };
 
-    const component2 = render(<WikiAuthor data={globalContent2} />);
     it('Test de snapshot Bio Author Sin muchos datos', () => {
-        expect(component2).toMatchSnapshot();
+        const { container } = render(<WikiAuthor data={globalContent2} />);
+        expect(container).toMatchSnapshot();
     });
 });

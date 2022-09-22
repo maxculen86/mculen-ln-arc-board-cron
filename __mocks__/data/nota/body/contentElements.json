@@ -2250,74 +2250,115 @@
                 "type": "custom_embed"
             },
             {
-                "_id": "5UP2D5YW2RGXTMSHSHBG2KK7AA",
-                "embed": {
-                    "config": {
-                        "items": [
-                            {
-                                "text": "Calorías",
-                                "unit": "kcal",
-                                "value": 200
-                            },
-                            {
-                                "text": "Carbohidratos",
-                                "unit": "g",
-                                "value": 300
-                            },
-                            {
-                                "text": "Colesterol",
-                                "unit": "mg",
-                                "value": 200
-                            },
-                            {
-                                "text": "Grasas",
-                                "unit": "g",
-                                "value": 200
-                            },
-                            {
-                                "text": "Fibras",
-                                "unit": "g",
-                                "value": 10
-                            },
-                            {
-                                "text": "Proteínas",
-                                "unit": "g",
-                                "value": 200
-                            },
-                            {
-                                "text": "Grasas saturadas",
-                                "unit": "g",
-                                "value": 8
-                            },
-                            {
-                                "text": "Tamaño de porcion",
-                                "unit": "g",
-                                "value": 5
-                            },
-                            {
-                                "text": "Sodio",
-                                "unit": "mg",
-                                "value": 200
-                            },
-                            {
-                                "text": "Azúcar",
-                                "unit": "g",
-                                "value": 100
-                            },
-                            {
-                                "text": "Grasas trans",
-                                "unit": "g",
-                                "value": 50
-                            },
-                            {
-                                "text": "Grasas insaturadas",
-                                "unit": "g",
-                                "value": 3
-                            }
-                        ],
-                        "typeList": "nutritional-info"
+                "_id": "MRE33RWFYNCDJA2Y3PT2PLGJFA",
+                "header": [
+                    {
+                        "_id": "nutritional-info-property",
+                        "content": "Propiedad"
+                    },
+                    {
+                        "_id": "nutritional-info-ammount",
+                        "content": "Cantidad por porción"
                     }
-                },
+                ],
+                "rows": [
+                    [
+                        {
+                            "content": "Calorías"
+                        },
+                        {
+                            "content": "200 kcal"
+                        }
+                    ],
+                    [
+                        {
+                            "content": "Carbohidratos"
+                        },
+                        {
+                            "content": "300 g"
+                        }
+                    ],
+                    [
+                        {
+                            "content": "Colesterol"
+                        },
+                        {
+                            "content": "200 mg"
+                        }
+                    ],
+                    [
+                        {
+                            "content": "Grasas"
+                        },
+                        {
+                            "content": "200 g"
+                        }
+                    ],
+                    [
+                        {
+                            "content": "Fibras"
+                        },
+                        {
+                            "content": "10 g"
+                        }
+                    ],
+                    [
+                        {
+                            "content": "Proteínas"
+                        },
+                        {
+                            "content": "200 g"
+                        }
+                    ],
+                    [
+                        {
+                            "content": "Grasas saturadas"
+                        },
+                        {
+                            "content": "8 g"
+                        }
+                    ],
+                    [
+                        {
+                            "content": "Tamaño de porcion"
+                        },
+                        {
+                            "content": "5 g"
+                        }
+                    ],
+                    [
+                        {
+                            "content": "Sodio"
+                        },
+                        {
+                            "content": "200 mg"
+                        }
+                    ],
+                    [
+                        {
+                            "content": "Azúcar"
+                        },
+                        {
+                            "content": "100 g"
+                        }
+                    ],
+                    [
+                        {
+                            "content": "Grasas trans"
+                        },
+                        {
+                            "content": "50 g"
+                        }
+                    ],
+                    [
+                        {
+                            "content": "Grasas insaturadas"
+                        },
+                        {
+                            "content": "3 g"
+                        }
+                    ]
+                ],
                 "subtype": "custom-nutrition",
                 "type": "custom_embed"
             }
