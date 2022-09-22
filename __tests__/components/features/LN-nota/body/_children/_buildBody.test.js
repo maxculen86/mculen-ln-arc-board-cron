@@ -173,7 +173,7 @@ describe('BuildBody', () => {
             container.querySelectorAll(`div[class*="--preparation"]`)
         ).toHaveLength(1);
         expect(
-            container.querySelectorAll(`div[class*="--nutrition"]`)
+            container.querySelectorAll(`table[class*="table"]`)
         ).toHaveLength(1);
         /* divider */
         expect(
@@ -272,7 +272,7 @@ describe('BuildBody', () => {
             container.querySelectorAll(`div[class*="--preparation"]`)
         ).toHaveLength(1);
         expect(
-            container.querySelectorAll(`div[class*="--nutrition"]`)
+            container.querySelectorAll(`table[class*="table"]`)
         ).toHaveLength(1);
         /* divider */
         expect(
@@ -381,7 +381,7 @@ describe('BuildBody', () => {
             container.querySelectorAll(`div[class*="--preparation"]`)
         ).toHaveLength(0);
         expect(
-            container.querySelectorAll(`div[class*="--nutrition"]`)
+            container.querySelectorAll(`table[class*="table"]`)
         ).toHaveLength(0);
         /* divider */
         expect(

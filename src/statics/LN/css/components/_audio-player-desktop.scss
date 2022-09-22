@@ -1,0 +1,46 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+#audio-player-desktop {
+    display: none;
+    @media ($media-l) {
+        display: flex;
+        width: 100%;
+        margin-bottom: $spacing-lg;
+        align-items: center;
+        transition: 1s ease-in all;
+        min-height: px(56);
+        .headset {
+            &:disabled {
+                opacity: 0.4;
+                cursor: default;
+            }
+            &:hover:not(:disabled) {
+                opacity: 0.8;
+            }
+            height: $spacing-lg;
+            margin-right: $spacing-xs;
+            padding: $spacing $spacing-sm;
+            border-radius: $spacing-md;
+            background-color: $dark-neutral-200;
+            height: fit-content;
+            margin-right: $spacing-sm;
+            .com-text {
+                color: $dark-neutral-900;
+            }
+            .icon-headset {
+                margin-right: $spacing;
+                height: px(13);
+                width: px(13);
+            }
+            .com-icon {
+                path {
+                    fill: $light-neutral-50;
+                }
+            }
+        }
+        .loader {
+            margin: 0;
+        }
+    }
+}

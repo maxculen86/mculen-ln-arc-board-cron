@@ -1,0 +1,115 @@
+{
+    "_id": "MRE33RWFYNCDJA2Y3PT2PLGJFA",
+    "header": [
+        {
+            "_id": "nutritional-info-property",
+            "content": "Propiedad"
+        },
+        {
+            "_id": "nutritional-info-ammount",
+            "content": "Cantidad por porción"
+        }
+    ],
+
+    "rows": [
+        [
+            {
+                "content": "Calorías"
+            },
+            {
+                "content": "2 kcal"
+            }
+        ],
+        [
+            {
+                "content": "Carbohidratos"
+            },
+            {
+                "content": "3 g"
+            }
+        ],
+        [
+            {
+                "content": "Colesterol"
+            },
+            {
+                "content": "1 mg"
+            }
+        ],
+        [
+            {
+                "content": "Grasas"
+            },
+            {
+                "content": "1 g"
+            }
+        ],
+        [
+            {
+                "content": "Fibras"
+            },
+            {
+                "content": "2 g"
+            }
+        ],
+        [
+            {
+                "content": "Proteínas"
+            },
+            {
+                "content": "200 g"
+            }
+        ],
+        [
+            {
+                "content": "Grasas saturadas"
+            },
+            {
+                "content": "5 g"
+            }
+        ],
+        [
+            {
+                "content": "Tamaño de porcion"
+            },
+            {
+                "content": "4 g"
+            }
+        ],
+        [
+            {
+                "content": "Sodio"
+            },
+            {
+                "content": "50 mg"
+            }
+        ],
+        [
+            {
+                "content": "Azúcar"
+            },
+            {
+                "content": "18.3 g"
+            }
+        ],
+        [
+            {
+                "content": "Grasas trans"
+            },
+            {
+                "content": "4.4 g"
+            }
+        ],
+        [
+            {
+                "content": "Grasas insaturadas"
+            },
+            {
+                "content": "10.6 g"
+            }
+        ]
+    ],
+    "typeList": "nutritional-info",
+    "subtype": "custom-nutrition",
+    "type": "custom_embed"
+}

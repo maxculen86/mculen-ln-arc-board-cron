@@ -1148,6 +1148,7 @@ Trabaja en el diario LA NACION desde 2006,  donde se desempeñó en las áreas d
     },
   ],
   "count": 1,
+  "isListenable": false,
   "paywallEnabled": "",
   "subscription": "A",
   "taxonomy": Object {
