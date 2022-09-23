@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components - private - LN - acumulado - breadcrumbs - BreadcrumbColumnista Should render columnista breadcrumb correctly 1`] = `
+exports[`components - private - LN - acumulado - breadcrumbs - BreadcrumbColumnista Should render columnista breadcrumb correctly with two bullets 1`] = `
 <div>
   <nav
     class="com-breadcrumb "
@@ -50,7 +50,7 @@ exports[`components - private - LN - acumulado - breadcrumbs - BreadcrumbColumni
 </div>
 `;
 
-exports[`components - private - LN - acumulado - breadcrumbs - BreadcrumbColumnista Test de snapshot BreadcrumbColumnista 1`] = `
+exports[`components - private - LN - acumulado - breadcrumbs - BreadcrumbColumnista Should render columnista breadcrumb correctly with two bullets and "Columnistas" 1`] = `
 <div>
   <nav
     class="com-breadcrumb "
