@@ -1,55 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components - private - LN - acumulado - breadcrumbs - BreadcrumbColumnista Should render columnista breadcrumb correctly with two bullets 1`] = `
-<div>
-  <nav
-    class="com-breadcrumb "
-  >
-    <a
-      class="com-link --fourxs"
-      data-event="LinkClick"
-      data-section="AperturaAcuRecetas"
-      href="https://www.lanacion.com.ar/"
-      title="Noticias de LA NACION"
-    >
-      <i
-        class="--bullet --fourxs"
-      >
-        &gt;
-      </i>
-      LA NACION
-    </a>
-    <span
-      class="com-text --fourxs"
-    >
-      <i
-        class="--bullet --fourxs"
-      >
-        &gt;
-      </i>
-      Columnistas
-    </span>
-  </nav>
-  <script
-    type="application/ld+json"
-  >
-    
-            {
-                "@context": "https://schema.org",
-                "@type": "BreadcrumbList",
-                "itemListElement": [{"@type":"ListItem","position":1,"name":"LA NACION"},
-                {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "name": "Columnistas",
-                    "item": "https://www.lanacion.com.arundefined"
-                }
-            ]
-            }
-  </script>
-</div>
-`;
-
 exports[`components - private - LN - acumulado - breadcrumbs - BreadcrumbColumnista Should render columnista breadcrumb correctly with two bullets and "Columnistas" 1`] = `
 <div>
   <nav
