@@ -1,10 +1,17 @@
 import React from 'react';
+import Context from 'fusion:context';
 import {
     getTitle,
     getMetaDescriptionDefault,
     getSectionOfRequestUri,
     metasFromSiteServices
 } from '../../../../../components/private/common/utils/outputTypeHelper';
+
+jest.mock('fusion:context', Component => {
+    return function(Component) {
+        return props => <Component {...props} />;
+    };
+});
 
 describe('Common - utils - getTitle', () => {
     const metaValue = 'Ultimas noticias en la nacion';
@@ -150,6 +157,10 @@ describe('Common Util getMetaDescriptionDefault', () => {
     });
 
     test('Test de retorno para acumulado', () => {
+        Context.useAppContext = jest.fn(() => ({
+            globalContent: {}
+        }));
+
         const metaValue =
             'Últimas Noticias de Propiedades: ARBA les bonifica el 25% en el Impuesto Inmobiliario, Cuáles son las dos zonas que ganaron en plena pandemia y por qué - LA NACION';
         const _nodeType = 'acumulado';
