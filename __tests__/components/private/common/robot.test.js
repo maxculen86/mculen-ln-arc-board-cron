@@ -19,7 +19,7 @@ describe('Private - LN - Common - robot', () => {
         expect(container).toBeEmptyDOMElement();
     });
 
-    it('Validar props enviadas', () => {
+    it('Validate sent props', () => {
         const { container } = render(<Robot {...props} />);
         const link = container.getElementsByTagName('link');
         expect(link[0].href).toEqual(
@@ -27,12 +27,12 @@ describe('Private - LN - Common - robot', () => {
         );
     });
 
-    it('Si no envio props retornar null', () => {
+    it('If no props are sended return empty dom element', () => {
         const { container } = render(<Robot />);
         expect(container).toBeEmptyDOMElement();
     });
 
-    it('Atributos y nodo del DOM correcto', () => {
+    it('Should have the correct DOM attributes', () => {
         const { container } = render(<Robot {...props} />);
         const link = container.getElementsByTagName('link');
         expect(link).toHaveLength(1);
