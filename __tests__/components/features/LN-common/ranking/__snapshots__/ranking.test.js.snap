@@ -88,11 +88,11 @@ exports[`Features - LN - Common - Ranking - default Should render ranking acu po
                       href="/politica/ladronima-la-medida-que-tomo-una-provincia-contra-los-supermercados-de-federico-braun-nid10062022/"
                       title="“Ladrónima”. La medida que tomó una provincia contra los supermercados de Federico Braun"
                     >
-                      <em
+                      <span
                         class="com-lead"
                       >
                         “Ladrónima”. 
-                      </em>
+                      </span>
                       La medida que tomó una provincia contra los supermercados de Federico Braun
                     </a>
                   </h3>
@@ -159,11 +159,11 @@ exports[`Features - LN - Common - Ranking - default Should render ranking acu po
                       href="/politica/la-trastienda-de-la-cumbre-un-mensaje-que-sacudio-el-ambiente-y-la-reaccion-de-biden-a-las-palabras-nid09062022/"
                       title="La trastienda de la cumbre. Un mensaje que sacudió el ambiente y la reacción de Biden a las palabras de Fernández"
                     >
-                      <em
+                      <span
                         class="com-lead"
                       >
                         La trastienda de la cumbre. 
-                      </em>
+                      </span>
                       Un mensaje que sacudió el ambiente y la reacción de Biden a las palabras de Fernández
                     </a>
                   </h3>
@@ -230,11 +230,11 @@ exports[`Features - LN - Common - Ranking - default Should render ranking acu po
                       href="/politica/la-ministra-de-mujeres-generos-y-diversidad-defendio-el-uso-del-lenguaje-inclusivo-en-las-escuelas-nid10062022/"
                       title="El @, la X y la E. La respuesta de la ministra de Mujeres a la limitación del lenguaje inclusivo en las escuelas porteñas"
                     >
-                      <em
+                      <span
                         class="com-lead"
                       >
                         El @, la X y la E. 
-                      </em>
+                      </span>
                       La respuesta de la ministra de Mujeres a la limitación del lenguaje inclusivo en las escuelas porteñas
                     </a>
                   </h3>
@@ -301,11 +301,11 @@ exports[`Features - LN - Common - Ranking - default Should render ranking acu po
                       href="/politica/la-rotunda-afirmacion-de-elisa-carrio-si-votas-a-javier-milei-votas-a-un-genocida-nid10062022/"
                       title="\\"Típica reacción\\". Carrió trató a Milei de \\"genocida\\" y el economista le contestó"
                     >
-                      <em
+                      <span
                         class="com-lead"
                       >
                         "Típica reacción". 
-                      </em>
+                      </span>
                       Carrió trató a Milei de "genocida" y el economista le contestó
                     </a>
                   </h3>
@@ -405,11 +405,11 @@ exports[`Features - LN - Common - Ranking - default Should render ranking home 1
                     href="/el-mundo/joe-biden-cuestiona-a-volodimir-zelensky-porque-no-quiso-escuchar-sus-advertencias-sobre-una-nid11062022/"
                     title="\\"No quiso escuchar\\". Biden sorprendió con un duro reproche a Zelensky y recibió una contundente respuesta"
                   >
-                    <em
+                    <span
                       class="com-lead"
                     >
                       "No quiso escuchar". 
-                    </em>
+                    </span>
                     Biden sorprendió con un duro reproche a Zelensky y recibió una contundente respuesta
                   </a>
                 </h2>
@@ -474,11 +474,11 @@ exports[`Features - LN - Common - Ranking - default Should render ranking home 1
                     href="/seguridad/pidieron-que-la-justicia-ordene-de-urgencia-el-abastecimiento-de-combustible-al-avion-de-los-iranies-nid11062022/"
                     title="Ezeiza. Pidieron que la Justicia ordene de urgencia el abastecimiento de combustible al avión de los iraníes"
                   >
-                    <em
+                    <span
                       class="com-lead"
                     >
                       Ezeiza. 
-                    </em>
+                    </span>
                     Pidieron que la Justicia ordene de urgencia el abastecimiento de combustible al avión de los iraníes
                   </a>
                 </h2>
@@ -543,11 +543,11 @@ exports[`Features - LN - Common - Ranking - default Should render ranking home 1
                     href="/espectaculos/revelan-un-detalle-de-la-supuesta-amante-de-gerard-pique-que-devastaria-a-shakira-nid10062022/"
                     title="Insólito. Revelan un detalle de la supuesta amante de Piqué que devastaría a Shakira"
                   >
-                    <em
+                    <span
                       class="com-lead"
                     >
                       Insólito. 
-                    </em>
+                    </span>
                     Revelan un detalle de la supuesta amante de Piqué que devastaría a Shakira
                   </a>
                 </h2>
@@ -612,11 +612,11 @@ exports[`Features - LN - Common - Ranking - default Should render ranking home 1
                     href="/espectaculos/los-8-escalones-del-millon-le-preguntaron-que-haria-si-ganaba-el-dinero-y-su-respuesta-emociono-a-nid11062022/"
                     title="Los 8 escalones del millón. Le preguntaron qué haría si ganaba el dinero y su respuesta emocionó a todos"
                   >
-                    <em
+                    <span
                       class="com-lead"
                     >
                       Los 8 escalones del millón. 
-                    </em>
+                    </span>
                     Le preguntaron qué haría si ganaba el dinero y su respuesta emocionó a todos
                   </a>
                 </h2>
@@ -711,11 +711,11 @@ exports[`Features - LN - Common - Ranking - default Should render ranking revers
                 href="/horoscopo/que-personaje-de-la-historia-representa-mejor-a-cada-signo-del-zodiaco-nid11062022/"
                 title="De Marilyn Monroe a Ghandi. Qué personaje de la historia representa mejor a cada signo del Zodíaco"
               >
-                <em
+                <span
                   class="com-lead"
                 >
                   De Marilyn Monroe a Ghandi. 
-                </em>
+                </span>
                 Qué personaje de la historia representa mejor a cada signo del Zodíaco
               </a>
             </h2>
@@ -778,11 +778,11 @@ exports[`Features - LN - Common - Ranking - default Should render ranking revers
                 href="/revista-hola/nueva-casa-en-punta-natalia-oreiro-en-un-terreno-de-2600-metros-cuadrados-construye-su-refugio-con-nid10062022/"
                 title="Nueva casa en Punta. Natalia Oreiro construye en un terreno de 2600 metros cuadrados su refugio con vistas a Laguna del Sauce"
               >
-                <em
+                <span
                   class="com-lead"
                 >
                   Nueva casa en Punta. 
-                </em>
+                </span>
                 Natalia Oreiro construye en un terreno de 2600 metros cuadrados su refugio con vistas a Laguna del Sauce
               </a>
             </h2>
@@ -845,11 +845,11 @@ exports[`Features - LN - Common - Ranking - default Should render ranking revers
                 href="/lifestyle/donde-esta-el-segundo-tigre-el-desafio-visual-que-solo-el-1-logra-descubrir-nid10062022/"
                 title="Imposible. ¿Dónde está el segundo tigre? El desafío visual que solo el 1% logra descubrir"
               >
-                <em
+                <span
                   class="com-lead"
                 >
                   Imposible. 
-                </em>
+                </span>
                 ¿Dónde está el segundo tigre? El desafío visual que solo el 1% logra descubrir
               </a>
             </h2>
@@ -912,11 +912,11 @@ exports[`Features - LN - Common - Ranking - default Should render ranking revers
                 href="/lifestyle/por-que-es-feriado-el-17-y-el-20-de-junio-en-la-argentina-nid10062022/"
                 title="Descanso. ¿Por qué es feriado el 17 y el 20 de junio en la Argentina?"
               >
-                <em
+                <span
                   class="com-lead"
                 >
                   Descanso. 
-                </em>
+                </span>
                 ¿Por qué es feriado el 17 y el 20 de junio en la Argentina?
               </a>
             </h2>
@@ -979,11 +979,11 @@ exports[`Features - LN - Common - Ranking - default Should render ranking revers
                 href="/lifestyle/se-probo-un-vestido-en-una-famosa-tienda-y-tuvo-una-desopilante-reaccion-al-ver-como-le-quedo-nid10062022/"
                 title="Irónica. Se probó un vestido en una famosa tienda y tuvo una desopilante reacción al ver cómo le quedó"
               >
-                <em
+                <span
                   class="com-lead"
                 >
                   Irónica. 
-                </em>
+                </span>
                 Se probó un vestido en una famosa tienda y tuvo una desopilante reacción al ver cómo le quedó
               </a>
             </h2>
@@ -1046,11 +1046,11 @@ exports[`Features - LN - Common - Ranking - default Should render ranking revers
                 href="/revista-hola/soy-una-viuda-eterna-chloe-bello-habla-de-amor-de-los-lugares-oscuros-de-los-que-se-alejo-y-de-los-nid11062022/"
                 title="Íntimas confesiones. Chloé Bello, la ex novia de Cerati, habla de los lugares oscuros del pasado y los “hijos costumizados”"
               >
-                <em
+                <span
                   class="com-lead"
                 >
                   Íntimas confesiones. 
-                </em>
+                </span>
                 Chloé Bello, la ex novia de Cerati, habla de los lugares oscuros del pasado y los “hijos costumizados”
               </a>
             </h2>
