@@ -1,61 +1,63 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Author 1`] = `
-<section
-  class="mod-wikiauthor  "
->
-  <div
-    class="row"
+<div>
+  <section
+    class="mod-wikiauthor  "
   >
     <div
-      class="col-12 col-tablet-4 col-deskxl-3"
-    >
-      <figure
-        class="mod-figure --horizontal"
-      >
-        <div
-          class="placeholder "
-        >
-          <img
-            alt="Joaquín Morales Solá"
-            class="com-image "
-            decoding="async"
-            fetchpriority="low"
-            height="280"
-            loading="lazy"
-            src="https://bucket2.glanacion.com/anexos/fotos/95/3037695h320.png"
-            srcset="https://bucket2.glanacion.com/anexos/fotos/95/3037695h320.png"
-            width="280"
-          />
-        </div>
-      </figure>
-    </div>
-    <div
-      class="col-12 col-tablet-8 col-deskxl-9"
+      class="row"
     >
       <div
-        class="com-container  --info"
+        class="col-12 col-tablet-4 col-deskxl-3"
       >
-        <h1
-          class="com-title --l"
+        <figure
+          class="mod-figure --horizontal"
         >
-          Joaquín Morales Solá
-        </h1>
-        <div
-          class="com-container  --contact"
-        >
-          <a
-            class="com-link"
-            href="https://google.com"
-            title=""
+          <div
+            class="placeholder "
           >
-            https://google.com
-          </a>
-        </div>
-        <p
-          class="com-text --bio --twoxs"
+            <img
+              alt="Joaquín Morales Solá"
+              class="com-image "
+              decoding="async"
+              fetchpriority="low"
+              height="280"
+              loading="lazy"
+              src="https://bucket2.glanacion.com/anexos/fotos/95/3037695h320.png"
+              srcset="https://bucket2.glanacion.com/anexos/fotos/95/3037695h320.png"
+              width="280"
+            />
+          </div>
+        </figure>
+      </div>
+      <div
+        class="col-12 col-tablet-8 col-deskxl-9"
+      >
+        <div
+          class="com-container  --info"
         >
-          Ejerce el periodismo desde los 16 años cuando ingresó al
+          <h1
+            class="com-title --l"
+          >
+            Joaquín Morales Solá
+          </h1>
+          <div
+            class="com-container  --contact"
+          >
+            
+            <a
+              class="com-link"
+              href="https://google.com"
+              title=""
+            >
+              https://google.com
+            </a>
+          </div>
+          <p
+            class="com-text --bio --twoxs"
+          >
+            Ejerce el periodismo desde los 16 años cuando ingresó al
                 diario La Gaceta de Tucumán. En 1975, Clarín lo convocó para
                 ser prosecretario de la sección Política. Durante 12 años
                 fue segundo jefe de Redacción y autor de la columna política
@@ -73,663 +75,681 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 vicepresidente Chacho Alvarez, sobre la trama secreta de los
                 sobornos en el Senado, las causas de su renuncia y los
                 errores que condujeron al fracaso de la Alianza.
-        </p>
-        <div
-          class="com-container  --educacion"
-        >
-          <dl
-            class="mod-descriptionlist  --twoxs"
+          </p>
+          <div
+            class="com-container  --educacion"
           >
-            <dt
-              class="com-subtitle --twoxs "
+            <dl
+              class="mod-descriptionlist  --twoxs"
             >
-              Educación
-            </dt>
-            <dd
-              class="com-itemlist  --twoxs"
-            >
-              Periodismo, Universidad de Buenos Aires, 1989.
-            </dd>
-            <dd
-              class="com-itemlist  --twoxs"
-            >
-              Periodismo, Universidad de Buenos Aires, 1995.
-            </dd>
-          </dl>
-        </div>
-        <div
-          class="com-container  "
-        >
-          <dl
-            class="mod-descriptionlist --idiomas --twoxs"
-          >
-            <dt
-              class="com-subtitle --twoxs --idiomas"
-            >
-              Ubicación:
-            </dt>
-            Argentina
-          </dl>
-        </div>
-        <div
-          class="com-container  --reconocimientos"
-        >
-          <dl
-            class="mod-descriptionlist  --twoxs"
-          >
-            <dt
-              class="com-subtitle --twoxs "
-            >
-              Reconocimientos
-            </dt>
-            <dd
-              class="com-itemlist  --twoxs"
-            >
-              Condecorado por el gobierno de la República de Brasil con la Orden de Río Branco, 2002.
-            </dd>
-            <dd
-              class="com-itemlist  --twoxs"
-            >
-              Condecorado por el gobierno de la República de Brasil con la Orden de Río Branco, 2002.
-            </dd>
-          </dl>
-        </div>
-        <div
-          class="com-container  "
-        >
-          <dl
-            class="mod-descriptionlist --idiomas --twoxs"
-          >
-            <dt
-              class="com-subtitle --twoxs --idiomas"
-            >
-              Idiomas:
-            </dt>
-            Ingles, Frances
-          </dl>
-        </div>
-        <div
-          class="com-container  "
-        >
-          <dl
-            class="mod-descriptionlist --membresia --twoxs"
-          >
-            <dt
-              class="com-subtitle --twoxs --membresia"
-            >
-              Membresías profesionales:
-            </dt>
-            Academia de Periodismo.
-          </dl>
-        </div>
-        <div
-          class="com-container  "
-        >
-          <dl
-            class="mod-descriptionlist  --twoxs"
-          >
-            <dt
-              class="com-subtitle --twoxs "
-            >
-              Publicaciones
-            </dt>
-            <dd
-              class="com-itemlist  --twoxs"
-            >
-              <a
-                class="com-link"
-                href="https://google.com"
-                title=""
+              <dt
+                class="com-subtitle --twoxs "
               >
-                Carlos Pagni en Odisea Argentina
-              </a>
-              , Editorial
-            </dd>
-          </dl>
-        </div>
-        <div
-          class="com-container  "
-        >
-          <dl
-            class="mod-descriptionlist  --twoxs"
+                Educación
+              </dt>
+              <dd
+                class="com-itemlist  --twoxs"
+              >
+                Periodismo, Universidad de Buenos Aires, 1989.
+              </dd>
+              <dd
+                class="com-itemlist  --twoxs"
+              >
+                Periodismo, Universidad de Buenos Aires, 1995.
+              </dd>
+            </dl>
+          </div>
+          <div
+            class="com-container  "
           >
-            <dt
-              class="com-subtitle --twoxs "
+            <dl
+              class="mod-descriptionlist --idiomas --twoxs"
             >
-              Podcast
-            </dt>
-            <dd
-              class="com-itemlist  --twoxs"
-            >
-              <a
-                class="com-link"
-                href="http://google.com"
-                title=""
+              <dt
+                class="com-subtitle --twoxs --idiomas"
               >
-                Un podcast
-              </a>
-            </dd>
-            <dd
-              class="com-itemlist  --twoxs"
+                Ubicación:
+              </dt>
+              Argentina
+            </dl>
+          </div>
+          <div
+            class="com-container  --educacion"
+          >
+            <dl
+              class="mod-descriptionlist --idiomas --twoxs"
             >
-              <a
-                class="com-link"
-                href="http://google.com"
-                title=""
+              <dt
+                class="com-subtitle --twoxs --idiomas"
               >
-                Dos podcast
-              </a>
-            </dd>
-          </dl>
+                Áreas de Experiencia:
+              </dt>
+              Politica
+            </dl>
+          </div>
+          <div
+            class="com-container  --reconocimientos"
+          >
+            <dl
+              class="mod-descriptionlist  --twoxs"
+            >
+              <dt
+                class="com-subtitle --twoxs "
+              >
+                Reconocimientos
+              </dt>
+              <dd
+                class="com-itemlist  --twoxs"
+              >
+                Condecorado por el gobierno de la República de Brasil con la Orden de Río Branco, 2002.
+              </dd>
+              <dd
+                class="com-itemlist  --twoxs"
+              >
+                Condecorado por el gobierno de la República de Brasil con la Orden de Río Branco, 2002.
+              </dd>
+            </dl>
+          </div>
+          <div
+            class="com-container  "
+          >
+            <dl
+              class="mod-descriptionlist --idiomas --twoxs"
+            >
+              <dt
+                class="com-subtitle --twoxs --idiomas"
+              >
+                Idiomas:
+              </dt>
+              Ingles, Frances
+            </dl>
+          </div>
+          <div
+            class="com-container  "
+          >
+            <dl
+              class="mod-descriptionlist --membresia --twoxs"
+            >
+              <dt
+                class="com-subtitle --twoxs --membresia"
+              >
+                Membresías profesionales:
+              </dt>
+              Academia de Periodismo.
+            </dl>
+          </div>
+          <div
+            class="com-container  "
+          >
+            <dl
+              class="mod-descriptionlist  --twoxs"
+            >
+              <dt
+                class="com-subtitle --twoxs "
+              >
+                Publicaciones
+              </dt>
+              <dd
+                class="com-itemlist  --twoxs"
+              >
+                <a
+                  class="com-link"
+                  href="https://google.com"
+                  title=""
+                >
+                  Carlos Pagni en Odisea Argentina
+                </a>
+                , Editorial
+              </dd>
+            </dl>
+          </div>
+          <div
+            class="com-container  "
+          >
+            <dl
+              class="mod-descriptionlist  --twoxs"
+            >
+              <dt
+                class="com-subtitle --twoxs "
+              >
+                Podcast
+              </dt>
+              <dd
+                class="com-itemlist  --twoxs"
+              >
+                <a
+                  class="com-link"
+                  href="http://google.com"
+                  title=""
+                >
+                  Un podcast
+                </a>
+              </dd>
+              <dd
+                class="com-itemlist  --twoxs"
+              >
+                <a
+                  class="com-link"
+                  href="http://google.com"
+                  title=""
+                >
+                  Dos podcast
+                </a>
+              </dd>
+            </dl>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      class="col-12"
-    >
       <div
-        class="com-container  --socialicons"
+        class="col-12"
       >
-        <h4
-          class="com-subtitle --twoxs "
+        <div
+          class="com-container  --socialicons"
         >
-          Conectar
-        </h4>
-        <ul
-          class="com-unordered "
-        >
-          <li
-            class="com-li  "
+          <h4
+            class="com-subtitle --twoxs "
           >
-            <a
-              class="com-link --sociallist"
-              href="https://twitter.com/@moralessola"
-              rel="nofollow"
-              target="_blank"
-              title=""
+            Conectar
+          </h4>
+          <ul
+            class="com-unordered "
+          >
+            <li
+              class="com-li  "
             >
-              <i
-                class="com-icon icon-twitter-filled"
+              <a
+                class="com-link --sociallist"
+                href="https://twitter.com/@moralessola"
+                rel="nofollow"
+                target="_blank"
+                title=""
               >
-                <svg
-                  fill="none"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
+                <i
+                  class="com-icon icon-twitter-filled"
                 >
-                  <path
-                    clip-rule="evenodd"
-                    d="M22.162 5.65601C21.3985 5.9937 20.589 6.21548 19.76 6.31401C20.6337 5.79144 21.2877 4.96902 21.6 4.00001C20.78 4.48801 19.881 4.83001  18.944 5.01501C17.6498 3.63033 15.5863 3.2891 13.9153 4.18346C12.2442 5.07782 11.3836 6.98415 11.818 8.82901C8.45501 8.66045 5.32174 7.072  3.19799 4.45901C2.82628 5.09746 2.63095 5.82323 2.63199 6.56201C2.63199 8.01201 3.36999 9.29301 4.49199 10.043C3.828 10.0221 3.17862 9.84279  2.59799 9.52001V9.57201C2.5984 11.563 4.00151 13.2781 5.95299 13.673C5.33661 13.84 4.6903 13.8647 4.06299 13.745C4.61012 15.4492 6.18044  16.6168 7.96999 16.65C6.21793 18.026 3.99073 18.6491 1.77899 18.382C3.69069 19.6114 5.91609 20.2641 8.18899 20.262C15.882 20.262 20.089  13.889 20.089 8.36201C20.089 8.18201 20.084 8.00001 20.076 7.82201C20.8949 7.23017 21.6016 6.49703 22.163 5.65701L22.162 5.65601Z"
-                    fill="#272727"
-                    fill-rule="evenodd"
+                  <svg
+                    fill="none"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
                     xmlns="http://www.w3.org/2000/svg"
-                  />
-                </svg>
-              </i>
-              twitter
-            </a>
-          </li>
-          <li
-            class="com-li  "
-          >
-            <a
-              class="com-link --sociallist"
-              href="@moralessola"
-              rel="nofollow"
-              target="_blank"
-              title=""
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M22.162 5.65601C21.3985 5.9937 20.589 6.21548 19.76 6.31401C20.6337 5.79144 21.2877 4.96902 21.6 4.00001C20.78 4.48801 19.881 4.83001  18.944 5.01501C17.6498 3.63033 15.5863 3.2891 13.9153 4.18346C12.2442 5.07782 11.3836 6.98415 11.818 8.82901C8.45501 8.66045 5.32174 7.072  3.19799 4.45901C2.82628 5.09746 2.63095 5.82323 2.63199 6.56201C2.63199 8.01201 3.36999 9.29301 4.49199 10.043C3.828 10.0221 3.17862 9.84279  2.59799 9.52001V9.57201C2.5984 11.563 4.00151 13.2781 5.95299 13.673C5.33661 13.84 4.6903 13.8647 4.06299 13.745C4.61012 15.4492 6.18044  16.6168 7.96999 16.65C6.21793 18.026 3.99073 18.6491 1.77899 18.382C3.69069 19.6114 5.91609 20.2641 8.18899 20.262C15.882 20.262 20.089  13.889 20.089 8.36201C20.089 8.18201 20.084 8.00001 20.076 7.82201C20.8949 7.23017 21.6016 6.49703 22.163 5.65701L22.162 5.65601Z"
+                      fill="#272727"
+                      fill-rule="evenodd"
+                      xmlns="http://www.w3.org/2000/svg"
+                    />
+                  </svg>
+                </i>
+                twitter
+              </a>
+            </li>
+            <li
+              class="com-li  "
             >
-              <i
-                class="com-icon icon-facebook-filled"
+              <a
+                class="com-link --sociallist"
+                href="@moralessola"
+                rel="nofollow"
+                target="_blank"
+                title=""
               >
-                <svg
-                  fill="none"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
+                <i
+                  class="com-icon icon-facebook-filled"
                 >
-                  <path
-                    d="M12 2C6.477 2 2 6.477 2 12C2 16.991 5.657 21.128 10.438 21.879V14.89H7.898V12H10.438V9.797C10.438 7.291 11.93 5.907 14.215  5.907C15.309 5.907 16.453 6.102 16.453 6.102V8.562H15.193C13.95 8.562 13.563 9.333 13.563 10.124V12H16.336L15.893  14.89H13.563V21.879C18.343 21.129 22 16.99 22 12C22 6.477 17.523 2 12 2Z"
-                    fill="#272727"
+                  <svg
+                    fill="none"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
                     xmlns="http://www.w3.org/2000/svg"
-                  />
-                </svg>
-              </i>
-              facebook
-            </a>
-          </li>
-          <li
-            class="com-li  "
-          >
-            <a
-              class="com-link --sociallist"
-              href="@moralessola"
-              rel="nofollow"
-              target="_blank"
-              title=""
+                  >
+                    <path
+                      d="M12 2C6.477 2 2 6.477 2 12C2 16.991 5.657 21.128 10.438 21.879V14.89H7.898V12H10.438V9.797C10.438 7.291 11.93 5.907 14.215  5.907C15.309 5.907 16.453 6.102 16.453 6.102V8.562H15.193C13.95 8.562 13.563 9.333 13.563 10.124V12H16.336L15.893  14.89H13.563V21.879C18.343 21.129 22 16.99 22 12C22 6.477 17.523 2 12 2Z"
+                      fill="#272727"
+                      xmlns="http://www.w3.org/2000/svg"
+                    />
+                  </svg>
+                </i>
+                facebook
+              </a>
+            </li>
+            <li
+              class="com-li  "
             >
-              <i
-                class="com-icon icon-youtube-filled"
+              <a
+                class="com-link --sociallist"
+                href="@moralessola"
+                rel="nofollow"
+                target="_blank"
+                title=""
               >
-                <svg
-                  fill="none"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
+                <i
+                  class="com-icon icon-youtube-filled"
                 >
-                  <path
-                    d="M21.543 6.498C22 8.28 22 12 22 12C22 12 22 15.72 21.543 17.502C21.289 18.487 20.546 19.262 19.605 19.524C17.896 20 12 20 12 20C12 20 6.107  20 4.395 19.524C3.45 19.258 2.708 18.484 2.457 17.502C2 15.72 2 12 2 12C2 12 2 8.28 2.457 6.498C2.711 5.513 3.454 4.738 4.395 4.476C6.107 4 12  4 12 4C12 4 17.896 4 19.605 4.476C20.55 4.742 21.292 5.516 21.543 6.498ZM10 15.5L16 12L10 8.5V15.5Z"
-                    fill="#272727"
+                  <svg
+                    fill="none"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
                     xmlns="http://www.w3.org/2000/svg"
-                  />
-                </svg>
-              </i>
-              youtube
-            </a>
-          </li>
-          <li
-            class="com-li  "
-          >
-            <a
-              class="com-link --sociallist"
-              href="@moralessola"
-              rel="nofollow"
-              target="_blank"
-              title=""
+                  >
+                    <path
+                      d="M21.543 6.498C22 8.28 22 12 22 12C22 12 22 15.72 21.543 17.502C21.289 18.487 20.546 19.262 19.605 19.524C17.896 20 12 20 12 20C12 20 6.107  20 4.395 19.524C3.45 19.258 2.708 18.484 2.457 17.502C2 15.72 2 12 2 12C2 12 2 8.28 2.457 6.498C2.711 5.513 3.454 4.738 4.395 4.476C6.107 4 12  4 12 4C12 4 17.896 4 19.605 4.476C20.55 4.742 21.292 5.516 21.543 6.498ZM10 15.5L16 12L10 8.5V15.5Z"
+                      fill="#272727"
+                      xmlns="http://www.w3.org/2000/svg"
+                    />
+                  </svg>
+                </i>
+                youtube
+              </a>
+            </li>
+            <li
+              class="com-li  "
             >
-              <i
-                class="com-icon icon-instagram-filled"
+              <a
+                class="com-link --sociallist"
+                href="@moralessola"
+                rel="nofollow"
+                target="_blank"
+                title=""
               >
-                <svg
-                  fill="none"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
+                <i
+                  class="com-icon icon-instagram-filled"
                 >
-                  <path
-                    d="M12 2C14.717 2 15.056 2.01 16.122 2.06C17.187 2.11 17.912 2.277 18.55 2.525C19.21 2.779 19.766 3.123 20.322 3.678C20.8305  4.1779 21.224 4.78259 21.475 5.45C21.722 6.087 21.89 6.813 21.94 7.878C21.987 8.944 22 9.283 22 12C22 14.717 21.99 15.056 21.94  16.122C21.89 17.187 21.722 17.912 21.475 18.55C21.2247 19.2178 20.8311 19.8226 20.322 20.322C19.822 20.8303 19.2173 21.2238 18.55  21.475C17.913 21.722 17.187 21.89 16.122 21.94C15.056 21.987 14.717 22 12 22C9.283 22 8.944 21.99 7.878 21.94C6.813 21.89 6.088  21.722 5.45 21.475C4.78233 21.2245 4.17753 20.8309 3.678 20.322C3.16941 19.8222 2.77593 19.2175 2.525 18.55C2.277 17.913 2.11  17.187 2.06 16.122C2.013 15.056 2 14.717 2 12C2 9.283 2.01 8.944 2.06 7.878C2.11 6.812 2.277 6.088 2.525 5.45C2.77524 4.78218  3.1688 4.17732 3.678 3.678C4.17767 3.16923 4.78243 2.77573 5.45 2.525C6.088 2.277 6.812 2.11 7.878 2.06C8.944 2.013 9.283 2 12  2ZM12 7C10.6739 7 9.40215 7.52678 8.46447 8.46447C7.52678 9.40215 7 10.6739 7 12C7 13.3261 7.52678 14.5979 8.46447 15.5355C9.40215  16.4732 10.6739 17 12 17C13.3261 17 14.5979 16.4732 15.5355 15.5355C16.4732 14.5979 17 13.3261 17 12C17 10.6739 16.4732 9.40215  15.5355 8.46447C14.5979 7.52678 13.3261 7 12 7ZM18.5 6.75C18.5 6.41848 18.3683 6.10054 18.1339 5.86612C17.8995 5.6317 17.5815 5.5 17.25  5.5C16.9185 5.5 16.6005 5.6317 16.3661 5.86612C16.1317 6.10054 16 6.41848 16 6.75C16 7.08152 16.1317 7.39946 16.3661 7.63388C16.6005  7.8683 16.9185 8 17.25 8C17.5815 8 17.8995 7.8683 18.1339 7.63388C18.3683 7.39946 18.5 7.08152 18.5 6.75ZM12 9C12.7956 9 13.5587 9.31607  14.1213 9.87868C14.6839 10.4413 15 11.2044 15 12C15 12.7956 14.6839 13.5587 14.1213 14.1213C13.5587 14.6839 12.7956 15 12 15C11.2044 15  10.4413 14.6839 9.87868 14.1213C9.31607 13.5587 9 12.7956 9 12C9 11.2044 9.31607 10.4413 9.87868 9.87868C10.4413 9.31607 11.2044 9 12 9Z"
-                    fill="#272727"
-                  />
-                </svg>
-              </i>
-              instagram
-            </a>
-          </li>
-          <li
-            class="com-li  "
-          >
-            <a
-              class="com-link --sociallist"
-              href="@moralessola"
-              rel="nofollow"
-              target="_blank"
-              title=""
-            >
-              <i
-                class="com-icon icon-linkedin-filled"
-              >
-                <svg
-                  fill="none"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M18.335 18.339H15.67V14.162C15.67 13.166 15.65 11.884 14.28 11.884C12.891 11.884 12.679 12.968 12.679  14.089V18.339H10.013V9.75H12.573V10.92H12.608C12.966 10.246 13.836 9.533 15.136 9.533C17.836 9.533 18.336 11.311 18.336  13.624V18.339H18.335ZM7.003 8.575C6.79956 8.57526 6.59806 8.53537 6.41006 8.45761C6.22207 8.37984 6.05127 8.26574 5.90746  8.12184C5.76365 7.97793 5.64965 7.80706 5.57201 7.61901C5.49437 7.43097 5.4546 7.22944 5.455 7.026C5.4552 6.71983 5.54618  6.4206 5.71644 6.16615C5.8867 5.91169 6.12859 5.71343 6.41153 5.59645C6.69447 5.47947 7.00574 5.44902 7.30598 5.50894C7.60622  5.56886 7.88196 5.71648 8.09831 5.93311C8.31466 6.14974 8.46191 6.42566 8.52145 6.72598C8.58099 7.0263 8.55013 7.33753 8.43278  7.62032C8.31543 7.9031 8.11687 8.14474 7.86219 8.31467C7.60751 8.4846 7.30817 8.5752 7.002 8.575H7.003ZM8.339  18.339H5.666V9.75H8.34V18.339H8.339ZM19.67 3H4.329C3.593 3 3 3.58 3 4.297V19.703C3 20.42 3.594 21 4.328 21H19.666C20.4 21 21 20.42 21  19.703V4.297C21 3.58 20.4 3 19.666 3H19.669H19.67Z"
-                    fill="#272727"
-                  />
-                </svg>
-              </i>
-              linkedin
-            </a>
-          </li>
-          <li
-            class="com-li  "
-          >
-            <a
-              class="com-link --sociallist"
-              href="@moralessola"
-              rel="nofollow"
-              target="_blank"
-              title=""
-            >
-              <i
-                class="com-icon icon-rss-filled"
-              >
-                <svg
-                  fill="none"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    clip-rule="evenodd"
-                    d="M3 3C12.941 3 21 11.059 21 21H18C18 12.716 11.284 6 3 6V3ZM3 10C9.075 10 14 14.925 14 21H11C11 16.5817 7.41828 13 3 13V10ZM3 17C5.20914 17 7 18.7909 7 21H3V17Z"
-                    fill="#272727"
-                    fill-rule="evenodd"
+                  <svg
+                    fill="none"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
                     xmlns="http://www.w3.org/2000/svg"
-                  />
-                </svg>
-              </i>
-              rss
-            </a>
-          </li>
-          <li
-            class="com-li  "
-          >
-            <a
-              class="com-link --sociallist"
-              href="@moralessola"
-              rel="nofollow"
-              target="_blank"
-              title=""
+                  >
+                    <path
+                      d="M12 2C14.717 2 15.056 2.01 16.122 2.06C17.187 2.11 17.912 2.277 18.55 2.525C19.21 2.779 19.766 3.123 20.322 3.678C20.8305  4.1779 21.224 4.78259 21.475 5.45C21.722 6.087 21.89 6.813 21.94 7.878C21.987 8.944 22 9.283 22 12C22 14.717 21.99 15.056 21.94  16.122C21.89 17.187 21.722 17.912 21.475 18.55C21.2247 19.2178 20.8311 19.8226 20.322 20.322C19.822 20.8303 19.2173 21.2238 18.55  21.475C17.913 21.722 17.187 21.89 16.122 21.94C15.056 21.987 14.717 22 12 22C9.283 22 8.944 21.99 7.878 21.94C6.813 21.89 6.088  21.722 5.45 21.475C4.78233 21.2245 4.17753 20.8309 3.678 20.322C3.16941 19.8222 2.77593 19.2175 2.525 18.55C2.277 17.913 2.11  17.187 2.06 16.122C2.013 15.056 2 14.717 2 12C2 9.283 2.01 8.944 2.06 7.878C2.11 6.812 2.277 6.088 2.525 5.45C2.77524 4.78218  3.1688 4.17732 3.678 3.678C4.17767 3.16923 4.78243 2.77573 5.45 2.525C6.088 2.277 6.812 2.11 7.878 2.06C8.944 2.013 9.283 2 12  2ZM12 7C10.6739 7 9.40215 7.52678 8.46447 8.46447C7.52678 9.40215 7 10.6739 7 12C7 13.3261 7.52678 14.5979 8.46447 15.5355C9.40215  16.4732 10.6739 17 12 17C13.3261 17 14.5979 16.4732 15.5355 15.5355C16.4732 14.5979 17 13.3261 17 12C17 10.6739 16.4732 9.40215  15.5355 8.46447C14.5979 7.52678 13.3261 7 12 7ZM18.5 6.75C18.5 6.41848 18.3683 6.10054 18.1339 5.86612C17.8995 5.6317 17.5815 5.5 17.25  5.5C16.9185 5.5 16.6005 5.6317 16.3661 5.86612C16.1317 6.10054 16 6.41848 16 6.75C16 7.08152 16.1317 7.39946 16.3661 7.63388C16.6005  7.8683 16.9185 8 17.25 8C17.5815 8 17.8995 7.8683 18.1339 7.63388C18.3683 7.39946 18.5 7.08152 18.5 6.75ZM12 9C12.7956 9 13.5587 9.31607  14.1213 9.87868C14.6839 10.4413 15 11.2044 15 12C15 12.7956 14.6839 13.5587 14.1213 14.1213C13.5587 14.6839 12.7956 15 12 15C11.2044 15  10.4413 14.6839 9.87868 14.1213C9.31607 13.5587 9 12.7956 9 12C9 11.2044 9.31607 10.4413 9.87868 9.87868C10.4413 9.31607 11.2044 9 12 9Z"
+                      fill="#272727"
+                    />
+                  </svg>
+                </i>
+                instagram
+              </a>
+            </li>
+            <li
+              class="com-li  "
             >
-              <i
-                class="com-icon icon-medium-filled"
+              <a
+                class="com-link --sociallist"
+                href="@moralessola"
+                rel="nofollow"
+                target="_blank"
+                title=""
               >
-                <svg
-                  fill="none"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
+                <i
+                  class="com-icon icon-linkedin-filled"
                 >
-                  <path
-                    d="M4 3H20C20.2652 3 20.5196 3.10536 20.7071 3.29289C20.8946 3.48043 21 3.73478 21 4V20C21 20.2652 20.8946 20.5196 20.7071 20.7071C20.5196  20.8946 20.2652 21 20 21H4C3.73478 21 3.48043 20.8946 3.29289 20.7071C3.10536 20.5196 3 20.2652 3 20V4C3 3.73478 3.10536 3.48043 3.29289  3.29289C3.48043 3.10536 3.73478 3 4 3ZM17.3 15.94C17.2 15.89 17.15 15.74 17.15 15.639V8.006C17.15 7.906 17.2 7.756 17.3 7.655L18.255  6.55V6.5H14.84L12.28 12.978L9.366 6.5H5.852V6.55L6.755 7.806C6.956 8.006 7.006 8.308 7.006 8.559V14.082C7.056 14.384 7.006 14.735 6.856  15.036L5.5 16.894V16.944H9.116V16.894L7.76 15.087C7.61 14.785 7.559 14.484 7.61 14.133V9.11C7.66 9.21 7.71 9.21 7.76 9.411L11.174 17.044H11.224L14.54  8.76C14.49 9.06 14.49 9.412 14.49 9.664V15.589C14.49 15.739 14.44 15.839 14.34 15.94L13.335 16.894V16.944H18.256V16.894L17.302 15.94H17.3Z"
-                    fill="#272727"
-                  />
-                </svg>
-              </i>
-              medium
-            </a>
-          </li>
-          <li
-            class="com-li  "
-          >
-            <a
-              class="com-link --sociallist"
-              href="@moralessola"
-              rel="nofollow"
-              target="_blank"
-              title=""
+                  <svg
+                    fill="none"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M18.335 18.339H15.67V14.162C15.67 13.166 15.65 11.884 14.28 11.884C12.891 11.884 12.679 12.968 12.679  14.089V18.339H10.013V9.75H12.573V10.92H12.608C12.966 10.246 13.836 9.533 15.136 9.533C17.836 9.533 18.336 11.311 18.336  13.624V18.339H18.335ZM7.003 8.575C6.79956 8.57526 6.59806 8.53537 6.41006 8.45761C6.22207 8.37984 6.05127 8.26574 5.90746  8.12184C5.76365 7.97793 5.64965 7.80706 5.57201 7.61901C5.49437 7.43097 5.4546 7.22944 5.455 7.026C5.4552 6.71983 5.54618  6.4206 5.71644 6.16615C5.8867 5.91169 6.12859 5.71343 6.41153 5.59645C6.69447 5.47947 7.00574 5.44902 7.30598 5.50894C7.60622  5.56886 7.88196 5.71648 8.09831 5.93311C8.31466 6.14974 8.46191 6.42566 8.52145 6.72598C8.58099 7.0263 8.55013 7.33753 8.43278  7.62032C8.31543 7.9031 8.11687 8.14474 7.86219 8.31467C7.60751 8.4846 7.30817 8.5752 7.002 8.575H7.003ZM8.339  18.339H5.666V9.75H8.34V18.339H8.339ZM19.67 3H4.329C3.593 3 3 3.58 3 4.297V19.703C3 20.42 3.594 21 4.328 21H19.666C20.4 21 21 20.42 21  19.703V4.297C21 3.58 20.4 3 19.666 3H19.669H19.67Z"
+                      fill="#272727"
+                    />
+                  </svg>
+                </i>
+                linkedin
+              </a>
+            </li>
+            <li
+              class="com-li  "
             >
-              <i
-                class="com-icon icon-pinterest-filled"
+              <a
+                class="com-link --sociallist"
+                href="@moralessola"
+                rel="nofollow"
+                target="_blank"
+                title=""
               >
-                <svg
-                  fill="none"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
+                <i
+                  class="com-icon icon-rss-filled"
                 >
-                  <path
-                    d="M13.37 2.09402C10.9772 1.76487 8.54622 2.31257 6.5258 3.63597C4.50538 4.95938 3.03202 6.96912 2.37777 9.29408C1.72353 11.619 1.93258  14.1022 2.96634 16.2851C4.00009 18.4679 5.78873 20.203 8.00197 21.17C7.94212 20.4018 7.99706 19.629 8.16497 18.877C8.34997 18.038 9.46097  13.414 9.46097 13.414C9.23974 12.9181 9.12918 12.38 9.13697 11.837C9.13697 10.352 9.99397 9.24402 11.06 9.24402C11.2515 9.24123 11.4413  9.27971 11.6166 9.35685C11.792 9.43398 11.9486 9.54796 12.0759 9.69104C12.2032 9.83411 12.2983 10.0029 12.3545 10.186C12.4108 10.3691 12.427  10.5621 12.402 10.752C12.402 11.652 11.824 13.014 11.522 14.292C11.4623 14.5264 11.4585 14.7715 11.5109 15.0076C11.5633 15.2437 11.6705 15.4642  11.8237 15.6514C11.977 15.8385 12.172 15.987 12.3932 16.0849C12.6144 16.1828 12.8554 16.2274 13.097 16.215C14.995 16.215 16.267 13.784 16.267  10.914C16.267 8.71402 14.81 7.06602 12.124 7.06602C11.4813 7.04104 10.8404 7.14694 10.2399 7.37727C9.63946 7.6076 9.09209 7.95756 8.63102  8.4059C8.16996 8.85425 7.80483 9.39162 7.5578 9.98539C7.31076 10.5792 7.18698 11.2169 7.19397 11.86C7.16534 12.5733 7.39548 13.273 7.84197  13.83C7.92541 13.8923 7.98633 13.98 8.01555 14.0799C8.04477 14.1799 8.04071 14.2866 8.00397 14.384C7.95797 14.568 7.84197 15.007 7.79597  15.168C7.7864 15.2226 7.76415 15.2742 7.731 15.3186C7.69784 15.3631 7.65472 15.3991 7.6051 15.4238C7.55549 15.4485 7.50076 15.4612 7.44533  15.4609C7.3899 15.4606 7.33531 15.4473 7.28597 15.422C5.90197 14.868 5.24997 13.345 5.24997 11.606C5.24997 8.75902 7.63397 5.35102 12.404  5.35102C16.2 5.35102 18.724 8.12802 18.724 11.098C18.724 15.007 16.547 17.946 13.33 17.946C12.8492 17.9614 12.3722 17.8553 11.9433 17.6375C11.5144  17.4197 11.1473 17.0973 10.876 16.7C10.876 16.7 10.298 19.016 10.184 19.454C9.95127 20.2107 9.60788 20.9288 9.16497 21.585C10.088 21.865 11.047 22.005  12.011 22.001C13.3246 22.0021 14.6254 21.744 15.8391 21.2416C17.0528 20.7392 18.1555 20.0023 19.084 19.0731C20.0126 18.144 20.7487 17.0408 21.2502  15.8267C21.7518 14.6127 22.0089 13.3116 22.007 11.998C22.0057 9.58301 21.1308 7.25001 19.5436 5.4298C17.9564 3.60958 15.7643 2.42508 13.372 2.09502L13.37  2.09402Z"
-                    fill="#272727"
-                  />
-                </svg>
-              </i>
-              pinterest
-            </a>
-          </li>
-          <li
-            class="com-li  "
-          >
-            <a
-              class="com-link --sociallist"
-              href="@moralessola"
-              rel="nofollow"
-              target="_blank"
-              title=""
+                  <svg
+                    fill="none"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M3 3C12.941 3 21 11.059 21 21H18C18 12.716 11.284 6 3 6V3ZM3 10C9.075 10 14 14.925 14 21H11C11 16.5817 7.41828 13 3 13V10ZM3 17C5.20914 17 7 18.7909 7 21H3V17Z"
+                      fill="#272727"
+                      fill-rule="evenodd"
+                      xmlns="http://www.w3.org/2000/svg"
+                    />
+                  </svg>
+                </i>
+                rss
+              </a>
+            </li>
+            <li
+              class="com-li  "
             >
-              <i
-                class="com-icon icon-soundcloud-filled"
+              <a
+                class="com-link --sociallist"
+                href="@moralessola"
+                rel="nofollow"
+                target="_blank"
+                title=""
               >
-                <svg
-                  fill="none"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
+                <i
+                  class="com-icon icon-medium-filled"
                 >
-                  <path
-                    d="M10.464 8.596C10.729 8.596 10.944 10.702 10.944 13.3L10.943 13.651C10.924 16.085 10.717 18.004 10.464 18.004C10.208 18.004 9.999 16.039  9.984 13.564V13.212C9.989 10.654 10.202 8.596 10.464 8.596ZM8.8 9.556C9.059 9.556 9.27 11.356 9.28 13.61V13.95C9.27 16.204 9.059 18.004 8.8  18.004C8.545 18.004 8.336 16.249 8.32 14.034V13.694L8.322 13.354C8.347 11.221 8.552 9.556 8.8 9.556ZM7.136 9.556C7.391 9.556 7.6 11.311 7.616  13.526V13.866L7.614 14.206C7.589 16.339 7.384 18.004 7.136 18.004C6.877 18.004 6.666 16.204 6.656 13.95V13.61C6.666 11.356 6.877 9.556 7.136  9.556ZM5.472 10.132C5.737 10.132 5.952 11.894 5.952 14.068L5.95 14.403C5.93 16.42 5.723 18.004 5.472 18.004C5.21 18.004 4.998 16.287 4.992  14.152V13.984C4.998 11.849 5.21 10.132 5.472 10.132ZM3.808 11.86C4.073 11.86 4.288 13.235 4.288 14.932V15.09C4.275 16.713 4.065 18.004 3.808  18.004C3.543 18.004 3.328 16.629 3.328 14.932V14.774C3.341 13.151 3.551 11.86 3.808 11.86ZM14.592 7.06C17.172 7.06 19.312 8.946 19.71  11.414C20.1694 11.2822 20.6517 11.2499 21.1247 11.3193C21.5976 11.3887 22.0503 11.5582 22.4524 11.8165C22.8546 12.0748 23.1971 12.4159 23.4569  12.8171C23.7168 13.2183 23.888 13.6703 23.9593 14.1429C24.0305 14.6156 24.0001 15.098 23.87 15.558C23.7399 16.0179 23.5132 16.4448 23.205  16.8102C22.8968 17.1755 22.5142 17.4709 22.0827 17.6766C21.6513 17.8823 21.1809 17.9936 20.703 18.003L20.64 18.004H12.48C12.2763 18.004 12.081  17.9231 11.9369 17.7791C11.7929 17.635 11.712 17.4397 11.712 17.236V7.933C12.5639 7.3623 13.5666 7.05838 14.592 7.06ZM2.144 11.668C2.409 11.668  2.624 13 2.624 14.644V14.8C2.61 16.37 2.401 17.62 2.144 17.62C1.884 17.62 1.671 16.33 1.664 14.722V14.644C1.664 13 1.879 11.668 2.144  11.668ZM0.48 12.628C0.745 12.628 0.96 13.574 0.96 14.74V14.871C0.944 15.976 0.735 16.852 0.48 16.852C0.215 16.852 0 15.906 0 14.74V14.609C0.016  13.504 0.225 12.628 0.48 12.628Z"
-                    fill="#272727"
-                  />
-                </svg>
-              </i>
-              soundcloud
-            </a>
-          </li>
-          <li
-            class="com-li  "
-          >
-            <a
-              class="com-link --sociallist"
-              href="@moralessola"
-              rel="nofollow"
-              target="_blank"
-              title=""
+                  <svg
+                    fill="none"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4 3H20C20.2652 3 20.5196 3.10536 20.7071 3.29289C20.8946 3.48043 21 3.73478 21 4V20C21 20.2652 20.8946 20.5196 20.7071 20.7071C20.5196  20.8946 20.2652 21 20 21H4C3.73478 21 3.48043 20.8946 3.29289 20.7071C3.10536 20.5196 3 20.2652 3 20V4C3 3.73478 3.10536 3.48043 3.29289  3.29289C3.48043 3.10536 3.73478 3 4 3ZM17.3 15.94C17.2 15.89 17.15 15.74 17.15 15.639V8.006C17.15 7.906 17.2 7.756 17.3 7.655L18.255  6.55V6.5H14.84L12.28 12.978L9.366 6.5H5.852V6.55L6.755 7.806C6.956 8.006 7.006 8.308 7.006 8.559V14.082C7.056 14.384 7.006 14.735 6.856  15.036L5.5 16.894V16.944H9.116V16.894L7.76 15.087C7.61 14.785 7.559 14.484 7.61 14.133V9.11C7.66 9.21 7.71 9.21 7.76 9.411L11.174 17.044H11.224L14.54  8.76C14.49 9.06 14.49 9.412 14.49 9.664V15.589C14.49 15.739 14.44 15.839 14.34 15.94L13.335 16.894V16.944H18.256V16.894L17.302 15.94H17.3Z"
+                      fill="#272727"
+                    />
+                  </svg>
+                </i>
+                medium
+              </a>
+            </li>
+            <li
+              class="com-li  "
             >
-              <i
-                class="com-icon icon-snapchat-filled"
+              <a
+                class="com-link --sociallist"
+                href="@moralessola"
+                rel="nofollow"
+                target="_blank"
+                title=""
               >
-                <svg
-                  fill="none"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
+                <i
+                  class="com-icon icon-pinterest-filled"
                 >
-                  <path
-                    d="M11.871 21.764C10.681 21.764 9.887 21.203 9.178 20.708C8.675 20.351 8.202 20.012 7.645 19.918C7.3798 19.8724 7.11109 19.8503 6.842  19.852C6.37 19.852 5.995 19.923 5.728 19.977C5.558 20.007 5.416 20.035 5.304 20.035C5.188 20.035 5.041 20.003 4.984 19.807C4.934 19.647  4.903 19.495 4.872 19.348C4.792 18.978 4.725 18.751 4.586 18.728C3.097 18.501 2.206 18.158 2.032 17.752C2.018 17.708 2.001 17.662 2.001  17.627C1.991 17.502 2.081 17.4 2.206 17.377C3.387 17.181 4.448 16.553 5.344 15.519C6.04 14.716 6.379 13.94 6.41 13.856C6.41 13.846 6.419  13.846 6.419 13.846C6.589 13.495 6.624 13.196 6.521 12.951C6.33 12.491 5.696 12.295 5.264 12.161C5.153 12.131 5.059 12.095 4.979 12.068C4.609  11.921 3.993 11.608 4.074 11.176C4.132 10.864 4.546 10.641 4.885 10.641C4.979 10.641 5.059 10.655 5.125 10.691C5.505 10.864 5.848 10.953 6.142  10.953C6.508 10.953 6.682 10.815 6.726 10.771C6.71669 10.5732 6.70502 10.3755 6.691 10.178C6.601 8.813 6.499 7.119 6.931 6.148C8.229 3.241 10.984  3.008 11.8 3.008L12.156 3H12.206C13.021 3 15.776 3.227 17.074 6.139C17.511 7.11 17.404 8.809 17.314 10.169L17.306 10.236C17.296 10.418 17.283  10.592 17.274 10.771C17.319 10.806 17.479 10.94 17.809 10.944C18.095 10.936 18.407 10.842 18.763 10.681C18.8616 10.6384 18.9676 10.6159 19.075  10.615C19.2 10.615 19.325 10.645 19.432 10.681H19.441C19.74 10.793 19.936 11.002 19.936 11.221C19.945 11.426 19.784 11.738 19.022 12.046C18.942  12.076 18.848 12.113 18.737 12.139C18.313 12.269 17.68 12.474 17.479 12.929C17.368 13.169 17.413 13.477 17.582 13.824C17.582 13.834 17.591 13.834  17.591 13.834C17.64 13.958 18.928 16.883 21.795 17.36C21.8536 17.3699 21.9067 17.4006 21.9443 17.4466C21.982 17.4926 22.0018 17.5506 22 17.61C22  17.654 21.991 17.699 21.969 17.739C21.795 18.149 20.912 18.483 19.414 18.715C19.276 18.737 19.209 18.965 19.129 19.335C19.097 19.4892 19.0596 19.6423  19.017 19.794C18.973 19.941 18.879 20.021 18.719 20.021H18.696C18.594 20.021 18.456 20.008 18.273 19.972C17.9065 19.8939 17.5327 19.855 17.158  19.856C16.895 19.856 16.623 19.879 16.356 19.923C15.803 20.013 15.326 20.356 14.822 20.713C14.105 21.203 13.307 21.764 12.125 21.764H11.871Z"
-                    fill="#272727"
-                  />
-                </svg>
-              </i>
-              snapchat
-            </a>
-          </li>
-          <li
-            class="com-li  "
-          >
-            <a
-              class="com-link --sociallist"
-              href="@moralessola"
-              rel="nofollow"
-              target="_blank"
-              title=""
+                  <svg
+                    fill="none"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M13.37 2.09402C10.9772 1.76487 8.54622 2.31257 6.5258 3.63597C4.50538 4.95938 3.03202 6.96912 2.37777 9.29408C1.72353 11.619 1.93258  14.1022 2.96634 16.2851C4.00009 18.4679 5.78873 20.203 8.00197 21.17C7.94212 20.4018 7.99706 19.629 8.16497 18.877C8.34997 18.038 9.46097  13.414 9.46097 13.414C9.23974 12.9181 9.12918 12.38 9.13697 11.837C9.13697 10.352 9.99397 9.24402 11.06 9.24402C11.2515 9.24123 11.4413  9.27971 11.6166 9.35685C11.792 9.43398 11.9486 9.54796 12.0759 9.69104C12.2032 9.83411 12.2983 10.0029 12.3545 10.186C12.4108 10.3691 12.427  10.5621 12.402 10.752C12.402 11.652 11.824 13.014 11.522 14.292C11.4623 14.5264 11.4585 14.7715 11.5109 15.0076C11.5633 15.2437 11.6705 15.4642  11.8237 15.6514C11.977 15.8385 12.172 15.987 12.3932 16.0849C12.6144 16.1828 12.8554 16.2274 13.097 16.215C14.995 16.215 16.267 13.784 16.267  10.914C16.267 8.71402 14.81 7.06602 12.124 7.06602C11.4813 7.04104 10.8404 7.14694 10.2399 7.37727C9.63946 7.6076 9.09209 7.95756 8.63102  8.4059C8.16996 8.85425 7.80483 9.39162 7.5578 9.98539C7.31076 10.5792 7.18698 11.2169 7.19397 11.86C7.16534 12.5733 7.39548 13.273 7.84197  13.83C7.92541 13.8923 7.98633 13.98 8.01555 14.0799C8.04477 14.1799 8.04071 14.2866 8.00397 14.384C7.95797 14.568 7.84197 15.007 7.79597  15.168C7.7864 15.2226 7.76415 15.2742 7.731 15.3186C7.69784 15.3631 7.65472 15.3991 7.6051 15.4238C7.55549 15.4485 7.50076 15.4612 7.44533  15.4609C7.3899 15.4606 7.33531 15.4473 7.28597 15.422C5.90197 14.868 5.24997 13.345 5.24997 11.606C5.24997 8.75902 7.63397 5.35102 12.404  5.35102C16.2 5.35102 18.724 8.12802 18.724 11.098C18.724 15.007 16.547 17.946 13.33 17.946C12.8492 17.9614 12.3722 17.8553 11.9433 17.6375C11.5144  17.4197 11.1473 17.0973 10.876 16.7C10.876 16.7 10.298 19.016 10.184 19.454C9.95127 20.2107 9.60788 20.9288 9.16497 21.585C10.088 21.865 11.047 22.005  12.011 22.001C13.3246 22.0021 14.6254 21.744 15.8391 21.2416C17.0528 20.7392 18.1555 20.0023 19.084 19.0731C20.0126 18.144 20.7487 17.0408 21.2502  15.8267C21.7518 14.6127 22.0089 13.3116 22.007 11.998C22.0057 9.58301 21.1308 7.25001 19.5436 5.4298C17.9564 3.60958 15.7643 2.42508 13.372 2.09502L13.37  2.09402Z"
+                      fill="#272727"
+                    />
+                  </svg>
+                </i>
+                pinterest
+              </a>
+            </li>
+            <li
+              class="com-li  "
             >
-              <i
-                class="com-icon icon-whatsapp-filled"
+              <a
+                class="com-link --sociallist"
+                href="@moralessola"
+                rel="nofollow"
+                target="_blank"
+                title=""
               >
-                <svg
-                  fill="none"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
+                <i
+                  class="com-icon icon-soundcloud-filled"
                 >
-                  <path
-                    clip-rule="evenodd"
-                    d="M2.00398 22L3.35598 17.032C2.46512 15.5049 1.99708 13.768 1.99998 12C1.99998 6.477 6.47698 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523  22 12 22C10.2328 22.0029 8.49664 21.5352 6.96998 20.645L2.00398 22ZM8.39098 7.308C8.26185 7.31602 8.13566 7.35003 8.01998 7.408C7.9115 7.46943  7.81248 7.54622 7.72598 7.636C7.60598 7.749 7.53798 7.847 7.46498 7.942C7.09539 8.423 6.89659 9.01342 6.89998 9.62C6.90198 10.11 7.02998 10.587  7.22998 11.033C7.63898 11.935 8.31198 12.89 9.20098 13.775C9.41498 13.988 9.62398 14.202 9.84898 14.401C10.9524 15.3725 12.2672 16.073 13.689  16.447L14.258 16.534C14.443 16.544 14.628 16.53 14.814 16.521C15.1052 16.506 15.3896 16.4271 15.647 16.29C15.813 16.202 15.891 16.158 16.03  16.07C16.03 16.07 16.073 16.042 16.155 15.98C16.29 15.88 16.373 15.809 16.485 15.692C16.568 15.606 16.64 15.505 16.695 15.39C16.773 15.227 16.851  14.916 16.883 14.657C16.907 14.459 16.9 14.351 16.897 14.284C16.893 14.177 16.804 14.066 16.707 14.019L16.125 13.758C16.125 13.758 15.255 13.379  14.724 13.137C14.668 13.1126 14.608 13.0987 14.547 13.096C14.4086 13.0818 14.2707 13.1281 14.169 13.223V13.221C14.164 13.221 14.097 13.278 13.374  14.154C13.2891 14.2681 13.1437 14.3194 13.006 14.284C12.9408 14.2666 12.877 14.2445 12.815 14.218C12.691 14.166 12.648 14.146 12.563 14.109L12.558  14.107C11.9859 13.8572 11.4562 13.5198 10.988 13.107C10.862 12.997 10.745 12.877 10.625 12.761C10.2316 12.3842 9.8887 11.958 9.60498 11.493L9.54598  11.398C9.50361 11.3342 9.46934 11.2653 9.44398 11.193C9.40598 11.046 9.50498 10.928 9.50498 10.928C9.50498 10.928 9.74798 10.662 9.86098 10.518 C9.95507 10.3983 10.0429 10.2738 10.124 10.145C10.242 9.955 10.279 9.76 10.217 9.609C9.93698 8.925 9.64698 8.244 9.34898 7.568C9.28998 7.434 9.11498  7.338 8.95598 7.319C8.90198 7.313 8.84798 7.307 8.79398 7.303C8.65969 7.29633 8.52512 7.29766 8.39098 7.307V7.308Z"
-                    fill="#272727"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </i>
-              whatsapp
-            </a>
-          </li>
-          <li
-            class="com-li  "
-          >
-            <a
-              class="com-link --sociallist"
-              href="@moralessola"
-              rel="nofollow"
-              target="_blank"
-              title=""
+                  <svg
+                    fill="none"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10.464 8.596C10.729 8.596 10.944 10.702 10.944 13.3L10.943 13.651C10.924 16.085 10.717 18.004 10.464 18.004C10.208 18.004 9.999 16.039  9.984 13.564V13.212C9.989 10.654 10.202 8.596 10.464 8.596ZM8.8 9.556C9.059 9.556 9.27 11.356 9.28 13.61V13.95C9.27 16.204 9.059 18.004 8.8  18.004C8.545 18.004 8.336 16.249 8.32 14.034V13.694L8.322 13.354C8.347 11.221 8.552 9.556 8.8 9.556ZM7.136 9.556C7.391 9.556 7.6 11.311 7.616  13.526V13.866L7.614 14.206C7.589 16.339 7.384 18.004 7.136 18.004C6.877 18.004 6.666 16.204 6.656 13.95V13.61C6.666 11.356 6.877 9.556 7.136  9.556ZM5.472 10.132C5.737 10.132 5.952 11.894 5.952 14.068L5.95 14.403C5.93 16.42 5.723 18.004 5.472 18.004C5.21 18.004 4.998 16.287 4.992  14.152V13.984C4.998 11.849 5.21 10.132 5.472 10.132ZM3.808 11.86C4.073 11.86 4.288 13.235 4.288 14.932V15.09C4.275 16.713 4.065 18.004 3.808  18.004C3.543 18.004 3.328 16.629 3.328 14.932V14.774C3.341 13.151 3.551 11.86 3.808 11.86ZM14.592 7.06C17.172 7.06 19.312 8.946 19.71  11.414C20.1694 11.2822 20.6517 11.2499 21.1247 11.3193C21.5976 11.3887 22.0503 11.5582 22.4524 11.8165C22.8546 12.0748 23.1971 12.4159 23.4569  12.8171C23.7168 13.2183 23.888 13.6703 23.9593 14.1429C24.0305 14.6156 24.0001 15.098 23.87 15.558C23.7399 16.0179 23.5132 16.4448 23.205  16.8102C22.8968 17.1755 22.5142 17.4709 22.0827 17.6766C21.6513 17.8823 21.1809 17.9936 20.703 18.003L20.64 18.004H12.48C12.2763 18.004 12.081  17.9231 11.9369 17.7791C11.7929 17.635 11.712 17.4397 11.712 17.236V7.933C12.5639 7.3623 13.5666 7.05838 14.592 7.06ZM2.144 11.668C2.409 11.668  2.624 13 2.624 14.644V14.8C2.61 16.37 2.401 17.62 2.144 17.62C1.884 17.62 1.671 16.33 1.664 14.722V14.644C1.664 13 1.879 11.668 2.144  11.668ZM0.48 12.628C0.745 12.628 0.96 13.574 0.96 14.74V14.871C0.944 15.976 0.735 16.852 0.48 16.852C0.215 16.852 0 15.906 0 14.74V14.609C0.016  13.504 0.225 12.628 0.48 12.628Z"
+                      fill="#272727"
+                    />
+                  </svg>
+                </i>
+                soundcloud
+              </a>
+            </li>
+            <li
+              class="com-li  "
             >
-              <i
-                class="com-icon icon-tumblr-filled"
+              <a
+                class="com-link --sociallist"
+                href="@moralessola"
+                rel="nofollow"
+                target="_blank"
+                title=""
               >
-                <svg
-                  fill="none"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
+                <i
+                  class="com-icon icon-snapchat-filled"
                 >
-                  <path
-                    d="M6.27002 7.63C7.55694 7.35229 8.70988 6.64211 9.53686 5.61771C10.3638 4.59332 10.8149 3.31654 10.815 2H13.845V7.152 H17.482V10.788H13.846V16.242C13.846 16.757 14.043 17.449 14.755 17.909C15.229 18.216 16.239 18.367 17.785 18.364V22 H13.543C12.9461 22.0001 12.355 21.8827 11.8034 21.6543C11.2519 21.426 10.7507 21.0912 10.3286 20.6692C9.90642 20.2471  9.57155 19.746 9.34308 19.1945C9.11461 18.643 8.99702 18.0519 8.99702 17.455V10.788H6.27002V7.63Z"
-                    fill="#272727"
-                  />
-                </svg>
-              </i>
-              tumblr
-            </a>
-          </li>
-        </ul>
+                  <svg
+                    fill="none"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.871 21.764C10.681 21.764 9.887 21.203 9.178 20.708C8.675 20.351 8.202 20.012 7.645 19.918C7.3798 19.8724 7.11109 19.8503 6.842  19.852C6.37 19.852 5.995 19.923 5.728 19.977C5.558 20.007 5.416 20.035 5.304 20.035C5.188 20.035 5.041 20.003 4.984 19.807C4.934 19.647  4.903 19.495 4.872 19.348C4.792 18.978 4.725 18.751 4.586 18.728C3.097 18.501 2.206 18.158 2.032 17.752C2.018 17.708 2.001 17.662 2.001  17.627C1.991 17.502 2.081 17.4 2.206 17.377C3.387 17.181 4.448 16.553 5.344 15.519C6.04 14.716 6.379 13.94 6.41 13.856C6.41 13.846 6.419  13.846 6.419 13.846C6.589 13.495 6.624 13.196 6.521 12.951C6.33 12.491 5.696 12.295 5.264 12.161C5.153 12.131 5.059 12.095 4.979 12.068C4.609  11.921 3.993 11.608 4.074 11.176C4.132 10.864 4.546 10.641 4.885 10.641C4.979 10.641 5.059 10.655 5.125 10.691C5.505 10.864 5.848 10.953 6.142  10.953C6.508 10.953 6.682 10.815 6.726 10.771C6.71669 10.5732 6.70502 10.3755 6.691 10.178C6.601 8.813 6.499 7.119 6.931 6.148C8.229 3.241 10.984  3.008 11.8 3.008L12.156 3H12.206C13.021 3 15.776 3.227 17.074 6.139C17.511 7.11 17.404 8.809 17.314 10.169L17.306 10.236C17.296 10.418 17.283  10.592 17.274 10.771C17.319 10.806 17.479 10.94 17.809 10.944C18.095 10.936 18.407 10.842 18.763 10.681C18.8616 10.6384 18.9676 10.6159 19.075  10.615C19.2 10.615 19.325 10.645 19.432 10.681H19.441C19.74 10.793 19.936 11.002 19.936 11.221C19.945 11.426 19.784 11.738 19.022 12.046C18.942  12.076 18.848 12.113 18.737 12.139C18.313 12.269 17.68 12.474 17.479 12.929C17.368 13.169 17.413 13.477 17.582 13.824C17.582 13.834 17.591 13.834  17.591 13.834C17.64 13.958 18.928 16.883 21.795 17.36C21.8536 17.3699 21.9067 17.4006 21.9443 17.4466C21.982 17.4926 22.0018 17.5506 22 17.61C22  17.654 21.991 17.699 21.969 17.739C21.795 18.149 20.912 18.483 19.414 18.715C19.276 18.737 19.209 18.965 19.129 19.335C19.097 19.4892 19.0596 19.6423  19.017 19.794C18.973 19.941 18.879 20.021 18.719 20.021H18.696C18.594 20.021 18.456 20.008 18.273 19.972C17.9065 19.8939 17.5327 19.855 17.158  19.856C16.895 19.856 16.623 19.879 16.356 19.923C15.803 20.013 15.326 20.356 14.822 20.713C14.105 21.203 13.307 21.764 12.125 21.764H11.871Z"
+                      fill="#272727"
+                    />
+                  </svg>
+                </i>
+                snapchat
+              </a>
+            </li>
+            <li
+              class="com-li  "
+            >
+              <a
+                class="com-link --sociallist"
+                href="@moralessola"
+                rel="nofollow"
+                target="_blank"
+                title=""
+              >
+                <i
+                  class="com-icon icon-whatsapp-filled"
+                >
+                  <svg
+                    fill="none"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M2.00398 22L3.35598 17.032C2.46512 15.5049 1.99708 13.768 1.99998 12C1.99998 6.477 6.47698 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523  22 12 22C10.2328 22.0029 8.49664 21.5352 6.96998 20.645L2.00398 22ZM8.39098 7.308C8.26185 7.31602 8.13566 7.35003 8.01998 7.408C7.9115 7.46943  7.81248 7.54622 7.72598 7.636C7.60598 7.749 7.53798 7.847 7.46498 7.942C7.09539 8.423 6.89659 9.01342 6.89998 9.62C6.90198 10.11 7.02998 10.587  7.22998 11.033C7.63898 11.935 8.31198 12.89 9.20098 13.775C9.41498 13.988 9.62398 14.202 9.84898 14.401C10.9524 15.3725 12.2672 16.073 13.689  16.447L14.258 16.534C14.443 16.544 14.628 16.53 14.814 16.521C15.1052 16.506 15.3896 16.4271 15.647 16.29C15.813 16.202 15.891 16.158 16.03  16.07C16.03 16.07 16.073 16.042 16.155 15.98C16.29 15.88 16.373 15.809 16.485 15.692C16.568 15.606 16.64 15.505 16.695 15.39C16.773 15.227 16.851  14.916 16.883 14.657C16.907 14.459 16.9 14.351 16.897 14.284C16.893 14.177 16.804 14.066 16.707 14.019L16.125 13.758C16.125 13.758 15.255 13.379  14.724 13.137C14.668 13.1126 14.608 13.0987 14.547 13.096C14.4086 13.0818 14.2707 13.1281 14.169 13.223V13.221C14.164 13.221 14.097 13.278 13.374  14.154C13.2891 14.2681 13.1437 14.3194 13.006 14.284C12.9408 14.2666 12.877 14.2445 12.815 14.218C12.691 14.166 12.648 14.146 12.563 14.109L12.558  14.107C11.9859 13.8572 11.4562 13.5198 10.988 13.107C10.862 12.997 10.745 12.877 10.625 12.761C10.2316 12.3842 9.8887 11.958 9.60498 11.493L9.54598  11.398C9.50361 11.3342 9.46934 11.2653 9.44398 11.193C9.40598 11.046 9.50498 10.928 9.50498 10.928C9.50498 10.928 9.74798 10.662 9.86098 10.518 C9.95507 10.3983 10.0429 10.2738 10.124 10.145C10.242 9.955 10.279 9.76 10.217 9.609C9.93698 8.925 9.64698 8.244 9.34898 7.568C9.28998 7.434 9.11498  7.338 8.95598 7.319C8.90198 7.313 8.84798 7.307 8.79398 7.303C8.65969 7.29633 8.52512 7.29766 8.39098 7.307V7.308Z"
+                      fill="#272727"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </i>
+                whatsapp
+              </a>
+            </li>
+            <li
+              class="com-li  "
+            >
+              <a
+                class="com-link --sociallist"
+                href="@moralessola"
+                rel="nofollow"
+                target="_blank"
+                title=""
+              >
+                <i
+                  class="com-icon icon-tumblr-filled"
+                >
+                  <svg
+                    fill="none"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6.27002 7.63C7.55694 7.35229 8.70988 6.64211 9.53686 5.61771C10.3638 4.59332 10.8149 3.31654 10.815 2H13.845V7.152 H17.482V10.788H13.846V16.242C13.846 16.757 14.043 17.449 14.755 17.909C15.229 18.216 16.239 18.367 17.785 18.364V22 H13.543C12.9461 22.0001 12.355 21.8827 11.8034 21.6543C11.2519 21.426 10.7507 21.0912 10.3286 20.6692C9.90642 20.2471  9.57155 19.746 9.34308 19.1945C9.11461 18.643 8.99702 18.0519 8.99702 17.455V10.788H6.27002V7.63Z"
+                      fill="#272727"
+                    />
+                  </svg>
+                </i>
+                tumblr
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 `;
 
 exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Author Sin muchos datos 1`] = `
-<section
-  class="mod-wikiauthor  "
->
-  <div
-    class="row"
+<div>
+  <section
+    class="mod-wikiauthor  "
   >
     <div
-      class="col-12 col-tablet-8 col-deskxl-9"
+      class="row"
     >
       <div
-        class="com-container  --info"
+        class="col-12 col-tablet-8 col-deskxl-9"
       >
-        <h1
-          class="com-title --l"
-        >
-          Joaquín Morales Solá
-        </h1>
         <div
-          class="com-container  --contact"
+          class="com-container  --info"
         >
-          <a
-            class="com-link"
-            href="https://google.com"
-            title=""
+          <h1
+            class="com-title --l"
           >
-            https://google.com
-          </a>
-        </div>
-        <p
-          class="com-text --bio --twoxs"
-        >
-          Ejerce el periodismo desde los 16 años cuando ingresó al
+            Joaquín Morales Solá
+          </h1>
+          <div
+            class="com-container  --contact"
+          >
+            
+            <a
+              class="com-link"
+              href="https://google.com"
+              title=""
+            >
+              https://google.com
+            </a>
+          </div>
+          <p
+            class="com-text --bio --twoxs"
+          >
+            Ejerce el periodismo desde los 16 años cuando ingresó al
                 diario La Gaceta de Tucumán. En 1975, Clarín lo convocó para
                 ser prosecretario de la sección Política. Durante 12 años
                 fue segundo jefe de Redacción y autor de la columna política
                 dominical de ese diario.
-        </p>
-        <div
-          class="com-container  "
-        >
-          <dl
-            class="mod-descriptionlist --idiomas --twoxs"
+          </p>
+          <div
+            class="com-container  "
           >
-            <dt
-              class="com-subtitle --twoxs --idiomas"
+            <dl
+              class="mod-descriptionlist --idiomas --twoxs"
             >
-              Idiomas:
-            </dt>
-            Ingles, Frances
-          </dl>
+              <dt
+                class="com-subtitle --twoxs --idiomas"
+              >
+                Idiomas:
+              </dt>
+              Ingles, Frances
+            </dl>
+          </div>
+          <div
+            class="com-container  "
+          >
+            <dl
+              class="mod-descriptionlist  --twoxs"
+            >
+              <dt
+                class="com-subtitle --twoxs "
+              >
+                Podcast
+              </dt>
+              <dd
+                class="com-itemlist  --twoxs"
+              >
+                <a
+                  class="com-link"
+                  href="http://google.com"
+                  title=""
+                >
+                  Dos podcast
+                </a>
+              </dd>
+            </dl>
+          </div>
         </div>
+      </div>
+      <div
+        class="col-12"
+      >
         <div
-          class="com-container  "
+          class="com-container  --socialicons"
         >
-          <dl
-            class="mod-descriptionlist  --twoxs"
+          <h4
+            class="com-subtitle --twoxs "
           >
-            <dt
-              class="com-subtitle --twoxs "
-            >
-              Podcast
-            </dt>
-            <dd
-              class="com-itemlist  --twoxs"
+            Conectar
+          </h4>
+          <ul
+            class="com-unordered "
+          >
+            <li
+              class="com-li  "
             >
               <a
-                class="com-link"
-                href="http://google.com"
+                class="com-link --sociallist"
+                href="https://twitter.com/@moralessola"
+                rel="nofollow"
+                target="_blank"
                 title=""
               >
-                Dos podcast
+                <i
+                  class="com-icon icon-twitter-filled"
+                >
+                  <svg
+                    fill="none"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M22.162 5.65601C21.3985 5.9937 20.589 6.21548 19.76 6.31401C20.6337 5.79144 21.2877 4.96902 21.6 4.00001C20.78 4.48801 19.881 4.83001  18.944 5.01501C17.6498 3.63033 15.5863 3.2891 13.9153 4.18346C12.2442 5.07782 11.3836 6.98415 11.818 8.82901C8.45501 8.66045 5.32174 7.072  3.19799 4.45901C2.82628 5.09746 2.63095 5.82323 2.63199 6.56201C2.63199 8.01201 3.36999 9.29301 4.49199 10.043C3.828 10.0221 3.17862 9.84279  2.59799 9.52001V9.57201C2.5984 11.563 4.00151 13.2781 5.95299 13.673C5.33661 13.84 4.6903 13.8647 4.06299 13.745C4.61012 15.4492 6.18044  16.6168 7.96999 16.65C6.21793 18.026 3.99073 18.6491 1.77899 18.382C3.69069 19.6114 5.91609 20.2641 8.18899 20.262C15.882 20.262 20.089  13.889 20.089 8.36201C20.089 8.18201 20.084 8.00001 20.076 7.82201C20.8949 7.23017 21.6016 6.49703 22.163 5.65701L22.162 5.65601Z"
+                      fill="#272727"
+                      fill-rule="evenodd"
+                      xmlns="http://www.w3.org/2000/svg"
+                    />
+                  </svg>
+                </i>
+                twitter
               </a>
-            </dd>
-          </dl>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
-    <div
-      class="col-12"
-    >
-      <div
-        class="com-container  --socialicons"
-      >
-        <h4
-          class="com-subtitle --twoxs "
-        >
-          Conectar
-        </h4>
-        <ul
-          class="com-unordered "
-        >
-          <li
-            class="com-li  "
-          >
-            <a
-              class="com-link --sociallist"
-              href="https://twitter.com/@moralessola"
-              rel="nofollow"
-              target="_blank"
-              title=""
-            >
-              <i
-                class="com-icon icon-twitter-filled"
-              >
-                <svg
-                  fill="none"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    clip-rule="evenodd"
-                    d="M22.162 5.65601C21.3985 5.9937 20.589 6.21548 19.76 6.31401C20.6337 5.79144 21.2877 4.96902 21.6 4.00001C20.78 4.48801 19.881 4.83001  18.944 5.01501C17.6498 3.63033 15.5863 3.2891 13.9153 4.18346C12.2442 5.07782 11.3836 6.98415 11.818 8.82901C8.45501 8.66045 5.32174 7.072  3.19799 4.45901C2.82628 5.09746 2.63095 5.82323 2.63199 6.56201C2.63199 8.01201 3.36999 9.29301 4.49199 10.043C3.828 10.0221 3.17862 9.84279  2.59799 9.52001V9.57201C2.5984 11.563 4.00151 13.2781 5.95299 13.673C5.33661 13.84 4.6903 13.8647 4.06299 13.745C4.61012 15.4492 6.18044  16.6168 7.96999 16.65C6.21793 18.026 3.99073 18.6491 1.77899 18.382C3.69069 19.6114 5.91609 20.2641 8.18899 20.262C15.882 20.262 20.089  13.889 20.089 8.36201C20.089 8.18201 20.084 8.00001 20.076 7.82201C20.8949 7.23017 21.6016 6.49703 22.163 5.65701L22.162 5.65601Z"
-                    fill="#272727"
-                    fill-rule="evenodd"
-                    xmlns="http://www.w3.org/2000/svg"
-                  />
-                </svg>
-              </i>
-              twitter
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
+</div>
 `;

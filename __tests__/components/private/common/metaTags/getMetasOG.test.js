@@ -1,4 +1,5 @@
 import getMetasOG from '../../../../../components/private/common/metaTags/getMetasOG';
+import Context from 'fusion:context';
 import getAssetsPath from '../../../../../components/private/common/utils/getAssetsPath';
 import getMetaDescriptionForAcum from '../../../../../components/private/common/utils/getMetaDescriptionForAcum';
 
@@ -28,6 +29,12 @@ jest.mock('fusion:content', () => ({
         ]
     })
 }));
+
+jest.mock('fusion:context', Component => {
+    return function(Component) {
+        return props => <Component {...props} />;
+    };
+});
 
 describe('Common - getMetasOG function', () => {
     it('es una function', () => {
@@ -249,6 +256,9 @@ jest.mock('fusion:content', () => ({
 }));
 describe('Common - getMetasOG function metaDescriptionForAcum', () => {
     it('metaDescriptionForAcum para Section', () => {
+        Context.useAppContext = jest.fn(() => ({
+            globalContent: {}
+        }));
         const meteDescription = getMetaDescriptionForAcum(
             'Description',
             '/economia',

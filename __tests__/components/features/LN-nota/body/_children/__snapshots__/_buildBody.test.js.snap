@@ -5331,16 +5331,18 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
       </div>
     </div>
     <div
-      class="col-tablet-6 --nutrition"
+      class="--nutrition"
     >
       <h3
         class="com-title --l"
       >
         Información nutricional
       </h3>
-      <div>
+      <div
+        class="table-wrapper --two-columns"
+      >
         <table
-          class="com-table"
+          class="table"
         >
           <thead>
             <tr>
@@ -9316,16 +9318,18 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       </div>
     </div>
     <div
-      class="col-tablet-6 --nutrition"
+      class="--nutrition"
     >
       <h3
         class="com-title --l"
       >
         Información nutricional
       </h3>
-      <div>
+      <div
+        class="table-wrapper --two-columns"
+      >
         <table
-          class="com-table"
+          class="table"
         >
           <thead>
             <tr>

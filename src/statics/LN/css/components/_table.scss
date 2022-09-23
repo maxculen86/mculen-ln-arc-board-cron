@@ -1,0 +1,43 @@
+@import '../abstracts/variables';
+
+.table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+    .table {
+        width: 100%;
+        border: px(1) solid $light-neutral-300;
+        thead {
+            border-bottom: px(1) solid $light-neutral-300;
+        }
+        tr {
+            th {
+                padding: $spacing-sm;
+                color: $neutral-black;
+                font-weight: 700;
+                background-color: inherit;
+            }
+            td {
+                padding: $spacing-sm;
+            }
+            th,
+            td {
+                text-align: start;
+                vertical-align: middle;
+            }
+        }
+        tr:not(:last-child) {
+            border-bottom: px(1) solid $light-neutral-300;
+        }
+    }
+    &.--two-columns {
+        @media ($media-m) {
+            width: 50%;
+        }
+        tr,
+        th {
+            td {
+                width: 50%;
+            }
+        }
+    }
+}
