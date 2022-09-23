@@ -26,7 +26,9 @@ const Article = ({
             <div className="com-description">
                 <h2 className="com-title">
                     <a href={url} title={title}>
-                        {lead && <em className="com-volanta">{`${lead} `}</em>}
+                        {lead && (
+                            <span className="com-volanta">{`${lead} `}</span>
+                        )}
                         {title}
                     </a>
                 </h2>
