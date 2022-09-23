@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Link from '../../../common/com-link';
 import Text from '../../../common/text';
 import Icon from '../../../common/icon';
+import { isValidNumber } from '../../../../../content/sources/utils/servicesSource/weather/weatherHelper';
 
 const WeatherCard = ({ _id, data }) => {
     const {
@@ -15,8 +16,6 @@ const WeatherCard = ({ _id, data }) => {
     } = data;
 
     if (!locationName) return null;
-
-    const isValidNumber = number => typeof number === 'number';
 
     return (
         <div className="weather-card">

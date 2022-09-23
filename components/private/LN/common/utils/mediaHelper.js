@@ -2,6 +2,8 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import { parse } from 'node-html-parser';
+import { RESIZER_URL_PUBLIC } from 'fusion:environment';
+import getProperties from 'fusion:properties';
 import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData';
 import get from '../../../common/utils/get';
 import {
@@ -152,6 +154,19 @@ export const wikiImagesWithWWW = data => {
     );
 
     return imagesToPreload;
+};
+
+export const replaceAllUrlsResizerObject = (object = {}) => {
+    const { host = 'https://www.lanacion.com.ar' } =
+        getProperties('la-nacion-ar') || {};
+    const resizersReplaced = JSON.stringify(object)
+        .split(RESIZER_URL_PUBLIC)
+        .join(host);
+    return JSON.parse(resizersReplaced);
+};
+
+export const replaceAllUrlsResizerArray = (array = []) => {
+    return array.map(data => replaceAllUrlsResizerObject(data));
 };
 
 export const buildScriptForZoom = (mediaData, subtype) => {

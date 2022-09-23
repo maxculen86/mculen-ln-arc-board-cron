@@ -1,0 +1,72 @@
+{
+    "_id": "MRE33RWFYNCDJA2Y3PT2PLGJFA",
+    "embed": {
+        "config": {
+            "items": [
+                {
+                    "text": "Calorías",
+                    "unit": "kcal",
+                    "value": 2
+                },
+                {
+                    "text": "Carbohidratos",
+                    "unit": "g",
+                    "value": 3
+                },
+                {
+                    "text": "Colesterol",
+                    "unit": "mg",
+                    "value": 1
+                },
+                {
+                    "text": "Grasas",
+                    "unit": "g",
+                    "value": 1
+                },
+                {
+                    "text": "Fibras",
+                    "unit": "g",
+                    "value": 2
+                },
+                {
+                    "text": "Proteínas",
+                    "unit": "g",
+                    "value": 200
+                },
+                {
+                    "text": "Grasas saturadas",
+                    "unit": "g",
+                    "value": 5
+                },
+                {
+                    "text": "Tamaño de porcion",
+                    "unit": "g",
+                    "value": 4
+                },
+                {
+                    "text": "Sodio",
+                    "unit": "mg",
+                    "value": 50
+                },
+                {
+                    "text": "Azúcar",
+                    "unit": "g",
+                    "value": 18.3
+                },
+                {
+                    "text": "Grasas trans",
+                    "unit": "g",
+                    "value": 4.4
+                },
+                {
+                    "text": "Grasas insaturadas",
+                    "unit": "g",
+                    "value": 10.6
+                }
+            ],
+            "typeList": "nutritional-info"
+        }
+    },
+    "subtype": "custom-nutrition",
+    "type": "custom_embed"
+}
