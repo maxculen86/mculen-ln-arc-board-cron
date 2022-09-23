@@ -168,6 +168,10 @@ const labels = `
             text
             display
         }
+        metarefresh {
+            text
+            display
+        }
         mostrar_banners {
             url
             text
@@ -192,6 +196,22 @@ const labels = `
             text
             display
         }
+    }
+`;
+const table = `
+    header {
+        _id
+        content
+        type
+    }
+    additional_properties {
+        _id
+        comments
+    }
+    rows {
+        _id
+        content
+        type
     }
 `;
 const customPowerUps = `
@@ -413,6 +433,7 @@ export default `
             _id
             type
             subtype
+            ${table}
             embed{
                 config{
                     items{
@@ -434,6 +455,7 @@ export default `
         ${gallery}
         ${video}
         ${oembed}
+        ${table}
         content_elements {
             _id
             content

@@ -9,8 +9,11 @@ import TitleAndIconArticle from '../titleAndIconArticle';
 import WithScreenUtils from '../../../../common/hocs/withScreenUtils';
 import WithStorytellingData from '../../../common/hocs/WithStorytellingData';
 
-import { FOTOAL100 } from '../../../../common/utils/subtypes/subtypeHelper';
-
+import {
+    FOTOAL100,
+    STORYTELLING
+} from '../../../../common/utils/subtypes/subtypeHelper';
+import { replaceAllUrlsResizerObject } from '../../../common/utils/mediaHelper';
 import '../../../../../../resources/dist/css/ln/modules/mod-opening.css';
 import get from '../../../../common/utils/get';
 import { getAspectRatio } from '../../../../../../content/sources/utils/getRatio';
@@ -53,15 +56,10 @@ const Component = props => {
     }, [storytellingData]);
 
     const { apertura = {} } = data;
-    const {
-        src,
-        srcset,
-        altText,
-        video,
-        caption,
-        credit,
-        resizedUrls
-    } = apertura;
+    const { src, srcset, altText, video, caption, credit, resizedUrls } =
+        subtype === STORYTELLING || subtype === FOTOAL100
+            ? replaceAllUrlsResizerObject(apertura)
+            : apertura;
 
     const sourcesForDevice = useProportions({
         resizedUrls,
