@@ -5,14 +5,14 @@ import dateAndTimeUtil from './dateAndTimeUtil';
 
 export default function toggleBookmark(
     token,
-    _globalContent,
     isDelete,
     setBookmark,
-    setToast
+    dispatch,
+    _globalContent = {}
 ) {
     const getDataFromAPI = async () => {
         const fetchBookmarkPath = isDelete ? `/${isDelete}` : '';
-        const { _id: noteId = '' } = _globalContent || {};
+        const { _id: noteId = '' } = _globalContent;
         const primarySectionName = get(
             _globalContent,
             'taxonomy.primary_section.name',
@@ -29,46 +29,14 @@ export default function toggleBookmark(
                   bookmarkContent: getBookmarkContent(_globalContent)
               };
 
-        setToast({});
-
-        const statusActions = {
-            200: async response => {
-                const datos = await response.json();
-                const { bookmarkId: id } = datos;
-                setBookmark && setBookmark(isDelete ? false : id);
-                setToast(
-                    isDelete
-                        ? {
-                              status: 'success',
-                              description:
-                                  'Se borró de <strong>Mis notas</strong>',
-                              timeout: 2750
-                          }
-                        : {
-                              status: 'success',
-                              description:
-                                  'Podés acceder desde <b>Menú de usuario, <a class="com-link" href="https://www.lanacion.com.ar/mis-notas/">Mis notas</a></b>',
-                              timeout: 2750
-                          }
-                );
-            },
-            409: () => {
-                setToast({
-                    status: 'warning',
-                    description:
-                        'No se pudo guardar porque llegaste al límite permitido. <a class="com-link" href="https://www.lanacion.com.ar/mis-notas/">Ir a mis notas</a>',
-                    timeout: 2750
-                });
-            },
-            default: () => {
-                setToast({
-                    status: 'danger',
-                    description:
-                        'Hubo un problema de conexión. Reintenta más tarde.',
-                    timeout: 2750
-                });
+        dispatch({
+            type: 'SHOW_MODAL',
+            payload: {
+                typeModal: 'toast',
+                open: false,
+                data: {}
             }
-        };
+        });
 
         try {
             const res = await fetch(
@@ -82,22 +50,82 @@ export default function toggleBookmark(
                 }
             );
             statusActions[res.status]
-                ? statusActions[res.status](res)
-                : statusActions.default();
+                ? statusActions[res.status]({
+                      response: res,
+                      dispatch,
+                      setBookmark
+                  })
+                : statusActions.default({ dispatch });
             return res.status;
         } catch (err) {
             // eslint-disable-next-line no-console
             console.error(err);
 
-            statusActions.default();
+            return statusActions.default({ dispatch });
         }
     };
 
-    if (token && (isDelete || _globalContent)) {
-        return getDataFromAPI();
-    }
-    return null;
+    const shouldCallApi =
+        token && (isDelete || Object.keys(_globalContent).length);
+
+    return shouldCallApi ? getDataFromAPI() : null;
 }
+
+const statusActions = {
+    200: async ({ response, dispatch, setBookmark }) => {
+        const { bookmarkId: id, bookmarkContent } = await response.json();
+        setBookmark && setBookmark(bookmarkContent ? id : '');
+        dispatch({
+            type: 'SHOW_MODAL',
+            payload: {
+                typeModal: 'toast',
+                open: true,
+                data: !bookmarkContent
+                    ? {
+                          status: 'success',
+                          description: 'Se borró de <strong>Mis notas</strong>',
+                          timeout: 2750
+                      }
+                    : {
+                          status: 'success',
+                          description:
+                              'Podés acceder desde <b>Menú de usuario, <a class="com-link" href="https://www.lanacion.com.ar/mis-notas/">Mis notas</a></b>',
+                          timeout: 2750
+                      }
+            }
+        });
+    },
+    409: ({ dispatch }) => {
+        dispatch({
+            type: 'SHOW_MODAL',
+            payload: {
+                typeModal: 'toast',
+                open: true,
+                data: {
+                    status: 'warning',
+                    description:
+                        'No se pudo guardar porque llegaste al límite permitido. <a class="com-link" href="https://www.lanacion.com.ar/mis-notas/">Ir a mis notas</a>',
+                    timeout: 2750
+                }
+            }
+        });
+    },
+    default: ({ dispatch }) => {
+        dispatch({
+            type: 'SHOW_MODAL',
+            payload: {
+                typeModal: 'toast',
+                open: true,
+                data: {
+                    status: 'danger',
+                    description:
+                        'Hubo un problema de conexión. Reintenta más tarde.',
+                    timeout: 2750
+                }
+            }
+        });
+    }
+};
 
 export function getBookmarkContent(globalContent) {
     const regexResizerUrl = new RegExp(
@@ -137,8 +165,6 @@ export function getBookmarkContent(globalContent) {
 
     const imageApertura = get(globalContent, 'promo_items.basic', {});
     const {
-        _id: imageId,
-        type: promoItemType,
         url: imageUrl = '',
         resized_urls: resizedUrls = []
     } = imageApertura;
@@ -164,11 +190,11 @@ export function getBookmarkContent(globalContent) {
     });
 
     const absoluteUrl = imageUrl.replace(regexResizerUrl, '$1$2$3{{param}}/$5');
-    const imageBaseUrl = imageUrl.replace(regexResizerUrl, '$3{{param}}/$5');
 
     return {
+        origen: 'web',
         id: noteId,
-        templateId: noteSubtype,
+        templateId: Number(noteSubtype),
         url: canonicalUrl,
         categoria: {
             slug: primarySectionSlug,
@@ -187,9 +213,6 @@ export function getBookmarkContent(globalContent) {
         )}`,
         ...(Object.keys(imageApertura).length && {
             imagen: {
-                id: imageId,
-                _t: `${promoItemType === 'image' ? 'img' : ''}`,
-                baseUrl: imageBaseUrl,
                 absoluteUrl,
                 parametros
             }

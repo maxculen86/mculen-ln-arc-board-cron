@@ -18,7 +18,8 @@ import {
     authorAffiliations,
     authorBooks,
     authorPodcast,
-    authorSocialNetworks
+    authorSocialNetworks,
+    authorExpertise
 } from '../../../common/utils/wikiAuthorHelper';
 
 const WikiAuthor = ({
@@ -40,7 +41,8 @@ const WikiAuthor = ({
         personal_website: personalWebsite,
         languages,
         affiliations,
-        location
+        location,
+        expertise = ''
     } = data;
 
     const socialsNetworks = getSocialsNetwork(data);
@@ -80,6 +82,7 @@ const WikiAuthor = ({
                         />
                         {authorEducation(education)}
                         {authorLocation(location)}
+                        {authorExpertise(expertise)}
                         {authorAwards(awards)}
                         {authorLanguages(languages)}
                         {authorAffiliations(affiliations)}

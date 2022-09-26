@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useAppContext } from 'fusion:context';
 import { useContent as getContent } from 'fusion:content';
 import Static from 'fusion:static';
@@ -13,15 +13,7 @@ import {
 import getSectionName from '../../private/LN/common/utils/getSectionName';
 import ComTitle from '../../private/common/com-title';
 import sectionsFormated from '../../private/common/utils/sectionsFormated';
-
-export const getUltimasNoticiasSectionsIds = renderables => {
-    const ultimasNoticiasFeature = renderables.find(
-        element => get(element, 'type', '') === 'LN-acumulado/ultimasNoticias'
-    );
-    return sectionsFormated(
-        get(ultimasNoticiasFeature, 'props.customFields.sections', [])
-    );
-};
+import { getArticlesIdsFromApertura } from '../../private/LN/common/utils/cajaTemasHelper';
 
 const TagsListFeature = ({ id, title }) => {
     const {
@@ -34,70 +26,35 @@ const TagsListFeature = ({ id, title }) => {
         acumuladoGeneral: { hidetagslist = false } = {},
         acumuladoColor: { navigation_color_tags: colorTags } = {}
     } = useGlobalProviderAcu() || {};
-    const sectionIsHome =
-        getSectionName({ nodeType, type, arcSite }) === 'home';
 
-    const [articlesInCache] = useState(
-        (typeof window !== 'undefined' &&
-            get(window, 'Fusion.contentCache.articleSourceNota', [])) ||
-            []
-    );
-    const [articlesInHome, setArticlesInHome] = useState(
-        (sectionIsHome &&
-            Object.entries(articlesInCache).map(
-                ([key, value]) => value.data
-            )) ||
-            []
-    );
+    const sectionName = getSectionName({ nodeType, type, arcSite });
+    const sectionIsHome = sectionName === 'home';
 
-    const ultimasNoticiasQueryProps =
-        sectionId === '/ultimas-noticias'
-            ? {
-                  sectionsIds: getUltimasNoticiasSectionsIds(renderables),
-                  sourceOrigin: 'composer'
-              }
-            : {
-                  sectionsIds: undefined,
-                  sourceOrigin: undefined
-              };
+    const { sourceName, query } = getSectionProps({
+        sectionName,
+        sectionId,
+        arcSite,
+        renderables
+    });
 
-    useEffect(() => {
-        setArticlesInHome(
-            (sectionIsHome &&
-                Object.entries(articlesInCache).map(
-                    ([key, value]) => value.data
-                )) ||
-                []
-        );
-    }, [articlesInCache, sectionIsHome]);
-
-    const orderAndCountTags = sectionIsHome
-        ? getOrderAndCountTags(articlesInHome)
-        : getContent({
-              sourceName: 'acuArticlesSource',
-              query: {
-                  website: arcSite,
-                  sectionId,
-                  page: 0,
-                  promoItemsOnly: false,
-                  ...ultimasNoticiasQueryProps
-              },
-              filter: `{
-                        content_elements {
-                            taxonomy {
-                                tags {
-                                    text
-                                    slug
-                                }
-                            }
+    const orderAndCountTags = getContent({
+        sourceName,
+        query,
+        staticMode: true,
+        filter: `{
+                content_elements {
+                    taxonomy {
+                        tags {
+                            text
+                            slug
                         }
-                    }`,
-              transform: data => {
-                  return getOrderAndCountTags(
-                      get(data, 'content_elements', [])
-                  );
-              }
-          });
+                    }
+                }
+            }`,
+        transform: data => {
+            return getOrderAndCountTags(get(data, 'content_elements', []));
+        }
+    });
 
     const tagList = transformTagsForAcu(orderAndCountTags, colorTags);
     const Component = (hidetagslist !== 'true' && tagList.length && (
@@ -111,7 +68,11 @@ const TagsListFeature = ({ id, title }) => {
         </>
     )) || <></>;
 
-    return sectionIsHome ? Component : <Static id={id}>{Component}</Static>;
+    return (
+        <Static id={id} htmlOnly persistent>
+            {Component}
+        </Static>
+    );
 };
 
 TagsListFeature.label = 'LN-Acumulado-Tag-List';
@@ -126,3 +87,58 @@ TagsListFeature.defaultProps = {
 };
 
 export default TagsListFeature;
+
+export const getUltimasNoticiasSectionsIds = renderables => {
+    const ultimasNoticiasFeature = renderables.find(
+        element => get(element, 'type', '') === 'LN-acumulado/ultimasNoticias'
+    );
+    return sectionsFormated(
+        get(ultimasNoticiasFeature, 'props.customFields.sections', [])
+    );
+};
+
+const getUltimasNoticiasProps = ({ sectionId, renderables = [] }) => {
+    return sectionId === '/ultimas-noticias'
+        ? {
+              sectionsIds: getUltimasNoticiasSectionsIds(renderables),
+              sourceOrigin: 'composer'
+          }
+        : {
+              sectionsIds: undefined,
+              sourceOrigin: undefined
+          };
+};
+
+export const getSectionProps = ({
+    sectionName,
+    sectionId,
+    renderables,
+    arcSite
+}) => {
+    const ultimasNoticiasQueryProps = getUltimasNoticiasProps({
+        sectionId,
+        renderables
+    });
+
+    const configForSection = {
+        home: {
+            sourceName: 'acuArticlesSourcebyIds',
+            query: {
+                website: arcSite,
+                Ids: getArticlesIdsFromApertura(renderables)
+            }
+        },
+        default: {
+            sourceName: 'acuArticlesSource',
+            query: {
+                website: arcSite,
+                sectionId,
+                page: 0,
+                promoItemsOnly: false,
+                ...ultimasNoticiasQueryProps
+            }
+        }
+    };
+
+    return configForSection[sectionName] || configForSection.default;
+};

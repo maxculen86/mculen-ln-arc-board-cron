@@ -1,0 +1,83 @@
+@import '../abstracts/variables';
+
+.audio-player {
+    display: flex;
+    box-shadow: 0px $spacing-3xs $spacing-2xs rgba(0, 0, 0, 0.16);
+    border-radius: $spacing-2xs;
+    padding: $spacing-xs;
+    align-items: center;
+    margin-bottom: $spacing-md;
+    background: $light-neutral-100;
+    @keyframes fadeInPlayer {
+        0% {
+            width: 25%;
+        }
+        100% {
+            width: 100%;
+        }
+    }
+    animation: fadeInPlayer 0.4s;
+    .com-button {
+        &.action-player {
+            width: $spacing-xl;
+            height: $spacing-xl;
+            border-radius: px(20);
+            background-color: $light-neutral-800;
+            padding: px(10);
+            path {
+                fill: $light-neutral-50;
+            }
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+        &.playback-speed {
+            width: $spacing-xl;
+            height: $spacing-lg;
+            background-color: $light-neutral-800;
+            text-transform: lowercase;
+            margin: 0;
+            color: $light-neutral-50;
+            &:hover,
+            &:active {
+                color: $light-neutral-50;
+                opacity: 0.8;
+            }
+        }
+        &.ten-back-secs,
+        &.ten-forward-secs {
+            padding: 0;
+            margin-right: $spacing-xs;
+            &:hover,
+            &:active {
+                .com-icon path {
+                    fill: $light-neutral-800;
+                }
+                opacity: 0.8;
+            }
+        }
+    }
+    .counter {
+        color: $light-neutral-800;
+        margin-right: $spacing-xs;
+    }
+
+    .progress-bar {
+        margin: 0px $spacing-2xs;
+        height: $spacing-2xs;
+        width: 100%;
+        background-color: $light-neutral-400;
+        border-radius: px(10);
+        .percentage {
+            width: 0;
+            border-radius: px(10);
+            height: $spacing-2xs;
+            background-color: black;
+        }
+    }
+    @media ($media-l) {
+        width: 100%;
+        max-width: px(502);
+        margin-bottom: 0;
+    }
+}

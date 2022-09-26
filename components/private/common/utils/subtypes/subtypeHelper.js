@@ -18,3 +18,14 @@ export const Subtypes = [
     { id: '8', nombre: 'FotoAl100' },
     { id: '9', nombre: 'HtmlLibre' }
 ];
+
+export const subtypesWithAmp = {
+    '1': 'nota-noticia',
+    '2': 'nota-infografia',
+    '4': 'nota-storytelling',
+    '5': 'nota-video',
+    '6': 'nota-liveblog',
+    '7': 'nota-receta',
+    '8': 'nota-foto-al-100',
+    '10': 'nota-agencia'
+};

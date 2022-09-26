@@ -10,11 +10,12 @@ import BuildBody from './_children/_buildBody';
 import addEventListener from '../../../private/common/hooks/useEventListener';
 import handleScrollForNota from '../../../private/LN/nota/dataLayer/handleScrollForNota';
 import { setStorageConfiguration } from '../../../private/common/utils/storage';
+import AudioPlayerDesktop from '../../../private/common/audioNews/AudioPlayerDesktop';
 
 const body = ({ customFields }) => {
     const { outputType, globalContent = {} } = useAppContext();
     const banners = groupBannerConfig(customFields);
-    const { _id } = globalContent;
+    const { _id, isListenable, last_updated_date: date } = globalContent;
 
     useEffect(() => {
         try {
@@ -38,12 +39,21 @@ const body = ({ customFields }) => {
         globalContent
     });
 
-    return <>{renderComponents}</>;
+    return (
+        <>
+            {
+                <AudioPlayerDesktop
+                    isListenable={isListenable}
+                    publishDate={date}
+                    noteId={_id}
+                />
+            }
+            {renderComponents}
+        </>
+    );
 };
 
 body.label = 'LN-Nota-Body';
-
-body.lazy = true;
 
 body.propTypes = {
     customFields: PropTypes.shape(buildBodyCustomFields())

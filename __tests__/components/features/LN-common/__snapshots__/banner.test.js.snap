@@ -51,7 +51,7 @@ exports[`getBannerConfiguration => Deberia traer la configuracion del adhesion_m
     </i>
   </button>
   <div
-    class="com-banner"
+    class="com-banner "
     data-ad-unit-path="/133919216/la_nacion_mobile/Nota/adhesion_mob"
     data-device="mobile"
     data-prebid-enabled="false"

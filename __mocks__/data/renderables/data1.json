@@ -88,38 +88,55 @@
         "children": [
             {
                 "collection": "chains",
-                "type": "Ln_Caja_Collection",
+                "type": "Ln_Caja_Manual",
                 "props": {
                     "collection": "chains",
-                    "type": "Ln_Caja_Collection",
-                    "id": "c0fHtl7v5ebsyz",
-                    "name": null,
+                    "type": "Ln_Caja_Manual",
+                    "id": "c0fCdBNjvrxb3sF",
                     "customFields": {
-                        "layout": "focalLeft3",
-                        "backgroundColor": "default",
+                        "layout": "grillaVideo1",
                         "initialPosition": 1,
                         "hideTitle": true,
-                        "idCollection": "QJ3BOEZVQNEYZEVBXHF4C7KAWY"
+                        "pbInternal_cloneId": "c0fCdBNjvrxb3sF",
+                        "hideCaja": false
                     }
-                }
-            },
-            {
-                "collection": "chains",
-                "type": "Ln_Caja_Collection",
-                "props": {
-                    "collection": "chains",
-                    "type": "Ln_Caja_Collection",
-                    "id": "c0fBGa0V5ebsvH",
-                    "name": null,
-                    "customFields": {
-                        "layout": "grilla3",
-                        "backgroundColor": "default",
-                        "initialPosition": 4,
-                        "hideTitle": true,
-                        "idCollection": "QJ3BOEZVQNEYZEVBXHF4C7KAWY"
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-common/articulo",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/articulo",
+                            "id": "f0faKOjixQPZ4i9",
+                            "customFields": {
+                                "noteId": "ILXGTYXUWNF3HKJ3ROQQCQPRVE",
+                                "lead": "",
+                                "imageId": "HXKYJ42ER5CZVDH3TPIMDVNJ54",
+                                "chapitaStyle": "",
+                                "chapita": "chapita 1",
+                                "video": "a85eb3f0-126e-4ee9-821b-de847e716418"
+                            },
+                            "variants": {}
+                        }
                     },
-                    "displayProperties": {}
-                }
+                    {
+                        "collection": "features",
+                        "type": "LN-common/articulo",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/articulo",
+                            "id": "f0f4lqb0C9Ae3fx",
+                            "customFields": {
+                                "noteId": "Z62GTRQMINHNRDLWGGMKGE3ZCE",
+                                "pbInternal_cloneId": "f0f4lqb0C9Ae3fx",
+                                "chapita": " EN VIVO",
+                                "imageId": "G4J4XEKZFJAJ3IST6J5KISIZKQ"
+                            },
+                            "variants": {}
+                        }
+                    }
+                ]
             }
         ]
     },

@@ -60,17 +60,13 @@ exports[`Components - private - services - weather - WeatherCard => Test when do
     <h3
       class="com-text --fivexs"
     >
-      <h3
-        class="com-text --fivexs"
+      <a
+        class="com-link"
+        href="www.www"
+        title="Ver clima en mendoza"
       >
-        <a
-          class="com-link"
-          href="www.www"
-          title="Ver clima en mendoza"
-        >
-          Ver clima en mendoza
-        </a>
-      </h3>
+        Ver clima en mendoza
+      </a>
     </h3>
   </div>
 </div>
@@ -129,30 +125,7 @@ exports[`Components - private - services - weather - WeatherCard => Test when do
         </span>
       </p>
     </div>
-    <div
-      class="temperature"
-    >
-      <span
-        class="com-text --5xs"
-      >
-        Mín:
-      </span>
-      <span
-        class="com-text --font-bold --4xs"
-      >
-        -
-      </span>
-      <span
-        class="com-text --5xs"
-      >
-        Máx:
-      </span>
-      <span
-        class="com-text --font-bold --4xs"
-      >
-        -
-      </span>
-    </div>
+    
   </div>
 </div>
 `;
@@ -210,44 +183,16 @@ exports[`Components - private - services - weather - WeatherCard => Test when do
         </span>
       </p>
     </div>
-    <div
-      class="temperature"
-    >
-      <span
-        class="com-text --5xs"
-      >
-        Mín:
-      </span>
-      <span
-        class="com-text --font-bold --4xs"
-      >
-        25º
-      </span>
-      <span
-        class="com-text --5xs"
-      >
-        Máx:
-      </span>
-      <span
-        class="com-text --font-bold --4xs"
-      >
-        -
-      </span>
-    </div>
     <h3
       class="com-text --fivexs"
     >
-      <h3
-        class="com-text --fivexs"
+      <a
+        class="com-link"
+        href="www.com"
+        title="Ver clima en mendoza"
       >
-        <a
-          class="com-link"
-          href="www.com"
-          title="Ver clima en mendoza"
-        >
-          Ver clima en mendoza
-        </a>
-      </h3>
+        Ver clima en mendoza
+      </a>
     </h3>
   </div>
 </div>
@@ -317,7 +262,7 @@ exports[`Components - private - services - weather - WeatherCard => Test when ha
       <span
         class="com-text --font-bold --4xs"
       >
-        25º
+        0º
       </span>
       <span
         class="com-text --5xs"
@@ -333,17 +278,13 @@ exports[`Components - private - services - weather - WeatherCard => Test when ha
     <h3
       class="com-text --fivexs"
     >
-      <h3
-        class="com-text --fivexs"
+      <a
+        class="com-link"
+        href="www.com"
+        title="Ver clima en mendoza"
       >
-        <a
-          class="com-link"
-          href="www.com"
-          title="Ver clima en mendoza"
-        >
-          Ver clima en mendoza
-        </a>
-      </h3>
+        Ver clima en mendoza
+      </a>
     </h3>
   </div>
 </div>
