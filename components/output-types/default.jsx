@@ -1,25 +1,10 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import ScriptManager from '../private/common/scriptManager';
 import ScriptLogoBBC from '../private/common/scriptManager/scriptLogoBBC';
-import ScriptVideoPowa from '../private/common/scriptManager/scriptVideoPowa';
 import ScriptVideoPowaHome from '../private/common/scriptManager/scriptVideoPowaHome';
-import ScriptCripto from '../private/common/scriptManager/scriptCripto';
-import GTM from '../private/common/scriptManager/googleTagManager';
-import Comscore from '../private/common/scriptManager/comscore';
-import Microdata from '../private/common/scriptManager/microdata';
-import PostBid from '../private/common/scriptManager/postbid';
 import MetasOG from '../private/common/metaTags/metasOG';
-import LiftIgniter from '../private/common/scriptManager/Liftigniter';
-import Datadog from '../private/common/scriptManager/dataDog';
 import TagsLoadingList from '../private/common/scriptManager/tagsLoadingList';
-import GooglePublisherTag from '../private/common/scriptManager/googlePublisherTag';
-import GooglePublisherTagAcumulado from '../private/common/scriptManager/googlePublisherTagAcumulado';
-import SocialEmbeds from '../private/common/scriptManager/socialEmbeds';
-import OptaEmbed from '../private/common/scriptManager/optaEmbed';
-import ScriptHtmlLibre from '../private/common/scriptManager/scriptHtmlLibre';
-import Petametrics from '../private/common/scriptManager/petametrics';
 import Schemas from '../private/common/scriptManager/schemas';
 import DataLayerIndex from '../private/common/dataLayerIndex';
 import paths from '../../config/paths';
@@ -31,103 +16,21 @@ import MetasFBNews from '../private/common/metaTags/metasFBNews';
 import getSectionName from '../private/LN/common/utils/getSectionName';
 import Syndication from '../private/common/syndication';
 import LinkAmpHTML from '../private/common/linkAmpHTML';
-import { pipe } from '../private/common/utils/functional';
 import GetDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
 import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 import addForwardSlash from '../private/LN/common/utils/addForwardSlash';
 import setMetasOtt from '../private/common/metaTags/setMetasHelper';
-import AmazonPublisherServices from '../private/common/scriptManager/amazonPublisherServices';
 import CriticalCss from '../private/common/criticalcss';
 import MetaViafoura from '../private/common/metaViafoura';
 import Favicon from '../private/common/favicon';
-import ComscoreVideo from '../private/common/scriptManager/comscoreVideo';
-import DevReactTracker from '../private/common/scriptManager/DevReactTracker';
-import AdblockDetector from '../private/common/scriptManager/adblockDetector';
 import {
     getTitle,
     getMetaDescriptionDefault,
     metasFromSiteServices
 } from '../private/common/utils/outputTypeHelper';
 import FontPreloads from '../private/common/fontsPreloads';
+import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
 import get from '../private/common/utils/get';
-
-const scriptList = [
-    {
-        component: { name: 'Datadog', function: Datadog },
-        feature: 'none'
-    },
-    {
-        component: { name: 'AdblockDetector', function: AdblockDetector },
-        feature: 'none'
-    },
-    {
-        component: { name: 'ScriptVideoPowa', function: ScriptVideoPowa },
-        feature: 'none'
-    },
-    {
-        component: { name: 'ScriptCripto', function: ScriptCripto },
-        feature: ['LN-acumulado/cajaDolar', 'LN-acumulado/cajaCripto']
-    },
-    { component: { name: 'GTM', function: GTM }, feature: 'none' },
-    { component: { name: 'Comscore', function: Comscore }, feature: 'none' },
-    { component: { name: 'Microdata', function: Microdata }, feature: 'none' },
-    {
-        component: { name: 'PostBid', function: PostBid },
-        feature: 'none'
-    },
-    {
-        component: { name: 'GooglePublisherTag', function: GooglePublisherTag },
-        feature: 'none'
-    },
-    {
-        component: {
-            name: 'GooglePublisherTagAcumulado',
-            function: GooglePublisherTagAcumulado
-        },
-        feature: 'none'
-    },
-    {
-        component: { name: 'LiftIgniter', function: LiftIgniter },
-        feature: ['LN-nota/tePuedeInteresar']
-    },
-    {
-        component: { name: 'Petametrics', function: Petametrics },
-        feature: ['LN-nota/tePuedeInteresar']
-    },
-    {
-        component: { name: 'SocialEmbeds', function: SocialEmbeds },
-        feature: 'none'
-    },
-    {
-        component: { name: 'OptaEmbed', function: OptaEmbed },
-        feature: 'none'
-    },
-    {
-        component: { name: 'ScriptHtmlLibre', function: ScriptHtmlLibre },
-        feature: 'none'
-    },
-    {
-        component: {
-            name: 'AmazonPublisherServices',
-            function: AmazonPublisherServices
-        },
-        feature: 'none'
-    },
-    {
-        component: {
-            name: 'ComscoreVideo',
-            function: ComscoreVideo
-        },
-        feature: 'none'
-    },
-    {
-        component: {
-            name: 'DevReactTracker',
-            function: DevReactTracker
-        },
-        feature: 'none'
-    }
-];
 
 const getBodyClass = props => {
     const { className = {} } = props;
@@ -181,27 +84,6 @@ const Default = props => {
 
     const metaTitleBasic = metaTitle || basicTitle;
 
-    const getPageBuilderFeatures = _renderables =>
-        _renderables.filter(renderable => renderable.collection === 'features');
-
-    const getScriptsFilterFunction = scripts => features =>
-        scripts
-            .filter(
-                script =>
-                    features.find(feature =>
-                        script.feature.includes(feature.type)
-                    ) !== undefined || script.feature === 'none'
-            )
-            .map(element => element.component)
-            .reduce(
-                (accumulator, value) => ({
-                    ...accumulator,
-                    [value.name]: value.function
-                }),
-                {}
-            );
-
-    const getScriptsToBeLoaded = getScriptsFilterFunction(scriptList);
     const _nodeType = getSectionName({ nodeType, type, arcSite });
     const title = getTitle(
         metaValue('title'),
@@ -222,13 +104,8 @@ const Default = props => {
         siteProperties
     });
 
-    const scripts = pipe(
-        getPageBuilderFeatures,
-        getScriptsToBeLoaded
-    )(renderables);
-
-    const Scripts = ScriptManager(
-        scripts,
+    const Scripts = buildScriptComponent(
+        renderables,
         siteProperties.scripts,
         globalContent
     );
@@ -443,7 +320,8 @@ Default.propTypes = {
     outputType: PropTypes.string.isRequired,
     siteProperties: PropTypes.isRequired,
     layout: PropTypes.string.isRequired,
-    requestUri: PropTypes.string.isRequired
+    requestUri: PropTypes.string.isRequired,
+    isAdmin: PropTypes.boolean.isRequired
 };
 
 export default Default;

@@ -180,6 +180,10 @@ export default {
             props: {},
             location: ['head']
         },
+        Blockthrough: {
+            props: {},
+            location: ['body-bottom']
+        },
         Queryly: {
             props: {},
             location: ['body-bottom']

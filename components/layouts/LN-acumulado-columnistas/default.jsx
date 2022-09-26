@@ -45,7 +45,16 @@ const LNAcumuladoColumnistasLayout = props => {
                                             tag="h1"
                                             size="--l"
                                             extraClass="com-title"
-                                            text="Todos los columnistas"
+                                            text="Columnas y opinión: política, economía, internacionales y más"
+                                        />
+                                        <Text
+                                            tag="p"
+                                            size="--m"
+                                            extraClass="com-text --mb-lg --sueca --font-regular --m"
+                                            text={
+                                                'Leé los análisis de los columnistas, periodistas y escritores más destacados de la redacción. ' +
+                                                'Además, descubrí contenidos especializados de nuestros colaboradores. Informate con LA NACION.'
+                                            }
                                         />
                                     </Static>
                                 </div>

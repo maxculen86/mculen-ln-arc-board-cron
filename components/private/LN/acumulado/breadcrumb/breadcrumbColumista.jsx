@@ -13,7 +13,7 @@ function BreadcrumbColumnista({ host, requestUri }) {
         },
         {
             path: requestUri,
-            name: 'Todos los Columnistas'
+            name: 'Columnistas'
         }
     ];
     return (
