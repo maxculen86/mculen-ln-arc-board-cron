@@ -36,7 +36,6 @@
                 @include width-nota100;
             }
         }
-
         > .row {
             display: block;
             margin-bottom: $spacing-lg;
@@ -52,7 +51,6 @@
             .com-unordered,
             .com-ordered,
             .container-center-100,
-            #audio-player-desktop,
             figcaption {
                 display: block;
                 width: 100%;
@@ -95,10 +93,11 @@
                     height: auto;
                 }
             }
-            > .com-link.--logo {
+            > .com-link.--logo,
+            #audio-player-desktop {
                 @include padding_rl;
                 @media ($media-l) {
-                    display: block;
+                    display: flex;
                     width: 100%;
                     margin-right: auto;
                     margin-left: auto;
