@@ -23,7 +23,7 @@ exports[`Features - LN-acumulado - Caja Detalle Signo Feature => With a valid re
             fetchpriority="low"
             height="100%"
             loading="lazy"
-            src="undefinedundefined/resources/images/horoscope-logos/tauro.svg"
+            src="https://arc-static.glanacion.com/pf/resources/images/horoscope-logos/tauro.svg"
             width="100%"
           />
         </div>

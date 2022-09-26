@@ -39,7 +39,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => With a valid respo
                   fetchpriority="low"
                   height="100%"
                   loading="lazy"
-                  src="undefinedundefined/resources/images/horoscope-logos/aries.svg"
+                  src="https://arc-static.glanacion.com/pf/resources/images/horoscope-logos/aries.svg"
                   width="100%"
                 />
               </div>
@@ -77,7 +77,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => With a valid respo
                   fetchpriority="low"
                   height="100%"
                   loading="lazy"
-                  src="undefinedundefined/resources/images/horoscope-logos/tauro.svg"
+                  src="https://arc-static.glanacion.com/pf/resources/images/horoscope-logos/tauro.svg"
                   width="100%"
                 />
               </div>
@@ -115,7 +115,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => With a valid respo
                   fetchpriority="low"
                   height="100%"
                   loading="lazy"
-                  src="undefinedundefined/resources/images/horoscope-logos/geminis.svg"
+                  src="https://arc-static.glanacion.com/pf/resources/images/horoscope-logos/geminis.svg"
                   width="100%"
                 />
               </div>
@@ -153,7 +153,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => With a valid respo
                   fetchpriority="low"
                   height="100%"
                   loading="lazy"
-                  src="undefinedundefined/resources/images/horoscope-logos/cancer.svg"
+                  src="https://arc-static.glanacion.com/pf/resources/images/horoscope-logos/cancer.svg"
                   width="100%"
                 />
               </div>
@@ -191,7 +191,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => With a valid respo
                   fetchpriority="low"
                   height="100%"
                   loading="lazy"
-                  src="undefinedundefined/resources/images/horoscope-logos/leo.svg"
+                  src="https://arc-static.glanacion.com/pf/resources/images/horoscope-logos/leo.svg"
                   width="100%"
                 />
               </div>
@@ -229,7 +229,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => With a valid respo
                   fetchpriority="low"
                   height="100%"
                   loading="lazy"
-                  src="undefinedundefined/resources/images/horoscope-logos/virgo.svg"
+                  src="https://arc-static.glanacion.com/pf/resources/images/horoscope-logos/virgo.svg"
                   width="100%"
                 />
               </div>
@@ -267,7 +267,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => With a valid respo
                   fetchpriority="low"
                   height="100%"
                   loading="lazy"
-                  src="undefinedundefined/resources/images/horoscope-logos/libra.svg"
+                  src="https://arc-static.glanacion.com/pf/resources/images/horoscope-logos/libra.svg"
                   width="100%"
                 />
               </div>
@@ -305,7 +305,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => With a valid respo
                   fetchpriority="low"
                   height="100%"
                   loading="lazy"
-                  src="undefinedundefined/resources/images/horoscope-logos/escorpio.svg"
+                  src="https://arc-static.glanacion.com/pf/resources/images/horoscope-logos/escorpio.svg"
                   width="100%"
                 />
               </div>
@@ -343,7 +343,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => With a valid respo
                   fetchpriority="low"
                   height="100%"
                   loading="lazy"
-                  src="undefinedundefined/resources/images/horoscope-logos/sagitario.svg"
+                  src="https://arc-static.glanacion.com/pf/resources/images/horoscope-logos/sagitario.svg"
                   width="100%"
                 />
               </div>
@@ -381,7 +381,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => With a valid respo
                   fetchpriority="low"
                   height="100%"
                   loading="lazy"
-                  src="undefinedundefined/resources/images/horoscope-logos/capricornio.svg"
+                  src="https://arc-static.glanacion.com/pf/resources/images/horoscope-logos/capricornio.svg"
                   width="100%"
                 />
               </div>
@@ -419,7 +419,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => With a valid respo
                   fetchpriority="low"
                   height="100%"
                   loading="lazy"
-                  src="undefinedundefined/resources/images/horoscope-logos/acuario.svg"
+                  src="https://arc-static.glanacion.com/pf/resources/images/horoscope-logos/acuario.svg"
                   width="100%"
                 />
               </div>
@@ -457,7 +457,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => With a valid respo
                   fetchpriority="low"
                   height="100%"
                   loading="lazy"
-                  src="undefinedundefined/resources/images/horoscope-logos/piscis.svg"
+                  src="https://arc-static.glanacion.com/pf/resources/images/horoscope-logos/piscis.svg"
                   width="100%"
                 />
               </div>
@@ -499,7 +499,7 @@ exports[`Features - LN-acumulado - Caja Horoscopos Feature => With a valid respo
                   fetchpriority="low"
                   height="100%"
                   loading="lazy"
-                  src="undefinedundefined/resources/images/horoscope-logos/rata.svg"
+                  src="https://arc-static.glanacion.com/pf/resources/images/horoscope-logos/rata.svg"
                   width="100%"
                 />
               </div>

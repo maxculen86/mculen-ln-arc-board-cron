@@ -6,6 +6,16 @@ import Context from 'fusion:context';
 import CajaHoroscopos from '../../../../components/features/LN-acumulado/cajaHoroscopos';
 import API_RESPONSE_ZODIAC from '../../../../__mocks__/data/apiHoroscope/horoscoposZodiaco';
 
+jest.mock('fusion:environment', () => {
+    return {
+        IS_SANDBOX: 'true',
+        API_ENV: 'sandbox',
+        LANACIONAR_URLASSETS: 'https://www.lanacion.com.ar',
+        SITE_LANACION: 'https://www.lanacion.com.ar',
+        ARC_STATIC: 'https://arc-static.glanacion.com'
+    };
+});
+
 jest.mock(
     '../../../../components/private/common/staticValidation',
     () => 'mock-static-validation'
@@ -45,6 +55,7 @@ describe('Features - LN-acumulado - Caja Horoscopos Feature =>', () => {
             useContent.mockImplementation(() => API_RESPONSE_ZODIAC);
             Context.useAppContext = jest.fn(() => ({
                 globalContent,
+                contextPath: '/pf',
                 deployment
             }));
             const { container } = render(<CajaHoroscopos {...props} />);

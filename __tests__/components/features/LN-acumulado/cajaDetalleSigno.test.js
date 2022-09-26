@@ -6,6 +6,17 @@ import Context from 'fusion:context';
 import CajaDetalleSigno from '../../../../components/features/LN-acumulado/cajaDetalleSigno';
 import API_RESPONSE_SIGN from '../../../../__mocks__/data/apiHoroscope/signoZodiaco';
 
+jest.mock('fusion:environment', () => {
+    return {
+        IS_SANDBOX: 'true',
+        API_ENV: 'sandbox',
+        LANACIONAR_URLASSETS:
+            'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com',
+        SITE_LANACION:
+            'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com',
+        ARC_STATIC: 'https://arc-static.glanacion.com'
+    };
+});
 jest.mock(
     '../../../../components/private/common/staticValidation',
     () => 'mock-static-validation'
@@ -15,8 +26,8 @@ jest.mock('fusion:context', Component => {
         return props => <Component {...props} />;
     };
 });
-
-const deployment = deploymentValue => deploymentValue;
+const contextPath = '/pf';
+const deployment = (deploymentValue = 'lanacion.com.ar') => deploymentValue;
 const props = {
     customFields: { title: 'Seleccioná tu signo...' },
     id: 'f0fTek5ovhrk51V'
@@ -45,6 +56,7 @@ describe('Features - LN-acumulado - Caja Detalle Signo Feature =>', () => {
             useContent.mockImplementation(() => API_RESPONSE_SIGN);
             Context.useAppContext = jest.fn(() => ({
                 globalContent,
+                contextPath: '/pf',
                 deployment
             }));
             const { container } = render(<CajaDetalleSigno {...props} />);
