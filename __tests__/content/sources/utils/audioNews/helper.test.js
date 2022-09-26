@@ -28,7 +28,7 @@ describe('Test - isNoteListenable', () => {
     test('Should return false when the subtype is not enabled.', () => {
         const resp = {
             ...data,
-            subtype: '10'
+            subtype: '9'
         };
         expect(isNoteListenable(resp)).toStrictEqual(false);
     });
