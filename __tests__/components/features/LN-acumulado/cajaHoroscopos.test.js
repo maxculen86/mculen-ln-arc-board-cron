@@ -36,7 +36,7 @@ describe('Features - LN-acumulado - Caja Horoscopos Feature =>', () => {
 
             const { container } = render(<CajaHoroscopos {...props} />);
 
-            expect(container).toBeEmptyDOMElement();
+            expect(container.firstChild).toBeEmptyDOMElement();
         });
     });
 

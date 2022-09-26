@@ -27,7 +27,7 @@ const globalContent = {
 
 describe('Features - LN-acumulado - Caja Detalle Signo Feature =>', () => {
     describe('without data response nothing renders ', () => {
-        it('Should return null', () => {
+        it('Should return an empty static tag', () => {
             useContent.mockImplementation(() => {});
 
             Context.useAppContext = jest.fn(() => ({
@@ -36,7 +36,7 @@ describe('Features - LN-acumulado - Caja Detalle Signo Feature =>', () => {
 
             const { container } = render(<CajaDetalleSigno {...props} />);
 
-            expect(container).toBeEmptyDOMElement();
+            expect(container.firstChild).toBeEmptyDOMElement();
         });
     });
 

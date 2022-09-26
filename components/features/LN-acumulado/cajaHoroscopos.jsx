@@ -10,8 +10,9 @@ const CajaHoroscopos = ({ id: featureId, customFields }) => {
     const { title } = customFields;
     const { _id = '' } = globalContent || {};
     const path = _id.split('/').slice(1);
+
     const Component = (
-        <>
+        <StaticValidation id={featureId} htmlOnly persistent>
             {(() => {
                 const { data } =
                     useContent({
@@ -22,28 +23,21 @@ const CajaHoroscopos = ({ id: featureId, customFields }) => {
                         },
                         staticMode: true
                     }) || {};
-
-                return data ? (
-                    <HoroscopeBox
-                        signos={data.signos}
-                        title={title}
-                        deployment={deployment}
-                        contextPath={contextPath}
-                    />
-                ) : null;
+                return (
+                    data && (
+                        <HoroscopeBox
+                            signos={data.signos}
+                            title={title}
+                            deployment={deployment}
+                            contextPath={contextPath}
+                        />
+                    )
+                );
             })()}
-        </>
+        </StaticValidation>
     );
-    const { props = {} } = Component;
-    const { children } = props;
 
-    return (
-        children && (
-            <StaticValidation id={featureId} htmlOnly persistent>
-                {Component}
-            </StaticValidation>
-        )
-    );
+    return Component;
 };
 
 CajaHoroscopos.label = 'LN Acumulado Caja Horoscopos';
