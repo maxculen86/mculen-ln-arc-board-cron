@@ -6,7 +6,7 @@ import LinkAmpHTML from '../../../../components/private/common/linkAmpHTML.jsx';
 describe('Private - LN - Common - linkAmpHTML', () => {
     const props = {
         canonicalUrl: '/ciencia/roger-prueba-imagenes-nid28052020/',
-        hasAmpLink: 'nota-noticia'
+        subtype: '1'
     };
 
     it('Render OK', () => {
@@ -15,9 +15,7 @@ describe('Private - LN - Common - linkAmpHTML', () => {
     });
 
     it('Render NOTOK', () => {
-        const { container } = render(
-            <LinkAmpHTML {...props} hasAmpLink={false} />
-        );
+        const { container } = render(<LinkAmpHTML {...props} subtype={'9'} />);
         expect(container).toBeEmptyDOMElement();
     });
 

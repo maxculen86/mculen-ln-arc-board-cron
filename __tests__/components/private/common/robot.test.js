@@ -6,7 +6,7 @@ import Robot from '../../../../components/private/common/robot.jsx';
 describe('Private - LN - Common - robot', () => {
     const props = {
         canonicalUrl: '/politica/nota-prueba-storytelling-nid26052020/',
-        hasAmpLink: 'nota-noticia'
+        subtype: '1'
     };
 
     it('Render OK', () => {
@@ -15,7 +15,7 @@ describe('Private - LN - Common - robot', () => {
     });
 
     it('Render NOTOK', () => {
-        const { container } = render(<Robot {...props} hasAmpLink={false} />);
+        const { container } = render(<Robot {...props} subtype={'9'} />);
         expect(container).toBeEmptyDOMElement();
     });
 

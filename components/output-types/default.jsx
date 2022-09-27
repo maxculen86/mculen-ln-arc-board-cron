@@ -31,7 +31,6 @@ import {
 import FontPreloads from '../private/common/fontsPreloads';
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
 import get from '../private/common/utils/get';
-import { subtypesWithAmp } from '../private/common/utils/subtypes/subtypeHelper';
 
 const getBodyClass = props => {
     const { className = {} } = props;
@@ -124,8 +123,6 @@ const Default = props => {
         arcSite,
         requestUri
     );
-
-    const hasAmpLink = get(subtypesWithAmp, subtype, false);
 
     const configHydrate = {};
     if (layout === get(siteProperties, 'layoutsName.Home'))
@@ -229,7 +226,7 @@ const Default = props => {
                 )}
                 <LinkAmpHTML
                     canonicalUrl={canonicalUrl || websiteUrl}
-                    hasAmpLink={hasAmpLink}
+                    subtype={subtype}
                 />
                 {layout !== 'LN-buscador' && (
                     <MetaTitle
