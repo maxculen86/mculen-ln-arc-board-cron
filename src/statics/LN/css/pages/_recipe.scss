@@ -132,32 +132,7 @@
         }
     }
     .--nutrition {
-        .com-table {
-            border: 1px solid $light-neutral-300;
-            width: 100%;
-            thead {
-                border-bottom: 1px solid $light-neutral-300;
-            }
-            tr {
-                th {
-                    text-align: start;
-                    padding: $spacing-sm;
-                    color: $neutral-black;
-                    font-weight: 700;
-                }
-                td {
-                    padding: $spacing-sm;
-                }
-                th,
-                td {
-                    display: table-cell;
-                    vertical-align: middle;
-                }
-            }
-            tr:not(:last-child) {
-                border-bottom: 1px solid $light-neutral-300;
-            }
-        }
+        width: 100%;
     }
 }
 

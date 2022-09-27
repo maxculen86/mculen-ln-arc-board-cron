@@ -1,78 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`with data list snapshot 1`] = `
-<div
-  class="dolar"
->
-  <ul
-    class="mod-dolar"
-  >
-    <li>
-      <mock-currencydata
-        purchasevalue="86,25"
-        salevalue="92,25"
-        sourcename="dbna"
-        title="Dólar Banco Nación"
-      />
-    </li>
-    <li>
-      <mock-currencydata
-        purchasevalue="148,00"
-        salevalue="153,00"
-        sourcename="dblue"
-        title="Dólar Blue"
-      />
-    </li>
-    <li>
-      <mock-currencydata
-        purchasevalue="118,18"
-        salevalue="false"
-        sourcename="dccl"
-        title="Dólar Contado con Liqui"
-      />
-    </li>
-    <li>
-      <mock-currencydata
-        urlbrand="https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/Lzu3CsxaJkufzPN4fOxQjod_yik=/314x0/filters:quality(100)/especiales.lanacion.com.ar/LN/dolar/anexo-dolar/logo-invertir.png"
-      />
-    </li>
-  </ul>
+exports[`with data list should render div tag with "mod-dolar" className with 4 li tags 1`] = `
+<div>
   <div
-    class="widget-carrousel-coins"
+    class="dolar"
   >
-    <a
-      class="com-link"
-      href="https://www.lanacion.com.ar/tema/criptomonedas-tid63718/"
-      title="Ir a criptomonedas"
+    <ul
+      class="mod-dolar"
     >
-      <h2
-        class="cripto-title --font-bold --twoxs"
-      >
-        Criptomonedas
-      </h2>
-    </a>
-    <div
-      class="livecoinwatch-widget-5"
-      lcw-base="USD"
-      lcw-color-tx="#000000"
-      lcw-marquee-1="coins"
-      lcw-marquee-2="none"
-      lcw-marquee-items="20"
-    />
+      <li>
+        <mock-currencydata
+          purchasevalue="86,25"
+          salevalue="92,25"
+          sourcename="dbna"
+          title="Dólar Banco Nación"
+        />
+      </li>
+      <li>
+        <mock-currencydata
+          purchasevalue="148,00"
+          salevalue="153,00"
+          sourcename="dblue"
+          title="Dólar Blue"
+        />
+      </li>
+      <li>
+        <mock-currencydata
+          purchasevalue="118,18"
+          salevalue="false"
+          sourcename="dccl"
+          title="Dólar Contado con Liqui"
+        />
+      </li>
+      <li>
+        <mock-currencydata
+          urlbrand="https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/Lzu3CsxaJkufzPN4fOxQjod_yik=/314x0/filters:quality(100)/especiales.lanacion.com.ar/LN/dolar/anexo-dolar/logo-invertir.png"
+        />
+      </li>
+    </ul>
   </div>
-  <span
-    class="com-text --fivexs"
-  >
-    Información provista por 
-    <a
-      class="com-link"
-      href="https://www.livecoinwatch.com/"
-      rel="nofollow"
-      target="_blank"
-      title="Ir a Live Coin Watch"
-    >
-      Live Coin Watch
-    </a>
-  </span>
 </div>
 `;

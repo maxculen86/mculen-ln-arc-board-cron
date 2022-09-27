@@ -1,0 +1,58 @@
+{
+    "_id": "H7WL2EHT7NGXDJHWUSCIVHBFQQ",
+    "additional_properties": {
+        "_id": "MKQCP33L6BG6FE6IFSLKMXN72M",
+        "comments": []
+    },
+    "header": [
+        {
+            "_id": "XR5ERY5PIBHXDEDQYC6YMXF4GU",
+            "content": "MockColumn1",
+            "type": "text"
+        },
+        {
+            "_id": "ZKDPUCIG7VFG5AR3QEV6QUNGWA",
+            "content": "MockColumn2",
+            "type": "text"
+        }
+    ],
+    "rows": [
+        [
+            {
+                "_id": "SHZX2QCWFNF2HDUAIUAPVFLG2A",
+                "content": "00",
+                "type": "text"
+            },
+            {
+                "_id": "HF2O3FZ7K5B4LOVNBBKNJLWNKE",
+                "content": "Los huevos",
+                "type": "text"
+            }
+        ],
+        [
+            {
+                "_id": "5T3R66NJQVEIRN73MVN7W4VUWQ",
+                "content": "01",
+                "type": "text"
+            },
+            {
+                "_id": "WOIF5TWTZBASPKKW3XJSOL2ELQ",
+                "content": "El agua",
+                "type": "text"
+            }
+        ],
+        [
+            {
+                "_id": "JQYMZQ7UDBG4NPZIJSS5MKXIKY",
+                "content": "02",
+                "type": "text"
+            },
+            {
+                "_id": "2W5POPCFHBBWPAOUCUDGF65XG4",
+                "content": "El niño",
+                "type": "text"
+            }
+        ]
+    ],
+    "type": "table"
+}

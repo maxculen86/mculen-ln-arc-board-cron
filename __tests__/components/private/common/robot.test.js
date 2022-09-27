@@ -1,52 +1,49 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import Robot from '../../../../components/private/common/robot.jsx';
-
-jest.mock('fusion:content', () => ({
-    useContent: () => ({
-        '1': 'nota-noticia',
-        '4': 'nota-storytelling'
-    })
-}));
 
 describe('Private - LN - Common - robot', () => {
     const props = {
-        arcSite: 'la-nacion-ar',
         canonicalUrl: '/politica/nota-prueba-storytelling-nid26052020/',
-        subtype: '4'
+        hasAmpLink: 'nota-noticia'
     };
 
     it('Render OK', () => {
-        const component = render(<Robot {...props} />);
-        expect(component).toBeDefined();
+        const { container } = render(<Robot {...props} />);
+        expect(container).toBeVisible();
     });
 
     it('Render NOTOK', () => {
-        const component = mount(<Robot {...props} subtype={'0'} />);
-        expect(component.html()).toBeNull();
+        const { container } = render(<Robot {...props} hasAmpLink={false} />);
+        expect(container).toBeEmptyDOMElement();
     });
 
-    it('Validar props enviadas', () => {
-        const component = mount(<Robot {...props} />);
-        expect(component.props()).toEqual(props);
+    it('Validate sent props', () => {
+        const { container } = render(<Robot {...props} />);
+        const link = container.getElementsByTagName('link');
+        expect(link[0].href).toEqual(
+            `https://www.lanacion.com.ar${props.canonicalUrl}`
+        );
     });
 
-    it('Si no envio props retornar null', () => {
-        const component = mount(<Robot />);
-        expect(component.html()).toBeNull();
+    it('If no props are sended return empty dom element', () => {
+        const { container } = render(<Robot />);
+        expect(container).toBeEmptyDOMElement();
     });
 
-    it('Atributos y nodo del DOM correcto', () => {
-        const component = mount(<Robot {...props} />);
-        expect(component.find('link')).toHaveLength(1);
-        expect(component.find('link').props().rel).toEqual('canonical');
-        expect(component.find('link').props().href).toEqual(
+    it('Should have the correct DOM attributes', () => {
+        const { container } = render(<Robot {...props} />);
+        const link = container.getElementsByTagName('link');
+        expect(link).toHaveLength(1);
+        expect(link[0].rel).toEqual('canonical');
+        expect(link[0].href).toEqual(
             'https://www.lanacion.com.ar/politica/nota-prueba-storytelling-nid26052020/'
         );
     });
 
     it('Snapshots', () => {
-        const component = render(<Robot {...props} />);
-        expect(component).toMatchSnapshot();
+        const { container } = render(<Robot {...props} />);
+        expect(container).toMatchSnapshot();
     });
 });

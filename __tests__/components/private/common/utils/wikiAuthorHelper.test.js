@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import {
     authorPhoto,
     authorEducation,
@@ -9,7 +10,8 @@ import {
     authorAffiliations,
     authorBooks,
     authorPodcast,
-    authorSocialNetworks
+    authorSocialNetworks,
+    authorExpertise
 } from '../../../../../components/private/common/utils/wikiAuthorHelper';
 
 jest.mock(
@@ -94,7 +96,7 @@ describe('WIkiAuthorHelper functions test', () => {
         'https://whasapp.com',
         'https://google.com.ar'
     ];
-
+    const expertise = 'Economia, Politica';
     const data = {
         facebook: 'facebook.com.ar',
         instagram: 'https://instagram.com',
@@ -118,112 +120,172 @@ describe('WIkiAuthorHelper functions test', () => {
     };
 
     it('Checking authorPhoto', () => {
-        const wrapper = shallow(authorPhoto(outputType, url, byline));
-        const imageElement = wrapper.find('mock-imageAuthor');
+        const { container } = render(authorPhoto(outputType, url, byline));
+        const imageElement = container.getElementsByTagName('mock-imageAuthor');
 
-        expect(imageElement.exists()).toBeTruthy();
-        expect(imageElement.prop('name')).toBe('Javier Blanco');
-        expect(imageElement.prop('url')).toBe(
+        expect(imageElement[0]).toBeVisible();
+        expect(imageElement[0].getAttribute('name')).toBe('Javier Blanco');
+        expect(imageElement[0].getAttribute('url')).toBe(
             'https://resizer.glanacion.com/resizer/0BhTvrLkGMQ2k7iw_97QKDQvhRw=/280x0/filters:quality(80)/s3.amazonaws.com/arc-authors/lanacionar/ded21cfd-b9a6-4cee-9a7b-22ad1fb00d1a.png'
         );
         expect(authorPhoto(outputType, undefined, byline)).toBe(null);
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(container).toMatchSnapshot();
     });
 
     it('Checking authorEducation', () => {
-        const wrapper = shallow(authorEducation(education));
-        const containerElement = wrapper.find('mock-com-container');
-        const descriptionElement = containerElement.children();
+        const { container } = render(authorEducation(education));
+        const containerElement = container.getElementsByTagName(
+            'mock-com-container'
+        );
+        const descriptionElement = containerElement[0].getElementsByTagName(
+            'mock-mod-description'
+        );
+        const lists = descriptionElement[0].getAttribute('list');
 
-        expect(containerElement.exists()).toBeTruthy();
-        expect(descriptionElement.exists()).toBeTruthy();
-        expect(descriptionElement.prop('list').length).toBe(2);
+        expect(containerElement[0]).toBeVisible();
+        expect(descriptionElement[0]).toBeVisible();
+        expect(lists).toBeDefined();
         expect(authorEducation([])).toBe(null);
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(container).toMatchSnapshot();
     });
 
     it('Checking authorLocation', () => {
-        const wrapper = shallow(authorLocation(location));
-        const containerElement = wrapper.find('mock-com-container');
-        const descriptionElement = containerElement.children();
+        const { container } = render(authorLocation(location));
+        const containerElement = container.getElementsByTagName(
+            'mock-com-container'
+        );
+        const descriptionElement = containerElement[0].getElementsByTagName(
+            'mock-mod-description'
+        );
 
-        expect(containerElement.exists()).toBeTruthy();
-        expect(descriptionElement.exists()).toBeTruthy();
-        expect(descriptionElement.prop('text')).toBe('Argentina');
+        expect(containerElement[0]).toBeVisible();
+        expect(descriptionElement[0]).toBeVisible();
+        expect(descriptionElement[0].getAttribute('text')).toBe('Argentina');
         expect(authorLocation(undefined)).toBe(null);
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(container).toMatchSnapshot();
     });
 
     it('Checking authorAwards', () => {
-        const wrapper = shallow(authorAwards(awards));
-        const containerElement = wrapper.find('mock-com-container');
-        const descriptionElement = containerElement.children();
+        const { container } = render(authorAwards(awards));
+        const containerElement = container.getElementsByTagName(
+            'mock-com-container'
+        );
+        const descriptionElement = containerElement[0].getElementsByTagName(
+            'mock-mod-description'
+        );
+        const lists = descriptionElement[0].getAttribute('list');
 
-        expect(containerElement.exists()).toBeTruthy();
-        expect(descriptionElement.exists()).toBeTruthy();
-        expect(descriptionElement.prop('list').length).toBe(2);
-        expect(authorAwards([])).toBe(null);
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(containerElement[0]).toBeVisible();
+        expect(descriptionElement[0]).toBeVisible();
+        expect(lists).toBeDefined();
+        expect(authorEducation([])).toBe(null);
+        expect(container).toMatchSnapshot();
     });
 
     it('Checking authorLanguages', () => {
-        const wrapper = shallow(authorLanguages(languages));
-        const containerElement = wrapper.find('mock-com-container');
-        const descriptionElement = containerElement.children();
+        const { container } = render(authorLanguages(languages));
+        const containerElement = container.getElementsByTagName(
+            'mock-com-container'
+        );
+        const descriptionElement = containerElement[0].getElementsByTagName(
+            'mock-mod-description'
+        );
 
-        expect(containerElement.exists()).toBeTruthy();
-        expect(descriptionElement.exists()).toBeTruthy();
-        expect(descriptionElement.prop('text')).toBe('Ingles, Frances');
-        expect(authorLanguages(undefined)).toBe(null);
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(containerElement[0]).toBeVisible();
+        expect(descriptionElement[0]).toBeVisible();
+        expect(descriptionElement[0].getAttribute('text')).toBe(
+            'Ingles, Frances'
+        );
+        expect(authorLocation(undefined)).toBe(null);
+        expect(container).toMatchSnapshot();
     });
 
     it('Checking authorAffiliations', () => {
-        const wrapper = shallow(authorAffiliations(affiliations));
-        const containerElement = wrapper.find('mock-com-container');
-        const descriptionElement = containerElement.children();
+        const { container } = render(authorAffiliations(affiliations));
+        const containerElement = container.getElementsByTagName(
+            'mock-com-container'
+        );
+        const descriptionElement = containerElement[0].getElementsByTagName(
+            'mock-mod-description'
+        );
 
-        expect(containerElement.exists()).toBeTruthy();
-        expect(descriptionElement.exists()).toBeTruthy();
-        expect(descriptionElement.prop('text')).toBe('Academia de Periodismo.');
-        expect(authorAffiliations(undefined)).toBe(null);
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(containerElement[0]).toBeVisible();
+        expect(descriptionElement[0]).toBeVisible();
+        expect(descriptionElement[0].getAttribute('text')).toBe(
+            'Academia de Periodismo.'
+        );
+        expect(authorLocation(undefined)).toBe(null);
+        expect(container).toMatchSnapshot();
     });
 
     it('Checking authorBooks', () => {
-        const wrapper = shallow(authorBooks(books));
-        const containerElement = wrapper.find('mock-com-container');
-        const descriptionElement = containerElement.children();
+        const { container } = render(authorBooks(books));
+        const containerElement = container.getElementsByTagName(
+            'mock-com-container'
+        );
+        const descriptionElement = containerElement[0].getElementsByTagName(
+            'mock-mod-description'
+        );
+        const lists = descriptionElement[0].getAttribute('list');
 
-        expect(containerElement.exists()).toBeTruthy();
-        expect(descriptionElement.exists()).toBeTruthy();
-        expect(descriptionElement.prop('list').length).toBe(1);
-        expect(authorBooks([])).toBe(null);
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(containerElement[0]).toBeVisible();
+        expect(descriptionElement[0]).toBeVisible();
+        expect(lists).toBeDefined();
+        expect(authorEducation([])).toBe(null);
+        expect(container).toMatchSnapshot();
     });
 
     it('Checking authorPodcast', () => {
-        const wrapper = shallow(authorPodcast(podcast));
-        const containerElement = wrapper.find('mock-com-container');
-        const descriptionElement = containerElement.children();
+        const { container } = render(authorPodcast(podcast));
+        const containerElement = container.getElementsByTagName(
+            'mock-com-container'
+        );
+        const descriptionElement = containerElement[0].getElementsByTagName(
+            'mock-mod-description'
+        );
+        const lists = descriptionElement[0].getAttribute('list');
 
-        expect(containerElement.exists()).toBeTruthy();
-        expect(descriptionElement.exists()).toBeTruthy();
-        expect(descriptionElement.prop('list').length).toBe(2);
-        expect(authorPodcast([])).toBe(null);
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(containerElement[0]).toBeVisible();
+        expect(descriptionElement[0]).toBeVisible();
+        expect(lists).toBeDefined();
+        expect(authorEducation([])).toBe(null);
+        expect(container).toMatchSnapshot();
     });
 
     it('Checking authorSocialNetworks', () => {
-        const wrapper = shallow(authorSocialNetworks(socialNetworks, data));
-        const containerElement = wrapper.find('mock-com-container');
-        const subTitleElement = containerElement.find('mock-com-subtitle');
-        const socialIcons = containerElement.find('mock-social-icons');
+        const { container } = render(
+            authorSocialNetworks(socialNetworks, data)
+        );
+        const containerElement = container.getElementsByTagName(
+            'mock-com-container'
+        );
+        const subTitleElement = container.getElementsByTagName(
+            'mock-com-subtitle'
+        );
+        const socialIcons = container.getElementsByTagName('mock-social-icons');
 
-        expect(containerElement.exists()).toBeTruthy();
-        expect(subTitleElement.exists()).toBeTruthy();
-        expect(socialIcons.exists()).toBeTruthy();
+        expect(containerElement[0]).toBeVisible();
+        expect(subTitleElement[0]).toBeVisible();
+        expect(socialIcons[0]).toBeVisible();
         expect(authorSocialNetworks([])).toBe(null);
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(container).toMatchSnapshot();
+    });
+
+    it('Checking authorExpertise', () => {
+        const { container } = render(authorExpertise(expertise));
+        const containerElement = container.getElementsByTagName(
+            'mock-com-container'
+        );
+        const descriptionElement = containerElement[0].getElementsByTagName(
+            'mock-mod-description'
+        );
+
+        expect(containerElement[0]).toBeVisible();
+        expect(descriptionElement[0]).toBeVisible();
+        expect(descriptionElement[0].getAttribute('text')).toBe(
+            'Economia, Politica'
+        );
+        expect(authorExpertise(undefined)).toBe(null);
+        expect(container).toMatchSnapshot();
     });
 });

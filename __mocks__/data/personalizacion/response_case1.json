@@ -176,9 +176,7 @@
             },
             "revision": {
                 "branch": "default",
-                "editions": [
-                    "default"
-                ],
+                "editions": ["default"],
                 "parent_id": "YR4BRBMLSNEC3PTFTIYIYPK6MI",
                 "published": true,
                 "revision_id": "6Y7AWWPQDBEHHKUQSLRXYSLACI",
@@ -207,9 +205,7 @@
                                 "debug": "false"
                             },
                             "_admin": {
-                                "alias_ids": [
-                                    "/lnmas"
-                                ]
+                                "alias_ids": ["/lnmas"]
                             },
                             "_id": "/lnmas",
                             "_website": "la-nacion-ar",
@@ -273,9 +269,7 @@
                                 "debug": "false"
                             },
                             "_admin": {
-                                "alias_ids": [
-                                    "/lnmas"
-                                ]
+                                "alias_ids": ["/lnmas"]
                             },
                             "_id": "/lnmas",
                             "ancestors": {
@@ -337,9 +331,7 @@
                                     "debug": "false"
                                 },
                                 "_admin": {
-                                    "alias_ids": [
-                                        "/lnmas"
-                                    ]
+                                    "alias_ids": ["/lnmas"]
                                 },
                                 "_id": "/lnmas",
                                 "_website": "la-nacion-ar",
@@ -405,9 +397,7 @@
                                     "debug": "false"
                                 },
                                 "_admin": {
-                                    "alias_ids": [
-                                        "/lnmas"
-                                    ]
+                                    "alias_ids": ["/lnmas"]
                                 },
                                 "_id": "/lnmas",
                                 "ancestors": {
@@ -474,9 +464,7 @@
                                     "debug": "false"
                                 },
                                 "_admin": {
-                                    "alias_ids": [
-                                        "/lnmas"
-                                    ]
+                                    "alias_ids": ["/lnmas"]
                                 },
                                 "_id": "/lnmas",
                                 "_website": "la-nacion-ar",
@@ -1430,9 +1418,7 @@
             },
             "revision": {
                 "branch": "default",
-                "editions": [
-                    "default"
-                ],
+                "editions": ["default"],
                 "parent_id": "D5DDUEVXZJFD5HCFABVDU5ZH6E",
                 "published": true,
                 "revision_id": "DSWK3NLYNRCXHNFVDOFAXXIA54",
@@ -1550,10 +1536,7 @@
                                 "_id": "/revista-rolling-stone",
                                 "_website": "la-nacion-ar",
                                 "ancestors": {
-                                    "Header-SecondaryNav": [
-                                        "/",
-                                        "/revistas"
-                                    ]
+                                    "Header-SecondaryNav": ["/", "/revistas"]
                                 },
                                 "inactive": false,
                                 "migration": {
@@ -1593,10 +1576,7 @@
                                 "_id": "/revista-living",
                                 "_website": "la-nacion-ar",
                                 "ancestors": {
-                                    "Header-SecondaryNav": [
-                                        "/",
-                                        "/revistas"
-                                    ]
+                                    "Header-SecondaryNav": ["/", "/revistas"]
                                 },
                                 "inactive": false,
                                 "migration": {
@@ -1660,10 +1640,7 @@
                             "original": {
                                 "_id": "/revista-rolling-stone",
                                 "ancestors": {
-                                    "Header-SecondaryNav": [
-                                        "/",
-                                        "/revistas"
-                                    ]
+                                    "Header-SecondaryNav": ["/", "/revistas"]
                                 },
                                 "inactive": false,
                                 "migration": {
@@ -1696,10 +1673,7 @@
                             "original": {
                                 "_id": "/revista-living",
                                 "ancestors": {
-                                    "Header-SecondaryNav": [
-                                        "/",
-                                        "/revistas"
-                                    ]
+                                    "Header-SecondaryNav": ["/", "/revistas"]
                                 },
                                 "inactive": false,
                                 "migration": {
@@ -2187,10 +2161,7 @@
                                 "version": "0.6.0"
                             }
                         ],
-                        "seo_keywords": [
-                            "cibeles",
-                            "frontrow"
-                        ],
+                        "seo_keywords": ["cibeles", "frontrow"],
                         "sites": [
                             {
                                 "_id": "/lifestyle",
@@ -2351,14 +2322,8 @@
                     "_id": "YZ4PQTDPARGBNMNVGAEMVICB5I",
                     "additional_properties": {
                         "focal_point": {
-                            "max": [
-                                257,
-                                332
-                            ],
-                            "min": [
-                                257,
-                                332
-                            ]
+                            "max": [257, 332],
+                            "min": [257, 332]
                         },
                         "fullSizeResizeUrl": "/resizer/lIj3gOgoB0OZE3tOzN7bjnbEHM8=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/YZ4PQTDPARGBNMNVGAEMVICB5I.jpg",
                         "galleries": [],
@@ -2784,9 +2749,7 @@
             },
             "revision": {
                 "branch": "default",
-                "editions": [
-                    "default"
-                ],
+                "editions": ["default"],
                 "parent_id": "LV4VYQL4CVDXFN5HEPZHVYVUBU",
                 "published": true,
                 "revision_id": "SFWS2TK2RZCS5K2L3GH2PGYTRI",
@@ -2955,10 +2918,7 @@
                                 "_id": "/revista-rolling-stone",
                                 "_website": "la-nacion-ar",
                                 "ancestors": {
-                                    "Header-SecondaryNav": [
-                                        "/",
-                                        "/revistas"
-                                    ]
+                                    "Header-SecondaryNav": ["/", "/revistas"]
                                 },
                                 "inactive": false,
                                 "migration": {
@@ -3039,10 +2999,7 @@
                             "original": {
                                 "_id": "/revista-rolling-stone",
                                 "ancestors": {
-                                    "Header-SecondaryNav": [
-                                        "/",
-                                        "/revistas"
-                                    ]
+                                    "Header-SecondaryNav": ["/", "/revistas"]
                                 },
                                 "inactive": false,
                                 "migration": {
@@ -3398,14 +3355,8 @@
                     "_id": "NPJLY75BVVAEFGSB7DSJWPPOXY",
                     "additional_properties": {
                         "focal_point": {
-                            "max": [
-                                282,
-                                148
-                            ],
-                            "min": [
-                                282,
-                                148
-                            ]
+                            "max": [282, 148],
+                            "min": [282, 148]
                         },
                         "fullSizeResizeUrl": "/resizer/y6V0unTffZiKC1xKA7D5RO4X1u0=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/NPJLY75BVVAEFGSB7DSJWPPOXY.jpg",
                         "galleries": [],
@@ -3535,9 +3486,7 @@
             },
             "revision": {
                 "branch": "default",
-                "editions": [
-                    "default"
-                ],
+                "editions": ["default"],
                 "parent_id": "V3QPJHPJSNEQHLVCLSA2JUYDVY",
                 "published": true,
                 "revision_id": "GUMTXXO3DVFB7PTAXLWGXN6C54",
@@ -3706,10 +3655,7 @@
                                 "_id": "/revista-hola",
                                 "_website": "la-nacion-ar",
                                 "ancestors": {
-                                    "Header-SecondaryNav": [
-                                        "/",
-                                        "/revistas"
-                                    ]
+                                    "Header-SecondaryNav": ["/", "/revistas"]
                                 },
                                 "inactive": false,
                                 "migration": {
@@ -3790,10 +3736,7 @@
                             "original": {
                                 "_id": "/revista-hola",
                                 "ancestors": {
-                                    "Header-SecondaryNav": [
-                                        "/",
-                                        "/revistas"
-                                    ]
+                                    "Header-SecondaryNav": ["/", "/revistas"]
                                 },
                                 "inactive": false,
                                 "migration": {
@@ -3929,9 +3872,7 @@
                         "fullSizeResizeUrl": "/resizer/BjdrRQcyBjHanqf-ymnIJF1zbME=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/SZH57WYLLFEOFFCZPRLLVCA34A.jpg",
                         "galleries": [],
                         "ingestionMethod": "manual",
-                        "keywords": [
-                            ""
-                        ],
+                        "keywords": [""],
                         "mime_type": "image/jpeg",
                         "originalName": "PASO_Javier Corbalán.jpg",
                         "originalUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SZH57WYLLFEOFFCZPRLLVCA34A.jpg",
@@ -4357,9 +4298,7 @@
                         "fullSizeResizeUrl": "/resizer/P-SJwEpLfs9ZM5o2in50vhoTcuE=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/E6M4EG23BBDQPPTNDRCIZXU2MM.jpg",
                         "galleries": [],
                         "ingestionMethod": "manual",
-                        "keywords": [
-                            ""
-                        ],
+                        "keywords": [""],
                         "mime_type": "image/jpeg",
                         "originalName": "PASO2_Javier Corbalán.jpg",
                         "originalUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/E6M4EG23BBDQPPTNDRCIZXU2MM.jpg",
@@ -4418,9 +4357,7 @@
             },
             "revision": {
                 "branch": "default",
-                "editions": [
-                    "default"
-                ],
+                "editions": ["default"],
                 "parent_id": "ZGFDCRZXORBHHPFEQL2PRCYJ3I",
                 "published": true,
                 "revision_id": "5KAI3X4RXZCVVHDTGWCBE5KTMI",
@@ -4464,9 +4401,7 @@
                                 "tipo_acumulado": "Grilla"
                             },
                             "ancestors": {
-                                "Header-FirstNav": [
-                                    "/"
-                                ]
+                                "Header-FirstNav": ["/"]
                             },
                             "inactive": false,
                             "migration": {
@@ -4519,9 +4454,7 @@
                                 "tipo_acumulado": "Grilla"
                             },
                             "ancestors": {
-                                "Header-FirstNav": [
-                                    "/"
-                                ]
+                                "Header-FirstNav": ["/"]
                             },
                             "inactive": false,
                             "migration": {
@@ -4574,9 +4507,7 @@
                                     "tipo_acumulado": "Grilla"
                                 },
                                 "ancestors": {
-                                    "Header-FirstNav": [
-                                        "/"
-                                    ]
+                                    "Header-FirstNav": ["/"]
                                 },
                                 "inactive": false,
                                 "migration": {
@@ -4631,9 +4562,7 @@
                                     "tipo_acumulado": "Grilla"
                                 },
                                 "ancestors": {
-                                    "Header-FirstNav": [
-                                        "/"
-                                    ]
+                                    "Header-FirstNav": ["/"]
                                 },
                                 "inactive": false,
                                 "migration": {
@@ -4691,9 +4620,7 @@
                                     "tipo_acumulado": "Grilla"
                                 },
                                 "ancestors": {
-                                    "Header-FirstNav": [
-                                        "/"
-                                    ]
+                                    "Header-FirstNav": ["/"]
                                 },
                                 "inactive": false,
                                 "migration": {
@@ -5115,9 +5042,7 @@
             },
             "revision": {
                 "branch": "default",
-                "editions": [
-                    "default"
-                ],
+                "editions": ["default"],
                 "parent_id": "NXHZIYL5RNAZDESDTQ5POMXIUU",
                 "published": true,
                 "revision_id": "NSNN2QMAJNF6PGBE5UNJMR65H4",
@@ -5171,9 +5096,7 @@
                                 "_id": "/sociedad",
                                 "_website": "la-nacion-ar",
                                 "ancestors": {
-                                    "Header-FirstNav": [
-                                        "/"
-                                    ]
+                                    "Header-FirstNav": ["/"]
                                 },
                                 "inactive": false,
                                 "migration": {
@@ -5216,9 +5139,7 @@
                             "original": {
                                 "_id": "/sociedad",
                                 "ancestors": {
-                                    "Header-FirstNav": [
-                                        "/"
-                                    ]
+                                    "Header-FirstNav": ["/"]
                                 },
                                 "inactive": false,
                                 "migration": {
@@ -5676,9 +5597,7 @@
             },
             "revision": {
                 "branch": "default",
-                "editions": [
-                    "default"
-                ],
+                "editions": ["default"],
                 "parent_id": "QJNPHIF4IJFI3JR27SWID66JEI",
                 "published": true,
                 "revision_id": "XPRXUGVVNJCYVG4NVB73MSMJHE",
@@ -5732,9 +5651,7 @@
                                 "_id": "/sociedad",
                                 "_website": "la-nacion-ar",
                                 "ancestors": {
-                                    "Header-FirstNav": [
-                                        "/"
-                                    ]
+                                    "Header-FirstNav": ["/"]
                                 },
                                 "inactive": false,
                                 "migration": {
@@ -5777,9 +5694,7 @@
                             "original": {
                                 "_id": "/sociedad",
                                 "ancestors": {
-                                    "Header-FirstNav": [
-                                        "/"
-                                    ]
+                                    "Header-FirstNav": ["/"]
                                 },
                                 "inactive": false,
                                 "migration": {
@@ -5959,9 +5874,7 @@
             "revision": {
                 "revision_id": "LAUXCHF3CNASPN7HDP4POMPLMA",
                 "parent_id": "RQOLO3ZIZJBV7HP5PDVXYNZ6GM",
-                "editions": [
-                    "default"
-                ],
+                "editions": ["default"],
                 "branch": "default",
                 "user_id": "asap_mvelasquez@lnexternos.com.ar",
                 "published": true
@@ -6740,9 +6653,7 @@
                                     "Header-FirstNav": "/"
                                 },
                                 "ancestors": {
-                                    "Header-FirstNav": [
-                                        "/"
-                                    ]
+                                    "Header-FirstNav": ["/"]
                                 },
                                 "inactive": false,
                                 "node_type": "section"
@@ -7009,9 +6920,7 @@
                                     "Header-FirstNav": "/"
                                 },
                                 "ancestors": {
-                                    "Header-FirstNav": [
-                                        "/"
-                                    ]
+                                    "Header-FirstNav": ["/"]
                                 },
                                 "inactive": false,
                                 "node_type": "section"
@@ -8067,9 +7976,7 @@
             },
             "revision": {
                 "branch": "default",
-                "editions": [
-                    "default"
-                ],
+                "editions": ["default"],
                 "parent_id": "WJEDXBFUFRGYFNUQC33MJDHVDI",
                 "published": true,
                 "revision_id": "UPIPIOX3ZVC6JNWIOH42NKWNNI",
@@ -8097,14 +8004,8 @@
                             "_id": "/deportes/futbol",
                             "_website": "la-nacion-ar",
                             "ancestors": {
-                                "Header-FirstNav": [
-                                    "/",
-                                    "/deportes"
-                                ],
-                                "default": [
-                                    "/",
-                                    "/deportes"
-                                ]
+                                "Header-FirstNav": ["/", "/deportes"],
+                                "default": ["/", "/deportes"]
                             },
                             "inactive": false,
                             "migration": {
@@ -8137,14 +8038,8 @@
                         "original": {
                             "_id": "/deportes/futbol",
                             "ancestors": {
-                                "Header-FirstNav": [
-                                    "/",
-                                    "/deportes"
-                                ],
-                                "default": [
-                                    "/",
-                                    "/deportes"
-                                ]
+                                "Header-FirstNav": ["/", "/deportes"],
+                                "default": ["/", "/deportes"]
                             },
                             "inactive": false,
                             "migration": {
@@ -8177,14 +8072,8 @@
                                 "_id": "/deportes/futbol",
                                 "_website": "la-nacion-ar",
                                 "ancestors": {
-                                    "Header-FirstNav": [
-                                        "/",
-                                        "/deportes"
-                                    ],
-                                    "default": [
-                                        "/",
-                                        "/deportes"
-                                    ]
+                                    "Header-FirstNav": ["/", "/deportes"],
+                                    "default": ["/", "/deportes"]
                                 },
                                 "inactive": false,
                                 "migration": {
@@ -8238,20 +8127,12 @@
                                     "usa_datalayer": "true"
                                 },
                                 "ancestors": {
-                                    "Architecture": [
-                                        "/"
-                                    ],
+                                    "Architecture": ["/"],
                                     "CustomNavigationComunidadNegocios": [],
                                     "Hambre_futuro": [],
-                                    "Header-FirstNav": [
-                                        "/"
-                                    ],
-                                    "Prueba": [
-                                        "/"
-                                    ],
-                                    "default": [
-                                        "/"
-                                    ]
+                                    "Header-FirstNav": ["/"],
+                                    "Prueba": ["/"],
+                                    "default": ["/"]
                                 },
                                 "inactive": false,
                                 "migration": {
@@ -8293,14 +8174,8 @@
                             "original": {
                                 "_id": "/deportes/futbol",
                                 "ancestors": {
-                                    "Header-FirstNav": [
-                                        "/",
-                                        "/deportes"
-                                    ],
-                                    "default": [
-                                        "/",
-                                        "/deportes"
-                                    ]
+                                    "Header-FirstNav": ["/", "/deportes"],
+                                    "default": ["/", "/deportes"]
                                 },
                                 "inactive": false,
                                 "migration": {
@@ -8347,20 +8222,12 @@
                                     "usa_datalayer": "true"
                                 },
                                 "ancestors": {
-                                    "Architecture": [
-                                        "/"
-                                    ],
+                                    "Architecture": ["/"],
                                     "CustomNavigationComunidadNegocios": [],
                                     "Hambre_futuro": [],
-                                    "Header-FirstNav": [
-                                        "/"
-                                    ],
-                                    "Prueba": [
-                                        "/"
-                                    ],
-                                    "default": [
-                                        "/"
-                                    ]
+                                    "Header-FirstNav": ["/"],
+                                    "Prueba": ["/"],
+                                    "default": ["/"]
                                 },
                                 "inactive": false,
                                 "migration": {
@@ -8406,14 +8273,8 @@
                                 "_id": "/deportes/futbol",
                                 "_website": "la-nacion-ar",
                                 "ancestors": {
-                                    "Header-FirstNav": [
-                                        "/",
-                                        "/deportes"
-                                    ],
-                                    "default": [
-                                        "/",
-                                        "/deportes"
-                                    ]
+                                    "Header-FirstNav": ["/", "/deportes"],
+                                    "default": ["/", "/deportes"]
                                 },
                                 "inactive": false,
                                 "migration": {
@@ -8472,9 +8333,7 @@
                         "fullSizeResizeUrl": "/resizer/vpQwSPm8rtb-4c7WqrBE2y6mOdg=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/WEOHWUK2EVGXZIB6Z6H5KKI7XU.jpg",
                         "galleries": [],
                         "ingestionMethod": "manual",
-                        "keywords": [
-                            "josé del rio"
-                        ],
+                        "keywords": ["josé del rio"],
                         "mime_type": "image/jpeg",
                         "originalName": "jose-del-rio-nuevo.jpg",
                         "originalUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/WEOHWUK2EVGXZIB6Z6H5KKI7XU.jpg",
@@ -8929,9 +8788,7 @@
             },
             "revision": {
                 "branch": "default",
-                "editions": [
-                    "default"
-                ],
+                "editions": ["default"],
                 "parent_id": "A74EHFDP2RBBFGAQ6KOBGP6CJ4",
                 "published": true,
                 "revision_id": "JKBENQSKPRCPHMHKK2I4TVZCA4",
@@ -8959,9 +8816,7 @@
                             "_id": "/sociedad",
                             "_website": "la-nacion-ar",
                             "ancestors": {
-                                "Header-FirstNav": [
-                                    "/"
-                                ]
+                                "Header-FirstNav": ["/"]
                             },
                             "inactive": false,
                             "migration": {
@@ -8995,9 +8850,7 @@
                         "original": {
                             "_id": "/sociedad",
                             "ancestors": {
-                                "Header-FirstNav": [
-                                    "/"
-                                ]
+                                "Header-FirstNav": ["/"]
                             },
                             "inactive": false,
                             "migration": {
@@ -9031,9 +8884,7 @@
                                 "_id": "/sociedad",
                                 "_website": "la-nacion-ar",
                                 "ancestors": {
-                                    "Header-FirstNav": [
-                                        "/"
-                                    ]
+                                    "Header-FirstNav": ["/"]
                                 },
                                 "inactive": false,
                                 "migration": {
@@ -9069,9 +8920,7 @@
                             "original": {
                                 "_id": "/sociedad",
                                 "ancestors": {
-                                    "Header-FirstNav": [
-                                        "/"
-                                    ]
+                                    "Header-FirstNav": ["/"]
                                 },
                                 "inactive": false,
                                 "migration": {
@@ -9111,9 +8960,7 @@
                                 "_id": "/sociedad",
                                 "_website": "la-nacion-ar",
                                 "ancestors": {
-                                    "Header-FirstNav": [
-                                        "/"
-                                    ]
+                                    "Header-FirstNav": ["/"]
                                 },
                                 "inactive": false,
                                 "migration": {

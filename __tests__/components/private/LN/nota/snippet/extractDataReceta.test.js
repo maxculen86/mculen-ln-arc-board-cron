@@ -4,7 +4,6 @@ import {
     extractDataFromTags,
     extractDataFromCredits
 } from '../../../../../../components/private/LN/nota/snippet/extractData/extractDataReceta';
-import getBiggestImage from '../../../../../../components/private/LN/common/utils/getBiggestImage';
 
 describe('Tests extractDataReceta() function', () => {
     const contentElements = [
@@ -28,16 +27,45 @@ describe('Tests extractDataReceta() function', () => {
                     }
                 },
                 {
-                    embed: {
-                        config: {
-                            items: [
-                                { text: 'Calorías', unit: 'kcal', value: 2 },
-                                { text: 'Carbohidratos', unit: 'g', value: 3 },
-                                { text: 'Grasas', unit: 'g', value: 1 }
-                            ],
-                            typeList: 'nutritional-info'
+                    _id: 'MRE33RWFYNCDJA2Y3PT2PLGJFA',
+                    header: [
+                        {
+                            _id: 'nutritional-info-property',
+                            content: 'Propiedad'
+                        },
+                        {
+                            _id: 'nutritional-info-ammount',
+                            content: 'Cantidad por porción'
                         }
-                    }
+                    ],
+                    rows: [
+                        [
+                            {
+                                content: 'Calorías'
+                            },
+                            {
+                                content: '2 kcal'
+                            }
+                        ],
+                        [
+                            {
+                                content: 'Carbohidratos'
+                            },
+                            {
+                                content: '3 g'
+                            }
+                        ],
+                        [
+                            {
+                                content: 'Grasas'
+                            },
+                            {
+                                content: '1 g'
+                            }
+                        ]
+                    ],
+                    subtype: 'custom-nutrition',
+                    type: 'custom_embed'
                 }
             ]
         }

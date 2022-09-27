@@ -2,6 +2,10 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'fusion:prop-types';
 import get from '../../../common/utils/get';
 import getApertura from '../../../common/utils/getApertura';
+import {
+    STORYTELLING,
+    FOTOAL100
+} from '../../../common/utils/subtypes/subtypeHelper';
 
 export default function WithStorytellingData(WrappedComponent) {
     return class extends PureComponent {
@@ -74,7 +78,7 @@ export default function WithStorytellingData(WrappedComponent) {
             const isMobile = outputType === 'amp' || device !== 'desktop';
 
             return type === 'story' &&
-                (subtype === '4' || subtype === '8') &&
+                (subtype === STORYTELLING || subtype === FOTOAL100) &&
                 (basicImage || videoBackground || storytellingMobile)
                 ? getApertura(
                       isMobile,
