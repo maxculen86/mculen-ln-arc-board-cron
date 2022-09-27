@@ -172,7 +172,7 @@ describe('Common - GetDataToLinkImage', () => {
                 getVideoPosterResized.mockImplementation(
                     () => responseGetVideoPosterResized
                 );
-                console.log('desde el test', renderables);
+
                 const wrapper = shallow(
                     GetDataToLinkImage({
                         data: {},
@@ -208,7 +208,7 @@ describe('Common - GetDataToLinkImage', () => {
         });
     });
 
-    describe.only('Accumulated flow', () => {
+    describe('Accumulated flow', () => {
         describe('Empty cases', () => {
             const cases = [
                 ['When is author', dataAccumulatedAuthor],

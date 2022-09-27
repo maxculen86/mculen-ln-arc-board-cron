@@ -1,10 +1,11 @@
 import {
     HTMLLIBRE,
     VIDEO,
-    RECETA
+    RECETA,
+    AGENCIA
 } from '../../../../components/private/common/utils/subtypes/subtypeHelper';
 
 export default {
-    disableSubtypes: [HTMLLIBRE, VIDEO, RECETA],
+    disableSubtypes: [HTMLLIBRE, VIDEO, RECETA, AGENCIA],
     enableSections: ['espectaculos']
 };
