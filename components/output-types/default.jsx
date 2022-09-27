@@ -31,6 +31,7 @@ import {
 import FontPreloads from '../private/common/fontsPreloads';
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
 import get from '../private/common/utils/get';
+import { subtypesWithAmp } from '../private/common/utils/subtypes/subtypeHelper';
 
 const getBodyClass = props => {
     const { className = {} } = props;
@@ -74,7 +75,8 @@ const Default = props => {
         _id,
         taxonomy,
         first_publish_date: firstPublishDate,
-        acumuladoGeneral: { metas } = {}
+        acumuladoGeneral: { metas } = {},
+        website_url: websiteUrl
     } = globalContent || {};
 
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
@@ -122,6 +124,8 @@ const Default = props => {
         arcSite,
         requestUri
     );
+
+    const hasAmpLink = get(subtypesWithAmp, subtype, false);
 
     const configHydrate = {};
     if (layout === get(siteProperties, 'layoutsName.Home'))
@@ -224,10 +228,8 @@ const Default = props => {
                     />
                 )}
                 <LinkAmpHTML
-                    subtype={subtype}
-                    canonicalUrl={canonicalUrl || _id}
-                    arcSite={arcSite}
-                    nodeType={nodeType}
+                    canonicalUrl={canonicalUrl || websiteUrl}
+                    hasAmpLink={hasAmpLink}
                 />
                 {layout !== 'LN-buscador' && (
                     <MetaTitle
