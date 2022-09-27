@@ -4,7 +4,7 @@ import { subtypesWithAmp } from './utils/subtypes/subtypeHelper';
 import get from './utils/get';
 
 const Robot = props => {
-    const { canonicalUrl, subtype } = props;
+    const { canonicalUrl = '', subtype = '' } = props;
     const hasAmpLink = get(subtypesWithAmp, subtype, false);
 
     return hasAmpLink && canonicalUrl ? (

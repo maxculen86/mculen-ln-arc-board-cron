@@ -4,7 +4,7 @@ import { subtypesWithAmp } from './utils/subtypes/subtypeHelper';
 import get from './utils/get';
 
 const LinkAmpHTML = props => {
-    const { canonicalUrl, subtype } = props;
+    const { canonicalUrl = '', subtype = '' } = props;
 
     const slash = canonicalUrl && canonicalUrl.slice(-1) !== '/' ? '/' : '';
     const hasAmpLink = get(subtypesWithAmp, subtype, false);
