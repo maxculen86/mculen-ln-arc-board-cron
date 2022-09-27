@@ -6,6 +6,7 @@ import ComLink from './com-link';
 
 import '../../../resources/dist/css/ln/components/com-image.css';
 import '../../../resources/dist/css/ln/modules/mod-media.css';
+
 const ComImage = props => {
     const {
         src,
@@ -19,8 +20,7 @@ const ComImage = props => {
         href,
         target,
         isApertura,
-        svg,
-        sizes
+        svg
     } = props;
 
     if (!src) return null;
@@ -81,7 +81,6 @@ ComImage.propTypes = {
     href: PropTypes.string,
     target: PropTypes.string,
     layout: PropTypes.string,
-    sizes: PropTypes.string,
     isApertura: PropTypes.bool,
     svg: PropTypes.bool
 };
@@ -95,7 +94,6 @@ ComImage.defaultProps = {
     layout: undefined,
     isApertura: false,
     svg: false,
-    sizes: undefined,
     height: undefined,
     width: undefined
 };

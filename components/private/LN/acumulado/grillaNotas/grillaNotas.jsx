@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
@@ -23,7 +24,8 @@ const GrillaNotas = props => {
         loading,
         typeArticle,
         outputType,
-        idsArticlesToExclude = []
+        idsArticlesToExclude = [],
+        articlesInCollection = []
     } = props;
 
     const getBanner = index => {
@@ -83,6 +85,8 @@ const GrillaNotas = props => {
                 typeArticle={typeArticle}
                 classCondition={hayMasNotas > 0 && 'hlp-degrade'}
                 outputType={outputType}
+                nodeType={globalContent.node_type}
+                articlesInCollection={articlesInCollection}
             />
 
             {outputType !== 'amp' && hayMasNotas > 0 && (
@@ -122,7 +126,8 @@ GrillaNotas.propTypes = {
             sticky: PropTypes.bool,
             tablet: PropTypes.string
         })
-    ).isRequired
+    ).isRequired,
+    articlesInCollection: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default WithAcuArticlesData(

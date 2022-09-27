@@ -134,6 +134,7 @@ function GrillaNotasFeature(props) {
             bannerConfig={bannerConfig}
             outputType={outputType}
             idsArticlesToExclude={idsArticlesToExclude}
+            articlesInCollection={articlesInCollection}
         />
     );
 }
