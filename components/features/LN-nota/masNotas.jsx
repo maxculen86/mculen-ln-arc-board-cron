@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
@@ -22,19 +23,16 @@ const masNotas = props => {
             filter: filterCustomField = 'byLastNews',
             sectionOrTag = ''
         },
-        globalContent: {
-            subtype,
-            taxonomy: {
-                primary_section: { _id, _website, name: sectionName, path },
-                tags = []
-            },
-            _id: idArticle
-        },
+        globalContent,
         outputType,
         id: featureId,
         arcSite,
         isAdmin
     } = props;
+
+    const { subtype, taxonomy, _id: idArticle } = globalContent || {};
+    const { primary_section, tags } = taxonomy || {};
+    const { _id, _website, name: sectionName, path } = primary_section || {};
 
     if (!_id) return <></>;
 
