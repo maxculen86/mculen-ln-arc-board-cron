@@ -8,7 +8,8 @@ import CajaTema from '../../private/LN/common/cajaTema';
 import {
     cajaTemasCustomsFields,
     getCommonProps,
-    isInApertura
+    isInApertura,
+    getChildrenFromSectionHome
 } from '../../private/LN/common/utils/cajaTemasHelper';
 import {
     validateFeature,
@@ -20,6 +21,8 @@ import siteConfig from '../../../properties/sites/la-nacion-ar';
 import get from '../../private/common/utils/get';
 import { getPlaceholder } from '../../private/LN/common/utils/cajaTemasPlaceholder';
 import { productClickFromClient } from '../../private/common/utils/viewability';
+import StaticContent from '../../private/common/staticContent';
+import { customFieldValidation } from '../utils/contentValidations';
 
 const CajaCollection = props => {
     const {
@@ -33,7 +36,8 @@ const CajaCollection = props => {
             initialPosition,
             imageId,
             hideTitle,
-            hideCaja
+            hideCaja,
+            website
         },
         outputType,
         renderables,
@@ -82,6 +86,31 @@ const CajaCollection = props => {
             '--l') ||
         undefined;
 
+    const cajaCollectionStaticComponents = [
+        { name: 'Apertura_1', position: 3 },
+        { name: 'Apertura_2', position: 4 },
+        { name: 'Breaking_1', position: 7 },
+        { name: 'Breaking_2', position: 8 },
+        { name: 'Breaking_3', position: 9 },
+        { name: 'Opinion', position: 11 },
+        { name: 'Breaking_4', position: 12 },
+        { name: 'Breaking_5', position: 13 },
+        { name: 'Breaking_6', position: 14 },
+        { name: 'Comercial_1', position: 15 }
+    ];
+
+    const isInBloque3 = cajaCollectionStaticComponents.filter(el => {
+        const children = getChildrenFromSectionHome(
+            renderables,
+            el.name,
+            el.position
+        );
+        return customFieldValidation({
+            featureId,
+            sectionChildren: children
+        });
+    }).length;
+
     const articlesToShow = !isInSiteService
         ? getArticleInCollection(
               notesQuantity,
@@ -92,9 +121,15 @@ const CajaCollection = props => {
               idsArticlesToExclude,
               true,
               !isInSiteService,
-              layout
+              layout,
+              website,
+              isInBloque3
           )
         : [];
+
+    const _articles = isInSiteService
+        ? articlesFromCollectionSiteService
+        : articlesToShow;
 
     const error = validateFeature(
         idCollection,
@@ -119,32 +154,35 @@ const CajaCollection = props => {
             </div>
         );
     }
-    const _articles = isInSiteService
-        ? articlesFromCollectionSiteService
-        : articlesToShow;
 
-    return (
-        (_articles && _articles.length && (
-            <CajaTema
-                title={title}
-                hideTitle={hideTitle}
-                url={url}
-                imageId={imageId}
-                outputType={outputType}
-                layout={layout}
-                classCondition={`${classCondition}${(isInApertura &&
-                    layout.includes('focal') &&
-                    ' --apertura') ||
-                    ''}`}
-                notesQuantity={notesQuantity}
-                position={position}
-                sectionName={sectionName}
-                articles={_articles}
-                titleSize={titleSize}
-                handleClick={productClickFromClient}
-            />
-        )) ||
-        getPlaceholder(layout)
+    const Component = (
+        <CajaTema
+            title={title}
+            hideTitle={hideTitle}
+            url={url}
+            imageId={imageId}
+            outputType={outputType}
+            layout={layout}
+            classCondition={`${classCondition}${(isInApertura &&
+                layout.includes('focal') &&
+                ' --apertura') ||
+                ''}`}
+            notesQuantity={notesQuantity}
+            position={position}
+            sectionName={sectionName}
+            articles={_articles}
+            titleSize={titleSize}
+            handleClick={productClickFromClient}
+        />
+    );
+
+    const noStaticComponent =
+        (_articles && _articles.length && Component) || getPlaceholder(layout);
+
+    return isInBloque3 ? (
+        <StaticContent>{Component}</StaticContent>
+    ) : (
+        noStaticComponent
     );
 };
 

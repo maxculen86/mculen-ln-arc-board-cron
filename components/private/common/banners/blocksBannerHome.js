@@ -39,7 +39,7 @@ export default {
             mobile: 'caja1_mob'
         }
     ],
-    bloque2: [
+    bloque23: [
         {
             slotGroup: 'home',
             desktop: 'billboard_dsk'
@@ -74,9 +74,7 @@ export default {
         {
             slotGroup: 'home',
             tablet: 'middle1_tab'
-        }
-    ],
-    bloque3: [
+        },
         {
             slotGroup: 'home',
             desktop: 'cinturon2_dsk'
