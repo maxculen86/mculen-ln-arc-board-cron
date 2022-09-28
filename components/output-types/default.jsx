@@ -225,8 +225,10 @@ const Default = props => {
                     />
                 )}
                 <LinkAmpHTML
-                    canonicalUrl={canonicalUrl || websiteUrl}
                     subtype={subtype}
+                    canonicalUrl={canonicalUrl || _id}
+                    arcSite={arcSite}
+                    nodeType={nodeType}
                 />
                 {layout !== 'LN-buscador' && (
                     <MetaTitle
