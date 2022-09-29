@@ -6,7 +6,7 @@ import getViewport from '../../LN/common/utils/screenHelper';
 
 const createBannersIntersectionObserver = () => {
     const { device } = getViewport();
-    const banners = filterBanners(blockBanners.bloque2);
+    const banners = filterBanners(blockBanners.bloque23);
 
     const callback = entries => {
         entries.forEach(entry => {

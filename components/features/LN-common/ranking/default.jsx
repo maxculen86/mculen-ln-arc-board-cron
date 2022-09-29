@@ -6,11 +6,16 @@ import StaticValidation from '../../../private/common/staticValidation';
 import CajaTema from '../../../private/LN/common/cajaTema';
 import { getRankingProps, getSectionParentId, hasArticles } from './_helper';
 import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
-
+import StaticContent from '../../../private/common/staticContent';
 import '../../../../resources/dist/css/ln/components/ranking.css';
 import { productClickFromClient } from '../../../private/common/utils/viewability';
 
-const getDataContent = (sectionId, sectionParentId, website) => {
+const getDataContent = (
+    sectionId,
+    sectionParentId,
+    website,
+    isBlock3 = false
+) => {
     const getRankingData = section =>
         getContent({
             source: 'rankingArticlesSource',
@@ -18,7 +23,8 @@ const getDataContent = (sectionId, sectionParentId, website) => {
                 sectionId: section,
                 imageConfig: 'boxArticles',
                 website
-            }
+            },
+            staticMode: isBlock3
         });
 
     const data = getRankingData(sectionId);
@@ -28,17 +34,7 @@ const getDataContent = (sectionId, sectionParentId, website) => {
     return (hasArticles(data) && data) || getRankingData(sectionParentId);
 };
 
-const getComponentForHome = (component, isInverse, hidePlaceholder, size = 4) =>
-    component ||
-    (!hidePlaceholder &&
-        getPlaceholder(isInverse ? 'grilla6' : `ranking${size}`)) || <></>;
-
-const getComponentForSection = (component, featureId) =>
-    (component && (
-        <StaticValidation id={featureId}>{component}</StaticValidation>
-    )) || <></>;
-
-const RankingFeature = ({ id: featureId }) => {
+const RankingFeature = ({ id: featureId, isBlock3 = false }) => {
     const {
         outputType,
         website,
@@ -60,12 +56,17 @@ const RankingFeature = ({ id: featureId }) => {
 
     const sectionParentId = getSectionParentId(sectionId);
     const { _id, name, articles, size } =
-        getDataContent(sectionId, sectionParentId, website || arcSite) || {};
+        getDataContent(
+            sectionId,
+            sectionParentId,
+            website || arcSite,
+            isBlock3
+        ) || {};
 
     const customTitle = name ? `Más leídas de ${name}` : 'Más leídas';
     const hidePlaceholder = _id && !articles && isInverse;
 
-    const component = articles && articles.length && (
+    const component = (
         <CajaTema
             title={title || customTitle}
             notesQuantity={notesQuantity}
@@ -83,9 +84,24 @@ const RankingFeature = ({ id: featureId }) => {
         />
     );
 
-    return isHome
-        ? getComponentForHome(component, isInverse, hidePlaceholder, size)
-        : getComponentForSection(component, featureId);
+    const _component = articles && articles.length && component;
+
+    const noStaticComponent =
+        _component ||
+        (!hidePlaceholder &&
+            getPlaceholder(isInverse ? 'grilla6' : `ranking${size}`));
+
+    const homeRanking = isBlock3 ? (
+        <StaticContent>{component}</StaticContent>
+    ) : (
+        noStaticComponent
+    );
+
+    const sectionRanking = (_component && (
+        <StaticValidation id={featureId}>{component}</StaticValidation>
+    )) || <></>;
+
+    return isHome ? homeRanking : sectionRanking;
 };
 
 RankingFeature.label = 'LN-Common-Ranking';
