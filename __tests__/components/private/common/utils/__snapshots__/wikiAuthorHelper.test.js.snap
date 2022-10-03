@@ -62,7 +62,7 @@ exports[`WIkiAuthorHelper functions test Checking authorExpertise 1`] = `
   >
     <mock-mod-description
       classcondition="--idiomas"
-      descriptiontitle="Áreas de Experiencia:"
+      descriptiontitle="Áreas de interés:"
       size="--twoxs"
       text="Economia, Politica"
     />
