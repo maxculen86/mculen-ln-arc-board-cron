@@ -18,7 +18,7 @@ export const authorExpertise = expertise => {
         <ComContainer classCondition="--educacion">
             <ModDescriptionList
                 classCondition="--idiomas"
-                descriptionTitle="Áreas de  interés:"
+                descriptionTitle="Áreas de interés:"
                 size="--twoxs"
                 text={expertise}
             />
