@@ -16,7 +16,7 @@ const getAuthorsPhoto = article => {
         height: 80,
         resized_urls: get(authorWithPhoto, `${imageResizedUrl}`, []),
         type: 'image',
-        altText,
+        alt_text: altText,
         url: urlsResizes.length > 0 ? urlsResizes[0].resizedUrl : null,
         width: 80
     };

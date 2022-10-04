@@ -13,7 +13,8 @@ const getArticleInCollection = (
     filterRecomendar = false,
     filterRepetead = false,
     layout = '',
-    website = 'la-nacion-ar'
+    website = 'la-nacion-ar',
+    isInBlock3 = false
 ) => {
     const articleList = idCollection
         ? useContent({
@@ -31,6 +32,7 @@ const getArticleInCollection = (
                   isFocal: layout && layout.includes('focal'),
                   diagramation
               },
+              staticMode: isInBlock3,
               filter:
                   (diagramation &&
                       diagramation === 'editoriales2' &&
