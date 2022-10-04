@@ -62,11 +62,8 @@ class AccumulatedAuthor {
             const indexAcu = this.apiData[browser.getApiType(requestUri)][
                 browser.getApiVersion(requestUri)
             ];
-            const isAPI = this.props.globalContentConfig.query.api || false;
-            if (
-                (!acuArticlesSource || !acuArticlesSource.content_elements) &&
-                isAPI
-            ) {
+
+            if (!acuArticlesSource || !acuArticlesSource.content_elements) {
                 // eslint-disable-next-line no-console
                 console.warn(
                     `Empty content result. Global content info: ${JSON.stringify(
@@ -74,10 +71,26 @@ class AccumulatedAuthor {
                     )}`
                 );
 
-                throw new Error(
-                    'Data query response cannot be null or undefined'
-                );
+                return null;
             }
+
+            // TODO comentado hasta validar de donde viene el error - BACKEND card 89766
+            // const isAPI = this.props.globalContentConfig.query.api || false;
+            // if (
+            //     (!acuArticlesSource || !acuArticlesSource.content_elements) &&
+            //     isAPI
+            // ) {
+            //     // eslint-disable-next-line no-console
+            //     console.warn(
+            //         `Empty content result. Global content info: ${JSON.stringify(
+            //             this.props.globalContent
+            //         )}`
+            //     );
+
+            //     throw new Error(
+            //         'Data query response cannot be null or undefined'
+            //     );
+            // }
             const paginator = acuArticlesSource.next;
             let page = 1;
             if (paginator) {
