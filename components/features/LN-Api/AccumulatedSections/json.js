@@ -107,21 +107,33 @@ class AccumulatedSections {
             const indexAcu = this.apiData[browser.getApiType(requestUri)][
                 browser.getApiVersion(requestUri)
             ];
-            if (
-                (!acuArticlesSource || !acuArticlesSource.content_elements) &&
-                this.isAPI
-            ) {
+
+            if (!acuArticlesSource || !acuArticlesSource.content_elements) {
                 // eslint-disable-next-line no-console
                 console.warn(
                     `Empty content result. Global content info: ${JSON.stringify(
                         this.props.globalContent
                     )}`
                 );
-
-                throw new Error(
-                    'Data query response cannot be null or undefined'
-                );
+                return null;
             }
+
+            // TODO comentado hasta validar de donde viene el error - BACKEND card 89766
+            // if (
+            //     (!acuArticlesSource || !acuArticlesSource.content_elements) &&
+            //     this.isAPI
+            // ) {
+            //     // eslint-disable-next-line no-console
+            //     console.warn(
+            //         `Empty content result. Global content info: ${JSON.stringify(
+            //             this.props.globalContent
+            //         )}`
+            //     );
+
+            //     throw new Error(
+            //         'Data query response cannot be null or undefined'
+            //     );
+            // }
             let title = get(
                 this.props.globalContent,
                 'acumuladoGeneral.hierarchy_navigation',
