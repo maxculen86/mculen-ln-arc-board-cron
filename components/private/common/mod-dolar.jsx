@@ -1,12 +1,9 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import { SITE_LANACION } from 'fusion:environment';
 
 import CurrencyData from './currencyData/CurrencyData';
 
 import '../../../resources/dist/css/ln/modules/mod-dolar.css';
-import ComLink from './com-link';
-import Text from './text';
 
 const ModDolar = ({ imageUrl, data = [] }) =>
     (data.length && (

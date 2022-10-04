@@ -145,7 +145,7 @@ const LNMainHome = props => {
     const [blocksToLoad, dispatch] = useReducer(reducer, {
         bloque1: { loaded: true, loadPercent: 70 },
         bloque2: { loaded: true, loadPercent: 25 },
-        bloque3: { loaded: isAdmin, loadPercent: 70 },
+        bloque3: { loaded: true, loadPercent: 70 },
         bloque4: { loaded: isAdmin, loadPercent: 70 },
         bloque5: { loaded: isAdmin, loadPercent: 70 }
     });
@@ -441,7 +441,7 @@ const LNMainHome = props => {
 
                                 {/* 3er Bloque */}
 
-                                {blocksToLoad.bloque3.loaded && (
+                                {
                                     <section className="container --promos">
                                         <div className="row-gap-tablet-2">
                                             <CajaPromo
@@ -482,9 +482,8 @@ const LNMainHome = props => {
                                             />
                                         </div>
                                     </section>
-                                )}
-                                {/* 3er Bloque */}
-                                {blocksToLoad.bloque3.loaded && (
+                                }
+                                {
                                     <section
                                         data-section="anexo3"
                                         data-block-name="h_anexo-3"
@@ -493,26 +492,32 @@ const LNMainHome = props => {
                                     >
                                         {anexo3}
                                     </section>
-                                )}
+                                }
 
                                 {/* BANNER CAJA 5 MOB - BANNER CINTURON 2 - BANNER MIDDLE 2 */}
                                 <>
                                     <DivBannerSSR
                                         bannerConfiguration={{
                                             slotId: 'caja5_mob',
-                                            withoutHide: true
+                                            withoutHide: true,
+                                            isStatic: true,
+                                            lazyClass: 'lazy'
                                         }}
                                     />
                                     <DivBannerSSR
                                         bannerConfiguration={{
                                             slotId: 'cinturon2_dsk',
-                                            withoutHide: true
+                                            withoutHide: true,
+                                            isStatic: true,
+                                            lazyClass: 'lazy'
                                         }}
                                     />
                                     <DivBannerSSR
                                         bannerConfiguration={{
                                             slotId: 'middle2_tab',
-                                            withoutHide: true
+                                            withoutHide: true,
+                                            isStatic: true,
+                                            lazyClass: 'lazy'
                                         }}
                                     />
                                 </>
@@ -521,26 +526,32 @@ const LNMainHome = props => {
                                     data-section="opinion"
                                     className="container --opinion"
                                 >
-                                    {blocksToLoad.bloque3.loaded && opinion}
+                                    {opinion}
                                 </div>
                                 {/* BANNER  */}
                                 <div className="row-gap-tablet-3 --ads">
                                     <DivBannerSSR
                                         bannerConfiguration={{
                                             slotId: 'caja3_dsk',
-                                            withoutHide: true
+                                            withoutHide: true,
+                                            isStatic: true,
+                                            lazyClass: 'lazy'
                                         }}
                                     />
                                     <DivBannerSSR
                                         bannerConfiguration={{
                                             slotId: 'caja_producto2_dsk',
-                                            withoutHide: true
+                                            withoutHide: true,
+                                            isStatic: true,
+                                            lazyClass: 'lazy'
                                         }}
                                     />
                                     <DivBannerSSR
                                         bannerConfiguration={{
                                             slotId: 'caja4_dsk',
-                                            withoutHide: true
+                                            withoutHide: true,
+                                            isStatic: true,
+                                            lazyClass: 'lazy'
                                         }}
                                     />
                                 </div>
@@ -549,26 +560,23 @@ const LNMainHome = props => {
                                     <DivBannerSSR
                                         bannerConfiguration={{
                                             slotId: 'caja3_tab',
-                                            withoutHide: true
+                                            withoutHide: true,
+                                            isStatic: true,
+                                            lazyClass: 'lazy'
                                         }}
                                     />
                                     <DivBannerSSR
                                         bannerConfiguration={{
                                             slotId: 'caja4_tab',
-                                            withoutHide: true
+                                            withoutHide: true,
+                                            isStatic: true,
+                                            lazyClass: 'lazy'
                                         }}
                                     />
                                 </div>
-                                <div data-section="breaking4">
-                                    {blocksToLoad.bloque3.loaded && breaking4}
-                                </div>
-
-                                <div data-section="breaking5">
-                                    {blocksToLoad.bloque3.loaded && breaking5}
-                                </div>
-                                <div data-section="breaking6">
-                                    {blocksToLoad.bloque3.loaded && breaking6}
-                                </div>
+                                <div data-section="breaking4">{breaking4}</div>
+                                <div data-section="breaking5">{breaking5}</div>
+                                <div data-section="breaking6">{breaking6}</div>
                             </div>
                             <div className="sidebar__aside hlp-tabletlm-none">
                                 {/* BANNERS */}
@@ -585,25 +593,30 @@ const LNMainHome = props => {
                             bannerConfiguration={{
                                 slotId: 'parallax_mob',
                                 withoutHide: true,
-                                classes: 'hlp-none'
+                                isStatic: true,
+                                lazyClass: 'lazy'
                             }}
                         />
                         <DivBannerSSR
                             bannerConfiguration={{
                                 slotId: 'parallax_dsk',
                                 withoutHide: true,
-                                classes: 'hlp-none'
+                                isStatic: true,
+                                lazyClass: 'lazy'
                             }}
                         />
                         {/* RANKING */}
-                        {blocksToLoad.bloque3.loaded && (
+                        {
                             <div data-section="ranking" className="lay">
-                                <Ranking {...props} id="rankingHome" />
+                                <Ranking {...props} id="rankingHome" isBlock3 />
                             </div>
-                        )}
+                        }
                         <div className="lay" data-section="comercial1">
-                            {blocksToLoad.bloque3.loaded && comercial1}
+                            {comercial1}
                         </div>
+
+                        {/* 4to Bloque */}
+
                         <div id="content-main-2" className="lay-sidebar">
                             {/* Cuerpo */}
                             <div className="sidebar__main">
@@ -725,9 +738,6 @@ const LNMainHome = props => {
                 </StaticValidation>
             </div>
             <LoadBanners blocksBanners={blocksBanners.bloque1} />
-            {blocksToLoad.bloque3.loaded && (
-                <LoadBanners blocksBanners={blocksBanners.bloque3} />
-            )}
             {blocksToLoad.bloque4.loaded && (
                 <LoadBanners blocksBanners={blocksBanners.bloque4} />
             )}

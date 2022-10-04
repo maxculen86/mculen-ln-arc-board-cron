@@ -10,7 +10,7 @@ const CajaDetalleSigno = ({ id: featureId }) => {
     const { _id = '' } = globalContent || {};
     const path = _id.split('/').slice(1);
 
-    const Component = (
+    return (
         <StaticValidation id={featureId} htmlOnly persistent>
             {(() => {
                 const { data } =
@@ -29,12 +29,12 @@ const CajaDetalleSigno = ({ id: featureId }) => {
                         deployment={deployment}
                         contextPath={contextPath}
                     />
-                ) : null;
+                ) : (
+                    <></>
+                );
             })()}
         </StaticValidation>
     );
-
-    return Component;
 };
 
 CajaDetalleSigno.label = 'LN Acumulado Caja Detalle Signo';

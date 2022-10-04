@@ -2,17 +2,19 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ModPromo from '../../../private/common/mod-promo';
 import { groupCustomFields } from '../../../private/common/utils/propTypesHelper';
+import StaticContent from '../../../private/common/staticContent';
 
 const CajaPromo = ({ customFields }) => {
     const { text, link, logoName } = customFields;
     return (
-        <ModPromo
-            text={text}
-            link={link}
-            logoName={logoName}
-            logoSize="--xs"
-            isStatic={false}
-        />
+        <StaticContent>
+            <ModPromo
+                text={text}
+                link={link}
+                logoName={logoName}
+                logoSize="--xs"
+            />
+        </StaticContent>
     );
 };
 
