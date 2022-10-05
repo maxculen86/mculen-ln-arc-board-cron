@@ -1,35 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Private - LN - nota - snippet - noticia  Snapshot Snippet Autor 1`] = `
-<script
-  dangerouslySetInnerHTML={
-    Object {
-      "__html": "{
+"<script type=\\"application/ld+json\\">{
   \\"@context\\": \\"http://schema.org\\",
   \\"@type\\": \\"Person\\",
   \\"name\\": \\"Javier Blanco\\",
+  \\"url\\": \\"http://www.lanacion.com.ar/autor/javier-blanco-170/\\",
   \\"image\\": \\"https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/JQRxXq2iDva6pauwin-CdNwiWD8=/80x80/smart/filters:quality(100)/s3.amazonaws.com/arc-authors/lanacionar/ded21cfd-b9a6-4cee-9a7b-22ad1fb00d1a.png\\",
-  \\"workLocation\\": {
-    \\"@type\\": \\"Place\\",
-    \\"name\\": \\"\\"
-  },
   \\"description\\": \\"Columnista político del diario LA NACION. Es profesor de Historia en la Universidad Nacional de Mar del Plata y fue docente de la cátedra de Historia de las Ideas Políticas de la Facultad de Derecho de la Universidad Nacional de Mar del Plata, e investigador del Instituto Emilio Ravignani de la Facultad de Filosofía y Letras de la UBA. Presta servicios de consultoría política para instituciones y empresas del país y el exterior. En 2002 fue condecorado por el gobierno de la República de Brasil con la Orden de Río Branco.\\",
-  \\"contactPoint\\": {
-    \\"@type\\": \\"ContactPoint\\",
-    \\"telephone\\": \\"\\",
-    \\"contactType\\": \\"Estándar\\",
-    \\"email\\": \\"javier_blanco@lanacion.com.ar\\"
-  },
-  \\"knowsAbout\\": [],
   \\"knowsLanguage\\": [
-    {
-      \\"@type\\": \\"Language\\",
-      \\"name\\": \\"Ingles\\"
-    },
-    {
-      \\"@type\\": \\"Language\\",
-      \\"name\\": \\"Frances\\"
-    }
+    \\"Ingles\\",
+    \\"Frances\\"
+  ],
+  \\"jobTitle\\": \\"Javier Blanco: LA NACION\\",
+  \\"alumniOf\\": [
+    \\"Periodismo, Universidad de Buenos Aires, 1989.\\",
+    \\"Periodismo, Universidad de Buenos Aires, 1995.\\"
+  ],
+  \\"award\\": [
+    \\"Condecorado por el gobierno de la República de Brasil con la Orden de Río Branco, 2002.\\",
+    \\"Condecorado por el gobierno de la República de Brasil con la Orden de Río Branco, 2002.\\"
   ],
   \\"sameAs\\": [
     \\"@javierblancook\\",
@@ -45,15 +35,43 @@ exports[`Private - LN - nota - snippet - noticia  Snapshot Snippet Autor 1`] = `
     \\"https://whatsapp.com.ar\\",
     \\"https://tumblr.com.ar\\"
   ],
-  \\"jobTitle\\": \\"Estándar\\",
-  \\"award\\": [
-    \\"Condecorado por el gobierno de la República de Brasil con la Orden de Río Branco, 2002.\\",
-    \\"Condecorado por el gobierno de la República de Brasil con la Orden de Río Branco, 2002.\\"
-  ]
-}",
+  \\"contactPoint\\": {
+    \\"@type\\": \\"ContactPoint\\",
+    \\"contactType\\": \\"Javier Blanco: LA NACION\\",
+    \\"email\\": \\"javier_blanco@lanacion.com.ar\\",
+    \\"url\\": \\"http://www.lanacion.com.ar/autor/javier-blanco-170/\\"
+  },
+  \\"affiliation\\": [
+    {
+      \\"@type\\": \\"NewsMediaOrganization\\",
+      \\"name\\": \\" Academia de Periodismo.\\"
+    },
+    {
+      \\"@type\\": \\"NewsMediaOrganization\\",
+      \\"name\\": \\"La Nación\\",
+      \\"url\\": \\"https: //www.lanacion.com.ar\\"
     }
+  ],
+  \\"owns\\": {
+    \\"@type\\": \\"ItemList\\",
+    \\"itemListElement\\": [
+      {
+        \\"@type\\": \\"Book\\",
+        \\"name\\": \\"Carlos Pagni en Odisea Argentina\\",
+        \\"author\\": \\"Editorial\\",
+        \\"format\\": \\"https://schema.org/Paperback\\"
+      },
+      {
+        \\"@type\\": \\"PodcastSeries\\",
+        \\"name\\": \\"Un podcast\\",
+        \\"url\\": \\"https://google.com\\"
+      },
+      {
+        \\"@type\\": \\"PodcastSeries\\",
+        \\"name\\": \\"Segundo Podcast\\",
+        \\"url\\": \\"https://google.com\\"
+      }
+    ]
   }
-  id={null}
-  type="application/ld+json"
-/>
+}</script>"
 `;
