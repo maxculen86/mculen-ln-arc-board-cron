@@ -12,9 +12,10 @@ export const formatForOneElementArray = (array = []) => {
 
 export const formatForObjectArray = (objectArray = []) => {
     if (objectArray.length === 0) return undefined;
-    return objectArray.map(obj => {
+    const arrayFormated = objectArray.map(obj => {
         return (obj && obj.name) || '';
     });
+    return arrayFormated[0] === '' ? undefined : arrayFormated;
 };
 
 export const extractAffilations = (affilations = '') => {

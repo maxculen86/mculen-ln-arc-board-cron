@@ -44,7 +44,7 @@ exports[`Private - LN - nota - snippet - noticia  Snapshot Snippet Autor 1`] = `
   \\"affiliation\\": [
     {
       \\"@type\\": \\"NewsMediaOrganization\\",
-      \\"name\\": \\" Academia de Periodismo.\\"
+      \\"name\\": \\"Academia de Periodismo.\\"
     },
     {
       \\"@type\\": \\"NewsMediaOrganization\\",
