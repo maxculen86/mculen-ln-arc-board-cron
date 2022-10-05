@@ -5,7 +5,6 @@ import { useContent as getContent } from 'fusion:content';
 import StaticValidation from '../../../private/common/staticValidation';
 import CajaTema from '../../../private/LN/common/cajaTema';
 import { getRankingProps, getSectionParentId, hasArticles } from './_helper';
-import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
 import StaticContent from '../../../private/common/staticContent';
 import '../../../../resources/dist/css/ln/components/ranking.css';
 import { productClickFromClient } from '../../../private/common/utils/viewability';
@@ -14,7 +13,7 @@ const getDataContent = (
     sectionId,
     sectionParentId,
     website,
-    isBlock3 = false
+    isHome = false
 ) => {
     const getRankingData = section =>
         getContent({
@@ -24,7 +23,7 @@ const getDataContent = (
                 imageConfig: 'boxArticles',
                 website
             },
-            staticMode: isBlock3
+            staticMode: isHome
         });
 
     const data = getRankingData(sectionId);
@@ -34,7 +33,7 @@ const getDataContent = (
     return (hasArticles(data) && data) || getRankingData(sectionParentId);
 };
 
-const RankingFeature = ({ id: featureId, isBlock3 = false }) => {
+const RankingFeature = ({ id: featureId }) => {
     const {
         outputType,
         website,
@@ -48,25 +47,23 @@ const RankingFeature = ({ id: featureId, isBlock3 = false }) => {
         sectionName,
         sectionId,
         isHome,
-        isInverse,
         notesQuantity,
         classCondition,
         rankingLayout
     } = getRankingProps(layout, featureId, globalContent);
 
     const sectionParentId = getSectionParentId(sectionId);
-    const { _id, name, articles, size } =
+    const { name, articles } =
         getDataContent(
             sectionId,
             sectionParentId,
             website || arcSite,
-            isBlock3
+            isHome
         ) || {};
 
     const customTitle = name ? `Más leídas de ${name}` : 'Más leídas';
-    const hidePlaceholder = _id && !articles && isInverse;
 
-    const component = (
+    const component = articles && articles.length && (
         <CajaTema
             title={title || customTitle}
             notesQuantity={notesQuantity}
@@ -84,34 +81,17 @@ const RankingFeature = ({ id: featureId, isBlock3 = false }) => {
         />
     );
 
-    const _component = articles && articles.length && component;
-
-    const noStaticComponent =
-        _component ||
-        (!hidePlaceholder &&
-            getPlaceholder(isInverse ? 'grilla6' : `ranking${size}`));
-
-    const homeRanking = isBlock3 ? (
-        <StaticContent>{component}</StaticContent>
-    ) : (
-        noStaticComponent
-    );
-
-    const sectionRanking = (_component && (
+    const sectionRanking = (component && (
         <StaticValidation id={featureId}>{component}</StaticValidation>
     )) || <></>;
 
-    return isHome ? homeRanking : sectionRanking;
+    return isHome ? <StaticContent>{component}</StaticContent> : sectionRanking;
 };
 
 RankingFeature.label = 'LN-Common-Ranking';
 
 RankingFeature.propTypes = {
     id: PropTypes.string.isRequired,
-    outputType: PropTypes.string,
-    website: PropTypes.string,
-    arcSite: PropTypes.string,
-    layout: PropTypes.string.isRequired,
     globalContent: PropTypes.shape({
         _id: PropTypes.string,
         node_type: PropTypes.string,
@@ -122,11 +102,6 @@ RankingFeature.propTypes = {
             })
         })
     }).isRequired
-};
-
-RankingFeature.defaultProps = {
-    outputType: 'default',
-    arcSite: 'la-nacion-ar'
 };
 
 export default RankingFeature;

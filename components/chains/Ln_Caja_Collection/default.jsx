@@ -3,13 +3,12 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import getArticleInCollection from '../../private/LN/common/utils/getArticleInCollection';
+import getArticleInCollection from '../../private/LN/common/hooks/useGetArticleInCollection';
 import CajaTema from '../../private/LN/common/cajaTema';
 import {
     cajaTemasCustomsFields,
     getCommonProps,
-    isInApertura,
-    getChildrenFromSectionHome
+    isInApertura
 } from '../../private/LN/common/utils/cajaTemasHelper';
 import {
     validateFeature,
@@ -22,7 +21,6 @@ import get from '../../private/common/utils/get';
 import { getPlaceholder } from '../../private/LN/common/utils/cajaTemasPlaceholder';
 import { productClickFromClient } from '../../private/common/utils/viewability';
 import StaticContent from '../../private/common/staticContent';
-import { customFieldValidation } from '../utils/contentValidations';
 
 const CajaCollection = props => {
     const {
@@ -41,7 +39,8 @@ const CajaCollection = props => {
         },
         outputType,
         renderables,
-        tree = {}
+        tree = {},
+        pageLayout
     } = props;
 
     if (hideCaja) return <></>;
@@ -55,6 +54,7 @@ const CajaCollection = props => {
     } = getCommonProps(props);
 
     const { layoutsName = {} } = siteConfig || {};
+    const isHome = pageLayout === layoutsName.Home;
 
     const diagramation =
         (renderables.some(
@@ -86,31 +86,6 @@ const CajaCollection = props => {
             '--l') ||
         undefined;
 
-    const cajaCollectionStaticComponents = [
-        { name: 'Apertura_1', position: 3 },
-        { name: 'Apertura_2', position: 4 },
-        { name: 'Breaking_1', position: 7 },
-        { name: 'Breaking_2', position: 8 },
-        { name: 'Breaking_3', position: 9 },
-        { name: 'Opinion', position: 11 },
-        { name: 'Breaking_4', position: 12 },
-        { name: 'Breaking_5', position: 13 },
-        { name: 'Breaking_6', position: 14 },
-        { name: 'Comercial_1', position: 15 }
-    ];
-
-    const isInBloque3 = cajaCollectionStaticComponents.filter(el => {
-        const children = getChildrenFromSectionHome(
-            renderables,
-            el.name,
-            el.position
-        );
-        return customFieldValidation({
-            featureId,
-            sectionChildren: children
-        });
-    }).length;
-
     const articlesToShow = !isInSiteService
         ? getArticleInCollection(
               notesQuantity,
@@ -123,7 +98,7 @@ const CajaCollection = props => {
               !isInSiteService,
               layout,
               website,
-              isInBloque3
+              isHome
           )
         : [];
 
@@ -173,13 +148,14 @@ const CajaCollection = props => {
             articles={_articles}
             titleSize={titleSize}
             handleClick={productClickFromClient}
+            pageLayout={pageLayout}
         />
     );
 
     const noStaticComponent =
         (_articles && _articles.length && Component) || getPlaceholder(layout);
 
-    return isInBloque3 ? (
+    return isHome ? (
         <StaticContent>{Component}</StaticContent>
     ) : (
         noStaticComponent
