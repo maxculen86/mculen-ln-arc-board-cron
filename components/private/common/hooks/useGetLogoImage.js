@@ -2,7 +2,7 @@ import { useContent } from 'fusion:content';
 
 const useGetLogoImage = (id, isHome, isMultimedia) => {
     const image = useContent({
-        source: 'imageSource',
+        source: (id && 'imageSource') || null,
         query: {
             id
         },

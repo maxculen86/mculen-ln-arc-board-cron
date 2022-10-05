@@ -40,7 +40,7 @@ const CajaCollection = props => {
         outputType,
         renderables,
         tree = {},
-        pageLayout
+        layout: pageLayout
     } = props;
 
     if (hideCaja) return <></>;
