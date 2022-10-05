@@ -11,7 +11,6 @@ import homeResponse from '../../../../../__mocks__/data/ranking/homeResponse.jso
 import inverseHomeResponse from '../../../../../__mocks__/data/ranking/inverseHomeResponse.json';
 
 import Ranking from '../../../../../components/features/LN-common/ranking/default';
-import StaticContent from '../../../../../components/private/common/staticContent';
 
 jest.mock('fusion:context', () => () => ({
     default: props => {
@@ -61,33 +60,6 @@ describe('Features - LN - Common - Ranking - default', () => {
         const { container } = render(<Ranking />);
         expect(container).toBeEmptyDOMElement();
     });
-    it('Should render skeleton grilla 6 for inverse ranking home', () => {
-        getMockContext('LN-Home_Main');
-        const { container } = render(<Ranking id="inverse-home" />);
-
-        const skeleton = container.getElementsByClassName('skeleton-box');
-        expect(skeleton.length).toBeGreaterThan(0);
-
-        const articlesSkeleton = container.getElementsByClassName(
-            'mod-article'
-        );
-        expect(articlesSkeleton.length).toBe(6);
-    });
-    it('Should render skeleton grilla 4 for ranking home', () => {
-        getMockContext('LN-Home_Main');
-        const { container } = render(<Ranking id="rankingHome" />);
-
-        const skeleton = container.getElementsByClassName('skeleton-box');
-        expect(skeleton.length).toBeGreaterThan(0);
-        const articlesSkeleton = container.getElementsByClassName(
-            'mod-article'
-        );
-        // expect(articlesSkeleton.length).toBe(4);
-        const rankingSkeletonContainer = container.getElementsByClassName(
-            'com-ranking'
-        );
-        expect(rankingSkeletonContainer.length).toBe(1);
-    });
     it('Should render ranking acu politica', async () => {
         getMockContext('LN-acumulado', {
             name: 'Política',
@@ -95,14 +67,14 @@ describe('Features - LN - Common - Ranking - default', () => {
             _id: '/politica'
         });
 
-        useContent.mockImplementation(() => acuResponse);
+        useContent.mockImplementationOnce(() => acuResponse);
 
         const { container } = render(<Ranking id="LN-acumulado" />);
 
         const titleElement = await screen.findByText('Más leídas de Política');
         expect(titleElement).toBeInTheDocument();
 
-        expect(useContent).toBeCalledWith({
+        expect(useContent).toHaveBeenCalledWith({
             query: {
                 imageConfig: 'boxArticles',
                 sectionId: 'politica',
@@ -119,12 +91,12 @@ describe('Features - LN - Common - Ranking - default', () => {
 
         useContent.mockImplementation(() => homeResponse);
 
-        const { container } = render(<Ranking id="rankingHome" isBlock3 />);
+        const { container } = render(<Ranking id="rankingHome" />);
 
         const titleElement = await screen.findByText('Más leídas');
         expect(titleElement).toBeInTheDocument();
 
-        expect(useContent).toBeCalledWith({
+        expect(useContent).toHaveBeenNthCalledWith(1, {
             query: {
                 imageConfig: 'boxArticles',
                 sectionId: '',
@@ -151,14 +123,14 @@ describe('Features - LN - Common - Ranking - default', () => {
         const titleElement = await screen.findByText('Te puede interesar');
         expect(titleElement).toBeInTheDocument();
 
-        expect(useContent).toBeCalledWith({
+        expect(useContent).toHaveBeenNthCalledWith(1, {
             query: {
                 imageConfig: 'boxArticles',
                 sectionId: 'inverse-home',
                 website: 'la-nacion-ar'
             },
             source: 'rankingArticlesSource',
-            staticMode: false
+            staticMode: true
         });
 
         expect(container).toMatchSnapshot();
