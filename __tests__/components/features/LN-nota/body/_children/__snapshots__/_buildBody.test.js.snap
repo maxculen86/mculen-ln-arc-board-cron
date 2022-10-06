@@ -6769,6 +6769,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       allowfullscreen=""
       frameborder="0"
       height="113"
+      loading="lazy"
       src="https://www.youtube.com/embed/hC8CH0Z3L54?feature=oembed"
       width="200"
     />
@@ -8298,6 +8299,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       allowfullscreen=""
       frameborder="0"
       height="269"
+      loading="lazy"
       src="https://www.dailymotion.com/embed/video/x589c8d?pubtool=oembed"
       width="480"
     />
