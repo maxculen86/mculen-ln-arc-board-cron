@@ -59,7 +59,7 @@ exports[`Private - LN - nota - snippet - noticia  Snapshot Snippet Autor 1`] = `
         \\"@type\\": \\"Book\\",
         \\"name\\": \\"Carlos Pagni en Odisea Argentina\\",
         \\"author\\": \\"Editorial\\",
-        \\"format\\": \\"https://schema.org/Paperback\\"
+        \\"bookFormat\\": \\"https://schema.org/Paperback\\"
       },
       {
         \\"@type\\": \\"PodcastSeries\\",

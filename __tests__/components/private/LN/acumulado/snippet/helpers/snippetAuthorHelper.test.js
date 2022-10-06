@@ -94,19 +94,19 @@ describe('components - private - LN - acumulado - snippet - helpers - snippetAut
                     '@type': 'Book',
                     name: 'Libro 1',
                     author: 'Juan Pravata',
-                    format: 'https://schema.org/Paperback'
+                    bookFormat: 'https://schema.org/Paperback'
                 },
                 {
                     '@type': 'Book',
                     name: 'Libro 2',
                     author: 'Juan Pravata',
-                    format: 'https://schema.org/Paperback'
+                    bookFormat: 'https://schema.org/Paperback'
                 },
                 {
                     '@type': 'Book',
                     name: 'Libro 3',
                     author: 'Juan Pravata',
-                    format: 'https://schema.org/Paperback'
+                    bookFormat: 'https://schema.org/Paperback'
                 },
                 {
                     '@type': 'PodcastSeries',
