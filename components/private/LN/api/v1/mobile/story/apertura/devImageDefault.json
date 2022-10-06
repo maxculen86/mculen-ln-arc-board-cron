@@ -1,0 +1,105 @@
+{
+    "_id": "LGFOVH6SFFGZVP5V3V7NOW2KFY",
+    "additional_properties": {
+        "fullSizeResizeUrl": "/photo/resize/jIG_jo_vdXEL6cXaKqDpTcDqU_E=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg",
+        "galleries": [],
+        "iptc_source": "",
+        "keywords": [],
+        "mime_type": "image/jpeg",
+        "originalName": "1841088.jpg",
+        "originalUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg",
+        "proxyUrl": "/photo/resize/jIG_jo_vdXEL6cXaKqDpTcDqU_E=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg",
+        "published": true,
+        "resizeUrl": "http://thumbor-prod-us-east-1.photo.aws.arc.pub/jIG_jo_vdXEL6cXaKqDpTcDqU_E=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg",
+        "restricted": false,
+        "thumbnailResizeUrl": "http://thumbor-prod-us-east-1.photo.aws.arc.pub/K4LaVVLT_2XE-qf-G6ZZKkpQIYw=/300x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg",
+        "version": 0
+    },
+    "alt_text": "Simon y su mujer Lauren miran con amor al pequeño Eric",
+    "caption": "Simon y su mujer Lauren miran con amor al pequeño Eric",
+    "created_date": "2020-06-29T13:19:02Z",
+    "credits": {
+        "by": [
+            {
+                "name": "Twitter",
+                "type": "author"
+            }
+        ]
+    },
+    "distributor": {
+        "category": "other",
+        "mode": "custom",
+        "name": ""
+    },
+    "height": 513,
+    "last_updated_date": "2020-06-29T13:19:02Z",
+    "licensable": false,
+    "owner": {
+        "id": "sandbox.lanacionar"
+    },
+    "source": {
+        "source_id": "1841088.jpg",
+        "source_type": "other",
+        "additional_properties": {
+            "editor": "photo center"
+        },
+        "edit_url": "https://sandbox.lanacionar.arcpublishing.com/photo/LGFOVH6SFFGZVP5V3V7NOW2KFY",
+        "system": "photo center"
+    },
+    "status": "published",
+    "subtitle": "Simon y su mujer Lauren miran con amor al pequeño Eric",
+    "type": "image",
+    "url": "https://resizer.glanacion.com/resizer/RsqppSDbxLIgBko6JrbcfGp8QUA=/768x513/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg",
+    "version": "0.10.3",
+    "width": 768,
+    "display_date": "2014-02-17T12:08:00Z",
+    "first_publish_date": "2014-02-17T12:08:00Z",
+    "description": {
+        "basic": "Simon y su mujer Lauren miran con amor al pequeño Eric"
+    },
+    "language": "es-419",
+    "publish_date": "2014-02-17T12:08:00Z",
+    "resized_urls": [
+        {
+            "resizedUrl": "https://resizer.glanacion.com/resizer/xXjJBfZwE6c26vxfxgfHerlzovg=/278x186/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg",
+            "option": {
+                "width": 278,
+                "height": 186,
+                "media": "(min-width: 1280px)"
+            }
+        },
+        {
+            "resizedUrl": "https://resizer.glanacion.com/resizer/HU7HHdAlJjMA1Wo_zPVxdiJEJg8=/344x230/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg",
+            "option": {
+                "width": 344,
+                "height": 230,
+                "media": "(min-width: 1024px)"
+            }
+        },
+        {
+            "resizedUrl": "https://resizer.glanacion.com/resizer/RsqppSDbxLIgBko6JrbcfGp8QUA=/768x513/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg",
+            "option": {
+                "width": 768,
+                "height": 513,
+                "media": "(min-width: 768px)"
+            }
+        },
+        {
+            "resizedUrl": "https://resizer.glanacion.com/resizer/Xcn5wLWNR-Jzz6cOGmNUu806tWc=/350x234/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg",
+            "option": {
+                "width": 350,
+                "height": 234,
+                "media": "(min-width: 360px)"
+            }
+        },
+        {
+            "resizedUrl": "https://resizer.glanacion.com/resizer/Tu91squMfjTVK8l7oVOdLYs_GHw=/360x234/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg",
+            "option": {
+                "width": 360,
+                "height": 234,
+                "media": "(min-width: 320px)"
+            }
+        }
+    ],
+    "resized_urls_zoom": []
+}
