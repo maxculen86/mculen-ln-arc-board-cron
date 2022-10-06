@@ -21,7 +21,8 @@ import removeInvalidRelated from './utils/removeInvalidRelated';
 import {
     FOTOAL100,
     RECETA,
-    STORYTELLING
+    STORYTELLING,
+    isSubtypeWithAmp
 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 import logger from '../../components/private/common/utils/logger';
 import paywallUtils from './utils/paywall';
@@ -30,6 +31,7 @@ import isNotShowcase from './utils/isNotShowcase';
 import { recipePowerUps, removeParallaxPowerUp } from './utils/powerUp';
 import firmaDistributorValidation from './utils/firmaDistributorValidator';
 import isNoteListenable from './utils/audioNews/helper';
+import force404AMP from './utils/force404AMP';
 
 export const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -56,7 +58,8 @@ const fetch = (query, { cachedCall } = {}) => {
         paywallEnabled = '',
         checkExclusiveAccess = true,
         isInApertura = false,
-        isAdmin = false
+        isAdmin = false,
+        outputType = ''
     } = query;
 
     const arcSite = query['arc-site'];
@@ -100,12 +103,15 @@ const fetch = (query, { cachedCall } = {}) => {
                 });
             }
 
+            isSubtypeWithAmp(response) && force404AMP({ outputType });
+
             isNotShowcase(response) &&
                 paywallUtils.checkPaywall({
                     queryData: query,
                     urlBase: SITE_LANACION,
                     responseData: response
                 });
+
             return transform(
                 response,
                 arcSite,
@@ -429,7 +435,8 @@ export default {
         published: 'text',
         meteringVariant: 'text',
         paywallUrl: 'text',
-        paywallEnabled: 'text'
+        paywallEnabled: 'text',
+        outputType: 'text'
     },
     filter,
     ttl: 120
