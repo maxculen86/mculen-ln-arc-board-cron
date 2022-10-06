@@ -4397,7 +4397,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
             data-autoplay-muted="false"
             data-controls="true"
             data-env="prod"
-            data-muted="false"
+            data-muted="true"
             data-sticky="false"
             data-uuid="76c88e0b-33e7-405f-b6ad-b6a98fef7c77"
           />
@@ -5026,7 +5026,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
             data-autoplay-muted="false"
             data-controls="true"
             data-env="prod"
-            data-muted="false"
+            data-muted="true"
             data-sticky="false"
             data-uuid="6c75af33-e0f1-4300-bd66-7b2913ca05c1"
           />
@@ -7366,7 +7366,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
             data-autoplay-muted="false"
             data-controls="true"
             data-env="prod"
-            data-muted="false"
+            data-muted="true"
             data-sticky="false"
             data-uuid="76c88e0b-33e7-405f-b6ad-b6a98fef7c77"
           />
@@ -8673,7 +8673,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
             data-autoplay-muted="false"
             data-controls="true"
             data-env="prod"
-            data-muted="false"
+            data-muted="true"
             data-sticky="false"
             data-uuid="6c75af33-e0f1-4300-bd66-7b2913ca05c1"
           />
