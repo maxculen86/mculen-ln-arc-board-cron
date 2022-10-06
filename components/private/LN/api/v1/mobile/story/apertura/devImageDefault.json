@@ -1,105 +1,96 @@
 {
-    "_id": "LGFOVH6SFFGZVP5V3V7NOW2KFY",
+    "_id": "2NPLOJ5SZVDRPG2HP2UUA5Y66U",
     "additional_properties": {
-        "fullSizeResizeUrl": "/photo/resize/jIG_jo_vdXEL6cXaKqDpTcDqU_E=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg",
+        "fullSizeResizeUrl": "/resizer/5QADiYiyXW5j9IZivt4Wd6jpxNQ=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/2NPLOJ5SZVDRPG2HP2UUA5Y66U.png",
         "galleries": [],
-        "iptc_source": "",
-        "keywords": [],
-        "mime_type": "image/jpeg",
-        "originalName": "1841088.jpg",
-        "originalUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg",
-        "proxyUrl": "/photo/resize/jIG_jo_vdXEL6cXaKqDpTcDqU_E=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg",
+        "ingestionMethod": "manual",
+        "mime_type": "image/png",
+        "originalName": "Placeholder16-9@3x.png",
+        "originalUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/2NPLOJ5SZVDRPG2HP2UUA5Y66U.png",
+        "owner": "amlot@lanacion.com.ar",
+        "proxyUrl": "/resizer/5QADiYiyXW5j9IZivt4Wd6jpxNQ=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/2NPLOJ5SZVDRPG2HP2UUA5Y66U.png",
         "published": true,
-        "resizeUrl": "http://thumbor-prod-us-east-1.photo.aws.arc.pub/jIG_jo_vdXEL6cXaKqDpTcDqU_E=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg",
+        "resizeUrl": "/resizer/5QADiYiyXW5j9IZivt4Wd6jpxNQ=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/2NPLOJ5SZVDRPG2HP2UUA5Y66U.png",
         "restricted": false,
-        "thumbnailResizeUrl": "http://thumbor-prod-us-east-1.photo.aws.arc.pub/K4LaVVLT_2XE-qf-G6ZZKkpQIYw=/300x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg",
-        "version": 0
+        "thumbnailResizeUrl": "/resizer/UIwyk2BZILNfuNNicnTyzUb7Ue0=/300x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/2NPLOJ5SZVDRPG2HP2UUA5Y66U.png",
+        "version": 0,
+        "template_id": 770
     },
-    "alt_text": "Simon y su mujer Lauren miran con amor al pequeño Eric",
-    "caption": "Simon y su mujer Lauren miran con amor al pequeño Eric",
-    "created_date": "2020-06-29T13:19:02Z",
+    "address": {},
+    "copyright": "LA NACION",
+    "created_date": "2022-10-06T18:10:18Z",
     "credits": {
-        "by": [
-            {
-                "name": "Twitter",
-                "type": "author"
-            }
-        ]
+        "affiliation": []
     },
-    "distributor": {
-        "category": "other",
-        "mode": "custom",
-        "name": ""
-    },
-    "height": 513,
-    "last_updated_date": "2020-06-29T13:19:02Z",
+    "height": 633,
+    "image_type": "photograph",
+    "last_updated_date": "2022-10-06T18:10:18Z",
     "licensable": false,
     "owner": {
-        "id": "sandbox.lanacionar"
+        "id": "sandbox.lanacionar",
+        "sponsored": false
     },
     "source": {
-        "source_id": "1841088.jpg",
-        "source_type": "other",
         "additional_properties": {
             "editor": "photo center"
         },
-        "edit_url": "https://sandbox.lanacionar.arcpublishing.com/photo/LGFOVH6SFFGZVP5V3V7NOW2KFY",
+        "edit_url": "https://sandbox.lanacionar.arcpublishing.com/photo/2NPLOJ5SZVDRPG2HP2UUA5Y66U",
         "system": "photo center"
     },
-    "status": "published",
-    "subtitle": "Simon y su mujer Lauren miran con amor al pequeño Eric",
-    "type": "image",
-    "url": "https://resizer.glanacion.com/resizer/RsqppSDbxLIgBko6JrbcfGp8QUA=/768x513/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg",
-    "version": "0.10.3",
-    "width": 768,
-    "display_date": "2014-02-17T12:08:00Z",
-    "first_publish_date": "2014-02-17T12:08:00Z",
-    "description": {
-        "basic": "Simon y su mujer Lauren miran con amor al pequeño Eric"
+    "taxonomy": {
+        "associated_tasks": []
     },
-    "language": "es-419",
-    "publish_date": "2014-02-17T12:08:00Z",
+    "type": "image",
+    "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/2NPLOJ5SZVDRPG2HP2UUA5Y66U.png",
+    "version": "0.10.3",
+    "width": 1125,
+    "syndication": {},
     "resized_urls": [
         {
-            "resizedUrl": "https://resizer.glanacion.com/resizer/xXjJBfZwE6c26vxfxgfHerlzovg=/278x186/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg",
+            "resizedUrl": "https://resizer.glanacion.com/resizer/_Gh0Aq06OUSDYFYPwZJPHesti3o=/309x206/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/2NPLOJ5SZVDRPG2HP2UUA5Y66U.png",
             "option": {
-                "width": 278,
-                "height": 186,
-                "media": "(min-width: 1280px)"
+                "width": 309,
+                "height": 206,
+                "proportion": "3:2",
+                "media_preload": "(max-width: 375px)"
             }
         },
         {
-            "resizedUrl": "https://resizer.glanacion.com/resizer/HU7HHdAlJjMA1Wo_zPVxdiJEJg8=/344x230/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg",
+            "resizedUrl": "https://resizer.glanacion.com/resizer/jSBFS5tYhJYSpMfGPiZayb__4VI=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/2NPLOJ5SZVDRPG2HP2UUA5Y66U.png",
             "option": {
-                "width": 344,
-                "height": 230,
-                "media": "(min-width: 1024px)"
+                "width": 351,
+                "height": 234,
+                "proportion": "3:2",
+                "media_preload": "(min-width: 375.1px and max-width: 768px)"
             }
         },
         {
-            "resizedUrl": "https://resizer.glanacion.com/resizer/RsqppSDbxLIgBko6JrbcfGp8QUA=/768x513/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg",
+            "resizedUrl": "https://resizer.glanacion.com/resizer/66ONZCkQ6_pAxnFdJHFd6OjXUzo=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/2NPLOJ5SZVDRPG2HP2UUA5Y66U.png",
             "option": {
                 "width": 768,
-                "height": 513,
-                "media": "(min-width: 768px)"
+                "height": 512,
+                "proportion": "3:2",
+                "media_preload": "(min-width: 768.1px and max-width: 1024px)"
             }
         },
         {
-            "resizedUrl": "https://resizer.glanacion.com/resizer/Xcn5wLWNR-Jzz6cOGmNUu806tWc=/350x234/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg",
+            "resizedUrl": "https://resizer.glanacion.com/resizer/wWOiSTaXxSN-LtC0uFBlrPblnxo=/879x586/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/2NPLOJ5SZVDRPG2HP2UUA5Y66U.png",
             "option": {
-                "width": 350,
-                "height": 234,
-                "media": "(min-width: 360px)"
+                "width": 879,
+                "height": 586,
+                "media": "(min-width: 1280px)",
+                "proportion": "3:2",
+                "media_preload": "(min-width: 1280.1px)"
             }
         },
         {
-            "resizedUrl": "https://resizer.glanacion.com/resizer/Tu91squMfjTVK8l7oVOdLYs_GHw=/360x234/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg",
+            "resizedUrl": "https://resizer.glanacion.com/resizer/9-8avmELfl8ibqVkeSxuBpTlXAY=/1200x800/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/2NPLOJ5SZVDRPG2HP2UUA5Y66U.png",
             "option": {
-                "width": 360,
-                "height": 234,
-                "media": "(min-width: 320px)"
+                "width": 1200,
+                "height": 746,
+                "proportion": "3:2",
+                "media_preload": "(min-width: 1024.1px and max-width: 1280px)"
             }
         }
-    ],
-    "resized_urls_zoom": []
+    ]
 }
