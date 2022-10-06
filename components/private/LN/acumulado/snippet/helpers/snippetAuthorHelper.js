@@ -47,7 +47,7 @@ export const getBooksAndPodcasts = (books = [], podcasts = []) => {
                 '@type': 'Book',
                 ...(title && { name: title }),
                 ...(publisher && { author: publisher }),
-                format: 'https://schema.org/Paperback'
+                bookFormat: 'https://schema.org/Paperback'
             });
         });
     podcasts.length > 0 &&
