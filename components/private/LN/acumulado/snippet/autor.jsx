@@ -23,13 +23,14 @@ const SnippetAutor = ({ globalContent = {} }) => {
         role,
         longBio = '',
         location = '',
-        image: { url },
+        image = {},
         awards = [],
         languages = '',
         expertise = '',
         podcasts = []
     } = globalContent;
 
+    const { url = '' } = image;
     const awardsFormated = formatForObjectArray(awards);
     const educationFormated = formatForObjectArray(education);
     const languajesFormated = stringToArray(languages);
@@ -62,12 +63,17 @@ const SnippetAutor = ({ globalContent = {} }) => {
             award: formatForOneElementArray(awardsFormated)
         }),
         ...(sameAs && { sameAs: formatForOneElementArray(sameAs) }),
-        contactPoint: {
-            '@type': 'ContactPoint',
-            ...(byline && role && { contactType: `${byline}: ${role}` }),
-            ...(email && { email }),
-            ...(bioPage && { url: `http://www.lanacion.com.ar${bioPage}` })
-        },
+        ...(byline &&
+            role && {
+                contactPoint: {
+                    '@type': 'ContactPoint',
+                    contactType: `${byline}: ${role}`,
+                    ...(email && { email }),
+                    ...(bioPage && {
+                        url: `http://www.lanacion.com.ar${bioPage}`
+                    })
+                }
+            }),
         ...(affilationsFormated && {
             affiliation: formatForOneElementArray(affilationsFormated)
         }),

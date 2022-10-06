@@ -85,4 +85,10 @@ describe('Private - LN - nota - snippet - noticia ', () => {
         const { container } = render(<SnippetAutor {...props} />);
         expect(container.innerHTML).toMatchSnapshot();
     });
+    it('When data isnt sent', () => {
+        const { container } = render(<SnippetAutor />);
+        const script = container.querySelector('script');
+
+        expect(script).toMatchSnapshot();
+    });
 });

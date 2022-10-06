@@ -75,3 +75,14 @@ exports[`Private - LN - nota - snippet - noticia  Snapshot Snippet Autor 1`] = `
   }
 }</script>"
 `;
+
+exports[`Private - LN - nota - snippet - noticia  When data isnt sent 1`] = `
+<script
+  type="application/ld+json"
+>
+  {
+  "@context": "http://schema.org",
+  "@type": "Person"
+}
+</script>
+`;
