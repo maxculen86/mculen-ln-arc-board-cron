@@ -2,17 +2,20 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ComAdvance from '../../../private/common/com-advance';
 import { groupCustomFields } from '../../../private/common/utils/propTypesHelper';
+import StaticContent from '../../../private/common/staticContent';
 
 const CajaAnticipo = ({
     customFields: { hide, title, link, hideBadge } = {}
 }) => {
     return !hide && title ? (
-        <ComAdvance
-            title={title}
-            link={link}
-            size="--md"
-            withBadgeLiveblog={hideBadge}
-        />
+        <StaticContent>
+            <ComAdvance
+                title={title}
+                link={link}
+                size="--md"
+                withBadgeLiveblog={hideBadge}
+            />
+        </StaticContent>
     ) : (
         <></>
     );

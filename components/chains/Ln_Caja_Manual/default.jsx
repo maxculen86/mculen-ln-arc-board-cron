@@ -27,7 +27,8 @@ const CajaManual = props => {
         outputType,
         childProps,
         children,
-        renderables = []
+        renderables = [],
+        layout: pageLayout
     } = props;
 
     if (hideCaja)
@@ -60,7 +61,7 @@ const CajaManual = props => {
         sectionChildren: aperturasChildren
     });
 
-    const isInMultimedia = customFieldValidation({
+    const isMultimedia = customFieldValidation({
         featureId,
         sectionChildren: multimediaChildren
     });
@@ -131,9 +132,11 @@ const CajaManual = props => {
             _children={filteredChildren}
             handleClick={productClickFromClient}
             features={features}
+            pageLayout={pageLayout}
+            isMultimedia={isMultimedia}
         />
     );
-    return isInMultimedia ? (
+    return isMultimedia ? (
         Component
     ) : (
         <StaticContent id={featureId}>{Component}</StaticContent>

@@ -1,12 +1,12 @@
 /* eslint-disable no-console */
 import { queueGoogletagCommand } from '../../LN/common/utils/bannerHelper';
 import { filterBanners } from './lazyBannersHelper';
-import blockBanners from './blocksBannerHome';
 import getViewport from '../../LN/common/utils/screenHelper';
+import { bannersLazy } from './bannersHome.json';
 
 const createBannersIntersectionObserver = () => {
     const { device } = getViewport();
-    const banners = filterBanners(blockBanners.bloque23);
+    const banners = filterBanners(bannersLazy);
 
     const callback = entries => {
         entries.forEach(entry => {

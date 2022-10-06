@@ -14,8 +14,9 @@ import getSectionName from '../../private/LN/common/utils/getSectionName';
 import ComTitle from '../../private/common/com-title';
 import sectionsFormated from '../../private/common/utils/sectionsFormated';
 import { getArticlesIdsFromApertura } from '../../private/LN/common/utils/cajaTemasHelper';
+import StaticContent from '../../private/common/staticContent';
 
-const TagsListFeature = ({ id, title }) => {
+const TagsListFeature = ({ id, title, isHome = false }) => {
     const {
         globalContent: { _id: sectionId, node_type: nodeType, type } = {},
         renderables = [],
@@ -68,7 +69,9 @@ const TagsListFeature = ({ id, title }) => {
         </>
     )) || <></>;
 
-    return (
+    return isHome ? (
+        <StaticContent>{Component}</StaticContent>
+    ) : (
         <Static id={id} htmlOnly persistent>
             {Component}
         </Static>
@@ -79,11 +82,13 @@ TagsListFeature.label = 'LN-Acumulado-Tag-List';
 
 TagsListFeature.propTypes = {
     id: PropTypes.string.isRequired,
-    title: PropTypes.string
+    title: PropTypes.string,
+    isHome: PropTypes.boolean
 };
 
 TagsListFeature.defaultProps = {
-    title: ''
+    title: '',
+    isHome: false
 };
 
 export default TagsListFeature;
