@@ -4,6 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import StaticValidation from '../../../private/common/staticValidation';
 import get from '../../../private/common/utils/get';
 import WeatherCard from '../../../private/LN/services/weather/WeatherCard';
+import HolidaysNav from '../../../private/LN/services/holidays/HolidaysNav';
 import '../../../../resources/dist/css/ln/components/weather.css';
 import IconsReferences from '../../../private/LN/services/weather/IconsReferences';
 
@@ -24,6 +25,7 @@ const WeatherList = ({ id: _featureId }) => {
                 ))}
             </div>
             <IconsReferences />
+            <HolidaysNav year={2022} />
         </StaticValidation>
     );
 };
