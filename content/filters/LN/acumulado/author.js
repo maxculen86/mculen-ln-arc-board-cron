@@ -6,6 +6,7 @@ export default `
     author_type,
     byline,
     bio_page,
+    bio,
     image { url },
     longBio,
     slug,
@@ -20,7 +21,8 @@ export default `
     },
     podcasts {
         name,
-        url
+        url,
+        download_url
     },
     education {
         name

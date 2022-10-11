@@ -25,7 +25,6 @@ const VideoPlayer = props => {
         tituloVideo,
         isAdmin,
         videoId,
-        muted,
         enableAds,
         enableAdBar,
         loadVideoOnInit,
@@ -118,14 +117,7 @@ const VideoPlayer = props => {
                 data-autoplay={autoPlay}
                 data-autoplay-muted={autoPlay}
                 data-controls={enableControls}
-                data-muted={
-                    (firstVideo &&
-                        videoId === _firstVideoId &&
-                        device === 'desktop') ||
-                    isApertura
-                        ? true
-                        : muted
-                }
+                data-muted={isApertura ? true : firstVideoCuerpoAutoplay}
                 data-sticky={sticky}
                 data-api={apiEnv}
                 data-env="prod"
@@ -173,7 +165,6 @@ VideoPlayer.propTypes = {
     loadVideoOnInit: PropTypes.bool,
     autoPlay: PropTypes.bool,
     enableControls: PropTypes.bool,
-    muted: PropTypes.bool,
     sticky: PropTypes.bool,
     isAdmin: PropTypes.bool,
     adsURL: PropTypes.string.isRequired,

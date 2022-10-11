@@ -1,17 +1,23 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import ModheaderSection from '../../../../components/private/common/mod-headerSection';
 import '@testing-library/jest-dom';
+import useGetLogoImage from '../../../../components/private/common/hooks/useGetLogoImage';
 
 jest.mock('fusion:consumer', Component => Component => props => (
     <Component {...props} />
 ));
 
+jest.mock('../../../../components/private/common/hooks/useGetLogoImage', () =>
+    jest.fn()
+);
+
 describe('Private - Common - ModHeaderSection =>', () => {
     const imageMock = {
         width: 100,
         height: 100,
-        url: 'https://lanacion.com.ar/mock.jpeg'
+        url: 'https://lanacion.com.ar/mock.jpeg',
+        caption: 'LA NACION'
     };
 
     test('Render OK', () => {
@@ -66,6 +72,7 @@ describe('Private - Common - ModHeaderSection =>', () => {
     });
 
     test('ModheaderSection with image should render mod-logo', () => {
+        useGetLogoImage.mockImplementationOnce(() => imageMock);
         const props = {
             title: 'Titulo Separador',
             link: 'https://lanacion.com.ar/',
@@ -87,9 +94,10 @@ describe('Private - Common - ModHeaderSection =>', () => {
     });
 
     test('ModheaderSection without title', () => {
+        useGetLogoImage.mockImplementationOnce(() => imageMock);
         const props = {
             link: 'https://lanacion.com.ar/',
-            image: { ...imageMock, caption: 'Caption test' },
+            image: { ...imageMock, caption: 'LA NACION' },
             size: '--l',
             line: true
         };
@@ -101,17 +109,17 @@ describe('Private - Common - ModHeaderSection =>', () => {
     });
 
     test('ModheaderSection without title and caption', () => {
-        const DEFAULT_TITLE = 'LA NACION';
+        useGetLogoImage.mockImplementationOnce(() => imageMock);
         const props = {
             link: 'https://lanacion.com.ar/',
-            image: imageMock,
+            image: { ...imageMock, caption: 'LA NACION' },
             size: '--l',
             line: true
         };
 
         const { getByRole } = render(<ModheaderSection {...props} />);
 
-        expect(getByRole('link').title).toEqual(DEFAULT_TITLE);
-        expect(getByRole('img').alt).toEqual(DEFAULT_TITLE);
+        expect(getByRole('link').title).toEqual(props.image.caption);
+        expect(getByRole('img').alt).toEqual(props.image.caption);
     });
 });

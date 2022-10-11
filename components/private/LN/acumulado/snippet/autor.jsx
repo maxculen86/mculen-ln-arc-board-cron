@@ -3,67 +3,86 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import getSocialsNetwork from '../../common/utils/getSocialsNetwork';
-
-const extractLanguajes = languages => {
-    const lang = languages.split(',');
-    if (lang[0] === '') return [];
-
-    return lang.map(lan => {
-        return { '@type': 'Language', name: lan.trim() };
-    });
-};
-
-const extractAreasExpertise = (expertise, location) => {
-    const experts = expertise.split(',');
-    if (experts[0] === '') return [];
-
-    experts.push({
-        '@type': 'Place',
-        name: location
-    });
-
-    return experts;
-};
+import {
+    formatForObjectArray,
+    stringToArray,
+    formatForOneElementArray,
+    extractAffilations,
+    getBooksAndPodcasts
+} from './helpers/snippetAuthorHelper';
 
 const SnippetAutor = ({ globalContent = {} }) => {
     const {
+        affiliations = '',
         byline = '',
         email = '',
-        author_type: authorType = '',
+        bio_page: bioPage = '',
+        bio = '',
+        education = [],
+        books = [],
+        role,
         longBio = '',
         location = '',
-        image: { url },
+        image = {},
         awards = [],
         languages = '',
-        expertise = ''
+        expertise = '',
+        podcasts = []
     } = globalContent;
 
-    const awardsFormated = awards.map(aw => aw.name);
-    const languajesFormated = extractLanguajes(languages);
-    const knowsAbout = extractAreasExpertise(expertise, location);
+    const { url = '' } = image;
+    const awardsFormated = formatForObjectArray(awards);
+    const educationFormated = formatForObjectArray(education);
+    const languajesFormated = stringToArray(languages);
+    const knowsAbout = stringToArray(expertise);
     const sameAs = getSocialsNetwork(globalContent);
+    const affilationsFormated = extractAffilations(affiliations);
+    const booksAndPodcasts = getBooksAndPodcasts(books, podcasts);
 
     const data = {
         '@context': 'http://schema.org',
         '@type': 'Person',
-        name: byline,
-        image: url,
-        workLocation: {
-            '@type': 'Place',
-            name: location
-        },
-        description: longBio,
-        contactPoint: {
-            '@type': 'ContactPoint',
-            telephone: '',
-            contactType: authorType,
-            email
-        },
-        knowsAbout,
-        knowsLanguage: languajesFormated,
-        sameAs,
-        jobTitle: authorType,
-        award: awardsFormated
+        ...(byline && { name: byline }),
+        ...(location && { birthPlace: location }),
+        ...(bioPage && { url: `http://www.lanacion.com.ar${bioPage}` }),
+        ...(url && { image: url }),
+        ...(longBio && { description: longBio }),
+        ...(bio && { disambiguatingDescription: bio }),
+        ...(knowsAbout && { knowsAbout: formatForOneElementArray(knowsAbout) }),
+        ...(languajesFormated && {
+            knowsLanguage: formatForOneElementArray(languajesFormated)
+        }),
+        ...(location && {
+            workLocation: location
+        }),
+        ...(byline && role && { jobTitle: `${byline}: ${role}` }),
+        ...(educationFormated && {
+            alumniOf: formatForOneElementArray(educationFormated)
+        }),
+        ...(awardsFormated && {
+            award: formatForOneElementArray(awardsFormated)
+        }),
+        ...(sameAs && { sameAs: formatForOneElementArray(sameAs) }),
+        ...(byline &&
+            role && {
+                contactPoint: {
+                    '@type': 'ContactPoint',
+                    contactType: `${byline}: ${role}`,
+                    ...(email && { email }),
+                    ...(bioPage && {
+                        url: `http://www.lanacion.com.ar${bioPage}`
+                    })
+                }
+            }),
+        ...(affilationsFormated && {
+            affiliation: formatForOneElementArray(affilationsFormated)
+        }),
+        ...(booksAndPodcasts && {
+            owns: {
+                '@type': 'ItemList',
+                itemListElement: formatForOneElementArray(booksAndPodcasts)
+            }
+        })
     };
 
     return <SnippetRender data={data} />;
