@@ -3,6 +3,7 @@ import { resolve as sectionSourceResolve } from './sectionSource';
 import defaultRequest from './utils/defaultRequest';
 import lottery from './utils/servicesSource/lottery/lottery';
 import weather from './utils/servicesSource/weather/weather';
+import holidays from './utils/servicesSource/holidays/holidays';
 import getRequest from './utils/getRequest';
 import { getAuthForRequest } from './utils/widgets/helper';
 import NotFoundError from './utils/notFoundError';
@@ -12,6 +13,7 @@ import filter from '../filters/LN/services/filter';
 const SERVICES = {
     loterias: lottery,
     clima: weather,
+    feriados: holidays,
     default: defaultRequest
 };
 
@@ -34,8 +36,8 @@ const fetch = async (query, { cachedCall }) => {
         SERVICES[service] || SERVICES.default;
 
     const {
-        _id: sectionSourceId,
-        children: sectionChildrens
+        _id: sectionSourceId = '',
+        children: sectionChildrens = []
     } = sectionSourceData;
 
     if (sectionSourceId !== id) {
