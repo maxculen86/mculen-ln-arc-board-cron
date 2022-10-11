@@ -22,7 +22,6 @@ const LotteryCard = ({
     vacantPot,
     jackpot
 }) => {
-    console.log('🚀 ~ file: LotteryCard.jsx ~ line 25 ~ name', name);
     const getDate = get(games, `${id}.getLotteryDate`, () => date);
     const getOrder = get(games, `${id}.sublotteriesOrder`, []);
     const isQuiniela = get(games, `${id}.isQuiniela`, false);
