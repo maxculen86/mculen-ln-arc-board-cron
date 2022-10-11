@@ -9,26 +9,26 @@ exports[`components - private - holidays - HolidaysNav snapshot HolidaysNav 1`] 
       class="sampler"
     >
       <p
-        class="com-text --arial --font-regular --fourxs"
+        class="com-text --fourxs"
       >
         Feriados inamovibles
       </p>
       <p
-        class="com-text --arial --font-regular --fourxs"
+        class="com-text --fourxs"
       >
         Feriados puente
       </p>
       <p
-        class="com-text --arial --font-regular --fourxs"
+        class="com-text --fourxs"
       >
         Feriados trasladables
       </p>
     </div>
-    <div
+    <ol
       class="year"
     >
-      <p
-        class="com-text --arial --font-bold --fivexs"
+      <li
+        class="--font-bold --fivexs"
       >
         <a
           class="com-link"
@@ -39,14 +39,14 @@ exports[`components - private - holidays - HolidaysNav snapshot HolidaysNav 1`] 
         >
           2021
         </a>
-      </p>
-      <p
-        class="com-text --arial --font-bold --fivexs"
+      </li>
+      <li
+        class="--font-bold --fivexs"
       >
         2022
-      </p>
-      <p
-        class="com-text --arial --font-bold --fivexs"
+      </li>
+      <li
+        class="--font-bold --fivexs"
       >
         <a
           class="com-link"
@@ -57,8 +57,8 @@ exports[`components - private - holidays - HolidaysNav snapshot HolidaysNav 1`] 
         >
           2023
         </a>
-      </p>
-    </div>
+      </li>
+    </ol>
   </div>
 </div>
 `;

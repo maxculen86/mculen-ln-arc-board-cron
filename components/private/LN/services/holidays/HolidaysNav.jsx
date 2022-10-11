@@ -8,18 +8,18 @@ const HolidaysNav = ({ year }) => {
     return (
         <div className="holidaysNav">
             <div className="sampler">
-                <Text tag="p" weight="regular" size="4xs" font="arial">
+                <Text tag="p" size="4xs">
                     Feriados inamovibles
                 </Text>
-                <Text tag="p" weight="regular" size="4xs" font="arial">
+                <Text tag="p" size="4xs">
                     Feriados puente
                 </Text>
-                <Text tag="p" weight="regular" size="4xs" font="arial">
+                <Text tag="p" size="4xs">
                     Feriados trasladables
                 </Text>
             </div>
-            <div className="year">
-                <Text tag="p" weight="bold" size="5xs" font="arial">
+            <ol className="year">
+                <li className="--font-bold --fivexs">
                     <Link
                         link={`
                             https://www.lanacion.com.ar/feriados/${year - 1}/
@@ -27,11 +27,9 @@ const HolidaysNav = ({ year }) => {
                         title={`Ir a feriados ${`${year - 1}`}`}
                         textname={`${year - 1}`}
                     />
-                </Text>
-                <Text tag="p" weight="bold" size="5xs" font="arial">
-                    {`${year}`}
-                </Text>
-                <Text tag="p" weight="bold" size="5xs" font="arial">
+                </li>
+                <li className="--font-bold --fivexs">{`${year}`}</li>
+                <li className="--font-bold --fivexs">
                     <Link
                         link={`
                             https://www.lanacion.com.ar/feriados/${year + 1}/
@@ -39,8 +37,8 @@ const HolidaysNav = ({ year }) => {
                         title={`Ir a feriados ${`${year + 1}`}`}
                         textname={`${year + 1}`}
                     />
-                </Text>
-            </div>
+                </li>
+            </ol>
         </div>
     );
 };
