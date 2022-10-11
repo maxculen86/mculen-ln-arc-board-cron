@@ -14,6 +14,12 @@ describe('Test de json de imagen en el cuerpo de la nota', () => {
             '/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77NRHRWIWFCFDOCDN34LGQ32SE.jpg'
         );
         expect(resp['parameters']).toHaveLength(5);
+        expect(resp['parameters'][0]['media']).toBe(1280);
+        expect(resp['parameters'][0]['height']).toBe(768);
+        expect(resp['parameters'][0]['width']).toBe(1280);
+        expect(resp['parameters'][0]['signature']).toBe(
+            'ER1_X3vDXw3P4MNVslw4RT4IVkU=/1280x0'
+        );
         expect(resp['credits']).toBe('Miguel Acevedo Riu - LA NACION');
         expect(resp['source']).toBe('LA NACION');
         expect(resp['epigraph']).toBe('Esto es un epigrafe');
