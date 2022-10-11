@@ -89,50 +89,42 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
       data-is-block={true}
       id="tema_01"
     >
-      <_temp
+      <ModheaderSection
+        classCondition=""
         customTitle="Titulo de Nota"
+        image={Object {}}
         imageId={null}
         isVisible={true}
+        line={true}
         link={null}
+        outputType="default"
+        size="--l"
+        tag="h3"
         title="Titulo de Nota"
       >
-        <ModheaderSection
-          classCondition=""
-          customTitle="Titulo de Nota"
-          image={Object {}}
-          imageId={null}
-          isVisible={true}
-          line={true}
-          link={null}
-          outputType="default"
-          size="--l"
-          tag="h3"
-          title="Titulo de Nota"
+        <section
+          className="mod-headersection  --line"
+          role="contentinfo"
         >
-          <section
-            className="mod-headersection  --line"
-            role="contentinfo"
+          <ComTitle
+            content="Titulo de Nota"
+            customTitle="Titulo de Nota"
+            link={null}
+            preTitle=""
+            size="--l"
+            tag="h3"
           >
-            <ComTitle
-              content="Titulo de Nota"
-              customTitle="Titulo de Nota"
-              link={null}
-              preTitle=""
-              size="--l"
-              tag="h3"
-            >
-              <h3
-                className="com-title --l"
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Titulo de Nota",
-                  }
+            <h3
+              className="com-title --l"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Titulo de Nota",
                 }
-              />
-            </ComTitle>
-          </section>
-        </ModheaderSection>
-      </_temp>
+              }
+            />
+          </ComTitle>
+        </section>
+      </ModheaderSection>
       <CajaTemaWrapper
         isRanking={false}
         isVisible={true}

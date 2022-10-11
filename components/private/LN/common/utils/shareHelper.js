@@ -228,8 +228,8 @@ export const buttonsList = [
         iconName: 'email',
         title: 'Compartir la nota por E-mail',
         id: 'btnemail',
-        handleClick: ({ requestUri, host, title }) => {
-            popUpCompartirMailTo(requestUri, host, title);
+        handleClick: ({ requestUri, host }) => {
+            popUpCompartirMailTo(requestUri, host);
         },
         className: 'email'
     }

@@ -1,12 +1,12 @@
 import React from 'react';
 import { SITE_LANACION } from 'fusion:environment';
-import '../../../resources/dist/css/ln/modules/mod-cripto.css';
+import '../../../resources/dist/css/ln/modules/mod-carrousel-crypto.css';
 import Text from './text';
 import ComLink from './com-link';
 
 const ModCriptoCarrousel = () => {
     return (
-        <>
+        <div className="container-widget-carrousel">
             <div className="widget-carrousel-coins">
                 <ComLink
                     link={`${SITE_LANACION}/tema/criptomonedas-tid63718/`}
@@ -42,7 +42,7 @@ const ModCriptoCarrousel = () => {
                     Live Coin Watch
                 </ComLink>
             </Text>
-        </>
+        </div>
     );
 };
 

@@ -3,7 +3,7 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import getArticleInCollection from '../../private/LN/common/utils/getArticleInCollection';
+import getArticleInCollection from '../../private/LN/common/hooks/useGetArticleInCollection';
 import CajaTema from '../../private/LN/common/cajaTema';
 import {
     cajaTemasCustomsFields,
@@ -20,6 +20,7 @@ import siteConfig from '../../../properties/sites/la-nacion-ar';
 import get from '../../private/common/utils/get';
 import { getPlaceholder } from '../../private/LN/common/utils/cajaTemasPlaceholder';
 import { productClickFromClient } from '../../private/common/utils/viewability';
+import StaticContent from '../../private/common/staticContent';
 
 const CajaCollection = props => {
     const {
@@ -33,11 +34,13 @@ const CajaCollection = props => {
             initialPosition,
             imageId,
             hideTitle,
-            hideCaja
+            hideCaja,
+            website
         },
         outputType,
         renderables,
-        tree = {}
+        tree = {},
+        layout: pageLayout
     } = props;
 
     if (hideCaja) return <></>;
@@ -51,6 +54,7 @@ const CajaCollection = props => {
     } = getCommonProps(props);
 
     const { layoutsName = {} } = siteConfig || {};
+    const isHome = pageLayout === layoutsName.Home;
 
     const diagramation =
         (renderables.some(
@@ -92,9 +96,15 @@ const CajaCollection = props => {
               idsArticlesToExclude,
               true,
               !isInSiteService,
-              layout
+              layout,
+              website,
+              isHome
           )
         : [];
+
+    const _articles = isInSiteService
+        ? articlesFromCollectionSiteService
+        : articlesToShow;
 
     const error = validateFeature(
         idCollection,
@@ -119,32 +129,36 @@ const CajaCollection = props => {
             </div>
         );
     }
-    const _articles = isInSiteService
-        ? articlesFromCollectionSiteService
-        : articlesToShow;
 
-    return (
-        (_articles && _articles.length && (
-            <CajaTema
-                title={title}
-                hideTitle={hideTitle}
-                url={url}
-                imageId={imageId}
-                outputType={outputType}
-                layout={layout}
-                classCondition={`${classCondition}${(isInApertura &&
-                    layout.includes('focal') &&
-                    ' --apertura') ||
-                    ''}`}
-                notesQuantity={notesQuantity}
-                position={position}
-                sectionName={sectionName}
-                articles={_articles}
-                titleSize={titleSize}
-                handleClick={productClickFromClient}
-            />
-        )) ||
-        getPlaceholder(layout)
+    const Component = (
+        <CajaTema
+            title={title}
+            hideTitle={hideTitle}
+            url={url}
+            imageId={imageId}
+            outputType={outputType}
+            layout={layout}
+            classCondition={`${classCondition}${(isInApertura &&
+                layout.includes('focal') &&
+                ' --apertura') ||
+                ''}`}
+            notesQuantity={notesQuantity}
+            position={position}
+            sectionName={sectionName}
+            articles={_articles}
+            titleSize={titleSize}
+            handleClick={productClickFromClient}
+            pageLayout={pageLayout}
+        />
+    );
+
+    const noStaticComponent =
+        (_articles && _articles.length && Component) || getPlaceholder(layout);
+
+    return isHome ? (
+        <StaticContent>{Component}</StaticContent>
+    ) : (
+        noStaticComponent
     );
 };
 

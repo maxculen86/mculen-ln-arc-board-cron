@@ -1,0 +1,40 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.container-widget-carrousel {
+    margin-bottom: px(32);
+
+    .widget-carrousel-coins {
+        background-color: $light-neutral-200;
+        min-height: px(88);
+        padding: px(8) 0 px(8) 0;
+        position: relative;
+        margin: 1rem 0 0.5rem;
+
+        .com-link {
+            position: absolute;
+            width: 100%;
+            height: calc(100% - 1rem);
+            z-index: 100;
+
+            .cripto-title {
+                color: $light-neutral-900;
+                margin-left: px(8);
+            }
+        }
+
+        .livecoinwatch-widget-5 {
+            padding-top: px(24);
+            margin: 0px !important;
+            height: px(40) !important;
+        }
+
+        @media ($media-l) {
+            margin-top: px(16);
+            padding-top: px(16);
+            .com-link .cripto-title {
+                margin-left: px(16);
+            }
+        }
+    }
+}

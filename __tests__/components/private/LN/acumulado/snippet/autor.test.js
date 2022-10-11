@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import SnippetAutor from '../../../../../../components/private/LN/acumulado/snippet/autor';
 
 describe('Private - LN - nota - snippet - noticia ', () => {
@@ -74,96 +75,20 @@ describe('Private - LN - nota - snippet - noticia ', () => {
         }
     };
 
-    const component = mount(<SnippetAutor {...props} />);
-
     it('<SnippetAutor/> definido', () => {
-        expect(component).toBeDefined();
-        expect(component.find('script')).toBeDefined();
-    });
-
-    it('Validar props enviadas', () => {
-        expect(component.props()).toEqual(props);
-    });
-
-    it('Validar valores del squema', () => {
-        const {
-            dangerouslySetInnerHTML: { __html: data }
-        } = component.find('script').props();
-
-        const {
-            globalContent: {
-                byline = '',
-                email = '',
-                author_type: authorType = '',
-                role,
-                longBio = '',
-                location = '',
-                image: { url },
-                books = [],
-                podcasts = [],
-                education = [],
-                awards = [],
-                personal_website: personalWebsite,
-                languages = '',
-                affiliations = ''
-            }
-        } = props;
-
-        const {
-            '@context': context,
-            '@type': type,
-            name,
-            image,
-            workLocation: { name: workLocation },
-            description,
-            contactPoint: {
-                contactType: contactAuthorType,
-                email: authorEmail
-            },
-            knowsLanguage,
-            award: authorAward,
-            sameAs: socialNetworks
-        } = JSON.parse(data);
-
-        expect(context).toBe('http://schema.org');
-        expect(type).toBe('Person');
-        expect(name).toBe(byline);
-        expect(image).toBe(url);
-        expect(workLocation).toBe(location);
-        expect(description).toBe(longBio);
-        expect(contactAuthorType).toBe(authorType);
-        expect(authorEmail).toBe(email);
-        expect(knowsLanguage).toStrictEqual([
-            {
-                '@type': 'Language',
-                name: 'Ingles'
-            },
-            {
-                '@type': 'Language',
-                name: 'Frances'
-            }
-        ]);
-        expect(authorAward).toStrictEqual([
-            'Condecorado por el gobierno de la República de Brasil con la Orden de Río Branco, 2002.',
-            'Condecorado por el gobierno de la República de Brasil con la Orden de Río Branco, 2002.'
-        ]);
-        expect(socialNetworks).toStrictEqual([
-            '@javierblancook',
-            'facebook.com.ar',
-            'https://youtube.com',
-            'https://instagram.com',
-            'https://linkedIn.com',
-            'https://medium.com.ar',
-            'https://reddit.com.ar',
-            'https://pinterest.com.ar',
-            'https://soundcloud.com.ar',
-            'https://snapchat.com.ar',
-            'https://whatsapp.com.ar',
-            'https://tumblr.com.ar'
-        ]);
+        const { container } = render(<SnippetAutor {...props} />);
+        const script = container.querySelector('script');
+        expect(script).toBeDefined();
     });
 
     it('Snapshot Snippet Autor', () => {
-        expect(component.find('script')).toMatchSnapshot();
+        const { container } = render(<SnippetAutor {...props} />);
+        expect(container.innerHTML).toMatchSnapshot();
+    });
+    it('When data isnt sent', () => {
+        const { container } = render(<SnippetAutor />);
+        const script = container.querySelector('script');
+
+        expect(script).toMatchSnapshot();
     });
 });

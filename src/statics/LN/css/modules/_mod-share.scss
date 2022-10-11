@@ -164,13 +164,7 @@
             }
         }
     }
-    .--photo100 {
-        position: relative;
-        margin: 0 $spacing;
-        @media ($media-s) {
-            margin: 0 $spacing-sm;
-        }
-    }
+
     &:not(.--video) {
         @media ($media-l) {
             position: sticky;

@@ -8,8 +8,8 @@ const isNoteListenable = data => {
     const labelAudioNews = get(data, 'label.republicar_audio', null);
 
     if (sourceOrigin === 'composer' && labelAudioNews) {
-        const { enableSubtypes, enableSections } = config;
-        const isEnableSubtype = enableSubtypes.includes(subtype);
+        const { disableSubtypes, enableSections } = config;
+        const isEnableSubtype = !disableSubtypes.includes(subtype);
         const isEnabledSection = enableSections.some(section =>
             sectionId.includes(section)
         );

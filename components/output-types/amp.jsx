@@ -24,8 +24,6 @@ import get from '../private/common/utils/get';
 import FontPreloads from '../private/common/fontsPreloads';
 import { LinkImagePreload } from '../private/LN/common/utils/mediaHelper';
 import replaceUrlResizerToWWW from '../../content/sources/utils/replaceUrlResizerToWWW';
-import { subtypesWithAmp } from '../private/common/utils/subtypes/subtypeHelper';
-
 /**
  * TODO: Resolver el tema de las canonicas
  * TODO: Resolver los datos estructurados por cada layout
@@ -89,8 +87,6 @@ const Amp = props => {
     const basicPromoItems = replaceUrlResizerToWWW(
         get(globalContent, 'promo_items.basic', {})
     );
-
-    const hasAmpLink = get(subtypesWithAmp, subtype, false);
 
     const { resized_urls: resizedUrls } = basicPromoItems;
 
@@ -164,7 +160,7 @@ const Amp = props => {
 
                 <Robot
                     canonicalUrl={canonicalUrl || website_url}
-                    hasAmpLink={hasAmpLink}
+                    subtype={subtype}
                 />
                 <AMPSnippet {...props} />
                 <MetaSectionParsely arcSite={arcSite} taxonomy={taxonomy} />

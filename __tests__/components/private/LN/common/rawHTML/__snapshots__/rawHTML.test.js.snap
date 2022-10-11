@@ -1,17 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RawHTML Matches snapshot 1`] = `
-<div
-  class="com-embed --spotify"
->
-  <iframe
-    allow="encrypted-media"
-    allowtransparency="true"
-    frameborder="0"
-    height="380"
-    src="https://open.spotify.com/embed/album/2xkZV2Hl1Omi8rk2D7t5lN"
-    title="Spotify Embed: The New Abnormal"
-    width="300"
-  />
+<div>
+  <div
+    class="com-embed --spotify"
+  >
+    <iframe
+      allow="encrypted-media"
+      allowtransparency="true"
+      frameborder="0"
+      height="380"
+      src="https://open.spotify.com/embed/album/2xkZV2Hl1Omi8rk2D7t5lN"
+      title="Spotify Embed: The New Abnormal"
+      width="300"
+    />
+  </div>
 </div>
 `;

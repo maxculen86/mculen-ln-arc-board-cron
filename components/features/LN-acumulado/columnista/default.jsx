@@ -19,6 +19,7 @@ const Columnista = props => {
     } = author || {
         image: { url: '' }
     };
+
     const data = {
         credits: {
             by: [
@@ -26,11 +27,12 @@ const Columnista = props => {
                     author: name,
                     type: nodeType,
                     image: { resized_urls: [{ resizedUrl: image.url }] },
-                    alt_text: `Foto de ${name}`
+                    alt_text: name
                 }
             ]
         }
     };
+
     return (
         <ModArticle
             withMedia

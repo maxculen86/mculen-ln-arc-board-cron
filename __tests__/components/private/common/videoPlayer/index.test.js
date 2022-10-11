@@ -25,7 +25,7 @@ describe('private - common - videoPlayer', () => {
             { key: 'data-autoplay', val: 'false' },
             { key: 'data-autoplay-muted', val: 'false' },
             { key: 'data-controls', val: 'true' },
-            { key: 'data-muted', val: 'false' },
+            { key: 'data-muted', val: 'true' },
             { key: 'data-sticky', val: 'false' },
             { key: 'data-api', val: 'sandbox' },
             { key: 'data-env', val: 'prod' }

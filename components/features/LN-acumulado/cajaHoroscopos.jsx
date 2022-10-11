@@ -11,7 +11,7 @@ const CajaHoroscopos = ({ id: featureId, customFields }) => {
     const { _id = '' } = globalContent || {};
     const path = _id.split('/').slice(1);
 
-    const Component = (
+    return (
         <StaticValidation id={featureId} htmlOnly persistent>
             {(() => {
                 const { data } =
@@ -23,21 +23,19 @@ const CajaHoroscopos = ({ id: featureId, customFields }) => {
                         },
                         staticMode: true
                     }) || {};
-                return (
-                    data && (
-                        <HoroscopeBox
-                            signos={data.signos}
-                            title={title}
-                            deployment={deployment}
-                            contextPath={contextPath}
-                        />
-                    )
+                return data ? (
+                    <HoroscopeBox
+                        signos={data.signos}
+                        title={title}
+                        deployment={deployment}
+                        contextPath={contextPath}
+                    />
+                ) : (
+                    <></>
                 );
             })()}
         </StaticValidation>
     );
-
-    return Component;
 };
 
 CajaHoroscopos.label = 'LN Acumulado Caja Horoscopos';
