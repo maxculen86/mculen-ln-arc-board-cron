@@ -37,4 +37,5 @@ export default `
         description
         text
     }
+    name
 `;

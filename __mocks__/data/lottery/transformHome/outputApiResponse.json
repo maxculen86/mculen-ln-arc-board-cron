@@ -4,7 +4,7 @@
             {
                 "date": "Viernes 04/03/2022",
                 "letters": ["BNQR"],
-                "name": "Quiniela Nacional",
+                "name": "Lotería de la Ciudad (ex Quiniela Nacional)",
                 "id": "Quiniela_Nacional",
                 "link": "/loterias/quiniela-nacional/",
                 "results": [
@@ -116,7 +116,7 @@
             },
             {
                 "date": "Viernes 04/03/2022",
-                "name": "Quiniela Provincia",
+                "name": "Quiniela de la Provincia",
                 "link": "/loterias/quiniela-provincia/",
                 "id": "Quiniela_Provincia",
                 "results": [
@@ -452,7 +452,7 @@
             },
             {
                 "date": "Jueves 03/03/2022",
-                "name": "Quiniela Uruguaya",
+                "name": "Quiniela de Montevideo",
                 "link": "/loterias/quiniela-montevideo/",
                 "id": "Quiniela_Uruguaya",
                 "results": [
