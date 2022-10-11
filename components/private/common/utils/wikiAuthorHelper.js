@@ -13,6 +13,19 @@ export const authorPhoto = (outputType, url, byline) => {
     ) : null;
 };
 
+export const authorExpertise = expertise => {
+    return expertise ? (
+        <ComContainer classCondition="--educacion">
+            <ModDescriptionList
+                classCondition="--idiomas"
+                descriptionTitle="Áreas de interés:"
+                size="--twoxs"
+                text={expertise}
+            />
+        </ComContainer>
+    ) : null;
+};
+
 export const authorEducation = education => {
     return education.length > 0 ? (
         <ComContainer classCondition="--educacion">

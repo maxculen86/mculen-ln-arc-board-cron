@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 /* React */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -17,6 +18,16 @@ const getModifier = subtype => {
     }
 };
 
+const addPropertyLoading = ({ subtype, tagHtml }) => {
+    const embeds = ['youtube', 'dailymotion', 'vimeo'];
+    const element =
+        tagHtml.includes('iframe') && embeds.includes(subtype)
+            ? tagHtml.replace(' ', ' loading="lazy" ')
+            : tagHtml;
+
+    return { __html: element };
+};
+
 const RawHTML = ({
     data: {
         classes = '',
@@ -29,7 +40,10 @@ const RawHTML = ({
     return (
         <div
             className={trim(`com-embed ${classes} ${modifier}`)}
-            dangerouslySetInnerHTML={{ __html: html }}
+            dangerouslySetInnerHTML={addPropertyLoading({
+                subtype,
+                tagHtml: html
+            })}
         />
     );
 };

@@ -25,12 +25,14 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
 
         it('Should return null without token and without bookmarkId or globalContent', () => {
             expect(toggleBookmark()).toBeNull();
-            expect(toggleBookmark(token, null, null)).toBeNull();
+            expect(
+                toggleBookmark(token, null, setBookmark, setToast)
+            ).toBeNull();
             expect(fetch).not.toBeCalled();
         });
         it('Should call fetch with proper endpoint, token and DELETE method when bookmarkId is defined (bookmark already saved -> action delete bookmark)', () => {
             expect(
-                toggleBookmark(token, null, bookmarkId, setBookmark, setToast)
+                toggleBookmark(token, bookmarkId, setBookmark, setToast)
             ).toBeTruthy();
             expect(fetch).toBeCalledWith(
                 `https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/bookmarks/${bookmarkId}`,
@@ -46,7 +48,7 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
 
         it('Should call fetch with proper endpoint, token and POST method when bookmarkId is not defined (bookmark not saved -> action create bookmark)', () => {
             expect(
-                toggleBookmark(token, notaExample, null, setBookmark, setToast)
+                toggleBookmark(token, null, setBookmark, setToast, notaExample)
             ).toBeTruthy();
             expect(fetch).toBeCalledWith(
                 `https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/bookmarks`,
@@ -79,7 +81,7 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
                 imagen: { absoluteUrl, parametros }
             } = dataForApi;
             expect(id).toBe(notaExample._id);
-            expect(templateId).toBe(notaExample.subtype);
+            expect(templateId).toBe(Number(notaExample.subtype));
             expect(url).toBe(notaExample.canonical_url);
             expect(categoria.slug).toBe(
                 notaExample.taxonomy.primary_section._id

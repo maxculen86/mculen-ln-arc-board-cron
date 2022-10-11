@@ -7,7 +7,6 @@ import getVideoImagePresets from './utils/getVideoImagePresets';
 const resolve = key => {
     const { id, url, website } = key;
     const basePath = `/content/v4/videos?website=${website}`;
-
     if (id) return `${basePath}&_id=${id}`;
     if (url) return `${basePath}&website_url=${url}`;
     throw new Error('Debe definir url o id para obtener el video');
@@ -29,15 +28,15 @@ const transform = (data, siteProps) => {
 
         return {
             ...data,
-            resizedUrl: getImageResized(
+            resizedUrl: getImageResized({
                 url,
-                height,
-                width,
-                configSizes,
+                originalHeight: height,
+                originalWidth: width,
+                options: configSizes,
                 focalPoint,
                 isInApertura,
                 isAdmin
-            )
+            })
         };
     }
 

@@ -4,7 +4,7 @@ import IndexAcuV2 from '../../../private/LN/api/v2/global/accumulated';
 import IndexAcuV1Mobile from '../../../private/LN/api/v1/mobile/accumulated';
 import browser from '../../../private/common/utils/browser';
 import getSizesFrom from '../../../private/common/utils/getSizesFrom';
-import get from 'lodash.get';
+import get from '../../../private/common/utils/get';
 
 // URL de ejemplo: http://localhost/api/v1/notas/byTag/cronicas-tid61570/params=size:1;page:1/?_website=la-nacion-ar&outputType=json
 // Resolver: ^\/api\/v([1]+)\/notas\/byTag\/((?!params).+)\/(.*\/)$ , donde "params" dependera del customField "paramUrlId" configurado
@@ -69,9 +69,34 @@ class AccumulatedTags {
             const indexAcu = this.apiData[browser.getApiType(requestUri)][
                 browser.getApiVersion(requestUri)
             ];
+
             if (!acuArticlesSource || !acuArticlesSource.content_elements) {
+                // eslint-disable-next-line no-console
+                console.warn(
+                    `Empty content result. Global content info: ${JSON.stringify(
+                        this.props.globalContent
+                    )}`
+                );
                 return null;
             }
+
+            // // TODO comentado hasta validar de donde viene el error - BACKEND card 89766
+            // const isAPI = this.props.globalContentConfig.query.api || false;
+            // if (
+            //     (!acuArticlesSource || !acuArticlesSource.content_elements) &&
+            //     isAPI
+            // ) {
+            //     // eslint-disable-next-line no-console
+            //     console.warn(
+            //         `Empty content result. Global content info: ${JSON.stringify(
+            //             this.props.globalContent
+            //         )}`
+            //     );
+
+            //     throw new Error(
+            //         'Data query response cannot be null or undefined'
+            //     );
+            // }
 
             const dataTag = {
                 slug: this.props.globalContent.Payload.items[0].slug,

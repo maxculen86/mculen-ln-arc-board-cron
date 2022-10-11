@@ -4,22 +4,27 @@ import get from '../get';
 import getImage from './getImage';
 import { getChildsFromSections } from '../../../LN/common/utils/homeHelper';
 import sectionsValidation from '../../../../layouts/config/LN-Home.config';
-import { FOTOAL100, STORYTELLING } from '../subtypes/subtypeHelper';
+import { STORYTELLING } from '../subtypes/subtypeHelper';
 import {
     LinkImagePreload,
-    wikiImagesWithWWW
+    wikiImagesWithWWW,
+    replaceAllUrlsResizerArray
 } from '../../../LN/common/utils/mediaHelper';
 import getVideoPosterResized from '../video/getVideoPosterResized';
 import replaceUrlResizerToWWW from '../../../../../content/sources/utils/replaceUrlResizerToWWW';
+import capitalizeFirstLetter from '../capitalizeFirstLetter';
+import ImagePreloadlAcu from '../../../LN/acumulado/imagePreloadAcu';
+import verifyChainsBeforeGrid from '../verifyChainsBeforeGrid';
+import getIdCollectionFromGC from '../getIdCollectionFromGC';
 
-const getSource = (
+const getSource = ({
     imageID = '',
     noteID = '',
     imageConfig,
     isHideImage,
     videoID,
     isAdmin
-) => {
+}) => {
     const isInApertura = true;
     if (videoID) {
         return getVideoPosterResized(
@@ -30,22 +35,22 @@ const getSource = (
         );
     }
     return imageID.trim()
-        ? getImage(
-              imageID.trim(),
-              'relatedImageSource',
+        ? getImage({
+              id: imageID.trim(),
+              sourceType: 'relatedImageSource',
               imageConfig,
               isHideImage,
               isInApertura,
               isAdmin
-          )
-        : getImage(
-              noteID.trim(),
-              'articleSourceNota',
+          })
+        : getImage({
+              id: noteID.trim(),
+              sourceType: 'articleSourceNota',
               imageConfig,
               isHideImage,
               isInApertura,
               isAdmin
-          );
+          });
 };
 
 const getcustomFieldsData = fieldsData => {
@@ -78,8 +83,9 @@ const getMediaBomba = (arcSite, bomba) => {
     );
 
     return (
-        getPromoItems(getSource(imageID, noteID, imageConfig, isHideImage)) ||
-        []
+        getPromoItems(
+            getSource({ imageID, noteID, imageConfig, isHideImage })
+        ) || []
     );
 };
 
@@ -112,14 +118,14 @@ const getMediaApertura = (renderables, arcSite, isAdmin) => {
 
     return (
         getPromoItems(
-            getSource(
+            getSource({
                 imageID,
                 noteID,
                 imageConfig,
                 isHideImage,
                 videoID,
                 isAdmin
-            )
+            })
         ) || []
     );
 };
@@ -132,39 +138,59 @@ const GetDataToLinkImage = ({
     isAdmin = false
 }) => {
     const {
+        _id: id,
+        name,
         subtype,
         promo_items: promoItems,
+        canonical_url: canonicalUrl,
         wikiSourceData = {},
-        isWiki = false
+        isWiki = false,
+        node_type: nodeType
     } = data || {};
 
     const basic = replaceUrlResizerToWWW(get(data, 'promo_items.basic', {}));
+    const isAuthor = nodeType === 'author';
 
     if (!data) return <></>;
 
     const sectionData = {
-        nota: () => {
-            const shouldExclude = !!(
-                (subtype === FOTOAL100 || subtype === STORYTELLING) &&
-                get(promoItems, 'storytelling_mobile.resized_urls.length')
-            );
+        Nota: () => {
+            const resizedUrls =
+                subtype === STORYTELLING
+                    ? replaceAllUrlsResizerArray(
+                          get(
+                              promoItems,
+                              'storytelling_mobile.resized_urls',
+                              []
+                          )
+                      )
+                    : get(basic, 'resized_urls', []);
 
-            const resizedUrls = get(basic, 'resized_urls', []);
-
-            return !shouldExclude ? (
-                <LinkImagePreload resizedUrls={resizedUrls} />
-            ) : (
-                <></>
-            );
+            return <LinkImagePreload resizedUrls={resizedUrls} />;
         },
-        acumulado: () => {
+
+        Acumulado: () => {
             if (isWiki) {
                 const imagesToPreload = wikiImagesWithWWW(wikiSourceData);
                 return <LinkImagePreload resizedUrls={imagesToPreload} />;
             }
-            return [];
+
+            const hasChainBeforeGrid = verifyChainsBeforeGrid(renderables);
+            const idCollectionApertura = getIdCollectionFromGC(data);
+
+            if (isAuthor || hasChainBeforeGrid || idCollectionApertura)
+                return <></>;
+
+            return (
+                <ImagePreloadlAcu
+                    arcSite={arcSite}
+                    accumulated={{ id, canonicalUrl, name }}
+                    nodeType={nodeType}
+                />
+            );
         },
-        home: () => {
+
+        Home: () => {
             const bomba =
                 (renderables.length &&
                     getChildsFromSections(
@@ -198,7 +224,12 @@ const GetDataToLinkImage = ({
         }
     } || <></>;
 
-    return (sectionData[section] && sectionData[section]()) || <></>;
+    const sectionAsComponent = capitalizeFirstLetter(section);
+
+    return (
+        (sectionData[sectionAsComponent] &&
+            sectionData[sectionAsComponent]()) || <></>
+    );
 };
 
 export default GetDataToLinkImage;

@@ -7,7 +7,7 @@ exports[`features - LaNacion - Acumulado - columnista Test de snapshot Columnist
       "credits": Object {
         "by": Array [
           Object {
-            "alt_text": "Foto de Joaquín Morales Solá",
+            "alt_text": "Joaquín Morales Solá",
             "author": "Joaquín Morales Solá",
             "image": Object {
               "resized_urls": Array [

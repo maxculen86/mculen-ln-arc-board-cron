@@ -24,7 +24,6 @@ import get from '../private/common/utils/get';
 import FontPreloads from '../private/common/fontsPreloads';
 import { LinkImagePreload } from '../private/LN/common/utils/mediaHelper';
 import replaceUrlResizerToWWW from '../../content/sources/utils/replaceUrlResizerToWWW';
-
 /**
  * TODO: Resolver el tema de las canonicas
  * TODO: Resolver los datos estructurados por cada layout
@@ -66,6 +65,7 @@ const Amp = props => {
         subheadlines,
         _id,
         taxonomy,
+        website_url,
         content_restrictions: { content_code: contentCode } = {}
     } = globalContent || {};
 
@@ -159,10 +159,8 @@ const Amp = props => {
                 <Favicon />
 
                 <Robot
+                    canonicalUrl={canonicalUrl || website_url}
                     subtype={subtype}
-                    canonicalUrl={canonicalUrl || _id}
-                    arcSite={arcSite}
-                    nodeType={nodeType}
                 />
                 <AMPSnippet {...props} />
                 <MetaSectionParsely arcSite={arcSite} taxonomy={taxonomy} />

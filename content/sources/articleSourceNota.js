@@ -21,7 +21,8 @@ import removeInvalidRelated from './utils/removeInvalidRelated';
 import {
     FOTOAL100,
     RECETA,
-    STORYTELLING
+    STORYTELLING,
+    isSubtypeWithAmp
 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 import logger from '../../components/private/common/utils/logger';
 import paywallUtils from './utils/paywall';
@@ -29,17 +30,23 @@ import removeInvalidUrlTagA from '../../components/private/common/utils/removeIn
 import isNotShowcase from './utils/isNotShowcase';
 import { recipePowerUps, removeParallaxPowerUp } from './utils/powerUp';
 import firmaDistributorValidation from './utils/firmaDistributorValidator';
+import isNoteListenable from './utils/audioNews/helper';
+import force404AMP from './utils/force404AMP';
 
-const resolve = (key, a) => {
+export const resolve = (key, a) => {
     const { url, id, published } = key;
+
     const arcSite = key['arc-site'];
     let basePath = `/content/v4/stories/?website=${arcSite}`;
-
     if (published) basePath = `${basePath}&published=${published}`;
-
     if (id) return `${basePath}&_id=${id}`;
-    if (url) return `${basePath}&website_url=${url}`;
-
+    if (url) {
+        let urlClear = url;
+        const regexUrl = /^\/api\/(?:mobile\/)?v([1-2]+)\/notas\/(byUrl(\/.+\/$)|byId\/(.+)\/$)/;
+        const groups = regexUrl.exec(url);
+        if (groups) urlClear = groups[3];
+        return `${basePath}&website_url=${urlClear}`;
+    }
     throw new Error('Debe definir url o id para obtener la nota');
 };
 
@@ -51,8 +58,10 @@ const fetch = (query, { cachedCall } = {}) => {
         paywallEnabled = '',
         checkExclusiveAccess = true,
         isInApertura = false,
-        isAdmin = false
+        isAdmin = false,
+        outputType = ''
     } = query;
+
     const arcSite = query['arc-site'];
     const properties = getProperties(arcSite);
     const opt = {
@@ -94,12 +103,15 @@ const fetch = (query, { cachedCall } = {}) => {
                 });
             }
 
+            isSubtypeWithAmp(response) && force404AMP({ outputType });
+
             isNotShowcase(response) &&
                 paywallUtils.checkPaywall({
                     queryData: query,
                     urlBase: SITE_LANACION,
                     responseData: response
                 });
+
             return transform(
                 response,
                 arcSite,
@@ -202,6 +214,7 @@ const transform = (
         ...data,
         subscription: meteringVariant,
         withFirmaDistributor,
+        isListenable: isNoteListenable(data),
         ...addResizedUrls(data, {
             resizerSecret: RESIZER_KEY,
             resizerUrl: RESIZER_URL,
@@ -422,7 +435,8 @@ export default {
         published: 'text',
         meteringVariant: 'text',
         paywallUrl: 'text',
-        paywallEnabled: 'text'
+        paywallEnabled: 'text',
+        outputType: 'text'
     },
     filter,
     ttl: 120

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-
-const isSSR = () => typeof window === 'undefined';
+import isSSR from '../../LN/common/utils/isSSR';
 
 export default function useViewportSize() {
     const getUserAgent = () => {

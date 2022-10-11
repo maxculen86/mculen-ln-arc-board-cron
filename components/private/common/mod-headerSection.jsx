@@ -1,12 +1,14 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import '../../../resources/dist/css/ln/modules/mod-headersection.css';
 import ComTitle from './com-title';
-import withImage from './hocs/withImage';
 import ComImage from './com-image';
 import ComLink from './com-link';
 import addForwardSLash from '../LN/common/utils/addForwardSlash';
+import useGetLogoImage from './hooks/useGetLogoImage';
+import get from './utils/get';
+import siteConfig from '../../../properties/sites/la-nacion-ar';
 
 const ModheaderSection = props => {
     const {
@@ -14,16 +16,22 @@ const ModheaderSection = props => {
         tag,
         line,
         size,
-        image,
         classCondition,
         link,
         outputType,
-        customTitle
+        customTitle,
+        isVisible = true,
+        imageId,
+        layout,
+        isMultimedia
     } = props;
+    const isHome = layout === get(siteConfig, 'layoutsName.Home');
+    const image = useGetLogoImage(imageId, isHome, isMultimedia) || {};
+
     const { caption, width, height, url } = image;
     const roofTitle = title || caption || 'LA NACION';
 
-    if (!title && !url) return null;
+    if ((!title && !url) || !isVisible) return null;
 
     const Image = url && (
         <ComImage
@@ -65,6 +73,8 @@ const ModheaderSection = props => {
 };
 
 ModheaderSection.propTypes = {
+    imageId: PropTypes.string,
+    layout: PropTypes.string,
     link: PropTypes.string,
     title: PropTypes.string,
     classCondition: PropTypes.string,
@@ -78,7 +88,9 @@ ModheaderSection.propTypes = {
         height: PropTypes.number,
         url: PropTypes.string
     }),
-    customTitle: PropTypes.string
+    customTitle: PropTypes.string,
+    isVisible: PropTypes.bool,
+    isMultimedia: PropTypes.bool
 };
 
 ModheaderSection.defaultProps = {
@@ -93,4 +105,4 @@ ModheaderSection.defaultProps = {
     customTitle: undefined
 };
 
-export default withImage(ModheaderSection);
+export default ModheaderSection;

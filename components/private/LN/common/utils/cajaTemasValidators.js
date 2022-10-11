@@ -106,7 +106,9 @@ export const validateArticleFeature = (
     video,
     layout,
     imageId,
-    videoId
+    videoId,
+    mobileImage,
+    mobileImageId
 ) => {
     const { streams } = video || {};
     const { filesize } = getStreams(streams, '>') || '';
@@ -125,6 +127,15 @@ export const validateArticleFeature = (
         {
             validation: imageId && image === null,
             message: 'El ID de la imagen es incorrecto.'
+        },
+        {
+            validation: mobileImageId && layout !== 'grilla1',
+            message:
+                'El campo "Foto Mobile" solo puede usarse con la diagramación Grilla 1'
+        },
+        {
+            validation: mobileImageId && mobileImage === null,
+            message: 'El ID de la imagen para mobile es incorrecto.'
         },
         {
             validation: videoId && video === null,

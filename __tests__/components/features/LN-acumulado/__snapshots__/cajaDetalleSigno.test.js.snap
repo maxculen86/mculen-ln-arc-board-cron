@@ -1,90 +1,97 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Features - LN-acumulado - Caja Detalle Signo Feature => Render feature CajaDetalleSigno and child components - snapshot Should match snapshot 1`] = `
-<mock-static
-  id="f0fe94FFTrEC80O"
->
-  <article
-    class="daily-horoscope "
+exports[`Features - LN-acumulado - Caja Detalle Signo Feature => With a valid response Should render CajaDetalleSigno component and child components 1`] = `
+<div>
+  <mock-static-validation
+    htmlonly="true"
+    id="f0fTek5ovhrk51V"
+    persistent="true"
   >
-    <header
-      class="daily-horoscope-header"
+    <article
+      class="daily-horoscope "
     >
-      <div
-        class="container-svg"
+      <header
+        class="daily-horoscope-header"
       >
-        <img
-          alt="Tauro"
-          class="com-image "
-          decoding="async"
-          fetchpriority="low"
-          height="100%"
-          loading="lazy"
-          src="undefined/pf/resources/images/horoscope-logos/tauro.svg"
-          width="100%"
-        />
-      </div>
-      <div>
-        <h2
-          class="title --m"
+        <div
+          class="container-svg"
         >
-          Horóscopo de
-          <strong>
-             Tauro HOY
-          </strong>
-        </h2>
-        <time
-          class="text periodo --twoxs"
-        >
-          21/4 al 21/5
-        </time>
-        <p
-          class="text --fourxs"
-        >
-          Por 
-          <a
-            class="com-link --author"
-            href="https://www.lanacion.com.ar/autor/renata-dossi-11743/"
-            title=""
+          <img
+            alt="Tauro"
+            class="com-image "
+            decoding="async"
+            fetchpriority="low"
+            height="100%"
+            loading="lazy"
+            src="https://arc-static.glanacion.com/pf/resources/images/horoscope-logos/tauro.svg"
+            width="100%"
+          />
+        </div>
+        <div>
+          <h2
+            class="title --m"
           >
-            Renata Dossi
-          </a>
+            Horóscopo de
+            <strong>
+               
+              Tauro
+               HOY
+            </strong>
+          </h2>
+          <time
+            class="text periodo --twoxs"
+          >
+            21/4 al 21/5
+          </time>
+          <p
+            class="text --fourxs"
+          >
+            Por
+             
+            <a
+              class="com-link --author"
+              href="https://www.lanacion.com.ar/autor/renata-dossi-11743/"
+              title=""
+            >
+              Renata Dossi
+            </a>
+          </p>
+        </div>
+      </header>
+      <main
+        class="daily-horoscope-main"
+      >
+        <p
+          class="com-text --twoxs"
+        >
+          Empiece confiar más en usted. De lo contrario, los esfuerzos y metas se verán limitados por la inseguridad que lo invade naturalmente en su vida.
         </p>
-      </div>
-    </header>
-    <main
-      class="daily-horoscope-main"
-    >
-      <p
-        class="com-text --twoxs"
-      >
-        Empiece confiar más en usted. De lo contrario, los esfuerzos y metas se verán limitados por la inseguridad que lo invade naturalmente en su vida.
-      </p>
-      <p
-        class="com-text --twoxs"
-      >
-        <strong>
-          Amor: 
-        </strong>
-        Hoy su alma gemela se sentirá encantada con usted y sepa que no podrá liberarse de su magnetismo. Aproveche para proponerle eso que tanto desea.
-      </p>
-      <p
-        class="com-text --twoxs"
-      >
-        <strong>
-          Riqueza: 
-        </strong>
-        Si alguna persona se acerca usted a pedirle un consejo, bríndele su ayuda sin pedirle nada a cambio, ya que en otro momento usted podría necesitar de su ayuda.
-      </p>
-      <p
-        class="com-text --twoxs"
-      >
-        <strong>
-          Bienestar: 
-        </strong>
-        Haga lo posible por sostener su energía vital. Así podrá enfrentar esos nuevos desafíos sin ningún inconveniente. Evite caer en el agotamiento intelectual.
-      </p>
-    </main>
-  </article>
-</mock-static>
+        <p
+          class="com-text --twoxs"
+        >
+          <strong>
+            Amor: 
+          </strong>
+          Hoy su alma gemela se sentirá encantada con usted y sepa que no podrá liberarse de su magnetismo. Aproveche para proponerle eso que tanto desea.
+        </p>
+        <p
+          class="com-text --twoxs"
+        >
+          <strong>
+            Riqueza: 
+          </strong>
+          Si alguna persona se acerca usted a pedirle un consejo, bríndele su ayuda sin pedirle nada a cambio, ya que en otro momento usted podría necesitar de su ayuda.
+        </p>
+        <p
+          class="com-text --twoxs"
+        >
+          <strong>
+            Bienestar: 
+          </strong>
+          Haga lo posible por sostener su energía vital. Así podrá enfrentar esos nuevos desafíos sin ningún inconveniente. Evite caer en el agotamiento intelectual.
+        </p>
+      </main>
+    </article>
+  </mock-static-validation>
+</div>
 `;

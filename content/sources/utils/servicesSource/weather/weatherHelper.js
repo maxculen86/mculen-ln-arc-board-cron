@@ -1,6 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import get from '../../../../../components/private/common/utils/get';
 import addForwardSlash from '../../../../../components/private/LN/common/utils/addForwardSlash';
+import removeAccents from '../../../../../components/private/common/utils/removeAccents';
 
 export const getWeatherMetaData = (serviceItem, serviceSubItem) => {
     if (serviceSubItem)
@@ -18,7 +19,8 @@ const metaDataFactory = {
             title:
                 'Clima de hoy en Argentina, el pronóstico del tiempo en LA NACION',
             description:
-                'Encontrá el pronóstico del tiempo en Argentina, condiciones climáticas, temperatura actual y pronóstico extendido del clima en Capital Federal, Buenos Aires y todo el país por el Servicio Meteorológico Nacional - LA NACION',
+                'Encontrá el pronóstico del tiempo en Argentina, condiciones climáticas, temperatura actual y pronóstico extendido del clima en Capital Federal,' +
+                ' Buenos Aires y todo el país por el Servicio Meteorológico Nacional - LA NACION',
             headline: 'Clima de hoy en Argentina',
             latestNewsTitle: 'Últimas noticias del clima'
         };
@@ -64,7 +66,7 @@ const getSectionLink = (sections, location) => {
         sections.find(e => {
             const { name = '' } = e;
 
-            return name === location;
+            return removeAccents(name) === removeAccents(location);
         }) || {};
     const { _id: url = '' } = sectionLink;
 
@@ -74,10 +76,6 @@ const getSectionLink = (sections, location) => {
 
 export const extractTime = (isoString = '') => {
     return isoString.slice(11, 16);
-};
-
-const removeAccents = str => {
-    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 };
 
 const reorderLocations = (endpointData, children = [], serviceItem = '') => {
@@ -92,6 +90,15 @@ const reorderLocations = (endpointData, children = [], serviceItem = '') => {
 
         return acc;
     }, []);
+};
+export const isValidNumber = number => typeof number === 'number';
+
+export const validateMinTemperature = (tempMin, currTemp) => {
+    return tempMin > currTemp ? Math.floor(currTemp) : tempMin;
+};
+
+export const validateMaxTemperature = (tempMax, currTemp) => {
+    return tempMax < currTemp ? Math.ceil(currTemp) : tempMax;
 };
 
 export const transformWeatherHome = (data, children, serviceItem) => {
@@ -117,12 +124,14 @@ export const transformWeatherHome = (data, children, serviceItem) => {
         return {
             ...(locationName && { location_name: locationName }),
             ...(locationId && { location_id: locationId }),
-            ...((tempMin || tempMin === 0) && {
-                temp_min: tempMin
-            }),
-            ...((tempMax || tempMax === 0) && {
-                temp_max: tempMax
-            }),
+            ...(isValidNumber(tempMin) &&
+                isValidNumber(currentTemp) && {
+                    temp_min: validateMinTemperature(tempMin, currentTemp)
+                }),
+            ...(isValidNumber(tempMax) &&
+                isValidNumber(currentTemp) && {
+                    temp_max: validateMaxTemperature(tempMax, currentTemp)
+                }),
             ...((description || newIcon) && {
                 weather: {
                     ...(description && { description }),
@@ -199,44 +208,53 @@ const getDaytimeData = (dayTime = {}) => {
 };
 
 const convertIcon = oldIcon => {
+    const sunCloudy = 'sun-cloudy';
+    const rainyCloudy = 'rainy-cloudy';
+    const snow = 'snow';
+    const rain = 'rain';
+    const cloudy = 'cloudy';
+    const stormCloudy = 'storm-cloudy';
+    const snowCloudy = 'snow-cloudy';
+    const windy = 'windy';
+
     const iconConverter = {
-        19: 'sun-cloudy',
-        20: 'sun-cloudy',
-        74: 'rainy-cloudy',
+        19: sunCloudy,
+        20: sunCloudy,
+        74: rainyCloudy,
         3: 'sun',
         5: 'clear-night',
-        13: 'sun-cloudy',
-        14: 'sun-cloudy',
-        71: 'rainy-cloudy',
-        77: 'snow-cloudy',
-        84: 'snow-cloudy',
-        73: 'rain',
-        72: 'rain',
-        93: 'rain',
-        83: 'rain',
-        37: 'cloudy',
-        38: 'cloudy',
-        61: 'cloudy',
-        79: 'snow',
-        75: 'snow',
-        85: 'snow',
-        80: 'snow',
-        67: 'cloudy',
-        69: 'cloudy',
-        119: 'cloudy',
-        43: 'cloudy',
-        25: 'sun-cloudy',
-        26: 'sun-cloudy',
-        81: 'storm-cloudy',
-        76: 'storm-cloudy',
-        99: 'storm-cloudy',
+        13: sunCloudy,
+        14: sunCloudy,
+        71: rainyCloudy,
+        77: snowCloudy,
+        84: snowCloudy,
+        73: rain,
+        72: rain,
+        93: rain,
+        83: rain,
+        37: cloudy,
+        38: cloudy,
+        61: cloudy,
+        79: snow,
+        75: snow,
+        85: snow,
+        80: snow,
+        67: cloudy,
+        69: cloudy,
+        119: cloudy,
+        43: cloudy,
+        25: sunCloudy,
+        26: sunCloudy,
+        81: stormCloudy,
+        76: stormCloudy,
+        99: stormCloudy,
         89: 'storm',
-        94: 'snow',
-        88: 'snow',
-        92: 'snow',
-        96: 'snow',
-        51: 'windy',
-        118: 'windy'
+        94: snow,
+        88: snow,
+        92: snow,
+        96: snow,
+        51: windy,
+        118: windy
     };
     if (oldIcon && Object.keys(iconConverter).includes(oldIcon.toString()))
         return iconConverter[oldIcon];

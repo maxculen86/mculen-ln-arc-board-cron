@@ -12,14 +12,18 @@ const videoPlayerSnippet = ({ mediaData, minStream, parrafo, tituloNota }) => {
         created_date: createdDate = '',
         duration
     } = mediaData || {};
+
+    if (!mediaData) return null;
+
     const notaTitle = tituloNota || '';
-    const caption = get(promoItems, 'basic.caption', null);
-    const epigrafe = get(mediaData, 'headlines.basic') || caption;
+    const caption = get(promoItems, 'basic.caption', '');
+    const epigrafe = get(mediaData, 'headlines.basic', '').trim() || caption;
+
     const data = {
         '@context': 'https://schema.org',
         '@type': 'VideoObject',
         name: notaTitle || 'LA NACION - Noticia',
-        description: `${epigrafe || primerParrafo}`,
+        description: `${epigrafe || primerParrafo || parrafo}`,
         thumbnailUrl: [`${promoItems.basic.url}`],
         uploadDate: `${createdDate.replace(/T/g, ' ').replace(/Z/g, '') || ''}`,
         embedUrl: `${minStream.url}`,

@@ -12,7 +12,7 @@ const validateExclusiveAccess = ({
             !['S', 'QSP'].includes(meteringVariant) &&
             path &&
             !path.match(
-                /\/api\/(?:mobile\/)?v([1-2]+)\/notas\/(byId\/(.+)\/$|byUrl(\/.+\/$))/g
+                /\/api\/(?:mobile\/)?v([1-2]+)\/notas\/(text\/)?(byId\/(.+)\/$|byUrl(\/.+\/$))/g
             )
         ) {
             const PAYWALL_URL =

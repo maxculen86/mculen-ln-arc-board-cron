@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Link from '../../../common/com-link';
 import Text from '../../../common/text';
 import Icon from '../../../common/icon';
+import { isValidNumber } from '../../../../../content/sources/utils/servicesSource/weather/weatherHelper';
 
 const WeatherCard = ({ _id, data }) => {
     const {
@@ -14,8 +15,7 @@ const WeatherCard = ({ _id, data }) => {
         link
     } = data;
 
-    const defaultValue = (condition, value) =>
-        condition || condition === 0 ? value : '-';
+    if (!locationName) return null;
 
     return (
         <div className="weather-card">
@@ -35,33 +35,33 @@ const WeatherCard = ({ _id, data }) => {
                 </Text>
             </div>
             <div className="box-icon">
-                <Icon name={idDescription} />
+                {idDescription && <Icon name={idDescription} />}
                 <Text tag="p" weight="bold" size="--twoxl">
-                    {defaultValue(currentTemp, currentTemp)}
+                    {isValidNumber(currentTemp) ? currentTemp : '-'}
                     <Text size="--m">ºc</Text>
                 </Text>
             </div>
-            <div className="temperature">
-                <Text size="--5xs">Mín:</Text>
-                <Text weight="bold" size="--4xs">
-                    {defaultValue(minTemp, `${minTemp}º`)}
-                </Text>
-                <Text size="--5xs">Máx:</Text>
-                <Text weight="bold" size="--4xs">
-                    {defaultValue(maxTemp, `${maxTemp}º`)}
-                </Text>
-            </div>
-            <Text tag="h3" size="5xs">
-                {link && (
-                    <Text tag="h3" size="5xs">
-                        <Link
-                            link={link}
-                            title={`Ver clima en ${locationName}`}
-                            textname={`Ver clima en ${locationName}`}
-                        />
+            {isValidNumber(minTemp) && isValidNumber(maxTemp) && (
+                <div className="temperature">
+                    <Text size="--5xs">Mín:</Text>
+                    <Text weight="bold" size="--4xs">
+                        {`${minTemp}º`}
                     </Text>
-                )}
-            </Text>
+                    <Text size="--5xs">Máx:</Text>
+                    <Text weight="bold" size="--4xs">
+                        {`${maxTemp}º`}
+                    </Text>
+                </div>
+            )}
+            {link && (
+                <Text tag="h3" size="5xs">
+                    <Link
+                        link={link}
+                        title={`Ver clima en ${locationName}`}
+                        textname={`Ver clima en ${locationName}`}
+                    />
+                </Text>
+            )}
         </div>
     );
 };

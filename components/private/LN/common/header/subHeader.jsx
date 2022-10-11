@@ -16,7 +16,14 @@ import Club from '../../../common/icons/system/Club';
 const ModSubheader = props => {
     const { dollar = [], weather = {} } = props;
     const [dolarBna = {}, dolarBlue = {}] = dollar;
-    const { icon_name: iconName, temperatura, nombre } = weather;
+    const { dataService: { locations = [] } = {} } = weather;
+
+    const { current_temp: temperatura = '', weather: weatherInfo = {} } =
+        locations.find(e => {
+            const { location_id: locationId = '' } = e;
+
+            return locationId === 'ciudad-de-buenos-aires';
+        }) || {};
 
     return (
         <StaticContent tag="section" className="mod-subheader">
@@ -31,10 +38,10 @@ const ModSubheader = props => {
                     />
 
                     <ComWeather
-                        iconName={iconName}
+                        iconName={weatherInfo.id || ''}
                         size="--fourxs"
                         temperature={temperatura}
-                        weatherPlace={nombre}
+                        weatherPlace="Capital Federal"
                     />
 
                     <ComLink

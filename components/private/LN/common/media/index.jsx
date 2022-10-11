@@ -30,7 +30,8 @@ const media = ({
     scriptForZoom,
     autoplay,
     isPowa,
-    insideBody
+    insideBody,
+    withMobileImage
 }) => {
     const refContainer = useRef();
     const [zoom, setZoom] = useState(false);
@@ -61,9 +62,16 @@ const media = ({
     const setClassCondition = () => {
         const isFotoAl100 = subtipo.id === FOTOAL100;
         const isZoomActive = withZoom && active;
-        const notFotoAl100Apertura = !(isApertura || isFotoAl100);
+        const notFotoAl100AperturaInsideBody = !(
+            isApertura ||
+            isFotoAl100 ||
+            insideBody
+        );
 
-        if (isVertical && (notFotoAl100Apertura || isZoomActive))
+        if (
+            withMobileImage ||
+            (isVertical && (notFotoAl100AperturaInsideBody || isZoomActive))
+        )
             return '--vertical';
 
         return !insideBody ? '--horizontal' : '';
@@ -177,7 +185,8 @@ media.propTypes = {
     scriptForZoom: PropTypes.node,
     autoplay: PropTypes.bool,
     isPowa: PropTypes.bool,
-    insideBody: PropTypes.bool
+    insideBody: PropTypes.bool,
+    withMobileImage: PropTypes.bool
 };
 
 media.defaultProps = {
@@ -196,7 +205,8 @@ media.defaultProps = {
     active: undefined,
     children: undefined,
     isPowa: true,
-    handleClick: () => {}
+    handleClick: () => {},
+    withMobileImage: false
 };
 
 media.defaultProps = {

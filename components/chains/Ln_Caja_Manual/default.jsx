@@ -27,7 +27,8 @@ const CajaManual = props => {
         outputType,
         childProps,
         children,
-        renderables = []
+        renderables = [],
+        layout: pageLayout
     } = props;
 
     if (hideCaja)
@@ -48,6 +49,7 @@ const CajaManual = props => {
         renderables,
         childProps
     );
+
     const multimediaChildren = getChildrenFromSectionHome(
         renderables,
         'Multimedia',
@@ -57,6 +59,11 @@ const CajaManual = props => {
     const isInApertura = customFieldValidation({
         featureId,
         sectionChildren: aperturasChildren
+    });
+
+    const isMultimedia = customFieldValidation({
+        featureId,
+        sectionChildren: multimediaChildren
     });
 
     const features = renderables.filter(r => r.collection === 'features');
@@ -125,12 +132,14 @@ const CajaManual = props => {
             _children={filteredChildren}
             handleClick={productClickFromClient}
             features={features}
+            pageLayout={pageLayout}
+            isMultimedia={isMultimedia}
         />
     );
-    return isInApertura && !isAdmin ? (
-        <StaticContent id={featureId}>{Component}</StaticContent>
-    ) : (
+    return isMultimedia ? (
         Component
+    ) : (
+        <StaticContent id={featureId}>{Component}</StaticContent>
     );
 };
 

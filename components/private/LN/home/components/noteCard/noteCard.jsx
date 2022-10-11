@@ -28,7 +28,8 @@ const NoteCard = ({
     videoBackground,
     isPowa,
     handleClick,
-    registerSuccessEvent
+    registerSuccessEvent,
+    mobileImage
 }) => {
     const [article, setArticle] = useState(
         transform(content, customFields, promoItems)
@@ -111,6 +112,7 @@ const NoteCard = ({
                     get(articleProps, 'isApertura', false)
                 }
                 registerSuccessEvent={registerSuccessEvent}
+                mobileImage={mobileImage}
             />
         )) || <></>
     );

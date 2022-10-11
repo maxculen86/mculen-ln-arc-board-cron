@@ -1,8 +1,10 @@
 /* eslint-disable react/require-default-props */
 import React, { useReducer } from 'react';
 import PropTypes from 'fusion:prop-types';
+import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
+import isAnyGrilla1 from '../../../common/utils/isAnyGrilla1';
 
 const GlobalContext = React.createContext([{}, () => {}]);
 
@@ -14,13 +16,14 @@ const reducer = (state, action) => {
 };
 
 const getCollectionsInPage = (idCollectionsInPage = []) => {
+    const { renderables = [] } = useAppContext();
     const listOfCollections = [];
     idCollectionsInPage.forEach(id => {
         const collectionsProps = {
             id: id && id.trim(),
             size: 20,
             website: 'la-nacion-ar',
-            imageConfig: 'l'
+            imageConfig: isAnyGrilla1(renderables) ? 'l' : 'm'
         };
         const collect =
             id &&

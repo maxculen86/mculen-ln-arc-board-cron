@@ -26,7 +26,8 @@ const SnippetWiki = () => {
         job_title: jobTitle,
         legal_name: legalName,
         founding_location: foundingLocation,
-        founding_date: foundingDate
+        founding_date: foundingDate,
+        alternate_name: alternateName
     } = schemasInfo;
 
     const data = {
@@ -34,6 +35,7 @@ const SnippetWiki = () => {
         '@type': type === 1 ? 'Person' : 'Organization',
         ...(givenName && { givenName }),
         ...(additionalName && { additionalName }),
+        ...(alternateName && { alternateName }),
         ...(familyName && { familyName }),
         ...(jobTitle && { jobTitle }),
         ...(location && { location }),

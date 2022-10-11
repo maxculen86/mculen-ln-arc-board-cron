@@ -21,7 +21,7 @@ $header-desktop: px(73);
 // Fuentes
 //=======================================
 $font-georgia: 'Georgia', 'serif';
-$font-SuecaSlab: 'SuecaSlab', 'Georgia', 'serif';
+$font-SuecaSlab: 'SuecaSlab', 'serif';
 $font-arial: 'Arial', 'sans-serif';
 $font-icons: 'LNicons', 'sans-serif';
 $font-logos: 'LNlogos', 'sans-serif';
@@ -288,5 +288,11 @@ $instagram: $neutral-black;
 $whatsapp: #25d366;
 $facebook: #3b5998;
 $twitter: #049aff;
+
+// Variables de width en foto al 100
+$width_nota100_l: px(1024 / $cant-col * 8);
+$width_nota100_lm: px(1100 / $cant-col * 8);
+$width_nota100_lg: px(1280 / $cant-col * 8);
+$width_nota100_xl: px(1340 / $cant-col * 8);
 
 /* End: Variables viejas de COLORES */

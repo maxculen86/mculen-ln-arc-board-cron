@@ -182,4 +182,61 @@ describe('masNotas feature Test', () => {
         expect(screen.queryByRole('heading')).toBeNull();
         expect(screen.queryByRole('article')).toBeNull();
     });
+    describe('should not render feature: data is undefined', () => {
+        const cases = [
+            [
+                'should not render feature because primary_section is undefined',
+                {
+                    ...getMasNotasProps(30, 'byLastNews', '1', {
+                        ...taxonomySection,
+                        primary_section: undefined
+                    })
+                }
+            ],
+            [
+                'should not render feature because primary_section is empty object',
+                {
+                    ...getMasNotasProps(30, 'byLastNews', '1', {
+                        ...taxonomySection,
+                        primary_section: {}
+                    })
+                }
+            ],
+            [
+                'should not render feature because globalContent is empty object',
+                {
+                    ...getMasNotasProps(30, 'byLastNews', '1', {
+                        ...taxonomySection
+                    }),
+                    globalContent: {}
+                }
+            ],
+            [
+                'should not render feature because globalContent is undefined',
+                {
+                    ...getMasNotasProps(30, 'byLastNews', '1', {
+                        ...taxonomySection
+                    }),
+                    globalContent: undefined
+                }
+            ],
+            [
+                'should not render feature because taxonomy is empty object',
+                {
+                    ...getMasNotasProps(30, 'byLastNews', '1', {})
+                }
+            ],
+            [
+                'should not render feature because taxonomy is undefined',
+                {
+                    ...getMasNotasProps(30, 'byLastNews', '1', undefined)
+                }
+            ]
+        ];
+        test.each(cases)('%s', (message, prop) => {
+            render(<MasNotas {...prop} />);
+            expect(screen.queryByRole('heading')).toBeNull();
+            expect(screen.queryByRole('article')).toBeNull();
+        });
+    });
 });

@@ -60,33 +60,6 @@ describe('Features - LN - Common - Ranking - default', () => {
         const { container } = render(<Ranking />);
         expect(container).toBeEmptyDOMElement();
     });
-    it('Should render skeleton grilla 6 for inverse ranking home', () => {
-        getMockContext('LN-Home_Main');
-        const { container } = render(<Ranking id="inverse-home" />);
-
-        const skeleton = container.getElementsByClassName('skeleton-box');
-        expect(skeleton.length).toBeGreaterThan(0);
-
-        const articlesSkeleton = container.getElementsByClassName(
-            'mod-article'
-        );
-        expect(articlesSkeleton.length).toBe(6);
-    });
-    it('Should render skeleton grilla 4 for ranking home', () => {
-        getMockContext('LN-Home_Main');
-        const { container } = render(<Ranking id="rankingHome" />);
-
-        const skeleton = container.getElementsByClassName('skeleton-box');
-        expect(skeleton.length).toBeGreaterThan(0);
-        const articlesSkeleton = container.getElementsByClassName(
-            'mod-article'
-        );
-        expect(articlesSkeleton.length).toBe(4);
-        const rankingSkeletonContainer = container.getElementsByClassName(
-            'com-ranking'
-        );
-        expect(rankingSkeletonContainer.length).toBe(1);
-    });
     it('Should render ranking acu politica', async () => {
         getMockContext('LN-acumulado', {
             name: 'Política',
@@ -94,20 +67,21 @@ describe('Features - LN - Common - Ranking - default', () => {
             _id: '/politica'
         });
 
-        useContent.mockImplementation(() => acuResponse);
+        useContent.mockImplementationOnce(() => acuResponse);
 
         const { container } = render(<Ranking id="LN-acumulado" />);
 
         const titleElement = await screen.findByText('Más leídas de Política');
         expect(titleElement).toBeInTheDocument();
 
-        expect(useContent).toBeCalledWith({
+        expect(useContent).toHaveBeenCalledWith({
             query: {
                 imageConfig: 'boxArticles',
                 sectionId: 'politica',
                 website: 'la-nacion-ar'
             },
-            source: 'rankingArticlesSource'
+            source: 'rankingArticlesSource',
+            staticMode: false
         });
 
         expect(container).toMatchSnapshot();
@@ -122,13 +96,14 @@ describe('Features - LN - Common - Ranking - default', () => {
         const titleElement = await screen.findByText('Más leídas');
         expect(titleElement).toBeInTheDocument();
 
-        expect(useContent).toBeCalledWith({
+        expect(useContent).toHaveBeenNthCalledWith(1, {
             query: {
                 imageConfig: 'boxArticles',
                 sectionId: '',
                 website: 'la-nacion-ar'
             },
-            source: 'rankingArticlesSource'
+            source: 'rankingArticlesSource',
+            staticMode: true
         });
 
         expect(container).toMatchSnapshot();
@@ -148,13 +123,14 @@ describe('Features - LN - Common - Ranking - default', () => {
         const titleElement = await screen.findByText('Te puede interesar');
         expect(titleElement).toBeInTheDocument();
 
-        expect(useContent).toBeCalledWith({
+        expect(useContent).toHaveBeenNthCalledWith(1, {
             query: {
                 imageConfig: 'boxArticles',
                 sectionId: 'inverse-home',
                 website: 'la-nacion-ar'
             },
-            source: 'rankingArticlesSource'
+            source: 'rankingArticlesSource',
+            staticMode: true
         });
 
         expect(container).toMatchSnapshot();

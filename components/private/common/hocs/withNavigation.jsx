@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import Consumer from 'fusion:consumer';
-import get from 'lodash.get';
+import get from '../utils/get';
 
 function withNavigation(WrappedComponent, filter, website) {
     return Consumer(

@@ -1,4 +1,4 @@
-import { get } from 'lodash';
+import get from '../../../common/utils/get';
 
 const getIndexArray = (value, arr, prop) => {
     for (var i = 0; i < arr.length; i++) {

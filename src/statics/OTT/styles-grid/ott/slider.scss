@@ -83,17 +83,16 @@ section > article > .figure:after {
 }
 
 section > article > .figure:before {
-    content: '';
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-image: url('../img/placeholder.png');
+    top: 50%;
+    transform: translateY(-50%);
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTA0IiBoZWlnaHQ9IjYyIiB2aWV3Qm94PSIwIDAgMTA0IDYyIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTkxLjM5ODYgMTIuNDQ1SDEwMy43NjlWMTYuOTE3Mkg5MS4zOTg2VjI5LjM2ODVIODYuOTU1VjE2LjkxNkg3NC41ODQzVjEyLjQ0NUg4Ni45NTVWMEg5MS4zOTg2VjEyLjQ0NVpNMjcuMjQyMSA1Ny42Njk4SDIxLjE4OTNWMTcuMzg0M0gzMC4yNjg2VjEzLjA1MjdIMC4wMDY3NzgwMVYxNy4zODQzSDkuMDc1MTVWNTcuNjY4NkgwLjAwMDczMjQyMlY2Mi4wMDAySDQ1LjM5OTRWNDMuNjA1NEg0Mi4zNzY2QzQyLjUzODcgNTIuNjE1NSAzOS41ODI0IDU3LjQzNDUgMjcuMjQyMSA1Ny42Njk4Wk02MC4yNzg1IDEzLjA1MjdIMzguOTEzOVYxNy4zODQxSDQ1LjAxODFMODQuNzY5NiA2Mi4wMDAySDkwLjc5ODJWNDguMDg2NUw2MC4yNzg1IDEzLjA1MjdaIiBmaWxsPSIjMDAwMjU0Ii8+Cjwvc3ZnPgo=);
     background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    transition: 0.2s ease opacity;
+    background-size: contain;
+    background-position: center;
+    width: 4.2rem;
+    height: 4.2rem;
+    content: '';
 }
 
 .programas .article .figure:after {
@@ -188,6 +187,7 @@ section > article > .figure:before {
     .slider .title a {
         font-size: 0.9em;
     }
+
     .programas .article .figure:after {
         line-height: 1.8em;
     }
@@ -197,21 +197,27 @@ section > article > .figure:before {
     .slider .title a {
         font-size: 0.97em;
     }
+
     .section-title {
         font-size: 1.5em;
     }
+
     section:not(.programas) > section > article > .figure::after {
         background-size: 5em;
     }
+
     #all .slider .article:last-of-type {
         @include flex;
     }
+
     .slider .article {
         width: calc((100% - 1rem) / 3);
     }
+
     .slider .article:nth-of-type(4n + 4) {
         padding-right: 0.5em;
     }
+
     .slider .article:nth-of-type(3n + 3) {
         padding-right: 0;
     }
@@ -222,6 +228,7 @@ section > article > .figure:before {
     .previous:after {
         font-size: 1.2rem;
     }
+
     .programas .article .figure:after {
         content: '';
         background-color: rgba(45, 45, 45, 0);
@@ -233,15 +240,19 @@ section > article > .figure:before {
         font-size: 1.4em;
         line-height: 1.6em;
     }
+
     .slider .article {
         width: calc((100% - 0.5rem) / 2);
     }
+
     .slider .article:nth-of-type(3n + 3) {
         padding-right: 0.5em;
     }
+
     .slider .article:nth-of-type(2n + 2) {
         padding-right: 0;
     }
+
     .next,
     .previous {
         z-index: 2;

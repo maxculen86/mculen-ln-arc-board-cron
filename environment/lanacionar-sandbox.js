@@ -44,7 +44,7 @@ export default {
         }
     },
     ARC_STATIC: 'https://sandbox.lanacion.com.ar',
-    VIAFOURA_UUID: '00000000-0000-4000-8000-0236bd0ff826',
+    VIAFOURA_UUID: '00000000-0000-4000-8000-5f9c7a4aa083',
     VIAFOURA_XREQUEST:
         '+A5uYQkKRlUYelDeXhW0I88A7/UVYGFtIugKIur9dtQE9dx7srvdJiI+ZSJZ2YsE',
     ARC_WIDGETS:
@@ -53,5 +53,6 @@ export default {
     PERSONALIZACION_API:
         'https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/',
     BOOKMARK_URL:
-        'https://sandbox.lanacion.com.ar/pf/mis-notas/?_website=la-nacion-ar'
+        'https://sandbox.lanacion.com.ar/pf/mis-notas/?_website=la-nacion-ar',
+    AUDIO_NEWS_URL: 'https://qa-audionews.lanacion.com.ar/api/v1/audio/status/'
 };
