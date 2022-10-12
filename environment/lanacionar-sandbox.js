@@ -47,8 +47,7 @@ export default {
     VIAFOURA_UUID: '00000000-0000-4000-8000-5f9c7a4aa083',
     VIAFOURA_XREQUEST:
         '+A5uYQkKRlUYelDeXhW0I88A7/UVYGFtIugKIur9dtQE9dx7srvdJiI+ZSJZ2YsE',
-    ARC_WIDGETS:
-        'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/widgets/',
+    ARC_WIDGETS: 'https://sandbox-arc-widgets.lanacion.com.ar/widgets/',
     LANACION_SERVICES_URL: 'https://arcservices.lanacion.com.ar',
     PERSONALIZACION_API:
         'https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/',
