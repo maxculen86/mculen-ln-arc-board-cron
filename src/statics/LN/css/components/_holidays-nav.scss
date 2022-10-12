@@ -2,7 +2,6 @@
 @import '../abstracts/mixins';
 
 .holidaysNav {
-    // @include common-card;
     @include flex(flex, column, space-between, flex-start);
     width: 100%;
     max-width: px(440);
