@@ -47,10 +47,13 @@ const BuildFirtsButtonsGroup = ({
         <div className="first-buttons-group">
             {isListenable && (
                 <ComButton
+                    id="btnAudio"
                     size="--fourxs"
                     iconName="headset"
                     title="Escuchar nota"
                     classCondition="headset --tertiary"
+                    dataEvent="LinkClick"
+                    dataSection="Escuchar Nota"
                     onClick={() => {
                         handleClickAudioNews(
                             token,
