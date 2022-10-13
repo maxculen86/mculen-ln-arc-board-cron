@@ -29,6 +29,8 @@ const BombaFeature = props => {
             data-is-block="true"
             data-block-name="h_tema-00"
             data-diagramacion-id="h_00"
+            data-section="bomba"
+            data-chain-position="01"
         >
             <FeatureArticulo {...props} isBomba />
         </section>

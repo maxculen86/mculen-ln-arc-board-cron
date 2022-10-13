@@ -21,7 +21,7 @@ import PwaModals from '../../private/LN/common/pwaModals';
 import { homeLayoutsPropTypes } from '../../private/common/utils/propTypesHelper';
 import {
     productClickFromServer,
-    createObservers
+    createViewabilityIntersectionObserver
 } from '../../private/common/utils/viewability';
 import createBannersIntersectionObserver from '../../private/common/banners/createBannersIntersectionObserver';
 import StaticContent from '../../private/common/staticContent';
@@ -71,7 +71,7 @@ const LNMainHome = props => {
     const showBomba = isBombaVisible(renderables);
 
     useEffect(() => {
-        createObservers();
+        createViewabilityIntersectionObserver();
         createBannersIntersectionObserver();
     }, []);
 
