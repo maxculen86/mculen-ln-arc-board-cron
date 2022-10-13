@@ -14,6 +14,9 @@ import {
 } from '../../../../components/private/common/utils/dateAndTimeUtil';
 
 const transform = (data, siteProps) => {
+    // eslint-disable-next-line no-console
+    console.warn('Acu article source - transform. Param data value: ', data);
+
     const respData = data;
     const { sectionsIds, type, size, shouldNotFilter } = siteProps;
     const { content_elements: contentElements } = data || {};
