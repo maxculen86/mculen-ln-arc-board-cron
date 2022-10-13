@@ -30,7 +30,7 @@ class AccumulatedAuthor {
 
         this.fetchContent({
             acuArticlesSource: {
-                source: 'acuArticlesSource',
+                source: 'acuArticlesSourceAFix',
                 query: {
                     sectionId: null,
                     authorId: id,

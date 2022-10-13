@@ -1,6 +1,6 @@
-import transform from './utils/acuArticlesSource/transform';
 import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
+import transform from './utils/acuArticlesSource/transform';
 import logger from '../../components/private/common/utils/logger';
 
 const resolve = key => {
@@ -183,10 +183,10 @@ const fetch = query => {
     }
     return request(opt)
         .then(response => {
-            return transform(response);
+            return transform(response, query);
         })
         .catch(error => {
-            logger.push(error, { source: 'content/source', query });
+            logger.push(error, { source: 'content/acuArticlesSource', query });
         });
 };
 
