@@ -56,7 +56,7 @@ class AccumulatedSections {
 
     fetch(query) {
         this.fetchContent({
-            acuArticlesSource: {
+            acuArticlesSourceSection: {
                 source: 'acuArticlesSource',
                 query
             }
@@ -98,7 +98,7 @@ class AccumulatedSections {
 
     render() {
         try {
-            const { acuArticlesSource, globalContent: configuration } =
+            const { acuArticlesSourceSection, globalContent: configuration } =
                 this.state || {};
             const {
                 globalContent: { name },
@@ -108,7 +108,10 @@ class AccumulatedSections {
                 browser.getApiVersion(requestUri)
             ];
 
-            if (!acuArticlesSource || !acuArticlesSource.content_elements) {
+            if (
+                !acuArticlesSourceSection ||
+                !acuArticlesSourceSection.content_elements
+            ) {
                 // eslint-disable-next-line no-console
                 console.warn(
                     `Empty content result. Global content info: ${JSON.stringify(
@@ -143,9 +146,9 @@ class AccumulatedSections {
             const acuData = {
                 tipoAcumulado: 1,
                 name: title,
-                articles: acuArticlesSource.content_elements,
-                paginator: acuArticlesSource.next,
-                total: acuArticlesSource.count,
+                articles: acuArticlesSourceSection.content_elements,
+                paginator: acuArticlesSourceSection.next,
+                total: acuArticlesSourceSection.count,
                 configuration
             };
             return indexAcu(acuData);
