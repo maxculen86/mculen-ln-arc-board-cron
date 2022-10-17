@@ -91,25 +91,51 @@ export const authorAffiliations = affiliations => {
     ) : null;
 };
 
+export const validateBooks = (books = []) => {
+    const filteredBooks = [];
+
+    books.length > 0 &&
+        books.forEach((book = {}, i) => {
+            const { title = '' } = book;
+            title && filteredBooks.push(book);
+        });
+
+    return filteredBooks;
+};
+
+export const validatePodcasts = (podcasts = []) => {
+    const filteredPodcasts = [];
+
+    podcasts.length > 0 &&
+        podcasts.forEach((podcast = {}, i) => {
+            const { name = '' } = podcast;
+            name && filteredPodcasts.push(podcast);
+        });
+
+    return filteredPodcasts;
+};
+
 export const authorBooks = (books = []) => {
-    return books.length > 0 ? (
+    const validatedBooks = validateBooks(books);
+    return validatedBooks.length > 0 ? (
         <ComContainer>
             <ModDescriptionList
                 descriptionTitle="Publicaciones"
                 size="--twoxs"
-                list={books}
+                list={validatedBooks}
             />
         </ComContainer>
     ) : null;
 };
 
 export const authorPodcast = (podcast = []) => {
-    return podcast.length > 0 ? (
+    const validatedPodcast = validatePodcasts(podcast);
+    return validatedPodcast.length > 0 ? (
         <ComContainer>
             <ModDescriptionList
                 descriptionTitle="Podcast"
                 size="--twoxs"
-                list={podcast}
+                list={validatedPodcast}
             />
         </ComContainer>
     ) : null;

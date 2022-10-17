@@ -43,12 +43,13 @@ export const getBooksAndPodcasts = (books = [], podcasts = []) => {
     books.length > 0 &&
         books.forEach((book = {}) => {
             const { title = '', publisher = '' } = book;
-            arraysMerged.push({
-                '@type': 'Book',
-                ...(title && { name: title }),
-                ...(publisher && { author: publisher }),
-                bookFormat: 'https://schema.org/Paperback'
-            });
+            title &&
+                arraysMerged.push({
+                    '@type': 'Book',
+                    name: title,
+                    ...(publisher && { author: publisher }),
+                    bookFormat: 'https://schema.org/Paperback'
+                });
         });
     podcasts.length > 0 &&
         podcasts.forEach((podcast = {}) => {
@@ -57,17 +58,18 @@ export const getBooksAndPodcasts = (books = [], podcasts = []) => {
                 name = '',
                 url = ''
             } = podcast;
-            arraysMerged.push({
-                '@type': 'PodcastSeries',
-                ...(name && { name }),
-                ...(url && { url }),
-                ...(donwloadUrl && {
-                    associatedMedia: {
-                        '@type': 'MediaObject',
-                        contentUrl: donwloadUrl
-                    }
-                })
-            });
+            name &&
+                arraysMerged.push({
+                    '@type': 'PodcastSeries',
+                    name,
+                    ...(url && { url }),
+                    ...(donwloadUrl && {
+                        associatedMedia: {
+                            '@type': 'MediaObject',
+                            contentUrl: donwloadUrl
+                        }
+                    })
+                });
         });
 
     return arraysMerged.length === 0 ? undefined : arraysMerged;
