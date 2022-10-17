@@ -160,13 +160,8 @@ const resolve = key => {
             }
     }`;
 
-    const partialRequest = `${query}&size=${cant}&from=${from}
-    &sort=display_date:desc`;
     const requestUrl = `${basePath}${query}&size=${cant}&from=${from}
     &sort=display_date:desc`;
-
-    // eslint-disable-next-line no-console
-    console.info(`QUERY REQUEST: ${JSON.stringify(partialRequest)}`);
 
     return requestUrl;
 };
