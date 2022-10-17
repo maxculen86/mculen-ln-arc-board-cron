@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import Placeholder from '../../../private/common/banners/placeholder';
@@ -13,7 +14,16 @@ import { bannerPropTypes } from '../../../private/common/utils/propTypesHelper';
 const Banner = props => {
     const { isAdmin, customFields, globalContent, globalContentConfig } = props;
 
-    const { sticky, desktop, mobile, tablet } = customFields;
+    const {
+        sticky,
+        desktop,
+        mobile,
+        tablet,
+        solo_no_suscriptores
+    } = customFields;
+
+    const hideBanner =
+        solo_no_suscriptores && get(globalContent, 'subscription') === 'S';
 
     if (isForAmp(desktop || '', mobile || '', tablet || '')) return <></>;
 
@@ -49,21 +59,23 @@ const Banner = props => {
 
     return bannersConfiguration.map(bannerConfiguration => {
         return (
-            <>
-                <DivBannerSSR
-                    key={bannerConfiguration.slotName}
-                    bannerConfiguration={bannerConfiguration}
-                />
-                {get(
-                    bannersRules,
-                    `[${bannerConfiguration.slotGroup}][${bannerConfiguration.device}][${bannerConfiguration.slotId}].customScript`
-                ) &&
-                    bannersRules[bannerConfiguration.slotGroup][
-                        bannerConfiguration.device
-                    ][bannerConfiguration.slotId].customScript({
-                        sticky
-                    })}
-            </>
+            !hideBanner && (
+                <>
+                    <DivBannerSSR
+                        key={bannerConfiguration.slotName}
+                        bannerConfiguration={bannerConfiguration}
+                    />
+                    {get(
+                        bannersRules,
+                        `[${bannerConfiguration.slotGroup}][${bannerConfiguration.device}][${bannerConfiguration.slotId}].customScript`
+                    ) &&
+                        bannersRules[bannerConfiguration.slotGroup][
+                            bannerConfiguration.device
+                        ][bannerConfiguration.slotId].customScript({
+                            sticky
+                        })}
+                </>
+            )
         );
     });
 };
