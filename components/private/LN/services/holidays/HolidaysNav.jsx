@@ -8,61 +8,53 @@ const HolidaysNav = ({ year }) => {
     const currentYear = new Date().getFullYear();
     const previousYear = currentYear - 1;
     const posteriorYear = currentYear + 1;
+    // const validatePosterirYearLink =
+    //     year === posteriorYear
+    //         ? false
+    //         : `https://www.lanacion.com.ar/feriados/${posteriorYear}/`;
+
+    const validateYear = valYear => {
+        return year === valYear
+            ? false
+            : `https://www.lanacion.com.ar/feriados/${valYear}/`;
+    };
     return (
         <div className="holidaysNav">
             <div className="sampler">
-                <Text tag="p" size="4xs">
-                    Feriados inamovibles
-                </Text>
-                <Text tag="p" size="4xs">
-                    Feriados puente
-                </Text>
-                <Text tag="p" size="4xs">
-                    Feriados trasladables
-                </Text>
+                <Text size="4xs">Feriados inamovibles</Text>
+                <Text size="4xs">Feriados puente</Text>
+                <Text size="4xs">Feriados trasladables</Text>
             </div>
             <ol className="year">
                 <li
                     className={`--font-bold --fivexs${
-                        year === previousYear ? ' --active' : ''
+                        !validateYear(previousYear) ? ' --active' : ''
                     }`}
                 >
                     <Link
-                        link={
-                            year === previousYear
-                                ? false
-                                : `https://www.lanacion.com.ar/feriados/${previousYear}/`
-                        }
+                        link={validateYear(previousYear)}
                         title={`Ir a feriados ${`${previousYear}`}`}
                         textname={`${previousYear}`}
                     />
                 </li>
                 <li
                     className={`--font-bold --fivexs${
-                        year === currentYear ? ' --active' : ''
+                        !validateYear(currentYear) ? ' --active' : ''
                     }`}
                 >
                     <Link
-                        link={
-                            year === currentYear
-                                ? false
-                                : `https://www.lanacion.com.ar/feriados/${currentYear}/`
-                        }
+                        link={validateYear(currentYear)}
                         title={`Ir a feriados ${currentYear}`}
                         textname={`${currentYear}`}
                     />
                 </li>
                 <li
                     className={`--font-bold --fivexs${
-                        year === posteriorYear ? ' --active' : ''
+                        !validateYear(posteriorYear) ? ' --active' : ''
                     }`}
                 >
                     <Link
-                        link={
-                            year === posteriorYear
-                                ? false
-                                : `https://www.lanacion.com.ar/feriados/${posteriorYear}/`
-                        }
+                        link={validateYear(posteriorYear)}
                         title={`Ir a feriados ${`${posteriorYear}`}`}
                         textname={`${posteriorYear}`}
                     />

@@ -8,21 +8,21 @@ exports[`components - private - holidays - HolidaysNav snapshot HolidaysNav 1`] 
     <div
       class="sampler"
     >
-      <p
+      <span
         class="com-text --fourxs"
       >
         Feriados inamovibles
-      </p>
-      <p
+      </span>
+      <span
         class="com-text --fourxs"
       >
         Feriados puente
-      </p>
-      <p
+      </span>
+      <span
         class="com-text --fourxs"
       >
         Feriados trasladables
-      </p>
+      </span>
     </div>
     <ol
       class="year"

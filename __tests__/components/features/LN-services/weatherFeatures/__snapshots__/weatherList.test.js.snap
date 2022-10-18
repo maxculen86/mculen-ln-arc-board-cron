@@ -2308,21 +2308,21 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
       <div
         class="sampler"
       >
-        <p
+        <span
           class="com-text --fourxs"
         >
           Feriados inamovibles
-        </p>
-        <p
+        </span>
+        <span
           class="com-text --fourxs"
         >
           Feriados puente
-        </p>
-        <p
+        </span>
+        <span
           class="com-text --fourxs"
         >
           Feriados trasladables
-        </p>
+        </span>
       </div>
       <ol
         class="year"
@@ -2339,24 +2339,24 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
           </a>
         </li>
         <li
-          class="--font-bold --fivexs"
-        >
-          <a
-            class="com-link"
-            href="https://www.lanacion.com.ar/feriados/2022/"
-            title="Ir a feriados 2022"
-          >
-            2022
-          </a>
-        </li>
-        <li
           class="--font-bold --fivexs --active"
         >
           <span
             class="com-text"
           >
-            2023
+            2022
           </span>
+        </li>
+        <li
+          class="--font-bold --fivexs"
+        >
+          <a
+            class="com-link"
+            href="https://www.lanacion.com.ar/feriados/2023/"
+            title="Ir a feriados 2023"
+          >
+            2023
+          </a>
         </li>
       </ol>
     </div>
@@ -2956,21 +2956,21 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
       <div
         class="sampler"
       >
-        <p
+        <span
           class="com-text --fourxs"
         >
           Feriados inamovibles
-        </p>
-        <p
+        </span>
+        <span
           class="com-text --fourxs"
         >
           Feriados puente
-        </p>
-        <p
+        </span>
+        <span
           class="com-text --fourxs"
         >
           Feriados trasladables
-        </p>
+        </span>
       </div>
       <ol
         class="year"
@@ -2987,24 +2987,24 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
           </a>
         </li>
         <li
-          class="--font-bold --fivexs"
-        >
-          <a
-            class="com-link"
-            href="https://www.lanacion.com.ar/feriados/2022/"
-            title="Ir a feriados 2022"
-          >
-            2022
-          </a>
-        </li>
-        <li
           class="--font-bold --fivexs --active"
         >
           <span
             class="com-text"
           >
-            2023
+            2022
           </span>
+        </li>
+        <li
+          class="--font-bold --fivexs"
+        >
+          <a
+            class="com-link"
+            href="https://www.lanacion.com.ar/feriados/2023/"
+            title="Ir a feriados 2023"
+          >
+            2023
+          </a>
         </li>
       </ol>
     </div>
