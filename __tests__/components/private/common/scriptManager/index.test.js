@@ -2,10 +2,14 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-multi-comp */
 import React, { Component } from 'react';
+import Consumer from 'fusion:consumer';
 import { mount, shallow } from 'enzyme';
 import ScriptManager, {
     ERRORS
 } from '../../../../../components/private/common/scriptManager';
+
+import renderables from '../../../../../__mocks__/data/renderables/data1';
+import { getScriptsToLoad } from '../../../../../components/private/LN/common/utils/scriptsHelper';
 
 describe('ScriptManager ...', () => {
     it('... es una function', () => {
@@ -108,5 +112,54 @@ describe('ScriptManager genera un builder', () => {
         );
 
         expect(() => shallow(<Script location="foo" />)).toBeDefined();
+    });
+});
+
+describe('getScriptsToLoad', () => {
+    it('... es una function', () => {
+        expect(typeof getScriptsToLoad).toEqual('function');
+    });
+
+    it('... devuelve un objeto con los scripts a incluir', () => {
+        const result = getScriptsToLoad(renderables);
+        expect(Object.keys(getScriptsToLoad(undefined))).toEqual([
+            'Datadog',
+            'AdblockDetector',
+            'ScriptVideoPowa',
+            'GTM',
+            'Comscore',
+            'Microdata',
+            'PostBid',
+            'GooglePublisherTag',
+            'GooglePublisherTagAcumulado',
+            'SocialEmbeds',
+            'OptaEmbed',
+            'ScriptHtmlLibre',
+            'Blockthrough',
+            'AmazonPublisherServices',
+            'ComscoreVideo',
+            'DevReactTracker'
+        ]);
+        expect(Object.keys(result)).toEqual([
+            'Datadog',
+            'AdblockDetector',
+            'ScriptVideoPowa',
+            'GTM',
+            'Comscore',
+            'Microdata',
+            'PostBid',
+            'GooglePublisherTag',
+            'GooglePublisherTagAcumulado',
+            'LiftIgniter',
+            'Petametrics',
+            'SocialEmbeds',
+            'OptaEmbed',
+            'ScriptHtmlLibre',
+            'Blockthrough',
+            'AmazonPublisherServices',
+            'ComscoreVideo',
+            'DevReactTracker'
+        ]);
+        expect(result.Datadog).toBeDefined();
     });
 });

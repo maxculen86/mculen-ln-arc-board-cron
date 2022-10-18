@@ -48,7 +48,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       class="mod-banner --caja1_mob  "
     >
       <div
-        class="com-banner"
+        class="com-banner "
         data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja1_mob"
         data-device="mobile"
         data-prebid-enabled="true"
@@ -172,7 +172,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       class="mod-banner --middle_1_dsk  "
     >
       <div
-        class="com-banner"
+        class="com-banner "
         data-ad-unit-path="/133919216/la_nacion_desktop/Nota/middle_1_dsk"
         data-device="desktop"
         data-prebid-enabled="true"
@@ -195,7 +195,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       class="mod-banner --caja1_amp hlp-none  "
     >
       <div
-        class="com-banner"
+        class="com-banner "
         data-ad-unit-path="/133919216//133919216/AMP/ROS/caja1_amp"
         data-prebid-enabled="false"
         data-size="[[300,250]]"
@@ -224,7 +224,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       class="mod-banner --caja2_mob  "
     >
       <div
-        class="com-banner"
+        class="com-banner "
         data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja2_mob"
         data-device="mobile"
         data-prebid-enabled="true"
@@ -254,7 +254,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       class="mod-banner --caja2_amp hlp-none  "
     >
       <div
-        class="com-banner"
+        class="com-banner "
         data-ad-unit-path="/133919216//133919216/AMP/ROS/caja2_amp"
         data-prebid-enabled="false"
         data-size="[[300,250]]"
@@ -283,7 +283,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       class="mod-banner --middle_2_dsk  "
     >
       <div
-        class="com-banner"
+        class="com-banner "
         data-ad-unit-path="/133919216/la_nacion_desktop/Nota/middle_2_dsk"
         data-device="desktop"
         data-prebid-enabled="true"
@@ -315,7 +315,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       class="mod-banner --caja3_mob  "
     >
       <div
-        class="com-banner"
+        class="com-banner "
         data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja3_mob"
         data-device="mobile"
         data-prebid-enabled="true"
@@ -356,7 +356,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       class="mod-banner --caja4_mob  "
     >
       <div
-        class="com-banner"
+        class="com-banner "
         data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja4_mob"
         data-device="mobile"
         data-prebid-enabled="true"
@@ -399,7 +399,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       class="mod-banner --caja5_mob  "
     >
       <div
-        class="com-banner"
+        class="com-banner "
         data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja5_mob"
         data-device="mobile"
         data-prebid-enabled="true"
@@ -4397,7 +4397,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
             data-autoplay-muted="false"
             data-controls="true"
             data-env="prod"
-            data-muted="false"
+            data-muted="true"
             data-sticky="false"
             data-uuid="76c88e0b-33e7-405f-b6ad-b6a98fef7c77"
           />
@@ -5026,7 +5026,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
             data-autoplay-muted="false"
             data-controls="true"
             data-env="prod"
-            data-muted="false"
+            data-muted="true"
             data-sticky="false"
             data-uuid="6c75af33-e0f1-4300-bd66-7b2913ca05c1"
           />
@@ -5331,16 +5331,18 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
       </div>
     </div>
     <div
-      class="col-tablet-6 --nutrition"
+      class="--nutrition"
     >
       <h3
         class="com-title --l"
       >
         Información nutricional
       </h3>
-      <div>
+      <div
+        class="table-wrapper --two-columns"
+      >
         <table
-          class="com-table"
+          class="table"
         >
           <thead>
             <tr>
@@ -5508,7 +5510,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       class="mod-banner --caja1_mob  "
     >
       <div
-        class="com-banner"
+        class="com-banner "
         data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja1_mob"
         data-device="mobile"
         data-prebid-enabled="true"
@@ -5632,7 +5634,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       class="mod-banner --middle_1_dsk  "
     >
       <div
-        class="com-banner"
+        class="com-banner "
         data-ad-unit-path="/133919216/la_nacion_desktop/Nota/middle_1_dsk"
         data-device="desktop"
         data-prebid-enabled="true"
@@ -5655,7 +5657,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       class="mod-banner --caja1_amp hlp-none  "
     >
       <div
-        class="com-banner"
+        class="com-banner "
         data-ad-unit-path="/133919216//133919216/AMP/ROS/caja1_amp"
         data-prebid-enabled="false"
         data-size="[[300,250]]"
@@ -5684,7 +5686,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       class="mod-banner --caja2_mob  "
     >
       <div
-        class="com-banner"
+        class="com-banner "
         data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja2_mob"
         data-device="mobile"
         data-prebid-enabled="true"
@@ -5714,7 +5716,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       class="mod-banner --caja2_amp hlp-none  "
     >
       <div
-        class="com-banner"
+        class="com-banner "
         data-ad-unit-path="/133919216//133919216/AMP/ROS/caja2_amp"
         data-prebid-enabled="false"
         data-size="[[300,250]]"
@@ -5743,7 +5745,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       class="mod-banner --middle_2_dsk  "
     >
       <div
-        class="com-banner"
+        class="com-banner "
         data-ad-unit-path="/133919216/la_nacion_desktop/Nota/middle_2_dsk"
         data-device="desktop"
         data-prebid-enabled="true"
@@ -5775,7 +5777,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       class="mod-banner --caja3_mob  "
     >
       <div
-        class="com-banner"
+        class="com-banner "
         data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja3_mob"
         data-device="mobile"
         data-prebid-enabled="true"
@@ -5816,7 +5818,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       class="mod-banner --caja4_mob  "
     >
       <div
-        class="com-banner"
+        class="com-banner "
         data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja4_mob"
         data-device="mobile"
         data-prebid-enabled="true"
@@ -5859,7 +5861,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       class="mod-banner --caja5_mob  "
     >
       <div
-        class="com-banner"
+        class="com-banner "
         data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja5_mob"
         data-device="mobile"
         data-prebid-enabled="true"
@@ -6767,6 +6769,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       allowfullscreen=""
       frameborder="0"
       height="113"
+      loading="lazy"
       src="https://www.youtube.com/embed/hC8CH0Z3L54?feature=oembed"
       width="200"
     />
@@ -7363,7 +7366,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
             data-autoplay-muted="false"
             data-controls="true"
             data-env="prod"
-            data-muted="false"
+            data-muted="true"
             data-sticky="false"
             data-uuid="76c88e0b-33e7-405f-b6ad-b6a98fef7c77"
           />
@@ -8296,6 +8299,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       allowfullscreen=""
       frameborder="0"
       height="269"
+      loading="lazy"
       src="https://www.dailymotion.com/embed/video/x589c8d?pubtool=oembed"
       width="480"
     />
@@ -8669,7 +8673,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
             data-autoplay-muted="false"
             data-controls="true"
             data-env="prod"
-            data-muted="false"
+            data-muted="true"
             data-sticky="false"
             data-uuid="6c75af33-e0f1-4300-bd66-7b2913ca05c1"
           />
@@ -9316,16 +9320,18 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       </div>
     </div>
     <div
-      class="col-tablet-6 --nutrition"
+      class="--nutrition"
     >
       <h3
         class="com-title --l"
       >
         Información nutricional
       </h3>
-      <div>
+      <div
+        class="table-wrapper --two-columns"
+      >
         <table
-          class="com-table"
+          class="table"
         >
           <thead>
             <tr>

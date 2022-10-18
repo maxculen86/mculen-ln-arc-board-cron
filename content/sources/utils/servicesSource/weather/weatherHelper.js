@@ -1,6 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import get from '../../../../../components/private/common/utils/get';
 import addForwardSlash from '../../../../../components/private/LN/common/utils/addForwardSlash';
+import removeAccents from '../../../../../components/private/common/utils/removeAccents';
 
 export const getWeatherMetaData = (serviceItem, serviceSubItem) => {
     if (serviceSubItem)
@@ -65,7 +66,7 @@ const getSectionLink = (sections, location) => {
         sections.find(e => {
             const { name = '' } = e;
 
-            return name === location;
+            return removeAccents(name) === removeAccents(location);
         }) || {};
     const { _id: url = '' } = sectionLink;
 
@@ -75,10 +76,6 @@ const getSectionLink = (sections, location) => {
 
 export const extractTime = (isoString = '') => {
     return isoString.slice(11, 16);
-};
-
-const removeAccents = str => {
-    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 };
 
 const reorderLocations = (endpointData, children = [], serviceItem = '') => {
@@ -93,6 +90,15 @@ const reorderLocations = (endpointData, children = [], serviceItem = '') => {
 
         return acc;
     }, []);
+};
+export const isValidNumber = number => typeof number === 'number';
+
+export const validateMinTemperature = (tempMin, currTemp) => {
+    return tempMin > currTemp ? Math.floor(currTemp) : tempMin;
+};
+
+export const validateMaxTemperature = (tempMax, currTemp) => {
+    return tempMax < currTemp ? Math.ceil(currTemp) : tempMax;
 };
 
 export const transformWeatherHome = (data, children, serviceItem) => {
@@ -118,12 +124,14 @@ export const transformWeatherHome = (data, children, serviceItem) => {
         return {
             ...(locationName && { location_name: locationName }),
             ...(locationId && { location_id: locationId }),
-            ...((tempMin || tempMin === 0) && {
-                temp_min: tempMin
-            }),
-            ...((tempMax || tempMax === 0) && {
-                temp_max: tempMax
-            }),
+            ...(isValidNumber(tempMin) &&
+                isValidNumber(currentTemp) && {
+                    temp_min: validateMinTemperature(tempMin, currentTemp)
+                }),
+            ...(isValidNumber(tempMax) &&
+                isValidNumber(currentTemp) && {
+                    temp_max: validateMaxTemperature(tempMax, currentTemp)
+                }),
             ...((description || newIcon) && {
                 weather: {
                     ...(description && { description }),

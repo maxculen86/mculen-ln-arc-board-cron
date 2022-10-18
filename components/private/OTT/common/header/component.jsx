@@ -3,6 +3,7 @@ import Context from 'fusion:context';
 import HeaderItem from './headerItem';
 import HamburgerButton from '../../../common/hamburgerButton';
 import hrefHelper from '../../../common/utils/hrefHelper';
+import addForwardSlash from '../../../LN/common/utils/addForwardSlash';
 
 class HeaderComponent extends PureComponent {
     constructor(props) {
@@ -15,7 +16,7 @@ class HeaderComponent extends PureComponent {
             return (
                 <HeaderItem
                     description={item.description}
-                    href={item.href}
+                    href={addForwardSlash(item.href)}
                     data={props.data}
                     alt={item.alt}
                     key={index}

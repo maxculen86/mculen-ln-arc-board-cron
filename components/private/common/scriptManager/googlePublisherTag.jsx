@@ -89,7 +89,7 @@ class GooglePublisherTag extends Component {
     }
 
     render() {
-        const { globalContent } = this.props;
+        const { globalContent = {} } = this.props;
         const { type } = globalContent;
 
         if (!type || type !== 'story') return <></>;
@@ -101,8 +101,9 @@ class GooglePublisherTag extends Component {
             content_elements: contentElements = []
         } = globalContent;
 
-        const { tags, sections } = taxonomy || [];
-        const { by: authors } = credits || {};
+        const { tags = [], sections = [] } = taxonomy || {};
+        const { by: authors = [] } = credits || {};
+
         const articleId = this.getArticleId();
 
         if (
@@ -116,10 +117,9 @@ class GooglePublisherTag extends Component {
         const categories = this.getCategories(sections);
         const topics = this.getTopics(tags);
         const url = this.getUrl(canonicalUrl);
-        const authorList =
-            authors && authors.length
-                ? this.getAuthors(authors)
-                : this.getAuthorsFromContentElements(contentElements);
+        const authorList = authors.length
+            ? this.getAuthors(authors)
+            : this.getAuthorsFromContentElements(contentElements);
 
         const script = `
             var pbjs = pbjs || {};

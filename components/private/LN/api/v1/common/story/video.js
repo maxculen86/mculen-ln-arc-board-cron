@@ -45,12 +45,15 @@ videoNota.type = 'video';
 export const videoNotaMobile = videoData => {
     if (!videoData) return null;
 
+    const showAd = get(
+        videoData.additional_properties,
+        'advertising.playAds',
+        true
+    );
+
     const {
         duration,
-        headlines: { basic: title },
-        additional_properties: {
-            advertising: { playAds: showAd }
-        }
+        headlines: { basic: title }
     } = videoData;
 
     const resp = {
@@ -68,6 +71,7 @@ export const videoNotaMobile = videoData => {
     const thumbail = VideoThumbnail(videoData.promo_items);
     if (thumbail) {
         resp.thumbnailImage = {
+            // eslint-disable-next-line no-underscore-dangle
             _t: thumbail._t,
             order: thumbail.orden,
             src: thumbail.src

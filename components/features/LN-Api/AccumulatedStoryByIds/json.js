@@ -32,9 +32,34 @@ class AccumulatedStoryByIds {
             const indexAcu = this.apiData[browser.getApiType(requestUri)][
                 browser.getApiVersion(requestUri)
             ];
+
             if (!acuArticlesSource || !acuArticlesSource.content_elements) {
+                // eslint-disable-next-line no-console
+                console.warn(
+                    `Empty content result. Props info: ${JSON.stringify(
+                        this.props
+                    )}`
+                );
                 return null;
             }
+
+            // TODO comentado hasta validar de donde viene el error - BACKEND card 89766
+            // const isAPI = this.props.globalContentConfig.query.api || false;
+            // if (
+            //     (!acuArticlesSource || !acuArticlesSource.content_elements) &&
+            //     isAPI
+            // ) {
+            //     // eslint-disable-next-line no-console
+            //     console.warn(
+            //         `Empty content result. Props info: ${JSON.stringify(
+            //             this.props
+            //         )}`
+            //     );
+
+            //     throw new Error(
+            //         'Data query response cannot be null or undefined'
+            //     );
+            // }
             const acuData = {
                 tipoAcumulado: 4,
                 name: 'Acumulados Notas por Ids',

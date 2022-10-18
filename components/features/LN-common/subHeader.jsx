@@ -2,6 +2,7 @@ import React from 'react';
 import { useContent } from 'fusion:content';
 import Subheader from '../../private/LN/common/header/subHeader';
 import useTermica from '../../private/common/hooks/useTermica';
+import filter from '../../../content/filters/LN/home/subHeaderFilter';
 
 const SubHeader = () => {
     /**
@@ -13,14 +14,15 @@ const SubHeader = () => {
             source: 'dolarSource',
             staticMode: true
         }) || {};
-    const { weather = {} } =
+    const weather =
         useContent({
             source: 'servicesSource',
             query: {
                 id: '/clima',
                 service: 'clima'
             },
-            staticMode: true
+            staticMode: true,
+            filter
         }) || {};
 
     const dollarValue = useTermica('dolar', dollar);

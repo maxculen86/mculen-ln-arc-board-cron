@@ -58,7 +58,13 @@ const ComLogo = props => {
     );
 
     const Link = (
-        <ComLink link={href} title={title} rel={rel} target={target}>
+        <ComLink
+            link={href}
+            title={title}
+            rel={rel}
+            target={target}
+            classCondition="--logo"
+        >
             {Logo}
         </ComLink>
     );

@@ -4,7 +4,14 @@ import { useContent } from 'fusion:content';
 import get from './utils/get';
 
 const LinkAmpHTML = props => {
-    const { subtype, canonicalUrl, arcSite: website, nodeType } = props;
+    const {
+        subtype = '',
+        canonicalUrl = '',
+        arcSite: website,
+        nodeType
+    } = props;
+
+    // TODO: evaluar donde colocar useContent para armado de contentCache a nivel outputType // NOSONAR
 
     const data = useContent({
         sourceName: 'navigationTreeSource',
@@ -15,11 +22,8 @@ const LinkAmpHTML = props => {
             return get(resp, 'site.with-amp', {});
         }
     });
-
     const hasAmpLink = get(data, subtype || nodeType || '', undefined);
-
     const slash = canonicalUrl && canonicalUrl.slice(-1) !== '/' ? '/' : '';
-
     return hasAmpLink && canonicalUrl ? (
         <link
             rel="amphtml"
@@ -29,12 +33,10 @@ const LinkAmpHTML = props => {
         <></>
     );
 };
-
 LinkAmpHTML.propTypes = {
     subtype: PropTypes.string.isRequired,
     canonicalUrl: PropTypes.string.isRequired,
     arcSite: PropTypes.string.isRequired,
     nodeType: PropTypes.string.isRequired
 };
-
 export default LinkAmpHTML;

@@ -16,13 +16,11 @@ import Club from '../../../common/icons/system/Club';
 const ModSubheader = props => {
     const { dollar = [], weather = {} } = props;
     const [dolarBna = {}, dolarBlue = {}] = dollar;
-    const {
-        dataService: { locations = [] }
-    } = weather;
+    const { dataService: { locations = [] } = {} } = weather;
 
     const { current_temp: temperatura = '', weather: weatherInfo = {} } =
         locations.find(e => {
-            const { location_id: locationId } = e;
+            const { location_id: locationId = '' } = e;
 
             return locationId === 'ciudad-de-buenos-aires';
         }) || {};

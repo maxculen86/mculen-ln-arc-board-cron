@@ -1,12 +1,17 @@
 import React from 'react';
-import { render, mount, shallow } from 'enzyme';
+import { render, mount } from 'enzyme';
 import ModheaderSection from '../../../../components/private/common/mod-headerSection';
+import useGetLogoImage from '../../../../components/private/common/hooks/useGetLogoImage';
 
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
         return props => <Component {...props} />;
     };
 });
+
+jest.mock('../../../../components/private/common/hooks/useGetLogoImage', () =>
+    jest.fn()
+);
 
 const imageMock = {
     width: '100',
@@ -69,13 +74,9 @@ describe('Private - Common - ModheaderSection => ', () => {
         expect(component).toMatchSnapshot();
     });
     it('ModheaderSection with image should render mod-logo', () => {
+        useGetLogoImage.mockImplementationOnce(() => imageMock);
         const component = render(
-            <ModheaderSection
-                title="Titulo Separador"
-                image={imageMock}
-                size="--l"
-                line
-            />
+            <ModheaderSection title="Titulo Separador" size="--l" line />
         );
         expect(component.find('div.mod-logo')).toHaveLength(1);
         expect(component.find('a.com-link')).toHaveLength(0);
@@ -85,6 +86,7 @@ describe('Private - Common - ModheaderSection => ', () => {
         expect(component).toMatchSnapshot();
     });
     it('ModheaderSection with image and link should render mod-logo with anchor tag', () => {
+        useGetLogoImage.mockImplementationOnce(() => imageMock);
         const component = render(
             <ModheaderSection
                 link="https://lanacion.com.ar/"

@@ -1,22 +1,11 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import { useContent } from 'fusion:content';
+import { subtypesWithAmp } from './utils/subtypes/subtypeHelper';
 import get from './utils/get';
 
 const Robot = props => {
-    const { subtype, canonicalUrl, arcSite: website, nodeType } = props;
-
-    const data = useContent({
-        sourceName: 'navigationTreeSource',
-        query: {
-            website
-        },
-        transform: resp => {
-            return get(resp, 'site.with-amp', {});
-        }
-    });
-
-    const hasAmpLink = get(data, subtype || nodeType || '', undefined);
+    const { canonicalUrl = '', subtype = '' } = props;
+    const hasAmpLink = get(subtypesWithAmp, subtype, false);
 
     return hasAmpLink && canonicalUrl ? (
         <link
@@ -29,10 +18,8 @@ const Robot = props => {
 };
 
 Robot.propTypes = {
-    subtype: PropTypes.string.isRequired,
     canonicalUrl: PropTypes.string.isRequired,
-    arcSite: PropTypes.string.isRequired,
-    nodeType: PropTypes.string.isRequired
+    subtype: PropTypes.string.isRequired
 };
 
 export default Robot;

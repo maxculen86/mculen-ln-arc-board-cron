@@ -1,8 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Private - LN - Common - robot Snapshots 1`] = `
-<link
-  href="https://www.lanacion.com.ar/politica/nota-prueba-storytelling-nid26052020/"
-  rel="canonical"
-/>
+<div>
+  <link
+    href="https://www.lanacion.com.ar/politica/nota-prueba-storytelling-nid26052020/"
+    rel="canonical"
+  />
+</div>
 `;

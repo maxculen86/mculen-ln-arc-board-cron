@@ -1,3 +1,4 @@
+/* eslint-disable react/state-in-constructor */
 import React, { PureComponent } from 'react';
 import Consumer from 'fusion:consumer';
 

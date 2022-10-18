@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Componentes - features - LN-Acumulado - CryptoCarrouse Should render live coin watch script 1`] = `
+<div>
+  <mock-static
+    id="randomId"
+  >
+    <div
+      class="container-widget-carrousel"
+    >
+      <div
+        class="widget-carrousel-coins"
+      >
+        <a
+          class="com-link"
+          href="undefined/tema/criptomonedas-tid63718/"
+          title="Ir a criptomonedas"
+        >
+          <h2
+            class="cripto-title --font-bold --twoxs"
+          >
+            Criptomonedas
+          </h2>
+        </a>
+        <div
+          class="livecoinwatch-widget-5"
+          lcw-base="USD"
+          lcw-color-tx="#000000"
+          lcw-marquee-1="coins"
+          lcw-marquee-2="none"
+          lcw-marquee-items="20"
+        />
+      </div>
+      <span
+        class="com-text --fivexs"
+      >
+        Información provista por
+         
+        <a
+          class="com-link"
+          href="https://www.livecoinwatch.com/"
+          rel="nofollow"
+          target="_blank"
+          title="Ir a Live Coin Watch"
+        >
+          Live Coin Watch
+        </a>
+      </span>
+    </div>
+  </mock-static>
+</div>
+`;

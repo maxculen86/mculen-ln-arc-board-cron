@@ -56,7 +56,8 @@ export const transformLotteryDetail = data => {
     });
     return {
         lotteryDetail,
-        ...(newRules.length && { rules: newRules })
+        ...(newRules.length && { rules: newRules }),
+        name: games[firstLottery.id].name
     };
 };
 
@@ -90,7 +91,6 @@ export const transformLotteryHome = data => ({
         const [
             {
                 id,
-                name = '',
                 date = '0000-00-00T00:00:00',
                 additional_properties = {}
             } = {}
@@ -104,7 +104,7 @@ export const transformLotteryHome = data => ({
         newValue.length &&
             acc.push({
                 id,
-                name,
+                name: games[lottery].name,
                 date: transformISODate(date, 'day dd/mm/yyyy'),
                 ...(url && { link: url }),
                 ...(letters !== '' && {

@@ -1,8 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Private - LN - Common - linkAmpHTML Snapshots 1`] = `
-<link
-  href="https://www.lanacion.com.ar/ciencia/roger-prueba-imagenes-nid28052020/?outputType=amp"
-  rel="amphtml"
-/>
+<div>
+  <link
+    href="https://www.lanacion.com.ar/ciencia/roger-prueba-imagenes-nid28052020/?outputType=amp"
+    rel="amphtml"
+  />
+</div>
 `;

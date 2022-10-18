@@ -1,6 +1,6 @@
 import capitalizeFirstLetter from './capitalizeFirstLetter';
 
-const monthNames = [
+export const monthNames = [
     'enero',
     'febrero',
     'marzo',

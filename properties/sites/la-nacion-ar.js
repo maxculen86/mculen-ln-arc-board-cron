@@ -98,8 +98,7 @@ export default {
     longTitle: 'Últimas noticias de Argentina y el mundo - LA NACION',
     title: 'LA NACION',
     description:
-        'Todas las noticias de Argentina y el mundo: últimas noticias en actualidad, deportes, coronavirus, economía, política, y tecnología.' +
-        ' Mantenete informado sobre las novedades de Argentina en LA NACION.',
+        'LA NACION ofrece las últimas noticias, fotos y videos de la Argentina y el mundo. Política, economía, deportes y toda la información en tiempo real.',
     className: {
         body: 'ln'
     },
@@ -179,6 +178,10 @@ export default {
         ScriptHtmlLibre: {
             props: {},
             location: ['head']
+        },
+        Blockthrough: {
+            props: {},
+            location: ['body-bottom']
         },
         Queryly: {
             props: {},
@@ -1161,17 +1164,17 @@ export default {
                         },
                         {
                             width: 768,
-                            height: 1152,
+                            height: 512,
                             //media: minWidth360,
                             useFullSize: true,
-                            proportion: '2:3'
+                            proportion: '3:2'
                         },
                         {
                             width: 360,
-                            height: 540,
+                            height: 240,
                             //media: minWidth320,
                             useFullSize: true,
-                            proportion: '2:3'
+                            proportion: '3:2'
                         }
                     ]
                 }
@@ -2335,6 +2338,8 @@ export default {
                     slotName: `la_nacion_desktop/Home/billboard_dsk`,
                     dimensions: [
                         [728, 90],
+                        [920, 100],
+                        [920, 170],
                         [920, 250],
                         [1, 1]
                     ],
@@ -2355,7 +2360,9 @@ export default {
                     dimensions: [
                         [1, 1],
                         [728, 90],
+                        [920, 100],
                         [920, 120],
+                        [920, 170],
                         [920, 250],
                         [920, 300]
                     ],
@@ -2366,7 +2373,9 @@ export default {
                     dimensions: [
                         [1, 1],
                         [728, 90],
+                        [920, 100],
                         [920, 120],
+                        [920, 170],
                         [920, 250],
                         [920, 300]
                     ],
@@ -2374,7 +2383,15 @@ export default {
                 },
                 parallax_dsk: {
                     slotName: `la_nacion_desktop/Home/parallax_dsk`,
-                    dimensions: [[1260, 300]],
+                    dimensions: [
+                        [1, 1],
+                        [728, 90],
+                        [920, 100],
+                        [920, 170],
+                        [920, 250],
+                        [970, 250],
+                        [1260, 300]
+                    ],
                     targeting: targetingHome
                 }
             },

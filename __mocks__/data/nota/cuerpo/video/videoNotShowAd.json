@@ -1,0 +1,233 @@
+[
+    {
+        "_id": "6c75af33-e0f1-4300-bd66-7b2913ca05c1",
+        "additional_properties": {
+            "advertising": {
+                "playAds": true
+            }
+        },
+        "credits": {},
+        "description": {
+            "basic": "Este es el adelanto del video"
+        },
+        "distributor": {},
+        "duration": 42804,
+        "subheadlines": {
+            "basic": "Este es el epigrafe del video"
+        },
+        "headlines": {
+            "basic": "Este es el titulo del video"
+        },
+        "promo_items": {
+            "basic": {
+                "url": "https://d3us6z9haan6vf.cloudfront.net/10-22-2019/t_499f59d0c4e74cdc93ffc1937097565b_name_file_1280x720_2000_v3_1_.jpg"
+            }
+        },
+        "publish_date": "2020-04-27T23:34:14Z",
+        "streams": [
+            {
+                "height": 360,
+                "stream_type": "mp4",
+                "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/10/22/5daf2cfc46e0fb0009c12a9b/t_19b8dc8ac5b24ccead4960711ad0376f_name_DREAM_THEATER___Untethered_Angel__OFFICIAL_VIDEO__cropped/file_640x360-600.mp4",
+                "width": 640
+            },
+            {
+                "height": 720,
+                "stream_type": "mp4",
+                "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/10/22/5daf2cfc46e0fb0009c12a9b/t_19b8dc8ac5b24ccead4960711ad0376f_name_DREAM_THEATER___Untethered_Angel__OFFICIAL_VIDEO__cropped/file_1280x720-2000-v3_1.mp4",
+                "width": 1280
+            }
+        ],
+        "type": "video"
+    },
+    {
+        "_id": "6c75af33-e0f1-4300-bd66-7b2913ca05c1",
+        "additional_properties": {
+            "advertising": {
+                "playAds": false
+            }
+        },
+        "credits": {},
+        "description": {
+            "basic": "Este es el adelanto del video"
+        },
+        "distributor": {},
+        "duration": 42804,
+        "subheadlines": {
+            "basic": "Este es el epigrafe del video"
+        },
+        "headlines": {
+            "basic": "Este es el titulo del video"
+        },
+        "promo_items": {
+            "basic": {
+                "url": "https://d3us6z9haan6vf.cloudfront.net/10-22-2019/t_499f59d0c4e74cdc93ffc1937097565b_name_file_1280x720_2000_v3_1_.jpg"
+            }
+        },
+        "publish_date": "2020-04-27T23:34:14Z",
+        "streams": [
+            {
+                "height": 360,
+                "stream_type": "mp4",
+                "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/10/22/5daf2cfc46e0fb0009c12a9b/t_19b8dc8ac5b24ccead4960711ad0376f_name_DREAM_THEATER___Untethered_Angel__OFFICIAL_VIDEO__cropped/file_640x360-600.mp4",
+                "width": 640
+            },
+            {
+                "height": 720,
+                "stream_type": "mp4",
+                "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/10/22/5daf2cfc46e0fb0009c12a9b/t_19b8dc8ac5b24ccead4960711ad0376f_name_DREAM_THEATER___Untethered_Angel__OFFICIAL_VIDEO__cropped/file_1280x720-2000-v3_1.mp4",
+                "width": 1280
+            }
+        ],
+        "type": "video"
+    },
+    {
+        "_id": "76c88e0b-33e7-405f-b6ad-b6a98fef7c77",
+        "additional_properties": {},
+        "credits": {},
+        "distributor": {},
+        "duration": 59178,
+        "headlines": {
+            "basic": "Test cambio de nombre y ordenn"
+        },
+        "promo_items": {},
+        "publish_date": "2020-03-18T12:35:37Z",
+        "streams": [],
+        "type": "video"
+    },
+    {
+        "_id": "6c75af33-e0f1-4300-bd66-7b2913ca05c1",
+        "additional_properties": {
+            "advertising": {
+                "playAds": true
+            }
+        },
+        "credits": {},
+        "description": {
+            "basic": "Este es el adelanto del video"
+        },
+        "distributor": {},
+        "duration": 42804,
+        "subheadlines": {
+            "basic": "Este es el epigrafe del video"
+        },
+        "headlines": {
+            "basic": "Este es el titulo del video"
+        },
+        "publish_date": "2020-04-27T23:34:14Z",
+        "streams": [
+            {
+                "height": 360,
+                "stream_type": "mp4",
+                "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/10/22/5daf2cfc46e0fb0009c12a9b/t_19b8dc8ac5b24ccead4960711ad0376f_name_DREAM_THEATER___Untethered_Angel__OFFICIAL_VIDEO__cropped/file_640x360-600.mp4",
+                "width": 640
+            },
+            {
+                "height": 720,
+                "stream_type": "mp4",
+                "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/10/22/5daf2cfc46e0fb0009c12a9b/t_19b8dc8ac5b24ccead4960711ad0376f_name_DREAM_THEATER___Untethered_Angel__OFFICIAL_VIDEO__cropped/file_1280x720-2000-v3_1.mp4",
+                "width": 1280
+            }
+        ],
+        "type": "video"
+    },
+    {
+        "_id": "6c75af33-e0f1-4300-bd66-7b2913ca05c1",
+        "additional_properties": {
+            "advertising": {
+                "playAds": true
+            }
+        },
+        "credits": {},
+        "description": {
+            "basic": "Este es el adelanto del video"
+        },
+        "distributor": {},
+        "duration": 42804,
+        "headlines": {
+            "basic": "Este es el titulo del video"
+        },
+        "promo_items": {
+            "basic": {
+                "url": "https://d3us6z9haan6vf.cloudfront.net/10-22-2019/t_499f59d0c4e74cdc93ffc1937097565b_name_file_1280x720_2000_v3_1_.jpg"
+            }
+        },
+        "publish_date": "2020-04-27T23:34:14Z",
+        "streams": [
+            {
+                "height": 360,
+                "stream_type": "mp4",
+                "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/10/22/5daf2cfc46e0fb0009c12a9b/t_19b8dc8ac5b24ccead4960711ad0376f_name_DREAM_THEATER___Untethered_Angel__OFFICIAL_VIDEO__cropped/file_640x360-600.mp4",
+                "width": 640
+            },
+            {
+                "height": 720,
+                "stream_type": "mp4",
+                "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/10/22/5daf2cfc46e0fb0009c12a9b/t_19b8dc8ac5b24ccead4960711ad0376f_name_DREAM_THEATER___Untethered_Angel__OFFICIAL_VIDEO__cropped/file_1280x720-2000-v3_1.mp4",
+                "width": 1280
+            }
+        ],
+        "type": "video"
+    },
+    {
+        "_id": "6c75af33-e0f1-4300-bd66-7b2913ca05c1",
+        "additional_properties": {
+            "advertising": {
+                "playAds": true
+            }
+        },
+        "credits": {},
+        "description": {
+            "basic": "Este es el adelanto del video"
+        },
+        "distributor": {},
+        "duration": 42804,
+        "headlines": {
+            "basic": "Este es el titulo del video"
+        },
+        "promo_items": {
+            "basic": {
+                "url": "https://d3us6z9haan6vf.cloudfront.net/10-22-2019/t_499f59d0c4e74cdc93ffc1937097565b_name_file_1280x720_2000_v3_1_.jpg"
+            }
+        },
+        "publish_date": "2020-04-27T23:34:14Z",
+        "type": "video"
+    },
+    {
+        "_id": "6c75af33-e0f1-4300-bd66-7b2913ca05c1",
+        "additional_properties": {
+            "advertising": {
+                "playAds": false
+            }
+        },
+        "credits": {},
+        "description": {
+            "basic": "Este es el adelanto del video"
+        },
+        "distributor": {},
+        "duration": 42804,
+        "subheadlines": {
+            "basic": "Este es el epigrafe del video"
+        },
+        "headlines": {
+            "basic": "Este es el titulo del video"
+        },
+        "promo_items": {},
+        "publish_date": "2020-04-27T23:34:14Z",
+        "streams": [
+            {
+                "height": 360,
+                "stream_type": "mp4",
+                "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/10/22/5daf2cfc46e0fb0009c12a9b/t_19b8dc8ac5b24ccead4960711ad0376f_name_DREAM_THEATER___Untethered_Angel__OFFICIAL_VIDEO__cropped/file_640x360-600.mp4",
+                "width": 640
+            },
+            {
+                "height": 720,
+                "stream_type": "mp4",
+                "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/10/22/5daf2cfc46e0fb0009c12a9b/t_19b8dc8ac5b24ccead4960711ad0376f_name_DREAM_THEATER___Untethered_Angel__OFFICIAL_VIDEO__cropped/file_1280x720-2000-v3_1.mp4",
+                "width": 1280
+            }
+        ],
+        "type": "video"
+    }
+]

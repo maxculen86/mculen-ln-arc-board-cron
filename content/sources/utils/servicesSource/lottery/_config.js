@@ -9,18 +9,21 @@ export const reorderSubLotteries = (results, order, isDetail) =>
 
 export const games = {
     Quiniela_Nacional: {
+        name: 'Lotería de la Ciudad (ex Quiniela Nacional)',
         url: '/loterias/quiniela-nacional/',
         isQuiniela: true,
         getLotteryDate,
         hasExtraResults: true
     },
     Quiniela_Provincia: {
+        name: 'Quiniela de la Provincia',
         url: '/loterias/quiniela-provincia/',
         isQuiniela: true,
         getLotteryDate,
         hasExtraResults: true
     },
     Quiniela_de_Cordoba: {
+        name: 'Quiniela de Cordoba',
         url: '/loterias/quiniela-cordoba/',
         rules: [
             {
@@ -41,18 +44,21 @@ export const games = {
         hasExtraResults: true
     },
     Quiniela_de_Santa_Fe: {
+        name: 'Quiniela de Santa Fe',
         url: '/loterias/quiniela-santa-fe/',
         isQuiniela: true,
         getLotteryDate,
         hasExtraResults: true
     },
     Quiniela_Uruguaya: {
+        name: 'Quiniela de Montevideo',
         url: '/loterias/quiniela-montevideo/',
         isQuiniela: true,
         getLotteryDate,
         hasExtraResults: true
     },
     Quini_6: {
+        name: 'Quini 6',
         url: '/loterias/quini-6/',
         rules: [
             {
@@ -78,6 +84,7 @@ export const games = {
         showFirstLotteryName: true
     },
     Telekino: {
+        name: 'Telekino',
         url: '/loterias/telekino/',
         boxResultClass: 'box-result --grid-5-columns',
         getLotteryDate,
@@ -86,6 +93,7 @@ export const games = {
         showFirstLotteryName: true
     },
     Loto: {
+        name: 'Loto',
         url: '/loterias/loto/',
         rules: [
             {
@@ -103,12 +111,14 @@ export const games = {
         showFirstLotteryName: true
     },
     Loto_5: {
+        name: 'Loto 5',
         url: '/loterias/loto-5/',
         boxResultClass: 'box-result --loto-5',
         showVacantPot: true,
         getLotteryDate
     },
     Quiniela_Poceada: {
+        name: 'Quiniela Poceada',
         url: '/loterias/quiniela-poceada/',
         rules: [
             {
@@ -123,14 +133,18 @@ export const games = {
         getLotteryDate
     },
     Quiniela_Plus: {
+        name: 'Quiniela Plus',
         url: '/loterias/quiniela-plus/',
         boxResultClass: 'box-result --grid-5-columns',
         getLotteryDate,
         showFirstLotteryName: true
     },
     Brinco: {
+        name: 'Brinco',
         url: '/loterias/brinco/',
         boxResultClass: 'box-result --brinco',
+        hasExtraResults: true,
+        sublotteriesOrder: ['Tradicional', 'Junior'],
         showVacantPot: true,
         getLotteryDate
     }

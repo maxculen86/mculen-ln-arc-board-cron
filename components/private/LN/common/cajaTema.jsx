@@ -26,7 +26,9 @@ const CajaTema = props => {
         sectionName = '',
         _children = [],
         isHome = false,
-        features
+        features,
+        pageLayout,
+        isMultimedia
     } = props;
 
     const artWithoutDate = clearArticleKey(articles, 'display_date');
@@ -56,7 +58,7 @@ const CajaTema = props => {
 
             if (!feature) return null;
 
-            const timeline = setTLDistribution(_children, feature.props.id);
+            const timeline = setTLDistribution(feature.props.id, _children);
             const orderClass = setTLOrderClass(timeline);
 
             return (
@@ -85,6 +87,8 @@ const CajaTema = props => {
                     title={title}
                     link={url}
                     customTitle={!hideTitle && title}
+                    layout={pageLayout}
+                    isMultimedia={isMultimedia}
                 />
 
                 {mainComponent}
