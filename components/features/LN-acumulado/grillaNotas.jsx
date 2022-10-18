@@ -103,6 +103,8 @@ function GrillaNotasFeature(props) {
         renderables
     } = useAppContext();
 
+    const hasCollectionApertura = articlesInCollection.length;
+
     const tagId =
         Payload && Payload.items && Payload.items.length
             ? Payload.items[0].slug
@@ -135,6 +137,7 @@ function GrillaNotasFeature(props) {
             outputType={outputType}
             idsArticlesToExclude={idsArticlesToExclude}
             articlesInCollection={articlesInCollection}
+            hasCollectionApertura={hasCollectionApertura}
         />
     );
 }
