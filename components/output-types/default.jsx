@@ -16,6 +16,7 @@ import MetasFBNews from '../private/common/metaTags/metasFBNews';
 import getSectionName from '../private/LN/common/utils/getSectionName';
 import Syndication from '../private/common/syndication';
 import LinkAmpHTML from '../private/common/linkAmpHTML';
+import LinkCanonical from '../private/common/linkCanonical';
 import GetDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
 import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 import addForwardSlash from '../private/LN/common/utils/addForwardSlash';
@@ -81,7 +82,7 @@ const Default = props => {
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
     const { basic: descriptionBasic } = description || {};
     const { name: distributorName } = distributor || {};
-    const { description: defaultDescription } = siteProperties;
+    const { description: defaultDescription, host = '' } = siteProperties;
 
     const metaTitleBasic = metaTitle || basicTitle;
 
@@ -216,14 +217,12 @@ const Default = props => {
                         ottMetaDescription={ottMetaDescription}
                     />
                 )}
-                {canonicalUrl && siteProperties.host && (
-                    <link
-                        rel="canonical"
-                        href={addForwardSlash(
-                            `${siteProperties.host}${canonicalUrl}`
-                        )}
-                    />
-                )}
+                <LinkCanonical
+                    _id={_id}
+                    canonicalUrl={canonicalUrl}
+                    host={host}
+                    nodeType={_nodeType}
+                />
                 <LinkAmpHTML
                     subtype={subtype}
                     canonicalUrl={canonicalUrl || _id}

@@ -1,0 +1,96 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.calendar-common {
+    position: relative;
+    width: 100%;
+    border-radius: px(4);
+    padding: $spacing-sm;
+    background: $light-neutral-50;
+
+    .labeled-calendar {
+        display: flex;
+        flex-direction: column;
+        :first-child {
+            align-self: center;
+            margin-bottom: px(8);
+        }
+        .days-of-week {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            row-gap: px(8);
+            justify-items: center;
+
+            .com-text:nth-child(n + 6) {
+                opacity: 0.7;
+            }
+        }
+    }
+
+    .date-calendar {
+        display: grid;
+        justify-items: center;
+        grid-template-rows: repeat(5, 1fr);
+        grid-template-columns: repeat(7, 1fr);
+        column-gap: px(4);
+        row-gap: px(8);
+        .com-text {
+            &:nth-child(6) {
+                opacity: 0.7;
+            }
+            &:nth-child(7) {
+                opacity: 0.7;
+            }
+            &:nth-child(13) {
+                opacity: 0.7;
+            }
+            &:nth-child(14) {
+                opacity: 0.7;
+            }
+            &:nth-child(20) {
+                opacity: 0.7;
+            }
+            &:nth-child(21) {
+                opacity: 0.7;
+            }
+            &:nth-child(27) {
+                opacity: 0.7;
+            }
+            &:nth-child(28) {
+                opacity: 0.7;
+            }
+            &:nth-child(34) {
+                opacity: 0.7;
+            }
+            &:nth-child(35) {
+                opacity: 0.7;
+            }
+        }
+        .com-text {
+            width: px(30);
+            height: px(30);
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 100%;
+            color: #333;
+            cursor: pointer;
+            &:hover {
+                opacity: 0.7;
+            }
+            &.bg-green {
+                background-color: $green-200;
+            }
+            &.bg-blue {
+                background-color: $blue-200;
+            }
+            &.bg-outline {
+                border: 2px solid $blue-200;
+            }
+            &.bg-muted {
+                background-color: $light-neutral-400;
+            }
+        }
+    }
+}
