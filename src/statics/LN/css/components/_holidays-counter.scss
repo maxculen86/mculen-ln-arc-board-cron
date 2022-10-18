@@ -1,0 +1,81 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.holidays-counter {
+    @include common-card;
+    width: 100%;
+    max-width: px(288);
+    max-height: px(278);
+    gap: px(16);
+    padding: px(16) px(32);
+    margin: px(0) auto px(32) auto;
+
+    .number-counter {
+        border-radius: 50%;
+        max-width: px(120);
+        max-height: px(120);
+        margin: auto;
+        padding: px(30);
+        @include flex(flex, column, center, center);
+        :first-child {
+            font-size: px(48);
+            padding-bottom: px(10);
+        }
+        :last-child {
+            font-size: px(20);
+        }
+        color: $negro;
+        @media ($media-m) {
+            margin: 0;
+            min-width: px(120);
+            min-height: px(120);
+        }
+        &.--immovable {
+            background-color: $blue-200;
+        }
+        &.--bridge {
+            border: px(6) solid $blue-200;
+        }
+        &.--transferable {
+            background-color: $green-200;
+            border-color: none;
+        }
+    }
+
+    .label-counter {
+        @include flex(flex, column, center, center);
+        :first-child {
+            text-align: center;
+            line-height: px(32);
+            font-size: px(24);
+            margin-bottom: px(16);
+            strong {
+                text-align: center;
+                line-height: px(32);
+                font-size: px(24);
+                margin-bottom: px(16);
+                font-weight: bold;
+            }
+        }
+        :last-child {
+            font-size: px(19);
+        }
+        color: $negro;
+        @media ($media-m) {
+            @include flex(flex, column, center, start);
+        }
+    }
+    @media ($media-xs) {
+        max-width: px(328);
+        max-height: px(278);
+    }
+    @media ($media-s) {
+        max-width: px(440);
+        max-height: px(278);
+    }
+    @media ($media-m) {
+        @include flex(flex, row, start, space-between);
+        max-width: px(620);
+        max-height: px(152);
+    }
+}
