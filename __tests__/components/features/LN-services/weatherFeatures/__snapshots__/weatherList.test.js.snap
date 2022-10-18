@@ -2332,9 +2332,7 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         >
           <a
             class="com-link"
-            href="
-                            https://www.lanacion.com.ar/feriados/2021/
-                        "
+            href="https://www.lanacion.com.ar/feriados/2021/"
             title="Ir a feriados 2021"
           >
             2021
@@ -2343,20 +2341,22 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <li
           class="--font-bold --fivexs"
         >
-          2022
-        </li>
-        <li
-          class="--font-bold --fivexs"
-        >
           <a
             class="com-link"
-            href="
-                            https://www.lanacion.com.ar/feriados/2023/
-                        "
-            title="Ir a feriados 2023"
+            href="https://www.lanacion.com.ar/feriados/2022/"
+            title="Ir a feriados 2022"
+          >
+            2022
+          </a>
+        </li>
+        <li
+          class="--font-bold --fivexs --active"
+        >
+          <span
+            class="com-text"
           >
             2023
-          </a>
+          </span>
         </li>
       </ol>
     </div>
@@ -2980,9 +2980,7 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         >
           <a
             class="com-link"
-            href="
-                            https://www.lanacion.com.ar/feriados/2021/
-                        "
+            href="https://www.lanacion.com.ar/feriados/2021/"
             title="Ir a feriados 2021"
           >
             2021
@@ -2991,20 +2989,22 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         <li
           class="--font-bold --fivexs"
         >
-          2022
-        </li>
-        <li
-          class="--font-bold --fivexs"
-        >
           <a
             class="com-link"
-            href="
-                            https://www.lanacion.com.ar/feriados/2023/
-                        "
-            title="Ir a feriados 2023"
+            href="https://www.lanacion.com.ar/feriados/2022/"
+            title="Ir a feriados 2022"
+          >
+            2022
+          </a>
+        </li>
+        <li
+          class="--font-bold --fivexs --active"
+        >
+          <span
+            class="com-text"
           >
             2023
-          </a>
+          </span>
         </li>
       </ol>
     </div>

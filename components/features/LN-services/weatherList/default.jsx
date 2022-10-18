@@ -25,7 +25,7 @@ const WeatherList = ({ id: _featureId }) => {
                 ))}
             </div>
             <IconsReferences />
-            <HolidaysNav year={2022} />
+            <HolidaysNav year={2023} />
         </StaticValidation>
     );
 };
