@@ -1,10 +1,10 @@
-/* eslint-disable camelcase */
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import Placeholder from '../../../private/common/banners/placeholder';
 import {
     getBannerConfiguration,
-    isForAmp
+    isForAmp,
+    shouldShowBanner
 } from '../../../private/LN/common/utils/bannerHelper';
 import DivBannerSSR from '../../../private/common/banners/DivBannerSSR';
 import bannersRules from '../../../private/common/banners/bannersRules';
@@ -19,11 +19,8 @@ const Banner = props => {
         desktop,
         mobile,
         tablet,
-        solo_no_suscriptores
+        solo_no_suscriptores: soloNoSuscriptores
     } = customFields;
-
-    const hideBanner =
-        solo_no_suscriptores && get(globalContent, 'subscription') === 'S';
 
     if (isForAmp(desktop || '', mobile || '', tablet || '')) return <></>;
 
@@ -59,7 +56,7 @@ const Banner = props => {
 
     return bannersConfiguration.map(bannerConfiguration => {
         return (
-            !hideBanner && (
+            !shouldShowBanner(soloNoSuscriptores, globalContent) && (
                 <>
                     <DivBannerSSR
                         key={bannerConfiguration.slotName}
