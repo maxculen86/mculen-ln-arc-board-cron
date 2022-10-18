@@ -1,3 +1,5 @@
+import get from '../get';
+
 export const NOTICIA = '1';
 export const INFOGRAFIA = '2';
 export const STORYTELLING = '4';
@@ -22,10 +24,16 @@ export const Subtypes = [
 export const subtypesWithAmp = {
     '1': 'nota-noticia',
     '2': 'nota-infografia',
+    '3': 'nota-opinion',
     '4': 'nota-storytelling',
     '5': 'nota-video',
     '6': 'nota-liveblog',
     '7': 'nota-receta',
     '8': 'nota-foto-al-100',
     '10': 'nota-agencia'
+};
+
+export const isSubtypeWithAmp = response => {
+    const subtype = get(response, 'subtype', '');
+    return response && subtype && !get(subtypesWithAmp, subtype, false);
 };
