@@ -66,6 +66,11 @@ function WithAcuArticlesData(
                 const distributorId = get(this, 'props.distributorId', null);
                 const size = get(this, 'props.size', 30);
                 const type = get(this, 'props.globalContent.type', '');
+                const hasCollectionApertura = get(
+                    this,
+                    'props.hasCollectionApertura',
+                    false
+                );
 
                 if (
                     !sectionId &&
@@ -102,7 +107,8 @@ function WithAcuArticlesData(
                         distributorId,
                         sectionsIds,
                         sourceOrigin,
-                        type
+                        type,
+                        hasCollectionApertura
                     },
                     filter
                 });

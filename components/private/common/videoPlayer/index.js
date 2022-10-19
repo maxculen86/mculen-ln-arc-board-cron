@@ -167,7 +167,7 @@ const VideoPlayer = props => {
                             shadowRoot.querySelector('div.powa-outage');
                     
                         if (${isApertura} && errorPowa.innerHTML === '<p>This video is geo-restricted.</p><p>Error 931.</p>') {
-                            errorPowa.innerHTML = 'Ups! Parece que este video no esta disponible en tu ubicación'
+                            errorPowa.innerHTML = '¡Ups! Parece que este video no esta disponible en tu ubicación'
                         }
                     });`
                 }}

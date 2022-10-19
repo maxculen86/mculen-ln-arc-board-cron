@@ -90,7 +90,7 @@ describe('private - common - videoPlayer', () => {
         expect(container.querySelector('.video-player')).toBeInTheDocument();
     });
     it('should have script for custom errors', () => {
-        const errorScript = `window.addEventListener('load',()=>{const[{shadowRoot}={}]=document.querySelectorAll('.powa-shadow');leterrorPowa=shadowRoot.querySelector&&shadowRoot.querySelector('div.powa-outage');if(true&&errorPowa.innerHTML==='<p>Thisvideoisgeo-restricted.</p><p>Error931.</p>'){errorPowa.innerHTML='Ups!Parecequeestevideonoestadisponibleentuubicación'}});`;
+        const errorScript = `window.addEventListener('load',()=>{const[{shadowRoot}={}]=document.querySelectorAll('.powa-shadow');leterrorPowa=shadowRoot.querySelector&&shadowRoot.querySelector('div.powa-outage');if(true&&errorPowa.innerHTML==='<p>Thisvideoisgeo-restricted.</p><p>Error931.</p>'){errorPowa.innerHTML='¡Ups!Parecequeestevideonoestadisponibleentuubicación'}});`;
         const { container } = render(
             <VideoPlayer
                 videoId={'apertura_video_basic'}
