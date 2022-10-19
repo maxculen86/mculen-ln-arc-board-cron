@@ -6,6 +6,5 @@ import {
 } from '../../../../components/private/common/utils/subtypes/subtypeHelper';
 
 export default {
-    disableSubtypes: [HTMLLIBRE, VIDEO, RECETA, AGENCIA],
-    enableSections: ['espectaculos']
+    disableSubtypes: [HTMLLIBRE, VIDEO, RECETA, AGENCIA]
 };

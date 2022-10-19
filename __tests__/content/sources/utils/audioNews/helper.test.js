@@ -45,19 +45,6 @@ describe('Test - isNoteListenable', () => {
         expect(isNoteListenable(resp)).toStrictEqual(false);
     });
 
-    test('should return false when the note section is not enabled', () => {
-        const resp = {
-            ...data,
-            taxonomy: {
-                primary_section: {
-                    _id: '/economia'
-                }
-            }
-        };
-
-        expect(isNoteListenable(resp)).toStrictEqual(false);
-    });
-
     test('Should return false when data is not defined', () => {
         expect(isNoteListenable(undefined)).toStrictEqual(false);
     });

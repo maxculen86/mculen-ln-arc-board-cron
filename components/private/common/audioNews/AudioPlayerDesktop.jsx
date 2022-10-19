@@ -25,10 +25,13 @@ const AudioPlayerDesktop = ({
             {isListenable && (
                 <div className="btn-container" id="audio-player-desktop">
                     <ComButton
+                        id="btnAudioDesktop"
                         size="--fivexs"
                         iconName="headset"
                         title="Escuchar nota"
                         classCondition="headset --tertiary"
+                        dataEvent="LinkClick"
+                        dataSection="Escuchar Nota"
                         onClick={() => {
                             handleClickAudioNews(
                                 token,
