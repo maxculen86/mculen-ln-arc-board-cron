@@ -1,6 +1,5 @@
 import cuerpo from './cuerpo/index';
 import { storyTitleAndResume } from '../../common/story/apertura/aperturaArticle';
-
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
 
 const indexNotaText = dataNota => {
@@ -11,7 +10,8 @@ const indexNotaText = dataNota => {
     return content && content.length > 0
         ? {
               ...storyTitleAndResume(dataNota),
-              contenido: content.concat('Fin de la nota').join('\n')
+              contenido: content.concat('Fin de la nota').join('\n'),
+              audio_url: dataNota.audio_url
           }
         : {};
 };
