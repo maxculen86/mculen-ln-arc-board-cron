@@ -77,3 +77,20 @@ export const isInDatalayerEvent = (event, id) => {
 
     return result || false;
 };
+
+export const setCustomErrorsVideoPlayer = () => {
+    window.PoWaSettings = window.PoWaSettings || {};
+    window.PoWaSettings.error = window.PoWaSettings.error || {
+        template: error => {
+            const eventIDs = {
+                913: 'Ups! Parece que este video no esta disponible en tu ubicación',
+                931: 'Ups! Parece que este video no esta disponible en tu ubicación'
+            };
+            return (
+                eventIDs[error.eventID] ||
+                eventIDs[error.error.eventID] ||
+                'Ups! Parece que hubo un problema'
+            );
+        }
+    };
+};

@@ -4388,19 +4388,39 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
           class="mod-video"
         >
           <div
-            class="powa"
-            data-ad-bar="true"
-            data-ads="true"
-            data-api="prod"
-            data-autoinit="native-hls"
-            data-autoplay="false"
-            data-autoplay-muted="false"
-            data-controls="true"
-            data-env="prod"
-            data-muted="true"
-            data-sticky="false"
-            data-uuid="76c88e0b-33e7-405f-b6ad-b6a98fef7c77"
-          />
+            class="video-player"
+          >
+            <div
+              class="powa"
+              data-ad-bar="true"
+              data-ads="true"
+              data-api="prod"
+              data-autoinit="native-hls"
+              data-autoplay="false"
+              data-autoplay-muted="false"
+              data-controls="true"
+              data-env="prod"
+              data-muted="true"
+              data-sticky="false"
+              data-uuid="76c88e0b-33e7-405f-b6ad-b6a98fef7c77"
+            />
+            <script>
+              
+                    window.addEventListener('load', () =&gt; {
+                        const [{
+                            shadowRoot
+                        } = {}] = document.querySelectorAll('.powa-shadow');
+                    
+                        let errorPowa =
+                            shadowRoot.querySelector &&
+                            shadowRoot.querySelector('div.powa-outage');
+                    
+                        if (true && errorPowa.innerHTML === '&lt;p&gt;This video is geo-restricted.&lt;/p&gt;&lt;p&gt;Error 931.&lt;/p&gt;') {
+                            errorPowa.innerHTML = 'Ups! Parece que este video no esta disponible en tu ubicación'
+                        }
+                    });
+            </script>
+          </div>
           <script
             type="application/ld+json"
           >
@@ -5017,19 +5037,39 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
           class="mod-video"
         >
           <div
-            class="powa"
-            data-ad-bar="true"
-            data-ads="true"
-            data-api="prod"
-            data-autoinit="native-hls"
-            data-autoplay="false"
-            data-autoplay-muted="false"
-            data-controls="true"
-            data-env="prod"
-            data-muted="true"
-            data-sticky="false"
-            data-uuid="6c75af33-e0f1-4300-bd66-7b2913ca05c1"
-          />
+            class="video-player"
+          >
+            <div
+              class="powa"
+              data-ad-bar="true"
+              data-ads="true"
+              data-api="prod"
+              data-autoinit="native-hls"
+              data-autoplay="false"
+              data-autoplay-muted="false"
+              data-controls="true"
+              data-env="prod"
+              data-muted="true"
+              data-sticky="false"
+              data-uuid="6c75af33-e0f1-4300-bd66-7b2913ca05c1"
+            />
+            <script>
+              
+                    window.addEventListener('load', () =&gt; {
+                        const [{
+                            shadowRoot
+                        } = {}] = document.querySelectorAll('.powa-shadow');
+                    
+                        let errorPowa =
+                            shadowRoot.querySelector &&
+                            shadowRoot.querySelector('div.powa-outage');
+                    
+                        if (true && errorPowa.innerHTML === '&lt;p&gt;This video is geo-restricted.&lt;/p&gt;&lt;p&gt;Error 931.&lt;/p&gt;') {
+                            errorPowa.innerHTML = 'Ups! Parece que este video no esta disponible en tu ubicación'
+                        }
+                    });
+            </script>
+          </div>
           <script
             type="application/ld+json"
           >
@@ -7357,19 +7397,39 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
           class="mod-video"
         >
           <div
-            class="powa"
-            data-ad-bar="true"
-            data-ads="true"
-            data-api="prod"
-            data-autoinit="native-hls"
-            data-autoplay="false"
-            data-autoplay-muted="false"
-            data-controls="true"
-            data-env="prod"
-            data-muted="true"
-            data-sticky="false"
-            data-uuid="76c88e0b-33e7-405f-b6ad-b6a98fef7c77"
-          />
+            class="video-player"
+          >
+            <div
+              class="powa"
+              data-ad-bar="true"
+              data-ads="true"
+              data-api="prod"
+              data-autoinit="native-hls"
+              data-autoplay="false"
+              data-autoplay-muted="false"
+              data-controls="true"
+              data-env="prod"
+              data-muted="true"
+              data-sticky="false"
+              data-uuid="76c88e0b-33e7-405f-b6ad-b6a98fef7c77"
+            />
+            <script>
+              
+                    window.addEventListener('load', () =&gt; {
+                        const [{
+                            shadowRoot
+                        } = {}] = document.querySelectorAll('.powa-shadow');
+                    
+                        let errorPowa =
+                            shadowRoot.querySelector &&
+                            shadowRoot.querySelector('div.powa-outage');
+                    
+                        if (true && errorPowa.innerHTML === '&lt;p&gt;This video is geo-restricted.&lt;/p&gt;&lt;p&gt;Error 931.&lt;/p&gt;') {
+                            errorPowa.innerHTML = 'Ups! Parece que este video no esta disponible en tu ubicación'
+                        }
+                    });
+            </script>
+          </div>
           <script
             type="application/ld+json"
           >
@@ -8664,19 +8724,39 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
           class="mod-video"
         >
           <div
-            class="powa"
-            data-ad-bar="true"
-            data-ads="true"
-            data-api="prod"
-            data-autoinit="native-hls"
-            data-autoplay="false"
-            data-autoplay-muted="false"
-            data-controls="true"
-            data-env="prod"
-            data-muted="true"
-            data-sticky="false"
-            data-uuid="6c75af33-e0f1-4300-bd66-7b2913ca05c1"
-          />
+            class="video-player"
+          >
+            <div
+              class="powa"
+              data-ad-bar="true"
+              data-ads="true"
+              data-api="prod"
+              data-autoinit="native-hls"
+              data-autoplay="false"
+              data-autoplay-muted="false"
+              data-controls="true"
+              data-env="prod"
+              data-muted="true"
+              data-sticky="false"
+              data-uuid="6c75af33-e0f1-4300-bd66-7b2913ca05c1"
+            />
+            <script>
+              
+                    window.addEventListener('load', () =&gt; {
+                        const [{
+                            shadowRoot
+                        } = {}] = document.querySelectorAll('.powa-shadow');
+                    
+                        let errorPowa =
+                            shadowRoot.querySelector &&
+                            shadowRoot.querySelector('div.powa-outage');
+                    
+                        if (true && errorPowa.innerHTML === '&lt;p&gt;This video is geo-restricted.&lt;/p&gt;&lt;p&gt;Error 931.&lt;/p&gt;') {
+                            errorPowa.innerHTML = 'Ups! Parece que este video no esta disponible en tu ubicación'
+                        }
+                    });
+            </script>
+          </div>
           <script
             type="application/ld+json"
           >
