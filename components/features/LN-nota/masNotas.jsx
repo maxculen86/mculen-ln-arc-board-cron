@@ -31,7 +31,7 @@ const masNotas = props => {
     } = props;
 
     const { subtype, taxonomy, _id: idArticle } = globalContent || {};
-    const { primary_section, tags } = taxonomy || {};
+    const { primary_section, tags = [] } = taxonomy || {};
     const { _id, _website, name: sectionName, path } = primary_section || {};
 
     if (!_id) return <></>;
