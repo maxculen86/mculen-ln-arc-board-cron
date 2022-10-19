@@ -5,7 +5,15 @@ import HolidaysCounter from '../../../../../../components/private/LN/services/ho
 
 describe('components - private - holidays - HolidaysCounter', () => {
     it('snapshot HolidaysCounter', () => {
-        const { container } = render(<HolidaysCounter />);
+        const { container } = render(
+            <HolidaysCounter
+                nextHoliday={8}
+                month="Enero"
+                remainingDays={5}
+                description="Día de la Inmaculada Concepción de María."
+                typeHoliday="inamovibles"
+            />
+        );
         expect(container).toMatchSnapshot();
     });
 });

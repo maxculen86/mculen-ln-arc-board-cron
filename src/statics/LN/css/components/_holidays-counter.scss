@@ -5,7 +5,6 @@
     @include common-card;
     width: 100%;
     max-width: px(288);
-    max-height: px(278);
     gap: px(16);
     padding: px(16) px(32);
     margin: px(0) auto px(32) auto;
@@ -44,38 +43,29 @@
 
     .label-counter {
         @include flex(flex, column, center, center);
-        :first-child {
-            text-align: center;
-            line-height: px(32);
+        h2 {
             font-size: px(24);
+            line-height: px(32);
             margin-bottom: px(16);
-            strong {
-                text-align: center;
-                line-height: px(32);
-                font-size: px(24);
-                margin-bottom: px(16);
-                font-weight: bold;
-            }
         }
-        :last-child {
-            font-size: px(19);
+        .com-text {
+            text-align: center;
         }
-        color: $negro;
         @media ($media-m) {
             @include flex(flex, column, center, start);
+            .com-text {
+                text-align: start;
+            }
         }
     }
     @media ($media-xs) {
         max-width: px(328);
-        max-height: px(278);
     }
     @media ($media-s) {
         max-width: px(440);
-        max-height: px(278);
     }
     @media ($media-m) {
         @include flex(flex, row, start, space-between);
         max-width: px(620);
-        max-height: px(152);
     }
 }

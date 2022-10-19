@@ -5,47 +5,52 @@ import '../../../../../resources/dist/css/ln/components/holidays-counter.css';
 import Text from '../../../common/text';
 
 const HolidaysCounter = ({
-    nextHoliday = 10,
-    month = 'Enero',
-    remainingDays = 10,
-    description = 'año nuevo',
-    typeHoliday = 'puente'
+    nextHoliday,
+    month,
+    remainingDays,
+    description,
+    typeHoliday
 }) => {
     const extraClass = {
         inamovibles: ' --immovable',
         puente: ' --bridge',
         trasladables: ' --transferable'
     };
-
     const dayCondition =
         remainingDays === 1
             ? `Falta ${remainingDays} día `
             : `Faltan ${remainingDays} días `;
-
     return (
         <div className="holidays-counter">
             <div className={`number-counter${extraClass[typeHoliday]}`}>
-                <Text tag="h2" size="3xl" weight="bold" font="sueca">
-                    {nextHoliday}
-                </Text>
-                <Text size="medium" weight="bold">
-                    {month}
-                </Text>
+                {nextHoliday && (
+                    <Text size="3xl" weight="bold" font="sueca">
+                        {nextHoliday}
+                    </Text>
+                )}
+                {month && (
+                    <Text size="medium" weight="bold">
+                        {month}
+                    </Text>
+                )}
             </div>
             <div className="label-counter">
-                <Text tag="h2" size="large">
-                    <strong>{dayCondition}</strong>
-                    para el próximo feriado
-                </Text>
-                <Text tag="span" size="small">
-                    Feriado
-                    {` ${description}`}
-                </Text>
+                {remainingDays && (
+                    <Text tag="h2" size="large">
+                        <strong>{dayCondition}</strong>
+                        para el próximo feriado
+                    </Text>
+                )}
+                {description && (
+                    <Text tag="p" size="small">
+                        Feriado
+                        {` ${description}`}
+                    </Text>
+                )}
             </div>
         </div>
     );
 };
-
 HolidaysCounter.propTypes = {
     nextHoliday: PropTypes.number.isRequired,
     month: PropTypes.string.isRequired,
@@ -57,5 +62,4 @@ HolidaysCounter.propTypes = {
         trasladables: PropTypes.string
     })
 };
-
 export default HolidaysCounter;

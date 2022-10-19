@@ -6,13 +6,13 @@ exports[`components - private - holidays - HolidaysCounter snapshot HolidaysCoun
     class="holidays-counter"
   >
     <div
-      class="number-counter --bridge"
+      class="number-counter --immovable"
     >
-      <h2
+      <span
         class="com-text --sueca --font-bold --threexl"
       >
-        10
-      </h2>
+        8
+      </span>
       <span
         class="com-text --font-bold --m"
       >
@@ -26,16 +26,16 @@ exports[`components - private - holidays - HolidaysCounter snapshot HolidaysCoun
         class="com-text --l"
       >
         <strong>
-          Faltan 10 días 
+          Faltan 5 días 
         </strong>
         para el próximo feriado
       </h2>
-      <span
+      <p
         class="com-text --s"
       >
         Feriado
-         año nuevo
-      </span>
+         Día de la Inmaculada Concepción de María.
+      </p>
     </div>
   </div>
 </div>
