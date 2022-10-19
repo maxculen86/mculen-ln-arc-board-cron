@@ -14,8 +14,12 @@ import getVideoPosterResized from '../video/getVideoPosterResized';
 import replaceUrlResizerToWWW from '../../../../../content/sources/utils/replaceUrlResizerToWWW';
 import capitalizeFirstLetter from '../capitalizeFirstLetter';
 import ImagePreloadlAcu from '../../../LN/acumulado/imagePreloadAcu';
-import verifyChainsBeforeGrid from '../verifyChainsBeforeGrid';
-import getIdCollectionFromGC from '../getIdCollectionFromGC';
+import {
+    verifyChainsBeforeGrid,
+    getIdCollectionFromGC,
+    haveFeatureAcumuladoApertura,
+    getDataPreloadAcu
+} from '../preloadHelper';
 
 const getSource = ({
     imageID = '',
@@ -175,17 +179,28 @@ const GetDataToLinkImage = ({
                 return <LinkImagePreload resizedUrls={imagesToPreload} />;
             }
 
+            const hasFeatureAcumuladoApertura = haveFeatureAcumuladoApertura(
+                renderables
+            );
             const hasChainBeforeGrid = verifyChainsBeforeGrid(renderables);
             const idCollectionApertura = getIdCollectionFromGC(data);
 
-            if (isAuthor || hasChainBeforeGrid || idCollectionApertura)
+            if (
+                !hasFeatureAcumuladoApertura ||
+                isAuthor ||
+                (!idCollectionApertura && hasChainBeforeGrid)
+            )
                 return <></>;
 
+            const dataPreloadAcu = getDataPreloadAcu(
+                idCollectionApertura,
+                nodeType
+            );
             return (
                 <ImagePreloadlAcu
+                    {...dataPreloadAcu}
                     arcSite={arcSite}
                     accumulated={{ id, canonicalUrl, name }}
-                    nodeType={nodeType}
                 />
             );
         },
