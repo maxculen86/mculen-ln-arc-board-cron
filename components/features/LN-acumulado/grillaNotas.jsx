@@ -135,6 +135,7 @@ function GrillaNotasFeature(props) {
             outputType={outputType}
             idsArticlesToExclude={idsArticlesToExclude}
             articlesInCollection={articlesInCollection}
+            hasCollectionApertura={articlesInCollection.length}
         />
     );
 }

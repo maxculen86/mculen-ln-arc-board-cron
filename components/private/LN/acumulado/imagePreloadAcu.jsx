@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { LinkImagePreload } from '../common/utils/mediaHelper';
@@ -7,13 +9,19 @@ import get from '../../common/utils/get';
 import replaceUrlResizerToWWW from '../../../../content/sources/utils/replaceUrlResizerToWWW';
 import filter from '../../../../content/filters/LN/acumulado/articlePreload';
 
-const ImagePreloadlAcu = ({ arcSite, accumulated, nodeType }) => {
+const ImagePreloadlAcu = ({
+    arcSite,
+    accumulated,
+    nodeType,
+    collectionId = '',
+    imageConfig = 'boxArticles'
+}) => {
     const typesOfQuery = setArticleQueryAcu(nodeType, accumulated);
 
     const searchArgs = {
         typesOfQuery,
         filter,
-        imageConfig: 'boxArticles',
+        imageConfig,
         size: 1,
         sourceOrigin: '',
         excludeSectionId: false,
@@ -21,7 +29,8 @@ const ImagePreloadlAcu = ({ arcSite, accumulated, nodeType }) => {
         shouldNotFilter: false,
         website: arcSite || 'la-nacion-ar',
         promoItemsOnly: false,
-        staticMode: true
+        staticMode: true,
+        collectionId
     };
 
     const [firstArticle] =
@@ -41,7 +50,9 @@ ImagePreloadlAcu.propTypes = {
         canonicalUrl: PropTypes.string,
         name: PropTypes.string
     }).isRequired,
-    nodeType: PropTypes.string.isRequired
+    nodeType: PropTypes.string.isRequired,
+    collectionId: PropTypes.string,
+    imageConfig: PropTypes.string
 };
 
 export default ImagePreloadlAcu;
