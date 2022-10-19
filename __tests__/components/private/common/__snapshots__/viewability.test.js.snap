@@ -239,7 +239,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                 withMedia={true}
               >
                 <article
-                  className="mod-article toi0101 nidK2FFK3J6DNCX3D76BQ6D7FLQNE"
+                  className="mod-article"
                   data-id="K2FFK3J6DNCX3D76BQ6D7FLQNE"
                   data-notaid="K2FFK3J6DNCX3D76BQ6D7FLQNE"
                   data-pos="0101"
@@ -522,7 +522,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                 withMedia={true}
               >
                 <article
-                  className="mod-article toi0102 nidAQCXKYK4XJCVFNFNZ2IQ7SUCA4"
+                  className="mod-article"
                   data-id="AQCXKYK4XJCVFNFNZ2IQ7SUCA4"
                   data-notaid="AQCXKYK4XJCVFNFNZ2IQ7SUCA4"
                   data-pos="0102"
@@ -805,7 +805,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                 withMedia={true}
               >
                 <article
-                  className="mod-article toi0103 nidKEBYELHATJHPRNAWO24GRV6YCQ"
+                  className="mod-article"
                   data-id="KEBYELHATJHPRNAWO24GRV6YCQ"
                   data-notaid="KEBYELHATJHPRNAWO24GRV6YCQ"
                   data-pos="0103"
