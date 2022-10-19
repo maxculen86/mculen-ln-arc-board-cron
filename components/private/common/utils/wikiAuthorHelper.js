@@ -91,32 +91,11 @@ export const authorAffiliations = affiliations => {
     ) : null;
 };
 
-export const validateBooks = (books = []) => {
-    const filteredBooks = [];
-
-    books.length > 0 &&
-        books.forEach((book = {}, i) => {
-            const { title = '' } = book;
-            title && filteredBooks.push(book);
-        });
-
-    return filteredBooks;
-};
-
-export const validatePodcasts = (podcasts = []) => {
-    const filteredPodcasts = [];
-
-    podcasts.length > 0 &&
-        podcasts.forEach((podcast = {}, i) => {
-            const { name = '' } = podcast;
-            name && filteredPodcasts.push(podcast);
-        });
-
-    return filteredPodcasts;
-};
-
 export const authorBooks = (books = []) => {
-    const validatedBooks = validateBooks(books);
+    const validatedBooks = books.filter((book = {}) => {
+        const { title = '' } = book;
+        return title !== '';
+    });
     return validatedBooks.length > 0 ? (
         <ComContainer>
             <ModDescriptionList
@@ -128,8 +107,11 @@ export const authorBooks = (books = []) => {
     ) : null;
 };
 
-export const authorPodcast = (podcast = []) => {
-    const validatedPodcast = validatePodcasts(podcast);
+export const authorPodcast = (podcasts = []) => {
+    const validatedPodcast = podcasts.filter((podcast = {}) => {
+        const { name = '' } = podcast;
+        return name !== '';
+    });
     return validatedPodcast.length > 0 ? (
         <ComContainer>
             <ModDescriptionList

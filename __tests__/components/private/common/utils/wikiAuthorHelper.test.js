@@ -11,9 +11,7 @@ import {
     authorBooks,
     authorPodcast,
     authorSocialNetworks,
-    authorExpertise,
-    validateBooks,
-    validatePodcasts
+    authorExpertise
 } from '../../../../../components/private/common/utils/wikiAuthorHelper';
 
 jest.mock(
@@ -290,56 +288,5 @@ describe('WIkiAuthorHelper functions test', () => {
         );
         expect(authorExpertise(undefined)).toBe(null);
         expect(container).toMatchSnapshot();
-    });
-
-    describe('Checking validatebooks function', () => {
-        it('When all data is available should return the same array', () => {
-            const books = [
-                {
-                    publisher: 'Juan Pravata',
-                    title: 'Librito 1',
-                    url: 'librito.com'
-                }
-            ];
-            expect(validateBooks(books)).toStrictEqual(books);
-        });
-        it('If title is missing should return empty array', () => {
-            const books = [
-                {
-                    publisher: 'Juan Pravata',
-                    title: '',
-                    url: 'librito.com'
-                }
-            ];
-            expect(validateBooks(books)).toStrictEqual([]);
-        });
-        it('When nothing is sent return empty array', () => {
-            expect(validateBooks()).toStrictEqual([]);
-        });
-    });
-    describe('Checking validate podcast function', () => {
-        it('When all data is available should return the same array', () => {
-            const podcast = [
-                {
-                    download_url: 'descarga.com/podcast',
-                    name: 'Hola me llamo juan',
-                    url: 'podacast.com/juancito'
-                }
-            ];
-            expect(validatePodcasts(podcast)).toStrictEqual(podcast);
-        });
-        it('If name is missing should return empty array', () => {
-            const podcast = [
-                {
-                    download_url: 'descarga.com/podcast',
-                    name: '',
-                    url: 'podacast.com/juancito'
-                }
-            ];
-            expect(validatePodcasts(podcast)).toStrictEqual([]);
-        });
-        it('When nothing is sent return empty array', () => {
-            expect(validatePodcasts()).toStrictEqual([]);
-        });
     });
 });
