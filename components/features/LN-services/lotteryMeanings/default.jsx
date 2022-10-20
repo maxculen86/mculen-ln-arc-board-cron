@@ -1,15 +1,12 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { API_ENV, SITE_LANACION } from 'fusion:environment';
-import StaticValidation from '../../../private/common/staticValidation';
 import ServiceMiniCard from '../../../private/common/serviceMiniCard';
-
 import { meanings } from '../../../../content/sources/utils/servicesSource/lottery/_config';
 import ModHeaderSection from '../../../private/common/mod-headerSection';
 
-const LotteryMeanings = ({ id: featureId }) => {
+const LotteryMeanings = () => {
     return (
-        <StaticValidation id={featureId} htmlOnly persistent>
+        <>
             <ModHeaderSection
                 tag="h2"
                 title="Significado de números según los sueños"
@@ -28,12 +25,11 @@ const LotteryMeanings = ({ id: featureId }) => {
                     />
                 ))}
             </div>
-        </StaticValidation>
+        </>
     );
 };
 
 LotteryMeanings.label = 'LN Loteria Home Significado de Números';
-
-LotteryMeanings.propTypes = { id: PropTypes.string.isRequired };
+LotteryMeanings.lazy = true;
 
 export default LotteryMeanings;
