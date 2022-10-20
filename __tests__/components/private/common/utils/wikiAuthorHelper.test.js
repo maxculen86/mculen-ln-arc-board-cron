@@ -237,6 +237,7 @@ describe('WIkiAuthorHelper functions test', () => {
 
     it('Checking authorPodcast', () => {
         const { container } = render(authorPodcast(podcast));
+
         const containerElement = container.getElementsByTagName(
             'mock-com-container'
         );
