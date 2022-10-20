@@ -3,7 +3,7 @@
 exports[`components - private - holidays - HolidaysNav snapshot HolidaysNav 1`] = `
 <div>
   <div
-    class="holidaysNav"
+    class="holidays-nav"
   >
     <div
       class="sampler"
