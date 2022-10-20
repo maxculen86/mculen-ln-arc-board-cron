@@ -33,7 +33,6 @@ const LotteryMeanings = ({ id: featureId }) => {
 };
 
 LotteryMeanings.label = 'LN Loteria Home Significado de Números';
-LotteryMeanings.lazy = true;
 
 LotteryMeanings.propTypes = { id: PropTypes.string.isRequired };
 
