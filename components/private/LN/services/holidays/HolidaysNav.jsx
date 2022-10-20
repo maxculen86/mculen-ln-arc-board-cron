@@ -8,10 +8,6 @@ const HolidaysNav = ({ year }) => {
     const currentYear = new Date().getFullYear();
     const previousYear = currentYear - 1;
     const posteriorYear = currentYear + 1;
-    // const validatePosterirYearLink =
-    //     year === posteriorYear
-    //         ? false
-    //         : `https://www.lanacion.com.ar/feriados/${posteriorYear}/`;
 
     const validateYear = valYear => {
         return year === valYear
@@ -19,7 +15,7 @@ const HolidaysNav = ({ year }) => {
             : `https://www.lanacion.com.ar/feriados/${valYear}/`;
     };
     return (
-        <div className="holidaysNav">
+        <div className="holidays-nav">
             <div className="sampler">
                 <Text size="4xs">Feriados inamovibles</Text>
                 <Text size="4xs">Feriados puente</Text>

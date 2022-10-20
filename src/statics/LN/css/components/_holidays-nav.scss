@@ -1,7 +1,7 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 
-.holidaysNav {
+.holidays-nav {
     @include flex(flex, column, space-between, flex-start);
     width: 100%;
     max-width: px(440);
