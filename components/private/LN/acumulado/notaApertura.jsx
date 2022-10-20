@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ArticleAcum from './articleAcum';
 import ModRowGap from '../../common/mod-rowgap';
+import { replaceAllUrlsResizerObject } from '../common/utils/mediaHelper';
 
 const NotaApertura = props => {
     const ARTICLE_TYPE = 'Grilla';
@@ -16,13 +17,14 @@ const NotaApertura = props => {
             {articlesInCollection.map((art, i) => (
                 <ArticleAcum
                     key={art._id}
-                    article={art}
+                    article={i === 0 ? replaceAllUrlsResizerObject(art) : art}
                     dataSection={DATA_SECTION}
                     typeArticle={ARTICLE_TYPE}
                     outputType={outputType}
                     withSubhead={false}
                     titleTag="h2"
                     titleSize="--l"
+                    isApertura={i === 0}
                 />
             ))}
         </ModRowGap>

@@ -19,7 +19,7 @@ import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import { formatText } from '../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import PwaModals from '../private/LN/common/pwaModals';
-import getIdCollectionFromGC from '../private/common/utils/getIdCollectionFromGC';
+import { getIdCollectionFromGC } from '../private/common/utils/preloadHelper';
 
 const pageBuilderSections = [
     'Banner-Megatop',

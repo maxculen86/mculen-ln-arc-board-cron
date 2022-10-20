@@ -1,0 +1,272 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - Features - LN-nota - share should run a snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="first-buttons-group"
+      >
+        <button
+          class="com-button headset --tertiary --icon"
+          data-event="LinkClick"
+          data-section="Escuchar Nota"
+          id="btnAudio"
+          on=""
+          tabindex=""
+          title="Escuchar nota"
+          type="button"
+        >
+          <i
+            class="com-icon icon-headset"
+          >
+            <svg
+              class=""
+              fill="none"
+              height="19"
+              viewBox="0 0 20 19"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M2 10.001H5C6.10457 10.001 7 10.8964 7 12.001V17.001C7 18.1056 6.10457 19.001 5 19.001H2C0.89543 19.001 0 18.1056 0 17.001V10.001C0 4.47801 4.477 0.00100708 10 0.00100708C15.523 0.00100708 20 4.47801 20 10.001V17.001C20 18.1056 19.1046 19.001 18 19.001H15C13.8954 19.001 13 18.1056 13 17.001V12.001C13 10.8964 13.8954 10.001 15 10.001H18C18 5.58273 14.4183 2.00101 10 2.00101C5.58172 2.00101 2 5.58273 2 10.001Z"
+                fill="#FEFEFE"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </i>
+          <span
+            class="com-text --fourxs"
+          >
+            
+            escuchar
+          </span>
+        </button>
+        <button
+          class="com-button bookmark  --icon"
+          data-event="LinkClick"
+          data-section="Guardar Nota"
+          id="btnbookmark"
+          on=""
+          tabindex=""
+          title="Notas guardadas"
+          type="button"
+        >
+          <i
+            class="com-icon icon-bookmark"
+          >
+            <svg
+              class=""
+              fill="none"
+              height="15"
+              viewBox="0 0 12 15"
+              width="12"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.33335 0.333374H10.6667C10.8435 0.333374 11.0131 0.403612 11.1381 0.528636C11.2631 0.65366 11.3334 0.82323 11.3334 1.00004V13.762C11.3334 13.8216 11.3175 13.8802 11.2873 13.9315C11.2571 13.9829 11.2136 14.0252 11.1614 14.0541C11.1093 14.083 11.0504 14.0973 10.9908 14.0957C10.9312 14.094 10.8732 14.0764 10.8227 14.0447L6.00002 11.02L1.17735 14.044C1.12693 14.0757 1.06895 14.0933 1.00942 14.095C0.949898 14.0967 0.891011 14.0824 0.838884 14.0536C0.786756 14.0248 0.743292 13.9826 0.713009 13.9313C0.682726 13.88 0.666731 13.8216 0.666687 13.762V1.00004C0.666687 0.82323 0.736925 0.65366 0.861949 0.528636C0.986974 0.403612 1.15654 0.333374 1.33335 0.333374ZM10 1.66671H2.00002V11.9547L6.00002 9.44737L10 11.9547V1.66671Z"
+                fill="#272727"
+              />
+            </svg>
+          </i>
+          
+        </button>
+        <button
+          class="com-button comment-btn --icon"
+          data-event="LinkClick"
+          data-section="CompartirNotaLN"
+          id="btncomments"
+          on=""
+          tabindex=""
+          title="Ir a los comentarios de la nota"
+          type="button"
+        >
+          <i
+            class="com-icon icon-chat"
+          >
+            <svg
+              fill="none"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M14 3H10C7.87827 3 5.84344 3.84285 4.34315 5.34315C2.84285 6.84344 2 8.87827 2 11C2 17.5 9 20.5 14 22.5V19C16.1217 19 18.1566 18.1571 19.6569 16.6569C21.1571 15.1566 22 13.1217 22 11C22 8.87827 21.1571 6.84344 19.6569 5.34315C18.1566 3.84285 16.1217 3 14 3ZM12 17V19.48C6.462 16.966 4 14.61 4 11C4 9.4087 4.63214 7.88258 5.75736 6.75736C6.88258 5.63214 8.4087 5 10 5H14C14.7879 5 15.5681 5.15519 16.2961 5.45672C17.0241 5.75825 17.6855 6.20021 18.2426 6.75736C18.7998 7.31451 19.2417 7.97595 19.5433 8.7039C19.8448 9.43185 20 10.2121 20 11C20 11.7879 19.8448 12.5681 19.5433 13.2961C19.2417 14.0241 18.7998 14.6855 18.2426 15.2426C17.6855 15.7998 17.0241 16.2417 16.2961 16.5433C15.5681 16.8448 14.7879 17 14 17H12ZM9 10H7V12H9V10ZM11 10H13V12H11V10ZM17 10H15V12H17V10Z"
+                fill="#272727"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </i>
+          <span
+            class="com-text --fivexs"
+          >
+            
+            1
+          </span>
+        </button>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="first-buttons-group"
+    >
+      <button
+        class="com-button headset --tertiary --icon"
+        data-event="LinkClick"
+        data-section="Escuchar Nota"
+        id="btnAudio"
+        on=""
+        tabindex=""
+        title="Escuchar nota"
+        type="button"
+      >
+        <i
+          class="com-icon icon-headset"
+        >
+          <svg
+            class=""
+            fill="none"
+            height="19"
+            viewBox="0 0 20 19"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M2 10.001H5C6.10457 10.001 7 10.8964 7 12.001V17.001C7 18.1056 6.10457 19.001 5 19.001H2C0.89543 19.001 0 18.1056 0 17.001V10.001C0 4.47801 4.477 0.00100708 10 0.00100708C15.523 0.00100708 20 4.47801 20 10.001V17.001C20 18.1056 19.1046 19.001 18 19.001H15C13.8954 19.001 13 18.1056 13 17.001V12.001C13 10.8964 13.8954 10.001 15 10.001H18C18 5.58273 14.4183 2.00101 10 2.00101C5.58172 2.00101 2 5.58273 2 10.001Z"
+              fill="#FEFEFE"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </i>
+        <span
+          class="com-text --fourxs"
+        >
+          
+          escuchar
+        </span>
+      </button>
+      <button
+        class="com-button bookmark  --icon"
+        data-event="LinkClick"
+        data-section="Guardar Nota"
+        id="btnbookmark"
+        on=""
+        tabindex=""
+        title="Notas guardadas"
+        type="button"
+      >
+        <i
+          class="com-icon icon-bookmark"
+        >
+          <svg
+            class=""
+            fill="none"
+            height="15"
+            viewBox="0 0 12 15"
+            width="12"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1.33335 0.333374H10.6667C10.8435 0.333374 11.0131 0.403612 11.1381 0.528636C11.2631 0.65366 11.3334 0.82323 11.3334 1.00004V13.762C11.3334 13.8216 11.3175 13.8802 11.2873 13.9315C11.2571 13.9829 11.2136 14.0252 11.1614 14.0541C11.1093 14.083 11.0504 14.0973 10.9908 14.0957C10.9312 14.094 10.8732 14.0764 10.8227 14.0447L6.00002 11.02L1.17735 14.044C1.12693 14.0757 1.06895 14.0933 1.00942 14.095C0.949898 14.0967 0.891011 14.0824 0.838884 14.0536C0.786756 14.0248 0.743292 13.9826 0.713009 13.9313C0.682726 13.88 0.666731 13.8216 0.666687 13.762V1.00004C0.666687 0.82323 0.736925 0.65366 0.861949 0.528636C0.986974 0.403612 1.15654 0.333374 1.33335 0.333374ZM10 1.66671H2.00002V11.9547L6.00002 9.44737L10 11.9547V1.66671Z"
+              fill="#272727"
+            />
+          </svg>
+        </i>
+        
+      </button>
+      <button
+        class="com-button comment-btn --icon"
+        data-event="LinkClick"
+        data-section="CompartirNotaLN"
+        id="btncomments"
+        on=""
+        tabindex=""
+        title="Ir a los comentarios de la nota"
+        type="button"
+      >
+        <i
+          class="com-icon icon-chat"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M14 3H10C7.87827 3 5.84344 3.84285 4.34315 5.34315C2.84285 6.84344 2 8.87827 2 11C2 17.5 9 20.5 14 22.5V19C16.1217 19 18.1566 18.1571 19.6569 16.6569C21.1571 15.1566 22 13.1217 22 11C22 8.87827 21.1571 6.84344 19.6569 5.34315C18.1566 3.84285 16.1217 3 14 3ZM12 17V19.48C6.462 16.966 4 14.61 4 11C4 9.4087 4.63214 7.88258 5.75736 6.75736C6.88258 5.63214 8.4087 5 10 5H14C14.7879 5 15.5681 5.15519 16.2961 5.45672C17.0241 5.75825 17.6855 6.20021 18.2426 6.75736C18.7998 7.31451 19.2417 7.97595 19.5433 8.7039C19.8448 9.43185 20 10.2121 20 11C20 11.7879 19.8448 12.5681 19.5433 13.2961C19.2417 14.0241 18.7998 14.6855 18.2426 15.2426C17.6855 15.7998 17.0241 16.2417 16.2961 16.5433C15.5681 16.8448 14.7879 17 14 17H12ZM9 10H7V12H9V10ZM11 10H13V12H11V10ZM17 10H15V12H17V10Z"
+              fill="#272727"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </i>
+        <span
+          class="com-text --fivexs"
+        >
+          
+          1
+        </span>
+      </button>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

@@ -1,0 +1,255 @@
+{
+    "collections": [
+        {
+            "_id": "B5JHI3CMNVFH3IK5JUS6LXETAU",
+            "credits": {
+                "by": [
+                    {
+                        "additional_properties": {
+                            "original": {
+                                "image": "https://bucket.glanacion.com/anexos/fotos/05/2089205.png"
+                            }
+                        },
+                        "image": {
+                            "resized_urls": [
+                                {
+                                    "option": {
+                                        "height": 80,
+                                        "media": "(min-width: 320px)",
+                                        "width": 80
+                                    },
+                                    "resizedUrl": "https://resizer.glanacion.com/resizer/SU1nWUFQinN4q8XwnbOqvtrTg7M=/80x0/filters:format(webp):quality(80)/bucket.glanacion.com/anexos/fotos/05/2089205.png"
+                                }
+                            ],
+                            "url": "https://bucket.glanacion.com/anexos/fotos/05/2089205.png"
+                        },
+                        "name": "Ana D'onofrio",
+                        "type": "author"
+                    }
+                ]
+            },
+            "display_date": "2011-07-25T00:00:00Z",
+            "headlines": {
+                "basic": "Pollo de campo a la leña con calabaza caramelizada"
+            },
+            "label": {
+                "volanta": {
+                    "display": true,
+                    "text": ""
+                }
+            },
+            "promo_items": {
+                "basic": {
+                    "height": 456,
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 407,
+                                "media": "(min-width: 1280px)",
+                                "width": 608
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/RD55UK6tMObjk0vjLAXZzqtc27g=/608x405/filters:format(webp):quality(80)/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/7AMSAE3TSVGQXDD576SXIQJBQM.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 325,
+                                "media": "(min-width: 1024px)",
+                                "width": 486
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/gxv8Kb5NoiwW5Wx6X1hFzEVjEzo=/486x324/filters:format(webp):quality(80)/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/7AMSAE3TSVGQXDD576SXIQJBQM.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 240,
+                                "media": "(min-width: 768px)",
+                                "width": 358
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/hbbHsd4UeNqbfPosUh2tpnLXhrg=/358x238/filters:format(webp):quality(80)/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/7AMSAE3TSVGQXDD576SXIQJBQM.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 250,
+                                "width": 375
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/DpbsUQso7ioXhZaLKv9RLgPUDUQ=/375x250/filters:format(webp):quality(80)/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/7AMSAE3TSVGQXDD576SXIQJBQM.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 213,
+                                "width": 320
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/7yPRxIioizC4FFMdQTwBXVljsQA=/320x213/filters:format(webp):quality(80)/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/7AMSAE3TSVGQXDD576SXIQJBQM.jpg"
+                        }
+                    ],
+                    "subtitle": "",
+                    "type": "image",
+                    "url": "https://resizer.glanacion.com/resizer/xLxYhohXU6eKzQf9qzmYV6TMKks=/768x0/filters:format(webp):quality(80)/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/7AMSAE3TSVGQXDD576SXIQJBQM.jpg",
+                    "width": 659
+                }
+            },
+            "publish_date": "2011-07-25T00:00:00.000Z",
+            "subheadlines": {
+                "basic": ""
+            },
+            "subtype": "7",
+            "taxonomy": {
+                "primary_section": {
+                    "_id": "/recetas/platos-de-comida-principal",
+                    "additional_properties": {
+                        "original": {}
+                    },
+                    "name": "Platos de comida principal",
+                    "path": "/recetas/platos-de-comida-principal"
+                },
+                "tags": [
+                    {
+                        "slug": "calabaza-tid47157",
+                        "text": "Calabaza"
+                    },
+                    {
+                        "slug": "pollo-tid47399",
+                        "text": "Pollo"
+                    },
+                    {
+                        "slug": "azucar-tid47141",
+                        "text": "Azúcar"
+                    },
+                    {
+                        "slug": "limon-tid47252",
+                        "text": "Limón"
+                    },
+                    {
+                        "slug": "pimiento-rojo-tid47305",
+                        "text": "Pimiento rojo"
+                    },
+                    {
+                        "slug": "oregano-tid47278",
+                        "text": "Orégano"
+                    },
+                    {
+                        "slug": "tomillo-tid47345",
+                        "text": "Tomillo"
+                    }
+                ]
+            },
+            "website_url": "/recetas/platos-de-comida-principal/pollo-de-campo-a-la-lena-con-calabaza-caramelizada-nid25072011-5/"
+        },
+        {
+            "_id": "GJJAB2CZJJGKVISIBVJCBZEAKM",
+            "credits": {},
+            "display_date": "2014-06-12T11:00:47Z",
+            "headlines": {
+                "basic": "Huevos y vegetales batidos sobre pan de campo"
+            },
+            "label": {
+                "volanta": {
+                    "display": true,
+                    "text": ""
+                }
+            },
+            "promo_items": {
+                "basic": {
+                    "height": 640,
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 407,
+                                "media": "(min-width: 1280px)",
+                                "width": 608
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/GrwogQ9LkthT_OLGhyDz7a8Upwc=/608x405/filters:format(webp):quality(80)/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/EWE2NMRJ4BEU5DDR32FW4NRFWU.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 325,
+                                "media": "(min-width: 1024px)",
+                                "width": 486
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/FcHeMrq9xuFqb_eCBottzLguUBE=/486x324/filters:format(webp):quality(80)/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/EWE2NMRJ4BEU5DDR32FW4NRFWU.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 240,
+                                "media": "(min-width: 768px)",
+                                "width": 358
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/1Y6CCELuW8hN6LKCsd0nIYoKQLE=/358x238/filters:format(webp):quality(80)/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/EWE2NMRJ4BEU5DDR32FW4NRFWU.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 250,
+                                "width": 375
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/cB_mX_1kE7NMwxLF1pE0JBCZQPw=/375x250/filters:format(webp):quality(80)/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/EWE2NMRJ4BEU5DDR32FW4NRFWU.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 213,
+                                "width": 320
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/LqXJiL1KePsh19unSvFeUyBvh3Y=/320x213/filters:format(webp):quality(80)/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/EWE2NMRJ4BEU5DDR32FW4NRFWU.jpg"
+                        }
+                    ],
+                    "subtitle": "",
+                    "type": "image",
+                    "url": "https://resizer.glanacion.com/resizer/l1dXl7L8GaXy1H7L1FNjlnkvvOY=/768x0/filters:format(webp):quality(80)/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/EWE2NMRJ4BEU5DDR32FW4NRFWU.jpg",
+                    "width": 960
+                }
+            },
+            "publish_date": "2014-06-12T11:00:47.000Z",
+            "subheadlines": {
+                "basic": ""
+            },
+            "subtype": "7",
+            "taxonomy": {
+                "primary_section": {
+                    "_id": "/recetas/entradas",
+                    "additional_properties": {
+                        "original": {}
+                    },
+                    "name": "Entradas",
+                    "path": "/recetas/entradas"
+                },
+                "tags": [
+                    {
+                        "slug": "diente-de-ajo-tid48839",
+                        "text": "Diente de ajo"
+                    },
+                    {
+                        "slug": "vegetales-tid67215",
+                        "text": "Vegetales"
+                    },
+                    {
+                        "slug": "cebolla-tid47174",
+                        "text": "Cebolla"
+                    },
+                    {
+                        "slug": "hongo-tid47234",
+                        "text": "Hongo"
+                    },
+                    {
+                        "slug": "zapallito-tid47353",
+                        "text": "Zapallito"
+                    },
+                    {
+                        "slug": "choclo-tid47183",
+                        "text": "Choclo"
+                    },
+                    {
+                        "slug": "repollo-tid47322",
+                        "text": "Repollo"
+                    },
+                    {
+                        "slug": "huevo-tid47236",
+                        "text": "Huevo"
+                    },
+                    {
+                        "slug": "romero-tid47325",
+                        "text": "Romero"
+                    }
+                ]
+            },
+            "website_url": "/recetas/entradas/huevos-y-vegetales-batidos-sobre-pan-de-campo-nid12062014-4/"
+        }
+    ]
+}

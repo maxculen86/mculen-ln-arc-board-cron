@@ -77,9 +77,7 @@ export const conditionallyCallViafoura = time => {
         return differenceInMins < 10;
     };
 
-    return shouldLoadViafoura(time) && !newNoteAbortFetch(time)
-        ? 'viafouraSource'
-        : null;
+    return shouldLoadViafoura(time) && !newNoteAbortFetch(time);
 };
 
 export const validateComments = (props, subscription = false) => {
