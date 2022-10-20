@@ -49,9 +49,6 @@
             @include flex(flex, row, start, space-between);
             gap: px(24);
         }
-        @media ($media-lm) {
-            gap: px(24);
-        }
     }
     .year {
         @include flex(flex, row, start);

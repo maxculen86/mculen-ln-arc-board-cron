@@ -2308,21 +2308,21 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
       <div
         class="sampler"
       >
-        <span
+        <p
           class="com-text --fourxs"
         >
           Feriados inamovibles
-        </span>
-        <span
+        </p>
+        <p
           class="com-text --fourxs"
         >
           Feriados puente
-        </span>
-        <span
+        </p>
+        <p
           class="com-text --fourxs"
         >
           Feriados trasladables
-        </span>
+        </p>
       </div>
       <ol
         class="year"
@@ -2956,21 +2956,21 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
       <div
         class="sampler"
       >
-        <span
+        <p
           class="com-text --fourxs"
         >
           Feriados inamovibles
-        </span>
-        <span
+        </p>
+        <p
           class="com-text --fourxs"
         >
           Feriados puente
-        </span>
-        <span
+        </p>
+        <p
           class="com-text --fourxs"
         >
           Feriados trasladables
-        </span>
+        </p>
       </div>
       <ol
         class="year"

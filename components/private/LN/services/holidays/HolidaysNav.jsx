@@ -17,9 +17,15 @@ const HolidaysNav = ({ year }) => {
     return (
         <div className="holidays-nav">
             <div className="sampler">
-                <Text size="4xs">Feriados inamovibles</Text>
-                <Text size="4xs">Feriados puente</Text>
-                <Text size="4xs">Feriados trasladables</Text>
+                <Text tag="p" size="4xs">
+                    Feriados inamovibles
+                </Text>
+                <Text tag="p" size="4xs">
+                    Feriados puente
+                </Text>
+                <Text tag="p" size="4xs">
+                    Feriados trasladables
+                </Text>
             </div>
             <ol className="year">
                 <li
