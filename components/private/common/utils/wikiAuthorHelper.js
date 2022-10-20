@@ -4,11 +4,16 @@ import ComContainer from '../com-container';
 import ModDescriptionList from '../mod-descriptionList';
 import ComSubtitle from '../com-subtitle';
 import ListSocialIcons from '../list-socialicons';
+import { replaceAllUrlsResizerObject } from '../../LN/common/utils/mediaHelper';
 
 export const authorPhoto = (outputType, url, byline) => {
     return url ? (
         <div className="col-12 col-tablet-4 col-deskxl-3">
-            <ImageAuthor outputType={outputType} url={url} name={byline} />
+            <ImageAuthor
+                outputType={outputType}
+                url={replaceAllUrlsResizerObject(url)}
+                name={byline}
+            />
         </div>
     ) : null;
 };

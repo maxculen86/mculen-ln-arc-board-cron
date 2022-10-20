@@ -39,6 +39,10 @@ jest.mock(
     () => 'mock-social-icons'
 );
 
+jest.mock('fusion:properties', () => () => ({
+    getProperties: () => ({ host: 'https://www.lanacion.com.ar' })
+}));
+
 describe('WIkiAuthorHelper functions test', () => {
     const outputType = 'default';
     const affiliations = 'Academia de Periodismo.';

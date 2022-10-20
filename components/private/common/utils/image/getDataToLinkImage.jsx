@@ -8,7 +8,8 @@ import { STORYTELLING } from '../subtypes/subtypeHelper';
 import {
     LinkImagePreload,
     wikiImagesWithWWW,
-    replaceAllUrlsResizerArray
+    replaceAllUrlsResizerArray,
+    replaceAllUrlsResizerObject
 } from '../../../LN/common/utils/mediaHelper';
 import getVideoPosterResized from '../video/getVideoPosterResized';
 import replaceUrlResizerToWWW from '../../../../../content/sources/utils/replaceUrlResizerToWWW';
@@ -178,7 +179,22 @@ const GetDataToLinkImage = ({
                 const imagesToPreload = wikiImagesWithWWW(wikiSourceData);
                 return <LinkImagePreload resizedUrls={imagesToPreload} />;
             }
-
+            if (isAuthor) {
+                const urlImage = replaceAllUrlsResizerObject(
+                    get(data, 'image.url', null)
+                );
+                return (
+                    urlImage && (
+                        <link
+                            rel="preload"
+                            as="image"
+                            fetchPriority="high"
+                            href={urlImage}
+                            imagesrcset={urlImage}
+                        />
+                    )
+                );
+            }
             const hasFeatureAcumuladoApertura = haveFeatureAcumuladoApertura(
                 renderables
             );
@@ -187,7 +203,6 @@ const GetDataToLinkImage = ({
 
             if (
                 !hasFeatureAcumuladoApertura ||
-                isAuthor ||
                 (!idCollectionApertura && hasChainBeforeGrid)
             )
                 return <></>;

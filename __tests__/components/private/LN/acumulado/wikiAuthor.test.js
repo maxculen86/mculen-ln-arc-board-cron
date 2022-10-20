@@ -3,6 +3,10 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import WikiAuthor from '../../../../../components/private/LN/acumulado/author/wikiAuthor';
 
+jest.mock('fusion:properties', () => () => ({
+    getProperties: () => ({ host: 'https://www.lanacion.com.ar' })
+}));
+
 describe('private - LN - acumulado - Author - wikiAuthor', () => {
     const globalContent1 = {
         byline: 'Joaquín Morales Solá',
