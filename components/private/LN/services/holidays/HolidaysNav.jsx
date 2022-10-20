@@ -1,10 +1,11 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../../../../../resources/dist/css/ln/components/holidays-nav.css';
 import Link from '../../../common/com-link';
 import Text from '../../../common/text';
 
-const HolidaysNav = ({ year }) => {
+const HolidaysNav = ({ year, layout }) => {
     const currentYear = new Date().getFullYear();
     const previousYear = currentYear - 1;
     const posteriorYear = currentYear + 1;
@@ -14,8 +15,14 @@ const HolidaysNav = ({ year }) => {
             ? false
             : `https://www.lanacion.com.ar/feriados/${valYear}/`;
     };
+
+    const extraClass = {
+        home: ' --home',
+        month: ' --month'
+    };
+
     return (
-        <div className="holidays-nav">
+        <div className={`holidays-nav${extraClass[layout]}`}>
             <div className="sampler">
                 <Text tag="p" size="4xs">
                     Feriados inamovibles
@@ -67,7 +74,8 @@ const HolidaysNav = ({ year }) => {
 };
 
 HolidaysNav.propTypes = {
-    year: PropTypes.number.isRequired
+    year: PropTypes.number.isRequired,
+    layout: PropTypes.oneOf(['home', 'month'])
 };
 
 export default HolidaysNav;

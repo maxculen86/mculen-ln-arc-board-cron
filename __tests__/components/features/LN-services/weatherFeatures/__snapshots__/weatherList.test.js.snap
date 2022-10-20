@@ -2303,7 +2303,7 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
       </div>
     </div>
     <div
-      class="holidays-nav"
+      class="holidays-nav --month"
     >
       <div
         class="sampler"
@@ -2951,7 +2951,7 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
       </div>
     </div>
     <div
-      class="holidays-nav"
+      class="holidays-nav --month"
     >
       <div
         class="sampler"

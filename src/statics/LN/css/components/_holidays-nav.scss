@@ -2,21 +2,36 @@
 @import '../abstracts/mixins';
 
 .holidays-nav {
+    &.--home {
+        max-width: px(440);
+        @media ($media-m) {
+            max-width: none;
+        }
+    }
+    &.--month {
+        max-width: px(440);
+        @media ($media-m) {
+            max-width: px(561);
+        }
+        @media ($media-l) {
+            max-width: none;
+        }
+    }
     @include flex(flex, column, space-between, flex-start);
     width: 100%;
-    max-width: px(440);
+    // max-width: px(440);
     margin-bottom: px(32);
     margin-left: auto;
     margin-right: auto;
     gap: px(16);
     @media ($media-m) {
         @include flex(flex, row, space-between, flex-end);
-        max-width: px(561);
+        // max-width: px(561);
     }
     @media ($media-l) {
         margin-left: px(0);
         margin-right: px(0);
-        max-width: none;
+        // max-width: none;
         align-items: center;
     }
     .sampler {
