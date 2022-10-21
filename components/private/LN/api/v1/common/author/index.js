@@ -3,7 +3,7 @@ import { getAutorId } from '../../../../../common/utils/getElementId';
 import { getImageUrl } from '../image';
 
 const getAuthorData = author => {
-    const { _id: id, name } = author;
+    const { _id: id, name, expertise, role } = author;
 
     if (!name) {
         throw new Error('Nombre de Autor Inexistente');
@@ -12,7 +12,9 @@ const getAuthorData = author => {
     return {
         id: getAutorId(id),
         slug: id,
-        valor: name
+        valor: name,
+        intereses: expertise,
+        rol: role
     };
 };
 

@@ -1,6 +1,7 @@
 import { authorCommon as acuAuthor } from '../../../../../../../components/private/LN/api/v1/common/author/index';
 import article from '../../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
 import { getAutorId } from '../../../../../../../components/private/common/utils/getElementId';
+import authorsData from '../../../../../../../__mocks__/data/author/author.json';
 
 describe('Json imagen en acumulado', () => {
     test('Render imagen correcto', () => {
@@ -31,5 +32,29 @@ describe('Json imagen en acumulado', () => {
         const authors = article.content_elements[0].credits.by;
         const resp = authors.map(a => acuAuthor(a));
         expect(resp[0].imagen).toBe(null);
+    });
+
+    test('Areas de interes', () => {
+        const author = authorsData[0];
+        const resp = acuAuthor(author);
+        expect(resp.intereses).toEqual('Deportes, Fútbol');
+    });
+
+    test('Areas de interes null', () => {
+        const author = authorsData[1];
+        const resp = acuAuthor(author);
+        expect(resp.intereses).toBeUndefined();
+    });
+
+    test('Rol', () => {
+        const author = authorsData[0];
+        const resp = acuAuthor(author);
+        expect(resp.rol).toEqual('PARA LA NACION');
+    });
+
+    test('Rol null', () => {
+        const author = authorsData[1];
+        const resp = acuAuthor(author);
+        expect(resp.rol).toBeUndefined();
     });
 });

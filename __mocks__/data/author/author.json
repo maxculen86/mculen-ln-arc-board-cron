@@ -18,7 +18,8 @@
         "role": "PARA LA NACION",
         "slug": "vinciane-smeets-9110",
         "twitter": "",
-        "_id": "vinciane-smeets-9110"
+        "_id": "vinciane-smeets-9110",
+        "expertise": "Deportes, Fútbol"
     },
     {
         "author_type": "Estándar",
@@ -34,7 +35,6 @@
         "name": "Vinciane Smeets",
         "node_type": "author",
         "podcasts": [],
-        "role": "PARA LA NACION",
         "slug": "vinciane-smeets-9110",
         "twitter": "",
         "_id": "vinciane-smeets-9110"
