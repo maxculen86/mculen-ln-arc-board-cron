@@ -19,7 +19,7 @@ export default function useGetArticlesFromAcumSource(
         typesOfQuery || {};
 
     const setSource = () => {
-        if (sectionId || tagId || distributorId || sectionsIds)
+        if (sectionId || tagId || authorId || distributorId || sectionsIds)
             return 'acuArticlesSource';
 
         if (collectionId) return 'collectionsSource';
