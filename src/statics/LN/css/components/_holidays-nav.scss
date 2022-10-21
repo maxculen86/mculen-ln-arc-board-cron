@@ -19,31 +19,28 @@
     }
     @include flex(flex, column, space-between, flex-start);
     width: 100%;
-    // max-width: px(440);
-    margin-bottom: px(32);
+    margin-bottom: $spacing-lg;
     margin-left: auto;
     margin-right: auto;
-    gap: px(16);
+    gap: $spacing-sm;
     @media ($media-m) {
         @include flex(flex, row, space-between, flex-end);
-        // max-width: px(561);
     }
     @media ($media-l) {
         margin-left: px(0);
         margin-right: px(0);
-        // max-width: none;
         align-items: center;
     }
     .sampler {
         @include flex(flex, column, start, space-between);
-        gap: px(8);
+        gap: $spacing-xs;
         .com-text::before {
             content: '';
             display: inline-block;
             width: px(12);
             height: px(12);
             border-radius: 50%;
-            margin-right: px(8);
+            margin-right: $spacing-xs;
             transform: translate(px(0), px(4));
         }
         :nth-child(1)::before {
@@ -62,7 +59,7 @@
         }
         @media ($media-l) {
             @include flex(flex, row, start, space-between);
-            gap: px(24);
+            gap: $spacing-md;
         }
     }
     .year {
