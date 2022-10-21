@@ -2302,64 +2302,6 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         </div>
       </div>
     </div>
-    <div
-      class="holidays-nav --month"
-    >
-      <div
-        class="sampler"
-      >
-        <p
-          class="com-text --fourxs"
-        >
-          Feriados inamovibles
-        </p>
-        <p
-          class="com-text --fourxs"
-        >
-          Feriados puente
-        </p>
-        <p
-          class="com-text --fourxs"
-        >
-          Feriados trasladables
-        </p>
-      </div>
-      <ol
-        class="year"
-      >
-        <li
-          class="--font-bold --fivexs"
-        >
-          <a
-            class="com-link"
-            href="https://www.lanacion.com.ar/feriados/2021/"
-            title="Ir a feriados 2021"
-          >
-            2021
-          </a>
-        </li>
-        <li
-          class="--font-bold --fivexs --active"
-        >
-          <span
-            class="com-text"
-          >
-            2022
-          </span>
-        </li>
-        <li
-          class="--font-bold --fivexs"
-        >
-          <a
-            class="com-link"
-            href="https://www.lanacion.com.ar/feriados/2023/"
-            title="Ir a feriados 2023"
-          >
-            2023
-          </a>
-        </li>
-      </ol>
-    </div>
   </mock-static-validation>
 </div>
 `;
@@ -2949,64 +2891,6 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
           </span>
         </div>
       </div>
-    </div>
-    <div
-      class="holidays-nav --month"
-    >
-      <div
-        class="sampler"
-      >
-        <p
-          class="com-text --fourxs"
-        >
-          Feriados inamovibles
-        </p>
-        <p
-          class="com-text --fourxs"
-        >
-          Feriados puente
-        </p>
-        <p
-          class="com-text --fourxs"
-        >
-          Feriados trasladables
-        </p>
-      </div>
-      <ol
-        class="year"
-      >
-        <li
-          class="--font-bold --fivexs"
-        >
-          <a
-            class="com-link"
-            href="https://www.lanacion.com.ar/feriados/2021/"
-            title="Ir a feriados 2021"
-          >
-            2021
-          </a>
-        </li>
-        <li
-          class="--font-bold --fivexs --active"
-        >
-          <span
-            class="com-text"
-          >
-            2022
-          </span>
-        </li>
-        <li
-          class="--font-bold --fivexs"
-        >
-          <a
-            class="com-link"
-            href="https://www.lanacion.com.ar/feriados/2023/"
-            title="Ir a feriados 2023"
-          >
-            2023
-          </a>
-        </li>
-      </ol>
     </div>
   </mock-static-validation>
 </div>
