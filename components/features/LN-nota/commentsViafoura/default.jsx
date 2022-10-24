@@ -5,11 +5,10 @@ import React, { useEffect, useState } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import {
-    validateComments,
-    getMessageProps,
     getLoginAndRegistrationURLS,
     CLOSED_BY_TERMIC,
-    CALLBACKS_BY_CHANNEL_AND_EVENT
+    CALLBACKS_BY_CHANNEL_AND_EVENT,
+    useValidateComments
 } from '../../../private/common/utils/commentsHelper';
 import Message from '../../../private/common/message';
 import getScrollPercent from '../../../private/LN/common/utils/getScrollPercent';
@@ -25,13 +24,15 @@ import '../../../../resources/dist/css/ln/modules/comments.css';
 const CommentsViafouraFeature = props => {
     const { outputType } = props;
     const subscription = isSubscribed();
-    const { messageType, shouldLoad } = validateComments(props, subscription);
+    const {
+        messageType,
+        shouldLoad,
+        messageProps,
+        setMessage
+    } = useValidateComments(props, subscription);
     const termicaLivefyre = useTermica('livefyre');
     const { getCookie } = handleCookie();
     const [isReady, setIsReady] = useState(false);
-    const [messageProps, setMessage] = useState(
-        getMessageProps(props, messageType)
-    );
     const showComponent = shouldLoad && termicaLivefyre;
 
     useEffect(() => {
@@ -150,6 +151,5 @@ CommentsViafouraFeature.propTypes = {
 
 CommentsViafouraFeature.outputType = 'default';
 CommentsViafouraFeature.label = 'LN-Nota-Comments-Viafoura';
-CommentsViafouraFeature.lazy = ['default'];
 
 export default Consumer(CommentsViafouraFeature);

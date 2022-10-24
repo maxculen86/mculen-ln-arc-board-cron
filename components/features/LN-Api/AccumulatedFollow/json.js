@@ -34,29 +34,9 @@ class AccumulatedFollow {
             ];
 
             if (!globalContent || !globalContent.content_elements) {
-                // eslint-disable-next-line no-console
-                console.warn(
-                    `Empty content result. Global content info: ${JSON.stringify(
-                        this.props.globalContent
-                    )}`
-                );
                 return null;
             }
 
-            // TODO comentado hasta validar de donde viene el error - BACKEND card 89766
-            // const isAPI = this.props.globalContentConfig.query.api || false;
-            // if ((!globalContent || !globalContent.content_elements) && isAPI) {
-            //     // eslint-disable-next-line no-console
-            //     console.warn(
-            //         `Empty content result. Global content info: ${JSON.stringify(
-            //             this.props.globalContent
-            //         )}`
-            //     );
-
-            //     throw new Error(
-            //         'Data query response cannot be null or undefined'
-            //     );
-            // }
             const followedItemsValidate = followedItems.filter(x => x.id !== 0);
             const paginator = globalContent.next;
             let page = 1;

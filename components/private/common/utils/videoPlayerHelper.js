@@ -5,11 +5,8 @@ export const setPrerollAdsForPowa = adsURL => {
     window.PoWaSettings.advertising = window.PoWaSettings.advertising || {};
 
     window.PoWaSettings.advertising.adTag = (() => {
-        let videosPlayed = 0;
         return ({ powa, videoData }) => {
-            const playAd = videosPlayed % 2 === 0;
-            videosPlayed += 1;
-            return playAd && videoData.additional_properties.advertising.playAds
+            return videoData.additional_properties.advertising.playAds
                 ? adsURL
                 : '';
         };

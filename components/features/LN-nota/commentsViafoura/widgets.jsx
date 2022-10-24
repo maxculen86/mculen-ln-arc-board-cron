@@ -1,8 +1,9 @@
 /* eslint-disable react/no-danger */
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
+import { GlobalContext } from '../../../private/common/context/globalContext';
 import { getMessageProps } from '../../../private/common/utils/commentsHelper';
 import Message from '../../../private/common/message';
 import HeaderComments from '../../../private/LN/nota/comments/header';
@@ -11,7 +12,8 @@ import '../../../../resources/dist/css/ln/modules/comments.css';
 
 const CommentsViafouraFeature = props => {
     const { id: featureId, globalContent: { messageType = '' } = {} } = props;
-    const messageProps = getMessageProps(props, messageType);
+    const gc = useContext(GlobalContext);
+    const messageProps = getMessageProps(props, messageType, gc);
 
     return (
         <Static id={featureId}>
