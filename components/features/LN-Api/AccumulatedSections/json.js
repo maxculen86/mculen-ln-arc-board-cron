@@ -38,7 +38,6 @@ class AccumulatedSections {
             sections,
             restriction
         );
-        this.queryParams = query;
 
         this.fetch(query);
 
@@ -113,12 +112,6 @@ class AccumulatedSections {
                 !acuArticlesSourceSection ||
                 !acuArticlesSourceSection.content_elements
             ) {
-                // eslint-disable-next-line no-console
-                console.warn(
-                    `AcumulatedSections Null or Undefined with these parameters: ${JSON.stringify(
-                        this.queryParams
-                    )}`
-                );
                 return null;
             }
 
