@@ -15,7 +15,6 @@ import {
 
 const transform = (data, siteProps) => {
     try {
-       
         const respData = data;
         const { sectionsIds, type, size, shouldNotFilter } = siteProps;
         const { content_elements: contentElements } = data || {};
