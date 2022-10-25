@@ -102,7 +102,7 @@ const transform = (data, siteProps) => {
             `Error Transform - content/acuArticlesSource : ${JSON.stringify(
                 data
             )} - siteprops: ${JSON.stringify(siteProps)} - errorMsj:${
-                error?.message
+                error.message
             }`
         );
         throw new Error(error);
