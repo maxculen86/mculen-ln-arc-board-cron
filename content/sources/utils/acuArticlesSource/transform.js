@@ -20,6 +20,7 @@ const transform = (data, siteProps) => {
         type,
         size,
         shouldNotFilter,
+        excludePreload,
         hasCollectionApertura
     } = siteProps;
     const { content_elements: contentElements } = data || {};
@@ -30,7 +31,8 @@ const transform = (data, siteProps) => {
     respData.content_elements =
         contentElements &&
         contentElements.map((elem, index) => {
-            const isInApertura = !hasCollectionApertura && index === 0;
+            const isInApertura =
+                !hasCollectionApertura && !excludePreload && index === 0;
             const promoItems = get(elem, `promo_items`, null);
             const subtype = get(elem, `subtype`, null);
             const presetsCredits = get(presets, 'credits', null);
