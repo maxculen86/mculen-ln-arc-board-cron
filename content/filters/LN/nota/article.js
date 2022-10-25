@@ -483,4 +483,5 @@ export default `
     paywallEnabled,
     withFirmaDistributor
     isListenable
+    withSponsoredLink
 }`;

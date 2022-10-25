@@ -1,6 +1,5 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
-
+import { render, screen } from '@testing-library/react';
 import Paragraph from '../../../../../../components/private/LN/nota/cuerpo/parrafo';
 
 describe('Paragraph', () => {
@@ -13,7 +12,7 @@ describe('Paragraph', () => {
     let component;
 
     beforeEach(() => {
-        component = mount(<Paragraph data={data} capital />);
+        component = render(<Paragraph data={data} capital />);
     });
 
     afterEach(() => {
@@ -21,8 +20,8 @@ describe('Paragraph', () => {
     });
 
     it('Matches snapshot', () => {
-        const paragraph = render(<Paragraph data={data} capital />);
-        expect(paragraph).toMatchSnapshot();
+        const { container } = render(<Paragraph data={data} capital />);
+        expect(container).toMatchSnapshot();
     });
 
     it('Does not apply `capital` class if text starts with forbidden chars', () => {
@@ -32,38 +31,51 @@ describe('Paragraph', () => {
                       egestas augue, id volutpat lorem tellus ac magna.`
         };
 
-        component = mount(<Paragraph data={data} capital />);
-        expect(component.find('p').hasClass('--capital')).toBe(false);
+        const { container } = render(<Paragraph data={data} capital />);
+        expect(
+            container.firstChild.classList.contains('--capital')
+        ).toBeFalsy();
     });
 
-    it('Sets target _blank attribute on external links', () => {
+    it('Sets target _blank on external links', () => {
         const data = {
             type: 'text',
-            content: `<a href="https://cutt.ly/TjrhkTT" target='_blank'>I'm external`
+            content: `<a href="https://cutt.ly/TjrhkTT" >I'm external</a>`
         };
-        component = mount(<Paragraph data={data} />);
-        const {
-            dangerouslySetInnerHTML: { __html: html }
-        } = component.find('p').props();
-        expect(html).toEqual(
-            `<a href="https://cutt.ly/TjrhkTT" target='_blank'>I'm external`
-        );
+        render(<Paragraph data={data} />);
+
+        const link = screen.getByRole('link');
+        expect(link.getAttribute('target')).toStrictEqual('_blank');
+    });
+
+    it('Sets target _self on internal links', () => {
+        const data = {
+            type: 'text',
+            content: `<a href="https://www.lanacion.com.ar/horoscopo/" >I'm internal</a>`
+        };
+        render(<Paragraph data={data} />);
+
+        const link = screen.getByRole('link');
+        expect(link.getAttribute('target')).toStrictEqual('_self');
     });
 
     it('Applies `capital` class to paragraph in order to upper-case the first letter', () => {
-        expect(component.find('p').hasClass('--capital')).toBe(true);
+        const { container } = component;
+        expect(
+            container.firstChild.classList.contains('--capital')
+        ).toBeTruthy();
     });
 
     it('Transforms <b> tags into <strong> tags', () => {
-        expect(component.find('p.com-paragraph').html()).toMatch(
-            /<[/]?(strong)>/
-        );
+        const { container } = component;
+        expect(container.querySelector('b')).toBeNull();
+        expect(container.querySelector('strong')).toBeDefined();
     });
 
     it('Transforms <i> tags into <em> tags', () => {
-        expect(component.find('p.com-paragraph').html()).toMatch(
-            new RegExp('<[/]?(em)>')
-        );
+        const { container } = component;
+        expect(container.querySelector('i')).toBeNull();
+        expect(container.querySelector('em')).toBeDefined();
     });
 
     it('Tests if content is br', () => {
@@ -71,7 +83,38 @@ describe('Paragraph', () => {
             type: 'text',
             content: '<br/>'
         };
-        component = mount(<Paragraph data={data} />);
-        expect(component).toBeEmptyRender;
+        const { container } = render(<Paragraph data={data} />);
+        expect(container.querySelector('br')).toBeDefined();
+    });
+
+    describe('Sponsored links', () => {
+        const props = {
+            data: {
+                type: 'text',
+                content: `<a href="https://cutt.ly/TjrhkTT" >I'm external </a>`
+            },
+            withSponsoredLink: false
+        };
+
+        it('Should have the rel attribute set to nofollow when the withSponsoredLink property is false. ', () => {
+            render(<Paragraph {...props} />);
+
+            const link = screen.getByRole('link');
+            expect(link.getAttribute('rel')).toStrictEqual('nofollow');
+        });
+
+        it('Should have the rel attribute set to nofollow when the withSponsoredLink property is not defined. ', () => {
+            render(<Paragraph data={props.data} />);
+
+            const link = screen.getByRole('link');
+            expect(link.getAttribute('rel')).toStrictEqual('nofollow');
+        });
+
+        it('Should have the rel attribute set to nofollow when the withSponsoredLink property is true. ', () => {
+            render(<Paragraph {...props} withSponsoredLink={true} />);
+
+            const link = screen.getByRole('link');
+            expect(link.getAttribute('rel')).toBeNull();
+        });
     });
 });
