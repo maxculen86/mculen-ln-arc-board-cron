@@ -86,23 +86,19 @@ const useGetMetaDescriptionForAcum = (
     const { globalContent = {} } = useAppContext();
     const { expertise = '' } = globalContent;
     const { tagId } = extractDataFromTags(payload);
-    const articles = useGetArticlesFromAcumSource(
-        {
+    const articles = useGetArticlesFromAcumSource({
+        typesOfQuery: {
             sectionId: nodeType === 'section' ? _id : null,
             authorId: nodeType === 'author' ? _id : null,
             distributorId: nodeType === 'distributor' ? name : null,
             tagId: nodeType === 'tags' ? tagId : null
         },
         filter,
-        'm',
-        2,
-        '',
-        false,
-        'acumulado',
-        false,
-        arcSite,
-        false
-    );
+        imageConfig: 'm',
+        size: 2,
+        type: 'acumulado',
+        _website: arcSite
+    });
 
     const articlesTitles = articles.map(
         art => ` ${getTitleText(art.headlines)}`
