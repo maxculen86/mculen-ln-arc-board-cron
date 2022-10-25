@@ -178,9 +178,27 @@ const fetch = query => {
     }
     return request(opt)
         .then(response => {
+            if (
+                !response ||
+                !response.content_elements ||
+                response.content_elements.length === 0
+            ) {
+                // eslint-disable-next-line no-console
+                console.warn(
+                    `content/acuArticlesSource Null or Undefined or Empty: ${JSON.stringify(
+                        query
+                    )}`
+                );
+            }
             return transform(response, query);
         })
         .catch(error => {
+            // eslint-disable-next-line no-console
+            console.warn(
+                `content/acuArticlesSource Error: ${JSON.stringify(
+                    query
+                )} - errorMsj:${error?.message}`
+            );
             logger.push(error, { source: 'content/acuArticlesSource', query });
         });
 };
