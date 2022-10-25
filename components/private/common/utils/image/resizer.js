@@ -12,7 +12,7 @@ export const setHeight = (width, height, proportion) => {
     return axisX > axisY ? parseInt((width / axisX) * axisY, 10) : height;
 };
 
-const updateHeight = (originalHeight, originalWidth, opt = {}) => {
+export const updateHeight = (originalHeight, originalWidth, opt = {}) => {
     const { proportion } = opt;
     if (!proportion && originalWidth < originalHeight) {
         const aspectRatio = getAspectRatio(originalWidth, originalHeight);
