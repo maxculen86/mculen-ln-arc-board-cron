@@ -197,7 +197,7 @@ const fetch = query => {
             console.warn(
                 `content/acuArticlesSource Error: ${JSON.stringify(
                     query
-                )} - errorMsj:${error?.message}`
+                )} - errorMsj:${error.message}`
             );
             logger.push(error, { source: 'content/acuArticlesSource', query });
         });
